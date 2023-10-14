@@ -15,9 +15,11 @@ for sdk_name in MMSPlugin.sdks:
 
     binary = MMSPlugin.HL2Library(builder, cxx, MMSPlugin.plugin_name, sdk)
 
-    binary.sources += [
-        'src/entrypoint.cpp'
-    ]
+    for root, dirs, files in os.walk(os.path.join(sdk.path, "..", "src")):
+        for _file in files:
+            if fnmatch.fnmatch(_file, '*.cpp'):
+                binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
+
 
     if sdk_name in ['dota', 'cs2']:
       binary.sources += [
