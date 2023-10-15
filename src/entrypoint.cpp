@@ -2,13 +2,15 @@
 #include "common.h"
 #include "iserver.h"
 
+#include "utils.h"
 #include "hooks/Hooks.h"
 #include "components/test_component/inc/TestComponent.h"
 
-#define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
-    {                                       \
-        TYPE *VARIABLE_NAME = new TYPE();   \
-        VARIABLE_NAME->LoadComponent();     \
+#define LOAD_COMPONENT(TYPE, VARIABLE_NAME)                                                                           \
+    {                                                                                                                 \
+        TYPE *VARIABLE_NAME = new TYPE();                                                                             \
+        VARIABLE_NAME->LoadComponent();                                                                               \
+        PRINTF("\e[32mComponents\e[0m", "Component \"%s\" has been succesfully loaded.\n", VARIABLE_NAME->GetName()); \
     }
 
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
@@ -49,8 +51,9 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     GET_V_IFACE_ANY(GetServerFactory, server, IServerGameDLL, INTERFACEVERSION_SERVERGAMEDLL);
     GET_V_IFACE_ANY(GetServerFactory, gameclients, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
     GET_V_IFACE_ANY(GetEngineFactory, g_pNetworkServerService, INetworkServerService, NETWORKSERVERSERVICE_INTERFACE_VERSION);
+    GET_V_IFACE_ANY(GetFileSystemFactory, filesystem, IFileSystem, FILESYSTEM_INTERFACE_VERSION);
 
-    META_CONPRINTF("Loading hooks...\n");
+    PRINT("Hooks", "Loading Hooks...\n");
 
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &SwiftlyPlugin::Hook_GameFrame, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &SwiftlyPlugin::Hook_ClientActive, true);
@@ -61,13 +64,13 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &SwiftlyPlugin::Hook_ClientConnect, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &SwiftlyPlugin::Hook_ClientCommand, false);
 
-    META_CONPRINTF("All hooks has been loaded!\n");
+    PRINT("Hooks", "All hooks has been loaded!\n");
 
-    META_CONPRINTF("Loading components...\n");
+    PRINT("Components", "Loading components...\n");
 
     LOAD_COMPONENT(TestComponent, test_component);
 
-    META_CONPRINTF("All components has been loaded!\n");
+    PRINT("Components", "All components has been loaded!\n");
 
     g_pCVar = icvar;
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
@@ -96,56 +99,54 @@ bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
 
 void SwiftlyPlugin::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const char *pszName, uint64 xuid)
 {
-    META_CONPRINTF("Hook_ClientActive(%d, %d, \"%s\", %d)\n", slot, bLoadGame, pszName, xuid);
+    hooks::emit(OnClientActive(&slot, bLoadGame, pszName, xuid));
 }
 
 void SwiftlyPlugin::Hook_ClientCommand(CPlayerSlot slot, const CCommand &args)
 {
-    META_CONPRINTF("Hook_ClientCommand(%d, \"%s\")\n", slot, args.GetCommandString());
     hooks::emit(OnClientCommand(&slot, &args));
 }
 
 void SwiftlyPlugin::Hook_ClientSettingsChanged(CPlayerSlot slot)
 {
-    META_CONPRINTF("Hook_ClientSettingsChanged(%d)\n", slot);
+    hooks::emit(OnClientSettingsChanged(&slot));
 }
 
 void SwiftlyPlugin::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer)
 {
-    hooks::emit(OnClientConnectedEvent(&slot, pszName, xuid, pszNetworkID, pszAddress, bFakePlayer));
+    hooks::emit(OnClientConnected(&slot, pszName, xuid, pszNetworkID, pszAddress, bFakePlayer));
 }
 
 bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
 {
-    META_CONPRINTF("Hook_ClientConnect(%d, \"%s\", %d, \"%s\", %d, \"%s\")\n", slot, pszName, xuid, pszNetworkID, unk1, pRejectReason->ToGrowable()->Get());
+    hooks::emit(OnClientConnect(&slot, pszName, xuid, pszNetworkID, unk1, pRejectReason));
 
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
 
 void SwiftlyPlugin::Hook_ClientPutInServer(CPlayerSlot slot, char const *pszName, int type, uint64 xuid)
 {
-    META_CONPRINTF("Hook_ClientPutInServer(%d, \"%s\", %d, %d, %d)\n", slot, pszName, type, xuid);
+    hooks::emit(OnClientPutInServer(&slot, pszName, type, xuid));
 }
 
 void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const char *pszName, uint64 xuid, const char *pszNetworkID)
 {
-    META_CONPRINTF("Hook_ClientDisconnect(%d, %d, \"%s\", %d, \"%s\")\n", slot, reason, pszName, xuid, pszNetworkID);
+    hooks::emit(OnClientDisconnect(&slot, reason, pszName, xuid, pszNetworkID));
 }
 
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
+    hooks::emit(OnGameFrame(simulating, bFirstTick, bLastTick));
 }
 
-// Potentially might not work
 void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
 {
-    META_CONPRINTF("OnLevelInit(%s)\n", pMapName);
+    hooks::emit(OnMapLevelInit(pMapName, pMapEntities, pOldLevel, pLandmarkName, loadGame, background));
 }
 
-// Potentially might not work
 void SwiftlyPlugin::OnLevelShutdown()
 {
-    META_CONPRINTF("OnLevelShutdown()\n");
+    hooks::emit(OnMapLevelShutdown());
 }
 
 bool SwiftlyPlugin::Pause(char *error, size_t maxlen)

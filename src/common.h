@@ -9,6 +9,7 @@
 #include <sh_vector.h>
 #include <functional>
 #include <map>
+#include <string>
 
 class SwiftlyPlugin : public ISmmPlugin, public IMetamodListener
 {

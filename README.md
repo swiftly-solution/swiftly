@@ -19,5 +19,4 @@ git clone --recurse-submodules https://github.com/skuzzis/swiftly
 
 cd build
 ambuild
-
 ```

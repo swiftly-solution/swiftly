@@ -1,14 +1,15 @@
 #include "../inc/TestComponent.h"
 #include "../../../hooks/Hooks.h"
+#include "../../../utils.h"
 
 void TestComponent::LoadComponent()
 {
-    auto OnClientConnect = [](const OnClientConnectedEvent *e)
+    auto OnClientConnect = [](const OnClientConnected *e)
     {
         if (!g_SMAPI)
             return;
 
-        g_SMAPI->ConPrintf("%s (Slot %d) joined the server", e->pszName, e->slot->Get());
+        PRINTF("TestComponent - Welcome", "%s (Slot %d) joined the server.\n", e->pszName, e->slot->Get());
     };
 
     auto OnCommand = [](const OnClientCommand *e)
@@ -16,9 +17,9 @@ void TestComponent::LoadComponent()
         if (!g_SMAPI)
             return;
 
-        g_SMAPI->ConPrintf("Slot %d: %s", e->slot->Get(), e->args->GetCommandString());
+        PRINTF("TestComponent - Commands", "Slot %d: %s\n", e->slot->Get(), e->args->GetCommandString());
     };
 
-    hooks::on<OnClientConnectedEvent>(OnClientConnect);
+    hooks::on<OnClientConnected>(OnClientConnect);
     hooks::on<OnClientCommand>(OnCommand);
 }

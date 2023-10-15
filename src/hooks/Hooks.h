@@ -7,7 +7,7 @@ struct Event
 {
     virtual ~Event() {}
 };
-struct OnClientConnectedEvent : Event
+struct OnClientConnected : Event
 {
     CPlayerSlot *slot;
     const char *pszName;
@@ -15,7 +15,7 @@ struct OnClientConnectedEvent : Event
     const char *pszNetworkID;
     const char *pszAddress;
     bool bFakePlayer;
-    OnClientConnectedEvent(CPlayerSlot *slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer)
+    OnClientConnected(CPlayerSlot *slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer)
     {
         this->slot = slot;
         this->pszName = pszName;
@@ -37,9 +37,119 @@ struct OnClientCommand : Event
     };
 };
 
-typedef std::multimap<const std::type_info *,
-                      const std::function<void(const Event *)>>
-    EventMap;
+struct OnClientActive : Event
+{
+    CPlayerSlot *slot;
+    bool bLoadGame;
+    const char *pszName;
+    uint64 xuid;
+    OnClientActive(CPlayerSlot *slot, bool bLoadGame, const char *pszName, uint64 xuid)
+    {
+        this->slot = slot;
+        this->bLoadGame = bLoadGame;
+        this->pszName = pszName;
+        this->xuid = xuid;
+    }
+};
+
+struct OnClientSettingsChanged : Event
+{
+    CPlayerSlot *slot;
+    OnClientSettingsChanged(CPlayerSlot *slot)
+    {
+        this->slot = slot;
+    }
+};
+
+struct OnMapLevelShutdown : Event
+{
+    OnMapLevelShutdown() {}
+};
+
+struct OnMapLevelInit : Event
+{
+    char const *pMapName;
+    char const *pMapEntities;
+    char const *pOldLevel;
+    char const *pLandmarkName;
+    bool loadGame;
+    bool background;
+    OnMapLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
+    {
+        this->pMapName = pMapName;
+        this->pMapEntities = pMapEntities;
+        this->pOldLevel = pOldLevel;
+        this->pLandmarkName = pLandmarkName;
+        this->loadGame = loadGame;
+        this->background = background;
+    }
+};
+
+struct OnGameFrame : Event
+{
+    bool simulating;
+    bool bFirstTick;
+    bool bLastTick;
+    OnGameFrame(bool simulating, bool bFirstTick, bool bLastTick)
+    {
+        this->simulating = simulating;
+        this->bFirstTick = bFirstTick;
+        this->bLastTick = bLastTick;
+    }
+};
+
+struct OnClientDisconnect : Event
+{
+    CPlayerSlot *slot;
+    int reason;
+    const char *pszName;
+    uint64 xuid;
+    const char *pszNetworkID;
+    OnClientDisconnect(CPlayerSlot *slot, int reason, const char *pszName, uint64 xuid, const char *pszNetworkID)
+    {
+        this->slot = slot;
+        this->reason = reason;
+        this->pszName = pszName;
+        this->xuid = xuid;
+        this->pszNetworkID = pszNetworkID;
+    }
+};
+
+struct OnClientConnect : Event
+{
+    CPlayerSlot *slot;
+    const char *pszName;
+    uint64 xuid;
+    const char *pszNetworkID;
+    bool unk1;
+    CBufferString *pRejectReason;
+    OnClientConnect(CPlayerSlot *slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
+    {
+        this->slot = slot;
+        this->pszName = pszName;
+        this->xuid = xuid;
+        this->pszNetworkID = pszNetworkID;
+        this->unk1 = unk1;
+        this->pRejectReason = pRejectReason;
+    }
+};
+
+struct OnClientPutInServer : Event
+{
+    CPlayerSlot *slot;
+    char const *pszName;
+    int type;
+    uint64 xuid;
+    OnClientPutInServer(CPlayerSlot *slot, char const *pszName, int type, uint64 xuid)
+    {
+        this->slot = slot;
+        this->pszName = pszName;
+        this->type = type;
+        this->xuid = xuid;
+    };
+};
+
+typedef std::multimap<const std::type_info *, const std::function<void(const Event *)>> EventMap;
 
 class hooks
 {
