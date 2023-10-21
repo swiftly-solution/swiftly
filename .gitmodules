@@ -5,3 +5,6 @@
 	path = hl2sdk
 	url = https://github.com/alliedmodders/hl2sdk
 	branch = cs2
+[submodule "vendor/rapidjson"]
+	path = vendor/rapidjson
+	url = https://github.com/Tencent/rapidjson
