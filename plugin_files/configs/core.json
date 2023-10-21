@@ -1,0 +1,8 @@
+{
+    "logging": {
+        "enabled": true,
+        "mode": "daily"
+    },
+    "commandPrefixes": ["!"],
+    "commandSilentPrefixes": ["/"]
+}

@@ -20,6 +20,13 @@ for sdk_name in MMSPlugin.sdks:
             if fnmatch.fnmatch(_file, '*.cpp'):
                 binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
+    binary.compiler.cxxincludes += [
+      os.path.join(builder.sourcePath, 'vendor', 'rapidjson', 'include'),
+      os.path.join(builder.sourcePath, 'hl2sdk'),
+      os.path.join(builder.sourcePath, 'hl2sdk', 'public'),
+      os.path.join(builder.sourcePath, 'hl2sdk', 'game', 'server'),
+      # os.path.join(builder.sourcePath, 'src', 'sdk'),
+    ]
 
     if sdk_name in ['dota', 'cs2']:
       binary.sources += [

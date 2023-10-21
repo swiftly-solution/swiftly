@@ -61,30 +61,6 @@ struct OnClientSettingsChanged : Event
     }
 };
 
-struct OnMapLevelShutdown : Event
-{
-    OnMapLevelShutdown() {}
-};
-
-struct OnMapLevelInit : Event
-{
-    char const *pMapName;
-    char const *pMapEntities;
-    char const *pOldLevel;
-    char const *pLandmarkName;
-    bool loadGame;
-    bool background;
-    OnMapLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
-    {
-        this->pMapName = pMapName;
-        this->pMapEntities = pMapEntities;
-        this->pOldLevel = pOldLevel;
-        this->pLandmarkName = pLandmarkName;
-        this->loadGame = loadGame;
-        this->background = background;
-    }
-};
-
 struct OnGameFrame : Event
 {
     bool simulating;

@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/hl2sdk/**",
-                "${workspaceFolder}/metamod/**"
+                "${workspaceFolder}/metamod/**",
+                "${workspaceFolder}/vendor/rapidjson/include/**"
             ],
             "defines": [
                 "_DEBUG",

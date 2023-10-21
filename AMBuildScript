@@ -237,7 +237,7 @@ class MMSPluginConfig(object):
       if cxx.version == 'apple-clang-6.0' or cxx.version == 'clang-3.4':
         cxx.cxxflags += ['-std=c++1y']
       else:
-        cxx.cxxflags += ['-std=c++14']
+        cxx.cxxflags += ['-std=c++17']
       if (cxx.version >= 'gcc-4.0') or cxx.family == 'clang':
         cxx.cflags += ['-fvisibility=hidden']
         cxx.cxxflags += ['-fvisibility-inlines-hidden']
@@ -280,15 +280,17 @@ class MMSPluginConfig(object):
         '_CRT_SECURE_NO_DEPRECATE',
         '_CRT_SECURE_NO_WARNINGS',
         '_CRT_NONSTDC_NO_DEPRECATE',
+        'BUILDING'
       ]
       cxx.cflags += [
         '/W3',
         '/Z7',
       ]
-      cxx.cxxflags += ['/TP']
+      cxx.cxxflags += ['/TP', '/std:c++17']
       
       cxx.linkflags += [
         '/ignore:4099',
+        '/ignore:4005',
         '/SUBSYSTEM:WINDOWS',
         'kernel32.lib',
         'user32.lib',

@@ -1,18 +1,25 @@
 #include <stdio.h>
 #include "common.h"
-#include "iserver.h"
+
+#include <interfaces/interfaces.h>
 
 #include "utils.h"
+#include "events/gameevents.h"
+#include "configuration/Configuration.h"
 #include "hooks/Hooks.h"
-#include "components/test_component/inc/TestComponent.h"
+#include "components/BasicComponent/inc/BasicComponent.h"
+#include "sdk/schemasystem.h"
+#include "sdk/CBaseEntity.h"
+#include <metamod_oslink.h>
 
-#define LOAD_COMPONENT(TYPE, VARIABLE_NAME)                                                                           \
-    {                                                                                                                 \
-        TYPE *VARIABLE_NAME = new TYPE();                                                                             \
-        VARIABLE_NAME->LoadComponent();                                                                               \
-        PRINTF("\e[32mComponents\e[0m", "Component \"%s\" has been succesfully loaded.\n", VARIABLE_NAME->GetName()); \
+#define LOAD_COMPONENT(TYPE, VARIABLE_NAME)                                                                \
+    {                                                                                                      \
+        TYPE *VARIABLE_NAME = new TYPE();                                                                  \
+        VARIABLE_NAME->LoadComponent();                                                                    \
+        PRINTF("Components", "Component \"%s\" has been succesfully loaded.\n", VARIABLE_NAME->GetName()); \
     }
 
+SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t &, ISource2WorldSession *, const char *);
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
 SH_DECL_HOOK4_void(IServerGameClients, ClientActive, SH_NOATTRIB, 0, CPlayerSlot, bool, const char *, uint64);
 SH_DECL_HOOK5_void(IServerGameClients, ClientDisconnect, SH_NOATTRIB, 0, CPlayerSlot, int, const char *, uint64, const char *);
@@ -25,11 +32,18 @@ SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlo
 
 EventMap eventMap;
 SwiftlyPlugin g_Plugin;
+Configuration g_Config;
 IServerGameDLL *server = NULL;
 IServerGameClients *gameclients = NULL;
 IVEngineServer2 *engine = NULL;
 IFileSystem *filesystem = NULL;
+IServerGameClients *g_clientsManager = NULL;
 ICvar *icvar = NULL;
+IGameResourceServiceServer *g_pGameResourceService = nullptr;
+CSchemaSystem *g_pCSchemaSystem = nullptr;
+CEntitySystem *g_pEntitySystem = nullptr;
+CGameEntitySystem *g_pGameEntitySystem = nullptr;
+IGameEventManager2 *g_gameEventManager = NULL;
 
 CGlobalVars *GetGameGlobals()
 {
@@ -50,8 +64,23 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     GET_V_IFACE_CURRENT(GetEngineFactory, icvar, ICvar, CVAR_INTERFACE_VERSION);
     GET_V_IFACE_ANY(GetServerFactory, server, IServerGameDLL, INTERFACEVERSION_SERVERGAMEDLL);
     GET_V_IFACE_ANY(GetServerFactory, gameclients, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
+    GET_V_IFACE_ANY(GetServerFactory, g_clientsManager, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
     GET_V_IFACE_ANY(GetEngineFactory, g_pNetworkServerService, INetworkServerService, NETWORKSERVERSERVICE_INTERFACE_VERSION);
     GET_V_IFACE_ANY(GetFileSystemFactory, filesystem, IFileSystem, FILESYSTEM_INTERFACE_VERSION);
+    GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameResourceService, IGameResourceServiceServer, GAMERESOURCESERVICESERVER_INTERFACE_VERSION);
+
+    {
+        HINSTANCE m_hModule = dlmount(WIN_LINUX(TEXT("schemasystem.dll"), "libschemasystem.so"));
+        g_pCSchemaSystem = reinterpret_cast<CSchemaSystem *>(reinterpret_cast<CreateInterfaceFn>(dlsym(m_hModule, "CreateInterface"))(SCHEMASYSTEM_INTERFACE_VERSION, nullptr));
+        dlclose(m_hModule);
+    }
+
+    PRINT("Configurations", "Loading configurations...\n");
+
+    if (g_Config.LoadConfiguration())
+        PRINT("Configurations", "The configurations has been succesfully loaded.\n");
+    else
+        PRINT("Configurations", "Failed to load configurations. The plugin will not work.\n");
 
     PRINT("Hooks", "Loading Hooks...\n");
 
@@ -63,14 +92,18 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, OnClientConnected, gameclients, this, &SwiftlyPlugin::Hook_OnClientConnected, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &SwiftlyPlugin::Hook_ClientConnect, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &SwiftlyPlugin::Hook_ClientCommand, false);
+    SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &SwiftlyPlugin::Hook_StartupServer, true);
 
     PRINT("Hooks", "All hooks has been loaded!\n");
 
     PRINT("Components", "Loading components...\n");
 
-    LOAD_COMPONENT(TestComponent, test_component);
+    // LOAD_COMPONENT(TestComponent, test_component);
+    LOAD_COMPONENT(BasicComponent, basic_component);
 
     PRINT("Components", "All components has been loaded!\n");
+
+    g_gameEventManager = (IGameEventManager2 *)(CALL_VIRTUAL(uintptr_t, 91, server) - 8);
 
     g_pCVar = icvar;
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
@@ -80,6 +113,9 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
 void SwiftlyPlugin::AllPluginsLoaded()
 {
+    PRINT("Game Events", "Loading game events...\n");
+    RegisterEventListeners();
+    PRINT("Game Events", "Game events has been succesfully loaded.\n");
 }
 
 bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
@@ -92,9 +128,24 @@ bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, OnClientConnected, gameclients, this, &SwiftlyPlugin::Hook_OnClientConnected, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &SwiftlyPlugin::Hook_ClientConnect, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &SwiftlyPlugin::Hook_ClientCommand, false);
+    SH_REMOVE_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &SwiftlyPlugin::Hook_StartupServer, true);
+
+    UnregisterEventListeners();
 
     ConVar_Unregister();
     return true;
+}
+
+bool bDone = false;
+void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *)
+{
+    if (!bDone)
+    {
+        g_pGameEntitySystem = *reinterpret_cast<CGameEntitySystem **>(reinterpret_cast<uintptr_t>(g_pGameResourceService) + WIN_LINUX(0x58, 0x50));
+        g_pEntitySystem = g_pGameEntitySystem;
+
+        bDone = true;
+    }
 }
 
 void SwiftlyPlugin::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const char *pszName, uint64 xuid)
@@ -137,16 +188,6 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const ch
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     hooks::emit(OnGameFrame(simulating, bFirstTick, bLastTick));
-}
-
-void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
-{
-    hooks::emit(OnMapLevelInit(pMapName, pMapEntities, pOldLevel, pLandmarkName, loadGame, background));
-}
-
-void SwiftlyPlugin::OnLevelShutdown()
-{
-    hooks::emit(OnMapLevelShutdown());
 }
 
 bool SwiftlyPlugin::Pause(char *error, size_t maxlen)
