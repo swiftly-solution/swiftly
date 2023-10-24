@@ -68,6 +68,7 @@ extern SwiftlyPlugin g_Plugin;
 extern IVEngineServer2 *engine;
 extern IServerGameClients *g_clientsManager;
 extern CEntitySystem *g_pEntitySystem;
+extern IServerGameDLL *server;
 
 PLUGIN_GLOBALVARS();
 

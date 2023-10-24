@@ -58,3 +58,32 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
     }
     PrintToClientOrConsole("Commands - Status", "end of status\n");
 }
+
+CON_COMMAND_F(sw_list, "Shows the players connected on the server, including the number of those.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
+{
+    CPlayerSlot *slot = &context.GetPlayerSlot();
+
+    auto PrintToClientOrConsole = [slot](std::string category, std::string message, auto... args)
+    {
+        if (slot->Get() == -1)
+            PRINTF(category, message, args...);
+        else
+            CLIENT_PRINTF(*slot, category, message, args...);
+    };
+
+    PrintToClientOrConsole("Commands - List", "Connected players: %02d/%02d\n", g_playerManager->GetPlayers(), engine->GetServerGlobals()->maxClients);
+    uint16 idx = 0;
+    for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
+    {
+        Player *player = g_playerManager->GetPlayer(i);
+        if (!player)
+            continue;
+
+        CBasePlayerController *controller = player->GetController();
+        if (!controller)
+            continue;
+
+        ++idx;
+        PrintToClientOrConsole("Commands - List", "%d. %s%s (%llu)\n", idx, controller->m_iszPlayerName(), player->IsFakeClient() ? " (BOT)" : "", controller->m_steamID());
+    }
+}
