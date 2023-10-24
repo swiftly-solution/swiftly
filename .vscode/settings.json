@@ -72,5 +72,7 @@
         "variant": "cpp",
         "bitset": "cpp",
         "regex": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "C:/Users/SkuZZis/Desktop/CS2 Server/plugins/swiftly/vendor/rapidjson/test/unittest",
+    "C_Cpp.default.compilerPath": "C:\\msys64\\mingw64\\bin\\g++.exe"
 }

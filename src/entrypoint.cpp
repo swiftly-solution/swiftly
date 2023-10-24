@@ -2,15 +2,16 @@
 #include "common.h"
 
 #include <interfaces/interfaces.h>
+#include <metamod_oslink.h>
 
-#include "utils.h"
+#include "player/PlayerManager.h"
 #include "events/gameevents.h"
 #include "configuration/Configuration.h"
 #include "hooks/Hooks.h"
+#include "hooks/GameEvents.h"
 #include "components/BasicComponent/inc/BasicComponent.h"
 #include "sdk/schemasystem.h"
 #include "sdk/CBaseEntity.h"
-#include <metamod_oslink.h>
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME)                                                                \
     {                                                                                                      \
@@ -31,19 +32,21 @@ SH_DECL_HOOK2(IGameEventManager2, FireEvent, SH_NOATTRIB, 0, bool, IGameEvent *,
 SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand &);
 
 EventMap eventMap;
+GameEventMap gameEventMap;
 SwiftlyPlugin g_Plugin;
 Configuration g_Config;
-IServerGameDLL *server = NULL;
-IServerGameClients *gameclients = NULL;
-IVEngineServer2 *engine = NULL;
-IFileSystem *filesystem = NULL;
-IServerGameClients *g_clientsManager = NULL;
-ICvar *icvar = NULL;
+IServerGameDLL *server = nullptr;
+IServerGameClients *gameclients = nullptr;
+IVEngineServer2 *engine = nullptr;
+IFileSystem *filesystem = nullptr;
+IServerGameClients *g_clientsManager = nullptr;
+ICvar *icvar = nullptr;
 IGameResourceServiceServer *g_pGameResourceService = nullptr;
 CSchemaSystem *g_pCSchemaSystem = nullptr;
 CEntitySystem *g_pEntitySystem = nullptr;
 CGameEntitySystem *g_pGameEntitySystem = nullptr;
-IGameEventManager2 *g_gameEventManager = NULL;
+IGameEventManager2 *g_gameEventManager = nullptr;
+PlayerManager *g_playerManager = nullptr;
 
 CGlobalVars *GetGameGlobals()
 {
@@ -98,15 +101,18 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     PRINT("Components", "Loading components...\n");
 
-    // LOAD_COMPONENT(TestComponent, test_component);
     LOAD_COMPONENT(BasicComponent, basic_component);
 
     PRINT("Components", "All components has been loaded!\n");
 
     g_gameEventManager = (IGameEventManager2 *)(CALL_VIRTUAL(uintptr_t, 91, server) - 8);
+    g_playerManager = new PlayerManager();
 
     g_pCVar = icvar;
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
+
+    g_playerManager->SetupHooks();
+    g_playerManager->LoadPlayers();
 
     return true;
 }

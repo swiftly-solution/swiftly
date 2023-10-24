@@ -1,6 +1,5 @@
 #include "../inc/TestComponent.h"
 #include "../../../hooks/Hooks.h"
-#include "../../../utils.h"
 
 void TestComponent::LoadComponent()
 {

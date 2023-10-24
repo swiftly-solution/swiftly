@@ -5,7 +5,9 @@
 #pragma warning(disable : 4267)
 
 #define META_IS_SOURCE2 1
+#define MAX_PLAYERS 64
 
+#include <public/playerslot.h>
 #include <ISmmPlugin.h>
 #include <iplayerinfo.h>
 #include <sh_vector.h>
@@ -18,15 +20,14 @@
 #include "KeyValues.h"
 #include <entity2/entitysystem.h>
 #include <entity2/entityidentity.h>
-#include "player/Player.h"
+#include <ctime>
+#include "utils.h"
 
 #ifdef _WIN32
 #define CONFIG_PATH "addons/swiftly/configs"
 #else
 #define CONFIG_PATH "addons/swiftly/configs"
 #endif
-
-class CPlayerSlot;
 
 class GameSessionConfiguration_t
 {
@@ -66,6 +67,7 @@ public:
 extern SwiftlyPlugin g_Plugin;
 extern IVEngineServer2 *engine;
 extern IServerGameClients *g_clientsManager;
+extern CEntitySystem *g_pEntitySystem;
 
 PLUGIN_GLOBALVARS();
 

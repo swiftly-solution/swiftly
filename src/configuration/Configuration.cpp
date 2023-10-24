@@ -1,9 +1,21 @@
 #include "Configuration.h"
 #include "../files/Files.h"
-#include "../utils.h"
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
+
+template <typename... Args>
+std::string string_format(const std::string &format, Args... args)
+{
+    int size_s = snprintf(nullptr, 0, format.c_str(), args...) + 1; // Extra space for '\0'
+    if (size_s <= 0)
+        throw std::runtime_error("Error during formatting.");
+
+    size_t size = static_cast<size_t>(size_s);
+    std::unique_ptr<char[]> buf(new char[size]);
+    snprintf(buf.get(), size, format.c_str(), args...);
+    return std::string(buf.get(), buf.get() + size - 1); // We don't want the '\0' inside
+}
 
 #define HAS_MEMBER(FILE, DOCUMENT, MEMBER_NAME, MEMBER_PATH) \
     if (!DOCUMENT.HasMember(MEMBER_NAME))                    \

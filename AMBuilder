@@ -32,6 +32,7 @@ for sdk_name in MMSPlugin.sdks:
       binary.sources += [
       os.path.join(sdk.path, 'tier1', 'convar.cpp'),
       os.path.join(sdk.path, 'public', 'tier0', 'memoverride.cpp'),
+      os.path.join(sdk.path, 'entity2', 'entitysystem.cpp'),
     ]
 
     if cxx.target.arch == 'x86':

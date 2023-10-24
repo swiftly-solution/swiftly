@@ -6,12 +6,12 @@
 class Configuration
 {
 private:
-    Config *config = NULL;
+    Config *config = nullptr;
 
 public:
     bool LoadConfiguration();
     bool SaveConfiguration();
-    inline bool IsConfigurationLoaded() { return config != NULL; };
+    inline bool IsConfigurationLoaded() { return config != nullptr; };
 
     inline Config *GetConfig() { return config; };
 };
