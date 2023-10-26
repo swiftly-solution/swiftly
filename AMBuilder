@@ -20,8 +20,13 @@ for sdk_name in MMSPlugin.sdks:
             if fnmatch.fnmatch(_file, '*.cpp'):
                 binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
+    binary.sources += [
+      os.path.join(builder.sourcePath, 'vendor', 'quickjs', 'quickjs.cpp'),
+    ]
+
     binary.compiler.cxxincludes += [
       os.path.join(builder.sourcePath, 'vendor', 'rapidjson', 'include'),
+      os.path.join(builder.sourcePath, 'vendor', 'quickjs'),
       os.path.join(builder.sourcePath, 'hl2sdk'),
       os.path.join(builder.sourcePath, 'hl2sdk', 'public'),
       os.path.join(builder.sourcePath, 'hl2sdk', 'game', 'server'),

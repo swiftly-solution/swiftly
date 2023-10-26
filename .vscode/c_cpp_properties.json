@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/hl2sdk/**",
                 "${workspaceFolder}/metamod/**",
-                "${workspaceFolder}/vendor/rapidjson/include/**"
+                "${workspaceFolder}/vendor/rapidjson/include/**",
+                "${workspaceFolder}/vendor/quickjs/**"
             ],
             "defines": [
                 "_DEBUG",

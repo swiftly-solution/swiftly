@@ -86,4 +86,12 @@ std::string to_string(T number)
     return stream.str();
 }
 
+void PrintToClientOrConsole(CPlayerSlot *slot, std::string category, std::string message, auto... args)
+{
+    if (slot->Get() == -1)
+        PRINTF(category, message, args...);
+    else
+        CLIENT_PRINTF(*slot, category, message, args...);
+};
+
 #endif

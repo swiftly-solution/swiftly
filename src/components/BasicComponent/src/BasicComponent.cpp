@@ -29,15 +29,7 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
 {
     CPlayerSlot *slot = &context.GetPlayerSlot();
 
-    auto PrintToClientOrConsole = [slot](std::string category, std::string message, auto... args)
-    {
-        if (slot->Get() == -1)
-            PRINTF(category, message, args...);
-        else
-            CLIENT_PRINTF(*slot, category, message, args...);
-    };
-
-    PrintToClientOrConsole("Commands - Status", "userid\tname\tsteamid\t\ttime\t\tstate\n");
+    PrintToClientOrConsole(slot, "Commands - Status", "userid\tname\tsteamid\t\ttime\t\tstate\n");
 
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
@@ -50,28 +42,20 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
             continue;
 
         if (player->IsFakeClient())
-            PrintToClientOrConsole("Commands - Status", "#%d\t%s\t%s\t%s\t%s\n",
+            PrintToClientOrConsole(slot, "Commands - Status", "#%d\t%s\t%s\t%s\t%s\n",
                                    i + 1, controller->m_iszPlayerName(), "BOT\t", seconds_to_time(player->GetConnectedTime()), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
         else
-            PrintToClientOrConsole("Commands - Status", "#%d\t%s\t%llu\t%s\t%s\n",
+            PrintToClientOrConsole(slot, "Commands - Status", "#%d\t%s\t%llu\t%s\t%s\n",
                                    i + 1, controller->m_iszPlayerName(), controller->m_steamID(), seconds_to_time(player->GetConnectedTime()), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
     }
-    PrintToClientOrConsole("Commands - Status", "end of status\n");
+    PrintToClientOrConsole(slot, "Commands - Status", "end of status\n");
 }
 
 CON_COMMAND_F(sw_list, "Shows the players connected on the server, including the number of those.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
 {
     CPlayerSlot *slot = &context.GetPlayerSlot();
 
-    auto PrintToClientOrConsole = [slot](std::string category, std::string message, auto... args)
-    {
-        if (slot->Get() == -1)
-            PRINTF(category, message, args...);
-        else
-            CLIENT_PRINTF(*slot, category, message, args...);
-    };
-
-    PrintToClientOrConsole("Commands - List", "Connected players: %02d/%02d\n", g_playerManager->GetPlayers(), engine->GetServerGlobals()->maxClients);
+    PrintToClientOrConsole(slot, "Commands - List", "Connected players: %02d/%02d\n", g_playerManager->GetPlayers(), engine->GetServerGlobals()->maxClients);
     uint16 idx = 0;
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
@@ -84,6 +68,6 @@ CON_COMMAND_F(sw_list, "Shows the players connected on the server, including the
             continue;
 
         ++idx;
-        PrintToClientOrConsole("Commands - List", "%d. %s%s (%llu)\n", idx, controller->m_iszPlayerName(), player->IsFakeClient() ? " (BOT)" : "", controller->m_steamID());
+        PrintToClientOrConsole(slot, "Commands - List", "%d. %s%s (%llu)\n", idx, controller->m_iszPlayerName(), player->IsFakeClient() ? " (BOT)" : "", controller->m_steamID());
     }
 }
