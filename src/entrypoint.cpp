@@ -31,6 +31,14 @@ SH_DECL_HOOK6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSl
 SH_DECL_HOOK2(IGameEventManager2, FireEvent, SH_NOATTRIB, 0, bool, IGameEvent *, bool);
 SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand &);
 
+#ifdef _WIN32
+FILE _ioccc[] = {*stdin, *stdout, *stderr};
+extern "C" FILE *__cdecl __iob_func(void)
+{
+    return _ioccc;
+}
+#endif
+
 EventMap eventMap;
 GameEventMap gameEventMap;
 SwiftlyPlugin g_Plugin;

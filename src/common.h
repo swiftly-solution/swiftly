@@ -72,4 +72,13 @@ extern IServerGameDLL *server;
 
 PLUGIN_GLOBALVARS();
 
+template <typename... T>
+void PrintToClientOrConsole(CPlayerSlot *slot, std::string category, std::string message, T... args)
+{
+    if (slot->Get() == -1)
+        PRINTF(category, message, args...);
+    else
+        CLIENT_PRINTF(*slot, category, message, args...);
+};
+
 #endif

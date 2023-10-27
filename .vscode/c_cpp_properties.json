@@ -6,7 +6,7 @@
                 "${workspaceFolder}/hl2sdk/**",
                 "${workspaceFolder}/metamod/**",
                 "${workspaceFolder}/vendor/rapidjson/include/**",
-                "${workspaceFolder}/vendor/quickjs/**"
+                "${workspaceFolder}/vendor/mysql/win64/include/**"
             ],
             "defines": [
                 "_DEBUG",

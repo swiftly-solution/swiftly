@@ -2,6 +2,7 @@
 #include "../../../hooks/Hooks.h"
 #include "../../../common.h"
 #include "../../../player/PlayerManager.h"
+#include "../../../database/Database.h"
 
 void BasicComponent::LoadComponent()
 {

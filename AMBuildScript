@@ -3,7 +3,6 @@ import os, sys
 
 additional_libs = [
   # Path should be relative either to hl2sdk folder or to build folder
-  #'path/to/lib/example.lib',
 ]
 
 additional_defines = [
