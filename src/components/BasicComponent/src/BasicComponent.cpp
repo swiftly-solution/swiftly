@@ -72,3 +72,20 @@ CON_COMMAND_F(sw_list, "Shows the players connected on the server, including the
         PrintToClientOrConsole(slot, "Commands - List", "%d. %s%s (%llu)\n", idx, controller->m_iszPlayerName(), player->IsFakeClient() ? " (BOT)" : "", controller->m_steamID());
     }
 }
+
+void ShowSwiftlyCommandHelp(CCommandContext context)
+{
+    PRINT("Commands", "Swiftly Commands Menu");
+    PRINT("Commands", "Usage: swiftly <command> [args]");
+    PRINT("Commands", " plugins - Show ");
+}
+
+CON_COMMAND_F(swiftly, "The main command for Swiftly.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
+{
+    CPlayerSlot *slot = &context.GetPlayerSlot();
+    if (args.ArgC() < 2)
+    {
+        ShowSwiftlyCommandHelp(context);
+        return;
+    }
+}

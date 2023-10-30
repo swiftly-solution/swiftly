@@ -10,14 +10,14 @@
 #include "hooks/Hooks.h"
 #include "hooks/GameEvents.h"
 #include "components/BasicComponent/inc/BasicComponent.h"
+#include "components/Plugins/inc/PluginsComponent.h"
 #include "sdk/schemasystem.h"
 #include "sdk/CBaseEntity.h"
 
-#define LOAD_COMPONENT(TYPE, VARIABLE_NAME)                                                                \
-    {                                                                                                      \
-        TYPE *VARIABLE_NAME = new TYPE();                                                                  \
-        VARIABLE_NAME->LoadComponent();                                                                    \
-        PRINTF("Components", "Component \"%s\" has been succesfully loaded.\n", VARIABLE_NAME->GetName()); \
+#define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
+    {                                       \
+        TYPE *VARIABLE_NAME = new TYPE();   \
+        VARIABLE_NAME->LoadComponent();     \
     }
 
 SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t &, ISource2WorldSession *, const char *);
@@ -55,6 +55,8 @@ CEntitySystem *g_pEntitySystem = nullptr;
 CGameEntitySystem *g_pGameEntitySystem = nullptr;
 IGameEventManager2 *g_gameEventManager = nullptr;
 PlayerManager *g_playerManager = nullptr;
+ICvar *g_pcVar = nullptr;
+PluginsComponent *plugins_component = nullptr;
 
 CGlobalVars *GetGameGlobals()
 {
@@ -107,12 +109,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     PRINT("Hooks", "All hooks has been loaded!\n");
 
-    PRINT("Components", "Loading components...\n");
-
-    LOAD_COMPONENT(BasicComponent, basic_component);
-
-    PRINT("Components", "All components has been loaded!\n");
-
     g_gameEventManager = (IGameEventManager2 *)(CALL_VIRTUAL(uintptr_t, 91, server) - 8);
     g_playerManager = new PlayerManager();
 
@@ -121,6 +117,13 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     g_playerManager->SetupHooks();
     g_playerManager->LoadPlayers();
+
+    PRINT("Components", "Loading components...\n");
+
+    LOAD_COMPONENT(BasicComponent, basic_component);
+    plugins_component->LoadComponent();
+
+    PRINT("Components", "All components has been loaded!\n");
 
     return true;
 }
@@ -199,8 +202,15 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const ch
     hooks::emit(OnClientDisconnect(&slot, reason, pszName, xuid, pszNetworkID));
 }
 
+static bool gFrame = false;
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
+    if (!gFrame)
+    {
+        plugins_component->RegisterGameEvents();
+        plugins_component->StartPlugins();
+        gFrame = true;
+    }
     hooks::emit(OnGameFrame(simulating, bFirstTick, bLastTick));
 }
 

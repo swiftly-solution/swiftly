@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <fstream>
 #include <sstream>
+#include <vector>
 
 namespace Files
 {
@@ -14,6 +15,7 @@ namespace Files
     std::string getBase(std::string filePath);
     bool ExistsPath(std::string path);
     bool IsDirectory(std::string path);
+    std::vector<std::string> FetchFileNames(std::string path);
 };
 
 #endif

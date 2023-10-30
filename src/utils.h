@@ -4,7 +4,6 @@
 #include <memory>
 #include <string>
 #include <stdexcept>
-#include <sstream>
 
 #define PREFIX "[Swiftly]"
 
@@ -78,11 +77,4 @@ namespace vmt
     }
 }
 
-template <typename T>
-std::string to_string(T number)
-{
-    std::stringstream stream;
-    stream << number;
-    return stream.str();
-}
 #endif

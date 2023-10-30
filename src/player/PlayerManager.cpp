@@ -20,7 +20,7 @@ void PlayerManager::LoadPlayers()
     }
 }
 
-auto OnClientConnectedOnServer = [](const OnClientConnected *e)
+void OnClientConnectedOnServer(const OnClientConnected *e)
 {
     if (e->bFakePlayer)
     {
@@ -29,7 +29,7 @@ auto OnClientConnectedOnServer = [](const OnClientConnected *e)
     }
 };
 
-auto OnClientConnectOnServer = [](const OnClientConnect *e)
+void OnClientConnectOnServer(const OnClientConnect *e)
 {
     Player *player = new Player(false, *e->slot);
     g_playerManager->RegisterPlayer(player);
@@ -37,7 +37,7 @@ auto OnClientConnectOnServer = [](const OnClientConnect *e)
     player->SetConnected(true);
 };
 
-auto OnClientDisconnected = [](const OnClientDisconnect *e)
+void OnClientDisconnected(const OnClientDisconnect *e)
 {
     Player *player = g_playerManager->GetPlayer(e->slot);
     if (!player)
@@ -46,7 +46,7 @@ auto OnClientDisconnected = [](const OnClientDisconnect *e)
     g_playerManager->UnregisterPlayer(e->slot);
 };
 
-auto OnClientSpawn = [](const OnPlayerSpawn *e)
+void OnClientSpawn(const OnPlayerSpawn *e)
 {
     CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
     if (!controller)

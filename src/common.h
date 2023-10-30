@@ -11,23 +11,14 @@
 #include <ISmmPlugin.h>
 #include <iplayerinfo.h>
 #include <sh_vector.h>
-#include <functional>
-#include <map>
-#include <string>
-#include <vector>
 #include <igameevents.h>
 #include "iserver.h"
 #include "KeyValues.h"
 #include <entity2/entitysystem.h>
 #include <entity2/entityidentity.h>
-#include <ctime>
 #include "utils.h"
 
-#ifdef _WIN32
-#define CONFIG_PATH "addons/swiftly/configs"
-#else
-#define CONFIG_PATH "addons/swiftly/configs"
-#endif
+#define PATH "addons/swiftly"
 
 class GameSessionConfiguration_t
 {
@@ -69,6 +60,7 @@ extern IVEngineServer2 *engine;
 extern IServerGameClients *g_clientsManager;
 extern CEntitySystem *g_pEntitySystem;
 extern IServerGameDLL *server;
+extern ICvar *g_pcVar;
 
 PLUGIN_GLOBALVARS();
 

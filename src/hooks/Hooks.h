@@ -2,6 +2,8 @@
 #define _hooks_h
 
 #include "../common.h"
+#include <map>
+#include <functional>
 
 struct Event
 {

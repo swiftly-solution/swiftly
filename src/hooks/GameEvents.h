@@ -2,6 +2,9 @@
 #define _gameevents_hooks_h
 
 #include "../common.h"
+#include <map>
+#include <functional>
+
 struct GameEvent
 {
     virtual ~GameEvent() {}

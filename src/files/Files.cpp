@@ -1,16 +1,14 @@
 #include "Files.h"
 
-using namespace std;
-
 bool pathChanges = false;
 
-vector<string> split(string s, string delimiter)
+std::vector<std::string> split(std::string s, std::string delimiter)
 {
     size_t pos_start = 0, pos_end, delim_len = delimiter.length();
-    string token;
-    vector<string> res;
+    std::string token;
+    std::vector<std::string> res;
 
-    while ((pos_end = s.find(delimiter, pos_start)) != string::npos)
+    while ((pos_end = s.find(delimiter, pos_start)) != std::string::npos)
     {
         token = s.substr(pos_start, pos_end - pos_start);
         pos_start = pos_end + delim_len;
@@ -21,10 +19,10 @@ vector<string> split(string s, string delimiter)
     return res;
 }
 
-string implode(vector<string> elements, string delimiter)
+std::string implode(std::vector<std::string> elements, std::string delimiter)
 {
-    string s;
-    for (auto ii = elements.begin(); ii != elements.end(); ++ii)
+    std::string s;
+    for (std::vector<std::string>::iterator ii = elements.begin(); ii != elements.end(); ++ii)
     {
         s += (*ii);
         if (ii + 1 != elements.end())
@@ -41,13 +39,7 @@ void ChangePath()
         return;
 
     pathChanges = true;
-    vector<string> path = split(filesystem::current_path().string(),
-#ifdef _WIN32
-                                "\\"
-#else
-                                "/"
-#endif
-    );
+    std::vector<std::string> path = split(std::filesystem::current_path().string(), WIN_LINUX("\\", "/"));
 
     path.pop_back();
 #ifdef _WIN32
@@ -56,51 +48,45 @@ void ChangePath()
 
     path.push_back("csgo");
 
-#ifdef _WIN32
-    filesystem::current_path(implode(path, "\\"));
-#else
-    filesystem::current_path(implode(path, "/"));
-#endif
+    std::filesystem::current_path(implode(path, WIN_LINUX("\\", "/")));
 }
 
-string Files::Read(string path)
+std::string Files::Read(std::string path)
 {
     ChangePath();
-    g_SMAPI->ConPrintf("%s\n", filesystem::current_path().string().c_str());
-    if (!filesystem::exists(path))
+    if (!std::filesystem::exists(path))
     {
-        // cout << "Invalid file specified: " << path << endl;
         return "";
     }
-    ifstream f(path);
-    stringstream strStream;
+    std::ifstream f(path);
+    std::stringstream strStream;
     strStream << f.rdbuf();
     return strStream.str();
 }
 
-std::string Files::getBase(string filePath)
+std::string Files::getBase(std::string filePath)
 {
     ChangePath();
-    vector<string> v = split(filePath, "/");
+    std::vector<std::string> v = split(filePath, "/");
     v.pop_back();
     return implode(v, "/");
 }
 
-void Files::Delete(string path)
+void Files::Delete(std::string path)
 {
     ChangePath();
-    if (!filesystem::exists(path))
+    if (!std::filesystem::exists(path))
     {
         // cout << "Invalid file specified: " << path << endl;
         return;
     }
-    filesystem::remove(path);
+    std::filesystem::remove(path);
 }
 
-void Files::Append(string path, string content)
+void Files::Append(std::string path, std::string content)
 {
     ChangePath();
-    filesystem::create_directories(Files::getBase(path));
+    std::filesystem::create_directories(Files::getBase(path));
     time_t now = time(0);
     tm *ltm = localtime(&now);
 
@@ -114,19 +100,29 @@ void Files::Append(string path, string content)
 #if GCC_COMPILER
 #pragma GCC diagnostic pop
 #endif
-    ofstream File(path, ios_base::app);
-    File << date << content << endl;
+    std::ofstream File(path, std::ios_base::app);
+    File << date << content << std::endl;
     File.close();
 }
 
-bool Files::ExistsPath(string path)
+bool Files::ExistsPath(std::string path)
 {
     ChangePath();
-    return filesystem::exists(path);
+    return std::filesystem::exists(path);
 }
 
-bool Files::IsDirectory(string path)
+bool Files::IsDirectory(std::string path)
 {
     ChangePath();
-    return filesystem::is_directory(path);
+    return std::filesystem::is_directory(path);
+}
+
+std::vector<std::string> Files::FetchFileNames(std::string path)
+{
+    ChangePath();
+
+    std::vector<std::string> files;
+    for (const auto &entry : std::filesystem::directory_iterator(path))
+        files.push_back(entry.path().string());
+    return files;
 }
