@@ -231,6 +231,7 @@ class MMSPluginConfig(object):
         '-Wno-switch',
         '-msse',
         '-fPIC',
+        '-fexceptions',
       ]
 
       if cxx.version == 'apple-clang-6.0' or cxx.version == 'clang-3.4':

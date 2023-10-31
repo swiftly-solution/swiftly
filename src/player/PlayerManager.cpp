@@ -24,14 +24,14 @@ void OnClientConnectedOnServer(const OnClientConnected *e)
 {
     if (e->bFakePlayer)
     {
-        Player *player = new Player(true, *e->slot);
+        Player *player = new Player(true, *e->slot, e->pszName, 0);
         g_playerManager->RegisterPlayer(player);
     }
 };
 
 void OnClientConnectOnServer(const OnClientConnect *e)
 {
-    Player *player = new Player(false, *e->slot);
+    Player *player = new Player(false, *e->slot, e->pszName, e->xuid);
     g_playerManager->RegisterPlayer(player);
 
     player->SetConnected(true);

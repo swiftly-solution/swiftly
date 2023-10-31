@@ -77,7 +77,11 @@ void ShowSwiftlyCommandHelp(CCommandContext context)
 {
     PRINT("Commands", "Swiftly Commands Menu");
     PRINT("Commands", "Usage: swiftly <command> [args]");
-    PRINT("Commands", " plugins - Show ");
+    PRINT("Commands", " credits - List Swiftly credits");
+    PRINT("Commands", " cmds    - List all console commands created by plugins");
+    PRINT("Commands", " cvars   - List all console variables created by plugins");
+    PRINT("Commands", " plugins - Plugin Management Menu");
+    PRINT("Commands", " version - Display Swiftly version");
 }
 
 CON_COMMAND_F(swiftly, "The main command for Swiftly.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)

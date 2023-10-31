@@ -125,6 +125,9 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     PRINT("Components", "All components has been loaded!\n");
 
+    plugins_component->RegisterGameEvents();
+    plugins_component->StartPlugins();
+
     return true;
 }
 
@@ -202,15 +205,8 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const ch
     hooks::emit(OnClientDisconnect(&slot, reason, pszName, xuid, pszNetworkID));
 }
 
-static bool gFrame = false;
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
-    if (!gFrame)
-    {
-        plugins_component->RegisterGameEvents();
-        plugins_component->StartPlugins();
-        gFrame = true;
-    }
     hooks::emit(OnGameFrame(simulating, bFirstTick, bLastTick));
 }
 

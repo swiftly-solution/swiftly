@@ -7,9 +7,10 @@ typedef void (*OnProgramLoadFunction)(const char *);
 void Plugin::StartPlugin()
 {
     void *OnProgramLoad = this->FetchFunction("Internal_OnProgramLoad");
-    if (OnProgramLoad == nullptr)
+    void *RegisterPlayer = this->FetchFunction("Internal_RegisterPlayer");
+    if (OnProgramLoad == nullptr || RegisterPlayer == nullptr)
     {
-        PRINTF("Plugin", "Stopped loading plugin %s because the function OnProgramLoad isn't present.\n", "PLUGIN_NAME");
+        PRINTF("Plugin", "Stopped loading plugin %s because the base functions are not present.\n", "PLUGIN_NAME");
         return;
     }
 

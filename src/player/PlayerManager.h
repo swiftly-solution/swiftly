@@ -3,6 +3,7 @@
 
 #include "../common.h"
 #include "Player.h"
+#include "../hooks/Hooks.h"
 
 class PlayerManager
 {
@@ -24,6 +25,8 @@ public:
             ++playerCount;
 
         this->g_Players[player->GetSlot()->Get()] = player;
+
+        hooks::emit(OnPlayerRegistered(player->GetSlot()));
     }
 
     inline void UnregisterPlayer(CPlayerSlot *slot)

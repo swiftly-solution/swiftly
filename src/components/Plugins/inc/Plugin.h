@@ -6,7 +6,16 @@
 #include <vector>
 #include <metamod_oslink.h>
 
-const std::string funcsToLoad[] = {"OnProgramLoad", "OnPluginStart", "OnPluginStop", "OnClientConnected", "OnClientConnect", "OnPlayerSpawn"};
+const std::string funcsToLoad[] = {
+    "RegisterPlayer",
+    "OnProgramLoad",
+    "OnPluginStart",
+    "OnPluginStop",
+    "OnClientConnected",
+    "OnClientConnect",
+    "OnPlayerSpawn",
+    "OnGameTick",
+};
 
 class Plugin
 {

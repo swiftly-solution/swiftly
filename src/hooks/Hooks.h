@@ -127,6 +127,15 @@ struct OnClientPutInServer : Event
     };
 };
 
+struct OnPlayerRegistered : Event
+{
+    CPlayerSlot *slot;
+    OnPlayerRegistered(CPlayerSlot *slot)
+    {
+        this->slot = slot;
+    }
+};
+
 typedef std::multimap<const std::type_info *, const std::function<void(const Event *)>> EventMap;
 
 class hooks
