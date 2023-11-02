@@ -1,5 +1,5 @@
-$env:MMSOURCE112 = "C:\Users\SkuZZis\Desktop\CS2 Server\plugins\swiftly\metamod"
-$env:HL2SDKCS2 = "C:\Users\SkuZZis\Desktop\CS2 Server\plugins\swiftly\hl2sdk"
+$env:MMSOURCE112 = "$PSScriptRoot\metamod"
+$env:HL2SDKCS2 = "$PSScriptRoot\hl2sdk"
 
 mkdir build
 Set-Location build
