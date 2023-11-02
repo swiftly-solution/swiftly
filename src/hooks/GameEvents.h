@@ -19,6 +19,15 @@ struct OnPlayerSpawn : GameEvent
     };
 };
 
+struct OnPlayerChat : GameEvent
+{
+    IGameEvent *pEvent;
+    OnPlayerChat(IGameEvent *pEvent)
+    {
+        this->pEvent = pEvent;
+    };
+};
+
 typedef std::multimap<const std::type_info *, const std::function<void(const GameEvent *)>> GameEventMap;
 
 class gameevents

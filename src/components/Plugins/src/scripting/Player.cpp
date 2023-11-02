@@ -45,3 +45,15 @@ SMM_API bool scripting_Player_IsAuthenticated(uint32 playerId)
 
     return engine->IsClientFullyAuthenticated(*player->GetSlot());
 }
+
+SMM_API const char *scripting_Player_GetConvar(uint32 playerId, const char *name)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "";
+
+    if (!engine)
+        return "";
+
+    return engine->GetClientConVarValue(*player->GetSlot(), name);
+}

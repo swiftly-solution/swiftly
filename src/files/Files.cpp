@@ -55,9 +55,8 @@ std::string Files::Read(std::string path)
 {
     ChangePath();
     if (!std::filesystem::exists(path))
-    {
         return "";
-    }
+
     std::ifstream f(path);
     std::stringstream strStream;
     strStream << f.rdbuf();
@@ -76,10 +75,8 @@ void Files::Delete(std::string path)
 {
     ChangePath();
     if (!std::filesystem::exists(path))
-    {
-        // cout << "Invalid file specified: " << path << endl;
         return;
-    }
+
     std::filesystem::remove(path);
 }
 

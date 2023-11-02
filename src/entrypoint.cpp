@@ -13,6 +13,7 @@
 #include "components/Plugins/inc/PluginsComponent.h"
 #include "sdk/schemasystem.h"
 #include "sdk/CBaseEntity.h"
+#include "database/DatabaseManager.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -57,6 +58,7 @@ IGameEventManager2 *g_gameEventManager = nullptr;
 PlayerManager *g_playerManager = nullptr;
 ICvar *g_pcVar = nullptr;
 PluginsComponent *plugins_component = nullptr;
+DatabaseManager *g_dbManager = nullptr;
 
 CGlobalVars *GetGameGlobals()
 {
@@ -111,12 +113,14 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     g_gameEventManager = (IGameEventManager2 *)(CALL_VIRTUAL(uintptr_t, 91, server) - 8);
     g_playerManager = new PlayerManager();
+    g_dbManager = new DatabaseManager();
 
     g_pCVar = icvar;
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
 
     g_playerManager->SetupHooks();
     g_playerManager->LoadPlayers();
+    g_dbManager->LoadDatabases();
 
     PRINT("Components", "Loading components...\n");
 

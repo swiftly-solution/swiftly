@@ -11,6 +11,7 @@ typedef bool (*Plugin_OnClientConnect)(uint32);
 typedef void (*Plugin_OnPlayerSpawn)(uint32);
 typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
 typedef void (*Plugin_OnGameTick)(bool, bool, bool);
+typedef void (*Plugin_OnPlayerChat)(uint32, const char *, bool);
 
 void scripting_OnClientConnected(const OnClientConnected *e)
 {
@@ -66,6 +67,30 @@ void scripting_OnClientSpawn(const OnPlayerSpawn *e)
     }
 }
 
+void scripting_OnClientChat(const OnPlayerChat *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(&e->pEvent->GetPlayerSlot("userid"));
+    if (!player)
+        return;
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_OnPlayerChat = plugin->FetchFunction("Internal_OnPlayerChat");
+            if (plugin_OnPlayerChat)
+            {
+                reinterpret_cast<Plugin_OnPlayerChat>(plugin_OnPlayerChat)(player->GetSlot()->Get(), e->pEvent->GetString("text"), e->pEvent->GetBool("teamonly"));
+            }
+        }
+    }
+}
+
 void scripting_OnPlayerRegister(const OnPlayerRegistered *e)
 {
     Player *player = g_playerManager->GetPlayer(e->slot);
@@ -108,4 +133,5 @@ void PluginsComponent::RegisterGameEvents()
     hooks::on<OnGameFrame>(scripting_OnGameTick);
 
     gameevents::on<OnPlayerSpawn>(scripting_OnClientSpawn);
+    gameevents::on<OnPlayerChat>(scripting_OnClientChat);
 }

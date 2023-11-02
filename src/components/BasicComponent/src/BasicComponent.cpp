@@ -2,11 +2,7 @@
 #include "../../../hooks/Hooks.h"
 #include "../../../common.h"
 #include "../../../player/PlayerManager.h"
-#include "../../../database/Database.h"
-
-void BasicComponent::LoadComponent()
-{
-}
+#include "../../../database/DatabaseManager.h"
 
 template <typename... Args>
 std::string string_format(const std::string &format, Args... args)
@@ -19,6 +15,41 @@ std::string string_format(const std::string &format, Args... args)
     std::unique_ptr<char[]> buf(new char[size]);
     snprintf(buf.get(), size, format.c_str(), args...);
     return std::string(buf.get(), buf.get() + size - 1); // We don't want the '\0' inside
+}
+
+void BasicComponent::LoadComponent()
+{
+    // Database *db = g_dbManager->GetDatabase("test_connection");
+    // if (db == nullptr)
+    //     return;
+
+    // if (!db->IsConnected())
+    //     db->Connect();
+
+    // if (db->HasError())
+    // {
+    //     PRINTF("BasicComponent", "An error has been encountered while trying to connect to database: %s\n", db->GetError());
+    //     return;
+    // }
+
+    // std::vector<std::map<const char *, std::any>> results = db->Query(string_format("insert into accounts (name) values ('%s')", "skuzzi47").c_str());
+
+    // if (db->HasError())
+    // {
+    //     PRINTF("BasicComponent", "Query \"%s\" has encountered an error.\n%s\n", string_format("insert into accounts (name) values ('%s')", "skuzzi47").c_str(), db->GetError());
+    // }
+    // else
+    // {
+    //     for (uint32 i = 0; i < results.size(); i++)
+    //     {
+    //         PRINTF("BasicComponent", "Row %02d:\n", i);
+    //         std::map<const char *, std::any> result = results[i];
+    //         for (const auto &res : result)
+    //         {
+    //             PRINTF("BasicComponent", "%s: %d\n", res.first, std::any_cast<uint64>(res.second));
+    //         }
+    //     }
+    // }
 }
 
 std::string seconds_to_time(unsigned int number)
