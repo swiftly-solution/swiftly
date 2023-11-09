@@ -6,6 +6,11 @@
 #include "../sdk/CBasePlayerPawn.h"
 #include <ctime>
 
+#define HUD_PRINTNOTIFY 1
+#define HUD_PRINTCONSOLE 2
+#define HUD_PRINTTALK 3
+#define HUD_PRINTCENTER 4
+
 enum ENetworkDisconnectionReason
 {
     NETWORK_DISCONNECT_INVALID = 0,
@@ -110,6 +115,8 @@ public:
 
     inline void SetConnected(bool connected) { this->isConnected = connected; };
     inline bool IsConnected() { return this->isConnected; };
+
+    void SendMsg(int dest, const char *msg, ...);
 
     void Authenticate();
     const char *GetName();

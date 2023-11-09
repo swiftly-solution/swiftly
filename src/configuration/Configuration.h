@@ -1,21 +1,36 @@
 #ifndef _configuration_h
 #define _configuration_h
 
-#include "Config.h"
+#include <string>
+#include <map>
+#include <any>
 
 class Configuration
 {
 private:
-    Config *config = nullptr;
+    std::map<std::string, std::any> config;
+    bool loaded = false;
 
 public:
     bool LoadConfiguration();
-    bool SaveConfiguration();
-    inline bool IsConfigurationLoaded() { return config != nullptr; };
+    inline bool IsConfigurationLoaded() { return this->loaded; };
 
-    inline Config *GetConfig() { return config; };
+    template <typename T>
+    T FetchValue(std::string key);
+
+    template <typename T>
+    void SetValue(std::string key, T value);
 };
 
-extern Configuration g_Config;
+extern Configuration *g_Config;
+
+template <typename T>
+T Configuration::FetchValue(std::string key)
+{
+    if (this->config.find(key) == this->config.end())
+        return nullptr;
+
+    return std::any_cast<T>(this->config.at(key));
+}
 
 #endif

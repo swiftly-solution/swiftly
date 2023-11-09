@@ -15,6 +15,7 @@ const std::string funcsToLoad[] = {
     "OnClientConnect",
     "OnPlayerSpawn",
     "OnGameTick",
+    "OnPlayerChat",
 };
 
 class Plugin

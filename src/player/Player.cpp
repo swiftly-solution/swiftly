@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "../sig/Signatures.h"
+#include <metamod_util.h>
 
 CBasePlayerController *Player::GetController()
 {
@@ -37,4 +39,25 @@ uint64 Player::GetSteamID()
         return this->xuid;
 
     return controller->m_steamID();
+}
+
+void Player::SendMsg(int dest, const char *msg, ...)
+{
+    CBasePlayerController *controller = this->GetController();
+    if (!controller)
+        return;
+
+    va_list args;
+    char buffer[256];
+    va_start(args, msg);
+
+    size_t len = vsnprintf(buffer, sizeof(buffer), msg, args);
+    if (len >= sizeof(buffer))
+    {
+        len = sizeof(buffer) - 1;
+        buffer[len] = '\0';
+    }
+    va_end(args);
+
+    g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, reinterpret_cast<const char *>(buffer), nullptr, nullptr, nullptr, nullptr);
 }

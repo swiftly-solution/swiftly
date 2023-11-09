@@ -14,6 +14,9 @@
 #include "sdk/schemasystem.h"
 #include "sdk/CBaseEntity.h"
 #include "database/DatabaseManager.h"
+#include "commands/CommandsManager.h"
+#include "sig/Signatures.h"
+#include "hooks/NativeHooks.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -43,7 +46,7 @@ extern "C" FILE *__cdecl __iob_func(void)
 EventMap eventMap;
 GameEventMap gameEventMap;
 SwiftlyPlugin g_Plugin;
-Configuration g_Config;
+Configuration *g_Config;
 IServerGameDLL *server = nullptr;
 IServerGameClients *gameclients = nullptr;
 IVEngineServer2 *engine = nullptr;
@@ -59,8 +62,11 @@ PlayerManager *g_playerManager = nullptr;
 ICvar *g_pcVar = nullptr;
 PluginsComponent *plugins_component = nullptr;
 DatabaseManager *g_dbManager = nullptr;
+CommandsManager *g_commandsManager = nullptr;
+Signatures *g_Signatures = nullptr;
 
-CGlobalVars *GetGameGlobals()
+CGlobalVars *
+GetGameGlobals()
 {
     INetworkGameServer *server = g_pNetworkServerService->GetIGameServer();
 
@@ -92,10 +98,13 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     PRINT("Configurations", "Loading configurations...\n");
 
-    if (g_Config.LoadConfiguration())
+    g_Config = new Configuration();
+    if (g_Config->LoadConfiguration())
         PRINT("Configurations", "The configurations has been succesfully loaded.\n");
     else
         PRINT("Configurations", "Failed to load configurations. The plugin will not work.\n");
+
+    g_SMAPI->AddListener(this, this);
 
     PRINT("Hooks", "Loading Hooks...\n");
 
@@ -109,11 +118,11 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &SwiftlyPlugin::Hook_ClientCommand, false);
     SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &SwiftlyPlugin::Hook_StartupServer, true);
 
-    PRINT("Hooks", "All hooks has been loaded!\n");
-
     g_gameEventManager = (IGameEventManager2 *)(CALL_VIRTUAL(uintptr_t, 91, server) - 8);
     g_playerManager = new PlayerManager();
     g_dbManager = new DatabaseManager();
+    g_Signatures = new Signatures();
+    g_commandsManager = new CommandsManager();
 
     g_pCVar = icvar;
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
@@ -163,6 +172,12 @@ bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
 bool bDone = false;
 void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *)
 {
+    g_Signatures->LoadSignatures();
+    if (!InitializeHooks())
+        PRINT("Hooks", "Failed to initialize hooks.\n");
+    else
+        PRINT("Hooks", "All hooks has been loaded!\n");
+
     if (!bDone)
     {
         g_pGameEntitySystem = *reinterpret_cast<CGameEntitySystem **>(reinterpret_cast<uintptr_t>(g_pGameResourceService) + WIN_LINUX(0x58, 0x50));

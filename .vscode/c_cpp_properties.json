@@ -5,7 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/hl2sdk/**",
                 "${workspaceFolder}/metamod/**",
+                "${workspaceFolder}/metamod/core/**",
                 "${workspaceFolder}/vendor/rapidjson/include/**",
+                "${workspaceFolder}/vendor/funchook/include/**",
                 "${workspaceFolder}/vendor/mysql/win64/include/**"
             ],
             "defines": [

@@ -2,7 +2,7 @@
 
 bool pathChanges = false;
 
-std::vector<std::string> split(std::string s, std::string delimiter)
+std::vector<std::string> explode(std::string s, std::string delimiter)
 {
     size_t pos_start = 0, pos_end, delim_len = delimiter.length();
     std::string token;
@@ -39,7 +39,7 @@ void ChangePath()
         return;
 
     pathChanges = true;
-    std::vector<std::string> path = split(std::filesystem::current_path().string(), WIN_LINUX("\\", "/"));
+    std::vector<std::string> path = explode(std::filesystem::current_path().string(), WIN_LINUX("\\", "/"));
 
     path.pop_back();
 #ifdef _WIN32
@@ -66,7 +66,7 @@ std::string Files::Read(std::string path)
 std::string Files::getBase(std::string filePath)
 {
     ChangePath();
-    std::vector<std::string> v = split(filePath, "/");
+    std::vector<std::string> v = explode(filePath, "/");
     v.pop_back();
     return implode(v, "/");
 }

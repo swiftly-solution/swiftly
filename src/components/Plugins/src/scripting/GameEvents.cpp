@@ -1,17 +1,4 @@
-#include "../../../../common.h"
-#include "../../../../hooks/Hooks.h"
-#include "../../../../hooks/GameEvents.h"
-#include "../../../../player/Player.h"
-#include "../../../../player/PlayerManager.h"
-#include "../../inc/PluginsComponent.h"
-#include "../../inc/Plugin.h"
-
-typedef bool (*Plugin_OnClientConnected)(uint32);
-typedef bool (*Plugin_OnClientConnect)(uint32);
-typedef void (*Plugin_OnPlayerSpawn)(uint32);
-typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
-typedef void (*Plugin_OnGameTick)(bool, bool, bool);
-typedef void (*Plugin_OnPlayerChat)(uint32, const char *, bool);
+#include "../../inc/Scripting.h"
 
 void scripting_OnClientConnected(const OnClientConnected *e)
 {
@@ -67,15 +54,15 @@ void scripting_OnClientSpawn(const OnPlayerSpawn *e)
     }
 }
 
-void scripting_OnClientChat(const OnPlayerChat *e)
+bool scripting_OnClientChat(CBasePlayerController *controller, const char *text, bool teamonly)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
+    CPlayerSlot *slot = &g_playerManager->GetSlotFromUserId(controller->GetRefEHandle().GetEntryIndex() - 1);
+    if (!slot)
+        return false;
 
-    Player *player = g_playerManager->GetPlayer(&e->pEvent->GetPlayerSlot("userid"));
+    Player *player = g_playerManager->GetPlayer(slot);
     if (!player)
-        return;
+        return false;
 
     for (uint32 i = 0; i < plugins.size(); i++)
     {
@@ -85,10 +72,13 @@ void scripting_OnClientChat(const OnPlayerChat *e)
             void *plugin_OnPlayerChat = plugin->FetchFunction("Internal_OnPlayerChat");
             if (plugin_OnPlayerChat)
             {
-                reinterpret_cast<Plugin_OnPlayerChat>(plugin_OnPlayerChat)(player->GetSlot()->Get(), e->pEvent->GetString("text"), e->pEvent->GetBool("teamonly"));
+                if (!reinterpret_cast<Plugin_OnPlayerChat>(plugin_OnPlayerChat)(player->GetSlot()->Get(), text, teamonly))
+                    return false;
             }
         }
     }
+
+    return true;
 }
 
 void scripting_OnPlayerRegister(const OnPlayerRegistered *e)
@@ -133,5 +123,4 @@ void PluginsComponent::RegisterGameEvents()
     hooks::on<OnGameFrame>(scripting_OnGameTick);
 
     gameevents::on<OnPlayerSpawn>(scripting_OnClientSpawn);
-    gameevents::on<OnPlayerChat>(scripting_OnClientChat);
 }

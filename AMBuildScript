@@ -276,6 +276,7 @@ class MMSPluginConfig(object):
         cxx.linkflags += ['/NODEFAULTLIB:libcmt']
       else:
         cxx.cflags += ['/MT']
+        cxx.linkflags += ['/NODEFAULTLIB:libcmt']
       cxx.defines += [
         '_CRT_SECURE_NO_DEPRECATE',
         '_CRT_SECURE_NO_WARNINGS',
@@ -285,6 +286,7 @@ class MMSPluginConfig(object):
       cxx.cflags += [
         '/W3',
         '/Z7',
+        '/EHsc',
       ]
       cxx.cxxflags += ['/TP', '/std:c++17']
       

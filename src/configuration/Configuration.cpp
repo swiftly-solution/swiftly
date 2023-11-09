@@ -23,19 +23,6 @@
     if (!DOCUMENT[MEMBER_NAME].IsBool())                  \
     return ConfigurationError(FILE, string_format("The field \"%s\" is not a boolean.", MEMBER_PATH))
 
-template <typename... Args>
-std::string string_format(const std::string &format, Args... args)
-{
-    int size_s = snprintf(nullptr, 0, format.c_str(), args...) + 1; // Extra space for '\0'
-    if (size_s <= 0)
-        throw std::runtime_error("Error during formatting.");
-
-    size_t size = static_cast<size_t>(size_s);
-    std::unique_ptr<char[]> buf(new char[size]);
-    snprintf(buf.get(), size, format.c_str(), args...);
-    return std::string(buf.get(), buf.get() + size - 1); // We don't want the '\0' inside
-}
-
 bool ConfigurationError(std::string configuration_file, std::string error)
 {
     if (!g_SMAPI)
@@ -76,10 +63,30 @@ bool Configuration::LoadConfiguration()
     for (unsigned int i = 0; i < coreConfigFile["commandSilentPrefixes"].Size(); i++)
         IS_STRING("core.json", coreConfigFile["commandSilentPrefixes"], i, string_format("commandSilentPrefixes[%d]", i));
 
+    this->SetValue("core.logging.enabled", coreConfigFile["logging"]["enabled"].GetBool());
+    this->SetValue("core.logging.mode", coreConfigFile["logging"]["mode"].GetString());
+
+    std::vector<std::string> commandPrefixes;
+    std::vector<std::string> silentCommandPrefixes;
+
+    for (uint32 i = 0; i < coreConfigFile["commandPrefixes"].Size(); i++)
+        commandPrefixes.push_back(std::string(coreConfigFile["commandPrefixes"][i].GetString()));
+    for (uint32 i = 0; i < coreConfigFile["commandSilentPrefixes"].Size(); i++)
+        silentCommandPrefixes.push_back(std::string(coreConfigFile["commandSilentPrefixes"][i].GetString()));
+
+    this->SetValue("core.commandPrefixes", implode(commandPrefixes, " "));
+    this->SetValue("core.silentCommandPrefixes", implode(silentCommandPrefixes, " "));
+
+    this->loaded = true;
+
     return true;
 }
 
-bool Configuration::SaveConfiguration()
+template <typename T>
+void Configuration::SetValue(std::string key, T value)
 {
-    return true;
+    if (this->config.find(key) == this->config.end())
+        this->config.insert(make_pair(key, value));
+    else
+        this->config[key] = value;
 }

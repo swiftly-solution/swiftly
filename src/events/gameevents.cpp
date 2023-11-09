@@ -33,8 +33,3 @@ GAME_EVENT(player_spawn)
 {
     gameevents::emit<OnPlayerSpawn>(pEvent);
 }
-
-GAME_EVENT(player_chat)
-{
-    gameevents::emit<OnPlayerChat>(pEvent);
-}

@@ -22,6 +22,7 @@ for sdk_name in MMSPlugin.sdks:
 
     binary.compiler.cxxincludes += [
       os.path.join(builder.sourcePath, 'vendor', 'rapidjson', 'include'),
+      os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'hl2sdk'),
       os.path.join(builder.sourcePath, 'hl2sdk', 'public'),
@@ -32,6 +33,8 @@ for sdk_name in MMSPlugin.sdks:
     if binary.compiler.target.platform == 'linux' or binary.compiler.target.platform == 'mac':
       binary.compiler.postlink += [
         os.path.join(builder.sourcePath, 'vendor', 'mysql', 'linuxsteamrt64', 'lib', 'libmysqlclient_r.a'),
+        os.path.join(builder.sourcePath, 'vendor', 'funchook' 'lib', 'libfunchook.a'),
+        os.path.join(builder.sourcePath, 'vendor', 'funchook' 'lib', 'libdistorm.a'),
         '-lz',
         '-lpthread',
         '-lm',
@@ -41,7 +44,10 @@ for sdk_name in MMSPlugin.sdks:
       binary.compiler.postlink += ['-lrt']
     elif binary.compiler.target.platform == 'windows':
       binary.compiler.postlink += [
+        os.path.join('psapi.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'mysql', 'win64', 'lib', 'mysqlclient.lib'),
+        os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
+        os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
         'wsock32.lib'
       ]
 

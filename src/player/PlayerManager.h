@@ -37,9 +37,10 @@ public:
     }
 
     inline uint16 GetPlayers() { return playerCount; }
-    inline Player *GetPlayer(uint16 slot) { return this->g_Players[slot]; };
-    inline Player *GetPlayer(CPlayerSlot *slot) { return this->g_Players[slot->Get()]; };
-    inline const uint16 GetPlayerCap() { return MAX_PLAYERS; };
+    inline Player *GetPlayer(uint16 slot) { return this->g_Players[slot]; }
+    inline Player *GetPlayer(CPlayerSlot *slot) { return this->g_Players[slot->Get()]; }
+    inline const uint16 GetPlayerCap() { return MAX_PLAYERS; }
+    inline CPlayerSlot GetSlotFromUserId(uint16 userid) { return CPlayerSlot(userid & 0xFF); }
 
 private:
     Player *g_Players[MAX_PLAYERS] = {};
