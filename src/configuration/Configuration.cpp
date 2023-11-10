@@ -63,6 +63,9 @@ bool Configuration::LoadConfiguration()
     for (unsigned int i = 0; i < coreConfigFile["commandSilentPrefixes"].Size(); i++)
         IS_STRING("core.json", coreConfigFile["commandSilentPrefixes"], i, string_format("commandSilentPrefixes[%d]", i));
 
+    HAS_MEMBER("core.json", coreConfigFile, "console_filtering", "console_filtering");
+    IS_BOOL("core.json", coreConfigFile, "console_filtering", "console_filtering");
+
     this->SetValue("core.logging.enabled", coreConfigFile["logging"]["enabled"].GetBool());
     this->SetValue("core.logging.mode", coreConfigFile["logging"]["mode"].GetString());
 
@@ -76,6 +79,8 @@ bool Configuration::LoadConfiguration()
 
     this->SetValue("core.commandPrefixes", implode(commandPrefixes, " "));
     this->SetValue("core.silentCommandPrefixes", implode(silentCommandPrefixes, " "));
+
+    this->SetValue("core.console_filtering", coreConfigFile["console_filtering"].GetBool());
 
     this->loaded = true;
 

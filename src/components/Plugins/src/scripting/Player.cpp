@@ -57,3 +57,24 @@ SMM_API const char *scripting_Player_GetConvar(uint32 playerId, const char *name
 
     return engine->GetClientConVarValue(*player->GetSlot(), name);
 }
+
+SMM_API void scripting_Player_SendMessage(uint32 playerId, int dest, const char *text)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    player->SendMsg(dest, text);
+}
+
+SMM_API void scripting_Players_SendMessage(int dest, const char *text)
+{
+    for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
+    {
+        Player *player = g_playerManager->GetPlayer(i);
+        if (player == nullptr)
+            continue;
+
+        player->SendMsg(dest, text);
+    }
+}

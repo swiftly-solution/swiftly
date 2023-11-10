@@ -17,6 +17,7 @@
 #include "commands/CommandsManager.h"
 #include "sig/Signatures.h"
 #include "hooks/NativeHooks.h"
+#include "filter/ConsoleFilter.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -64,6 +65,7 @@ PluginsComponent *plugins_component = nullptr;
 DatabaseManager *g_dbManager = nullptr;
 CommandsManager *g_commandsManager = nullptr;
 Signatures *g_Signatures = nullptr;
+ConsoleFilter *g_conFilter = nullptr;
 
 CGlobalVars *
 GetGameGlobals()
@@ -123,6 +125,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_dbManager = new DatabaseManager();
     g_Signatures = new Signatures();
     g_commandsManager = new CommandsManager();
+    g_conFilter = new ConsoleFilter();
 
     g_pCVar = icvar;
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
@@ -130,6 +133,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_playerManager->SetupHooks();
     g_playerManager->LoadPlayers();
     g_dbManager->LoadDatabases();
+    g_conFilter->LoadFilters();
 
     PRINT("Components", "Loading components...\n");
 

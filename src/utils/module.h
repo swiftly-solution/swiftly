@@ -33,11 +33,9 @@ class CModule
 public:
     CModule(const char *path, const char *module) : m_pszModule(module), m_pszPath(path)
     {
-        char szModule[MAX_PATH];
+        V_snprintf(this->szModule, MAX_PATH, "%s%s%s%s%s", Plat_GetGameDirectory(), path, MODULE_PREFIX, m_pszModule, MODULE_EXT);
 
-        V_snprintf(szModule, MAX_PATH, "%s%s%s%s", path, MODULE_PREFIX, m_pszModule, MODULE_EXT);
-
-        m_hModule = dlmount(szModule);
+        m_hModule = dlmount(this->szModule);
 
         if (!m_hModule)
             failed = true;
@@ -81,4 +79,5 @@ public:
     void *m_base;
     size_t m_size;
     bool failed = false;
+    char szModule[MAX_PATH];
 };

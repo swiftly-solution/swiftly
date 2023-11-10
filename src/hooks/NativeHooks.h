@@ -7,8 +7,11 @@ class CBasePlayerController;
 class CCommand;
 
 void Hook_Host_Say(CBasePlayerController *, CCommand &, bool, int, const char *);
+void Hook_LoggingSystem_LogDirect(int, int, const char *, ...);
+void Hook_LoggingSystem_Log(int, int, const char *, ...);
+void Hook_LoggingSystem_LogAssert(const char *, ...);
+void Hook_Msg(const char *, ...);
+void Hook_Warning(const char *, ...);
 bool InitializeHooks();
-
-extern FuncHook<decltype(Hook_Host_Say)> Host_Say;
 
 #endif

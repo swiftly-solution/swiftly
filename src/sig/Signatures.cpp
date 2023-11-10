@@ -10,11 +10,11 @@
 #include <regex>
 
 #ifdef _WIN32
-#define ROOTBIN "bin/win64/"
-#define GAMEBIN "csgo/bin/win64/"
+#define ROOTBIN "/bin/win64/"
+#define GAMEBIN "/csgo/bin/win64/"
 #else
-#define ROOTBIN "bin/linuxsteamrt64/"
-#define GAMEBIN "csgo/bin/linuxsteamrt64/"
+#define ROOTBIN "/bin/linuxsteamrt64/"
+#define GAMEBIN "/csgo/bin/linuxsteamrt64/"
 #endif
 
 #define HAS_MEMBER(DOCUMENT, MEMBER_NAME, MEMBER_PATH)                                   \
@@ -71,12 +71,19 @@ void *FindSignature(const char *moduleName, const char *bytes)
     if (moduleName == nullptr || bytes == nullptr)
         return nullptr;
 
-    CModule *mdl = new CModule(ROOTBIN, moduleName);
+    CModule *mdl = new CModule(std::string(moduleName) == "server" ? GAMEBIN : ROOTBIN, moduleName);
     size_t iLength = 0;
-    byte *pSignature = HexToByte(bytes, iLength);
-    if (!pSignature)
-        return nullptr;
-    return mdl->FindSignature(pSignature, iLength);
+    if (bytes[0] == '_')
+    {
+        return dlsym(mdl->m_hModule, bytes + 1);
+    }
+    else
+    {
+        byte *pSignature = HexToByte(bytes, iLength);
+        if (!pSignature)
+            return nullptr;
+        return mdl->FindSignature(pSignature, iLength);
+    }
 }
 
 void SignaturesError(std::string text)
@@ -117,7 +124,7 @@ void Signatures::LoadSignatures()
 
         const char *lib = it->value["lib"].GetString();
         std::string rawSig = it->value[WIN_LINUX("windows", "linux")].GetString();
-        std::string finalSig = "\\x" + std::regex_replace(rawSig, std::regex(" "), "\\x");
+        std::string finalSig = (rawSig.at(0) == '_') ? rawSig : ("\\x" + std::regex_replace(rawSig, std::regex(" "), "\\x"));
 
         PRINTF("Signatures", "Searching for \"%s\"...\n", rawSig.c_str());
 

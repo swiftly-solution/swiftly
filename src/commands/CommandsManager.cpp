@@ -22,6 +22,16 @@ int CommandsManager::HandleCommands(CBasePlayerController *controller, std::stri
     bool isSilentCommand = (std::find(silentCommandPrefixes.begin(), silentCommandPrefixes.end(), std::string(1, text.at(0))) != silentCommandPrefixes.end());
     if (isCommand || isSilentCommand)
     {
+        std::vector<std::string> cmdString = explode(text, " ");
+        std::string commandName = cmdString[0];
+        cmdString.erase(cmdString.begin());
+        commandName.erase(0, 1);
+
+        Command *cmd = g_commandsManager->FetchCommand(commandName);
+        if (cmd == nullptr)
+            return 0;
+
+        cmd->Exec(player, cmdString, isSilentCommand);
     }
 
     if (isCommand)
