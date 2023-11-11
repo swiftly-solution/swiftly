@@ -18,6 +18,7 @@ public:
     void LoadFilters();
     void Toggle();
     bool NeedFiltering(std::string message);
+    std::map<std::string, uint64> GetCounters() { return this->counter; }
 
     bool Status() { return this->m_status; }
 };

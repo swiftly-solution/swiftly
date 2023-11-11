@@ -24,6 +24,9 @@ void ConsoleFilter::Toggle()
 
 void ConsoleFilter::LoadFilters()
 {
+    this->filter.clear();
+    this->counter.clear();
+
     rapidjson::Document confilterFile;
     confilterFile.Parse(Files::Read("addons/swiftly/configs/console_filter.json").c_str());
     if (confilterFile.HasParseError())
@@ -45,13 +48,13 @@ void ConsoleFilter::LoadFilters()
         this->filter.insert(std::make_pair(key, it->value.GetString()));
         this->counter.insert(std::make_pair(key, 0));
     }
-
-    if (g_Config->FetchValue<bool>("core.console_filtering"))
-        this->Toggle();
 }
 
 bool ConsoleFilter::NeedFiltering(std::string message)
 {
+    if (!this->Status())
+        return false;
+
     for (std::map<std::string, std::string>::iterator it = this->filter.begin(); it != this->filter.end(); ++it)
     {
         std::string key = it->first;

@@ -9,7 +9,8 @@ private:
     void *m_funcPtr = nullptr;
 
 public:
-    Command(void *funcPtr) : m_funcPtr(funcPtr) {}
+    std::string m_pluginName;
+    Command(std::string pluginName, void *funcPtr) : m_pluginName(pluginName), m_funcPtr(funcPtr) {}
     void Exec(Player *player, std::vector<std::string> args, bool silent);
 };
 

@@ -4,6 +4,7 @@
 #include "../inc/Plugin.h"
 
 std::vector<Plugin *> plugins;
+std::map<std::string, Plugin *> pluginsMap;
 
 bool ends_with(std::string value, std::string ending)
 {
@@ -30,9 +31,11 @@ void PluginsComponent::LoadComponent()
             continue;
 
         Plugin *plugin = new Plugin(file);
-        plugin->LoadPlugin();
 
         plugins.push_back(plugin);
+        pluginsMap.insert(std::make_pair(plugin->GetName(), plugin));
+
+        plugin->LoadPlugin();
     }
 }
 

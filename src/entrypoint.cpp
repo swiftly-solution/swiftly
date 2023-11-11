@@ -135,6 +135,9 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_dbManager->LoadDatabases();
     g_conFilter->LoadFilters();
 
+    if (g_Config->FetchValue<bool>("core.console_filtering"))
+        g_conFilter->Toggle();
+
     PRINT("Components", "Loading components...\n");
 
     LOAD_COMPONENT(BasicComponent, basic_component);

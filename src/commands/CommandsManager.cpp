@@ -50,20 +50,32 @@ Command *CommandsManager::FetchCommand(std::string cmd)
     return this->commands.at(cmd);
 }
 
-bool CommandsManager::RegisterCommand(std::string cmd, Command *command)
+bool CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, Command *command)
 {
     if (this->FetchCommand(cmd) != nullptr)
         return false;
 
     this->commands.insert(std::make_pair(cmd, command));
+
+    if (this->commandsByPlugin.find(plugin_name) == this->commandsByPlugin.end())
+    {
+        std::vector<std::string> cmds;
+        cmds.push_back(cmd);
+        this->commandsByPlugin.insert(std::make_pair(plugin_name, cmds));
+    }
+    else
+        this->commandsByPlugin[plugin_name].push_back(cmd);
+
     return true;
 }
 
 bool CommandsManager::UnregisterCommand(std::string cmd)
 {
-    if (this->FetchCommand(cmd) == nullptr)
+    Command *command = this->FetchCommand(cmd);
+    if (command == nullptr)
         return false;
 
+    this->commandsByPlugin[command->m_pluginName].erase(std::find(this->commandsByPlugin[command->m_pluginName].begin(), this->commandsByPlugin[command->m_pluginName].end(), cmd));
     this->commands.erase(cmd);
     return true;
 }

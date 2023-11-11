@@ -1,7 +1,7 @@
 #include "../../../../common.h"
 #include "../../../../commands/CommandsManager.h"
 
-SMM_API void scripting_Commands_RegisterCommand(const char *name, void *funcPtr)
+SMM_API void scripting_Commands_RegisterCommand(const char *pluginName, const char *name, void *funcPtr)
 {
     Command *cmd = g_commandsManager->FetchCommand(name);
     if (cmd != nullptr)
@@ -10,8 +10,8 @@ SMM_API void scripting_Commands_RegisterCommand(const char *name, void *funcPtr)
         return;
     }
 
-    Command *newcmd = new Command(funcPtr);
-    g_commandsManager->RegisterCommand(name, newcmd);
+    Command *newcmd = new Command(pluginName, funcPtr);
+    g_commandsManager->RegisterCommand(pluginName, name, newcmd);
 }
 
 SMM_API void scripting_Commands_UnregisterCommand(const char *name)
