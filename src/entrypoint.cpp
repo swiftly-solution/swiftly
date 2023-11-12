@@ -18,6 +18,7 @@
 #include "sig/Signatures.h"
 #include "hooks/NativeHooks.h"
 #include "filter/ConsoleFilter.h"
+#include "translations/Translations.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -66,9 +67,9 @@ DatabaseManager *g_dbManager = nullptr;
 CommandsManager *g_commandsManager = nullptr;
 Signatures *g_Signatures = nullptr;
 ConsoleFilter *g_conFilter = nullptr;
+Translations *g_translations = nullptr;
 
-CGlobalVars *
-GetGameGlobals()
+CGlobalVars *GetGameGlobals()
 {
     INetworkGameServer *server = g_pNetworkServerService->GetIGameServer();
 
@@ -126,6 +127,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_Signatures = new Signatures();
     g_commandsManager = new CommandsManager();
     g_conFilter = new ConsoleFilter();
+    g_translations = new Translations();
 
     g_pCVar = icvar;
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
@@ -134,6 +136,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_playerManager->LoadPlayers();
     g_dbManager->LoadDatabases();
     g_conFilter->LoadFilters();
+    g_translations->LoadTranslations();
 
     if (g_Config->FetchValue<bool>("core.console_filtering"))
         g_conFilter->Toggle();

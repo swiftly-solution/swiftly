@@ -28,7 +28,7 @@ bool ConfigurationError(std::string configuration_file, std::string error)
     if (!g_SMAPI)
         return false;
 
-    PRINTF("Configurations", "Error: %s: %s\n", configuration_file, error.c_str());
+    PRINTF("Configurations", "Error: %s: %s\n", configuration_file.c_str(), error.c_str());
     return false;
 }
 
@@ -66,6 +66,9 @@ bool Configuration::LoadConfiguration()
     HAS_MEMBER("core.json", coreConfigFile, "console_filtering", "console_filtering");
     IS_BOOL("core.json", coreConfigFile, "console_filtering", "console_filtering");
 
+    HAS_MEMBER("core.json", coreConfigFile, "language", "language");
+    IS_STRING("core.json", coreConfigFile, "language", "language");
+
     this->SetValue("core.logging.enabled", coreConfigFile["logging"]["enabled"].GetBool());
     this->SetValue("core.logging.mode", coreConfigFile["logging"]["mode"].GetString());
 
@@ -81,6 +84,7 @@ bool Configuration::LoadConfiguration()
     this->SetValue("core.silentCommandPrefixes", implode(silentCommandPrefixes, " "));
 
     this->SetValue("core.console_filtering", coreConfigFile["console_filtering"].GetBool());
+    this->SetValue("core.language", std::string(coreConfigFile["language"].GetString()));
 
     this->loaded = true;
 
