@@ -15,6 +15,10 @@ public:
     bool LoadConfiguration();
     inline bool IsConfigurationLoaded() { return this->loaded; };
 
+    void LoadPluginConfigurations();
+
+    std::map<std::string, std::any> FetchConfiguration() { return this->config; }
+
     template <typename T>
     T FetchValue(std::string key);
 

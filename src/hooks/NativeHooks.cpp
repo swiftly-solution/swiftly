@@ -111,4 +111,6 @@ bool InitializeHooks()
     if (!TWarning.Create())
         return false;
     TWarning.Create();
+
+    return true;
 }

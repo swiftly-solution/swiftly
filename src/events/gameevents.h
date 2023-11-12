@@ -1,8 +1,8 @@
 #ifndef _gameevents_h
 #define _gameevents_h
 
-#include <utlvector.h>
 #include "../common.h"
+#include <utlvector.h>
 
 typedef void (*FnEventListenerCallback)(IGameEvent *event);
 

@@ -91,6 +91,60 @@ bool Configuration::LoadConfiguration()
     return true;
 }
 
+void LoadConfigPart(std::string key, rapidjson::Value &document)
+{
+    for (auto it = document.MemberBegin(); it != document.MemberEnd(); ++it)
+    {
+        std::string keyname = it->name.GetString();
+
+        if (it->value.IsBool())
+            g_Config->SetValue(key + "." + keyname, it->value.GetBool());
+        else if (it->value.IsString())
+            g_Config->SetValue(key + "." + keyname, std::string(it->value.GetString()));
+        else if (it->value.IsDouble())
+            g_Config->SetValue(key + "." + keyname, it->value.GetDouble());
+        else if (it->value.IsFloat())
+            g_Config->SetValue(key + "." + keyname, it->value.GetFloat());
+        else if (it->value.IsInt64())
+            g_Config->SetValue(key + "." + keyname, it->value.GetInt64());
+        else if (it->value.IsInt())
+            g_Config->SetValue(key + "." + keyname, it->value.GetInt());
+        else if (it->value.IsUint64())
+            g_Config->SetValue(key + "." + keyname, it->value.GetUint64());
+        else if (it->value.IsUint())
+            g_Config->SetValue(key + "." + keyname, it->value.GetUint());
+        else if (it->value.IsNull())
+            g_Config->SetValue(key + "." + keyname, nullptr);
+        else if (it->value.IsObject())
+            LoadConfigPart(key + "." + keyname, it->value);
+    }
+}
+
+void Configuration::LoadPluginConfigurations()
+{
+    std::vector<std::string> configFiles = Files::FetchFileNames("addons/swiftly/configs/plugins");
+    for (const std::string configFilePath : configFiles)
+    {
+        std::string configFileName = explode(configFilePath, string_format("addons/swiftly/configs/plugins%s", WIN_LINUX("\\", "/")))[1];
+        rapidjson::Document configurationFile;
+        configurationFile.Parse(Files::Read(configFilePath).c_str());
+        if (configurationFile.HasParseError())
+        {
+            ConfigurationError(configFileName, string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)configurationFile.GetErrorOffset(), GetParseError_En(configurationFile.GetParseError())));
+            continue;
+        }
+
+        if (!configurationFile.IsObject())
+        {
+            ConfigurationError(configFileName, "Configuration file needs to be an object.");
+            continue;
+        }
+
+        rapidjson::Value &root = configurationFile;
+        LoadConfigPart(explode(configFileName, ".json")[0], root);
+    }
+}
+
 template <typename T>
 void Configuration::SetValue(std::string key, T value)
 {
