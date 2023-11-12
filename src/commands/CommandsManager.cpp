@@ -3,6 +3,8 @@
 #include "../player/PlayerManager.h"
 #include "../configuration/Configuration.h"
 
+std::map<std::string, bool> existed;
+
 // @returns 1 - command is not silent
 // @returns 2 - command is silent
 // @returns -1 - invalid controller
@@ -68,8 +70,12 @@ bool CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, 
     else
         this->commandsByPlugin[plugin_name].push_back(cmd);
 
-    static ConCommandRefAbstract generallCommandRef;
-    static ConCommand generalCommand(&generallCommandRef, ("sw_" + cmd).c_str(), commandsCallback, "The main command for Swiftly.", (1 << 25) | (1 << 0));
+    if (existed.find(cmd) == existed.end())
+    {
+        static ConCommandRefAbstract generallCommandRef;
+        static ConCommand generalCommand(&generallCommandRef, ("sw_" + cmd).c_str(), commandsCallback, "The main command for Swiftly.", (1 << 25) | (1 << 0));
+        existed.insert(std::make_pair(cmd, true));
+    }
 
     return true;
 }
@@ -78,6 +84,8 @@ static void commandsCallback(const CCommandContext &context, const CCommand &arg
     std::vector<std::string> argsplit = explode(args.GetCommandString(), " ");
     std::string cmdName = (argsplit[0].c_str() + 3);
     argsplit.erase(argsplit.begin());
+    if (g_commandsManager->FetchCommand(cmdName) == nullptr)
+        return;
 
     Command *cmd = g_commandsManager->FetchCommand(cmdName);
     if (cmd == nullptr)
