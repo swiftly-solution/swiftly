@@ -11,7 +11,7 @@ private:
 public:
     std::string m_pluginName;
     Command(std::string pluginName, void *funcPtr) : m_pluginName(pluginName), m_funcPtr(funcPtr) {}
-    void Exec(Player *player, std::vector<std::string> args, bool silent);
+    void Exec(int slot, std::vector<std::string> args, bool silent);
 };
 
 #endif

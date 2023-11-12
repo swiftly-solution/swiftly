@@ -124,7 +124,7 @@ SMM_API void scripting_Server_SetConvar(const char *name, ...)
     va_start(ap, 1);
 
     if (cvar->m_eVarType == EConVarType_Bool)
-        engine->ServerCommand(string_format("%s %s", name, va_arg(ap, bool) == true ? "true" : "false").c_str());
+        engine->ServerCommand(string_format("%s %s", name, (va_arg(ap, bool) == true) ? "true" : "false").c_str());
     else if (cvar->m_eVarType == EConVarType_String)
         engine->ServerCommand(string_format("%s \"%s\"", name, va_arg(ap, const char *)).c_str());
     else if (cvar->m_eVarType == EConVarType_Int32)

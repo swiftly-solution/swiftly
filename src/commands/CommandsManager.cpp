@@ -31,7 +31,7 @@ int CommandsManager::HandleCommands(CBasePlayerController *controller, std::stri
         if (cmd == nullptr)
             return 0;
 
-        cmd->Exec(player, cmdString, isSilentCommand);
+        cmd->Exec(player->GetSlot()->Get(), cmdString, isSilentCommand);
     }
 
     if (isCommand)
@@ -50,6 +50,8 @@ Command *CommandsManager::FetchCommand(std::string cmd)
     return this->commands.at(cmd);
 }
 
+static void commandsCallback(const CCommandContext &context, const CCommand &args);
+
 bool CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, Command *command)
 {
     if (this->FetchCommand(cmd) != nullptr)
@@ -66,7 +68,22 @@ bool CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, 
     else
         this->commandsByPlugin[plugin_name].push_back(cmd);
 
+    static ConCommandRefAbstract generallCommandRef;
+    static ConCommand generalCommand(&generallCommandRef, ("sw_" + cmd).c_str(), commandsCallback, "The main command for Swiftly.", (1 << 25) | (1 << 0));
+
     return true;
+}
+static void commandsCallback(const CCommandContext &context, const CCommand &args)
+{
+    std::vector<std::string> argsplit = explode(args.GetCommandString(), " ");
+    std::string cmdName = (argsplit[0].c_str() + 3);
+    argsplit.erase(argsplit.begin());
+
+    Command *cmd = g_commandsManager->FetchCommand(cmdName);
+    if (cmd == nullptr)
+        return;
+
+    cmd->Exec(context.GetPlayerSlot().Get(), argsplit, true);
 }
 
 bool CommandsManager::UnregisterCommand(std::string cmd)

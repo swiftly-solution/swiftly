@@ -120,6 +120,15 @@ std::vector<std::string> Files::FetchFileNames(std::string path)
 
     std::vector<std::string> files;
     for (const auto &entry : std::filesystem::directory_iterator(path))
-        files.push_back(entry.path().string());
+    {
+        if (entry.is_directory())
+        {
+            std::vector<std::string> fls = Files::FetchFileNames(entry.path().string());
+            for (auto fl : fls)
+                files.push_back(fl);
+        }
+        else
+            files.push_back(entry.path().string());
+    }
     return files;
 }
