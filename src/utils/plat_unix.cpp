@@ -18,7 +18,6 @@
  */
 
 #ifdef __linux__
-#include "plat.h"
 #include <dlfcn.h>
 #include <libgen.h>
 #include <stdio.h>
@@ -28,6 +27,7 @@
 #include <elf.h>
 #include <link.h>
 #include "dbg.h"
+#include "plat.h"
 
 #include "tier0/memdbgon.h"
 
