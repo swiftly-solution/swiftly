@@ -21,6 +21,8 @@ struct OnPlayerSpawn : GameEvent
 
 typedef std::multimap<const std::type_info *, const std::function<void(const GameEvent *)>> GameEventMap;
 
+extern GameEventMap gameEventMap;
+
 class gameevents
 {
 public:
@@ -39,7 +41,5 @@ public:
             it->second(&event);
     }
 };
-
-extern GameEventMap gameEventMap;
 
 #endif

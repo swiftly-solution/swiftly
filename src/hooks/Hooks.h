@@ -138,6 +138,8 @@ struct OnPlayerRegistered : Event
 
 typedef std::multimap<const std::type_info *, const std::function<void(const Event *)>> EventMap;
 
+extern EventMap eventMap;
+
 class hooks
 {
 public:
@@ -156,7 +158,5 @@ public:
             it->second(&event);
     }
 };
-
-extern EventMap eventMap;
 
 #endif
