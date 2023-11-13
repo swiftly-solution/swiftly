@@ -1,0 +1,24 @@
+#include "../../../../common.h"
+#include "../../../../logs/Logger.h"
+
+SMM_API void scripting_Logger_CreateLogger(const char *plugin_name)
+{
+    if (plugin_name == nullptr)
+        return;
+
+    g_Logger->AddLogger(plugin_name, true);
+    PRINTF("Logger - Scripting", "Creating logger '%s'....\n", plugin_name);
+}
+
+SMM_API void scripting_Logger_WriteLog(const char *plugin_name, ELogType log_type, const char *text)
+{
+    PRINTF("Logger - Scripting", "Fetching logger for '%s'...\n", plugin_name);
+    Log *logger = g_Logger->FetchLogger(plugin_name);
+    if (logger == nullptr)
+        return;
+
+    if (text == nullptr)
+        return;
+
+    logger->WriteLog(log_type, text);
+}

@@ -19,6 +19,7 @@
 #include "hooks/NativeHooks.h"
 #include "filter/ConsoleFilter.h"
 #include "translations/Translations.h"
+#include "logs/Logger.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -68,6 +69,7 @@ CommandsManager *g_commandsManager = nullptr;
 Signatures *g_Signatures = nullptr;
 ConsoleFilter *g_conFilter = nullptr;
 Translations *g_translations = nullptr;
+Logger *g_Logger = nullptr;
 
 CGlobalVars *GetGameGlobals()
 {
@@ -128,6 +130,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_commandsManager = new CommandsManager();
     g_conFilter = new ConsoleFilter();
     g_translations = new Translations();
+    g_Logger = new Logger();
 
     g_Config->LoadPluginConfigurations();
 

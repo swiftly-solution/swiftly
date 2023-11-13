@@ -70,7 +70,7 @@ bool Configuration::LoadConfiguration()
     IS_STRING("core.json", coreConfigFile, "language", "language");
 
     this->SetValue("core.logging.enabled", coreConfigFile["logging"]["enabled"].GetBool());
-    this->SetValue("core.logging.mode", coreConfigFile["logging"]["mode"].GetString());
+    this->SetValue("core.logging.mode", std::string(coreConfigFile["logging"]["mode"].GetString()));
 
     std::vector<std::string> commandPrefixes;
     std::vector<std::string> silentCommandPrefixes;

@@ -9,6 +9,24 @@
 
 typedef const char *(*GetPlugin)();
 
+const char *GetCppVersion()
+{
+    if (__cplusplus == 202101L)
+        return "C++23";
+    else if (__cplusplus == 202002L)
+        return "C++20";
+    else if (__cplusplus == 201703L)
+        return "C++17";
+    else if (__cplusplus == 201402L)
+        return "C++14";
+    else if (__cplusplus == 201103L)
+        return "C++11";
+    else if (__cplusplus == 199711L)
+        return "C++98";
+    else
+        return "Pre-standard C++";
+}
+
 void BasicComponent::LoadComponent()
 {
 }
@@ -35,20 +53,20 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
             continue;
 
         if (player->IsFakeClient())
-            PrintToClientOrConsole(slot, "Commands - Status", "#%d\t%s\t%s\t%s\t%s\n",
+            PrintToClientOrConsole(slot, "Status", "#%d\t%s\t%s\t%s\t%s\n",
                                    i + 1, controller->m_iszPlayerName(), "BOT\t", seconds_to_time(player->GetConnectedTime()), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
         else
-            PrintToClientOrConsole(slot, "Commands - Status", "#%d\t%s\t%llu\t%s\t%s\n",
+            PrintToClientOrConsole(slot, "Status", "#%d\t%s\t%llu\t%s\t%s\n",
                                    i + 1, controller->m_iszPlayerName(), controller->m_steamID(), seconds_to_time(player->GetConnectedTime()), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
     }
-    PrintToClientOrConsole(slot, "Commands - Status", "end of status\n");
+    PrintToClientOrConsole(slot, "Status", "end of status\n");
 }
 
 CON_COMMAND_F(sw_list, "Shows the players connected on the server, including the number of those.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
 {
     CPlayerSlot *slot = &context.GetPlayerSlot();
 
-    PrintToClientOrConsole(slot, "Commands - List", "Connected players: %02d/%02d\n", g_playerManager->GetPlayers(), engine->GetServerGlobals()->maxClients);
+    PrintToClientOrConsole(slot, "List", "Connected players: %02d/%02d\n", g_playerManager->GetPlayers(), engine->GetServerGlobals()->maxClients);
     uint16 idx = 0;
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
@@ -61,7 +79,7 @@ CON_COMMAND_F(sw_list, "Shows the players connected on the server, including the
             continue;
 
         ++idx;
-        PrintToClientOrConsole(slot, "Commands - List", "%d. %s%s (%llu)\n", idx, controller->m_iszPlayerName(), player->IsFakeClient() ? " (BOT)" : "", controller->m_steamID());
+        PrintToClientOrConsole(slot, "List", "%d. %s%s (%llu)\n", idx, controller->m_iszPlayerName(), player->IsFakeClient() ? " (BOT)" : "", controller->m_steamID());
     }
 }
 
@@ -74,7 +92,6 @@ void ShowSwiftlyCommandHelp(CPlayerSlot *slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", " help      - Show the help for Swiftly commands\n");
     if (slot->Get() == -1)
     {
-        PrintToClientOrConsole(slot, "Commands", " cvars     - List all console variables created by plugins\n");
         PrintToClientOrConsole(slot, "Commands", " confilter - Console Filtering Menu\n");
         PrintToClientOrConsole(slot, "Commands", " plugins   - Plugin Management Menu\n");
     }
@@ -126,7 +143,7 @@ void ShowSwiftlyPluginManagerHelp(CPlayerSlot *slot, CCommandContext context)
 
 void SwiftlyPluginManagerList(CPlayerSlot *slot, CCommandContext context)
 {
-    PrintToClientOrConsole(slot, "Commands", "Showing below %02d plugins loaded:\n", plugins.size());
+    PrintToClientOrConsole(slot, "Plugins List", "Showing below %02d plugins loaded:\n", plugins.size());
     uint32 showingIdx = 0;
     for (uint32 i = 0; i < plugins.size(); i++)
     {
@@ -147,7 +164,7 @@ void SwiftlyPluginManagerList(CPlayerSlot *slot, CCommandContext context)
 
         std::string website = reinterpret_cast<GetPlugin>(GetPluginWebsite)();
 
-        PrintToClientOrConsole(slot, "Commands", "%02d. \"%s\" (%s) by %s%s\n",
+        PrintToClientOrConsole(slot, "Plugins List", "%02d. \"%s\" (%s) by %s%s\n",
                                showingIdx,
                                reinterpret_cast<GetPlugin>(GetPluginName)(),
                                reinterpret_cast<GetPlugin>(GetPluginVersion)(),
@@ -162,11 +179,11 @@ void SwiftlyPluginManagerInfo(CPlayerSlot *slot, CCommandContext context, std::s
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins info <plugin_name>\n");
 
     if (pluginsMap.find(plugin_name) == pluginsMap.end())
-        return PrintToClientOrConsole(slot, "Plugins - Info", "Invalid plugin name.\n");
+        return PrintToClientOrConsole(slot, "Plugin Info", "Invalid plugin name.\n");
 
     Plugin *plugin = pluginsMap.at(plugin_name);
     if (!plugin->IsPluginLoaded())
-        return PrintToClientOrConsole(slot, "Plugins - Info", "Plugin is not loaded.\n");
+        return PrintToClientOrConsole(slot, "Plugin Info", "Plugin is not loaded.\n");
 
     void *GetPluginAuthor = plugin->FetchFunction("GetPluginAuthor");
     void *GetPluginVersion = plugin->FetchFunction("GetPluginVersion");
@@ -175,11 +192,11 @@ void SwiftlyPluginManagerInfo(CPlayerSlot *slot, CCommandContext context, std::s
 
     std::string website = reinterpret_cast<GetPlugin>(GetPluginWebsite)();
 
-    PrintToClientOrConsole(slot, "Plugins - Info", "Plugin File Name: %s\n", (plugin->GetName() + WIN_LINUX(".dll", ".so")).c_str());
-    PrintToClientOrConsole(slot, "Plugins - Info", "Name: %s\n", reinterpret_cast<GetPlugin>(GetPluginName)());
-    PrintToClientOrConsole(slot, "Plugins - Info", "Author: %s\n", reinterpret_cast<GetPlugin>(GetPluginAuthor)());
-    PrintToClientOrConsole(slot, "Plugins - Info", "Version: %s\n", reinterpret_cast<GetPlugin>(GetPluginVersion)());
-    PrintToClientOrConsole(slot, "Plugins - Info", "URL: %s\n", website == "" ? "Not Present" : website.c_str());
+    PrintToClientOrConsole(slot, "Plugin Info", "Plugin File Name: %s\n", (plugin->GetName() + WIN_LINUX(".dll", ".so")).c_str());
+    PrintToClientOrConsole(slot, "Plugin Info", "Name: %s\n", reinterpret_cast<GetPlugin>(GetPluginName)());
+    PrintToClientOrConsole(slot, "Plugin Info", "Author: %s\n", reinterpret_cast<GetPlugin>(GetPluginAuthor)());
+    PrintToClientOrConsole(slot, "Plugin Info", "Version: %s\n", reinterpret_cast<GetPlugin>(GetPluginVersion)());
+    PrintToClientOrConsole(slot, "Plugin Info", "URL: %s\n", website == "" ? "Not Present" : website.c_str());
 }
 
 void SwiftlyPluginManagerUnload(CPlayerSlot *slot, CCommandContext context, std::string plugin_name)
@@ -188,14 +205,14 @@ void SwiftlyPluginManagerUnload(CPlayerSlot *slot, CCommandContext context, std:
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins unload <plugin_name>\n");
 
     if (pluginsMap.find(plugin_name) == pluginsMap.end())
-        return PrintToClientOrConsole(slot, "Plugins - Unload", "Invalid plugin name.\n");
+        return PrintToClientOrConsole(slot, "Plugin Unload", "Invalid plugin name.\n");
 
     Plugin *plugin = pluginsMap.at(plugin_name);
     if (!plugin->IsPluginLoaded())
-        return PrintToClientOrConsole(slot, "Plugins - Unload", "Plugin is not loaded.\n");
+        return PrintToClientOrConsole(slot, "Plugin Unload", "Plugin is not loaded.\n");
 
     plugin->StopPlugin();
-    PrintToClientOrConsole(slot, "Plugins - Unload", "Plugin '%s' has been unloaded.\n", plugin_name.c_str());
+    PrintToClientOrConsole(slot, "Plugin Unload", "Plugin '%s' has been unloaded.\n", plugin_name.c_str());
 }
 
 void SwiftlyPluginManagerLoad(CPlayerSlot *slot, CCommandContext context, std::string plugin_name)
@@ -204,15 +221,15 @@ void SwiftlyPluginManagerLoad(CPlayerSlot *slot, CCommandContext context, std::s
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins load <plugin_name>\n");
 
     if (pluginsMap.find(plugin_name) == pluginsMap.end())
-        return PrintToClientOrConsole(slot, "Plugins - Load", "Invalid plugin name.\n");
+        return PrintToClientOrConsole(slot, "Plugin Load", "Invalid plugin name.\n");
 
     Plugin *plugin = pluginsMap.at(plugin_name);
     if (plugin->IsPluginLoaded())
-        return PrintToClientOrConsole(slot, "Plugins - Load", "Plugin is already loaded.\n");
+        return PrintToClientOrConsole(slot, "Plugin Load", "Plugin is already loaded.\n");
 
     plugin->LoadPlugin();
     plugin->StartPlugin();
-    PrintToClientOrConsole(slot, "Plugins - Load", "Plugin '%s' has been loaded.\n", plugin_name.c_str());
+    PrintToClientOrConsole(slot, "Plugin Load", "Plugin '%s' has been loaded.\n", plugin_name.c_str());
 }
 
 void SwiftlyPluginManagerReload(CPlayerSlot *slot, CCommandContext context, std::string plugin_name)
@@ -221,16 +238,16 @@ void SwiftlyPluginManagerReload(CPlayerSlot *slot, CCommandContext context, std:
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins reload <plugin_name>\n");
 
     if (pluginsMap.find(plugin_name) == pluginsMap.end())
-        return PrintToClientOrConsole(slot, "Plugins - Reload", "Invalid plugin name.\n");
+        return PrintToClientOrConsole(slot, "Plugin Reload", "Invalid plugin name.\n");
 
     Plugin *plugin = pluginsMap.at(plugin_name);
     if (!plugin->IsPluginLoaded())
-        return PrintToClientOrConsole(slot, "Plugins - Reload", "Plugin is not loaded.\n");
+        return PrintToClientOrConsole(slot, "Plugin Reload", "Plugin is not loaded.\n");
 
     plugin->StopPlugin();
     plugin->LoadPlugin();
     plugin->StartPlugin();
-    PrintToClientOrConsole(slot, "Plugins - Reload", "Plugin '%s' has been reloaded.\n", plugin_name.c_str());
+    PrintToClientOrConsole(slot, "Plugin Reload", "Plugin '%s' has been reloaded.\n", plugin_name.c_str());
 }
 
 void SwiftlyPluginManager(CPlayerSlot *slot, CCommandContext context, const char *subcmd, const char *plugin_name)
@@ -338,6 +355,16 @@ void SwiftlyConFilterManager(CPlayerSlot *slot, CCommandContext context, const c
         SwiftlyConFilterManagerHelp(slot, context);
 }
 
+void SwiftlyVersion(CPlayerSlot *slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Version", "Swiftly Version informations:\n");
+    PrintToClientOrConsole(slot, "Version", " Swiftly Version: %s\n", g_Plugin.GetVersion());
+    PrintToClientOrConsole(slot, "Version", " Swiftly API Version: %d\n", g_Plugin.GetApiVersion());
+    PrintToClientOrConsole(slot, "Version", " Swiftly C++ Version: %s\n", GetCppVersion());
+    PrintToClientOrConsole(slot, "Version", " Compiled on: %s %s\n", __DATE__, __TIME__);
+    PrintToClientOrConsole(slot, "Version", " https://github.com/swiftly-solution \n");
+}
+
 void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
 {
     CPlayerSlot *slot = &context.GetPlayerSlot();
@@ -358,6 +385,8 @@ void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
         SwiftlyPluginManager(slot, context, args[2], args[3]);
     else if (subcmd == "confilter")
         SwiftlyConFilterManager(slot, context, args[2]);
+    else if (subcmd == "version")
+        SwiftlyVersion(slot, context);
     else
         ShowSwiftlyCommandHelp(slot, context);
 }
