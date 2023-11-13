@@ -26,6 +26,7 @@ for sdk_name in MMSPlugin.sdks:
       os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'hl2sdk'),
       os.path.join(builder.sourcePath, 'hl2sdk', 'public'),
+      os.path.join(builder.sourcePath, 'hl2sdk', 'public', 'entity2'),
       os.path.join(builder.sourcePath, 'hl2sdk', 'game', 'server'),
       # os.path.join(builder.sourcePath, 'src', 'sdk'),
     ]
