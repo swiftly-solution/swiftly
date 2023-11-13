@@ -87,16 +87,6 @@ enum ENetworkDisconnectionReason
 
 class Player
 {
-private:
-    CPlayerSlot slot;
-    bool isFakeClient;
-    bool isAuthenticated;
-    bool isConnected;
-    int eHandleId = -1;
-    std::time_t connectTime;
-    const char *name;
-    uint64 xuid;
-
 public:
     Player(bool m_isFakeClient, CPlayerSlot m_slot, const char *m_name, uint64 m_xuid) : isFakeClient(m_isFakeClient), slot(m_slot), connectTime(std::time(0)), name(m_name), xuid(m_xuid) {}
 
@@ -124,6 +114,16 @@ public:
 
     CBasePlayerController *GetController();
     CBasePlayerPawn *GetPawn();
+
+private:
+    CPlayerSlot slot;
+    bool isFakeClient;
+    bool isAuthenticated;
+    bool isConnected;
+    int eHandleId = -1;
+    std::time_t connectTime;
+    const char *name;
+    uint64 xuid;
 };
 
 #endif

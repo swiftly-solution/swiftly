@@ -100,7 +100,7 @@ bool CommandsManager::UnregisterCommand(std::string cmd)
     if (command == nullptr)
         return false;
 
-    this->commandsByPlugin[command->m_pluginName].erase(std::find(this->commandsByPlugin[command->m_pluginName].begin(), this->commandsByPlugin[command->m_pluginName].end(), cmd));
+    this->commandsByPlugin[command->GetPluginName()].erase(std::find(this->commandsByPlugin[command->GetPluginName()].begin(), this->commandsByPlugin[command->GetPluginName()].end(), cmd));
     this->commands.erase(cmd);
     return true;
 }
