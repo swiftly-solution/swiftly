@@ -1,0 +1,46 @@
+name: "Swiftly Linux Compiler"
+
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+
+jobs:
+    build:
+        name: Build
+        runs-on: ${{ matrix.os }}
+        env:
+            MMSOURCE112: ${{ github.workspace }}/swiftly/metamod
+            HL2SDKCS2: ${{ github.workspace }}/swiftly/hl2sdk
+        container: ${{ matrix.container }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+                include:
+                    - os: windows-latest
+                    - os: ubuntu-latest
+                      container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  path: swiftly
+                  submodules: recursive
+
+            - name: Checkout AMBuild
+              uses: actions/checkout@v4
+              with:
+                  repository: alliedmodders/ambuild
+                  path: ambuild
+
+            - name: Install AMBuild
+              run: |
+                  cd ambuild && python setup.py install && cd ..
+
+            - name: Build
+              working-directory: swiftly
+              shell: bash
+              run: |
+                  ./setup.sh
