@@ -32,7 +32,7 @@ template <typename T>
 T Configuration::FetchValue(std::string key)
 {
     if (this->config.find(key) == this->config.end())
-        return nullptr;
+        return 0;
 
     return std::any_cast<T>(this->config.at(key));
 }
