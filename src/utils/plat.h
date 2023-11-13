@@ -2,6 +2,10 @@
 #include <cstdint>
 #include "metamod_oslink.h"
 
+#ifdef FASTCALL
+#undef FASTCALL
+#endif
+
 #if defined(_WIN32)
 #define FASTCALL __fastcall
 #define THISCALL __thiscall
