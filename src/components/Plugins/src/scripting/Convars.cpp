@@ -5,11 +5,11 @@ ConVar *FetchCVar(const char *name)
     if (!g_pCVar)
         return nullptr;
 
-    ConVarHandle *cvarHandle = &g_pCVar->FindConVar(name);
-    if (!cvarHandle->IsValid())
+    ConVarHandle cvarHandle = g_pCVar->FindConVar(name);
+    if (!cvarHandle.IsValid())
         return nullptr;
 
-    return g_pCVar->GetConVar(*cvarHandle);
+    return g_pCVar->GetConVar(cvarHandle);
 }
 
 SMM_API int scripting_Server_GetConvarInt(const char *name)
@@ -114,17 +114,17 @@ SMM_API void scripting_Server_SetConvar(const char *name, ...)
     if (!g_pCVar)
         return;
 
-    ConVarHandle *cvarHandle = &g_pCVar->FindConVar(name);
-    if (!cvarHandle->IsValid())
+    ConVarHandle cvarHandle = g_pCVar->FindConVar(name);
+    if (!cvarHandle.IsValid())
         return;
 
-    ConVar *cvar = g_pCVar->GetConVar(*cvarHandle);
+    ConVar *cvar = g_pCVar->GetConVar(cvarHandle);
 
     va_list ap;
-    va_start(ap, 1);
+    va_start(ap, name);
 
     if (cvar->m_eVarType == EConVarType_Bool)
-        engine->ServerCommand(string_format("%s %s", name, (va_arg(ap, bool) == true) ? "true" : "false").c_str());
+        engine->ServerCommand(string_format("%s %s", name, (va_arg(ap, int) == 1) ? "true" : "false").c_str());
     else if (cvar->m_eVarType == EConVarType_String)
         engine->ServerCommand(string_format("%s \"%s\"", name, va_arg(ap, const char *)).c_str());
     else if (cvar->m_eVarType == EConVarType_Int32)
@@ -132,7 +132,7 @@ SMM_API void scripting_Server_SetConvar(const char *name, ...)
     else if (cvar->m_eVarType == EConVarType_UInt32)
         engine->ServerCommand(string_format("%s %d", name, va_arg(ap, unsigned int)).c_str());
     else if (cvar->m_eVarType == EConVarType_Float32)
-        engine->ServerCommand(string_format("%s %f", name, va_arg(ap, float)).c_str());
+        engine->ServerCommand(string_format("%s %f", name, va_arg(ap, double)).c_str());
 
     va_end(ap);
 }
