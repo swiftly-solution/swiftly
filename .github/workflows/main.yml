@@ -9,7 +9,7 @@ on:
 jobs:
     build:
         name: Build
-        runs-on: [self-hosted]
+        runs-on: ${{ matrix.os }}
         env:
             MMSOURCE112: ${{ github.workspace }}/swiftly/metamod
             HL2SDKCS2: ${{ github.workspace }}/swiftly/hl2sdk
@@ -17,7 +17,10 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+                os: [self-hosted]
+                include:
+                    - os: self-hosted
+                      container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
         steps:
             - name: Checkout
               uses: actions/checkout@v4
