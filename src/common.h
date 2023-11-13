@@ -1,8 +1,10 @@
 #ifndef _common_h
 #define _common_h
 
+#ifdef _MSC_VER
 #pragma warning(disable : 4005)
 #pragma warning(disable : 4267)
+#endif
 
 #define META_IS_SOURCE2 1
 #define MAX_PLAYERS 64
