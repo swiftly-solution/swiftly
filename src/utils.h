@@ -5,6 +5,7 @@
 #include <string>
 #include <stdexcept>
 #include <vector>
+#include <platform.h>
 
 #define PREFIX "[Swiftly]"
 
