@@ -24,7 +24,14 @@ private:
     const char *error = nullptr;
 
 public:
-    Database(const char *hostname, const char *username, const char *password, const char *database, uint16 port) : m_hostname(hostname), m_username(username), m_password(password), m_port(port), m_database(database) {}
+    Database(const char *hostname, const char *username, const char *password, const char *database, uint16 port)
+    {
+        this->m_hostname = hostname;
+        this->m_username = username;
+        this->m_password = password;
+        this->m_port = port;
+        this->m_database = database;
+    }
 
     bool Connect();
     void Close(bool containsError = false);

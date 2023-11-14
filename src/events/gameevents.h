@@ -17,8 +17,10 @@ private:
     const char *eventName;
 
 public:
-    CGameEventListener(FnEventListenerCallback callback, const char *eventName) : callback(callback), eventName(eventName)
+    CGameEventListener(FnEventListenerCallback cb, const char *evName)
     {
+        this->callback = cb;
+        this->eventName = evName;
         g_GameEventListener.AddToTail(this);
     }
 
