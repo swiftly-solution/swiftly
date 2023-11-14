@@ -46,14 +46,16 @@ jobs:
                   cd build
                   ambuild
 
-            - name: Compress Artifacts
-              working-directory: swiftly
-              shell: bash
-              run: |
-                  cd ./build/package; tar -cvf ../../swiftly_plugin.tar .; cd ../..
-
-            - name: Upload Artifacts
+            - name: Upload Artifacts Linux
+              if: matrix.os == 'self-hosted'
               uses: actions/upload-artifact@v3
               with:
-                  name: Swiftly Plugin ${{ matrix.os }}
-                  path: ${{ github.workspace }}/swiftly/swiftly_plugin.tar
+                  name: Swiftly Plugin Linux
+                  path: ${{ github.workspace }}/swiftly/build/package
+
+            - name: Upload Artifacts Windows
+              if: matrix.os == 'windows-hosted'
+              uses: actions/upload-artifact@v3
+              with:
+                  name: Swiftly Plugin Windows
+                  path: ${{ github.workspace }}/swiftly/build/package
