@@ -6,12 +6,12 @@
 class CBasePlayerController;
 class CCommand;
 
-void __fastcall Hook_Host_Say(CBasePlayerController *, CCommand &, bool, int, const char *);
-void __fastcall Hook_LoggingSystem_LogDirect(int, int, const char *, ...);
-void __fastcall Hook_LoggingSystem_Log(int, int, const char *, ...);
-void __fastcall Hook_LoggingSystem_LogAssert(const char *, ...);
-void __fastcall Hook_Msg(const char *, ...);
-void __fastcall Hook_Warning(const char *, ...);
+void FASTCALL Hook_Host_Say(CBasePlayerController *, CCommand &, bool, int, const char *);
+void FASTCALL Hook_LoggingSystem_LogDirect(int, int, const char *, ...);
+void FASTCALL Hook_LoggingSystem_Log(int, int, const char *, ...);
+void FASTCALL Hook_LoggingSystem_LogAssert(const char *, ...);
+void FASTCALL Hook_Msg(const char *, ...);
+void FASTCALL Hook_Warning(const char *, ...);
 bool InitializeHooks();
 
 #endif

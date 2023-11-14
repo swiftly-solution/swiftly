@@ -28,7 +28,7 @@ FuncHook<decltype(Hook_LoggingSystem_LogAssert)> LoggingSystemt_LogAssert(Hook_L
         if (g_conFilter->NeedFiltering(buffer))                    \
             return;
 
-void __fastcall Hook_Host_Say(CBasePlayerController *controller, CCommand &args, bool teamonly, int unk1, const char *unk2)
+void FASTCALL Hook_Host_Say(CBasePlayerController *controller, CCommand &args, bool teamonly, int unk1, const char *unk2)
 {
     if (!controller)
         return;
@@ -52,7 +52,7 @@ void __fastcall Hook_Host_Say(CBasePlayerController *controller, CCommand &args,
     }
 }
 
-void __fastcall Hook_LoggingSystem_LogDirect(int channelId, int severity, const char *message, ...)
+void FASTCALL Hook_LoggingSystem_LogDirect(int channelId, int severity, const char *message, ...)
 {
     CHECKLOGS();
     LoggingSystemt_LogDirect(channelId, severity, buffer);
@@ -70,13 +70,13 @@ void Hook_LoggingSystem_LogAssert(const char *message, ...)
     LoggingSystemt_LogAssert(buffer);
 }
 
-void __fastcall Hook_Msg(const char *message, ...)
+void FASTCALL Hook_Msg(const char *message, ...)
 {
     CHECKLOGS()
     TMsg(buffer);
 }
 
-void __fastcall Hook_Warning(const char *message, ...)
+void FASTCALL Hook_Warning(const char *message, ...)
 {
     CHECKLOGS()
     TWarning(buffer);
