@@ -45,6 +45,7 @@ jobs:
                   bash ./setup.sh
                   cd build
                   ambuild
+                  echo "$(pwd)"
 
             - name: Upload Artifacts
               uses: actions/upload-artifact@v3
