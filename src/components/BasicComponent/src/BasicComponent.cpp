@@ -367,7 +367,8 @@ void SwiftlyVersion(CPlayerSlot *slot, CCommandContext context)
 
 void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
 {
-    CPlayerSlot *slot = &context.GetPlayerSlot();
+    CPlayerSlot sl = context.GetPlayerSlot();
+    CPlayerSlot *slot = &sl;
     if (args.ArgC() < 2)
     {
         ShowSwiftlyCommandHelp(slot, context);
