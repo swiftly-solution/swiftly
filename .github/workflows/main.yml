@@ -46,6 +46,7 @@ jobs:
                   cd build
                   ambuild
                   echo "$(pwd)"
+                  echo "${{ github.workspace }}"
 
             - name: Compress Artifacts
               run: tar -cvf swiftly_plugin.tar ./build/package/addons
