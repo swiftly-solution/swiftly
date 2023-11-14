@@ -48,10 +48,10 @@ jobs:
                   echo "$(pwd)"
 
             - name: Compress Artifacts
-              run: tar -cvf swiftly_plugin.tar.gz ${{ github.workspace }}/swiftly/build/package/addons
+              run: tar -cvf swiftly_plugin.tar ${{ github.workspace }}/swiftly/build/package/addons
 
             - name: Upload Artifacts
               uses: actions/upload-artifact@v3
               with:
                   name: Swiftly Plugin ${{ matrix.os }}
-                  path: swiftly_plugin.tar.gz
+                  path: swiftly_plugin.tar
