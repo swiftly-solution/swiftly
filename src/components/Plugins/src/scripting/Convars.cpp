@@ -101,11 +101,11 @@ SMM_API EConVarType scripting_Server_GetConvarType(const char *name)
     if (!g_pCVar)
         return EConVarType_Invalid;
 
-    ConVarHandle *cvarHandle = &g_pCVar->FindConVar(name);
-    if (!cvarHandle->IsValid())
+    ConVarHandle cvarHandle = g_pCVar->FindConVar(name);
+    if (!cvarHandle.IsValid())
         return EConVarType_Invalid;
 
-    ConVar *cvar = g_pCVar->GetConVar(*cvarHandle);
+    ConVar *cvar = g_pCVar->GetConVar(cvarHandle);
     return cvar->m_eVarType;
 }
 
