@@ -38,7 +38,8 @@ std::string seconds_to_time(unsigned int number)
 
 CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
 {
-    CPlayerSlot *slot = &context.GetPlayerSlot();
+    CPlayerSlot sl = context.GetPlayerSlot();
+    CPlayerSlot *slot = &sl;
 
     PrintToClientOrConsole(slot, "Commands - Status", "userid\tname\tsteamid\t\ttime\t\tstate\n");
 
@@ -64,7 +65,8 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
 
 CON_COMMAND_F(sw_list, "Shows the players connected on the server, including the number of those.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
 {
-    CPlayerSlot *slot = &context.GetPlayerSlot();
+    CPlayerSlot sl = context.GetPlayerSlot();
+    CPlayerSlot *slot = &sl;
 
     PrintToClientOrConsole(slot, "List", "Connected players: %02d/%02d\n", g_playerManager->GetPlayers(), engine->GetServerGlobals()->maxClients);
     uint16 idx = 0;
@@ -111,7 +113,7 @@ void ShowSwiftlyCommands(CPlayerSlot *slot, CCommandContext context, int page)
     std::map<std::string, Command *> cmds = g_commandsManager->GetCommands();
     if (page < 1)
         page = 1;
-    else if (page * 10 > cmds.size())
+    else if (static_cast<unsigned int>(page) * 10 > cmds.size())
         page = int(floor(cmds.size() / 10));
 
     std::map<std::string, Command *>::iterator it = cmds.begin();
@@ -126,7 +128,7 @@ void ShowSwiftlyCommands(CPlayerSlot *slot, CCommandContext context, int page)
         ++it;
     }
 
-    if (page * 10 < cmds.size())
+    if (static_cast<unsigned int>(page) * 10 < cmds.size())
         PrintToClientOrConsole(slot, "Commands", "To see more please use swiftly cmds %d\n", page + 1);
 }
 
