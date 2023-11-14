@@ -24,7 +24,11 @@ private:
     bool m_installed;
 
 public:
-    FuncHook(T *fn, const char *name) : m_fn(fn), m_name(name) {}
+    FuncHook(T *fn, const char *name)
+    {
+        this->m_fn = fn;
+        this->m_name = name;
+    }
     ~FuncHook()
     {
         this->Free();
