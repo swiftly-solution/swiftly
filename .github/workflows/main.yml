@@ -49,5 +49,5 @@ jobs:
             - name: Upload Artifacts
               uses: actions/upload-artifact@v3
               with:
-                  name: Swiftly Plugin
-                  path: build/package/*
+                  name: Swiftly Plugin ${{ matrix.os }}
+                  path: ${{ github.workspace }}/build/package/**/*
