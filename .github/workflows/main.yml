@@ -56,4 +56,4 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                   name: Swiftly Plugin ${{ matrix.os }}
-                  path: swiftly_plugin.tar
+                  path: ${{ github.workspace }}/swiftly/swiftly_plugin.tar
