@@ -52,7 +52,8 @@ void OnClientSpawn(const OnPlayerSpawn *e)
     if (!controller)
         return;
 
-    Player *player = g_playerManager->GetPlayer(&e->pEvent->GetPlayerSlot("userid"));
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
 
