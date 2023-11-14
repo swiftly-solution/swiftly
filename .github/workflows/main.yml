@@ -50,4 +50,4 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                   name: Swiftly Plugin ${{ matrix.os }}
-                  path: ${{ github.workspace }}/build/package/addons
+                  path: ${{ github.workspace }}/swiftly/build/package/addons
