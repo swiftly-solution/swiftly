@@ -47,7 +47,10 @@ jobs:
                   ambuild
 
             - name: Compress Artifacts
-              run: tar -cvf swiftly_plugin.tar ${{ github.workspace }}/swiftly/build/package/addons
+              working-directory: swiftly
+              shell: bash
+              run: |
+                  cd ./build/package; tar -cvf ../../swiftly_plugin.tar .; cd ../..
 
             - name: Upload Artifacts
               uses: actions/upload-artifact@v3
