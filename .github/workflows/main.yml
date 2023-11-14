@@ -45,3 +45,9 @@ jobs:
                   bash ./setup.sh
                   cd build
                   ambuild
+
+            - name: Upload Artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                  name: Swiftly Plugin
+                  path: build/package/*
