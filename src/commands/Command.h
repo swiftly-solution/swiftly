@@ -6,7 +6,11 @@
 class Command
 {
 public:
-    Command(std::string pluginName, void *funcPtr) : m_pluginName(pluginName), m_funcPtr(funcPtr) {}
+    Command(std::string pluginName, void *funcPtr)
+    {
+        this->m_pluginName = pluginName;
+        this->m_funcPtr = funcPtr;
+    }
     void Exec(int slot, std::vector<std::string> args, bool silent);
     std::string GetPluginName() { return this->m_pluginName; }
 
