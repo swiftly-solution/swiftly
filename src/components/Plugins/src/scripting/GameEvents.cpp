@@ -57,7 +57,8 @@ void scripting_OnClientSpawn(const OnPlayerSpawn *e)
 
 bool scripting_OnClientChat(CBasePlayerController *controller, const char *text, bool teamonly)
 {
-    CPlayerSlot *slot = &g_playerManager->GetSlotFromUserId(controller->GetRefEHandle().GetEntryIndex() - 1);
+    CPlayerSlot sl = g_playerManager->GetSlotFromUserId(controller->GetRefEHandle().GetEntryIndex() - 1);
+    CPlayerSlot *slot = &sl;
     if (!slot)
         return false;
 

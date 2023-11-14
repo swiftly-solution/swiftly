@@ -11,7 +11,8 @@ std::map<std::string, bool> existed;
 // @returns 0 - is not command
 int CommandsManager::HandleCommands(CBasePlayerController *controller, std::string text)
 {
-    CPlayerSlot *slot = &g_playerManager->GetSlotFromUserId(controller->GetRefEHandle().GetEntryIndex() - 1);
+    CPlayerSlot sl = g_playerManager->GetSlotFromUserId(controller->GetRefEHandle().GetEntryIndex() - 1);
+    CPlayerSlot *slot = &sl;
     if (slot == nullptr)
         return -1;
     Player *player = g_playerManager->GetPlayer(slot);
