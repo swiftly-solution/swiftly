@@ -8,6 +8,6 @@
 class CBasePlayerPawn : public CBaseCombatCharacter
 {
 public:
-	SCHEMA_FIELD(CPlayer_ItemServices*, CBasePlayerPawn, m_pItemServices);
-	SCHEMA_FIELD(CHandle<CBasePlayerController>, CBasePlayerPawn, m_hController);	
+	SCHEMA_FIELD(CPlayer_ItemServices *, CBasePlayerPawn, m_pItemServices);
+	SCHEMA_FIELD(CHandle<CBasePlayerController>, CBasePlayerPawn, m_hController);
 };

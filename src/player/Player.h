@@ -1,9 +1,9 @@
 #ifndef _player_h
 #define _player_h
 
-#include "../common.h"
 #include "../sdk/CBasePlayerController.h"
 #include "../sdk/CBasePlayerPawn.h"
+#include <playerslot.h>
 #include <ctime>
 
 #define HUD_PRINTNOTIFY 1
@@ -88,7 +88,14 @@ enum ENetworkDisconnectionReason
 class Player
 {
 public:
-    Player(bool m_isFakeClient, CPlayerSlot m_slot, const char *m_name, uint64 m_xuid) : isFakeClient(m_isFakeClient), slot(m_slot), connectTime(std::time(0)), name(m_name), xuid(m_xuid) {}
+    Player(bool m_isFakeClient, int m_slot, const char *m_name, uint64 m_xuid)
+    {
+        this->slot = m_slot;
+        this->isFakeClient = m_isFakeClient;
+        this->connectTime = std::time(0);
+        this->name = m_name;
+        this->xuid = m_xuid;
+    }
 
     ~Player()
     {
@@ -98,7 +105,7 @@ public:
 
     inline bool IsFakeClient() { return this->isFakeClient; };
     inline bool IsAuthenticated() { return this->isAuthenticated; };
-    inline CPlayerSlot *GetSlot() { return &this->slot; };
+    inline CPlayerSlot *GetSlot() { return new CPlayerSlot(this->slot); };
     inline void SetEHandlerIdx(int eHandleId) { this->eHandleId = eHandleId; };
     inline int GetEHandlerIdx() { return this->eHandleId; };
     inline uint32 GetConnectedTime() { return (std::time(0) - this->connectTime); };
@@ -116,10 +123,10 @@ public:
     CBasePlayerPawn *GetPawn();
 
 private:
-    CPlayerSlot slot;
-    bool isFakeClient;
-    bool isAuthenticated;
-    bool isConnected;
+    int slot;
+    bool isFakeClient = false;
+    bool isAuthenticated = false;
+    bool isConnected = false;
     int eHandleId = -1;
     std::time_t connectTime;
     const char *name;
