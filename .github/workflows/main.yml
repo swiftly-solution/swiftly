@@ -1,4 +1,4 @@
-name: "Swiftly Linux Compiler"
+name: "Swiftly Compiler"
 
 on:
     push:
