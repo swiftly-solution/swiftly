@@ -38,6 +38,26 @@ jobs:
               run: |
                   cd ambuild; python setup.py install; cd ..
 
+            - name: Download Swiftly Plugin Utilities - Windows
+              uses: bettermarks/action-artifact-download@0.3.0
+              if: matrix.os == 'windows-hosted'
+              with:
+                  repo: swiftly-solution/swiftly-plugins-utility
+                  #   token: ${{ secrets.GITHUB_TOKEN }}
+                  artifact_name: Swiftly Plugins Utility Windows
+                  rename: plugin_files/scripting/swiftly_utility.exe
+                  wait_seconds: 60
+
+            - name: Download Swiftly Plugin Utilities - Linux
+              uses: bettermarks/action-artifact-download@0.3.0
+              if: matrix.os == 'self-hosted'
+              with:
+                  repo: swiftly-solution/swiftly-plugins-utility
+                  #   token: ${{ secrets.GITHUB_TOKEN }}
+                  artifact_name: Swiftly Plugins Utility Linux
+                  rename: plugin_files/scripting/swiftly_utility
+                  wait_seconds: 60
+
             - name: Prepare Build - Linux
               if: matrix.os == 'self-hosted'
               working-directory: swiftly
