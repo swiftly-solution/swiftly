@@ -1,5 +1,5 @@
 # vim: set ts=2 sw=2 tw=99 noet ft=python: 
-import os
+import os, shutil
 
 builder.SetBuildFolder('package')
 
@@ -48,9 +48,13 @@ with open(os.path.join(builder.buildPath, 'pdblog.txt'), 'wt') as fp:
   for line in pdb_list:
     fp.write(line.path + '\n')
 
-builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'logs'))
-configs = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'configs'))
+def CopyPluginFiles(name):
+  shutil.copytree(os.path.join(builder.sourcePath, "plugin_files", name), os.path.join(builder.buildPath, 'package', 'addons', 'swiftly', name))
 
-for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'plugin_files', 'configs')):
-    for _file in files:
-        builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', _file), configs)
+logs = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'logs'))
+
+CopyPluginFiles("configs")
+CopyPluginFiles("plugins")
+CopyPluginFiles("gamedata")
+CopyPluginFiles("scripting")
+CopyPluginFiles("translations")
