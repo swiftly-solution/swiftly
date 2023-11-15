@@ -43,7 +43,7 @@ jobs:
               if: matrix.os == 'windows-hosted'
               with:
                   repo: swiftly-solution/swiftly-plugins-utility
-                  #   token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
                   artifact_name: Swiftly Plugins Utility Windows
                   rename: plugin_files/scripting/swiftly_utility.exe
                   wait_seconds: 60
@@ -53,7 +53,7 @@ jobs:
               if: matrix.os == 'self-hosted'
               with:
                   repo: swiftly-solution/swiftly-plugins-utility
-                  #   token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
                   artifact_name: Swiftly Plugins Utility Linux
                   rename: plugin_files/scripting/swiftly_utility
                   wait_seconds: 60
