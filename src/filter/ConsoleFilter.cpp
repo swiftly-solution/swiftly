@@ -7,8 +7,6 @@
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 
-#include <regex>
-
 void ConFilterError(std::string text)
 {
     if (!g_SMAPI)
@@ -60,9 +58,7 @@ bool ConsoleFilter::NeedFiltering(std::string message)
         std::string key = it->first;
         std::string val = it->second;
 
-        std::regex rx(val);
-
-        if (std::distance(std::sregex_iterator(message.begin(), message.end(), rx), std::sregex_iterator()) > 0)
+        if (message.find(val) != std::string::npos)
         {
             if (this->counter.find(key) != this->counter.end())
                 this->counter[key]++;
