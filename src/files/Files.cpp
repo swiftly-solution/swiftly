@@ -42,13 +42,9 @@ void ChangePath()
     std::vector<std::string> path = explode(std::filesystem::current_path().string(), WIN_LINUX("\\", "/"));
 
     path.pop_back();
-#ifdef _WIN32
     path.pop_back();
-#endif
 
     path.push_back("csgo");
-
-    PRINTF("Files", "%s\n", implode(path, WIN_LINUX("\\", "/")).c_str());
 
     std::filesystem::current_path(implode(path, WIN_LINUX("\\", "/")));
 }
