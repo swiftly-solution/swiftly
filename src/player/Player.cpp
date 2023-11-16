@@ -48,7 +48,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
         return;
 
     va_list args;
-    char buffer[256];
+    char buffer[1024];
     va_start(args, msg);
 
     size_t len = vsnprintf(buffer, sizeof(buffer), msg, args);
