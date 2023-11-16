@@ -48,6 +48,8 @@ void ChangePath()
 
     path.push_back("csgo");
 
+    PRINTF("Files", "%s\n", implode(path, WIN_LINUX("\\", "/")).c_str());
+
     std::filesystem::current_path(implode(path, WIN_LINUX("\\", "/")));
 }
 
