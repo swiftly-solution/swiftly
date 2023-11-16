@@ -54,6 +54,7 @@ jobs:
             - name: Build
               working-directory: swiftly
               run: |
+                  gcc -v
                   cd build
                   ambuild
 
