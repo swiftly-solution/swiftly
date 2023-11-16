@@ -5,6 +5,7 @@
 #include <map>
 #include <vector>
 #include <metamod_oslink.h>
+#include <filesystem>
 
 const std::string funcsToLoad[] = {
     "RegisterPlayer",
@@ -54,7 +55,7 @@ public:
     void LoadPlugin()
     {
         this->m_hModule = dlmount(WIN_LINUX(this->m_path.c_str(), this->m_path.c_str()));
-        PRINTF("LoadPlugin", "dlmount: %p\n", this->m_hModule);
+        PRINTF("LoadPlugin", "dlmount: %s, %s\n", this->m_path.c_str(), std::filesystem::current_path().string().c_str());
 
         for (uint16 i = 0; i < ARR_SIZE(funcsToLoad); i++)
             this->RegisterFunction("Internal_" + funcsToLoad[i]);
