@@ -62,6 +62,11 @@ public:
         this->m_hModule = dlmount(this->m_path.c_str());
 #else
         this->m_hModule = dlopen(string_format("%s/%s", std::filesystem::current_path().string().c_str(), this->m_path.c_str()).c_str(), RTLD_LAZY);
+
+        if (!this->m_hModule)
+        {
+            PRINTF("LoadPlugin", "Failed to load module: %s\n", std::string(dlerror()).c_str());
+        }
 #endif
         PRINT("LoadPlugin", string_format("%s/%s\nhModule addr: %p\n", std::filesystem::current_path().string().c_str(), this->m_path.c_str(), this->m_hModule).c_str());
 
