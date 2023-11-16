@@ -33,7 +33,6 @@ private:
             return;
 
         void *func = reinterpret_cast<void *>(dlsym(this->m_hModule, function.c_str()));
-        PRINTF("RegisterPluginFunctions", "%s: %p\n", function.c_str(), func);
         if (func == nullptr)
             return;
 
