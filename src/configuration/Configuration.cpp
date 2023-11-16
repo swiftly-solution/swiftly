@@ -126,6 +126,8 @@ void Configuration::LoadPluginConfigurations()
     for (const std::string configFilePath : configFiles)
     {
         std::string configFileName = explode(configFilePath, string_format("addons/swiftly/configs/plugins%s", WIN_LINUX("\\", "/")))[1];
+        if (!ends_with(configFileName, ".json"))
+            continue;
         rapidjson::Document configurationFile;
         configurationFile.Parse(Files::Read(configFilePath).c_str());
         if (configurationFile.HasParseError())
