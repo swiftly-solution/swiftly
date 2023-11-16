@@ -54,6 +54,7 @@ public:
     void LoadPlugin()
     {
         this->m_hModule = dlmount(WIN_LINUX(this->m_path.c_str(), this->m_path.c_str()));
+        PRINTF("LoadPlugin", "dlmount: %p\n", this->m_hModule);
 
         for (uint16 i = 0; i < ARR_SIZE(funcsToLoad); i++)
             this->RegisterFunction("Internal_" + funcsToLoad[i]);
