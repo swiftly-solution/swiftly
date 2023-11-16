@@ -7,8 +7,6 @@
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 
-#include <regex>
-
 #ifdef _WIN32
 #define ROOTBIN "/bin/win64/"
 #define GAMEBIN "/csgo/bin/win64/"
@@ -99,6 +97,19 @@ bool Signatures::Exists(std::string name)
     return (this->signatures.find(name) != this->signatures.end());
 }
 
+std::string replace(std::string str, const std::string from, const std::string to)
+{
+    if (from.empty())
+        return str;
+    size_t start_pos = 0;
+    while ((start_pos = str.find(from, start_pos)) != std::string::npos)
+    {
+        str.replace(start_pos, from.length(), to);
+        start_pos += to.length();
+    }
+    return str;
+}
+
 void Signatures::LoadSignatures()
 {
     rapidjson::Document signaturesFile;
@@ -124,7 +135,7 @@ void Signatures::LoadSignatures()
 
         const char *lib = it->value["lib"].GetString();
         std::string rawSig = it->value[WIN_LINUX("windows", "linux")].GetString();
-        std::string finalSig = (rawSig.at(0) == '_') ? rawSig : ("\\x" + std::regex_replace(rawSig, std::regex(" "), "\\x"));
+        std::string finalSig = (rawSig.at(0) == '_') ? rawSig : ("\\x" + replace(rawSig, " ", "\\x"));
 
         PRINTF("Signatures", "Searching for \"%s\"...\n", rawSig.c_str());
 
