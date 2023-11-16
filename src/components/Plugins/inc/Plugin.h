@@ -7,6 +7,10 @@
 #include <metamod_oslink.h>
 #include <filesystem>
 
+#ifndef _WIN32
+#include <dlfcn.h>
+#endif
+
 const std::string funcsToLoad[] = {
     "RegisterPlayer",
     "OnProgramLoad",
@@ -54,7 +58,12 @@ public:
 
     void LoadPlugin()
     {
-        this->m_hModule = dlmount(WIN_LINUX(this->m_path.c_str(), string_format("%s/%s", std::filesystem::current_path().string().c_str(), this->m_path.c_str()).c_str()));
+#ifdef _WIN32
+        this->m_hModule = dlmount(this->m_path.c_str());
+#else
+        this->m_hModule = dlopen(string_format("%s/%s", std::filesystem::current_path().string().c_str(), this->m_path.c_str()).c_str(), RTLD_LAZY);
+#endif
+        PRINT("LoadPlugin", string_format("%s/%s\nhModule addr: %p\n", std::filesystem::current_path().string().c_str(), this->m_path.c_str(), this->m_hModule).c_str());
 
         for (uint16 i = 0; i < ARR_SIZE(funcsToLoad); i++)
             this->RegisterFunction("Internal_" + funcsToLoad[i]);
