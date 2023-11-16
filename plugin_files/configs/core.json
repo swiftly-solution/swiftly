@@ -4,5 +4,6 @@
         "mode": "daily"
     },
     "commandPrefixes": ["!"],
-    "commandSilentPrefixes": ["/"]
+    "commandSilentPrefixes": ["/"],
+    "language": "en"
 }
