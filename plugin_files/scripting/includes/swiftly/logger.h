@@ -5,6 +5,7 @@
 #include "swiftly_utils.h"
 #include "types.h"
 #include <string>
+#include <cstdarg>
 
 class Logger
 {

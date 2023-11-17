@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include "swiftly_memory.h"
 #include "types.h"
+#include <cstdarg>
+#include "swiftly_utils.h"
 
 class Player
 {

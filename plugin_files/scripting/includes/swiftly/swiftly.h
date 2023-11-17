@@ -4,6 +4,7 @@
 #include "swiftly_memory.h"
 #include "swiftly_utils.h"
 #include "playermanager.h"
+#include <cstdarg>
 
 typedef void (*PrintFunction)(const char *);
 typedef const char *(*FetchTranslationFunction)(const char *);

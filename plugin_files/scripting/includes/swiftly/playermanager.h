@@ -3,6 +3,8 @@
 
 #include "player.h"
 #include <vector>
+#include <cstdarg>
+#include "swiftly_utils.h"
 
 #define MAX_PLAYERS 64
 

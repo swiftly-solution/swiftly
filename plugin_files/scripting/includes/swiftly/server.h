@@ -7,6 +7,7 @@
 #include "player.h"
 #include "convar.h"
 #include <stdlib.h>
+#include <vector>
 
 class Server
 {
