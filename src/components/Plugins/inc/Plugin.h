@@ -61,7 +61,7 @@ public:
 #ifdef _WIN32
         this->m_hModule = dlmount(this->m_path.c_str());
 #else
-        this->m_hModule = dlopen(string_format("%s/%s", std::filesystem::current_path().string().c_str(), this->m_path.c_str()).c_str(), RTLD_LAZY);
+        this->m_hModule = dlopen(string_format("%s/%s", std::filesystem::current_path().string().c_str(), this->m_path.c_str()).c_str(), RTLD_NOW);
 
         if (!this->m_hModule)
         {
