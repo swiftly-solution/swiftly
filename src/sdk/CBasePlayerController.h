@@ -10,4 +10,5 @@ public:
 	SCHEMA_FIELD(CHandle<CBasePlayerPawn>, CBasePlayerController, m_hPawn);
 	SCHEMA_FIELD(char[128], CBasePlayerController, m_iszPlayerName);
 	SCHEMA_FIELD(uint64_t, CBasePlayerController, m_steamID);
+	SCHEMA_FIELD(CUtlSymbolLarge, CBasePlayerController, m_szClan);
 };

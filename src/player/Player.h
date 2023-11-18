@@ -119,6 +119,9 @@ public:
     const char *GetName();
     uint64 GetSteamID();
 
+    const char *GetClanTag();
+    void SetClanTag(const char *clantag);
+
     CBasePlayerController *GetController();
     CBasePlayerPawn *GetPawn();
 

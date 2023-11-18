@@ -128,3 +128,21 @@ SMM_API void scripting_Players_SendMessage(int dest, const char *text)
         player->SendMsg(dest, text);
     }
 }
+
+SMM_API const char *scripting_Player_GetClanTag(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "";
+
+    return player->GetClanTag();
+}
+
+SMM_API void scripting_Player_SetClanTag(uint32 playerId, const char *tag)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    player->SetClanTag(tag);
+}

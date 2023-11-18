@@ -61,3 +61,21 @@ void Player::SendMsg(int dest, const char *msg, ...)
 
     g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, reinterpret_cast<const char *>(buffer), nullptr, nullptr, nullptr, nullptr);
 }
+
+const char *Player::GetClanTag()
+{
+    CBasePlayerController *controller = this->GetController();
+    if (!controller)
+        return "";
+
+    return controller->m_szClan().String();
+}
+
+void Player::SetClanTag(const char *clantag)
+{
+    CBasePlayerController *controller = this->GetController();
+    if (!controller)
+        return;
+
+    controller->m_szClan() = CUtlSymbolLarge(clantag);
+}

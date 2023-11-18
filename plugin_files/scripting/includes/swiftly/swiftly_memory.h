@@ -18,10 +18,13 @@ typedef bool (*Player_IsAuthenticated)(uint32_t);
 typedef const char *(*Player_GetConvar)(uint32_t, const char *);
 typedef uint8_t (*Player_GetTeam)(uint32_t);
 typedef int (*Player_GetHealth)(uint32_t);
-typedef void (*Player_SetHealth)(uint32_t,int);
-typedef void (*Player_TakeHealth)(uint32_t,int);
+typedef void (*Player_SetHealth)(uint32_t, int);
+typedef void (*Player_TakeHealth)(uint32_t, int);
 typedef void (*Player_SendMessage)(uint32_t, HudDestination, const char *);
 typedef void (*Players_SendMessage)(HudDestination, const char *);
+
+typedef const char *(*Player_GetClanTag)(uint32_t);
+typedef void (*Player_SetClanTag)(uint32_t, const char *);
 
 typedef const char *(*Database_EscapeString)(const char *, const char *);
 typedef bool (*Database_Connect)(const char *);
