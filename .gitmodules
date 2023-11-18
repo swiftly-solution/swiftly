@@ -8,3 +8,8 @@
 [submodule "vendor/rapidjson"]
 	path = vendor/rapidjson
 	url = https://github.com/Tencent/rapidjson
+[submodule "vendor/protobuf-3.21.8"]
+	path = vendor/protobuf-3.21.8
+	url = https://github.com/protocolbuffers/protobuf/
+	branch = v3.21.8
+	
