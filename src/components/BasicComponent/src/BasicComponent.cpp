@@ -6,6 +6,7 @@
 #include "../../../commands/CommandsManager.h"
 #include "../../../filter/ConsoleFilter.h"
 #include "../../Plugins/inc/Plugin.h"
+#include "../../../files/Files.h"
 
 typedef const char *(*GetPlugin)();
 
@@ -141,11 +142,27 @@ void ShowSwiftlyPluginManagerHelp(CPlayerSlot *slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", " load     - Loads a plugin\n");
     PrintToClientOrConsole(slot, "Commands", " reload   - Reloads a plugin if it was loaded\n");
     PrintToClientOrConsole(slot, "Commands", " unload   - Unloads a plugin if it was loaded\n");
+    PrintToClientOrConsole(slot, "Commands", " refresh  - Refreshes the plugin list.\n");
 }
 
 void SwiftlyPluginManagerList(CPlayerSlot *slot, CCommandContext context)
 {
-    PrintToClientOrConsole(slot, "Plugins List", "Showing below %02d plugins loaded:\n", plugins.size());
+    uint32 loadedPlugins = 0;
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin == nullptr)
+            continue;
+        if (!plugin->IsPluginLoaded())
+            continue;
+
+        ++loadedPlugins;
+    }
+
+    if (loadedPlugins == 0)
+        return PrintToClientOrConsole(slot, "Plugins List", "There are no plugins loaded.\n", loadedPlugins);
+
+    PrintToClientOrConsole(slot, "Plugins List", "Showing below %02d plugins loaded:\n", loadedPlugins);
     uint32 showingIdx = 0;
     for (uint32 i = 0; i < plugins.size(); i++)
     {
@@ -222,6 +239,7 @@ void SwiftlyPluginManagerLoad(CPlayerSlot *slot, CCommandContext context, std::s
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins load <plugin_name>\n");
 
+    Plugin *plugin = pluginsMap.at(plugin_name);
     if (pluginsMap.find(plugin_name) == pluginsMap.end())
         return PrintToClientOrConsole(slot, "Plugin Load", "Invalid plugin name.\n");
 
@@ -252,6 +270,40 @@ void SwiftlyPluginManagerReload(CPlayerSlot *slot, CCommandContext context, std:
     PrintToClientOrConsole(slot, "Plugin Reload", "Plugin '%s' has been reloaded.\n", plugin_name.c_str());
 }
 
+void SwiftlyPluginManagerRefresh(CPlayerSlot *slot, CCommandContext context)
+{
+    if (slot->Get() != -1)
+        return;
+
+    std::vector<std::string> pluginNames;
+
+    std::vector<std::string> files = Files::FetchFileNames("addons/swiftly/plugins");
+    for (const std::string &file : files)
+    {
+        if (!ends_with(file, WIN_LINUX(".dll", ".so")))
+            continue;
+        if (starts_with(file, WIN_LINUX("disabled\\", "disabled/")))
+            continue;
+
+        pluginNames.push_back(file);
+    }
+
+    uint32 newPlugins = 0;
+
+    for (const std::string plugin_name : pluginNames)
+    {
+        Plugin *plugin = new Plugin(plugin_name);
+        if (pluginsMap.find(plugin->GetName()) == pluginsMap.end())
+        {
+            plugins.push_back(plugin);
+            pluginsMap.insert(std::make_pair(plugin->GetName(), plugin));
+            ++newPlugins;
+        }
+    }
+
+    PrintToClientOrConsole(slot, "Plugin Refresh", "%02d plugins have been added.\n", newPlugins);
+}
+
 void SwiftlyPluginManager(CPlayerSlot *slot, CCommandContext context, const char *subcmd, const char *plugin_name)
 {
     if (slot->Get() != -1)
@@ -274,6 +326,8 @@ void SwiftlyPluginManager(CPlayerSlot *slot, CCommandContext context, const char
         SwiftlyPluginManagerLoad(slot, context, plugin_name);
     else if (sbcmd == "reload")
         SwiftlyPluginManagerReload(slot, context, plugin_name);
+    else if (sbcmd == "refresh")
+        SwiftlyPluginManagerRefresh(slot, context);
     else
         ShowSwiftlyPluginManagerHelp(slot, context);
 }
