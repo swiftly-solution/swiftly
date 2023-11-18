@@ -43,12 +43,14 @@ jobs:
               working-directory: swiftly
               shell: bash
               run: |
+                  curl https://github.com/swiftly-solution/swiftly-plugins-utility/releases/latest/download/swiftly_utility -o plugin_files/scripting/swiftly_utility
                   bash ./setup.sh
 
             - name: Prepare Build - Windows
               if: matrix.os == 'windows-hosted'
               working-directory: swiftly
               run: |
+                  Invoke-WebRequest -Uri https://github.com/swiftly-solution/swiftly-plugins-utility/releases/latest/download/swiftly_utility.exe -OutFile plugin_files/scripting/swiftly_utility.exe
                   ./setup.ps1
 
             - name: Build
