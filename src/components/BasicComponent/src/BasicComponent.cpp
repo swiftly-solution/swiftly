@@ -239,7 +239,6 @@ void SwiftlyPluginManagerLoad(CPlayerSlot *slot, CCommandContext context, std::s
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins load <plugin_name>\n");
 
-    Plugin *plugin = pluginsMap.at(plugin_name);
     if (pluginsMap.find(plugin_name) == pluginsMap.end())
         return PrintToClientOrConsole(slot, "Plugin Load", "Invalid plugin name.\n");
 
