@@ -74,7 +74,47 @@ SMM_API uint8 scripting_Player_GetTeam(uint32 playerId)
         return 0;
 
     CBasePlayerController *controller = player->GetController();
+    if (!controller)
+        return CS_TEAM_NONE;
     return controller->m_iTeamNum();
+}
+
+SMM_API int scripting_Player_GetHealth(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerController *controller = player->GetController();
+    if (!controller)
+        return 0;
+    return controller->m_iHealth();
+}
+
+SMM_API void scripting_Player_SetHealth(uint32 playerId, int health)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *controller = player->GetController();
+    if (!controller)
+        return;
+
+    controller->m_iHealth() = health;
+}
+
+SMM_API void scripting_Player_TakeHealth(uint32 playerId, int health)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *controller = player->GetController();
+    if (!controller)
+        return;
+
+    controller->TakeHealth(health);
 }
 
 SMM_API void scripting_Players_SendMessage(int dest, const char *text)

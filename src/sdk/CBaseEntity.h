@@ -31,6 +31,11 @@ public:
 	SCHEMA_FIELD(LifeState_t, CBaseEntity, m_lifeState);
 	SCHEMA_FIELD(uint8_t, CBaseEntity, m_iTeamNum);
 	SCHEMA_FIELD(float, CBaseEntity, m_flGravityScale);
+
+	void TakeHealth(int iHealth)
+	{
+		this->m_iHealth() = this->m_iHealth() - iHealth;
+	}
 };
 
 #endif

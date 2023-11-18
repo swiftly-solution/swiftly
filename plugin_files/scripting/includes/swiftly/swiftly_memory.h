@@ -16,7 +16,10 @@ typedef uint64_t (*Player_GetSteamID)(uint32_t);
 typedef void (*Player_Drop)(uint32_t, ENetworkDisconnectionReason);
 typedef bool (*Player_IsAuthenticated)(uint32_t);
 typedef const char *(*Player_GetConvar)(uint32_t, const char *);
-typedef uint8_T (*Player_GetTeam)();
+typedef uint8_t (*Player_GetTeam)(uint32_t);
+typedef int (*Player_GetHealth)(uint32_t);
+typedef void (*Player_SetHealth)(uint32_t,int);
+typedef void (*Player_TakeHealth)(uint32_t,int);
 typedef void (*Player_SendMessage)(uint32_t, HudDestination, const char *);
 typedef void (*Players_SendMessage)(HudDestination, const char *);
 
