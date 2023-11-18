@@ -4,6 +4,11 @@
 #include "../common.h"
 #include "schemasystem.h"
 
+#define CS_TEAM_NONE 0
+#define CS_TEAM_SPECTATOR 1
+#define CS_TEAM_T 2
+#define CS_TEAM_CT 3
+
 inline CEntityInstance *UTIL_FindEntityByClassname(CEntityInstance *pStart, const char *name)
 {
 	extern CEntitySystem *g_pEntitySystem;

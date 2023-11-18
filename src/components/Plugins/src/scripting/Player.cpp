@@ -67,6 +67,16 @@ SMM_API void scripting_Player_SendMessage(uint32 playerId, int dest, const char 
     player->SendMsg(dest, text);
 }
 
+SMM_API uint8 scripting_Player_GetTeam(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerController *controller = player->GetController();
+    return controller->m_iTeamNum();
+}
+
 SMM_API void scripting_Players_SendMessage(int dest, const char *text)
 {
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)

@@ -7,6 +7,11 @@
 #include <cstdarg>
 #include "swiftly_utils.h"
 
+#define TEAM_NONE 0
+#define TEAM_SPECTATOR 1
+#define TEAM_T 2
+#define TEAM_CT 3
+
 class Player
 {
 private:
@@ -73,6 +78,15 @@ public:
             return reinterpret_cast<Player_GetConvar>(player_GetConvar)(this->m_playerSlot, name);
         else
             return "";
+    }
+
+    uint8_t GetTeam()
+    {
+        void *player_GetTeam = FetchFunctionPtr(nullptr, "scripting_Player_GetTeam");
+        if (player_GetTeam)
+            return reinterpret_cast<Player_GetTeam>(player_GetTeam)();
+        else
+            return 0;
     }
 
     void SendMsg(HudDestination dest, const char *message, ...)
