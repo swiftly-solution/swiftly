@@ -38,12 +38,20 @@ jobs:
               run: |
                   cd ambuild; python setup.py install; cd ..
 
+            - name: Downloading Swiftly Utilities - Linux
+              if: matrix.os == 'self-hosted'
+              uses: robinraju/release-downloader@v1.8
+              with:
+                  repository: "swiftly-solution/swiftly-plugins-utility"
+                  latest: true
+                  fileName: "swiftly_utility"
+                  out-file-path: "swiftly/plugin_files/scripting"
+
             - name: Prepare Build - Linux
               if: matrix.os == 'self-hosted'
               working-directory: swiftly
               shell: bash
               run: |
-                  curl https://github.com/swiftly-solution/swiftly-plugins-utility/releases/latest/download/swiftly_utility -o plugin_files/scripting/swiftly_utility
                   bash ./setup.sh
 
             - name: Prepare Build - Windows
