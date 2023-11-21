@@ -1,6 +1,6 @@
 #include "gameevents.h"
-#include "../sdk/CBasePlayerController.h"
-#include "../sdk/CBasePlayerPawn.h"
+#include "../sdk/entity/CBasePlayerController.h"
+#include "../sdk/entity/CBasePlayerPawn.h"
 #include "../hooks/GameEvents.h"
 
 CUtlVector<CGameEventListener *> g_GameEventListener;

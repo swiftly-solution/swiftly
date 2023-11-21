@@ -9,6 +9,16 @@
         "windows": "44 89 4C 24 2A 44 88 44 24 2A 55 53 56 57 41 54 41 55",
         "linux": "55 48 89 E5 41 57 49 89 FF 41 56 41 55 41 54 4D 89 C4"
     },
+    "NetworkStateChanged": {
+        "lib": "server",
+        "windows": "4C 8B C9 48 8B 09 48 85 C9 74 2A 48 8B 41 10",
+        "linux": "4C 8B 07 4D 85 C0 74 2A 49 8B 40 10"
+    },
+    "StateChanged": {
+        "lib": "server",
+        "windows": "40 55 53 56 41 55 41 57 48 8D 6C 24 B0",
+        "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 53 89 D3"
+    },
     "LoggingSystem_Log": {
         "lib": "tier0",
         "windows": "_LoggingSystem_Log",

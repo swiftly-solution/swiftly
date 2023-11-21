@@ -11,8 +11,8 @@
 #include "hooks/GameEvents.h"
 #include "components/BasicComponent/inc/BasicComponent.h"
 #include "components/Plugins/inc/PluginsComponent.h"
-#include "sdk/schemasystem.h"
-#include "sdk/CBaseEntity.h"
+#include "sdk/schema.h"
+#include "sdk/entity/CBaseEntity.h"
 #include "database/DatabaseManager.h"
 #include "commands/CommandsManager.h"
 #include "sig/Signatures.h"
@@ -57,7 +57,7 @@ IFileSystem *filesystem = nullptr;
 IServerGameClients *g_clientsManager = nullptr;
 ICvar *icvar = nullptr;
 IGameResourceServiceServer *g_pGameResourceService = nullptr;
-CSchemaSystem *g_pCSchemaSystem = nullptr;
+CSchemaSystem *g_pSchemaSystem2 = nullptr;
 CEntitySystem *g_pEntitySystem = nullptr;
 CGameEntitySystem *g_pGameEntitySystem = nullptr;
 IGameEventManager2 *g_gameEventManager = nullptr;
@@ -94,12 +94,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     GET_V_IFACE_ANY(GetEngineFactory, g_pNetworkServerService, INetworkServerService, NETWORKSERVERSERVICE_INTERFACE_VERSION);
     GET_V_IFACE_ANY(GetFileSystemFactory, filesystem, IFileSystem, FILESYSTEM_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameResourceService, IGameResourceServiceServer, GAMERESOURCESERVICESERVER_INTERFACE_VERSION);
-
-    {
-        HINSTANCE m_hModule = dlmount(WIN_LINUX(TEXT("schemasystem.dll"), "libschemasystem.so"));
-        g_pCSchemaSystem = reinterpret_cast<CSchemaSystem *>(reinterpret_cast<CreateInterfaceFn>(dlsym(m_hModule, "CreateInterface"))(SCHEMASYSTEM_INTERFACE_VERSION, nullptr));
-        dlclose(m_hModule);
-    }
+    GET_V_IFACE_CURRENT(GetEngineFactory, g_pSchemaSystem2, CSchemaSystem, SCHEMASYSTEM_INTERFACE_VERSION);
 
     PRINT("Configurations", "Loading configurations...\n");
 

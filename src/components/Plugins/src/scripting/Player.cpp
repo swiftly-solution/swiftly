@@ -1,6 +1,8 @@
 #include "../../../../common.h"
 #include "../../../../player/PlayerManager.h"
 
+extern CEntitySystem *g_pEntitySystem;
+
 SMM_API const char *scripting_Player_GetName(uint32 playerId)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
@@ -76,6 +78,7 @@ SMM_API uint8 scripting_Player_GetTeam(uint32 playerId)
     CBasePlayerController *controller = player->GetController();
     if (!controller)
         return CS_TEAM_NONE;
+
     return controller->m_iTeamNum();
 }
 
@@ -85,10 +88,11 @@ SMM_API int scripting_Player_GetHealth(uint32 playerId)
     if (!player)
         return 0;
 
-    CBasePlayerController *controller = player->GetController();
-    if (!controller)
+    CBasePlayerPawn *pawn = player->GetPawn();
+    if (!pawn)
         return 0;
-    return controller->m_iHealth();
+
+    return pawn->m_iHealth();
 }
 
 SMM_API void scripting_Player_SetHealth(uint32 playerId, int health)
@@ -97,11 +101,11 @@ SMM_API void scripting_Player_SetHealth(uint32 playerId, int health)
     if (!player)
         return;
 
-    CBasePlayerController *controller = player->GetController();
-    if (!controller)
+    CBasePlayerPawn *pawn = player->GetPawn();
+    if (!pawn)
         return;
 
-    controller->m_iHealth() = health;
+    pawn->m_iHealth = health;
 }
 
 SMM_API void scripting_Player_TakeHealth(uint32 playerId, int health)
@@ -110,11 +114,11 @@ SMM_API void scripting_Player_TakeHealth(uint32 playerId, int health)
     if (!player)
         return;
 
-    CBasePlayerController *controller = player->GetController();
-    if (!controller)
+    CBasePlayerPawn *pawn = player->GetPawn();
+    if (!pawn)
         return;
 
-    controller->TakeHealth(health);
+    pawn->m_iHealth = pawn->m_iHealth() - health;
 }
 
 SMM_API void scripting_Players_SendMessage(int dest, const char *text)
@@ -127,22 +131,4 @@ SMM_API void scripting_Players_SendMessage(int dest, const char *text)
 
         player->SendMsg(dest, text);
     }
-}
-
-SMM_API const char *scripting_Player_GetClanTag(uint32 playerId)
-{
-    Player *player = g_playerManager->GetPlayer(playerId);
-    if (!player)
-        return "";
-
-    return player->GetClanTag();
-}
-
-SMM_API void scripting_Player_SetClanTag(uint32 playerId, const char *tag)
-{
-    Player *player = g_playerManager->GetPlayer(playerId);
-    if (!player)
-        return;
-
-    player->SetClanTag(tag);
 }

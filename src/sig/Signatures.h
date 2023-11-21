@@ -3,9 +3,13 @@
 
 #include <map>
 #include <string>
-#include "../sdk/CBasePlayerController.h"
+
+class CBasePlayerController;
+class Z_CBaseEntity;
 
 typedef void (*ClientPrint)(CBasePlayerController *, int, const char *, const char *, const char *, const char *, const char *);
+typedef void (*NetworkStateChanged)(uintptr_t, int, int);
+typedef void (*StateChanged)(void *, Z_CBaseEntity *, int, int, int);
 
 class Signatures
 {

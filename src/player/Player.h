@@ -1,8 +1,8 @@
 #ifndef _player_h
 #define _player_h
 
-#include "../sdk/CBasePlayerController.h"
-#include "../sdk/CBasePlayerPawn.h"
+#include "../sdk/entity/CBasePlayerController.h"
+#include "../sdk/entity/CBasePlayerPawn.h"
 #include <playerslot.h>
 #include <ctime>
 
@@ -118,9 +118,6 @@ public:
     void Authenticate();
     const char *GetName();
     uint64 GetSteamID();
-
-    const char *GetClanTag();
-    void SetClanTag(const char *clantag);
 
     CBasePlayerController *GetController();
     CBasePlayerPawn *GetPawn();
