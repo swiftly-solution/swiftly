@@ -148,6 +148,22 @@ public:
         if (player_SendMessage)
             reinterpret_cast<Player_SendMessage>(player_SendMessage)(this->m_playerSlot, dest, buffer);
     }
+
+    const char *GetClanTag()
+    {
+        void *player_GetClanTag = FetchFunctionPtr(nullptr, "scripting_Player_GetClanTag");
+        if (player_GetClanTag)
+            return reinterpret_cast<Player_GetClanTag>(player_GetClanTag)(this->m_playerSlot);
+        else
+            return "";
+    }
+
+    void SetClanTag(const char *text)
+    {
+        void *player_SetClanTag = FetchFunctionPtr(nullptr, "scripting_Player_SetClanTag");
+        if (player_SetClanTag)
+            reinterpret_cast<Player_SetClanTag>(player_SetClanTag)(this->m_playerSlot, text);
+    }
 };
 
 #endif

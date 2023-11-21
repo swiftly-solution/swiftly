@@ -12,4 +12,6 @@ public:
     SCHEMA_FIELD_OFFSET(CCSPlayerController_ActionTrackingServices *, m_pActionTrackingServices, 0)
     SCHEMA_FIELD_OFFSET(bool, m_bPawnIsAlive, 0)
     SCHEMA_FIELD_OFFSET(CHandle<CCSPlayerPawn>, m_hPlayerPawn, 0)
+    SCHEMA_FIELD_OFFSET(CUtlSymbolLarge, m_szClan, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(char, m_szClanName, 0)
 };

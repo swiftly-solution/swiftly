@@ -26,6 +26,9 @@ typedef int (*Player_GetArmor)(uint32_t);
 typedef void (*Player_SetArmor)(uint32_t, int);
 typedef void (*Player_TakeArmor)(uint32_t, int);
 
+typedef const char *(*Player_GetClanTag)(uint32_t);
+typedef void (*Player_SetClanTag)(uint32_t, const char *);
+
 typedef void (*Player_SendMessage)(uint32_t, HudDestination, const char *);
 typedef void (*Players_SendMessage)(HudDestination, const char *);
 

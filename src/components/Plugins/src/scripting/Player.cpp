@@ -188,3 +188,29 @@ SMM_API void scripting_Player_TakeArmor(uint32 playerId, int armor)
     else
         pPlayerPawn->m_ArmorValue = pPlayerPawn->m_ArmorValue() - armor;
 }
+
+SMM_API const char *scripting_Player_GetClanTag(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "";
+
+    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
+    if (!pPlayerController)
+        return "";
+
+    return pPlayerController->m_szClan().String();
+}
+
+SMM_API void scripting_Player_SetClanTag(uint32 playerId, const char *tag)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
+    if (!pPlayerController)
+        return;
+
+    pPlayerController->m_szClan = CUtlSymbolLarge(tag);
+}
