@@ -228,6 +228,7 @@ class MMSPluginConfig(object):
         '-Werror',
         '-Wno-uninitialized',
         '-Wno-invalid-offsetof',
+        '-Wno-attributes',
         '-Wno-unused',
         '-Wno-switch',
         '-msse',
