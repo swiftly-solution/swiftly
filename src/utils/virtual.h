@@ -1,42 +1,46 @@
-#ifndef _virtual_h
-#define _virtual_h
+#pragma once
+#include "platform.h"
 
-#include <platform.h>
-#include <stdint.h>
+#define CALL_VIRTUAL(retType, idx, ...) \
+    vmt::CallVirtual<retType>(idx, __VA_ARGS__)
 
-template <typename T = void *>
-T GetVMethod(unsigned int uIndex, void *pClass)
+#ifndef _WIN32
+#undef __cdecl
+#define __cdecl __attribute__((cdecl))
+#endif
+
+namespace vmt
 {
-    if (!pClass)
+    template <typename T = void *>
+    inline T GetVMethod(uint32 uIndex, void *pClass)
     {
-        return T();
+        if (!pClass)
+        {
+            return T();
+        }
+
+        void **pVTable = *static_cast<void ***>(pClass);
+        if (!pVTable)
+        {
+            return T();
+        }
+
+        return reinterpret_cast<T>(pVTable[uIndex]);
     }
 
-    void **pVTable = *static_cast<void ***>(pClass);
-    if (!pVTable)
+    template <typename T, typename... Args>
+    inline T CallVirtual(uint32 uIndex, void *pClass, Args... args)
     {
-        return T();
-    }
-
-    return reinterpret_cast<T>(pVTable[uIndex]);
-}
-
-template <typename T, typename... Args>
-T CallVirtual(unsigned int uIndex, void *pClass, Args... args)
-{
 #ifdef _WIN32
-    auto pFunc = GetVMethod<T(__thiscall *)(void *, Args...)>(uIndex, pClass);
+        auto pFunc = GetVMethod<T(__thiscall *)(void *, Args...)>(uIndex, pClass);
 #else
-    auto pFunc = GetVMethod<T *(void *, Args...)>(uIndex, pClass);
+        auto pFunc = GetVMethod<T(__cdecl *)(void *, Args...)>(uIndex, pClass);
 #endif
-    if (!pFunc)
-    {
-        return T();
+        if (!pFunc)
+        {
+            return T();
+        }
+
+        return pFunc(pClass, args...);
     }
-
-    return pFunc(pClass, args...);
 }
-
-#define CALL_VIRTUAL(retType, idx, ...) CallVirtual<retType>(idx, __VA_ARGS__)
-
-#endif
