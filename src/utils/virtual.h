@@ -27,7 +27,7 @@ T CallVirtual(unsigned int uIndex, void *pClass, Args... args)
 #ifdef _WIN32
     auto pFunc = GetVMethod<T(__thiscall *)(void *, Args...)>(uIndex, pClass);
 #else
-    auto pFunc = GetVMethod<T(__cdecl *)(void *, Args...)>(uIndex, pClass);
+    auto pFunc = GetVMethod<T *(void *, Args...)>(uIndex, pClass);
 #endif
     if (!pFunc)
     {
