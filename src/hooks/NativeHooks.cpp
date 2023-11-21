@@ -33,6 +33,9 @@ void FASTCALL Hook_Host_Say(CBasePlayerController *controller, CCommand &args, b
     if (!controller)
         return;
 
+    if (strlen(args[1]) == 0)
+        return;
+
     int handleCommands = g_commandsManager->HandleCommands(controller, args[1]);
     if (handleCommands == 2)
         return;

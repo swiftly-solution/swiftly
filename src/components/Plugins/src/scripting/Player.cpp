@@ -1,5 +1,7 @@
 #include "../../../../common.h"
 #include "../../../../player/PlayerManager.h"
+#include "../../../../sdk/entity/CCSPlayerController.h"
+#include "../../../../sdk/entity/CCSPlayerPawnBase.h"
 
 extern CEntitySystem *g_pEntitySystem;
 
@@ -131,4 +133,58 @@ SMM_API void scripting_Players_SendMessage(int dest, const char *text)
 
         player->SendMsg(dest, text);
     }
+}
+
+SMM_API int scripting_Player_GetArmor(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
+    if (!pPlayerController)
+        return 0;
+
+    CCSPlayerPawnBase *pPlayerPawn = (CCSPlayerPawnBase *)pPlayerController->m_hPlayerPawn().Get();
+    if (!pPlayerPawn)
+        return 0;
+
+    return pPlayerPawn->m_ArmorValue();
+}
+
+SMM_API void scripting_Player_SetArmor(uint32 playerId, int armor)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
+    if (!pPlayerController)
+        return;
+
+    CCSPlayerPawnBase *pPlayerPawn = (CCSPlayerPawnBase *)pPlayerController->m_hPlayerPawn().Get();
+    if (!pPlayerPawn)
+        return;
+
+    pPlayerPawn->m_ArmorValue = (armor > 0 ? armor : 0);
+}
+
+SMM_API void scripting_Player_TakeArmor(uint32 playerId, int armor)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
+    if (!pPlayerController)
+        return;
+
+    CCSPlayerPawnBase *pPlayerPawn = (CCSPlayerPawnBase *)pPlayerController->m_hPlayerPawn().Get();
+    if (!pPlayerPawn)
+        return;
+
+    if (pPlayerPawn->m_ArmorValue() - armor < 0)
+        pPlayerPawn->m_ArmorValue = 0;
+    else
+        pPlayerPawn->m_ArmorValue = pPlayerPawn->m_ArmorValue() - armor;
 }
