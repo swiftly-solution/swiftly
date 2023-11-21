@@ -5,6 +5,7 @@
 #include <tier1/utlvector.h>
 #include <funchook.h>
 #include "../sig/Signatures.h"
+#include "../common.h"
 #include "../utils.h"
 
 class FuncHookBase
