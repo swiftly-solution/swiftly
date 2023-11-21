@@ -4,11 +4,6 @@
 #define CALL_VIRTUAL(retType, idx, ...) \
     vmt::CallVirtual<retType>(idx, __VA_ARGS__)
 
-#ifndef _WIN32
-#undef __cdecl
-#define __cdecl __attribute__((__cdecl__))
-#endif
-
 namespace vmt
 {
     template <typename T = void *>
@@ -34,7 +29,7 @@ namespace vmt
 #ifdef _WIN32
         auto pFunc = GetVMethod<T(__thiscall *)(void *, Args...)>(uIndex, pClass);
 #else
-        auto pFunc = GetVMethod<T(__cdecl *)(void *, Args...)>(uIndex, pClass);
+        auto pFunc = GetVMethod<T *(void *, Args...)>(uIndex, pClass);
 #endif
         if (!pFunc)
         {
