@@ -6,7 +6,7 @@
 
 #ifndef _WIN32
 #undef __cdecl
-#define __cdecl __attribute__((cdecl))
+#define __cdecl __attribute__((__cdecl__))
 #endif
 
 namespace vmt
