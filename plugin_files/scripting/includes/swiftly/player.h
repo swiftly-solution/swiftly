@@ -7,10 +7,10 @@
 #include <cstdarg>
 #include "swiftly_utils.h"
 
-#define TEAM_NONE 0
-#define TEAM_SPECTATOR 1
-#define TEAM_T 2
-#define TEAM_CT 3
+#include "player/health.h"
+#include "player/armor.h"
+#include "player/clantag.h"
+#include "player/team.h"
 
 class Player
 {
@@ -18,9 +18,19 @@ private:
     uint32_t m_playerSlot;
     bool m_firstSpawn = false;
     bool m_fakeClient = false;
+    Health *health;
+    Armor *armor;
+    ClanTag *clantag;
+    Team *team;
 
 public:
-    Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient) {}
+    Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
+    {
+        this->health = new Health(playerSlot);
+        this->armor = new Armor(playerSlot);
+        this->clantag = new ClanTag(playerSlot);
+        this->team = new Team(playerSlot);
+    }
     uint32_t GetSlot() { return this->m_playerSlot; }
 
     const char *GetName()
@@ -80,61 +90,6 @@ public:
             return "";
     }
 
-    uint8_t GetTeam()
-    {
-        void *player_GetTeam = FetchFunctionPtr(nullptr, "scripting_Player_GetTeam");
-        if (player_GetTeam)
-            return reinterpret_cast<Player_GetTeam>(player_GetTeam)(this->m_playerSlot);
-        else
-            return 0;
-    }
-
-    int GetHealth()
-    {
-        void *player_GetHealth = FetchFunctionPtr(nullptr, "scripting_Player_GetHealth");
-        if (player_GetHealth)
-            return reinterpret_cast<Player_GetHealth>(player_GetHealth)(this->m_playerSlot);
-        else
-            return 0;
-    }
-
-    void SetHealth(int health)
-    {
-        void *player_SetHealth = FetchFunctionPtr(nullptr, "scripting_Player_SetHealth");
-        if (player_SetHealth)
-            reinterpret_cast<Player_SetHealth>(player_SetHealth)(this->m_playerSlot, health);
-    }
-
-    void TakeHealth(int health)
-    {
-        void *player_TakeHealth = FetchFunctionPtr(nullptr, "scripting_Player_TakeHealth");
-        if (player_TakeHealth)
-            reinterpret_cast<Player_TakeHealth>(player_TakeHealth)(this->m_playerSlot, health);
-    }
-
-    int GetArmor()
-    {
-        void *player_GetArmor = FetchFunctionPtr(nullptr, "scripting_Player_GetArmor");
-        if (player_GetArmor)
-            return reinterpret_cast<Player_GetArmor>(player_GetArmor)(this->m_playerSlot);
-        else
-            return 0;
-    }
-
-    void SetArmor(int armor)
-    {
-        void *player_SetArmor = FetchFunctionPtr(nullptr, "scripting_Player_SetArmor");
-        if (player_SetArmor)
-            reinterpret_cast<Player_SetArmor>(player_SetArmor)(this->m_playerSlot, armor);
-    }
-
-    void TakeArmor(int armor)
-    {
-        void *player_TakeArmor = FetchFunctionPtr(nullptr, "scripting_Player_TakeArmor");
-        if (player_TakeArmor)
-            reinterpret_cast<Player_TakeArmor>(player_TakeArmor)(this->m_playerSlot, armor);
-    }
-
     void SendMsg(HudDestination dest, const char *message, ...)
     {
         va_list ap;
@@ -147,22 +102,6 @@ public:
         void *player_SendMessage = FetchFunctionPtr(nullptr, "scripting_Player_SendMessage");
         if (player_SendMessage)
             reinterpret_cast<Player_SendMessage>(player_SendMessage)(this->m_playerSlot, dest, buffer);
-    }
-
-    const char *GetClanTag()
-    {
-        void *player_GetClanTag = FetchFunctionPtr(nullptr, "scripting_Player_GetClanTag");
-        if (player_GetClanTag)
-            return reinterpret_cast<Player_GetClanTag>(player_GetClanTag)(this->m_playerSlot);
-        else
-            return "";
-    }
-
-    void SetClanTag(const char *text)
-    {
-        void *player_SetClanTag = FetchFunctionPtr(nullptr, "scripting_Player_SetClanTag");
-        if (player_SetClanTag)
-            reinterpret_cast<Player_SetClanTag>(player_SetClanTag)(this->m_playerSlot, text);
     }
 };
 
