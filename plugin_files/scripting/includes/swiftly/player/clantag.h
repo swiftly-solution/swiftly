@@ -11,6 +11,7 @@ private:
 
 public:
     ClanTag(uint32_t playerSlot) : m_playerSlot(playerSlot) {}
+    ~ClanTag() {}
 
     const char *Get()
     {

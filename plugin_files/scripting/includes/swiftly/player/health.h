@@ -11,6 +11,7 @@ private:
 
 public:
     Health(uint32_t playerSlot) : m_playerSlot(playerSlot) {}
+    ~Health() {}
 
     int Get()
     {

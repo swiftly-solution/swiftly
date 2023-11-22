@@ -141,11 +141,7 @@ SMM_API int scripting_Player_GetArmor(uint32 playerId)
     if (!player)
         return 0;
 
-    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
-    if (!pPlayerController)
-        return 0;
-
-    CCSPlayerPawnBase *pPlayerPawn = (CCSPlayerPawnBase *)pPlayerController->m_hPlayerPawn().Get();
+    CCSPlayerPawnBase *pPlayerPawn = player->GetPlayerBasePawn();
     if (!pPlayerPawn)
         return 0;
 
@@ -158,11 +154,7 @@ SMM_API void scripting_Player_SetArmor(uint32 playerId, int armor)
     if (!player)
         return;
 
-    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
-    if (!pPlayerController)
-        return;
-
-    CCSPlayerPawnBase *pPlayerPawn = (CCSPlayerPawnBase *)pPlayerController->m_hPlayerPawn().Get();
+    CCSPlayerPawnBase *pPlayerPawn = player->GetPlayerBasePawn();
     if (!pPlayerPawn)
         return;
 
@@ -175,11 +167,7 @@ SMM_API void scripting_Player_TakeArmor(uint32 playerId, int armor)
     if (!player)
         return;
 
-    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
-    if (!pPlayerController)
-        return;
-
-    CCSPlayerPawnBase *pPlayerPawn = (CCSPlayerPawnBase *)pPlayerController->m_hPlayerPawn().Get();
+    CCSPlayerPawnBase *pPlayerPawn = player->GetPlayerBasePawn();
     if (!pPlayerPawn)
         return;
 
@@ -195,7 +183,7 @@ SMM_API const char *scripting_Player_GetClanTag(uint32 playerId)
     if (!player)
         return "";
 
-    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
+    CCSPlayerController *pPlayerController = player->GetPlayerController();
     if (!pPlayerController)
         return "";
 
@@ -208,7 +196,7 @@ SMM_API void scripting_Player_SetClanTag(uint32 playerId, const char *tag)
     if (!player)
         return;
 
-    CCSPlayerController *pPlayerController = static_cast<CCSPlayerController *>(CHandle<CBasePlayerController>(player->GetController()).Get());
+    CCSPlayerController *pPlayerController = player->GetPlayerController();
     if (!pPlayerController)
         return;
 

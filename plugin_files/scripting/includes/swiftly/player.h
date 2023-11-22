@@ -31,6 +31,15 @@ public:
         this->clantag = new ClanTag(playerSlot);
         this->team = new Team(playerSlot);
     }
+
+    ~Player()
+    {
+        delete this->health;
+        delete this->armor;
+        delete this->clantag;
+        delete this->team;
+    }
+
     uint32_t GetSlot() { return this->m_playerSlot; }
 
     const char *GetName()

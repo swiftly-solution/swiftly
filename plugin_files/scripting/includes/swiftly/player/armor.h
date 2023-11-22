@@ -11,6 +11,7 @@ private:
 
 public:
     Armor(uint32_t playerSlot) : m_playerSlot(playerSlot) {}
+    ~Armor() {}
 
     int Get()
     {

@@ -16,6 +16,7 @@ private:
 
 public:
     Team(uint32_t playerSlot) : m_playerSlot(playerSlot) {}
+    ~Team() {}
 
     uint8_t Get()
     {

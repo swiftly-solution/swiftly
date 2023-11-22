@@ -12,7 +12,37 @@ CBasePlayerController *Player::GetController()
 
 CBasePlayerPawn *Player::GetPawn()
 {
-    return this->GetController()->m_hPawn();
+    CBasePlayerController *controller = this->GetController();
+    if (controller == nullptr)
+        return nullptr;
+
+    return controller->m_hPawn();
+}
+
+CCSPlayerController *Player::GetPlayerController()
+{
+    if (this->GetEHandlerIdx() == -1)
+        return nullptr;
+
+    return (CCSPlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->GetEHandlerIdx()));
+}
+
+CCSPlayerPawn *Player::GetPlayerPawn()
+{
+    CCSPlayerController *controller = this->GetPlayerController();
+    if (controller == nullptr)
+        return nullptr;
+
+    return controller->m_hPlayerPawn().Get();
+}
+
+CCSPlayerPawnBase *Player::GetPlayerBasePawn()
+{
+    CCSPlayerPawn *pawn = this->GetPlayerPawn();
+    if (pawn == nullptr)
+        return nullptr;
+
+    return (CCSPlayerPawnBase *)pawn;
 }
 
 void Player::Authenticate()

@@ -31,11 +31,14 @@ public:
 
     inline void UnregisterPlayer(CPlayerSlot *slot)
     {
-        this->g_Players[slot->Get()] = nullptr;
+        hooks::emit(OnPlayerUnregistered(slot));
+
+        int sl = slot->Get();
+
+        delete this->g_Players[sl];
+        this->g_Players[sl] = nullptr;
         if (playerCount > 0)
             --playerCount;
-
-        hooks::emit(OnPlayerUnregistered(slot));
     }
 
     inline uint16 GetPlayers() { return playerCount; }

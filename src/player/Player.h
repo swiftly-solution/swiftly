@@ -2,7 +2,11 @@
 #define _player_h
 
 #include "../sdk/entity/CBasePlayerController.h"
+#include "../sdk/entity/CCSPlayerController.h"
 #include "../sdk/entity/CBasePlayerPawn.h"
+#include "../sdk/entity/CCSPlayerPawn.h"
+#include "../sdk/entity/CCSPlayerPawnBase.h"
+
 #include <playerslot.h>
 #include <ctime>
 
@@ -121,6 +125,9 @@ public:
 
     CBasePlayerController *GetController();
     CBasePlayerPawn *GetPawn();
+    CCSPlayerController *GetPlayerController();
+    CCSPlayerPawn *GetPlayerPawn();
+    CCSPlayerPawnBase *GetPlayerBasePawn();
 
 private:
     int slot;

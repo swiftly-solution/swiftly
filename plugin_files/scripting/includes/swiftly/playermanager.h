@@ -32,7 +32,9 @@ public:
         if (this->g_Players[slot] == nullptr)
             return;
 
+        delete this->g_Players[slot];
         this->g_Players[slot] = nullptr;
+
         if (playerCount > 0)
             --playerCount;
     }
