@@ -136,6 +136,15 @@ struct OnPlayerRegistered : Event
     }
 };
 
+struct OnPlayerUnregistered : Event
+{
+    CPlayerSlot *slot;
+    OnPlayerUnregistered(CPlayerSlot *slot)
+    {
+        this->slot = slot;
+    }
+};
+
 typedef std::multimap<const std::type_info *, const std::function<void(const Event *)>> EventMap;
 
 extern EventMap eventMap;

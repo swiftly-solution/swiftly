@@ -13,6 +13,7 @@ typedef bool (*Plugin_OnClientConnected)(uint32);
 typedef bool (*Plugin_OnClientConnect)(uint32);
 typedef void (*Plugin_OnPlayerSpawn)(uint32);
 typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
+typedef void (*Plugin_OnPlayerUnregister)(uint32);
 typedef void (*Plugin_OnGameTick)(bool, bool, bool);
 typedef bool (*Plugin_OnPlayerChat)(uint32, const char *, bool);
 

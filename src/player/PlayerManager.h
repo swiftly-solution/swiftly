@@ -34,6 +34,8 @@ public:
         this->g_Players[slot->Get()] = nullptr;
         if (playerCount > 0)
             --playerCount;
+
+        hooks::emit(OnPlayerUnregistered(slot));
     }
 
     inline uint16 GetPlayers() { return playerCount; }
