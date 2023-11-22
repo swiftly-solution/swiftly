@@ -30,4 +30,9 @@ public:
     SCHEMA_FIELD_OFFSET(uint32, m_fFlags, 0)
     SCHEMA_FIELD_OFFSET(LifeState_t, m_lifeState, 0)
     SCHEMA_FIELD_OFFSET(CCollisionProperty *, m_pCollision, 0)
+
+    void TakeDamage(int damage)
+    {
+        this->m_iHealth = this->m_iHealth() - damage;
+    }
 };

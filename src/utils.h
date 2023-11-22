@@ -26,8 +26,8 @@
 #define CLIENT_PRINT(SLOT, CATEGORY, FORMAT_STR) g_SMAPI->ClientConPrintf(SLOT, std::string(PREFIX).append(" [").append(CATEGORY).append("] ").append(FORMAT_STR).c_str())
 #define CLIENT_PRINTF(SLOT, CATEGORY, FORMAT_STR, ...) g_SMAPI->ClientConPrintf(SLOT, std::string(PREFIX).append(" [").append(CATEGORY).append("] ").append(FORMAT_STR).c_str(), __VA_ARGS__)
 
-template <typename T, int index, typename... Args>
-constexpr T CallVFunc(void *pThis, Args... args) noexcept
+template <typename T, typename... Args>
+constexpr T CallVFunc(int index, void *pThis, Args... args) noexcept
 {
     return reinterpret_cast<T (*)(void *, Args...)>(reinterpret_cast<void ***>(pThis)[0][index])(pThis, args...);
 }

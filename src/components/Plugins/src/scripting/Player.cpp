@@ -132,7 +132,20 @@ SMM_API void scripting_Player_TakeHealth(uint32 playerId, int health)
     if (!pawn)
         return;
 
-    pawn->m_iHealth = pawn->m_iHealth() - health;
+    pawn->TakeDamage(health);
+}
+
+SMM_API void scripting_Player_Kill(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerPawn *pawn = player->GetPawn();
+    if (!pawn)
+        return;
+
+    pawn->CommitSuicide(false, true);
 }
 
 SMM_API void scripting_Players_SendMessage(int dest, const char *text)

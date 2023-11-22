@@ -80,6 +80,14 @@ public:
             reinterpret_cast<Player_Drop>(player_Drop)(this->m_playerSlot, reason);
     }
 
+    void Kill()
+    {
+
+        void *player_Kill = FetchFunctionPtr(nullptr, "scripting_Player_Kill");
+        if (player_Kill)
+            reinterpret_cast<Player_Kill>(player_Kill)(this->m_playerSlot);
+    }
+
     bool IsAuthenticated()
     {
         void *player_IsAuthenticated = FetchFunctionPtr(nullptr, "scripting_Player_IsAuthenticated");

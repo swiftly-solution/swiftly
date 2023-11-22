@@ -16,6 +16,7 @@
 #include "database/DatabaseManager.h"
 #include "commands/CommandsManager.h"
 #include "sig/Signatures.h"
+#include "sig/Offsets.h"
 #include "hooks/NativeHooks.h"
 #include "filter/ConsoleFilter.h"
 #include "translations/Translations.h"
@@ -70,6 +71,7 @@ Signatures *g_Signatures = nullptr;
 ConsoleFilter *g_conFilter = nullptr;
 Translations *g_translations = nullptr;
 Logger *g_Logger = nullptr;
+Offsets *g_Offsets = nullptr;
 
 CGlobalVars *GetGameGlobals()
 {
@@ -118,10 +120,11 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &SwiftlyPlugin::Hook_ClientCommand, false);
     SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &SwiftlyPlugin::Hook_StartupServer, true);
 
-    g_gameEventManager = static_cast<IGameEventManager2 *>(CallVFunc<IToolGameEventAPI *, 91>(server));
+    g_gameEventManager = static_cast<IGameEventManager2 *>(CallVFunc<IToolGameEventAPI *>(91, server));
     g_playerManager = new PlayerManager();
     g_dbManager = new DatabaseManager();
     g_Signatures = new Signatures();
+    g_Offsets = new Offsets();
     g_commandsManager = new CommandsManager();
     g_conFilter = new ConsoleFilter();
     g_translations = new Translations();
@@ -183,6 +186,7 @@ bool bDone = false;
 void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *)
 {
     g_Signatures->LoadSignatures();
+    g_Offsets->LoadOffsets();
     if (!InitializeHooks())
         PRINT("Hooks", "Failed to initialize hooks.\n");
     else
@@ -190,7 +194,7 @@ void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config,
 
     if (!bDone)
     {
-        g_pGameEntitySystem = *reinterpret_cast<CGameEntitySystem **>(reinterpret_cast<uintptr_t>(g_pGameResourceService) + WIN_LINUX(0x58, 0x50));
+        g_pGameEntitySystem = *reinterpret_cast<CGameEntitySystem **>(reinterpret_cast<uintptr_t>(g_pGameResourceService) + g_Offsets->GetOffset("GameEntitySystem"));
         g_pEntitySystem = g_pGameEntitySystem;
 
         bDone = true;
