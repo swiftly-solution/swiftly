@@ -19,6 +19,33 @@ struct OnPlayerSpawn : GameEvent
     };
 };
 
+struct OnRoundPrestart : GameEvent
+{
+    IGameEvent *pEvent;
+    OnRoundPrestart(IGameEvent *pEvent)
+    {
+        this->pEvent = pEvent;
+    };
+};
+
+struct OnRoundStart : GameEvent
+{
+    IGameEvent *pEvent;
+    OnRoundStart(IGameEvent *pEvent)
+    {
+        this->pEvent = pEvent;
+    };
+};
+
+struct OnRoundEnd : GameEvent
+{
+    IGameEvent *pEvent;
+    OnRoundEnd(IGameEvent *pEvent)
+    {
+        this->pEvent = pEvent;
+    };
+};
+
 typedef std::multimap<const std::type_info *, const std::function<void(const GameEvent *)>> GameEventMap;
 
 extern GameEventMap gameEventMap;

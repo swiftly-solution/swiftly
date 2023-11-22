@@ -18,6 +18,8 @@ private:
     uint32_t m_playerSlot;
     bool m_firstSpawn = false;
     bool m_fakeClient = false;
+
+public:
     Health *health;
     Armor *armor;
     ClanTag *clantag;

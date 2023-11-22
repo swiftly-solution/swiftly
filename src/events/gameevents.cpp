@@ -33,3 +33,18 @@ GAME_EVENT(player_spawn)
 {
     gameevents::emit<OnPlayerSpawn>(pEvent);
 }
+
+GAME_EVENT(round_prestart)
+{
+    gameevents::emit<OnRoundPrestart>(pEvent);
+}
+
+GAME_EVENT(round_start)
+{
+    gameevents::emit<OnRoundStart>(pEvent);
+}
+
+GAME_EVENT(round_end)
+{
+    gameevents::emit<OnRoundEnd>(pEvent);
+}

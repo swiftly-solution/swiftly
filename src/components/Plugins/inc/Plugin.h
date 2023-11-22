@@ -13,6 +13,7 @@
 
 const std::string funcsToLoad[] = {
     "RegisterPlayer",
+    "UnregisterPlayer",
     "OnProgramLoad",
     "OnPluginStart",
     "OnPluginStop",
@@ -21,6 +22,9 @@ const std::string funcsToLoad[] = {
     "OnPlayerSpawn",
     "OnGameTick",
     "OnPlayerChat",
+    "OnRoundStart",
+    "OnRoundPrestart",
+    "OnRoundEnd",
 };
 
 class Plugin

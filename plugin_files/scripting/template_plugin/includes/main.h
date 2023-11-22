@@ -12,6 +12,9 @@ bool OnClientConnect(Player *player);
 void OnPlayerSpawn(Player *player);
 void OnGameTick(bool simulating, bool bFirstTick, bool bLastTick);
 bool OnPlayerChat(Player *player, const char *text, bool teamonly);
+void OnRoundStart(long timelimit, long fraglimit, const char *objective);
+void OnRoundEnd(unsigned char winner, unsigned char reason, const char *message, unsigned char legacy, short player_count, unsigned char nomusic);
+void OnRoundPrestart();
 
 extern "C"
 {
@@ -74,6 +77,18 @@ extern "C"
     void Internal_OnGameTick(bool simulating, bool bFirstTick, bool bLastTick)
     {
         OnGameTick(simulating, bFirstTick, bLastTick);
+    }
+    void Internal_OnRoundEnd(unsigned char winner, unsigned char reason, const char *message, unsigned char legacy, short player_count, unsigned char nomusic)
+    {
+        OnRoundEnd(winner, reason, message, legacy, player_count, nomusic);
+    }
+    void Internal_OnRoundStart(long timelimit, long fraglimit, const char *objective)
+    {
+        OnRoundStart(timelimit, fraglimit, objective);
+    }
+    void Internal_OnRoundPrestart()
+    {
+        OnRoundPrestart();
     }
     const char *GetPluginAuthor();
     const char *GetPluginVersion();
