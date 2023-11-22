@@ -45,6 +45,15 @@ CCSPlayerPawnBase *Player::GetPlayerBasePawn()
     return (CCSPlayerPawnBase *)pawn;
 }
 
+void Player::SwitchTeam(int team)
+{
+    CCSPlayerController *playerController = this->GetPlayerController();
+    if (!playerController)
+        return;
+
+    g_Signatures->FetchSignature<CCSPlayerController_SwitchTeam>("CCSPlayerController_SwitchTeam")(playerController, team);
+}
+
 void Player::Authenticate()
 {
     this->isAuthenticated = true;

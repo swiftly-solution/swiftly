@@ -26,6 +26,13 @@ public:
         else
             return 0;
     }
+
+    void Set(int team)
+    {
+        void *player_SetTeam = FetchFunctionPtr(nullptr, "scripting_Player_SetTeam");
+        if (player_SetTeam)
+            reinterpret_cast<Player_SetTeam>(player_SetTeam)(this->m_playerSlot, team);
+    }
 };
 
 #endif

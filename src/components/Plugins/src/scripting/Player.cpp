@@ -84,6 +84,18 @@ SMM_API uint8 scripting_Player_GetTeam(uint32 playerId)
     return controller->m_iTeamNum();
 }
 
+SMM_API void scripting_Player_SetTeam(uint32 playerId, int team)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    if (team < 0 || team > 3)
+        return;
+
+    player->SwitchTeam(team);
+}
+
 SMM_API int scripting_Player_GetHealth(uint32 playerId)
 {
     Player *player = g_playerManager->GetPlayer(playerId);

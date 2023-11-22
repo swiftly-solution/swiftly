@@ -19,6 +19,11 @@
         "windows": "40 55 53 56 41 55 41 57 48 8D 6C 24 B0",
         "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 53 89 D3"
     },
+    "CCSPlayerController_SwitchTeam": {
+        "lib": "server",
+        "windows": "40 56 57 48 81 EC 2A 2A 2A 2A 48 8B F9 8B F2 8B CA",
+        "linux": "55 48 89 E5 41 55 49 89 FD 89 F7"
+    },
     "LoggingSystem_Log": {
         "lib": "tier0",
         "windows": "_LoggingSystem_Log",

@@ -129,6 +129,8 @@ public:
     CCSPlayerPawn *GetPlayerPawn();
     CCSPlayerPawnBase *GetPlayerBasePawn();
 
+    void SwitchTeam(int team);
+
 private:
     int slot;
     bool isFakeClient = false;

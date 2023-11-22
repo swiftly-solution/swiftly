@@ -17,6 +17,7 @@ typedef void (*Player_Drop)(uint32_t, ENetworkDisconnectionReason);
 typedef bool (*Player_IsAuthenticated)(uint32_t);
 typedef const char *(*Player_GetConvar)(uint32_t, const char *);
 typedef uint8_t (*Player_GetTeam)(uint32_t);
+typedef void (*Player_SetTeam)(uint32_t, int);
 
 typedef int (*Player_GetHealth)(uint32_t);
 typedef void (*Player_SetHealth)(uint32_t, int);
