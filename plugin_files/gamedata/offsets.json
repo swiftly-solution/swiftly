@@ -6,5 +6,9 @@
     "CommitSuicide": {
         "windows": 356,
         "linux": 356
+    },
+    "ChangeTeam": {
+        "windows": 90,
+        "linux": 89
     }
 }
