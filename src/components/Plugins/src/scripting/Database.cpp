@@ -16,33 +16,34 @@ const char *SerializeData(const std::vector<std::map<const char *, std::any>> &d
         {
             const char *key = pair.first;
             const std::any &value = pair.second;
+            rapidjson::Value &keyVal = rapidjson::Value().SetString(key, document.GetAllocator());
 
             if (value.type() == typeid(const char *))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetString(std::any_cast<const char *>(value), document.GetAllocator()), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetString(std::any_cast<const char *>(value), document.GetAllocator()), document.GetAllocator());
             else if (value.type() == typeid(std::string))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetString(std::any_cast<std::string>(value).c_str(), document.GetAllocator()), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetString(std::any_cast<std::string>(value).c_str(), document.GetAllocator()), document.GetAllocator());
             else if (value.type() == typeid(uint64))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint64(std::any_cast<uint64>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetUint64(std::any_cast<uint64>(value)), document.GetAllocator());
             else if (value.type() == typeid(uint32))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint(std::any_cast<uint32>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetUint(std::any_cast<uint32>(value)), document.GetAllocator());
             else if (value.type() == typeid(uint16))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint(std::any_cast<uint16>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetUint(std::any_cast<uint16>(value)), document.GetAllocator());
             else if (value.type() == typeid(uint8))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint(std::any_cast<uint8>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetUint(std::any_cast<uint8>(value)), document.GetAllocator());
             else if (value.type() == typeid(int64))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetInt64(std::any_cast<int64>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetInt64(std::any_cast<int64>(value)), document.GetAllocator());
             else if (value.type() == typeid(int32))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetInt(std::any_cast<int32>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetInt(std::any_cast<int32>(value)), document.GetAllocator());
             else if (value.type() == typeid(int16))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetInt(std::any_cast<int16>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetInt(std::any_cast<int16>(value)), document.GetAllocator());
             else if (value.type() == typeid(int8))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetInt(std::any_cast<int8>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetInt(std::any_cast<int8>(value)), document.GetAllocator());
             else if (value.type() == typeid(bool))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetBool(std::any_cast<bool>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetBool(std::any_cast<bool>(value)), document.GetAllocator());
             else if (value.type() == typeid(float))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetFloat(std::any_cast<float>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetFloat(std::any_cast<float>(value)), document.GetAllocator());
             else if (value.type() == typeid(double))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetDouble(std::any_cast<double>(value)), document.GetAllocator());
+                entry.AddMember(keyVal, rapidjson::Value().SetDouble(std::any_cast<double>(value)), document.GetAllocator());
         }
 
         document.PushBack(entry, document.GetAllocator());

@@ -100,3 +100,19 @@ void Player::SendMsg(int dest, const char *msg, ...)
 
     g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, reinterpret_cast<const char *>(buffer), nullptr, nullptr, nullptr, nullptr);
 }
+
+std::any Player::GetInternalVar(std::string name)
+{
+    if (this->internalVars.find(name) == this->internalVars.end())
+        return 0;
+
+    return this->internalVars.at(name);
+}
+
+void Player::SetInternalVar(std::string name, std::any value)
+{
+    if (this->internalVars.find(name) == this->internalVars.end())
+        this->internalVars.insert(std::make_pair(name, value));
+    else
+        this->internalVars[name] = value;
+}

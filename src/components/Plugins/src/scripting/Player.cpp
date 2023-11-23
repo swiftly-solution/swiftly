@@ -4,6 +4,7 @@
 #include "../../../../sdk/entity/CCSPlayerPawnBase.h"
 
 extern CEntitySystem *g_pEntitySystem;
+const char *SerializeData(std::any data);
 
 SMM_API const char *scripting_Player_GetName(uint32 playerId)
 {
@@ -217,6 +218,9 @@ SMM_API const char *scripting_Player_GetClanTag(uint32 playerId)
 
 SMM_API void scripting_Player_SetClanTag(uint32 playerId, const char *tag)
 {
+    if (tag == nullptr)
+        return;
+
     Player *player = g_playerManager->GetPlayer(playerId);
     if (!player)
         return;
@@ -226,4 +230,48 @@ SMM_API void scripting_Player_SetClanTag(uint32 playerId, const char *tag)
         return;
 
     pPlayerController->m_szClan = CUtlSymbolLarge(tag);
+}
+
+SMM_API void scripting_Player_SetVar(uint32 playerId, const char *name, int type, ...)
+{
+    if (name == nullptr)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    va_list ap;
+    va_start(ap, type);
+
+    if (type == 1)
+        player->SetInternalVar(name, va_arg(ap, const char *));
+    else if (type == 2)
+        player->SetInternalVar(name, va_arg(ap, int));
+    else if (type == 3)
+        player->SetInternalVar(name, va_arg(ap, unsigned int));
+    else if (type == 4)
+        player->SetInternalVar(name, va_arg(ap, double));
+    else if (type == 5)
+        player->SetInternalVar(name, va_arg(ap, long));
+    else if (type == 6)
+        player->SetInternalVar(name, va_arg(ap, unsigned long));
+    else if (type == 7)
+        player->SetInternalVar(name, (va_arg(ap, int) == 1));
+
+    va_end(ap);
+}
+
+SMM_API const char *scripting_Player_GetVar(uint32 playerId, const char *name)
+{
+    if (name == nullptr)
+        return "";
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "";
+
+    std::any value = player->GetInternalVar(name);
+
+    return SerializeData(value);
 }

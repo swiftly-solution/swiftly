@@ -9,6 +9,7 @@
 
 #include <public/playerslot.h>
 #include <ctime>
+#include <any>
 
 #define HUD_PRINTNOTIFY 1
 #define HUD_PRINTCONSOLE 2
@@ -105,6 +106,7 @@ public:
     {
         this->isFakeClient = true;
         this->isAuthenticated = false;
+        this->internalVars.clear();
     }
 
     inline bool IsFakeClient() { return this->isFakeClient; };
@@ -131,6 +133,9 @@ public:
 
     void SwitchTeam(int team);
 
+    std::any GetInternalVar(std::string name);
+    void SetInternalVar(std::string name, std::any value);
+
 private:
     int slot;
     bool isFakeClient = false;
@@ -140,6 +145,8 @@ private:
     std::time_t connectTime;
     const char *name;
     uint64 xuid;
+
+    std::map<std::string, std::any> internalVars;
 };
 
 #endif
