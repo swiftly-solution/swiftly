@@ -26,7 +26,7 @@ void scripting_OnClientConnected(const OnClientConnected *e)
     }
 };
 
-void scripting_OnClientConnect(const OnClientConnect *e)
+bool scripting_OnClientConnect(const OnClientConnect *e)
 {
     for (uint32 i = 0; i < plugins.size(); i++)
     {
@@ -36,9 +36,11 @@ void scripting_OnClientConnect(const OnClientConnect *e)
             void *plugin_OnClientConnect = plugin->FetchFunction("Internal_OnClientConnect");
             if (plugin_OnClientConnect)
                 if (!reinterpret_cast<Plugin_OnClientConnect>(plugin_OnClientConnect)(e->slot->Get()))
-                    break;
+                    return false;
         }
     }
+
+    return true;
 };
 
 void scripting_OnClientSpawn(const OnPlayerSpawn *e)
@@ -482,7 +484,6 @@ void scripting_BombAbortDefuse(const BombAbortDefuse *e)
 void PluginsComponent::RegisterGameEvents()
 {
     hooks::on<OnClientConnected>(scripting_OnClientConnected);
-    hooks::on<OnClientConnect>(scripting_OnClientConnect);
     hooks::on<OnPlayerRegistered>(scripting_OnPlayerRegister);
     hooks::on<OnPlayerUnregistered>(scripting_OnPlayerUnregister);
     hooks::on<OnGameFrame>(scripting_OnGameTick);

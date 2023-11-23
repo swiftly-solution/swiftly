@@ -221,11 +221,13 @@ void SwiftlyPlugin::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName
     hooks::emit(OnClientConnected(&slot, pszName, xuid, pszNetworkID, pszAddress, bFakePlayer));
 }
 
+bool scripting_OnClientConnect(const OnClientConnect *e);
+
 bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
 {
-    hooks::emit(OnClientConnect(&slot, pszName, xuid, pszNetworkID, unk1, pRejectReason));
-
-    RETURN_META_VALUE(MRES_IGNORED, true);
+    OnClientConnect clientConnectEvent = OnClientConnect(&slot, pszName, xuid, pszNetworkID, unk1, pRejectReason);
+    hooks::emit(clientConnectEvent);
+    RETURN_META_VALUE(MRES_SUPERCEDE, scripting_OnClientConnect(&clientConnectEvent));
 }
 
 void SwiftlyPlugin::Hook_ClientPutInServer(CPlayerSlot slot, char const *pszName, int type, uint64 xuid)
