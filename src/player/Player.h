@@ -7,7 +7,7 @@
 #include "../sdk/entity/CCSPlayerPawn.h"
 #include "../sdk/entity/CCSPlayerPawnBase.h"
 
-#include <playerslot.h>
+#include <public/playerslot.h>
 #include <ctime>
 
 #define HUD_PRINTNOTIFY 1
