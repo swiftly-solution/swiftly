@@ -48,3 +48,48 @@ GAME_EVENT(round_end)
 {
     gameevents::emit<OnRoundEnd>(pEvent);
 }
+
+GAME_EVENT(bomb_beginplant)
+{
+    gameevents::emit<BombBeginPlant>(pEvent);
+}
+
+GAME_EVENT(bomb_abortplant)
+{
+    gameevents::emit<BombAbortPlant>(pEvent);
+}
+
+GAME_EVENT(bomb_planted)
+{
+    gameevents::emit<BombPlanted>(pEvent);
+}
+
+GAME_EVENT(bomb_begindefuse)
+{
+    gameevents::emit<BombBeginDefuse>(pEvent);
+}
+
+GAME_EVENT(bomb_abortdefuse)
+{
+    gameevents::emit<BombAbortDefuse>(pEvent);
+}
+
+GAME_EVENT(bomb_defused)
+{
+    gameevents::emit<BombDefused>(pEvent);
+}
+
+GAME_EVENT(bomb_exploded)
+{
+    gameevents::emit<BombExploded>(pEvent);
+}
+
+GAME_EVENT(bomb_dropped)
+{
+    gameevents::emit<BombDropped>(pEvent);
+}
+
+GAME_EVENT(bomb_pickup)
+{
+    gameevents::emit<BombPickup>(pEvent);
+}

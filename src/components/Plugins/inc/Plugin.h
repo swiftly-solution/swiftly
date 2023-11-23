@@ -25,6 +25,15 @@ const std::string funcsToLoad[] = {
     "OnRoundStart",
     "OnRoundPrestart",
     "OnRoundEnd",
+    "BombBeginPlant",
+    "BombAbortPlant",
+    "BombPlanted",
+    "BombBeginDefuse",
+    "BombAbortDefuse",
+    "BombDefused",
+    "BombExploded",
+    "BombDropped",
+    "BombPickup",
 };
 
 class Plugin

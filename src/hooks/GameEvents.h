@@ -5,46 +5,34 @@
 #include <map>
 #include <functional>
 
+#define GAMEEVENT_DEFINITION(name) \
+    struct name : GameEvent        \
+    {                              \
+        IGameEvent *pEvent;        \
+        name(IGameEvent *pEvent)   \
+        {                          \
+            this->pEvent = pEvent; \
+        }                          \
+    }
+
 struct GameEvent
 {
     virtual ~GameEvent() {}
 };
 
-struct OnPlayerSpawn : GameEvent
-{
-    IGameEvent *pEvent;
-    OnPlayerSpawn(IGameEvent *pEvent)
-    {
-        this->pEvent = pEvent;
-    };
-};
-
-struct OnRoundPrestart : GameEvent
-{
-    IGameEvent *pEvent;
-    OnRoundPrestart(IGameEvent *pEvent)
-    {
-        this->pEvent = pEvent;
-    };
-};
-
-struct OnRoundStart : GameEvent
-{
-    IGameEvent *pEvent;
-    OnRoundStart(IGameEvent *pEvent)
-    {
-        this->pEvent = pEvent;
-    };
-};
-
-struct OnRoundEnd : GameEvent
-{
-    IGameEvent *pEvent;
-    OnRoundEnd(IGameEvent *pEvent)
-    {
-        this->pEvent = pEvent;
-    };
-};
+GAMEEVENT_DEFINITION(OnPlayerSpawn);
+GAMEEVENT_DEFINITION(OnRoundPrestart);
+GAMEEVENT_DEFINITION(OnRoundStart);
+GAMEEVENT_DEFINITION(OnRoundEnd);
+GAMEEVENT_DEFINITION(BombBeginPlant);
+GAMEEVENT_DEFINITION(BombAbortPlant);
+GAMEEVENT_DEFINITION(BombPlanted);
+GAMEEVENT_DEFINITION(BombDefused);
+GAMEEVENT_DEFINITION(BombExploded);
+GAMEEVENT_DEFINITION(BombDropped);
+GAMEEVENT_DEFINITION(BombPickup);
+GAMEEVENT_DEFINITION(BombBeginDefuse);
+GAMEEVENT_DEFINITION(BombAbortDefuse);
 
 typedef std::multimap<const std::type_info *, const std::function<void(const GameEvent *)>> GameEventMap;
 

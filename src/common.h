@@ -9,6 +9,10 @@
 #define META_IS_SOURCE2 1
 #define MAX_PLAYERS 64
 
+#define SITE_A 0
+#define SITE_B 1
+#define SITE_UNKNOWN 2
+
 #include <public/playerslot.h>
 #include <ISmmPlugin.h>
 #include <iplayerinfo.h>

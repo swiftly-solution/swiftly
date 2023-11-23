@@ -56,6 +56,54 @@ bool OnPlayerChat(Player *player, const char *text, bool teamonly)
     return true;
 }
 
+void OnRoundStart(long timelimit, long fraglimit, const char *objective)
+{
+}
+
+void OnRoundEnd(unsigned char winner, unsigned char reason, const char *message, unsigned char legacy, short player_count, unsigned char nomusic)
+{
+}
+
+void OnRoundPrestart()
+{
+}
+
+void OnBombBeginPlant(Player *player, unsigned short site)
+{
+}
+
+void OnBombAbortPlant(Player *player, unsigned short site)
+{
+}
+
+void OnBombPlanted(Player *player, unsigned short site)
+{
+}
+
+void OnBombBeginDefuse(Player *player, unsigned short site)
+{
+}
+
+void OnBombAbortDefuse(Player *player, unsigned short site)
+{
+}
+
+void OnBombDefused(Player *player, unsigned short site)
+{
+}
+
+void OnBombExploded(Player *player, unsigned short site)
+{
+}
+
+void OnBombDropped(Player *player)
+{
+}
+
+void OnBombPickup(Player *player)
+{
+}
+
 const char *GetPluginAuthor()
 {
     return "";

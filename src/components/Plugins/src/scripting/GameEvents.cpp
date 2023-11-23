@@ -1,5 +1,16 @@
 #include "../../inc/Scripting.h"
 
+std::vector<int> GetBombSites()
+{
+    std::vector<int> sites;
+
+    CEntityInstance *siteEntity = nullptr;
+    while ((siteEntity = UTIL_FindEntityByClassname(siteEntity, "func_bomb_target")) != nullptr)
+        sites.push_back(siteEntity->GetEntityIndex().Get());
+
+    return sites;
+}
+
 void scripting_OnClientConnected(const OnClientConnected *e)
 {
     for (uint32 i = 0; i < plugins.size(); i++)
@@ -194,6 +205,280 @@ void scripting_OnGameTick(const OnGameFrame *e)
     }
 }
 
+void scripting_BombBeginPlant(const BombBeginPlant *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (!player)
+        return;
+
+    std::vector<int> sites = GetBombSites();
+    uint16 site = e->pEvent->GetInt("site");
+    if (sites.size() == 0)
+        site = SITE_UNKNOWN;
+    else
+        site = (sites[0] == site ? SITE_A : SITE_B);
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_BombBeginPlant = plugin->FetchFunction("Internal_BombBeginPlant");
+            if (plugin_BombBeginPlant)
+            {
+                reinterpret_cast<Plugin_BombBeginPlant>(plugin_BombBeginPlant)(player->GetSlot()->Get(), site);
+            }
+        }
+    }
+}
+
+void scripting_BombAbortPlant(const BombAbortPlant *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (!player)
+        return;
+
+    std::vector<int> sites = GetBombSites();
+    uint16 site = e->pEvent->GetInt("site");
+    if (sites.size() == 0)
+        site = SITE_UNKNOWN;
+    else
+        site = (sites[0] == site ? SITE_A : SITE_B);
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_BombAbortPlant = plugin->FetchFunction("Internal_BombAbortPlant");
+            if (plugin_BombAbortPlant)
+            {
+                reinterpret_cast<Plugin_BombAbortPlant>(plugin_BombAbortPlant)(player->GetSlot()->Get(), site);
+            }
+        }
+    }
+}
+
+void scripting_BombPlanted(const BombPlanted *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (!player)
+        return;
+
+    std::vector<int> sites = GetBombSites();
+    uint16 site = e->pEvent->GetInt("site");
+    if (sites.size() == 0)
+        site = SITE_UNKNOWN;
+    else
+        site = (sites[0] == site ? SITE_A : SITE_B);
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_BombPlanted = plugin->FetchFunction("Internal_BombPlanted");
+            if (plugin_BombPlanted)
+            {
+                reinterpret_cast<Plugin_BombPlanted>(plugin_BombPlanted)(player->GetSlot()->Get(), site);
+            }
+        }
+    }
+}
+
+void scripting_BombDefused(const BombDefused *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (!player)
+        return;
+
+    std::vector<int> sites = GetBombSites();
+    uint16 site = e->pEvent->GetInt("site");
+    if (sites.size() == 0)
+        site = SITE_UNKNOWN;
+    else
+        site = (sites[0] == site ? SITE_A : SITE_B);
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_BombDefused = plugin->FetchFunction("Internal_BombDefused");
+            if (plugin_BombDefused)
+            {
+                reinterpret_cast<Plugin_BombDefused>(plugin_BombDefused)(player->GetSlot()->Get(), site);
+            }
+        }
+    }
+}
+
+void scripting_BombExploded(const BombExploded *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (!player)
+        return;
+
+    std::vector<int> sites = GetBombSites();
+    uint16 site = e->pEvent->GetInt("site");
+    if (sites.size() == 0)
+        site = SITE_UNKNOWN;
+    else
+        site = (sites[0] == site ? SITE_A : SITE_B);
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_BombExploded = plugin->FetchFunction("Internal_BombExploded");
+            if (plugin_BombExploded)
+            {
+                reinterpret_cast<Plugin_BombExploded>(plugin_BombExploded)(player->GetSlot()->Get(), site);
+            }
+        }
+    }
+}
+
+void scripting_BombDropped(const BombDropped *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (!player)
+        return;
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_BombDropped = plugin->FetchFunction("Internal_BombDropped");
+            if (plugin_BombDropped)
+            {
+                reinterpret_cast<Plugin_BombDropped>(plugin_BombDropped)(player->GetSlot()->Get());
+            }
+        }
+    }
+}
+
+void scripting_BombPickup(const BombPickup *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (!player)
+        return;
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_BombPickup = plugin->FetchFunction("Internal_BombPickup");
+            if (plugin_BombPickup)
+            {
+                reinterpret_cast<Plugin_BombPickup>(plugin_BombPickup)(player->GetSlot()->Get());
+            }
+        }
+    }
+}
+
+void scripting_BombBeginDefuse(const BombBeginDefuse *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (!player)
+        return;
+
+    std::vector<int> sites = GetBombSites();
+    uint16 site = e->pEvent->GetInt("site");
+    if (sites.size() == 0)
+        site = SITE_UNKNOWN;
+    else
+        site = (sites[0] == site ? SITE_A : SITE_B);
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_BombBeginDefuse = plugin->FetchFunction("Internal_BombBeginDefuse");
+            if (plugin_BombBeginDefuse)
+            {
+                reinterpret_cast<Plugin_BombBeginDefuse>(plugin_BombBeginDefuse)(player->GetSlot()->Get(), site);
+            }
+        }
+    }
+}
+
+void scripting_BombAbortDefuse(const BombAbortDefuse *e)
+{
+    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    if (!controller)
+        return;
+
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (!player)
+        return;
+
+    std::vector<int> sites = GetBombSites();
+    uint16 site = e->pEvent->GetInt("site");
+    if (sites.size() == 0)
+        site = SITE_UNKNOWN;
+    else
+        site = (sites[0] == site ? SITE_A : SITE_B);
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_BombAbortDefuse = plugin->FetchFunction("Internal_BombAbortDefuse");
+            if (plugin_BombAbortDefuse)
+            {
+                reinterpret_cast<Plugin_BombAbortDefuse>(plugin_BombAbortDefuse)(player->GetSlot()->Get(), site);
+            }
+        }
+    }
+}
+
 void PluginsComponent::RegisterGameEvents()
 {
     hooks::on<OnClientConnected>(scripting_OnClientConnected);
@@ -206,4 +491,14 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<OnRoundStart>(scripting_OnRoundStart);
     gameevents::on<OnRoundEnd>(scripting_OnRoundEnd);
     gameevents::on<OnPlayerSpawn>(scripting_OnClientSpawn);
+
+    gameevents::on<BombBeginPlant>(scripting_BombBeginPlant);
+    gameevents::on<BombAbortPlant>(scripting_BombAbortPlant);
+    gameevents::on<BombPlanted>(scripting_BombPlanted);
+    gameevents::on<BombBeginDefuse>(scripting_BombBeginDefuse);
+    gameevents::on<BombAbortDefuse>(scripting_BombAbortDefuse);
+    gameevents::on<BombDefused>(scripting_BombDefused);
+    gameevents::on<BombExploded>(scripting_BombExploded);
+    gameevents::on<BombDropped>(scripting_BombDropped);
+    gameevents::on<BombPickup>(scripting_BombPickup);
 }
