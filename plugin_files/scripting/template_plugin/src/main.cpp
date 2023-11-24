@@ -4,6 +4,7 @@
 #include <swiftly/commands.h>
 #include <swiftly/configuration.h>
 #include <swiftly/logger.h>
+#include <swiftly/timers.h>
 
 #include <main.h>
 
@@ -13,6 +14,7 @@ Database *db = nullptr;
 Commands *commands = nullptr;
 Configuration *config = nullptr;
 Logger *logger = nullptr;
+Timers *timers = nullptr;
 
 void OnProgramLoad(const char *pluginName, const char *mainFilePath)
 {
@@ -23,6 +25,7 @@ void OnProgramLoad(const char *pluginName, const char *mainFilePath)
     commands = new Commands(pluginName);
     config = new Configuration();
     logger = new Logger(mainFilePath, pluginName);
+    timers = new Timers();
 }
 
 void OnPluginStart()

@@ -6,6 +6,10 @@
 #include "playermanager.h"
 #include <cstdarg>
 
+#define SITE_A 0
+#define SITE_B 1
+#define SITE_UNKNOWN 2
+
 typedef void (*PrintFunction)(const char *);
 typedef const char *(*FetchTranslationFunction)(const char *);
 

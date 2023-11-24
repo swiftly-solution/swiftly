@@ -4,6 +4,13 @@
 #include "swiftly_oslink.h"
 #include <stdio.h>
 #include <sstream>
+#include <chrono>
+
+#ifdef _WIN32
+#define WIN_LINUX(win, linux) win
+#else
+#define WIN_LINUX(win, linux) linux
+#endif
 
 size_t UTIL_FormatArgs(char *buffer, size_t maxlength, const char *fmt, va_list params)
 {
@@ -25,6 +32,11 @@ T string_to_type(const char *str)
     T val;
     strValue >> val;
     return val;
+}
+
+uint64_t GetTime()
+{
+    return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 #endif
