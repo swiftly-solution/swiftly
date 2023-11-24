@@ -107,6 +107,14 @@ void OnBombPickup(Player *player)
 {
 }
 
+void OnMapLoad(const char *mapName)
+{
+}
+
+void OnMapUnload(const char *mapName)
+{
+}
+
 const char *GetPluginAuthor()
 {
     return "";

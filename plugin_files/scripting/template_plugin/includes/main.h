@@ -24,6 +24,8 @@ void OnBombDefused(Player *player, unsigned short site);
 void OnBombExploded(Player *player, unsigned short site);
 void OnBombDropped(Player *player);
 void OnBombPickup(Player *player);
+void OnMapLoad(const char *mapName);
+void OnMapUnload(const char *mapName);
 
 extern "C"
 {
@@ -179,6 +181,16 @@ extern "C"
             return;
 
         OnBombPickup(player);
+    }
+
+    void Internal_OnMapLoad(const char *mapName)
+    {
+        OnMapLoad(mapName);
+    }
+
+    void Internal_OnMapUnload(const char *mapName)
+    {
+        OnMapUnload(mapName);
     }
 
     const char *GetPluginAuthor();

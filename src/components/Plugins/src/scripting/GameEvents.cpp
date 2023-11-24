@@ -481,6 +481,38 @@ void scripting_BombAbortDefuse(const BombAbortDefuse *e)
     }
 }
 
+void scripting_OnMapLoad(const OnMapLoad *e)
+{
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_OnMapLoad = plugin->FetchFunction("Internal_OnMapLoad");
+            if (plugin_OnMapLoad)
+            {
+                reinterpret_cast<Plugin_OnMapLoad>(plugin_OnMapLoad)(e->map);
+            }
+        }
+    }
+}
+
+void scripting_OnMapUnload(const OnMapUnload *e)
+{
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_OnMapUnload = plugin->FetchFunction("Internal_OnMapUnload");
+            if (plugin_OnMapUnload)
+            {
+                reinterpret_cast<Plugin_OnMapUnload>(plugin_OnMapUnload)(e->map);
+            }
+        }
+    }
+}
+
 void PluginsComponent::RegisterGameEvents()
 {
     hooks::on<OnClientConnected>(scripting_OnClientConnected);
@@ -502,4 +534,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<BombExploded>(scripting_BombExploded);
     gameevents::on<BombDropped>(scripting_BombDropped);
     gameevents::on<BombPickup>(scripting_BombPickup);
+
+    hooks::on<OnMapLoad>(scripting_OnMapLoad);
+    hooks::on<OnMapUnload>(scripting_OnMapUnload);
 }

@@ -154,6 +154,13 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     plugins_component->RegisterGameEvents();
     plugins_component->StartPlugins();
 
+    g_Signatures->LoadSignatures();
+    g_Offsets->LoadOffsets();
+    if (!InitializeHooks())
+        PRINT("Hooks", "Failed to initialize hooks.\n");
+    else
+        PRINT("Hooks", "All hooks has been loaded!\n");
+
     return true;
 }
 
@@ -182,16 +189,19 @@ bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
     return true;
 }
 
+void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
+{
+    hooks::emit(OnMapLoad(pMapName));
+}
+
+void SwiftlyPlugin::OnLevelShutdown()
+{
+    hooks::emit(OnMapUnload(engine->GetServerGlobals()->mapname.ToCStr()));
+}
+
 bool bDone = false;
 void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *)
 {
-    g_Signatures->LoadSignatures();
-    g_Offsets->LoadOffsets();
-    if (!InitializeHooks())
-        PRINT("Hooks", "Failed to initialize hooks.\n");
-    else
-        PRINT("Hooks", "All hooks has been loaded!\n");
-
     if (!bDone)
     {
         g_pGameEntitySystem = *reinterpret_cast<CGameEntitySystem **>(reinterpret_cast<uintptr_t>(g_pGameResourceService) + g_Offsets->GetOffset("GameEntitySystem"));

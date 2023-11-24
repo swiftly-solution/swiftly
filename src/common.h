@@ -38,6 +38,8 @@ public:
     bool Pause(char *error, size_t maxlen);
     bool Unpause(char *error, size_t maxlen);
     void AllPluginsLoaded();
+    void OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background);
+    void OnLevelShutdown();
 
 public:
     void Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *);

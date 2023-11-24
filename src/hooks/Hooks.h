@@ -145,7 +145,28 @@ struct OnPlayerUnregistered : Event
     }
 };
 
-typedef std::multimap<const std::type_info *, const std::function<void(const Event *)>> EventMap;
+struct OnMapLoad : Event
+{
+    const char *map;
+
+    OnMapLoad(const char *map)
+    {
+        this->map = map;
+    }
+};
+
+struct OnMapUnload : Event
+{
+    const char *map;
+
+    OnMapUnload(const char *map)
+    {
+        this->map = map;
+    }
+};
+
+typedef std::multimap<const std::type_info *, const std::function<void(const Event *)>>
+    EventMap;
 
 extern EventMap eventMap;
 
