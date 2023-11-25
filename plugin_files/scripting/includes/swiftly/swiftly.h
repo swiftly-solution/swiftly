@@ -51,7 +51,7 @@ void Swiftly_Setup(const char *pluginName, const char *mainFilePath)
 void OnPluginStart() __attribute__((weak));
 void OnPluginStop() __attribute__((weak));
 void OnProgramLoad(const char *pluginName, const char *mainFilePath);
-bool OnClientConnected(Player *player) __attribute__((weak));
+void OnClientConnected(Player *player) __attribute__((weak));
 bool OnClientConnect(Player *player) __attribute__((weak));
 void OnPlayerSpawn(Player *player) __attribute__((weak));
 void OnGameTick(bool simulating, bool bFirstTick, bool bLastTick) __attribute__((weak));

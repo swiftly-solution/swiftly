@@ -34,9 +34,8 @@ void OnPluginStop()
 {
 }
 
-bool OnClientConnected(Player *player)
+void OnClientConnected(Player *player)
 {
-    return true;
 }
 
 bool OnClientConnect(Player *player)

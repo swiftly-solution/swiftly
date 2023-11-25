@@ -20,8 +20,7 @@ void scripting_OnClientConnected(const OnClientConnected *e)
         {
             void *plugin_OnClientConnected = plugin->FetchFunction("Internal_OnClientConnected");
             if (plugin_OnClientConnected)
-                if (!reinterpret_cast<Plugin_OnClientConnected>(plugin_OnClientConnected)(e->slot->Get()))
-                    break;
+                reinterpret_cast<Plugin_OnClientConnected>(plugin_OnClientConnected)(e->slot->Get());
         }
     }
 };
