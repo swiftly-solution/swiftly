@@ -18,7 +18,7 @@ public:
     Team(uint32_t playerSlot) : m_playerSlot(playerSlot) {}
     ~Team() {}
 
-    uint8_t Get()
+    int Get()
     {
         void *player_GetTeam = FetchFunctionPtr(nullptr, "scripting_Player_GetTeam");
         if (player_GetTeam)

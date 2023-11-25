@@ -6,8 +6,6 @@
 #include <swiftly/logger.h>
 #include <swiftly/timers.h>
 
-#include <main.h>
-
 Server *server = nullptr;
 PlayerManager *g_playerManager = nullptr;
 Database *db = nullptr;
