@@ -4,16 +4,11 @@
 #include "swiftly_memory.h"
 #include "swiftly_utils.h"
 #include "types.h"
-#include "player.h"
 #include "convar.h"
 #include <stdlib.h>
-#include <vector>
 
 class Server
 {
-private:
-    std::vector<Player *> players;
-
 public:
     Convars *cvars;
 
