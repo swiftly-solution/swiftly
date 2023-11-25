@@ -258,6 +258,10 @@ SMM_API void scripting_Player_SetVar(uint32 playerId, const char *name, int type
         player->SetInternalVar(name, va_arg(ap, unsigned long));
     else if (type == 7)
         player->SetInternalVar(name, (va_arg(ap, int) == 1));
+    else if (type == 8)
+        player->SetInternalVar(name, va_arg(ap, long long));
+    else if (type == 9)
+        player->SetInternalVar(name, va_arg(ap, unsigned long long));
 
     va_end(ap);
 }

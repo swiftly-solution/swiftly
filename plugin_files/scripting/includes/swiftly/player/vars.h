@@ -89,6 +89,10 @@ public:
             type = 6;
         else if constexpr (std::is_same_v<T, bool>)
             type = 7;
+        else if constexpr (std::is_same_v<T, long long>)
+            type = 8;
+        else if constexpr (std::is_same_v<T, unsigned long long>)
+            type = 9;
 
         if (type == 0)
             return;
