@@ -4,6 +4,7 @@
 #include "../../../player/PlayerManager.h"
 
 typedef void (*OnPluginStartFunction)();
+typedef void (*OnPluginStopFunction)();
 typedef void (*OnProgramLoadFunction)(const char *, const char *);
 typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
 
@@ -45,6 +46,12 @@ void Plugin::StartPlugin()
 
 void Plugin::StopPlugin()
 {
+    void *OnPluginStop = this->FetchFunction("Internal_OnPluginStop");
+    if (OnPluginStop)
+    {
+        reinterpret_cast<OnPluginStopFunction>(OnPluginStop)();
+    }
+
     dlclose(this->m_hModule);
     this->functions.clear();
     std::vector<std::string> cmds = g_commandsManager->FetchCommandsByPlugin(this->GetName());

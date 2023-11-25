@@ -73,6 +73,18 @@ public:
         return this->timerID;
     }
 
+    void UnregisterTimers()
+    {
+        for (std::map<uint64_t, Timer *>::iterator it = this->timers.begin(); it != this->timers.end(); ++it)
+        {
+            it->second->SetPaused(true);
+            it->second->Destroy();
+            delete it->second;
+        }
+
+        this->timers.clear();
+    }
+
     void PauseTimer(uint64_t timerID)
     {
         if (this->timers.find(timerID) == this->timers.end())

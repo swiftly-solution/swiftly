@@ -32,6 +32,7 @@ void OnPluginStart()
 
 void OnPluginStop()
 {
+    timers->UnregisterTimers();
 }
 
 void OnClientConnected(Player *player)

@@ -81,6 +81,7 @@ public:
         if (!this->m_hModule)
         {
             PRINTF("LoadPlugin", "Failed to load module: %s\n", std::string(dlerror()).c_str());
+            return;
         }
 #endif
         for (uint16 i = 0; i < ARR_SIZE(funcsToLoad); i++)
