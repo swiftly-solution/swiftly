@@ -88,16 +88,16 @@ extern "C"
     {
         OnProgramLoad(pluginName, mainFilePath);
     }
-    bool Internal_OnClientConnected(uint32_t slot)
+    void Internal_OnClientConnected(uint32_t slot)
     {
         if (!OnClientConnected)
-            return true;
+            return;
 
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
-            return false;
+            return;
 
-        return OnClientConnected(player);
+        OnClientConnected(player);
     }
     bool Internal_OnClientConnect(uint32_t slot)
     {

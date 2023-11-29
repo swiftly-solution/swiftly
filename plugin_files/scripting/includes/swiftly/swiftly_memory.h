@@ -49,6 +49,8 @@ typedef const char *(*Configuration_Fetch)(const char *);
 typedef void (*Logger_CreateLogger)(const char *);
 typedef void (*Logger_WriteLog)(const char *, ELogType, const char *);
 
+typedef void (*Server_ExecuteCommand)(const char *);
+
 void *FetchFunctionPtr(const char *filePath, const char *function_name)
 {
     if (!isSet)
