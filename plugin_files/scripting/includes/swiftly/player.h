@@ -126,6 +126,15 @@ public:
         if (player_SendMessage)
             reinterpret_cast<Player_SendMessage>(player_SendMessage)(this->m_playerSlot, dest, buffer);
     }
+
+    uint32_t GetConnectedTime()
+    {
+        void *player_GetConnectedTime = FetchFunctionPtr(nullptr, "scripting_Player_GetConnectedTime");
+        if (player_GetConnectedTime)
+            return reinterpret_cast<Player_GetConnectedTime>(player_GetConnectedTime)(this->m_playerSlot);
+        else
+            return 0;
+    }
 };
 
 #endif

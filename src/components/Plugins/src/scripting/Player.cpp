@@ -279,3 +279,12 @@ SMM_API const char *scripting_Player_GetVar(uint32 playerId, const char *name)
 
     return SerializeData(value).c_str();
 }
+
+SMM_API uint32 scripting_Player_GetConnectedTime(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    return player->GetConnectedTime();
+}

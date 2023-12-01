@@ -27,7 +27,7 @@ void OnClientConnectedOnServer(const OnClientConnected *e)
         Player *player = new Player(true, e->slot->Get(), e->pszName, 0);
         g_playerManager->RegisterPlayer(player);
     }
-};
+}
 
 void OnClientConnectOnServer(const OnClientConnect *e)
 {
@@ -35,7 +35,7 @@ void OnClientConnectOnServer(const OnClientConnect *e)
     g_playerManager->RegisterPlayer(player);
 
     player->SetConnected(true);
-};
+}
 
 void OnClientDisconnected(const OnClientDisconnect *e)
 {
@@ -44,7 +44,7 @@ void OnClientDisconnected(const OnClientDisconnect *e)
         return;
 
     g_playerManager->UnregisterPlayer(e->slot);
-};
+}
 
 void OnClientSpawn(const OnPlayerSpawn *e)
 {
@@ -58,7 +58,7 @@ void OnClientSpawn(const OnPlayerSpawn *e)
         return;
 
     player->SetEHandlerIdx(controller->GetRefEHandle().GetEntryIndex());
-};
+}
 
 void PlayerManager::SetupHooks()
 {
