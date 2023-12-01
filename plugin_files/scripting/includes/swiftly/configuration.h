@@ -86,9 +86,6 @@ public:
             }
             catch (std::bad_any_cast err)
             {
-                std::ofstream fout("file.out");
-                fout << err.what() << "\n";
-                fout.close();
                 return 0;
             }
         }
