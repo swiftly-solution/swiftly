@@ -117,7 +117,7 @@ void LoadValue(const char *key, const char *keyname, rapidjson::Value &value, st
         LoadConfigPart(key + separator + keyname, value);
     else if (value.IsArray())
         for (size_t i = 0; i < value.Size(); i++)
-            LoadValue(string_format("%s%s%s", key, separator.c_str(), keyname).c_str(), string_format("[%d]", i).c_str(), value[i], "");
+            LoadValue((key + separator + keyname).c_str(), string_format("[%d]", i).c_str(), value[i], "");
 };
 
 void LoadConfigPart(std::string key, rapidjson::Value &document)
