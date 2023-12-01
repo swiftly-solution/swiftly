@@ -4,7 +4,7 @@
 #include "../../../../sdk/entity/CCSPlayerPawnBase.h"
 
 extern CEntitySystem *g_pEntitySystem;
-const char *SerializeData(std::any data);
+std::string SerializeData(std::any data);
 
 SMM_API const char *scripting_Player_GetName(uint32 playerId)
 {
@@ -277,5 +277,5 @@ SMM_API const char *scripting_Player_GetVar(uint32 playerId, const char *name)
 
     std::any value = player->GetInternalVar(name);
 
-    return SerializeData(value);
+    return SerializeData(value).c_str();
 }

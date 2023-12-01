@@ -4,7 +4,7 @@
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
 
-const char *SerializeData(std::any data)
+std::string SerializeData(std::any data)
 {
     rapidjson::Document document(rapidjson::kObjectType);
 
@@ -43,7 +43,7 @@ const char *SerializeData(std::any data)
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     document.Accept(writer);
 
-    return buffer.GetString();
+    return std::string(buffer.GetString());
 }
 
 SMM_API const char *scripting_Configuration_Fetch(const char *key)
@@ -57,6 +57,5 @@ SMM_API const char *scripting_Configuration_Fetch(const char *key)
         return key;
 
     std::any value = config.at(key);
-    const char *data = SerializeData(value);
-    return data;
+    return SerializeData(value).c_str();
 }
