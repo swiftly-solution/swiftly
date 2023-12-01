@@ -4,7 +4,7 @@
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
 
-const char *SerializeData(const std::vector<std::map<const char *, std::any>> &data)
+std::string SerializeData(const std::vector<std::map<const char *, std::any>> &data)
 {
     rapidjson::Document document(rapidjson::kArrayType);
 
@@ -52,7 +52,7 @@ const char *SerializeData(const std::vector<std::map<const char *, std::any>> &d
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     document.Accept(writer);
-    return buffer.GetString();
+    return std::string(buffer.GetString());
 }
 
 SMM_API bool scripting_Database_Connect(const char *connectionName)
@@ -100,22 +100,22 @@ SMM_API const char *scripting_Database_EscapeString(const char *connectionName, 
 SMM_API const char *scripting_Database_Query(const char *connectionName, const char *query)
 {
     if (connectionName == nullptr || query == nullptr)
-        return SerializeData({});
+        return SerializeData({}).c_str();
 
     Database *db = g_dbManager->GetDatabase(connectionName);
     if (db == nullptr)
-        return SerializeData({});
+        return SerializeData({}).c_str();
 
     if (!db->IsConnected())
-        return SerializeData({});
+        return SerializeData({}).c_str();
 
     std::vector<std::map<const char *, std::any>> results = db->Query(query);
 
     if (results.size() == 0 && db->HasError())
     {
         PRINTF("Database", "An error has been encountered while a query was executed.\nQuery: \"%s\"\nError: %s\n", query, db->GetError());
-        return SerializeData({});
+        return SerializeData({}).c_str();
     }
 
-    return SerializeData(results);
+    return SerializeData(results).c_str();
 }
