@@ -93,7 +93,7 @@ bool Configuration::LoadConfiguration()
 
 void LoadConfigPart(std::string key, rapidjson::Value &document);
 
-void LoadValue(std::string key, std::string keyname, rapidjson::Value &value, std::string separator = ".")
+void LoadValue(const char *key, const char *keyname, rapidjson::Value &value, std::string separator = ".")
 {
     if (value.IsBool())
         g_Config->SetValue(key + separator + keyname, value.GetBool());
@@ -116,8 +116,8 @@ void LoadValue(std::string key, std::string keyname, rapidjson::Value &value, st
     else if (value.IsObject())
         LoadConfigPart(key + separator + keyname, value);
     else if (value.IsArray())
-        for (uint64_t i = 0; i < value.Size(); i++)
-            LoadValue(string_format("%s%s%s", key, separator, keyname), string_format("[%d]", i), value[i], "");
+        for (size_t i = 0; i < value.Size(); i++)
+            LoadValue(string_format("%s%s%s", key, separator.c_str(), keyname).c_str(), string_format("[%d]", i).c_str(), value[i], "");
 };
 
 void LoadConfigPart(std::string key, rapidjson::Value &document)
@@ -125,7 +125,7 @@ void LoadConfigPart(std::string key, rapidjson::Value &document)
     for (auto it = document.MemberBegin(); it != document.MemberEnd(); ++it)
     {
         std::string keyname = it->name.GetString();
-        LoadValue(key, keyname, it->value);
+        LoadValue(key.c_str(), keyname.c_str(), it->value);
     }
 }
 
