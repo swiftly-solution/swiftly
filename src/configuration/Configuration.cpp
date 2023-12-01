@@ -91,35 +91,39 @@ bool Configuration::LoadConfiguration()
     return true;
 }
 
+void LoadValue(std::string key, std::string keyname, rapidjson::Value &value, std::string separator = ".")
+{
+    if (value.IsBool())
+        g_Config->SetValue(key + separator + keyname, value.GetBool());
+    else if (value.IsString())
+        g_Config->SetValue(key + separator + keyname, std::string(value.GetString()));
+    else if (value.IsDouble())
+        g_Config->SetValue(key + separator + keyname, value.GetDouble());
+    else if (value.IsFloat())
+        g_Config->SetValue(key + separator + keyname, value.GetFloat());
+    else if (value.IsInt64())
+        g_Config->SetValue(key + separator + keyname, value.GetInt64());
+    else if (value.IsInt())
+        g_Config->SetValue(key + separator + keyname, value.GetInt());
+    else if (value.IsUint64())
+        g_Config->SetValue(key + separator + keyname, value.GetUint64());
+    else if (value.IsUint())
+        g_Config->SetValue(key + separator + keyname, value.GetUint());
+    else if (value.IsNull())
+        g_Config->SetValue(key + separator + keyname, nullptr);
+    else if (value.IsObject())
+        LoadConfigPart(key + separator + keyname, value);
+    else if (value.IsArray())
+        for (uint64_t i = 0; i < value.Size(); i++)
+            LoadValue(string_format("%s%s%s", key, separator, keyname), string_format("[%d]", i), value[i], "");
+};
+
 void LoadConfigPart(std::string key, rapidjson::Value &document)
 {
     for (auto it = document.MemberBegin(); it != document.MemberEnd(); ++it)
     {
         std::string keyname = it->name.GetString();
-
-        if (it->value.IsBool())
-            g_Config->SetValue(key + "." + keyname, it->value.GetBool());
-        else if (it->value.IsString())
-            g_Config->SetValue(key + "." + keyname, std::string(it->value.GetString()));
-        else if (it->value.IsDouble())
-            g_Config->SetValue(key + "." + keyname, it->value.GetDouble());
-        else if (it->value.IsFloat())
-            g_Config->SetValue(key + "." + keyname, it->value.GetFloat());
-        else if (it->value.IsInt64())
-            g_Config->SetValue(key + "." + keyname, it->value.GetInt64());
-        else if (it->value.IsInt())
-            g_Config->SetValue(key + "." + keyname, it->value.GetInt());
-        else if (it->value.IsUint64())
-            g_Config->SetValue(key + "." + keyname, it->value.GetUint64());
-        else if (it->value.IsUint())
-            g_Config->SetValue(key + "." + keyname, it->value.GetUint());
-        else if (it->value.IsNull())
-            g_Config->SetValue(key + "." + keyname, nullptr);
-        else if (it->value.IsObject())
-            LoadConfigPart(key + "." + keyname, it->value);
-        else if (it->value.IsArray())
-            for (uint64_t i = 0; i < it->value.Size(); i++)
-                LoadConfigPart(string_format("%s.%s[%d]", key, keyname, i), it->value);
+        LoadValue(key, keyname, it->value);
     }
 }
 
