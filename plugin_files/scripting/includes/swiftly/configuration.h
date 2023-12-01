@@ -77,7 +77,7 @@ public:
         void *configurationFetch = FetchFunctionPtr(nullptr, "scripting_Configuration_Fetch");
         if (configurationFetch)
         {
-            char *value;
+            char *value = new char[8192];
             reinterpret_cast<Configuration_Fetch>(configurationFetch)(key, value);
 
             try
