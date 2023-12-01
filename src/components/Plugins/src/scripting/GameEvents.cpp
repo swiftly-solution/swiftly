@@ -42,7 +42,7 @@ bool scripting_OnClientConnect(const OnClientConnect *e)
     return true;
 }
 
-void scripting_OnClientDisconnec(const OnClientDisconnect *e)
+void scripting_OnClientDisconnect(const OnClientDisconnect *e)
 {
     for (uint32 i = 0; i < plugins.size(); i++)
     {
