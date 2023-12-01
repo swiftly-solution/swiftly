@@ -7,6 +7,7 @@
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
+#include <rapidjson/error/en.h>
 #include <any>
 
 class BaseConfigValue
@@ -42,7 +43,7 @@ std::any DeserializeConfigData(const char *jsonData)
     document.Parse(jsonData);
 
     if (document.HasParseError())
-        return "";
+        return GetParseError_En(document.GetParseError());
 
     if (document["value"].IsString())
         return (new TypedConfigValue<const char *>(document["value"].GetString()))->getValue();
