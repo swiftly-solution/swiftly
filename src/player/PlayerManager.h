@@ -4,6 +4,7 @@
 #include "../common.h"
 #include "Player.h"
 #include "../hooks/Hooks.h"
+#include <public/playerslot.h>
 
 class PlayerManager
 {
