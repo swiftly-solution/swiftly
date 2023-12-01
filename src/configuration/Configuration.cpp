@@ -91,6 +91,8 @@ bool Configuration::LoadConfiguration()
     return true;
 }
 
+void LoadConfigPart(std::string key, rapidjson::Value &document);
+
 void LoadValue(std::string key, std::string keyname, rapidjson::Value &value, std::string separator = ".")
 {
     if (value.IsBool())
