@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <sstream>
 #include <chrono>
+#include <memory>
 
 #ifdef _WIN32
 #define WIN_LINUX(win, linux) win
