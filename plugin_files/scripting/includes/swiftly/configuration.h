@@ -41,6 +41,9 @@ std::any DeserializeConfigData(const char *jsonData)
     rapidjson::Document document;
     document.Parse(jsonData);
 
+    if (document.HasParseError())
+        return "";
+
     if (document["value"].IsString())
         return (new TypedConfigValue<const char *>(document["value"].GetString()))->getValue();
     else if (document["value"].IsInt())

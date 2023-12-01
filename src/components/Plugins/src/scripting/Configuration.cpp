@@ -43,8 +43,6 @@ const char *SerializeData(std::any data)
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     document.Accept(writer);
 
-    PRINTF("SerializeData - Configuration", "%s\n", buffer.GetString());
-
     return buffer.GetString();
 }
 
@@ -54,9 +52,6 @@ SMM_API const char *scripting_Configuration_Fetch(const char *key)
         return "";
 
     std::map<std::string, std::any> config = g_Config->FetchConfiguration();
-
-    for (std::map<std::string, std::any>::iterator it = config.begin(); it != config.end(); ++it)
-        PRINTF("Configuration - Fetch", "Key: %s\n", it->first.c_str());
 
     if (config.find(key) == config.end())
         return key;
