@@ -245,9 +245,14 @@ void SwiftlyPlugin::Hook_ClientPutInServer(CPlayerSlot slot, char const *pszName
     hooks::emit(OnClientPutInServer(&slot, pszName, type, xuid));
 }
 
+void scripting_OnClientDisconnect(const OnClientDisconnect *e);
+
 void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const char *pszName, uint64 xuid, const char *pszNetworkID)
 {
-    hooks::emit(OnClientDisconnect(&slot, reason, pszName, xuid, pszNetworkID));
+    OnClientDisconnect clientDisconnectEvent = OnClientDisconnect(&slot, reason, pszName, xuid, pszNetworkID);
+    scripting_OnClientDisconnect(&clientDisconnectEvent);
+
+    hooks::emit(clientDisconnectEvent);
 }
 
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)

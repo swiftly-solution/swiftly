@@ -53,6 +53,7 @@ void OnPluginStop() __attribute__((weak));
 void OnProgramLoad(const char *pluginName, const char *mainFilePath);
 void OnClientConnected(Player *player) __attribute__((weak));
 bool OnClientConnect(Player *player) __attribute__((weak));
+void OnClientDisconnect(Player *player) __attribute__((weak));
 void OnPlayerSpawn(Player *player) __attribute__((weak));
 void OnGameTick(bool simulating, bool bFirstTick, bool bLastTick) __attribute__((weak));
 bool OnPlayerChat(Player *player, const char *text, bool teamonly) __attribute__((weak));
@@ -98,6 +99,17 @@ extern "C"
             return;
 
         OnClientConnected(player);
+    }
+    void Internal_OnClientDisconnect(uint32_t slot)
+    {
+        if (!OnClientDisconnect)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        OnClientDisconnect(player);
     }
     bool Internal_OnClientConnect(uint32_t slot)
     {

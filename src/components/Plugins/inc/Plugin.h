@@ -19,6 +19,7 @@ const std::string funcsToLoad[] = {
     "OnPluginStop",
     "OnClientConnected",
     "OnClientConnect",
+    "OnClientDisconnect",
     "OnPlayerSpawn",
     "OnGameTick",
     "OnPlayerChat",

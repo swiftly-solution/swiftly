@@ -23,7 +23,7 @@ void scripting_OnClientConnected(const OnClientConnected *e)
                 reinterpret_cast<Plugin_OnClientConnected>(plugin_OnClientConnected)(e->slot->Get());
         }
     }
-};
+}
 
 bool scripting_OnClientConnect(const OnClientConnect *e)
 {
@@ -40,7 +40,21 @@ bool scripting_OnClientConnect(const OnClientConnect *e)
     }
 
     return true;
-};
+}
+
+void scripting_OnClientDisconnec(const OnClientDisconnect *e)
+{
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_OnClientDisconnect = plugin->FetchFunction("Internal_OnClientDisconnect");
+            if (plugin_OnClientDisconnect)
+                reinterpret_cast<Plugin_OnClientDisconnect>(plugin_OnClientDisconnect)(e->slot->Get());
+        }
+    }
+}
 
 void scripting_OnClientSpawn(const OnPlayerSpawn *e)
 {
