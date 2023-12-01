@@ -80,11 +80,11 @@ public:
 
             try
             {
-                return value;
+                return std::any_cast<T>(DeserializeConfigData(value));
             }
             catch (std::bad_any_cast err)
             {
-                return err.what();
+                return 0;
             }
         }
         else
