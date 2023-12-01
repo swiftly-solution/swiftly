@@ -284,6 +284,7 @@ class MMSPluginConfig(object):
         '/W3',
         '/Z7',
         '/EHsc',
+        '/Zc:__cplusplus',
       ]
       cxx.cxxflags += ['/TP', '/std:c++17']
       

@@ -333,7 +333,7 @@ void SwiftlyPluginManager(CPlayerSlot *slot, CCommandContext context, const char
 
 void SwiftlyConFilterManagerHelp(CPlayerSlot *slot, CCommandContext context)
 {
-    PrintToClientOrConsole(slot, "Commands", "Swiftly Plugin Management Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Console Filtering Menu\n");
     PrintToClientOrConsole(slot, "Commands", "Usage: swiftly confilter <command>\n");
     PrintToClientOrConsole(slot, "Commands", " disable    - Disables the console filtering.\n");
     PrintToClientOrConsole(slot, "Commands", " enable     - Enables the console filtering.\n");
