@@ -117,6 +117,9 @@ void LoadConfigPart(std::string key, rapidjson::Value &document)
             g_Config->SetValue(key + "." + keyname, nullptr);
         else if (it->value.IsObject())
             LoadConfigPart(key + "." + keyname, it->value);
+        else if (it->value.IsArray())
+            for (uint64_t i = 0; i < it->value.Size(); i++)
+                LoadConfigPart(string_format("%s.%s[%d]", key, keyname, i), it->value);
     }
 }
 
