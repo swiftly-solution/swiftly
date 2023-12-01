@@ -46,17 +46,16 @@ const char *SerializeData(std::any data)
     return buffer.GetString();
 }
 
-SMM_API const char *scripting_Configuration_Fetch(const char *key)
+SMM_API void scripting_Configuration_Fetch(const char *key, char *retval)
 {
     if (key == nullptr)
-        return "";
+        return;
 
     std::map<std::string, std::any> config = g_Config->FetchConfiguration();
 
     if (config.find(key) == config.end())
-        return key;
+        return;
 
     std::any value = config.at(key);
-
-    return SerializeData(value);
+    strcpy(retval, SerializeData(value));
 }

@@ -77,7 +77,8 @@ public:
         void *configurationFetch = FetchFunctionPtr(nullptr, "scripting_Configuration_Fetch");
         if (configurationFetch)
         {
-            const char *value = reinterpret_cast<Configuration_Fetch>(configurationFetch)(key);
+            char *value;
+            reinterpret_cast<Configuration_Fetch>(configurationFetch)(key, value);
 
             try
             {
