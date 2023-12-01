@@ -10,7 +10,7 @@ TEMP_DIR := temp
 INCLUDES_FOLDER := $(CURRENT_PATH)/includes
 
 CC_FLAGS = -I"$(INCLUDES_FOLDER)" -I"$(BEHIND_PATH)/includes"
-CXX_FLAGS := -I"$(INCLUDES_FOLDER)" -I"$(BEHIND_PATH)/includes" -lpthread -L"$(BEHIND_PATH)/lib"
+CXX_FLAGS := -I"$(INCLUDES_FOLDER)" -I"$(BEHIND_PATH)/includes" -lpthread -L"$(BEHIND_PATH)/lib" -std=c++17
 
 ifneq ($(OS),Windows_NT)
 	CXX_FLAGS := $(CXX_FLAGS) -fPIC
