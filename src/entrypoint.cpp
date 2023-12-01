@@ -235,6 +235,11 @@ bool scripting_OnClientConnect(const OnClientConnect *e);
 
 bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
 {
+    Player *player = new Player(false, slot.Get(), pszName, xuid);
+    g_playerManager->RegisterPlayer(player);
+
+    player->SetConnected(true);
+
     OnClientConnect clientConnectEvent = OnClientConnect(&slot, pszName, xuid, pszNetworkID, unk1, pRejectReason);
     hooks::emit(clientConnectEvent);
     RETURN_META_VALUE(MRES_SUPERCEDE, scripting_OnClientConnect(&clientConnectEvent));
@@ -251,6 +256,10 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const ch
 {
     OnClientDisconnect clientDisconnectEvent = OnClientDisconnect(&slot, reason, pszName, xuid, pszNetworkID);
     scripting_OnClientDisconnect(&clientDisconnectEvent);
+
+    Player *player = g_playerManager->GetPlayer(&slot);
+    if (player)
+        g_playerManager->UnregisterPlayer(&slot);
 
     hooks::emit(clientDisconnectEvent);
 }

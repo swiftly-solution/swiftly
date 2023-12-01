@@ -29,23 +29,6 @@ void OnClientConnectedOnServer(const OnClientConnected *e)
     }
 }
 
-void OnClientConnectOnServer(const OnClientConnect *e)
-{
-    Player *player = new Player(false, e->slot->Get(), e->pszName, e->xuid);
-    g_playerManager->RegisterPlayer(player);
-
-    player->SetConnected(true);
-}
-
-void OnClientDisconnected(const OnClientDisconnect *e)
-{
-    Player *player = g_playerManager->GetPlayer(e->slot);
-    if (!player)
-        return;
-
-    g_playerManager->UnregisterPlayer(e->slot);
-}
-
 void OnClientSpawn(const OnPlayerSpawn *e)
 {
     CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
@@ -63,8 +46,6 @@ void OnClientSpawn(const OnPlayerSpawn *e)
 void PlayerManager::SetupHooks()
 {
     hooks::on<OnClientConnected>(OnClientConnectedOnServer);
-    hooks::on<OnClientConnect>(OnClientConnectOnServer);
-    hooks::on<OnClientDisconnect>(OnClientDisconnected);
 
     gameevents::on<OnPlayerSpawn>(OnClientSpawn);
 }
