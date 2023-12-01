@@ -53,8 +53,6 @@ SMM_API const char *scripting_Configuration_Fetch(const char *key)
 
     std::map<std::string, std::any> config = g_Config->FetchConfiguration();
 
-    PRINTF("Configuration - Fetch", "Received key: %s\n", key);
-
     if (config.find(key) == config.end())
         return key;
 
