@@ -6,6 +6,9 @@
 #include <thread>
 #include <functional>
 #include <chrono>
+#ifndef _WIN32
+#include <unistd.h>
+#endif
 
 class Timer;
 
@@ -127,9 +130,13 @@ void ThreadFunction(Timer *timer)
         if (timer->ShouldExecute())
             timer->Execute();
 
-        // For Windows time needs to be halfed because sleep is dependent on System Clock Time.
-        // Sometimes Windows randomly updates the System Clock Time and the wait time is irregular.
-        std::this_thread::sleep_for(std::chrono::milliseconds(timer->GetDelay() / WIN_LINUX(2, 1)));
+            // For Windows time needs to be halfed because sleep is dependent on System Clock Time.
+            // Sometimes Windows randomly updates the System Clock Time and the wait time is irregular.
+#ifdef _WIN32
+        std::this_thread::sleep_for(std::chrono::milliseconds(timer->GetDelay() / 2));
+#else
+        usleep(timer->GetDelay() * 1000);
+#endif
     }
 }
 

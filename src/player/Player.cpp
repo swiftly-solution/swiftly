@@ -87,10 +87,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
 {
     CBasePlayerController *controller = this->GetController();
     if (!controller)
-    {
-        PRINTF("Player::SendMsg", "No controller present.\nSteamID: %llu", this->GetSteamID());
         return;
-    }
 
     va_list args;
     char buffer[1024];
