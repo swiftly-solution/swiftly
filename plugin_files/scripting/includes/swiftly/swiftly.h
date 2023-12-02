@@ -51,7 +51,6 @@ void Swiftly_Setup(const char *pluginName, const char *mainFilePath)
 void OnPluginStart() __attribute__((weak));
 void OnPluginStop() __attribute__((weak));
 void OnProgramLoad(const char *pluginName, const char *mainFilePath);
-void OnClientConnected(Player *player) __attribute__((weak));
 bool OnClientConnect(Player *player) __attribute__((weak));
 void OnClientDisconnect(Player *player) __attribute__((weak));
 void OnPlayerSpawn(Player *player) __attribute__((weak));
@@ -88,17 +87,6 @@ extern "C"
     void Internal_OnProgramLoad(const char *pluginName, const char *mainFilePath)
     {
         OnProgramLoad(pluginName, mainFilePath);
-    }
-    void Internal_OnClientConnected(uint32_t slot)
-    {
-        if (!OnClientConnected)
-            return;
-
-        Player *player = g_playerManager->GetPlayer(slot);
-        if (player == nullptr)
-            return;
-
-        OnClientConnected(player);
     }
     void Internal_OnClientDisconnect(uint32_t slot)
     {

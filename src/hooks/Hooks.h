@@ -9,24 +9,6 @@ struct Event
 {
     virtual ~Event() {}
 };
-struct OnClientConnected : Event
-{
-    CPlayerSlot *slot;
-    const char *pszName;
-    uint64 xuid;
-    const char *pszNetworkID;
-    const char *pszAddress;
-    bool bFakePlayer;
-    OnClientConnected(CPlayerSlot *slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer)
-    {
-        this->slot = slot;
-        this->pszName = pszName;
-        this->xuid = xuid;
-        this->pszNetworkID = pszNetworkID;
-        this->pszAddress = pszAddress;
-        this->bFakePlayer = bFakePlayer;
-    };
-};
 
 struct OnClientCommand : Event
 {

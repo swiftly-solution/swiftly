@@ -9,7 +9,6 @@
 #include "PluginsComponent.h"
 #include "Plugin.h"
 
-typedef void (*Plugin_OnClientConnected)(uint32);
 typedef bool (*Plugin_OnClientConnect)(uint32);
 typedef void (*Plugin_OnClientDisconnect)(uint32);
 typedef void (*Plugin_OnPlayerSpawn)(uint32);

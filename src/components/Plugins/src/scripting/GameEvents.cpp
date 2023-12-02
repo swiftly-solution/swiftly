@@ -11,20 +11,6 @@ std::vector<int> GetBombSites()
     return sites;
 }
 
-void scripting_OnClientConnected(const OnClientConnected *e)
-{
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnClientConnected = plugin->FetchFunction("Internal_OnClientConnected");
-            if (plugin_OnClientConnected)
-                reinterpret_cast<Plugin_OnClientConnected>(plugin_OnClientConnected)(e->slot->Get());
-        }
-    }
-}
-
 bool scripting_OnClientConnect(const OnClientConnect *e)
 {
     for (uint32 i = 0; i < plugins.size(); i++)
