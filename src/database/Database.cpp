@@ -23,8 +23,6 @@ bool Database::Connect()
         return false;
     }
 
-    PRINTF("Database::Connect", "Port: %d\n", this->m_port);
-
     if (mysql_real_connect(this->connection, this->m_hostname.c_str(), this->m_username.c_str(), this->m_password.c_str(), this->m_database.c_str(), this->m_port, nullptr, 0) == nullptr)
     {
         this->Close(true);
