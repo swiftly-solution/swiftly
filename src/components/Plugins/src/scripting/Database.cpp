@@ -113,7 +113,9 @@ SMM_API const char *scripting_Database_Query(const char *connectionName, const c
 
     if (results.size() == 0 && db->HasError())
     {
-        PRINTF("Database", "An error has been encountered while a query was executed.\nQuery: \"%s\"\nError: %s\n", query, db->GetError());
+        std::string err = db->GetError();
+        if (err != "")
+            PRINTF("Database", "An error has been encountered while a query was executed.\nQuery: \"%s\"\nError: %s\n", query, err.c_str());
         return SerializeData({}).c_str();
     }
 
