@@ -33,5 +33,5 @@ void Log::WriteLog(ELogType logType, std::string str)
             return "Unknown";
     };
 
-    Files::Append(this->GenerateLogName(), string_format("[%s] %s", GetLogPrefix(), str));
+    Files::Append(this->GenerateLogName(), string_format("[%s] %s", GetLogPrefix(), str.c_str()));
 }
