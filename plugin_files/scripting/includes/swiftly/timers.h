@@ -135,7 +135,7 @@ void ThreadFunction(Timer *timer)
 #ifdef _WIN32
         std::this_thread::sleep_for(std::chrono::milliseconds(timer->GetDelay() / 2));
 #else
-        usleep(timer->GetDelay() * 1000);
+        usleep(timer->GetDelay() * 500);
 #endif
     }
 }
