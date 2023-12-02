@@ -55,7 +55,7 @@ jobs:
                   bash ./setup.sh
 
             - name: Prepare Build - Windows
-              if: matrix.os == 'windows-hosted'
+              if: matrix.os == 'windows-latest'
               working-directory: swiftly
               run: |
                   Invoke-WebRequest -Uri https://github.com/swiftly-solution/swiftly-plugins-utility/releases/latest/download/swiftly_utility.exe -OutFile plugin_files/scripting/swiftly_utility.exe
@@ -76,7 +76,7 @@ jobs:
                   path: ${{ github.workspace }}/swiftly/build/package
 
             - name: Upload Artifacts Windows
-              if: matrix.os == 'windows-hosted'
+              if: matrix.os == 'windows-latest'
               uses: actions/upload-artifact@v3
               with:
                   name: Swiftly Plugin Windows
