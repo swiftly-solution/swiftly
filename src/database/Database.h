@@ -37,7 +37,7 @@ public:
     bool Connect();
     void Close(bool containsError = false);
     bool IsConnected() { return this->connected; }
-    const char *GetError();
+    std::string GetError();
     bool HasError() { return this->error != nullptr; }
 
     std::string QueryEscape(const char *query);

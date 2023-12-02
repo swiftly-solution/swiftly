@@ -102,9 +102,9 @@ void Database::Close(bool containsError)
     mysql_close(this->connection);
 }
 
-const char *Database::GetError()
+std::string Database::GetError()
 {
     std::string err(this->error);
     this->error = nullptr;
-    return err.c_str();
+    return err;
 }

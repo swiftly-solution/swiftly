@@ -85,15 +85,15 @@ DB_Result DeserializeData(const char *jsonData)
 class Database
 {
 private:
-    const char *m_connectionName;
+    std::string m_connectionName;
     bool m_connected = false;
 
 public:
-    Database(const char *connectionName) : m_connectionName(connectionName)
+    Database(std::string connectionName) : m_connectionName(connectionName)
     {
         void *database_Connect = FetchFunctionPtr(nullptr, "scripting_Database_Connect");
         if (database_Connect)
-            m_connected = reinterpret_cast<Database_Connect>(database_Connect)(this->m_connectionName);
+            m_connected = reinterpret_cast<Database_Connect>(database_Connect)(this->m_connectionName.c_str());
     }
     ~Database()
     {
@@ -111,7 +111,7 @@ public:
 
         void *database_EscapeString = FetchFunctionPtr(nullptr, "scripting_Database_EscapeString");
         if (database_EscapeString)
-            return reinterpret_cast<Database_EscapeString>(database_EscapeString)(this->m_connectionName, value);
+            return reinterpret_cast<Database_EscapeString>(database_EscapeString)(this->m_connectionName.c_str(), value);
         else
             return "";
     }
@@ -132,7 +132,7 @@ public:
         UTIL_FormatArgs(buffer, sizeof(buffer), query, ap);
         va_end(ap);
 
-        const char *serialized = reinterpret_cast<Database_Query>(database_Query)(this->m_connectionName, buffer);
+        const char *serialized = reinterpret_cast<Database_Query>(database_Query)(this->m_connectionName.c_str(), buffer);
 
         return DeserializeData(serialized);
     }

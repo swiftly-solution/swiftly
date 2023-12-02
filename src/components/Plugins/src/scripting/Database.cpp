@@ -72,7 +72,7 @@ SMM_API bool scripting_Database_Connect(const char *connectionName)
 
     if (!db->Connect())
     {
-        PRINTF("Database", "An error has been encountered while trying to connect to the database \"%s\".\n%s\n", connectionName, db->GetError());
+        PRINTF("Database", "An error has been encountered while trying to connect to the database \"%s\".\n%s\n", connectionName, db->GetError().c_str());
         return false;
     }
 
