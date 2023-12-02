@@ -234,11 +234,8 @@ void SwiftlyPlugin::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName
     {
         Player *player = new Player(true, slot.Get(), pszName, 0);
         g_playerManager->RegisterPlayer(player);
+        hooks::emit(OnClientConnected(&slot, pszName, xuid, pszNetworkID, pszAddress, bFakePlayer));
     }
-
-    OnClientConnected onClientConnected = OnClientConnected(&slot, pszName, xuid, pszNetworkID, pszAddress, bFakePlayer);
-    scripting_OnClientConnected(&onClientConnected);
-    hooks::emit(onClientConnected);
 }
 
 bool scripting_OnClientConnect(const OnClientConnect *e);
@@ -252,7 +249,16 @@ bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, ui
 
     OnClientConnect clientConnectEvent = OnClientConnect(&slot, pszName, xuid, pszNetworkID, unk1, pRejectReason);
     hooks::emit(clientConnectEvent);
-    RETURN_META_VALUE(MRES_SUPERCEDE, scripting_OnClientConnect(&clientConnectEvent));
+
+    bool ClientConnectReturnValue = scripting_OnClientConnect(&clientConnectEvent);
+
+    if (ClientConnectReturnValue)
+    {
+        OnClientConnected onClientConnected = OnClientConnected(&slot, pszName, xuid, pszNetworkID, pszNetworkID, false);
+        scripting_OnClientConnected(&onClientConnected);
+    }
+
+    RETURN_META_VALUE(MRES_SUPERCEDE, ClientConnectReturnValue);
 }
 
 void SwiftlyPlugin::Hook_ClientPutInServer(CPlayerSlot slot, char const *pszName, int type, uint64 xuid)
