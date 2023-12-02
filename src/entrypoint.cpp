@@ -190,14 +190,17 @@ bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
     return true;
 }
 
+std::string map;
+
 void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
 {
+    map = pMapName;
     hooks::emit(OnMapLoad(pMapName));
 }
 
 void SwiftlyPlugin::OnLevelShutdown()
 {
-    hooks::emit(OnMapUnload(engine->GetServerGlobals()->mapname.ToCStr()));
+    hooks::emit(OnMapUnload(map.c_str()));
 }
 
 bool bDone = false;
