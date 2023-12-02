@@ -17,7 +17,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os: [self-hosted, windows-hosted]
+                os: [self-hosted, windows-latest]
                 include:
                     - os: self-hosted
                       container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
