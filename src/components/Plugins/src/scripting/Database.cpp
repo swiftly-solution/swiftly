@@ -94,7 +94,7 @@ SMM_API const char *scripting_Database_EscapeString(const char *connectionName, 
     if (db->HasError())
         return value;
 
-    return db->QueryEscape(value);
+    return db->QueryEscape(value).c_str();
 }
 
 SMM_API const char *scripting_Database_Query(const char *connectionName, const char *query)

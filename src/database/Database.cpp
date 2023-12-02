@@ -1,12 +1,12 @@
 #include "Database.h"
 
-const char *Database::QueryEscape(const char *query)
+std::string Database::QueryEscape(const char *query)
 {
     char *newQuery = new char[strlen(query) * 2 + 1];
     mysql_real_escape_string(this->connection, newQuery, query, strlen(query));
     std::string str(newQuery);
     delete[] newQuery;
-    return str.c_str();
+    return str;
 }
 
 bool Database::Connect()
