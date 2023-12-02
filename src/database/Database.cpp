@@ -23,7 +23,7 @@ bool Database::Connect()
         return false;
     }
 
-    if (mysql_real_connect(this->connection, this->m_hostname, this->m_username, this->m_password, this->m_database, 0, nullptr, 0) == nullptr)
+    if (mysql_real_connect(this->connection, this->m_hostname, this->m_username, this->m_password, this->m_database, this->m_port, nullptr, 0) == nullptr)
     {
         this->Close(true);
         return false;
