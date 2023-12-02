@@ -83,6 +83,11 @@ void Translations::LoadTranslations()
 
 std::string Translations::FetchTranslation(std::string key)
 {
+    for (auto it = this->m_translations.begin(); it != this->m_translations.end(); ++it)
+    {
+        PRINTF("Translation", "Dumped Key: %s | Dumped Value: %s\n", it->first.c_str(), it->second->FetchLanguage(g_Config->FetchValue<std::string>("core.language")));
+    }
+
     if (this->m_translations.find(key) == this->m_translations.end())
         return key + "." + g_Config->FetchValue<std::string>("core.language");
 
