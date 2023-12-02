@@ -49,11 +49,11 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                   name: PLUGIN_NAME Plugin - Linux
-                  path: ${{ github.workspace }}/PLUGIN_NAME/output/PLUGIN_NAME.so
+                  path: ${{ github.workspace }}/PLUGIN_NAME/output
 
             - name: Upload Files - Windows
               if: matrix.os == 'windows-latest'
               uses: actions/upload-artifact@v3
               with:
                   name: PLUGIN_NAME Plugin - Windows
-                  path: ${{ github.workspace }}/PLUGIN_NAME/output/PLUGIN_NAME.dll
+                  path: ${{ github.workspace }}/PLUGIN_NAME/output
