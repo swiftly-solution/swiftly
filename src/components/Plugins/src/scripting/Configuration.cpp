@@ -54,7 +54,7 @@ SMM_API const char *scripting_Configuration_Fetch(const char *key)
     std::map<std::string, std::any> config = g_Config->FetchConfiguration();
 
     if (config.find(key) == config.end())
-        return key;
+        return SerializeData(key).c_str();
 
     std::any value = config.at(key);
     return SerializeData(value).c_str();
