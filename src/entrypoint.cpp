@@ -227,6 +227,7 @@ void SwiftlyPlugin::Hook_ClientSettingsChanged(CPlayerSlot slot)
     hooks::emit(OnClientSettingsChanged(&slot));
 }
 
+void SwiftlyPlugin::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer)
 {
     if (bFakePlayer)
     {
