@@ -55,9 +55,9 @@ void Translations::LoadTranslations()
         rapidjson::Document transFile;
         transFile.Parse(Files::Read(translationFilePath).c_str());
         if (transFile.HasParseError())
-            return TranslationsError(string_format("A parsing error has been detected for translation file \"%s\".\nError (offset %u): %s\n", translationFileName, (unsigned)transFile.GetErrorOffset(), GetParseError_En(transFile.GetParseError())));
+            return TranslationsError(string_format("A parsing error has been detected for translation file \"%s\".\nError (offset %u): %s\n", translationFileName.c_str(), (unsigned)transFile.GetErrorOffset(), GetParseError_En(transFile.GetParseError())));
         if (transFile.IsArray())
-            return TranslationsError(string_format("Translation file \"%s\" cannot be an array.", translationFileName));
+            return TranslationsError(string_format("Translation file \"%s\" cannot be an array.", translationFileName.c_str()));
 
         for (auto it = transFile.MemberBegin(); it != transFile.MemberEnd(); ++it)
         {
@@ -83,11 +83,6 @@ void Translations::LoadTranslations()
 
 std::string Translations::FetchTranslation(std::string key)
 {
-    for (auto it = this->m_translations.begin(); it != this->m_translations.end(); ++it)
-    {
-        PRINTF("Translation", "Dumped Key: %s | Dumped Value: %s\n", it->first.c_str(), it->second->FetchLanguage(g_Config->FetchValue<std::string>("core.language")));
-    }
-
     if (this->m_translations.find(key) == this->m_translations.end())
         return key + "." + g_Config->FetchValue<std::string>("core.language");
 
