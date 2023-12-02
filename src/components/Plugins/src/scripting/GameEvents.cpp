@@ -528,7 +528,6 @@ void scripting_OnMapUnload(const OnMapUnload *e)
 
 void PluginsComponent::RegisterGameEvents()
 {
-    hooks::on<OnClientConnected>(scripting_OnClientConnected);
     hooks::on<OnPlayerRegistered>(scripting_OnPlayerRegister);
     hooks::on<OnPlayerUnregistered>(scripting_OnPlayerUnregister);
     hooks::on<OnGameFrame>(scripting_OnGameTick);

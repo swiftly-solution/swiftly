@@ -20,15 +20,6 @@ void PlayerManager::LoadPlayers()
     }
 }
 
-void OnClientConnectedOnServer(const OnClientConnected *e)
-{
-    if (e->bFakePlayer)
-    {
-        Player *player = new Player(true, e->slot->Get(), e->pszName, 0);
-        g_playerManager->RegisterPlayer(player);
-    }
-}
-
 void OnClientSpawn(const OnPlayerSpawn *e)
 {
     CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
@@ -45,7 +36,5 @@ void OnClientSpawn(const OnPlayerSpawn *e)
 
 void PlayerManager::SetupHooks()
 {
-    hooks::on<OnClientConnected>(OnClientConnectedOnServer);
-
     gameevents::on<OnPlayerSpawn>(OnClientSpawn);
 }

@@ -226,9 +226,19 @@ void SwiftlyPlugin::Hook_ClientSettingsChanged(CPlayerSlot slot)
     hooks::emit(OnClientSettingsChanged(&slot));
 }
 
+void scripting_OnClientConnected(const OnClientConnected *e);
+
 void SwiftlyPlugin::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer)
 {
-    hooks::emit(OnClientConnected(&slot, pszName, xuid, pszNetworkID, pszAddress, bFakePlayer));
+    if (bFakePlayer)
+    {
+        Player *player = new Player(true, slot.Get(), pszName, 0);
+        g_playerManager->RegisterPlayer(player);
+    }
+
+    OnClientConnected onClientConnected = OnClientConnected(&slot, pszName, xuid, pszNetworkID, pszAddress, bFakePlayer);
+    scripting_OnClientConnected(&onClientConnected);
+    hooks::emit(onClientConnected);
 }
 
 bool scripting_OnClientConnect(const OnClientConnect *e);
