@@ -41,7 +41,7 @@ endif
 	mkdir "$(BUILD_DIR)/plugins/$(PROJECT_NAME)"
 
 ifeq ($(OS),Windows_NT)
-	@xcopy /e /k /h /i .\plugin_files $(BUILD_DIR)"\"
+	@xcopy /e /k /h /i .\plugin_files "$(BUILD_DIR)/"
 else
 	@cp -r ./plugin_files/* ./$(BUILD_DIR)
 endif
