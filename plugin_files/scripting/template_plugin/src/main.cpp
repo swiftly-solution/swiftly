@@ -32,7 +32,6 @@ void OnPluginStart()
 
 void OnPluginStop()
 {
-    timers->UnregisterTimers();
 }
 
 const char *GetPluginAuthor()

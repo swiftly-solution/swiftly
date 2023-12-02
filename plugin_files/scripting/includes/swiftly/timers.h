@@ -6,13 +6,10 @@
 #include <thread>
 #include <functional>
 #include <chrono>
-#ifndef _WIN32
-#include <unistd.h>
-#endif
+#include <map>
 
 class Timer;
-
-void ThreadFunction(Timer *timer);
+std::map<uint64_t, Timer *> m_timers;
 
 class Timer
 {
@@ -24,19 +21,14 @@ private:
     bool m_destroyed = false;
 
 public:
-    Timer(std::function<void()> function, uint64_t delay) : m_function(function), m_delay(delay)
-    {
-        std::thread th(ThreadFunction, this);
+    Timer(std::function<void()> function, uint64_t delay) : m_function(function), m_delay(delay) {}
 
-        th.detach();
-    }
-
-    bool ShouldExecute()
+    bool ShouldExecute(uint64_t time)
     {
         if (this->m_paused)
             return false;
 
-        return ((GetTime() - this->m_lastExecuted) > this->m_delay);
+        return ((time - this->m_lastExecuted) > this->m_delay);
     }
 
     void SetPaused(bool paused)
@@ -59,11 +51,24 @@ public:
     uint64_t GetDelay() { return this->m_delay; }
 };
 
+void ThreadFunction()
+{
+    uint64_t time = GetTime();
+
+    for (auto it = m_timers.begin(); it != m_timers.end(); ++it)
+    {
+        if (it->second->IsDestroyed())
+            continue;
+
+        if (it->second->ShouldExecute(time))
+            it->second->Execute();
+    }
+}
+
 class Timers
 {
 private:
     uint64_t timerID = 0;
-    std::map<uint64_t, Timer *> timers;
 
 public:
     Timers(){};
@@ -72,73 +77,41 @@ public:
     {
         Timer *timer = new Timer(fn, delay);
         ++this->timerID;
-        timers.insert(std::make_pair(this->timerID, timer));
+        m_timers.insert(std::make_pair(this->timerID, timer));
         return this->timerID;
-    }
-
-    void UnregisterTimers()
-    {
-        for (std::map<uint64_t, Timer *>::iterator it = this->timers.begin(); it != this->timers.end(); ++it)
-        {
-            it->second->SetPaused(true);
-            it->second->Destroy();
-            delete it->second;
-        }
-
-        this->timers.clear();
     }
 
     void PauseTimer(uint64_t timerID)
     {
-        if (this->timers.find(timerID) == this->timers.end())
+        if (m_timers.find(timerID) == m_timers.end())
             return;
 
-        Timer *timer = this->timers.at(timerID);
+        Timer *timer = m_timers.at(timerID);
         timer->SetPaused(true);
     }
 
     void UnpauseTimer(uint64_t timerID)
     {
-        if (this->timers.find(timerID) == this->timers.end())
+        if (m_timers.find(timerID) == m_timers.end())
             return;
 
-        Timer *timer = this->timers.at(timerID);
+        Timer *timer = m_timers.at(timerID);
         timer->SetPaused(false);
     }
 
     void DestroyTimer(uint64_t timerID)
     {
-        if (this->timers.find(timerID) == this->timers.end())
+        if (m_timers.find(timerID) == m_timers.end())
             return;
 
-        Timer *timer = this->timers.at(timerID);
+        Timer *timer = m_timers.at(timerID);
         timer->SetPaused(true);
         timer->Destroy();
         delete timer;
 
-        this->timers.erase(timerID);
+        m_timers.erase(timerID);
     }
 };
-
-void ThreadFunction(Timer *timer)
-{
-    for (;;)
-    {
-        if (timer->IsDestroyed())
-            break;
-
-        if (timer->ShouldExecute())
-            timer->Execute();
-
-            // For Windows time needs to be halfed because sleep is dependent on System Clock Time.
-            // Sometimes Windows randomly updates the System Clock Time and the wait time is irregular.
-#ifdef _WIN32
-        std::this_thread::sleep_for(std::chrono::milliseconds(timer->GetDelay() / 2));
-#else
-        usleep(timer->GetDelay() * 500);
-#endif
-    }
-}
 
 extern Timers *timers;
 

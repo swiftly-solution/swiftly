@@ -11,6 +11,8 @@
 #define SITE_B 1
 #define SITE_UNKNOWN 2
 
+void ThreadFunction() __attribute__((weak));
+
 typedef void (*PrintFunction)(const char *);
 typedef const char *(*FetchTranslationFunction)(const char *);
 
@@ -143,6 +145,9 @@ extern "C"
     }
     void Internal_OnGameTick(bool simulating, bool bFirstTick, bool bLastTick)
     {
+        if (ThreadFunction)
+            ThreadFunction();
+
         if (OnGameTick)
             OnGameTick(simulating, bFirstTick, bLastTick);
     }
