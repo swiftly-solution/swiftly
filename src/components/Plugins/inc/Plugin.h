@@ -109,7 +109,11 @@ public:
     }
 };
 
-extern std::map<std::string, Plugin *> pluginsMap;
+std::map<std::string, Plugin *> FetchPluginsMap();
+void AddPluginInMap(Plugin *plugin);
+bool ExistsPluginInMap(std::string plugin_name);
+Plugin *FetchPluginFromMap(std::string plugin_name);
+
 extern std::vector<Plugin *> plugins;
 
 #endif

@@ -197,10 +197,10 @@ void SwiftlyPluginManagerInfo(CPlayerSlot *slot, CCommandContext context, std::s
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins info <plugin_name>\n");
 
-    if (pluginsMap.find(plugin_name) == pluginsMap.end())
+    if (!ExistsPluginInMap(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Info", "Invalid plugin name.\n");
 
-    Plugin *plugin = pluginsMap.at(plugin_name);
+    Plugin *plugin = FetchPluginFromMap(plugin_name);
     if (!plugin->IsPluginLoaded())
         return PrintToClientOrConsole(slot, "Plugin Info", "Plugin is not loaded.\n");
 
@@ -223,10 +223,10 @@ void SwiftlyPluginManagerUnload(CPlayerSlot *slot, CCommandContext context, std:
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins unload <plugin_name>\n");
 
-    if (pluginsMap.find(plugin_name) == pluginsMap.end())
+    if (!ExistsPluginInMap(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Unload", "Invalid plugin name.\n");
 
-    Plugin *plugin = pluginsMap.at(plugin_name);
+    Plugin *plugin = FetchPluginFromMap(plugin_name);
     if (!plugin->IsPluginLoaded())
         return PrintToClientOrConsole(slot, "Plugin Unload", "Plugin is not loaded.\n");
 
@@ -239,10 +239,10 @@ void SwiftlyPluginManagerLoad(CPlayerSlot *slot, CCommandContext context, std::s
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins load <plugin_name>\n");
 
-    if (pluginsMap.find(plugin_name) == pluginsMap.end())
+    if (!ExistsPluginInMap(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Load", "Invalid plugin name.\n");
 
-    Plugin *plugin = pluginsMap.at(plugin_name);
+    Plugin *plugin = FetchPluginFromMap(plugin_name);
     if (plugin->IsPluginLoaded())
         return PrintToClientOrConsole(slot, "Plugin Load", "Plugin is already loaded.\n");
 
@@ -256,10 +256,10 @@ void SwiftlyPluginManagerReload(CPlayerSlot *slot, CCommandContext context, std:
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins reload <plugin_name>\n");
 
-    if (pluginsMap.find(plugin_name) == pluginsMap.end())
+    if (!ExistsPluginInMap(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Reload", "Invalid plugin name.\n");
 
-    Plugin *plugin = pluginsMap.at(plugin_name);
+    Plugin *plugin = FetchPluginFromMap(plugin_name);
     if (!plugin->IsPluginLoaded())
         return PrintToClientOrConsole(slot, "Plugin Reload", "Plugin is not loaded.\n");
 
@@ -292,10 +292,9 @@ void SwiftlyPluginManagerRefresh(CPlayerSlot *slot, CCommandContext context)
     for (const std::string plugin_name : pluginNames)
     {
         Plugin *plugin = new Plugin(plugin_name);
-        if (pluginsMap.find(plugin->GetName()) == pluginsMap.end())
+        if (!ExistsPluginInMap(plugin_name))
         {
-            plugins.push_back(plugin);
-            pluginsMap.insert(std::make_pair(plugin->GetName(), plugin));
+            AddPluginInMap(plugin);
             ++newPlugins;
         }
     }

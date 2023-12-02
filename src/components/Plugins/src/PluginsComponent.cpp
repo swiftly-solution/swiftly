@@ -44,3 +44,27 @@ void PluginsComponent::StartPlugins()
     for (uint32 i = 0; i < plugins.size(); i++)
         plugins[i]->StartPlugin();
 }
+
+std::map<std::string, Plugin *> FetchPluginsMap()
+{
+    return pluginsMap;
+}
+
+void AddPluginInMap(Plugin *plugin)
+{
+    plugins.push_back(plugin);
+    pluginsMap.insert(std::make_pair(plugin->GetName(), plugin));
+}
+
+bool ExistsPluginInMap(std::string plugin_name)
+{
+    return (pluginsMap.find(plugin_name) != pluginsMap.end());
+}
+
+Plugin *FetchPluginFromMap(std::string plugin_name)
+{
+    if (!ExistsPluginInMap(plugin_name))
+        return nullptr;
+
+    return pluginsMap.at(plugin_name);
+}
