@@ -168,42 +168,6 @@ bool scripting_OnClientChat(CBasePlayerController *controller, const char *text,
     return true;
 }
 
-void scripting_OnPlayerRegister(const OnPlayerRegistered *e)
-{
-    Player *player = g_playerManager->GetPlayer(e->slot);
-    if (!player)
-        return;
-
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_RegisterPlayer = plugin->FetchFunction("Internal_RegisterPlayer");
-            if (plugin_RegisterPlayer)
-                reinterpret_cast<Plugin_OnPlayerRegister>(plugin_RegisterPlayer)(player->GetSlot()->Get(), player->IsFakeClient());
-        }
-    }
-}
-
-void scripting_OnPlayerUnregister(const OnPlayerUnregistered *e)
-{
-    Player *player = g_playerManager->GetPlayer(e->slot);
-    if (!player)
-        return;
-
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_UnregisterPlayer = plugin->FetchFunction("Internal_UnregisterPlayer");
-            if (plugin_UnregisterPlayer)
-                reinterpret_cast<Plugin_OnPlayerUnregister>(plugin_UnregisterPlayer)(player->GetSlot()->Get());
-        }
-    }
-}
-
 void scripting_OnGameTick(const OnGameFrame *e)
 {
     for (uint32 i = 0; i < plugins.size(); i++)
@@ -528,8 +492,6 @@ void scripting_OnMapUnload(const OnMapUnload *e)
 
 void PluginsComponent::RegisterGameEvents()
 {
-    hooks::on<OnPlayerRegistered>(scripting_OnPlayerRegister);
-    hooks::on<OnPlayerUnregistered>(scripting_OnPlayerUnregister);
     hooks::on<OnGameFrame>(scripting_OnGameTick);
 
     gameevents::on<OnRoundPrestart>(scripting_OnRoundPrestart);

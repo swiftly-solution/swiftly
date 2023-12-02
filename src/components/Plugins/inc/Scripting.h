@@ -25,8 +25,6 @@ typedef void (*Plugin_BombDefused)(uint32, uint16);
 typedef void (*Plugin_BombExploded)(uint32, uint16);
 typedef void (*Plugin_BombDropped)(uint32);
 typedef void (*Plugin_BombPickup)(uint32);
-typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
-typedef void (*Plugin_OnPlayerUnregister)(uint32);
 typedef void (*Plugin_OnGameTick)(bool, bool, bool);
 typedef bool (*Plugin_OnPlayerChat)(uint32, const char *, bool);
 typedef void (*Plugin_OnMapLoad)(const char *);

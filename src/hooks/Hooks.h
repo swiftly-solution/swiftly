@@ -127,24 +127,6 @@ struct OnClientPutInServer : Event
     };
 };
 
-struct OnPlayerRegistered : Event
-{
-    CPlayerSlot *slot;
-    OnPlayerRegistered(CPlayerSlot *slot)
-    {
-        this->slot = slot;
-    }
-};
-
-struct OnPlayerUnregistered : Event
-{
-    CPlayerSlot *slot;
-    OnPlayerUnregistered(CPlayerSlot *slot)
-    {
-        this->slot = slot;
-    }
-};
-
 struct OnMapLoad : Event
 {
     const char *map;

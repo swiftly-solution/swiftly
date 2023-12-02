@@ -72,6 +72,7 @@ ConsoleFilter *g_conFilter = nullptr;
 Translations *g_translations = nullptr;
 Logger *g_Logger = nullptr;
 Offsets *g_Offsets = nullptr;
+std::vector<Plugin *> plugins;
 
 CGlobalVars *GetGameGlobals()
 {

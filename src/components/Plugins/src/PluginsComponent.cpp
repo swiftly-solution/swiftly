@@ -3,7 +3,6 @@
 #include "../../../files/Files.h"
 #include "../inc/Plugin.h"
 
-std::vector<Plugin *> plugins;
 std::map<std::string, Plugin *> pluginsMap;
 
 bool ends_with(std::string value, std::string ending)

@@ -4,7 +4,11 @@
 #include "../common.h"
 #include "Player.h"
 #include "../hooks/Hooks.h"
+#include "../components/Plugins/inc/Plugin.h"
 #include <public/playerslot.h>
+
+typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
+typedef void (*Plugin_OnPlayerUnregister)(uint32);
 
 class PlayerManager
 {
@@ -27,14 +31,32 @@ public:
 
         this->g_Players[player->GetSlot()->Get()] = player;
 
-        hooks::emit(OnPlayerRegistered(player->GetSlot()));
+        for (uint32 i = 0; i < plugins.size(); i++)
+        {
+            Plugin *plugin = plugins[i];
+            if (plugin->IsPluginLoaded())
+            {
+                void *plugin_RegisterPlayer = plugin->FetchFunction("Internal_RegisterPlayer");
+                if (plugin_RegisterPlayer)
+                    reinterpret_cast<Plugin_OnPlayerRegister>(plugin_RegisterPlayer)(player->GetSlot()->Get(), player->IsFakeClient());
+            }
+        }
     }
 
     inline void UnregisterPlayer(CPlayerSlot *slot)
     {
-        hooks::emit(OnPlayerUnregistered(slot));
-
         int sl = slot->Get();
+
+        for (uint32 i = 0; i < plugins.size(); i++)
+        {
+            Plugin *plugin = plugins[i];
+            if (plugin->IsPluginLoaded())
+            {
+                void *plugin_UnregisterPlayer = plugin->FetchFunction("Internal_UnregisterPlayer");
+                if (plugin_UnregisterPlayer)
+                    reinterpret_cast<Plugin_OnPlayerUnregister>(plugin_UnregisterPlayer)(sl);
+            }
+        }
 
         delete this->g_Players[sl];
         this->g_Players[sl] = nullptr;
