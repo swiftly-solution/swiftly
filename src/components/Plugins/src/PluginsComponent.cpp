@@ -65,5 +65,6 @@ Plugin *FetchPluginFromMap(std::string plugin_name)
     if (!ExistsPluginInMap(plugin_name))
         return nullptr;
 
+    PRINTF("FetchPluginFromMap", "Plugin Name: %s\n", plugin_name.c_str());
     return pluginsMap.at(plugin_name);
 }
