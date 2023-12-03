@@ -37,6 +37,20 @@ bool Database::Connect()
     return true;
 }
 
+std::any ParseFieldType(enum_field_types type, const char *value)
+{
+    if (type == enum_field_types::MYSQL_TYPE_FLOAT || type == enum_field_types::MYSQL_TYPE_DOUBLE || type == enum_field_types::MYSQL_TYPE_DECIMAL)
+        return atof(value);
+    else if (type == enum_field_types::MYSQL_TYPE_INT24 || type == enum_field_types::MYSQL_TYPE_LONG || type == enum_field_types::MYSQL_TYPE_LONGLONG)
+        return atoi(value);
+    else if (type == enum_field_types::MYSQL_TYPE_VARCHAR || type == enum_field_types::MYSQL_TYPE_VAR_STRING)
+        return value;
+    else if (type == enum_field_types::MYSQL_TYPE_SHORT || type == enum_field_types::MYSQL_TYPE_TINY)
+        return (short)strtol(value, nullptr, 10);
+    else
+        return 0;
+}
+
 std::vector<std::map<const char *, std::any>> Database::Query(const char *query)
 {
     std::vector<std::map<const char *, std::any>> values;
@@ -78,14 +92,18 @@ std::vector<std::map<const char *, std::any>> Database::Query(const char *query)
         MYSQL_FIELD *field;
 
         std::vector<const char *> fields;
+        std::vector<enum_field_types> fieldTypes;
         while ((field = mysql_fetch_field(result)))
+        {
             fields.push_back(field->name);
+            fieldTypes.push_back(field->type);
+        }
 
         while ((row = mysql_fetch_row(result)))
         {
             std::map<const char *, std::any> value;
             for (uint32 i = 0; i < num_fields; i++)
-                value.insert(std::make_pair(fields[i], row[i] ? row[i] : "NULL"));
+                value.insert(std::make_pair(fields[i], row[i] ? ParseFieldType(fieldTypes[i], row[i]) : "NULL"));
 
             values.push_back(value);
         }
