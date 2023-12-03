@@ -32,6 +32,11 @@ public:
             reinterpret_cast<Server_ExecuteCommand>(printfunc)(buffer);
         }
     }
+
+    void ChangeLevel(const char *map)
+    {
+        this->ExecuteCommand("changelevel %s", map);
+    }
 };
 
 extern Server *server;
