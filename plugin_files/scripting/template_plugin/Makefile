@@ -36,7 +36,6 @@ else
 endif
 	mkdir $(TEMP_DIR)
 	$(foreach src,$(SRC_FILES),$(call COMPILE_FILE,$(src)))
-	mkdir $(BUILD_DIR)
 	
 ifeq ($(OS),Windows_NT)
 	xcopy .\plugin_files .\$(BUILD_DIR) /E /C /I /F /R /Y
