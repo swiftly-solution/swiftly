@@ -143,7 +143,7 @@ extern "C"
 
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
-            return false;
+            return true;
 
         return OnClientGameMessage(player, destination, message);
     }
