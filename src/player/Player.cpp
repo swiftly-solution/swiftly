@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "../sig/Signatures.h"
 #include <metamod_util.h>
+#include <algorithm>
 
 std::string replace(std::string str, const std::string from, const std::string to);
 
@@ -28,6 +29,13 @@ std::map<std::string, std::string> colors = {
     {"{GOLD}", "\x10"},
     {"{ORANGE}", "\x10"},
 };
+
+std::string str_tolower(std::string s)
+{
+    std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c)
+                   { return std::tolower(c); });
+    return s;
+}
 
 CBasePlayerController *Player::GetController()
 {
@@ -132,7 +140,10 @@ void Player::SendMsg(int dest, const char *msg, ...)
     bool startsWithColor = (message.at(0) == '{');
 
     for (auto it = colors.begin(); it != colors.end(); ++it)
+    {
         message = replace(message, it->first, it->second);
+        message = replace(message, str_tolower(it->first), it->second);
+    }
 
     if (startsWithColor)
         message = " " + message;
