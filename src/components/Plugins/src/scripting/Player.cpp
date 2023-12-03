@@ -277,7 +277,11 @@ SMM_API const char *scripting_Player_GetVar(uint32 playerId, const char *name)
 
     std::any value = player->GetInternalVar(name);
 
-    return SerializeData(value).c_str();
+    std::string data = SerializeData(value);
+
+    char *result = new char[data.size() + 1];
+    strcpy(result, data.c_str());
+    return result;
 }
 
 SMM_API uint32 scripting_Player_GetConnectedTime(uint32 playerId)
