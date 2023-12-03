@@ -39,6 +39,7 @@ void TranslationsError(std::string text)
 
 void Translations::LoadTranslations()
 {
+    this->m_translations.clear();
 
     std::vector<std::string> translationFiles = Files::FetchFileNames("addons/swiftly/translations");
 

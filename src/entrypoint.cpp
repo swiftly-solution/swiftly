@@ -200,6 +200,9 @@ void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, 
 
 void SwiftlyPlugin::OnLevelShutdown()
 {
+    g_translations->LoadTranslations();
+    g_Config->LoadPluginConfigurations();
+
     hooks::emit(OnMapUnload(map.c_str()));
 }
 
