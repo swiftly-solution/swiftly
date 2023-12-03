@@ -45,15 +45,6 @@ void FASTCALL Hook_Host_Say(CBasePlayerController *controller, CCommand &args, b
         return;
 
     Host_Say(controller, args, teamonly, unk1, unk2);
-
-    IGameEvent *event = g_gameEventManager->CreateEvent("player_chat");
-    if (event)
-    {
-        event->SetBool("teamonly", teamonly);
-        event->SetInt("userid", controller->GetRefEHandle().GetEntryIndex());
-        event->SetString("text", args[1]);
-        g_gameEventManager->FireEvent(event, true);
-    }
 }
 
 void FASTCALL Hook_LoggingSystem_LogDirect(int channelId, int severity, const char *message, ...)

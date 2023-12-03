@@ -2,6 +2,33 @@
 #include "../sig/Signatures.h"
 #include <metamod_util.h>
 
+std::string replace(std::string str, const std::string from, const std::string to);
+
+std::map<std::string, std::string> colors = {
+    {"{DEFAULT}", "\x01"},
+    {"{WHITE}", "\x01"},
+    {"{DARKRED}", "\x02"},
+    {"{LIGHTPURPLE}", "\x03"},
+    {"{GREEN}", "\x04"},
+    {"{OLIVE}", "\x05"},
+    {"{LIME}", "\x06"},
+    {"{RED}", "\x07"},
+    {"{GRAY}", "\x08"},
+    {"{GREY}", "\x08"},
+    {"{LIGHTYELLOW}", "\x09"},
+    {"{YELLOW}", "\x09"},
+    {"{SILVER}", "\x0A"},
+    {"{BLUEGREY}", "\x0A"},
+    {"{LIGHTBLUE}", "\x0B"},
+    {"{BLUE}", "\x0B"},
+    {"{DARKBLUE}", "\x0C"},
+    {"{PURPLE}", "\x0E"},
+    {"{MAGENTA}", "\x0E"},
+    {"{LIGHTRED}", "\x0F"},
+    {"{GOLD}", "\x10"},
+    {"{ORANGE}", "\x10"},
+};
+
 CBasePlayerController *Player::GetController()
 {
     if (this->GetEHandlerIdx() == -1)
@@ -101,7 +128,16 @@ void Player::SendMsg(int dest, const char *msg, ...)
     }
     va_end(args);
 
-    g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, reinterpret_cast<const char *>(buffer), nullptr, nullptr, nullptr, nullptr);
+    std::string message(buffer);
+    bool startsWithColor = (message.at(0) == '{');
+
+    for (auto it = colors.begin(); it != colors.end(); ++it)
+        message = replace(message, it->first, it->second);
+
+    if (startsWithColor)
+        message = " " + message;
+
+    g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, message.c_str(), nullptr, nullptr, nullptr, nullptr);
 }
 
 std::any Player::GetInternalVar(std::string name)
