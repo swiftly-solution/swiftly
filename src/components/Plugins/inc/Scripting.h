@@ -28,7 +28,9 @@ typedef void (*Plugin_OnGameTick)(bool, bool, bool);
 typedef bool (*Plugin_OnPlayerChat)(uint32, const char *, bool);
 typedef void (*Plugin_OnMapLoad)(const char *);
 typedef void (*Plugin_OnMapUnload)(const char *);
+typedef bool (*Plugin_OnClientGameMessage)(uint32, int, const char *);
 
 bool scripting_OnClientChat(CBasePlayerController *controller, const char *text, bool teamonly);
+bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destination, const char *text);
 
 #endif

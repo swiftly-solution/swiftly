@@ -72,6 +72,7 @@ void OnBombDropped(Player *player) __attribute__((weak));
 void OnBombPickup(Player *player) __attribute__((weak));
 void OnMapLoad(const char *mapName) __attribute__((weak));
 void OnMapUnload(const char *mapName) __attribute__((weak));
+bool OnClientGameMessage(Player *player, int destination, const char *message) __attribute__((weak));
 
 extern "C"
 {
@@ -134,6 +135,17 @@ extern "C"
             return false;
 
         return OnPlayerChat(player, text, teamonly);
+    }
+    bool Internal_OnClientGameMessage(uint32_t slot, int destination, const char *message)
+    {
+        if (!OnClientGameMessage)
+            return true;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return false;
+
+        return OnClientGameMessage(player, destination, message);
     }
     void Internal_RegisterPlayer(uint32_t slot, bool fakeClient)
     {

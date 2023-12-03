@@ -11,6 +11,7 @@ FuncHook<decltype(Hook_LoggingSystem_Log)> LoggingSystemt_Log(Hook_LoggingSystem
 FuncHook<decltype(Hook_Msg)> TMsg(Hook_Msg, "Msg");
 FuncHook<decltype(Hook_Warning)> TWarning(Hook_Warning, "Warning");
 FuncHook<decltype(Hook_LoggingSystem_LogAssert)> LoggingSystemt_LogAssert(Hook_LoggingSystem_LogAssert, "LoggingSystem_LogAssert");
+FuncHook<decltype(Hook_ClientPrint)> TClientPrint(Hook_ClientPrint, "ClientPrint");
 
 #define CHECKLOGS()                                                \
     va_list args;                                                  \
@@ -85,6 +86,14 @@ void FASTCALL Hook_Warning(const char *message, ...)
     TWarning(buffer);
 }
 
+void FASTCALL Hook_ClientPrint(CBasePlayerController *controller, int destination, const char *message, const char *arg1, const char *arg2, const char *arg3, const char *arg4)
+{
+    if (!scripting_OnClientGameMessage(controller, destination, message))
+        return;
+
+    TClientPrint(controller, destination, message, arg1, arg2, arg3, arg4);
+}
+
 CUtlVector<FuncHookBase *> g_funcHooks;
 
 bool InitializeHooks()
@@ -113,7 +122,11 @@ bool InitializeHooks()
 
     if (!TWarning.Create())
         return false;
-    TWarning.Create();
+    TWarning.Enable();
+
+    if (!TClientPrint.Create())
+        return false;
+    TClientPrint.Enable();
 
     return true;
 }

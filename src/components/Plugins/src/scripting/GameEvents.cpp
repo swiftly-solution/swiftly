@@ -154,6 +154,34 @@ bool scripting_OnClientChat(CBasePlayerController *controller, const char *text,
     return true;
 }
 
+bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destination, const char *text)
+{
+    CPlayerSlot sl = g_playerManager->GetSlotFromUserId(controller->GetRefEHandle().GetEntryIndex() - 1);
+    CPlayerSlot *slot = &sl;
+    if (!slot)
+        return false;
+
+    Player *player = g_playerManager->GetPlayer(slot);
+    if (!player)
+        return false;
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_OnClientGameMessage = plugin->FetchFunction("Internal_OnClientGameMessage");
+            if (plugin_OnClientGameMessage)
+            {
+                if (!reinterpret_cast<Plugin_OnClientGameMessage>(plugin_OnClientGameMessage)(player->GetSlot()->Get(), destination, text))
+                    return false;
+            }
+        }
+    }
+
+    return true;
+}
+
 void scripting_OnGameTick(const OnGameFrame *e)
 {
     for (uint32 i = 0; i < plugins.size(); i++)
