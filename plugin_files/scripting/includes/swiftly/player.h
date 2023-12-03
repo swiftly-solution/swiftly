@@ -12,6 +12,7 @@
 #include "player/clantag.h"
 #include "player/team.h"
 #include "player/vars.h"
+#include "player/stats.h"
 
 class Player
 {
@@ -26,6 +27,7 @@ public:
     ClanTag *clantag;
     Team *team;
     Vars *vars;
+    Stats *stats;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -35,6 +37,7 @@ public:
         this->clantag = new ClanTag(playerSlot);
         this->team = new Team(playerSlot);
         this->vars = new Vars(playerSlot);
+        this->stats = new Stats(playerSlot);
     }
 
     ~Player()
@@ -44,6 +47,7 @@ public:
         delete this->clantag;
         delete this->team;
         delete this->vars;
+        delete this->stats;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }

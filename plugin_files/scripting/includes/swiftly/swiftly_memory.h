@@ -37,6 +37,9 @@ typedef const char *(*Player_GetVar)(uint32_t, const char *);
 
 typedef uint32_t (*Player_GetConnectedTime)(uint32_t);
 
+typedef int (*Player_FetchStat)(uint32_t, uint32_t);
+typedef void (*Player_SetStat)(uint32_t, uint32_t, int);
+
 typedef void (*Player_SendMessage)(uint32_t, HudDestination, const char *);
 typedef void (*Players_SendMessage)(HudDestination, const char *);
 

@@ -9,7 +9,7 @@ class CBaseEntity;
 struct CSPerRoundStats_t
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CSPerRoundStats_t, false)
+    DECLARE_SCHEMA_CLASS_BASE(CSPerRoundStats_t, true)
 
     SCHEMA_FIELD_OFFSET(int, m_iKills, 0)
     SCHEMA_FIELD_OFFSET(int, m_iDeaths, 0)
@@ -20,7 +20,7 @@ public:
 struct CSMatchStats_t : public CSPerRoundStats_t
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CSMatchStats_t, false)
+    DECLARE_SCHEMA_CLASS_BASE(CSMatchStats_t, true)
 };
 
 class CCSPlayerController_ActionTrackingServices
@@ -117,7 +117,7 @@ private:
 struct WeaponPurchaseTracker_t
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(WeaponPurchaseTracker_t, false)
+    DECLARE_SCHEMA_CLASS_BASE(WeaponPurchaseTracker_t, true)
 
     SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<WeaponPurchaseCount_t>, m_weaponPurchases, 0)
 };

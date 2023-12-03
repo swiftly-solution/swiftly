@@ -2,6 +2,7 @@
 #include "../../../../player/PlayerManager.h"
 #include "../../../../sdk/entity/CCSPlayerController.h"
 #include "../../../../sdk/entity/CCSPlayerPawnBase.h"
+#include "../../inc/Scripting.h"
 
 extern CEntitySystem *g_pEntitySystem;
 std::string SerializeData(std::any data);
@@ -291,4 +292,56 @@ SMM_API uint32 scripting_Player_GetConnectedTime(uint32 playerId)
         return 0;
 
     return player->GetConnectedTime();
+}
+
+SMM_API int scripting_Player_FetchMatchStat(uint32 playerId, PlayerStat stat)
+{
+    if (stat < 0 || stat > 3)
+        return 0;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerController *playerController = player->GetPlayerController();
+    if (!playerController)
+        return 0;
+
+    CSMatchStats_t *matchStats = &playerController->m_pActionTrackingServices->m_matchStats();
+
+    if (stat == PlayerStat::KILLS)
+        return matchStats->m_iKills.Get();
+    else if (stat == PlayerStat::DAMAGE)
+        return matchStats->m_iDamage.Get();
+    else if (stat == PlayerStat::ASSISTS)
+        return matchStats->m_iAssists.Get();
+    else if (stat == PlayerStat::DEATHS)
+        return matchStats->m_iDeaths.Get();
+    else
+        return 0;
+}
+
+SMM_API void scripting_Player_SetMatchStat(uint32 playerId, PlayerStat stat, int value)
+{
+    if (stat < 0 || stat > 3)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *playerController = player->GetPlayerController();
+    if (!playerController)
+        return;
+
+    CSMatchStats_t *matchStats = &playerController->m_pActionTrackingServices->m_matchStats();
+
+    if (stat == PlayerStat::KILLS)
+        matchStats->m_iKills = value;
+    else if (stat == PlayerStat::DAMAGE)
+        matchStats->m_iDamage = value;
+    else if (stat == PlayerStat::ASSISTS)
+        matchStats->m_iAssists = value;
+    else if (stat == PlayerStat::DEATHS)
+        matchStats->m_iDeaths = value;
 }

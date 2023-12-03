@@ -33,4 +33,12 @@ typedef bool (*Plugin_OnClientGameMessage)(uint32, int, const char *);
 bool scripting_OnClientChat(CBasePlayerController *controller, const char *text, bool teamonly);
 bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destination, const char *text);
 
+enum PlayerStat : int
+{
+    KILLS = 0,
+    DEATHS = 1,
+    ASSISTS = 2,
+    DAMAGE = 3
+};
+
 #endif

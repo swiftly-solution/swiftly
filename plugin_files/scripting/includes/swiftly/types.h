@@ -3,6 +3,14 @@
 
 #include <stdint.h>
 
+enum PlayerStat : int
+{
+    KILLS = 0,
+    DEATHS = 1,
+    ASSISTS = 2,
+    DAMAGE = 3
+};
+
 enum ELogType
 {
     LOGLEVEL_DEBUG = 1,
