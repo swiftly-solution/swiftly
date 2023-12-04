@@ -48,9 +48,7 @@ void Plugin::StopPlugin()
 {
     void *OnPluginStop = this->FetchFunction("Internal_OnPluginStop");
     if (OnPluginStop)
-    {
         reinterpret_cast<OnPluginStopFunction>(OnPluginStop)();
-    }
 
     dlclose(this->m_hModule);
     this->functions.clear();

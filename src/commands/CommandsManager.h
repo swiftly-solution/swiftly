@@ -21,7 +21,12 @@ public:
     Command *FetchCommand(std::string cmd);
     bool RegisterCommand(std::string plugin_name, std::string cmd, Command *command);
     bool UnregisterCommand(std::string cmd);
-    std::vector<std::string> FetchCommandsByPlugin(std::string plugin_name) { return this->commandsByPlugin.at(plugin_name); }
+    std::vector<std::string> FetchCommandsByPlugin(std::string plugin_name)
+    {
+        if (this->commandsByPlugin.find(plugin_name) == this->commandsByPlugin.end())
+            return {};
+        return this->commandsByPlugin.at(plugin_name);
+    }
 
     std::map<std::string, Command *> GetCommands()
     {
