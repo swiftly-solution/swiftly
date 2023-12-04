@@ -334,14 +334,12 @@ SMM_API void scripting_Player_SetMatchStat(uint32 playerId, PlayerStat stat, int
     if (!playerController)
         return;
 
-    CSMatchStats_t *matchStats = &playerController->m_pActionTrackingServices->m_matchStats();
-
     if (stat == PlayerStat::KILLS)
-        matchStats->m_iKills = value;
+        playerController->m_pActionTrackingServices->m_matchStats().m_iKills = value;
     else if (stat == PlayerStat::DAMAGE)
-        matchStats->m_iDamage = value;
+        playerController->m_pActionTrackingServices->m_matchStats().m_iDamage = value;
     else if (stat == PlayerStat::ASSISTS)
-        matchStats->m_iAssists = value;
+        playerController->m_pActionTrackingServices->m_matchStats().m_iAssists = value;
     else if (stat == PlayerStat::DEATHS)
-        matchStats->m_iDeaths = value;
+        playerController->m_pActionTrackingServices->m_matchStats().m_iDeaths = value;
 }

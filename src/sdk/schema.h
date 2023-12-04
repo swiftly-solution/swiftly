@@ -69,15 +69,10 @@ namespace sch
             ThisClass *pThisClass = (ThisClass *)((byte *)this - offset);                                                                                             \
                                                                                                                                                                       \
             if (m_chain != 0 && m_key.networked)                                                                                                                      \
-            {                                                                                                                                                         \
                 g_Signatures->FetchSignature<NetworkStateChanged>("NetworkStateChanged")((uintptr_t)(pThisClass) + m_chain, m_key.offset + extra_offset, 0xFFFFFFFF); \
-            }                                                                                                                                                         \
             else if (m_key.networked)                                                                                                                                 \
             {                                                                                                                                                         \
-                if (!IsStruct)                                                                                                                                        \
-                    SetStateChanged((Z_CBaseEntity *)pThisClass, m_key.offset + extra_offset);                                                                        \
-                else if (IsPlatformPosix()) /* This is currently broken on windows */                                                                                 \
-                    CALL_VIRTUAL(void, 1, pThisClass, m_key.offset + extra_offset, 0xFFFFFFFF, 0xFFFF);                                                               \
+                CALL_VIRTUAL(void, 1, pThisClass, m_key.offset + extra_offset, 0xFFFFFFFF, 0xFFFF);                                                                   \
             }                                                                                                                                                         \
             *reinterpret_cast<std::add_pointer_t<type>>((uintptr_t)(pThisClass) + m_key.offset + extra_offset) = val;                                                 \
         }                                                                                                                                                             \
