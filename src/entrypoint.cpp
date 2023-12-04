@@ -297,7 +297,7 @@ const char *SwiftlyPlugin::GetLicense()
 
 const char *SwiftlyPlugin::GetVersion()
 {
-    return "1.0.0";
+    return "0.0.2 - Alpha";
 }
 
 const char *SwiftlyPlugin::GetDate()
@@ -327,5 +327,5 @@ const char *SwiftlyPlugin::GetName()
 
 const char *SwiftlyPlugin::GetURL()
 {
-    return "https://";
+    return "https://github.com/swiftly-solution/swiftly";
 }
