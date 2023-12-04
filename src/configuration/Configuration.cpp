@@ -95,29 +95,33 @@ void LoadConfigPart(std::string key, rapidjson::Value &document);
 
 void LoadValue(const char *key, const char *keyname, rapidjson::Value &value, std::string separator = ".")
 {
+    std::string k = key + separator + keyname;
     if (value.IsBool())
-        g_Config->SetValue(key + separator + keyname, value.GetBool());
+        g_Config->SetValue(k, value.GetBool());
     else if (value.IsString())
-        g_Config->SetValue(key + separator + keyname, std::string(value.GetString()));
+        g_Config->SetValue(k, std::string(value.GetString()));
     else if (value.IsDouble())
-        g_Config->SetValue(key + separator + keyname, value.GetDouble());
+        g_Config->SetValue(k, value.GetDouble());
     else if (value.IsFloat())
-        g_Config->SetValue(key + separator + keyname, value.GetFloat());
+        g_Config->SetValue(k, value.GetFloat());
     else if (value.IsInt64())
-        g_Config->SetValue(key + separator + keyname, value.GetInt64());
+        g_Config->SetValue(k, value.GetInt64());
     else if (value.IsInt())
-        g_Config->SetValue(key + separator + keyname, value.GetInt());
+        g_Config->SetValue(k, value.GetInt());
     else if (value.IsUint64())
-        g_Config->SetValue(key + separator + keyname, value.GetUint64());
+        g_Config->SetValue(k, value.GetUint64());
     else if (value.IsUint())
-        g_Config->SetValue(key + separator + keyname, value.GetUint());
+        g_Config->SetValue(k, value.GetUint());
     else if (value.IsNull())
-        g_Config->SetValue(key + separator + keyname, nullptr);
+        g_Config->SetValue(k, nullptr);
     else if (value.IsObject())
-        LoadConfigPart(key + separator + keyname, value);
+        LoadConfigPart(k, value);
     else if (value.IsArray())
+    {
+        g_Config->SetArraySize(k, value.Size());
         for (size_t i = 0; i < value.Size(); i++)
-            LoadValue((key + separator + keyname).c_str(), string_format("[%d]", i).c_str(), value[i], "");
+            LoadValue(k.c_str(), string_format("[%d]", i).c_str(), value[i], "");
+    }
 };
 
 void LoadConfigPart(std::string key, rapidjson::Value &document)
@@ -127,6 +131,11 @@ void LoadConfigPart(std::string key, rapidjson::Value &document)
         std::string keyname = it->name.GetString();
         LoadValue(key.c_str(), keyname.c_str(), it->value);
     }
+}
+
+void Configuration::SetArraySize(std::string key, unsigned int size)
+{
+    this->configArraySizes.insert(std::make_pair(key, size));
 }
 
 void Configuration::LoadPluginConfigurations()

@@ -9,6 +9,7 @@ class Configuration
 {
 private:
     std::map<std::string, std::any> config;
+    std::map<std::string, unsigned int> configArraySizes;
     bool loaded = false;
 
 public:
@@ -18,6 +19,9 @@ public:
     void LoadPluginConfigurations();
 
     std::map<std::string, std::any> FetchConfiguration() { return this->config; }
+    std::map<std::string, unsigned int> FetchConfigArraySizes() { return this->configArraySizes; }
+
+    void SetArraySize(std::string key, unsigned int size);
 
     template <typename T>
     T FetchValue(std::string key);

@@ -91,6 +91,15 @@ public:
         else
             return 0;
     }
+
+    uint32_t FetchArraySize(const char *key)
+    {
+        void *configurationFetchArraySize = FetchFunctionPtr(nullptr, "scripting_Configuration_FetchArraySize");
+        if (configurationFetchArraySize)
+            return reinterpret_cast<Configuration_FetchArraySize>(configurationFetchArraySize)(key);
+        else
+            return 0;
+    }
 };
 
 extern Configuration *config;

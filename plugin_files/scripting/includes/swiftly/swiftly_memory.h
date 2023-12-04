@@ -50,6 +50,7 @@ typedef void (*Commands_RegisterCommand)(const char *, const char *, void *);
 typedef void (*Commands_UnregisterCommand)(const char *);
 
 typedef const char *(*Configuration_Fetch)(const char *);
+typedef uint32_t (*Configuration_FetchArraySize)(const char*);
 
 typedef void (*Logger_CreateLogger)(const char *);
 typedef void (*Logger_WriteLog)(const char *, ELogType, const char *);

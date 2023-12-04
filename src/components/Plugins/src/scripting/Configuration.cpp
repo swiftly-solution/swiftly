@@ -59,3 +59,16 @@ SMM_API const char *scripting_Configuration_Fetch(const char *key)
     std::any value = config.at(key);
     return SerializeData(value).c_str();
 }
+
+SMM_API uint32 scripting_Configuration_FetchArraySize(const char *key)
+{
+    if (key == nullptr)
+        return 0;
+
+    std::map<std::string, unsigned int> arraySizes = g_Config->FetchConfigArraySizes();
+
+    if (arraySizes.find(key) == arraySizes.end())
+        return 0;
+
+    return arraySizes.at(key);
+}
