@@ -72,12 +72,19 @@ public:
     Configuration() {}
 
     template <typename T>
-    T Fetch(const char *key)
+    T Fetch(const char *key, ...)
     {
         void *configurationFetch = FetchFunctionPtr(nullptr, "scripting_Configuration_Fetch");
         if (configurationFetch)
         {
-            const char *value = reinterpret_cast<Configuration_Fetch>(configurationFetch)(key);
+            va_list ap;
+            char buffer[2048];
+
+            va_start(ap, key);
+            UTIL_FormatArgs(buffer, sizeof(buffer), key, ap);
+            va_end(ap);
+
+            const char *value = reinterpret_cast<Configuration_Fetch>(configurationFetch)(buffer);
 
             try
             {
