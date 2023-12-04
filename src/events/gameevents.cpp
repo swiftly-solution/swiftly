@@ -93,3 +93,8 @@ GAME_EVENT(bomb_pickup)
 {
     gameevents::emit<BombPickup>(pEvent);
 }
+
+GAME_EVENT(player_death)
+{
+    gameevents::emit<PlayerDeath>(pEvent);
+}

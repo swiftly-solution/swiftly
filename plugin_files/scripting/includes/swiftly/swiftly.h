@@ -73,6 +73,7 @@ void OnBombPickup(Player *player) __attribute__((weak));
 void OnMapLoad(const char *mapName) __attribute__((weak));
 void OnMapUnload(const char *mapName) __attribute__((weak));
 bool OnClientGameMessage(Player *player, int destination, const char *message) __attribute__((weak));
+void OnPlayerDeath(Player *player, Player *attacker, Player *assister, bool assistedflash, const char *weapon, bool headshot, short dominated, short revenge, short wipe, short penetrated, bool noreplay, bool noscope, bool thrusmoke, bool attackerblind, float distance, short dmg_health, short dmg_armor, short hitgroup) __attribute__((weak));
 
 extern "C"
 {
@@ -297,6 +298,32 @@ extern "C"
     {
         if (OnMapUnload)
             OnMapUnload(mapName);
+    }
+
+    void Internal_OnPlayerDeath(int slot, int attacker, int assister, bool assistedflash, const char *weapon, bool headshot, short dominated, short revenge, short wipe, short penetrated, bool noreplay, bool noscope, bool thrusmoke, bool attackerblind, float distance, short dmg_health, short dmg_armor, short hitgroup)
+    {
+        if (!OnPlayerDeath)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        Player *attackerPlayer = nullptr, *assisterPlayer = nullptr;
+        if (attacker != -1)
+        {
+            attackerPlayer = g_playerManager->GetPlayer(attacker);
+            if (attackerPlayer == nullptr)
+                return;
+        }
+        if (assister != -1)
+        {
+            assisterPlayer = g_playerManager->GetPlayer(assister);
+            if (assisterPlayer == nullptr)
+                return;
+        }
+
+        OnPlayerDeath(player, attackerPlayer, assisterPlayer, assistedflash, weapon, headshot, dominated, revenge, wipe, penetrated, noreplay, noscope, thrusmoke, attackerblind, distance, dmg_health, dmg_armor, hitgroup);
     }
 
     const char *GetPluginAuthor();

@@ -42,6 +42,41 @@ void scripting_OnClientDisconnect(const OnClientDisconnect *e)
     }
 }
 
+void scripting_PlayerDeath(const PlayerDeath *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot attacker = e->pEvent->GetPlayerSlot("attacker");
+    CPlayerSlot assister = e->pEvent->GetPlayerSlot("assister");
+    bool assistedflash = e->pEvent->GetBool("assistedflash");
+    std::string weapon = e->pEvent->GetString("weapon");
+    bool headshot = e->pEvent->GetBool("headshot");
+    short dominated = e->pEvent->GetInt("dominated");
+    short revenge = e->pEvent->GetInt("revenge");
+    short wipe = e->pEvent->GetInt("wipe");
+    short penetrated = e->pEvent->GetInt("penetrated");
+    bool noreplay = e->pEvent->GetBool("noreplay");
+    bool noscope = e->pEvent->GetBool("noscope");
+    bool thrusmoke = e->pEvent->GetBool("thrusmoke");
+    bool attackerblind = e->pEvent->GetBool("attackerblind");
+    float distance = e->pEvent->GetFloat("distance");
+    short dmg_health = e->pEvent->GetInt("dmg_health");
+    short dmg_armor = e->pEvent->GetInt("dmg_armor");
+    short hitgroup = e->pEvent->GetInt("hitgroup");
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin->IsPluginLoaded())
+        {
+            void *plugin_OnPlayerDeath = plugin->FetchFunction("Internal_OnPlayerDeath");
+            if (plugin_OnPlayerDeath)
+            {
+                reinterpret_cast<Plugin_OnPlayerDeath>(plugin_OnPlayerDeath)(slot.Get(), attacker.Get(), assister.Get(), assistedflash, weapon.c_str(), headshot, dominated, revenge, wipe, penetrated, noreplay, noscope, thrusmoke, attackerblind, distance, dmg_health, dmg_armor, hitgroup);
+            }
+        }
+    }
+}
+
 void scripting_OnClientSpawn(const OnPlayerSpawn *e)
 {
     CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
@@ -522,6 +557,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<BombExploded>(scripting_BombExploded);
     gameevents::on<BombDropped>(scripting_BombDropped);
     gameevents::on<BombPickup>(scripting_BombPickup);
+    gameevents::on<PlayerDeath>(scripting_PlayerDeath);
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);
