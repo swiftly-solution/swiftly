@@ -37,6 +37,24 @@ public:
     {
         this->ExecuteCommand("changelevel %s", map);
     }
+
+    const char *GetMap()
+    {
+        void *GetMapFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetMapName");
+        if (GetMapFunc)
+            return reinterpret_cast<Server_GetMap>(GetMapFunc)();
+        else
+            return nullptr;
+    }
+
+    uint16_t GetMaxPlayers()
+    {
+        void *GetMapFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetMaxPlayers");
+        if (GetMapFunc)
+            return reinterpret_cast<Server_GetMaxPlayers>(GetMapFunc)();
+        else
+            return 0;
+    }
 };
 
 extern Server *server;
