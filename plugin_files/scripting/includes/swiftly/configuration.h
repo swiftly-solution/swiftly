@@ -99,11 +99,36 @@ public:
             return 0;
     }
 
-    uint32_t FetchArraySize(const char *key)
+    bool Exists(const char *key, ...)
+    {
+        void *configurationExists = FetchFunctionPtr(nullptr, "scripting_Configuration_Exists");
+        if (configurationExists)
+        {
+            va_list ap;
+            char buffer[2048];
+
+            va_start(ap, key);
+            UTIL_FormatArgs(buffer, sizeof(buffer), key, ap);
+            va_end(ap);
+            return reinterpret_cast<Configuration_Exists>(configurationExists)(buffer);
+        }
+        else
+            return false;
+    }
+
+    uint32_t FetchArraySize(const char *key, ...)
     {
         void *configurationFetchArraySize = FetchFunctionPtr(nullptr, "scripting_Configuration_FetchArraySize");
         if (configurationFetchArraySize)
-            return reinterpret_cast<Configuration_FetchArraySize>(configurationFetchArraySize)(key);
+        {
+            va_list ap;
+            char buffer[2048];
+
+            va_start(ap, key);
+            UTIL_FormatArgs(buffer, sizeof(buffer), key, ap);
+            va_end(ap);
+            return reinterpret_cast<Configuration_FetchArraySize>(configurationFetchArraySize)(buffer);
+        }
         else
             return 0;
     }

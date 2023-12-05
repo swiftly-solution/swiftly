@@ -72,3 +72,12 @@ SMM_API uint32 scripting_Configuration_FetchArraySize(const char *key)
 
     return arraySizes.at(key);
 }
+
+SMM_API bool scripting_Configuration_Exists(const char *key)
+{
+    if (key == nullptr)
+        return false;
+
+    std::map<std::string, std::any> config = g_Config->FetchConfiguration();
+    return (config.find(key) != config.end());
+}
