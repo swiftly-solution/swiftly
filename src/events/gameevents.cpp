@@ -98,3 +98,8 @@ GAME_EVENT(player_death)
 {
     gameevents::emit<PlayerDeath>(pEvent);
 }
+
+GAME_EVENT(player_hurt)
+{
+    gameevents::emit<PlayerHurt>(pEvent);
+}

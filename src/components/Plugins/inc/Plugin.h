@@ -38,6 +38,7 @@ const std::string funcsToLoad[] = {
     "OnMapUnload",
     "OnClientGameMessage",
     "OnPlayerDeath",
+    "OnPlayerHurt",
 };
 
 class Plugin

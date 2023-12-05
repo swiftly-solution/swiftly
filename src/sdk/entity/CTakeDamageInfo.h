@@ -1,7 +1,10 @@
 #pragma once
+
 #include <platform.h>
 #include "ehandle.h"
 #include <public/mathlib/vector.h>
+
+class Vector;
 
 enum DamageTypes_t : uint32_t
 {

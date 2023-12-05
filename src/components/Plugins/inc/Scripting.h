@@ -30,6 +30,7 @@ typedef void (*Plugin_OnMapLoad)(const char *);
 typedef void (*Plugin_OnMapUnload)(const char *);
 typedef bool (*Plugin_OnClientGameMessage)(uint32, int, const char *);
 typedef void (*Plugin_OnPlayerDeath)(int, int, int, bool, const char *, bool, short, short, short, short, bool, bool, bool, bool, float, short, short, short);
+typedef void (*Plugin_OnPlayerHurt)(int, int, short, short, short, const char *);
 
 bool scripting_OnClientChat(CBasePlayerController *controller, const char *text, bool teamonly);
 bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destination, const char *text);

@@ -1,5 +1,43 @@
 #include "../../inc/Scripting.h"
 
+#define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                                           \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                \
+    {                                                                                          \
+        Plugin *plugin = plugins[i];                                                           \
+        if (plugin->IsPluginLoaded())                                                          \
+        {                                                                                      \
+            void *plugin_##FUNCTION_NAME = plugin->FetchFunction("Internal_" #FUNCTION_NAME);  \
+            if (plugin_##FUNCTION_NAME)                                                        \
+                reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)(__VA_ARGS__); \
+        }                                                                                      \
+    }
+
+#define CALL_PFUNCTION_VOID_NOARGS(FUNCTION_NAME)                                             \
+    for (uint32 i = 0; i < plugins.size(); i++)                                               \
+    {                                                                                         \
+        Plugin *plugin = plugins[i];                                                          \
+        if (plugin->IsPluginLoaded())                                                         \
+        {                                                                                     \
+            void *plugin_##FUNCTION_NAME = plugin->FetchFunction("Internal_" #FUNCTION_NAME); \
+            if (plugin_##FUNCTION_NAME)                                                       \
+                reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)();           \
+        }                                                                                     \
+    }
+
+#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, ...)                                   \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                     \
+    {                                                                                               \
+        Plugin *plugin = plugins[i];                                                                \
+        if (plugin->IsPluginLoaded())                                                               \
+        {                                                                                           \
+            void *plugin_##FUNCTION_NAME = plugin->FetchFunction("Internal_" #FUNCTION_NAME);       \
+            if (plugin_##FUNCTION_NAME)                                                             \
+                if (!reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)(__VA_ARGS__)) \
+                    return FALSE_VALUE;                                                             \
+        }                                                                                           \
+    }                                                                                               \
+    return !FALSE_VALUE;
+
 std::vector<int> GetBombSites()
 {
     std::vector<int> sites;
@@ -13,33 +51,12 @@ std::vector<int> GetBombSites()
 
 bool scripting_OnClientConnect(const OnClientConnect *e)
 {
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnClientConnect = plugin->FetchFunction("Internal_OnClientConnect");
-            if (plugin_OnClientConnect)
-                if (!reinterpret_cast<Plugin_OnClientConnect>(plugin_OnClientConnect)(e->slot->Get()))
-                    return false;
-        }
-    }
-
-    return true;
+    CALL_PFUNCTION_BOOL_ARGS(OnClientConnect, false, e->slot->Get())
 }
 
 void scripting_OnClientDisconnect(const OnClientDisconnect *e)
 {
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnClientDisconnect = plugin->FetchFunction("Internal_OnClientDisconnect");
-            if (plugin_OnClientDisconnect)
-                reinterpret_cast<Plugin_OnClientDisconnect>(plugin_OnClientDisconnect)(e->slot->Get());
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(OnClientDisconnect, e->slot->Get())
 }
 
 void scripting_PlayerDeath(const PlayerDeath *e)
@@ -63,18 +80,7 @@ void scripting_PlayerDeath(const PlayerDeath *e)
     short dmg_armor = e->pEvent->GetInt("dmg_armor");
     short hitgroup = e->pEvent->GetInt("hitgroup");
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnPlayerDeath = plugin->FetchFunction("Internal_OnPlayerDeath");
-            if (plugin_OnPlayerDeath)
-            {
-                reinterpret_cast<Plugin_OnPlayerDeath>(plugin_OnPlayerDeath)(slot.Get(), attacker.Get(), assister.Get(), assistedflash, weapon.c_str(), headshot, dominated, revenge, wipe, penetrated, noreplay, noscope, thrusmoke, attackerblind, distance, dmg_health, dmg_armor, hitgroup);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(OnPlayerDeath, slot.Get(), attacker.Get(), assister.Get(), assistedflash, weapon.c_str(), headshot, dominated, revenge, wipe, penetrated, noreplay, noscope, thrusmoke, attackerblind, distance, dmg_health, dmg_armor, hitgroup)
 }
 
 void scripting_OnClientSpawn(const OnPlayerSpawn *e)
@@ -88,34 +94,12 @@ void scripting_OnClientSpawn(const OnPlayerSpawn *e)
     if (!player)
         return;
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnPlayerSpawn = plugin->FetchFunction("Internal_OnPlayerSpawn");
-            if (plugin_OnPlayerSpawn)
-            {
-                reinterpret_cast<Plugin_OnPlayerSpawn>(plugin_OnPlayerSpawn)(player->GetSlot()->Get());
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(OnPlayerSpawn, player->GetSlot()->Get())
 }
 
 void scripting_OnRoundPrestart(const OnRoundPrestart *e)
 {
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnRoundPrestart = plugin->FetchFunction("Internal_OnRoundPrestart");
-            if (plugin_OnRoundPrestart)
-            {
-                reinterpret_cast<Plugin_OnRoundPrestart>(plugin_OnRoundPrestart)();
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_NOARGS(OnRoundPrestart)
 }
 
 void scripting_OnRoundStart(const OnRoundStart *e)
@@ -124,18 +108,7 @@ void scripting_OnRoundStart(const OnRoundStart *e)
     long fraglimit = e->pEvent->GetUint64("fraglimit");
     const char *objective = e->pEvent->GetString("objective");
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnRoundStart = plugin->FetchFunction("Internal_OnRoundStart");
-            if (plugin_OnRoundStart)
-            {
-                reinterpret_cast<Plugin_OnRoundStart>(plugin_OnRoundStart)(timelimit, fraglimit, objective);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(OnRoundStart, timelimit, fraglimit, objective)
 }
 
 void scripting_OnRoundEnd(const OnRoundEnd *e)
@@ -147,18 +120,7 @@ void scripting_OnRoundEnd(const OnRoundEnd *e)
     short player_count = e->pEvent->GetInt("player_count");
     unsigned char nomusic = e->pEvent->GetInt("nomusic");
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnRoundEnd = plugin->FetchFunction("Internal_OnRoundEnd");
-            if (plugin_OnRoundEnd)
-            {
-                reinterpret_cast<Plugin_OnRoundEnd>(plugin_OnRoundEnd)(winner, reason, message, legacy, player_count, nomusic);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(OnRoundEnd, winner, reason, message, legacy, player_count, nomusic)
 }
 
 bool scripting_OnClientChat(CBasePlayerController *controller, const char *text, bool teamonly)
@@ -172,21 +134,7 @@ bool scripting_OnClientChat(CBasePlayerController *controller, const char *text,
     if (!player)
         return false;
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnPlayerChat = plugin->FetchFunction("Internal_OnPlayerChat");
-            if (plugin_OnPlayerChat)
-            {
-                if (!reinterpret_cast<Plugin_OnPlayerChat>(plugin_OnPlayerChat)(player->GetSlot()->Get(), text, teamonly))
-                    return false;
-            }
-        }
-    }
-
-    return true;
+    CALL_PFUNCTION_BOOL_ARGS(OnPlayerChat, false, player->GetSlot()->Get(), text, teamonly)
 }
 
 bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destination, const char *text)
@@ -200,37 +148,12 @@ bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destin
     if (!player)
         return false;
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnClientGameMessage = plugin->FetchFunction("Internal_OnClientGameMessage");
-            if (plugin_OnClientGameMessage)
-            {
-                if (!reinterpret_cast<Plugin_OnClientGameMessage>(plugin_OnClientGameMessage)(player->GetSlot()->Get(), destination, text))
-                    return false;
-            }
-        }
-    }
-
-    return true;
+    CALL_PFUNCTION_BOOL_ARGS(OnClientGameMessage, false, player->GetSlot()->Get(), destination, text)
 }
 
 void scripting_OnGameTick(const OnGameFrame *e)
 {
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnGameTick = plugin->FetchFunction("Internal_OnGameTick");
-            if (plugin_OnGameTick)
-            {
-                reinterpret_cast<Plugin_OnGameTick>(plugin_OnGameTick)(e->simulating, e->bFirstTick, e->bFirstTick);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(OnGameTick, e->simulating, e->bFirstTick, e->bFirstTick)
 }
 
 void scripting_BombBeginPlant(const BombBeginPlant *e)
@@ -251,18 +174,7 @@ void scripting_BombBeginPlant(const BombBeginPlant *e)
     else
         site = (sites[0] == site ? SITE_A : SITE_B);
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_BombBeginPlant = plugin->FetchFunction("Internal_BombBeginPlant");
-            if (plugin_BombBeginPlant)
-            {
-                reinterpret_cast<Plugin_BombBeginPlant>(plugin_BombBeginPlant)(player->GetSlot()->Get(), site);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(BombBeginPlant, player->GetSlot()->Get(), site)
 }
 
 void scripting_BombAbortPlant(const BombAbortPlant *e)
@@ -283,18 +195,7 @@ void scripting_BombAbortPlant(const BombAbortPlant *e)
     else
         site = (sites[0] == site ? SITE_A : SITE_B);
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_BombAbortPlant = plugin->FetchFunction("Internal_BombAbortPlant");
-            if (plugin_BombAbortPlant)
-            {
-                reinterpret_cast<Plugin_BombAbortPlant>(plugin_BombAbortPlant)(player->GetSlot()->Get(), site);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(BombAbortPlant, player->GetSlot()->Get(), site)
 }
 
 void scripting_BombPlanted(const BombPlanted *e)
@@ -315,18 +216,7 @@ void scripting_BombPlanted(const BombPlanted *e)
     else
         site = (sites[0] == site ? SITE_A : SITE_B);
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_BombPlanted = plugin->FetchFunction("Internal_BombPlanted");
-            if (plugin_BombPlanted)
-            {
-                reinterpret_cast<Plugin_BombPlanted>(plugin_BombPlanted)(player->GetSlot()->Get(), site);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(BombPlanted, player->GetSlot()->Get(), site)
 }
 
 void scripting_BombDefused(const BombDefused *e)
@@ -347,18 +237,7 @@ void scripting_BombDefused(const BombDefused *e)
     else
         site = (sites[0] == site ? SITE_A : SITE_B);
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_BombDefused = plugin->FetchFunction("Internal_BombDefused");
-            if (plugin_BombDefused)
-            {
-                reinterpret_cast<Plugin_BombDefused>(plugin_BombDefused)(player->GetSlot()->Get(), site);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(BombDefused, player->GetSlot()->Get(), site)
 }
 
 void scripting_BombExploded(const BombExploded *e)
@@ -379,18 +258,7 @@ void scripting_BombExploded(const BombExploded *e)
     else
         site = (sites[0] == site ? SITE_A : SITE_B);
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_BombExploded = plugin->FetchFunction("Internal_BombExploded");
-            if (plugin_BombExploded)
-            {
-                reinterpret_cast<Plugin_BombExploded>(plugin_BombExploded)(player->GetSlot()->Get(), site);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(BombExploded, player->GetSlot()->Get(), site)
 }
 
 void scripting_BombDropped(const BombDropped *e)
@@ -404,18 +272,7 @@ void scripting_BombDropped(const BombDropped *e)
     if (!player)
         return;
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_BombDropped = plugin->FetchFunction("Internal_BombDropped");
-            if (plugin_BombDropped)
-            {
-                reinterpret_cast<Plugin_BombDropped>(plugin_BombDropped)(player->GetSlot()->Get());
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(BombDropped, player->GetSlot()->Get())
 }
 
 void scripting_BombPickup(const BombPickup *e)
@@ -429,18 +286,7 @@ void scripting_BombPickup(const BombPickup *e)
     if (!player)
         return;
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_BombPickup = plugin->FetchFunction("Internal_BombPickup");
-            if (plugin_BombPickup)
-            {
-                reinterpret_cast<Plugin_BombPickup>(plugin_BombPickup)(player->GetSlot()->Get());
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(BombPickup, player->GetSlot()->Get())
 }
 
 void scripting_BombBeginDefuse(const BombBeginDefuse *e)
@@ -461,18 +307,7 @@ void scripting_BombBeginDefuse(const BombBeginDefuse *e)
     else
         site = (sites[0] == site ? SITE_A : SITE_B);
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_BombBeginDefuse = plugin->FetchFunction("Internal_BombBeginDefuse");
-            if (plugin_BombBeginDefuse)
-            {
-                reinterpret_cast<Plugin_BombBeginDefuse>(plugin_BombBeginDefuse)(player->GetSlot()->Get(), site);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(BombBeginDefuse, player->GetSlot()->Get(), site)
 }
 
 void scripting_BombAbortDefuse(const BombAbortDefuse *e)
@@ -493,50 +328,29 @@ void scripting_BombAbortDefuse(const BombAbortDefuse *e)
     else
         site = (sites[0] == site ? SITE_A : SITE_B);
 
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_BombAbortDefuse = plugin->FetchFunction("Internal_BombAbortDefuse");
-            if (plugin_BombAbortDefuse)
-            {
-                reinterpret_cast<Plugin_BombAbortDefuse>(plugin_BombAbortDefuse)(player->GetSlot()->Get(), site);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(BombAbortDefuse, player->GetSlot()->Get(), site)
 }
 
 void scripting_OnMapLoad(const OnMapLoad *e)
 {
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnMapLoad = plugin->FetchFunction("Internal_OnMapLoad");
-            if (plugin_OnMapLoad)
-            {
-                reinterpret_cast<Plugin_OnMapLoad>(plugin_OnMapLoad)(e->map);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(OnMapLoad, e->map)
 }
 
 void scripting_OnMapUnload(const OnMapUnload *e)
 {
-    for (uint32 i = 0; i < plugins.size(); i++)
-    {
-        Plugin *plugin = plugins[i];
-        if (plugin->IsPluginLoaded())
-        {
-            void *plugin_OnMapUnload = plugin->FetchFunction("Internal_OnMapUnload");
-            if (plugin_OnMapUnload)
-            {
-                reinterpret_cast<Plugin_OnMapUnload>(plugin_OnMapUnload)(e->map);
-            }
-        }
-    }
+    CALL_PFUNCTION_VOID_ARGS(OnMapUnload, e->map)
+}
+
+void scripting_PlayerHurt(const PlayerHurt *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot attacker = e->pEvent->GetPlayerSlot("attacker");
+    short dmgHealth = e->pEvent->GetInt("dmg_health");
+    short dmgArmor = e->pEvent->GetInt("dmg_armor");
+    short hitgroup = e->pEvent->GetInt("hitgroup");
+    std::string weapon = e->pEvent->GetString("weapon");
+
+    CALL_PFUNCTION_VOID_ARGS(OnPlayerHurt, slot.Get(), attacker.Get(), dmgHealth, dmgArmor, hitgroup, weapon.c_str())
 }
 
 void PluginsComponent::RegisterGameEvents()
@@ -558,6 +372,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<BombDropped>(scripting_BombDropped);
     gameevents::on<BombPickup>(scripting_BombPickup);
     gameevents::on<PlayerDeath>(scripting_PlayerDeath);
+    gameevents::on<PlayerHurt>(scripting_PlayerHurt);
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);

@@ -74,6 +74,7 @@ void OnMapLoad(const char *mapName) __attribute__((weak));
 void OnMapUnload(const char *mapName) __attribute__((weak));
 bool OnClientGameMessage(Player *player, int destination, const char *message) __attribute__((weak));
 void OnPlayerDeath(Player *player, Player *attacker, Player *assister, bool assistedflash, const char *weapon, bool headshot, short dominated, short revenge, short wipe, short penetrated, bool noreplay, bool noscope, bool thrusmoke, bool attackerblind, float distance, short dmg_health, short dmg_armor, short hitgroup) __attribute__((weak));
+void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon, bool fatal) __attribute__((weak));
 
 extern "C"
 {
@@ -324,6 +325,22 @@ extern "C"
         }
 
         OnPlayerDeath(player, attackerPlayer, assisterPlayer, assistedflash, weapon, headshot, dominated, revenge, wipe, penetrated, noreplay, noscope, thrusmoke, attackerblind, distance, dmg_health, dmg_armor, hitgroup);
+    }
+
+    void Internal_OnPlayerHurt(int slot, int attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon)
+    {
+        if (!OnPlayerHurt)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        Player *attackerPlayer = g_playerManager->GetPlayer(attacker);
+        if (attackerPlayer == nullptr)
+            return;
+
+        OnPlayerHurt(player, attackerPlayer, dmgHealth, dmgArmor, hitgroup, weapon, (player->health->Get() - dmgHealth <= 0));
     }
 
     const char *GetPluginAuthor();
