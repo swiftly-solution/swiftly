@@ -12,7 +12,6 @@ SMM_API void scripting_Logger_CreateLogger(const char *plugin_name)
 
 SMM_API void scripting_Logger_WriteLog(const char *plugin_name, ELogType log_type, const char *text)
 {
-    PRINTF("Logger - Scripting", "Fetching logger for '%s'...\n", plugin_name);
     Log *logger = g_Logger->FetchLogger(plugin_name);
     if (logger == nullptr)
         return;

@@ -54,10 +54,19 @@ SMM_API const char *scripting_Configuration_Fetch(const char *key)
     std::map<std::string, std::any> config = g_Config->FetchConfiguration();
 
     if (config.find(key) == config.end())
-        return SerializeData(key).c_str();
+    {
+        std::string data = SerializeData(key);
+        char *result = new char[data.size() + 1];
+        strcpy(result, data.c_str());
+        return result;
+    }
 
     std::any value = config.at(key);
-    return SerializeData(value).c_str();
+    std::string data = SerializeData(value);
+
+    char *result = new char[data.size() + 1];
+    strcpy(result, data.c_str());
+    return result;
 }
 
 SMM_API uint32 scripting_Configuration_FetchArraySize(const char *key)

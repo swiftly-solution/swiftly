@@ -188,7 +188,7 @@ void SwiftlyPluginManagerList(CPlayerSlot *slot, CCommandContext context)
                                reinterpret_cast<GetPlugin>(GetPluginName)(),
                                reinterpret_cast<GetPlugin>(GetPluginVersion)(),
                                reinterpret_cast<GetPlugin>(GetPluginAuthor)(),
-                               website == "" ? "" : string_format(" (%s)", website.c_str()).c_str());
+                               website == "" ? "" : string_format(" ( %s )", website.c_str()).c_str());
     }
 }
 

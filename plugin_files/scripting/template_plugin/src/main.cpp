@@ -5,6 +5,7 @@
 #include <swiftly/configuration.h>
 #include <swiftly/logger.h>
 #include <swiftly/timers.h>
+#include <swiftly/gameevents.h>
 
 Server *server = nullptr;
 PlayerManager *g_playerManager = nullptr;
