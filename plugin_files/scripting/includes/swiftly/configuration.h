@@ -46,7 +46,7 @@ std::any DeserializeConfigData(const char *jsonData)
         return GetParseError_En(document.GetParseError());
 
     if (document["value"].IsString())
-        return (new TypedConfigValue<const char *>(document["value"].GetString()))->getValue();
+        return (new TypedConfigValue<std::string>(document["value"].GetString()))->getValue().c_str();
     else if (document["value"].IsInt())
         return (new TypedConfigValue<int>(document["value"].GetInt()))->getValue();
     else if (document["value"].IsInt64())
