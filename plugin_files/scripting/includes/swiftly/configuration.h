@@ -10,8 +10,6 @@
 #include <rapidjson/error/en.h>
 #include <any>
 
-void print(const char *str, ...);
-
 class BaseConfigValue
 {
 public:
@@ -87,8 +85,6 @@ public:
             va_end(ap);
 
             const char *value = reinterpret_cast<Configuration_Fetch>(configurationFetch)(buffer);
-
-            print("%s\n", value);
 
             try
             {
