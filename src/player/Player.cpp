@@ -137,16 +137,19 @@ void Player::SendMsg(int dest, const char *msg, ...)
     va_end(args);
 
     std::string message(buffer);
-    bool startsWithColor = (message.at(0) == '{');
-
-    for (auto it = colors.begin(); it != colors.end(); ++it)
+    if (message.size() != 0)
     {
-        message = replace(message, it->first, it->second);
-        message = replace(message, str_tolower(it->first), it->second);
-    }
+        bool startsWithColor = (message.at(0) == '{');
 
-    if (startsWithColor)
-        message = " " + message;
+        for (auto it = colors.begin(); it != colors.end(); ++it)
+        {
+            message = replace(message, it->first, it->second);
+            message = replace(message, str_tolower(it->first), it->second);
+        }
+
+        if (startsWithColor)
+            message = " " + message;
+    }
 
     g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, message.c_str(), nullptr, nullptr, nullptr, nullptr);
 }
