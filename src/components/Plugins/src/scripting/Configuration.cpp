@@ -38,6 +38,8 @@ std::string SerializeData(std::any data)
         document.AddMember(keyVal, rapidjson::Value().SetFloat(std::any_cast<float>(value)), document.GetAllocator());
     else if (value.type() == typeid(double))
         document.AddMember(keyVal, rapidjson::Value().SetDouble(std::any_cast<double>(value)), document.GetAllocator());
+    else
+        PRINTF("SerializeData", "Unknown Data Type: %s\n", value.type().name());
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
