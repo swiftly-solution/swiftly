@@ -24,6 +24,7 @@ OBJS_FILES = $(patsubst %o,$(TEMP_DIR)/%o,$(TEMP_OBJS_FILES))
 
 define COMPILE_FILE
 	$(CXX_COMMAND) $(CXX_FLAGS) -o $(TEMP_DIR)/$(subst /,_,$(subst .cpp,.o,$(1))) -c $(1)
+	
 endef
 
 build:

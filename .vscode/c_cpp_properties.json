@@ -8,7 +8,8 @@
                 "${workspaceFolder}/metamod/core/**",
                 "${workspaceFolder}/vendor/rapidjson/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
-                "${workspaceFolder}/vendor/mysql/win64/include/**"
+                "${workspaceFolder}/vendor/mysql/win64/include/**",
+                "${workspaceFolder}/vendor/cpp-httplib/**"
             ],
             "defines": [
                 "_DEBUG",

@@ -23,6 +23,7 @@ for sdk_name in MMSPlugin.sdks:
     binary.compiler.cxxincludes += [
       os.path.join(builder.sourcePath, 'vendor', 'rapidjson', 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
+      os.path.join(builder.sourcePath, 'vendor', 'cpp-httplib'),
       os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'hl2sdk'),
       os.path.join(builder.sourcePath, 'hl2sdk', 'public'),

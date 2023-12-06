@@ -49,9 +49,9 @@ public:
 
     uint16_t GetMaxPlayers()
     {
-        void *GetMapFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetMaxPlayers");
-        if (GetMapFunc)
-            return reinterpret_cast<Server_GetMaxPlayers>(GetMapFunc)();
+        void *GetMaxPlayersFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetMaxPlayers");
+        if (GetMaxPlayersFunc)
+            return reinterpret_cast<Server_GetMaxPlayers>(GetMaxPlayersFunc)();
         else
             return 0;
     }
