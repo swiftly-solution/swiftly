@@ -19,6 +19,7 @@ endif
 rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 
 SRC_FILES := $(call rwildcard,$(SRC_DIR),*.cpp)
+SRC_FILES += $(call rwildcard,$(BEHIND_PATH)/includes/swiftly,*.cpp)
 TEMP_OBJS_FILES = $(subst /,_,$(patsubst %.cpp, %.o, $(SRC_FILES)))
 OBJS_FILES = $(patsubst %o,$(TEMP_DIR)/%o,$(TEMP_OBJS_FILES))
 
