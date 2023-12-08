@@ -12,6 +12,7 @@ FuncHook<decltype(Hook_Msg)> TMsg(Hook_Msg, "Msg");
 FuncHook<decltype(Hook_Warning)> TWarning(Hook_Warning, "Warning");
 FuncHook<decltype(Hook_LoggingSystem_LogAssert)> LoggingSystemt_LogAssert(Hook_LoggingSystem_LogAssert, "LoggingSystem_LogAssert");
 FuncHook<decltype(Hook_ClientPrint)> TClientPrint(Hook_ClientPrint, "ClientPrint");
+FuncHook<decltype(Hook_IsHearingClient)> TIsHearingClient(Hook_IsHearingClient, "IsHearingClient");
 
 #define CHECKLOGS()                                                \
     va_list args;                                                  \
@@ -85,6 +86,16 @@ void FASTCALL Hook_ClientPrint(CBasePlayerController *controller, int destinatio
     TClientPrint(controller, destination, message, arg1, arg2, arg3, arg4);
 }
 
+bool FASTCALL Hook_IsHearingClient(void *serverClient, int playerSlot)
+{
+    Player *player = g_playerManager->GetPlayer(playerSlot);
+    if (player != nullptr)
+        if (!scripting_ShouldHearVoice(player))
+            return false;
+
+    return TIsHearingClient(serverClient, playerSlot);
+}
+
 CUtlVector<FuncHookBase *> g_funcHooks;
 
 bool InitializeHooks()
@@ -118,6 +129,10 @@ bool InitializeHooks()
     if (!TClientPrint.Create())
         return false;
     TClientPrint.Enable();
+
+    if (!TIsHearingClient.Create())
+        return false;
+    TIsHearingClient.Enable();
 
     return true;
 }

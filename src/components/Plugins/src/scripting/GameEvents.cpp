@@ -353,6 +353,11 @@ void scripting_PlayerHurt(const PlayerHurt *e)
     CALL_PFUNCTION_VOID_ARGS(OnPlayerHurt, slot.Get(), attacker.Get(), dmgHealth, dmgArmor, hitgroup, weapon.c_str())
 }
 
+bool scripting_ShouldHearVoice(Player *player)
+{
+    CALL_PFUNCTION_BOOL_ARGS(ShouldHearVoice, false, player->GetSlot()->Get())
+}
+
 void PluginsComponent::RegisterGameEvents()
 {
     hooks::on<OnGameFrame>(scripting_OnGameTick);

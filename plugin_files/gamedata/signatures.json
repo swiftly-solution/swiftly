@@ -19,6 +19,11 @@
         "windows": "40 55 53 56 41 55 41 57 48 8D 6C 24 B0",
         "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 53 89 D3"
     },
+    "IsHearingClient": {
+        "lib": "engine",
+        "windows": "40 53 48 83 EC 20 48 8B D9 3B 91 B8",
+        "linux": "55 48 89 E5 41 55 41 54 53 48 89 FB 48 83 EC 08 3B B7 C8"
+    },
     "CCSPlayerController_SwitchTeam": {
         "lib": "server",
         "windows": "40 56 57 48 81 EC 2A 2A 2A 2A 48 8B F9 8B F2 8B CA",

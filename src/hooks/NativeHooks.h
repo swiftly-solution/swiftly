@@ -13,6 +13,7 @@ void FASTCALL Hook_LoggingSystem_LogAssert(const char *, ...);
 void FASTCALL Hook_Msg(const char *, ...);
 void FASTCALL Hook_Warning(const char *, ...);
 void FASTCALL Hook_ClientPrint(CBasePlayerController *, int, const char *, const char *, const char *, const char *, const char *);
+bool FASTCALL Hook_IsHearingClient(void *, int);
 bool InitializeHooks();
 
 #endif
