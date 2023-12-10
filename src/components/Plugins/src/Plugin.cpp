@@ -2,11 +2,17 @@
 #include "../../../common.h"
 #include "../../../commands/CommandsManager.h"
 #include "../../../player/PlayerManager.h"
+#include <thread>
 
 typedef void (*OnPluginStartFunction)();
 typedef void (*OnPluginStopFunction)();
 typedef void (*OnProgramLoadFunction)(const char *, const char *);
 typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
+
+void LoadPluginCallback(void *OnPluginStart)
+{
+    reinterpret_cast<OnPluginStartFunction>(OnPluginStart)();
+}
 
 void Plugin::StartPlugin()
 {
@@ -26,12 +32,6 @@ void Plugin::StartPlugin()
 
     reinterpret_cast<OnProgramLoadFunction>(OnProgramLoad)(this->GetName().c_str(), std::string(PATH).append(WIN_LINUX("/bin/win64/swiftly.dll", "/bin/linuxsteamrt64/swiftly.so")).c_str());
 
-    void *OnPluginStart = this->FetchFunction("Internal_OnPluginStart");
-    if (OnPluginStart)
-    {
-        reinterpret_cast<OnPluginStartFunction>(OnPluginStart)();
-    }
-
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
         Player *player = g_playerManager->GetPlayer(i);
@@ -39,6 +39,13 @@ void Plugin::StartPlugin()
             continue;
 
         reinterpret_cast<Plugin_OnPlayerRegister>(RegisterPlayer)(player->GetSlot()->Get(), player->IsFakeClient());
+    }
+
+    void *OnPluginStart = this->FetchFunction("Internal_OnPluginStart");
+    if (OnPluginStart)
+    {
+        std::thread th(LoadPluginCallback, OnPluginStart);
+        th.detach();
     }
 
     this->SetPluginLoaded(true);
