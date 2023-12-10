@@ -42,7 +42,7 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
     CPlayerSlot sl = context.GetPlayerSlot();
     CPlayerSlot *slot = &sl;
 
-    PrintToClientOrConsole(slot, "Commands - Status", "userid\tname\tsteamid\t\ttime\t\tstate\n");
+    PrintToClientOrConsole(slot, "Commands - Status", "playerid\tname\tsteamid\t\ttime\t\tstate\n");
 
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
@@ -56,10 +56,10 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
 
         if (player->IsFakeClient())
             PrintToClientOrConsole(slot, "Status", "#%d\t%s\t%s\t%s\t%s\n",
-                                   i + 1, controller->m_iszPlayerName(), "BOT\t", seconds_to_time(player->GetConnectedTime()).c_str(), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
+                                   player->GetSlot()->Get(), controller->m_iszPlayerName(), "BOT\t", seconds_to_time(player->GetConnectedTime()).c_str(), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
         else
             PrintToClientOrConsole(slot, "Status", "#%d\t%s\t%llu\t%s\t%s\n",
-                                   i + 1, controller->m_iszPlayerName(), controller->m_steamID(), seconds_to_time(player->GetConnectedTime()).c_str(), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
+                                   player->GetSlot()->Get(), controller->m_iszPlayerName(), controller->m_steamID(), seconds_to_time(player->GetConnectedTime()).c_str(), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
     }
     PrintToClientOrConsole(slot, "Status", "end of status\n");
 }
