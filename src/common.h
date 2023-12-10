@@ -83,5 +83,7 @@ void PrintToClientOrConsole(CPlayerSlot *slot, std::string category, std::string
 
 bool ends_with(std::string value, std::string ending);
 bool starts_with(std::string value, std::string starting);
+std::string str_tolower(std::string s);
+std::string replace(std::string str, const std::string from, const std::string to);
 
 #endif

@@ -3,8 +3,6 @@
 #include <metamod_util.h>
 #include <algorithm>
 
-std::string replace(std::string str, const std::string from, const std::string to);
-
 std::map<std::string, std::string> colors = {
     {"{DEFAULT}", "\x01"},
     {"{WHITE}", "\x01"},
