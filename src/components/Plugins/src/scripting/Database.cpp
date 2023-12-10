@@ -119,5 +119,6 @@ SMM_API const char *scripting_Database_Query(const char *connectionName, const c
         return SerializeData({}).c_str();
     }
 
-    return SerializeData(results).c_str();
+    std::string result = SerializeData(results);
+    return result.c_str();
 }
