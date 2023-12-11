@@ -9,6 +9,7 @@
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/error/en.h>
 #include <any>
+#include <cstdarg>
 
 class BaseConfigValue
 {
