@@ -21,6 +21,7 @@
 #include "filter/ConsoleFilter.h"
 #include "translations/Translations.h"
 #include "logs/Logger.h"
+#include "http/HTTPManager.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -72,6 +73,7 @@ ConsoleFilter *g_conFilter = nullptr;
 Translations *g_translations = nullptr;
 Logger *g_Logger = nullptr;
 Offsets *g_Offsets = nullptr;
+HTTPManager *g_httpManager = nullptr;
 std::vector<Plugin *> plugins;
 
 CGlobalVars *GetGameGlobals()
@@ -130,6 +132,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_conFilter = new ConsoleFilter();
     g_translations = new Translations();
     g_Logger = new Logger();
+    g_httpManager = new HTTPManager();
 
     g_Config->LoadPluginConfigurations();
 

@@ -25,6 +25,7 @@ for sdk_name in MMSPlugin.sdks:
       os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'cpp-httplib'),
       os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
+      os.path.join(builder.sourcePath, 'vendor', 'openssl', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'hl2sdk'),
       os.path.join(builder.sourcePath, 'hl2sdk', 'public'),
       os.path.join(builder.sourcePath, 'hl2sdk', 'public', 'entity2'),
@@ -43,11 +44,13 @@ for sdk_name in MMSPlugin.sdks:
       ]
 
     if binary.compiler.target.platform == 'linux':
-      binary.compiler.postlink += ['-lrt']
+      binary.compiler.postlink += ['-lrt', '-lssl', '-lcrypto']
     elif binary.compiler.target.platform == 'windows':
       binary.compiler.postlink += [
         os.path.join('psapi.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'mysql', 'win64', 'lib', 'mysqlclient.lib'),
+        os.path.join(builder.sourcePath, 'vendor', 'openssl', 'win64', 'lib', 'libcrypto.lib'),
+        os.path.join(builder.sourcePath, 'vendor', 'openssl', 'win64', 'lib', 'libssl.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
         'wsock32.lib'

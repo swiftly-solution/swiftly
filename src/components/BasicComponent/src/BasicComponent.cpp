@@ -7,6 +7,7 @@
 #include "../../../filter/ConsoleFilter.h"
 #include "../../Plugins/inc/Plugin.h"
 #include "../../../files/Files.h"
+#include "../../../http/HTTPManager.h"
 
 typedef const char *(*GetPlugin)();
 
