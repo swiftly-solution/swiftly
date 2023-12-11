@@ -44,7 +44,7 @@ for sdk_name in MMSPlugin.sdks:
       ]
 
     if binary.compiler.target.platform == 'linux':
-      binary.compiler.postlink += ['-lrt', '-lssl', '-lcrypto']
+      binary.compiler.postlink += ['-lrt', '-lssl', '-lcrypto', '-fexceptions']
     elif binary.compiler.target.platform == 'windows':
       binary.compiler.postlink += [
         os.path.join('psapi.lib'),
