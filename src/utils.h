@@ -11,8 +11,11 @@
 
 #define GCC_COMPILER (defined(__GNUC__) && !defined(__clang__))
 
-#define PRINT(CATEGORY, FORMAT_STR) g_SMAPI->ConPrint(std::string(PREFIX).append(" [").append(CATEGORY).append("] ").append(FORMAT_STR).c_str())
-#define PRINTF(CATEGORY, FORMAT_STR, ...) g_SMAPI->ConPrintf(std::string(PREFIX).append(" [").append(CATEGORY).append("] ").append(FORMAT_STR).c_str(), __VA_ARGS__)
+void PLUGIN_PRINT(std::string category, std::string str);
+void PLUGIN_PRINTF(std::string category, std::string str, ...);
+
+#define PRINT PLUGIN_PRINT
+#define PRINTF PLUGIN_PRINTF
 #define PRINTRET(CATEGORY, FORMAT_STR, RET) \
     {                                       \
         PRINT(CATEGORY, FORMAT_STR);        \

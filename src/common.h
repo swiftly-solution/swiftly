@@ -79,7 +79,7 @@ void PrintToClientOrConsole(CPlayerSlot *slot, std::string category, std::string
         PRINTF(category, message, args...);
     else
         CLIENT_PRINTF(*slot, category, message, args...);
-};
+}
 
 bool ends_with(std::string value, std::string ending);
 bool starts_with(std::string value, std::string starting);
