@@ -2,6 +2,7 @@
 #define _httprequest_h
 
 #define CPPHTTPLIB_OPENSSL_SUPPORT
+#define CPPHTTPLIB_NO_EXCEPTIONS
 
 #include <httplib.h>
 #include "ContentTypes.h"
