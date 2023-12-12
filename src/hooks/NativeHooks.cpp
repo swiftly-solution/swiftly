@@ -80,7 +80,8 @@ void FASTCALL Hook_Warning(const char *message, ...)
 
 void FASTCALL Hook_ClientPrint(CBasePlayerController *controller, int destination, const char *message, const char *arg1, const char *arg2, const char *arg3, const char *arg4)
 {
-    if (!scripting_OnClientGameMessage(controller, destination, message))
+    bool ret = scripting_OnClientGameMessage(controller, destination, message);
+    if (!ret)
         return;
 
     TClientPrint(controller, destination, message, arg1, arg2, arg3, arg4);
@@ -126,9 +127,9 @@ bool InitializeHooks()
         return false;
     TWarning.Enable();
 
-    if (!TClientPrint.Create())
-        return false;
-    TClientPrint.Enable();
+    // if (!TClientPrint.Create())
+    //     return false;
+    // TClientPrint.Enable();
 
     if (!TIsHearingClient.Create())
         return false;

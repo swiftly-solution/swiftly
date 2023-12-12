@@ -42,7 +42,8 @@ public:
     inline uint16_t GetPlayers() { return playerCount; }
     inline Player *GetPlayer(int slot)
     {
-        assert(slot >= 0 && slot < MAX_PLAYERS);
+        if (slot < 0 || slot >= MAX_PLAYERS)
+            return nullptr;
         return this->g_Players[slot];
     }
     inline const uint16_t GetPlayerCap() { return MAX_PLAYERS; }

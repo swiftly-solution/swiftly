@@ -8,7 +8,9 @@
         {                                                                                      \
             void *plugin_##FUNCTION_NAME = plugin->FetchFunction("Internal_" #FUNCTION_NAME);  \
             if (plugin_##FUNCTION_NAME)                                                        \
+            {                                                                                  \
                 reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)(__VA_ARGS__); \
+            }                                                                                  \
         }                                                                                      \
     }
 
@@ -20,11 +22,13 @@
         {                                                                                     \
             void *plugin_##FUNCTION_NAME = plugin->FetchFunction("Internal_" #FUNCTION_NAME); \
             if (plugin_##FUNCTION_NAME)                                                       \
+            {                                                                                 \
                 reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)();           \
+            }                                                                                 \
         }                                                                                     \
     }
 
-#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, ...)                                   \
+#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                        \
     for (uint32 i = 0; i < plugins.size(); i++)                                                     \
     {                                                                                               \
         Plugin *plugin = plugins[i];                                                                \
@@ -32,11 +36,15 @@
         {                                                                                           \
             void *plugin_##FUNCTION_NAME = plugin->FetchFunction("Internal_" #FUNCTION_NAME);       \
             if (plugin_##FUNCTION_NAME)                                                             \
+            {                                                                                       \
                 if (!reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)(__VA_ARGS__)) \
+                {                                                                                   \
                     return FALSE_VALUE;                                                             \
+                }                                                                                   \
+            }                                                                                       \
         }                                                                                           \
     }                                                                                               \
-    return !FALSE_VALUE;
+    return RET_VALUE;
 
 std::vector<int> GetBombSites()
 {
@@ -51,7 +59,7 @@ std::vector<int> GetBombSites()
 
 bool scripting_OnClientConnect(const OnClientConnect *e)
 {
-    CALL_PFUNCTION_BOOL_ARGS(OnClientConnect, false, e->slot->Get())
+    CALL_PFUNCTION_BOOL_ARGS(OnClientConnect, false, true, e->slot->Get())
 }
 
 void scripting_OnClientDisconnect(const OnClientDisconnect *e)
@@ -134,7 +142,7 @@ bool scripting_OnClientChat(CBasePlayerController *controller, const char *text,
     if (!player)
         return false;
 
-    CALL_PFUNCTION_BOOL_ARGS(OnPlayerChat, false, player->GetSlot()->Get(), text, teamonly)
+    CALL_PFUNCTION_BOOL_ARGS(OnPlayerChat, false, true, player->GetSlot()->Get(), text, teamonly)
 }
 
 bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destination, const char *text)
@@ -148,7 +156,7 @@ bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destin
     if (!player)
         return false;
 
-    CALL_PFUNCTION_BOOL_ARGS(OnClientGameMessage, false, player->GetSlot()->Get(), destination, text)
+    CALL_PFUNCTION_BOOL_ARGS(OnClientGameMessage, false, true, player->GetSlot()->Get(), destination, text)
 }
 
 void scripting_OnGameTick(const OnGameFrame *e)
@@ -319,7 +327,7 @@ void scripting_PlayerHurt(const PlayerHurt *e)
 
 bool scripting_ShouldHearVoice(Player *player)
 {
-    CALL_PFUNCTION_BOOL_ARGS(ShouldHearVoice, false, player->GetSlot()->Get())
+    CALL_PFUNCTION_BOOL_ARGS(ShouldHearVoice, false, true, player->GetSlot()->Get())
 }
 
 void PluginsComponent::RegisterGameEvents()
