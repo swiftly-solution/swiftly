@@ -158,10 +158,6 @@ void scripting_OnGameTick(const OnGameFrame *e)
 
 void scripting_BombBeginPlant(const BombBeginPlant *e)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
-
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
@@ -179,10 +175,6 @@ void scripting_BombBeginPlant(const BombBeginPlant *e)
 
 void scripting_BombAbortPlant(const BombAbortPlant *e)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
-
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
@@ -200,10 +192,6 @@ void scripting_BombAbortPlant(const BombAbortPlant *e)
 
 void scripting_BombPlanted(const BombPlanted *e)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
-
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
@@ -221,10 +209,6 @@ void scripting_BombPlanted(const BombPlanted *e)
 
 void scripting_BombDefused(const BombDefused *e)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
-
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
@@ -242,10 +226,6 @@ void scripting_BombDefused(const BombDefused *e)
 
 void scripting_BombExploded(const BombExploded *e)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
-
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
@@ -263,10 +243,6 @@ void scripting_BombExploded(const BombExploded *e)
 
 void scripting_BombDropped(const BombDropped *e)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
-
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
@@ -277,10 +253,6 @@ void scripting_BombDropped(const BombDropped *e)
 
 void scripting_BombPickup(const BombPickup *e)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
-
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
@@ -291,10 +263,6 @@ void scripting_BombPickup(const BombPickup *e)
 
 void scripting_BombBeginDefuse(const BombBeginDefuse *e)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
-
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
@@ -312,10 +280,6 @@ void scripting_BombBeginDefuse(const BombBeginDefuse *e)
 
 void scripting_BombAbortDefuse(const BombAbortDefuse *e)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
-    if (!controller)
-        return;
-
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
