@@ -43,7 +43,7 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
     CPlayerSlot sl = context.GetPlayerSlot();
     CPlayerSlot *slot = &sl;
 
-    PrintToClientOrConsole(slot, "Commands - Status", "playerid\tname\tsteamid\t\ttime\t\tstate\n");
+    PrintToClientOrConsole(slot, "Status", "playerid\tname\tsteamid\t\ttime\t\tstate\n");
 
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
