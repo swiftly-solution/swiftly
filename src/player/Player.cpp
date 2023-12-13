@@ -119,7 +119,7 @@ uint64 Player::GetSteamID()
 
 void Player::SendMsg(int dest, const char *msg, ...)
 {
-    CCSPlayerController *controller = this->GetPlayerController();
+    CBasePlayerController *controller = this->GetController();
     if (!controller)
         return;
 
@@ -150,8 +150,13 @@ void Player::SendMsg(int dest, const char *msg, ...)
             message = " " + message;
     }
 
-    std::thread th([controller, dest, message]()
-                   { g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, message.c_str(), nullptr, nullptr, nullptr, nullptr); });
+    auto sendmsg = [controller, dest, message]()
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        controller->SendMsg(dest, message.c_str());
+    };
+
+    std::thread th(sendmsg);
     th.detach();
 }
 

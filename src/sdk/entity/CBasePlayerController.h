@@ -24,4 +24,9 @@ public:
     SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerPawn>, m_hPawn, 0)
     SCHEMA_FIELD_POINTER_OFFSET(char, m_iszPlayerName, 0)
     SCHEMA_FIELD_OFFSET(PlayerConnectedState, m_iConnected, 0)
+
+    void SendMsg(int destination, const char *message)
+    {
+        g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(this, destination, message, nullptr, nullptr, nullptr, nullptr);
+    }
 };

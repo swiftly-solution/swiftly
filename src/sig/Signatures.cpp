@@ -120,7 +120,6 @@ void Signatures::LoadSignatures()
     if (signaturesFile.IsArray())
         return SignaturesError("Signatures file cannot be an array.");
 
-    g_SMAPI->ConPrint("\n");
     for (auto it = signaturesFile.MemberBegin(); it != signaturesFile.MemberEnd(); ++it)
     {
         std::string name = it->name.GetString();

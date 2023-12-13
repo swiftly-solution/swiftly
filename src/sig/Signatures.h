@@ -4,10 +4,11 @@
 #include <map>
 #include <string>
 
+class CBasePlayerController;
 class CCSPlayerController;
 class Z_CBaseEntity;
 
-typedef void (*ClientPrint)(CCSPlayerController *, int, const char *, const char *, const char *, const char *, const char *);
+typedef void (*ClientPrint)(CBasePlayerController *, int, const char *, const char *, const char *, const char *, const char *);
 typedef void (*NetworkStateChanged)(uintptr_t, int, int);
 typedef void (*StateChanged)(void *, Z_CBaseEntity *, int, int, int);
 typedef void (*CCSPlayerController_SwitchTeam)(CCSPlayerController *pController, unsigned int team);
