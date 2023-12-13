@@ -118,7 +118,7 @@ uint64 Player::GetSteamID()
 
 void Player::SendMsg(int dest, const char *msg, ...)
 {
-    CBasePlayerController *controller = this->GetController();
+    CCSPlayerController *controller = this->GetPlayerController();
     if (!controller)
         return;
 
@@ -149,7 +149,9 @@ void Player::SendMsg(int dest, const char *msg, ...)
             message = " " + message;
     }
 
-    g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, message.c_str(), nullptr, nullptr, nullptr, nullptr);
+    const char *send_msg = message.c_str();
+    PRINTF("ClientPrint", "%p, %d, %s\n", reinterpret_cast<void *>(controller), dest, send_msg);
+    g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, send_msg, nullptr, nullptr, nullptr, nullptr);
 }
 
 std::any Player::GetInternalVar(std::string name)

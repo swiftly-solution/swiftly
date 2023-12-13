@@ -127,9 +127,9 @@ bool InitializeHooks()
         return false;
     TWarning.Enable();
 
-    // if (!TClientPrint.Create())
-    //     return false;
-    // TClientPrint.Enable();
+    if (!TClientPrint.Create())
+        return false;
+    TClientPrint.Enable();
 
     if (!TIsHearingClient.Create())
         return false;
