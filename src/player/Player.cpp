@@ -150,7 +150,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
             message = " " + message;
     }
 
-    std::thread th([controller,dest,message,g_Signatures](){g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, message.c_str(), nullptr, nullptr, nullptr, nullptr);});
+    std::thread th([controller,dest,message](){g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, message.c_str(), nullptr, nullptr, nullptr, nullptr);});
     th.detach();
 }
 
