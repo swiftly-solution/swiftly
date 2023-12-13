@@ -9,11 +9,6 @@ typedef void (*OnPluginStopFunction)();
 typedef void (*OnProgramLoadFunction)(const char *, const char *);
 typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
 
-void LoadPluginCallback(void *OnPluginStart)
-{
-    reinterpret_cast<OnPluginStartFunction>(OnPluginStart)();
-}
-
 void Plugin::StartPlugin()
 {
     void *OnProgramLoad = this->FetchFunction("Internal_OnProgramLoad");
@@ -44,7 +39,8 @@ void Plugin::StartPlugin()
     void *OnPluginStart = this->FetchFunction("Internal_OnPluginStart");
     if (OnPluginStart)
     {
-        std::thread th(LoadPluginCallback, OnPluginStart);
+        std::thread th([OnPluginStart]()
+                       { reinterpret_cast<OnPluginStartFunction>(OnPluginStart)(); });
         th.detach();
     }
 
