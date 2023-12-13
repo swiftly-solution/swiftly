@@ -72,7 +72,10 @@ namespace sch
                 g_Signatures->FetchSignature<NetworkStateChanged>("NetworkStateChanged")((uintptr_t)(pThisClass) + m_chain, m_key.offset + extra_offset, 0xFFFFFFFF); \
             else if (m_key.networked)                                                                                                                                 \
             {                                                                                                                                                         \
-                CALL_VIRTUAL(void, 1, pThisClass, m_key.offset + extra_offset, 0xFFFFFFFF, 0xFFFF);                                                                   \
+                if (!IsStruct)                                                                                                                                        \
+                    SetStateChanged((Z_CBaseEntity *)pThisClass, m_key.offset + extra_offset);                                                                        \
+                else                                                                                                                                                  \
+                    CALL_VIRTUAL(void, 1, pThisClass, m_key.offset + extra_offset, 0xFFFFFFFF, 0xFFFF);                                                               \
             }                                                                                                                                                         \
             *reinterpret_cast<std::add_pointer_t<type>>((uintptr_t)(pThisClass) + m_key.offset + extra_offset) = val;                                                 \
         }                                                                                                                                                             \
