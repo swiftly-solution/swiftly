@@ -29,6 +29,11 @@
         "windows": "40 56 57 48 81 EC 2A 2A 2A 2A 48 8B F9 8B F2 8B CA",
         "linux": "55 48 89 E5 41 55 49 89 FD 89 F7"
     },
+    "LegacyGameEventListener": {
+        "lib": "server",
+        "windows": "48 8B 15 2A 2A 2A 2A 48 85 D2 74 2A 85 C9 74",
+        "linux": "48 8B 05 2A 2A 2A 2A 48 85 C0 74 2A 83 FF 3F 76 2A 31 C0"
+    },
     "LoggingSystem_Log": {
         "lib": "tier0",
         "windows": "_LoggingSystem_Log",

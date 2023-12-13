@@ -2,7 +2,10 @@
 #include "../sig/Signatures.h"
 #include <metamod_util.h>
 #include <algorithm>
+#include "../events/gameevents.h"
 #include <thread>
+
+typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
 
 std::map<std::string, std::string> colors = {
     {"{DEFAULT}", "\x01"},
@@ -123,41 +126,58 @@ void Player::SendMsg(int dest, const char *msg, ...)
     if (!controller)
         return;
 
-    va_list args;
-    char buffer[1024];
-    va_start(args, msg);
-
-    size_t len = vsnprintf(buffer, sizeof(buffer), msg, args);
-    if (len >= sizeof(buffer))
+    if (dest != HUD_PRINTCENTER)
     {
-        len = sizeof(buffer) - 1;
-        buffer[len] = '\0';
-    }
-    va_end(args);
+        va_list args;
+        char buffer[1024];
+        va_start(args, msg);
 
-    std::string message(buffer);
-    if (message.size() != 0)
-    {
-        bool startsWithColor = (message.at(0) == '{');
-
-        for (auto it = colors.begin(); it != colors.end(); ++it)
+        size_t len = vsnprintf(buffer, sizeof(buffer), msg, args);
+        if (len >= sizeof(buffer))
         {
-            message = replace(message, it->first, it->second);
-            message = replace(message, str_tolower(it->first), it->second);
+            len = sizeof(buffer) - 1;
+            buffer[len] = '\0';
+        }
+        va_end(args);
+
+        std::string message(buffer);
+        if (message.size() != 0)
+        {
+            bool startsWithColor = (message.at(0) == '{');
+
+            for (auto it = colors.begin(); it != colors.end(); ++it)
+            {
+                message = replace(message, it->first, it->second);
+                message = replace(message, str_tolower(it->first), it->second);
+            }
+
+            if (startsWithColor)
+                message = " " + message;
         }
 
-        if (startsWithColor)
-            message = " " + message;
+        auto sendmsg = [controller, dest, message]()
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+            controller->SendMsg(dest, message.c_str());
+        };
+
+        std::thread th(sendmsg);
+        th.detach();
     }
-
-    auto sendmsg = [controller, dest, message]()
+    else
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
-        controller->SendMsg(dest, message.c_str());
-    };
+        IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+        if (pEvent)
+        {
+            pEvent->SetString("loc_token", msg);
+            pEvent->SetUint64("duration", 5);
+            pEvent->SetInt("userid", controller->GetEntityIndex().Get() - 1);
 
-    std::thread th(sendmsg);
-    th.detach();
+            IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
+
+            playerListener->FireGameEvent(pEvent);
+        }
+    }
 }
 
 std::any Player::GetInternalVar(std::string name)
