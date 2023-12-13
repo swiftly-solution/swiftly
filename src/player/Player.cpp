@@ -2,6 +2,7 @@
 #include "../sig/Signatures.h"
 #include <metamod_util.h>
 #include <algorithm>
+#include <thread>
 
 std::map<std::string, std::string> colors = {
     {"{DEFAULT}", "\x01"},
@@ -149,7 +150,8 @@ void Player::SendMsg(int dest, const char *msg, ...)
             message = " " + message;
     }
 
-    g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, message.c_str(), nullptr, nullptr, nullptr, nullptr);
+    std::thread th([controller,dest,message,g_Signatures](){g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(controller, dest, message.c_str(), nullptr, nullptr, nullptr, nullptr);});
+    th.detach();
 }
 
 std::any Player::GetInternalVar(std::string name)
