@@ -2,7 +2,6 @@
 #include "../../../common.h"
 #include "../../../commands/CommandsManager.h"
 #include "../../../player/PlayerManager.h"
-#include <thread>
 
 typedef void (*OnPluginStartFunction)();
 typedef void (*OnPluginStopFunction)();
@@ -39,9 +38,7 @@ void Plugin::StartPlugin()
     void *OnPluginStart = this->FetchFunction("Internal_OnPluginStart");
     if (OnPluginStart)
     {
-        std::thread th([OnPluginStart]()
-                       { reinterpret_cast<OnPluginStartFunction>(OnPluginStart)(); });
-        th.detach();
+        reinterpret_cast<OnPluginStartFunction>(OnPluginStart)();
     }
 
     this->SetPluginLoaded(true);
