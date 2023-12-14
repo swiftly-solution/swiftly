@@ -246,7 +246,7 @@ SMM_API void scripting_Player_SetVar(uint32 playerId, const char *name, int type
     va_start(ap, type);
 
     if (type == 1)
-        player->SetInternalVar(name, va_arg(ap, const char *));
+        player->SetInternalVar(name, std::string(va_arg(ap, const char *)));
     else if (type == 2)
         player->SetInternalVar(name, va_arg(ap, int));
     else if (type == 3)
