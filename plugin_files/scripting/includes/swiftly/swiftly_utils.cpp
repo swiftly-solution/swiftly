@@ -1,4 +1,5 @@
 #include "swiftly_utils.h"
+#include <cstdarg>
 
 size_t UTIL_FormatArgs(char *buffer, size_t maxlength, const char *fmt, va_list params)
 {
