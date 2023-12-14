@@ -170,7 +170,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
         if (pEvent)
         {
             pEvent->SetString("loc_token", msg);
-            pEvent->SetInt("duration", 5);
+            pEvent->SetUint64("duration", 5);
             pEvent->SetInt("userid", controller->GetEntityIndex().Get() - 1);
 
             IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
