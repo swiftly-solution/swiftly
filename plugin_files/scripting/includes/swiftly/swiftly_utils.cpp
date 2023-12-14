@@ -17,3 +17,17 @@ uint64_t GetTime()
 {
     return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
+
+const char *format(const char *str, ...)
+{
+    va_list ap;
+    char buffer[2048];
+
+    va_start(ap, str);
+    UTIL_FormatArgs(buffer, sizeof(buffer), str, ap);
+    va_end(ap);
+
+    std::string return_str = buffer;
+
+    return return_str.c_str();
+}
