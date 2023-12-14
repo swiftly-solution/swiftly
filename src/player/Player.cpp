@@ -126,7 +126,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
     if (!controller)
         return;
 
-    if (dest != HUD_PRINTCENTER)
+    if (dest == HUD_PRINTTALK || dest == HUD_PRINTNOTIFY)
     {
         va_list args;
         char buffer[1024];
@@ -164,7 +164,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
         std::thread th(sendmsg);
         th.detach();
     }
-    else
+    else if (dest == HUD_PRINTCENTER)
     {
         IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
         if (pEvent)
@@ -176,6 +176,34 @@ void Player::SendMsg(int dest, const char *msg, ...)
             IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
 
             playerListener->FireGameEvent(pEvent);
+        }
+    }
+    else if (dest == HUD_PRINTCONSOLE)
+    {
+        if (!g_SMAPI)
+            return;
+
+        va_list args;
+        char buffer[1024];
+        va_start(args, msg);
+
+        size_t len = vsnprintf(buffer, sizeof(buffer), msg, args);
+        if (len >= sizeof(buffer))
+        {
+            len = sizeof(buffer) - 1;
+            buffer[len] = '\0';
+        }
+        va_end(args);
+
+        std::string message(buffer);
+        if (message.size() != 0)
+        {
+            for (auto it = colors.begin(); it != colors.end(); ++it)
+            {
+                message = replace(message, it->first, "");
+                message = replace(message, str_tolower(it->first), "");
+            }
+            engine->ClientPrintf(*this->GetSlot(), message.c_str());
         }
     }
 }
