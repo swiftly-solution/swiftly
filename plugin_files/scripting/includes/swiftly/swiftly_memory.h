@@ -54,6 +54,7 @@ typedef void (*Logger_WriteLog)(const char *, ELogType, const char *);
 typedef void (*Server_ExecuteCommand)(const char *);
 typedef const char *(*Server_GetMap)();
 typedef uint16_t (*Server_GetMaxPlayers)();
+typedef bool (*Server_IsMapValid)(const char *);
 
 void *FetchFunctionPtr(const char *filePath, const char *function_name);
 

@@ -21,3 +21,11 @@ SMM_API const char *scripting_Server_GetMapName()
     strcpy(res, mapname);
     return res;
 }
+
+SMM_API bool scripting_Server_IsMapValid(const char *map)
+{
+    if (map == nullptr)
+        return false;
+
+    return (engine->IsMapValid(map) == 1);
+}

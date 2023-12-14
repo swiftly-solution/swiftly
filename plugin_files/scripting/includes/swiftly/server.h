@@ -38,6 +38,15 @@ public:
         this->ExecuteCommand("changelevel %s", map);
     }
 
+    bool IsMapValid(const char *map)
+    {
+        void *IsMapValidFunc = FetchFunctionPtr(nullptr, "scripting_Server_IsMapValid");
+        if (IsMapValidFunc)
+            return reinterpret_cast<Server_IsMapValid>(IsMapValidFunc)(map);
+        else
+            return false;
+    }
+
     const char *GetMap()
     {
         void *GetMapFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetMapName");
