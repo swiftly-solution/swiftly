@@ -93,13 +93,14 @@ enum ENetworkDisconnectionReason
 class Player
 {
 public:
-    Player(bool m_isFakeClient, int m_slot, const char *m_name, uint64 m_xuid)
+    Player(bool m_isFakeClient, int m_slot, const char *m_name, uint64 m_xuid, std::string ip_address)
     {
         this->slot = m_slot;
         this->isFakeClient = m_isFakeClient;
         this->connectTime = std::time(0);
         this->name = m_name;
         this->xuid = m_xuid;
+        this->ip_address = ip_address;
     }
 
     ~Player()
@@ -115,6 +116,7 @@ public:
     inline void SetEHandlerIdx(int eHandleId) { this->eHandleId = eHandleId; };
     inline int GetEHandlerIdx() { return this->eHandleId; };
     inline uint32 GetConnectedTime() { return (std::time(0) - this->connectTime); };
+    inline std::string GetIPAddress() { return this->ip_address; }
 
     inline void SetConnected(bool connected) { this->isConnected = connected; };
     inline bool IsConnected() { return this->isConnected; };
@@ -145,6 +147,7 @@ private:
     std::time_t connectTime;
     const char *name;
     uint64 xuid;
+    std::string ip_address = "0.0.0.0";
 
     std::map<std::string, std::any> internalVars;
 };

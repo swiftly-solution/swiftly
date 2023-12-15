@@ -14,6 +14,7 @@
 #define SITE_UNKNOWN 2
 
 #include <public/playerslot.h>
+#include <public/inetchannelinfo.h>
 #include <ISmmPlugin.h>
 #include <iplayerinfo.h>
 #include <sh_vector.h>

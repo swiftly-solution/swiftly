@@ -139,6 +139,15 @@ public:
         else
             return 0;
     }
+
+    const char *GetIPAddress()
+    {
+        void *player_GetIPAddress = FetchFunctionPtr(nullptr, "scripting_Player_GetIPAddress");
+        if (player_GetIPAddress)
+            return reinterpret_cast<Player_GetIPAddress>(player_GetIPAddress)(this->m_playerSlot);
+        else
+            return "";
+    }
 };
 
 #endif

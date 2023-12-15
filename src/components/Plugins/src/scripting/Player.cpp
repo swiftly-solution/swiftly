@@ -343,3 +343,12 @@ SMM_API void scripting_Player_SetMatchStat(uint32 playerId, PlayerStat stat, int
     else if (stat == PlayerStat::DEATHS)
         playerController->m_pActionTrackingServices->m_matchStats().m_iDeaths = value;
 }
+
+SMM_API const char *scripting_Player_GetIPAddress(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "";
+
+    return player->GetIPAddress().c_str();
+}

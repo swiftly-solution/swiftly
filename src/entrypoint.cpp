@@ -240,7 +240,7 @@ void SwiftlyPlugin::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName
 {
     if (bFakePlayer)
     {
-        Player *player = new Player(true, slot.Get(), pszName, 0);
+        Player *player = new Player(true, slot.Get(), pszName, 0, "127.0.0.1");
         g_playerManager->RegisterPlayer(player);
     }
 }
@@ -249,7 +249,8 @@ bool scripting_OnClientConnect(const OnClientConnect *e);
 
 bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
 {
-    Player *player = new Player(false, slot.Get(), pszName, xuid);
+    std::string ip_address = explode(pszNetworkID, ":")[0];
+    Player *player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     g_playerManager->RegisterPlayer(player);
 
     player->SetConnected(true);
