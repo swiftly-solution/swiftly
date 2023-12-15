@@ -1,26 +1,5 @@
 #include "HTTPManager.h"
 
-/*
-class HTTPManager
-{
-private:
-    std::map<uint64_t, HTTPRequest *> requests;
-    uint64_t requestIndex = 0;
-
-public:
-    HTTPManager() {}
-
-
-    HTTPRequest *FetchRequest(uint64_t requestID)
-    {
-        if (this->requests.find(requestID) == this->requests.end())
-            return nullptr;
-
-        return this->requests.at(requestID);
-    }
-};
-*/
-
 HTTPManager::HTTPManager() {}
 
 uint64_t HTTPManager::CreateRequest(std::string url)

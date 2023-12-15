@@ -3,7 +3,6 @@
 HTTPRequest::HTTPRequest(std::string url)
 {
     this->client = new httplib::Client(url);
-
     this->client->set_default_headers({{"Accept-Encoding", "gzip, deflate"}});
 }
 
