@@ -301,7 +301,7 @@ const char *SwiftlyPlugin::GetLicense()
 
 const char *SwiftlyPlugin::GetVersion()
 {
-    return "0.0.2 - Alpha";
+    return "0.0.3 - Alpha";
 }
 
 const char *SwiftlyPlugin::GetDate()
@@ -321,7 +321,7 @@ const char *SwiftlyPlugin::GetAuthor()
 
 const char *SwiftlyPlugin::GetDescription()
 {
-    return "Swiftly - Plugin";
+    return "Swiftly - Plugin Manager";
 }
 
 const char *SwiftlyPlugin::GetName()
