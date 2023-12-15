@@ -38,6 +38,7 @@ public:
     void SetBasicAuthentication(std::string username, std::string password);
     void SetBearerAuthenticationToken(std::string token);
     void SetFollowRedirect(bool follow);
+
     std::string GetBody();
     int GetStatusCode();
     std::string GetError();

@@ -56,6 +56,27 @@ typedef const char *(*Server_GetMap)();
 typedef uint16_t (*Server_GetMaxPlayers)();
 typedef bool (*Server_IsMapValid)(const char *);
 
+typedef uint64_t (*HTTP_CreateRequest)(const char *);
+typedef void (*HTTP_SetBody)(uint64_t, const char *);
+typedef void (*HTTP_AddHeader)(uint64_t, const char *, const char *);
+typedef void (*HTTP_DeleteHeader)(uint64_t, const char *);
+typedef void (*HTTP_AddMultipartFile)(uint64_t, const char *, const char *, const char *, const char *);
+typedef void (*HTTP_SetContentType)(uint64_t, ContentType);
+typedef void (*HTTP_SetBasicAuthentication)(uint64_t, const char *, const char *);
+typedef void (*HTTP_SetBearerAuthenticationToken)(uint64_t, const char *);
+typedef void (*HTTP_SetFollowRedirect)(uint64_t, bool);
+typedef void (*HTTP_Close)(uint64_t);
+
+typedef void (*HTTP_Get)(uint64_t, const char *);
+typedef void (*HTTP_Delete)(uint64_t, const char *);
+typedef void (*HTTP_Post)(uint64_t, const char *);
+typedef void (*HTTP_Put)(uint64_t, const char *);
+typedef void (*HTTP_Patch)(uint64_t, const char *);
+
+typedef const char *(*HTTP_GetError)(uint64_t);
+typedef const char *(*HTTP_GetBody)(uint64_t);
+typedef int (*HTTP_GetStatusCode)(uint64_t);
+
 void *FetchFunctionPtr(const char *filePath, const char *function_name);
 
 #endif
