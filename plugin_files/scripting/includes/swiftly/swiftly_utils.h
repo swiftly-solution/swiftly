@@ -26,5 +26,15 @@ T string_to_type(const char *str)
 }
 
 const char *format(const char *str, ...);
+int StringToInt(const char *str);
+unsigned int StringToUInt(const char *str);
+float StringToFloat(const char *str);
+double StringToDouble(const char *str);
+long StringToLong(const char *str);
+long long StringToLongLong(const char *str);
+unsigned long StringToULong(const char *str);
+unsigned long long StringToULongLong(const char *str);
+short StringToShort(const char *str);
+unsigned short StringToUShort(const char *str);
 
 #endif
