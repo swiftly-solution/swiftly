@@ -63,6 +63,20 @@ bool Configuration::LoadConfiguration()
     for (unsigned int i = 0; i < coreConfigFile["commandSilentPrefixes"].Size(); i++)
         IS_STRING("core.json", coreConfigFile["commandSilentPrefixes"], i, string_format("commandSilentPrefixes[%d]", i));
 
+    if (coreConfigFile.HasMember("patches_to_perform"))
+    {
+        IS_ARRAY("core.json", coreConfigFile, "patches_to_perform", "patches_to_perform");
+        for (unsigned int i = 0; i < coreConfigFile["patches_to_perform"].Size(); i++)
+            IS_STRING("core.json", coreConfigFile["patches_to_perform"], i, string_format("patches_to_perform[%d]", i));
+
+        std::vector<std::string> patchesToPerform;
+
+        for (uint32 i = 0; i < coreConfigFile["patches_to_perform"].Size(); i++)
+            patchesToPerform.push_back(std::string(coreConfigFile["patches_to_perform"][i].GetString()));
+
+        this->SetValue("core.patchesToPerform", implode(patchesToPerform, " "));
+    }
+
     HAS_MEMBER("core.json", coreConfigFile, "console_filtering", "console_filtering");
     IS_BOOL("core.json", coreConfigFile, "console_filtering", "console_filtering");
 

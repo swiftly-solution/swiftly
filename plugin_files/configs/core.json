@@ -6,5 +6,6 @@
     "commandPrefixes": ["!"],
     "commandSilentPrefixes": ["/"],
     "console_filtering": true,
-    "language": "en"
+    "language": "en",
+    "patches_to_perform": []
 }

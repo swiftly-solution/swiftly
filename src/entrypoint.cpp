@@ -17,6 +17,7 @@
 #include "commands/CommandsManager.h"
 #include "sig/Signatures.h"
 #include "sig/Offsets.h"
+#include "sig/Patches.h"
 #include "hooks/NativeHooks.h"
 #include "filter/ConsoleFilter.h"
 #include "translations/Translations.h"
@@ -76,6 +77,7 @@ Translations *g_translations = nullptr;
 Logger *g_Logger = nullptr;
 Offsets *g_Offsets = nullptr;
 HTTPManager *g_httpManager = nullptr;
+Patches *g_Patches = nullptr;
 std::vector<Plugin *> plugins;
 
 CGlobalVars *GetGameGlobals()
@@ -131,6 +133,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_dbManager = new DatabaseManager();
     g_Signatures = new Signatures();
     g_Offsets = new Offsets();
+    g_Patches = new Patches();
     g_commandsManager = new CommandsManager();
     g_conFilter = new ConsoleFilter();
     g_translations = new Translations();
@@ -163,6 +166,10 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
+    g_Patches->LoadPatches();
+
+    g_Patches->PerformPatches();
+
     if (!InitializeHooks())
         PRINT("Hooks", "Failed to initialize hooks.\n");
     else
