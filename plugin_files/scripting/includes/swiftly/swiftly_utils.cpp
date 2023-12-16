@@ -1,5 +1,6 @@
 #include "swiftly_utils.h"
 #include <cstdarg>
+#include <algorithm>
 
 size_t UTIL_FormatArgs(char *buffer, size_t maxlength, const char *fmt, va_list params)
 {
@@ -211,4 +212,18 @@ unsigned short StringToUShort(const char *str)
         retval = -1;
     }
     return retval;
+}
+
+const char *ToUpper(const std::string &str)
+{
+    std::string upper;
+    std::transform(str.begin(), str.end(), std::back_inserter(upper), toupper);
+    return upper.c_str();
+}
+
+const char *ToLower(const std::string &str)
+{
+    std::string lower;
+    std::transform(str.begin(), str.end(), std::back_inserter(lower), tolower);
+    return lower.c_str();
 }

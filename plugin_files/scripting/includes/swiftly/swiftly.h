@@ -2,8 +2,9 @@
 #define _swiftly_h
 
 #include "swiftly_memory.h"
-#include "swiftly_utils.h"
 #include "playermanager.h"
+#include "swiftly_utils.h"
+#include "swiftly_scripting_utils.h"
 #include <cstdarg>
 #include <stdint.h>
 

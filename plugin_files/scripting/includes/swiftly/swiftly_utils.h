@@ -6,6 +6,8 @@
 #include <sstream>
 #include <chrono>
 #include <memory>
+#include <cstdint>
+#include <string>
 
 #ifdef _WIN32
 #define WIN_LINUX(win, linux) win
@@ -36,5 +38,8 @@ unsigned long StringToULong(const char *str);
 unsigned long long StringToULongLong(const char *str);
 short StringToShort(const char *str);
 unsigned short StringToUShort(const char *str);
+
+const char *ToUpper(const std::string &str);
+const char *ToLower(const std::string &str);
 
 #endif
