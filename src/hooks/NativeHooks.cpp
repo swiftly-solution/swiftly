@@ -5,7 +5,6 @@
 #include "../commands/CommandsManager.h"
 #include "../filter/ConsoleFilter.h"
 
-FuncHook<decltype(Hook_Host_Say)> Host_Say(Hook_Host_Say, "Host_Say");
 FuncHook<decltype(Hook_LoggingSystem_LogDirect)> LoggingSystemt_LogDirect(Hook_LoggingSystem_LogDirect, "LoggingSystem_LogDirect");
 FuncHook<decltype(Hook_LoggingSystem_Log)> LoggingSystemt_Log(Hook_LoggingSystem_Log, "LoggingSystem_Log");
 FuncHook<decltype(Hook_Msg)> TMsg(Hook_Msg, "Msg");
@@ -29,24 +28,6 @@ FuncHook<decltype(Hook_IsHearingClient)> TIsHearingClient(Hook_IsHearingClient, 
     if (g_conFilter->Status())                                     \
         if (g_conFilter->NeedFiltering(buffer))                    \
             return;
-
-void FASTCALL Hook_Host_Say(CBasePlayerController *controller, CCommand &args, bool teamonly, int unk1, const char *unk2)
-{
-    if (!controller)
-        return;
-
-    if (strlen(args[1]) == 0)
-        return;
-
-    int handleCommands = g_commandsManager->HandleCommands(controller, args[1]);
-    if (handleCommands == 2)
-        return;
-
-    if (!scripting_OnClientChat(controller, args[1], teamonly))
-        return;
-
-    Host_Say(controller, args, teamonly, unk1, unk2);
-}
 
 void FASTCALL Hook_LoggingSystem_LogDirect(int channelId, int severity, const char *message, ...)
 {
@@ -102,10 +83,6 @@ CUtlVector<FuncHookBase *> g_funcHooks;
 bool InitializeHooks()
 {
     g_funcHooks.PurgeAndDeleteElements();
-
-    if (!Host_Say.Create())
-        return false;
-    Host_Say.Enable();
 
     if (!LoggingSystemt_LogDirect.Create())
         return false;

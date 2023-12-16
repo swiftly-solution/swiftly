@@ -22,6 +22,7 @@
 #include "translations/Translations.h"
 #include "logs/Logger.h"
 #include "http/HTTPManager.h"
+#include "components/Plugins/inc/Scripting.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -39,6 +40,7 @@ SH_DECL_HOOK6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlaye
 SH_DECL_HOOK6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSlot, const char *, uint64, const char *, bool, CBufferString *);
 SH_DECL_HOOK2(IGameEventManager2, FireEvent, SH_NOATTRIB, 0, bool, IGameEvent *, bool);
 SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand &);
+SH_DECL_HOOK3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandHandle, const CCommandContext &, const CCommand &);
 
 #ifdef _WIN32
 FILE _ioccc[] = {*stdin, *stdout, *stderr};
@@ -122,6 +124,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &SwiftlyPlugin::Hook_ClientConnect, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &SwiftlyPlugin::Hook_ClientCommand, false);
     SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &SwiftlyPlugin::Hook_StartupServer, true);
+    SH_ADD_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &SwiftlyPlugin::Hook_DispatchConCommand, false);
 
     g_gameEventManager = static_cast<IGameEventManager2 *>(CallVFunc<IToolGameEventAPI *>(91, server));
     g_playerManager = new PlayerManager();
@@ -186,11 +189,60 @@ bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &SwiftlyPlugin::Hook_ClientConnect, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &SwiftlyPlugin::Hook_ClientCommand, false);
     SH_REMOVE_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &SwiftlyPlugin::Hook_StartupServer, true);
+    SH_REMOVE_HOOK_MEMFUNC(ICvar, DispatchConCommand, g_pCVar, this, &SwiftlyPlugin::Hook_DispatchConCommand, false);
 
     UnregisterEventListeners();
 
     ConVar_Unregister();
     return true;
+}
+
+void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CCommandContext &ctx, const CCommand &args)
+{
+    CPlayerSlot sl = ctx.GetPlayerSlot();
+    CPlayerSlot *slot = &sl;
+
+    std::string command = args.Arg(0);
+
+    if (slot->Get() != -1 && (command == "say" || command == "say_team"))
+    {
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        CCSPlayerController *controller = player->GetPlayerController();
+
+        if (controller)
+        {
+            IGameEvent *pEvent = g_gameEventManager->CreateEvent("player_chat");
+
+            if (pEvent)
+            {
+                pEvent->SetBool("teamonly", (command == "say_team"));
+                pEvent->SetInt("userid", slot->Get());
+                pEvent->SetString("text", args[1]);
+
+                g_gameEventManager->FireEvent(pEvent, true);
+            }
+        }
+
+        int handleCommands = g_commandsManager->HandleCommands(player->GetController(), args[1]);
+        if (handleCommands == 2)
+        {
+            RETURN_META(MRES_SUPERCEDE);
+        }
+        else if (!scripting_OnClientChat(player->GetController(), args[1], command == "say_team"))
+        {
+            RETURN_META(MRES_SUPERCEDE);
+        }
+        else
+        {
+            SH_CALL(g_pCVar, &ICvar::DispatchConCommand)
+            (cmdHandle, ctx, args);
+        }
+
+        RETURN_META(MRES_SUPERCEDE);
+    }
 }
 
 std::string map;

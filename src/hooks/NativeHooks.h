@@ -6,7 +6,6 @@
 class CBasePlayerController;
 class CCommand;
 
-void FASTCALL Hook_Host_Say(CBasePlayerController *, CCommand &, bool, int, const char *);
 void FASTCALL Hook_LoggingSystem_LogDirect(int, int, const char *, ...);
 void FASTCALL Hook_LoggingSystem_Log(int, int, const char *, ...);
 void FASTCALL Hook_LoggingSystem_LogAssert(const char *, ...);
