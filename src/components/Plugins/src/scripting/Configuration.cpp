@@ -42,6 +42,17 @@ std::string SerializeData(std::any data)
         document.AddMember(keyVal, rapidjson::Value().SetFloat(std::any_cast<float>(value)), document.GetAllocator());
     else if (value.type() == typeid(double))
         document.AddMember(keyVal, rapidjson::Value().SetDouble(std::any_cast<double>(value)), document.GetAllocator());
+    else if (value.type() == typeid(Vector))
+    {
+        rapidjson::Value coords(rapidjson::kObjectType);
+        Vector crd = std::any_cast<Vector>(value);
+
+        coords.AddMember("x", rapidjson::Value().SetFloat(crd.x), document.GetAllocator());
+        coords.AddMember("y", rapidjson::Value().SetFloat(crd.y), document.GetAllocator());
+        coords.AddMember("z", rapidjson::Value().SetFloat(crd.z), document.GetAllocator());
+
+        document.AddMember(keyVal, coords, document.GetAllocator());
+    }
     else
         PRINTF("SerializeData", "Unknown Data Type: %s\n", value.type().name());
 

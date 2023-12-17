@@ -13,6 +13,7 @@
 #include "player/team.h"
 #include "player/vars.h"
 #include "player/stats.h"
+#include "player/coords.h"
 
 class Player
 {
@@ -28,6 +29,7 @@ public:
     Team *team;
     Vars *vars;
     Stats *stats;
+    Coords *coords;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -38,6 +40,7 @@ public:
         this->team = new Team(playerSlot);
         this->vars = new Vars(playerSlot);
         this->stats = new Stats(playerSlot);
+        this->coords = new Coords(playerSlot);
     }
 
     ~Player()
@@ -48,6 +51,7 @@ public:
         delete this->team;
         delete this->vars;
         delete this->stats;
+        delete this->coords;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }
@@ -138,15 +142,6 @@ public:
             return reinterpret_cast<Player_GetConnectedTime>(player_GetConnectedTime)(this->m_playerSlot);
         else
             return 0;
-    }
-
-    const char *GetIPAddress()
-    {
-        void *player_GetIPAddress = FetchFunctionPtr(nullptr, "scripting_Player_GetIPAddress");
-        if (player_GetIPAddress)
-            return reinterpret_cast<Player_GetIPAddress>(player_GetIPAddress)(this->m_playerSlot);
-        else
-            return "";
     }
 };
 

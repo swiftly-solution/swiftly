@@ -352,3 +352,30 @@ SMM_API const char *scripting_Player_GetIPAddress(uint32 playerId)
 
     return player->GetIPAddress().c_str();
 }
+
+SMM_API const char *scripting_Player_GetCoords(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "";
+
+    Vector coords = player->GetCoords();
+    std::string data = SerializeData(coords);
+
+    PRINTF("GetCoords", "%f | %f | %f\n", coords.x, coords.y, coords.z);
+
+    char *result = new char[data.size() + 1];
+    strcpy(result, data.c_str());
+    return result;
+}
+
+SMM_API void scripting_Player_SetCoords(uint32 playerId, float x, float y, float z)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    PRINTF("SetCoords", "%f | %f | %f\n", x, y, z);
+
+    player->SetCoords(x, y, z);
+}

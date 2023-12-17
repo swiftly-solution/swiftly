@@ -223,3 +223,20 @@ void Player::SetInternalVar(std::string name, std::any value)
     else
         this->internalVars[name] = value;
 }
+
+Vector Player::GetCoords()
+{
+    CCSPlayerPawn *pawn = this->GetPlayerPawn();
+    return pawn->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin();
+}
+
+void Player::SetCoords(float x, float y, float z)
+{
+
+    CCSPlayerPawn *pawn = this->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    Vector vec(x, y, z);
+    pawn->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin = vec;
+}

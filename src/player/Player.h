@@ -7,6 +7,7 @@
 #include "../sdk/entity/CCSPlayerPawn.h"
 #include "../sdk/entity/CCSPlayerPawnBase.h"
 
+#include <public/mathlib/vector.h>
 #include <public/playerslot.h>
 #include <ctime>
 #include <any>
@@ -132,6 +133,8 @@ public:
     CCSPlayerController *GetPlayerController();
     CCSPlayerPawn *GetPlayerPawn();
     CCSPlayerPawnBase *GetPlayerBasePawn();
+    Vector GetCoords();
+    void SetCoords(float x, float y, float z);
 
     void SwitchTeam(int team);
 

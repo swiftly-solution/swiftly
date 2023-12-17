@@ -10,5 +10,9 @@
     "ChangeTeam": {
         "windows": 90,
         "linux": 89
+    },
+    "Teleport": {
+        "windows": 149,
+        "linux": 148
     }
 }
