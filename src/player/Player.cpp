@@ -160,7 +160,6 @@ void Player::SendMsg(int dest, const char *msg, ...)
 
         auto sendmsg = [controller, dest, message]()
         {
-            std::this_thread::sleep_for(std::chrono::milliseconds(1));
             controller->SendMsg(dest, message.c_str());
         };
 
