@@ -143,6 +143,9 @@ void Player::SendMsg(int dest, const char *msg, ...)
         std::string message(buffer);
         if (message.size() != 0)
         {
+            if (ends_with(message, "\n"))
+                message.pop_back();
+
             bool startsWithColor = (message.at(0) == '{');
 
             for (auto it = colors.begin(); it != colors.end(); ++it)
