@@ -119,4 +119,14 @@ public:
     {
         this->m_iHealth = this->m_iHealth() - damage;
     }
+
+    void Spawn()
+    {
+        g_Signatures->FetchSignature<CBaseEntity_DispatchSpawn>("CBaseEntity_DispatchSpawn")(this, nullptr);
+    }
+
+    void Despawn()
+    {
+        g_Signatures->FetchSignature<UTIL_Remove>("UTIL_Remove")(this);
+    }
 };

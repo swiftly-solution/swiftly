@@ -24,6 +24,8 @@
 #include "logs/Logger.h"
 #include "http/HTTPManager.h"
 #include "components/Plugins/inc/Scripting.h"
+#include "entities/EntityManager.h"
+#include "precacher/Precacher.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -78,6 +80,9 @@ Logger *g_Logger = nullptr;
 Offsets *g_Offsets = nullptr;
 HTTPManager *g_httpManager = nullptr;
 Patches *g_Patches = nullptr;
+EntityManager *g_entityManager = nullptr;
+Precacher *g_precacher = nullptr;
+
 std::vector<Plugin *> plugins;
 
 CGlobalVars *GetGameGlobals()
@@ -139,10 +144,13 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_translations = new Translations();
     g_Logger = new Logger();
     g_httpManager = new HTTPManager();
+    g_entityManager = new EntityManager();
+    g_precacher = new Precacher();
 
     g_Config->LoadPluginConfigurations();
 
     g_pCVar = icvar;
+
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
 
     g_playerManager->SetupHooks();

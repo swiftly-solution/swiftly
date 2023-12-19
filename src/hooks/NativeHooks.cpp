@@ -12,6 +12,7 @@ FuncHook<decltype(Hook_Warning)> TWarning(Hook_Warning, "Warning");
 FuncHook<decltype(Hook_LoggingSystem_LogAssert)> LoggingSystemt_LogAssert(Hook_LoggingSystem_LogAssert, "LoggingSystem_LogAssert");
 FuncHook<decltype(Hook_ClientPrint)> TClientPrint(Hook_ClientPrint, "ClientPrint");
 FuncHook<decltype(Hook_IsHearingClient)> TIsHearingClient(Hook_IsHearingClient, "IsHearingClient");
+FuncHook<decltype(Hook_PrecacheResource)> TPrecacheResource(Hook_PrecacheResource, "PrecacheResource");
 
 #define CHECKLOGS()                                                \
     va_list args;                                                  \
@@ -78,6 +79,26 @@ bool FASTCALL Hook_IsHearingClient(void *serverClient, int playerSlot)
     return TIsHearingClient(serverClient, playerSlot);
 }
 
+int64_t oldCtx = 0;
+bool loaded = false;
+
+void FASTCALL Hook_PrecacheResource(const char *model_path, int64_t context)
+{
+    if (oldCtx != context && starts_with(std::string(model_path), "models/"))
+    {
+        g_precacher->SetContext(context);
+        oldCtx = context;
+        // PRINTF("Hook_PrecacheResource", "%lld\n", context);
+        if (!loaded)
+        {
+            // g_precacher->CacheModel("models/props_urban/fence001_128.vmdl");
+            loaded = true;
+        }
+    }
+
+    TPrecacheResource(model_path, context);
+}
+
 CUtlVector<FuncHookBase *> g_funcHooks;
 
 bool InitializeHooks()
@@ -111,6 +132,10 @@ bool InitializeHooks()
     if (!TIsHearingClient.Create())
         return false;
     TIsHearingClient.Enable();
+
+    if (!TPrecacheResource.Create())
+        return false;
+    TPrecacheResource.Enable();
 
     return true;
 }
