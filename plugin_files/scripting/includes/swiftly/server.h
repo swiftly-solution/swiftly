@@ -7,14 +7,24 @@
 #include "convar.h"
 #include <stdlib.h>
 
+#include "server/precacher.h"
+
 class Server
 {
 public:
     Convars *cvars;
+    Precacher *precacher;
 
     Server()
     {
         this->cvars = new Convars();
+        this->precacher = new Precacher();
+    }
+
+    ~Server()
+    {
+        delete this->cvars;
+        delete this->precacher;
     }
 
     void ExecuteCommand(const char *str, ...)
