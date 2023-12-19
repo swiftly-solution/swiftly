@@ -270,6 +270,7 @@ void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, 
 
 void SwiftlyPlugin::OnLevelShutdown()
 {
+    g_precacher->Reset();
     g_translations->LoadTranslations();
     g_Config->LoadPluginConfigurations();
 

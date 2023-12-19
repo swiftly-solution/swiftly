@@ -30,7 +30,7 @@ FuncHook<decltype(Hook_PrecacheResource)> TPrecacheResource(Hook_PrecacheResourc
         if (g_conFilter->NeedFiltering(buffer))                    \
             return;
 
-void FASTCALL Hook_LoggingSystem_LogDirect(int channelId, int severity, const char *message, ...)
+void Hook_LoggingSystem_LogDirect(int channelId, int severity, const char *message, ...)
 {
     CHECKLOGS();
     LoggingSystemt_LogDirect(channelId, severity, buffer);
@@ -48,19 +48,19 @@ void Hook_LoggingSystem_LogAssert(const char *message, ...)
     LoggingSystemt_LogAssert(buffer);
 }
 
-void FASTCALL Hook_Msg(const char *message, ...)
+void Hook_Msg(const char *message, ...)
 {
     CHECKLOGS()
     TMsg(buffer);
 }
 
-void FASTCALL Hook_Warning(const char *message, ...)
+void Hook_Warning(const char *message, ...)
 {
     CHECKLOGS()
     TWarning(buffer);
 }
 
-void FASTCALL Hook_ClientPrint(CBasePlayerController *controller, int destination, const char *message, const char *arg1, const char *arg2, const char *arg3, const char *arg4)
+void Hook_ClientPrint(CBasePlayerController *controller, int destination, const char *message, const char *arg1, const char *arg2, const char *arg3, const char *arg4)
 {
     bool ret = scripting_OnClientGameMessage(controller, destination, message);
     if (!ret)
@@ -69,7 +69,7 @@ void FASTCALL Hook_ClientPrint(CBasePlayerController *controller, int destinatio
     TClientPrint(controller, destination, message, arg1, arg2, arg3, arg4);
 }
 
-bool FASTCALL Hook_IsHearingClient(void *serverClient, int playerSlot)
+bool Hook_IsHearingClient(void *serverClient, int playerSlot)
 {
     Player *player = g_playerManager->GetPlayer(playerSlot);
     if (player != nullptr)
@@ -79,21 +79,14 @@ bool FASTCALL Hook_IsHearingClient(void *serverClient, int playerSlot)
     return TIsHearingClient(serverClient, playerSlot);
 }
 
-int64_t oldCtx = 0;
 bool loaded = false;
 
-void FASTCALL Hook_PrecacheResource(const char *model_path, int64_t context)
+void Hook_PrecacheResource(const char *model_path, int64_t context)
 {
-    if (oldCtx != context && starts_with(std::string(model_path), "models/"))
+    if (g_precacher->GetContext() == 0 && starts_with(std::string(model_path), "models/"))
     {
         g_precacher->SetContext(context);
-        oldCtx = context;
-        // PRINTF("Hook_PrecacheResource", "%lld\n", context);
-        if (!loaded)
-        {
-            // g_precacher->CacheModel("models/props_urban/fence001_128.vmdl");
-            loaded = true;
-        }
+        g_precacher->CacheModels();
     }
 
     TPrecacheResource(model_path, context);
