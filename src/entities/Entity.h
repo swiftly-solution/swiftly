@@ -15,7 +15,10 @@ public:
     Entity();
 
     Vector GetCoords();
+    QAngle GetAngle();
+
     void SetCoords(float x, float y, float z);
+    void SetAngle(float x, float y, float z);
 
     void SetModel(std::string model);
 

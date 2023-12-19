@@ -12,11 +12,22 @@ Vector Entity::GetCoords()
     return this->worldEntity->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin();
 }
 
+QAngle Entity::GetAngle()
+{
+    return this->worldEntity->m_CBodyComponent->m_pSceneNode->m_angAbsRotation();
+}
+
 void Entity::SetCoords(float x, float y, float z)
 {
     Vector vec(x, y, z);
 
     this->worldEntity->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin = vec;
+}
+
+void Entity::SetAngle(float x, float y, float z)
+{
+    QAngle angle(x, y, z);
+    this->worldEntity->m_CBodyComponent->m_pSceneNode->m_angAbsRotation = angle;
 }
 
 void Entity::SetSolidType(SolidType_t solid_type)
