@@ -2,16 +2,31 @@
 #include "../sdk/entity/CBaseModelEntity.h"
 #include <thread>
 
-Entity *EntityManager::CreateEntity(std::string model)
+uint32_t EntityManager::CreateEntity()
 {
     Entity *entity = new Entity();
 
-    entity->SetCoords(1266.753906f, -158.130188f, -167.968750f);
-    entity->SetAngle(0.0f, 180.0f, 0.0f);
     entity->SetSolidType(SolidType_t::SOLID_VPHYSICS);
 
-    entity->SetModel(model.c_str());
-    entity->Spawn();
+    ++entityIncrementID;
+    this->entities.insert(std::make_pair(entityIncrementID, entity));
+    return entityIncrementID;
+}
 
-    return entity;
+Entity *EntityManager::GetEntity(uint32_t id)
+{
+    if (this->entities.find(id) == this->entities.end())
+        return nullptr;
+
+    return this->entities.at(id);
+}
+
+void EntityManager::DestroyEntity(uint32_t id)
+{
+    if (this->entities.find(id) == this->entities.end())
+        return;
+
+    Entity *ent = this->entities.at(id);
+    delete ent;
+    this->entities.erase(id);
 }

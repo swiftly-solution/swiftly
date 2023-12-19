@@ -53,6 +53,29 @@ std::string SerializeData(std::any data)
 
         document.AddMember(keyVal, coords, document.GetAllocator());
     }
+    else if (value.type() == typeid(QAngle))
+    {
+        rapidjson::Value coords(rapidjson::kObjectType);
+        QAngle crd = std::any_cast<QAngle>(value);
+
+        coords.AddMember("x", rapidjson::Value().SetFloat(crd.x), document.GetAllocator());
+        coords.AddMember("y", rapidjson::Value().SetFloat(crd.y), document.GetAllocator());
+        coords.AddMember("z", rapidjson::Value().SetFloat(crd.z), document.GetAllocator());
+
+        document.AddMember(keyVal, coords, document.GetAllocator());
+    }
+    else if (value.type() == typeid(Color))
+    {
+        rapidjson::Value colors(rapidjson::kObjectType);
+        Color color = std::any_cast<Color>(value);
+
+        colors.AddMember("r", rapidjson::Value().SetInt(color.r()), document.GetAllocator());
+        colors.AddMember("g", rapidjson::Value().SetInt(color.g()), document.GetAllocator());
+        colors.AddMember("b", rapidjson::Value().SetInt(color.b()), document.GetAllocator());
+        colors.AddMember("a", rapidjson::Value().SetInt(color.a()), document.GetAllocator());
+
+        document.AddMember(keyVal, colors, document.GetAllocator());
+    }
     else
         PRINTF("SerializeData", "Unknown Data Type: %s\n", value.type().name());
 

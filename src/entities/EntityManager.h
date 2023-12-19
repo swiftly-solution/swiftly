@@ -5,14 +5,21 @@
 #include "../sig/Signatures.h"
 #include "Entity.h"
 
+#include <map>
 #include <string>
 
 class EntityManager
 {
+private:
+    std::map<uint32_t, Entity *> entities;
+    uint32_t entityIncrementID = 0;
+
 public:
     EntityManager() {}
 
-    Entity *CreateEntity(std::string model);
+    uint32_t CreateEntity();
+    Entity *GetEntity(uint32_t id);
+    void DestroyEntity(uint32_t id);
 };
 
 extern EntityManager *g_entityManager;

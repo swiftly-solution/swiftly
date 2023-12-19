@@ -1,8 +1,6 @@
 #include "HTTPRequest.h"
 #include "../swiftly.h"
 
-#define NOT_SUPPORTED(func_name) print("[Swiftly] This version of Swiftly is not supporting %s.\n", func_name)
-
 HTTPRequest::HTTPRequest(const char *domain)
 {
     void *http_CreateRequest = FetchFunctionPtr(nullptr, "scripting_HTTP_CreateRequest");

@@ -12,6 +12,7 @@ public:
 
     SCHEMA_FIELD_OFFSET(CCollisionProperty, m_Collision, 0)
     SCHEMA_FIELD_OFFSET(CGlowProperty, m_Glow, 0)
+    SCHEMA_FIELD_OFFSET(Color, m_clrRender, 0)
 
     void SetModel(const char *model)
     {

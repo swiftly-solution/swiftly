@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 class Precacher
 {
@@ -21,6 +22,11 @@ public:
 
     void AddModel(std::string model);
     void CacheModels();
+
+    bool HasModelInList(std::string model)
+    {
+        return (std::find(this->cacheModels.begin(), this->cacheModels.end(), model) != this->cacheModels.end());
+    }
 
     void CacheModel(const char *model);
 };

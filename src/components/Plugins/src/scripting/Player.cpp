@@ -359,8 +359,7 @@ SMM_API const char *scripting_Player_GetCoords(uint32 playerId)
     if (!player)
         return "";
 
-    Vector coords = player->GetCoords();
-    std::string data = SerializeData(coords);
+    std::string data = SerializeData(player->GetCoords());
 
     char *result = new char[data.size() + 1];
     strcpy(result, data.c_str());
