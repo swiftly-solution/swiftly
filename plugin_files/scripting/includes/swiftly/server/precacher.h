@@ -10,7 +10,7 @@ public:
 
     ~Precacher() {}
 
-    void Add(const char *model)
+    void AddModel(const char *model)
     {
         void *Precacher_AddModel = FetchFunctionPtr(nullptr, "scripting_Precacher_AddModel");
         if (Precacher_AddModel)
