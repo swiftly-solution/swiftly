@@ -3,6 +3,7 @@
 
 #include "../swiftly_memory.h"
 #include "../types.h"
+#include "../swiftly_utils.h"
 
 class Stats
 {
@@ -19,7 +20,10 @@ public:
         if (player_FetchStat)
             return reinterpret_cast<Player_FetchStat>(player_FetchStat)(this->m_playerSlot, stat);
         else
+        {
+            NOT_SUPPORTED("scripting_Player_FetchMatchStat");
             return 0;
+        }
     }
 
     void Set(PlayerStat stat, int value)
@@ -27,6 +31,8 @@ public:
         void *player_SetStats = FetchFunctionPtr(nullptr, "scripting_Player_SetMatchStat");
         if (player_SetStats)
             reinterpret_cast<Player_SetStat>(player_SetStats)(this->m_playerSlot, stat, value);
+        else
+            NOT_SUPPORTED("scripting_Player_SetMatchStat");
     }
 };
 

@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "../swiftly_memory.h"
+#include "../swiftly_utils.h"
 
 #include <type_traits>
 #include <rapidjson/document.h>
@@ -77,6 +78,8 @@ public:
         void *player_SetVar = FetchFunctionPtr(nullptr, "scripting_Player_SetVar");
         if (player_SetVar != nullptr)
             reinterpret_cast<Player_SetVar>(player_SetVar)(this->m_playerSlot, name, type, value);
+        else
+            NOT_SUPPORTED("scripting_Player_SetVar");
     }
 
     template <typename T>
@@ -97,7 +100,10 @@ public:
             }
         }
         else
+        {
+            NOT_SUPPORTED("scripting_Player_GetVar");
             return 0;
+        }
     }
 };
 

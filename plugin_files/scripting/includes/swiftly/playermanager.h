@@ -60,6 +60,8 @@ public:
         void *players_SendMessage = FetchFunctionPtr(nullptr, "scripting_Players_SendMessage");
         if (players_SendMessage)
             reinterpret_cast<Players_SendMessage>(players_SendMessage)(dest, buffer);
+        else
+            NOT_SUPPORTED("scripting_Players_SendMessage");
     }
 
 private:

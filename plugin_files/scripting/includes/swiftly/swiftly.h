@@ -8,8 +8,6 @@
 #include <cstdarg>
 #include <stdint.h>
 
-#define NOT_SUPPORTED(func_name) print("[Swiftly] This version of Swiftly is not supporting %s.\n", func_name)
-
 #define SITE_A 0
 #define SITE_B 1
 #define SITE_UNKNOWN 2

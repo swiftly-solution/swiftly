@@ -25,7 +25,10 @@ const char *FetchTranslation(const char *key)
     if (translationfunc)
         return reinterpret_cast<FetchTranslationFunction>(translationfunc)(key);
     else
+    {
+        NOT_SUPPORTED("scripting_Translations_Fetch");
         return nullptr;
+    }
 }
 
 void Swiftly_Setup(const char *pluginName, const char *mainFilePath)

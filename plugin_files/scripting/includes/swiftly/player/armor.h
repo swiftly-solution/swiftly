@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "../swiftly_memory.h"
+#include "../swiftly_utils.h"
 
 class Armor
 {
@@ -19,7 +20,10 @@ public:
         if (player_GetArmor)
             return reinterpret_cast<Player_GetArmor>(player_GetArmor)(this->m_playerSlot);
         else
+        {
+            NOT_SUPPORTED("scripting_Player_GetArmor");
             return 0;
+        }
     }
 
     void Set(int armor)
@@ -27,6 +31,8 @@ public:
         void *player_SetArmor = FetchFunctionPtr(nullptr, "scripting_Player_SetArmor");
         if (player_SetArmor)
             reinterpret_cast<Player_SetArmor>(player_SetArmor)(this->m_playerSlot, armor);
+        else
+            NOT_SUPPORTED("scripting_Player_SetArmor");
     }
 
     void Take(int armor)
@@ -34,6 +40,8 @@ public:
         void *player_TakeArmor = FetchFunctionPtr(nullptr, "scripting_Player_TakeArmor");
         if (player_TakeArmor)
             reinterpret_cast<Player_TakeArmor>(player_TakeArmor)(this->m_playerSlot, armor);
+        else
+            NOT_SUPPORTED("scripting_Player_TakeArmor");
     }
 };
 

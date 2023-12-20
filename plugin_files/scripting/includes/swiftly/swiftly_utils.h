@@ -15,6 +15,9 @@
 #define WIN_LINUX(win, linux) linux
 #endif
 
+void print(const char *str, ...);
+#define NOT_SUPPORTED(func_name) print("[Swiftly] This version of Swiftly is not supporting %s.\n", func_name)
+
 size_t UTIL_FormatArgs(char *buffer, size_t maxlength, const char *fmt, va_list params);
 uint64_t GetTime();
 

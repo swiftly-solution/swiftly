@@ -62,7 +62,10 @@ public:
         if (player_GetName)
             return reinterpret_cast<Player_GetName>(player_GetName)(this->m_playerSlot);
         else
+        {
+            NOT_SUPPORTED("scripting_Player_GetName");
             return "";
+        }
     }
 
     uint64_t GetSteamID()
@@ -74,7 +77,10 @@ public:
         if (player_GetSteamID)
             return reinterpret_cast<Player_GetSteamID>(player_GetSteamID)(this->m_playerSlot);
         else
+        {
+            NOT_SUPPORTED("scripting_Player_GetSteamID");
             return 0;
+        }
     }
 
     bool IsFirstSpawn() { return !this->m_firstSpawn; }
@@ -90,6 +96,8 @@ public:
         void *player_Drop = FetchFunctionPtr(nullptr, "scripting_Player_Drop");
         if (player_Drop)
             reinterpret_cast<Player_Drop>(player_Drop)(this->m_playerSlot, reason);
+        else
+            NOT_SUPPORTED("scripting_Player_Drop");
     }
 
     void Kill()
@@ -98,6 +106,8 @@ public:
         void *player_Kill = FetchFunctionPtr(nullptr, "scripting_Player_Kill");
         if (player_Kill)
             reinterpret_cast<Player_Kill>(player_Kill)(this->m_playerSlot);
+        else
+            NOT_SUPPORTED("scripting_Player_Kill");
     }
 
     bool IsAuthenticated()
@@ -106,7 +116,10 @@ public:
         if (player_IsAuthenticated)
             return reinterpret_cast<Player_IsAuthenticated>(player_IsAuthenticated)(this->m_playerSlot);
         else
+        {
+            NOT_SUPPORTED("scripting_Player_IsAuthenticated");
             return false;
+        }
     }
 
     const char *GetConvarValue(const char *name)
@@ -118,7 +131,10 @@ public:
         if (player_GetConvar)
             return reinterpret_cast<Player_GetConvar>(player_GetConvar)(this->m_playerSlot, name);
         else
+        {
+            NOT_SUPPORTED("scripting_Player_GetConvar");
             return "";
+        }
     }
 
     void SendMsg(HudDestination dest, const char *message, ...)
@@ -133,6 +149,8 @@ public:
         void *player_SendMessage = FetchFunctionPtr(nullptr, "scripting_Player_SendMessage");
         if (player_SendMessage)
             reinterpret_cast<Player_SendMessage>(player_SendMessage)(this->m_playerSlot, dest, buffer);
+        else
+            NOT_SUPPORTED("scripting_Player_SendMessage");
     }
 
     uint32_t GetConnectedTime()
@@ -141,7 +159,10 @@ public:
         if (player_GetConnectedTime)
             return reinterpret_cast<Player_GetConnectedTime>(player_GetConnectedTime)(this->m_playerSlot);
         else
+        {
+            NOT_SUPPORTED("scripting_Player_GetConnectedTime");
             return 0;
+        }
     }
 };
 

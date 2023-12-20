@@ -3,6 +3,8 @@
 
 #include "swiftly_memory.h"
 #include "types.h"
+#include "swiftly_utils.h"
+#include "swiftly.h"
 #include <vector>
 #include <map>
 
@@ -19,6 +21,8 @@ public:
         void *commnads_RegisterCommand = FetchFunctionPtr(nullptr, "scripting_Commands_RegisterCommand");
         if (commnads_RegisterCommand)
             reinterpret_cast<Commands_RegisterCommand>(commnads_RegisterCommand)(m_pluginName.c_str(), name, func);
+        else
+            NOT_SUPPORTED("scripting_Commands_RegisterCommand");
     }
 
     void UnregisterCommand(const char *name)
@@ -26,6 +30,8 @@ public:
         void *commnads_UnregisterCommand = FetchFunctionPtr(nullptr, "scripting_Commands_UnregisterCommand");
         if (commnads_UnregisterCommand)
             reinterpret_cast<Commands_UnregisterCommand>(commnads_UnregisterCommand)(name);
+        else
+            NOT_SUPPORTED("scripting_Commands_UnregisterCommand");
     }
 };
 

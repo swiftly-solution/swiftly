@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "../swiftly_memory.h"
+#include "../swiftly_utils.h"
 
 #define TEAM_NONE 0
 #define TEAM_SPECTATOR 1
@@ -24,7 +25,10 @@ public:
         if (player_GetTeam)
             return reinterpret_cast<Player_GetTeam>(player_GetTeam)(this->m_playerSlot);
         else
+        {
+            NOT_SUPPORTED("scripting_Player_GetTeam");
             return 0;
+        }
     }
 
     void Set(int team)
@@ -32,6 +36,8 @@ public:
         void *player_SetTeam = FetchFunctionPtr(nullptr, "scripting_Player_SetTeam");
         if (player_SetTeam)
             reinterpret_cast<Player_SetTeam>(player_SetTeam)(this->m_playerSlot, team);
+        else
+            NOT_SUPPORTED("scripting_Player_SetTeam");
     }
 };
 

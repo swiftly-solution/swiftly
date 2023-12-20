@@ -3,6 +3,7 @@
 
 #include "swiftly_memory.h"
 #include "swiftly_utils.h"
+#include "swiftly.h"
 #include <map>
 #include <vector>
 #include <rapidjson/document.h>
@@ -54,6 +55,8 @@ public:
         void *database_Connect = FetchFunctionPtr(nullptr, "scripting_Database_Connect");
         if (database_Connect)
             m_connected = reinterpret_cast<Database_Connect>(database_Connect)(this->m_connectionName.c_str());
+        else
+            NOT_SUPPORTED("scripting_Database_Connect");
     }
     ~Database()
     {
@@ -73,7 +76,10 @@ public:
         if (database_EscapeString)
             return reinterpret_cast<Database_EscapeString>(database_EscapeString)(this->m_connectionName.c_str(), value);
         else
+        {
+            NOT_SUPPORTED("scripting_Database_EscapeString");
             return "";
+        }
     }
 
     DB_Result Query(const char *query, ...)
@@ -83,7 +89,10 @@ public:
 
         void *database_Query = FetchFunctionPtr(nullptr, "scripting_Database_Query");
         if (!database_Query)
+        {
+            NOT_SUPPORTED("scripting_Database_Query");
             return {};
+        }
 
         va_list ap;
         char buffer[2048];

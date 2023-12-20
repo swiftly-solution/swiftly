@@ -4,6 +4,7 @@
 #include "swiftly_memory.h"
 #include "swiftly_utils.h"
 #include "types.h"
+#include "swiftly.h"
 #include <string>
 #include <cstdarg>
 
@@ -24,7 +25,10 @@ public:
             this->canWrite = true;
         }
         else
+        {
+            NOT_SUPPORTED("scripting_Logger_CreateLogger");
             this->canWrite = false;
+        }
     }
 
     void Write(ELogType log_type, const char *content, ...)
@@ -44,6 +48,8 @@ public:
 
             reinterpret_cast<Logger_WriteLog>(loggerWriteLog)(this->m_pluginName.c_str(), log_type, buffer);
         }
+        else
+            NOT_SUPPORTED("scripting_Logger_WriteLog");
     }
 };
 

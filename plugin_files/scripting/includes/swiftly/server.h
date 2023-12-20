@@ -41,6 +41,8 @@ public:
 
             reinterpret_cast<Server_ExecuteCommand>(printfunc)(buffer);
         }
+        else
+            NOT_SUPPORTED("scripting_Server_ExecuteCommand");
     }
 
     void ChangeLevel(const char *map)
@@ -54,7 +56,10 @@ public:
         if (IsMapValidFunc)
             return reinterpret_cast<Server_IsMapValid>(IsMapValidFunc)(map);
         else
+        {
+            NOT_SUPPORTED("scripting_Server_IsMapValid");
             return false;
+        }
     }
 
     const char *GetMap()
@@ -63,7 +68,10 @@ public:
         if (GetMapFunc)
             return reinterpret_cast<Server_GetMap>(GetMapFunc)();
         else
+        {
+            NOT_SUPPORTED("scripting_Server_GetMapName");
             return nullptr;
+        }
     }
 
     uint16_t GetMaxPlayers()
@@ -72,7 +80,10 @@ public:
         if (GetMaxPlayersFunc)
             return reinterpret_cast<Server_GetMaxPlayers>(GetMaxPlayersFunc)();
         else
+        {
+            NOT_SUPPORTED("scripting_Server_GetMaxPlayers");
             return 0;
+        }
     }
 };
 

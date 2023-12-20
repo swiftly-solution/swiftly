@@ -4,6 +4,7 @@
 #include <string>
 #include "swiftly_memory.h"
 #include "swiftly_utils.h"
+#include "swiftly.h"
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
@@ -71,7 +72,10 @@ public:
             }
         }
         else
+        {
+            NOT_SUPPORTED("scripting_Configuration_Fetch");
             return 0;
+        }
     }
 
     bool Exists(const char *key, ...)
@@ -88,7 +92,10 @@ public:
             return reinterpret_cast<Configuration_Exists>(configurationExists)(buffer);
         }
         else
+        {
+            NOT_SUPPORTED("scripting_Configuration_Exists");
             return false;
+        }
     }
 
     uint32_t FetchArraySize(const char *key, ...)
@@ -105,7 +112,10 @@ public:
             return reinterpret_cast<Configuration_FetchArraySize>(configurationFetchArraySize)(buffer);
         }
         else
+        {
+            NOT_SUPPORTED("scripting_Configuration_FetchArraySize");
             return 0;
+        }
     }
 };
 

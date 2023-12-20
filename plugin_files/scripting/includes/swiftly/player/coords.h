@@ -7,6 +7,7 @@
 
 #include "../swiftly_memory.h"
 #include "../types.h"
+#include "../swiftly_utils.h"
 
 #include <type_traits>
 #include <rapidjson/document.h>
@@ -40,7 +41,10 @@ public:
             return new Vector(coords.at("x"), coords.at("y"), coords.at("z"));
         }
         else
+        {
+            NOT_SUPPORTED("scripting_Player_GetCoords");
             return new Vector(0, 0, 0);
+        }
     }
 
     void Set(Vector *coords)
@@ -48,6 +52,8 @@ public:
         void *player_SetCoords = FetchFunctionPtr(nullptr, "scripting_Player_SetCoords");
         if (player_SetCoords)
             reinterpret_cast<Player_SetCoords>(player_SetCoords)(this->m_playerSlot, coords->x, coords->y, coords->z);
+        else
+            NOT_SUPPORTED("scripting_Player_SetCoords");
     }
 };
 
