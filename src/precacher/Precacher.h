@@ -11,6 +11,7 @@ class Precacher
 private:
     int64_t precacheContext = 0;
     std::vector<std::string> cacheModels;
+    std::vector<std::string> precachedModels;
 
 public:
     Precacher(){};
@@ -25,7 +26,7 @@ public:
 
     bool HasModelInList(std::string model)
     {
-        return (std::find(this->cacheModels.begin(), this->cacheModels.end(), model) != this->cacheModels.end());
+        return (std::find(this->precachedModels.begin(), this->precachedModels.end(), model) != this->precachedModels.end());
     }
 
     void CacheModel(const char *model);
