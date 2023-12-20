@@ -79,8 +79,6 @@ bool Hook_IsHearingClient(void *serverClient, int playerSlot)
     return TIsHearingClient(serverClient, playerSlot);
 }
 
-bool loaded = false;
-
 void Hook_PrecacheResource(const char *model_path, int64_t context)
 {
     if (g_precacher->GetContext() == 0 && starts_with(std::string(model_path), "models/"))

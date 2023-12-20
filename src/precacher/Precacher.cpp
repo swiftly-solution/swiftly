@@ -32,5 +32,4 @@ void Precacher::CacheModels()
         this->CacheModel(model.c_str());
         this->precachedModels.push_back(model);
     }
-    this->cacheModels.clear();
 }

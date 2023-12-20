@@ -19,7 +19,11 @@ public:
     void SetContext(int64_t context) { this->precacheContext = context; }
     int64_t GetContext() { return this->precacheContext; }
 
-    void Reset() { this->precacheContext = 0; }
+    void Reset()
+    {
+        this->precacheContext = 0;
+        this->precachedModels.clear();
+    }
 
     void AddModel(std::string model);
     void CacheModels();
