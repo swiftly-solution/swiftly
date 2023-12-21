@@ -374,3 +374,42 @@ SMM_API void scripting_Player_SetCoords(uint32 playerId, float x, float y, float
 
     player->SetCoords(x, y, z);
 }
+
+SMM_API int scripting_Player_GetMoney(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerController *controller = player->GetPlayerController();
+    if (!controller)
+        return 0;
+
+    return controller->m_pInGameMoneyServices->m_iAccount();
+}
+
+SMM_API void scripting_Player_SetMoney(uint32 playerId, int money)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *controller = player->GetPlayerController();
+    if (!controller)
+        return;
+
+    controller->m_pInGameMoneyServices->m_iAccount = money;
+}
+
+SMM_API void scripting_Player_TakeMoney(uint32 playerId, int money)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *controller = player->GetPlayerController();
+    if (!controller)
+        return;
+
+    controller->m_pInGameMoneyServices->m_iAccount = controller->m_pInGameMoneyServices->m_iAccount() - money;
+}
