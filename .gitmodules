@@ -11,3 +11,6 @@
 [submodule "vendor/cpp-httplib"]
 	path = vendor/cpp-httplib
 	url = https://github.com/yhirose/cpp-httplib.git
+[submodule "vendor/luacpp"]
+	path = vendor/luacpp
+	url = https://github.com/ouonline/luacpp

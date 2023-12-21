@@ -20,10 +20,17 @@ for sdk_name in MMSPlugin.sdks:
             if fnmatch.fnmatch(_file, '*.cpp'):
                 binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
+    for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'vendor', 'luacpp', "src")):
+        for _file in files:
+            if fnmatch.fnmatch(_file, '*.cpp'):
+                binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
+
+
     binary.compiler.cxxincludes += [
       os.path.join(builder.sourcePath, 'vendor', 'rapidjson', 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'cpp-httplib'),
+      os.path.join(builder.sourcePath, 'vendor', 'luacpp', 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'lua', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'openssl', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),

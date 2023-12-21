@@ -11,7 +11,8 @@
                 "${workspaceFolder}/vendor/mysql/win64/include/**",
                 "${workspaceFolder}/vendor/cpp-httplib/**",
                 "${workspaceFolder}/vendor/openssl/win64/include/**",
-                "${workspaceFolder}/vendor/lua/win64/include/**"
+                "${workspaceFolder}/vendor/lua/win64/include/**",
+                "${workspaceFolder}/vendor/luacpp/include/**"
             ],
             "defines": [
                 "_DEBUG",
