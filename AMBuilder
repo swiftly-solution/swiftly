@@ -25,6 +25,7 @@ for sdk_name in MMSPlugin.sdks:
       os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'cpp-httplib'),
       os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
+      os.path.join(builder.sourcePath, 'vendor', 'lua', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'openssl', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'hl2sdk'),
       os.path.join(builder.sourcePath, 'hl2sdk', 'public'),
@@ -36,6 +37,7 @@ for sdk_name in MMSPlugin.sdks:
     if binary.compiler.target.platform == 'linux' or binary.compiler.target.platform == 'mac':
       binary.compiler.postlink += [
         os.path.join(builder.sourcePath, 'vendor', 'mysql', 'linuxsteamrt64', 'lib', 'libmysqlclient.a'),
+        os.path.join(builder.sourcePath, 'vendor', 'lua', 'linuxsteamrt64', 'lib', 'liblua54.a'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libfunchook.a'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libdistorm.a'),
         '-lz',
@@ -51,6 +53,7 @@ for sdk_name in MMSPlugin.sdks:
         os.path.join(builder.sourcePath, 'vendor', 'mysql', 'win64', 'lib', 'mysqlclient.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'openssl', 'win64', 'lib', 'libcrypto.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'openssl', 'win64', 'lib', 'libssl.lib'),
+        os.path.join(builder.sourcePath, 'vendor', 'lua', 'win64', 'lib', 'lua54.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
         'wsock32.lib'
