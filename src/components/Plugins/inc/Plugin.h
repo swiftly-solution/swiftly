@@ -57,7 +57,7 @@ public:
             err = lua_tostring(m_l, -1);
             lua_pop(m_l, 1);
             PRINTF("Runtime", "An error has occured while calling '%s'.\nError: %s\n", original_func_name.c_str(), err.c_str());
-            return nullptr;
+            return (T) false;
         }
 
         const int nresults = lua_gettop(m_l) - top;
@@ -77,7 +77,7 @@ public:
         else if constexpr (std::is_same_v<T, float> || std::is_same_v<T, double>)
             return (T)returnObject.ToNumber();
         else
-            return nullptr;
+            return (T) false;
     }
 
     void PrepForExec()
