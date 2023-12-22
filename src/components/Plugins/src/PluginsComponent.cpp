@@ -42,7 +42,7 @@ void PluginsComponent::LoadPlugin(std::string init_path, std::string dir)
 
     for (const std::string &file : files)
     {
-        if (ends_with(file, ".dll") || ends_with(file, ".so"))
+        if (ends_with(file, WIN_LINUX(".dll", ".so")))
         {
             plugin = new Plugin(file, dir, PluginType_t::PLUGIN_CPP);
             break;
