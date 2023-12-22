@@ -274,6 +274,8 @@ public:
             void *ptr = this->FetchCPPFunction(function);
             if (ptr)
                 return (Ret) reinterpret_cast<T>(ptr)(args...);
+            else
+                return nullptr;
         }
         else if (this->GetPluginType() == PluginType_t::PLUGIN_LUA)
         {
@@ -284,6 +286,8 @@ public:
             luacpp::PushValues(wrapper.GetML(), std::forward<Args>(args)...);
             return wrapper.ExecuteWithReturn<Ret>(original_func, sizeof...(Args));
         }
+        else
+            return nullptr;
     }
 
     bool FunctionExists(std::string function)

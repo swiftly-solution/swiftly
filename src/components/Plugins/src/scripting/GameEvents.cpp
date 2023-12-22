@@ -20,22 +20,16 @@
         }                                                                    \
     }
 
-#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                        \
-    for (uint32 i = 0; i < plugins.size(); i++)                                                     \
-    {                                                                                               \
-        Plugin *plugin = plugins[i];                                                                \
-        if (plugin->IsPluginLoaded())                                                               \
-        {                                                                                           \
-            void *plugin_##FUNCTION_NAME = plugin->FetchCPPFunction("Internal_" #FUNCTION_NAME);    \
-            if (plugin_##FUNCTION_NAME)                                                             \
-            {                                                                                       \
-                if (!reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)(__VA_ARGS__)) \
-                {                                                                                   \
-                    return FALSE_VALUE;                                                             \
-                }                                                                                   \
-            }                                                                                       \
-        }                                                                                           \
-    }                                                                                               \
+#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                                   \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                                \
+    {                                                                                                          \
+        Plugin *plugin = plugins[i];                                                                           \
+        if (plugin->IsPluginLoaded())                                                                          \
+        {                                                                                                      \
+            if (!plugin->ExecuteFunctionWithReturn<bool, Plugin_##FUNCTION_NAME>(#FUNCTION_NAME, __VA_ARGS__)) \
+                return FALSE_VALUE;                                                                            \
+        }                                                                                                      \
+    }                                                                                                          \
     return RET_VALUE;
 
 std::vector<int> GetBombSites()

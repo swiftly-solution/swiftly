@@ -173,10 +173,6 @@ void SwiftlyPluginManagerList(CPlayerSlot *slot, CCommandContext context)
         if (!plugin->IsPluginLoaded())
             continue;
 
-        // void *GetPluginAuthor = plugin->FetchCPPFunction("GetPluginAuthor");
-        // void *GetPluginVersion = plugin->FetchCPPFunction("GetPluginVersion");
-        // void *GetPluginName = plugin->FetchCPPFunction("GetPluginName");
-        // void *GetPluginWebsite = plugin->FetchCPPFunction("GetPluginWebsite");
         if (!plugin->FunctionExists("GetPluginAuthor") || !plugin->FunctionExists("GetPluginVersion") || !plugin->FunctionExists("GetPluginName") || !plugin->FunctionExists("GetPluginWebsite"))
             continue;
 
@@ -205,17 +201,12 @@ void SwiftlyPluginManagerInfo(CPlayerSlot *slot, CCommandContext context, std::s
     if (!plugin->IsPluginLoaded())
         return PrintToClientOrConsole(slot, "Plugin Info", "Plugin is not loaded.\n");
 
-    void *GetPluginAuthor = plugin->FetchCPPFunction("GetPluginAuthor");
-    void *GetPluginVersion = plugin->FetchCPPFunction("GetPluginVersion");
-    void *GetPluginName = plugin->FetchCPPFunction("GetPluginName");
-    void *GetPluginWebsite = plugin->FetchCPPFunction("GetPluginWebsite");
-
-    std::string website = reinterpret_cast<GetPlugin>(GetPluginWebsite)();
+    std::string website = plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginWebsite");
 
     PrintToClientOrConsole(slot, "Plugin Info", "Plugin File Name: %s\n", (plugin->GetName() + WIN_LINUX(".dll", ".so")).c_str());
-    PrintToClientOrConsole(slot, "Plugin Info", "Name: %s\n", reinterpret_cast<GetPlugin>(GetPluginName)());
-    PrintToClientOrConsole(slot, "Plugin Info", "Author: %s\n", reinterpret_cast<GetPlugin>(GetPluginAuthor)());
-    PrintToClientOrConsole(slot, "Plugin Info", "Version: %s\n", reinterpret_cast<GetPlugin>(GetPluginVersion)());
+    PrintToClientOrConsole(slot, "Plugin Info", "Name: %s\n", plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginName"));
+    PrintToClientOrConsole(slot, "Plugin Info", "Author: %s\n", plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginAuthor"));
+    PrintToClientOrConsole(slot, "Plugin Info", "Version: %s\n", plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginVersion"));
     PrintToClientOrConsole(slot, "Plugin Info", "URL: %s\n", website == "" ? "Not Present" : website.c_str());
 }
 
