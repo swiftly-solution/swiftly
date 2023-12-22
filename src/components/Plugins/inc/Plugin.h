@@ -264,7 +264,7 @@ public:
     {
         std::string original_func = function;
         if (!this->FunctionExists(function))
-            return nullptr;
+            return reinterpret_cast<Ret>(nullptr);
 
         if (std::find(funcsToLoad.begin(), funcsToLoad.end(), function) != funcsToLoad.end())
             function = "Internal_" + function;
@@ -275,7 +275,7 @@ public:
             if (ptr)
                 return (Ret) reinterpret_cast<T>(ptr)(args...);
             else
-                return nullptr;
+                return reinterpret_cast<Ret>(nullptr);
         }
         else if (this->GetPluginType() == PluginType_t::PLUGIN_LUA)
         {
@@ -287,7 +287,7 @@ public:
             return wrapper.ExecuteWithReturn<Ret>(original_func, sizeof...(Args));
         }
         else
-            return nullptr;
+            return reinterpret_cast<Ret>(nullptr);
     }
 
     bool FunctionExists(std::string function)
