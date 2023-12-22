@@ -88,4 +88,10 @@ bool starts_with(std::string value, std::string starting);
 std::string str_tolower(std::string s);
 std::string replace(std::string str, const std::string from, const std::string to);
 
+enum PluginType_t : uint16_t
+{
+    PLUGIN_CPP = 1,
+    PLUGIN_LUA = 2,
+};
+
 #endif

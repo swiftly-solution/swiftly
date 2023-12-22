@@ -1,31 +1,23 @@
 #include "../../inc/Scripting.h"
 
-#define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                                           \
-    for (uint32 i = 0; i < plugins.size(); i++)                                                \
-    {                                                                                          \
-        Plugin *plugin = plugins[i];                                                           \
-        if (plugin->IsPluginLoaded())                                                          \
-        {                                                                                      \
-            void *plugin_##FUNCTION_NAME = plugin->FetchFunction("Internal_" #FUNCTION_NAME);  \
-            if (plugin_##FUNCTION_NAME)                                                        \
-            {                                                                                  \
-                reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)(__VA_ARGS__); \
-            }                                                                                  \
-        }                                                                                      \
+#define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                                      \
+    for (uint32 i = 0; i < plugins.size(); i++)                                           \
+    {                                                                                     \
+        Plugin *plugin = plugins[i];                                                      \
+        if (plugin->IsPluginLoaded())                                                     \
+        {                                                                                 \
+            plugin->ExecuteFunction<Plugin_##FUNCTION_NAME>(#FUNCTION_NAME, __VA_ARGS__); \
+        }                                                                                 \
     }
 
-#define CALL_PFUNCTION_VOID_NOARGS(FUNCTION_NAME)                                             \
-    for (uint32 i = 0; i < plugins.size(); i++)                                               \
-    {                                                                                         \
-        Plugin *plugin = plugins[i];                                                          \
-        if (plugin->IsPluginLoaded())                                                         \
-        {                                                                                     \
-            void *plugin_##FUNCTION_NAME = plugin->FetchFunction("Internal_" #FUNCTION_NAME); \
-            if (plugin_##FUNCTION_NAME)                                                       \
-            {                                                                                 \
-                reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)();           \
-            }                                                                                 \
-        }                                                                                     \
+#define CALL_PFUNCTION_VOID_NOARGS(FUNCTION_NAME)                            \
+    for (uint32 i = 0; i < plugins.size(); i++)                              \
+    {                                                                        \
+        Plugin *plugin = plugins[i];                                         \
+        if (plugin->IsPluginLoaded())                                        \
+        {                                                                    \
+            plugin->ExecuteFunction<Plugin_##FUNCTION_NAME>(#FUNCTION_NAME); \
+        }                                                                    \
     }
 
 #define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                        \
@@ -34,7 +26,7 @@
         Plugin *plugin = plugins[i];                                                                \
         if (plugin->IsPluginLoaded())                                                               \
         {                                                                                           \
-            void *plugin_##FUNCTION_NAME = plugin->FetchFunction("Internal_" #FUNCTION_NAME);       \
+            void *plugin_##FUNCTION_NAME = plugin->FetchCPPFunction("Internal_" #FUNCTION_NAME);    \
             if (plugin_##FUNCTION_NAME)                                                             \
             {                                                                                       \
                 if (!reinterpret_cast<Plugin_##FUNCTION_NAME>(plugin_##FUNCTION_NAME)(__VA_ARGS__)) \

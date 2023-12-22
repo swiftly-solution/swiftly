@@ -130,3 +130,15 @@ std::vector<std::string> Files::FetchFileNames(std::string path)
     }
     return files;
 }
+
+std::vector<std::string> Files::FetchDirectories(std::string path)
+{
+    ChangePath();
+
+    std::vector<std::string> directories;
+    for (const auto &entry : std::filesystem::directory_iterator(path))
+        if (entry.is_directory())
+            directories.push_back(entry.path().string());
+
+    return directories;
+}

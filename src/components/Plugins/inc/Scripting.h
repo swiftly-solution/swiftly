@@ -37,6 +37,13 @@ bool scripting_OnClientChat(CBasePlayerController *controller, const char *text,
 bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destination, const char *text);
 bool scripting_ShouldHearVoice(Player *player);
 
+void SetupLuaEnvironment(Plugin *plugin);
+
+template <typename T, typename... Args>
+void CallCPPFunctionNoReturn(std::string function, Args... args);
+template <typename... Args>
+void CallLuaFunctionNoReturn(std::string function, Args... args);
+
 enum PlayerStat : int
 {
     KILLS = 0,

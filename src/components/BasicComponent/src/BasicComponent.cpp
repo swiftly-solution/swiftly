@@ -173,22 +173,22 @@ void SwiftlyPluginManagerList(CPlayerSlot *slot, CCommandContext context)
         if (!plugin->IsPluginLoaded())
             continue;
 
-        void *GetPluginAuthor = plugin->FetchFunction("GetPluginAuthor");
-        void *GetPluginVersion = plugin->FetchFunction("GetPluginVersion");
-        void *GetPluginName = plugin->FetchFunction("GetPluginName");
-        void *GetPluginWebsite = plugin->FetchFunction("GetPluginWebsite");
-        if (GetPluginAuthor == nullptr || GetPluginVersion == nullptr || GetPluginName == nullptr || GetPluginWebsite == nullptr)
+        // void *GetPluginAuthor = plugin->FetchCPPFunction("GetPluginAuthor");
+        // void *GetPluginVersion = plugin->FetchCPPFunction("GetPluginVersion");
+        // void *GetPluginName = plugin->FetchCPPFunction("GetPluginName");
+        // void *GetPluginWebsite = plugin->FetchCPPFunction("GetPluginWebsite");
+        if (!plugin->FunctionExists("GetPluginAuthor") || !plugin->FunctionExists("GetPluginVersion") || !plugin->FunctionExists("GetPluginName") || !plugin->FunctionExists("GetPluginWebsite"))
             continue;
 
         ++showingIdx;
 
-        std::string website = reinterpret_cast<GetPlugin>(GetPluginWebsite)();
+        std::string website = plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginWebsite");
 
         PrintToClientOrConsole(slot, "Plugins List", "%02d. \"%s\" (%s) by %s%s\n",
                                showingIdx,
-                               reinterpret_cast<GetPlugin>(GetPluginName)(),
-                               reinterpret_cast<GetPlugin>(GetPluginVersion)(),
-                               reinterpret_cast<GetPlugin>(GetPluginAuthor)(),
+                               plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginName"),
+                               plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginVersion"),
+                               plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginAuthor"),
                                website == "" ? "" : string_format(" ( %s )", website.c_str()).c_str());
     }
 }
@@ -205,10 +205,10 @@ void SwiftlyPluginManagerInfo(CPlayerSlot *slot, CCommandContext context, std::s
     if (!plugin->IsPluginLoaded())
         return PrintToClientOrConsole(slot, "Plugin Info", "Plugin is not loaded.\n");
 
-    void *GetPluginAuthor = plugin->FetchFunction("GetPluginAuthor");
-    void *GetPluginVersion = plugin->FetchFunction("GetPluginVersion");
-    void *GetPluginName = plugin->FetchFunction("GetPluginName");
-    void *GetPluginWebsite = plugin->FetchFunction("GetPluginWebsite");
+    void *GetPluginAuthor = plugin->FetchCPPFunction("GetPluginAuthor");
+    void *GetPluginVersion = plugin->FetchCPPFunction("GetPluginVersion");
+    void *GetPluginName = plugin->FetchCPPFunction("GetPluginName");
+    void *GetPluginWebsite = plugin->FetchCPPFunction("GetPluginWebsite");
 
     std::string website = reinterpret_cast<GetPlugin>(GetPluginWebsite)();
 
@@ -275,32 +275,42 @@ void SwiftlyPluginManagerRefresh(CPlayerSlot *slot, CCommandContext context)
     if (slot->Get() != -1)
         return;
 
-    std::vector<std::string> pluginNames;
+    PrintToClientOrConsole(slot, "Plugin Refresh", "This feature has been temporarely removed until support for multi language scripting is finished.\n");
 
-    std::vector<std::string> files = Files::FetchFileNames("addons/swiftly/plugins");
-    for (const std::string &file : files)
-    {
-        if (!ends_with(file, WIN_LINUX(".dll", ".so")))
-            continue;
-        if (starts_with(file, WIN_LINUX("disabled\\", "disabled/")))
-            continue;
+    // std::vector<std::string> pluginNames;
 
-        pluginNames.push_back(file);
-    }
+    // std::vector<std::string> files = Files::FetchFileNames("addons/swiftly/plugins");
+    // for (const std::string &file : files)
+    // {
+    //     if (!ends_with(file, WIN_LINUX(".dll", ".so")))
+    //         continue;
+    //     if (starts_with(file, WIN_LINUX("disabled\\", "disabled/")))
+    //         continue;
 
-    uint32 newPlugins = 0;
+    //     pluginNames.push_back(file);
+    // }
 
-    for (const std::string plugin_name : pluginNames)
-    {
-        Plugin *plugin = new Plugin(plugin_name);
-        if (!ExistsPluginInMap(plugin_name))
-        {
-            AddPluginInMap(plugin);
-            ++newPlugins;
-        }
-    }
+    // uint32 newPlugins = 0;
 
-    PrintToClientOrConsole(slot, "Plugin Refresh", "%02d plugins have been added.\n", newPlugins);
+    // for (const std::string plugin_name : pluginNames)
+    // {
+    //     if (!ExistsPluginInMap(plugin_name))
+    //     {
+    //         std::vector<std::string> exploded = explode(plugin_name, WIN_LINUX("\\", "/"));
+    //         std::string name = exploded[exploded.size() - 2];
+    //         if (name == "plugins")
+    //         {
+    //             PrintToClientOrConsole(slot, "Plugin Refresh", "Skipped '%s' because it needs to be in it's own folder.\n", plugin_name);
+    //             continue;
+    //         }
+
+    //         Plugin *plugin = new Plugin(plugin_name, name);
+    //         AddPluginInMap(plugin);
+    //         ++newPlugins;
+    //     }
+    // }
+
+    // PrintToClientOrConsole(slot, "Plugin Refresh", "%02d plugins have been added.\n", newPlugins);
 }
 
 void SwiftlyPluginManager(CPlayerSlot *slot, CCommandContext context, const char *subcmd, const char *plugin_name)

@@ -36,7 +36,7 @@ public:
             Plugin *plugin = plugins[i];
             if (plugin->IsPluginLoaded())
             {
-                void *plugin_RegisterPlayer = plugin->FetchFunction("Internal_RegisterPlayer");
+                void *plugin_RegisterPlayer = plugin->FetchCPPFunction("Internal_RegisterPlayer");
                 if (plugin_RegisterPlayer)
                     reinterpret_cast<Plugin_OnPlayerRegister>(plugin_RegisterPlayer)(player->GetSlot()->Get(), player->IsFakeClient());
             }
@@ -52,7 +52,7 @@ public:
             Plugin *plugin = plugins[i];
             if (plugin->IsPluginLoaded())
             {
-                void *plugin_UnregisterPlayer = plugin->FetchFunction("Internal_UnregisterPlayer");
+                void *plugin_UnregisterPlayer = plugin->FetchCPPFunction("Internal_UnregisterPlayer");
                 if (plugin_UnregisterPlayer)
                     reinterpret_cast<Plugin_OnPlayerUnregister>(plugin_UnregisterPlayer)(sl);
             }

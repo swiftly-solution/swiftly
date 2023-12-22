@@ -16,6 +16,7 @@ namespace Files
     bool ExistsPath(std::string path);
     bool IsDirectory(std::string path);
     std::vector<std::string> FetchFileNames(std::string path);
+    std::vector<std::string> FetchDirectories(std::string path);
 };
 
 #endif

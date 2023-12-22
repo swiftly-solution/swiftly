@@ -1,7 +1,9 @@
 #include "../inc/Plugin.h"
+#include "../inc/Scripting.h"
 #include "../../../common.h"
 #include "../../../commands/CommandsManager.h"
 #include "../../../player/PlayerManager.h"
+#include <luacpp/luacpp.h>
 
 typedef void (*OnPluginStartFunction)();
 typedef void (*OnPluginStopFunction)();
@@ -10,21 +12,17 @@ typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
 
 void Plugin::StartPlugin()
 {
-    void *OnProgramLoad = this->FetchFunction("Internal_OnProgramLoad");
-    void *RegisterPlayer = this->FetchFunction("Internal_RegisterPlayer");
-    void *GetPluginAuthor = this->FetchFunction("GetPluginAuthor");
-    void *GetPluginVersion = this->FetchFunction("GetPluginVersion");
-    void *GetPluginName = this->FetchFunction("GetPluginName");
-    void *GetPluginWebsite = this->FetchFunction("GetPluginWebsite");
-
-    if (OnProgramLoad == nullptr || RegisterPlayer == nullptr || GetPluginAuthor == nullptr || GetPluginVersion == nullptr || GetPluginName == nullptr || GetPluginWebsite == nullptr)
+    if (!this->FunctionExists("OnProgramLoad") || !this->FunctionExists("RegisterPlayer") || !this->FunctionExists("GetPluginAuthor") || !this->FunctionExists("GetPluginVersion") || !this->FunctionExists("GetPluginName") || !this->FunctionExists("GetPluginWebsite"))
     {
         PRINT("Plugin", "Stopped loading plugin because the base functions are not present.\n");
         PRINTF("Plugin", "Plugin File: %s\n", this->m_path.c_str());
         return;
     }
 
-    reinterpret_cast<OnProgramLoadFunction>(OnProgramLoad)(this->GetName().c_str(), std::string(PATH).append(WIN_LINUX("/bin/win64/swiftly.dll", "/bin/linuxsteamrt64/swiftly.so")).c_str());
+    if (this->GetPluginType() == PluginType_t::PLUGIN_LUA)
+        SetupLuaEnvironment(this);
+
+    this->ExecuteFunction<OnProgramLoadFunction>("OnProgramLoad", this->GetName().c_str(), std::string(PATH).append(WIN_LINUX("/bin/win64/swiftly.dll", "/bin/linuxsteamrt64/swiftly.so")).c_str());
 
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
@@ -32,26 +30,27 @@ void Plugin::StartPlugin()
         if (!player)
             continue;
 
-        reinterpret_cast<Plugin_OnPlayerRegister>(RegisterPlayer)(player->GetSlot()->Get(), player->IsFakeClient());
+        this->ExecuteFunction<Plugin_OnPlayerRegister>("RegisterPlayer", player->GetSlot()->Get(), player->IsFakeClient());
     }
 
-    void *OnPluginStart = this->FetchFunction("Internal_OnPluginStart");
-    if (OnPluginStart)
-    {
-        reinterpret_cast<OnPluginStartFunction>(OnPluginStart)();
-    }
+    if (this->FunctionExists("OnPluginStart"))
+        this->ExecuteFunction<OnPluginStartFunction>("OnPluginStart");
 
     this->SetPluginLoaded(true);
 }
 
 void Plugin::StopPlugin()
 {
-    void *OnPluginStop = this->FetchFunction("Internal_OnPluginStop");
-    if (OnPluginStop)
-        reinterpret_cast<OnPluginStopFunction>(OnPluginStop)();
+    if (this->FunctionExists("OnPluginStop"))
+        this->ExecuteFunction<OnPluginStopFunction>("OnPluginStop");
 
-    dlclose(this->m_hModule);
-    this->functions.clear();
+    if (this->GetPluginType() == PluginType_t::PLUGIN_CPP)
+        dlclose(this->m_hModule);
+    else if (this->GetPluginType() == PluginType_t::PLUGIN_LUA)
+        delete this->luaState;
+
+    this->cppFunctions.clear();
+    this->luaFunctions.clear();
     std::vector<std::string> cmds = g_commandsManager->FetchCommandsByPlugin(this->GetName());
     for (uint32 i = 0; i < cmds.size(); i++)
         g_commandsManager->UnregisterCommand(cmds[i]);

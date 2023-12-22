@@ -21,19 +21,43 @@ bool starts_with(std::string value, std::string starting)
 
 void PluginsComponent::LoadComponent()
 {
-    std::vector<std::string> files = Files::FetchFileNames("addons/swiftly/plugins");
+    std::vector<std::string> directories = Files::FetchDirectories("addons/swiftly/plugins");
+    for (std::string directory : directories)
+    {
+        if (directory == "disabled")
+            continue;
+
+        directory = replace(directory, "addons/swiftly/plugins", "");
+        directory = replace(directory, WIN_LINUX("\\", "/"), "");
+
+        this->LoadPlugin("addons/swiftly/plugins", directory);
+    }
+}
+
+void PluginsComponent::LoadPlugin(std::string init_path, std::string dir)
+{
+    Plugin *plugin = nullptr;
+
+    std::vector<std::string> files = Files::FetchFileNames("addons/swiftly/plugins/" + dir);
+
     for (const std::string &file : files)
     {
-        if (!ends_with(file, WIN_LINUX(".dll", ".so")))
-            continue;
-        if (starts_with(file, WIN_LINUX("disabled\\", "disabled/")))
-            continue;
+        if (ends_with(file, ".dll"))
+        {
+            plugin = new Plugin(file, dir, PluginType_t::PLUGIN_CPP);
+            break;
+        }
+        else if (ends_with(file, ".lua"))
+        {
+            plugin = new Plugin("addons/swiftly/plugins/" + dir, dir, PluginType_t::PLUGIN_LUA);
+            break;
+        }
+    }
 
-        Plugin *plugin = new Plugin(file);
-
+    if (plugin)
+    {
         plugins.push_back(plugin);
         pluginsMap.insert(std::make_pair(plugin->GetName(), plugin));
-
         plugin->LoadPlugin();
     }
 }
