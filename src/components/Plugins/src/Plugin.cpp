@@ -5,11 +5,6 @@
 #include "../../../player/PlayerManager.h"
 #include <luacpp/luacpp.h>
 
-typedef void (*OnPluginStartFunction)();
-typedef void (*OnPluginStopFunction)();
-typedef void (*OnProgramLoadFunction)(const char *, const char *);
-typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
-
 void Plugin::StartPlugin()
 {
     if (!this->FunctionExists("OnProgramLoad") || !this->FunctionExists("RegisterPlayer") || !this->FunctionExists("UnregisterPlayer") || !this->FunctionExists("GetPluginAuthor") || !this->FunctionExists("GetPluginVersion") || !this->FunctionExists("GetPluginName") || !this->FunctionExists("GetPluginWebsite"))
@@ -18,9 +13,6 @@ void Plugin::StartPlugin()
         PRINTF("Plugin", "Plugin File: %s\n", this->m_path.c_str());
         return;
     }
-
-    if (this->GetPluginType() == PluginType_t::PLUGIN_LUA)
-        SetupLuaEnvironment(this);
 
     this->ExecuteFunction<OnProgramLoadFunction>("OnProgramLoad", this->GetName().c_str(), std::string(PATH).append(WIN_LINUX("/bin/win64/swiftly.dll", "/bin/linuxsteamrt64/swiftly.so")).c_str());
 

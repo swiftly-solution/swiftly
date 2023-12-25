@@ -15,6 +15,9 @@
 #include <dlfcn.h>
 #endif
 
+class Plugin;
+void SetupLuaEnvironment(Plugin *plugin);
+
 class LuaFuncWrapper : public luacpp::LuaRefObject
 {
 public:
@@ -199,6 +202,8 @@ public:
                 std::string errstr;
                 if (!this->luaState->DoFile(file.c_str(), &errstr, nullptr))
                     PRINTF("LoadPlugin", "Failed to load plugin file '%s'\nError: %s\n", file.c_str(), errstr.c_str());
+                else
+                    SetupLuaEnvironment(this);
             }
         }
 

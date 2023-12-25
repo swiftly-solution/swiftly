@@ -34,6 +34,10 @@ typedef bool (*Plugin_OnClientGameMessage)(uint32, int, const char *);
 typedef void (*Plugin_OnPlayerDeath)(int, int, int, bool, const char *, bool, short, short, short, short, bool, bool, bool, bool, float, short, short, short);
 typedef void (*Plugin_OnPlayerHurt)(int, int, short, short, short, const char *);
 typedef bool (*Plugin_ShouldHearVoice)(uint32);
+typedef void (*OnPluginStartFunction)();
+typedef void (*OnPluginStopFunction)();
+typedef void (*OnProgramLoadFunction)(const char *, const char *);
+typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
 
 enum PlayerStat : int
 {
@@ -139,8 +143,6 @@ SMM_API bool scripting_Server_IsMapValid(const char *map);
 SMM_API const char *scripting_Translations_Fetch(const char *key);
 
 SMM_API void scripting_Print(const char *str);
-
-void SetupLuaEnvironment(Plugin *plugin);
 
 template <typename T, typename... Args>
 void CallCPPFunctionNoReturn(std::string function, Args... args);
