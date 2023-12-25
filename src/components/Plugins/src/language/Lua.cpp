@@ -4,10 +4,7 @@
 
 auto printfunc = [](const char *msg) -> void
 {
-    if (!g_SMAPI)
-        return;
-
-    g_SMAPI->ConPrint((std::string(msg) + "\n").c_str());
+    scripting_Print((std::string(msg) + "\n").c_str());
 };
 
 static const luaL_Reg lualibs[] = {

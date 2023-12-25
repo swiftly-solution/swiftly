@@ -7,7 +7,6 @@ SMM_API void scripting_Logger_CreateLogger(const char *plugin_name)
         return;
 
     g_Logger->AddLogger(plugin_name, true);
-    PRINTF("Logger - Scripting", "Creating logger '%s'....\n", plugin_name);
 }
 
 SMM_API void scripting_Logger_WriteLog(const char *plugin_name, ELogType log_type, const char *text)
