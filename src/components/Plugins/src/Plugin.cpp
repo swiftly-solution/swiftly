@@ -12,7 +12,7 @@ typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
 
 void Plugin::StartPlugin()
 {
-    if (!this->FunctionExists("OnProgramLoad") || !this->FunctionExists("RegisterPlayer") || !this->FunctionExists("GetPluginAuthor") || !this->FunctionExists("GetPluginVersion") || !this->FunctionExists("GetPluginName") || !this->FunctionExists("GetPluginWebsite"))
+    if (!this->FunctionExists("OnProgramLoad") || !this->FunctionExists("RegisterPlayer") || !this->FunctionExists("UnregisterPlayer") || !this->FunctionExists("GetPluginAuthor") || !this->FunctionExists("GetPluginVersion") || !this->FunctionExists("GetPluginName") || !this->FunctionExists("GetPluginWebsite"))
     {
         PRINT("Plugin", "Stopped loading plugin because the base functions are not present.\n");
         PRINTF("Plugin", "Plugin File: %s\n", this->m_path.c_str());
