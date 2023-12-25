@@ -35,6 +35,14 @@ typedef void (*Plugin_OnPlayerDeath)(int, int, int, bool, const char *, bool, sh
 typedef void (*Plugin_OnPlayerHurt)(int, int, short, short, short, const char *);
 typedef bool (*Plugin_ShouldHearVoice)(uint32);
 
+enum PlayerStat : int
+{
+    KILLS = 0,
+    DEATHS = 1,
+    ASSISTS = 2,
+    DAMAGE = 3
+};
+
 void scripting_Commands_RegisterCommand(const char *pluginName, const char *name, void *funcPtr);
 void scripting_Commands_UnregisterCommand(const char *name);
 
@@ -138,13 +146,5 @@ template <typename T, typename... Args>
 void CallCPPFunctionNoReturn(std::string function, Args... args);
 template <typename... Args>
 void CallLuaFunctionNoReturn(std::string function, Args... args);
-
-enum PlayerStat : int
-{
-    KILLS = 0,
-    DEATHS = 1,
-    ASSISTS = 2,
-    DAMAGE = 3
-};
 
 #endif
