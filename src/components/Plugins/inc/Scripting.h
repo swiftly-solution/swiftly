@@ -144,6 +144,12 @@ SMM_API const char *scripting_Translations_Fetch(const char *key);
 
 SMM_API void scripting_Print(const char *str);
 
+void SetupLuaConfiguration(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaTranslation(luacpp::LuaState *state, Plugin *plugin);
+
 template <typename T, typename... Args>
 void CallCPPFunctionNoReturn(std::string function, Args... args);
 template <typename... Args>

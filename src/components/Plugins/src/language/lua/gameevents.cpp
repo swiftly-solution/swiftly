@@ -1,4 +1,4 @@
-#include "../../inc/Scripting.h"
+#include "../../../inc/Scripting.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4146)
@@ -7,128 +7,9 @@
 #include <luacpp/luacpp.h>
 #include <luacpp/func_utils.h>
 
-#include <rapidjson/document.h>
-#include <rapidjson/writer.h>
-#include <rapidjson/stringbuffer.h>
-#include <rapidjson/error/en.h>
-
-class LuaPlayerClass
+void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin)
 {
-public:
-    int playerSlot;
-    bool fakeClient;
-    bool firstSpawn = false;
-
-    LuaPlayerClass(int m_playerSlot, bool m_fakeClient) : playerSlot(m_playerSlot), fakeClient(m_fakeClient) {}
-};
-
-class LuaConfigClass
-{
-public:
-    LuaConfigClass() {}
-};
-
-class LuaLoggerClass
-{
-public:
-    LuaLoggerClass(const char *plugin_name) { scripting_Logger_CreateLogger(plugin_name); }
-};
-
-auto printfunc = [](const char *msg) -> void
-{
-    if (std::string(msg).size() == 0)
-        return;
-
-    scripting_Print((std::string(msg) + "\n").c_str());
-};
-
-static const luaL_Reg lualibs[] = {
-    {"_G", luaopen_base},
-    {LUA_TABLIBNAME, luaopen_table},
-    {LUA_STRLIBNAME, luaopen_string},
-    {LUA_MATHLIBNAME, luaopen_math},
-    {LUA_DBLIBNAME, luaopen_debug},
-    {LUA_COLIBNAME, luaopen_coroutine},
-    {LUA_UTF8LIBNAME, luaopen_utf8},
-    {LUA_IOLIBNAME, luaopen_io},
-    {LUA_OSLIBNAME, luaopen_os},
-    {NULL, NULL},
-};
-
-void SetupLuaEnvironment(Plugin *plugin)
-{
-    const luaL_Reg *lib = lualibs;
-    for (; lib->func; lib++)
-    {
-        luaL_requiref(plugin->GetLuaRawState(), lib->name, lib->func, 1);
-        lua_pop(plugin->GetLuaRawState(), 1);
-    }
-
-    luacpp::LuaState *state = plugin->GetLuaState();
-
-    // Core
-    state->CreateFunction(printfunc, "print");
-    state->CreateFunction([plugin]() -> const char *
-                          { return plugin->GetName().c_str(); },
-                          "PluginName");
-
-    // Configuration
-
-    auto configClass = state->CreateClass<LuaConfigClass>("Configuration").DefConstructor();
-
-    configClass.DefMember("Exists", [](LuaConfigClass *base, const char *key) -> bool
-                          { return scripting_Configuration_Exists(key); })
-        .DefMember("FetchArraySize", [](LuaConfigClass *base, const char *key) -> uint32
-                   { return scripting_Configuration_FetchArraySize(key); })
-        .DefMember("Fetch", [state](LuaConfigClass *base, const char *key) -> luacpp::LuaObject
-                   { 
-                        const char *data = scripting_Configuration_Fetch(key);
-
-                        rapidjson::Document document;
-                        document.Parse(data);
-
-                        if (document.HasParseError()) {
-                            PRINTF("Runtime", "An error has occured while reading configuration from memory.\nError: %s\n", GetParseError_En(document.GetParseError()));
-                            return state->CreateNil();
-                        }
-
-                        if (document["value"].IsString())
-                            return state->CreateString(document["value"].GetString());
-                        else if (document["value"].IsInt())
-                            return state->CreateInteger(document["value"].GetInt());
-                        else if (document["value"].IsInt64())
-                            return state->CreateInteger(document["value"].GetInt64());
-                        else if (document["value"].IsUint())
-                            return state->CreateInteger(document["value"].GetUint());
-                        else if (document["value"].IsUint64())
-                            return state->CreateInteger(document["value"].GetUint64());
-                        else if (document["value"].IsBool())
-                            return state->CreateInteger(document["value"].GetBool());
-                        else if (document["value"].IsFloat())
-                            return state->CreateNumber(document["value"].GetFloat());
-                        else if (document["value"].IsDouble())
-                            return state->CreateNumber(document["value"].GetDouble());
-                        else
-                            return state->CreateNil(); });
-
-    state->DoString("config = Configuration()");
-
-    // Logger
-    state->CreateInteger(1, "LOGLEVEL_DEBUG");
-    state->CreateInteger(2, "LOGLEVEL_WARNING");
-    state->CreateInteger(3, "LOGLEVEL_ERROR");
-    state->CreateInteger(4, "LOGLEVEL_COMMON");
-
-    auto loggerClass = state->CreateClass<LuaLoggerClass>("Logger").DefConstructor<const char *>();
-
-    loggerClass.DefMember("Write", [plugin](LuaLoggerClass *base, int level, const char *message)
-                          { scripting_Logger_WriteLog(plugin->GetName().c_str(), (ELogType)level, message); });
-
-    state->DoString("logger = Logger(PluginName())");
-
-    // Player - Core
-    auto playersTable = state->CreateTable("players");
-    auto playerClass = state->CreateClass<LuaPlayerClass>("Player").DefConstructor<int, bool>();
+    state->CreateTable("players");
 
     state->DoString("function Internal_RegisterPlayer(slot, fake) players[slot] = Player(slot, fake); end");
     state->DoString("function Internal_UnregisterPlayer(slot) players[slot] = nil; end");
@@ -169,21 +50,5 @@ void SetupLuaEnvironment(Plugin *plugin)
     state->DoString("function Internal_OnPlayerChat(slot, text, teamonly) if not OnPlayerChat then return true end if not players[slot] then return false end return OnPlayerChat(players[slot], text, teamonly) end");
     state->DoString("function Internal_OnPlayerSpawn(slot) if not players[slot] then return end if OnPlayerSpawn then OnPlayerSpawn(players[slot]) end if not players[slot]:IsFirstSpawn() then players[slot]:SetFirstSpawn(true) end end");
 
-    // Player - Class
-
-    playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
-                          { return scripting_Player_GetSteamID(base->playerSlot); })
-        .DefMember("GetName", [](LuaPlayerClass *base) -> const char *
-                   { return scripting_Player_GetName(base->playerSlot); })
-        .DefMember("GetHealth", [](LuaPlayerClass *base) -> int
-                   { return scripting_Player_GetHealth(base->playerSlot); })
-        .DefMember("IsFirstSpawn", [](LuaPlayerClass *base) -> bool
-                   { return (base->firstSpawn == false); })
-        .DefMember("SetFirstSpawn", [](LuaPlayerClass *base, bool firstSpawn) -> void
-                   { base->firstSpawn = firstSpawn; });
-
-    // Translation
-    state->CreateFunction([](const char *key) -> const char *
-                          { return scripting_Translations_Fetch(key); },
-                          "FetchTranslation");
+    PRINT("Scripting - Lua", "Game Events loaded.\n");
 }
