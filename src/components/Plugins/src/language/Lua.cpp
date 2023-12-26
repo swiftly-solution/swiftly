@@ -28,6 +28,12 @@ public:
     LuaConfigClass() {}
 };
 
+class LuaLoggerClass
+{
+public:
+    LuaLoggerClass(const char *plugin_name) { scripting_Logger_CreateLogger(plugin_name); }
+};
+
 auto printfunc = [](const char *msg) -> void
 {
     if (std::string(msg).size() == 0)
@@ -62,6 +68,9 @@ void SetupLuaEnvironment(Plugin *plugin)
 
     // Core
     state->CreateFunction(printfunc, "print");
+    state->CreateFunction([plugin]() -> const char *
+                          { return plugin->GetName().c_str(); },
+                          "PluginName");
 
     // Configuration
 
@@ -102,11 +111,25 @@ void SetupLuaEnvironment(Plugin *plugin)
                         else
                             return state->CreateNil(); });
 
+    state->DoString("config = Configuration()");
+
+    // Logger
+    state->CreateInteger(1, "LOGLEVEL_DEBUG");
+    state->CreateInteger(2, "LOGLEVEL_WARNING");
+    state->CreateInteger(3, "LOGLEVEL_ERROR");
+    state->CreateInteger(4, "LOGLEVEL_COMMON");
+
+    auto loggerClass = state->CreateClass<LuaLoggerClass>("Logger").DefConstructor<const char *>();
+
+    loggerClass.DefMember("Write", [plugin](LuaLoggerClass *base, int level, const char *message)
+                          { scripting_Logger_WriteLog(plugin->GetName().c_str(), (ELogType)level, message); });
+
+    state->DoString("logger = Logger(PluginName())");
+
     // Player - Core
     auto playersTable = state->CreateTable("players");
     auto playerClass = state->CreateClass<LuaPlayerClass>("Player").DefConstructor<int, bool>();
 
-    state->DoString("config = Configuration()");
     state->DoString("function Internal_RegisterPlayer(slot, fake) players[slot] = Player(slot, fake); end");
     state->DoString("function Internal_UnregisterPlayer(slot) players[slot] = nil; end");
     state->DoString("function Internal_OnProgramLoad(plugin_name, bin) if OnProgramLoad then OnProgramLoad(plugin_name, bin) end end");
