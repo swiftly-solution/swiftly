@@ -10,7 +10,7 @@ SMM_API void scripting_Commands_RegisterCommand(const char *pluginName, const ch
         return;
     }
 
-    Command *newcmd = new Command(pluginName, funcPtr);
+    Command *newcmd = new Command(pluginName, funcPtr, name);
     g_commandsManager->RegisterCommand(pluginName, name, newcmd);
 }
 

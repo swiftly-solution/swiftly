@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 #include "Command.h"
+#include <luacpp/luacpp.h>
 
 class CBasePlayerController;
 
@@ -14,6 +15,8 @@ private:
     std::map<std::string, std::vector<std::string>> commandsByPlugin;
 
 public:
+    std::map<std::string, luacpp::LuaFunction> commandsLuaReference;
+
     CommandsManager() {}
     ~CommandsManager() {}
 

@@ -107,5 +107,7 @@ bool CommandsManager::UnregisterCommand(std::string cmd)
 
     this->commandsByPlugin[command->GetPluginName()].erase(std::find(this->commandsByPlugin[command->GetPluginName()].begin(), this->commandsByPlugin[command->GetPluginName()].end(), cmd));
     this->commands.erase(cmd);
+    if (this->commandsLuaReference.find(cmd) != this->commandsLuaReference.end())
+        this->commandsLuaReference.erase(cmd);
     return true;
 }

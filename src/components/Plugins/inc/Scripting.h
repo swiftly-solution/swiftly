@@ -144,6 +144,7 @@ SMM_API const char *scripting_Translations_Fetch(const char *key);
 
 SMM_API void scripting_Print(const char *str);
 
+void SetupLuaCommands(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaConfiguration(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin);
