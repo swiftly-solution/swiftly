@@ -25,6 +25,11 @@ for sdk_name in MMSPlugin.sdks:
             if fnmatch.fnmatch(_file, '*.cpp'):
                 binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
+    for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'vendor', 'lua-rapidjson', "src")):
+        for _file in files:
+            if fnmatch.fnmatch(_file, '*.cpp'):
+                binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
+
 
     binary.compiler.cxxincludes += [
       os.path.join(builder.sourcePath, 'vendor', 'rapidjson', 'include'),
