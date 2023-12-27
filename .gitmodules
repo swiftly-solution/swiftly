@@ -15,3 +15,6 @@
 	path = vendor/luacpp
 	url = https://github.com/ouonline/luacpp
 	
+[submodule "vendor/lua-rapidjson"]
+	path = vendor/lua-rapidjson
+	url = https://github.com/xpol/lua-rapidjson
