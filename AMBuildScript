@@ -231,6 +231,7 @@ class MMSPluginConfig(object):
         '-Wno-attributes',
         '-Wno-unused',
         '-Wno-switch',
+        '-Wno-sign-compare',
         '-msse',
         '-fPIC',
         '-fexceptions',
