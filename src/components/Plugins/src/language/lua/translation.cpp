@@ -15,9 +15,7 @@ public:
 
 void SetupLuaTranslation(luacpp::LuaState *state, Plugin *plugin)
 {
-    state->CreateFunction([](const char *key) -> const char *
-                          { return scripting_Translations_Fetch(key); },
-                          "FetchTranslation");
+    state->CreateFunction(scripting_Translations_Fetch, "FetchTranslation");
 
     PRINT("Scripting - Lua", "Translation loaded.\n");
 }
