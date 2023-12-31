@@ -7,7 +7,10 @@
 #include <luacpp/luacpp.h>
 #include <luacpp/func_utils.h>
 
-extern "C" LUALIB_API int luaopen_rapidjson(lua_State *L);
+extern "C"
+{
+    LUALIB_API int luaopen_rapidjson(lua_State *L);
+}
 
 static const luaL_Reg lualibs[] = {
     {"_G", luaopen_base},
