@@ -36,13 +36,6 @@ void Plugin::StopPlugin()
     if (this->FunctionExists("OnPluginStop"))
         this->ExecuteFunction<OnPluginStopFunction>("OnPluginStop");
 
-    if (this->GetPluginType() == PluginType_t::PLUGIN_CPP)
-        dlclose(this->m_hModule);
-    else if (this->GetPluginType() == PluginType_t::PLUGIN_LUA)
-        delete this->luaState;
-
-    this->cppFunctions.clear();
-    this->luaFunctions.clear();
     std::vector<std::string> cmds = g_commandsManager->FetchCommandsByPlugin(this->GetName());
     for (uint32 i = 0; i < cmds.size(); i++)
         g_commandsManager->UnregisterCommand(cmds[i]);

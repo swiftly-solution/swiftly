@@ -11,12 +11,39 @@
 #include <algorithm>
 #include <type_traits>
 
-#ifndef _WIN32
-#include <dlfcn.h>
-#endif
-
 class Plugin;
 void SetupLuaEnvironment(Plugin *plugin);
+
+const std::vector<std::string> funcsToLoad = {
+    "RegisterPlayer",
+    "UnregisterPlayer",
+    "OnProgramLoad",
+    "OnPluginStart",
+    "OnPluginStop",
+    "OnClientConnect",
+    "OnClientDisconnect",
+    "OnPlayerSpawn",
+    "OnGameTick",
+    "OnPlayerChat",
+    "OnRoundStart",
+    "OnRoundPrestart",
+    "OnRoundEnd",
+    "BombBeginPlant",
+    "BombAbortPlant",
+    "BombPlanted",
+    "BombBeginDefuse",
+    "BombAbortDefuse",
+    "BombDefused",
+    "BombExploded",
+    "BombDropped",
+    "BombPickup",
+    "OnMapLoad",
+    "OnMapUnload",
+    "OnClientGameMessage",
+    "OnPlayerDeath",
+    "OnPlayerHurt",
+    "ShouldHearVoice",
+};
 
 class LuaFuncWrapper : public luacpp::LuaRefObject
 {
@@ -94,76 +121,19 @@ public:
     }
 };
 
-const std::vector<std::string> funcsToLoad = {
-    "RegisterPlayer",
-    "UnregisterPlayer",
-    "OnProgramLoad",
-    "OnPluginStart",
-    "OnPluginStop",
-    "OnClientConnect",
-    "OnClientDisconnect",
-    "OnPlayerSpawn",
-    "OnGameTick",
-    "OnPlayerChat",
-    "OnRoundStart",
-    "OnRoundPrestart",
-    "OnRoundEnd",
-    "BombBeginPlant",
-    "BombAbortPlant",
-    "BombPlanted",
-    "BombBeginDefuse",
-    "BombAbortDefuse",
-    "BombDefused",
-    "BombExploded",
-    "BombDropped",
-    "BombPickup",
-    "OnMapLoad",
-    "OnMapUnload",
-    "OnClientGameMessage",
-    "OnPlayerDeath",
-    "OnPlayerHurt",
-    "ShouldHearVoice",
-};
-
 class Plugin
 {
 private:
-    std::string m_path;
-    std::map<std::string, void *> cppFunctions;
-    std::map<std::string, luacpp::LuaObject> luaFunctions;
-    HINSTANCE m_hModule;
     std::string m_pluginName;
     bool isPluginLoaded = false;
     PluginType_t pluginType;
-    luacpp::LuaState *luaState;
-    lua_State *rawLuaState;
 
-    void RegisterFunction(std::string function)
-    {
-
-        if (this->GetPluginType() == PluginType_t::PLUGIN_CPP)
-        {
-            if (this->cppFunctions.find(function) != this->cppFunctions.end())
-                return;
-            void *func = reinterpret_cast<void *>(dlsym(this->m_hModule, function.c_str()));
-            if (func == nullptr)
-                return;
-
-            this->cppFunctions.insert(std::make_pair(function, func));
-        }
-        else if (this->GetPluginType() == PluginType_t::PLUGIN_LUA)
-        {
-            if (this->luaState)
-            {
-                luacpp::LuaObject obj = this->luaState->Get(function.c_str());
-
-                if (obj.GetType() == LUA_TFUNCTION)
-                    this->luaFunctions.insert(std::make_pair(function, obj));
-            }
-        }
-    }
+    virtual void RegisterFunction(std::string function) = 0;
+    virtual bool InternalLoadPlugin() = 0;
 
 public:
+    std::string m_path;
+
     Plugin(std::string path, std::string name, PluginType_t pluginType) : m_path(path)
     {
         this->m_pluginName = name;
@@ -172,39 +142,12 @@ public:
     ~Plugin()
     {
         this->m_path.clear();
-        dlclose(this->m_hModule);
     }
 
     void LoadPlugin()
     {
-        if (this->GetPluginType() == PluginType_t::PLUGIN_CPP)
-        {
-#ifdef _WIN32
-            this->m_hModule = dlmount(this->m_path.c_str());
-#else
-            this->m_hModule = dlopen(string_format("%s/%s", std::filesystem::current_path().string().c_str(), this->m_path.c_str()).c_str(), RTLD_NOW);
-
-            if (!this->m_hModule)
-            {
-                PRINTF("LoadPlugin", "Failed to load module: %s\n", std::string(dlerror()).c_str());
-                return;
-            }
-#endif
-        }
-        else if (this->GetPluginType() == PluginType_t::PLUGIN_LUA)
-        {
-            this->rawLuaState = luaL_newstate();
-            this->luaState = new luacpp::LuaState(this->rawLuaState, true);
-
-            std::vector<std::string> files = Files::FetchFileNames(this->m_path);
-            for (std::string file : files)
-            {
-                std::string errstr;
-                SetupLuaEnvironment(this);
-                if (!this->luaState->DoFile(file.c_str(), &errstr, nullptr))
-                    PRINTF("LoadPlugin", "Failed to load plugin file '%s'\nError: %s\n", file.c_str(), errstr.c_str());
-            }
-        }
+        if (!this->InternalLoadPlugin())
+            return;
 
         for (std::string func : funcsToLoad)
             this->RegisterFunction("Internal_" + func);
@@ -223,18 +166,8 @@ public:
     PluginType_t GetPluginType() { return this->pluginType; }
     void SetPluginType(PluginType_t plType) { this->pluginType = plType; }
 
-    void *FetchCPPFunction(std::string function)
-    {
-        if (this->cppFunctions.find(function) == this->cppFunctions.end())
-            return nullptr;
-
-        return this->cppFunctions.at(function);
-    }
-
-    luacpp::LuaObject FetchLuaFunction(std::string function)
-    {
-        return this->luaFunctions.at(function);
-    }
+    virtual void *FetchCPPFunction(std::string function) = 0;
+    virtual luacpp::LuaObject FetchLuaFunction(std::string function) = 0;
 
     template <typename T, typename... Args>
     void ExecuteFunction(std::string function, Args &&...args)
@@ -291,21 +224,12 @@ public:
             return (Ret) false;
     }
 
-    bool FunctionExists(std::string function)
-    {
-        if (std::find(funcsToLoad.begin(), funcsToLoad.end(), function) != funcsToLoad.end())
-            function = "Internal_" + function;
+    virtual bool FunctionExists(std::string function) = 0;
 
-        if (this->GetPluginType() == PluginType_t::PLUGIN_CPP)
-            return (this->cppFunctions.find(function) != this->cppFunctions.end());
-        if (this->GetPluginType() == PluginType_t::PLUGIN_LUA)
-            return (this->luaFunctions.find(function) != this->luaFunctions.end());
-        else
-            return false;
-    }
+    virtual luacpp::LuaState *GetLuaState() = 0;
+    virtual lua_State *GetLuaRawState() = 0;
 
-    luacpp::LuaState *GetLuaState() { return this->luaState; }
-    lua_State *GetLuaRawState() { return this->rawLuaState; }
+    virtual void DestroyPluginEnvironment() = 0;
 };
 
 std::map<std::string, Plugin *> FetchPluginsMap();

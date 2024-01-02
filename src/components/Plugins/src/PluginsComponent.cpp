@@ -1,7 +1,8 @@
 #include "../inc/PluginsComponent.h"
 #include "../../../common.h"
 #include "../../../files/Files.h"
-#include "../inc/Plugin.h"
+#include "../inc/plugins/CPPPlugin.h"
+#include "../inc/plugins/LuaPlugin.h"
 
 std::map<std::string, Plugin *> pluginsMap;
 
@@ -44,12 +45,12 @@ void PluginsComponent::LoadPlugin(std::string init_path, std::string dir)
     {
         if (ends_with(file, WIN_LINUX(".dll", ".so")))
         {
-            plugin = new Plugin(file, dir, PluginType_t::PLUGIN_CPP);
+            plugin = new CPPPlugin(file, dir, PluginType_t::PLUGIN_CPP);
             break;
         }
         else if (ends_with(file, ".lua"))
         {
-            plugin = new Plugin("addons/swiftly/plugins/" + dir, dir, PluginType_t::PLUGIN_LUA);
+            plugin = new LuaPlugin(std::string("addons/swiftly/plugins/" + dir), dir, PluginType_t::PLUGIN_LUA);
             break;
         }
     }

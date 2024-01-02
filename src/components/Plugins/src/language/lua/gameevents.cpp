@@ -21,7 +21,7 @@ void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin)
                     "if not players[slot] then return end "
                     "if not players[attacker] then return end "
                     "OnPlayerHurt(players[slot], players[attacker], dmgHealth, dmgArmor, hitgroup, weapon, ((players[slot]:GetHealth() - dmgHealth) <= 0)) end");
-    state->DoString("function Internal_OnPluginStart() print(\"\"); if OnPluginStart then OnPluginStart() end end");
+    state->DoString("function Internal_OnPluginStart() if OnPluginStart then OnPluginStart() end end");
     state->DoString("function Internal_OnPluginStop() if OnPluginStop then OnPluginStop() end end");
     state->DoString("function Internal_OnClientDisconnect(slot) if not OnClientDisconnect then return end if not players[slot] then return end OnClientDisconnect(players[slot]) end");
     state->DoString("function Internal_OnPlayerDeath(slot, attacker, assister, assistedflash, weapon, headshot, dominated, revenge, wipe, penetrated, noreplay, noscope, thrusmoke, attackerblind, distance, dmg_health, dmg_armor, hitgroup) "
