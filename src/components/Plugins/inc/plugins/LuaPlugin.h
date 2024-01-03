@@ -43,6 +43,7 @@ private:
             }
         }
 
+        this->luaState->DoString("events:on(\"OnPlayerSpawn\", function(playerID) player:SetFirstSpawn(true) end)");
         return true;
     }
 
