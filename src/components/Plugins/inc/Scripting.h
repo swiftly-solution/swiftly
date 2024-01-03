@@ -149,6 +149,7 @@ void SetupLuaConfiguration(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaPrecacher(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaServer(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaTranslation(luacpp::LuaState *state, Plugin *plugin);
 
