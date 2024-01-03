@@ -1,38 +1,38 @@
 #include "../../inc/Scripting.h"
 
-#define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                                      \
+#define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                                                   \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                        \
+    {                                                                                                  \
+        Plugin *plugin = plugins[i];                                                                   \
+        if (plugin->IsPluginLoaded())                                                                  \
+        {                                                                                              \
+            ExecuteGameEventWithNoReturn<Plugin_##FUNCTION_NAME>(plugin, #FUNCTION_NAME, __VA_ARGS__); \
+        }                                                                                              \
+    }
+
+#define CALL_PFUNCTION_VOID_NOARGS(FUNCTION_NAME)                                         \
     for (uint32 i = 0; i < plugins.size(); i++)                                           \
     {                                                                                     \
         Plugin *plugin = plugins[i];                                                      \
         if (plugin->IsPluginLoaded())                                                     \
         {                                                                                 \
-            plugin->ExecuteFunction<Plugin_##FUNCTION_NAME>(#FUNCTION_NAME, __VA_ARGS__); \
+            ExecuteGameEventWithNoReturn<Plugin_##FUNCTION_NAME>(plugin, #FUNCTION_NAME); \
         }                                                                                 \
     }
 
-#define CALL_PFUNCTION_VOID_NOARGS(FUNCTION_NAME)                            \
-    for (uint32 i = 0; i < plugins.size(); i++)                              \
-    {                                                                        \
-        Plugin *plugin = plugins[i];                                         \
-        if (plugin->IsPluginLoaded())                                        \
-        {                                                                    \
-            plugin->ExecuteFunction<Plugin_##FUNCTION_NAME>(#FUNCTION_NAME); \
-        }                                                                    \
-    }
-
-#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                                       \
-    for (uint32 i = 0; i < plugins.size(); i++)                                                                    \
-    {                                                                                                              \
-        Plugin *plugin = plugins[i];                                                                               \
-        if (plugin->IsPluginLoaded())                                                                              \
-        {                                                                                                          \
-            if (plugin->FunctionExists(#FUNCTION_NAME))                                                            \
-            {                                                                                                      \
-                if (!plugin->ExecuteFunctionWithReturn<bool, Plugin_##FUNCTION_NAME>(#FUNCTION_NAME, __VA_ARGS__)) \
-                    return FALSE_VALUE;                                                                            \
-            }                                                                                                      \
-        }                                                                                                          \
-    }                                                                                                              \
+#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                                                                \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                                                             \
+    {                                                                                                                                       \
+        Plugin *plugin = plugins[i];                                                                                                        \
+        if (plugin->IsPluginLoaded())                                                                                                       \
+        {                                                                                                                                   \
+            if (plugin->FunctionExists(#FUNCTION_NAME))                                                                                     \
+            {                                                                                                                               \
+                if (!ExecuteGameEventWithReturn<bool, Plugin_##FUNCTION_NAME>(plugin, FALSE_VALUE, RET_VALUE, #FUNCTION_NAME, __VA_ARGS__)) \
+                    return FALSE_VALUE;                                                                                                     \
+            }                                                                                                                               \
+        }                                                                                                                                   \
+    }                                                                                                                                       \
     return RET_VALUE;
 
 std::vector<int> GetBombSites()
@@ -44,6 +44,65 @@ std::vector<int> GetBombSites()
         sites.push_back(siteEntity->GetEntityIndex().Get());
 
     return sites;
+}
+
+extern std::map<std::string, std::map<std::string, std::vector<luacpp::LuaObject>>> lua_game_events;
+
+template <typename T, typename... Args>
+void ExecuteGameEventWithNoReturn(Plugin *plugin, std::string game_event_name, Args &&...args)
+{
+    if (plugin->GetPluginType() == PluginType_t::PLUGIN_CPP)
+        plugin->ExecuteFunction<T>(game_event_name, args...);
+    else if (plugin->GetPluginType() == PluginType_t::PLUGIN_LUA)
+    {
+        if (lua_game_events.find(plugin->GetName()) == lua_game_events.end())
+            return;
+
+        std::map<std::string, std::vector<luacpp::LuaObject>> game_events = lua_game_events.at(plugin->GetName());
+        if (game_events.find(game_event_name) == game_events.end())
+            return;
+
+        std::vector<luacpp::LuaObject> eventsList = game_events.at(game_event_name);
+
+        for (luacpp::LuaObject &obj : eventsList)
+        {
+            LuaFuncWrapper func(obj);
+            func.PrepForExec();
+            luacpp::PushValues(func.GetML(), std::forward<Args>(args)...);
+            func.ExecuteNoReturn(game_event_name, sizeof...(Args));
+        }
+    }
+}
+
+template <typename Ret, typename T, typename... Args>
+Ret ExecuteGameEventWithReturn(Plugin *plugin, Ret falseValue, Ret trueValue, std::string game_event_name, Args &&...args)
+{
+    if (plugin->GetPluginType() == PluginType_t::PLUGIN_CPP)
+        return plugin->ExecuteFunctionWithReturn<Ret, T>(game_event_name, args...);
+    else if (plugin->GetPluginType() == PluginType_t::PLUGIN_LUA)
+    {
+        if (lua_game_events.find(plugin->GetName()) == lua_game_events.end())
+            return falseValue;
+
+        std::map<std::string, std::vector<luacpp::LuaObject>> game_events = lua_game_events.at(plugin->GetName());
+        if (game_events.find(game_event_name) == game_events.end())
+            return falseValue;
+
+        std::vector<luacpp::LuaObject> eventsList = game_events.at(game_event_name);
+
+        for (luacpp::LuaObject &obj : eventsList)
+        {
+            LuaFuncWrapper func(obj);
+            func.PrepForExec();
+            luacpp::PushValues(func.GetML(), std::forward<Args>(args)...);
+            if (func.ExecuteWithReturn<Ret>(game_event_name, sizeof...(Args)) == falseValue)
+                return falseValue;
+        }
+
+        return trueValue;
+    }
+    else
+        return falseValue;
 }
 
 bool scripting_OnClientConnect(const OnClientConnect *e)

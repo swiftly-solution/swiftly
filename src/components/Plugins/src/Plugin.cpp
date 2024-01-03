@@ -5,6 +5,9 @@
 #include "../../../player/PlayerManager.h"
 #include <luacpp/luacpp.h>
 
+template <typename T, typename... Args>
+void ExecuteGameEventWithNoReturn(Plugin *plugin, std::string game_event_name, Args &&...args);
+
 void Plugin::StartPlugin()
 {
     if (!this->FunctionExists("OnProgramLoad") || !this->FunctionExists("RegisterPlayer") || !this->FunctionExists("UnregisterPlayer") || !this->FunctionExists("GetPluginAuthor") || !this->FunctionExists("GetPluginVersion") || !this->FunctionExists("GetPluginName") || !this->FunctionExists("GetPluginWebsite"))
@@ -25,16 +28,14 @@ void Plugin::StartPlugin()
         this->ExecuteFunction<Plugin_OnPlayerRegister>("RegisterPlayer", player->GetSlot()->Get(), player->IsFakeClient());
     }
 
-    if (this->FunctionExists("OnPluginStart"))
-        this->ExecuteFunction<OnPluginStartFunction>("OnPluginStart");
+    ExecuteGameEventWithNoReturn<OnPluginStartFunction>(this, "OnPluginStart");
 
     this->SetPluginLoaded(true);
 }
 
 void Plugin::StopPlugin()
 {
-    if (this->FunctionExists("OnPluginStop"))
-        this->ExecuteFunction<OnPluginStopFunction>("OnPluginStop");
+    ExecuteGameEventWithNoReturn<OnPluginStopFunction>(this, "OnPluginStop");
 
     std::vector<std::string> cmds = g_commandsManager->FetchCommandsByPlugin(this->GetName());
     for (uint32 i = 0; i < cmds.size(); i++)
