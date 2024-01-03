@@ -18,8 +18,6 @@ public:
 
 void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin)
 {
-    state->CreateTable("players");
-
     auto eventsClass = state->CreateClass<LuaGameEvents>("Events").DefConstructor();
 
     eventsClass.DefMember("on", [plugin](LuaGameEvents *base, const char *eventName, const luacpp::LuaObject &function) -> void

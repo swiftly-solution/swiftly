@@ -36,6 +36,7 @@ void SetupLuaEnvironment(Plugin *plugin)
     }
 
     luacpp::LuaState *state = plugin->GetLuaState();
+    luacpp::LuaTable playerTable = state->CreateTable("players");
 
     state->CreateFunction([plugin]() -> void
                           {
@@ -65,6 +66,11 @@ void SetupLuaEnvironment(Plugin *plugin)
     state->CreateFunction([plugin]() -> const char *
                           { return plugin->GetName().c_str(); },
                           "PluginName");
+    state->CreateFunction([plugin, playerTable, state](int playerID) -> luacpp::LuaObject
+                          {
+        if(playerTable.Get(playerID).GetType() == LUA_TNIL) return state->CreateNil();
+        else return playerTable.Get(playerID); },
+                          "GetPlayer");
 
     PRINT("Scripting - Lua", "Core loaded.\n");
 

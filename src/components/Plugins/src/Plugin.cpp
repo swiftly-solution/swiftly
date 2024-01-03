@@ -37,6 +37,7 @@ void Plugin::StopPlugin()
 {
     ExecuteGameEventWithNoReturn<OnPluginStopFunction>(this, "OnPluginStop");
 
+    this->DestroyPluginEnvironment();
     std::vector<std::string> cmds = g_commandsManager->FetchCommandsByPlugin(this->GetName());
     for (uint32 i = 0; i < cmds.size(); i++)
         g_commandsManager->UnregisterCommand(cmds[i]);

@@ -5,6 +5,8 @@
 
 #include "../Plugin.h"
 
+extern std::map<std::string, std::map<std::string, std::vector<luacpp::LuaObject>>> lua_game_events;
+
 class LuaPlugin : public Plugin
 {
 private:
@@ -36,6 +38,7 @@ private:
             if (!this->luaState->DoFile(file.c_str(), &errstr, nullptr))
             {
                 PRINTF("LoadPlugin", "Failed to load plugin file '%s'\nError: %s\n", file.c_str(), errstr.c_str());
+                this->StopPlugin();
                 return false;
             }
         }
@@ -103,7 +106,10 @@ public:
     void DestroyPluginEnvironment()
     {
         delete this->luaState;
+        delete this->rawLuaState;
         this->luaFunctions.clear();
+        if (lua_game_events.find(this->GetName()) != lua_game_events.end())
+            lua_game_events.erase(this->GetName());
     }
 };
 
