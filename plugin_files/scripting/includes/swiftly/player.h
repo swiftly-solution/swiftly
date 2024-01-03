@@ -15,6 +15,7 @@
 #include "player/stats.h"
 #include "player/coords.h"
 #include "player/money.h"
+#include "player/velocity.h"
 
 class Player
 {
@@ -32,6 +33,7 @@ public:
     Stats *stats;
     Coords *coords;
     Money *money;
+    Velocity *velocity;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -44,6 +46,7 @@ public:
         this->stats = new Stats(playerSlot);
         this->coords = new Coords(playerSlot);
         this->money = new Money(playerSlot);
+        this->velocity = new Velocity(playerSlot);
     }
 
     ~Player()
@@ -56,6 +59,7 @@ public:
         delete this->stats;
         delete this->coords;
         delete this->money;
+        delete this->velocity;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }

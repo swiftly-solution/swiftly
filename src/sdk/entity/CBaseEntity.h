@@ -106,6 +106,7 @@ public:
     SCHEMA_FIELD_OFFSET(LifeState_t, m_lifeState, 0)
     SCHEMA_FIELD_OFFSET(CCollisionProperty *, m_pCollision, 0)
     SCHEMA_FIELD_OFFSET(CBodyComponent *, m_CBodyComponent, 0)
+    SCHEMA_FIELD_OFFSET(Vector, m_vecAbsVelocity, 0)
 
     int EntityIndex() { return this->m_pEntity->GetRefEHandle().GetEntryIndex(); }
 

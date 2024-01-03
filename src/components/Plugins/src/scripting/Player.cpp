@@ -375,6 +375,37 @@ SMM_API void scripting_Player_SetCoords(uint32 playerId, float x, float y, float
     player->SetCoords(x, y, z);
 }
 
+SMM_API const char *scripting_Player_GetVelocity(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "";
+
+    CBasePlayerPawn *pawn = player->GetPawn();
+    if (!pawn)
+        return "";
+
+    std::string data = SerializeData(pawn->m_vecAbsVelocity());
+
+    char *result = new char[data.size() + 1];
+    strcpy(result, data.c_str());
+    return result;
+}
+
+SMM_API void scripting_Player_SetVelocity(uint32 playerId, float x, float y, float z)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerPawn *pawn = player->GetPawn();
+    if (!pawn)
+        return;
+
+    Vector vec(x, y, z);
+    pawn->m_vecAbsVelocity = vec;
+}
+
 SMM_API int scripting_Player_GetMoney(uint32 playerId)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
