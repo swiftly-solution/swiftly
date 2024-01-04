@@ -107,7 +107,7 @@ public:
     void DestroyPluginEnvironment()
     {
         delete this->luaState;
-        delete this->rawLuaState;
+        this->rawLuaState = luaL_newstate();
         this->luaFunctions.clear();
         if (lua_game_events.find(this->GetName()) != lua_game_events.end())
             lua_game_events.erase(this->GetName());
