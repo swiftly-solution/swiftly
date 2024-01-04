@@ -66,14 +66,14 @@ void SetupLuaEnvironment(Plugin *plugin)
     state->CreateFunction([plugin]() -> const char *
                           { return plugin->GetName().c_str(); },
                           "PluginName");
-    state->CreateFunction([plugin, playerTable, state](int playerID) -> luacpp::LuaObject
+    state->CreateFunction([playerTable, state](int playerID) -> luacpp::LuaObject
                           {
         if(playerTable.Get(playerID).GetType() == LUA_TNIL) return state->CreateNil();
         else return playerTable.Get(playerID); },
                           "GetPlayer");
-    state->CreateFunction([]() -> uint64_t
-                          { return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count(); },
-                          "GetTime");
+    state->CreateFunction([playerTable]() -> luacpp::LuaTable
+                          { return playerTable; },
+                          "GetPlayers");
 
     PRINT("Scripting - Lua", "Core loaded.\n");
 
@@ -86,4 +86,5 @@ void SetupLuaEnvironment(Plugin *plugin)
     SetupLuaServer(state, plugin);
     SetupLuaTimers(state, plugin);
     SetupLuaTranslation(state, plugin);
+    SetupLuaUtils(state, plugin);
 }
