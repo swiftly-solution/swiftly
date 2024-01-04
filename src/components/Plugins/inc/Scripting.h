@@ -151,6 +151,7 @@ void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaPrecacher(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaServer(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaTimers(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaTranslation(luacpp::LuaState *state, Plugin *plugin);
 
 template <typename T, typename... Args>
