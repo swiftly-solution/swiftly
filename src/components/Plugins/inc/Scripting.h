@@ -64,6 +64,7 @@ SMM_API void scripting_Server_SetConvar(const char *name, ...);
 
 SMM_API bool scripting_Database_Connect(const char *connectionName);
 SMM_API const char *scripting_Database_EscapeString(const char *connectionName, const char *value);
+std::vector<std::map<const char *, std::any>> scripting_Database_QueryRaw(const char *connectionName, const char *query);
 SMM_API const char *scripting_Database_Query(const char *connectionName, const char *query);
 
 SMM_API uint32_t scripting_Entity_Create();
@@ -146,6 +147,7 @@ SMM_API void scripting_Print(const char *str);
 
 void SetupLuaCommands(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaConfiguration(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaDatabase(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin);

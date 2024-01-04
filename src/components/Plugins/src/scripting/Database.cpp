@@ -97,17 +97,17 @@ SMM_API const char *scripting_Database_EscapeString(const char *connectionName, 
     return db->QueryEscape(value).c_str();
 }
 
-SMM_API const char *scripting_Database_Query(const char *connectionName, const char *query)
+std::vector<std::map<const char *, std::any>> scripting_Database_QueryRaw(const char *connectionName, const char *query)
 {
     if (connectionName == nullptr || query == nullptr)
-        return SerializeData({}).c_str();
+        return {};
 
     Database *db = g_dbManager->GetDatabase(connectionName);
     if (db == nullptr)
-        return SerializeData({}).c_str();
+        return {};
 
     if (!db->IsConnected())
-        return SerializeData({}).c_str();
+        return {};
 
     std::vector<std::map<const char *, std::any>> results = db->Query(query);
 
@@ -116,9 +116,14 @@ SMM_API const char *scripting_Database_Query(const char *connectionName, const c
         std::string err = db->GetError();
         if (err != "")
             PRINTF("Database", "An error has been encountered while a query was executed.\nQuery: \"%s\"\nError: %s\n", query, err.c_str());
-        return SerializeData({}).c_str();
+        return {};
     }
 
-    std::string result = SerializeData(results);
+    return results;
+}
+
+SMM_API const char *scripting_Database_Query(const char *connectionName, const char *query)
+{
+    std::string result = SerializeData(scripting_Database_QueryRaw(connectionName, query));
     return result.c_str();
 }
