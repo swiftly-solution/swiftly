@@ -19,7 +19,7 @@ private:
     httplib::MultipartFormDataItems multipartItems;
 
     std::string body;
-    ContentType content_type;
+    ContentType content_type = ContentType::APPLICATION_JSON;
     bool executed = false;
 
 public:
