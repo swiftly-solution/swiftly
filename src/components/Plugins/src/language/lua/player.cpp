@@ -32,6 +32,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto healthClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
     auto armorClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
     auto clantagClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
+    auto teamClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -64,7 +65,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("armor", [armorClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return armorClass.CreateInstance(base->playerSlot); })
         .DefMember("clantag", [clantagClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return clantagClass.CreateInstance(base->playerSlot); });
+                   { return clantagClass.CreateInstance(base->playerSlot); })
+        .DefMember("team", [teamClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return teamClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -84,6 +87,11 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                            { return scripting_Player_GetClanTag(base->playerSlot); })
         .DefMember("Set", [](LuaPlayerArgsClass *base, const char *tag) -> void
                    { scripting_Player_SetClanTag(base->playerSlot, tag); });
+
+    teamClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint8
+                        { return scripting_Player_GetTeam(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int team) -> void
+                   { scripting_Player_SetTeam(base->playerSlot, team); });
 
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
