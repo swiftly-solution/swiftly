@@ -31,6 +31,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
 
     auto healthClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
     auto armorClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
+    auto clantagClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -61,7 +62,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("health", [healthClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return healthClass.CreateInstance(base->playerSlot); })
         .DefMember("armor", [armorClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return armorClass.CreateInstance(base->playerSlot); });
+                   { return armorClass.CreateInstance(base->playerSlot); })
+        .DefMember("clantag", [clantagClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return clantagClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -76,6 +79,11 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_SetArmor(base->playerSlot, armor); })
         .DefMember("Take", [](LuaPlayerArgsClass *base, int armor) -> void
                    { scripting_Player_TakeArmor(base->playerSlot, armor); });
+
+    clantagClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> const char *
+                           { return scripting_Player_GetClanTag(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, const char *tag) -> void
+                   { scripting_Player_SetClanTag(base->playerSlot, tag); });
 
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
