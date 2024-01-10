@@ -36,6 +36,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto clantagClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto teamClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto varsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto statsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -72,7 +73,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("team", [teamClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return teamClass.CreateInstance(base->playerSlot); })
         .DefMember("vars", [varsClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return varsClass.CreateInstance(base->playerSlot); });
+                   { return varsClass.CreateInstance(base->playerSlot); })
+        .DefMember("stats", [statsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return statsClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -126,6 +129,16 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                             }
                             lua_pop(plugin->GetLuaRawState(), 1);
                         } });
+
+    statsClass.DefMember("Get", [](LuaPlayerArgsClass *base, int stat) -> int
+                         { return scripting_Player_FetchMatchStat(base->playerSlot, (PlayerStat)stat); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int stat, int value) -> void
+                   { scripting_Player_SetMatchStat(base->playerSlot, (PlayerStat)stat, value); });
+
+    state->CreateInteger(0, "KILLS");
+    state->CreateInteger(1, "DEATHS");
+    state->CreateInteger(2, "ASSISTS");
+    state->CreateInteger(3, "DAMAGE");
 
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
