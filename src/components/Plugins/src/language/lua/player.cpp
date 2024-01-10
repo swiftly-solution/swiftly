@@ -7,6 +7,8 @@
 #include <luacpp/luacpp.h>
 #include <luacpp/func_utils.h>
 
+#include <rapidjson/document.h>
+
 class LuaPlayerClass
 {
 public:
@@ -29,10 +31,11 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
 {
     auto playerClass = state->CreateClass<LuaPlayerClass>("Player").DefConstructor<int, bool>();
 
-    auto healthClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
-    auto armorClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
-    auto clantagClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
-    auto teamClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
+    auto healthClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto armorClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto clantagClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto teamClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto varsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -67,7 +70,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("clantag", [clantagClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return clantagClass.CreateInstance(base->playerSlot); })
         .DefMember("team", [teamClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return teamClass.CreateInstance(base->playerSlot); });
+                   { return teamClass.CreateInstance(base->playerSlot); })
+        .DefMember("vars", [varsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return varsClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -92,6 +97,35 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                         { return scripting_Player_GetTeam(base->playerSlot); })
         .DefMember("Set", [](LuaPlayerArgsClass *base, int team) -> void
                    { scripting_Player_SetTeam(base->playerSlot, team); });
+
+    varsClass.DefMember("Get", [state](LuaPlayerArgsClass *base, const char *key) -> luacpp::LuaObject
+                        {
+                            rapidjson::Document doc;
+                            doc.Parse(scripting_Player_GetVar(base->playerSlot, key));
+                            if(doc.HasParseError()) return state->CreateNil();
+
+                            if(doc["value"].IsString()) return state->CreateString(doc["value"].GetString());
+                            else if(doc["value"].IsInt()) return state->CreateInteger(doc["value"].GetInt());
+                            else if(doc["value"].IsInt64()) return state->CreateInteger(doc["value"].GetInt64());
+                            else if(doc["value"].IsUint()) return state->CreateInteger(doc["value"].GetUint());
+                            else if(doc["value"].IsUint64()) return state->CreateInteger(doc["value"].GetUint64());
+                            else if(doc["value"].IsBool()) return state->CreateInteger(doc["value"].GetBool());
+                            else if(doc["value"].IsFloat()) return state->CreateNumber(doc["value"].GetFloat());
+                            else if(doc["value"].IsDouble()) return state->CreateNumber(doc["value"].IsDouble());
+                            else return state->CreateNil(); })
+        .DefMember("Set", [plugin](LuaPlayerArgsClass *base, const char *key, luacpp::LuaObject value) -> void
+                   {
+                        if(value.GetType() == LUA_TBOOLEAN) scripting_Player_SetVar(base->playerSlot, key, 7, value.ToBool());
+                        else if(value.GetType() == LUA_TSTRING) scripting_Player_SetVar(base->playerSlot, key, 1, value.ToString());
+                        else if(value.GetType() == LUA_TNUMBER) {
+                            lua_rawgeti(plugin->GetLuaRawState(), LUA_REGISTRYINDEX, value.GetRefIndex());
+                            if(lua_isinteger(plugin->GetLuaRawState(), -1) == 1) scripting_Player_SetVar(base->playerSlot, key, 8, value.ToInteger());
+                            else {
+                                double val = value.ToNumber();
+                                scripting_Player_SetVar(base->playerSlot, key, 4, val);
+                            }
+                            lua_pop(plugin->GetLuaRawState(), 1);
+                        } });
 
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
