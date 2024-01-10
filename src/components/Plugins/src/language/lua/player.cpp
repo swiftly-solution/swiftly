@@ -30,6 +30,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto playerClass = state->CreateClass<LuaPlayerClass>("Player").DefConstructor<int, bool>();
 
     auto healthClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
+    auto armorClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -58,7 +59,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("GetSlot", [](LuaPlayerClass *base) -> int
                    { return base->playerSlot; })
         .DefMember("health", [healthClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return healthClass.CreateInstance(base->playerSlot); });
+                   { return healthClass.CreateInstance(base->playerSlot); })
+        .DefMember("armor", [armorClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return armorClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -66,6 +69,13 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_SetHealth(base->playerSlot, health); })
         .DefMember("Take", [](LuaPlayerArgsClass *base, int health) -> void
                    { scripting_Player_TakeHealth(base->playerSlot, health); });
+
+    armorClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
+                         { return scripting_Player_GetArmor(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int armor) -> void
+                   { scripting_Player_SetArmor(base->playerSlot, armor); })
+        .DefMember("Take", [](LuaPlayerArgsClass *base, int armor) -> void
+                   { scripting_Player_TakeArmor(base->playerSlot, armor); });
 
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
