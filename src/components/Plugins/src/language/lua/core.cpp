@@ -84,6 +84,7 @@ void SetupLuaEnvironment(Plugin *plugin)
     SetupLuaHTTP(state, plugin);
     SetupLuaLogger(state, plugin);
     SetupLuaPlayer(state, plugin);
+    SetupLuaPlayerManager(state, plugin);
     SetupLuaPrecacher(state, plugin);
     SetupLuaServer(state, plugin);
     SetupLuaTimers(state, plugin);
