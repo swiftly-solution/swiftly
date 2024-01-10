@@ -17,9 +17,19 @@ public:
     LuaPlayerClass(int m_playerSlot, bool m_fakeClient) : playerSlot(m_playerSlot), fakeClient(m_fakeClient) {}
 };
 
+class LuaPlayerArgsClass
+{
+public:
+    int playerSlot;
+
+    LuaPlayerArgsClass(int m_playerSlot) : playerSlot(m_playerSlot) {}
+};
+
 void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
 {
     auto playerClass = state->CreateClass<LuaPlayerClass>("Player").DefConstructor<int, bool>();
+
+    auto healthClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -30,7 +40,32 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("IsFirstSpawn", [](LuaPlayerClass *base) -> bool
                    { return (base->firstSpawn == false); })
         .DefMember("SetFirstSpawn", [](LuaPlayerClass *base, bool firstSpawn) -> void
-                   { base->firstSpawn = firstSpawn; });
+                   { base->firstSpawn = firstSpawn; })
+        .DefMember("GetConnectedTime", [](LuaPlayerClass *base) -> uint32_t
+                   { return scripting_Player_GetConnectedTime(base->playerSlot); })
+        .DefMember("SendMsg", [](LuaPlayerClass *base, int dest, const char *message) -> void
+                   { return scripting_Player_SendMessage(base->playerSlot, dest, message); })
+        .DefMember("GetConvarValue", [](LuaPlayerClass *base, const char *name) -> const char *
+                   { return scripting_Player_GetConvar(base->playerSlot, name); })
+        .DefMember("IsAuthenticated", [](LuaPlayerClass *base) -> bool
+                   { return scripting_Player_IsAuthenticated(base->playerSlot); })
+        .DefMember("Kill", [](LuaPlayerClass *base) -> void
+                   { scripting_Player_Kill(base->playerSlot); })
+        .DefMember("Drop", [](LuaPlayerClass *base, int reason) -> void
+                   { scripting_Player_Drop(base->playerSlot, (ENetworkDisconnectionReason)reason); })
+        .DefMember("IsFakeClient", [](LuaPlayerClass *base) -> bool
+                   { return base->fakeClient; })
+        .DefMember("GetSlot", [](LuaPlayerClass *base) -> int
+                   { return base->playerSlot; })
+        .DefMember("health", [healthClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return healthClass.CreateInstance(base->playerSlot); });
+
+    healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
+                          { return scripting_Player_GetHealth(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int health) -> void
+                   { scripting_Player_SetHealth(base->playerSlot, health); })
+        .DefMember("Take", [](LuaPlayerArgsClass *base, int health) -> void
+                   { scripting_Player_TakeHealth(base->playerSlot, health); });
 
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
