@@ -229,6 +229,11 @@ void Player::SetInternalVar(std::string name, std::any value)
 Vector Player::GetCoords()
 {
     CCSPlayerPawn *pawn = this->GetPlayerPawn();
+    if (!pawn)
+    {
+        Vector vec(0.0, 0.0, 0.0);
+        return vec;
+    }
     return pawn->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin();
 }
 
