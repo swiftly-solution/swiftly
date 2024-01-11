@@ -130,6 +130,8 @@ SMM_API void scripting_Player_SetMatchStat(uint32 playerId, PlayerStat stat, int
 SMM_API const char *scripting_Player_GetIPAddress(uint32 playerId);
 SMM_API const char *scripting_Player_GetCoords(uint32 playerId);
 SMM_API void scripting_Player_SetCoords(uint32 playerId, float x, float y, float z);
+SMM_API const char *scripting_Player_GetVelocity(uint32 playerId);
+SMM_API void scripting_Player_SetVelocity(uint32 playerId, float x, float y, float z);
 SMM_API int scripting_Player_GetMoney(uint32 playerId);
 SMM_API void scripting_Player_SetMoney(uint32 playerId, int money);
 SMM_API void scripting_Player_TakeMoney(uint32 playerId, int money);

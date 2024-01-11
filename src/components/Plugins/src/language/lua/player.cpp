@@ -39,6 +39,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto statsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto moneyClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto coordsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto velocityClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -81,7 +82,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("money", [moneyClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return moneyClass.CreateInstance(base->playerSlot); })
         .DefMember("coords", [coordsClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return coordsClass.CreateInstance(base->playerSlot); });
+                   { return coordsClass.CreateInstance(base->playerSlot); })
+        .DefMember("velocity", [velocityClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return velocityClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -177,7 +180,38 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                             return;
                         }
 
-                        scripting_Player_SetCoords(base->playerSlot, coords.GetNumber("x"), coords.GetNumber("y"), coords.GetNumber("z")); });
+                        scripting_Player_SetCoords(base->playerSlot, (float)coords.GetNumber("x"), (float)coords.GetNumber("y"), (float)coords.GetNumber("z")); });
+
+    velocityClass.DefMember("Get", [state](LuaPlayerArgsClass *base) -> luacpp::LuaObject
+                            {
+                            rapidjson::Document doc;
+                            doc.Parse(scripting_Player_GetVelocity(base->playerSlot));
+                            if(doc.HasParseError()) return state->CreateNil();
+                            if(!doc["value"].IsObject()) return state->CreateNil();
+
+                            float x = doc["value"]["x"].GetFloat();
+                            float y = doc["value"]["y"].GetFloat();
+                            float z = doc["value"]["z"].GetFloat();
+
+                            LuaFuncWrapper wrapper(state->Get("vector3"));
+                            wrapper.PrepForExec();
+                            luacpp::PushValues(wrapper.GetML(), x, y, z);
+                            return wrapper.ExecuteWithReturn<luacpp::LuaObject>("vector3", 3); })
+        .DefMember("Set", [state](LuaPlayerArgsClass *base, luacpp::LuaObject coordsObj) -> void
+                   {
+                        if(coordsObj.GetType() != LUA_TTABLE) {
+                            PRINT("Runtime", "Coords field needs to be a vector3.\n");
+                            return;
+                        }
+
+                        luacpp::LuaTable coords = luacpp::LuaTable(coordsObj);
+
+                        if(coords.Get("x").GetType() == LUA_TNIL || coords.Get("y").GetType() == LUA_TNIL || coords.Get("z").GetType() == LUA_TNIL) {
+                            PRINT("Runtime", "Coords field needs to be a vector3.\n");
+                            return;
+                        }
+
+                        scripting_Player_SetVelocity(base->playerSlot, (float)coords.GetNumber("x"),(float)coords.GetNumber("y"), (float)coords.GetNumber("z")); });
 
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
