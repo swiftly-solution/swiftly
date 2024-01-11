@@ -37,6 +37,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto teamClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto varsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto statsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto moneyClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -75,7 +76,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("vars", [varsClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return varsClass.CreateInstance(base->playerSlot); })
         .DefMember("stats", [statsClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return statsClass.CreateInstance(base->playerSlot); });
+                   { return statsClass.CreateInstance(base->playerSlot); })
+        .DefMember("money", [moneyClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return moneyClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -134,6 +137,13 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                          { return scripting_Player_FetchMatchStat(base->playerSlot, (PlayerStat)stat); })
         .DefMember("Set", [](LuaPlayerArgsClass *base, int stat, int value) -> void
                    { scripting_Player_SetMatchStat(base->playerSlot, (PlayerStat)stat, value); });
+
+    moneyClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
+                         { return scripting_Player_GetMoney(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int money) -> void
+                   { scripting_Player_SetMoney(base->playerSlot, money); })
+        .DefMember("Take", [](LuaPlayerArgsClass *base, int money) -> void
+                   { scripting_Player_TakeMoney(base->playerSlot, money); });
 
     state->CreateInteger(0, "KILLS");
     state->CreateInteger(1, "DEATHS");
