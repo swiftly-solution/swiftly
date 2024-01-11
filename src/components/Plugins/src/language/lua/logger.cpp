@@ -15,11 +15,6 @@ public:
 
 void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin)
 {
-    state->CreateInteger(1, "LOGLEVEL_DEBUG");
-    state->CreateInteger(2, "LOGLEVEL_WARNING");
-    state->CreateInteger(3, "LOGLEVEL_ERROR");
-    state->CreateInteger(4, "LOGLEVEL_COMMON");
-
     auto loggerClass = state->CreateClass<LuaLoggerClass>("Logger").DefConstructor<const char *>();
 
     loggerClass.DefMember("Write", [plugin](LuaLoggerClass *base, int level, const char *message)

@@ -80,16 +80,6 @@ void SetupLuaHTTP(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("SetFollowRedirect", [](LuaHTTPRequestClass *base, bool follow) -> void
                    { scripting_HTTP_SetFollowRedirect(base->GetRequestID(), follow); });
 
-    state->CreateInteger(1, "APPLICATION_JSON");
-    state->CreateInteger(2, "APPLICATION_FORM_URLENCODE");
-    state->CreateInteger(3, "MULTIPART_FORMDATA");
-    state->CreateInteger(4, "TEXT_CSS");
-    state->CreateInteger(5, "TEXT_CSV");
-    state->CreateInteger(6, "TEXT_HTML");
-    state->CreateInteger(7, "TEXT_JAVASCRIPT");
-    state->CreateInteger(8, "TEXT_PLAIN");
-    state->CreateInteger(9, "TEXT_XML");
-
     state->DoString("http = HTTP()");
 
     PRINT("Scripting - Lua", "HTTP loaded.\n");

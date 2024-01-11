@@ -24,11 +24,6 @@ void SetupLuaPlayerManager(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("SendMsg", [](LuaPlayerManagerClass *base, int dest, const char *message) -> void
                    { scripting_Players_SendMessage(dest, message); });
 
-    state->CreateInteger(1, "HUD_PRINTNOTIFY");
-    state->CreateInteger(2, "HUD_PRINTCONSOLE");
-    state->CreateInteger(3, "HUD_PRINTTALK");
-    state->CreateInteger(4, "HUD_PRINTCENTER");
-
     state->DoString("playermanager = PlayerManager()");
 
     PRINT("Scripting - Lua", "Player Manager loaded.\n");

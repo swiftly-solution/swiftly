@@ -89,5 +89,6 @@ void SetupLuaEnvironment(Plugin *plugin)
     SetupLuaServer(state, plugin);
     SetupLuaTimers(state, plugin);
     SetupLuaTranslation(state, plugin);
+    SetupLuaTypes(state, plugin);
     SetupLuaUtils(state, plugin);
 }

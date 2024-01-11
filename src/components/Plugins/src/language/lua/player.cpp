@@ -145,10 +145,5 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("Take", [](LuaPlayerArgsClass *base, int money) -> void
                    { scripting_Player_TakeMoney(base->playerSlot, money); });
 
-    state->CreateInteger(0, "KILLS");
-    state->CreateInteger(1, "DEATHS");
-    state->CreateInteger(2, "ASSISTS");
-    state->CreateInteger(3, "DAMAGE");
-
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
