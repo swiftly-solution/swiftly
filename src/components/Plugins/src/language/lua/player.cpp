@@ -38,6 +38,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto varsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto statsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto moneyClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto coordsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -78,7 +79,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("stats", [statsClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return statsClass.CreateInstance(base->playerSlot); })
         .DefMember("money", [moneyClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return moneyClass.CreateInstance(base->playerSlot); });
+                   { return moneyClass.CreateInstance(base->playerSlot); })
+        .DefMember("coords", [coordsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return coordsClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -144,6 +147,22 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_SetMoney(base->playerSlot, money); })
         .DefMember("Take", [](LuaPlayerArgsClass *base, int money) -> void
                    { scripting_Player_TakeMoney(base->playerSlot, money); });
+
+    coordsClass.DefMember("Get", [state](LuaPlayerArgsClass *base) -> luacpp::LuaObject
+                          {
+        rapidjson::Document doc;
+        doc.Parse(scripting_Player_GetCoords(base->playerSlot));
+        if(doc.HasParseError()) return state->CreateNil();
+        if(!doc["value"].IsObject()) return state->CreateNil();
+
+        float x = doc["value"]["x"].GetFloat();
+        float y = doc["value"]["y"].GetFloat();
+        float z = doc["value"]["z"].GetFloat();
+
+        LuaFuncWrapper wrapper(state->Get("vector3"));
+        wrapper.PrepForExec();
+        luacpp::PushValues(wrapper.GetML(), x, y, z);
+        return wrapper.ExecuteWithReturn<luacpp::LuaObject>("vector3", 3); });
 
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
