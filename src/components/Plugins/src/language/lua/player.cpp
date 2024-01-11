@@ -150,19 +150,34 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
 
     coordsClass.DefMember("Get", [state](LuaPlayerArgsClass *base) -> luacpp::LuaObject
                           {
-        rapidjson::Document doc;
-        doc.Parse(scripting_Player_GetCoords(base->playerSlot));
-        if(doc.HasParseError()) return state->CreateNil();
-        if(!doc["value"].IsObject()) return state->CreateNil();
+                            rapidjson::Document doc;
+                            doc.Parse(scripting_Player_GetCoords(base->playerSlot));
+                            if(doc.HasParseError()) return state->CreateNil();
+                            if(!doc["value"].IsObject()) return state->CreateNil();
 
-        float x = doc["value"]["x"].GetFloat();
-        float y = doc["value"]["y"].GetFloat();
-        float z = doc["value"]["z"].GetFloat();
+                            float x = doc["value"]["x"].GetFloat();
+                            float y = doc["value"]["y"].GetFloat();
+                            float z = doc["value"]["z"].GetFloat();
 
-        LuaFuncWrapper wrapper(state->Get("vector3"));
-        wrapper.PrepForExec();
-        luacpp::PushValues(wrapper.GetML(), x, y, z);
-        return wrapper.ExecuteWithReturn<luacpp::LuaObject>("vector3", 3); });
+                            LuaFuncWrapper wrapper(state->Get("vector3"));
+                            wrapper.PrepForExec();
+                            luacpp::PushValues(wrapper.GetML(), x, y, z);
+                            return wrapper.ExecuteWithReturn<luacpp::LuaObject>("vector3", 3); })
+        .DefMember("Set", [state](LuaPlayerArgsClass *base, luacpp::LuaObject coordsObj) -> void
+                   {
+                        if(coordsObj.GetType() != LUA_TTABLE) {
+                            PRINT("Runtime", "Coords field needs to be a vector3.\n");
+                            return;
+                        }
+
+                        luacpp::LuaTable coords = luacpp::LuaTable(coordsObj);
+
+                        if(coords.Get("x").GetType() == LUA_TNIL || coords.Get("y").GetType() == LUA_TNIL || coords.Get("z").GetType() == LUA_TNIL) {
+                            PRINT("Runtime", "Coords field needs to be a vector3.\n");
+                            return;
+                        }
+
+                        scripting_Player_SetCoords(base->playerSlot, coords.GetNumber("x"), coords.GetNumber("y"), coords.GetNumber("z")); });
 
     PRINT("Scripting - Lua", "Player loaded.\n");
 }
