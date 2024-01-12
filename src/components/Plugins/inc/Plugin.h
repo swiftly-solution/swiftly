@@ -106,10 +106,29 @@ public:
             return returnObject.ToBool();
         else if constexpr (std::is_same_v<T, float> || std::is_same_v<T, double>)
             return (T)returnObject.ToNumber();
-        else if constexpr (std::is_same_v<T, luacpp::LuaObject *>)
-            return (T)&returnObject;
+        else if constexpr (std::is_same_v<T, luacpp::LuaObject>)
+            return (T)returnObject;
         else
             return (T) false;
+    }
+
+    luacpp::LuaObject ExecuteWithReturnRaw(std::string original_func_name, int argc)
+    {
+        std::string err;
+
+        const int top = lua_gettop(m_l) - argc - 1;
+
+        bool ok = (lua_pcall(m_l, argc, LUA_MULTRET, 0) == LUA_OK);
+        if (!ok)
+        {
+            err = lua_tostring(m_l, -1);
+            lua_pop(m_l, 1);
+            PRINTF("Runtime", "An error has occured while calling '%s'.\nError: %s\n", original_func_name.c_str(), err.c_str());
+            return luacpp::LuaObject(m_l);
+        }
+
+        const int nresults = lua_gettop(m_l) - top;
+        return luacpp::LuaObject(m_l, -nresults);
     }
 
     void PrepForExec()

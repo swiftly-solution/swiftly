@@ -144,7 +144,7 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
                             LuaFuncWrapper wrapper(state->Get("vector3"));
                             wrapper.PrepForExec();
                             luacpp::PushValues(wrapper.GetML(), x, y, z);
-                            return *wrapper.ExecuteWithReturn<luacpp::LuaObject*>("vector3", 3); })
+                            return wrapper.ExecuteWithReturnRaw("vector3", 3); })
         .DefMember("Set", [state](LuaEntityArgsClass *base, luacpp::LuaObject coordsObj) -> void
                    {
                         if(coordsObj.GetType() != LUA_TTABLE) {
@@ -175,7 +175,7 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
                             LuaFuncWrapper wrapper(state->Get("vector3"));
                             wrapper.PrepForExec();
                             luacpp::PushValues(wrapper.GetML(), x, y, z);
-                            return *wrapper.ExecuteWithReturn<luacpp::LuaObject*>("vector3", 3); })
+                            return wrapper.ExecuteWithReturnRaw("vector3", 3); })
         .DefMember("Set", [state](LuaEntityArgsClass *base, luacpp::LuaObject coordsObj) -> void
                    {
                         if(coordsObj.GetType() != LUA_TTABLE) {
