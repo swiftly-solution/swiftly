@@ -118,5 +118,24 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
 
     state->DoString("function vector3(x, y, z) if x == nil then x = 0.0 end if y == nil then y = 0.0 end if z == nil then z = 0.0 end local tbl = setmetatable({x = x + 0.0, y = y + 0.0, z = z + 0.0}, { __index = function(tb, key) if key ~= \"x\" and key ~= \"y\" and key ~= \"z\" then return nil end return tb[key] end, __newindex = function(tb,key,value) if key ~= \"x\" and key ~= \"y\" and key ~= \"z\" then return print(\"[Runtime] vector3 Error: The supported keys are just \\\"x\\\", \\\"y\\\" and \\\"z\\\".\"); end tb[key] = value; end, __add = function(tb1, tb2) if tb2 == nil then return tb1 end local t = type(tb2); if t == \"boolean\" or t == \"function\" or t == \"string\" then return tb1 end if t == \"number\" then tb1.x = tb1.x + tb2; tb1.y = tb1.y + tb2; tb1.z = tb1.z + tb2; else tb1.x = tb1.x + tb2.x; tb1.y = tb1.y + tb2.y; tb1.z = tb1.z + tb2.z; end return tb1; end, __sub = function(tb1, tb2) if tb2 == nil then return tb1 end local t = type(tb2); if t == \"boolean\" or t == \"function\" or t == \"string\" then return tb1 end if t == \"number\" then tb1.x = tb1.x - tb2; tb1.y = tb1.y - tb2; tb1.z = tb1.z - tb2; else tb1.x = tb1.x - tb2.x; tb1.y = tb1.y - tb2.y; tb1.z = tb1.z - tb2.z; end return tb1; end, __mul = function(tb1, tb2) if tb2 == nil then return tb1 end local t = type(tb2); if t == \"boolean\" or t == \"function\" or t == \"string\" then return tb1 end if t == \"number\" then tb1.x = tb1.x * tb2; tb1.y = tb1.y * tb2; tb1.z = tb1.z * tb2; else tb1.x = tb1.x * tb2.x; tb1.y = tb1.y * tb2.y; tb1.z = tb1.z * tb2.z; end return tb1; end, __div = function(tb1, tb2) if tb2 == nil then return tb1 end local t = type(tb2); if t == \"boolean\" or t == \"function\" or t == \"string\" then return tb1 end if t == \"number\" then tb1.x = tb1.x / tb2; tb1.y = tb1.y / tb2; tb1.z = tb1.z / tb2; else tb1.x = tb1.x / tb2.x; tb1.y = tb1.y / tb2.y; tb1.z = tb1.z / tb2.z; end return tb1; end, __eq = function(tb1, tb2) return (tb1.x == tb2.x and tb1.y == tb2.y and tb1.z == tb2.z) end, __len = function(tb1) return math.sqrt(math.pow(tb1.x, 2) + math.pow(tb1.y, 2) + math.pow(tb1.z, 2)) end, __tostring = function(tb1) return \"vector3(\"..tb1.x..\",\"..tb1.y..\",\"..tb1.z..\")\" end, }); return tbl; end");
 
+    auto ConVarTypeTable = state->CreateTable("ConVarType");
+
+    ConVarTypeTable.SetInteger("Invalid", -1);
+    ConVarTypeTable.SetInteger("Bool", 0);
+    ConVarTypeTable.SetInteger("Int16", 1);
+    ConVarTypeTable.SetInteger("UInt16", 2);
+    ConVarTypeTable.SetInteger("Int32", 3);
+    ConVarTypeTable.SetInteger("UInt32", 4);
+    ConVarTypeTable.SetInteger("Int64", 5);
+    ConVarTypeTable.SetInteger("UInt64", 6);
+    ConVarTypeTable.SetInteger("Float32", 7);
+    ConVarTypeTable.SetInteger("Float64", 8);
+    ConVarTypeTable.SetInteger("String", 9);
+    ConVarTypeTable.SetInteger("Color", 10);
+    ConVarTypeTable.SetInteger("Vector2", 11);
+    ConVarTypeTable.SetInteger("Vector3", 12);
+    ConVarTypeTable.SetInteger("Vector4", 13);
+    ConVarTypeTable.SetInteger("Qangle", 14);
+
     PRINT("Scripting - Lua", "Types loaded.\n");
 }
