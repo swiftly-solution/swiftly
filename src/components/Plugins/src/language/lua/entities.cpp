@@ -12,6 +12,23 @@
 
 #include <rapidjson/document.h>
 
+class LuaEntityClass
+{
+private:
+    uint32_t entityID = 0;
+
+public:
+    LuaEntityClass()
+    {
+        this->entityID = scripting_Entity_Create();
+    }
+
+    uint32_t GetEntityID()
+    {
+        return this->entityID;
+    }
+};
+
 class LuaEntitiesClass
 {
 private:
@@ -56,23 +73,6 @@ public:
         for (std::map<uint32_t, luacpp::LuaObject>::iterator it = this->entities.begin(); it != this->entities.end(); ++it)
             objs.push_back(it->second);
         return objs;
-    }
-};
-
-class LuaEntityClass
-{
-private:
-    uint32_t entityID = 0;
-
-public:
-    LuaEntityClass()
-    {
-        this->entityID = scripting_Entity_Create();
-    }
-
-    uint32_t GetEntityID()
-    {
-        return this->entityID;
     }
 };
 
@@ -144,7 +144,7 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
                             LuaFuncWrapper wrapper(state->Get("vector3"));
                             wrapper.PrepForExec();
                             luacpp::PushValues(wrapper.GetML(), x, y, z);
-                            return wrapper.ExecuteWithReturn<luacpp::LuaObject>("vector3", 3); })
+                            return *wrapper.ExecuteWithReturn<luacpp::LuaObject*>("vector3", 3); })
         .DefMember("Set", [state](LuaEntityArgsClass *base, luacpp::LuaObject coordsObj) -> void
                    {
                         if(coordsObj.GetType() != LUA_TTABLE) {
@@ -175,7 +175,7 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
                             LuaFuncWrapper wrapper(state->Get("vector3"));
                             wrapper.PrepForExec();
                             luacpp::PushValues(wrapper.GetML(), x, y, z);
-                            return wrapper.ExecuteWithReturn<luacpp::LuaObject>("vector3", 3); })
+                            return *wrapper.ExecuteWithReturn<luacpp::LuaObject*>("vector3", 3); })
         .DefMember("Set", [state](LuaEntityArgsClass *base, luacpp::LuaObject coordsObj) -> void
                    {
                         if(coordsObj.GetType() != LUA_TTABLE) {

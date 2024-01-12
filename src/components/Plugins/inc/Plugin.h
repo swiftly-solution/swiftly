@@ -106,8 +106,8 @@ public:
             return returnObject.ToBool();
         else if constexpr (std::is_same_v<T, float> || std::is_same_v<T, double>)
             return (T)returnObject.ToNumber();
-        else if constexpr (std::is_same_v<T, luacpp::LuaObject>)
-            return (T)returnObject;
+        else if constexpr (std::is_same_v<T, luacpp::LuaObject *>)
+            return (T)&returnObject;
         else
             return (T) false;
     }
