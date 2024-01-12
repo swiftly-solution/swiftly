@@ -10,6 +10,8 @@
 #include <map>
 #include <vector>
 
+#include <rapidjson/document.h>
+
 class LuaEntitiesClass
 {
 private:
@@ -74,10 +76,20 @@ public:
     }
 };
 
+class LuaEntityArgsClass
+{
+public:
+    uint32_t entityID;
+
+    LuaEntityArgsClass(uint32_t m_entityID) : entityID(m_entityID) {}
+};
+
 void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
 {
     auto entitiesClass = state->CreateClass<LuaEntitiesClass>("Entities").DefConstructor();
     auto entityClass = state->CreateClass<LuaEntityClass>().DefConstructor();
+
+    auto coordsClass = state->CreateClass<LuaEntityArgsClass>().DefConstructor<uint32_t>();
 
     entitiesClass.DefMember("Create", [entityClass](LuaEntitiesClass *base) -> luacpp::LuaObject
                             { return base->CreateEntity(entityClass); })
@@ -111,7 +123,40 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("GetEntityID", [](LuaEntityClass *base) -> uint32_t
                    { return base->GetEntityID(); })
         .DefMember("SetModel", [](LuaEntityClass *base, const char *model) -> void
-                   { scripting_Entity_SetModel(base->GetEntityID(), model); });
+                   { scripting_Entity_SetModel(base->GetEntityID(), model); })
+        .DefMember("coords", [coordsClass](LuaEntityClass *base) -> luacpp::LuaObject
+                   { return coordsClass.CreateInstance(base->GetEntityID()); });
+
+    coordsClass.DefMember("Get", [state](LuaEntityArgsClass *base) -> luacpp::LuaObject
+                          {
+                            rapidjson::Document doc;
+                            doc.Parse(scripting_Entity_GetCoords(base->entityID));
+                            if(doc.HasParseError()) return state->CreateNil();
+                            if(!doc["value"].IsObject()) return state->CreateNil();
+
+                            float x = doc["value"]["x"].GetFloat();
+                            float y = doc["value"]["y"].GetFloat();
+                            float z = doc["value"]["z"].GetFloat();
+
+                            LuaFuncWrapper wrapper(state->Get("vector3"));
+                            wrapper.PrepForExec();
+                            luacpp::PushValues(wrapper.GetML(), x, y, z);
+                            return wrapper.ExecuteWithReturn<luacpp::LuaObject>("vector3", 3); })
+        .DefMember("Set", [state](LuaEntityArgsClass *base, luacpp::LuaObject coordsObj) -> void
+                   {
+                        if(coordsObj.GetType() != LUA_TTABLE) {
+                            PRINT("Runtime", "Coords field needs to be a vector3.\n");
+                            return;
+                        }
+
+                        luacpp::LuaTable coords = luacpp::LuaTable(coordsObj);
+
+                        if(coords.Get("x").GetType() == LUA_TNIL || coords.Get("y").GetType() == LUA_TNIL || coords.Get("z").GetType() == LUA_TNIL) {
+                            PRINT("Runtime", "Coords field needs to be a vector3.\n");
+                            return;
+                        }
+
+                        scripting_Entity_SetCoords(base->entityID, (float)coords.GetNumber("x"), (float)coords.GetNumber("y"), (float)coords.GetNumber("z")); });
 
     state->DoString("entities = Entities()");
 
