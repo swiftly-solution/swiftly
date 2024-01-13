@@ -71,10 +71,14 @@ SMM_API uint32_t scripting_Entity_Create();
 SMM_API void scripting_Entity_Spawn(uint32_t entityID);
 SMM_API void scripting_Entity_Destroy(uint32_t entityID);
 SMM_API void scripting_Entity_SetModel(uint32_t entityID, const char *model);
+
+Vector scripting_Entity_GetCoordsRaw(uint32_t entityID);
 SMM_API const char *scripting_Entity_GetCoords(uint32_t entityID);
 SMM_API void scripting_Entity_SetCoords(uint32_t entityID, float x, float y, float z);
+QAngle scripting_Entity_GetAnglesRaw(uint32_t entityID);
 SMM_API const char *scripting_Entity_GetAngles(uint32_t entityID);
 SMM_API void scripting_Entity_SetAngles(uint32_t entityID, float x, float y, float z);
+Color scripting_Entity_GetColorsRaw(uint32_t entityID);
 SMM_API const char *scripting_Entity_GetColors(uint32_t entityID);
 SMM_API void scripting_Entity_SetColors(uint32_t entityID, int r, int g, int b, int a);
 

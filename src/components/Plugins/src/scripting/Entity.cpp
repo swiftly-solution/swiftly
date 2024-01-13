@@ -49,16 +49,21 @@ SMM_API void scripting_Entity_SetModel(uint32_t entityID, const char *model)
     entity->SetModel(model);
 }
 
-SMM_API const char *scripting_Entity_GetCoords(uint32_t entityID)
+Vector scripting_Entity_GetCoordsRaw(uint32_t entityID)
 {
+    Vector vec(0.0f, 0.0f, 0.0f);
     if (entityID == 0)
-        return "";
-
+        return vec;
     Entity *entity = g_entityManager->GetEntity(entityID);
     if (entity == nullptr)
-        return "";
+        return vec;
 
-    std::string data = SerializeData(entity->GetCoords());
+    return entity->GetCoords();
+}
+
+SMM_API const char *scripting_Entity_GetCoords(uint32_t entityID)
+{
+    std::string data = SerializeData(scripting_Entity_GetCoordsRaw(entityID));
 
     char *result = new char[data.size() + 1];
     strcpy(result, data.c_str());
@@ -77,16 +82,22 @@ SMM_API void scripting_Entity_SetCoords(uint32_t entityID, float x, float y, flo
     entity->SetCoords(x, y, z);
 }
 
-SMM_API const char *scripting_Entity_GetAngles(uint32_t entityID)
+QAngle scripting_Entity_GetAnglesRaw(uint32_t entityID)
 {
-    if (entityID == 0)
-        return "";
+    QAngle angle(0.0f, 0.0f, 0.0f);
 
+    if (entityID == 0)
+        return angle;
     Entity *entity = g_entityManager->GetEntity(entityID);
     if (entity == nullptr)
-        return "";
+        return angle;
 
-    std::string data = SerializeData(entity->GetAngle());
+    return entity->GetAngle();
+}
+
+SMM_API const char *scripting_Entity_GetAngles(uint32_t entityID)
+{
+    std::string data = SerializeData(scripting_Entity_GetAnglesRaw(entityID));
 
     char *result = new char[data.size() + 1];
     strcpy(result, data.c_str());
@@ -105,16 +116,23 @@ SMM_API void scripting_Entity_SetAngles(uint32_t entityID, float x, float y, flo
     entity->SetAngle(x, y, z);
 }
 
-SMM_API const char *scripting_Entity_GetColors(uint32_t entityID)
+Color scripting_Entity_GetColorsRaw(uint32_t entityID)
 {
+    Color color(0, 0, 0, 0);
+
     if (entityID == 0)
-        return "";
+        return color;
 
     Entity *entity = g_entityManager->GetEntity(entityID);
-    if (entity == nullptr)
-        return "";
+    if (!entity)
+        return color;
 
-    std::string data = SerializeData(entity->GetColor());
+    return entity->GetColor();
+}
+
+SMM_API const char *scripting_Entity_GetColors(uint32_t entityID)
+{
+    std::string data = SerializeData(scripting_Entity_GetColorsRaw(entityID));
 
     char *result = new char[data.size() + 1];
     strcpy(result, data.c_str());

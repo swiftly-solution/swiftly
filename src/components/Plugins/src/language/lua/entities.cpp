@@ -91,6 +91,7 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
 
     auto coordsClass = state->CreateClass<LuaEntityArgsClass>().DefConstructor<uint32_t>();
     auto anglesClass = state->CreateClass<LuaEntityArgsClass>().DefConstructor<uint32_t>();
+    auto colorsClass = state->CreateClass<LuaEntityArgsClass>().DefConstructor<uint32_t>();
 
     entitiesClass.DefMember("Create", [entityClass](LuaEntitiesClass *base) -> luacpp::LuaObject
                             { return base->CreateEntity(entityClass); })
@@ -128,18 +129,17 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("coords", [coordsClass](LuaEntityClass *base) -> luacpp::LuaObject
                    { return coordsClass.CreateInstance(base->GetEntityID()); })
         .DefMember("angles", [anglesClass](LuaEntityClass *base) -> luacpp::LuaObject
-                   { return anglesClass.CreateInstance(base->GetEntityID()); });
+                   { return anglesClass.CreateInstance(base->GetEntityID()); })
+        .DefMember("colors", [colorsClass](LuaEntityClass *base) -> luacpp::LuaObject
+                   { return colorsClass.CreateInstance(base->GetEntityID()); });
 
     coordsClass.DefMember("Get", [state](LuaEntityArgsClass *base) -> luacpp::LuaObject
                           {
-                            rapidjson::Document doc;
-                            doc.Parse(scripting_Entity_GetCoords(base->entityID));
-                            if(doc.HasParseError()) return state->CreateNil();
-                            if(!doc["value"].IsObject()) return state->CreateNil();
+                            Vector coords = scripting_Entity_GetCoordsRaw(base->entityID);
 
-                            float x = doc["value"]["x"].GetFloat();
-                            float y = doc["value"]["y"].GetFloat();
-                            float z = doc["value"]["z"].GetFloat();
+                            float x = coords.x;
+                            float y = coords.y;
+                            float z = coords.z;
 
                             LuaFuncWrapper wrapper(state->Get("vector3"));
                             wrapper.PrepForExec();
@@ -163,14 +163,11 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
 
     anglesClass.DefMember("Get", [state](LuaEntityArgsClass *base) -> luacpp::LuaObject
                           {
-                            rapidjson::Document doc;
-                            doc.Parse(scripting_Entity_GetAngles(base->entityID));
-                            if(doc.HasParseError()) return state->CreateNil();
-                            if(!doc["value"].IsObject()) return state->CreateNil();
+                            QAngle angle = scripting_Entity_GetAnglesRaw(base->entityID);
 
-                            float x = doc["value"]["x"].GetFloat();
-                            float y = doc["value"]["y"].GetFloat();
-                            float z = doc["value"]["z"].GetFloat();
+                            float x = angle.x;
+                            float y = angle.y;
+                            float z = angle.z;
 
                             LuaFuncWrapper wrapper(state->Get("vector3"));
                             wrapper.PrepForExec();
@@ -191,6 +188,33 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
                         }
 
                         scripting_Entity_SetAngles(base->entityID, (float)coords.GetNumber("x"), (float)coords.GetNumber("y"), (float)coords.GetNumber("z")); });
+
+    colorsClass.DefMember("Get", [state](LuaEntityArgsClass *base) -> luacpp::LuaTable
+                          {
+                            luacpp::LuaTable tbl = state->CreateTable();
+                            
+                            Color color = scripting_Entity_GetColorsRaw(base->entityID);
+
+                            tbl.SetInteger("r", color.r());
+                            tbl.SetInteger("g", color.g());
+                            tbl.SetInteger("b", color.b());
+                            tbl.SetInteger("a", color.a());
+
+                            return tbl; })
+        .DefMember("Set", [state](LuaEntityArgsClass *base, luacpp::LuaObject colorsObj) -> void
+                   {
+            if(colorsObj.GetType() != LUA_TTABLE) {
+                PRINT("Runtime", "Coords field needs to be a vector3.\n");
+                return;
+            }
+
+            luacpp::LuaTable colors = luacpp::LuaTable(colorsObj);
+
+            if(colors.Get("r").GetType() == LUA_TNIL || colors.Get("g").GetType() == LUA_TNIL || colors.Get("b").GetType() == LUA_TNIL || colors.Get("a").GetType() == LUA_TNIL) {
+                PRINT("Runtime", "Value field needs to be a valid color table.\n");
+                return;
+            } 
+            scripting_Entity_SetColors(base->entityID, colors.GetInteger("r"), colors.GetInteger("g"), colors.GetInteger("b"), colors.GetInteger("a")); });
 
     state->DoString("entities = Entities()");
 
