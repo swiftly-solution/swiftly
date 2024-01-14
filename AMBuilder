@@ -55,6 +55,7 @@ for sdk_name in MMSPlugin.sdks:
         '-lz',
         '-lpthread',
         '-lm',
+        '-ldl',
       ]
 
     if binary.compiler.target.platform == 'linux':
