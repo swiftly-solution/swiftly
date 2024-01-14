@@ -27,16 +27,11 @@ private:
 
     bool InternalLoadPlugin()
     {
-        PRINTF("InternalLoadPlugin", "Debug #1\n");
         this->rawLuaState = luaL_newstate();
-        PRINTF("InternalLoadPlugin", "Debug #2\n");
-        this->luaState = new luacpp::LuaState(this->rawLuaState, true);
-        PRINTF("InternalLoadPlugin", "Debug #3\n");
+        this->luaState = new luacpp::LuaState(this->rawLuaState, false);
 
         std::vector<std::string> files = Files::FetchFileNames(this->m_path);
-        PRINTF("InternalLoadPlugin", "Debug #4\n");
         SetupLuaEnvironment(this);
-        PRINTF("InternalLoadPlugin", "Debug #5\n");
         for (std::string file : files)
         {
             std::string errstr;
