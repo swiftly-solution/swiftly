@@ -248,6 +248,8 @@ class MMSPluginConfig(object):
         '-Wno-overloaded-virtual',
         '-Wno-return-local-addr',
         '-fexceptions',
+        '-pagezero_size 10000',
+        '-image_base 100000000',
       ]
       if (cxx.version >= 'gcc-4.7' or cxx.family == 'clang'):
         cxx.cxxflags += ['-Wno-delete-non-virtual-dtor']

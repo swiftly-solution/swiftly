@@ -26,8 +26,6 @@ static const luaL_Reg lualibs[] = {
     {NULL, NULL},
 };
 
-static void *luaAllocator(void *ud, void *ptr, size_t osize, size_t nsize);
-
 class LuaPlugin : public Plugin
 {
 private:
@@ -48,8 +46,7 @@ private:
 
     bool InternalLoadPlugin()
     {
-        this->rawLuaState = lua_newstate(&luaAllocator, nullptr);
-        // this->rawLuaState = luaL_newstate();
+        this->rawLuaState = luaL_newstate();
         const luaL_Reg *lib = lualibs;
         for (; lib->func; lib++)
         {
