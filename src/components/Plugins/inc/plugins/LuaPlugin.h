@@ -7,6 +7,25 @@
 
 extern std::map<std::string, std::map<std::string, std::vector<luacpp::LuaObject>>> lua_game_events;
 
+extern "C"
+{
+    LUALIB_API int luaopen_rapidjson(lua_State *L);
+}
+
+static const luaL_Reg lualibs[] = {
+    {"_G", luaopen_base},
+    {LUA_TABLIBNAME, luaopen_table},
+    {LUA_STRLIBNAME, luaopen_string},
+    {LUA_MATHLIBNAME, luaopen_math},
+    {LUA_DBLIBNAME, luaopen_debug},
+    {LUA_COLIBNAME, luaopen_coroutine},
+    {LUA_UTF8LIBNAME, luaopen_utf8},
+    {LUA_IOLIBNAME, luaopen_io},
+    {LUA_OSLIBNAME, luaopen_os},
+    {"json", luaopen_rapidjson},
+    {NULL, NULL},
+};
+
 class LuaPlugin : public Plugin
 {
 private:
@@ -28,10 +47,14 @@ private:
     bool InternalLoadPlugin()
     {
         this->rawLuaState = luaL_newstate();
-        luacpp::LuaState luaStateObject(this->rawLuaState, true);
-        this->luaState = &luaStateObject;
+        const luaL_Reg *lib = lualibs;
+        for (; lib->func; lib++)
+        {
+            luaL_requiref(this->rawLuaState, lib->name, lib->func, 1);
+            lua_pop(this->rawLuaState, 1);
+        }
 
-        // this->luaState = new luacpp::LuaState(this->rawLuaState, false);
+        this->luaState = new luacpp::LuaState(this->rawLuaState, false);
 
         std::vector<std::string> files = Files::FetchFileNames(this->m_path);
         SetupLuaEnvironment(this);
