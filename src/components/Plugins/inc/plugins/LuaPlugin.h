@@ -28,7 +28,10 @@ private:
     bool InternalLoadPlugin()
     {
         this->rawLuaState = luaL_newstate();
-        this->luaState = new luacpp::LuaState(this->rawLuaState, false);
+        luacpp::LuaState luaStateObject(this->rawLuaState, true);
+        this->luaState = &luaStateObject;
+
+        // this->luaState = new luacpp::LuaState(this->rawLuaState, false);
 
         std::vector<std::string> files = Files::FetchFileNames(this->m_path);
         SetupLuaEnvironment(this);
