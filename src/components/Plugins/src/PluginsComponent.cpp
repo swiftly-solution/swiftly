@@ -4,6 +4,8 @@
 #include "../inc/plugins/CPPPlugin.h"
 #include "../inc/plugins/LuaPlugin.h"
 
+#include <cstdlib>
+
 std::map<std::string, Plugin *> pluginsMap;
 
 bool ends_with(std::string value, std::string ending)
@@ -91,4 +93,17 @@ Plugin *FetchPluginFromMap(std::string plugin_name)
         return nullptr;
 
     return pluginsMap.at(plugin_name);
+}
+
+static void *luaAllocator(void *ud, void *ptr, size_t osize, size_t nsize)
+{
+    if (nsize == 0)
+    {
+        free(ptr);
+        return nullptr;
+    }
+    else
+    {
+        return realloc(ptr, nsize);
+    }
 }
