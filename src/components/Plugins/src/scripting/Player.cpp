@@ -711,8 +711,21 @@ SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
     if (!itemServices)
         return;
 
-    if (std::string(name) == "item_defuser" && player->GetController() && player->GetController()->m_iTeamNum() == CS_TEAM_CT)
+    std::string n = std::string(name);
+
+    if (n == "item_defuser" && player->GetController() && player->GetController()->m_iTeamNum() == CS_TEAM_CT)
         itemServices->m_bHasDefuser = true;
+    else if (n == "item_assaultsuit")
+    {
+        itemServices->m_bHasHelmet = true;
+        itemServices->m_bHasHeavyArmor = true;
+        scripting_Player_SetArmor(playerId, 100);
+    }
+    else if (n == "item_kevlar")
+    {
+        itemServices->m_bHasHeavyArmor = true;
+        scripting_Player_SetArmor(playerId, 100);
+    }
     else
         itemServices->GiveNamedItem(name);
 }
