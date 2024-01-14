@@ -35,6 +35,7 @@ private:
         {
             std::string errstr;
             SetupLuaEnvironment(this);
+            PRINTF("InternalLoadPlugin", "%s\n", file.c_str());
             if (!this->luaState->DoFile(file.c_str(), &errstr, nullptr))
             {
                 PRINTF("LoadPlugin", "Failed to load plugin file '%s'\nError: %s\n", file.c_str(), errstr.c_str());
