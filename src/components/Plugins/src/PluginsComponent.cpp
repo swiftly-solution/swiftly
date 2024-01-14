@@ -50,7 +50,7 @@ void PluginsComponent::LoadPlugin(std::string init_path, std::string dir)
         }
         else if (ends_with(file, ".lua"))
         {
-            plugin = new LuaPlugin(std::string("addons/swiftly/plugins/" + dir), dir, PluginType_t::PLUGIN_LUA);
+            plugin = new LuaPlugin(std::string(std::filesystem::current_path().string() + "/addons/swiftly/plugins/" + dir), dir, PluginType_t::PLUGIN_LUA);
             break;
         }
     }
