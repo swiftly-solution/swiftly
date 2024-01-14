@@ -70,16 +70,16 @@ void DatabaseManager::LoadDatabases()
 
         const char *connectionName = itr->name.GetString();
 
-        HAS_MEMBER(itr->value, "hostname", string_format("%s.hostname", connectionName))
-        IS_STRING(itr->value, "hostname", string_format("%s.hostname", connectionName))
-        HAS_MEMBER(itr->value, "username", string_format("%s.username", connectionName))
-        IS_STRING(itr->value, "username", string_format("%s.username", connectionName))
-        HAS_MEMBER(itr->value, "password", string_format("%s.password", connectionName))
-        IS_STRING(itr->value, "password", string_format("%s.password", connectionName))
-        HAS_MEMBER(itr->value, "database", string_format("%s.database", connectionName))
-        IS_STRING(itr->value, "database", string_format("%s.database", connectionName))
-        HAS_MEMBER(itr->value, "port", string_format("%s.port", connectionName))
-        IS_NUMBER(itr->value, "port", string_format("%s.port", connectionName))
+        HAS_MEMBER(itr->value, "hostname", string_format("%s.hostname", connectionName).c_str())
+        IS_STRING(itr->value, "hostname", string_format("%s.hostname", connectionName).c_str())
+        HAS_MEMBER(itr->value, "username", string_format("%s.username", connectionName).c_str())
+        IS_STRING(itr->value, "username", string_format("%s.username", connectionName).c_str())
+        HAS_MEMBER(itr->value, "password", string_format("%s.password", connectionName).c_str())
+        IS_STRING(itr->value, "password", string_format("%s.password", connectionName).c_str())
+        HAS_MEMBER(itr->value, "database", string_format("%s.database", connectionName).c_str())
+        IS_STRING(itr->value, "database", string_format("%s.database", connectionName).c_str())
+        HAS_MEMBER(itr->value, "port", string_format("%s.port", connectionName).c_str())
+        IS_NUMBER(itr->value, "port", string_format("%s.port", connectionName).c_str())
 
         Database *db = new Database(itr->value["hostname"].GetString(), itr->value["username"].GetString(), itr->value["password"].GetString(), itr->value["database"].GetString(), (uint16)itr->value["port"].GetUint());
         this->databases.insert(std::make_pair(connectionName, db));
