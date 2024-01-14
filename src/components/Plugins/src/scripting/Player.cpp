@@ -711,7 +711,10 @@ SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
     if (!itemServices)
         return;
 
-    itemServices->GiveNamedItem(name);
+    if (std::string(name) == "item_defuser" && player->GetController() && player->GetController()->m_iTeamNum() == CS_TEAM_CT)
+        itemServices->m_bHasDefuser = true;
+    else
+        itemServices->GiveNamedItem(name);
 }
 
 SMM_API uint32_t scripting_Player_Weapons_GetWeaponID(uint32 playerId, uint32 slot)

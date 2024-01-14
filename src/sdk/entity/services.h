@@ -77,6 +77,8 @@ public:
 
     virtual ~CCSPlayer_ItemServices() = 0;
 
+    SCHEMA_FIELD_OFFSET(bool, m_bHasDefuser, 0)
+
 private:
     virtual void unk_01() = 0;
     virtual void unk_02() = 0;
