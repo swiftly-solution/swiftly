@@ -137,5 +137,26 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     ConVarTypeTable.SetInteger("Vector4", 13);
     ConVarTypeTable.SetInteger("Qangle", 14);
 
+    auto WeaponSlotTable = state->CreateTable("WeaponSlot");
+
+    WeaponSlotTable.SetInteger("Invalid", 0xffffffff);
+    WeaponSlotTable.SetInteger("Rifle", 0x0);
+    WeaponSlotTable.SetInteger("Pistol", 0x1);
+    WeaponSlotTable.SetInteger("Knife", 0x2);
+    WeaponSlotTable.SetInteger("Grenades", 0x3);
+    WeaponSlotTable.SetInteger("C4", 0x4);
+    WeaponSlotTable.SetInteger("ReservedSlot6", 0x5);
+    WeaponSlotTable.SetInteger("ReservedSlot7", 0x6);
+    WeaponSlotTable.SetInteger("ReservedSlot8", 0x7);
+    WeaponSlotTable.SetInteger("ReservedSlot9", 0x8);
+    WeaponSlotTable.SetInteger("ReservedSlot10", 0x9);
+    WeaponSlotTable.SetInteger("ReservedSlot11", 0xa);
+    WeaponSlotTable.SetInteger("Boosts", 0xb);
+    WeaponSlotTable.SetInteger("Utility", 0xc);
+    WeaponSlotTable.SetInteger("Count", 0xd);
+    WeaponSlotTable.SetInteger("CurrentWeapon", 0xe);
+    WeaponSlotTable.SetInteger("First", 0x0);
+    WeaponSlotTable.SetInteger("Last", 0xC);
+
     PRINT("Scripting - Lua", "Types loaded.\n");
 }

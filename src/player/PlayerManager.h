@@ -65,6 +65,22 @@ public:
     inline Player *GetPlayer(CPlayerSlot *slot) { return this->g_Players[slot->Get()]; }
     inline const uint16 GetPlayerCap() { return MAX_PLAYERS; }
     inline CPlayerSlot GetSlotFromUserId(uint16 userid) { return CPlayerSlot(userid & 0xFF); }
+    inline Player *FindPlayerBySteamID(uint64 steamid)
+    {
+        if (steamid == 0)
+            return nullptr;
+
+        for (int i = 0; i < this->GetPlayerCap(); i++)
+        {
+            Player *player = this->GetPlayer(i);
+            if (!player)
+                continue;
+
+            if (player->GetSteamID() == steamid)
+                return player;
+        }
+        return nullptr;
+    }
 
 private:
     Player *g_Players[MAX_PLAYERS] = {};

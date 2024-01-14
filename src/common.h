@@ -25,6 +25,9 @@
 #include <entity2/entityidentity.h>
 #include "utils.h"
 
+#include <deque>
+#include <functional>
+
 #define PATH "addons/swiftly"
 
 class GameSessionConfiguration_t
@@ -41,6 +44,7 @@ public:
     void AllPluginsLoaded();
     void OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background);
     void OnLevelShutdown();
+    void NextFrame(std::function<void()> fn);
 
 public:
     void Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *);
@@ -63,6 +67,15 @@ public:
     const char *GetVersion();
     const char *GetDate();
     const char *GetLogTag();
+
+public:
+    std::deque<std::function<void()>> m_nextFrame;
+};
+
+class CEntityListener : public IEntityListener
+{
+    void OnEntitySpawned(CEntityInstance *pEntity) override;
+    void OnEntityParentChanged(CEntityInstance *pEntity, CEntityInstance *pNewParent) override;
 };
 
 extern SwiftlyPlugin g_Plugin;

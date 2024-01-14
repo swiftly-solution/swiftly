@@ -5,6 +5,8 @@
 #include <map>
 #include <functional>
 
+class CBasePlayerWeapon;
+
 struct Event
 {
     virtual ~Event() {}
@@ -126,6 +128,16 @@ struct OnMapUnload : Event
     OnMapUnload(const char *map)
     {
         this->map = map;
+    }
+};
+
+struct OnWeaponSpawned : Event
+{
+    CBasePlayerWeapon *pEntity;
+
+    OnWeaponSpawned(CBasePlayerWeapon *pEntity)
+    {
+        this->pEntity = pEntity;
     }
 };
 

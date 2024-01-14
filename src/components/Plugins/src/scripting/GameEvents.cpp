@@ -378,6 +378,20 @@ bool scripting_ShouldHearVoice(Player *player)
     CALL_PFUNCTION_BOOL_ARGS(ShouldHearVoice, false, true, player->GetSlot()->Get())
 }
 
+void scripting_OnWeaponSpawned(const OnWeaponSpawned *e)
+{
+    CBasePlayerWeapon *weapon = e->pEntity;
+    uint64_t steamid = weapon->m_OriginalOwnerXuidLow();
+    Player *player = g_playerManager->FindPlayerBySteamID(steamid);
+    if (!player)
+        return;
+
+    if (player->IsFakeClient())
+        return;
+
+    CALL_PFUNCTION_VOID_ARGS(OnWeaponSpawned, player->GetSlot()->Get(), weapon->m_AttributeManager().m_Item().m_iItemDefinitionIndex());
+}
+
 void PluginsComponent::RegisterGameEvents()
 {
     hooks::on<OnGameFrame>(scripting_OnGameTick);
@@ -401,4 +415,6 @@ void PluginsComponent::RegisterGameEvents()
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);
+
+    hooks::on<OnWeaponSpawned>(scripting_OnWeaponSpawned);
 }

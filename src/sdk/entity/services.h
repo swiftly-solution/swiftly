@@ -3,8 +3,10 @@
 #include <platform.h>
 #include "globaltypes.h"
 #include <tier1/utlvector.h>
+#include "CCSWeaponBase.h"
 
 class CBaseEntity;
+class CCSPlayerPawn;
 
 struct CSPerRoundStats_t
 {
@@ -95,6 +97,8 @@ private:
 public:
     virtual bool GiveNamedItemBool(const char *pchName) = 0;
     virtual CBaseEntity *GiveNamedItem(const char *pchName) = 0;
+    virtual void DropPlayerWeapon(CBasePlayerWeapon *weapon) = 0;
+    virtual void StripPlayerWeapons() = 0;
 };
 
 // We need an exactly sized class to be able to iterate the vector, our schema system implementation can't do this
@@ -128,4 +132,26 @@ public:
     DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_ActionTrackingServices, false)
 
     SCHEMA_FIELD_OFFSET(WeaponPurchaseTracker_t, m_weaponPurchasesThisRound, 0)
+};
+
+class CPlayerPawnComponent
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CPlayerPawnComponent, false)
+
+    SCHEMA_FIELD_OFFSET(CCSPlayerPawn *, __m_pChainEntity, 0)
+};
+
+class CPlayer_WeaponServices : public CPlayerPawnComponent
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CPlayer_WeaponServices, false)
+
+    SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<CHandle<CBasePlayerWeapon>>, m_hMyWeapons, 0)
+    SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerWeapon>, m_hActiveWeapon, 0)
+
+    void RemoveWeapon(CBasePlayerWeapon *weapon)
+    {
+        CALL_VIRTUAL(void, 20, weapon, nullptr, nullptr);
+    }
 };

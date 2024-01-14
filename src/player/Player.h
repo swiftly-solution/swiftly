@@ -141,6 +141,9 @@ public:
     std::any GetInternalVar(std::string name);
     void SetInternalVar(std::string name, std::any value);
 
+    CBasePlayerWeapon *GetPlayerWeaponFromSlot(gear_slot_t slot);
+    CBasePlayerWeapon *GetPlayerWeaponFromID(uint32 weaponid);
+
 private:
     int slot;
     bool isFakeClient = false;

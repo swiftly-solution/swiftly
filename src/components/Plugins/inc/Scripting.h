@@ -38,6 +38,7 @@ typedef void (*OnPluginStartFunction)();
 typedef void (*OnPluginStopFunction)();
 typedef void (*OnProgramLoadFunction)(const char *, const char *);
 typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
+typedef void (*Plugin_OnWeaponSpawned)(uint32, uint32);
 
 enum PlayerStat : int
 {
@@ -139,6 +140,30 @@ SMM_API void scripting_Player_SetVelocity(uint32 playerId, float x, float y, flo
 SMM_API int scripting_Player_GetMoney(uint32 playerId);
 SMM_API void scripting_Player_SetMoney(uint32 playerId, int money);
 SMM_API void scripting_Player_TakeMoney(uint32 playerId, int money);
+
+SMM_API void scripting_Player_Weapons_Drop(uint32 playerId);
+SMM_API void scripting_Player_Weapons_Remove(uint32 playerId);
+SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name);
+SMM_API uint32_t scripting_Player_Weapons_GetWeaponID(uint32 playerId, uint32 slot);
+
+SMM_API void scripting_Player_Weapon_Remove(uint32 playerId, uint32 slot);
+SMM_API void scripting_Player_Weapon_Drop(uint32 playerId, uint32 slot);
+
+SMM_API void scripting_Player_Weapon_SetStatTrack(uint32 playerId, uint32 slot, bool stattrack);
+SMM_API void scripting_Player_Weapon_SetWear(uint32 playerId, uint32 slot, float wear);
+SMM_API void scripting_Player_Weapon_SetPaintKit(uint32 playerId, uint32 slot, int paintkit);
+SMM_API void scripting_Player_Weapon_SetSeed(uint32 playerId, uint32 slot, int seed);
+
+SMM_API bool scripting_Player_Weapon_GetStatTrack(uint32 playerId, uint32 slot);
+SMM_API float scripting_Player_Weapon_GetWear(uint32 playerId, uint32 slot);
+SMM_API int scripting_Player_Weapon_GetPaintKit(uint32 playerId, uint32 slot);
+SMM_API int scripting_Player_Weapon_GetSeed(uint32 playerId, uint32 slot);
+SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playerId, uint32 slot);
+
+SMM_API bool scripting_Player_Weapon_Exists(uint32 playerId, uint32 slot);
+
+SMM_API uint32 scripting_Player_Weapon_GetType(uint32 playerId, uint32 slot);
+SMM_API const char *scripting_Player_Weapon_GetName(uint32 playerId, uint32 slot);
 
 SMM_API void scripting_Precacher_AddModel(const char *model);
 

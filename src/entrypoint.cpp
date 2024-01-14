@@ -82,6 +82,7 @@ HTTPManager *g_httpManager = nullptr;
 Patches *g_Patches = nullptr;
 EntityManager *g_entityManager = nullptr;
 Precacher *g_precacher = nullptr;
+CEntityListener g_entityListener;
 
 std::vector<Plugin *> plugins;
 
@@ -206,6 +207,8 @@ bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &SwiftlyPlugin::Hook_StartupServer, true);
     SH_REMOVE_HOOK_MEMFUNC(ICvar, DispatchConCommand, g_pCVar, this, &SwiftlyPlugin::Hook_DispatchConCommand, false);
 
+    g_pGameEntitySystem->RemoveListenerEntity(&g_entityListener);
+
     UnregisterEventListeners();
 
     ConVar_Unregister();
@@ -285,6 +288,8 @@ void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config,
         g_pGameEntitySystem = *reinterpret_cast<CGameEntitySystem **>(reinterpret_cast<uintptr_t>(g_pGameResourceService) + g_Offsets->GetOffset("GameEntitySystem"));
         g_pEntitySystem = g_pGameEntitySystem;
 
+        g_pGameEntitySystem->AddListenerEntity(&g_entityListener);
+
         bDone = true;
     }
 }
@@ -350,6 +355,30 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const ch
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     hooks::emit(OnGameFrame(simulating, bFirstTick, bLastTick));
+
+    while (!m_nextFrame.empty())
+    {
+        m_nextFrame.front()();
+        m_nextFrame.pop_front();
+    }
+}
+
+void SwiftlyPlugin::NextFrame(std::function<void()> fn)
+{
+    m_nextFrame.push_back(fn);
+}
+
+void CEntityListener::OnEntitySpawned(CEntityInstance *pEntity)
+{
+    if (CBasePlayerWeapon *weapon = dynamic_cast<CBasePlayerWeapon *>(pEntity); weapon != nullptr)
+    {
+        g_Plugin.NextFrame([weapon]()
+                           { hooks::emit(OnWeaponSpawned(weapon)); });
+    }
+}
+
+void CEntityListener::OnEntityParentChanged(CEntityInstance *pEntity, CEntityInstance *pNewParent)
+{
 }
 
 bool SwiftlyPlugin::Pause(char *error, size_t maxlen)

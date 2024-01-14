@@ -27,6 +27,28 @@ inline CEntityInstance *UTIL_FindEntityByClassname(CEntityInstance *pStart, cons
     return nullptr;
 }
 
+class CEntitySubclassVDataBase
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CEntitySubclassVDataBase, false)
+};
+
+class CModelState
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CModelState, false)
+
+    SCHEMA_FIELD_OFFSET(uint64_t, m_MeshGroupMask, 0)
+};
+
+class CSkeletonInstance
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CSkeletonInstance, false)
+
+    SCHEMA_FIELD_OFFSET(CModelState, m_modelState, 0)
+};
+
 class CGameSceneNode
 {
 public:
@@ -78,6 +100,11 @@ public:
 
         return mat;
     }
+
+    CSkeletonInstance *GetSkeletonInstance()
+    {
+        return CALL_VIRTUAL(CSkeletonInstance *, 8, this);
+    }
 };
 
 class CBodyComponent
@@ -107,6 +134,7 @@ public:
     SCHEMA_FIELD_OFFSET(CCollisionProperty *, m_pCollision, 0)
     SCHEMA_FIELD_OFFSET(CBodyComponent *, m_CBodyComponent, 0)
     SCHEMA_FIELD_OFFSET(Vector, m_vecAbsVelocity, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(CUtlStringToken, m_nSubclassID, 0)
 
     int EntityIndex() { return this->m_pEntity->GetRefEHandle().GetEntryIndex(); }
 
@@ -130,4 +158,6 @@ public:
     {
         g_Signatures->FetchSignature<UTIL_Remove>("UTIL_Remove")(this);
     }
+
+    CEntitySubclassVDataBase *GetVData() { return *(CEntitySubclassVDataBase **)((uint8 *)(m_nSubclassID()) + 8); }
 };

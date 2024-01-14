@@ -35,6 +35,7 @@ bool OnClientGameMessage(Player *player, int destination, const char *message) _
 void OnPlayerDeath(Player *player, Player *attacker, Player *assister, bool assistedflash, const char *weapon, bool headshot, short dominated, short revenge, short wipe, short penetrated, bool noreplay, bool noscope, bool thrusmoke, bool attackerblind, float distance, short dmg_health, short dmg_armor, short hitgroup) __attribute__((weak));
 void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon, bool fatal) __attribute__((weak));
 bool ShouldHearVoice(Player *player) __attribute__((weak));
+bool OnWeaponSpawned(Player *player, Weapon *weapon) __attribute__((weak));
 
 extern "C"
 {
@@ -313,6 +314,18 @@ extern "C"
             return true;
 
         return ShouldHearVoice(player);
+    }
+
+    void Internal_OnWeaponSpawned(uint32_t slot, uint32_t weaponid)
+    {
+        if (!OnWeaponSpawned)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (!player)
+            return;
+
+        OnWeaponSpawned(player, player->weapons->GetWeapon(weaponid));
     }
 
     const char *GetPluginAuthor();

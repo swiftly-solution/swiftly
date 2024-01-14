@@ -247,3 +247,68 @@ void Player::SetCoords(float x, float y, float z)
     Vector vec(x, y, z);
     pawn->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin = vec;
 }
+
+CBasePlayerWeapon *Player::GetPlayerWeaponFromID(uint32 weaponid)
+{
+    CCSPlayerPawn *pawn = this->GetPlayerPawn();
+    if (!pawn)
+        return nullptr;
+
+    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    if (!weaponServices)
+        return nullptr;
+
+    CUtlVector<CHandle<CBasePlayerWeapon>> *weapons = weaponServices->m_hMyWeapons();
+    if (!weapons)
+        return nullptr;
+
+    FOR_EACH_VEC(*weapons, i)
+    {
+        CHandle<CBasePlayerWeapon> &weaponHandle = (*weapons)[i];
+        if (!weaponHandle.IsValid())
+            continue;
+
+        CBasePlayerWeapon *weapon = weaponHandle.Get();
+        if (!weapon)
+            continue;
+
+        if (weapon->m_AttributeManager().m_Item().m_iItemDefinitionIndex() == weaponid)
+            return weapon;
+    }
+
+    return nullptr;
+}
+
+CBasePlayerWeapon *Player::GetPlayerWeaponFromSlot(gear_slot_t slot)
+{
+    CCSPlayerPawn *pawn = this->GetPlayerPawn();
+    if (!pawn)
+        return nullptr;
+
+    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    if (!weaponServices)
+        return nullptr;
+
+    if (slot == GEAR_SLOT_CURRENT_WEAPON)
+        return weaponServices->m_hActiveWeapon();
+
+    CUtlVector<CHandle<CBasePlayerWeapon>> *weapons = weaponServices->m_hMyWeapons();
+    if (!weapons)
+        return nullptr;
+
+    FOR_EACH_VEC(*weapons, i)
+    {
+        CHandle<CBasePlayerWeapon> &weaponHandle = (*weapons)[i];
+        if (!weaponHandle.IsValid())
+            continue;
+
+        CBasePlayerWeapon *weapon = weaponHandle.Get();
+        if (!weapon)
+            continue;
+
+        if (weapon->GetWeaponVData()->m_GearSlot() == slot)
+            return weapon;
+    }
+
+    return nullptr;
+}

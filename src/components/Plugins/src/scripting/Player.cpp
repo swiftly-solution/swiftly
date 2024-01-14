@@ -444,3 +444,313 @@ SMM_API void scripting_Player_TakeMoney(uint32 playerId, int money)
 
     controller->m_pInGameMoneyServices->m_iAccount = controller->m_pInGameMoneyServices->m_iAccount() - money;
 }
+
+SMM_API void scripting_Player_Weapons_Drop(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    if (!weaponServices)
+        return;
+
+    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    if (!itemServices)
+        return;
+
+    CUtlVector<CHandle<CBasePlayerWeapon>> *weapons = weaponServices->m_hMyWeapons();
+    if (!weapons)
+        return;
+
+    FOR_EACH_VEC(*weapons, i)
+    {
+        CHandle<CBasePlayerWeapon> &weaponHandle = (*weapons)[i];
+        if (!weaponHandle.IsValid())
+            continue;
+
+        CBasePlayerWeapon *weapon = weaponHandle.Get();
+        if (!weapon)
+            continue;
+
+        itemServices->DropPlayerWeapon(weapon);
+    }
+}
+
+SMM_API void scripting_Player_Weapons_Remove(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    if (!weaponServices)
+        return;
+
+    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    if (!itemServices)
+        return;
+
+    CUtlVector<CHandle<CBasePlayerWeapon>> *weapons = weaponServices->m_hMyWeapons();
+    if (!weapons)
+        return;
+
+    FOR_EACH_VEC(*weapons, i)
+    {
+        CHandle<CBasePlayerWeapon> &weaponHandle = (*weapons)[i];
+        if (!weaponHandle.IsValid())
+            continue;
+
+        CBasePlayerWeapon *weapon = weaponHandle.Get();
+        if (!weapon)
+            continue;
+
+        itemServices->DropPlayerWeapon(weapon);
+        weaponServices->RemoveWeapon(weapon);
+        weapon->Despawn();
+    }
+}
+
+SMM_API void scripting_Player_Weapon_Remove(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    if (!weaponServices)
+        return;
+
+    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    if (!itemServices)
+        return;
+
+    itemServices->DropPlayerWeapon(weapon);
+    weaponServices->RemoveWeapon(weapon);
+    weapon->Despawn();
+}
+
+SMM_API void scripting_Player_Weapon_Drop(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    if (!weaponServices)
+        return;
+
+    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    if (!itemServices)
+        return;
+
+    itemServices->DropPlayerWeapon(weapon);
+}
+
+SMM_API void scripting_Player_Weapon_SetStatTrack(uint32 playerId, uint32 slot, bool stattrack)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    weapon->m_nFallbackStatTrak = (int)stattrack;
+}
+
+SMM_API void scripting_Player_Weapon_SetWear(uint32 playerId, uint32 slot, float wear)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    weapon->m_flFallbackWear = wear;
+}
+SMM_API void scripting_Player_Weapon_SetPaintKit(uint32 playerId, uint32 slot, int paintkit)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    weapon->m_nFallbackPaintKit = paintkit;
+}
+
+SMM_API void scripting_Player_Weapon_SetSeed(uint32 playerId, uint32 slot, int seed)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    weapon->m_nFallbackSeed = seed;
+}
+
+SMM_API bool scripting_Player_Weapon_GetStatTrack(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return false;
+
+    return (weapon->m_nFallbackStatTrak() != 0);
+}
+SMM_API float scripting_Player_Weapon_GetWear(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return 0.0f;
+
+    return weapon->m_flFallbackWear();
+}
+SMM_API int scripting_Player_Weapon_GetPaintKit(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return 0;
+
+    return weapon->m_nFallbackPaintKit();
+}
+SMM_API int scripting_Player_Weapon_GetSeed(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return 0;
+
+    return weapon->m_nFallbackSeed();
+}
+
+SMM_API uint32 scripting_Player_Weapon_GetType(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return gear_slot_t::GEAR_SLOT_INVALID;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return gear_slot_t::GEAR_SLOT_INVALID;
+
+    return weapon->GetWeaponVData()->m_GearSlot();
+}
+
+SMM_API const char *scripting_Player_Weapon_GetName(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "";
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return "";
+
+    return weapon->GetClassname();
+}
+
+SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    if (!itemServices)
+        return;
+
+    itemServices->GiveNamedItem(name);
+}
+
+SMM_API uint32_t scripting_Player_Weapons_GetWeaponID(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromSlot((gear_slot_t)slot);
+    if (!weapon)
+        return 0;
+
+    return weapon->m_AttributeManager().m_Item().m_iItemDefinitionIndex();
+}
+
+SMM_API bool scripting_Player_Weapon_Exists(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    return (weapon != nullptr);
+}
+
+SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    weapon->m_AttributeManager().m_Item().m_iItemIDHigh = -1;
+
+    if (weapon->GetWeaponVData()->m_GearSlot == gear_slot_t::GEAR_SLOT_KNIFE)
+        weapon->m_AttributeManager().m_Item().m_iEntityQuality = 3;
+    else if (!weapon->m_AttributeManager().m_Item().m_iAccountID() && weapon->m_CBodyComponent() && weapon->m_CBodyComponent()->m_pSceneNode())
+        weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask = 2;
+}
