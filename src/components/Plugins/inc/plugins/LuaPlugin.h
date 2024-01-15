@@ -13,6 +13,7 @@ extern "C"
 }
 
 static const luaL_Reg lualibs[] = {
+    {"_G", luaopen_base},
     {LUA_TABLIBNAME, luaopen_table},
     {LUA_STRLIBNAME, luaopen_string},
     {LUA_MATHLIBNAME, luaopen_math},
@@ -50,8 +51,10 @@ private:
         const luaL_Reg *lib = lualibs;
         for (; lib->func; lib++)
         {
-            PRINTF("InternalLoadPlugin", "Debug Load: %s\n", lib->name);
-            luaL_requiref(this->rawLuaState, lib->name, lib->func, 1);
+            std::string s = lib->name;
+            PRINTF("InternalLoadPlugin", "Debug Load: %s\n", s.c_str());
+            luaL_requiref(this->rawLuaState, s.c_str(), lib->func, 1);
+            PRINTF("InternalLoadPlugin", "Debug Load: %s loaded\n", s.c_str());
             lua_pop(this->rawLuaState, 1);
         }
 
