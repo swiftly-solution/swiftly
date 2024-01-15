@@ -13,7 +13,6 @@ extern "C"
 }
 
 static const luaL_Reg lualibs[] = {
-    {"_G", luaopen_base},
     {LUA_TABLIBNAME, luaopen_table},
     {LUA_STRLIBNAME, luaopen_string},
     {LUA_MATHLIBNAME, luaopen_math},
