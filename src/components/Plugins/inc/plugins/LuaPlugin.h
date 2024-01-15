@@ -47,6 +47,7 @@ private:
     bool InternalLoadPlugin()
     {
         this->rawLuaState = luaL_newstate();
+        PRINTF("InternalLoadPlugin", "%p\n", this->rawLuaState);
         const luaL_Reg *lib = lualibs;
         for (; lib->func; lib++)
         {
