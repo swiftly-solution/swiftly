@@ -52,6 +52,7 @@ jobs:
               working-directory: swiftly
               shell: bash
               run: |
+                  sudo apt install -y libreadline-dev
                   bash ./setup.sh
 
             - name: Prepare Build - Windows
