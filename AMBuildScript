@@ -224,8 +224,7 @@ class MMSPluginConfig(object):
       cxx.cflags += [
         '-pipe',
         '-fno-strict-aliasing',
-        '-Wall',
-        '-Werror',
+        '-Wfatal-errors',
         '-Wno-uninitialized',
         '-Wno-invalid-offsetof',
         '-Wno-attributes',
