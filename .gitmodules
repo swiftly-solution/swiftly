@@ -14,10 +14,10 @@
 [submodule "vendor/luacpp"]
 	path = vendor/luacpp
 	url = https://github.com/ouonline/luacpp
-	
 [submodule "vendor/lua-rapidjson"]
 	path = vendor/lua-rapidjson
 	url = https://github.com/xpol/lua-rapidjson
 [submodule "vendor/lua"]
 	path = vendor/lua
 	url = https://github.com/lua/lua.git
+	branch = 6443185167c77adcc8552a3fee7edab7895db1a9
