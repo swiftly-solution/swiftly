@@ -226,7 +226,6 @@ class MMSPluginConfig(object):
         '-fno-strict-aliasing',
         '-Wfatal-errors',
         '-Wno-uninitialized',
-        '-Wno-invalid-offsetof',
         '-Wno-attributes',
         '-Wno-unused',
         '-Wno-switch',
