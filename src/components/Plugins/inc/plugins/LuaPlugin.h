@@ -51,10 +51,25 @@ private:
         const luaL_Reg *lib = lualibs;
         for (; lib->func; lib++)
         {
-            std::string s = lib->name;
-            PRINTF("InternalLoadPlugin", "Debug Load: %s\n", s.c_str());
-            luaL_requiref(this->rawLuaState, s.c_str(), lib->func, 1);
-            PRINTF("InternalLoadPlugin", "Debug Load: %s loaded\n", s.c_str());
+            PRINTF("InternalLoadPlugin", "Debug Load: %s\n", lib->name);
+            luaL_getsubtable(this->rawLuaState, LUA_REGISTRYINDEX, LUA_LOADED_TABLE);
+            PRINTF("InternalLoadPlugin", "GetField\n");
+            lua_getfield(this->rawLuaState, -1, lib->name);
+            if (!lua_toboolean(this->rawLuaState, -1))
+            {
+                PRINTF("InternalLoadPlugin", "Package not loaded, loading\n");
+                lua_pop(this->rawLuaState, 1);
+                lua_pushcfunction(this->rawLuaState, lib->func);
+                lua_pushstring(this->rawLuaState, lib->name);
+                PRINTF("InternalLoadPlugin", "Calling load\n");
+                lua_call(this->rawLuaState, 1, 1);
+                lua_pushvalue(this->rawLuaState, -1);
+                lua_setfield(this->rawLuaState, -3, lib->name);
+            }
+            lua_remove(this->rawLuaState, -2);
+            lua_pushvalue(this->rawLuaState, -1);
+            lua_setglobal(this->rawLuaState, lib->name);
+            PRINTF("InternalLoadPlugin", "Debug Load: %s loaded\n", lib->name);
             lua_pop(this->rawLuaState, 1);
         }
 
