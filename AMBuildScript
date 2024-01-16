@@ -235,7 +235,6 @@ class MMSPluginConfig(object):
         '-msse',
         '-fPIC',
         '-fexceptions',
-        '-std=c99',
       ]
       if (cxx.version >= 'gcc-4.0') or cxx.family == 'clang':
         cxx.cflags += ['-fvisibility=hidden']
