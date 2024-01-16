@@ -18,3 +18,6 @@
 [submodule "vendor/lua-rapidjson"]
 	path = vendor/lua-rapidjson
 	url = https://github.com/xpol/lua-rapidjson
+[submodule "vendor/lua"]
+	path = vendor/lua
+	url = https://github.com/lua/lua.git
