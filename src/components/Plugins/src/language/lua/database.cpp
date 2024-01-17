@@ -42,6 +42,8 @@ void SetupLuaDatabase(luacpp::LuaState *state, Plugin *plugin)
 
     databaseClass.DefMember("EscapeString", [](LuaDatabaseClass *base, const char *value) -> const char *
                             { return scripting_Database_EscapeString(base->GetConnectionName().c_str(), value); })
+        .DefMember("IsConnected", [](LuaDatabaseClass *base) -> bool
+                   { return base->IsConnected(); })
         .DefMember("Query", [state](LuaDatabaseClass *base, const char *query) -> luacpp::LuaTable
                    {
                     luacpp::LuaTable tbl = state->CreateTable();

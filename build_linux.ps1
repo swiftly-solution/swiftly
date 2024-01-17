@@ -1,1 +1,1 @@
-docker run --rm -it -v .:/swiftly swiftly:latest 
+docker run --rm -it -v .:/swiftly ghcr.io/swiftly-solution/swiftly:cross-compiler  
