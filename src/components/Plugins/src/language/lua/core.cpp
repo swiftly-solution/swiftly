@@ -7,6 +7,24 @@
 #include <luacpp/luacpp.h>
 #include <luacpp/func_utils.h>
 
+int StringToInt(const char *str)
+{
+    int retval;
+    try
+    {
+        retval = std::stoi(str);
+    }
+    catch (std::invalid_argument &ex)
+    {
+        retval = -1;
+    }
+    catch (std::out_of_range &exr)
+    {
+        retval = -1;
+    }
+    return retval;
+}
+
 void SetupLuaEnvironment(Plugin *plugin)
 {
     luacpp::LuaState *state = plugin->GetLuaState();
@@ -45,6 +63,26 @@ void SetupLuaEnvironment(Plugin *plugin)
         if(playerTable.Get(playerID).GetType() == LUA_TNIL) return state->CreateNil();
         else return playerTable.Get(playerID); },
                           "GetPlayer");
+    state->CreateFunction([playerTable, state](const char *content, bool matchbots) -> int
+                          {
+        int slot = StringToInt(content);
+        if(slot != -1) return slot;
+
+        std::string match = str_tolower(content);
+        for (int i = 0; i < g_playerManager->GetPlayerCap(); i++)
+        {
+            Player *player = g_playerManager->GetPlayer(i);
+            if (player == nullptr)
+                continue;
+            if (!matchbots && player->IsFakeClient())
+                continue;
+
+            if (std::to_string(player->GetSteamID()) == match || std::string(str_tolower(player->GetName())).find(match) != std::string::npos)
+                return i;
+        }
+
+        return -1; },
+                          "GetPlayerId");
     state->CreateFunction([playerTable]() -> luacpp::LuaTable
                           { return playerTable; },
                           "GetPlayers");
