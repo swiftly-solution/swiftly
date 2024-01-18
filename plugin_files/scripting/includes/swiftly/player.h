@@ -176,6 +176,22 @@ public:
             return 0;
         }
     }
+
+    void ExecuteCommand(const char *cmd, ...)
+    {
+        va_list ap;
+        char buffer[2048];
+
+        va_start(ap, cmd);
+        UTIL_FormatArgs(buffer, sizeof(buffer), cmd, ap);
+        va_end(ap);
+
+        void *player_ExecuteCommand = FetchFunctionPtr(nullptr, "scripting_Player_ExecuteCommand");
+        if (player_ExecuteCommand)
+            reinterpret_cast<Player_ExecuteCommand>(player_ExecuteCommand)(this->m_playerSlot, buffer);
+        else
+            NOT_SUPPORTED("scripting_Player_ExecuteCommand");
+    }
 };
 
 #endif

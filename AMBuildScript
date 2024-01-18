@@ -244,6 +244,7 @@ class MMSPluginConfig(object):
         '-Wno-non-virtual-dtor',
         '-Wno-overloaded-virtual',
         '-Wno-return-local-addr',
+        '-Wno-invalid-offsetof',
         '-fexceptions',
         '-std=c++17',
       ]

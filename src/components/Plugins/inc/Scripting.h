@@ -141,6 +141,8 @@ SMM_API int scripting_Player_GetMoney(uint32 playerId);
 SMM_API void scripting_Player_SetMoney(uint32 playerId, int money);
 SMM_API void scripting_Player_TakeMoney(uint32 playerId, int money);
 
+SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd);
+
 SMM_API void scripting_Player_Weapons_Drop(uint32 playerId);
 SMM_API void scripting_Player_Weapons_Remove(uint32 playerId);
 SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name);

@@ -770,3 +770,12 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
     else if (!weapon->m_AttributeManager().m_Item().m_iAccountID() && weapon->m_CBodyComponent() && weapon->m_CBodyComponent()->m_pSceneNode())
         weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask = 2;
 }
+
+SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    engine->ClientCommand(*player->GetSlot(), cmd);
+}

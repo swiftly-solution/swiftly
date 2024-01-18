@@ -28,6 +28,8 @@ typedef int (*Player_GetMoney)(uint32_t);
 typedef void (*Player_SetMoney)(uint32_t, int);
 typedef void (*Player_TakeMoney)(uint32_t, int);
 
+typedef void (*Player_ExecuteCommand)(uint32_t, const char *);
+
 typedef const char *(*Player_GetClanTag)(uint32_t);
 typedef void (*Player_SetClanTag)(uint32_t, const char *);
 
