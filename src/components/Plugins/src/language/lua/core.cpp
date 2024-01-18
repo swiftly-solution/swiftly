@@ -87,8 +87,6 @@ void SetupLuaEnvironment(Plugin *plugin)
                           { return playerTable; },
                           "GetPlayers");
 
-    PRINT("Scripting - Lua", "Core loaded.\n");
-
     SetupLuaCommands(state, plugin);
     SetupLuaConfiguration(state, plugin);
     SetupLuaConvars(state, plugin);

@@ -29,6 +29,4 @@ void SetupLuaCommands(luacpp::LuaState *state, Plugin *plugin)
                        } });
 
     state->DoString("commands = Commands()");
-
-    PRINT("Scripting - Lua", "Commands loaded.\n");
 }

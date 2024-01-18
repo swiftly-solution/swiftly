@@ -269,6 +269,4 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_Weapon_SetDefaultChangeSkinAttributes(base->playerSlot, base->slot); })
         .DefMember("GetID", [](LuaPlayerTwoArgsClass *base) -> uint32
                    { return base->slot; });
-
-    PRINT("Scripting - Lua", "Player loaded.\n");
 }

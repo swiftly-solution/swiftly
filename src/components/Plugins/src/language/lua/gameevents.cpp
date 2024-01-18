@@ -48,6 +48,4 @@ void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin)
     state->DoString("function Internal_RegisterPlayer(slot, fake) players[slot] = Player(slot, fake); end");
     state->DoString("function Internal_UnregisterPlayer(slot) players[slot] = nil; end");
     state->DoString("function Internal_OnProgramLoad(plugin_name, bin) if OnProgramLoad then OnProgramLoad(plugin_name, bin) end end");
-
-    PRINT("Scripting - Lua", "Game Events loaded.\n");
 }

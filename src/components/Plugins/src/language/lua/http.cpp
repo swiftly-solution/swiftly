@@ -81,6 +81,4 @@ void SetupLuaHTTP(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_HTTP_SetFollowRedirect(base->GetRequestID(), follow); });
 
     state->DoString("http = HTTP()");
-
-    PRINT("Scripting - Lua", "HTTP loaded.\n");
 }

@@ -166,6 +166,4 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     state->CreateInteger(0, "SITE_A");
     state->CreateInteger(1, "SITE_B");
     state->CreateInteger(2, "SITE_UNKNOWN");
-
-    PRINT("Scripting - Lua", "Types loaded.\n");
 }

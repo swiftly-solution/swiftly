@@ -31,6 +31,4 @@ void SetupLuaServer(luacpp::LuaState *state, Plugin *plugin)
             scripting_Server_ExecuteCommand(string_format("map %s", map).c_str()); });
 
     state->DoString("server = Server()");
-
-    PRINT("Scripting - Lua", "Server loaded.\n");
 }

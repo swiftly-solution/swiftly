@@ -21,6 +21,4 @@ void SetupLuaPrecacher(luacpp::LuaState *state, Plugin *plugin)
                              { scripting_Precacher_AddModel(model); });
 
     state->DoString("precacher = Precacher()");
-
-    PRINT("Scripting - Lua", "Precacher loaded.\n");
 }

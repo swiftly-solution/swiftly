@@ -217,6 +217,4 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
             scripting_Entity_SetColors(base->entityID, colors.GetInteger("r"), colors.GetInteger("g"), colors.GetInteger("b"), colors.GetInteger("a")); });
 
     state->DoString("entities = Entities()");
-
-    PRINT("Scripting - Lua", "Entities loaded.\n");
 }

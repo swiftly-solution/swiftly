@@ -21,6 +21,4 @@ void SetupLuaUtils(luacpp::LuaState *state, Plugin *plugin)
     state->CreateFunction([]() -> uint64_t
                           { return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count(); },
                           "GetTime");
-
-    PRINT("Scripting - Lua", "Utils loaded.\n");
 }

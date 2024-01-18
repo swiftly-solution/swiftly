@@ -21,6 +21,4 @@ void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin)
                           { scripting_Logger_WriteLog(plugin->GetName().c_str(), (ELogType)level, message); });
 
     state->DoString("logger = Logger(PluginName())");
-
-    PRINT("Scripting - Lua", "Logger loaded.\n");
 }

@@ -8,6 +8,8 @@
 #include "../../Plugins/inc/Plugin.h"
 #include "../../../files/Files.h"
 #include "../../../http/HTTPManager.h"
+#include "../../Plugins/inc/plugins/CPPPlugin.h"
+#include "../../Plugins/inc/plugins/LuaPlugin.h"
 
 typedef const char *(*GetPlugin)();
 
@@ -272,47 +274,73 @@ void SwiftlyPluginManagerReload(CPlayerSlot *slot, CCommandContext context, std:
     PrintToClientOrConsole(slot, "Plugin Reload", "Plugin '%s' has been reloaded.\n", plugin_name.c_str());
 }
 
+void LoadPlugin(std::string plugin_name)
+{
+    Plugin *plugin = nullptr;
+
+    std::vector<std::string> files = Files::FetchFileNames("addons/swiftly/plugins/" + plugin_name);
+
+    for (const std::string &file : files)
+    {
+        if (ends_with(file, WIN_LINUX(".dll", ".so")))
+        {
+            plugin = new CPPPlugin(file, plugin_name, PluginType_t::PLUGIN_CPP);
+            break;
+        }
+        else if (ends_with(file, ".lua"))
+        {
+            plugin = new LuaPlugin(std::string(std::filesystem::current_path().string() + "/addons/swiftly/plugins/" + plugin_name), plugin_name, PluginType_t::PLUGIN_LUA);
+            break;
+        }
+    }
+
+    if (plugin)
+        AddPluginInMap(plugin);
+}
+
 void SwiftlyPluginManagerRefresh(CPlayerSlot *slot, CCommandContext context)
 {
     if (slot->Get() != -1)
         return;
 
-    PrintToClientOrConsole(slot, "Plugin Refresh", "This feature has been temporarely removed until support for multi language scripting is finished.\n");
+    std::vector<std::string> pluginNames;
 
-    // std::vector<std::string> pluginNames;
+    std::vector<std::string> directories = Files::FetchDirectories("addons/swiftly/plugins");
+    for (std::string directory : directories)
+    {
+        if (directory.find("disabled") != std::string::npos)
+            continue;
 
-    // std::vector<std::string> files = Files::FetchFileNames("addons/swiftly/plugins");
-    // for (const std::string &file : files)
-    // {
-    //     if (!ends_with(file, WIN_LINUX(".dll", ".so")))
-    //         continue;
-    //     if (starts_with(file, WIN_LINUX("disabled\\", "disabled/")))
-    //         continue;
+        directory = replace(directory, "addons/swiftly/plugins", "");
+        directory = replace(directory, WIN_LINUX("\\", "/"), "");
 
-    //     pluginNames.push_back(file);
-    // }
+        pluginNames.push_back(directory);
+    }
 
-    // uint32 newPlugins = 0;
+    uint32 newPlugins = 0;
 
-    // for (const std::string plugin_name : pluginNames)
-    // {
-    //     if (!ExistsPluginInMap(plugin_name))
-    //     {
-    //         std::vector<std::string> exploded = explode(plugin_name, WIN_LINUX("\\", "/"));
-    //         std::string name = exploded[exploded.size() - 2];
-    //         if (name == "plugins")
-    //         {
-    //             PrintToClientOrConsole(slot, "Plugin Refresh", "Skipped '%s' because it needs to be in it's own folder.\n", plugin_name);
-    //             continue;
-    //         }
+    for (const std::string plugin_name : pluginNames)
+    {
+        if (!ExistsPluginInMap(plugin_name))
+        {
+            // std::vector<std::string> exploded = explode(plugin_name, WIN_LINUX("\\", "/"));
+            // std::string name = exploded[exploded.size() - 2];
+            // if (name == "plugins")
+            // {
+            //     PrintToClientOrConsole(slot, "Plugin Refresh", "Skipped '%s' because it needs to be in it's own folder.\n", plugin_name);
+            //     continue;
+            // }
 
-    //         Plugin *plugin = new Plugin(plugin_name, name);
-    //         AddPluginInMap(plugin);
-    //         ++newPlugins;
-    //     }
-    // }
+            // Plugin *plugin = new Plugin(plugin_name, name);
 
-    // PrintToClientOrConsole(slot, "Plugin Refresh", "%02d plugins have been added.\n", newPlugins);
+            // AddPluginInMap(new LuaPlugin(plugin_name, "", PluginType_t::PLUGIN_LUA));
+
+            LoadPlugin(plugin_name);
+            ++newPlugins;
+        }
+    }
+
+    PrintToClientOrConsole(slot, "Plugin Refresh", "%02d plugins have been added.\n", newPlugins);
 }
 
 void SwiftlyPluginManager(CPlayerSlot *slot, CCommandContext context, const char *subcmd, const char *plugin_name)

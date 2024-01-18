@@ -49,6 +49,4 @@ void SetupLuaConvars(luacpp::LuaState *state, Plugin *plugin)
                     } });
 
     state->DoString("convar = Convars()");
-
-    PRINT("Scripting - Lua", "Convars loaded.\n");
 }

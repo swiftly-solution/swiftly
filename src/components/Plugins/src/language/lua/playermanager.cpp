@@ -25,6 +25,4 @@ void SetupLuaPlayerManager(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Players_SendMessage(dest, message); });
 
     state->DoString("playermanager = PlayerManager()");
-
-    PRINT("Scripting - Lua", "Player Manager loaded.\n");
 }

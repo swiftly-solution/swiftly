@@ -92,6 +92,4 @@ void SetupLuaDatabase(luacpp::LuaState *state, Plugin *plugin)
                     return tbl; });
 
     state->DoString("db = nil;");
-
-    PRINT("Scripting - Lua", "Database loaded.\n");
 }

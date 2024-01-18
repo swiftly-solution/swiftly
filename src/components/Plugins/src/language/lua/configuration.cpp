@@ -58,6 +58,4 @@ void SetupLuaConfiguration(luacpp::LuaState *state, Plugin *plugin)
                             return state->CreateNil(); });
 
     state->DoString("config = Configuration()");
-
-    PRINT("Scripting - Lua", "Configuration loaded.\n");
 }
