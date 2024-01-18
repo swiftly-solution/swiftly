@@ -165,11 +165,14 @@ void SwiftlyPluginManagerList(CPlayerSlot *slot, CCommandContext context)
 
     PrintToClientOrConsole(slot, "Plugins List", "Showing below %02d plugins loaded:\n", loadedPlugins);
     uint32 showingIdx = 0;
+    std::vector<std::string> errors;
     for (uint32 i = 0; i < plugins.size(); i++)
     {
         Plugin *plugin = plugins[i];
         if (plugin == nullptr)
             continue;
+        if (plugin->err.size() > 0)
+            errors.push_back(string_format("Plugin '%s': %s", plugin->GetName().c_str(), plugin->err.c_str()));
         if (!plugin->IsPluginLoaded())
             continue;
 
@@ -186,6 +189,14 @@ void SwiftlyPluginManagerList(CPlayerSlot *slot, CCommandContext context)
                                plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginVersion"),
                                plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginAuthor"),
                                website == "" ? "" : string_format(" ( %s )", website.c_str()).c_str());
+    }
+    if (errors.size() && slot->Get() == -1)
+    {
+        PrintToClientOrConsole(slot, "Plugins List", "Plugin load errors:\n");
+        for (const std::string err : errors)
+            PrintToClientOrConsole(slot, "Plugins List", "%s\n", err.c_str());
+
+        errors.clear();
     }
 }
 

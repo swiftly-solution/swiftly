@@ -154,6 +154,7 @@ private:
     virtual bool InternalLoadPlugin() = 0;
 
 public:
+    std::string err;
     std::string m_path;
 
     Plugin(std::string path, std::string name, PluginType_t pluginType) : m_path(path)
@@ -168,6 +169,8 @@ public:
 
     void LoadPlugin()
     {
+        this->err.clear();
+
         if (!this->InternalLoadPlugin())
             return;
 

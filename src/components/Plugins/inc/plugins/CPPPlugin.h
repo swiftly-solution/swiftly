@@ -34,6 +34,7 @@ private:
         if (!this->m_hModule)
         {
             PRINTF("LoadPlugin", "Failed to load module: %s\n", std::string(dlerror()).c_str());
+            this->err = std::string(dlerror()).c_str();
             return false;
         }
 #endif

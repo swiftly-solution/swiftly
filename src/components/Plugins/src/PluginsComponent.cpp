@@ -25,7 +25,7 @@ void PluginsComponent::LoadComponent()
     std::vector<std::string> directories = Files::FetchDirectories("addons/swiftly/plugins");
     for (std::string directory : directories)
     {
-        if (directory == "disabled")
+        if (directory.find("disabled") != std::string::npos)
             continue;
 
         directory = replace(directory, "addons/swiftly/plugins", "");
