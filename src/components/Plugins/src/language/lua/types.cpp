@@ -158,5 +158,14 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     WeaponSlotTable.SetInteger("First", 0x0);
     WeaponSlotTable.SetInteger("Last", 0xC);
 
+    state->CreateInteger(0, "TEAM_NONE");
+    state->CreateInteger(1, "TEAM_SPECTATOR");
+    state->CreateInteger(2, "TEAM_T");
+    state->CreateInteger(3, "TEAM_CT");
+
+    state->CreateInteger(0, "SITE_A");
+    state->CreateInteger(1, "SITE_B");
+    state->CreateInteger(2, "SITE_UNKNOWN");
+
     PRINT("Scripting - Lua", "Types loaded.\n");
 }
