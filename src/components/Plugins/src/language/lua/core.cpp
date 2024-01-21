@@ -92,6 +92,7 @@ void SetupLuaEnvironment(Plugin *plugin)
     SetupLuaConvars(state, plugin);
     SetupLuaDatabase(state, plugin);
     SetupLuaEntities(state, plugin);
+    SetupLuaExports(state, plugin);
     SetupLuaGameEvents(state, plugin);
     SetupLuaHTTP(state, plugin);
     SetupLuaLogger(state, plugin);

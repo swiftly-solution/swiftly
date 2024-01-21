@@ -32,6 +32,7 @@ private:
     luacpp::LuaState *luaState;
     lua_State *rawLuaState;
     std::map<std::string, luacpp::LuaObject> luaFunctions;
+    std::map<std::string, luacpp::LuaObject> luaExportedFunctions;
 
     void RegisterFunction(std::string function)
     {
@@ -60,6 +61,9 @@ private:
         SetupLuaEnvironment(this);
         for (std::string file : files)
         {
+            if (!ends_with(file, ".lua"))
+                continue;
+
             std::string errstr;
             if (!this->luaState->DoFile(file.c_str(), &errstr, nullptr))
             {
@@ -134,8 +138,95 @@ public:
     void DestroyPluginEnvironment()
     {
         this->luaFunctions.clear();
+        this->luaExportedFunctions.clear();
         if (lua_game_events.find(this->GetName()) != lua_game_events.end())
             lua_game_events.erase(this->GetName());
+    }
+
+    std::any ExecuteExport(std::string export_name, std::vector<std::any> data)
+    {
+        if (this->luaExportedFunctions.find(export_name) == this->luaExportedFunctions.end())
+            return nullptr;
+
+        luacpp::LuaTable tbl = this->luaState->GetTable("expFuncCache");
+        luacpp::LuaObject funcObj = tbl.Get(export_name.c_str());
+        if (funcObj.GetType() != LUA_TFUNCTION)
+            return nullptr;
+
+        LuaFuncWrapper funcWrap(funcObj);
+        funcWrap.PrepForExec();
+        for (std::any value : data)
+        {
+            if (value.type() == typeid(const char *))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateString(std::any_cast<const char *>(value)));
+            else if (value.type() == typeid(std::string))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateString(std::any_cast<std::string>(value).c_str()));
+            else if (value.type() == typeid(uint64_t))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<uint64_t>(value)));
+            else if (value.type() == typeid(uint32_t))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<uint32_t>(value)));
+            else if (value.type() == typeid(unsigned long))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<unsigned long>(value)));
+            else if (value.type() == typeid(uint16_t))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<uint16_t>(value)));
+            else if (value.type() == typeid(uint8_t))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<uint8_t>(value)));
+            else if (value.type() == typeid(int64_t))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<int64_t>(value)));
+            else if (value.type() == typeid(int32_t))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<int32_t>(value)));
+            else if (value.type() == typeid(long))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<long>(value)));
+            else if (value.type() == typeid(int16_t))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<int16_t>(value)));
+            else if (value.type() == typeid(char))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<char>(value)));
+            else if (value.type() == typeid(bool))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateInteger(std::any_cast<bool>(value) == true ? 1 : 0));
+            else if (value.type() == typeid(float))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateNumber(std::any_cast<float>(value)));
+            else if (value.type() == typeid(double))
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateNumber(std::any_cast<double>(value)));
+            else
+                luacpp::PushValue(funcWrap.GetML(), this->luaState->CreateNil());
+        }
+
+        luacpp::LuaObject retObj = funcWrap.ExecuteWithReturnRaw(this->GetName() + ":" + export_name, data.size());
+
+        if (retObj.GetType() == LUA_TNIL)
+            return nullptr;
+        else if (retObj.GetType() == LUA_TSTRING)
+            return retObj.ToString();
+        else if (retObj.GetType() == LUA_TBOOLEAN)
+            return retObj.ToBool();
+        else if (retObj.GetType() == LUA_TNUMBER)
+        {
+            lua_rawgeti(this->GetLuaRawState(), LUA_REGISTRYINDEX, retObj.GetRefIndex());
+            bool isint = (lua_isinteger(this->GetLuaRawState(), -1) == 1);
+            lua_pop(this->GetLuaRawState(), 1);
+            if (isint)
+                return retObj.ToInteger();
+            else
+                return retObj.ToNumber();
+        }
+        else
+            return nullptr;
+    }
+
+    void RegisterExport(std::string export_name, void *functionPtr)
+    {
+        if (this->luaExportedFunctions.find(export_name) != this->luaExportedFunctions.end())
+            return;
+
+        this->luaExportedFunctions.insert(std::make_pair(export_name, *static_cast<luacpp::LuaObject *>(functionPtr)));
+    }
+
+    void UnregisterExport(std::string export_name)
+    {
+        if (this->luaExportedFunctions.find(export_name) == this->luaExportedFunctions.end())
+            return;
+
+        this->luaExportedFunctions.erase(export_name);
     }
 };
 

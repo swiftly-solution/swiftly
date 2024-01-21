@@ -10,6 +10,9 @@
 #include <filesystem>
 #include <algorithm>
 #include <type_traits>
+#include <any>
+#include <vector>
+#include <string>
 
 class Plugin;
 void SetupLuaEnvironment(Plugin *plugin);
@@ -253,6 +256,9 @@ public:
 
     virtual luacpp::LuaState *GetLuaState() = 0;
     virtual lua_State *GetLuaRawState() = 0;
+    virtual std::any ExecuteExport(std::string export_name, std::vector<std::any> data) = 0;
+    virtual void RegisterExport(std::string export_name, void *functionPtr) = 0;
+    virtual void UnregisterExport(std::string export_name) = 0;
 
     virtual void DestroyPluginEnvironment() = 0;
 };

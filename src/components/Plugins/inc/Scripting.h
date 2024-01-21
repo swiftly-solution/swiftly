@@ -176,6 +176,10 @@ SMM_API bool scripting_Server_IsMapValid(const char *map);
 
 SMM_API const char *scripting_Translations_Fetch(const char *key);
 
+SMM_API const char *scripting_Exports_Call(const char *plugin_name, const char *export_name, const char *jsonData);
+SMM_API void scripting_Exports_Register(const char *plugin_name, const char *export_name, void *functionPtr);
+SMM_API void scripting_Exports_Unregister(const char *plugin_name, const char *export_name);
+
 SMM_API void scripting_Print(const char *str);
 
 void SetupLuaCommands(luacpp::LuaState *state, Plugin *plugin);
@@ -183,6 +187,7 @@ void SetupLuaConfiguration(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaConvars(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaDatabase(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaExports(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaHTTP(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin);

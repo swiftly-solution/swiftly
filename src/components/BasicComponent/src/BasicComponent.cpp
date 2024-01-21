@@ -323,18 +323,6 @@ void SwiftlyPluginManagerRefresh(CPlayerSlot *slot, CCommandContext context)
     {
         if (!ExistsPluginInMap(plugin_name))
         {
-            // std::vector<std::string> exploded = explode(plugin_name, WIN_LINUX("\\", "/"));
-            // std::string name = exploded[exploded.size() - 2];
-            // if (name == "plugins")
-            // {
-            //     PrintToClientOrConsole(slot, "Plugin Refresh", "Skipped '%s' because it needs to be in it's own folder.\n", plugin_name);
-            //     continue;
-            // }
-
-            // Plugin *plugin = new Plugin(plugin_name, name);
-
-            // AddPluginInMap(new LuaPlugin(plugin_name, "", PluginType_t::PLUGIN_LUA));
-
             LoadPlugin(plugin_name);
             ++newPlugins;
         }

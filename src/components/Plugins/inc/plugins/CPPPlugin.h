@@ -11,6 +11,7 @@ class CPPPlugin : public Plugin
 {
 private:
     std::map<std::string, void *> cppFunctions;
+    std::map<std::string, void *> exportedFunctions;
     HINSTANCE m_hModule;
 
     void RegisterFunction(std::string function)
@@ -102,6 +103,31 @@ public:
     {
         dlclose(this->m_hModule);
         this->cppFunctions.clear();
+        this->exportedFunctions.clear();
+    }
+
+    std::any ExecuteExport(std::string export_name, std::vector<std::any> data)
+    {
+        if (this->exportedFunctions.find(export_name) == this->exportedFunctions.end())
+            return nullptr;
+
+        return nullptr;
+    }
+
+    void RegisterExport(std::string export_name, void *functionPtr)
+    {
+        if (this->exportedFunctions.find(export_name) != this->exportedFunctions.end())
+            return;
+
+        this->exportedFunctions.insert(std::make_pair(export_name, functionPtr));
+    }
+
+    void UnregisterExport(std::string export_name)
+    {
+        if (this->exportedFunctions.find(export_name) == this->exportedFunctions.end())
+            return;
+
+        this->exportedFunctions.erase(export_name);
     }
 };
 
