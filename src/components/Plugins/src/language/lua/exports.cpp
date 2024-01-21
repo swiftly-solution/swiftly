@@ -83,4 +83,6 @@ void SetupLuaExports(luacpp::LuaState *state, Plugin *plugin)
                                 else if(val.type() == typeid(float)) return state->CreateNumber(std::any_cast<float>(val));
                                 else if(val.type() == typeid(double)) return state->CreateNumber(std::any_cast<double>(val));
                                 else return state->CreateNil(); });
+
+    state->DoString("exports = setmetatable({}, { __newindex = function(tbl, key, val) print(\"[Swiftly] You can't create a new index on this table.\") end, __index = function(tbl, key) local exp = GetExports(key); return exp; end })");
 }
