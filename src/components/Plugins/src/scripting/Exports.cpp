@@ -143,7 +143,6 @@ SMM_API const char *scripting_Exports_Call(const char *plugin_name, const char *
 
 SMM_API void scripting_Exports_Register(const char *plugin_name, const char *export_name, void *functionPtr)
 {
-    PRINTF("Exports_Register", "%s | %s | %p\n", plugin_name, export_name, functionPtr);
     if (plugin_name == nullptr || export_name == nullptr || functionPtr == nullptr)
         return;
 
