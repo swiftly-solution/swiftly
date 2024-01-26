@@ -18,9 +18,7 @@ public:
     LuaDatabaseClass(const char *connection_name)
     {
         this->connectionName = connection_name;
-        std::thread th([this, connection_name]()
-                       { this->m_connected = scripting_Database_Connect(connection_name); });
-        th.detach();
+        this->m_connected = scripting_Database_Connect(connection_name);
     }
 
     ~LuaDatabaseClass() {}
