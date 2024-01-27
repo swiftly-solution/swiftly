@@ -477,6 +477,7 @@ SMM_API void scripting_Player_Weapons_Drop(uint32 playerId)
         if (!weapon)
             continue;
 
+        weaponServices->m_hActiveWeapon = weaponHandle;
         itemServices->DropPlayerWeapon(weapon);
     }
 }
@@ -513,6 +514,7 @@ SMM_API void scripting_Player_Weapons_Remove(uint32 playerId)
         if (!weapon)
             continue;
 
+        weaponServices->m_hActiveWeapon = weaponHandle;
         itemServices->DropPlayerWeapon(weapon);
         weaponServices->RemoveWeapon(weapon);
         weapon->Despawn();
