@@ -20,19 +20,16 @@
         }                                                                                 \
     }
 
-#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                                                                \
-    for (uint32 i = 0; i < plugins.size(); i++)                                                                                             \
-    {                                                                                                                                       \
-        Plugin *plugin = plugins[i];                                                                                                        \
-        if (plugin->IsPluginLoaded())                                                                                                       \
-        {                                                                                                                                   \
-            if (plugin->FunctionExists(#FUNCTION_NAME))                                                                                     \
-            {                                                                                                                               \
-                if (!ExecuteGameEventWithReturn<bool, Plugin_##FUNCTION_NAME>(plugin, FALSE_VALUE, RET_VALUE, #FUNCTION_NAME, __VA_ARGS__)) \
-                    return FALSE_VALUE;                                                                                                     \
-            }                                                                                                                               \
-        }                                                                                                                                   \
-    }                                                                                                                                       \
+#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                                                            \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                                                         \
+    {                                                                                                                                   \
+        Plugin *plugin = plugins[i];                                                                                                    \
+        if (plugin->IsPluginLoaded())                                                                                                   \
+        {                                                                                                                               \
+            if (!ExecuteGameEventWithReturn<bool, Plugin_##FUNCTION_NAME>(plugin, FALSE_VALUE, RET_VALUE, #FUNCTION_NAME, __VA_ARGS__)) \
+                return FALSE_VALUE;                                                                                                     \
+        }                                                                                                                               \
+    }                                                                                                                                   \
     return RET_VALUE;
 
 std::vector<int> GetBombSites()
