@@ -270,5 +270,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("SetDefaultChangeSkinAttributes", [](LuaPlayerTwoArgsClass *base) -> void
                    { scripting_Player_Weapon_SetDefaultChangeSkinAttributes(base->playerSlot, base->slot); })
         .DefMember("GetID", [](LuaPlayerTwoArgsClass *base) -> uint32
-                   { return base->slot; });
+                   { return base->slot; })
+        .DefMember("SetNametag", [](LuaPlayerTwoArgsClass *base, const char *text) -> void
+                   { scripting_Player_Weapon_SetNametag(base->playerSlot, base->slot, text); });
 }

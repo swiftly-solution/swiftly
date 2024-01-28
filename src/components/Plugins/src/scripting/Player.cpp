@@ -773,6 +773,19 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
         weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask = 2;
 }
 
+SMM_API void scripting_Player_Weapon_SetNametag(uint32 playerId, uint32 slot, const char *text)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    // @todo: SetNametag
+}
+
 SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd)
 {
     Player *player = g_playerManager->GetPlayer(playerId);

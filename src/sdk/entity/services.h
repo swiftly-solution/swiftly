@@ -159,3 +159,11 @@ public:
         CALL_VIRTUAL(void, 20, weapon, nullptr, nullptr);
     }
 };
+
+class CCSPlayerController_InventoryServices
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_InventoryServices, false)
+
+    SCHEMA_FIELD_OFFSET(uint16_t, m_unMusicID, 0)
+};

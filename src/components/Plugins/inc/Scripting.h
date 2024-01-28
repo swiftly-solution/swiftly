@@ -161,6 +161,7 @@ SMM_API float scripting_Player_Weapon_GetWear(uint32 playerId, uint32 slot);
 SMM_API int scripting_Player_Weapon_GetPaintKit(uint32 playerId, uint32 slot);
 SMM_API int scripting_Player_Weapon_GetSeed(uint32 playerId, uint32 slot);
 SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playerId, uint32 slot);
+SMM_API void scripting_Player_Weapon_SetNametag(uint32 playerId, uint32 slot, const char *text);
 
 SMM_API bool scripting_Player_Weapon_Exists(uint32 playerId, uint32 slot);
 

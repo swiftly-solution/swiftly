@@ -135,6 +135,7 @@ public:
     SCHEMA_FIELD_OFFSET(CBodyComponent *, m_CBodyComponent, 0)
     SCHEMA_FIELD_OFFSET(Vector, m_vecAbsVelocity, 0)
     SCHEMA_FIELD_POINTER_OFFSET(CUtlStringToken, m_nSubclassID, 0)
+    SCHEMA_FIELD_OFFSET(CUtlSymbolLarge, m_iGlobalname, 0)
 
     int EntityIndex() { return this->m_pEntity->GetRefEHandle().GetEntryIndex(); }
 

@@ -28,6 +28,8 @@ typedef WeaponSlot (*Player_GetType)(uint32_t, uint32_t);
 
 typedef const char *(*Player_GetWeaponName)(uint32_t, uint32_t);
 
+typedef void (*Player_SetNametag)(uint32_t, uint32_t, const char *);
+
 class Weapon
 {
 private:
@@ -175,6 +177,15 @@ public:
             reinterpret_cast<Player_WeaponExists>(player_WeaponSetDefaultChangeSkinAttributes)(this->m_playerSlot, this->m_weaponID);
         else
             NOT_SUPPORTED("scripting_Player_Weapon_SetDefaultChangeSkinAttributes");
+    }
+
+    void SetNametag(const char *text)
+    {
+        void *player_WeaponSetNametag = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNametag");
+        if (player_WeaponSetNametag)
+            reinterpret_cast<Player_SetNametag>(player_WeaponSetNametag)(this->m_playerSlot, this->m_weaponID, text);
+        else
+            NOT_SUPPORTED("scripting_Player_Weapon_SetNametag");
     }
 
     uint32_t GetID()
