@@ -1,5 +1,4 @@
 #include "../../inc/Scripting.h"
-#include <thread>
 
 #define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                                                   \
     for (uint32 i = 0; i < plugins.size(); i++)                                                        \
