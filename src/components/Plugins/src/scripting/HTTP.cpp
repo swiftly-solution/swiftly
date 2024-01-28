@@ -89,7 +89,10 @@ SMM_API const char *scripting_HTTP_GetBody(uint64_t requestID)
 
     HTTPRequest *request = g_httpManager->FetchRequest(requestID);
     std::string body = request->GetBody();
-    return body.c_str();
+
+    char *result = new char[body.size() + 1];
+    strcpy(result, body.c_str());
+    return result;
 }
 
 SMM_API int scripting_HTTP_GetStatusCode(uint64_t requestID)
@@ -108,7 +111,10 @@ SMM_API const char *scripting_HTTP_GetError(uint64_t requestID)
 
     HTTPRequest *request = g_httpManager->FetchRequest(requestID);
     std::string error = request->GetError();
-    return error.c_str();
+
+    char *result = new char[error.size() + 1];
+    strcpy(result, error.c_str());
+    return result;
 }
 
 SMM_API void scripting_HTTP_Get(uint64_t requestID, const char *path)

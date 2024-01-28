@@ -12,7 +12,7 @@
 class HTTPRequest
 {
 private:
-    httplib::Client *client;
+    httplib::SSLClient *client;
     httplib::Result result;
     httplib::Headers headers;
     httplib::Params params;

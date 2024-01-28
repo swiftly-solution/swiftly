@@ -2,8 +2,12 @@
 
 HTTPRequest::HTTPRequest(std::string url)
 {
-    this->client = new httplib::Client(url);
-    this->client->set_default_headers({{"Accept-Encoding", "gzip, deflate"}});
+    url = replace(url, "https://", "");
+    url = replace(url, "http://", "");
+    url = replace(url, "ws://", "");
+    url = replace(url, "wss://", "");
+    this->client = new httplib::SSLClient(url);
+    this->client->enable_server_certificate_verification(true);
 }
 
 HTTPRequest::~HTTPRequest()
@@ -18,41 +22,42 @@ HTTPRequest::~HTTPRequest()
 
 void HTTPRequest::Get(std::string path)
 {
+    std::string pth = path.c_str();
+    this->result = this->client->Get(pth, this->params, this->headers);
     this->executed = true;
-    this->result = this->client->Get(path, this->params, this->headers);
 }
 
 void HTTPRequest::Delete(std::string path)
 {
-    this->executed = true;
     this->result = this->client->Delete(path, this->headers);
+    this->executed = true;
 }
 
 void HTTPRequest::Post(std::string path)
 {
-    this->executed = true;
     std::string final_content_type = contentTypesMap.at(this->content_type);
     if (this->content_type == ContentType::MULTIPART_FORMDATA)
         this->result = this->client->Post(path, this->headers, this->multipartItems);
     else
         this->result = this->client->Post(path, this->headers, this->body, final_content_type);
+    this->executed = true;
 }
 
 void HTTPRequest::Put(std::string path)
 {
-    this->executed = true;
     std::string final_content_type = contentTypesMap.at(this->content_type);
     if (this->content_type == ContentType::MULTIPART_FORMDATA)
         this->result = this->client->Put(path, this->headers, this->multipartItems);
     else
         this->result = this->client->Put(path, this->headers, this->body, final_content_type);
+    this->executed = true;
 }
 
 void HTTPRequest::Patch(std::string path)
 {
-    this->executed = true;
     std::string final_content_type = contentTypesMap.at(this->content_type);
     this->result = this->client->Patch(path, this->headers, this->body, final_content_type);
+    this->executed = true;
 }
 
 void HTTPRequest::AddHeader(std::string key, std::string value)
@@ -101,7 +106,7 @@ void HTTPRequest::SetFollowRedirect(bool follow)
 
 std::string HTTPRequest::GetBody()
 {
-    if (!this->executed)
+    if (!this->executed || !this->result)
         return "";
 
     return this->result->body;
@@ -109,7 +114,7 @@ std::string HTTPRequest::GetBody()
 
 int HTTPRequest::GetStatusCode()
 {
-    if (!this->executed)
+    if (!this->executed || !this->result)
         return 0;
 
     return this->result->status;
@@ -117,8 +122,5 @@ int HTTPRequest::GetStatusCode()
 
 std::string HTTPRequest::GetError()
 {
-    if (!this->result)
-        return "";
-
     return httplib::to_string(this->result.error());
 }
