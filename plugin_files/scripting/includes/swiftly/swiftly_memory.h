@@ -16,6 +16,8 @@ typedef void (*Player_Kill)(uint32_t);
 typedef uint8_t (*Player_GetTeam)(uint32_t);
 typedef void (*Player_SetTeam)(uint32_t, int);
 
+typedef void (*Player_SetModel)(uint32_t, const char*);
+
 typedef int (*Player_GetHealth)(uint32_t);
 typedef void (*Player_SetHealth)(uint32_t, int);
 typedef void (*Player_TakeHealth)(uint32_t, int);

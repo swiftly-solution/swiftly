@@ -781,3 +781,24 @@ SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd)
 
     engine->ClientCommand(*player->GetSlot(), cmd);
 }
+
+SMM_API void scripting_Player_SetModel(uint32 playerId, const char *model)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    bool hasModel = (g_precacher->HasModelInList(model));
+    if (!hasModel)
+    {
+        g_precacher->AddModel(model);
+        PRINTF("Precacher", "Model '%s' was not precached before and it was added to the list.\n", model);
+        PRINT("Precacher", "It may work on the second map change if the model is valid.\n");
+    }
+
+    pawn->SetModel(model);
+}

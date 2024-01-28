@@ -192,6 +192,15 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_ExecuteCommand");
     }
+
+    void SetModel(const char *model)
+    {
+        void *player_SetModel = FetchFunctionPtr(nullptr, "scripting_Player_SetModel");
+        if (player_SetModel)
+            reinterpret_cast<Player_SetModel>(player_SetModel)(this->m_playerSlot, model);
+        else
+            NOT_SUPPORTED("scripting_Player_SetModel");
+    }
 };
 
 #endif
