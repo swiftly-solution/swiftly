@@ -12,7 +12,11 @@
 class HTTPRequest
 {
 private:
+#ifdef _WIN32
     httplib::SSLClient *client;
+#else
+    httplib::Client *client;
+#endif
     httplib::Result result;
     httplib::Headers headers;
     httplib::Params params;
