@@ -202,7 +202,7 @@ public:
             NOT_SUPPORTED("scripting_Player_SetModel");
     }
 
-    void SetModel(int id)
+    void SetMusicKit(int id)
     {
         void *player_SetMusicKit = FetchFunctionPtr(nullptr, "scripting_Player_SetMusicKit");
         if (player_SetMusicKit)
