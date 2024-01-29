@@ -86,6 +86,11 @@ void Hook_PrecacheResource(const char *model_path, int64_t context)
         g_precacher->SetContext(context);
         g_precacher->CacheModels();
     }
+    else if (!g_precacher->GetSoundsPrecached() && starts_with(std::string(model_path), "sounds/"))
+    {
+        g_precacher->CacheSounds();
+        g_precacher->SetSoundsPrecached(true);
+    }
 
     TPrecacheResource(model_path, context);
 }

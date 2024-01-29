@@ -82,6 +82,7 @@ HTTPManager *g_httpManager = nullptr;
 Patches *g_Patches = nullptr;
 EntityManager *g_entityManager = nullptr;
 Precacher *g_precacher = nullptr;
+IEngineSound *enginesound = nullptr;
 CEntityListener g_entityListener;
 
 std::vector<Plugin *> plugins;

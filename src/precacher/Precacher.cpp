@@ -33,3 +33,33 @@ void Precacher::CacheModels()
         this->precachedModels.push_back(model);
     }
 }
+
+void Precacher::AddSound(std::string sound)
+{
+    if (std::find(this->cacheSounds.begin(), this->cacheSounds.end(), sound) != this->cacheSounds.end())
+        return;
+    if (std::find(this->precachedSounds.begin(), this->precachedSounds.end(), sound) != this->precachedSounds.end())
+        return;
+    if (sound.size() <= 0)
+        return;
+
+    this->cacheSounds.push_back(sound);
+}
+
+void Precacher::CacheSounds()
+{
+    for (std::string sound : this->cacheSounds)
+    {
+        if (std::find(this->precachedSounds.begin(), this->precachedSounds.end(), sound) != this->precachedSounds.end())
+            continue;
+
+        this->CacheModel(sound.c_str());
+        this->precachedSounds.push_back(sound);
+    }
+}
+
+void Precacher::CacheSound(const char *model)
+{
+    enginesound->PrecacheSound(model, true);
+    PRINTF("Precacher", "Precached sound '%s'.\n", model);
+}
