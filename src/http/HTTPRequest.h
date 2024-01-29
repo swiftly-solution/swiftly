@@ -4,6 +4,10 @@
 #define CPPHTTPLIB_OPENSSL_SUPPORT
 #define CPPHTTPLIB_NO_EXCEPTIONS
 
+#ifndef _WIN32
+#define SSL_get1_peer_certificate SSL_get_peer_certificate
+#endif
+
 #include <httplib.h>
 #include "ContentTypes.h"
 #include "../common.h"
@@ -12,11 +16,7 @@
 class HTTPRequest
 {
 private:
-#ifdef _WIN32
     httplib::SSLClient *client;
-#else
-    httplib::Client *client;
-#endif
     httplib::Result result;
     httplib::Headers headers;
     httplib::Params params;

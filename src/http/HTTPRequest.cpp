@@ -6,11 +6,7 @@ HTTPRequest::HTTPRequest(std::string url)
     url = replace(url, "http://", "");
     url = replace(url, "ws://", "");
     url = replace(url, "wss://", "");
-#ifdef _WIN32
     this->client = new httplib::SSLClient(url);
-#else
-    this->client = new httplib::Client(url);
-#endif
     this->client->enable_server_certificate_verification(true);
 }
 
