@@ -815,3 +815,20 @@ SMM_API void scripting_Player_SetModel(uint32 playerId, const char *model)
 
     pawn->SetModel(model);
 }
+
+SMM_API void scripting_Player_SetMusicKit(uint32 playerId, int musicid)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *controller = player->GetPlayerController();
+    if (!controller)
+        return;
+
+    CCSPlayerController_InventoryServices *inventory = controller->m_pInventoryServices();
+    if (!inventory)
+        return;
+
+    inventory->m_unMusicID = musicid;
+}

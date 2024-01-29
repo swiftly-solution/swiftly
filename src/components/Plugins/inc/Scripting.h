@@ -169,6 +169,7 @@ SMM_API uint32 scripting_Player_Weapon_GetType(uint32 playerId, uint32 slot);
 SMM_API const char *scripting_Player_Weapon_GetName(uint32 playerId, uint32 slot);
 
 SMM_API void scripting_Player_SetModel(uint32 playerId, const char *model);
+SMM_API void scripting_Player_SetMusicKit(uint32 playerId, int musicid);
 
 SMM_API void scripting_Precacher_AddModel(const char *model);
 

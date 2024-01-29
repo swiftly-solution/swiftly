@@ -201,6 +201,15 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_SetModel");
     }
+
+    void SetModel(int id)
+    {
+        void *player_SetMusicKit = FetchFunctionPtr(nullptr, "scripting_Player_SetMusicKit");
+        if (player_SetMusicKit)
+            reinterpret_cast<Player_SetMusicKit>(player_SetMusicKit)(this->m_playerSlot, id);
+        else
+            NOT_SUPPORTED("scripting_Player_SetMusicKit");
+    }
 };
 
 #endif

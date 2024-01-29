@@ -82,6 +82,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_ExecuteCommand(base->playerSlot, command); })
         .DefMember("SetModel", [](LuaPlayerClass *base, const char *model) -> void
                    { scripting_Player_SetModel(base->playerSlot, model); })
+        .DefMember("SetMusicKit", [](LuaPlayerClass *base, int musickit) -> void
+                   { scripting_Player_SetMusicKit(base->playerSlot, musickit); })
         .DefMember("health", [healthClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return healthClass.CreateInstance(base->playerSlot); })
         .DefMember("armor", [armorClass](LuaPlayerClass *base) -> luacpp::LuaObject

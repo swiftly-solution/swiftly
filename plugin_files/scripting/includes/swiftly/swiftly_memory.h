@@ -16,7 +16,7 @@ typedef void (*Player_Kill)(uint32_t);
 typedef uint8_t (*Player_GetTeam)(uint32_t);
 typedef void (*Player_SetTeam)(uint32_t, int);
 
-typedef void (*Player_SetModel)(uint32_t, const char*);
+typedef void (*Player_SetModel)(uint32_t, const char *);
 
 typedef int (*Player_GetHealth)(uint32_t);
 typedef void (*Player_SetHealth)(uint32_t, int);
@@ -44,6 +44,7 @@ typedef int (*Player_FetchStat)(uint32_t, uint32_t);
 typedef void (*Player_SetStat)(uint32_t, uint32_t, int);
 
 typedef const char *(*Player_GetIPAddress)(uint32_t);
+typedef void (*Player_SetMusicKit)(uint32_t, int);
 
 typedef void (*Player_SendMessage)(uint32_t, HudDestination, const char *);
 typedef void (*Players_SendMessage)(HudDestination, const char *);
