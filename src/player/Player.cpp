@@ -158,13 +158,8 @@ void Player::SendMsg(int dest, const char *msg, ...)
                 message = " " + message;
         }
 
-        auto sendmsg = [controller, dest, message]()
-        {
-            controller->SendMsg(dest, message.c_str());
-        };
-
-        std::thread th(sendmsg);
-        th.detach();
+        g_Plugin.NextFrame([controller, dest, message]() -> void
+                           { controller->SendMsg(dest, message.c_str()); });
     }
     else if (dest == HUD_PRINTCENTER)
     {
