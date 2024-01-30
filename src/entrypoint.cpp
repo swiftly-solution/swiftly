@@ -84,6 +84,7 @@ EntityManager *g_entityManager = nullptr;
 Precacher *g_precacher = nullptr;
 IEngineSound *enginesound = nullptr;
 CEntityListener g_entityListener;
+CGameRules *g_pGameRules = nullptr;
 
 std::vector<Plugin *> plugins;
 
@@ -124,6 +125,8 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     PRINT("Hooks", "Loading Hooks...\n");
 
+    g_gameEventManager = static_cast<IGameEventManager2 *>(CallVFunc<IToolGameEventAPI *>(91, server));
+
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &SwiftlyPlugin::Hook_GameFrame, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &SwiftlyPlugin::Hook_ClientActive, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &SwiftlyPlugin::Hook_ClientDisconnect, true);
@@ -135,7 +138,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &SwiftlyPlugin::Hook_StartupServer, true);
     SH_ADD_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &SwiftlyPlugin::Hook_DispatchConCommand, false);
 
-    g_gameEventManager = static_cast<IGameEventManager2 *>(CallVFunc<IToolGameEventAPI *>(91, server));
     g_playerManager = new PlayerManager();
     g_dbManager = new DatabaseManager();
     g_Signatures = new Signatures();
@@ -223,44 +225,47 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
 
     std::string command = args.Arg(0);
 
-    if (slot->Get() != -1 && (command == "say" || command == "say_team"))
+    if (slot->Get() != -1)
     {
-        Player *player = g_playerManager->GetPlayer(slot);
-        if (player == nullptr)
-            return;
-
-        CCSPlayerController *controller = player->GetPlayerController();
-
-        if (controller)
+        if (command == "say" || command == "say_team")
         {
-            IGameEvent *pEvent = g_gameEventManager->CreateEvent("player_chat");
+            Player *player = g_playerManager->GetPlayer(slot);
+            if (player == nullptr)
+                return;
 
-            if (pEvent)
+            CCSPlayerController *controller = player->GetPlayerController();
+
+            if (controller)
             {
-                pEvent->SetBool("teamonly", (command == "say_team"));
-                pEvent->SetInt("userid", slot->Get());
-                pEvent->SetString("text", args[1]);
+                IGameEvent *pEvent = g_gameEventManager->CreateEvent("player_chat");
 
-                g_gameEventManager->FireEvent(pEvent, true);
+                if (pEvent)
+                {
+                    pEvent->SetBool("teamonly", (command == "say_team"));
+                    pEvent->SetInt("userid", slot->Get());
+                    pEvent->SetString("text", args[1]);
+
+                    g_gameEventManager->FireEvent(pEvent, true);
+                }
             }
-        }
 
-        int handleCommands = g_commandsManager->HandleCommands(player->GetController(), args[1]);
-        if (handleCommands == 2)
-        {
+            int handleCommands = g_commandsManager->HandleCommands(player->GetController(), args[1]);
+            if (handleCommands == 2)
+            {
+                RETURN_META(MRES_SUPERCEDE);
+            }
+            else if (!scripting_OnClientChat(player->GetController(), args[1], command == "say_team"))
+            {
+                RETURN_META(MRES_SUPERCEDE);
+            }
+            else
+            {
+                SH_CALL(g_pCVar, &ICvar::DispatchConCommand)
+                (cmdHandle, ctx, args);
+            }
+
             RETURN_META(MRES_SUPERCEDE);
         }
-        else if (!scripting_OnClientChat(player->GetController(), args[1], command == "say_team"))
-        {
-            RETURN_META(MRES_SUPERCEDE);
-        }
-        else
-        {
-            SH_CALL(g_pCVar, &ICvar::DispatchConCommand)
-            (cmdHandle, ctx, args);
-        }
-
-        RETURN_META(MRES_SUPERCEDE);
     }
 }
 
@@ -302,6 +307,7 @@ void SwiftlyPlugin::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const ch
 
 void SwiftlyPlugin::Hook_ClientCommand(CPlayerSlot slot, const CCommand &args)
 {
+    PRINTF("Hook_ClientCommand", "%d | %s\n", slot.Get(), args.GetCommandString());
     hooks::emit(OnClientCommand(&slot, &args));
 }
 

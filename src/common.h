@@ -25,11 +25,15 @@
 #include <entity2/entitysystem.h>
 #include <entity2/entityidentity.h>
 #include "utils.h"
+#include <networksystem/inetworkserializer.h>
+#include <engine/igameeventsystem.h>
 
 #include <deque>
 #include <functional>
 
 #define PATH "addons/swiftly"
+
+class CGameRules;
 
 class GameSessionConfiguration_t
 {
@@ -86,6 +90,7 @@ extern CEntitySystem *g_pEntitySystem;
 extern IServerGameDLL *server;
 extern ICvar *g_pcVar;
 extern IEngineSound *enginesound;
+extern CGameRules *g_pGameRules;
 
 PLUGIN_GLOBALVARS();
 

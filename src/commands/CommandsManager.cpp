@@ -84,6 +84,7 @@ bool CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, 
 
     return true;
 }
+
 static void commandsCallback(const CCommandContext &context, const CCommand &args)
 {
     std::vector<std::string> argsplit = explode(args.GetCommandString(), " ");

@@ -79,11 +79,11 @@ Ret ExecuteGameEventWithReturn(Plugin *plugin, Ret falseValue, Ret trueValue, st
     else if (plugin->GetPluginType() == PluginType_t::PLUGIN_LUA)
     {
         if (lua_game_events.find(plugin->GetName()) == lua_game_events.end())
-            return falseValue;
+            return trueValue;
 
         std::map<std::string, std::vector<luacpp::LuaObject>> game_events = lua_game_events.at(plugin->GetName());
         if (game_events.find(game_event_name) == game_events.end())
-            return falseValue;
+            return trueValue;
 
         std::vector<luacpp::LuaObject> eventsList = game_events.at(game_event_name);
 

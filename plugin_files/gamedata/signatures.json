@@ -14,6 +14,11 @@
         "windows": "4C 8B C9 48 8B 09 48 85 C9 74 2A 48 8B 41 10",
         "linux": "4C 8B 07 4D 85 C0 74 2A 49 8B 40 10"
     },
+    "CGameRules_Constructor": {
+        "lib": "server",
+        "windows": "40 53 48 83 EC 20 48 8D 05 2A 2A 2A 2A 48 8B D9 48 89 01 48 89 0D",
+        "linux": "55 48 8D 05 2A 2A 2A 2A 48 89 E5 53 48 89 FB 48 83 EC 08 48 89 07 48 89 3D"
+    },
     "StateChanged": {
         "lib": "server",
         "windows": "40 55 53 56 41 55 41 57 48 8D 6C 24 B0",

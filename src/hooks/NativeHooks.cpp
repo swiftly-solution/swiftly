@@ -13,6 +13,7 @@ FuncHook<decltype(Hook_LoggingSystem_LogAssert)> LoggingSystemt_LogAssert(Hook_L
 FuncHook<decltype(Hook_ClientPrint)> TClientPrint(Hook_ClientPrint, "ClientPrint");
 FuncHook<decltype(Hook_IsHearingClient)> TIsHearingClient(Hook_IsHearingClient, "IsHearingClient");
 FuncHook<decltype(Hook_PrecacheResource)> TPrecacheResource(Hook_PrecacheResource, "PrecacheResource");
+FuncHook<decltype(Hook_CGameRules_Constructor)> TCGameRules_Constructor(Hook_CGameRules_Constructor, "CGameRules_Constructor");
 
 #define CHECKLOGS()                                                \
     va_list args;                                                  \
@@ -95,6 +96,12 @@ void Hook_PrecacheResource(const char *model_path, int64_t context)
     TPrecacheResource(model_path, context);
 }
 
+void Hook_CGameRules_Constructor(CGameRules *pThis)
+{
+    g_pGameRules = pThis;
+    TCGameRules_Constructor(pThis);
+}
+
 CUtlVector<FuncHookBase *> g_funcHooks;
 
 bool InitializeHooks()
@@ -132,6 +139,10 @@ bool InitializeHooks()
     if (!TPrecacheResource.Create())
         return false;
     TPrecacheResource.Enable();
+
+    if (!TCGameRules_Constructor.Create())
+        return false;
+    TCGameRules_Constructor.Enable();
 
     return true;
 }
