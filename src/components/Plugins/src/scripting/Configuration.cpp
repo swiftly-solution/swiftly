@@ -139,3 +139,11 @@ SMM_API bool scripting_Configuration_Exists(const char *key)
     std::map<std::string, std::any> config = g_Config->FetchConfiguration();
     return (config.find(key) != config.end());
 }
+
+SMM_API void scripting_Configuration_ReloadConfiguration(const char *key)
+{
+    if (key == nullptr)
+        return;
+
+    g_Config->LoadPluginConfig(key);
+}

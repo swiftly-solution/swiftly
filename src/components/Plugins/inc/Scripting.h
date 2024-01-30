@@ -54,6 +54,7 @@ SMM_API void scripting_Commands_UnregisterCommand(const char *name);
 SMM_API const char *scripting_Configuration_Fetch(const char *key);
 SMM_API uint32 scripting_Configuration_FetchArraySize(const char *key);
 SMM_API bool scripting_Configuration_Exists(const char *key);
+SMM_API void scripting_Configuration_ReloadConfiguration(const char *key);
 
 SMM_API int scripting_Server_GetConvarInt(const char *name);
 SMM_API unsigned int scripting_Server_GetConvarUint(const char *name);

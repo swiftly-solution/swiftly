@@ -30,6 +30,7 @@ public:
     void SetValue(std::string key, T value);
 
     bool HasKey(std::string key) { return (this->config.find(key) != this->config.end()); }
+    void LoadPluginConfig(std::string key);
 };
 
 extern Configuration *g_Config;

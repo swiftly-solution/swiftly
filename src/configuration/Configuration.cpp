@@ -160,6 +160,7 @@ void Configuration::LoadPluginConfigurations()
         std::string configFileName = explode(configFilePath, string_format("addons/swiftly/configs/plugins%s", WIN_LINUX("\\", "/")))[1];
         if (!ends_with(configFileName, ".json"))
             continue;
+
         rapidjson::Document configurationFile;
         configurationFile.Parse(Files::Read(configFilePath).c_str());
         if (configurationFile.HasParseError())
@@ -177,6 +178,39 @@ void Configuration::LoadPluginConfigurations()
         rapidjson::Value &root = configurationFile;
         LoadConfigPart(explode(configFileName, ".json")[0], root);
     }
+}
+
+void Configuration::LoadPluginConfig(std::string key)
+{
+    std::string configFilePath = "addons/swiftly/configs/plugins" + std::string(WIN_LINUX("\\", "/")) + key + ".json";
+    std::string configFileName = key + ".json";
+    if (Files::Read(configFilePath).size() == 0)
+        return;
+
+    std::vector<std::string> toRemoveKeys;
+    for (std::map<std::string, std::any>::iterator it = this->config.begin(); it != this->config.end(); ++it)
+        if (starts_with(it->first, key = "."))
+            toRemoveKeys.push_back(it->first);
+
+    for (std::string k : toRemoveKeys)
+        this->config.erase(k);
+
+    rapidjson::Document configurationFile;
+    configurationFile.Parse(Files::Read(configFilePath).c_str());
+    if (configurationFile.HasParseError())
+    {
+        ConfigurationError(configFileName, string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)configurationFile.GetErrorOffset(), GetParseError_En(configurationFile.GetParseError())));
+        return;
+    }
+
+    if (!configurationFile.IsObject())
+    {
+        ConfigurationError(configFileName, "Configuration file needs to be an object.");
+        return;
+    }
+
+    rapidjson::Value &root = configurationFile;
+    LoadConfigPart(explode(configFileName, ".json")[0], root);
 }
 
 template <typename T>

@@ -55,7 +55,9 @@ void SetupLuaConfiguration(luacpp::LuaState *state, Plugin *plugin)
                         else if (document["value"].IsDouble())
                             return state->CreateNumber(document["value"].GetDouble());
                         else
-                            return state->CreateNil(); });
+                            return state->CreateNil(); })
+        .DefMember("Reload", [](LuaConfigClass *base, const char *key) -> void
+                   { scripting_Configuration_ReloadConfiguration(key); });
 
     state->DoString("config = Configuration()");
 }

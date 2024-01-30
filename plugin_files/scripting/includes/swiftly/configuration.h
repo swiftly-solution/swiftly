@@ -117,6 +117,15 @@ public:
             return 0;
         }
     }
+
+    void Reload(const char *key)
+    {
+        void *configurationReload = FetchFunctionPtr(nullptr, "scripting_Configuration_ReloadConfiguration");
+        if (configurationReload)
+            reinterpret_cast<Configuration_Exists>(configurationReload)(key);
+        else
+            NOT_SUPPORTED("scripting_Configuration_ReloadConfiguration");
+    }
 };
 
 extern Configuration *config;
