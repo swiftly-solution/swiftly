@@ -1,62 +1,62 @@
 #include "HTTPRequest.h"
+#include "curl/base64.h"
 
 HTTPRequest::HTTPRequest(std::string url)
 {
-    url = replace(url, "https://", "");
-    url = replace(url, "http://", "");
-    url = replace(url, "ws://", "");
-    url = replace(url, "wss://", "");
-    this->client = new httplib::SSLClient(url);
-    this->client->enable_server_certificate_verification(true);
+    this->req = new CurlRequest();
+    this->req->SetUserAgent("Swiftly/HTTPManager");
+    this->req->SetTimeout(3);
+    this->url = url;
 }
 
 HTTPRequest::~HTTPRequest()
 {
-    this->multipartItems.clear();
-    this->params.clear();
     this->headers.clear();
 
     this->body.clear();
-    delete this->client;
+    delete this->req;
 }
 
 void HTTPRequest::Get(std::string path)
 {
-    std::string pth = path.c_str();
-    this->result = this->client->Get(pth, this->params, this->headers);
+    this->req->SetUrl(this->url + path);
+    this->req->SetHeaders(this->headers);
+    this->req->Get();
     this->executed = true;
 }
 
 void HTTPRequest::Delete(std::string path)
 {
-    this->result = this->client->Delete(path, this->headers);
+    this->req->SetUrl(this->url + path);
+    this->req->SetHeaders(this->headers);
+    this->req->Delete();
     this->executed = true;
 }
 
 void HTTPRequest::Post(std::string path)
 {
     std::string final_content_type = contentTypesMap.at(this->content_type);
-    if (this->content_type == ContentType::MULTIPART_FORMDATA)
-        this->result = this->client->Post(path, this->headers, this->multipartItems);
-    else
-        this->result = this->client->Post(path, this->headers, this->body, final_content_type);
+    this->req->SetUrl(this->url + path);
+    this->req->SetHeaders(this->headers);
+    this->req->Post(this->body);
     this->executed = true;
 }
 
 void HTTPRequest::Put(std::string path)
 {
     std::string final_content_type = contentTypesMap.at(this->content_type);
-    if (this->content_type == ContentType::MULTIPART_FORMDATA)
-        this->result = this->client->Put(path, this->headers, this->multipartItems);
-    else
-        this->result = this->client->Put(path, this->headers, this->body, final_content_type);
+    this->req->SetUrl(this->url + path);
+    this->req->SetHeaders(this->headers);
+    this->req->Put(this->body);
     this->executed = true;
 }
 
 void HTTPRequest::Patch(std::string path)
 {
     std::string final_content_type = contentTypesMap.at(this->content_type);
-    this->result = this->client->Patch(path, this->headers, this->body, final_content_type);
+    this->req->SetUrl(this->url + path);
+    this->req->SetHeaders(this->headers);
+    this->req->Patch(this->body);
     this->executed = true;
 }
 
@@ -74,9 +74,7 @@ void HTTPRequest::DeleteHeader(std::string key)
 
 void HTTPRequest::AddMultipartFile(std::string field, std::string content, std::string filename, std::string file_content_type)
 {
-    httplib::MultipartFormData data{field, content, filename, file_content_type};
-
-    this->multipartItems.push_back(data);
+    // TODO: AddMultipartFile
 }
 
 void HTTPRequest::SetContentType(ContentType content_type)
@@ -91,36 +89,39 @@ void HTTPRequest::SetBody(std::string body)
 
 void HTTPRequest::SetBasicAuthentication(std::string username, std::string password)
 {
-    this->client->set_basic_auth(username, password);
+    this->headers.insert({"Authorization", "Basic " + base64::to_base64(username + ":" + password)});
 }
 
 void HTTPRequest::SetBearerAuthenticationToken(std::string token)
 {
-    this->client->set_bearer_token_auth(token);
+    this->headers.insert({"Authorization", "Bearer " + token});
 }
 
 void HTTPRequest::SetFollowRedirect(bool follow)
 {
-    this->client->set_follow_location(follow);
+    this->req->SetFollowLocation(follow);
 }
 
 std::string HTTPRequest::GetBody()
 {
-    if (!this->executed || !this->result)
+    if (!this->executed || !this->req)
         return "";
 
-    return this->result->body;
+    return this->req->GetResponseBody();
 }
 
 int HTTPRequest::GetStatusCode()
 {
-    if (!this->executed || !this->result)
+    if (!this->executed || !this->req)
         return 0;
 
-    return this->result->status;
+    return this->req->GetStatusCode();
 }
 
 std::string HTTPRequest::GetError()
 {
-    return httplib::to_string(this->result.error());
+    if (!this->req)
+        return "";
+
+    return this->req->GetError();
 }

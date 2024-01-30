@@ -49,7 +49,10 @@ with open(os.path.join(builder.buildPath, 'pdblog.txt'), 'wt') as fp:
     fp.write(line.path + '\n')
 
 def CopyPluginFiles(name):
-  shutil.copytree(os.path.join(builder.sourcePath, "plugin_files", name), os.path.join(builder.buildPath, 'package', 'addons', 'swiftly', name))
+  try:
+    shutil.copytree(os.path.join(builder.sourcePath, "plugin_files", name), os.path.join(builder.buildPath, 'package', 'addons', 'swiftly', name))
+  except OSError as e:
+    print("")
 
 logs = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'logs'))
 

@@ -11,6 +11,7 @@
                 "${workspaceFolder}/vendor/mysql/win64/include/**",
                 "${workspaceFolder}/vendor/cpp-httplib/**",
                 "${workspaceFolder}/vendor/openssl/win64/include/**",
+                "${workspaceFolder}/vendor/curl/win64/include/**",
                 "${workspaceFolder}/vendor/lua/**",
                 "${workspaceFolder}/vendor/luacpp/include/**",
                 "${workspaceFolder}/src/inc/**"

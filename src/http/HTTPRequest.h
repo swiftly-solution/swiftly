@@ -1,14 +1,7 @@
 #ifndef _httprequest_h
 #define _httprequest_h
 
-#define CPPHTTPLIB_OPENSSL_SUPPORT
-#define CPPHTTPLIB_NO_EXCEPTIONS
-
-#ifndef _WIN32
-#define SSL_get1_peer_certificate SSL_get_peer_certificate
-#endif
-
-#include <httplib.h>
+#include "curl/CurlRequest.h"
 #include "ContentTypes.h"
 #include "../common.h"
 #include "../utils.h"
@@ -16,13 +9,10 @@
 class HTTPRequest
 {
 private:
-    httplib::SSLClient *client;
-    httplib::Result result;
-    httplib::Headers headers;
-    httplib::Params params;
-    httplib::MultipartFormDataItems multipartItems;
-
+    CurlRequest *req;
+    std::map<std::string, std::string> headers;
     std::string body;
+    std::string url;
     ContentType content_type = ContentType::APPLICATION_JSON;
     bool executed = false;
 
