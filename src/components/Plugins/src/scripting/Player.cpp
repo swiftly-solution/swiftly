@@ -720,12 +720,10 @@ SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
     else if (n == "item_assaultsuit")
     {
         itemServices->m_bHasHelmet = true;
-        itemServices->m_bHasHeavyArmor = true;
         scripting_Player_SetArmor(playerId, 100);
     }
     else if (n == "item_kevlar")
     {
-        itemServices->m_bHasHeavyArmor = true;
         scripting_Player_SetArmor(playerId, 100);
     }
     else
