@@ -1,8 +1,13 @@
 #ifndef _swiftly_curlrequest_h
 #define _swiftly_curlrequest_h
 
+#define CURL_STATICLIB
 #include "../../utils.h"
+#include <stdio.h>
+extern "C"
+{
 #include <curl/curl.h>
+};
 #include <string>
 #include <map>
 
@@ -63,7 +68,7 @@ public:
 
     void Get()
     {
-        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, &WriteResponse);
+        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
         this->code = curl_easy_perform(this->req);
     }
@@ -72,7 +77,7 @@ public:
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "POST");
         curl_easy_setopt(this->req, CURLOPT_POSTFIELDS, body.c_str());
-        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, &WriteResponse);
+        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
         this->code = curl_easy_perform(this->req);
     }
@@ -81,7 +86,7 @@ public:
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "PUT");
         curl_easy_setopt(this->req, CURLOPT_POSTFIELDS, body.c_str());
-        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, &WriteResponse);
+        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
         this->code = curl_easy_perform(this->req);
     }
@@ -90,7 +95,7 @@ public:
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "PATCH");
         curl_easy_setopt(this->req, CURLOPT_POSTFIELDS, body.c_str());
-        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, &WriteResponse);
+        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
         this->code = curl_easy_perform(this->req);
     }
@@ -98,7 +103,7 @@ public:
     void Delete()
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "DELETE");
-        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, &WriteResponse);
+        curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
         this->code = curl_easy_perform(this->req);
     }
@@ -107,7 +112,6 @@ public:
     {
         curl_slist_free_all(this->headersList);
         curl_easy_cleanup(this->req);
-        delete this->req;
     }
 
 private:
@@ -116,12 +120,10 @@ private:
     std::string responseBody;
     CURLcode code;
 
-    static size_t WriteResponse(void *ptr, size_t size, size_t nmemb, void *userdata)
+    static size_t WriteCallback(char *contents, size_t size, size_t nmemb, void *userp)
     {
-        size_t real_size = size * nmemb;
-        std::string *response = static_cast<std::string *>(userdata);
-        response->append(static_cast<char *>(ptr), real_size);
-        return real_size;
+        ((std::string *)userp)->append((char *)contents, size * nmemb);
+        return size * nmemb;
     }
 };
 

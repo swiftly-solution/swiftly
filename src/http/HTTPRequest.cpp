@@ -5,7 +5,7 @@ HTTPRequest::HTTPRequest(std::string url)
 {
     this->req = new CurlRequest();
     this->req->SetUserAgent("Swiftly/HTTPManager");
-    this->req->SetTimeout(3);
+    this->req->SetTimeout(30);
     this->url = url;
 }
 
