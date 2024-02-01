@@ -43,7 +43,6 @@ public:
     {
         if (this->headersList)
             curl_slist_free_all(this->headersList);
-
         for (std::map<std::string, std::string>::iterator it = mapHeaders.begin(); it != mapHeaders.end(); ++it)
             this->headersList = curl_slist_append(this->headersList, string_format("%s: %s", it->first.c_str(), it->second.c_str()).c_str());
     }
