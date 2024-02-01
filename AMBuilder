@@ -35,6 +35,11 @@ for sdk_name in MMSPlugin.sdks:
             if fnmatch.fnmatch(_file, '*.c') and not "testes" in root and not "onelua.c" in _file:
                 binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
+    for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'vendor', 'protobuf-cs2', 'generated')):
+        for _file in files:
+            if fnmatch.fnmatch(_file, '*.cc'):
+                binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
+
 
     binary.compiler.cxxincludes += [
       os.path.join(builder.sourcePath, 'src', 'inc'),
@@ -61,6 +66,7 @@ for sdk_name in MMSPlugin.sdks:
         os.path.join(builder.sourcePath, 'vendor', 'curl', 'linuxsteamrt64', 'lib', 'libcurl.a'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libfunchook.a'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libdistorm.a'),
+        os.path.join(builder.sourcePath, 'vendor', 'protobuf-lib', 'libprotobuf.a'),
         '-lz',
         '-lpthread',
         '-lm',
@@ -83,6 +89,7 @@ for sdk_name in MMSPlugin.sdks:
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
         os.path.join(builder.sourcePath, 'vendor', 'curl', 'win64', 'lib', 'libcurl_a.lib'),
+        os.path.join(builder.sourcePath, 'vendor', 'protobuf-lib', 'libprotobuf.lib'),
         'ws2_32.lib',
         'wldap32.lib',
         'advapi32.lib',

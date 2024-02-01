@@ -62,7 +62,6 @@ IServerGameClients *gameclients = nullptr;
 IVEngineServer2 *engine = nullptr;
 IFileSystem *filesystem = nullptr;
 IServerGameClients *g_clientsManager = nullptr;
-INetworkMessages *g_pNetworkMessages = nullptr;
 ICvar *icvar = nullptr;
 IGameResourceServiceServer *g_pGameResourceService = nullptr;
 CSchemaSystem *g_pSchemaSystem2 = nullptr;

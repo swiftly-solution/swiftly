@@ -73,7 +73,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("Kill", [](LuaPlayerClass *base) -> void
                    { scripting_Player_Kill(base->playerSlot); })
         .DefMember("Drop", [](LuaPlayerClass *base, int reason) -> void
-                   { scripting_Player_Drop(base->playerSlot, (ENetworkDisconnectionReason)reason); })
+                   { scripting_Player_Drop(base->playerSlot, reason); })
         .DefMember("IsFakeClient", [](LuaPlayerClass *base) -> bool
                    { return base->fakeClient; })
         .DefMember("GetSlot", [](LuaPlayerClass *base) -> int

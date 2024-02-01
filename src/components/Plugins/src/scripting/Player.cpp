@@ -25,7 +25,7 @@ SMM_API uint64 scripting_Player_GetSteamID(uint32 playerId)
     return player->GetSteamID();
 }
 
-SMM_API void scripting_Player_Drop(uint32 playerId, ENetworkDisconnectionReason reason)
+SMM_API void scripting_Player_Drop(uint32 playerId, int reason)
 {
     if (reason < 0 || reason > 69)
         return;
