@@ -138,6 +138,8 @@ public:
 
     void SwitchTeam(int team);
 
+    void ExecuteClientCommand(std::string cmd);
+
     std::any GetInternalVar(std::string name);
     void SetInternalVar(std::string name, std::any value);
 

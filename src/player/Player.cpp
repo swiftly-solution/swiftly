@@ -3,6 +3,7 @@
 #include <metamod_util.h>
 #include <algorithm>
 #include "../events/gameevents.h"
+#include <networkbasetypes.pb.h>
 #include <thread>
 
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
@@ -306,4 +307,18 @@ CBasePlayerWeapon *Player::GetPlayerWeaponFromSlot(gear_slot_t slot)
     }
 
     return nullptr;
+}
+
+void Player::ExecuteClientCommand(std::string cmd)
+{
+    CNETMsg_StringCmd strcmd;
+    strcmd.set_command(cmd);
+
+    INetChannel *playerNetChan = reinterpret_cast<INetChannel *>(engine->GetPlayerNetInfo(this->GetSlot()->Get()));
+    if (!playerNetChan)
+        return;
+
+    static INetworkSerializable *partialMessage = g_pNetworkMessages->FindNetworkMessagePartial("CNETMsg_StringCmd");
+
+    CallVFunc<void>(WIN_LINUX(69, 70), playerNetChan, partialMessage, strcmd, -1);
 }

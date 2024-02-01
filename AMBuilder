@@ -44,6 +44,8 @@ for sdk_name in MMSPlugin.sdks:
       os.path.join(builder.sourcePath, 'vendor', 'luacpp', 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'lua'),
+      os.path.join(builder.sourcePath, 'vendor', 'protobuf', 'src'),
+      os.path.join(builder.sourcePath, 'vendor', 'protobuf-cs2', 'generated'),
       os.path.join(builder.sourcePath, 'vendor', 'openssl', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'vendor', 'curl', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
       os.path.join(builder.sourcePath, 'hl2sdk'),

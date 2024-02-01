@@ -26,6 +26,7 @@
 #include <entity2/entityidentity.h>
 #include "utils.h"
 #include <networksystem/inetworkserializer.h>
+#include <networksystem/inetworkmessages.h>
 #include <engine/igameeventsystem.h>
 
 #include <deque>
@@ -91,6 +92,7 @@ extern IServerGameDLL *server;
 extern ICvar *g_pcVar;
 extern IEngineSound *enginesound;
 extern CGameRules *g_pGameRules;
+extern INetworkMessages *g_pNetworkMessages;
 
 PLUGIN_GLOBALVARS();
 

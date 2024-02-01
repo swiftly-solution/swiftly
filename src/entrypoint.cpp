@@ -62,6 +62,7 @@ IServerGameClients *gameclients = nullptr;
 IVEngineServer2 *engine = nullptr;
 IFileSystem *filesystem = nullptr;
 IServerGameClients *g_clientsManager = nullptr;
+INetworkMessages *g_pNetworkMessages = nullptr;
 ICvar *icvar = nullptr;
 IGameResourceServiceServer *g_pGameResourceService = nullptr;
 CSchemaSystem *g_pSchemaSystem2 = nullptr;
@@ -109,6 +110,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     GET_V_IFACE_ANY(GetServerFactory, gameclients, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
     GET_V_IFACE_ANY(GetServerFactory, g_clientsManager, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
     GET_V_IFACE_ANY(GetEngineFactory, g_pNetworkServerService, INetworkServerService, NETWORKSERVERSERVICE_INTERFACE_VERSION);
+    GET_V_IFACE_ANY(GetEngineFactory, g_pNetworkMessages, INetworkMessages, NETWORKMESSAGES_INTERFACE_VERSION);
     GET_V_IFACE_ANY(GetFileSystemFactory, filesystem, IFileSystem, FILESYSTEM_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameResourceService, IGameResourceServiceServer, GAMERESOURCESERVICESERVER_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pSchemaSystem2, CSchemaSystem, SCHEMASYSTEM_INTERFACE_VERSION);
