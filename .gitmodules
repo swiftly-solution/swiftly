@@ -18,7 +18,3 @@
 	path = vendor/lua
 	url = https://github.com/lua/lua.git
 	branch = 6443185167c77adcc8552a3fee7edab7895db1a9
-[submodule "vendor/protobuf-3.21.8"]
-	path = vendor/protobuf-3.21.8
-	url = https://github.com/protocolbuffers/protobuf.git
-	branch = dab4d24d44eea0f21d6a21a548ee2b8c22b37f4f

@@ -9,7 +9,6 @@
                 "${workspaceFolder}/vendor/rapidjson/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
                 "${workspaceFolder}/vendor/mysql/win64/include/**",
-                "${workspaceFolder}/vendor/cpp-httplib/**",
                 "${workspaceFolder}/vendor/openssl/win64/include/**",
                 "${workspaceFolder}/vendor/curl/win64/include/**",
                 "${workspaceFolder}/vendor/lua/**",
@@ -22,7 +21,7 @@
                 "_UNICODE"
             ],
             "cStandard": "c17",
-            "cppStandard": "gnu++17",
+            "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-x64"
         }
     ],
