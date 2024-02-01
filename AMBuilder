@@ -56,6 +56,7 @@ for sdk_name in MMSPlugin.sdks:
     if binary.compiler.target.platform == 'linux' or binary.compiler.target.platform == 'mac':
       binary.compiler.postlink += [
         os.path.join(builder.sourcePath, 'vendor', 'mysql', 'linuxsteamrt64', 'lib', 'libmysqlclient.a'),
+        os.path.join(builder.sourcePath, 'vendor', 'curl', 'linuxsteamrt64', 'lib', 'libcurl.a'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libfunchook.a'),
         os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libdistorm.a'),
         '-lz',
@@ -70,7 +71,7 @@ for sdk_name in MMSPlugin.sdks:
       binary.compiler.defines += ['HAVE_STRUCT_TIMESPEC']
 
     if binary.compiler.target.platform == 'linux':
-      binary.compiler.postlink += ['-lrt', '-lssl', '-lcrypto', '-fexceptions', '-lcurl']
+      binary.compiler.postlink += ['-lrt', '-lssl', '-lcrypto', '-fexceptions', '-lidn2', '-lpsl', '-lbrotlidec', '-lz']
       binary.compiler.defines += ["LUA_USE_LINUX", "LUA_USE_READLINE"]
     elif binary.compiler.target.platform == 'windows':
       binary.compiler.postlink += [
