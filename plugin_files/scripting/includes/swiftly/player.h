@@ -210,6 +210,11 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_SetMusicKit");
     }
+
+    uint32_t GetSlot()
+    {
+        return this->m_playerSlot;
+    }
 };
 
 #endif
