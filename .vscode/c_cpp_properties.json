@@ -13,8 +13,6 @@
                 "${workspaceFolder}/vendor/curl/win64/include/**",
                 "${workspaceFolder}/vendor/lua/**",
                 "${workspaceFolder}/vendor/luacpp/include/**",
-                "${workspaceFolder}/vendor/protobuf-cs2/generated/**",
-                "${workspaceFolder}/vendor/protobuf/src/**",
                 "${workspaceFolder}/src/inc/**"
             ],
             "defines": [
