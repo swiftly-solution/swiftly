@@ -44,7 +44,9 @@ public:
         if (this->headersList)
             curl_slist_free_all(this->headersList);
         for (std::map<std::string, std::string>::iterator it = mapHeaders.begin(); it != mapHeaders.end(); ++it)
-            this->headersList = curl_slist_append(this->headersList, string_format("%s: %s", it->first.c_str(), it->second.c_str()).c_str());
+            this->headersList = curl_slist_append(this->headersList, (string_format("%s: %s", it->first.c_str(), it->second.c_str()) + "\0").c_str());
+
+        curl_easy_setopt(this->req, CURLOPT_HTTPHEADER, this->headersList);
     }
 
     std::string GetResponseBody()
@@ -74,28 +76,28 @@ public:
         this->code = curl_easy_perform(this->req);
     }
 
-    void Post(std::string body)
+    void Post(const std::string &body)
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_easy_setopt(this->req, CURLOPT_POSTFIELDS, body.c_str());
+        curl_easy_setopt(this->req, CURLOPT_COPYPOSTFIELDS, (body + "\0").c_str());
         curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
         this->code = curl_easy_perform(this->req);
     }
 
-    void Put(std::string body)
+    void Put(const std::string &body)
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "PUT");
-        curl_easy_setopt(this->req, CURLOPT_POSTFIELDS, body.c_str());
+        curl_easy_setopt(this->req, CURLOPT_COPYPOSTFIELDS, (body + "\0").c_str());
         curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
         this->code = curl_easy_perform(this->req);
     }
 
-    void Patch(std::string body)
+    void Patch(const std::string &body)
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "PATCH");
-        curl_easy_setopt(this->req, CURLOPT_POSTFIELDS, body.c_str());
+        curl_easy_setopt(this->req, CURLOPT_COPYPOSTFIELDS, (body + "\0").c_str());
         curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
         this->code = curl_easy_perform(this->req);
@@ -111,8 +113,11 @@ public:
 
     ~CurlRequest()
     {
-        curl_slist_free_all(this->headersList);
-        curl_easy_cleanup(this->req);
+        if (this->headersList)
+            curl_slist_free_all(this->headersList);
+
+        if (this->req)
+            curl_easy_cleanup(this->req);
     }
 
 private:

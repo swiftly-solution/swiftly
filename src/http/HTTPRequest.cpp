@@ -37,6 +37,7 @@ void HTTPRequest::Post(std::string path)
 {
     std::string final_content_type = contentTypesMap.at(this->content_type);
     this->req->SetUrl(this->url + path);
+    this->AddHeader("Content-Type", final_content_type);
     this->req->SetHeaders(this->headers);
     this->req->Post(this->body);
     this->executed = true;
@@ -46,6 +47,7 @@ void HTTPRequest::Put(std::string path)
 {
     std::string final_content_type = contentTypesMap.at(this->content_type);
     this->req->SetUrl(this->url + path);
+    this->AddHeader("Content-Type", final_content_type);
     this->req->SetHeaders(this->headers);
     this->req->Put(this->body);
     this->executed = true;
@@ -55,6 +57,7 @@ void HTTPRequest::Patch(std::string path)
 {
     std::string final_content_type = contentTypesMap.at(this->content_type);
     this->req->SetUrl(this->url + path);
+    this->AddHeader("Content-Type", final_content_type);
     this->req->SetHeaders(this->headers);
     this->req->Patch(this->body);
     this->executed = true;
