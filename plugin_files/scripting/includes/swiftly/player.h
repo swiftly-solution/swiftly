@@ -210,6 +210,24 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_SetMusicKit");
     }
+
+    void ShowMenu(const char *menuid)
+    {
+        void *player_ShowMenu = FetchFunctionPtr(nullptr, "scripting_Player_ShowMenu");
+        if (player_ShowMenu)
+            reinterpret_cast<Player_ShowMenu>(player_ShowMenu)(this->m_playerSlot, menuid);
+        else
+            NOT_SUPPORTED("scripting_Player_ShowMenu");
+    }
+
+    void HideMenu()
+    {
+        void *player_HideMenu = FetchFunctionPtr(nullptr, "scripting_Player_HideMenu");
+        if (player_HideMenu)
+            reinterpret_cast<Player_HideMenu>(player_HideMenu)(this->m_playerSlot);
+        else
+            NOT_SUPPORTED("scripting_Player_HideMenu");
+    }
 };
 
 #endif

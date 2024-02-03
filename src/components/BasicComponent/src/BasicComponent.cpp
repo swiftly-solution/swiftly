@@ -40,7 +40,7 @@ std::string seconds_to_time(unsigned int number)
     return string_format("%02d:%02d:%02d", int(number / 3600), int((number % 3600) / 60), int((number % 3600) % 60));
 }
 
-CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
+CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND | FCVAR_SERVER_CAN_EXECUTE)
 {
     CPlayerSlot sl = context.GetPlayerSlot();
     CPlayerSlot *slot = &sl;
@@ -67,7 +67,7 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
     PrintToClientOrConsole(slot, "Status", "end of status\n");
 }
 
-CON_COMMAND_F(sw_list, "Shows the players connected on the server, including the number of those.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
+CON_COMMAND_F(sw_list, "Shows the players connected on the server, including the number of those.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND | FCVAR_SERVER_CAN_EXECUTE)
 {
     CPlayerSlot sl = context.GetPlayerSlot();
     CPlayerSlot *slot = &sl;
@@ -475,11 +475,11 @@ void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
         ShowSwiftlyCommandHelp(slot, context);
 }
 
-CON_COMMAND_F(swiftly, "The main command for Swiftly.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
+CON_COMMAND_F(swiftly, "The main command for Swiftly.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND | FCVAR_SERVER_CAN_EXECUTE)
 {
     SwiftlyCommand(context, args);
 }
-CON_COMMAND_F(sw, "The main command for Swiftly.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND)
+CON_COMMAND_F(sw, "The main command for Swiftly.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND | FCVAR_SERVER_CAN_EXECUTE)
 {
     SwiftlyCommand(context, args);
 }

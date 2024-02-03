@@ -830,3 +830,27 @@ SMM_API void scripting_Player_SetMusicKit(uint32 playerId, int musicid)
 
     inventory->m_unMusicID = musicid;
 }
+
+SMM_API void scripting_Player_ShowMenu(uint32 playerId, const char *menuid)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    if (player->HasMenuShown())
+        return;
+
+    player->ShowMenu(menuid);
+}
+
+SMM_API void scripting_Player_HideMenu(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    if (!player->HasMenuShown())
+        return;
+
+    player->HideMenu();
+}

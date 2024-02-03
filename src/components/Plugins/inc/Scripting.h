@@ -34,7 +34,7 @@ typedef bool (*Plugin_OnClientGameMessage)(uint32, int, const char *);
 typedef void (*Plugin_OnPlayerDeath)(int, int, int, bool, const char *, bool, short, short, short, short, bool, bool, bool, bool, float, short, short, short);
 typedef void (*Plugin_OnPlayerHurt)(int, int, short, short, short, const char *);
 typedef bool (*Plugin_ShouldHearVoice)(uint32);
-typedef void (*Plugin_OnClientKeyStateChange)(uint32, const char*, bool);
+typedef void (*Plugin_OnClientKeyStateChange)(uint32, const char *, bool);
 typedef void (*OnPluginStartFunction)();
 typedef void (*OnPluginStopFunction)();
 typedef void (*OnProgramLoadFunction)(const char *, const char *);
@@ -143,6 +143,9 @@ SMM_API int scripting_Player_GetMoney(uint32 playerId);
 SMM_API void scripting_Player_SetMoney(uint32 playerId, int money);
 SMM_API void scripting_Player_TakeMoney(uint32 playerId, int money);
 
+SMM_API void scripting_Player_ShowMenu(uint32 playerId, const char *menuid);
+SMM_API void scripting_Player_HideMenu(uint32 playerId);
+
 SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd);
 
 SMM_API void scripting_Player_Weapons_Drop(uint32 playerId);
@@ -186,6 +189,9 @@ SMM_API const char *scripting_Exports_Call(const char *plugin_name, const char *
 SMM_API void scripting_Exports_Register(const char *plugin_name, const char *export_name, void *functionPtr);
 SMM_API void scripting_Exports_Unregister(const char *plugin_name, const char *export_name);
 
+SMM_API void scripting_Menus_Register(const char *plugin_name, const char *id, const char *title, const char *color, const char *items);
+SMM_API void scripting_Menus_Unregister(const char *plugin_name, const char *id);
+
 SMM_API void scripting_Print(const char *str);
 
 void SetupLuaCommands(luacpp::LuaState *state, Plugin *plugin);
@@ -197,6 +203,7 @@ void SetupLuaExports(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaHTTP(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaMenus(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaPlayerManager(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaPrecacher(luacpp::LuaState *state, Plugin *plugin);

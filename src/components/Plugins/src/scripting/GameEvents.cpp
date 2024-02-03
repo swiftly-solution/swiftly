@@ -1,4 +1,6 @@
 #include "../../inc/Scripting.h"
+#include "../../../../menus/Menus.h"
+#include "../../../../commands/CommandsManager.h"
 
 #define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                                                   \
     for (uint32 i = 0; i < plugins.size(); i++)                                                        \
@@ -394,6 +396,47 @@ void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
     Player *player = g_playerManager->GetPlayer(e->slot);
     if (!player)
         return;
+
+    if (player->HasMenuShown() && e->pressed)
+    {
+        std::string but = e->button;
+        if (but == "shift")
+        {
+            player->MoveSelection();
+            player->RenderMenu();
+        }
+        else if (but == "e")
+        {
+            std::string cmd = player->GetMenu()->GetCommandFromOption(player->GetPage(), player->GetSelection());
+            if (cmd == "menunext")
+            {
+                player->SetPage(player->GetPage() + 1);
+                player->RenderMenu();
+            }
+            else if (cmd == "menuback")
+            {
+                player->SetPage(player->GetPage() - 1);
+                player->RenderMenu();
+            }
+            else if (cmd == "menuexit")
+                player->HideMenu();
+            else if (g_menus->FetchMenu(cmd))
+            {
+                player->HideMenu();
+                player->ShowMenu(cmd);
+            }
+            else
+            {
+                std::vector<std::string> cmdString = explode(cmd, " ");
+                std::string commandName = replace(cmdString[0], "sw_", "");
+                cmdString.erase(cmdString.begin());
+
+                Command *cmd = g_commandsManager->FetchCommand(commandName);
+                if (cmd)
+                    cmd->Exec(player->GetSlot()->Get(), cmdString, true);
+            }
+        }
+    }
 
     CALL_PFUNCTION_VOID_ARGS(OnClientKeyStateChange, e->slot->Get(), e->button, e->pressed);
 }

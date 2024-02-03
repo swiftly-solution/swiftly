@@ -3,6 +3,7 @@
 #include "../../../common.h"
 #include "../../../commands/CommandsManager.h"
 #include "../../../player/PlayerManager.h"
+#include "../../../menus/Menus.h"
 #include <luacpp/luacpp.h>
 
 template <typename T, typename... Args>
@@ -41,6 +42,8 @@ void Plugin::StopPlugin()
     std::vector<std::string> cmds = g_commandsManager->FetchCommandsByPlugin(this->GetName());
     for (uint32 i = 0; i < cmds.size(); i++)
         g_commandsManager->UnregisterCommand(cmds[i]);
+
+    g_menus->UnregisterPluginMenus(this->GetName());
 
     this->SetPluginLoaded(false);
 }

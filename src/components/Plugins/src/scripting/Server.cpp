@@ -15,6 +15,9 @@ SMM_API uint16 scripting_Server_GetMaxPlayers()
 
 SMM_API const char *scripting_Server_GetMapName()
 {
+    if (!engine->GetServerGlobals())
+        return "unknown_map";
+
     const char *mapname = engine->GetServerGlobals()->mapname.ToCStr();
 
     char *res = new char[strlen(mapname) + 1];

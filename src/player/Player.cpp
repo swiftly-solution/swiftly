@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "../events/gameevents.h"
 #include "../hooks/Hooks.h"
+#include "../menus/Menus.h"
 #include <thread>
 
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
@@ -359,4 +360,60 @@ uint64_t Player::GetButtons()
 bool Player::IsButtonPressed(uint64_t but)
 {
     return ((this->buttons & but) != 0);
+}
+
+void Player::ShowMenu(std::string menuid)
+{
+    if (this->menu != nullptr)
+        return;
+
+    Menu *m = g_menus->FetchMenu(menuid);
+    if (m == nullptr)
+        return;
+
+    this->menu = m;
+    this->page = 1;
+    this->selected = 0;
+
+    this->RenderMenu();
+}
+
+void Player::RenderMenu()
+{
+    if (this->menu == nullptr)
+        return;
+
+    IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+    if (pEvent)
+    {
+        pEvent->SetString("loc_token", this->menu->GenerateItems(this->page, this->selected).c_str());
+        pEvent->SetUint64("duration", 999999999);
+        pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
+
+        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
+
+        playerListener->FireGameEvent(pEvent);
+    }
+}
+
+void Player::HideMenu()
+{
+    if (this->menu == nullptr)
+        return;
+
+    this->page = 0;
+    this->selected = 0;
+    this->menu = nullptr;
+
+    IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+    if (pEvent)
+    {
+        pEvent->SetString("loc_token", "Exiting...");
+        pEvent->SetUint64("duration", 1);
+        pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
+
+        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
+
+        playerListener->FireGameEvent(pEvent);
+    }
 }

@@ -6,6 +6,7 @@
 #include "../sdk/entity/CBasePlayerPawn.h"
 #include "../sdk/entity/CCSPlayerPawn.h"
 #include "../sdk/entity/CCSPlayerPawnBase.h"
+#include "../menus/Menu.h"
 
 #include <public/mathlib/vector.h>
 #include <public/playerslot.h>
@@ -64,7 +65,6 @@ public:
 
     void SwitchTeam(int team);
 
-    void ExecuteClientCommand(std::string cmd);
     void SetClientConvar(std::string cmd, std::string val);
 
     std::any GetInternalVar(std::string name);
@@ -77,6 +77,30 @@ public:
     uint64_t GetButtons();
     bool IsButtonPressed(uint64_t but);
 
+    void ShowMenu(std::string menuid);
+    void RenderMenu();
+    void HideMenu();
+    bool HasMenuShown() { return (this->menu != nullptr); }
+    Menu *GetMenu() { return this->menu; }
+
+    int GetPage() { return this->page; }
+    void SetPage(int pg)
+    {
+        this->page = pg;
+        this->selected = 0;
+    }
+    int GetSelection() { return this->selected; }
+    void MoveSelection()
+    {
+        if (this->page == 0)
+            return;
+
+        int itemsPerPage = this->menu->GetItemsOnPage(this->page);
+        ++this->selected;
+        if (itemsPerPage == this->selected)
+            this->selected = 0;
+    }
+
 private:
     int slot;
     bool isFakeClient = false;
@@ -87,6 +111,10 @@ private:
     const char *name;
     uint64 xuid;
     std::string ip_address = "0.0.0.0";
+
+    Menu *menu = nullptr;
+    int page = 0;
+    int selected = 0;
 
     uint64_t buttons = 0;
 

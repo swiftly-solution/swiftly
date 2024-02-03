@@ -77,7 +77,7 @@ bool CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, 
     if (existed.find(cmd) == existed.end())
     {
         ConCommandRefAbstract commandRef;
-        auto conCommand = new ConCommand(&commandRef, ("sw_" + cmd).c_str(), commandsCallback, "The main command for Swiftly.", (1 << 25) | (1 << 0));
+        auto conCommand = new ConCommand(&commandRef, ("sw_" + cmd).c_str(), commandsCallback, "The main command for Swiftly.", (1 << 25) | (1 << 0) | (1 << 24));
 
         existed.insert(std::make_pair(cmd, true));
     }

@@ -26,6 +26,7 @@
 #include "components/Plugins/inc/Scripting.h"
 #include "entities/EntityManager.h"
 #include "precacher/Precacher.h"
+#include "menus/Menus.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -85,6 +86,7 @@ Precacher *g_precacher = nullptr;
 IEngineSound *enginesound = nullptr;
 CEntityListener g_entityListener;
 CGameRules *g_pGameRules = nullptr;
+GameMenus *g_menus = nullptr;
 
 std::vector<Plugin *> plugins;
 
@@ -151,6 +153,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_httpManager = new HTTPManager();
     g_entityManager = new EntityManager();
     g_precacher = new Precacher();
+    g_menus = new GameMenus();
 
     g_Config->LoadPluginConfigurations();
 

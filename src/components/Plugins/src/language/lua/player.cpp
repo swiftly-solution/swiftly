@@ -62,6 +62,10 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return (base->firstSpawn == false); })
         .DefMember("SetFirstSpawn", [](LuaPlayerClass *base, bool firstSpawn) -> void
                    { base->firstSpawn = firstSpawn; })
+        .DefMember("ShowMenu", [](LuaPlayerClass *base, const char *menuid) -> void
+                   { scripting_Player_ShowMenu(base->playerSlot, menuid); })
+        .DefMember("HideMenu", [](LuaPlayerClass *base) -> void
+                   { scripting_Player_HideMenu(base->playerSlot); })
         .DefMember("GetConnectedTime", [](LuaPlayerClass *base) -> uint32_t
                    { return scripting_Player_GetConnectedTime(base->playerSlot); })
         .DefMember("SendMsg", [](LuaPlayerClass *base, int dest, const char *message) -> void
