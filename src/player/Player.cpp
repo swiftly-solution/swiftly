@@ -3,6 +3,7 @@
 #include <metamod_util.h>
 #include <algorithm>
 #include "../events/gameevents.h"
+#include "../hooks/Hooks.h"
 #include <thread>
 
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
@@ -306,4 +307,56 @@ CBasePlayerWeapon *Player::GetPlayerWeaponFromSlot(gear_slot_t slot)
     }
 
     return nullptr;
+}
+
+const std::vector<std::string> key_buttons = {
+    "mouse1",
+    "space",
+    "ctrl",
+    "w",
+    "s",
+    "e",
+    "esc",
+    "a",
+    "d",
+    "a",
+    "d",
+    "mouse2",
+    "unknown_key_run",
+    "r",
+    "alt",
+    "alt",
+    "shift",
+    "unknown_key_speed",
+    "shift",
+    "unknown_key_hudzoom",
+    "unknown_key_weapon1",
+    "unknown_key_weapon2",
+    "unknown_key_bullrush",
+    "unknown_key_grenade1",
+    "unknown_key_grenade2",
+    "unknown_key_lookspin",
+};
+
+void Player::SetButtons(uint64_t new_buttons)
+{
+    for (uint16_t i = 0; i < key_buttons.size(); i++)
+    {
+        if (this->IsButtonPressed((1 << i)) && (new_buttons & (1 << i)) == 0)
+            hooks::emit(OnClientKeyStateChange(this->GetSlot(), key_buttons[i].c_str(), false));
+        else if (!this->IsButtonPressed((1 << i)) && (new_buttons & (1 << i)))
+            hooks::emit(OnClientKeyStateChange(this->GetSlot(), key_buttons[i].c_str(), true));
+    }
+
+    this->buttons = new_buttons;
+}
+
+uint64_t Player::GetButtons()
+{
+    return this->buttons;
+}
+
+bool Player::IsButtonPressed(uint64_t but)
+{
+    return ((this->buttons & but) != 0);
 }

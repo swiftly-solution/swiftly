@@ -308,7 +308,6 @@ void SwiftlyPlugin::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const ch
 
 void SwiftlyPlugin::Hook_ClientCommand(CPlayerSlot slot, const CCommand &args)
 {
-    PRINTF("Hook_ClientCommand", "%d | %s\n", slot.Get(), args.GetCommandString());
     hooks::emit(OnClientCommand(&slot, &args));
 }
 
@@ -360,9 +359,31 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const ch
     hooks::emit(clientDisconnectEvent);
 }
 
+uint64_t b[MAX_PLAYERS] = {0};
+
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     hooks::emit(OnGameFrame(simulating, bFirstTick, bLastTick));
+
+    for (uint16_t i = 0; i < MAX_PLAYERS; i++)
+    {
+        Player *player = g_playerManager->GetPlayer(i);
+        if (!player)
+            continue;
+        if (player->IsFakeClient())
+            continue;
+
+        CBasePlayerPawn *pawn = player->GetPawn();
+        if (!pawn)
+            continue;
+
+        CPlayer_MovementServices *movementServices = pawn->m_pMovementServices();
+        if (!movementServices)
+            continue;
+
+        uint64_t buttons = movementServices->m_nButtons().m_pButtonStates()[0];
+        player->SetButtons(buttons);
+    }
 
     while (!m_nextFrame.empty())
     {

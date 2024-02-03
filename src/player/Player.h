@@ -73,6 +73,10 @@ public:
     CBasePlayerWeapon *GetPlayerWeaponFromSlot(gear_slot_t slot);
     CBasePlayerWeapon *GetPlayerWeaponFromID(uint32 weaponid);
 
+    void SetButtons(uint64_t new_buttons);
+    uint64_t GetButtons();
+    bool IsButtonPressed(uint64_t but);
+
 private:
     int slot;
     bool isFakeClient = false;
@@ -83,6 +87,8 @@ private:
     const char *name;
     uint64 xuid;
     std::string ip_address = "0.0.0.0";
+
+    uint64_t buttons = 0;
 
     std::map<std::string, std::any> internalVars;
 };

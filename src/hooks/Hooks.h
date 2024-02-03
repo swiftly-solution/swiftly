@@ -141,6 +141,19 @@ struct OnWeaponSpawned : Event
     }
 };
 
+struct OnClientKeyStateChange : Event
+{
+    CPlayerSlot *slot;
+    char const *button;
+    bool pressed;
+    OnClientKeyStateChange(CPlayerSlot *slot, char const *button, bool pressed)
+    {
+        this->slot = slot;
+        this->button = button;
+        this->pressed = pressed;
+    };
+};
+
 typedef std::multimap<const std::type_info *, const std::function<void(const Event *)>>
     EventMap;
 

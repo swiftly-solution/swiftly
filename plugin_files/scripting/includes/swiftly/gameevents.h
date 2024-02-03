@@ -36,6 +36,7 @@ void OnPlayerDeath(Player *player, Player *attacker, Player *assister, bool assi
 void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon, bool fatal) __attribute__((weak));
 bool ShouldHearVoice(Player *player) __attribute__((weak));
 bool OnWeaponSpawned(Player *player, Weapon *weapon) __attribute__((weak));
+void OnClientKeyStateChange(Player *player, const char *button, bool pressed) __attribute__((weak));
 
 extern "C"
 {
@@ -326,6 +327,18 @@ extern "C"
             return;
 
         OnWeaponSpawned(player, player->weapons->GetWeapon(weaponid));
+    }
+
+    void Internal_OnWeaponSpawned(uint32_t slot, const char *button, bool pressed)
+    {
+        if (!OnClientKeyStateChange)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (!player)
+            return;
+
+        OnClientKeyStateChange(player, button, pressed);
     }
 
     const char *GetPluginAuthor();

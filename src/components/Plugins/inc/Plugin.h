@@ -47,6 +47,7 @@ const std::vector<std::string> funcsToLoad = {
     "OnPlayerHurt",
     "ShouldHearVoice",
     "OnWeaponSpawned",
+    "OnClientKeyStateChange",
 };
 
 class LuaFuncWrapper : public luacpp::LuaRefObject

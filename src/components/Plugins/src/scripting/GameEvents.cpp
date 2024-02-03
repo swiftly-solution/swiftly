@@ -389,6 +389,15 @@ void scripting_OnWeaponSpawned(const OnWeaponSpawned *e)
     CALL_PFUNCTION_VOID_ARGS(OnWeaponSpawned, player->GetSlot()->Get(), weapon->m_AttributeManager().m_Item().m_iItemDefinitionIndex());
 }
 
+void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
+{
+    Player *player = g_playerManager->GetPlayer(e->slot);
+    if (!player)
+        return;
+
+    CALL_PFUNCTION_VOID_ARGS(OnClientKeyStateChange, e->slot->Get(), e->button, e->pressed);
+}
+
 void PluginsComponent::RegisterGameEvents()
 {
     hooks::on<OnGameFrame>(scripting_OnGameTick);
@@ -412,6 +421,7 @@ void PluginsComponent::RegisterGameEvents()
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);
+    hooks::on<OnClientKeyStateChange>(scripting_OnClientKeyStateChange);
 
     hooks::on<OnWeaponSpawned>(scripting_OnWeaponSpawned);
 }
