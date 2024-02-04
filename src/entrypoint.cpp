@@ -3,6 +3,7 @@
 
 #include <interfaces/interfaces.h>
 #include <metamod_oslink.h>
+#include <thread>
 
 #include "player/PlayerManager.h"
 #include "events/gameevents.h"
@@ -386,10 +387,16 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
         player->SetButtons(buttons);
     }
 
-    while (!m_nextFrame.empty())
+    if (!m_nextFrame.empty())
     {
-        m_nextFrame.front()();
-        m_nextFrame.pop_front();
+        std::thread th([m_nextFrame]() -> void
+                       {
+                       while (!m_nextFrame.empty())
+                       {
+                           m_nextFrame.front()();
+                           m_nextFrame.pop_front();
+                       } });
+        th.detach();
     }
 }
 
