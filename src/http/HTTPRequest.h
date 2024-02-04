@@ -19,11 +19,11 @@ private:
 public:
     HTTPRequest(std::string url);
     ~HTTPRequest();
-    void Get(std::string path, bool await);
-    void Delete(std::string path, bool await);
-    void Post(std::string path, bool await);
-    void Put(std::string path, bool await);
-    void Patch(std::string path, bool await);
+    void Get(std::string path);
+    void Delete(std::string path);
+    void Post(std::string path);
+    void Put(std::string path);
+    void Patch(std::string path);
     void AddHeader(std::string key, std::string value);
     void DeleteHeader(std::string key);
     void AddMultipartFile(std::string field, std::string content, std::string filename, std::string file_content_type);

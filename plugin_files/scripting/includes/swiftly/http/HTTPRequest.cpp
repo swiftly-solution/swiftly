@@ -200,7 +200,7 @@ const char *HTTPRequest::GetError()
     }
 }
 
-HTTPRequest *HTTPRequest::Get(const char *path, bool await)
+HTTPRequest *HTTPRequest::Get(const char *path)
 {
     if (this->requestID == 0)
     {
@@ -211,7 +211,7 @@ HTTPRequest *HTTPRequest::Get(const char *path, bool await)
     void *http_Get = FetchFunctionPtr(nullptr, "scripting_HTTP_Get");
     if (http_Get)
     {
-        reinterpret_cast<HTTP_Get>(http_Get)(this->requestID, path, await);
+        reinterpret_cast<HTTP_Get>(http_Get)(this->requestID, path);
         this->executed = true;
     }
     else
@@ -220,7 +220,7 @@ HTTPRequest *HTTPRequest::Get(const char *path, bool await)
     return this;
 }
 
-HTTPRequest *HTTPRequest::Delete(const char *path, bool await)
+HTTPRequest *HTTPRequest::Delete(const char *path)
 {
     if (this->requestID == 0)
     {
@@ -231,7 +231,7 @@ HTTPRequest *HTTPRequest::Delete(const char *path, bool await)
     void *http_Delete = FetchFunctionPtr(nullptr, "scripting_HTTP_Delete");
     if (http_Delete)
     {
-        reinterpret_cast<HTTP_Delete>(http_Delete)(this->requestID, path, await);
+        reinterpret_cast<HTTP_Delete>(http_Delete)(this->requestID, path);
         this->executed = true;
     }
     else
@@ -240,7 +240,7 @@ HTTPRequest *HTTPRequest::Delete(const char *path, bool await)
     return this;
 }
 
-HTTPRequest *HTTPRequest::Post(const char *path, bool await)
+HTTPRequest *HTTPRequest::Post(const char *path)
 {
     if (this->requestID == 0)
     {
@@ -251,7 +251,7 @@ HTTPRequest *HTTPRequest::Post(const char *path, bool await)
     void *http_Post = FetchFunctionPtr(nullptr, "scripting_HTTP_Post");
     if (http_Post)
     {
-        reinterpret_cast<HTTP_Post>(http_Post)(this->requestID, path, await);
+        reinterpret_cast<HTTP_Post>(http_Post)(this->requestID, path);
         this->executed = true;
     }
     else
@@ -260,7 +260,7 @@ HTTPRequest *HTTPRequest::Post(const char *path, bool await)
     return this;
 }
 
-HTTPRequest *HTTPRequest::Put(const char *path, bool await)
+HTTPRequest *HTTPRequest::Put(const char *path)
 {
     if (this->requestID == 0)
     {
@@ -271,7 +271,7 @@ HTTPRequest *HTTPRequest::Put(const char *path, bool await)
     void *http_Put = FetchFunctionPtr(nullptr, "scripting_HTTP_Put");
     if (http_Put)
     {
-        reinterpret_cast<HTTP_Put>(http_Put)(this->requestID, path, await);
+        reinterpret_cast<HTTP_Put>(http_Put)(this->requestID, path);
         this->executed = true;
     }
     else
@@ -280,7 +280,7 @@ HTTPRequest *HTTPRequest::Put(const char *path, bool await)
     return this;
 }
 
-HTTPRequest *HTTPRequest::Patch(const char *path, bool await)
+HTTPRequest *HTTPRequest::Patch(const char *path)
 {
     if (this->requestID == 0)
     {
@@ -291,7 +291,7 @@ HTTPRequest *HTTPRequest::Patch(const char *path, bool await)
     void *http_Patch = FetchFunctionPtr(nullptr, "scripting_HTTP_Patch");
     if (http_Patch)
     {
-        reinterpret_cast<HTTP_Patch>(http_Patch)(this->requestID, path, await);
+        reinterpret_cast<HTTP_Patch>(http_Patch)(this->requestID, path);
         this->executed = true;
     }
     else

@@ -117,49 +117,49 @@ SMM_API const char *scripting_HTTP_GetError(uint64_t requestID)
     return result;
 }
 
-SMM_API void scripting_HTTP_Get(uint64_t requestID, const char *path, bool await)
+SMM_API void scripting_HTTP_Get(uint64_t requestID, const char *path)
 {
     if (requestID == 0 || path == nullptr)
         return;
 
     HTTPRequest *request = g_httpManager->FetchRequest(requestID);
-    request->Get(path, await);
+    request->Get(path);
 }
 
-SMM_API void scripting_HTTP_Delete(uint64_t requestID, const char *path, bool await)
+SMM_API void scripting_HTTP_Delete(uint64_t requestID, const char *path)
 {
     if (requestID == 0 || path == nullptr)
         return;
 
     HTTPRequest *request = g_httpManager->FetchRequest(requestID);
-    request->Delete(path, await);
+    request->Delete(path);
 }
 
-SMM_API void scripting_HTTP_Post(uint64_t requestID, const char *path, bool await)
+SMM_API void scripting_HTTP_Post(uint64_t requestID, const char *path)
 {
     if (requestID == 0 || path == nullptr)
         return;
 
     HTTPRequest *request = g_httpManager->FetchRequest(requestID);
-    request->Post(path, await);
+    request->Post(path);
 }
 
-SMM_API void scripting_HTTP_Put(uint64_t requestID, const char *path, bool await)
+SMM_API void scripting_HTTP_Put(uint64_t requestID, const char *path)
 {
     if (requestID == 0 || path == nullptr)
         return;
 
     HTTPRequest *request = g_httpManager->FetchRequest(requestID);
-    request->Put(path, await);
+    request->Put(path);
 }
 
-SMM_API void scripting_HTTP_Patch(uint64_t requestID, const char *path, bool await)
+SMM_API void scripting_HTTP_Patch(uint64_t requestID, const char *path)
 {
     if (requestID == 0 || path == nullptr)
         return;
 
     HTTPRequest *request = g_httpManager->FetchRequest(requestID);
-    request->Patch(path, await);
+    request->Patch(path);
 }
 
 SMM_API void scripting_HTTP_Close(uint64_t requestID)
