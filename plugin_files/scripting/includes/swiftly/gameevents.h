@@ -329,7 +329,7 @@ extern "C"
         OnWeaponSpawned(player, player->weapons->GetWeapon(weaponid));
     }
 
-    void Internal_OnWeaponSpawned(uint32_t slot, const char *button, bool pressed)
+    void Internal_OnClientKeyStateChange(uint32_t slot, const char *button, bool pressed)
     {
         if (!OnClientKeyStateChange)
             return;
