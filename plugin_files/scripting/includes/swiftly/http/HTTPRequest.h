@@ -23,11 +23,11 @@ public:
     HTTPRequest *SetBearerAuthenticationToken(const char *token);
     HTTPRequest *SetFollowRedirect(bool follow);
 
-    HTTPRequest *Get(const char *path);
-    HTTPRequest *Delete(const char *path);
-    HTTPRequest *Post(const char *path);
-    HTTPRequest *Put(const char *path);
-    HTTPRequest *Patch(const char *path);
+    HTTPRequest *Get(const char *path, bool await);
+    HTTPRequest *Delete(const char *path, bool await);
+    HTTPRequest *Post(const char *path, bool await);
+    HTTPRequest *Put(const char *path, bool await);
+    HTTPRequest *Patch(const char *path, bool await);
 
     void Close();
 

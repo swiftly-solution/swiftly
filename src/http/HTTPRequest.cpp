@@ -17,49 +17,49 @@ HTTPRequest::~HTTPRequest()
     delete this->req;
 }
 
-void HTTPRequest::Get(std::string path)
+void HTTPRequest::Get(std::string path, bool await)
 {
     this->req->SetUrl(this->url + path);
     this->req->SetHeaders(this->headers);
-    this->req->Get();
+    this->req->Get(await);
     this->executed = true;
 }
 
-void HTTPRequest::Delete(std::string path)
+void HTTPRequest::Delete(std::string path, bool await)
 {
     this->req->SetUrl(this->url + path);
     this->req->SetHeaders(this->headers);
-    this->req->Delete();
+    this->req->Delete(await);
     this->executed = true;
 }
 
-void HTTPRequest::Post(std::string path)
+void HTTPRequest::Post(std::string path, bool await)
 {
     std::string final_content_type = contentTypesMap.at(this->content_type);
     this->req->SetUrl(this->url + path);
     this->AddHeader("Content-Type", final_content_type);
     this->req->SetHeaders(this->headers);
-    this->req->Post(this->body);
+    this->req->Post(this->body, await);
     this->executed = true;
 }
 
-void HTTPRequest::Put(std::string path)
+void HTTPRequest::Put(std::string path, bool await)
 {
     std::string final_content_type = contentTypesMap.at(this->content_type);
     this->req->SetUrl(this->url + path);
     this->AddHeader("Content-Type", final_content_type);
     this->req->SetHeaders(this->headers);
-    this->req->Put(this->body);
+    this->req->Put(this->body, await);
     this->executed = true;
 }
 
-void HTTPRequest::Patch(std::string path)
+void HTTPRequest::Patch(std::string path, bool await)
 {
     std::string final_content_type = contentTypesMap.at(this->content_type);
     this->req->SetUrl(this->url + path);
     this->AddHeader("Content-Type", final_content_type);
     this->req->SetHeaders(this->headers);
-    this->req->Patch(this->body);
+    this->req->Patch(this->body, await);
     this->executed = true;
 }
 

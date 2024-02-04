@@ -51,24 +51,24 @@ void SetupLuaHTTP(luacpp::LuaState *state, Plugin *plugin)
                                { scripting_HTTP_AddHeader(base->GetRequestID(), key, value); })
         .DefMember("AddMultipartFile", [](LuaHTTPRequestClass *base, const char *field, const char *content, const char *filename, const char *file_content_type) -> void
                    { scripting_HTTP_AddMultipartFile(base->GetRequestID(), field, content, filename, file_content_type); })
-        .DefMember("Delete", [](LuaHTTPRequestClass *base, const char *path) -> void
-                   { scripting_HTTP_Delete(base->GetRequestID(), path); })
+        .DefMember("Delete", [](LuaHTTPRequestClass *base, const char *path, bool await) -> void
+                   { scripting_HTTP_Delete(base->GetRequestID(), path, await); })
         .DefMember("DeleteHeader", [](LuaHTTPRequestClass *base, const char *key) -> void
                    { scripting_HTTP_DeleteHeader(base->GetRequestID(), key); })
-        .DefMember("Get", [](LuaHTTPRequestClass *base, const char *path) -> void
-                   { scripting_HTTP_Get(base->GetRequestID(), path); })
+        .DefMember("Get", [](LuaHTTPRequestClass *base, const char *path, bool await) -> void
+                   { scripting_HTTP_Get(base->GetRequestID(), path, await); })
         .DefMember("GetBody", [](LuaHTTPRequestClass *base) -> const char *
                    { return scripting_HTTP_GetBody(base->GetRequestID()); })
         .DefMember("GetError", [](LuaHTTPRequestClass *base) -> const char *
                    { return scripting_HTTP_GetError(base->GetRequestID()); })
         .DefMember("GetStatusCode", [](LuaHTTPRequestClass *base) -> int
                    { return scripting_HTTP_GetStatusCode(base->GetRequestID()); })
-        .DefMember("Patch", [](LuaHTTPRequestClass *base, const char *path) -> void
-                   { scripting_HTTP_Patch(base->GetRequestID(), path); })
-        .DefMember("Post", [](LuaHTTPRequestClass *base, const char *path) -> void
-                   { scripting_HTTP_Post(base->GetRequestID(), path); })
-        .DefMember("Put", [](LuaHTTPRequestClass *base, const char *path) -> void
-                   { scripting_HTTP_Put(base->GetRequestID(), path); })
+        .DefMember("Patch", [](LuaHTTPRequestClass *base, const char *path, bool await) -> void
+                   { scripting_HTTP_Patch(base->GetRequestID(), path, await); })
+        .DefMember("Post", [](LuaHTTPRequestClass *base, const char *path, bool await) -> void
+                   { scripting_HTTP_Post(base->GetRequestID(), path, await); })
+        .DefMember("Put", [](LuaHTTPRequestClass *base, const char *path, bool await) -> void
+                   { scripting_HTTP_Put(base->GetRequestID(), path, await); })
         .DefMember("SetBasicAuthentication", [](LuaHTTPRequestClass *base, const char *username, const char *password) -> void
                    { scripting_HTTP_SetBasicAuthentication(base->GetRequestID(), username, password); })
         .DefMember("SetBearerAuthenticationToken", [](LuaHTTPRequestClass *base, const char *token) -> void

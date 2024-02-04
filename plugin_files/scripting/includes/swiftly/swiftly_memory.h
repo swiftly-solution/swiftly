@@ -82,11 +82,11 @@ typedef void (*HTTP_SetBearerAuthenticationToken)(uint64_t, const char *);
 typedef void (*HTTP_SetFollowRedirect)(uint64_t, bool);
 typedef void (*HTTP_Close)(uint64_t);
 
-typedef void (*HTTP_Get)(uint64_t, const char *);
-typedef void (*HTTP_Delete)(uint64_t, const char *);
-typedef void (*HTTP_Post)(uint64_t, const char *);
-typedef void (*HTTP_Put)(uint64_t, const char *);
-typedef void (*HTTP_Patch)(uint64_t, const char *);
+typedef void (*HTTP_Get)(uint64_t, const char *, bool);
+typedef void (*HTTP_Delete)(uint64_t, const char *, bool);
+typedef void (*HTTP_Post)(uint64_t, const char *, bool);
+typedef void (*HTTP_Put)(uint64_t, const char *, bool);
+typedef void (*HTTP_Patch)(uint64_t, const char *, bool);
 
 typedef const char *(*HTTP_GetError)(uint64_t);
 typedef const char *(*HTTP_GetBody)(uint64_t);

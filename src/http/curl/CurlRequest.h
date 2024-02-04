@@ -10,6 +10,7 @@ extern "C"
 };
 #include <string>
 #include <map>
+#include <thread>
 
 class CurlRequest
 {
@@ -69,46 +70,81 @@ public:
             return curl_easy_strerror(this->code);
     }
 
-    void Get()
+    void Get(bool await)
     {
         curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
-        this->code = curl_easy_perform(this->req);
+        if (await)
+        {
+            std::thread th([this]()
+                           { this->code = curl_easy_perform(this->req); });
+            th.detach();
+        }
+        else
+            this->code = curl_easy_perform(this->req);
     }
 
-    void Post(const std::string &body)
+    void Post(const std::string &body, bool await)
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "POST");
         curl_easy_setopt(this->req, CURLOPT_COPYPOSTFIELDS, (body + "\0").c_str());
         curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
-        this->code = curl_easy_perform(this->req);
+        if (await)
+        {
+            std::thread th([this]()
+                           { this->code = curl_easy_perform(this->req); });
+            th.detach();
+        }
+        else
+            this->code = curl_easy_perform(this->req);
     }
 
-    void Put(const std::string &body)
+    void Put(const std::string &body, bool await)
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "PUT");
         curl_easy_setopt(this->req, CURLOPT_COPYPOSTFIELDS, (body + "\0").c_str());
         curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
-        this->code = curl_easy_perform(this->req);
+        if (await)
+        {
+            std::thread th([this]()
+                           { this->code = curl_easy_perform(this->req); });
+            th.detach();
+        }
+        else
+            this->code = curl_easy_perform(this->req);
     }
 
-    void Patch(const std::string &body)
+    void Patch(const std::string &body, bool await)
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "PATCH");
         curl_easy_setopt(this->req, CURLOPT_COPYPOSTFIELDS, (body + "\0").c_str());
         curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
-        this->code = curl_easy_perform(this->req);
+        if (await)
+        {
+            std::thread th([this]()
+                           { this->code = curl_easy_perform(this->req); });
+            th.detach();
+        }
+        else
+            this->code = curl_easy_perform(this->req);
     }
 
-    void Delete()
+    void Delete(bool await)
     {
         curl_easy_setopt(this->req, CURLOPT_CUSTOMREQUEST, "DELETE");
         curl_easy_setopt(this->req, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(this->req, CURLOPT_WRITEDATA, &this->responseBody);
-        this->code = curl_easy_perform(this->req);
+        if (await)
+        {
+            std::thread th([this]()
+                           { this->code = curl_easy_perform(this->req); });
+            th.detach();
+        }
+        else
+            this->code = curl_easy_perform(this->req);
     }
 
     ~CurlRequest()
