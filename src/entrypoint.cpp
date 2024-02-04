@@ -362,12 +362,11 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const ch
     hooks::emit(clientDisconnectEvent);
 }
 
-uint64_t b[MAX_PLAYERS] = {0};
-
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     hooks::emit(OnGameFrame(simulating, bFirstTick, bLastTick));
 
+    uint64_t time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
     for (uint16_t i = 0; i < MAX_PLAYERS; i++)
     {
         Player *player = g_playerManager->GetPlayer(i);
@@ -387,6 +386,7 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
         uint64_t buttons = movementServices->m_nButtons().m_pButtonStates()[0];
         player->SetButtons(buttons);
     }
+    PRINTF("Game Frame Executed", "%llu\n", std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - time);
 
     while (!m_nextFrame.empty())
     {

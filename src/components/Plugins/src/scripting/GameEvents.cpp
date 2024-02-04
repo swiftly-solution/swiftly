@@ -180,6 +180,9 @@ void scripting_OnRoundEnd(const OnRoundEnd *e)
 
 bool scripting_OnClientChat(CBasePlayerController *controller, const char *text, bool teamonly)
 {
+    if (std::string(text) == "")
+        return false;
+
     CPlayerSlot sl = g_playerManager->GetSlotFromUserId(controller->GetRefEHandle().GetEntryIndex() - 1);
     CPlayerSlot *slot = &sl;
     if (!slot)
