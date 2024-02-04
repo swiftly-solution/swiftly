@@ -13,7 +13,6 @@
 #define SITE_B 1
 #define SITE_UNKNOWN 2
 
-#include <IEngineSound.h>
 #include <public/playerslot.h>
 #include <public/inetchannelinfo.h>
 #include <ISmmPlugin.h>
@@ -90,7 +89,6 @@ extern IServerGameClients *g_clientsManager;
 extern CEntitySystem *g_pEntitySystem;
 extern IServerGameDLL *server;
 extern ICvar *g_pcVar;
-extern IEngineSound *enginesound;
 extern CGameRules *g_pGameRules;
 extern INetworkMessages *g_pNetworkMessages;
 

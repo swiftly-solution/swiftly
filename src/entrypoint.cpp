@@ -83,7 +83,6 @@ HTTPManager *g_httpManager = nullptr;
 Patches *g_Patches = nullptr;
 EntityManager *g_entityManager = nullptr;
 Precacher *g_precacher = nullptr;
-IEngineSound *enginesound = nullptr;
 CEntityListener g_entityListener;
 CGameRules *g_pGameRules = nullptr;
 GameMenus *g_menus = nullptr;
@@ -277,6 +276,12 @@ std::string map;
 
 void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
 {
+    if (!g_precacher->GetSoundsPrecached())
+    {
+        g_precacher->CacheSounds();
+        g_precacher->SetSoundsPrecached(true);
+    }
+
     map = pMapName;
     hooks::emit(OnMapLoad(pMapName));
 }

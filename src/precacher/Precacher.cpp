@@ -53,13 +53,13 @@ void Precacher::CacheSounds()
         if (std::find(this->precachedSounds.begin(), this->precachedSounds.end(), sound) != this->precachedSounds.end())
             continue;
 
-        this->CacheModel(sound.c_str());
+        this->CacheSound(sound.c_str());
         this->precachedSounds.push_back(sound);
     }
 }
 
 void Precacher::CacheSound(const char *model)
 {
-    enginesound->PrecacheSound(model, true);
+    engine->PrecacheDecal(model, true);
     PRINTF("Precacher", "Precached sound '%s'.\n", model);
 }
