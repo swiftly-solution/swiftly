@@ -8,3 +8,11 @@ SMM_API void scripting_Precacher_AddModel(const char *model)
 
     g_precacher->AddModel(model);
 }
+
+SMM_API void scripting_Precacher_AddSound(const char *path)
+{
+    if (path == nullptr)
+        return;
+
+    g_precacher->AddSound(path);
+}

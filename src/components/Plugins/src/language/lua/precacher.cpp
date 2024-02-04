@@ -18,7 +18,9 @@ void SetupLuaPrecacher(luacpp::LuaState *state, Plugin *plugin)
     auto precacherClass = state->CreateClass<LuaPrecacherClass>("Precacher").DefConstructor();
 
     precacherClass.DefMember("PrecacheModel", [](LuaPrecacherClass *base, const char *model) -> void
-                             { scripting_Precacher_AddModel(model); });
+                             { scripting_Precacher_AddModel(model); })
+        .DefMember("PrecacheSound", [](LuaPrecacherClass *base, const char *path) -> void
+                   { scripting_Precacher_AddSound(path); });
 
     state->DoString("precacher = Precacher()");
 }

@@ -89,6 +89,8 @@ SMM_API bool scripting_OnClientChat(CBasePlayerController *controller, const cha
 SMM_API bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destination, const char *text);
 SMM_API bool scripting_ShouldHearVoice(Player *player);
 
+SMM_API void scripting_Precacher_AddSound(const char *path);
+
 SMM_API uint64_t scripting_HTTP_CreateRequest(const char *domain);
 SMM_API void scripting_HTTP_SetBody(uint64_t requestID, const char *body);
 SMM_API void scripting_HTTP_AddHeader(uint64_t requestID, const char *key, const char *value);

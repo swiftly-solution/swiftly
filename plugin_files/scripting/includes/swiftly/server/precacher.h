@@ -19,6 +19,15 @@ public:
         else
             NOT_SUPPORTED("scripting_Precacher_AddModel");
     }
+
+    void AddSound(const char *path)
+    {
+        void *Precacher_AddSound = FetchFunctionPtr(nullptr, "scripting_Precacher_AddSound");
+        if (Precacher_AddSound)
+            reinterpret_cast<Server_AddPrecacheModel>(Precacher_AddSound)(path);
+        else
+            NOT_SUPPORTED("scripting_Precacher_AddSound");
+    }
 };
 
 #endif
