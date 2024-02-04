@@ -389,13 +389,16 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
 
     if (!m_nextFrame.empty())
     {
-        std::thread th([m_nextFrame]() -> void
+        std::thread th([this]() -> void
                        {
-                       while (!m_nextFrame.empty())
-                       {
-                           m_nextFrame.front()();
-                           m_nextFrame.pop_front();
-                       } });
+                        std::deque<std::function<void ()>> calls;
+                        calls = m_nextFrame;
+                        m_nextFrame.clear();
+                        while (!calls.empty())
+                        {
+                            calls.front()();
+                            calls.pop_front();
+                        } });
         th.detach();
     }
 }
