@@ -439,7 +439,7 @@ void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
                     cmd->Exec(player->GetSlot()->Get(), cmdString, true);
             }
             else
-                engine->ClientCommand(*player->GetSlot(), cmd);
+                engine->ClientCommand(*player->GetSlot(), cmd.c_str());
         }
     }
 
