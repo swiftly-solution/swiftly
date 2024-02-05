@@ -428,7 +428,7 @@ void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
                 player->HideMenu();
                 player->ShowMenu(cmd);
             }
-            else
+            else if (starts_with(cmd, "sw_"))
             {
                 std::vector<std::string> cmdString = explode(cmd, " ");
                 std::string commandName = replace(cmdString[0], "sw_", "");
@@ -438,6 +438,8 @@ void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
                 if (cmd)
                     cmd->Exec(player->GetSlot()->Get(), cmdString, true);
             }
+            else
+                engine->ClientCommand(*player->GetSlot(), cmd);
         }
     }
 
