@@ -6,6 +6,7 @@
 #include <map>
 
 #include "Menu.h"
+#include "../player/PlayerManager.h"
 
 class GameMenus
 {
@@ -30,6 +31,20 @@ public:
     {
         if (this->menu_ids.find(id) == this->menu_ids.end())
             return;
+
+        for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
+        {
+            Player *player = g_playerManager->GetPlayer(i);
+            if (!player)
+                continue;
+            if (player->IsFakeClient())
+                continue;
+            if (!player->HasMenuShown())
+                continue;
+
+            if (player->GetMenu()->GetID() == id)
+                player->HideMenu();
+        }
 
         Menu *menu = this->menu_ids.at(id);
         delete menu;
