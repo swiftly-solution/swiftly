@@ -11,6 +11,7 @@
 std::string SerializeMenuData(std::unordered_map<std::string, std::string> data);
 
 typedef void (*Plugin_RegisterMenu)(const char *, const char *, const char *, const char *, const char *);
+typedef void (*Plugin_UnregisterMenu)(const char *, const char *);
 
 class Menus
 {
@@ -30,6 +31,17 @@ public:
         }
         else
             NOT_SUPPORTED("scripting_Menus_Register");
+    }
+
+    void UnregisterMenu(std::string id)
+    {
+        void *menus_Unregister = FetchFunctionPtr(nullptr, "scripting_Menus_Unregister");
+        if (menus_Unregister)
+        {
+            reinterpret_cast<Plugin_UnregisterMenu>(menus_Unregister)(this->m_plugin_name.c_str(), id.c_str());
+        }
+        else
+            NOT_SUPPORTED("scripting_Menus_Unregister");
     }
 };
 
