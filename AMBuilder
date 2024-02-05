@@ -91,12 +91,11 @@ for sdk_name in MMSPlugin.sdks:
       ]
     
     if sdk_name in ['dota', 'cs2']:
-      if binary.compiler.target.platform == 'linux':
-          binary.sources += [os.path.join(sdk.path, 'public', 'tier0', 'memoverride.cpp'),]
       binary.sources += [
-      os.path.join(sdk.path, 'tier1', 'convar.cpp'),
-      os.path.join(sdk.path, 'entity2', 'entitysystem.cpp'),
-    ]
+        os.path.join(sdk.path, 'public', 'tier0', 'memoverride.cpp'),
+        os.path.join(sdk.path, 'tier1', 'convar.cpp'),
+        os.path.join(sdk.path, 'entity2', 'entitysystem.cpp'),
+      ]
 
     if cxx.target.arch == 'x86':
       binary.sources += ['sourcehook/sourcehook_hookmangen.cpp']

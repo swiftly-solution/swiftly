@@ -65,6 +65,7 @@ void SetupLuaEnvironment(Plugin *plugin)
                           "GetPlayer");
     state->CreateFunction([playerTable, state](const char *content, bool matchbots) -> int
                           {
+        if(content == nullptr) return -1;
         int slot = StringToInt(content);
         if(slot != -1) return slot;
 
