@@ -79,6 +79,15 @@ public:
     SCHEMA_FIELD_OFFSET(int, m_nPrimaryReserveAmmoMax, 0)
 };
 
+class CEconWearable : public CEconEntity
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CEconWearable, false)
+
+    SCHEMA_FIELD_OFFSET(int32_t, m_nForceSkin, 0)
+    SCHEMA_FIELD_OFFSET(bool, m_bAlwaysAllow, 0)
+};
+
 class CBasePlayerWeapon : public CEconEntity
 {
 public:
