@@ -17,9 +17,9 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os: [ubuntu-latest, windows-latest]
+                os: [self-hosted, windows-latest]
                 include:
-                    - os: ubuntu-latest
+                    - os: self-hosted
                       container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
         steps:
             - name: Checkout
@@ -39,7 +39,7 @@ jobs:
                   cd ambuild; python setup.py install; cd ..
 
             - name: Downloading Swiftly Utilities - Linux
-              if: matrix.os == 'ubuntu-latest'
+              if: matrix.os == 'self-hosted'
               uses: robinraju/release-downloader@v1.8
               with:
                   repository: "swiftly-solution/swiftly-plugins-utility"
@@ -48,7 +48,7 @@ jobs:
                   out-file-path: "swiftly/plugin_files/scripting"
 
             - name: Prepare Build - Linux
-              if: matrix.os == 'ubuntu-latest'
+              if: matrix.os == 'self-hosted'
               working-directory: swiftly
               shell: bash
               run: |
@@ -70,7 +70,7 @@ jobs:
                   ambuild
 
             - name: Upload Artifacts Linux
-              if: matrix.os == 'ubuntu-latest'
+              if: matrix.os == 'self-hosted'
               uses: actions/upload-artifact@v3
               with:
                   name: Swiftly Plugin Linux
