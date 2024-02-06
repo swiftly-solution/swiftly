@@ -44,10 +44,10 @@ void Menu::ProcessOptions()
 std::string Menu::GenerateItems(int page, int selected)
 {
     std::string retval = "";
-    retval += string_format("&nbsp;&nbsp;<div><font color=\"#%s\">%s</font></div><br/>", this->color, this->title);
+    retval += string_format("&nbsp;&nbsp;<div><font color=\"#%s\">%s</font></div><br/>", this->color.c_str(), this->title.c_str());
     for (uint32_t i = 0; i < processedOptions[page - 1].size(); i++)
     {
-        retval += string_format("<div style=\"width: 768px;\"><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color : "ffffff"), (i == selected ? ">" : "&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
+        retval += string_format("<div style=\"width: 768px;\"><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? ">" : "&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
     }
 
     retval += "<div>SHIFT - Cycle | E - Select</div>";

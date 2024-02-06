@@ -35,6 +35,10 @@ public:
         this->processedOptions.clear();
     }
 
+    std::string GetID() {
+        return this->id;
+    }
+
     void ProcessOptions();
     std::string GenerateItems(int page, int selected);
 

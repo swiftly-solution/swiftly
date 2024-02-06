@@ -160,5 +160,10 @@ public:
         g_Signatures->FetchSignature<UTIL_Remove>("UTIL_Remove")(this);
     }
 
+    void AcceptInput(const char *pInputName, CEntityInstance *pActivator = nullptr, CEntityInstance *pCaller = nullptr, double *value = nullptr)
+    {
+        g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this, pInputName, pActivator, pCaller, value, 0);
+    }
+
     CEntitySubclassVDataBase *GetVData() { return *(CEntitySubclassVDataBase **)((uint8 *)(m_nSubclassID()) + 8); }
 };

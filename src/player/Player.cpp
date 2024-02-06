@@ -387,7 +387,7 @@ void Player::RenderMenu()
     if (pEvent)
     {
         pEvent->SetString("loc_token", this->menu->GenerateItems(this->page, this->selected).c_str());
-        pEvent->SetUint64("duration", 5000);
+        pEvent->SetUint64("duration", 10);
         pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
 
         IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());

@@ -2,6 +2,7 @@
 #include "../../../../player/PlayerManager.h"
 #include "../../../../sdk/entity/CCSPlayerController.h"
 #include "../../../../sdk/entity/CCSPlayerPawnBase.h"
+#include "../../../../sdk/entity/CBaseCombatCharacter.h"
 #include "../../inc/Scripting.h"
 
 extern CEntitySystem *g_pEntitySystem;
@@ -725,6 +726,49 @@ SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
     else if (n == "item_kevlar")
     {
         scripting_Player_SetArmor(playerId, 100);
+    }
+    else if (starts_with(n, "item_glove"))
+    {
+        std::vector<std::string> args = explode(n, ";");
+        if (args.size() < 5)
+            return;
+
+        std::string defindex = args[1];
+        std::string paintkit = args[2];
+        std::string seed = args[3];
+        std::string wear = args[4];
+
+        // CEconWearable *wearable = reinterpret_cast<CEconWearable *>(g_Signatures->FetchSignature<UTIL_CreateEntityByName>("UTIL_CreateEntityByName")("wearable_item", -1));
+        // if (!wearable)
+        //     return;
+
+        // ((CBaseCombatCharacter *)player->GetPawn())->m_hMyWearables()->RemoveAll();
+
+        // wearable->m_AttributeManager().m_Item().m_iItemIDLow = -1;
+        // wearable->m_AttributeManager().m_Item().m_iItemDefinitionIndex = std::stoi(defindex);
+        // wearable->m_nFallbackPaintKit = std::stoi(paintkit);
+        // wearable->m_flFallbackWear = std::stod(wear);
+        // wearable->m_nFallbackSeed = std::stod(seed);
+        // wearable->m_AttributeManager().m_Item().m_bInitialized = true;
+
+        // wearable->Spawn();
+
+        // ((CBaseCombatCharacter *)player->GetPawn())->m_hMyWearables()->AddToTail(wearable);
+
+        // auto wearables = ((CBaseCombatCharacter *)player->GetPawn())->m_hMyWearables();
+
+        // FOR_EACH_VEC(*wearables, i)
+        // {
+        //     CHandle<CEconWearable> &w = (*wearables)[i];
+        //     if (!w.IsValid())
+        //         continue;
+
+        //     CEconWearable *ww = w.Get();
+        //     if (!ww)
+        //         continue;
+
+        //     PRINTF("Give Item", "%d\n", ww->m_AttributeManager().m_Item().m_iItemDefinitionIndex());
+        // }
     }
     else
         itemServices->GiveNamedItem(name);

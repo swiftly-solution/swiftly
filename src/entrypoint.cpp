@@ -389,6 +389,9 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
 
         uint64_t buttons = movementServices->m_nButtons().m_pButtonStates()[0];
         player->SetButtons(buttons);
+
+        if (player->HasMenuShown())
+            player->RenderMenu();
     }
 
     while (!m_nextFrame.empty())
