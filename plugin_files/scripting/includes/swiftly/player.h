@@ -228,6 +228,18 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_HideMenu");
     }
+
+    int GetLatency()
+    {
+        void *player_GetLatency = FetchFunctionPtr(nullptr, "scripting_Player_GetLatency");
+        if (player_GetLatency)
+            return reinterpret_cast<Player_GetLatency>(player_GetLatency)(this->m_playerSlot);
+        else
+        {
+            NOT_SUPPORTED("scripting_Player_GetLatency");
+            return 0;
+        }
+    }
 };
 
 #endif

@@ -854,3 +854,16 @@ SMM_API void scripting_Player_HideMenu(uint32 playerId)
 
     player->HideMenu();
 }
+
+SMM_API int scripting_Player_GetLatency(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return -1;
+    if (player->IsFakeClient())
+        return 0;
+
+    INetChannelInfo *netinfo = engine->GetPlayerNetInfo(*player->GetSlot());
+
+    return netinfo->GetLatency(FLOW_INCOMING) + netinfo->GetLatency(FLOW_OUTGOING);
+}

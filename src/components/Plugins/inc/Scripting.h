@@ -148,6 +148,8 @@ SMM_API void scripting_Player_TakeMoney(uint32 playerId, int money);
 SMM_API void scripting_Player_ShowMenu(uint32 playerId, const char *menuid);
 SMM_API void scripting_Player_HideMenu(uint32 playerId);
 
+SMM_API int scripting_Player_GetLatency(uint32 playerId);
+
 SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd);
 
 SMM_API void scripting_Player_Weapons_Drop(uint32 playerId);

@@ -52,6 +52,8 @@ typedef void (*Player_SetMusicKit)(uint32_t, int);
 typedef void (*Player_SendMessage)(uint32_t, HudDestination, const char *);
 typedef void (*Players_SendMessage)(HudDestination, const char *);
 
+typedef int (*Player_GetLatency)(uint32_t);
+
 typedef const char *(*Database_EscapeString)(const char *, const char *);
 typedef bool (*Database_Connect)(const char *);
 
