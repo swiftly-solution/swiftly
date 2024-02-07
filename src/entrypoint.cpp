@@ -45,6 +45,7 @@ SH_DECL_HOOK6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSl
 SH_DECL_HOOK2(IGameEventManager2, FireEvent, SH_NOATTRIB, 0, bool, IGameEvent *, bool);
 SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand &);
 SH_DECL_HOOK3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandHandle, const CCommandContext &, const CCommand &);
+SH_DECL_HOOK0_void(IServerGameDLL, GameServerSteamAPIActivated, SH_NOATTRIB, 0);
 
 #ifdef _WIN32
 FILE _ioccc[] = {*stdin, *stdout, *stderr};
@@ -144,6 +145,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &SwiftlyPlugin::Hook_ClientCommand, false);
     SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &SwiftlyPlugin::Hook_StartupServer, true);
     SH_ADD_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &SwiftlyPlugin::Hook_DispatchConCommand, false);
+    SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &SwiftlyPlugin::Hook_GameServerSteamAPIActivated, false);
 
     g_playerManager = new PlayerManager();
     g_dbManager = new DatabaseManager();
@@ -275,6 +277,11 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
             RETURN_META(MRES_SUPERCEDE);
         }
     }
+}
+
+void SwiftlyPlugin::Hook_GameServerSteamAPIActivated()
+{
+    RETURN_META(MRES_IGNORED);
 }
 
 std::string map;

@@ -56,11 +56,17 @@ template <typename T>
 bool FuncHook<T>::Create()
 {
     if (!g_Signatures->Exists(this->m_name))
+    {
+        PRINTF("FuncHook", "Failed create for %s.\nError Message: Signature was not found.\n", this->GetName());
         return false;
+    }
 
     void *ptr = g_Signatures->FetchRawSignature(this->m_name);
     if (ptr == nullptr)
+    {
+        PRINTF("FuncHook", "Failed create for %s.\nError Message: Invalid signature pointer.\n", this->GetName());
         return false;
+    }
 
     this->m_pfn = reinterpret_cast<T *>(ptr);
 

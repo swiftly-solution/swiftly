@@ -62,6 +62,7 @@ public:
     bool Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason);
     void Hook_ClientCommand(CPlayerSlot nSlot, const CCommand &_cmd);
     void Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext &ctx, const CCommand &args);
+    void Hook_GameServerSteamAPIActivated();
 
 public:
     const char *GetAuthor();
