@@ -2,8 +2,9 @@
 
 export MMSOURCE112="$(pwd)/metamod"
 export HL2SDKCS2="$(pwd)/hl2sdk"
+export HL2SDKMANIFEST="hl2sdk-manifests"
 
 mkdir build
 cd build
-CC=gcc CXX=g++ python3 ../configure.py --plugin-name=swiftly --plugin-alias=swift -s cs2 --enable-optimize
+CC=gcc CXX=g++ python3 ../configure.py --plugin-name=swiftly --plugin-alias=swift -s cs2 --targets=x86_64 --enable-optimize --hl2sdk-manifests $HL2SDKMANIFEST
 cd ..

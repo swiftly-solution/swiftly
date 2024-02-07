@@ -15,6 +15,10 @@ enum class PlayerConnectedState : uint32_t
     PlayerReserved = 0x5,
 };
 
+class CBasePlayerController;
+
+typedef void (*ClientPrint)(CBasePlayerController *, int, const char *, const char *, const char *, const char *, const char *);
+
 class CBasePlayerController : public Z_CBaseEntity
 {
 public:

@@ -9,6 +9,8 @@
 
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
 
+typedef void (*CCSPlayerController_SwitchTeam)(CCSPlayerController *pController, unsigned int team);
+
 std::map<std::string, std::string> colors = {
     {"{DEFAULT}", "\x01"},
     {"{WHITE}", "\x01"},

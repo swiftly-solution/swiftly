@@ -4,6 +4,8 @@
 
 #include <algorithm>
 
+typedef void (*PrecacheResource)(const char *, int64_t);
+
 void Precacher::CacheModel(const char *model)
 {
     g_Signatures->FetchSignature<PrecacheResource>("PrecacheResource")(model, this->precacheContext);

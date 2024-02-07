@@ -37,7 +37,7 @@
 SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t &, ISource2WorldSession *, const char *);
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
 SH_DECL_HOOK4_void(IServerGameClients, ClientActive, SH_NOATTRIB, 0, CPlayerSlot, bool, const char *, uint64);
-SH_DECL_HOOK5_void(IServerGameClients, ClientDisconnect, SH_NOATTRIB, 0, CPlayerSlot, int, const char *, uint64, const char *);
+SH_DECL_HOOK5_void(IServerGameClients, ClientDisconnect, SH_NOATTRIB, 0, CPlayerSlot, ENetworkDisconnectionReason, const char *, uint64, const char *);
 SH_DECL_HOOK4_void(IServerGameClients, ClientPutInServer, SH_NOATTRIB, 0, CPlayerSlot, char const *, int, uint64);
 SH_DECL_HOOK1_void(IServerGameClients, ClientSettingsChanged, SH_NOATTRIB, 0, CPlayerSlot);
 SH_DECL_HOOK6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlayerSlot, const char *, uint64, const char *, const char *, bool);
@@ -87,6 +87,11 @@ CEntityListener g_entityListener;
 CGameRules *g_pGameRules = nullptr;
 GameMenus *g_menus = nullptr;
 
+CGameEntitySystem *GameEntitySystem()
+{
+    return g_pGameEntitySystem;
+}
+
 std::vector<Plugin *> plugins;
 
 CGlobalVars *GetGameGlobals()
@@ -127,7 +132,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     PRINT("Hooks", "Loading Hooks...\n");
 
-    g_gameEventManager = static_cast<IGameEventManager2 *>(CallVFunc<IToolGameEventAPI *>(91, server));
+    g_gameEventManager = static_cast<IGameEventManager2 *>(CallVFunc<IToolGameEventAPI *>(93, server));
 
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &SwiftlyPlugin::Hook_GameFrame, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &SwiftlyPlugin::Hook_ClientActive, true);
@@ -355,7 +360,7 @@ void SwiftlyPlugin::Hook_ClientPutInServer(CPlayerSlot slot, char const *pszName
 
 void scripting_OnClientDisconnect(const OnClientDisconnect *e);
 
-void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, int reason, const char *pszName, uint64 xuid, const char *pszNetworkID)
+void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char *pszName, uint64 xuid, const char *pszNetworkID)
 {
     OnClientDisconnect clientDisconnectEvent = OnClientDisconnect(&slot, reason, pszName, xuid, pszNetworkID);
     scripting_OnClientDisconnect(&clientDisconnectEvent);

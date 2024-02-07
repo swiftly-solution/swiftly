@@ -38,7 +38,7 @@ SMM_API void scripting_Player_Drop(uint32 playerId, int reason)
     if (!engine)
         return;
 
-    engine->DisconnectClient(*player->GetSlot(), reason);
+    engine->DisconnectClient(*player->GetSlot(), (ENetworkDisconnectionReason)reason);
 }
 
 SMM_API bool scripting_Player_IsAuthenticated(uint32 playerId)

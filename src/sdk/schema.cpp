@@ -10,6 +10,8 @@ extern CSchemaSystem *g_pSchemaSystem2;
 using SchemaKeyValueMap_t = CUtlMap<uint32_t, SchemaKey>;
 using SchemaTableMap_t = CUtlMap<uint32_t, SchemaKeyValueMap_t *>;
 
+typedef void (*StateChanged)(void *, Z_CBaseEntity *, int, int, int);
+
 static bool IsFieldNetworked(SchemaClassFieldData_t &field)
 {
     for (int i = 0; i < field.m_metadata_size; i++)
