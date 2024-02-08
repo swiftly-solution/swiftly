@@ -1,5 +1,4 @@
-#ifndef _signatures_h
-#define _signatures_h
+#pragma once
 
 #include <map>
 #include <string>
@@ -11,7 +10,7 @@ class CBaseModelEntity;
 class CEntityInstance;
 
 typedef void (*ClientPrint)(CBasePlayerController *, int, const char *, const char *, const char *, const char *, const char *);
-typedef void (*NetworkStateChanged)(uintptr_t, int, int);
+typedef void (*NetworkSTChange)(uintptr_t, int, int);
 typedef void (*StateChanged)(void *, Z_CBaseEntity *, int, int, int);
 typedef void (*CCSPlayerController_SwitchTeam)(CCSPlayerController *pController, unsigned int team);
 typedef void *(*UTIL_CreateEntityByName)(const char *, int);
@@ -50,5 +49,3 @@ public:
 };
 
 extern Signatures *g_Signatures;
-
-#endif

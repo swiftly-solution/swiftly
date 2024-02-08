@@ -26,8 +26,8 @@
     },
     "IsHearingClient": {
         "lib": "engine2",
-        "windows": "40 53 48 83 EC 20 48 8B D9 3B 91 B8",
-        "linux": "55 48 89 E5 41 55 41 54 53 48 89 FB 48 83 EC 08 3B B7 C8"
+        "windows": "40 53 48 83 EC 20 48 8B D9 3B 91 C0 00 00 00",
+        "linux": "55 48 89 E5 41 55 41 54 53 48 89 FB 48 83 EC 08 3B B7 D0 00 00 00"
     },
     "ServerMovementUnlock": {
         "lib": "server",

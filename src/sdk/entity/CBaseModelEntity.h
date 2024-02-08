@@ -5,6 +5,10 @@
 #include "../../sig/Signatures.h"
 #include "../../precacher/Precacher.h"
 
+class CBaseModelEntity;
+
+typedef void (*CBaseModelEntity_SetModel)(CBaseModelEntity *, const char *);
+
 class CBaseModelEntity : public Z_CBaseEntity
 {
 public:

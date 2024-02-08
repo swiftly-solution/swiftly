@@ -18,3 +18,6 @@
 	path = vendor/lua
 	url = https://github.com/lua/lua.git
 	branch = 6443185167c77adcc8552a3fee7edab7895db1a9
+[submodule "hl2sdk-manifests"]
+	path = hl2sdk-manifests
+	url = https://github.com/alliedmodders/hl2sdk-manifests

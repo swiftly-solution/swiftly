@@ -2,6 +2,8 @@
 
 #include <thread>
 
+typedef void *(*UTIL_CreateEntityByName)(const char *, int);
+
 Entity::Entity()
 {
     this->worldEntity = reinterpret_cast<CBaseModelEntity *>(g_Signatures->FetchSignature<UTIL_CreateEntityByName>("UTIL_CreateEntityByName")("prop_dynamic_override", -1));
