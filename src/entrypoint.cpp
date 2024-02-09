@@ -87,6 +87,15 @@ CEntityListener g_entityListener;
 CGameRules *g_pGameRules = nullptr;
 GameMenus *g_menus = nullptr;
 
+class CGameResourceService
+{
+public:
+    CGameEntitySystem *GetGameEntitySystem()
+    {
+        return *reinterpret_cast<CGameEntitySystem **>((uintptr_t)(this) + g_Offsets->GetOffset("GameEntitySystem"));
+    }
+};
+
 CGameEntitySystem *GameEntitySystem()
 {
     return g_pGameEntitySystem;
@@ -165,7 +174,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
 
-    g_playerManager->SetupHooks();
     g_playerManager->LoadPlayers();
     g_dbManager->LoadDatabases();
     g_conFilter->LoadFilters();
@@ -309,7 +317,7 @@ void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config,
 {
     if (!bDone)
     {
-        g_pGameEntitySystem = *reinterpret_cast<CGameEntitySystem **>(reinterpret_cast<uintptr_t>(g_pGameResourceService) + g_Offsets->GetOffset("GameEntitySystem"));
+        g_pGameEntitySystem = ((CGameResourceService *)g_pGameResourceService)->GetGameEntitySystem();
         g_pEntitySystem = g_pGameEntitySystem;
 
         g_pGameEntitySystem->AddListenerEntity(&g_entityListener);

@@ -59,10 +59,10 @@ CON_COMMAND_F(sw_status, "Shows the connection status to the server.", FCVAR_CLI
 
         if (player->IsFakeClient())
             PrintToClientOrConsole(slot, "Status", "#%d\t%s\t%s\t%s\t%s\n",
-                                   player->GetSlot()->Get(), controller->m_iszPlayerName(), "BOT\t", seconds_to_time(player->GetConnectedTime()).c_str(), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
+                                   player->GetSlot()->Get(), controller->m_iszPlayerName(), "BOT\t", seconds_to_time(player->GetConnectedTime()).c_str(), "Active");
         else
             PrintToClientOrConsole(slot, "Status", "#%d\t%s\t%llu\t%s\t%s\n",
-                                   player->GetSlot()->Get(), controller->m_iszPlayerName(), controller->m_steamID(), seconds_to_time(player->GetConnectedTime()).c_str(), player->GetEHandlerIdx() == -1 ? "Initializing" : "Active");
+                                   player->GetSlot()->Get(), controller->m_iszPlayerName(), controller->m_steamID(), seconds_to_time(player->GetConnectedTime()).c_str(), "Active");
     }
     PrintToClientOrConsole(slot, "Status", "end of status\n");
 }

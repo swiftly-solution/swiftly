@@ -22,7 +22,6 @@ public:
     }
 
     void LoadPlayers();
-    void SetupHooks();
 
     inline void RegisterPlayer(Player *player)
     {

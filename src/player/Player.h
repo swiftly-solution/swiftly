@@ -41,8 +41,6 @@ public:
     inline bool IsFakeClient() { return this->isFakeClient; };
     inline bool IsAuthenticated() { return this->isAuthenticated; };
     inline CPlayerSlot *GetSlot() { return new CPlayerSlot(this->slot); };
-    inline void SetEHandlerIdx(int eHandleId) { this->eHandleId = eHandleId; };
-    inline int GetEHandlerIdx() { return this->eHandleId; };
     inline uint32 GetConnectedTime() { return (std::time(0) - this->connectTime); };
     inline std::string GetIPAddress() { return this->ip_address; }
 

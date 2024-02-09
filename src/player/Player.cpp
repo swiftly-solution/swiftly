@@ -45,10 +45,7 @@ std::string str_tolower(std::string s)
 
 CBasePlayerController *Player::GetController()
 {
-    if (this->GetEHandlerIdx() == -1)
-        return nullptr;
-
-    return (CBasePlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->GetEHandlerIdx()));
+    return (CBasePlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->GetSlot()->Get() + 1));
 }
 
 CBasePlayerPawn *Player::GetPawn()
@@ -62,10 +59,7 @@ CBasePlayerPawn *Player::GetPawn()
 
 CCSPlayerController *Player::GetPlayerController()
 {
-    if (this->GetEHandlerIdx() == -1)
-        return nullptr;
-
-    return (CCSPlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->GetEHandlerIdx()));
+    return (CCSPlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->GetSlot()->Get() + 1));
 }
 
 CCSPlayerPawn *Player::GetPlayerPawn()
