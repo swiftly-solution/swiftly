@@ -96,21 +96,6 @@ struct OnClientConnect : Event
     }
 };
 
-struct OnClientPutInServer : Event
-{
-    CPlayerSlot *slot;
-    char const *pszName;
-    int type;
-    uint64 xuid;
-    OnClientPutInServer(CPlayerSlot *slot, char const *pszName, int type, uint64 xuid)
-    {
-        this->slot = slot;
-        this->pszName = pszName;
-        this->type = type;
-        this->xuid = xuid;
-    };
-};
-
 struct OnMapLoad : Event
 {
     const char *map;
