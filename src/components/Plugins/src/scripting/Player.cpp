@@ -105,7 +105,7 @@ SMM_API int scripting_Player_GetHealth(uint32 playerId)
     if (!player)
         return 0;
 
-    CBasePlayerPawn *pawn = player->GetPawn();
+    CCSPlayerPawnBase *pawn = player->GetPlayerBasePawn();
     if (!pawn)
         return 0;
 
@@ -118,7 +118,7 @@ SMM_API void scripting_Player_SetHealth(uint32 playerId, int health)
     if (!player)
         return;
 
-    CBasePlayerPawn *pawn = player->GetPawn();
+    CCSPlayerPawnBase *pawn = player->GetPlayerBasePawn();
     if (!pawn)
         return;
 
@@ -131,7 +131,7 @@ SMM_API void scripting_Player_TakeHealth(uint32 playerId, int health)
     if (!player)
         return;
 
-    CBasePlayerPawn *pawn = player->GetPawn();
+    CCSPlayerPawnBase *pawn = player->GetPlayerBasePawn();
     if (!pawn)
         return;
 
