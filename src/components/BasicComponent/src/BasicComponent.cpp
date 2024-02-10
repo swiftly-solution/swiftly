@@ -2,6 +2,7 @@
 #include "../../../hooks/Hooks.h"
 #include "../../../common.h"
 #include "../../../player/PlayerManager.h"
+#include "../../../translations/Translations.h"
 #include "../../../database/DatabaseManager.h"
 #include "../../../commands/CommandsManager.h"
 #include "../../../filter/ConsoleFilter.h"
@@ -93,15 +94,16 @@ void ShowSwiftlyCommandHelp(CPlayerSlot *slot, CCommandContext context)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Commands Menu\n");
     PrintToClientOrConsole(slot, "Commands", "Usage: swiftly <command> [args]\n");
-    PrintToClientOrConsole(slot, "Commands", " credits   - List Swiftly credits\n");
-    PrintToClientOrConsole(slot, "Commands", " cmds      - List all console commands created by plugins\n");
-    PrintToClientOrConsole(slot, "Commands", " help      - Show the help for Swiftly commands\n");
+    PrintToClientOrConsole(slot, "Commands", " credits      - List Swiftly credits\n");
+    PrintToClientOrConsole(slot, "Commands", " cmds         - List all console commands created by plugins\n");
+    PrintToClientOrConsole(slot, "Commands", " help         - Show the help for Swiftly commands\n");
     if (slot->Get() == -1)
     {
-        PrintToClientOrConsole(slot, "Commands", " confilter - Console Filtering Menu\n");
-        PrintToClientOrConsole(slot, "Commands", " plugins   - Plugin Management Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " confilter    - Console Filtering Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " translations - Translations Menu\n");
     }
-    PrintToClientOrConsole(slot, "Commands", " version   - Display Swiftly version\n");
+    PrintToClientOrConsole(slot, "Commands", " version      - Display Swiftly version\n");
 }
 
 void ShowSwiftlyCredits(CPlayerSlot *slot, CCommandContext context)
@@ -359,6 +361,13 @@ void SwiftlyPluginManager(CPlayerSlot *slot, CCommandContext context, const char
         ShowSwiftlyPluginManagerHelp(slot, context);
 }
 
+void SwiftlyTranslationManagerHelp(CPlayerSlot *slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Console Filtering Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly translations <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " reload    - Reloads the translations.\n");
+}
+
 void SwiftlyConFilterManagerHelp(CPlayerSlot *slot, CCommandContext context)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Console Filtering Menu\n");
@@ -367,6 +376,12 @@ void SwiftlyConFilterManagerHelp(CPlayerSlot *slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", " enable     - Enables the console filtering.\n");
     PrintToClientOrConsole(slot, "Commands", " reload     - Reloads the console filtering messages.\n");
     PrintToClientOrConsole(slot, "Commands", " stats      - Shows the console filter stats.\n");
+}
+
+void SwiftlyTranslationReload(CPlayerSlot *slot, CCommandContext context)
+{
+    g_translations->LoadTranslations();
+    PrintToClientOrConsole(slot, "Translations", "All translations have been succesfully reloaded.\n");
 }
 
 void SwiftlyConFilterEnable(CPlayerSlot *slot, CCommandContext context)
@@ -438,6 +453,24 @@ void SwiftlyConFilterManager(CPlayerSlot *slot, CCommandContext context, const c
         SwiftlyConFilterManagerHelp(slot, context);
 }
 
+void SwiftlyTranslationManager(CPlayerSlot *slot, CCommandContext context, const char *subcmd)
+{
+    if (slot->Get() != -1)
+        return;
+
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        SwiftlyTranslationManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "reload")
+        SwiftlyTranslationReload(slot, context);
+    else
+        SwiftlyTranslationManagerHelp(slot, context);
+}
+
 void SwiftlyVersion(CPlayerSlot *slot, CCommandContext context)
 {
     PrintToClientOrConsole(slot, "Version", "Swiftly Version informations:\n");
@@ -471,6 +504,8 @@ void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
         SwiftlyConFilterManager(slot, context, args[2]);
     else if (subcmd == "version")
         SwiftlyVersion(slot, context);
+    else if (subcmd == "translations")
+        SwiftlyTranslationManager(slot, context, args[2]);
     else
         ShowSwiftlyCommandHelp(slot, context);
 }
