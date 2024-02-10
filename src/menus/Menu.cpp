@@ -45,7 +45,7 @@ std::string Menu::GenerateItems(int page, int selected)
 {
     std::string retval = "";
     retval += string_format("&nbsp;&nbsp;<div><font color=\"#%s\">%s</font></div><br/>", this->color.c_str(), this->title.c_str());
-    int pg = std::max(page - 1, 0);
+    int pg = ((page - 1) > 0 ? 0 : (page - 1));
     for (uint32_t i = 0; i < processedOptions[pg].size(); i++)
         retval += string_format("<div style=\"width: 768px;\"><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? ">" : "&nbsp;&nbsp;"), processedOptions[pg][i].first.c_str());
 
