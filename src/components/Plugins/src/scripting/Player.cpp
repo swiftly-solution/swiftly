@@ -825,7 +825,7 @@ SMM_API void scripting_Player_Weapon_SetNametag(uint32 playerId, uint32 slot, co
     if (!weapon)
         return;
 
-    // @todo: SetNametag
+    weapon->m_AttributeManager().m_Item().m_szCustomName = (char *)text;
 }
 
 SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd)
