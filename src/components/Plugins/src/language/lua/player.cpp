@@ -58,6 +58,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return scripting_Player_GetName(base->playerSlot); })
         .DefMember("GetHealth", [](LuaPlayerClass *base) -> int
                    { return scripting_Player_GetHealth(base->playerSlot); })
+        .DefMember("GetIPAddress", [](LuaPlayerClass *base) -> const char *
+                   { return scripting_Player_GetIPAddress(base->playerSlot); })
         .DefMember("IsFirstSpawn", [](LuaPlayerClass *base) -> bool
                    { return (base->firstSpawn == false); })
         .DefMember("SetFirstSpawn", [](LuaPlayerClass *base, bool firstSpawn) -> void
