@@ -143,7 +143,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
         {
             if (ends_with(message, "\n"))
                 message.pop_back();
-
+            message += "\x01";
             bool startsWithColor = (message.at(0) == '{');
 
             for (auto it = colors.begin(); it != colors.end(); ++it)
