@@ -296,8 +296,6 @@ class MMSPluginConfig(object):
 
     if sdk['source2']:
       cxx.defines += ['META_IS_SOURCE2']
-      if cxx.target.platform != 'windows':
-        binary.sources += [os.path.join(sdk['path'], 'public', 'tier0', 'memoverride.cpp'),]
       binary.sources += [
         os.path.join(sdk['path'], 'tier1', 'convar.cpp'),
       ]
