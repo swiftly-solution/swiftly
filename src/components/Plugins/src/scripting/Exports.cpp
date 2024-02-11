@@ -81,10 +81,17 @@ std::string SerializeExportData(std::vector<std::any> data)
             document.PushBack(rapidjson::Value().SetBool(std::any_cast<bool>(value)), document.GetAllocator());
         else if (value.type() == typeid(float))
             document.PushBack(rapidjson::Value().SetFloat(std::any_cast<float>(value)), document.GetAllocator());
+        else if (value.type() == typeid(long long))
+            document.PushBack(rapidjson::Value().SetInt64(std::any_cast<long long>(value)), document.GetAllocator());
+        else if (value.type() == typeid(unsigned long long))
+            document.PushBack(rapidjson::Value().SetUint64(std::any_cast<unsigned long long>(value)), document.GetAllocator());
         else if (value.type() == typeid(double))
             document.PushBack(rapidjson::Value().SetDouble(std::any_cast<double>(value)), document.GetAllocator());
         else
+        {
+            PRINTF("SerializeExportData", "Invalid type: %s\n", value.type().name());
             document.PushBack(rapidjson::Value().SetNull(), document.GetAllocator());
+        }
     }
 
     rapidjson::StringBuffer buffer;
