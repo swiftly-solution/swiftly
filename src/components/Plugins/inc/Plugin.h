@@ -65,16 +65,14 @@ public:
 
     void ExecuteNoReturn(std::string original_func_name, int argc)
     {
-        std::string err;
-
         const int top = lua_gettop(m_l) - argc - 1;
 
         bool ok = (lua_pcall(m_l, argc, LUA_MULTRET, 0) == LUA_OK);
         if (!ok)
         {
-            err = lua_tostring(m_l, -1);
+            const char *err = lua_tostring(m_l, -1);
             lua_pop(m_l, 1);
-            PRINTF("Runtime", "An error has occured while calling '%s'.\nError: %s\n", original_func_name.c_str(), err.c_str());
+            PRINTF("Runtime", "An error has occured while calling '%s'.\nError: %s\n", original_func_name.c_str(), err);
             return;
         }
     }
@@ -82,16 +80,14 @@ public:
     template <typename T>
     T ExecuteWithReturn(std::string original_func_name, int argc)
     {
-        std::string err;
-
         const int top = lua_gettop(m_l) - argc - 1;
 
         bool ok = (lua_pcall(m_l, argc, LUA_MULTRET, 0) == LUA_OK);
         if (!ok)
         {
-            err = lua_tostring(m_l, -1);
+            const char *err = lua_tostring(m_l, -1);
             lua_pop(m_l, 1);
-            PRINTF("Runtime", "An error has occured while calling '%s'.\nError: %s\n", original_func_name.c_str(), err.c_str());
+            PRINTF("Runtime", "An error has occured while calling '%s'.\nError: %s\n", original_func_name.c_str(), err);
             return (T) false;
         }
 
