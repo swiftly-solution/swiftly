@@ -41,6 +41,28 @@ std::string get_uuid()
 
 std::string startup_cmd = "None";
 
+const char *ws = " \t\n\r\f\v";
+
+// trim from end of string (right)
+inline std::string &rtrim(std::string &s, const char *t = ws)
+{
+    s.erase(s.find_last_not_of(t) + 1);
+    return s;
+}
+
+// trim from beginning of string (left)
+inline std::string &ltrim(std::string &s, const char *t = ws)
+{
+    s.erase(0, s.find_first_not_of(t));
+    return s;
+}
+
+// trim from both ends of string (right then left)
+inline std::string &trim(std::string &s, const char *t = ws)
+{
+    return ltrim(rtrim(s, t), t);
+}
+
 void signal_handler(int signumber)
 {
     try
@@ -101,8 +123,23 @@ bool BeginCrashListener()
     }
 
     startup_cmd = CommandLine()->GetCmdLine();
+    std::vector<std::string> exp = explode(startup_cmd, " ");
+    std::vector<std::string> exp2;
+    for (int i = 1; i < exp.size(); i++)
+    {
+        std::string str = trim(exp[i]);
+        if (str.length() == 0)
+            continue;
+        if (exp2.size() > 0)
+            if (ends_with(exp2[exp2.size() - 1], "sv_setsteamaccount") || ends_with(exp2[exp2.size() - 1], "authkey"))
+                str = "REDACTED";
+
+        exp2.push_back(str);
+    }
+    startup_cmd = implode(exp2, " ");
 
     ::signal(SIGSEGV, &signal_handler);
+
     return true;
 }
 
