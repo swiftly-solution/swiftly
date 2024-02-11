@@ -21,6 +21,3 @@
 [submodule "hl2sdk-manifests"]
 	path = hl2sdk-manifests
 	url = https://github.com/alliedmodders/hl2sdk-manifests
-[submodule "vendor/breakpad"]
-	path = vendor/breakpad
-	url = https://github.com/google/breakpad
