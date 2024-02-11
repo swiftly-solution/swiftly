@@ -27,6 +27,7 @@
 #include "entities/EntityManager.h"
 #include "precacher/Precacher.h"
 #include "menus/Menus.h"
+#include "dumps/CrashDump.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -135,7 +136,10 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     if (g_Config->LoadConfiguration())
         PRINT("Configurations", "The configurations has been succesfully loaded.\n");
     else
+    {
         PRINT("Configurations", "Failed to load configurations. The plugin will not work.\n");
+        return false;
+    }
 
     g_SMAPI->AddListener(this, this);
 
@@ -181,6 +185,9 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     if (g_Config->FetchValue<bool>("core.console_filtering"))
         g_conFilter->Toggle();
+
+    if (!BeginCrashListener())
+        return false;
 
     PRINT("Components", "Loading components...\n");
 
@@ -289,7 +296,12 @@ void SwiftlyPlugin::Hook_GameServerSteamAPIActivated()
     RETURN_META(MRES_IGNORED);
 }
 
-std::string map;
+std::string map = "None";
+
+std::string SwiftlyPlugin::GetMap()
+{
+    return map;
+}
 
 void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
 {

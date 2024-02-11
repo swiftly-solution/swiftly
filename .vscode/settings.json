@@ -101,7 +101,8 @@
         "complex": "cpp",
         "scoped_allocator": "cpp",
         "typeindex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "*.ipp": "cpp"
     },
     "C_Cpp.default.compilerPath": "C:\\msys64\\mingw64\\bin\\g++.exe",
     "C_Cpp.formatting": "clangFormat"

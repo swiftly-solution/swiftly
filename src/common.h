@@ -51,6 +51,8 @@ public:
     void OnLevelShutdown();
     void NextFrame(std::function<void()> fn);
 
+    std::string GetMap();
+
 public:
     void Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *);
     void Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick);

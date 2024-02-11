@@ -68,8 +68,8 @@ for sdk_target in MMSPlugin.sdk_targets:
     binary.compiler.defines += ['HAVE_STRUCT_TIMESPEC']
 
   if binary.compiler.target.platform == 'linux':
-    binary.compiler.postlink += ['-lrt', '-lssl', '-lcrypto', '-fexceptions', '-lidn2', '-lpsl', '-lbrotlidec', '-lz']
-    binary.compiler.defines += ["LUA_USE_LINUX", "LUA_USE_READLINE"]
+    binary.compiler.postlink += ['-lrt', '-lssl', '-lcrypto', '-fexceptions', '-lidn2', '-lpsl', '-lbrotlidec', '-lz', '-lbacktrace']
+    binary.compiler.defines += ["LUA_USE_LINUX", "LUA_USE_READLINE", "BOOST_STACKTRACE_USE_BACKTRACE"]
   elif binary.compiler.target.platform == 'windows':
     binary.compiler.postlink += [
       os.path.join('psapi.lib'),
