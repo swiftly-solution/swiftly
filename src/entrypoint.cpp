@@ -460,7 +460,7 @@ const char *SwiftlyPlugin::GetLicense()
 
 const char *SwiftlyPlugin::GetVersion()
 {
-    return "0.0.4 - Alpha";
+    return "0.0.5 - Alpha";
 }
 
 const char *SwiftlyPlugin::GetDate()
