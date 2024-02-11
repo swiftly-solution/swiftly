@@ -13,6 +13,7 @@
 #include "../../Plugins/inc/plugins/LuaPlugin.h"
 
 typedef const char *(*GetPlugin)();
+typedef double (*GetCount)();
 
 const char *GetCppVersion()
 {
@@ -218,11 +219,19 @@ void SwiftlyPluginManagerInfo(CPlayerSlot *slot, CCommandContext context, std::s
 
     std::string website = plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginWebsite");
 
-    PrintToClientOrConsole(slot, "Plugin Info", "Plugin File Name: %s\n", (plugin->GetName() + WIN_LINUX(".dll", ".so")).c_str());
+    PrintToClientOrConsole(slot, "Plugin Info", "Plugin File Name: %s\n", plugin->m_path.c_str());
     PrintToClientOrConsole(slot, "Plugin Info", "Name: %s\n", plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginName"));
     PrintToClientOrConsole(slot, "Plugin Info", "Author: %s\n", plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginAuthor"));
     PrintToClientOrConsole(slot, "Plugin Info", "Version: %s\n", plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginVersion"));
     PrintToClientOrConsole(slot, "Plugin Info", "URL: %s\n", website == "" ? "Not Present" : website.c_str());
+    if (plugin->GetPluginType() == PluginType_t::PLUGIN_LUA)
+    {
+        LuaPlugin *plg = (LuaPlugin *)plugin;
+        LuaFuncWrapper wrapper(plg->GetLuaState()->Get("collectgarbage"));
+        wrapper.PrepForExec();
+        luacpp::PushValues(wrapper.GetML(), "count");
+        PrintToClientOrConsole(slot, "Plugin Info", "Memory Usage: %.4fMB\n", (wrapper.ExecuteWithReturn<double>("collectgarbage", 1) / 1024));
+    }
 }
 
 void SwiftlyPluginManagerUnload(CPlayerSlot *slot, CCommandContext context, std::string plugin_name)
