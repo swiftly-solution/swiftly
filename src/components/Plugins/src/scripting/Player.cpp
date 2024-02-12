@@ -730,44 +730,21 @@ SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
     else if (starts_with(n, "item_glove"))
     {
         std::vector<std::string> args = explode(n, ";");
-        if (args.size() < 5)
+        if (args.size() < 2)
             return;
 
-        std::string defindex = args[1];
-        std::string paintkit = args[2];
-        std::string seed = args[3];
-        std::string wear = args[4];
+        // std::string defindex = args[1];
+        // std::string weaponindex = args[2];
+        // int idx = std::stoi(weaponindex);
 
-        // CEconWearable *wearable = reinterpret_cast<CEconWearable *>(g_Signatures->FetchSignature<UTIL_CreateEntityByName>("UTIL_CreateEntityByName")("wearable_item", -1));
-        // if (!wearable)
-        //     return;
+        // CEconItemView gloves = pawn->m_EconGloves();
 
-        // ((CBaseCombatCharacter *)player->GetPawn())->m_hMyWearables()->RemoveAll();
-
-        // wearable->m_AttributeManager().m_Item().m_iItemIDLow = -1;
-        // wearable->m_AttributeManager().m_Item().m_iItemDefinitionIndex = std::stoi(defindex);
-        // wearable->m_nFallbackPaintKit = std::stoi(paintkit);
-        // wearable->m_flFallbackWear = std::stod(wear);
-        // wearable->m_nFallbackSeed = std::stod(seed);
-        // wearable->m_AttributeManager().m_Item().m_bInitialized = true;
-
-        // wearable->Spawn();
-
-        // ((CBaseCombatCharacter *)player->GetPawn())->m_hMyWearables()->AddToTail(wearable);
-
-        // auto wearables = ((CBaseCombatCharacter *)player->GetPawn())->m_hMyWearables();
-
-        // FOR_EACH_VEC(*wearables, i)
+        // if (gloves.m_iItemID() != idx)
         // {
-        //     CHandle<CEconWearable> &w = (*wearables)[i];
-        //     if (!w.IsValid())
-        //         continue;
-
-        //     CEconWearable *ww = w.Get();
-        //     if (!ww)
-        //         continue;
-
-        //     PRINTF("Give Item", "%d\n", ww->m_AttributeManager().m_Item().m_iItemDefinitionIndex());
+        //     gloves.m_iItemDefinitionIndex = std::stoi(defindex);
+        //     gloves.m_iItemID = idx;
+        //     gloves.m_iItemIDLow = (idx);
+        //     gloves.m_iItemIDHigh = (idx >> 32);
         // }
     }
     else
@@ -797,6 +774,8 @@ SMM_API bool scripting_Player_Weapon_Exists(uint32 playerId, uint32 slot)
     return (weapon != nullptr);
 }
 
+std::vector<uint16_t> paintkitsFallbackCheck = {1171, 1170, 1169, 1164, 1162, 1161, 1159, 1175, 1174, 1167, 1165, 1168, 1163, 1160, 1166, 1173};
+
 SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playerId, uint32 slot)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
@@ -812,7 +791,13 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
     if (weapon->GetWeaponVData()->m_GearSlot == gear_slot_t::GEAR_SLOT_KNIFE)
         weapon->m_AttributeManager().m_Item().m_iEntityQuality = 3;
     else if (!weapon->m_AttributeManager().m_Item().m_iAccountID() && weapon->m_CBodyComponent() && weapon->m_CBodyComponent()->m_pSceneNode())
-        weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask = 2;
+    {
+        int paintkit = weapon->m_nFallbackPaintKit();
+        if (std::find(paintkitsFallbackCheck.begin(), paintkitsFallbackCheck.end(), paintkit) != paintkitsFallbackCheck.end())
+            weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask = 1;
+        else if (weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask() != 2)
+            weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask = 2;
+    }
 }
 
 SMM_API void scripting_Player_Weapon_SetNametag(uint32 playerId, uint32 slot, const char *text)
@@ -825,7 +810,8 @@ SMM_API void scripting_Player_Weapon_SetNametag(uint32 playerId, uint32 slot, co
     if (!weapon)
         return;
 
-    weapon->m_AttributeManager().m_Item().m_szCustomName = (char *)text;
+    weapon->m_AttributeManager().m_Item().m_szCustomName() = (char *)CUtlString(text).String();
+    weapon->m_AttributeManager().m_Item().m_szCustomNameOverride() = (char *)CUtlString(text).String();
 }
 
 SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd)
