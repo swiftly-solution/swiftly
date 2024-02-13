@@ -34,6 +34,7 @@ void OnMapUnload(const char *mapName) __attribute__((weak));
 bool OnClientGameMessage(Player *player, int destination, const char *message) __attribute__((weak));
 void OnPlayerDeath(Player *player, Player *attacker, Player *assister, bool assistedflash, const char *weapon, bool headshot, short dominated, short revenge, short wipe, short penetrated, bool noreplay, bool noscope, bool thrusmoke, bool attackerblind, float distance, short dmg_health, short dmg_armor, short hitgroup) __attribute__((weak));
 void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon, bool fatal) __attribute__((weak));
+void OnPlayerBlind(Player *player, Player *attacker, short entityid, float duration) __attribute__((weak));
 bool ShouldHearVoice(Player *player) __attribute__((weak));
 bool OnWeaponSpawned(Player *player, Weapon *weapon) __attribute__((weak));
 void OnClientKeyStateChange(Player *player, const char *button, bool pressed) __attribute__((weak));

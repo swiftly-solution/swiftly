@@ -138,6 +138,16 @@ void scripting_PlayerDeath(const PlayerDeath *e)
     CALL_PFUNCTION_VOID_ARGS(OnPlayerDeath, slot.Get(), attacker.Get(), assister.Get(), assistedflash, weapon.c_str(), headshot, dominated, revenge, wipe, penetrated, noreplay, noscope, thrusmoke, attackerblind, distance, dmg_health, dmg_armor, hitgroup)
 }
 
+void scripting_PlayerBlind(const PlayerBlind *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot attacker = e->pEvent->GetPlayerSlot("attacker");
+    short entityid = e->pEvent->GetInt("entityid");
+    float duration = e->pEvent->GetFloat("blind_duration");
+
+    CALL_PFUNCTION_VOID_ARGS(OnPlayerBlind, slot.Get(), attacker.Get(), entityid, duration)
+}
+
 void scripting_OnClientSpawn(const OnPlayerSpawn *e)
 {
     CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
@@ -466,6 +476,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<BombPickup>(scripting_BombPickup);
     gameevents::on<PlayerDeath>(scripting_PlayerDeath);
     gameevents::on<PlayerHurt>(scripting_PlayerHurt);
+    gameevents::on<PlayerBlind>(scripting_PlayerBlind);
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);
