@@ -135,6 +135,8 @@ SMM_API const char *scripting_Exports_Call(const char *plugin_name, const char *
         return "{\"value\":null}";
 
     Plugin *plugin = FetchPluginFromMap(plugin_name);
+    if (!plugin)
+        return "{\"value\":null}";
     if (!plugin->IsPluginLoaded() || plugin->GetPluginType() == PluginType_t::PLUGIN_CPP)
         return "{\"value\":null}";
 
