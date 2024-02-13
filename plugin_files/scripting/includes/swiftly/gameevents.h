@@ -290,6 +290,22 @@ extern "C"
         OnPlayerDeath(player, attackerPlayer, assisterPlayer, assistedflash, weapon, headshot, dominated, revenge, wipe, penetrated, noreplay, noscope, thrusmoke, attackerblind, distance, dmg_health, dmg_armor, hitgroup);
     }
 
+    void Internal_OnPlayerBlind(int slot, int attacker, short entityid, float duration)
+    {
+        if (!OnPlayerBlind)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        Player *attackerPlayer = g_playerManager->GetPlayer(attacker);
+        if (attackerPlayer == nullptr)
+            return;
+
+        OnPlayerBlind(player, attackerPlayer, entityid, duration);
+    }
+
     void Internal_OnPlayerHurt(int slot, int attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon)
     {
         if (!OnPlayerHurt)
