@@ -11,6 +11,7 @@ namespace Files
 {
     std::string Read(std::string path);
     void Append(std::string path, std::string content, bool hasdate = true);
+    void Write(std::string path, std::string content, bool hasdate = true);
     void Delete(std::string path);
     std::string getBase(std::string filePath);
     bool ExistsPath(std::string path);

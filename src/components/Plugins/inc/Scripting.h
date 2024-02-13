@@ -91,6 +91,17 @@ SMM_API bool scripting_ShouldHearVoice(Player *player);
 
 SMM_API void scripting_Precacher_AddSound(const char *path);
 
+SMM_API const char *scripting_Files_Read(const char *path);
+SMM_API void scripting_Files_Append(const char *path, const char *content, bool hasdate);
+SMM_API void scripting_Files_Write(const char *path, const char *content, bool hasdate);
+SMM_API void scripting_Files_Delete(const char *path);
+SMM_API const char *scripting_Files_GetBase(const char *path);
+SMM_API bool scripting_Files_ExistsPath(const char *path);
+SMM_API bool scripting_Files_IsDirectory(const char *path);
+SMM_API const char **scripting_Files_FetchFileNames(const char *path);
+SMM_API const char **scripting_Files_FetchDirectories(const char *path);
+SMM_API bool scripting_Files_CreateDirectory(const char *path);
+
 SMM_API uint64_t scripting_HTTP_CreateRequest(const char *domain);
 SMM_API void scripting_HTTP_SetBody(uint64_t requestID, const char *body);
 SMM_API void scripting_HTTP_AddHeader(uint64_t requestID, const char *key, const char *value);
@@ -204,6 +215,7 @@ void SetupLuaConvars(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaDatabase(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaExports(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaFiles(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaGameEvents(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaHTTP(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaLogger(luacpp::LuaState *state, Plugin *plugin);

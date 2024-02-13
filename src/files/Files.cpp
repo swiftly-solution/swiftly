@@ -101,6 +101,30 @@ void Files::Append(std::string path, std::string content, bool hasdate)
     File.close();
 }
 
+void Files::Write(std::string path, std::string content, bool hasdate)
+{
+    ChangePath();
+    std::filesystem::create_directories(Files::getBase(path));
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    char date[32];
+
+#if GCC_COMPILER
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wformat-truncation"
+#endif
+    if (hasdate)
+        snprintf(date, sizeof(date), "[%02d/%02d/%04d - %02d:%02d:%02d] ", ltm->tm_mday, ltm->tm_mon + 1, ltm->tm_year + 1900, ltm->tm_hour, ltm->tm_min, ltm->tm_sec);
+#if GCC_COMPILER
+#pragma GCC diagnostic pop
+#endif
+
+    std::ofstream File(path, std::ios_base::trunc);
+    File << (hasdate ? date : "") << content << std::endl;
+    File.close();
+}
+
 bool Files::ExistsPath(std::string path)
 {
     ChangePath();
