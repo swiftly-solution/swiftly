@@ -3,6 +3,7 @@
 
 #include <interfaces/interfaces.h>
 #include <metamod_oslink.h>
+#include <chrono>
 
 #include "player/PlayerManager.h"
 #include "events/gameevents.h"
@@ -416,6 +417,8 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
 
         if (player->HasMenuShown())
             player->RenderMenu();
+        else
+            player->RenderCenterText();
     }
 
     while (!m_nextFrame.empty())
@@ -441,6 +444,11 @@ void CEntityListener::OnEntitySpawned(CEntityInstance *pEntity)
 
 void CEntityListener::OnEntityParentChanged(CEntityInstance *pEntity, CEntityInstance *pNewParent)
 {
+}
+
+uint64_t GetTime()
+{
+    return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 bool SwiftlyPlugin::Pause(char *error, size_t maxlen)

@@ -99,6 +99,8 @@ public:
             this->selected = 0;
     }
 
+    void RenderCenterText();
+
 private:
     int slot;
     bool isFakeClient = false;
@@ -117,6 +119,10 @@ private:
     uint64_t buttons = 0;
 
     std::map<std::string, std::any> internalVars;
+
+    std::vector<std::pair<uint64_t, std::string>> centerMessagesQueue;
+    uint64_t centerMessageEndTime = 0;
+    std::string centerMessageText;
 };
 
 #endif

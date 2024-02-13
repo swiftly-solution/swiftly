@@ -109,6 +109,7 @@ bool ends_with(std::string value, std::string ending);
 bool starts_with(std::string value, std::string starting);
 std::string str_tolower(std::string s);
 std::string replace(std::string str, const std::string from, const std::string to);
+uint64_t GetTime();
 
 enum PluginType_t : uint16_t
 {

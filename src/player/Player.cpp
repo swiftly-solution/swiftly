@@ -161,17 +161,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
     }
     else if (dest == HUD_PRINTCENTER)
     {
-        IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
-        if (pEvent)
-        {
-            pEvent->SetString("loc_token", msg);
-            pEvent->SetUint64("duration", 5);
-            pEvent->SetInt("userid", controller->GetEntityIndex().Get() - 1);
-
-            IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
-
-            playerListener->FireGameEvent(pEvent);
-        }
+        this->centerMessagesQueue.push_back(std::make_pair(GetTime() + 5000, msg));
     }
     else if (dest == HUD_PRINTCONSOLE)
     {
@@ -374,10 +364,43 @@ void Player::ShowMenu(std::string menuid)
     this->RenderMenu();
 }
 
+void Player::RenderCenterText()
+{
+    if (this->centerMessageEndTime < GetTime() && this->centerMessagesQueue.size() > 0)
+    {
+        this->centerMessageEndTime = this->centerMessagesQueue[0].first;
+        this->centerMessageText = this->centerMessagesQueue[0].second;
+        this->centerMessagesQueue.erase(this->centerMessagesQueue.begin());
+    }
+
+    if (this->centerMessageEndTime != 0)
+    {
+        if (this->centerMessageEndTime >= GetTime())
+        {
+            IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+            if (pEvent)
+            {
+                pEvent->SetString("loc_token", this->centerMessageText.c_str());
+                pEvent->SetUint64("duration", 1);
+                pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
+
+                IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
+
+                playerListener->FireGameEvent(pEvent);
+            }
+        }
+        else
+            this->centerMessageEndTime = 0;
+    }
+}
+
 void Player::RenderMenu()
 {
     if (this->menu == nullptr)
         return;
+
+    if (this->centerMessageEndTime > 0)
+        this->centerMessageEndTime = 0;
 
     IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
     if (pEvent)
