@@ -116,7 +116,7 @@ GAME_EVENT(player_jump)
 
 GAME_EVENT(player_connect_full)
 {
-    gameevents::emit<OnClientFullConnected>(pEvent);
+    gameevents::emit<ClientFullConnected>(pEvent);
 }
 
 GAME_EVENT(player_falldamage)
