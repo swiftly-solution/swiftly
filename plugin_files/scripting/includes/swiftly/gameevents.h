@@ -36,6 +36,7 @@ bool OnClientGameMessage(Player *player, int destination, const char *message) _
 void OnPlayerDeath(Player *player, Player *attacker, Player *assister, bool assistedflash, const char *weapon, bool headshot, short dominated, short revenge, short wipe, short penetrated, bool noreplay, bool noscope, bool thrusmoke, bool attackerblind, float distance, short dmg_health, short dmg_armor, short hitgroup) __attribute__((weak));
 void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon, bool fatal) __attribute__((weak));
 void OnPlayerBlind(Player *player, Player *attacker, short entityid, float duration) __attribute__((weak));
+void OnPlayerFullUpdate(Player *player, short count) __attribute__((weak));
 void OnPlayerFallDamage(Player *player, float damage) __attribute__((weak));
 void OnPlayerJump(Player *player) __attribute__((weak));
 bool ShouldHearVoice(Player *player) __attribute__((weak));
@@ -141,6 +142,17 @@ extern "C"
 
         if (OnGameTick)
             OnGameTick(simulating, bFirstTick, bLastTick);
+    }
+    void Internal_OnPlayerFullUpdate(uint32_t slot, short count)
+    {
+        if (!OnPlayerFullUpdate)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        OnPlayerFullUpdate(player, count);
     }
     void Internal_OnRoundEnd(unsigned char winner, unsigned char reason, const char *message, unsigned char legacy, short player_count, unsigned char nomusic)
     {
