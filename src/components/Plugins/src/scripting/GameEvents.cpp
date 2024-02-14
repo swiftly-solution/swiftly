@@ -166,6 +166,15 @@ void scripting_ItemPickup(const ItemPickup *e)
 
 }
 
+void scripting_EnterBuyzone(const EnterBuyzone *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    bool canbuy = e->pEvent->GetBool("canbuy");
+
+    CALL_PFUNCTION_VOID_ARGS(OnEnterBuyzone, slot.Get(), canbuy)
+
+}
+
 void scripting_PlayerFullUpdate(const PlayerFullUpdate *e)
 {
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
@@ -522,6 +531,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerBlind>(scripting_PlayerBlind);
     gameevents::on<PlayerFullUpdate>(scripting_PlayerFullUpdate);
     gameevents::on<ItemPickup>(scripting_ItemPickup);
+    gameevents::on<EnterBuyzone>(scripting_EnterBuyzone);
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
     gameevents::on<ClientFullConnected>(scripting_ClientFullConnected);
