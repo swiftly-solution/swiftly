@@ -242,6 +242,11 @@ void scripting_OnRoundPrestart(const OnRoundPrestart *e)
     CALL_PFUNCTION_VOID_NOARGS(OnRoundPrestart)
 }
 
+void scripting_OnRoundPostStart(const OnRoundPostStart *e)
+{
+    CALL_PFUNCTION_VOID_NOARGS(OnRoundPostStart)
+}
+
 void scripting_OnRoundStart(const OnRoundStart *e)
 {
     long timelimit = e->pEvent->GetUint64("timelimit");
@@ -545,6 +550,7 @@ void PluginsComponent::RegisterGameEvents()
     hooks::on<OnGameFrame>(scripting_OnGameTick);
 
     gameevents::on<OnRoundPrestart>(scripting_OnRoundPrestart);
+    gameevents::on<OnRoundPostStart>(scripting_OnRoundPostStart);
     gameevents::on<OnRoundStart>(scripting_OnRoundStart);
     gameevents::on<OnRoundEnd>(scripting_OnRoundEnd);
     gameevents::on<OnPlayerSpawn>(scripting_OnClientSpawn);
@@ -565,6 +571,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<ItemPickup>(scripting_ItemPickup);
     gameevents::on<EnterBuyzone>(scripting_EnterBuyzone);
     gameevents::on<ExitBuyzone>(scripting_ExitBuyzone);
+    gameevents::on<EnterBombzone>(scripting_EnterBombzone);
     gameevents::on<ExitBombzone>(scripting_ExitBombzone);
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);

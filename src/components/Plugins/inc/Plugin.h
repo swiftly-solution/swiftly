@@ -49,6 +49,7 @@ const std::vector<std::string> funcsToLoad = {
     "OnItemPickup",
     "OnEnterBuyzone",
     "OnExitBuyzone",
+    "OnRoundPostStart",
     "OnEnterBombzone",
     "OnExitBombzone",
     "OnClientFullConnected",
