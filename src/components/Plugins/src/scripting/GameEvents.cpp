@@ -504,7 +504,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerBlind>(scripting_PlayerBlind);
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
-    gameevents::on<OnClientFullConnected>(scripting_OnClientFullConnected);
+    gameevents::on<ClientFullConnected>(scripting_ClientFullConnected);
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);
