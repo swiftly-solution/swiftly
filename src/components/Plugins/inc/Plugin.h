@@ -45,6 +45,7 @@ const std::vector<std::string> funcsToLoad = {
     "OnClientGameMessage",
     "OnPlayerDeath",
     "OnPlayerBlind",
+    "OnPlayerFallDamage",
     "OnPlayerJump",
     "OnPlayerHurt",
     "ShouldHearVoice",

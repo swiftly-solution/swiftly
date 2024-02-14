@@ -148,6 +148,14 @@ void scripting_PlayerBlind(const PlayerBlind *e)
     CALL_PFUNCTION_VOID_ARGS(OnPlayerBlind, slot.Get(), attacker.Get(), entityid, duration)
 }
 
+void scripting_PlayerFallDamage(const PlayerFallDamage *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    float damage = e->pEvent->GetFloat("damage");
+
+    CALL_PFUNCTION_VOID_ARGS(OnPlayerFallDamage, slot.Get(), damage)
+}
+
 void scripting_PlayerJump(const PlayerJump *e)
 {
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
@@ -485,6 +493,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerDeath>(scripting_PlayerDeath);
     gameevents::on<PlayerHurt>(scripting_PlayerHurt);
     gameevents::on<PlayerBlind>(scripting_PlayerBlind);
+    gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
