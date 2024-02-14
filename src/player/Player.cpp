@@ -156,8 +156,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
                 message = " " + message;
         }
 
-        g_Plugin.NextFrame([controller, dest, message]() -> void
-                           { controller->SendMsg(dest, message.c_str()); });
+        controller->SendMsg(dest, message.c_str());
     }
     else if (dest == HUD_PRINTCENTER)
     {
