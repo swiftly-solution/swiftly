@@ -103,3 +103,8 @@ GAME_EVENT(player_hurt)
 {
     gameevents::emit<PlayerHurt>(pEvent);
 }
+
+GAME_EVENT(player_blind)
+{
+    gameevents::emit<PlayerBlind>(pEvent);
+}
