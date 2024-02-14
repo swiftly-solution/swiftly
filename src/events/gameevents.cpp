@@ -122,7 +122,11 @@ GAME_EVENT(item_pickup)
 GAME_EVENT(enter_buyzone)
 {
     gameevents::emit<EnterBuyzone>(pEvent);
+}
 
+GAME_EVENT(exit_buyzone)
+{
+    gameevents::emit<ExitBuyzone>(pEvent);
 }
 
 GAME_EVENT(player_jump)
