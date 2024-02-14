@@ -124,6 +124,12 @@ GAME_EVENT(enter_buyzone)
     gameevents::emit<EnterBuyzone>(pEvent);
 }
 
+GAME_EVENT(enter_bombzone)
+{
+    gameevents::emit<EnterBombzone>(pEvent);
+
+}
+
 GAME_EVENT(exit_buyzone)
 {
     gameevents::emit<ExitBuyzone>(pEvent);
