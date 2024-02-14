@@ -189,6 +189,8 @@ SMM_API void scripting_Player_SetArmor(uint32 playerId, int armor)
     pPlayerPawn->m_ArmorValue = (armor > 0 ? armor : 0);
 }
 
+
+
 SMM_API void scripting_Player_TakeArmor(uint32 playerId, int armor)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
@@ -698,6 +700,19 @@ SMM_API const char *scripting_Player_Weapon_GetName(uint32 playerId, uint32 slot
         return "";
 
     return weapon->GetClassname();
+}
+
+SMM_API void scripting_Player_SetFlashDuration(uint32 playerId, float duration)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawnBase *pawn = player->GetPlayerBasePawn();
+    if (!pawn)
+        return;
+
+    pawn->m_flFlashDuration = duration;
 }
 
 SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)

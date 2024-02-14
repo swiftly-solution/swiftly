@@ -138,6 +138,7 @@ SMM_API void scripting_Logger_WriteLog(const char *plugin_name, ELogType log_typ
 
 SMM_API const char *scripting_Player_GetName(uint32 playerId);
 SMM_API uint64 scripting_Player_GetSteamID(uint32 playerId);
+SMM_API void scripting_Player_SetFlashDuration(uint32 playerId, float duration);
 SMM_API void scripting_Player_Drop(uint32 playerId, int reason);
 SMM_API bool scripting_Player_IsAuthenticated(uint32 playerId);
 SMM_API const char *scripting_Player_GetConvar(uint32 playerId, const char *name);
