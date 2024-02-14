@@ -42,7 +42,6 @@ GAME_EVENT(round_prestart)
 GAME_EVENT(round_poststart)
 {
     gameevents::emit<OnRoundPostStart>(pEvent);
-
 }
 
 GAME_EVENT(round_start)
