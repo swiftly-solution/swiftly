@@ -111,7 +111,7 @@ bool scripting_OnClientConnect(const OnClientConnect *e)
 
 void scripting_OnClientFullConnected(const OnClientFullConnected *e)
 {
-    CALL_PFUNCTION_VOID_ARGS(OnClientFullConnected, e->slot->Get())
+    CALL_PFUNCTION_VOID_ARGS(OnClientFullConnected, slot.Get())
 }
 
 void scripting_OnClientDisconnect(const OnClientDisconnect *e)
