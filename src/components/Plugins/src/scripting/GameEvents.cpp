@@ -182,6 +182,15 @@ void scripting_EnterBombzone(const EnterBombzone *e)
     CALL_PFUNCTION_VOID_ARGS(OnEnterBombzone, slot.Get(), hasbomb, isplanted)
 }
 
+void scripting_ExitBombzone(const ExitBombzone *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    bool hasbomb = e->pEvent->GetBool("hasbomb");
+    bool isplanted = e->pEvent->GetBool("isplanted");
+
+    CALL_PFUNCTION_VOID_ARGS(OnExitBombzone, slot.Get(), hasbomb, isplanted)
+}
+
 void scripting_ExitBuyzone(const ExitBuyzone *e)
 {
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
@@ -556,6 +565,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<ItemPickup>(scripting_ItemPickup);
     gameevents::on<EnterBuyzone>(scripting_EnterBuyzone);
     gameevents::on<ExitBuyzone>(scripting_ExitBuyzone);
+    gameevents::on<ExitBombzone>(scripting_ExitBombzone);
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
     gameevents::on<ClientFullConnected>(scripting_ClientFullConnected);
