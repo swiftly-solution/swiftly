@@ -38,6 +38,7 @@ typedef void (*Plugin_OnPlayerFullUpdate)(int, short);
 typedef void (*Plugin_OnItemPickup)(int, const char *, bool, long);
 typedef void (*Plugin_OnEnterBuyzone)(int, bool);
 typedef void (*Plugin_OnExitBuyzone)(int, bool);
+typedef void (*Plugin_OnRoundPostStart)();
 typedef void (*Plugin_OnEnterBombzone)(int, bool, bool);
 typedef void (*Plugin_OnExitBombzone)(int, bool, bool);
 typedef void (*Plugin_OnClientFullConnected)(uint32);
