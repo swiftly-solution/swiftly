@@ -109,7 +109,7 @@ bool scripting_OnClientConnect(const OnClientConnect *e)
     CALL_PFUNCTION_BOOL_ARGS(OnClientConnect, false, true, e->slot->Get())
 }
 
-void scripting_ClientFullConnected(const OnClientFullConnected *e)
+void scripting_ClientFullConnected(const ClientFullConnected *e)
 {
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
 
