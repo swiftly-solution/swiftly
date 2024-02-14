@@ -286,10 +286,11 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
                 SH_CALL(g_pCVar, &ICvar::DispatchConCommand)
                 (cmdHandle, ctx, args);
             }
-
-            RETURN_META(MRES_SUPERCEDE);
         }
+        else
+            hooks::emit<OnClientExecuteCommand>(OnClientExecuteCommand(slot, args.GetCommandString()));
     }
+    RETURN_META(MRES_SUPERCEDE);
 }
 
 void SwiftlyPlugin::Hook_GameServerSteamAPIActivated()

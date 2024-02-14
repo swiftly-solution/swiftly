@@ -51,6 +51,7 @@ typedef void (*OnPluginStopFunction)();
 typedef void (*OnProgramLoadFunction)(const char *, const char *);
 typedef void (*Plugin_OnPlayerRegister)(uint32, bool);
 typedef void (*Plugin_OnWeaponSpawned)(uint32, uint32);
+typedef void (*Plugin_OnClientExecuteCommand)(uint32, const char *);
 
 enum PlayerStat : int
 {

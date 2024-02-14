@@ -139,6 +139,17 @@ struct OnClientKeyStateChange : Event
     };
 };
 
+struct OnClientExecuteCommand : Event
+{
+    CPlayerSlot *slot;
+    const char *command;
+    OnClientExecuteCommand(CPlayerSlot *slot, char const *command)
+    {
+        this->slot = slot;
+        this->command = command;
+    };
+};
+
 typedef std::multimap<const std::type_info *, const std::function<void(const Event *)>>
     EventMap;
 
