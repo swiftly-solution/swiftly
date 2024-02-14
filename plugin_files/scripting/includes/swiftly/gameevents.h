@@ -41,6 +41,7 @@ void OnItemPickup(Player *player, const char *item, bool silent, long defindex) 
 void OnEnterBuyzone(Player *player, bool canbuy) __attribute__((weak));
 void OnExitBuyzone(Player *player, bool canbuy) __attribute__((weak));
 void OnEnterBombzone(Player *player, bool hasbomb, bool isplanted) __attribute__((weak));
+void OnExitBombzone(Player *player, bool hasbomb, bool isplanted) __attribute__((weak));
 void OnPlayerFallDamage(Player *player, float damage) __attribute__((weak));
 void OnPlayerJump(Player *player) __attribute__((weak));
 bool ShouldHearVoice(Player *player) __attribute__((weak));
@@ -171,6 +172,17 @@ extern "C"
             return;
 
         OnEnterBombzone(player, hasbomb, isplanted);
+    }
+    void Interval_OnExitBombzone(uint32_t slot, bool hasbomb, bool isplanted)
+    {
+        if (!OnExitBombzone)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        OnExitBombzone(player, hasbomb, isplanted);
     }
     void Interval_OnExitBuyzone(uint32_t slot, bool canbuy)
     {

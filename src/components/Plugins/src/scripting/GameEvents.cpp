@@ -182,6 +182,15 @@ void scripting_EnterBombzone(const EnterBombzone *e)
     CALL_PFUNCTION_VOID_ARGS(OnEnterBombzone, slot.Get(), hasbomb, isplanted)
 }
 
+void scripting_ExitBombzone(const ExitBombzone *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    bool hasbomb = e->pEvent->GetBool("hasbomb");
+    bool isplanted = e->pEvent->GetBool("isplanted");
+
+    CALL_PFUNCTION_VOID_ARGS(OnExitBombzone, slot.Get(), hasbomb, isplanted)
+}
+
 void scripting_ExitBuyzone(const ExitBuyzone *e)
 {
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
