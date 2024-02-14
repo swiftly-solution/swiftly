@@ -24,6 +24,26 @@ enum gear_slot_t : uint32_t
     GEAR_SLOT_LAST = 0xc,
 };
 
+class CEconItemAttribute
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CEconItemAttribute, false)
+
+    SCHEMA_FIELD_OFFSET(uint16_t, m_iAttributeDefinitionIndex, 0)
+    SCHEMA_FIELD_OFFSET(float, m_flValue, 0)
+    SCHEMA_FIELD_OFFSET(float, m_flInitialValue, 0)
+    SCHEMA_FIELD_OFFSET(int32_t, m_nRefundableCurrency, 0)
+    SCHEMA_FIELD_OFFSET(bool, m_bSetBonus, 0)
+};
+
+class CAttributeList
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CAttributeList, true)
+
+    SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<CHandle<CEconItemAttribute>>, m_Attributes, 0)
+};
+
 class CEconItemView
 {
 public:
@@ -39,6 +59,8 @@ public:
 
     SCHEMA_FIELD_OFFSET(char *, m_szCustomName, 0)
     SCHEMA_FIELD_OFFSET(char *, m_szCustomNameOverride, 0)
+
+    SCHEMA_FIELD_POINTER_OFFSET(CAttributeList, m_NetworkedDynamicAttributes, 0)
 };
 
 class CAttributeContainer

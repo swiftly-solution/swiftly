@@ -94,6 +94,11 @@ for sdk_target in MMSPlugin.sdk_targets:
       os.path.join(sdk['path'], 'entity2', 'entityidentity.cpp'),
     ]
 
+  if sdk['name'] in ['dota', 'cs2'] and (binary.compiler.target.platform == 'windows' and builder.options.debug != '1') or binary.compiler.target.platform == 'linux':
+      binary.sources += [
+      os.path.join(sdk['path'], 'public', 'tier0', 'memoverride.cpp')
+    ]
+
   if sdk['name'] == 'cs2':
     binary.custom = [builder.tools.Protoc(protoc = sdk_target.protoc, sources = [
       os.path.join(sdk['path'], 'common', 'network_connection.proto'),

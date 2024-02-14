@@ -730,22 +730,29 @@ SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
     else if (starts_with(n, "item_glove"))
     {
         std::vector<std::string> args = explode(n, ";");
-        if (args.size() < 2)
+        if (args.size() < 5)
             return;
 
-        // std::string defindex = args[1];
-        // std::string weaponindex = args[2];
-        // int idx = std::stoi(weaponindex);
+        std::string defindex = args[1];
+        std::string paintkit = args[2];
+        std::string seed = args[3];
+        std::string wear = args[4];
 
-        // CEconItemView gloves = pawn->m_EconGloves();
+        CEconItemView *gloves_view = pawn->m_EconGloves();
 
-        // if (gloves.m_iItemID() != idx)
-        // {
-        //     gloves.m_iItemDefinitionIndex = std::stoi(defindex);
-        //     gloves.m_iItemID = idx;
-        //     gloves.m_iItemIDLow = (idx);
-        //     gloves.m_iItemIDHigh = (idx >> 32);
-        // }
+        gloves_view->m_iItemDefinitionIndex = (uint16_t)std::stoi(defindex);
+        gloves_view->m_iItemIDLow = -1;
+        gloves_view->m_iItemIDHigh = (16384 & 0xFFFFFFFF);
+
+        g_Plugin.NextFrame([gloves_view, paintkit, seed, wear, pawn]()
+                           {
+            g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture prefab", std::stoi(paintkit));
+            g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture seed", static_cast<float>(std::stoi(seed)));
+            g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture wear", std::stof(wear));
+
+            gloves_view->m_bInitialized = true;
+
+            g_Signatures->FetchSignature<CBaseModelEntity_SetBodygroup>("CBaseModelEntity_SetBodygroup")(pawn, "default_gloves", 1LL); });
     }
     else
         itemServices->GiveNamedItem(name);

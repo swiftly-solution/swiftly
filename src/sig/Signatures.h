@@ -19,6 +19,8 @@ typedef void (*CBaseEntity_DispatchSpawn)(Z_CBaseEntity *, void *);
 typedef void (*PrecacheResource)(const char *, int64_t);
 typedef void (*UTIL_Remove)(CEntityInstance *);
 typedef void (*CEntityInstance_AcceptInput)(CEntityInstance *, const char *, CEntityInstance *, CEntityInstance *, double *, int);
+typedef void (*CAttributeList_SetOrAddAttributeValueByName)(void*, const char*, float);
+typedef void (*CBaseModelEntity_SetBodygroup)(void*, const char*, ...);
 
 class Signatures
 {
