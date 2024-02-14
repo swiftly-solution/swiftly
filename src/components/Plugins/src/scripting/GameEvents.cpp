@@ -163,7 +163,6 @@ void scripting_ItemPickup(const ItemPickup *e)
     long defindex = e->pEvent->GetInt("defindex");
 
     CALL_PFUNCTION_VOID_ARGS(OnItemPickup, slot.Get(), item, silent, defindex)
-
 }
 
 void scripting_PlayerFullUpdate(const PlayerFullUpdate *e)
@@ -173,7 +172,6 @@ void scripting_PlayerFullUpdate(const PlayerFullUpdate *e)
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerFullUpdate, slot.Get(), count)
 }
-
 
 void scripting_PlayerFallDamage(const PlayerFallDamage *e)
 {
@@ -188,7 +186,6 @@ void scripting_PlayerJump(const PlayerJump *e)
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerJump, slot.Get())
-
 }
 
 void scripting_OnClientSpawn(const OnPlayerSpawn *e)
@@ -447,6 +444,15 @@ void scripting_OnWeaponSpawned(const OnWeaponSpawned *e)
     CALL_PFUNCTION_VOID_ARGS(OnWeaponSpawned, player->GetSlot()->Get(), weapon->m_AttributeManager().m_Item().m_iItemDefinitionIndex());
 }
 
+void scripting_OnClientExecuteCommand(const OnClientExecuteCommand *e)
+{
+    Player *player = g_playerManager->GetPlayer(e->slot);
+    if (!player)
+        return;
+
+    CALL_PFUNCTION_VOID_ARGS(OnClientExecuteCommand, player->GetSlot()->Get(), e->command);
+}
+
 void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
 {
     Player *player = g_playerManager->GetPlayer(e->slot);
@@ -531,4 +537,5 @@ void PluginsComponent::RegisterGameEvents()
     hooks::on<OnClientKeyStateChange>(scripting_OnClientKeyStateChange);
 
     hooks::on<OnWeaponSpawned>(scripting_OnWeaponSpawned);
+    hooks::on<OnClientExecuteCommand>(scripting_OnClientExecuteCommand);
 }

@@ -43,6 +43,7 @@ void OnPlayerJump(Player *player) __attribute__((weak));
 bool ShouldHearVoice(Player *player) __attribute__((weak));
 bool OnWeaponSpawned(Player *player, Weapon *weapon) __attribute__((weak));
 void OnClientKeyStateChange(Player *player, const char *button, bool pressed) __attribute__((weak));
+void OnClientExecuteCommand(Player *player, const char *command) __attribute__((weak));
 
 extern "C"
 {
@@ -418,6 +419,18 @@ extern "C"
             return;
 
         OnClientKeyStateChange(player, button, pressed);
+    }
+
+    void Internal_OnClientExecuteCommand(uint32_t slot, const char *command)
+    {
+        if (!OnClientExecuteCommand)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (!player)
+            return;
+
+        OnClientExecuteCommand(player, command);
     }
 
     const char *GetPluginAuthor();

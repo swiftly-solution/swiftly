@@ -42,7 +42,6 @@ GAMEEVENT_DEFINITION(PlayerJump);
 GAMEEVENT_DEFINITION(PlayerFallDamage);
 GAMEEVENT_DEFINITION(ClientFullConnected);
 
-
 typedef std::multimap<const std::type_info *, const std::function<void(const GameEvent *)>> GameEventMap;
 
 extern GameEventMap gameEventMap;
