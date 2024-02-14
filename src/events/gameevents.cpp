@@ -112,12 +112,16 @@ GAME_EVENT(player_blind)
 GAME_EVENT(player_full_update)
 {
     gameevents::emit<PlayerFullUpdate>(pEvent);
-
 }
 
 GAME_EVENT(item_pickup)
 {
     gameevents::emit<ItemPickup>(pEvent);
+}
+
+GAME_EVENT(enter_buyzone)
+{
+    gameevents::emit<EnterBuyzone>(pEvent);
 
 }
 

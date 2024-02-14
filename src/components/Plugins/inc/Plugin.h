@@ -47,6 +47,7 @@ const std::vector<std::string> funcsToLoad = {
     "OnPlayerBlind",
     "OnPlayerFullUpdate",
     "OnItemPickup",
+    "OnEnterBuyzone",
     "OnClientFullConnected",
     "OnPlayerFallDamage",
     "OnPlayerJump",
