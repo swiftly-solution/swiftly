@@ -111,6 +111,8 @@ bool scripting_OnClientConnect(const OnClientConnect *e)
 
 void scripting_OnClientFullConnected(const OnClientFullConnected *e)
 {
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+
     CALL_PFUNCTION_VOID_ARGS(OnClientFullConnected, slot.Get())
 }
 
