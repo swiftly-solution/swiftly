@@ -163,7 +163,6 @@ void scripting_ItemPickup(const ItemPickup *e)
     long defindex = e->pEvent->GetInt("defindex");
 
     CALL_PFUNCTION_VOID_ARGS(OnItemPickup, slot.Get(), item, silent, defindex)
-
 }
 
 void scripting_EnterBuyzone(const EnterBuyzone *e)
@@ -172,7 +171,15 @@ void scripting_EnterBuyzone(const EnterBuyzone *e)
     bool canbuy = e->pEvent->GetBool("canbuy");
 
     CALL_PFUNCTION_VOID_ARGS(OnEnterBuyzone, slot.Get(), canbuy)
+}
 
+void scripting_EnterBombzone(const EnterBombzone *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    bool hasbomb = e->pEvent->GetBool("hasbomb");
+    bool isplanted = e->pEvent->GetBool("isplanted");
+
+    CALL_PFUNCTION_VOID_ARGS(OnEnterBombzone, slot.Get(), hasbomb, isplanted)
 }
 
 void scripting_ExitBuyzone(const ExitBuyzone *e)
@@ -541,6 +548,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerFullUpdate>(scripting_PlayerFullUpdate);
     gameevents::on<ItemPickup>(scripting_ItemPickup);
     gameevents::on<EnterBuyzone>(scripting_EnterBuyzone);
+    gameevents::on<ExitBuyzone>(scripting_ExitBuyzone);
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
     gameevents::on<ClientFullConnected>(scripting_ClientFullConnected);
