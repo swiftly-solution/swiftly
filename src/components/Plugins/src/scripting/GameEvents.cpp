@@ -109,6 +109,11 @@ bool scripting_OnClientConnect(const OnClientConnect *e)
     CALL_PFUNCTION_BOOL_ARGS(OnClientConnect, false, true, e->slot->Get())
 }
 
+void scripting_OnClientFullConnected(const OnClientFullConnected *e)
+{
+    CALL_PFUNCTION_VOID_ARGS(OnClientFullConnected, e->slot->Get())
+}
+
 void scripting_OnClientDisconnect(const OnClientDisconnect *e)
 {
     CALL_PFUNCTION_VOID_ARGS(OnClientDisconnect, e->slot->Get())
@@ -147,6 +152,8 @@ void scripting_PlayerBlind(const PlayerBlind *e)
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerBlind, slot.Get(), attacker.Get(), entityid, duration)
 }
+
+
 
 void scripting_PlayerFallDamage(const PlayerFallDamage *e)
 {
@@ -495,6 +502,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerBlind>(scripting_PlayerBlind);
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
+    gameevents::on<OnClientFullConnected>(scripting_OnClientFullConnected);
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);
