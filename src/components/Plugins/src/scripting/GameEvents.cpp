@@ -558,6 +558,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<ItemPickup>(scripting_ItemPickup);
     gameevents::on<EnterBuyzone>(scripting_EnterBuyzone);
     gameevents::on<ExitBuyzone>(scripting_ExitBuyzone);
+    gameevents::on<ExitBombzone>(scripting_ExitBombzone);
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
     gameevents::on<ClientFullConnected>(scripting_ClientFullConnected);
