@@ -35,6 +35,7 @@ typedef void (*Plugin_OnPlayerDeath)(int, int, int, bool, const char *, bool, sh
 typedef void (*Plugin_OnPlayerHurt)(int, int, short, short, short, const char *);
 typedef void (*Plugin_OnPlayerBlind)(int, int, short, float);
 typedef void (*Plugin_OnPlayerFullUpdate)(int, short);
+typedef void (*Plugin_OnItemPickup)(int, const char *, bool, long);
 typedef void (*Plugin_OnClientFullConnected)(uint32);
 typedef void (*Plugin_OnPlayerFallDamage)(int, float);
 typedef void (*Plugin_OnPlayerJump)(int);

@@ -155,6 +155,17 @@ void scripting_PlayerBlind(const PlayerBlind *e)
     CALL_PFUNCTION_VOID_ARGS(OnPlayerBlind, slot.Get(), attacker.Get(), entityid, duration)
 }
 
+void scripting_ItemPickup(const ItemPickup *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    const char *item = e->pEvent->GetString("item");
+    bool silent = e->pEvent->GetBool("silent");
+    long defindex = e->pEvent->GetInt("defindex");
+
+    CALL_PFUNCTION_VOID_ARGS(OnItemPickup, slot.Get(), item, silent, defindex)
+
+}
+
 void scripting_PlayerFullUpdate(const PlayerFullUpdate *e)
 {
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
@@ -510,6 +521,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerHurt>(scripting_PlayerHurt);
     gameevents::on<PlayerBlind>(scripting_PlayerBlind);
     gameevents::on<PlayerFullUpdate>(scripting_PlayerFullUpdate);
+    gameevents::on<ItemPickup>(scripting_ItemPickup);
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
     gameevents::on<ClientFullConnected>(scripting_ClientFullConnected);
