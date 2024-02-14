@@ -37,6 +37,7 @@ void OnPlayerDeath(Player *player, Player *attacker, Player *assister, bool assi
 void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon, bool fatal) __attribute__((weak));
 void OnPlayerBlind(Player *player, Player *attacker, short entityid, float duration) __attribute__((weak));
 void OnPlayerFullUpdate(Player *player, short count) __attribute__((weak));
+void OnItemPickup(Player *player, const char *item, bool silent, long defindex) __attribute__((weak));
 void OnPlayerFallDamage(Player *player, float damage) __attribute__((weak));
 void OnPlayerJump(Player *player) __attribute__((weak));
 bool ShouldHearVoice(Player *player) __attribute__((weak));
@@ -134,6 +135,17 @@ extern "C"
     void Internal_UnregisterPlayer(uint32_t slot)
     {
         g_playerManager->UnregisterPlayer(slot);
+    }
+    void Internal_OnItemPickup(uint32_t slot, const char *item, bool silent, long defindex)
+    {
+        if (!OnItemPickup)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        OnItemPickup(player, item, silent, defindex);
     }
     void Internal_OnGameTick(bool simulating, bool bFirstTick, bool bLastTick)
     {

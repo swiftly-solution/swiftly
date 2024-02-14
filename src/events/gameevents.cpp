@@ -115,6 +115,12 @@ GAME_EVENT(player_full_update)
 
 }
 
+GAME_EVENT(item_pickup)
+{
+    gameevents::emit<ItemPickup>(pEvent);
+
+}
+
 GAME_EVENT(player_jump)
 {
     gameevents::emit<PlayerJump>(pEvent);
