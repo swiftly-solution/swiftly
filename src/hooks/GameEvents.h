@@ -36,6 +36,7 @@ GAMEEVENT_DEFINITION(BombAbortDefuse);
 GAMEEVENT_DEFINITION(PlayerDeath);
 GAMEEVENT_DEFINITION(PlayerHurt);
 GAMEEVENT_DEFINITION(PlayerBlind);
+GAMEEVENT_DEFINITION(PlayerJump);
 
 typedef std::multimap<const std::type_info *, const std::function<void(const GameEvent *)>> GameEventMap;
 

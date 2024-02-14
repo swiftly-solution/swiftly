@@ -34,6 +34,7 @@ typedef bool (*Plugin_OnClientGameMessage)(uint32, int, const char *);
 typedef void (*Plugin_OnPlayerDeath)(int, int, int, bool, const char *, bool, short, short, short, short, bool, bool, bool, bool, float, short, short, short);
 typedef void (*Plugin_OnPlayerHurt)(int, int, short, short, short, const char *);
 typedef void (*Plugin_OnPlayerBlind)(int, int, short, float);
+typedef void (*Plugin_OnPlayerJump)(int);
 typedef bool (*Plugin_ShouldHearVoice)(uint32);
 typedef void (*Plugin_OnClientKeyStateChange)(uint32, const char *, bool);
 typedef void (*OnPluginStartFunction)();
