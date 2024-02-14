@@ -174,6 +174,15 @@ void scripting_EnterBuyzone(const EnterBuyzone *e)
 
 }
 
+void scripting_ExitBuyzone(const ExitBuyzone *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    bool canbuy = e->pEvent->GetBool("canbuy");
+
+    CALL_PFUNCTION_VOID_ARGS(OnExitBuyzone, slot.Get(), canbuy)
+
+}
+
 void scripting_PlayerFullUpdate(const PlayerFullUpdate *e)
 {
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
