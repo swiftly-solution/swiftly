@@ -39,6 +39,10 @@ void OnPlayerBlind(Player *player, Player *attacker, short entityid, float durat
 void OnPlayerFullUpdate(Player *player, short count) __attribute__((weak));
 void OnItemPickup(Player *player, const char *item, bool silent, long defindex) __attribute__((weak));
 void OnEnterBuyzone(Player *player, bool canbuy) __attribute__((weak));
+void OnExitBuyzone(Player *player, bool canbuy) __attribute__((weak));
+void OnRoundPostStart()__attribute__((weak));
+void OnEnterBombzone(Player *player, bool hasbomb, bool isplanted) __attribute__((weak));
+void OnExitBombzone(Player *player, bool hasbomb, bool isplanted) __attribute__((weak));
 void OnPlayerFallDamage(Player *player, float damage) __attribute__((weak));
 void OnPlayerJump(Player *player) __attribute__((weak));
 bool ShouldHearVoice(Player *player) __attribute__((weak));
@@ -160,6 +164,46 @@ extern "C"
 
         OnEnterBuyzone(player, canbuy);
     }
+    void Interval_OnEnterBombzone(uint32_t slot, bool hasbomb, bool isplanted)
+    {
+        if (!OnEnterBombzone)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        OnEnterBombzone(player, hasbomb, isplanted);
+    }
+    void Interval_OnExitBombzone(uint32_t slot, bool hasbomb, bool isplanted)
+    {
+        if (!OnExitBombzone)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        OnExitBombzone(player, hasbomb, isplanted);
+    }
+    void Interval_OnExitBuyzone(uint32_t slot, bool canbuy)
+    {
+        if (!OnExitBuyzone)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        OnExitBuyzone(player, canbuy);
+    }
+
+    void Interval_OnRoundPostStart()
+    {
+        if(!OnRoundPostStart)
+            return;
+    }
+
     void Internal_OnGameTick(bool simulating, bool bFirstTick, bool bLastTick)
     {
         if (ThreadFunction)

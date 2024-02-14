@@ -229,6 +229,15 @@ public:
             NOT_SUPPORTED("scripting_Player_HideMenu");
     }
 
+    void SetFlashDuration(float duration)
+    {
+        void *player_SetFlashDuration = FetchFunctionPtr(nullptr, "scripting_Player_SetFlashDuration");
+        if (player_SetFlashDuration)
+            reinterpret_cast<Player_SetFlashDuration>(player_SetFlashDuration)(this->m_playerSlot, duration);
+        else
+            NOT_SUPPORTED("scripting_Player_SetFlashDuration");
+    }
+
     int GetLatency()
     {
         void *player_GetLatency = FetchFunctionPtr(nullptr, "scripting_Player_GetLatency");

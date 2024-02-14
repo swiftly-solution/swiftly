@@ -37,6 +37,10 @@ typedef void (*Plugin_OnPlayerBlind)(int, int, short, float);
 typedef void (*Plugin_OnPlayerFullUpdate)(int, short);
 typedef void (*Plugin_OnItemPickup)(int, const char *, bool, long);
 typedef void (*Plugin_OnEnterBuyzone)(int, bool);
+typedef void (*Plugin_OnExitBuyzone)(int, bool);
+typedef void (*Plugin_OnRoundPostStart)();
+typedef void (*Plugin_OnEnterBombzone)(int, bool, bool);
+typedef void (*Plugin_OnExitBombzone)(int, bool, bool);
 typedef void (*Plugin_OnClientFullConnected)(uint32);
 typedef void (*Plugin_OnPlayerFallDamage)(int, float);
 typedef void (*Plugin_OnPlayerJump)(int);
@@ -134,6 +138,7 @@ SMM_API void scripting_Logger_WriteLog(const char *plugin_name, ELogType log_typ
 
 SMM_API const char *scripting_Player_GetName(uint32 playerId);
 SMM_API uint64 scripting_Player_GetSteamID(uint32 playerId);
+SMM_API void scripting_Player_SetFlashDuration(uint32 playerId, float duration);
 SMM_API void scripting_Player_Drop(uint32 playerId, int reason);
 SMM_API bool scripting_Player_IsAuthenticated(uint32 playerId);
 SMM_API const char *scripting_Player_GetConvar(uint32 playerId, const char *name);

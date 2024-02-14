@@ -39,6 +39,12 @@ GAME_EVENT(round_prestart)
     gameevents::emit<OnRoundPrestart>(pEvent);
 }
 
+GAME_EVENT(round_poststart)
+{
+    gameevents::emit<OnRoundPostStart>(pEvent);
+
+}
+
 GAME_EVENT(round_start)
 {
     gameevents::emit<OnRoundStart>(pEvent);
@@ -122,7 +128,21 @@ GAME_EVENT(item_pickup)
 GAME_EVENT(enter_buyzone)
 {
     gameevents::emit<EnterBuyzone>(pEvent);
+}
 
+GAME_EVENT(enter_bombzone)
+{
+    gameevents::emit<EnterBombzone>(pEvent);
+}
+
+GAME_EVENT(exit_bombzone)
+{
+    gameevents::emit<ExitBombzone>(pEvent);
+}
+
+GAME_EVENT(exit_buyzone)
+{
+    gameevents::emit<ExitBuyzone>(pEvent);
 }
 
 GAME_EVENT(player_jump)

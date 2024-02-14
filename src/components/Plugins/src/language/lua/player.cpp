@@ -74,6 +74,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return scripting_Player_SendMessage(base->playerSlot, dest, message); })
         .DefMember("GetConvarValue", [](LuaPlayerClass *base, const char *name) -> const char *
                    { return scripting_Player_GetConvar(base->playerSlot, name); })
+        .DefMember("SetFlashDuration", [](LuaPlayerClass *base, float duration) -> void
+                   { scripting_Player_SetFlashDuration(base->playerSlot, duration); })
         .DefMember("IsAuthenticated", [](LuaPlayerClass *base) -> bool
                    { return scripting_Player_IsAuthenticated(base->playerSlot); })
         .DefMember("Kill", [](LuaPlayerClass *base) -> void

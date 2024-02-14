@@ -171,6 +171,32 @@ void scripting_EnterBuyzone(const EnterBuyzone *e)
     bool canbuy = e->pEvent->GetBool("canbuy");
 
     CALL_PFUNCTION_VOID_ARGS(OnEnterBuyzone, slot.Get(), canbuy)
+}
+
+void scripting_EnterBombzone(const EnterBombzone *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    bool hasbomb = e->pEvent->GetBool("hasbomb");
+    bool isplanted = e->pEvent->GetBool("isplanted");
+
+    CALL_PFUNCTION_VOID_ARGS(OnEnterBombzone, slot.Get(), hasbomb, isplanted)
+}
+
+void scripting_ExitBombzone(const ExitBombzone *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    bool hasbomb = e->pEvent->GetBool("hasbomb");
+    bool isplanted = e->pEvent->GetBool("isplanted");
+
+    CALL_PFUNCTION_VOID_ARGS(OnExitBombzone, slot.Get(), hasbomb, isplanted)
+}
+
+void scripting_ExitBuyzone(const ExitBuyzone *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    bool canbuy = e->pEvent->GetBool("canbuy");
+
+    CALL_PFUNCTION_VOID_ARGS(OnExitBuyzone, slot.Get(), canbuy)
 
 }
 
@@ -214,6 +240,11 @@ void scripting_OnClientSpawn(const OnPlayerSpawn *e)
 void scripting_OnRoundPrestart(const OnRoundPrestart *e)
 {
     CALL_PFUNCTION_VOID_NOARGS(OnRoundPrestart)
+}
+
+void scripting_OnRoundPostStart(const OnRoundPostStart *e)
+{
+    CALL_PFUNCTION_VOID_NOARGS(OnRoundPostStart)
 }
 
 void scripting_OnRoundStart(const OnRoundStart *e)
@@ -519,6 +550,7 @@ void PluginsComponent::RegisterGameEvents()
     hooks::on<OnGameFrame>(scripting_OnGameTick);
 
     gameevents::on<OnRoundPrestart>(scripting_OnRoundPrestart);
+    gameevents::on<OnRoundPostStart>(scripting_OnRoundPostStart);
     gameevents::on<OnRoundStart>(scripting_OnRoundStart);
     gameevents::on<OnRoundEnd>(scripting_OnRoundEnd);
     gameevents::on<OnPlayerSpawn>(scripting_OnClientSpawn);
@@ -538,6 +570,9 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerFullUpdate>(scripting_PlayerFullUpdate);
     gameevents::on<ItemPickup>(scripting_ItemPickup);
     gameevents::on<EnterBuyzone>(scripting_EnterBuyzone);
+    gameevents::on<ExitBuyzone>(scripting_ExitBuyzone);
+    gameevents::on<EnterBombzone>(scripting_EnterBombzone);
+    gameevents::on<ExitBombzone>(scripting_ExitBombzone);
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
     gameevents::on<ClientFullConnected>(scripting_ClientFullConnected);
