@@ -415,7 +415,7 @@ extern "C"
 
     void Internal_OnPlayerJump(int slot)
     {
-        if (!OnPlayerBlind)
+        if (!OnPlayerJump)
             return;
 
         Player *player = g_playerManager->GetPlayer(slot);
