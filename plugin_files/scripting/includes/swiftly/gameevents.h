@@ -202,6 +202,8 @@ extern "C"
     {
         if(!OnRoundPostStart)
             return;
+
+        OnRoundPostStart();
     }
 
     void Internal_OnGameTick(bool simulating, bool bFirstTick, bool bLastTick)
