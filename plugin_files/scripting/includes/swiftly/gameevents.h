@@ -40,7 +40,7 @@ void OnPlayerFullUpdate(Player *player, short count) __attribute__((weak));
 void OnItemPickup(Player *player, const char *item, bool silent, long defindex) __attribute__((weak));
 void OnEnterBuyzone(Player *player, bool canbuy) __attribute__((weak));
 void OnExitBuyzone(Player *player, bool canbuy) __attribute__((weak));
-void OnRoundPostStart()__attribute__((weak));
+void OnRoundPostStart() __attribute__((weak));
 void OnEnterBombzone(Player *player, bool hasbomb, bool isplanted) __attribute__((weak));
 void OnExitBombzone(Player *player, bool hasbomb, bool isplanted) __attribute__((weak));
 void OnPlayerFallDamage(Player *player, float damage) __attribute__((weak));
@@ -202,6 +202,8 @@ extern "C"
     {
         if(!OnRoundPostStart)
             return;
+
+        OnRoundPostStart();
     }
 
     void Internal_OnGameTick(bool simulating, bool bFirstTick, bool bLastTick)
