@@ -40,20 +40,19 @@ public:
     luacpp::LuaObject CreateEntity(luacpp::LuaClass<LuaEntityClass> entityClass)
     {
         luacpp::LuaObject entityObject = entityClass.CreateInstance();
-        LuaEntityClass* entity = static_cast<LuaEntityClass*>(entityObject.ToPointer());
+        LuaEntityClass *entity = static_cast<LuaEntityClass *>(entityObject.ToPointer());
 
         this->entities.insert(std::make_pair(entity->GetEntityID(), entityObject));
 
         return entityObject;
     }
 
-    void DestroyEntity(void* entityPointer)
+    void DestroyEntity(int entityid)
     {
-        LuaEntityClass* entity = static_cast<LuaEntityClass*>(entityPointer);
-        if (this->EntityExists(entity->GetEntityID()))
+        if (this->EntityExists(entityid))
         {
-            this->entities.erase(entity->GetEntityID());
-            scripting_Entity_Destroy(entity->GetEntityID());
+            this->entities.erase(entityid);
+            scripting_Entity_Destroy(entityid);
         }
     }
 
@@ -84,7 +83,7 @@ public:
     LuaEntityArgsClass(uint32_t m_entityID) : entityID(m_entityID) {}
 };
 
-void SetupLuaEntities(luacpp::LuaState* state, Plugin* plugin)
+void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
 {
     auto entitiesClass = state->CreateClass<LuaEntitiesClass>("Entities").DefConstructor();
     auto entityClass = state->CreateClass<LuaEntityClass>().DefConstructor();
@@ -93,24 +92,24 @@ void SetupLuaEntities(luacpp::LuaState* state, Plugin* plugin)
     auto anglesClass = state->CreateClass<LuaEntityArgsClass>().DefConstructor<uint32_t>();
     auto colorsClass = state->CreateClass<LuaEntityArgsClass>().DefConstructor<uint32_t>();
 
-    entitiesClass.DefMember("Create", [entityClass](LuaEntitiesClass* base) -> luacpp::LuaObject
-        { return base->CreateEntity(entityClass); })
-        .DefMember("Destroy", [](LuaEntitiesClass* base, luacpp::LuaObject entityObj) -> void
-            { base->DestroyEntity(entityObj.ToPointer()); })
-        .DefMember("Fetch", [state](LuaEntitiesClass* base, int entityID) -> luacpp::LuaObject
-            {
+    entitiesClass.DefMember("Create", [entityClass](LuaEntitiesClass *base) -> luacpp::LuaObject
+                            { return base->CreateEntity(entityClass); })
+        .DefMember("Destroy", [](LuaEntitiesClass *base, int entityid) -> void
+                   { base->DestroyEntity(entityid); })
+        .DefMember("Fetch", [state](LuaEntitiesClass *base, int entityID) -> luacpp::LuaObject
+                   {
                 if (base->EntityExists(entityID)) return base->FetchEntity(entityID);
                 else return state->CreateNil(); })
-        .DefMember("GetEntities", [state](LuaEntitiesClass* base) -> luacpp::LuaTable
-            {
+        .DefMember("GetEntities", [state](LuaEntitiesClass *base) -> luacpp::LuaTable
+                   {
                 luacpp::LuaTable entitiesTbl = state->CreateTable();
                 uint64_t index = 1;
                 std::vector<luacpp::LuaObject> entities = base->FetchEntities();
                 for (luacpp::LuaObject entity : entities)
                     entitiesTbl.Set((index++), entity);
                 return entitiesTbl; })
-                    .DefMember("GetEntityIDs", [state](LuaEntitiesClass* base) -> luacpp::LuaTable
-                        {
+        .DefMember("GetEntityIDs", [state](LuaEntitiesClass *base) -> luacpp::LuaTable
+                   {
                             luacpp::LuaTable entitiesTbl = state->CreateTable();
                             uint64_t index = 1;
                             std::vector<luacpp::LuaObject> entities = base->FetchEntities();
@@ -118,23 +117,23 @@ void SetupLuaEntities(luacpp::LuaState* state, Plugin* plugin)
                                 entitiesTbl.SetInteger((index++), static_cast<LuaEntityClass*>(entity.ToPointer())->GetEntityID());
                             return entitiesTbl; });
 
-                entityClass.DefMember("Destroy", [](LuaEntityClass* base) -> void
-                    { scripting_Entity_Destroy(base->GetEntityID()); })
-                    .DefMember("Spawn", [](LuaEntityClass* base) -> void
-                        { scripting_Entity_Spawn(base->GetEntityID()); })
-                    .DefMember("GetEntityID", [](LuaEntityClass* base) -> uint32_t
-                        { return base->GetEntityID(); })
-                    .DefMember("SetModel", [](LuaEntityClass* base, const char* model) -> void
-                        { scripting_Entity_SetModel(base->GetEntityID(), model); })
-                    .DefMember("coords", [coordsClass](LuaEntityClass* base) -> luacpp::LuaObject
-                        { return coordsClass.CreateInstance(base->GetEntityID()); })
-                    .DefMember("angles", [anglesClass](LuaEntityClass* base) -> luacpp::LuaObject
-                        { return anglesClass.CreateInstance(base->GetEntityID()); })
-                    .DefMember("colors", [colorsClass](LuaEntityClass* base) -> luacpp::LuaObject
-                        { return colorsClass.CreateInstance(base->GetEntityID()); });
+    entityClass.DefMember("Destroy", [](LuaEntityClass *base) -> void
+                          { scripting_Entity_Destroy(base->GetEntityID()); })
+        .DefMember("Spawn", [](LuaEntityClass *base) -> void
+                   { scripting_Entity_Spawn(base->GetEntityID()); })
+        .DefMember("GetEntityID", [](LuaEntityClass *base) -> uint32_t
+                   { return base->GetEntityID(); })
+        .DefMember("SetModel", [](LuaEntityClass *base, const char *model) -> void
+                   { scripting_Entity_SetModel(base->GetEntityID(), model); })
+        .DefMember("coords", [coordsClass](LuaEntityClass *base) -> luacpp::LuaObject
+                   { return coordsClass.CreateInstance(base->GetEntityID()); })
+        .DefMember("angles", [anglesClass](LuaEntityClass *base) -> luacpp::LuaObject
+                   { return anglesClass.CreateInstance(base->GetEntityID()); })
+        .DefMember("colors", [colorsClass](LuaEntityClass *base) -> luacpp::LuaObject
+                   { return colorsClass.CreateInstance(base->GetEntityID()); });
 
-                coordsClass.DefMember("Get", [state](LuaEntityArgsClass* base) -> luacpp::LuaObject
-                    {
+    coordsClass.DefMember("Get", [state](LuaEntityArgsClass *base) -> luacpp::LuaObject
+                          {
                         Vector coords = scripting_Entity_GetCoordsRaw(base->entityID);
 
                         float x = coords.x;
@@ -144,10 +143,9 @@ void SetupLuaEntities(luacpp::LuaState* state, Plugin* plugin)
                         LuaFuncWrapper wrapper(state->Get("vector3"));
                         wrapper.PrepForExec();
                         luacpp::PushValues(wrapper.GetML(), x, y, z);
-                        return wrapper.ExecuteWithReturnRaw("vector3", 3);
-                    })
-                    .DefMember("Set", [state](LuaEntityArgsClass* base, luacpp::LuaObject coordsObj) -> void
-                        {
+                        return wrapper.ExecuteWithReturnRaw("vector3", 3); })
+        .DefMember("Set", [state](LuaEntityArgsClass *base, luacpp::LuaObject coordsObj) -> void
+                   {
                             if (coordsObj.GetType() != LUA_TTABLE) {
                                 PRINT("Runtime", "Coords field needs to be a vector3.\n");
                                 return;
@@ -160,11 +158,10 @@ void SetupLuaEntities(luacpp::LuaState* state, Plugin* plugin)
                                 return;
                             }
 
-                            scripting_Entity_SetCoords(base->entityID, (float)coords.GetNumber("x"), (float)coords.GetNumber("y"), (float)coords.GetNumber("z"));
-                        });
+                            scripting_Entity_SetCoords(base->entityID, (float)coords.GetNumber("x"), (float)coords.GetNumber("y"), (float)coords.GetNumber("z")); });
 
-                    anglesClass.DefMember("Get", [state](LuaEntityArgsClass* base) -> luacpp::LuaObject
-                        {
+    anglesClass.DefMember("Get", [state](LuaEntityArgsClass *base) -> luacpp::LuaObject
+                          {
                             QAngle angle = scripting_Entity_GetAnglesRaw(base->entityID);
 
                             float x = angle.x;
@@ -175,8 +172,8 @@ void SetupLuaEntities(luacpp::LuaState* state, Plugin* plugin)
                             wrapper.PrepForExec();
                             luacpp::PushValues(wrapper.GetML(), x, y, z);
                             return wrapper.ExecuteWithReturnRaw("vector3", 3); })
-                        .DefMember("Set", [state](LuaEntityArgsClass* base, luacpp::LuaObject coordsObj) -> void
-                            {
+        .DefMember("Set", [state](LuaEntityArgsClass *base, luacpp::LuaObject coordsObj) -> void
+                   {
                                 if (coordsObj.GetType() != LUA_TTABLE) {
                                     PRINT("Runtime", "Coords field needs to be a vector3.\n");
                                     return;
@@ -191,8 +188,8 @@ void SetupLuaEntities(luacpp::LuaState* state, Plugin* plugin)
 
                                 scripting_Entity_SetAngles(base->entityID, (float)coords.GetNumber("x"), (float)coords.GetNumber("y"), (float)coords.GetNumber("z")); });
 
-                            colorsClass.DefMember("Get", [state](LuaEntityArgsClass* base) -> luacpp::LuaTable
-                                {
+    colorsClass.DefMember("Get", [state](LuaEntityArgsClass *base) -> luacpp::LuaTable
+                          {
                                     luacpp::LuaTable tbl = state->CreateTable();
 
                                     Color color = scripting_Entity_GetColorsRaw(base->entityID);
@@ -203,8 +200,8 @@ void SetupLuaEntities(luacpp::LuaState* state, Plugin* plugin)
                                     tbl.SetInteger("a", color.a());
 
                                     return tbl; })
-                                .DefMember("Set", [state](LuaEntityArgsClass* base, luacpp::LuaObject colorsObj) -> void
-                                    {
+        .DefMember("Set", [state](LuaEntityArgsClass *base, luacpp::LuaObject colorsObj) -> void
+                   {
                                         if (colorsObj.GetType() != LUA_TTABLE) {
                                             PRINT("Runtime", "Coords field needs to be a vector3.\n");
                                             return;
@@ -218,5 +215,5 @@ void SetupLuaEntities(luacpp::LuaState* state, Plugin* plugin)
                                         }
                                         scripting_Entity_SetColors(base->entityID, colors.GetInteger("r"), colors.GetInteger("g"), colors.GetInteger("b"), colors.GetInteger("a")); });
 
-                                    state->DoString("entities = Entities()");
+    state->DoString("entities = Entities()");
 }
