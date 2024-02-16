@@ -1132,6 +1132,19 @@
 				},
 				"additional": {}
             },
+            "onplayerchangename": {
+                "title": "OnPlayerChangeName",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player changes it's name.",
+				"return": "void",
+				"params": {
+					"player": "player",
+                    "oldname": "const char*",
+                    "newname": "const char*"
+				},
+				"additional": {}
+            },
 			"onpluginstart": {
 				"title": "OnPluginStart",
 				"template": "event-syntax",
