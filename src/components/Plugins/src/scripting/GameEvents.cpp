@@ -167,6 +167,16 @@ void scripting_PlayerTeam(const PlayerTeam *e)
     CALL_PFUNCTION_VOID_ARGS(OnPlayerTeam, slot.Get(), team, oldteam, disconnect, silent, isbot)
 }
 
+void scripting_PlayerInfo(const PlayerInfo *e)
+{
+    std::string name = e->pEvent->GetString("name");
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    uint64_t steamid = e->pEvent->GetInt("steamid");
+    bool bot = e->pEvent->GetBool("bot");
+
+    CALL_PFUNCTION_VOID_ARGS(OnPlayerInfo, name.c_str(), slot.Get(), steamid, bot)
+}
+
 void scripting_ItemPickup(const ItemPickup *e)
 {
     CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
@@ -579,6 +589,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerHurt>(scripting_PlayerHurt);
     gameevents::on<PlayerBlind>(scripting_PlayerBlind);
     gameevents::on<PlayerTeam>(scripting_PlayerTeam);
+    gameevents::on<PlayerInfo>(scripting_PlayerInfo);
     gameevents::on<PlayerFullUpdate>(scripting_PlayerFullUpdate);
     gameevents::on<ItemPickup>(scripting_ItemPickup);
     gameevents::on<EnterBuyzone>(scripting_EnterBuyzone);

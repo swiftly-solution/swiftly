@@ -1,0 +1,8 @@
+{
+  "label": "Target Selector",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "A list of API functions for Swiftly Target Selector Utils."
+  }
+}
