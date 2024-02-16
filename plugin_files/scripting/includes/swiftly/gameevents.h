@@ -41,6 +41,8 @@ void BombExploded(Player *player, unsigned short site) __attribute__((weak));
 void BombDropped(Player *player) __attribute__((weak));
 void BombPickup(Player *player) __attribute__((weak));
 
+
+
 void OnMapLoad(const char *mapName) __attribute__((weak));
 void OnMapUnload(const char *mapName) __attribute__((weak));
 bool OnClientGameMessage(Player *player, int destination, const char *message) __attribute__((weak));
@@ -48,6 +50,7 @@ void OnPlayerDeath(Player *player, Player *attacker, Player *assister, bool assi
 void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon, bool fatal) __attribute__((weak));
 void OnPlayerBlind(Player *player, Player *attacker, short entityid, float duration) __attribute__((weak));
 void OnPlayerChangeName(Player *player, const char *oldname, const char *newname) __attribute__((weak));
+void OnPlayerInfo(const char *name, Player *player, uint64_t steamid, bool bot) __attribute__((weak));
 void OnPlayerFullUpdate(Player *player, short count) __attribute__((weak));
 void OnItemPickup(Player *player, const char *item, bool silent, long defindex) __attribute__((weak));
 void OnEnterBuyzone(Player *player, bool canbuy) __attribute__((weak));
@@ -418,13 +421,26 @@ extern "C"
     void Interval_OnPlayerChangeName(int slot, const char *oldname, const char *newName)
     {
         if (!OnPlayerChangeName)
+          return;
+        
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+  
+        OnPlayerChangeName(player, oldname, newName);
+  
+    }
+  
+    void Internal_OnPlayerInfo(const char *name, int slot, uint64_t steamid, bool bot)
+    {
+        if (!OnPlayerInfo)
             return;
 
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnPlayerChangeName(player, oldname, newName);
+        OnPlayerInfo(name, player, steamid, bot);
     }
 
     void Internal_OnPlayerFallDamage(int slot, float damage)

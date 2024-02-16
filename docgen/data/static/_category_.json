@@ -1,0 +1,8 @@
+{
+  "label": "Scripting",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "A guide about how to use Swiftly API."
+  }
+}

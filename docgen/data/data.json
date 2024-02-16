@@ -1,0 +1,3048 @@
+{
+	"commands": {
+		"title": "Commands",
+		"description": "A list of API functions for commands.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Commands system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/commands.h>\n\nCommands *commands = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    commands = new Commands(pluginName);\n    ...\n}\n```"
+				}
+			},
+			"register": {
+				"title": "Register",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "To register a command you need to use the following syntax",
+				"variable": {
+					"cpp": "commands->Register",
+					"lua": "commands:Register"
+				},
+				"return": "void",
+				"params": {
+					"command_name": "const char*",
+					"cb": "callback"
+				},
+				"additional": {
+					"cpp": "The callback has the following arguments:\n```cpp\nvoid COMMAND_FUNCTION(int playerID, const char **args, uint32_t argsCount, bool silent)\n```",
+					"lua": "The callback has the following arguments:\n```lua\ncb(playerid --[[ number ]], args --[[ table ]], argsCount --[[ number ]], silent --[[ boolean as number ]])\n```"
+				}
+			},
+			"unregister": {
+				"title": "Unregister",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Unregisters a registered command using Swiftly Commands.",
+				"variable": {
+					"cpp": "commands->Unregister",
+					"lua": "commands:Unregister"
+				},
+				"return": "void",
+				"params": {
+					"command_name": "const char*"
+				},
+				"additional": {}
+			}
+		}
+	},
+	"configuration": {
+		"title": "Configuration",
+		"description": "A list of API functions for configuration files.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Configuration system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/configuration.h>\n\nConfiguration *config = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    config = new Configuration();\n    ...\n}\n```"
+				},
+				"additional": "# Configuration Files\n\nTo use Swiftly Configuration system you need to create a `JSON` file in `addons/swiftly/configs/plugins` folder with the following schema:\n\n#### File Name\n\n```\nMAIN_CONFIG_KEY.json\n```"
+			},
+			"reload": {
+				"title": "Reload",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Reloads the configuration for the specified key.",
+				"variable": {
+					"cpp": "config->Reload",
+					"lua": "config:Reload"
+				},
+				"return": "void",
+				"params": {
+					"key": "const char*"
+				},
+				"additional": {}
+			},
+			"fetcharraysize": {
+				"title": "FetchArraySize",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the array size of a config value.",
+				"variable": {
+					"cpp": "config->FetchArraySize",
+					"lua": "config:FetchArraySize"
+				},
+				"return": "uint32_t",
+				"params": {
+					"key": "const char*"
+				},
+				"additional": {
+					"cpp": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::",
+					"lua": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::"
+				}
+			},
+			"fetch": {
+				"title": "Fetch",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the configuration value for the specified key.",
+				"variable": {
+					"cpp": "config->Fetch<DataType>",
+					"lua": "config:Fetch"
+				},
+				"return": "DataType",
+				"params": {
+					"key": "const char*"
+				},
+				"additional": {
+					"cpp": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::",
+					"lua": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::"
+				}
+			},
+			"exists": {
+				"title": "Exists",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns if the configuration key exists.",
+				"variable": {
+					"cpp": "config->Exists",
+					"lua": "config:Exists"
+				},
+				"return": "bool",
+				"params": {
+					"key": "const char*"
+				},
+				"additional": {}
+			}
+		}
+	},
+	"convars": {
+		"title": "Convars",
+		"description": "A list of API functions for convars.",
+		"iscategory": true,
+		"language": "lua",
+		"data": {
+			"get": {
+				"title": "Get",
+				"template": "function-syntax",
+				"language": "lua",
+				"description": "Returns the convar value.",
+				"variable": {
+					"lua": "convar:Get"
+				},
+				"return": "DataType",
+				"params": {
+					"name": "const char*"
+				},
+				"additional": {}
+			},
+			"gettype": {
+				"title": "GetType",
+				"template": "function-syntax",
+				"language": "lua",
+				"description": "Returns the convar type.",
+				"variable": {
+					"lua": "convar:GetType"
+				},
+				"return": "uint8_t",
+				"params": {
+					"name": "const char*"
+				},
+				"additional": {}
+			},
+			"set": {
+				"title": "Set",
+				"template": "function-syntax",
+				"language": "lua",
+				"description": "Sets a convar value.",
+				"variable": {
+					"lua": "convar:Set"
+				},
+				"return": "void",
+				"params": {
+					"name": "const char*",
+					"value": "DataType"
+				},
+				"additional": {}
+			}
+		}
+	},
+	"database": {
+		"title": "Database",
+		"description": "A list of API functions for database usage.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"language": "both",
+				"position": 1,
+				"template": "getting-started",
+				"description": "To use the Swiftly Database system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/database.h>\n\nDatabase *db = nullptr;\n\nvoid OnPluginStart()\n{\n    ...\n    db = new Database(\"CONNECTION_NAME\");\n    ...\n}```",
+					"lua": "```lua\nevents:on(\"OnPluginStart\", function()\n    db = Database(\"CONNECTION_NAME\")\nend)```"
+				}
+			},
+			"escapestring": {
+				"title": "Escape String",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns a safe string which can be used in MySQL Query.",
+				"variable": {
+					"lua": "db:EscapeString",
+					"cpp": "db->EscapeString"
+				},
+				"return": "const char*",
+				"params": {
+					"value": "const char*"
+				},
+				"additional": {
+					"cpp": ":::note\n If database is not connected it will return the same value \n:::",
+					"lua": ":::note\n If database is not connected it will return the same value \n:::"
+				}
+			},
+			"isconnected": {
+				"title": "IsConnected",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns if the database is connected or not.",
+				"variable": {
+					"lua": "db:IsConnected",
+					"cpp": "db->IsConnected"
+				},
+				"return": "bool",
+				"params": {},
+				"additional": {}
+			},
+			"query": {
+				"title": "Query",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns a Database Query Result which can be used to iterate trough the return values.",
+				"variable": {
+					"lua": "db:Query",
+					"cpp": "db->Query"
+				},
+				"return": "DB_Result",
+				"params": {
+					"query": "const char*"
+				},
+				"additional": {
+					"cpp": ":::note\n If database is not connected it will return an empty value. \n:::",
+					"lua": ":::note\n If database is not connected it will return an empty value. \n:::\n### Parsing table\nTo parse the table you need to create a for iteration for parsing each row.\n```lua\nevents:on(\"OnClientConnect\", function(playerid)\n    local player = GetPlayer(playerid)\n    if not player then return false end\n\n    local result = db:Query(string.format(\"select * from users where steamid = '%.0f'\", player:GetSteamID()))\n    for i=1,#result do\n        print(json.encode(result[i])) -- prints the row with index i\n    end\n    return true\nend)\n```"
+				}
+			},
+			"fetchfields": {
+				"title": "FetchFields",
+				"template": "function-syntax",
+				"language": "cpp",
+				"description": "Returns all the fields fetched by the query.",
+				"variable": {
+					"cpp": "db->fetchFields"
+				},
+				"return": "std::vector<std::string>",
+				"params": {
+					"query": "DB_Result"
+				},
+				"additional": {}
+			},
+			"fetchvalue": {
+				"title": "FetchValue",
+				"template": "function-syntax",
+				"language": "cpp",
+				"description": "Returns the value of the specified field.",
+				"variable": {
+					"cpp": "db->fetchValue<DataType>"
+				},
+				"return": "DataType",
+				"params": {
+					"result": "DB_Result",
+					"row": "uint64_t",
+					"field": "std::string"
+				},
+				"additional": {}
+			}
+		}
+	},
+	"entities": {
+		"title": "Entities",
+		"description": "A list of API functions for entity management.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Entity system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/entities.h>\n\nEntities *entities = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    entities = new Entities();\n    ...\n}\n```"
+				}
+			},
+			"getentityids": {
+				"title": "GetEntityIDs",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns a list of all entity ids present on server.",
+				"variable": {
+					"lua": "entities:GetEntityIDs",
+					"cpp": "entities->GetEntityIDs"
+				},
+				"return": "std::vector<uint32_t>",
+				"params": {},
+				"additional": {}
+			},
+			"getentities": {
+				"title": "GetEntities",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns a list of all entities present on server.",
+				"variable": {
+					"lua": "entities:GetEntities",
+					"cpp": "entities->GetEntities"
+				},
+				"return": "std::vector<Entity*>",
+				"params": {},
+				"additional": {}
+			},
+			"fetch": {
+				"title": "Fetch",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Fetches an entity on server based on Entity ID received from the entity.",
+				"variable": {
+					"lua": "entities:Fetch",
+					"cpp": "entities->Fetch"
+				},
+				"return": "Entity*",
+				"params": {
+					"id": "uint32_t"
+				},
+				"additional": {}
+			},
+			"destroy": {
+				"title": "Destroy",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Removes an entity from server based on it's id.",
+				"variable": {
+					"lua": "entities:Destroy",
+					"cpp": "entities->Destroy"
+				},
+				"return": "void",
+				"params": {
+					"id": "uint32_t"
+				},
+				"additional": {}
+			},
+			"create": {
+				"title": "Create",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Creates an entity on server.",
+				"variable": {
+					"lua": "entities:Create",
+					"cpp": "entities->Create"
+				},
+				"return": "Entity*",
+				"params": {},
+				"additional": {}
+			},
+			"entity": {
+				"title": "Entity",
+				"description": "A list of API functions for Entity.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"destroy": {
+						"title": "Destroy",
+						"template": "function-syntax",
+						"description": "Removes the entity on server.",
+						"language": "both",
+						"variable": {
+							"cpp": "entity->Destroy",
+							"lua": "entity:Destroy"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					},
+					"spawn": {
+						"title": "Spawn",
+						"template": "function-syntax",
+						"description": "Spawns the entity on server.",
+						"language": "both",
+						"variable": {
+							"cpp": "entity->Spawn",
+							"lua": "entity:Spawn"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					},
+					"setmodel": {
+						"title": "SetModel",
+						"template": "function-syntax",
+						"description": "Sets the model of the entity.",
+						"language": "both",
+						"variable": {
+							"cpp": "entity->SetModel",
+							"lua": "entity:SetModel"
+						},
+						"return": "void",
+						"params": {
+							"model": "const char*"
+						},
+						"additional": {}
+					},
+					"getentityid": {
+						"title": "GetEntityID",
+						"template": "function-syntax",
+						"description": "Returns the Entity ID.",
+						"language": "both",
+						"variable": {
+							"cpp": "entity->GetEntityID",
+							"lua": "entity:GetEntityID"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"angles": {
+						"title": "Angles",
+						"description": "A list of function to manipulate an entity angles.",
+						"iscategory": true,
+						"language": "both",
+						"data": {
+							"get": {
+								"title": "Get",
+								"template": "function-syntax",
+								"description": "Returns the angles of an entity.",
+								"language": "both",
+								"variable": {
+									"cpp": "entity->angles->Get",
+									"lua": "entity:angles():Get"
+								},
+								"return": "Vector*",
+								"params": {},
+								"additional": {}
+							},
+							"set": {
+								"title": "Set",
+								"template": "function-syntax",
+								"description": "Sets the angles of an entity.",
+								"language": "both",
+								"variable": {
+									"cpp": "entity->angles->Set",
+									"lua": "entity:angles():Set"
+								},
+								"return": "void",
+								"params": {
+									"coords": "Vector*"
+								},
+								"additional": {}
+							}
+						}
+					},
+					"coords": {
+						"title": "Coords",
+						"description": "A list of function to manipulate an entity coords.",
+						"iscategory": true,
+						"language": "both",
+						"data": {
+							"get": {
+								"title": "Get",
+								"template": "function-syntax",
+								"description": "Returns the coords of an entity.",
+								"language": "both",
+								"variable": {
+									"cpp": "entity->coords->Get",
+									"lua": "entity:coords():Get"
+								},
+								"return": "Vector*",
+								"params": {},
+								"additional": {}
+							},
+							"set": {
+								"title": "Set",
+								"template": "function-syntax",
+								"description": "Sets the coords of an entity.",
+								"language": "both",
+								"variable": {
+									"cpp": "entity->coords->Set",
+									"lua": "entity:coords():Set"
+								},
+								"return": "void",
+								"params": {
+									"coords": "Vector*"
+								},
+								"additional": {}
+							}
+						}
+					},
+					"color": {
+						"title": "Colors",
+						"description": "A list of function to manipulate an entity colors.",
+						"iscategory": true,
+						"language": "both",
+						"data": {
+							"get": {
+								"title": "Get",
+								"template": "function-syntax",
+								"description": "Returns the colors of an entity.",
+								"language": "both",
+								"variable": {
+									"cpp": "entity->color->Get",
+									"lua": "entity:colors():Get"
+								},
+								"return": "Color*",
+								"params": {},
+								"additional": {}
+							},
+							"set": {
+								"title": "Set",
+								"template": "function-syntax",
+								"description": "Sets the colors of an entity.",
+								"language": "both",
+								"variable": {
+									"cpp": "entity->color->Set",
+									"lua": "entity:colors():Set"
+								},
+								"return": "void",
+								"params": {
+									"color": "Color*"
+								},
+								"additional": {}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"exports": {
+		"title": "Exports",
+		"description": "A list of API functions for exports.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Exports system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/exports.h>\n\nExports *exports = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    exports = new Exports(pluginName);\n    ...\n}\n```"
+				}
+			},
+			"call": {
+				"title": "Call",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "To call an export you need the plugin name and the export name.",
+				"variable": {
+					"lua": "exports[PLUGIN_NAME]:CallExport",
+					"cpp": "exports->Call<DataType>"
+				},
+				"return": "DataType",
+				"params": {
+					"cpp/plugin_name": "std::string",
+					"export_name": "std::string",
+					"...": ""
+				},
+				"additional": {}
+			},
+			"export": {
+				"title": "Export",
+				"template": "function-syntax",
+				"language": "lua",
+				"description": "Exports a function so that it can be called from other plugins.",
+				"variable": {
+					"lua": "export"
+				},
+				"return": "void",
+				"params": {
+					"export_name": "const char*",
+					"callback": "callback"
+				},
+				"additional": {}
+			},
+			"unregisterexport": {
+				"title": "UnregisterExport",
+				"template": "function-syntax",
+				"language": "lua",
+				"description": "Unregisters a specific export.",
+				"variable": {
+					"lua": "UnregisterExport"
+				},
+				"return": "void",
+				"params": {
+					"export_name": "const char*"
+				},
+				"additional": {}
+			}
+		}
+	},
+	"files": {
+		"title": "Files",
+		"description": "A list of API functions for files.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Files system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/files.h>\n\nFiles *files = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    files = new Files();\n    ...\n}\n```"
+				}
+			},
+			"append": {
+				"title": "Append",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Appends the content to a file",
+				"variable": {
+					"lua": "files:Append",
+					"cpp": "files->Append"
+				},
+				"return": "void",
+				"params": {
+					"path": "const char*",
+					"content": "const char*",
+					"hasdate": "bool"
+				},
+				"additional": {}
+			},
+			"createdirectory": {
+				"title": "CreateDirectory",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Creates a directory",
+				"variable": {
+					"lua": "files:CreateDirectory",
+					"cpp": "files->CreateDirectory"
+				},
+				"return": "bool",
+				"params": {
+					"path": "const char*"
+				},
+				"additional": {}
+			},
+			"delete": {
+				"title": "Delete",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Deletes a file",
+				"variable": {
+					"lua": "files:Delete",
+					"cpp": "files->Delete"
+				},
+				"return": "void",
+				"params": {
+					"path": "const char*"
+				},
+				"additional": {}
+			},
+			"existspath": {
+				"title": "ExistsPath",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns if the path exists or not",
+				"variable": {
+					"lua": "files:ExistsPath",
+					"cpp": "files->ExistsPath"
+				},
+				"return": "bool",
+				"params": {
+					"path": "const char*"
+				},
+				"additional": {}
+			},
+			"fetchdirectories": {
+				"title": "FetchDirectories",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns a list of all the directories in a directory.",
+				"variable": {
+					"lua": "files:FetchDirectories",
+					"cpp": "files->FetchDirectories"
+				},
+				"return": "const char**",
+				"params": {
+					"path": "const char*"
+				},
+				"additional": {}
+			},
+			"fetchfilenames": {
+				"title": "FetchFileNames",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns a list of all the file names in a directory.",
+				"variable": {
+					"lua": "files:FetchFileNames",
+					"cpp": "files->FetchFileNames"
+				},
+				"return": "const char**",
+				"params": {
+					"path": "const char*"
+				},
+				"additional": {}
+			},
+			"getbase": {
+				"title": "GetBase",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the base path of a file",
+				"variable": {
+					"lua": "files:GetBase",
+					"cpp": "files->GetBase"
+				},
+				"return": "const char*",
+				"params": {
+					"path": "const char*"
+				},
+				"additional": {}
+			},
+			"isdirectory": {
+				"title": "IsDirectory",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns if the path is a directory or not",
+				"variable": {
+					"lua": "files:IsDirectory",
+					"cpp": "files->IsDirectory"
+				},
+				"return": "bool",
+				"params": {
+					"path": "const char*"
+				},
+				"additional": {}
+			},
+			"read": {
+				"title": "Read",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Reads the content of a file",
+				"variable": {
+					"lua": "files:Read",
+					"cpp": "files->Read"
+				},
+				"return": "const char*",
+				"params": {
+					"path": "const char*"
+				},
+				"additional": {}
+			},
+			"write": {
+				"title": "Write",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Writes the content to a file",
+				"variable": {
+					"lua": "files:Write",
+					"cpp": "files->Write"
+				},
+				"return": "void",
+				"params": {
+					"path": "const char*",
+					"content": "const char*",
+					"hasdate": "bool"
+				},
+				"additional": {}
+			}
+		}
+	},
+	"gameevents": {
+		"title": "Game Events",
+		"description": "A list of game events provided by Swiftly API.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Game Events system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/gameevents.h>\n```"
+				},
+				"additional": {
+					"cpp": ":::warning\n This include needs to exist only in one source code file. \n:::"
+				}
+			},
+			"onbombabortdefuse": {
+				"title": "BombAbortDefuse",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a bomb is not being defused anymore.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"site": "unsigned short"
+				},
+				"additional": {
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+				}
+			},
+			"onbombabortplant": {
+				"title": "BombAbortPlant",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a bomb is not being planted anymore.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"site": "unsigned short"
+				},
+				"additional": {
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+				}
+			},
+			"onbombbeginplant": {
+				"title": "BombBeginPlant",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a bomb is being planted.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"site": "unsigned short"
+				},
+				"additional": {
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+				}
+			},
+			"onbombbegindefuse": {
+				"title": "BombBeginDefuse",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a bomb is being defused.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"site": "unsigned short"
+				},
+				"additional": {
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+				}
+			},
+			"onbombdefused": {
+				"title": "BombDefused",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a bomb has been defused.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"site": "unsigned short"
+				},
+				"additional": {
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+				}
+			},
+			"onbombdropped": {
+				"title": "BombDropped",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a bomb was dropped.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"onbombpickup": {
+				"title": "BombPickup",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a bomb was picked up.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"onbombexploded": {
+				"title": "BombExploded",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a bomb exploded.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"site": "unsigned short"
+				},
+				"additional": {
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+				}
+			},
+			"onbombplanted": {
+				"title": "BombPlanted",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a bomb has been planted.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"site": "unsigned short"
+				},
+				"additional": {
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+				}
+			},
+			"onclientconnect": {
+				"title": "OnClientConnect",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event triggers when a player is connecting to server.",
+				"return": "bool",
+				"params": {
+					"player": "player"
+				},
+				"additional": {
+					"cpp": ":::info This game event is not triggered on fake clients (bots). \n:::\n:::note\n @return true => Allows the connection\n@return false => Blocks the connection \n:::",
+					"lua": ":::info This game event is not triggered on fake clients (bots). \n:::\n:::note\n @return true => Allows the connection\n@return false => Blocks the connection \n:::"
+				}
+			},
+			"onclientdisconnect": {
+				"title": "OnClientDisconnect",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event triggers when a player was disconnected.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"onclientgamemessage": {
+				"title": "OnClientGameMessage",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event triggers when a game message is sent.",
+				"return": "bool",
+				"params": {
+					"player": "player",
+					"destination": "MessageType",
+					"message": "const char*"
+				},
+				"additional": {
+					"cpp": ":::note\n @return true => Allows the message\n@return false => Blocks the message \n:::",
+					"lua": ":::note\n @return true => Allows the message\n@return false => Blocks the message \n:::"
+				}
+			},
+			"onclientkeystatechange": {
+				"title": "OnClientKeyStateChange",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a client pressed or releases a specific button.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"button": "const char*",
+					"pressed": "bool"
+				},
+				"additional": {}
+			},
+			"ongametick": {
+				"title": "OnGameTick",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called at every server tick.",
+				"return": "void",
+				"params": {
+					"simulating": "bool",
+					"bFirstTick": "bool",
+					"bLastTick": "bool"
+				},
+				"additional": {}
+			},
+			"onmapload": {
+				"title": "OnMapLoad",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a map is loaded.",
+				"return": "void",
+				"params": {
+					"mapName": "const char*"
+				},
+				"additional": {}
+			},
+			"onmapunload": {
+				"title": "OnMapUnload",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a map is unloaded.",
+				"return": "void",
+				"params": {
+					"mapName": "const char*"
+				},
+				"additional": {}
+			},
+			"onplayerblind": {
+				"title": "OnPlayerBlind",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player gets blinded by a flashbang.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"attacker": "player",
+					"entityid": "short",
+					"duration": "float"
+				},
+				"additional": {}
+			},
+			"onplayerchat": {
+				"title": "OnPlayerChat",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is triggered at every message that a player sends.",
+				"return": "bool",
+				"params": {
+					"player": "player",
+					"text": "const char*",
+					"teamonly": "bool"
+				},
+				"additional": {
+					"cpp": ":::note\n @return true => Allows the message\n@return false => Blocks the message \n:::",
+					"lua": ":::note\n @return true => Allows the message\n@return false => Blocks the message \n:::"
+				}
+			},
+			"onplayerdeath": {
+				"title": "OnPlayerDeath",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is triggered a player dies.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"attacker": "player",
+					"assister": "player",
+					"assistedflash": "bool",
+					"weapon": "const char*",
+					"headshot": "bool",
+					"dominated": "short",
+					"revenge": "short",
+					"wipe": "short",
+					"penetrated": "short",
+					"noreplay": "bool",
+					"noscope": "bool",
+					"thrusmoke": "bool",
+					"attackerblind": "bool",
+					"distance": "float",
+					"dmg_health": "short",
+					"dmg_armor": "short",
+					"hitgroup": "short"
+				},
+				"additional": {
+					"cpp": ":::warning\n `attacker` and `assister` can be invalid players \n:::",
+					"lua": ":::warning\n `attackerid` and `assisterid` can be invalid player ids \n:::"
+				}
+			},
+			"onplayerhurt": {
+				"title": "OnPlayerHurt",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player is hurt.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"attacker": "player",
+					"dmgHealth": "short",
+					"dmgArmor": "short",
+					"hitgroup": "short",
+					"weapon": "const char*",
+					"fatal": "bool"
+				},
+				"additional": {}
+			},
+			"onplayerspawn": {
+				"title": "OnPlayerSpawn",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player spawns on server.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"onpluginstart": {
+				"title": "OnPluginStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event triggers when plugin starts.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"onpluginstop": {
+				"title": "OnPluginStop",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event triggers when plugin stops.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"onroundend": {
+				"title": "OnRoundEnd",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a round ends.",
+				"return": "void",
+				"params": {
+					"winner": "unsigned char",
+					"reason": "unsigned char",
+					"message": "const char*",
+					"legacy": "unsigned char",
+					"player_count": "short",
+					"nomusic": "unsigned char"
+				},
+				"additional": {}
+			},
+			"onroundprestart": {
+				"title": "OnRoundPrestart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called before the player spawns for a new round.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"onroundstart": {
+				"title": "OnRoundStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a new round starts.",
+				"return": "void",
+				"params": {
+					"timelimit": "long",
+					"fraglimit": "long",
+					"objective": "const char*"
+				},
+				"additional": {}
+			},
+			"onweaponspawned": {
+				"title": "OnWeaponSpawned",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a weapon is spawned on world by a player.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"weapon": "Weapon*"
+				},
+				"additional": {}
+			},
+			"shouldhearvoice": {
+				"title": "ShouldHearVoice",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player needs to be checked if he needs to hear a voice or not.",
+				"return": "bool",
+				"params": {
+					"player": "player"
+				},
+				"additional": {
+					"cpp": ":::note\n @return true => Player can talk\n@return false => Player can't talk \n:::",
+					"lua": ":::note\n @return true => Player can talk\n@return false => Player can't talk \n:::"
+				}
+			},
+			"onplayerfalldamage": {
+				"title": "OnPlayerFallDamage",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player receives fall damage.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"damage": "float"
+				},
+				"additional": {}
+			},
+			"onclientfullconnect": {
+				"title": "OnClientFullConnected",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player fully connects to server.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"onplayerfullupdate": {
+				"title": "OnPlayerFullUpdate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player fully updates.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"count": "short"
+				},
+				"additional": {}
+			},
+			"onitempickup": {
+				"title": "OnItemPickup",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player picks up an item.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"item": "const char*",
+					"silent": "bool",
+					"defindex": "long"
+				},
+				"additional": {}
+			},
+			"onenterbuyzone": {
+				"title": "OnEnterBuyzone",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player enters in a buyzone.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"canbuy": "bool"
+				},
+				"additional": {}
+			},
+			"onclientexecutecommand": {
+				"title": "OnClientExecuteCommand",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player executes a command.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"command": "const char*"
+				},
+				"additional": {}
+			},
+			"onexitbuyzone": {
+				"title": "OnExitBuyzone",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player leaves a buyzone.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"canbuy": "bool"
+				},
+				"additional": {}
+			},
+			"onenterbombzone": {
+				"title": "OnEnterBombzone",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player enters in a bombzone.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hasbomb": "bool",
+					"isplanted": "bool"
+				},
+				"additional": {}
+			},
+			"onexitbombzone": {
+				"title": "OnExitBombzone",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player leaves a bombzone.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hasbomb": "bool",
+					"isplanted": "bool"
+				},
+				"additional": {}
+			},
+			"onroundpoststart": {
+				"title": "OnRoundPostStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called after OnRoundStart.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			}
+		}
+	},
+	"logs": {
+		"title": "Logs",
+		"description": "A list of API functions for logging.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Logging system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/logger.h>\n\nLogger *logger = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    logger = new Logger(mainFilePath, pluginName);\n    ...\n}\n```"
+				}
+			},
+			"write": {
+				"title": "Write",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Writes a log in log files.",
+				"variable": {
+					"cpp": "logger->Write",
+					"lua": "logger:Write"
+				},
+				"return": "void",
+				"params": {
+					"log_type": "ELogType",
+					"content": "const char*",
+					"...": ""
+				},
+				"additional": {}
+			}
+		}
+	},
+	"menus": {
+		"title": "Menus",
+		"description": "A list of API functions for menus.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Logging system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/logger.h>\n\nLogger *logger = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    logger = new Logger(mainFilePath, pluginName);\n    ...\n}\n```"
+				}
+			},
+			"register": {
+				"title": "RegisterMenu",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Writes a log in log files.",
+				"variable": {
+					"cpp": "menus->RegisterMenu",
+					"lua": "menus:Register"
+				},
+				"return": "void",
+				"params": {
+					"id": "const char*",
+					"title": "const char*",
+					"color": "const char*",
+					"options": "std::unordered_map<std::string, std::string>"
+				},
+				"additional": {
+					"cpp": ":::note\n The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB \n:::\n\n:::warning\n The options needs to be a pair of strings\n```cpp\n{\n    { \"option 1\", \"value 1\"},\n    {\"option 2\", \"value 2\"},\n    // ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. \n:::",
+					"lua": ":::note\n The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB \n:::\n\n:::warning\n The options needs to be a pair of strings\n```lua\n{\n    { \"option 1\", \"value 1\"},\n    {\"option 2\", \"value 2\"},\n    -- ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. \n:::"
+				}
+			},
+			"unregister": {
+				"title": "UnregisterMenu",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Unregistered a menu by the specified id.\n:::note\n It can unregister only the menus which were created from the inside of the plugin. \n:::",
+				"variable": {
+					"cpp": "menus->UnregisterMenu",
+					"lua": "menus:Unregister"
+				},
+				"return": "void",
+				"params": {
+					"id": "const char*"
+				},
+				"additional": {}
+			}
+		}
+	},
+	"http": {
+		"title": "HTTP",
+		"description": "A list of API functions for HTTP.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly HTTP system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/http.h>\n\nHTTP *http = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    http = new HTTP();\n    ...\n}\n```"
+				}
+			},
+			"generaterequest": {
+				"title": "GenerateRequest",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns an HTTP Request handler to work with.",
+				"variable": {
+					"cpp": "http->GenerateRequest",
+					"lua": "http:CreateRequest"
+				},
+				"return": "HTTPRequest*",
+				"params": {
+					"domain": "const char*"
+				},
+				"additional": {}
+			},
+			"closerequest": {
+				"title": "CloseRequest",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Closes a HTTP Request.",
+				"variable": {
+					"cpp": "http->CloseRequest",
+					"lua": "http:CloseRequest"
+				},
+				"return": "void",
+				"params": {
+					"request": "HTTPRequest*"
+				},
+				"additional": {}
+			},
+			"request": {
+				"title": "HTTP Request",
+				"description": "A list of API functions for HTTP Requests.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"addheader": {
+						"title": "AddHeader",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Adds a header to request.",
+						"variable": {
+							"cpp": "request->AddHeader",
+							"lua": "request:AddHeader"
+						},
+						"return": "void",
+						"params": {
+							"key": "const char*",
+							"value": "const char*"
+						},
+						"additional": {}
+					},
+					"addmultipartfile": {
+						"title": "AddMultipartFile",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Adds a multipart file to the request.",
+						"variable": {
+							"cpp": "request->AddMultipartFile",
+							"lua": "request:AddMultipartFile"
+						},
+						"return": "void",
+						"params": {
+							"field": "const char*",
+							"content": "const char*",
+							"filename": "const char*",
+							"file_content_type": "const char*"
+						},
+						"additional": {}
+					},
+					"delete": {
+						"title": "Delete",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Executes a DELETE HTTP Request with the settings previously set.",
+						"variable": {
+							"cpp": "request->Delete",
+							"lua": "request:Delete"
+						},
+						"return": "void",
+						"params": {
+							"path": "const char*"
+						},
+						"additional": {}
+					},
+					"deleteheader": {
+						"title": "DeleteHeader",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Deletes a specific header from request.",
+						"variable": {
+							"cpp": "request->DeleteHeader",
+							"lua": "request:DeleteHeader"
+						},
+						"return": "void",
+						"params": {
+							"key": "const char*"
+						},
+						"additional": {}
+					},
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Executes a GET HTTP Request with the settings previously set.",
+						"variable": {
+							"cpp": "request->Get",
+							"lua": "request:Get"
+						},
+						"return": "void",
+						"params": {
+							"path": "const char*"
+						},
+						"additional": {}
+					},
+					"getbody": {
+						"title": "GetBody",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the request body.",
+						"variable": {
+							"cpp": "request->GetBody",
+							"lua": "request:GetBody"
+						},
+						"return": "const char*",
+						"params": {},
+						"additional": {}
+					},
+					"geterror": {
+						"title": "GetError",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the request error if it encountered an internal error.",
+						"variable": {
+							"cpp": "request->GetError",
+							"lua": "request:GetError"
+						},
+						"return": "const char*",
+						"params": {},
+						"additional": {}
+					},
+					"getstatuscode": {
+						"title": "GetStatusCode",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the request response code.",
+						"variable": {
+							"cpp": "request->GetStatusCode",
+							"lua": "request:GetStatusCode"
+						},
+						"return": "int",
+						"params": {},
+						"additional": {}
+					},
+					"patch": {
+						"title": "Patch",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Executes a PATCH HTTP Request with the settings previously set.",
+						"variable": {
+							"cpp": "request->Patch",
+							"lua": "request:Patch"
+						},
+						"return": "void",
+						"params": {
+							"path": "const char*"
+						},
+						"additional": {}
+					},
+					"post": {
+						"title": "Post",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Executes a POST HTTP Request with the settings previously set.",
+						"variable": {
+							"cpp": "request->Post",
+							"lua": "request:Post"
+						},
+						"return": "void",
+						"params": {
+							"path": "const char*"
+						},
+						"additional": {}
+					},
+					"put": {
+						"title": "Put",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Executes a PUT HTTP Request with the settings previously set.",
+						"variable": {
+							"cpp": "request->Put",
+							"lua": "request:Put"
+						},
+						"return": "void",
+						"params": {
+							"path": "const char*"
+						},
+						"additional": {}
+					},
+					"setbasicauthentication": {
+						"title": "SetBasicAuthentication",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the Bearer Authorization header in request.",
+						"variable": {
+							"cpp": "request->SetBasicAuthentication",
+							"lua": "request:SetBasicAuthentication"
+						},
+						"return": "void",
+						"params": {
+							"username": "const char*",
+							"password": "const char*"
+						},
+						"additional": {}
+					},
+					"setbearerauthenticationtoken": {
+						"title": "SetBearerAuthenticationToken",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the Bearer Authorization header in request.",
+						"variable": {
+							"cpp": "request->SetBearerAuthenticationToken",
+							"lua": "request:SetBearerAuthenticationToken"
+						},
+						"return": "void",
+						"params": {
+							"token": "const char*"
+						},
+						"additional": {}
+					},
+					"setbody": {
+						"title": "SetBody",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the body of the request.",
+						"variable": {
+							"cpp": "request->SetBody",
+							"lua": "request:SetBody"
+						},
+						"return": "void",
+						"params": {
+							"body": "const char*"
+						},
+						"additional": {}
+					},
+					"setcontenttype": {
+						"title": "SetContentType",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the Content Type of the request.",
+						"variable": {
+							"cpp": "request->SetContentType",
+							"lua": "request:SetContentType"
+						},
+						"return": "void",
+						"params": {
+							"content_type": "ContentType"
+						},
+						"additional": {}
+					},
+					"setfollowredirect": {
+						"title": "SetFollowRedirect",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the follow redirect for domains. Default is enabled.",
+						"variable": {
+							"cpp": "request->SetFollowRedirect",
+							"lua": "request:SetFollowRedirect"
+						},
+						"return": "void",
+						"params": {
+							"follow": "bool"
+						},
+						"additional": {}
+					}
+				}
+			}
+		}
+	},
+	"player": {
+		"title": "Player",
+		"description": "A list of API functions for a player.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"generic": {
+				"title": "Generic",
+				"description": "A list of base function to execute on player.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"drop": {
+						"title": "Drop",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Disconnects a player from the server.",
+						"variable": {
+							"cpp": "player->Drop",
+							"lua": "player:Drop"
+						},
+						"return": "void",
+						"params": {
+							"reason": "ENetworkDisconnectionReason"
+						},
+						"additional": {}
+					},
+					"executecommand": {
+						"title": "ExecuteCommand",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Executes a command in player's console.",
+						"variable": {
+							"cpp": "player->ExecuteCommand",
+							"lua": "player:ExecuteCommand"
+						},
+						"return": "void",
+						"params": {
+							"command": "const char*",
+							"...": ""
+						},
+						"additional": {}
+					},
+					"getconnectedtime": {
+						"title": "GetConnectedTime",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the connected time of the player in seconds.",
+						"variable": {
+							"cpp": "player->GetConnectedTime",
+							"lua": "player:GetConnectedTime"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"getconvarvalue": {
+						"title": "GetConvarValue",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns a convar value as a string.",
+						"variable": {
+							"cpp": "player->GetConvarValue",
+							"lua": "player:GetConvarValue"
+						},
+						"return": "const char*",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {}
+					},
+					"getipaddress": {
+						"title": "GetIPAddress",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the player's IP Address.",
+						"variable": {
+							"cpp": "player->GetIPAddress",
+							"lua": "player:GetIPAddress"
+						},
+						"return": "const char*",
+						"params": {},
+						"additional": {}
+					},
+					"getlatency": {
+						"title": "GetLatency",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the latency (ping) of a player.",
+						"variable": {
+							"cpp": "player->GetLatency",
+							"lua": "player:GetLatency"
+						},
+						"return": "int",
+						"params": {},
+						"additional": {}
+					},
+					"getname": {
+						"title": "GetName",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the player's name.",
+						"variable": {
+							"cpp": "player->GetName",
+							"lua": "player:GetName"
+						},
+						"return": "const char*",
+						"params": {},
+						"additional": {}
+					},
+					"getslot": {
+						"title": "GetSlot",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the player slot.",
+						"variable": {
+							"cpp": "player->GetSlot",
+							"lua": "player:GetSlot"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"getsteamid": {
+						"title": "GetSteamID",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the player's SteamID 64.",
+						"variable": {
+							"cpp": "player->GetSteamID",
+							"lua": "player:GetSteamID"
+						},
+						"return": "uint64_t",
+						"params": {},
+						"additional": {}
+					},
+					"hidemenu": {
+						"title": "HideMenu",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Hides the menu for a player.",
+						"variable": {
+							"cpp": "player->HideMenu",
+							"lua": "player:HideMenu"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					},
+					"isfakeclient": {
+						"title": "IsFakeClient",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Checks if the player is a bot.",
+						"variable": {
+							"cpp": "player->IsFakeClient",
+							"lua": "player:IsFakeClient"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"isfirstspawn": {
+						"title": "IsFirstSpawn",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Checks if the player is at first spawn.",
+						"variable": {
+							"cpp": "player->IsFirstSpawn",
+							"lua": "player:IsFirstSpawn"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"kill": {
+						"title": "Kill",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Kills the player.",
+						"variable": {
+							"cpp": "player->Kill",
+							"lua": "player:Kill"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					},
+					"sendmsg": {
+						"title": "SendMsg",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sends a message to a player.",
+						"variable": {
+							"cpp": "player->SendMsg",
+							"lua": "player:SendMsg"
+						},
+						"return": "void",
+						"params": {
+							"dest": "HudDestination",
+							"message": "const char*",
+							"...": ""
+						},
+						"additional": {
+							"cpp": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. \n:::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n```",
+							"lua": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. \n:::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n```"
+						}
+					},
+					"setmodel": {
+						"title": "SetModel",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player model.",
+						"variable": {
+							"cpp": "player->SetModel",
+							"lua": "player:SetModel"
+						},
+						"return": "void",
+						"params": {
+							"model": "const char*"
+						},
+						"additional": {}
+					},
+					"setmusickit": {
+						"title": "SetMusicKit",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets player music kit.",
+						"variable": {
+							"cpp": "player->SetMusicKit",
+							"lua": "player:SetMusicKit"
+						},
+						"return": "void",
+						"params": {
+							"id": "int"
+						},
+						"additional": {}
+					},
+					"showmenu": {
+						"title": "ShowMenu",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Shows the menu for a player.",
+						"variable": {
+							"cpp": "player->ShowMenu",
+							"lua": "player:ShowMenu"
+						},
+						"return": "void",
+						"params": {
+							"id": "const char*"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"armor": {
+				"title": "Armor",
+				"description": "A list of function to manipulate a players armor.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the armor of a player.",
+						"variable": {
+							"cpp": "player->armor->Get",
+							"lua": "player:armor():Get"
+						},
+						"return": "int",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the armor of a player.",
+						"variable": {
+							"cpp": "player->armor->Set",
+							"lua": "player:armor():Set"
+						},
+						"return": "void",
+						"params": {
+							"armor": "int"
+						},
+						"additional": {}
+					},
+					"take": {
+						"title": "Take",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Takes the armor of a player.",
+						"variable": {
+							"cpp": "player->armor->Take",
+							"lua": "player:armor():Take"
+						},
+						"return": "void",
+						"params": {
+							"armor": "int"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"clantag": {
+				"title": "Clantag",
+				"description": "A list of function to manipulate a players clantag.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the current clantag of a player.",
+						"variable": {
+							"cpp": "player->clantag->Get",
+							"lua": "player:clantag():Get"
+						},
+						"return": "const char*",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the current clantag of a player.",
+						"variable": {
+							"cpp": "player->clantag->Set",
+							"lua": "player:clantag():Set"
+						},
+						"return": "void",
+						"params": {
+							"tag": "const char*"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"coords": {
+				"title": "Coords",
+				"description": "A list of function to manipulate a players coordinates.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the coords of a player.",
+						"variable": {
+							"cpp": "player->coords->Get",
+							"lua": "player:coords():Get"
+						},
+						"return": "Vector*",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the coords of a player.",
+						"variable": {
+							"cpp": "player->coords->Set",
+							"lua": "player:coords():Set"
+						},
+						"return": "void",
+						"params": {
+							"coords": "Vector*"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"health": {
+				"title": "Health",
+				"description": "A list of function to manipulate a players health.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the health of a player.",
+						"variable": {
+							"cpp": "player->health->Get",
+							"lua": "player:health():Get"
+						},
+						"return": "int",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the health of a player.",
+						"variable": {
+							"cpp": "player->health->Set",
+							"lua": "player:health():Set"
+						},
+						"return": "void",
+						"params": {
+							"health": "int"
+						},
+						"additional": {}
+					},
+					"take": {
+						"title": "Take",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Takes the health of a player.",
+						"variable": {
+							"cpp": "player->health->Take",
+							"lua": "player:health():Take"
+						},
+						"return": "void",
+						"params": {
+							"health": "int"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"money": {
+				"title": "Money",
+				"description": "A list of function to manipulate a players money.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the money of a player.",
+						"variable": {
+							"cpp": "player->money->Get",
+							"lua": "player:money():Get"
+						},
+						"return": "int",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the money of a player.",
+						"variable": {
+							"cpp": "player->money->Set",
+							"lua": "player:money():Set"
+						},
+						"return": "void",
+						"params": {
+							"money": "int"
+						},
+						"additional": {}
+					},
+					"take": {
+						"title": "Take",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Takes the money of a player.",
+						"variable": {
+							"cpp": "player->money->Take",
+							"lua": "player:money():Take"
+						},
+						"return": "void",
+						"params": {
+							"money": "int"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"stats": {
+				"title": "Stats",
+				"description": "A list of function to manipulate a players stats.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the stat of a player.",
+						"variable": {
+							"cpp": "player->stats->Get",
+							"lua": "player:stats():Get"
+						},
+						"return": "int",
+						"params": {
+							"stat": "PlayerStat"
+						},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the stat of a player.",
+						"variable": {
+							"cpp": "player->stats->Set",
+							"lua": "player:stats():Set"
+						},
+						"return": "void",
+						"params": {
+							"stat": "PlayerStat",
+							"value": "int"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"team": {
+				"title": "Team",
+				"description": "A list of function to manipulate a players team.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the team of a player.",
+						"variable": {
+							"cpp": "player->team->Get",
+							"lua": "player:team():Get"
+						},
+						"return": "int",
+						"params": {},
+						"additional": {
+							"cpp": ":::note\n The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n:::",
+							"lua": ":::note\n The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n:::"
+						}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the team of a player.",
+						"variable": {
+							"cpp": "player->team->Set",
+							"lua": "player:team():Set"
+						},
+						"return": "void",
+						"params": {
+							"team": "int"
+						},
+						"additional": {
+							"cpp": ":::note\n The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n:::",
+							"lua": ":::note\n The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n:::"
+						}
+					}
+				}
+			},
+			"variables": {
+				"title": "Variables",
+				"description": "A list of function to manipulate a player variables.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the value of a variable.",
+						"variable": {
+							"cpp": "player->vars->Get<DataType>",
+							"lua": "player:vars():Get"
+						},
+						"return": "DataType",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {
+							"cpp": ":::warning\n If the data type is not correct, the value returned will be 0. \n:::"
+						}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the value of a variable.",
+						"variable": {
+							"cpp": "player->vars->Set",
+							"lua": "player:vars():Set"
+						},
+						"return": "void",
+						"params": {
+							"name": "const char*",
+							"value": "DataType"
+						},
+						"additional": {
+							"cpp": ":::warning\n If the data type is not supported, it will not be set. \n:::",
+							"lua": ":::warning\n If the data type is not supported, it will not be set. \n:::"
+						}
+					}
+				}
+			},
+			"weapons": {
+				"title": "Weapons",
+				"description": "A list of function to manipulate a player weapons.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"weapon": {
+						"title": "Weapon",
+						"description": "A list of functions to manipulate a player weapon.",
+						"iscategory": true,
+						"language": "both",
+						"data": {
+							"drop": {
+								"title": "DropWeapon",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Drops the weapon.",
+								"variable": {
+									"cpp": "weapon->Drop",
+									"lua": "weapon:Drop"
+								},
+								"return": "void",
+								"params": {},
+								"additional": {}
+							},
+							"exists": {
+								"title": "Exists",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns if the weapon exists in the players weapons list or not.",
+								"variable": {
+									"cpp": "weapon->Exists",
+									"lua": "weapon:Exists"
+								},
+								"return": "bool",
+								"params": {},
+								"additional": {}
+							},
+							"getid": {
+								"title": "GetID",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the Weapon ID.",
+								"variable": {
+									"cpp": "weapon->GetID",
+									"lua": "weapon:GetID"
+								},
+								"return": "uint32_t",
+								"params": {},
+								"additional": {}
+							},
+							"getname": {
+								"title": "GetName",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the name of a weapon.",
+								"variable": {
+									"cpp": "weapon->GetName",
+									"lua": "weapon:GetName"
+								},
+								"return": "const char*",
+								"params": {},
+								"additional": {}
+							},
+							"getpaintkit": {
+								"title": "GetPaintKit",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the paint kit of a weapon.",
+								"variable": {
+									"cpp": "weapon->GetPaintKit",
+									"lua": "weapon:GetPaintKit"
+								},
+								"return": "int",
+								"params": {},
+								"additional": {}
+							},
+							"getseed": {
+								"title": "GetSeed",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the seed of a weapon.",
+								"variable": {
+									"cpp": "weapon->GetSeed",
+									"lua": "weapon:GetSeed"
+								},
+								"return": "int",
+								"params": {},
+								"additional": {}
+							},
+							"getstattrack": {
+								"title": "GetStatTrack",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the StatTrack of a weapon.",
+								"variable": {
+									"cpp": "weapon->GetStatTrack",
+									"lua": "weapon:GetStatTrack"
+								},
+								"return": "bool",
+								"params": {},
+								"additional": {}
+							},
+							"gettype": {
+								"title": "GetType",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the type of a weapon.",
+								"variable": {
+									"cpp": "weapon->GetType",
+									"lua": "weapon:GetType"
+								},
+								"return": "WeaponSlot",
+								"params": {},
+								"additional": {}
+							},
+							"getwear": {
+								"title": "GetWear",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the wear of a weapon.",
+								"variable": {
+									"cpp": "weapon->GetWear",
+									"lua": "weapon:GetWear"
+								},
+								"return": "float",
+								"params": {},
+								"additional": {}
+							},
+							"remove": {
+								"title": "Remove",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Removes the weapon.",
+								"variable": {
+									"cpp": "weapon->Remove",
+									"lua": "weapon:Remove"
+								},
+								"return": "void",
+								"params": {},
+								"additional": {}
+							},
+							"setdefaultchangesinattributes": {
+								"title": "SetDefaultChangeSkinAttributes",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the default change skin attributes.",
+								"variable": {
+									"cpp": "weapon->SetDefaultChangeSkinAttributes",
+									"lua": "weapon:SetDefaultChangeSkinAttributes"
+								},
+								"return": "void",
+								"params": {},
+								"additional": {}
+							},
+							"setpaintkit": {
+								"title": "SetPaintKit",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets paint kit to a weapon.",
+								"variable": {
+									"cpp": "weapon->SetPaintKit",
+									"lua": "weapon:SetPaintKit"
+								},
+								"return": "void",
+								"params": {
+									"paintkit": "int"
+								},
+								"additional": {}
+							},
+							"setseed": {
+								"title": "SetSeed",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets a seed to a weapon.",
+								"variable": {
+									"cpp": "weapon->SetSeed",
+									"lua": "weapon:SetSeed"
+								},
+								"return": "void",
+								"params": {
+									"seed": "int"
+								},
+								"additional": {}
+							},
+							"setstattrack": {
+								"title": "SetStatTrack",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets StatTrack to a weapon.",
+								"variable": {
+									"cpp": "weapon->SetStatTrack",
+									"lua": "weapon:SetStatTrack"
+								},
+								"return": "void",
+								"params": {
+									"stattrack": "bool"
+								},
+								"additional": {}
+							},
+							"setwear": {
+								"title": "SetWear",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets wear to a weapon.",
+								"variable": {
+									"cpp": "weapon->SetWear",
+									"lua": "weapon:SetWear"
+								},
+								"return": "void",
+								"params": {
+									"wear": "float"
+								},
+								"additional": {}
+							}
+						}
+					},
+					"dropweapons": {
+						"title": "DropWeapons",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Drops the weapons of a player.",
+						"variable": {
+							"cpp": "player->weapons->DropWeapons",
+							"lua": "player:weapons():DropWeapons"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					},
+					"getweapon": {
+						"title": "GetWeapon",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the weapon of a player with the specified id.",
+						"variable": {
+							"cpp": "player->weapons->GetWeapon",
+							"lua": "player:weapons():GetWeapon"
+						},
+						"return": "Weapon*",
+						"params": {
+							"weaponID": "uint32_t"
+						},
+						"additional": {}
+					},
+					"getweaponfromstop": {
+						"title": "GetWeaponFromSlot",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the weapon of a player for the specified slot.",
+						"variable": {
+							"cpp": "player->weapons->GetWeaponFromSlot",
+							"lua": "player:weapons():GetWeaponFromSlot"
+						},
+						"return": "Weapon*",
+						"params": {
+							"slot": "WeaponSlot"
+						},
+						"additional": {}
+					},
+					"giveweapon": {
+						"title": "GiveWeapons",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Gives a weapon to a player.",
+						"variable": {
+							"cpp": "player->weapons->GiveWeapon",
+							"lua": "player:weapons():GiveWeapons"
+						},
+						"return": "void",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {}
+					},
+					"removeweapons": {
+						"title": "RemoveWeapons",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Removes the weapons of a player.",
+						"variable": {
+							"cpp": "player->weapons->RemoveWeapons",
+							"lua": "player:weapons():RemoveWeapons"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					}
+				}
+			}
+		}
+	},
+	"playermanager": {
+		"title": "Player Manager",
+		"description": "A list of API functions for player manager.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "You need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/swiftly.h>\n\nPlayerManager *g_playerManager = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    g_playerManager = new PlayerManager();\n    ...\n}\n```"
+				},
+				"additional": ":::warning\n This is mandatory code in every plugin main entry file. \n:::"
+			},
+			"getplayer": {
+				"title": "GetPlayer",
+				"template": "function-syntax",
+				"language": "cpp",
+				"description": "Returns the player at specified slot.",
+				"variable": {
+					"cpp": "g_playerManager->GetPlayer"
+				},
+				"return": "Player*",
+				"params": {
+					"slot": "int"
+				},
+				"additional": {}
+			},
+			"getplayercap": {
+				"title": "GetPlayerCap",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the maximum amount of players on server.",
+				"variable": {
+					"cpp": "g_playerManager->GetPlayerCap",
+					"lua": "playermanager:GetPlayerCap"
+				},
+				"return": "uint16_t",
+				"params": {},
+				"additional": {}
+			},
+			"getplayercount": {
+				"title": "GetPlayerCount",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the number of players on server.",
+				"variable": {
+					"cpp": "g_playerManager->GetPlayers",
+					"lua": "playermanager:GetPlayerCount"
+				},
+				"return": "uint16_t",
+				"params": {},
+				"additional": {}
+			},
+			"sendmsg": {
+				"title": "SendMsg",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Sends a message to all the connected players.",
+				"variable": {
+					"cpp": "g_playerManager->SendMsg",
+					"lua": "playermanager:SendMsg"
+				},
+				"return": "void",
+				"params": {
+					"dest": "HudDestination",
+					"message": "const char*",
+					"...": ""
+				},
+				"additional": {}
+			}
+		}
+	},
+	"precacher": {
+		"title": "Precacher",
+		"description": "A list of API functions for precaching files.",
+		"iscategory": true,
+		"language": "lua",
+		"data": {
+			"precachemodel": {
+				"title": "PrecacheModel",
+				"template": "function-syntax",
+				"language": "lua",
+				"description": "Adds a model to precache.",
+				"variable": {
+					"lua": "precacher:PrecacheModel"
+				},
+				"return": "void",
+				"params": {
+					"model": "const char*"
+				},
+				"additional": {}
+			},
+			"precachesound": {
+				"title": "PrecacheSound",
+				"template": "function-syntax",
+				"language": "lua",
+				"description": "Adds a sound to precache.",
+				"variable": {
+					"lua": "precacher:PrecacheSound"
+				},
+				"return": "void",
+				"params": {
+					"path": "const char*"
+				},
+				"additional": {}
+			}
+		}
+	},
+	"server": {
+		"title": "Server",
+		"description": "A list of API functions for server.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Server system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/server.h>\n\nServer *server = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    server = new Server();\n    ...\n}\n```"
+				}
+			},
+			"changelevel": {
+				"title": "ChangeLevel",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Changes the server's map.",
+				"variable": {
+					"cpp": "server->ChangeLevel",
+					"lua": "server:ChangeLevel"
+				},
+				"return": "void",
+				"params": {
+					"map": "const char*"
+				},
+				"additional": {}
+			},
+			"executecommand": {
+				"title": "ExecuteCommand",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "To execute a command in server console you need to use this function.",
+				"variable": {
+					"cpp": "server->ExecuteCommand",
+					"lua": "server:ExecuteCommand"
+				},
+				"return": "void",
+				"params": {
+					"str": "const char*",
+					"...": ""
+				},
+				"additional": {}
+			},
+			"getmap": {
+				"title": "GetMap",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the current map.",
+				"variable": {
+					"cpp": "server->GetMap",
+					"lua": "server:GetMap"
+				},
+				"return": "const char*",
+				"params": {},
+				"additional": {}
+			},
+			"getmaxplayers": {
+				"title": "GetMaxPlayers",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the maximum amount of players which can fit on server.",
+				"variable": {
+					"cpp": "server->GetMaxPlayers",
+					"lua": "server:GetMaxPlayers"
+				},
+				"return": "uint16_t",
+				"params": {},
+				"additional": {}
+			},
+			"ismapvalid": {
+				"title": "IsMapValid",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns if the map name is valid or not.",
+				"variable": {
+					"cpp": "server->IsMapValid",
+					"lua": "server:IsMapValid"
+				},
+				"return": "bool",
+				"params": {},
+				"additional": {}
+			},
+			"precacher": {
+				"title": "Precacher",
+				"description": "A list of API functions for precaching files.",
+				"iscategory": true,
+				"language": "cpp",
+				"data": {
+					"precachemodel": {
+						"title": "AddModel",
+						"template": "function-syntax",
+						"language": "cpp",
+						"description": "Adds a model to precache.",
+						"variable": {
+							"cpp": "server->precacher->AddModel"
+						},
+						"return": "void",
+						"params": {
+							"model": "const char*"
+						},
+						"additional": {}
+					},
+					"precachesound": {
+						"title": "AddSound",
+						"template": "function-syntax",
+						"language": "cpp",
+						"description": "Adds a sound to precache.",
+						"variable": {
+							"cpp": "server->precacher->AddSound"
+						},
+						"return": "void",
+						"params": {
+							"path": "const char*"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"convars": {
+				"title": "Convars",
+				"description": "A list of API functions for convars.",
+				"iscategory": true,
+				"language": "cpp",
+				"data": {
+					"getconvarbool": {
+						"title": "GetConvarBool",
+						"template": "function-syntax",
+						"language": "cpp",
+						"description": "Returns the convar value if it's a boolean type convar.",
+						"variable": {
+							"cpp": "server->cvars->GetConvarBool"
+						},
+						"return": "bool",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {}
+					},
+					"getconvarfloat": {
+						"title": "GetConvarFloat",
+						"template": "function-syntax",
+						"language": "cpp",
+						"description": "Returns the convar value if it's a float type convar.",
+						"variable": {
+							"cpp": "server->cvars->GetConvarFloat"
+						},
+						"return": "float",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {}
+					},
+					"getconvarint": {
+						"title": "GetConvarInt",
+						"template": "function-syntax",
+						"language": "cpp",
+						"description": "Returns the convar value if it's an integer type convar.",
+						"variable": {
+							"cpp": "server->cvars->GetConvarInt"
+						},
+						"return": "int",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {}
+					},
+					"getconvarstring": {
+						"title": "GetConvarString",
+						"template": "function-syntax",
+						"language": "cpp",
+						"description": "Returns the convar value if it's a string type convar.",
+						"variable": {
+							"cpp": "server->cvars->GetConvarString"
+						},
+						"return": "const char*",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {}
+					},
+					"getconvartype": {
+						"title": "GetConvarType",
+						"template": "function-syntax",
+						"language": "cpp",
+						"description": "Returns the convar type.",
+						"variable": {
+							"cpp": "server->cvars->GetConvarType"
+						},
+						"return": "ConvarType",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {}
+					},
+					"getconvaruint": {
+						"title": "GetConvarUInt",
+						"template": "function-syntax",
+						"language": "cpp",
+						"description": "Returns the convar value if it's an unsigned integer type convar.",
+						"variable": {
+							"cpp": "server->cvars->GetConvarUInt"
+						},
+						"return": "unsigned int",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {}
+					},
+					"setconvar": {
+						"title": "SetConvar",
+						"template": "function-syntax",
+						"language": "cpp",
+						"description": "Sets a convar value.",
+						"variable": {
+							"cpp": "server->cvars->SetConvar"
+						},
+						"return": "void",
+						"params": {
+							"name": "const char*",
+							"value": "DataType"
+						},
+						"additional": {}
+					}
+				}
+			}
+		}
+	},
+	"timers": {
+		"title": "Timers",
+		"description": "A list of API functions for timers.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "cpp",
+				"position": 1,
+				"description": "To use the Swiftly Timers system you need the following code in your plugin.",
+				"content": {
+					"cpp": "```cpp\n#include <swiftly/timers.h>\n\nTimers *timers = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    timers = new Timers();\n    ...\n}\n```"
+				}
+			},
+			"pause": {
+				"title": "Pause",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "To pause a timer you need to specify it's Timer ID from when it was created.",
+				"variable": {
+					"cpp": "timers->PauseTimer",
+					"lua": "timers:pause"
+				},
+				"return": "void",
+				"params": {
+					"timerid": "unsigned long long"
+				},
+				"additional": {}
+			},
+			"create": {
+				"title": "Register",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "To register a timer you need to create a function and specity a delay to it when you register the timer.",
+				"variable": {
+					"cpp": "timers->RegisterTimer",
+					"lua": "timers:create"
+				},
+				"return": "unsigned long long",
+				"params": {
+					"delay": "unsigned long long",
+					"fn": "std::function<void()>"
+				},
+				"additional": {
+					"cpp": ":::note\n The function argument also supports lambda function ( \\[]\\{ ... } ). \n:::"
+				}
+			},
+			"unpause": {
+				"title": "Unpause",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "To unpause a timer you need to specify it's Timer ID from when it was created.",
+				"variable": {
+					"cpp": "timers->UnpauseTimer",
+					"lua": "timers:unpause"
+				},
+				"return": "void",
+				"params": {
+					"timerid": "unsigned long long"
+				},
+				"additional": {}
+			},
+			"delete": {
+				"title": "Unregister",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "To unregister a timer you need to specify it's Timer ID from when it was created.",
+				"variable": {
+					"cpp": "timers->DestroyTimer",
+					"lua": "timers:delete"
+				},
+				"return": "void",
+				"params": {
+					"timerid": "unsigned long long"
+				},
+				"additional": {}
+			}
+		}
+	},
+	"translation": {
+		"title": "Translation",
+		"description": "A list of API functions for translation files.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"getting-started": {
+				"title": "Getting Started",
+				"template": "getting-started",
+				"language": "both",
+				"position": 1,
+				"description": "To use Swiftly Translation system you need to create a `JSON` file in `translations` folder with the following schema:",
+				"content": {
+					"cpp": "#### File Name\n```\ntranslation.MAIN_TRANSLATION_KEY.json\n```\n\n#### File Content\n```json\n{\n    \"key1.key2\": {\n        \"en\": \"English Translation\",\n        \"ro\": \"Traducere Română\"\n    },\n    ...\n}\n```",
+					"lua": "#### File Name\n```\ntranslation.MAIN_TRANSLATION_KEY.json\n```\n\n#### File Content\n```json\n{\n    \"key1.key2\": {\n        \"en\": \"English Translation\",\n        \"ro\": \"Traducere Română\"\n    },\n    ...\n}\n```"
+				}
+			},
+			"fetch": {
+				"title": "Fetch",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the translation for the specified key.\n:::warning\n If the translation key is non-existent for the specified language in core.json, it returns the the translation key. :::\n:::note\n\n Key Format: MAIN_TRANSLATION_KEY.TRANSLATION_KEY\n\nExample: test_plugin.core.started :::",
+				"variable": {
+					"cpp": "FetchTranslation",
+					"lua": "FetchTranslation"
+				},
+				"return": "const char*",
+				"params": {
+					"key": "const char*"
+				},
+				"additional": {}
+			}
+		}
+	}
+}
