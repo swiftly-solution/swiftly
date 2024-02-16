@@ -30,6 +30,17 @@ void OnBombDefused(Player *player, unsigned short site) __attribute__((weak));
 void OnBombExploded(Player *player, unsigned short site) __attribute__((weak));
 void OnBombDropped(Player *player) __attribute__((weak));
 void OnBombPickup(Player *player) __attribute__((weak));
+
+void BombBeginPlant(Player *player, unsigned short site) __attribute__((weak));
+void BombAbortPlant(Player *player, unsigned short site) __attribute__((weak));
+void BombPlanted(Player *player, unsigned short site) __attribute__((weak));
+void BombBeginDefuse(Player *player, unsigned short site) __attribute__((weak));
+void BombAbortDefuse(Player *player, unsigned short site) __attribute__((weak));
+void BombDefused(Player *player, unsigned short site) __attribute__((weak));
+void BombExploded(Player *player, unsigned short site) __attribute__((weak));
+void BombDropped(Player *player) __attribute__((weak));
+void BombPickup(Player *player) __attribute__((weak));
+
 void OnMapLoad(const char *mapName) __attribute__((weak));
 void OnMapUnload(const char *mapName) __attribute__((weak));
 bool OnClientGameMessage(Player *player, int destination, const char *message) __attribute__((weak));
@@ -200,7 +211,7 @@ extern "C"
 
     void Interval_OnRoundPostStart()
     {
-        if(!OnRoundPostStart)
+        if (!OnRoundPostStart)
             return;
 
         OnRoundPostStart();
@@ -243,110 +254,110 @@ extern "C"
 
     void Internal_BombBeginPlant(uint32_t slot, uint16_t site)
     {
-        if (!OnBombBeginPlant)
-            return;
-
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnBombBeginPlant(player, site);
+        if (OnBombBeginPlant)
+            OnBombBeginPlant(player, site);
+        if (BombBeginPlant)
+            BombBeginPlant(player, site);
     }
 
     void Internal_BombAbortPlant(uint32_t slot, uint16_t site)
     {
-        if (!OnBombAbortPlant)
-            return;
-
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnBombAbortPlant(player, site);
+        if (OnBombAbortPlant)
+            OnBombAbortPlant(player, site);
+        if (BombAbortPlant)
+            BombAbortPlant(player, site);
     }
 
     void Internal_BombPlanted(uint32_t slot, uint16_t site)
     {
-        if (!OnBombPlanted)
-            return;
-
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnBombPlanted(player, site);
+        if (OnBombPlanted)
+            OnBombPlanted(player, site);
+        if (BombPlanted)
+            BombPlanted(player, site);
     }
 
     void Internal_BombBeginDefuse(uint32_t slot, uint16_t site)
     {
-        if (!OnBombBeginDefuse)
-            return;
-
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnBombBeginDefuse(player, site);
+        if (OnBombBeginDefuse)
+            OnBombBeginDefuse(player, site);
+        if (BombBeginDefuse)
+            BombBeginDefuse(player, site);
     }
 
     void Internal_BombAbortDefuse(uint32_t slot, uint16_t site)
     {
-        if (!OnBombAbortDefuse)
-            return;
-
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnBombAbortDefuse(player, site);
+        if (OnBombAbortDefuse)
+            OnBombAbortDefuse(player, site);
+        if (BombAbortDefuse)
+            BombAbortDefuse(player, site);
     }
 
     void Internal_BombDefused(uint32_t slot, uint16_t site)
     {
-        if (!OnBombDefused)
-            return;
-
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnBombDefused(player, site);
+        if (OnBombDefused)
+            OnBombDefused(player, site);
+        if (BombDefused)
+            BombDefused(player, site);
     }
 
     void Internal_BombExploded(uint32_t slot, uint16_t site)
     {
-        if (!OnBombExploded)
-            return;
-
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnBombExploded(player, site);
+        if (OnBombExploded)
+            OnBombExploded(player, site);
+        if (BombExploded)
+            BombExploded(player, site);
     }
 
     void Internal_BombDropped(uint32_t slot)
     {
-        if (!OnBombDropped)
-            return;
-
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnBombDropped(player);
+        if (OnBombDropped)
+            OnBombDropped(player);
+        if (BombDropped)
+            BombDropped(player);
     }
 
     void Internal_BombPickup(uint32_t slot)
     {
-        if (!OnBombPickup)
-            return;
-
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
 
-        OnBombPickup(player);
+        if (OnBombPickup)
+            OnBombPickup(player);
+        if (BombPickup)
+            BombPickup(player);
     }
 
     void Internal_OnMapLoad(const char *mapName)

@@ -197,7 +197,6 @@ void scripting_ExitBuyzone(const ExitBuyzone *e)
     bool canbuy = e->pEvent->GetBool("canbuy");
 
     CALL_PFUNCTION_VOID_ARGS(OnExitBuyzone, slot.Get(), canbuy)
-
 }
 
 void scripting_PlayerFullUpdate(const PlayerFullUpdate *e)
