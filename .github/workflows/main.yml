@@ -7,6 +7,28 @@ on:
     pull_request:
 
 jobs:
+    docgen:
+        runs-on: Linux
+        container: node:20.11-bullseye-slim
+        strategy:
+            fail-fast: false
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  path: swiftly
+
+            - name: Generate Documentation
+              working-directory: swiftly/docgen
+              run: |
+                  node ./src/index.js
+
+            - name: Upload Scripting Documentation
+              uses: actions/upload-artifact@v3
+              with:
+                  name: Scripting Documentation
+                  path: ${{ github.workspace }}/swiftly/docgen/output
     build:
         name: Build
         runs-on: ${{ matrix.os }}
