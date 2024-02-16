@@ -114,6 +114,11 @@ GAME_EVENT(player_blind)
     gameevents::emit<PlayerBlind>(pEvent);
 }
 
+GAME_EVENT(player_team)
+{
+    gameevents::emit<PlayerTeam>(pEvent);
+}
+
 GAME_EVENT(player_changename)
 {
     gameevents::emit<PlayerChangeName>(pEvent);
