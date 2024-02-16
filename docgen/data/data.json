@@ -1116,6 +1116,22 @@
 				},
 				"additional": {}
 			},
+            "onplayerteam": {
+                "title": "OnPlayerTeam",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player changes it's team.",
+				"return": "void",
+				"params": {
+					"player": "player",
+                    "team": "uint8_t",
+                    "oldteam": "uint8_t",
+                    "disconnect": "bool",
+                    "silent": "bool",
+                    "isbot": "bool"
+				},
+				"additional": {}
+            },
 			"onpluginstart": {
 				"title": "OnPluginStart",
 				"template": "event-syntax",
