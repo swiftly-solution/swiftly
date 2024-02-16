@@ -114,6 +114,12 @@ GAME_EVENT(player_blind)
     gameevents::emit<PlayerBlind>(pEvent);
 }
 
+GAME_EVENT(player_info)
+{
+    gameevents::emit<PlayerInfo>(pEvent);
+
+}
+
 GAME_EVENT(player_full_update)
 {
     gameevents::emit<PlayerFullUpdate>(pEvent);
