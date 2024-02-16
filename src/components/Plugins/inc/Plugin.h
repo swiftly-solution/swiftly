@@ -52,6 +52,7 @@ const std::vector<std::string> funcsToLoad = {
     "OnExitBuyzone",
     "OnRoundPostStart",
     "OnEnterBombzone",
+    "OnPlayerTeam",
     "OnPlayerChangeName",
     "OnExitBombzone",
     "OnClientFullConnected",
