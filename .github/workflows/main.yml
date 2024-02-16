@@ -8,6 +8,7 @@ on:
 
 jobs:
     docgen:
+        name: Documentation Generator
         runs-on: Linux
         container: node:20.11-bullseye-slim
         strategy:
