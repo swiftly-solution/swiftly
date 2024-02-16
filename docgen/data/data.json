@@ -1102,6 +1102,20 @@
 				},
 				"additional": {}
 			},
+            "onplayerinfo": {
+				"title": "OnPlayerInfo",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player changes it's info.",
+				"return": "void",
+				"params": {
+                    "name": "const char*",
+					"player": "player",
+                    "steamid": "uint64_t",
+                    "bot": "bool"
+				},
+				"additional": {}
+			},
 			"onpluginstart": {
 				"title": "OnPluginStart",
 				"template": "event-syntax",
