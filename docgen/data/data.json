@@ -97,8 +97,8 @@
 					"key": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note\nIf the key is invalid or the key is not an array key, it returns 0.\n:::",
-					"lua": ":::note\nIf the key is invalid or the key is not an array key, it returns 0.\n:::"
+					"cpp": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::",
+					"lua": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::"
 				}
 			},
 			"fetch": {
@@ -115,8 +115,8 @@
 					"key": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note\nIf the key is invalid or the key is not an array key, it returns 0.\n:::",
-					"lua": ":::note\nIf the key is invalid or the key is not an array key, it returns 0.\n:::"
+					"cpp": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::",
+					"lua": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::"
 				}
 			},
 			"exists": {
@@ -218,8 +218,8 @@
 					"value": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note If database is not connected it will return the same value :::",
-					"lua": ":::note If database is not connected it will return the same value :::"
+					"cpp": ":::note\n If database is not connected it will return the same value :::",
+					"lua": ":::note\n If database is not connected it will return the same value :::"
 				}
 			},
 			"isconnected": {
@@ -249,8 +249,8 @@
 					"query": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note If database is not connected it will return an empty value. :::",
-					"lua": ":::note If database is not connected it will return an empty value. :::\n### Parsing table\nTo parse the table you need to create a for iteration for parsing each row.\n```lua\nevents:on(\"OnClientConnect\", function(playerid)\n    local player = GetPlayer(playerid)\n    if not player then return false end\n\n    local result = db:Query(string.format(\"select * from users where steamid = '%.0f'\", player:GetSteamID()))\n    for i=1,#result do\n        print(json.encode(result[i])) -- prints the row with index i\n    end\n    return true\nend)\n```"
+					"cpp": ":::note\n If database is not connected it will return an empty value. :::",
+					"lua": ":::note\n If database is not connected it will return an empty value. :::\n### Parsing table\nTo parse the table you need to create a for iteration for parsing each row.\n```lua\nevents:on(\"OnClientConnect\", function(playerid)\n    local player = GetPlayer(playerid)\n    if not player then return false end\n\n    local result = db:Query(string.format(\"select * from users where steamid = '%.0f'\", player:GetSteamID()))\n    for i=1,#result do\n        print(json.encode(result[i])) -- prints the row with index i\n    end\n    return true\nend)\n```"
 				}
 			},
 			"fetchfields": {
@@ -794,7 +794,7 @@
 					"cpp": "```cpp\n#include <swiftly/gameevents.h>\n```"
 				},
 				"additional": {
-					"cpp": ":::warning This include needs to exist only in one source code file. :::"
+					"cpp": ":::warning\n This include needs to exist only in one source code file. :::"
 				}
 			},
 			"onbombabortdefuse": {
@@ -808,8 +808,8 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
-					"lua": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
 				}
 			},
 			"onbombabortplant": {
@@ -823,8 +823,8 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
-					"lua": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
 				}
 			},
 			"onbombbeginplant": {
@@ -838,8 +838,8 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
-					"lua": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
 				}
 			},
 			"onbombbegindefuse": {
@@ -853,8 +853,8 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
-					"lua": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
 				}
 			},
 			"onbombdefused": {
@@ -868,8 +868,8 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
-					"lua": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
 				}
 			},
 			"onbombdropped": {
@@ -905,8 +905,8 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
-					"lua": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
 				}
 			},
 			"onbombplanted": {
@@ -920,8 +920,8 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
-					"lua": ":::note site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
+					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::",
+					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN :::"
 				}
 			},
 			"onclientconnect": {
@@ -934,8 +934,8 @@
 					"player": "player"
 				},
 				"additional": {
-					"cpp": ":::info This game event is not triggered on fake clients (bots). :::\n:::note @return true => Allows the connection\n@return false => Blocks the connection :::",
-					"lua": ":::info This game event is not triggered on fake clients (bots). :::\n:::note @return true => Allows the connection\n@return false => Blocks the connection :::"
+					"cpp": ":::info This game event is not triggered on fake clients (bots). :::\n:::note\n @return true => Allows the connection\n@return false => Blocks the connection :::",
+					"lua": ":::info This game event is not triggered on fake clients (bots). :::\n:::note\n @return true => Allows the connection\n@return false => Blocks the connection :::"
 				}
 			},
 			"onclientdisconnect": {
@@ -961,8 +961,8 @@
 					"message": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note @return true => Allows the message\n@return false => Blocks the message :::",
-					"lua": ":::note @return true => Allows the message\n@return false => Blocks the message :::"
+					"cpp": ":::note\n @return true => Allows the message\n@return false => Blocks the message :::",
+					"lua": ":::note\n @return true => Allows the message\n@return false => Blocks the message :::"
 				}
 			},
 			"onclientkeystatechange": {
@@ -1039,8 +1039,8 @@
 					"teamonly": "bool"
 				},
 				"additional": {
-					"cpp": ":::note @return true => Allows the message\n@return false => Blocks the message :::",
-					"lua": ":::note @return true => Allows the message\n@return false => Blocks the message :::"
+					"cpp": ":::note\n @return true => Allows the message\n@return false => Blocks the message :::",
+					"lua": ":::note\n @return true => Allows the message\n@return false => Blocks the message :::"
 				}
 			},
 			"onplayerdeath": {
@@ -1070,8 +1070,8 @@
 					"hitgroup": "short"
 				},
 				"additional": {
-					"cpp": ":::warning `attacker` and `assister` can be invalid players :::",
-					"lua": ":::warning `attackerid` and `assisterid` can be invalid player ids :::"
+					"cpp": ":::warning\n `attacker` and `assister` can be invalid players :::",
+					"lua": ":::warning\n `attackerid` and `assisterid` can be invalid player ids :::"
 				}
 			},
 			"onplayerhurt": {
@@ -1180,8 +1180,8 @@
 					"player": "player"
 				},
 				"additional": {
-					"cpp": ":::note @return true => Player can talk\n@return false => Player can't talk :::",
-					"lua": ":::note @return true => Player can talk\n@return false => Player can't talk :::"
+					"cpp": ":::note\n @return true => Player can talk\n@return false => Player can't talk :::",
+					"lua": ":::note\n @return true => Player can talk\n@return false => Player can't talk :::"
 				}
 			},
 			"onplayerfalldamage": {
@@ -1374,15 +1374,15 @@
 					"options": "std::unordered_map<std::string, std::string>"
 				},
 				"additional": {
-					"cpp": ":::note The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB :::\n\n:::warning The options needs to be a pair of strings\n```cpp\n{\n    { \"option 1\", \"value 1\"},\n    {\"option 2\", \"value 2\"},\n    // ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. :::",
-					"lua": ":::note The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB :::\n\n:::warning The options needs to be a pair of strings\n```lua\n{\n    { \"option 1\", \"value 1\"},\n    {\"option 2\", \"value 2\"},\n    -- ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. :::"
+					"cpp": ":::note\n The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB :::\n\n:::warning\n The options needs to be a pair of strings\n```cpp\n{\n    { \"option 1\", \"value 1\"},\n    {\"option 2\", \"value 2\"},\n    // ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. :::",
+					"lua": ":::note\n The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB :::\n\n:::warning\n The options needs to be a pair of strings\n```lua\n{\n    { \"option 1\", \"value 1\"},\n    {\"option 2\", \"value 2\"},\n    -- ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. :::"
 				}
 			},
 			"unregister": {
 				"title": "UnregisterMenu",
 				"template": "function-syntax",
 				"language": "both",
-				"description": "Unregistered a menu by the specified id.\n:::note It can unregister only the menus which were created from the inside of the plugin. :::",
+				"description": "Unregistered a menu by the specified id.\n:::note\n It can unregister only the menus which were created from the inside of the plugin. :::",
 				"variable": {
 					"cpp": "menus->UnregisterMenu",
 					"lua": "menus:Unregister"
@@ -1894,8 +1894,8 @@
 							"...": ""
 						},
 						"additional": {
-							"cpp": ":::note HUD_PRINTCENTER as destination supports HTML elements. :::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n```",
-							"lua": ":::note HUD_PRINTCENTER as destination supports HTML elements. :::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n```"
+							"cpp": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. :::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n```",
+							"lua": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. :::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n```"
 						}
 					},
 					"setmodel": {
@@ -2227,8 +2227,8 @@
 						"return": "int",
 						"params": {},
 						"additional": {
-							"cpp": ":::note The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. :::",
-							"lua": ":::note The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. :::"
+							"cpp": ":::note\n The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. :::",
+							"lua": ":::note\n The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. :::"
 						}
 					},
 					"set": {
@@ -2245,8 +2245,8 @@
 							"team": "int"
 						},
 						"additional": {
-							"cpp": ":::note The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. :::",
-							"lua": ":::note The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. :::"
+							"cpp": ":::note\n The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. :::",
+							"lua": ":::note\n The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. :::"
 						}
 					}
 				}
@@ -2271,7 +2271,7 @@
 							"name": "const char*"
 						},
 						"additional": {
-							"cpp": ":::warning If the data type is not correct, the value returned will be 0. :::"
+							"cpp": ":::warning\n If the data type is not correct, the value returned will be 0. :::"
 						}
 					},
 					"set": {
@@ -2289,8 +2289,8 @@
 							"value": "DataType"
 						},
 						"additional": {
-							"cpp": ":::warning If the data type is not supported, it will not be set. :::",
-							"lua": ":::warning If the data type is not supported, it will not be set. :::"
+							"cpp": ":::warning\n If the data type is not supported, it will not be set. :::",
+							"lua": ":::warning\n If the data type is not supported, it will not be set. :::"
 						}
 					}
 				}
@@ -2602,7 +2602,7 @@
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/swiftly.h>\n\nPlayerManager *g_playerManager = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    g_playerManager = new PlayerManager();\n    ...\n}\n```"
 				},
-				"additional": ":::warning This is mandatory code in every plugin main entry file. :::"
+				"additional": ":::warning\n This is mandatory code in every plugin main entry file. :::"
 			},
 			"getplayer": {
 				"title": "GetPlayer",
@@ -2976,7 +2976,7 @@
 					"fn": "std::function<void()>"
 				},
 				"additional": {
-					"cpp": ":::note The function argument also supports lambda function ( []{ ... } ). :::"
+					"cpp": ":::note\n The function argument also supports lambda function ( \\[]\\{ ... } ). :::"
 				}
 			},
 			"unpause": {
@@ -3032,7 +3032,7 @@
 				"title": "Fetch",
 				"template": "function-syntax",
 				"language": "both",
-				"description": "Returns the translation for the specified key.\n:::warning If the translation key is non-existent for the specified language in core.json, it returns the the translation key. :::\n:::note Key Format: MAIN_TRANSLATION_KEY.TRANSLATION_KEY\n\nExample: test_plugin.core.started :::",
+				"description": "Returns the translation for the specified key.\n:::warning\n If the translation key is non-existent for the specified language in core.json, it returns the the translation key. :::\n:::note\n\n Key Format: MAIN_TRANSLATION_KEY.TRANSLATION_KEY\n\nExample: test_plugin.core.started :::",
 				"variable": {
 					"cpp": "FetchTranslation",
 					"lua": "FetchTranslation"
