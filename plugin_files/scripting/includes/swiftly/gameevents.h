@@ -49,6 +49,7 @@ void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgAr
 void OnPlayerBlind(Player *player, Player *attacker, short entityid, float duration) __attribute__((weak));
 void OnPlayerFullUpdate(Player *player, short count) __attribute__((weak));
 void OnItemPickup(Player *player, const char *item, bool silent, long defindex) __attribute__((weak));
+void OnPlayerTeam(Player *player, unsigned char team, unsigned char oldteam, bool disconnect, bool silent, bool isbot) __attribute__((weak));
 void OnEnterBuyzone(Player *player, bool canbuy) __attribute__((weak));
 void OnExitBuyzone(Player *player, bool canbuy) __attribute__((weak));
 void OnRoundPostStart() __attribute__((weak));
@@ -412,6 +413,18 @@ extern "C"
             return;
 
         OnPlayerBlind(player, attackerPlayer, entityid, duration);
+    }
+
+    void Internal_OnPlayerTeam(int slot, unsigned char team, unsigned char oldteam, bool disconnect, bool silent, bool isbot)
+    {
+        if (!OnPlayerTeam)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        OnPlayerTeam(player, team, oldteam, disconnect, silent, isbot);
     }
 
     void Internal_OnPlayerFallDamage(int slot, float damage)
