@@ -96,7 +96,7 @@ const ProcessData = async (data, subfolder) => {
 
                 writeFileSync(`output/${lang}/${subfolder}${key}/_category_.json`, JSON.stringify({
                     label: data[key].title,
-                    position: 1,
+                    position: 2,
                     link: {
                         type: "generated-index",
                         description: data[key].description

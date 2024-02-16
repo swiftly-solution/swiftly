@@ -1102,6 +1102,49 @@
 				},
 				"additional": {}
 			},
+            "onplayerinfo": {
+				"title": "OnPlayerInfo",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player changes it's info.",
+				"return": "void",
+				"params": {
+                    "name": "const char*",
+					"player": "player",
+                    "steamid": "uint64_t",
+                    "bot": "bool"
+				},
+				"additional": {}
+			},
+            "onplayerteam": {
+                "title": "OnPlayerTeam",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player changes it's team.",
+				"return": "void",
+				"params": {
+					"player": "player",
+                    "team": "uint8_t",
+                    "oldteam": "uint8_t",
+                    "disconnect": "bool",
+                    "silent": "bool",
+                    "isbot": "bool"
+				},
+				"additional": {}
+            },
+            "onplayerchangename": {
+                "title": "OnPlayerChangeName",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player changes it's name.",
+				"return": "void",
+				"params": {
+					"player": "player",
+                    "oldname": "const char*",
+                    "newname": "const char*"
+				},
+				"additional": {}
+            },
 			"onpluginstart": {
 				"title": "OnPluginStart",
 				"template": "event-syntax",

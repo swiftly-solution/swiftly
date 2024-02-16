@@ -167,6 +167,15 @@ void scripting_PlayerTeam(const PlayerTeam *e)
     CALL_PFUNCTION_VOID_ARGS(OnPlayerTeam, slot.Get(), team, oldteam, disconnect, silent, isbot)
 }
 
+void scripting_PlayerChangeName(const PlayerChangeName *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    const char *oldname = e->pEvent->GetString("oldname");
+    const char *newname = e->pEvent->GetString("newname");
+
+    CALL_PFUNCTION_VOID_ARGS(OnPlayerChangeName, slot.Get(), oldname, newname)
+}
+
 void scripting_PlayerInfo(const PlayerInfo *e)
 {
     std::string name = e->pEvent->GetString("name");
@@ -589,6 +598,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerHurt>(scripting_PlayerHurt);
     gameevents::on<PlayerBlind>(scripting_PlayerBlind);
     gameevents::on<PlayerTeam>(scripting_PlayerTeam);
+    gameevents::on<PlayerChangeName>(scripting_PlayerChangeName);
     gameevents::on<PlayerInfo>(scripting_PlayerInfo);
     gameevents::on<PlayerFullUpdate>(scripting_PlayerFullUpdate);
     gameevents::on<ItemPickup>(scripting_ItemPickup);

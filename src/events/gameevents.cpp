@@ -119,6 +119,11 @@ GAME_EVENT(player_team)
     gameevents::emit<PlayerTeam>(pEvent);
 }
 
+GAME_EVENT(player_changename)
+{
+    gameevents::emit<PlayerChangeName>(pEvent);
+}
+
 GAME_EVENT(player_info)
 {
     gameevents::emit<PlayerInfo>(pEvent);
