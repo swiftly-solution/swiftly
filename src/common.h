@@ -33,7 +33,7 @@
 
 #define PATH "addons/swiftly"
 
-class CGameRules;
+class CCSGameRules;
 
 class GameSessionConfiguration_t
 {
@@ -91,7 +91,7 @@ extern IServerGameClients *g_clientsManager;
 extern CEntitySystem *g_pEntitySystem;
 extern IServerGameDLL *server;
 extern ICvar *g_pcVar;
-extern CGameRules *g_pGameRules;
+extern CCSGameRules *g_pGameRules;
 extern INetworkMessages *g_pNetworkMessages;
 
 PLUGIN_GLOBALVARS();

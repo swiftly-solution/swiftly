@@ -86,7 +86,7 @@ Patches *g_Patches = nullptr;
 EntityManager *g_entityManager = nullptr;
 Precacher *g_precacher = nullptr;
 CEntityListener g_entityListener;
-CGameRules *g_pGameRules = nullptr;
+CCSGameRules *g_pGameRules = nullptr;
 GameMenus *g_menus = nullptr;
 
 class CGameResourceService

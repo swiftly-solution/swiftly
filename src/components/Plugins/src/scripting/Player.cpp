@@ -742,7 +742,7 @@ SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
         scripting_Player_SetArmor(playerId, 100);
     }
     else
-        itemServices->GiveNamedItem(name);
+        pawn->GiveNamedItem(name);
 }
 
 SMM_API uint32_t scripting_Player_Weapons_GetWeaponID(uint32 playerId, uint32 slot)
@@ -776,6 +776,10 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
     if (!player)
         return;
 
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
     CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
     if (!weapon)
         return;
@@ -783,7 +787,20 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
     weapon->m_AttributeManager().m_Item().m_iItemIDHigh = -1;
 
     if (weapon->GetWeaponVData()->m_GearSlot == gear_slot_t::GEAR_SLOT_KNIFE)
+    {
         weapon->m_AttributeManager().m_Item().m_iEntityQuality = 3;
+        CCSPlayer_ViewModelServices *viewModelService = pawn->m_pViewModelServices();
+        if (!viewModelService)
+            return;
+
+        CHandle<CBaseViewModel> *viewmodels = viewModelService->m_hViewModel();
+        if (!viewmodels)
+            return;
+
+        CBaseViewModel *model = viewmodels[0].Get();
+        std::string name = std::string(weapon->GetClassname()) == "bayonet" ? "knife_bayonet" : weapon->GetClassname();
+        model->SetModel(string_format("weapons/models/knife/%s/weapon_%s.vmdl", name.c_str(), name.c_str()).c_str());
+    }
     else if (!weapon->m_AttributeManager().m_Item().m_iAccountID() && weapon->m_CBodyComponent() && weapon->m_CBodyComponent()->m_pSceneNode())
     {
         int paintkit = weapon->m_nFallbackPaintKit();
