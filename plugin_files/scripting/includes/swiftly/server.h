@@ -9,6 +9,8 @@
 
 #include "server/precacher.h"
 
+extern CCSGameRules *g_pGameRules;
+
 class Server
 {
 public:
@@ -48,6 +50,11 @@ public:
     void ChangeLevel(const char *map)
     {
         this->ExecuteCommand("changelevel %s", map);
+    }
+
+    bool IsPistolRound(bool *g_bPistolRound)
+    {
+        g_bPistolRound = g_pGameRules->m_totalRoundsPlayed() == 0 || (g_pGameRules->m_bSwitchingTeamsAtRoundReset() && g_pGameRules->m_nOvertimePlaying() == 0) || g_pGameRules->m_bGameRestart();
     }
 
     bool IsMapValid(const char *map)

@@ -29,6 +29,7 @@ void SetupLuaServer(luacpp::LuaState *state, Plugin *plugin)
                    {
             if(!scripting_Server_IsMapValid(map)) return;
             scripting_Server_ExecuteCommand(string_format("map %s", map).c_str()); });
-
-    state->DoString("server = Server()");
+        .DefMember("IsPistolRound", [](LuaServerClass *base) -> bool
+                     { return scripting_Server_IsPistolRound(); });
+                    
 }
