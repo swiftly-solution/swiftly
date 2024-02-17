@@ -189,8 +189,6 @@ SMM_API void scripting_Player_SetArmor(uint32 playerId, int armor)
     pPlayerPawn->m_ArmorValue = (armor > 0 ? armor : 0);
 }
 
-
-
 SMM_API void scripting_Player_TakeArmor(uint32 playerId, int armor)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
@@ -759,13 +757,13 @@ SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
         gloves_view->m_iItemIDLow = -1;
         gloves_view->m_iItemIDHigh = (16384 & 0xFFFFFFFF);
 
-        g_Plugin.NextFrame([gloves_view, paintkit, seed, wear, pawn]()
+        gloves_view->m_bInitialized = true;
+
+        g_Plugin.NextFrame([gloves_view, paintkit, seed, wear, pawn]() -> void
                            {
             g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture prefab", std::stoi(paintkit));
             g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture seed", static_cast<float>(std::stoi(seed)));
             g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture wear", std::stof(wear));
-
-            gloves_view->m_bInitialized = true;
 
             g_Signatures->FetchSignature<CBaseModelEntity_SetBodygroup>("CBaseModelEntity_SetBodygroup")(pawn, "default_gloves", 1LL); });
     }
