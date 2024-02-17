@@ -41,8 +41,6 @@ void BombExploded(Player *player, unsigned short site) __attribute__((weak));
 void BombDropped(Player *player) __attribute__((weak));
 void BombPickup(Player *player) __attribute__((weak));
 
-
-
 void OnMapLoad(const char *mapName) __attribute__((weak));
 void OnMapUnload(const char *mapName) __attribute__((weak));
 bool OnClientGameMessage(Player *player, int destination, const char *message) __attribute__((weak));
@@ -422,26 +420,27 @@ extern "C"
     void Internal_OnPlayerTeam(int slot, unsigned char team, unsigned char oldteam, bool disconnect, bool silent, bool isbot)
     {
         if (!OnPlayerTeam)
-          
+            return;
+
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
-  
+
         OnPlayerTeam(player, team, oldteam, disconnect, silent, isbot);
     }
-          
+
     void Interval_OnPlayerChangeName(int slot, const char *oldname, const char *newName)
     {
         if (!OnPlayerChangeName)
-          return;
-        
+            return;
+
         Player *player = g_playerManager->GetPlayer(slot);
         if (player == nullptr)
             return;
-  
+
         OnPlayerChangeName(player, oldname, newName);
     }
-  
+
     void Internal_OnPlayerInfo(const char *name, int slot, uint64_t steamid, bool bot)
     {
         if (!OnPlayerInfo)
