@@ -9,8 +9,6 @@
 
 #include "server/precacher.h"
 
-extern CCSGameRules *g_pGameRules;
-
 class Server
 {
 public:
