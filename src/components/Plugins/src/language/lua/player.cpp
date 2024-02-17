@@ -72,6 +72,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return scripting_Player_GetConnectedTime(base->playerSlot); })
         .DefMember("SendMsg", [](LuaPlayerClass *base, int dest, const char *message) -> void
                    { return scripting_Player_SendMessage(base->playerSlot, dest, message); })
+        .DefMember("SetGloves", [](LuaPlayerClass *base, uint16_t defindex, int paintkit, int seed, float wear) -> void
+                   { scripting_Player_SetGloves(base->playerSlot, defindex, paintkit, seed, wear); })
         .DefMember("GetConvarValue", [](LuaPlayerClass *base, const char *name) -> const char *
                    { return scripting_Player_GetConvar(base->playerSlot, name); })
         .DefMember("SetFlashDuration", [](LuaPlayerClass *base, float duration) -> void

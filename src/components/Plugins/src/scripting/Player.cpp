@@ -740,33 +740,6 @@ SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name)
     {
         scripting_Player_SetArmor(playerId, 100);
     }
-    else if (starts_with(n, "item_glove"))
-    {
-        std::vector<std::string> args = explode(n, ";");
-        if (args.size() < 5)
-            return;
-
-        std::string defindex = args[1];
-        std::string paintkit = args[2];
-        std::string seed = args[3];
-        std::string wear = args[4];
-
-        CEconItemView *gloves_view = pawn->m_EconGloves();
-
-        gloves_view->m_iItemDefinitionIndex = (uint16_t)std::stoi(defindex);
-        gloves_view->m_iItemIDLow = -1;
-        gloves_view->m_iItemIDHigh = (16384 & 0xFFFFFFFF);
-
-        gloves_view->m_bInitialized = true;
-
-        g_Plugin.NextFrame([gloves_view, paintkit, seed, wear, pawn]() -> void
-                           {
-            g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture prefab", std::stoi(paintkit));
-            g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture seed", static_cast<float>(std::stoi(seed)));
-            g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture wear", std::stof(wear));
-
-            g_Signatures->FetchSignature<CBaseModelEntity_SetBodygroup>("CBaseModelEntity_SetBodygroup")(pawn, "default_gloves", 1LL); });
-    }
     else
         itemServices->GiveNamedItem(name);
 }
@@ -916,4 +889,31 @@ SMM_API int scripting_Player_GetLatency(uint32 playerId)
     INetChannelInfo *netinfo = engine->GetPlayerNetInfo(*player->GetSlot());
 
     return netinfo->GetLatency(FLOW_INCOMING) + netinfo->GetLatency(FLOW_OUTGOING);
+}
+
+SMM_API void scripting_Player_SetGloves(uint32 playerId, uint16_t defindex, int paintkit, int seed, float wear)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    CEconItemView *gloves_view = pawn->m_EconGloves();
+
+    gloves_view->m_iItemDefinitionIndex = defindex;
+    gloves_view->m_iItemIDLow = -1;
+    gloves_view->m_iItemIDHigh = (16384 & 0xFFFFFFFF);
+
+    gloves_view->m_bInitialized = true;
+
+    g_Plugin.NextFrame([gloves_view, paintkit, seed, wear, pawn]() -> void
+                       {
+            g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture prefab", paintkit);
+            g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture seed", static_cast<float>(seed));
+            g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(gloves_view->m_NetworkedDynamicAttributes(), "set item texture wear", wear);
+
+            g_Signatures->FetchSignature<CBaseModelEntity_SetBodygroup>("CBaseModelEntity_SetBodygroup")(pawn, "default_gloves", 1LL); });
 }

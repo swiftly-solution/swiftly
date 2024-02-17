@@ -238,6 +238,15 @@ public:
             NOT_SUPPORTED("scripting_Player_SetFlashDuration");
     }
 
+    void SetGloves(uint16_t defindex, int paintkit, int seed, float wear)
+    {
+        void *player_SetGloves = FetchFunctionPtr(nullptr, "scripting_Player_SetGloves");
+        if (player_SetGloves)
+            reinterpret_cast<Player_SetGloves>(player_SetGloves)(this->m_playerSlot, defindex, paintkit, seed, wear);
+        else
+            NOT_SUPPORTED("scripting_Player_SetGloves");
+    }
+
     int GetLatency()
     {
         void *player_GetLatency = FetchFunctionPtr(nullptr, "scripting_Player_GetLatency");

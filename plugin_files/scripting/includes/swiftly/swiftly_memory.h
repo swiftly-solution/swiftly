@@ -50,6 +50,8 @@ typedef void (*Player_SetStat)(uint32_t, uint32_t, int);
 typedef const char *(*Player_GetIPAddress)(uint32_t);
 typedef void (*Player_SetMusicKit)(uint32_t, int);
 
+typedef void (*Player_SetGloves)(uint32_t, int, int, int, float);
+
 typedef void (*Player_SendMessage)(uint32_t, HudDestination, const char *);
 typedef void (*Players_SendMessage)(HudDestination, const char *);
 

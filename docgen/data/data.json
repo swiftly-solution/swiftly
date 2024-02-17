@@ -1760,6 +1760,24 @@
 						},
 						"additional": {}
 					},
+					"setgloves": {
+						"title": "SetGloves",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the gloves to a player.",
+						"variable": {
+							"cpp": "player->SetGloves",
+							"lua": "player:SetGloves"
+						},
+						"return": "void",
+						"params": {
+							"defindex": "uint16_t",
+							"paintkit": "int",
+							"seed": "int",
+							"wear": "float"
+						},
+						"additional": {}
+					},
 					"executecommand": {
 						"title": "ExecuteCommand",
 						"template": "function-syntax",
