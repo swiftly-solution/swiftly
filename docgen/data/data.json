@@ -2791,6 +2791,19 @@
 				},
 				"additional": {}
 			},
+			"ispistolround": {
+				"title": "IsPistolRound",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Checks if the round is a PistolRound.",
+				"variable": {
+					"cpp": "server->IsPistolRound",
+					"lua": "server:IsPistolRound"
+				},
+				"return": "bool",
+				"params": {},
+				"additional": {}
+			},
 			"executecommand": {
 				"title": "ExecuteCommand",
 				"template": "function-syntax",
