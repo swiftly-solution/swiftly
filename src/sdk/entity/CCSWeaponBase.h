@@ -57,8 +57,8 @@ public:
     SCHEMA_FIELD_OFFSET(uint32_t, m_iAccountID, 0)
     SCHEMA_FIELD_OFFSET(int32_t, m_iEntityQuality, 0)
 
-    SCHEMA_FIELD_OFFSET(char *, m_szCustomName, 0)
-    SCHEMA_FIELD_OFFSET(char *, m_szCustomNameOverride, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(char *, m_szCustomName, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(char *, m_szCustomNameOverride, 0)
 
     SCHEMA_FIELD_POINTER_OFFSET(CAttributeList, m_NetworkedDynamicAttributes, 0)
 };

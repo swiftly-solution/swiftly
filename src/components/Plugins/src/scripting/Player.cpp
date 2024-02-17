@@ -4,6 +4,7 @@
 #include "../../../../sdk/entity/CCSPlayerPawnBase.h"
 #include "../../../../sdk/entity/CBaseCombatCharacter.h"
 #include "../../inc/Scripting.h"
+#include "../../../../utils/plat.h"
 
 extern CEntitySystem *g_pEntitySystem;
 std::string SerializeData(std::any data);
@@ -803,8 +804,8 @@ SMM_API void scripting_Player_Weapon_SetNametag(uint32 playerId, uint32 slot, co
     if (!weapon)
         return;
 
-    weapon->m_AttributeManager().m_Item().m_szCustomName() = (char *)CUtlString(text).String();
-    weapon->m_AttributeManager().m_Item().m_szCustomNameOverride() = (char *)CUtlString(text).String();
+    auto customNamePtr = weapon->m_AttributeManager().m_Item().m_szCustomName();
+    Plat_WriteMemory((void *)customNamePtr, reinterpret_cast<byte *>(const_cast<char *>(text)), strlen(text));
 }
 
 SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd)
