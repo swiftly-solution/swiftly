@@ -2381,6 +2381,21 @@
 								"params": {},
 								"additional": {}
 							},
+							"setnametag": {
+								"title": "SetNametag",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the nametag.",
+								"variable": {
+									"cpp": "weapon->SetNametag",
+									"lua": "weapon:SetNametag"
+								},
+								"return": "void",
+								"params": {
+									"nametag": "const char*"
+								},
+								"additional": {}
+							},
 							"exists": {
 								"title": "Exists",
 								"template": "function-syntax",
