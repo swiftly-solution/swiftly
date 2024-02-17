@@ -26,6 +26,8 @@ SMM_API const char *scripting_Server_GetMapName()
     return res;
 }
 
+//
+
 SMM_API bool scripting_Server_IsPistolRound()
 {
     if (g_pGameRules == nullptr)
