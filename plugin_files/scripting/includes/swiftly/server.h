@@ -52,7 +52,7 @@ public:
         this->ExecuteCommand("changelevel %s", map);
     }
 
-    bool IsPistolRound(bool *g_bPistolRound)
+    bool IsPistolRound()
     {
         void *IsPistolRoundFunc = FetchFunctionPtr(nullptr, "scripting_Server_IsPistolRound");
         if (IsPistolRoundFunc)
