@@ -75,7 +75,7 @@ typedef const char *(*Server_GetMap)();
 typedef uint16_t (*Server_GetMaxPlayers)();
 typedef bool (*Server_IsMapValid)(const char *);
 typedef void (*Server_AddPrecacheModel)(const char *);
-typedef bool (*Server_IsPistolRound)(bool);
+typedef bool (*Server_IsPistolRound)();
 
 typedef uint64_t (*HTTP_CreateRequest)(const char *);
 typedef void (*HTTP_SetBody)(uint64_t, const char *);
