@@ -50,6 +50,18 @@ public:
         this->ExecuteCommand("changelevel %s", map);
     }
 
+    bool IsPistolRound()
+    {
+        void *IsPistolRoundFunc = FetchFunctionPtr(nullptr, "scripting_Server_IsPistolRound");
+        if (IsPistolRoundFunc)
+            return reinterpret_cast<Server_IsPistolRound>(IsPistolRoundFunc)();
+        else
+        {
+            NOT_SUPPORTED("scripting_Server_IsPistolRound");
+            return false;
+        }
+    }
+
     bool IsMapValid(const char *map)
     {
         void *IsMapValidFunc = FetchFunctionPtr(nullptr, "scripting_Server_IsMapValid");
