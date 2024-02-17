@@ -54,7 +54,14 @@ public:
 
     bool IsPistolRound(bool *g_bPistolRound)
     {
-        g_bPistolRound = g_pGameRules->m_totalRoundsPlayed() == 0 || (g_pGameRules->m_bSwitchingTeamsAtRoundReset() && g_pGameRules->m_nOvertimePlaying() == 0) || g_pGameRules->m_bGameRestart();
+        void *IsPistolRoundFunc = FetchFunctionPtr(nullptr, "scripting_Server_IsPistolRound");
+        if (IsPistolRoundFunc)
+            return reinterpret_cast<Server_IsPistolRound>(IsPistolRoundFunc)();
+        else
+        {
+            NOT_SUPPORTED("scripting_Server_IsPistolRound");
+            return false;
+        }
     }
 
     bool IsMapValid(const char *map)

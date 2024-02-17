@@ -27,9 +27,11 @@ void SetupLuaServer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Server_ExecuteCommand(command); })
         .DefMember("ChangeLevel", [](LuaServerClass *base, const char *map) -> void
                    {
-                       if(!scripting_Server_IsMapValid(map)) return;
-                       scripting_Server_ExecuteCommand(string_format("map %s", map).c_str());
-                   })
-        .DefMember("IsPistolRound", [](LuaServerClass *base) -> bool
-                   { return scripting_Server_IsPistolRound(); });
+            if(!scripting_Server_IsMapValid(map)) return;
+            scripting_Server_ExecuteCommand(string_format("map %s", map).c_str()); })
+
+    .DefMember("IsPistolRound", [](LuaServerClass *base) -> bool
+            { return scripting_Server_IsPistolRound(); });
+
+    state->DoString("server = Server()");
 }
