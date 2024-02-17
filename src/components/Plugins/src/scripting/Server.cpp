@@ -26,7 +26,6 @@ SMM_API const char *scripting_Server_GetMapName()
     return res;
 }
 
-//
 
 SMM_API bool scripting_Server_IsPistolRound()
 {
@@ -36,7 +35,9 @@ SMM_API bool scripting_Server_IsPistolRound()
     return (g_pGameRules->m_totalRoundsPlayed() == 0 || (g_pGameRules->m_bSwitchingTeamsAtRoundReset() && g_pGameRules->m_nOvertimePlaying() == 0) || g_pGameRules->m_bGameRestart());
 }
 
-MapValid(const char *map)
+
+
+SMM_API bool scripting_Server_IsMapValid(const char *map)
 {
     if (map == nullptr)
         return false;
