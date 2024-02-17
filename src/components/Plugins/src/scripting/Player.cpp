@@ -789,17 +789,6 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
     if (weapon->GetWeaponVData()->m_GearSlot == gear_slot_t::GEAR_SLOT_KNIFE)
     {
         weapon->m_AttributeManager().m_Item().m_iEntityQuality = 3;
-        CCSPlayer_ViewModelServices *viewModelService = pawn->m_pViewModelServices();
-        if (!viewModelService)
-            return;
-
-        CHandle<CBaseViewModel> *viewmodels = viewModelService->m_hViewModel();
-        if (!viewmodels)
-            return;
-
-        CBaseViewModel *model = viewmodels[0].Get();
-        std::string name = std::string(weapon->GetClassname()) == "bayonet" ? "knife_bayonet" : weapon->GetClassname();
-        model->SetModel(string_format("weapons/models/knife/%s/weapon_%s.vmdl", name.c_str(), name.c_str()).c_str());
     }
     else if (!weapon->m_AttributeManager().m_Item().m_iAccountID() && weapon->m_CBodyComponent() && weapon->m_CBodyComponent()->m_pSceneNode())
     {

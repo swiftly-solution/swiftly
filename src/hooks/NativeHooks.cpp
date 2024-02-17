@@ -93,7 +93,7 @@ void Hook_PrecacheResource(const char *model_path, int64_t context)
 
 void Hook_CGameRules_Constructor(CGameRules *pThis)
 {
-    g_pGameRules = pThis;
+    g_pGameRules = (CCSGameRules *)pThis;
     TCGameRules_Constructor(pThis);
 }
 

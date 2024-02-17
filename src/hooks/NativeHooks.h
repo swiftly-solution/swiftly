@@ -6,6 +6,8 @@
 
 class CBasePlayerController;
 class CCommand;
+class CGameRules;
+class CCSGameRules;
 
 void Hook_LoggingSystem_LogDirect(int, int, const char *, ...);
 void Hook_LoggingSystem_Log(int, int, const char *, ...);
