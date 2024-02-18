@@ -126,6 +126,32 @@ SMM_API void scripting_Player_SetHealth(uint32 playerId, int health)
     pawn->m_iHealth = health;
 }
 
+SMM_API int scripting_Player_GetMaxHealth(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return 0;
+
+    return pawn->m_iMaxHealth();
+}
+
+SMM_API void scripting_Player_SetMaxHealth(uint32 playerId, int health)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    pawn->m_iMaxHealth = health;
+}
+
 SMM_API void scripting_Player_TakeHealth(uint32 playerId, int health)
 {
     Player *player = g_playerManager->GetPlayer(playerId);

@@ -126,6 +126,7 @@ public:
     SCHEMA_FIELD_OFFSET(float, m_lastNetworkChange, 0)
     SCHEMA_FIELD_POINTER_OFFSET(CNetworkTransmitComponent, m_NetworkTransmitComponent, 0)
     SCHEMA_FIELD_OFFSET(int, m_iHealth, 0)
+    SCHEMA_FIELD_OFFSET(int, m_iMaxHealth, 0)
     SCHEMA_FIELD_OFFSET(int, m_iTeamNum, 0)
     SCHEMA_FIELD_OFFSET(MoveType_t, m_MoveType, 0)
     SCHEMA_FIELD_OFFSET(uint32, m_spawnflags, 0)

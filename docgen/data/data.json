@@ -2135,6 +2135,34 @@
 				"iscategory": true,
 				"language": "both",
 				"data": {
+					"getmax": {
+						"title": "GetMax",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the maximum health of a player.",
+						"variable": {
+							"cpp": "player->health->GetMax",
+							"lua": "player:health():GetMax"
+						},
+						"return": "int",
+						"params": {},
+						"additional": {}
+					},
+					"setmax": {
+						"title": "SetMax",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the maximum health of a player.",
+						"variable": {
+							"cpp": "player->health->SetMax",
+							"lua": "player:health():SetMax"
+						},
+						"return": "void",
+						"params": {
+							"health": "int"
+						},
+						"additional": {}
+					},
 					"get": {
 						"title": "Get",
 						"template": "function-syntax",

@@ -122,7 +122,11 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("Set", [](LuaPlayerArgsClass *base, int health) -> void
                    { scripting_Player_SetHealth(base->playerSlot, health); })
         .DefMember("Take", [](LuaPlayerArgsClass *base, int health) -> void
-                   { scripting_Player_TakeHealth(base->playerSlot, health); });
+                   { scripting_Player_TakeHealth(base->playerSlot, health); })
+        .DefMember("GetMax", [](LuaPlayerArgsClass *base) -> int
+                   { return scripting_Player_GetMaxHealth(base->playerSlot); })
+        .DefMember("SetMax", [](LuaPlayerArgsClass *base, int health) -> void
+                   { scripting_Player_SetMaxHealth(base->playerSlot, health); });
 
     armorClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                          { return scripting_Player_GetArmor(base->playerSlot); })
