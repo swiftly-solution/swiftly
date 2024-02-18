@@ -288,7 +288,11 @@ CBasePlayerWeapon *Player::GetPlayerWeaponFromSlot(gear_slot_t slot)
         if (!weapon)
             continue;
 
-        if (weapon->GetWeaponVData()->m_GearSlot() == slot)
+        CCSWeaponBaseVData *vData = weapon->GetWeaponVData();
+        if (!vData)
+            continue;
+
+        if (vData->m_GearSlot() == slot)
             return weapon;
     }
 
