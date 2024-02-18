@@ -50,6 +50,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto coordsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto velocityClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto weaponsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto gravityClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto weaponClass = state->CreateClass<LuaPlayerTwoArgsClass>().DefConstructor<int, uint32>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
@@ -117,7 +118,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("velocity", [velocityClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return velocityClass.CreateInstance(base->playerSlot); })
         .DefMember("weapons", [weaponsClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return weaponsClass.CreateInstance(base->playerSlot); });
+                   { return weaponsClass.CreateInstance(base->playerSlot); })
+        .DefMember("gravity", [gravityClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return gravityClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -129,6 +132,11 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return scripting_Player_GetMaxHealth(base->playerSlot); })
         .DefMember("SetMax", [](LuaPlayerArgsClass *base, int health) -> void
                    { scripting_Player_SetMaxHealth(base->playerSlot, health); });
+
+    gravityClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                           { return scripting_Player_GetGravity(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float gravity) -> void
+                   { scripting_Player_SetGravity(base->playerSlot, gravity); });
 
     armorClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                          { return scripting_Player_GetArmor(base->playerSlot); })

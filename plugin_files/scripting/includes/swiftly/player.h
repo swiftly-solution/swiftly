@@ -17,6 +17,7 @@
 #include "player/money.h"
 #include "player/velocity.h"
 #include "player/weapons.h"
+#include "player/gravity.h"
 
 class Player
 {
@@ -36,6 +37,7 @@ public:
     Money *money;
     Velocity *velocity;
     Weapons *weapons;
+    Gravity *gravity;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -50,6 +52,7 @@ public:
         this->money = new Money(playerSlot);
         this->velocity = new Velocity(playerSlot);
         this->weapons = new Weapons(playerSlot);
+        this->gravity = new Gravity(playerSlot);
     }
 
     ~Player()
@@ -64,6 +67,7 @@ public:
         delete this->money;
         delete this->velocity;
         delete this->weapons;
+        delete this->gravity;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }

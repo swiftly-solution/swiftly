@@ -968,3 +968,29 @@ SMM_API void scripting_Player_SetGloves(uint32 playerId, uint16_t defindex, int 
 
             g_Signatures->FetchSignature<CBaseModelEntity_SetBodygroup>("CBaseModelEntity_SetBodygroup")(pawn, "default_gloves", 1LL); });
 }
+
+SMM_API float scripting_Player_GetGravity(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return 0.0f;
+
+    return pawn->m_flGravityScale();
+}
+
+SMM_API void scripting_Player_SetGravity(uint32 playerId, float gravity)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    pawn->m_flGravityScale = gravity;
+}

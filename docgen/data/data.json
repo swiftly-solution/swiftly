@@ -2353,6 +2353,42 @@
 					}
 				}
 			},
+			"gravity": {
+				"title": "Gravity",
+				"description": "A list of function to manipulate a players gravity.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the gravity of a player.",
+						"variable": {
+							"cpp": "player->gravity->Get",
+							"lua": "player:gravity():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the gravity of a player.",
+						"variable": {
+							"cpp": "player->gravity->Set",
+							"lua": "player:gravity():Set"
+						},
+						"return": "void",
+						"params": {
+							"gravity": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
 			"variables": {
 				"title": "Variables",
 				"description": "A list of function to manipulate a player variables.",
