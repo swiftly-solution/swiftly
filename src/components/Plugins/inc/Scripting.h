@@ -143,6 +143,8 @@ SMM_API const char *scripting_Player_GetName(uint32 playerId);
 SMM_API uint64 scripting_Player_GetSteamID(uint32 playerId);
 SMM_API float scripting_Player_GetGravity(uint32 playerId);
 SMM_API void scripting_Player_SetGravity(uint32 playerId, float gravity);
+SMM_API float scripting_Player_GetSpeed(uint32 playerId);
+SMM_API void scripting_Player_SetSpeed(uint32 playerId, float speed);
 SMM_API const char *scripting_Player_GetSteamID2(uint32 playerId);
 SMM_API void scripting_Player_SetFlashDuration(uint32 playerId, float duration);
 SMM_API void scripting_Player_Drop(uint32 playerId, int reason);

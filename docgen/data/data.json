@@ -2389,6 +2389,42 @@
 					}
 				}
 			},
+			"speed": {
+				"title": "Speed",
+				"description": "A list of function to manipulate a players speed.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the speed of a player.",
+						"variable": {
+							"cpp": "player->speed->Get",
+							"lua": "player:speed():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the speed of a player.",
+						"variable": {
+							"cpp": "player->speed->Set",
+							"lua": "player:speed():Set"
+						},
+						"return": "void",
+						"params": {
+							"speed": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
 			"variables": {
 				"title": "Variables",
 				"description": "A list of function to manipulate a player variables.",

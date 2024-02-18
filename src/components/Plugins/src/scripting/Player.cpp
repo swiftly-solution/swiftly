@@ -994,3 +994,29 @@ SMM_API void scripting_Player_SetGravity(uint32 playerId, float gravity)
 
     pawn->m_flGravityScale = gravity;
 }
+
+SMM_API float scripting_Player_GetSpeed(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CCSPlayerPawnBase *pawn = player->GetPlayerBasePawn();
+    if (!pawn)
+        return 0.0f;
+
+    return pawn->m_flVelocityModifier();
+}
+
+SMM_API void scripting_Player_SetSpeed(uint32 playerId, float speed)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawnBase *pawn = player->GetPlayerBasePawn();
+    if (!pawn)
+        return;
+
+    pawn->m_flVelocityModifier = speed;
+}

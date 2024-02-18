@@ -9,4 +9,5 @@ public:
 
     SCHEMA_FIELD_OFFSET(int, m_ArmorValue, 0)
     SCHEMA_FIELD_OFFSET(float, m_flFlashDuration, 0)
+    SCHEMA_FIELD_OFFSET(float, m_flVelocityModifier, 0)
 };
