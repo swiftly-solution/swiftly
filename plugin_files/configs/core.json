@@ -7,5 +7,8 @@
     "commandSilentPrefixes": ["/"],
     "console_filtering": true,
     "language": "en",
-    "patches_to_perform": []
+    "patches_to_perform": [],
+
+    "CS2ServerGuidelines": "https://blog.counter-strike.net/index.php/server_guidelines/", 
+    "FollowCS2ServerGuidelines": true
 }

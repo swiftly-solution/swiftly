@@ -5,6 +5,8 @@
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
+#include <rapidjson/prettywriter.h>
+#include <rapidjson/stringbuffer.h>
 
 #define HAS_MEMBER(FILE, DOCUMENT, MEMBER_NAME, MEMBER_PATH) \
     if (!DOCUMENT.HasMember(MEMBER_NAME))                    \
@@ -75,6 +77,27 @@ bool Configuration::LoadConfiguration()
             patchesToPerform.push_back(std::string(coreConfigFile["patches_to_perform"][i].GetString()));
 
         this->SetValue("core.patchesToPerform", implode(patchesToPerform, " "));
+    }
+
+    if (!coreConfigFile.HasMember("FollowCS2ServerGuidelines"))
+    {
+        coreConfigFile.AddMember(rapidjson::Value().SetString("CS2ServerGuidelines", coreConfigFile.GetAllocator()), rapidjson::Value().SetString("https://blog.counter-strike.net/index.php/server_guidelines/", coreConfigFile.GetAllocator()), coreConfigFile.GetAllocator());
+        coreConfigFile.AddMember(rapidjson::Value().SetString("FollowCS2ServerGuidelines", coreConfigFile.GetAllocator()), rapidjson::Value().SetBool(true), coreConfigFile.GetAllocator());
+
+        rapidjson::StringBuffer buffer;
+        rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
+
+        coreConfigFile.Accept(writer);
+        std::string content = buffer.GetString();
+
+        Files::Write("addons/swiftly/configs/core.json", content, false);
+
+        this->SetValue("core.FollowCS2ServerGuidelines", true);
+    }
+    else
+    {
+        IS_BOOL("core.json", coreConfigFile, "FollowCS2ServerGuidelines", "FollowCS2ServerGuidelines");
+        this->SetValue("core.FollowCS2ServerGuidelines", coreConfigFile["FollowCS2ServerGuidelines"].GetBool());
     }
 
     HAS_MEMBER("core.json", coreConfigFile, "console_filtering", "console_filtering");
