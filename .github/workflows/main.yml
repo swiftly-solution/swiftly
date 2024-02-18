@@ -26,7 +26,7 @@ jobs:
                   node ./src/index.js
 
             - name: Upload Scripting Documentation
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: Scripting Documentation
                   path: ${{ github.workspace }}/swiftly/docgen/output
@@ -94,14 +94,14 @@ jobs:
 
             - name: Upload Artifacts Linux
               if: matrix.os == 'Linux'
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: Swiftly Plugin Linux
                   path: ${{ github.workspace }}/swiftly/build/package
 
             - name: Upload Artifacts Windows
               if: matrix.os == 'windows-latest'
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: Swiftly Plugin Windows
                   path: ${{ github.workspace }}/swiftly/build/package
