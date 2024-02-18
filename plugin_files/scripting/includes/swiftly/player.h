@@ -95,6 +95,21 @@ public:
         }
     }
 
+    const char *GetSteamID2()
+    {
+        if (this->IsFakeClient())
+            return "STEAM_0:0:000000000";
+
+        void *player_GetSteamID2 = FetchFunctionPtr(nullptr, "scripting_Player_GetSteamID2");
+        if (player_GetSteamID2)
+            return reinterpret_cast<Player_GetName>(player_GetSteamID2)(this->m_playerSlot);
+        else
+        {
+            NOT_SUPPORTED("scripting_Player_GetSteamID2");
+            return "STEAM_0:0:000000000";
+        }
+    }
+
     bool IsFirstSpawn() { return !this->m_firstSpawn; }
     bool IsFakeClient() { return this->m_fakeClient; }
 

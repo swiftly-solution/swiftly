@@ -27,6 +27,24 @@ SMM_API uint64 scripting_Player_GetSteamID(uint32 playerId)
     return player->GetSteamID();
 }
 
+SMM_API const char *scripting_Player_GetSteamID2(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "STEAM_0:0:000000000";
+
+    uint64_t steamid = player->GetSteamID();
+    if (steamid == 0)
+        return "STEAM_0:0:000000000";
+
+    static const uint64_t base = 76561197960265728;
+    std::string data = string_format("STEAM_0:%d:%llu", (steamid - base) % 2, (steamid - base) / 2);
+
+    char *result = new char[data.size() + 1];
+    strcpy(result, data.c_str());
+    return result;
+}
+
 SMM_API void scripting_Player_Drop(uint32 playerId, int reason)
 {
     if (reason < 0 || reason > 69)

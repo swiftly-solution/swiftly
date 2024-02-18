@@ -54,6 +54,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
+        .DefMember("GetSteamID2", [](LuaPlayerClass *base) -> const char *
+                   { return scripting_Player_GetSteamID2(base->playerSlot); })
         .DefMember("GetName", [](LuaPlayerClass *base) -> const char *
                    { return scripting_Player_GetName(base->playerSlot); })
         .DefMember("GetHealth", [](LuaPlayerClass *base) -> int

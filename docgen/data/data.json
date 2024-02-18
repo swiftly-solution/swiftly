@@ -1887,6 +1887,19 @@
 						"params": {},
 						"additional": {}
 					},
+					"getsteamid2": {
+						"title": "GetSteamID2",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the player's SteamID 2.",
+						"variable": {
+							"cpp": "player->GetSteamID2",
+							"lua": "player:GetSteamID2"
+						},
+						"return": "uint64_t",
+						"params": {},
+						"additional": {}
+					},
 					"hidemenu": {
 						"title": "HideMenu",
 						"template": "function-syntax",
