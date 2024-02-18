@@ -1896,7 +1896,7 @@
 							"cpp": "player->GetSteamID2",
 							"lua": "player:GetSteamID2"
 						},
-						"return": "uint64_t",
+						"return": "const char*",
 						"params": {},
 						"additional": {}
 					},
