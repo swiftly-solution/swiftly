@@ -1952,6 +1952,19 @@
 						"params": {},
 						"additional": {}
 					},
+					"respawn": {
+						"title": "Respawn",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Respawns the player.",
+						"variable": {
+							"cpp": "player->Respawn",
+							"lua": "player:Respawn"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					},
 					"sendmsg": {
 						"title": "SendMsg",
 						"template": "function-syntax",

@@ -9,6 +9,7 @@ class Z_CBaseEntity;
 class CBaseModelEntity;
 class CEntityInstance;
 class CCSPlayer_ItemServices;
+class CCSPlayerPawn;
 
 typedef void (*ClientPrint)(CBasePlayerController *, int, const char *, const char *, const char *, const char *, const char *);
 typedef void (*NetworkSTChange)(uintptr_t, int, int);
@@ -23,6 +24,7 @@ typedef void (*CEntityInstance_AcceptInput)(CEntityInstance *, const char *, CEn
 typedef void (*CAttributeList_SetOrAddAttributeValueByName)(void *, const char *, float);
 typedef void (*CBaseModelEntity_SetBodygroup)(void *, const char *, ...);
 typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices *, const char *, int, int, int, int);
+typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController *, CCSPlayerPawn *, bool, bool);
 
 class Signatures
 {

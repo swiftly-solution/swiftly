@@ -195,6 +195,8 @@ QAngle scripting_Player_GetEyeAnglesRaw(uint32 playerId);
 SMM_API const char *scripting_Player_GetEyeAngles(uint32 playerId);
 SMM_API void scripting_Player_SetEyeAngles(uint32 playerId, float x, float y, float z);
 
+SMM_API void scripting_Player_Respawn(uint32 playerId);
+
 SMM_API void scripting_Player_Weapon_Remove(uint32 playerId, uint32 slot);
 SMM_API void scripting_Player_Weapon_Drop(uint32 playerId, uint32 slot);
 

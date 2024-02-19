@@ -141,7 +141,6 @@ public:
 
     void Kill()
     {
-
         void *player_Kill = FetchFunctionPtr(nullptr, "scripting_Player_Kill");
         if (player_Kill)
             reinterpret_cast<Player_Kill>(player_Kill)(this->m_playerSlot);
@@ -284,6 +283,15 @@ public:
             NOT_SUPPORTED("scripting_Player_GetLatency");
             return 0;
         }
+    }
+
+    void Respawn()
+    {
+        void *player_Respawn = FetchFunctionPtr(nullptr, "scripting_Player_Respawn");
+        if (player_Respawn)
+            reinterpret_cast<Player_Kill>(player_Respawn)(this->m_playerSlot);
+        else
+            NOT_SUPPORTED("scripting_Player_Respawn");
     }
 };
 

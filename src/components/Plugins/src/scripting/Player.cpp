@@ -1097,3 +1097,16 @@ SMM_API void scripting_Player_SetEyeAngles(uint32 playerId, float x, float y, fl
     QAngle angle(x, y, z);
     pawn->m_angEyeAngles = angle;
 }
+
+SMM_API void scripting_Player_Respawn(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *controller = player->GetPlayerController();
+    if (!controller)
+        return;
+
+    controller->Respawn();
+}

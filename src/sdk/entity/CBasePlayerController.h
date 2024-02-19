@@ -33,4 +33,9 @@ public:
     {
         g_Signatures->FetchSignature<ClientPrint>("ClientPrint")(this, destination, message, nullptr, nullptr, nullptr, nullptr);
     }
+
+    void SetPawn(CCSPlayerPawn *pawn)
+    {
+        g_Signatures->FetchSignature<CBasePlayerController_SetPawn>("CBasePlayerController_SetPawn")(this, pawn, true, false);
+    }
 };

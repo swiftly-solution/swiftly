@@ -14,5 +14,9 @@
     "Teleport": {
         "windows": 149,
         "linux": 148
+    },
+    "Respawn": {
+        "windows": 245,
+        "linux": 247
     }
 }
