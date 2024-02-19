@@ -63,6 +63,7 @@ bool ShouldHearVoice(Player *player) __attribute__((weak));
 bool OnWeaponSpawned(Player *player, Weapon *weapon) __attribute__((weak));
 void OnClientKeyStateChange(Player *player, const char *button, bool pressed) __attribute__((weak));
 void OnClientExecuteCommand(Player *player, const char *command) __attribute__((weak));
+void OnServerCvarChange(const char *cvarname, const char *cvarvalue) __attribute__((weak));
 
 extern "C"
 {
@@ -539,6 +540,14 @@ extern "C"
             return;
 
         OnClientExecuteCommand(player, command);
+    }
+
+    void Internal_OnServerCvarChange(const char *name, const char *value)
+    {
+        if (!OnServerCvarChange)
+            return;
+
+        OnServerCvarChange(name, value);
     }
 
     const char *GetPluginAuthor();

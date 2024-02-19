@@ -978,6 +978,18 @@
 				},
 				"additional": {}
 			},
+			"onservercvarchange": {
+				"title": "OnServerCvarChange",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a server convar is changed.",
+				"return": "void",
+				"params": {
+					"cvarname": "const char*",
+					"cvarvalue": "const char*"
+				},
+				"additional": {}
+			,
 			"ongametick": {
 				"title": "OnGameTick",
 				"template": "event-syntax",

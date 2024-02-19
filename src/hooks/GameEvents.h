@@ -49,6 +49,7 @@ GAMEEVENT_DEFINITION(ExitBombzone);
 GAMEEVENT_DEFINITION(PlayerJump);
 GAMEEVENT_DEFINITION(PlayerFallDamage);
 GAMEEVENT_DEFINITION(ClientFullConnected);
+GAMEEVENT_DEFINITION(OnServerCvarChange);
 
 typedef std::multimap<const std::type_info *, const std::function<void(const GameEvent *)>> GameEventMap;
 

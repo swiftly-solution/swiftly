@@ -575,6 +575,14 @@ void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
     CALL_PFUNCTION_VOID_ARGS(OnClientKeyStateChange, e->slot->Get(), e->button, e->pressed);
 }
 
+void scripting_OnServerCvarChange(const OnServerCvarChange *e)
+{
+    std::string cvarname = e->pEvent->GetString("cvarname");
+    std::string cvarvalue = e->pEvent->GetString("cvarvalue");
+
+    CALL_PFUNCTION_VOID_ARGS(OnServerCvarChange, cvarname.c_str(), cvarvalue.c_str())
+}
+
 void PluginsComponent::RegisterGameEvents()
 {
     hooks::on<OnGameFrame>(scripting_OnGameTick);
@@ -609,6 +617,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
     gameevents::on<PlayerJump>(scripting_PlayerJump);
     gameevents::on<ClientFullConnected>(scripting_ClientFullConnected);
+    gameevents::on<OnServerCvarChange>(scripting_OnServerCvarChange);
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);

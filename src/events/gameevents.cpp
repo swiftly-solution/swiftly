@@ -173,3 +173,8 @@ GAME_EVENT(player_falldamage)
 {
     gameevents::emit<PlayerFallDamage>(pEvent);
 }
+
+GAME_EVENT(server_cvar)
+{
+    gameevents::emit<OnServerCvarChange>(pEvent);
+}
