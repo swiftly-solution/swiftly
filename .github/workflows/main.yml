@@ -30,12 +30,6 @@ jobs:
               with:
                   name: Scripting Documentation
                   path: ${{ github.workspace }}/swiftly/docgen/output
-
-            - name: Publish Documentation
-              if: github.EVENT_NAME == 'push'
-              working-directory: swiftly/docgen
-              run: |
-                  
     build:
         name: Build
         runs-on: ${{ matrix.os }}
