@@ -594,6 +594,45 @@ SMM_API void scripting_Player_Weapon_Remove(uint32 playerId, uint32 slot)
     weapon->Despawn();
 }
 
+SMM_API void scripting_Player_Weapon_SetClipAmmo(uint32 playerId, uint32 slot, int ammo)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    CCSWeaponBaseVData *vData = weapon->GetWeaponVData();
+    if (vData)
+    {
+        vData->m_iMaxClip1 = ammo;
+        vData->m_iDefaultClip1 = ammo;
+    }
+
+    weapon->m_iClip1 = ammo;
+}
+
+SMM_API void scripting_Player_Weapon_SetReserveAmmo(uint32 playerId, uint32 slot, int ammo)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    CCSWeaponBaseVData *vData = weapon->GetWeaponVData();
+    if (vData)
+    {
+        vData->m_nPrimaryReserveAmmoMax = ammo;
+    }
+
+    weapon->m_pReserveAmmo[0] = ammo;
+}
+
 SMM_API void scripting_Player_Weapon_Drop(uint32 playerId, uint32 slot)
 {
     Player *player = g_playerManager->GetPlayer(playerId);

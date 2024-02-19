@@ -2509,6 +2509,36 @@
 								},
 								"additional": {}
 							},
+							"setclipammo": {
+								"title": "SetClipAmmo",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the ammo in clip.",
+								"variable": {
+									"cpp": "weapon->SetClipAmmo",
+									"lua": "weapon:SetClipAmmo"
+								},
+								"return": "void",
+								"params": {
+									"ammo": "int"
+								},
+								"additional": {}
+							},
+							"setreserveammo": {
+								"title": "SetReserveAmmo",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the ammo in reserve.",
+								"variable": {
+									"cpp": "weapon->SetReserveAmmo",
+									"lua": "weapon:SetReserveAmmo"
+								},
+								"return": "void",
+								"params": {
+									"ammo": "int"
+								},
+								"additional": {}
+							},
 							"exists": {
 								"title": "Exists",
 								"template": "function-syntax",

@@ -30,6 +30,9 @@ typedef const char *(*Player_GetWeaponName)(uint32_t, uint32_t);
 
 typedef void (*Player_SetNametag)(uint32_t, uint32_t, const char *);
 
+typedef void (*Player_SetClipAmmo)(uint32_t, uint32_t, int);
+typedef void (*Player_SetReserveAmmo)(uint32_t, uint32_t, int);
+
 class Weapon
 {
 private:
@@ -186,6 +189,24 @@ public:
             reinterpret_cast<Player_SetNametag>(player_WeaponSetNametag)(this->m_playerSlot, this->m_weaponID, text);
         else
             NOT_SUPPORTED("scripting_Player_Weapon_SetNametag");
+    }
+
+    void SetClipAmmo(int ammo)
+    {
+        void *player_WeaponSetClipAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetClipAmmo");
+        if (player_WeaponSetClipAmmo)
+            reinterpret_cast<Player_SetClipAmmo>(player_WeaponSetClipAmmo)(this->m_playerSlot, this->m_weaponID, ammo);
+        else
+            NOT_SUPPORTED("scripting_Player_Weapon_SetClipAmmo");
+    }
+
+    void SetReserveAmmo(int ammo)
+    {
+        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetReserveAmmo");
+        if (player_WeaponSetReserveAmmo)
+            reinterpret_cast<Player_SetReserveAmmo>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, ammo);
+        else
+            NOT_SUPPORTED("scripting_Player_Weapon_SetReserveAmmo");
     }
 
     uint32_t GetID()

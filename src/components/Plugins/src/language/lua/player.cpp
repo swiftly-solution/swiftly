@@ -308,5 +308,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("GetID", [](LuaPlayerTwoArgsClass *base) -> uint32
                    { return base->slot; })
         .DefMember("SetNametag", [](LuaPlayerTwoArgsClass *base, const char *text) -> void
-                   { scripting_Player_Weapon_SetNametag(base->playerSlot, base->slot, text); });
+                   { scripting_Player_Weapon_SetNametag(base->playerSlot, base->slot, text); })
+        .DefMember("SetClipAmmo", [](LuaPlayerTwoArgsClass *base, int ammo) -> void
+                   { scripting_Player_Weapon_SetClipAmmo(base->playerSlot, base->slot, ammo); })
+        .DefMember("SetReserveAmmo", [](LuaPlayerTwoArgsClass *base, int ammo) -> void
+                   { scripting_Player_Weapon_SetReserveAmmo(base->playerSlot, base->slot, ammo); });
 }

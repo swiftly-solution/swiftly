@@ -90,6 +90,7 @@ class CBasePlayerWeaponVData : public CEntitySubclassVDataBase
 public:
     DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeaponVData, false)
     SCHEMA_FIELD_OFFSET(int, m_iMaxClip1, 0)
+    SCHEMA_FIELD_OFFSET(int, m_iDefaultClip1, 0)
 };
 
 class CCSWeaponBaseVData : public CBasePlayerWeaponVData
@@ -115,6 +116,9 @@ class CBasePlayerWeapon : public CEconEntity
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeapon, false)
+
+    SCHEMA_FIELD_OFFSET(int32_t, m_iClip1, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(int32_t, m_pReserveAmmo, 0)
 
     CCSWeaponBaseVData *GetWeaponVData() { return (CCSWeaponBaseVData *)GetVData(); }
 };

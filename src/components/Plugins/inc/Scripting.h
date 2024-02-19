@@ -194,6 +194,9 @@ SMM_API uint32_t scripting_Player_Weapons_GetWeaponID(uint32 playerId, uint32 sl
 SMM_API void scripting_Player_Weapon_Remove(uint32 playerId, uint32 slot);
 SMM_API void scripting_Player_Weapon_Drop(uint32 playerId, uint32 slot);
 
+SMM_API void scripting_Player_Weapon_SetClipAmmo(uint32 playerId, uint32 slot, int ammo);
+SMM_API void scripting_Player_Weapon_SetReserveAmmo(uint32 playerId, uint32 slot, int ammo);
+
 SMM_API void scripting_Player_Weapon_SetStatTrack(uint32 playerId, uint32 slot, bool stattrack);
 SMM_API void scripting_Player_Weapon_SetWear(uint32 playerId, uint32 slot, float wear);
 SMM_API void scripting_Player_Weapon_SetPaintKit(uint32 playerId, uint32 slot, int paintkit);
