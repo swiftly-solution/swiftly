@@ -20,6 +20,7 @@
 #include "player/gravity.h"
 #include "player/speed.h"
 #include "player/eyeangle.h"
+#include "player/fov.h"
 
 class Player
 {
@@ -42,6 +43,7 @@ public:
     Gravity *gravity;
     Speed *speed;
     EyeAngle *eyeangle;
+    Fov *fov;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -59,6 +61,7 @@ public:
         this->gravity = new Gravity(playerSlot);
         this->speed = new Speed(playerSlot);
         this->eyeangle = new EyeAngle(playerSlot);
+        this->fov = new Fov(playerSlot);
     }
 
     ~Player()
@@ -76,6 +79,7 @@ public:
         delete this->gravity;
         delete this->speed;
         delete this->eyeangle;
+        delete this->fov;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }

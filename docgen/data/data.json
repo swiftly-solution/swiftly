@@ -2450,6 +2450,42 @@
 					}
 				}
 			},
+			"desiredfov": {
+				"title": "Desired FOV",
+				"description": "A list of function to manipulate a players desired FOV.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the desired FOV of a player.",
+						"variable": {
+							"cpp": "player->fov->Get",
+							"lua": "player:fov():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the desired FOV of a player.",
+						"variable": {
+							"cpp": "player->fov->Set",
+							"lua": "player:fov():Set"
+						},
+						"return": "void",
+						"params": {
+							"fov": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
 			"speed": {
 				"title": "Speed",
 				"description": "A list of function to manipulate a players speed.",

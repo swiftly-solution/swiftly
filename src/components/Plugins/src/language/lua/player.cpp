@@ -53,6 +53,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto gravityClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto speedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto eyeangleClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto fovClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto weaponClass = state->CreateClass<LuaPlayerTwoArgsClass>().DefConstructor<int, uint32>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
@@ -128,7 +129,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("speed", [speedClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return speedClass.CreateInstance(base->playerSlot); })
         .DefMember("eyeangle", [eyeangleClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return eyeangleClass.CreateInstance(base->playerSlot); });
+                   { return eyeangleClass.CreateInstance(base->playerSlot); })
+        .DefMember("fov", [fovClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return fovClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -346,4 +349,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                                 }
 
                                 scripting_Player_SetEyeAngles(base->playerSlot, (float)coords.GetNumber("x"), (float)coords.GetNumber("y"), (float)coords.GetNumber("z")); });
+
+    fovClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                       { return scripting_Player_GetDesiredFOV(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t fov)
+                   { scripting_Player_SetDesiredFOV(base->playerSlot, fov); });
 }

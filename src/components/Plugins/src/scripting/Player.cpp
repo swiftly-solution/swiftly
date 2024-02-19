@@ -1110,3 +1110,29 @@ SMM_API void scripting_Player_Respawn(uint32 playerId)
 
     controller->Respawn();
 }
+
+SMM_API void scripting_Player_SetDesiredFOV(uint32 playerId, uint32_t fov)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *controller = player->GetController();
+    if (!controller)
+        return;
+
+    controller->m_iDesiredFOV = fov;
+}
+
+SMM_API uint32_t scripting_Player_GetDesiredFOV(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerController *controller = player->GetController();
+    if (!controller)
+        return 0;
+
+    return controller->m_iDesiredFOV();
+}
