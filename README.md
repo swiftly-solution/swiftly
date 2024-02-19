@@ -25,7 +25,7 @@
 ---
 ### Downloads
 - [Public Releases (recomended)](https://github.com/swiftly-solution/swiftly/releases)
-- [Builds (use at your own risk)](https://github.com/swiftly-solution/swiftly/releases)
+- [Builds (use at your own risk)](https://github.com/swiftly-solution/swiftly/actions)
 ---
 ### For Developers
 - [My First Plugin](https://docs.swiftlycs2.net/category/my-first-plugin)
