@@ -52,6 +52,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto weaponsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto gravityClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto speedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto eyeangleClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto weaponClass = state->CreateClass<LuaPlayerTwoArgsClass>().DefConstructor<int, uint32>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
@@ -123,7 +124,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("gravity", [gravityClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return gravityClass.CreateInstance(base->playerSlot); })
         .DefMember("speed", [speedClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return speedClass.CreateInstance(base->playerSlot); });
+                   { return speedClass.CreateInstance(base->playerSlot); })
+        .DefMember("eyeangle", [eyeangleClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return eyeangleClass.CreateInstance(base->playerSlot); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -313,4 +316,32 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_Weapon_SetClipAmmo(base->playerSlot, base->slot, ammo); })
         .DefMember("SetReserveAmmo", [](LuaPlayerTwoArgsClass *base, int ammo) -> void
                    { scripting_Player_Weapon_SetReserveAmmo(base->playerSlot, base->slot, ammo); });
+
+    eyeangleClass.DefMember("Get", [state](LuaPlayerArgsClass *base) -> luacpp::LuaObject
+                            {
+                            QAngle angle = scripting_Player_GetEyeAnglesRaw(base->playerSlot);
+
+                            float x = angle.x;
+                            float y = angle.y;
+                            float z = angle.z;
+
+                            LuaFuncWrapper wrapper(state->Get("vector3"));
+                            wrapper.PrepForExec();
+                            luacpp::PushValues(wrapper.GetML(), x, y, z);
+                            return wrapper.ExecuteWithReturnRaw("vector3", 3); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, luacpp::LuaObject coordsObj) -> void
+                   {
+                                if (coordsObj.GetType() != LUA_TTABLE) {
+                                    PRINT("Runtime", "Coords field needs to be a vector3.\n");
+                                    return;
+                                }
+
+                                luacpp::LuaTable coords = luacpp::LuaTable(coordsObj);
+
+                                if (coords.Get("x").GetType() == LUA_TNIL || coords.Get("y").GetType() == LUA_TNIL || coords.Get("z").GetType() == LUA_TNIL) {
+                                    PRINT("Runtime", "Coords field needs to be a vector3.\n");
+                                    return;
+                                }
+
+                                scripting_Player_SetEyeAngles(base->playerSlot, (float)coords.GetNumber("x"), (float)coords.GetNumber("y"), (float)coords.GetNumber("z")); });
 }

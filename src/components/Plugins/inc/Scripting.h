@@ -191,6 +191,10 @@ SMM_API void scripting_Player_Weapons_Remove(uint32 playerId);
 SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name);
 SMM_API uint32_t scripting_Player_Weapons_GetWeaponID(uint32 playerId, uint32 slot);
 
+QAngle scripting_Player_GetEyeAnglesRaw(uint32 playerId);
+SMM_API const char *scripting_Player_GetEyeAngles(uint32 playerId);
+SMM_API void scripting_Player_SetEyeAngles(uint32 playerId, float x, float y, float z);
+
 SMM_API void scripting_Player_Weapon_Remove(uint32 playerId, uint32 slot);
 SMM_API void scripting_Player_Weapon_Drop(uint32 playerId, uint32 slot);
 

@@ -19,6 +19,7 @@
 #include "player/weapons.h"
 #include "player/gravity.h"
 #include "player/speed.h"
+#include "player/eyeangle.h"
 
 class Player
 {
@@ -40,6 +41,7 @@ public:
     Weapons *weapons;
     Gravity *gravity;
     Speed *speed;
+    EyeAngle *eyeangle;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -56,6 +58,7 @@ public:
         this->weapons = new Weapons(playerSlot);
         this->gravity = new Gravity(playerSlot);
         this->speed = new Speed(playerSlot);
+        this->eyeangle = new EyeAngle(playerSlot);
     }
 
     ~Player()
@@ -72,6 +75,7 @@ public:
         delete this->weapons;
         delete this->gravity;
         delete this->speed;
+        delete this->eyeangle;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }

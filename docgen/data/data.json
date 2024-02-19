@@ -2142,6 +2142,42 @@
 					}
 				}
 			},
+			"eyeangle": {
+				"title": "Eye Angle",
+				"description": "A list of function to manipulate a players eye angle.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the eye angle of a player.",
+						"variable": {
+							"cpp": "player->eyeangle->Get",
+							"lua": "player:eyeangle():Get"
+						},
+						"return": "Vector*",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the eye angle of a player.",
+						"variable": {
+							"cpp": "player->eyeangle->Set",
+							"lua": "player:eyeangle():Set"
+						},
+						"return": "void",
+						"params": {
+							"coords": "Vector*"
+						},
+						"additional": {}
+					}
+				}
+			},
 			"health": {
 				"title": "Health",
 				"description": "A list of function to manipulate a players health.",

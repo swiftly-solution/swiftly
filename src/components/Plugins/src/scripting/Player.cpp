@@ -1059,3 +1059,41 @@ SMM_API void scripting_Player_SetSpeed(uint32 playerId, float speed)
 
     pawn->m_flVelocityModifier = speed;
 }
+
+QAngle scripting_Player_GetEyeAnglesRaw(uint32 playerId)
+{
+    QAngle angle(0.0f, 0.0f, 0.0f);
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return angle;
+
+    CCSPlayerPawnBase *pawn = player->GetPlayerBasePawn();
+    if (!pawn)
+        return angle;
+
+    return pawn->m_angEyeAngles();
+}
+
+SMM_API const char *scripting_Player_GetEyeAngles(uint32 playerId)
+{
+    std::string data = SerializeData(scripting_Player_GetEyeAnglesRaw(playerId));
+
+    char *result = new char[data.size() + 1];
+    strcpy(result, data.c_str());
+    return result;
+}
+
+SMM_API void scripting_Player_SetEyeAngles(uint32 playerId, float x, float y, float z)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawnBase *pawn = player->GetPlayerBasePawn();
+    if (!pawn)
+        return;
+
+    QAngle angle(x, y, z);
+    pawn->m_angEyeAngles = angle;
+}
