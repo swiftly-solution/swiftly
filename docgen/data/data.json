@@ -989,7 +989,7 @@
 					"cvarvalue": "const char*"
 				},
 				"additional": {}
-			,
+			},
 			"ongametick": {
 				"title": "OnGameTick",
 				"template": "event-syntax",
