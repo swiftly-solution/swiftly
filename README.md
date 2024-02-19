@@ -5,7 +5,7 @@
     Swiftly is a server modification plugin for Counter Strike 2 servers which is based on Metamod:Source 2.x
     <br/>
     <a href="https://github.com/swiftly-solution/swiftly/issues">Report Bug</a>
-    <a href="https://github.com/swiftly-solution/swiftly/issues">Discord Server</a>
+    <a href="https://swiftlycs2.net/discord">Discord Server</a>
   </p>
 </p>
 
