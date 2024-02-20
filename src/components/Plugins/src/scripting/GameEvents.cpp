@@ -583,6 +583,11 @@ void scripting_OnServerCvarChange(const OnServerCvarChange *e)
     CALL_PFUNCTION_VOID_ARGS(OnServerCvarChange, cvarname.c_str(), cvarvalue.c_str())
 }
 
+bool scripting_OnClientCommand(OnClientCommand *e)
+{
+    CALL_PFUNCTION_BOOL_ARGS(OnClientCommand, false, true, e->slot->Get(), e->command);
+}
+
 void PluginsComponent::RegisterGameEvents()
 {
     hooks::on<OnGameFrame>(scripting_OnGameTick);

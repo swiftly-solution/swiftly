@@ -63,6 +63,7 @@ const std::vector<std::string> funcsToLoad = {
     "OnWeaponSpawned",
     "OnClientKeyStateChange",
     "OnServerCvarChange",
+    "OnClientCommand",
 };
 
 class LuaFuncWrapper : public luacpp::LuaRefObject

@@ -12,17 +12,6 @@ struct Event
     virtual ~Event() {}
 };
 
-struct OnClientCommand : Event
-{
-    CPlayerSlot *slot;
-    const CCommand *args;
-    OnClientCommand(CPlayerSlot *slot, const CCommand *args)
-    {
-        this->slot = slot;
-        this->args = args;
-    };
-};
-
 struct OnClientActive : Event
 {
     CPlayerSlot *slot;
@@ -144,6 +133,17 @@ struct OnClientExecuteCommand : Event
     CPlayerSlot *slot;
     const char *command;
     OnClientExecuteCommand(CPlayerSlot *slot, char const *command)
+    {
+        this->slot = slot;
+        this->command = command;
+    };
+};
+
+struct OnClientCommand : Event
+{
+    CPlayerSlot *slot;
+    const char *command;
+    OnClientCommand(CPlayerSlot *slot, char const *command)
     {
         this->slot = slot;
         this->command = command;

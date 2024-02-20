@@ -31,7 +31,7 @@ void OnBombDefused(Player *player, unsigned short site) __attribute__((weak));
 void OnBombExploded(Player *player, unsigned short site) __attribute__((weak));
 void OnBombDropped(Player *player) __attribute__((weak));
 void OnBombPickup(Player *player) __attribute__((weak));
-
+bool OnClientCommand(Player *player, const char *command) __attribute__((weak));
 void BombBeginPlant(Player *player, unsigned short site) __attribute__((weak));
 void BombAbortPlant(Player *player, unsigned short site) __attribute__((weak));
 void BombPlanted(Player *player, unsigned short site) __attribute__((weak));
@@ -552,6 +552,18 @@ extern "C"
             return;
 
         OnServerCvarChange(name, value);
+    }
+
+    bool Internal_OnClientCommand(uint32_t slot, const char *command)
+    {
+        if (!OnClientCommand)
+            return true;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (!player)
+            return true;
+
+        return OnClientCommand(player, command);
     }
 
     const char *GetPluginAuthor();

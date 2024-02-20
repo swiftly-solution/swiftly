@@ -241,6 +241,8 @@ bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
     return true;
 }
 
+bool scripting_OnClientCommand(OnClientCommand *e);
+
 void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CCommandContext &ctx, const CCommand &args)
 {
     CPlayerSlot sl = ctx.GetPlayerSlot();
@@ -250,6 +252,10 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
 
     if (slot->Get() != -1)
     {
+        OnClientCommand hookEv = OnClientCommand(slot, args.GetCommandString());
+        if (!scripting_OnClientCommand(&hookEv))
+            RETURN_META(MRES_SUPERCEDE);
+
         if (command == "say" || command == "say_team")
         {
             Player *player = g_playerManager->GetPlayer(slot);
@@ -343,11 +349,6 @@ void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config,
 void SwiftlyPlugin::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const char *pszName, uint64 xuid)
 {
     hooks::emit(OnClientActive(&slot, bLoadGame, pszName, xuid));
-}
-
-void SwiftlyPlugin::Hook_ClientCommand(CPlayerSlot slot, const CCommand &args)
-{
-    hooks::emit(OnClientCommand(&slot, &args));
 }
 
 void SwiftlyPlugin::Hook_ClientSettingsChanged(CPlayerSlot slot)

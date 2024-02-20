@@ -1055,6 +1055,21 @@
 					"lua": ":::note\n @return true => Allows the message\n@return false => Blocks the message \n:::"
 				}
 			},
+			"onclientcommand": {
+				"title": "OnClientCommand",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is triggered a client wants to execute a command.",
+				"return": "bool",
+				"params": {
+					"player": "player",
+					"command": "const char*"
+				},
+				"additional": {
+					"cpp": ":::note\n @return true => Allows the command\n@return false => Blocks the command \n:::",
+					"lua": ":::note\n @return true => Allows the command\n@return false => Blocks the command \n:::"
+				}
+			},
 			"onplayerdeath": {
 				"title": "OnPlayerDeath",
 				"template": "event-syntax",
