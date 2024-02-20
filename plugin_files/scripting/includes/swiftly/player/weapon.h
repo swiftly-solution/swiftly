@@ -39,6 +39,8 @@ typedef void (*Player_Weapon_SetAttackTick)(uint32_t, uint32_t, int32_t);
 typedef float (*Player_Weapon_GetAttackTickRatio)(uint32_t, uint32_t);
 typedef void (*Player_Weapon_SetAttackTickRatio)(uint32_t, uint32_t, float);
 
+typedef WeaponSilencerType (*Player_Weapon_GetSilencerType)(uint32_t, uint32_t);
+
 class Weapon
 {
 private:
@@ -306,6 +308,18 @@ public:
             reinterpret_cast<Player_Weapon_SetAttackTickRatio>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, ratio);
         else
             NOT_SUPPORTED("scripting_Player_Weapon_SetNextSecondaryAttackTickRatio");
+    }
+
+    WeaponSilencerType GetSilencerType()
+    {
+        void *player_WeaponGetSilencerType = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetSilencerType");
+        if (player_WeaponGetSilencerType)
+            return reinterpret_cast<Player_Weapon_GetSilencerType>(player_WeaponGetSilencerType)(this->m_playerSlot, this->m_weaponID);
+        else
+        {
+            NOT_SUPPORTED("scripting_Player_Weapon_GetSilencerType");
+            return WeaponSilencerType::NONE;
+        }
     }
 
     uint32_t GetID()

@@ -150,4 +150,11 @@ enum WeaponSlot : uint32_t
     LAST = 0xC,
 };
 
+enum WeaponSilencerType : uint32_t
+{
+    NONE = 0x0,
+    DETACHABLE = 0x1,
+    INTEGRATED = 0x2,
+};
+
 #endif

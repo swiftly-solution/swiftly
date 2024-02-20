@@ -739,6 +739,23 @@ SMM_API void scripting_Player_Weapon_SetNextSecondaryAttackTickRatio(uint32 play
     weapon->m_flNextSecondaryAttackTickRatio = ratio;
 }
 
+SMM_API uint32_t scripting_Player_Weapon_GetSilencerType(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return CSWeaponSilencerType::WEAPONSILENCER_NONE;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return CSWeaponSilencerType::WEAPONSILENCER_NONE;
+
+    CCSWeaponBaseVData *vData = weapon->GetWeaponVData();
+    if (!vData)
+        return CSWeaponSilencerType::WEAPONSILENCER_NONE;
+
+    return vData->m_eSilencerType();
+}
+
 SMM_API void scripting_Player_Weapon_SetReserveAmmo(uint32 playerId, uint32 slot, int ammo)
 {
     Player *player = g_playerManager->GetPlayer(playerId);

@@ -1408,7 +1408,7 @@
 				"position": 1,
 				"description": "To use the Swiftly Logging system you need the following code in your plugin.",
 				"content": {
-					"cpp": "```cpp\n#include <swiftly/logger.h>\n\nLogger *logger = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    logger = new Logger(mainFilePath, pluginName);\n    ...\n}\n```"
+					"cpp": "```cpp\n#include <swiftly/menus.h>\n\nMenus *menus = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    menus = new Menus(pluginName);\n    ...\n}\n```"
 				}
 			},
 			"register": {
@@ -2633,6 +2633,19 @@
 								"params": {
 									"ammo": "int"
 								},
+								"additional": {}
+							},
+							"getsilencertype": {
+								"title": "GetSilencerType",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the silencer type of the weapon.",
+								"variable": {
+									"cpp": "weapon->GetSilencerType",
+									"lua": "weapon:GetSilencerType"
+								},
+								"return": "WeaponSilencerType",
+								"params": {},
 								"additional": {}
 							},
 							"getnextprimaryattacktick": {

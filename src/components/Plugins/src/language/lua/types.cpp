@@ -158,6 +158,12 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     WeaponSlotTable.SetInteger("First", 0x0);
     WeaponSlotTable.SetInteger("Last", 0xC);
 
+    auto WeaponSilencerTypeTable = state->CreateTable("WeaponSilencerType");
+
+    WeaponSilencerTypeTable.SetInteger("None", 0x0);
+    WeaponSilencerTypeTable.SetInteger("Detachable", 0x1);
+    WeaponSilencerTypeTable.SetInteger("Integrated", 0x2);
+
     state->CreateInteger(0, "TEAM_NONE");
     state->CreateInteger(1, "TEAM_SPECTATOR");
     state->CreateInteger(2, "TEAM_T");

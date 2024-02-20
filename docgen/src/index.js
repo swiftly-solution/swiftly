@@ -33,6 +33,7 @@ const GenerateLuaType = (param) => {
     else if (param == "HudDestination") return "HudDestination";
     else if (param == "PlayerStat") return "PlayerStat";
     else if (param == "WeaponSlot") return "WeaponSlot";
+    else if (param == "WeaponSilencerType") return "WeaponSilencerType";
     else throw `${param} not implemented`;
 }
 

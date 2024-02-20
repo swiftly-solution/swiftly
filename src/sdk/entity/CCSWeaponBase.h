@@ -24,6 +24,13 @@ enum gear_slot_t : uint32_t
     GEAR_SLOT_LAST = 0xc,
 };
 
+enum CSWeaponSilencerType : uint32_t
+{
+    WEAPONSILENCER_NONE = 0x0,
+    WEAPONSILENCER_DETACHABLE = 0x1,
+    WEAPONSILENCER_INTEGRATED = 0x2,
+};
+
 class CEconItemAttribute
 {
 public:
@@ -103,6 +110,7 @@ public:
     SCHEMA_FIELD_OFFSET(gear_slot_t, m_GearSlot, 0)
     SCHEMA_FIELD_OFFSET(int, m_nPrice, 0)
     SCHEMA_FIELD_OFFSET(int, m_nPrimaryReserveAmmoMax, 0)
+    SCHEMA_FIELD_OFFSET(CSWeaponSilencerType, m_eSilencerType, 0)
 };
 
 class CEconWearable : public CEconEntity
