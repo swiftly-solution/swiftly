@@ -104,6 +104,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_SetMusicKit(base->playerSlot, musickit); })
         .DefMember("Respawn", [](LuaPlayerClass *base) -> void
                    { scripting_Player_Respawn(base->playerSlot); })
+        .DefMember("SetHealthShotBoostEffectExpirationTime", [](LuaPlayerClass *base, float expireTime) -> void
+                   { scripting_Player_SetHealthShotBoostEffectExpirationTime(base->playerSlot, expireTime); })
         .DefMember("health", [healthClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return healthClass.CreateInstance(base->playerSlot); })
         .DefMember("armor", [armorClass](LuaPlayerClass *base) -> luacpp::LuaObject

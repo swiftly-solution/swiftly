@@ -1805,6 +1805,24 @@
 						},
 						"additional": {}
 					},
+					"sethealthshotboosteffectexpirationtime": {
+						"title": "SetHealthShotBoostEffectExpirationTime",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Executes a command in player's console.",
+						"variable": {
+							"cpp": "player->SetHealthShotBoostEffectExpirationTime",
+							"lua": "player:SetHealthShotBoostEffectExpirationTime"
+						},
+						"return": "void",
+						"params": {
+							"expiretime": "float"
+						},
+						"additional": {
+							"lua": ":::note\n The expiretime needs to be the form of server:GetCurrentTime() + Duration. \n:::",
+							"cpp": ":::note\n The expiretime needs to be the form of server->GetCurrentTime() + Duration. \n:::"
+						}
+					},
 					"getconnectedtime": {
 						"title": "GetConnectedTime",
 						"template": "function-syntax",

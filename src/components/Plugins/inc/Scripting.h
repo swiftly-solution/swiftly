@@ -179,7 +179,7 @@ SMM_API void scripting_Player_SetVelocity(uint32 playerId, float x, float y, flo
 SMM_API int scripting_Player_GetMoney(uint32 playerId);
 SMM_API void scripting_Player_SetMoney(uint32 playerId, int money);
 SMM_API void scripting_Player_TakeMoney(uint32 playerId, int money);
-
+SMM_API void scripting_Player_SetHealthShotBoostEffectExpirationTime(uint32 playerId, float expireTime);
 SMM_API void scripting_Player_ShowMenu(uint32 playerId, const char *menuid);
 SMM_API void scripting_Player_HideMenu(uint32 playerId);
 

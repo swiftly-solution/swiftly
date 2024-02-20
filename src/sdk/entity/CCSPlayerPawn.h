@@ -11,6 +11,7 @@ public:
     SCHEMA_FIELD_OFFSET(CCSPlayer_ActionTrackingServices *, m_pActionTrackingServices, 0)
     SCHEMA_FIELD_OFFSET(CCSPlayer_ViewModelServices *, m_pViewModelServices, 0)
     SCHEMA_FIELD_POINTER_OFFSET(CEconItemView, m_EconGloves, 0)
+    SCHEMA_FIELD_OFFSET(float, m_flHealthShotBoostExpirationTime, 0)
 
     void GiveNamedItem(const char *item)
     {

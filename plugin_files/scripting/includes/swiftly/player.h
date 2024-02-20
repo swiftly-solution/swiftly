@@ -297,6 +297,15 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_Respawn");
     }
+
+    void SetHealthShotBoostEffectExpirationTime(float expiretime)
+    {
+        void *player_SetHealthShotBoostEffectExpirationTime = FetchFunctionPtr(nullptr, "scripting_Player_SetHealthShotBoostEffectExpirationTime");
+        if (player_SetHealthShotBoostEffectExpirationTime)
+            reinterpret_cast<Player_SetGravity>(player_SetHealthShotBoostEffectExpirationTime)(this->m_playerSlot, expiretime);
+        else
+            NOT_SUPPORTED("scripting_Player_SetHealthShotBoostEffectExpirationTime");
+    }
 };
 
 #endif

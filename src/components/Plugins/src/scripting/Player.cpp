@@ -1304,3 +1304,16 @@ SMM_API uint32_t scripting_Player_GetDesiredFOV(uint32 playerId)
 
     return controller->m_iDesiredFOV();
 }
+
+SMM_API void scripting_Player_SetHealthShotBoostEffectExpirationTime(uint32 playerId, float expireTime)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    pawn->m_flHealthShotBoostExpirationTime = expireTime;
+}
