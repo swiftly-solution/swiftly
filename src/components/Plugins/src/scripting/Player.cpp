@@ -589,6 +589,7 @@ SMM_API void scripting_Player_Weapon_Remove(uint32 playerId, uint32 slot)
     if (!itemServices)
         return;
 
+    weaponServices->m_hActiveWeapon = weapon;
     itemServices->DropPlayerWeapon(weapon);
     weaponServices->RemoveWeapon(weapon);
     weapon->Despawn();
@@ -779,6 +780,7 @@ SMM_API void scripting_Player_Weapon_Drop(uint32 playerId, uint32 slot)
     if (!itemServices)
         return;
 
+    weaponServices->m_hActiveWeapon = weapon;
     itemServices->DropPlayerWeapon(weapon);
 }
 
