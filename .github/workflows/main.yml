@@ -111,7 +111,7 @@ jobs:
               working-directory: swiftly
               run: |
                   cd build
-                  curl https://api.github.com/repos/swiftly-solution/swiftly/releases/latest | grep "Swiftly.Plugin.Linux.zip" | cut -d : -f 2,3 | tr -d \" | wget -qi -
+                  curl https://api.github.com/repos/swiftly-solution/swiftly/releases/latest | grep "Swiftly.Plugin.Linux.zip" | cut -d : -f 2,3 | tr -d \" | tail -1 | wget -qi -
                   unzip Swiftly.Plugin.Linux.zip
                   mkdir release
                   mv addons release
