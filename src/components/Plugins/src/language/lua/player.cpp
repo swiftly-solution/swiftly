@@ -319,8 +319,26 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_Weapon_SetNametag(base->playerSlot, base->slot, text); })
         .DefMember("SetClipAmmo", [](LuaPlayerTwoArgsClass *base, int ammo) -> void
                    { scripting_Player_Weapon_SetClipAmmo(base->playerSlot, base->slot, ammo); })
+        .DefMember("SetClip2Ammo", [](LuaPlayerTwoArgsClass *base, int ammo) -> void
+                   { scripting_Player_Weapon_SetClip2Ammo(base->playerSlot, base->slot, ammo); })
         .DefMember("SetReserveAmmo", [](LuaPlayerTwoArgsClass *base, int ammo) -> void
-                   { scripting_Player_Weapon_SetReserveAmmo(base->playerSlot, base->slot, ammo); });
+                   { scripting_Player_Weapon_SetReserveAmmo(base->playerSlot, base->slot, ammo); })
+        .DefMember("GetNextPrimaryAttackTick", [](LuaPlayerTwoArgsClass *base) -> int32_t
+                   { return scripting_Player_Weapon_GetNextPrimaryAttackTick(base->playerSlot, base->slot); })
+        .DefMember("SetNextPrimaryAttackTick", [](LuaPlayerTwoArgsClass *base, int32_t tick) -> void
+                   { scripting_Player_Weapon_SetNextPrimaryAttackTick(base->playerSlot, base->slot, tick); })
+        .DefMember("GetNextSecondaryAttackTick", [](LuaPlayerTwoArgsClass *base) -> int32_t
+                   { return scripting_Player_Weapon_GetNextSecondaryAttackTick(base->playerSlot, base->slot); })
+        .DefMember("SetNextSecondaryAttackTick", [](LuaPlayerTwoArgsClass *base, int32_t tick) -> void
+                   { scripting_Player_Weapon_SetNextSecondaryAttackTick(base->playerSlot, base->slot, tick); })
+        .DefMember("GetNextPrimaryAttackTickRatio", [](LuaPlayerTwoArgsClass *base) -> float
+                   { return scripting_Player_Weapon_GetNextPrimaryAttackTickRatio(base->playerSlot, base->slot); })
+        .DefMember("SetNextPrimaryAttackTickRatio", [](LuaPlayerTwoArgsClass *base, float ratio) -> void
+                   { scripting_Player_Weapon_SetNextPrimaryAttackTickRatio(base->playerSlot, base->slot, ratio); })
+        .DefMember("GetNextSecondaryAttackTickRatio", [](LuaPlayerTwoArgsClass *base) -> float
+                   { return scripting_Player_Weapon_GetNextSecondaryAttackTickRatio(base->playerSlot, base->slot); })
+        .DefMember("SetNextSecondaryAttackTickRatio", [](LuaPlayerTwoArgsClass *base, float ratio) -> void
+                   { scripting_Player_Weapon_SetNextSecondaryAttackTickRatio(base->playerSlot, base->slot, ratio); });
 
     eyeangleClass.DefMember("Get", [state](LuaPlayerArgsClass *base) -> luacpp::LuaObject
                             {

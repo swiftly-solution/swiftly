@@ -91,6 +91,8 @@ public:
     DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeaponVData, false)
     SCHEMA_FIELD_OFFSET(int, m_iMaxClip1, 0)
     SCHEMA_FIELD_OFFSET(int, m_iDefaultClip1, 0)
+    SCHEMA_FIELD_OFFSET(int, m_iMaxClip2, 0)
+    SCHEMA_FIELD_OFFSET(int, m_iDefaultClip2, 0)
 };
 
 class CCSWeaponBaseVData : public CBasePlayerWeaponVData
@@ -118,7 +120,12 @@ public:
     DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeapon, false)
 
     SCHEMA_FIELD_OFFSET(int32_t, m_iClip1, 0)
+    SCHEMA_FIELD_OFFSET(int32_t, m_iClip2, 0)
     SCHEMA_FIELD_POINTER_OFFSET(int32_t, m_pReserveAmmo, 0)
+    SCHEMA_FIELD_OFFSET(int32_t, m_nNextPrimaryAttackTick, 0)
+    SCHEMA_FIELD_OFFSET(int32_t, m_nNextSecondaryAttackTick, 0)
+    SCHEMA_FIELD_OFFSET(float, m_flNextPrimaryAttackTickRatio, 0)
+    SCHEMA_FIELD_OFFSET(float, m_flNextSecondaryAttackTickRatio, 0)
 
     CCSWeaponBaseVData *GetWeaponVData() { return (CCSWeaponBaseVData *)GetVData(); }
 };

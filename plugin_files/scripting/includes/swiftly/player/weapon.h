@@ -33,6 +33,12 @@ typedef void (*Player_SetNametag)(uint32_t, uint32_t, const char *);
 typedef void (*Player_SetClipAmmo)(uint32_t, uint32_t, int);
 typedef void (*Player_SetReserveAmmo)(uint32_t, uint32_t, int);
 
+typedef int32_t (*Player_Weapon_GetAttackTick)(uint32_t, uint32_t);
+typedef void (*Player_Weapon_SetAttackTick)(uint32_t, uint32_t, int32_t);
+
+typedef float (*Player_Weapon_GetAttackTickRatio)(uint32_t, uint32_t);
+typedef void (*Player_Weapon_SetAttackTickRatio)(uint32_t, uint32_t, float);
+
 class Weapon
 {
 private:
@@ -200,6 +206,15 @@ public:
             NOT_SUPPORTED("scripting_Player_Weapon_SetClipAmmo");
     }
 
+    void SetClip2Ammo(int ammo)
+    {
+        void *player_WeaponSetClip2Ammo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetClip2Ammo");
+        if (player_WeaponSetClip2Ammo)
+            reinterpret_cast<Player_SetClipAmmo>(player_WeaponSetClip2Ammo)(this->m_playerSlot, this->m_weaponID, ammo);
+        else
+            NOT_SUPPORTED("scripting_Player_Weapon_SetClip2Ammo");
+    }
+
     void SetReserveAmmo(int ammo)
     {
         void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetReserveAmmo");
@@ -207,6 +222,90 @@ public:
             reinterpret_cast<Player_SetReserveAmmo>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, ammo);
         else
             NOT_SUPPORTED("scripting_Player_Weapon_SetReserveAmmo");
+    }
+
+    int32_t GetNextPrimaryAttackTick()
+    {
+        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetNextPrimaryAttackTick");
+        if (player_WeaponSetReserveAmmo)
+            return reinterpret_cast<Player_Weapon_GetAttackTick>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID);
+        else
+        {
+            NOT_SUPPORTED("scripting_Player_Weapon_GetNextPrimaryAttackTick");
+            return 0;
+        }
+    }
+
+    int32_t GetNextSecondaryAttackTick()
+    {
+        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetNextSecondaryAttackTick");
+        if (player_WeaponSetReserveAmmo)
+            return reinterpret_cast<Player_Weapon_GetAttackTick>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID);
+        else
+        {
+            NOT_SUPPORTED("scripting_Player_Weapon_GetNextSecondaryAttackTick");
+            return 0;
+        }
+    }
+
+    void SetNextPrimaryAttackTick(int32_t tick)
+    {
+        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNextPrimaryAttackTick");
+        if (player_WeaponSetReserveAmmo)
+            reinterpret_cast<Player_Weapon_SetAttackTick>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, tick);
+        else
+            NOT_SUPPORTED("scripting_Player_Weapon_SetNextPrimaryAttackTick");
+    }
+
+    void SetNextSecondaryAttackTick(int32_t tick)
+    {
+        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNextSecondaryAttackTick");
+        if (player_WeaponSetReserveAmmo)
+            reinterpret_cast<Player_Weapon_SetAttackTick>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, tick);
+        else
+            NOT_SUPPORTED("scripting_Player_Weapon_SetNextSecondaryAttackTick");
+    }
+
+    float GetNextPrimaryAttackTickRatio()
+    {
+        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetNextPrimaryAttackTickRatio");
+        if (player_WeaponSetReserveAmmo)
+            return reinterpret_cast<Player_Weapon_GetAttackTickRatio>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID);
+        else
+        {
+            NOT_SUPPORTED("scripting_Player_Weapon_GetNextPrimaryAttackTickRatio");
+            return 0.0f;
+        }
+    }
+
+    float GetNextSecondaryAttackTickRatio()
+    {
+        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetNextSecondaryAttackTickRatio");
+        if (player_WeaponSetReserveAmmo)
+            return reinterpret_cast<Player_Weapon_GetAttackTickRatio>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID);
+        else
+        {
+            NOT_SUPPORTED("scripting_Player_Weapon_GetNextSecondaryAttackTickRatio");
+            return 0.0f;
+        }
+    }
+
+    void SetNextPrimaryAttackTickRatio(float ratio)
+    {
+        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNextPrimaryAttackTickRatio");
+        if (player_WeaponSetReserveAmmo)
+            reinterpret_cast<Player_Weapon_SetAttackTickRatio>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, ratio);
+        else
+            NOT_SUPPORTED("scripting_Player_Weapon_SetNextPrimaryAttackTickRatio");
+    }
+
+    void SetNextSecondaryAttackTickRatio(float ratio)
+    {
+        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNextSecondaryAttackTickRatio");
+        if (player_WeaponSetReserveAmmo)
+            reinterpret_cast<Player_Weapon_SetAttackTickRatio>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, ratio);
+        else
+            NOT_SUPPORTED("scripting_Player_Weapon_SetNextSecondaryAttackTickRatio");
     }
 
     uint32_t GetID()

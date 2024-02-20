@@ -1098,8 +1098,7 @@
 					"dmgHealth": "short",
 					"dmgArmor": "short",
 					"hitgroup": "short",
-					"weapon": "const char*",
-					"fatal": "bool"
+					"weapon": "const char*"
 				},
 				"additional": {}
 			},
@@ -2618,6 +2617,133 @@
 								"return": "void",
 								"params": {
 									"ammo": "int"
+								},
+								"additional": {}
+							},
+							"setclip2ammo": {
+								"title": "SetClip2Ammo",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the ammo in clip 2.",
+								"variable": {
+									"cpp": "weapon->SetClip2Ammo",
+									"lua": "weapon:SetClip2Ammo"
+								},
+								"return": "void",
+								"params": {
+									"ammo": "int"
+								},
+								"additional": {}
+							},
+							"getnextprimaryattacktick": {
+								"title": "GetNextPrimaryAttackTick",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the next primary attack tick.",
+								"variable": {
+									"cpp": "weapon->GetNextPrimaryAttackTick",
+									"lua": "weapon:GetNextPrimaryAttackTick"
+								},
+								"return": "int32_t",
+								"params": {},
+								"additional": {}
+							},
+							"getnextsecondaryattacktick": {
+								"title": "GetNextSecondaryAttackTick",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the next secondary attack tick.",
+								"variable": {
+									"cpp": "weapon->GetNextSecondaryAttackTick",
+									"lua": "weapon:GetNextSecondaryAttackTick"
+								},
+								"return": "int32_t",
+								"params": {},
+								"additional": {}
+							},
+							"setnextprimaryattacktick": {
+								"title": "SetNextPrimaryAttackTick",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the next primary attack tick.",
+								"variable": {
+									"cpp": "weapon->SetNextPrimaryAttackTick",
+									"lua": "weapon:SetNextPrimaryAttackTick"
+								},
+								"return": "void",
+								"params": {
+									"tick": "int32_t"
+								},
+								"additional": {}
+							},
+							"setnextsecondaryattacktick": {
+								"title": "SetNextSecondaryAttackTick",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the next secondary attack tick.",
+								"variable": {
+									"cpp": "weapon->SetNextSecondaryAttackTick",
+									"lua": "weapon:SetNextSecondaryAttackTick"
+								},
+								"return": "void",
+								"params": {
+									"tick": "int32_t"
+								},
+								"additional": {}
+							},
+							"getnextprimaryattacktickratio": {
+								"title": "GetNextPrimaryAttackTickRatio",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the next primary attack tick ratio.",
+								"variable": {
+									"cpp": "weapon->GetNextPrimaryAttackTickRatio",
+									"lua": "weapon:GetNextPrimaryAttackTickRatio"
+								},
+								"return": "float",
+								"params": {},
+								"additional": {}
+							},
+							"getnextsecondaryattacktickratio": {
+								"title": "GetNextSecondaryAttackTickRatio",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Returns the next secondary attack tick ratio.",
+								"variable": {
+									"cpp": "weapon->GetNextSecondaryAttackTickRatio",
+									"lua": "weapon:GetNextSecondaryAttackTickRatio"
+								},
+								"return": "float",
+								"params": {},
+								"additional": {}
+							},
+							"setnextprimaryattacktickratio": {
+								"title": "SetNextPrimaryAttackTickRatio",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the next primary attack tick ratio.",
+								"variable": {
+									"cpp": "weapon->SetNextPrimaryAttackTickRatio",
+									"lua": "weapon:SetNextPrimaryAttackTickRatio"
+								},
+								"return": "void",
+								"params": {
+									"ratio": "float"
+								},
+								"additional": {}
+							},
+							"setnextsecondaryattacktickratio": {
+								"title": "SetNextSecondaryAttackTickRatio",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the next secondary attack tick ratio.",
+								"variable": {
+									"cpp": "weapon->SetNextSecondaryAttackTickRatio",
+									"lua": "weapon:SetNextSecondaryAttackTickRatio"
+								},
+								"return": "void",
+								"params": {
+									"ratio": "float"
 								},
 								"additional": {}
 							},

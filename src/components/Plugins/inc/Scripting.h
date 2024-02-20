@@ -202,7 +202,17 @@ SMM_API void scripting_Player_Weapon_Remove(uint32 playerId, uint32 slot);
 SMM_API void scripting_Player_Weapon_Drop(uint32 playerId, uint32 slot);
 
 SMM_API void scripting_Player_Weapon_SetClipAmmo(uint32 playerId, uint32 slot, int ammo);
+SMM_API void scripting_Player_Weapon_SetClip2Ammo(uint32 playerId, uint32 slot, int ammo);
 SMM_API void scripting_Player_Weapon_SetReserveAmmo(uint32 playerId, uint32 slot, int ammo);
+
+SMM_API int32_t scripting_Player_Weapon_GetNextPrimaryAttackTick(uint32 playerId, uint32 slot);
+SMM_API int32_t scripting_Player_Weapon_GetNextSecondaryAttackTick(uint32 playerId, uint32 slot);
+SMM_API void scripting_Player_Weapon_SetNextPrimaryAttackTick(uint32 playerId, uint32 slot, int32_t tick);
+SMM_API void scripting_Player_Weapon_SetNextSecondaryAttackTick(uint32 playerId, uint32 slot, int32_t tick);
+SMM_API float scripting_Player_Weapon_GetNextPrimaryAttackTickRatio(uint32 playerId, uint32 slot);
+SMM_API float scripting_Player_Weapon_GetNextSecondaryAttackTickRatio(uint32 playerId, uint32 slot);
+SMM_API void scripting_Player_Weapon_SetNextPrimaryAttackTickRatio(uint32 playerId, uint32 slot, float ratio);
+SMM_API void scripting_Player_Weapon_SetNextSecondaryAttackTickRatio(uint32 playerId, uint32 slot, float ratio);
 
 SMM_API void scripting_Player_Weapon_SetStatTrack(uint32 playerId, uint32 slot, bool stattrack);
 SMM_API void scripting_Player_Weapon_SetWear(uint32 playerId, uint32 slot, float wear);

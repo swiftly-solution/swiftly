@@ -45,7 +45,7 @@ void OnMapLoad(const char *mapName) __attribute__((weak));
 void OnMapUnload(const char *mapName) __attribute__((weak));
 bool OnClientGameMessage(Player *player, int destination, const char *message) __attribute__((weak));
 void OnPlayerDeath(Player *player, Player *attacker, Player *assister, bool assistedflash, const char *weapon, bool headshot, short dominated, short revenge, short wipe, short penetrated, bool noreplay, bool noscope, bool thrusmoke, bool attackerblind, float distance, short dmg_health, short dmg_armor, short hitgroup) __attribute__((weak));
-void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon, bool fatal) __attribute__((weak));
+void OnPlayerHurt(Player *player, Player *attacker, short dmgHealth, short dmgArmor, short hitgroup, const char *weapon) __attribute__((weak));
 void OnPlayerBlind(Player *player, Player *attacker, short entityid, float duration) __attribute__((weak));
 void OnPlayerChangeName(Player *player, const char *oldname, const char *newname) __attribute__((weak));
 void OnPlayerInfo(const char *name, Player *player, uint64_t steamid, bool bot) __attribute__((weak));
@@ -491,7 +491,7 @@ extern "C"
         if (attackerPlayer == nullptr)
             return;
 
-        OnPlayerHurt(player, attackerPlayer, dmgHealth, dmgArmor, hitgroup, weapon, (player->health->Get() - dmgHealth <= 0));
+        OnPlayerHurt(player, attackerPlayer, dmgHealth, dmgArmor, hitgroup, weapon);
     }
 
     bool Internal_ShouldHearVoice(uint32_t slot)

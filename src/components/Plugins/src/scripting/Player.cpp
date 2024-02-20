@@ -614,6 +614,130 @@ SMM_API void scripting_Player_Weapon_SetClipAmmo(uint32 playerId, uint32 slot, i
     weapon->m_iClip1 = ammo;
 }
 
+SMM_API void scripting_Player_Weapon_SetClip2Ammo(uint32 playerId, uint32 slot, int ammo)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    CCSWeaponBaseVData *vData = weapon->GetWeaponVData();
+    if (vData)
+    {
+        vData->m_iMaxClip2 = ammo;
+        vData->m_iDefaultClip2 = ammo;
+    }
+
+    weapon->m_iClip2 = ammo;
+}
+
+SMM_API int32_t scripting_Player_Weapon_GetNextPrimaryAttackTick(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return 0;
+
+    return weapon->m_nNextPrimaryAttackTick();
+}
+
+SMM_API int32_t scripting_Player_Weapon_GetNextSecondaryAttackTick(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return 0;
+
+    return weapon->m_nNextSecondaryAttackTick();
+}
+
+SMM_API void scripting_Player_Weapon_SetNextPrimaryAttackTick(uint32 playerId, uint32 slot, int32_t tick)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    weapon->m_nNextPrimaryAttackTick = tick;
+}
+
+SMM_API void scripting_Player_Weapon_SetNextSecondaryAttackTick(uint32 playerId, uint32 slot, int32_t tick)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    weapon->m_nNextSecondaryAttackTick = tick;
+}
+
+SMM_API float scripting_Player_Weapon_GetNextPrimaryAttackTickRatio(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return 0.0f;
+
+    return weapon->m_flNextPrimaryAttackTickRatio();
+}
+
+SMM_API float scripting_Player_Weapon_GetNextSecondaryAttackTickRatio(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return 0.0f;
+
+    return weapon->m_flNextSecondaryAttackTickRatio();
+}
+
+SMM_API void scripting_Player_Weapon_SetNextPrimaryAttackTickRatio(uint32 playerId, uint32 slot, float ratio)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    weapon->m_flNextPrimaryAttackTickRatio = ratio;
+}
+
+SMM_API void scripting_Player_Weapon_SetNextSecondaryAttackTickRatio(uint32 playerId, uint32 slot, float ratio)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    weapon->m_flNextSecondaryAttackTickRatio = ratio;
+}
+
 SMM_API void scripting_Player_Weapon_SetReserveAmmo(uint32 playerId, uint32 slot, int ammo)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
