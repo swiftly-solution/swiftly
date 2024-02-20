@@ -756,6 +756,31 @@ SMM_API uint32_t scripting_Player_Weapon_GetSilencerType(uint32 playerId, uint32
     return vData->m_eSilencerType();
 }
 
+SMM_API void scripting_Player_Weapons_SetActiveWeapon(uint32 playerId, uint32 slot)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromSlot((gear_slot_t)slot);
+    if (!weapon)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    if (!weaponServices)
+        return;
+
+    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    if (!itemServices)
+        return;
+
+    weaponServices->m_hActiveWeapon = weapon;
+}
+
 SMM_API void scripting_Player_Weapon_SetReserveAmmo(uint32 playerId, uint32 slot, int ammo)
 {
     Player *player = g_playerManager->GetPlayer(playerId);

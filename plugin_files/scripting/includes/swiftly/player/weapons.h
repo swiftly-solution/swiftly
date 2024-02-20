@@ -15,6 +15,7 @@ typedef void (*Player_DropWeapons)(uint32_t);
 typedef void (*Player_RemoveWeapons)(uint32_t);
 typedef void (*Player_GiveWeapon)(uint32_t, const char *);
 typedef uint32_t (*Player_GetWeaponID)(uint32_t, uint32_t);
+typedef void (*Player_SetActiveWeapon)(uint32_t, uint32_t);
 
 class Weapons
 {
@@ -67,6 +68,15 @@ public:
     Weapon *GetWeapon(uint32_t weaponID)
     {
         return (new Weapon(this->m_playerSlot, weaponID));
+    }
+
+    void SetActiveWeapon(WeaponSlot slot)
+    {
+        void *player_SetActiveWeapon = FetchFunctionPtr(nullptr, "scripting_Player_Weapons_SetActiveWeapon");
+        if (player_SetActiveWeapon)
+            reinterpret_cast<Player_SetActiveWeapon>(player_SetActiveWeapon)(this->m_playerSlot, slot);
+        else
+            NOT_SUPPORTED("scripting_Player_Weapons_SetActiveWeapon");
     }
 };
 

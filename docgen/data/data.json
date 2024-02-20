@@ -2980,6 +2980,21 @@
 						"params": {},
 						"additional": {}
 					},
+					"setactiveweapon": {
+						"title": "SetActiveWeapon",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the active weapon.",
+						"variable": {
+							"cpp": "player->weapons->SetActiveWeapon",
+							"lua": "player:weapons():SetActiveWeapon"
+						},
+						"return": "void",
+						"params": {
+							"slot": "WeaponSlot"
+						},
+						"additional": {}
+					},
 					"getweapon": {
 						"title": "GetWeapon",
 						"template": "function-syntax",

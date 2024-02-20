@@ -280,6 +280,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_Weapons_Remove(base->playerSlot); })
         .DefMember("GiveWeapons", [](LuaPlayerArgsClass *base, const char *name) -> void
                    { scripting_Player_Weapons_Give(base->playerSlot, name); })
+        .DefMember("SetActiveWeapon", [](LuaPlayerArgsClass *base, uint32 slot) -> void
+                   { scripting_Player_Weapons_SetActiveWeapon(base->playerSlot, slot); })
         .DefMember("GetWeaponFromSlot", [weaponClass](LuaPlayerArgsClass *base, uint32 slot) -> luacpp::LuaObject
                    { return weaponClass.CreateInstance(base->playerSlot, scripting_Player_Weapons_GetWeaponID(base->playerSlot, slot)); })
         .DefMember("GetWeapon", [weaponClass](LuaPlayerArgsClass *base, uint32 weaponID) -> luacpp::LuaObject

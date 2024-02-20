@@ -187,6 +187,7 @@ SMM_API int scripting_Player_GetLatency(uint32 playerId);
 
 SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd);
 
+SMM_API void scripting_Player_Weapons_SetActiveWeapon(uint32 playerId, uint32 slot);
 SMM_API void scripting_Player_Weapons_Drop(uint32 playerId);
 SMM_API void scripting_Player_Weapons_Remove(uint32 playerId);
 SMM_API void scripting_Player_Weapons_Give(uint32 playerId, const char *name);
