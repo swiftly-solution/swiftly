@@ -227,3 +227,19 @@ const char *ToLower(const std::string &str)
     std::transform(str.begin(), str.end(), std::back_inserter(lower), tolower);
     return lower.c_str();
 }
+
+std::deque<std::function<void()>> m_nextFrame;
+
+void NextTick(std::function<void()> fn)
+{
+    m_nextFrame.push_back(fn);
+}
+
+void NextFrameHandler()
+{
+    while (!m_nextFrame.empty())
+    {
+        m_nextFrame.front()();
+        m_nextFrame.pop_front();
+    }
+}

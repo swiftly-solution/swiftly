@@ -8,6 +8,8 @@
 #include <memory>
 #include <cstdint>
 #include <string>
+#include <deque>
+#include <functional>
 
 #ifdef _WIN32
 #define WIN_LINUX(win, linux) win
@@ -41,6 +43,9 @@ unsigned long StringToULong(const char *str);
 unsigned long long StringToULongLong(const char *str);
 short StringToShort(const char *str);
 unsigned short StringToUShort(const char *str);
+
+void NextFrameHandler();
+void NextTick(std::function<void()> fn);
 
 const char *ToUpper(const std::string &str);
 const char *ToLower(const std::string &str);

@@ -6,6 +6,7 @@
 class Player;
 
 void ThreadFunction() __attribute__((weak));
+void NextFrameHandler() __attribute__((weak));
 
 void print(const char *str, ...);
 
@@ -225,6 +226,9 @@ extern "C"
     {
         if (ThreadFunction)
             ThreadFunction();
+
+        if (NextFrameHandler)
+            NextFrameHandler();
 
         if (OnGameTick)
             OnGameTick(simulating, bFirstTick, bLastTick);
