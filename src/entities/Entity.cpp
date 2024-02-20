@@ -71,10 +71,8 @@ void Entity::Spawn()
     CBaseModelEntity *ent = this->worldEntity;
     std::string mod = this->model;
 
-    std::thread th([mod, ent]()
-                   { std::this_thread::sleep_for(std::chrono::milliseconds(1)); ent->SetModel(mod.c_str()); });
-
-    th.detach();
+    g_Plugin.NextFrame([ent, mod]() -> void
+                       { ent->SetModel(mod.c_str()); });
 }
 
 void Entity::Destroy()
