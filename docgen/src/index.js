@@ -19,7 +19,7 @@ const GenerateLuaType = (param) => {
     else if (param == "player") return "number";
     else if (param == "bool") return "boolean as number";
     else if (param == "void") return "void";
-    else if (param == "int32_t", param == "uint32_t" || param == "uint16_t" || param == "uint64_t" || param == "int" || param == "uint8_t" || param == "unsigned short" || param == "unsigned long long" || param == "short" || param == "long" || param == "float" || param == "unsigned char" || param == "Weapon*") return "number";
+    else if (param == "int32_t" || param == "uint32_t" || param == "uint16_t" || param == "uint64_t" || param == "int" || param == "uint8_t" || param == "unsigned short" || param == "unsigned long long" || param == "short" || param == "long" || param == "float" || param == "unsigned char" || param == "Weapon*") return "number";
     else if (param == "DataType") return "string / number / boolean as number";
     else if (param == "DB_Result" || param.includes("vector") || param == "const char**" || param.includes("std::unordered_map")) return "table";
     else if (param == "Entity*" || param == "HTTPRequest*") return "object";
