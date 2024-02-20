@@ -9,6 +9,10 @@
 
 #include "server/precacher.h"
 
+#ifdef GetCurrentTime
+#undef GetCurrentTime
+#endif
+
 class Server
 {
 public:
