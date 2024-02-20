@@ -3046,6 +3046,32 @@
 				},
 				"additional": {}
 			},
+			"getcurrenttime": {
+				"title": "GetCurrentTime",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the current global time of the server.",
+				"variable": {
+					"cpp": "server->GetCurrentTime",
+					"lua": "server:GetCurrentTime"
+				},
+				"return": "float",
+				"params": {},
+				"additional": {}
+			},
+			"gettickcount": {
+				"title": "GetTickCount",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the current tick count of the server.",
+				"variable": {
+					"cpp": "server->GetTickCount",
+					"lua": "server:GetTickCount"
+				},
+				"return": "int32_t",
+				"params": {},
+				"additional": {}
+			},
 			"ispistolround": {
 				"title": "IsPistolRound",
 				"template": "function-syntax",

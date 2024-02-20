@@ -97,6 +97,30 @@ public:
             return 0;
         }
     }
+
+    float GetCurrentTime()
+    {
+        void *GetCurrentTimeFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetCurrentTime");
+        if (GetCurrentTimeFunc)
+            return reinterpret_cast<Server_GetCurrentTime>(GetCurrentTimeFunc)();
+        else
+        {
+            NOT_SUPPORTED("scripting_Server_GetCurrentTime");
+            return 0.0f;
+        }
+    }
+
+    int32_t GetTickCount()
+    {
+        void *GetTickCountFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetTickCount");
+        if (GetTickCountFunc)
+            return reinterpret_cast<Server_GetTickCount>(GetTickCountFunc)();
+        else
+        {
+            NOT_SUPPORTED("scripting_Server_GetTickCount");
+            return 0;
+        }
+    }
 };
 
 extern Server *server;

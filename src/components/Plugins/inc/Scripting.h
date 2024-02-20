@@ -235,6 +235,8 @@ SMM_API uint16 scripting_Server_GetMaxPlayers();
 SMM_API const char *scripting_Server_GetMapName();
 SMM_API bool scripting_Server_IsMapValid(const char *map);
 SMM_API bool scripting_Server_IsPistolRound();
+SMM_API float scripting_Server_GetCurrentTime();
+SMM_API int scripting_Server_GetTickCount();
 
 SMM_API const char *scripting_Translations_Fetch(const char *key);
 

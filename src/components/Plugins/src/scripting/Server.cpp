@@ -41,3 +41,21 @@ SMM_API bool scripting_Server_IsMapValid(const char *map)
 
     return (engine->IsMapValid(map) == 1);
 }
+
+SMM_API float scripting_Server_GetCurrentTime()
+{
+    CGlobalVars *vars = GetGameGlobals();
+    if (!vars)
+        return 0.0f;
+
+    return vars->curtime;
+}
+
+SMM_API int scripting_Server_GetTickCount()
+{
+    CGlobalVars *vars = GetGameGlobals();
+    if (!vars)
+        return 0;
+
+    return vars->tickcount;
+}

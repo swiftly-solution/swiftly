@@ -82,6 +82,8 @@ typedef uint16_t (*Server_GetMaxPlayers)();
 typedef bool (*Server_IsMapValid)(const char *);
 typedef void (*Server_AddPrecacheModel)(const char *);
 typedef bool (*Server_IsPistolRound)();
+typedef int32_t (*Server_GetTickCount)();
+typedef float (*Server_GetCurrentTime)();
 
 typedef uint64_t (*HTTP_CreateRequest)(const char *);
 typedef void (*HTTP_SetBody)(uint64_t, const char *);
