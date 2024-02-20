@@ -18,7 +18,7 @@ The function argument also supports lambda function ( \[]\{ ... } ).
 void OnPluginStart()
 {
     NextTick([]() {
-        print("Called on the first server tick!\n")
+        print("Called on the first server tick!\n");
     });
 }
 ```
