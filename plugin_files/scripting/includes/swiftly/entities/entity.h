@@ -24,6 +24,7 @@ public:
 
     void Spawn();
     void Destroy();
+    void AcceptInput(const char *input, const char *activator = nullptr, const char *caller = nullptr, double *value = nullptr);
 
     void SetModel(const char *model);
 

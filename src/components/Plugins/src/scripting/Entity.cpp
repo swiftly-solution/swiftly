@@ -1,11 +1,56 @@
 #include "../../../../common.h"
 #include "../../../../entities/EntityManager.h"
+#include "../../../../player/PlayerManager.h"
 
 #include <string>
 #include <any>
 #include <type_traits>
 
 std::string SerializeData(std::any data);
+
+unsigned int StringToUInt(const char *str)
+{
+    unsigned int retval;
+    try
+    {
+        retval = (unsigned int)std::strtoul(str, nullptr, 10);
+    }
+    catch (std::invalid_argument &ex)
+    {
+        retval = -1;
+    }
+    catch (std::out_of_range &exr)
+    {
+        retval = -1;
+    }
+    return retval;
+}
+
+CEntityInstance *FetchInstanceByInput(std::string input)
+{
+    std::vector<std::string> splittedInput = explode(input, ":");
+    if (splittedInput.size() < 1)
+        return nullptr;
+
+    if (splittedInput[0] == "entity")
+    {
+        uint32_t entityid = StringToUInt(splittedInput[1].c_str());
+        Entity *entity = g_entityManager->GetEntity(entityid);
+        if (entity == nullptr)
+            return nullptr;
+
+        return entity->GetEntityInstance();
+    }
+    else if (splittedInput[0] == "player")
+    {
+        uint32_t playerid = StringToUInt(splittedInput[1].c_str());
+        Player *player = g_playerManager->GetPlayer(playerid);
+        if (player == nullptr)
+            return nullptr;
+
+        return player->GetPlayerController();
+    }
+}
 
 SMM_API uint32_t scripting_Entity_Create()
 {
@@ -149,4 +194,24 @@ SMM_API void scripting_Entity_SetColors(uint32_t entityID, int r, int g, int b, 
         return;
 
     entity->SetColor(r, g, b, a);
+}
+
+SMM_API void scripting_Entity_AcceptInput(uint32_t entityID, const char *input, const char *activator, const char *caller, double* value)
+{
+    if (entityID == 0 || input == nullptr)
+        return;
+
+    Entity *entity = g_entityManager->GetEntity(entityID);
+    if (entity == nullptr)
+        return;
+
+    CEntityInstance *activatorInstance = nullptr;
+    CEntityInstance *callerInstance = nullptr;
+
+    if (activator)
+        activatorInstance = FetchInstanceByInput(activator);
+    if (caller)
+        callerInstance = FetchInstanceByInput(caller);
+
+    entity->AcceptInput(input, activatorInstance, callerInstance, value);
 }

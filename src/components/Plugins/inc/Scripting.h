@@ -91,7 +91,7 @@ SMM_API uint32_t scripting_Entity_Create();
 SMM_API void scripting_Entity_Spawn(uint32_t entityID);
 SMM_API void scripting_Entity_Destroy(uint32_t entityID);
 SMM_API void scripting_Entity_SetModel(uint32_t entityID, const char *model);
-
+SMM_API void scripting_Entity_AcceptInput(uint32_t entityID, const char *input, const char *activator, const char *caller, double *value);
 Vector scripting_Entity_GetCoordsRaw(uint32_t entityID);
 SMM_API const char *scripting_Entity_GetCoords(uint32_t entityID);
 SMM_API void scripting_Entity_SetCoords(uint32_t entityID, float x, float y, float z);

@@ -415,17 +415,10 @@ bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, ui
     ClientJoinInfo_t *pendingClient = GetPendingClient(xuid, index);
 
     if (!pendingClient)
-    {
         AddPendingClient(xuid);
-        PRINTF("ClientConnect", "Added to pending\n");
-    }
     else if ((g_flUniversalTime - pendingClient->signon_timestamp) < g_addons->GetTimeout())
-    {
-        PRINTF("ClientConnect", "Removed from pending\n");
         g_ClientsPendingAddon.FastRemove(index);
-    }
 
-    PRINTF("ClientConnect", "Returning pending\n");
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
 

@@ -92,3 +92,11 @@ void Entity::SetColor(int r, int g, int b, int a)
 
     this->worldEntity->m_clrRender = color;
 }
+
+void Entity::AcceptInput(const char *pInputName, CEntityInstance *pActivator, CEntityInstance *pCaller, double *value)
+{
+    if (this->spawned == false)
+        return;
+
+    g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this->worldEntity, pInputName, pActivator, pCaller, value, 0);
+}

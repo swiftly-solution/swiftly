@@ -10,6 +10,7 @@ extern "C"
 };
 #include <string>
 #include <map>
+#include "../../files/Files.h"
 
 class CurlRequest
 {

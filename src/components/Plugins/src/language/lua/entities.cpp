@@ -125,6 +125,8 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
                    { return base->GetEntityID(); })
         .DefMember("SetModel", [](LuaEntityClass *base, const char *model) -> void
                    { scripting_Entity_SetModel(base->GetEntityID(), model); })
+        .DefMember("AcceptInput", [](LuaEntityClass *base, const char *input, const char *activator, const char *caller, double value) -> void
+                   { scripting_Entity_AcceptInput(base->GetEntityID(), input, activator, caller, &value); })
         .DefMember("coords", [coordsClass](LuaEntityClass *base) -> luacpp::LuaObject
                    { return coordsClass.CreateInstance(base->GetEntityID()); })
         .DefMember("angles", [anglesClass](LuaEntityClass *base) -> luacpp::LuaObject

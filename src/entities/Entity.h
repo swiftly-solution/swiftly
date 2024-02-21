@@ -27,6 +27,8 @@ public:
     void SetColor(int r, int g, int b, int a);
 
     void SetModel(std::string model);
+    void AcceptInput(const char *pInputName, CEntityInstance *pActivator = nullptr, CEntityInstance *pCaller = nullptr, double *value = nullptr);
+    CEntityInstance *GetEntityInstance() { return this->worldEntity; }
 
     void Spawn();
     void Destroy();

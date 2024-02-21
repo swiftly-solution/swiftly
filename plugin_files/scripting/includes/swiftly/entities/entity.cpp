@@ -5,6 +5,7 @@ typedef uint32_t (*CreateEntity)();
 typedef void (*Entity_Spawn)(uint32_t);
 typedef void (*Entity_Destroy)(uint32_t);
 typedef void (*Entity_SetModel)(uint32_t, const char *);
+typedef void (*Entity_AcceptInput)(uint32_t, const char *, const char *, const char *, double *);
 
 Entity::Entity()
 {
@@ -71,4 +72,21 @@ void Entity::SetModel(const char *model)
         reinterpret_cast<Entity_SetModel>(setModelEntity)(this->entityID, model);
     else
         NOT_SUPPORTED("scripting_Entity_SetModel");
+}
+
+void Entity::AcceptInput(const char *input, const char *activator = nullptr, const char *caller = nullptr, double *value = nullptr)
+{
+    if (this->entityID == 0)
+    {
+        print("[Swiftly] You can't use %s because the entity couldn't be created.\n", __FUNCTION__);
+        return;
+    }
+    if (input == nullptr)
+        return;
+
+    void *acceptInputEntity = FetchFunctionPtr(nullptr, "scripting_Entity_AcceptInput");
+    if (acceptInputEntity)
+        reinterpret_cast<Entity_AcceptInput>(acceptInputEntity)(this->entityID, input, activator, caller, value);
+    else
+        NOT_SUPPORTED("scripting_Entity_AcceptInput");
 }
