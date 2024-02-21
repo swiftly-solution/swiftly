@@ -17,6 +17,11 @@ public:
     CurlRequest()
     {
         this->req = curl_easy_init();
+        if (this->req)
+        {
+            if (Files::ExistsPath("/etc/pki/tls/certs/ca-bundle.crt"))
+                curl_easy_setopt(this->req, CURLOPT_CAINFO, "/etc/pki/tls/certs/ca-bundle.crt");
+        }
     }
 
     void SetUrl(const std::string &url)
