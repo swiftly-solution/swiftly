@@ -17,6 +17,7 @@ typedef void (*Plugin_OnPlayerSpawn)(uint32);
 typedef void (*Plugin_OnRoundPrestart)();
 typedef void (*Plugin_OnRoundStart)(long, long, const char *);
 typedef void (*Plugin_OnRoundEnd)(unsigned char, unsigned char, const char *, unsigned char, short, unsigned char);
+typedef void (*Plugin_OnRoundMVP)(int, short, long, long, unsigned char, long); 
 typedef void (*Plugin_BombBeginPlant)(uint32, uint16);
 typedef void (*Plugin_BombAbortPlant)(uint32, uint16);
 typedef void (*Plugin_BombPlanted)(uint32, uint16);

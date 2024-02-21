@@ -31,6 +31,7 @@ const std::vector<std::string> funcsToLoad = {
     "OnRoundStart",
     "OnRoundPrestart",
     "OnRoundEnd",
+    "OnRoundMVP",
     "BombBeginPlant",
     "BombAbortPlant",
     "BombPlanted",

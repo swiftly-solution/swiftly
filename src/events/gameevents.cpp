@@ -54,6 +54,12 @@ GAME_EVENT(round_end)
     gameevents::emit<OnRoundEnd>(pEvent);
 }
 
+GAME_EVENT(round_mvp)
+{
+    gameevents::emit<OnRoundMVP>(pEvent);
+
+}
+
 GAME_EVENT(bomb_beginplant)
 {
     gameevents::emit<BombBeginPlant>(pEvent);
