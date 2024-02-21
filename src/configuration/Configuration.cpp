@@ -39,7 +39,7 @@ bool Configuration::LoadConfiguration()
     rapidjson::Document coreConfigFile;
     coreConfigFile.Parse(Files::Read("addons/swiftly/configs/core.json").c_str());
     if (coreConfigFile.HasParseError())
-        return ConfigurationError("core.json", string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)coreConfigFile.GetErrorOffset(), GetParseError_En(coreConfigFile.GetParseError())));
+        return ConfigurationError("core.json", string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)coreConfigFile.GetErrorOffset(), GetParseError_En(coreConfigFile.GetParseError())).c_str());
 
     if (coreConfigFile.IsArray())
         return ConfigurationError("core.json", "Core configuration file cannot be an array.");
@@ -58,18 +58,18 @@ bool Configuration::LoadConfiguration()
     HAS_MEMBER("core.json", coreConfigFile, "commandPrefixes", "commandPrefixes");
     IS_ARRAY("core.json", coreConfigFile, "commandPrefixes", "commandPrefixes");
     for (unsigned int i = 0; i < coreConfigFile["commandPrefixes"].Size(); i++)
-        IS_STRING("core.json", coreConfigFile["commandPrefixes"], i, string_format("commandPrefixes[%d]", i));
+        IS_STRING("core.json", coreConfigFile["commandPrefixes"], i, string_format("commandPrefixes[%d]", i).c_str());
 
     HAS_MEMBER("core.json", coreConfigFile, "commandSilentPrefixes", "commandSilentPrefixes");
     IS_ARRAY("core.json", coreConfigFile, "commandSilentPrefixes", "commandSilentPrefixes");
     for (unsigned int i = 0; i < coreConfigFile["commandSilentPrefixes"].Size(); i++)
-        IS_STRING("core.json", coreConfigFile["commandSilentPrefixes"], i, string_format("commandSilentPrefixes[%d]", i));
+        IS_STRING("core.json", coreConfigFile["commandSilentPrefixes"], i, string_format("commandSilentPrefixes[%d]", i).c_str());
 
     if (coreConfigFile.HasMember("patches_to_perform"))
     {
         IS_ARRAY("core.json", coreConfigFile, "patches_to_perform", "patches_to_perform");
         for (unsigned int i = 0; i < coreConfigFile["patches_to_perform"].Size(); i++)
-            IS_STRING("core.json", coreConfigFile["patches_to_perform"], i, string_format("patches_to_perform[%d]", i));
+            IS_STRING("core.json", coreConfigFile["patches_to_perform"], i, string_format("patches_to_perform[%d]", i).c_str());
 
         std::vector<std::string> patchesToPerform;
 
@@ -188,7 +188,7 @@ void Configuration::LoadPluginConfigurations()
         configurationFile.Parse(Files::Read(configFilePath).c_str());
         if (configurationFile.HasParseError())
         {
-            ConfigurationError(configFileName, string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)configurationFile.GetErrorOffset(), GetParseError_En(configurationFile.GetParseError())));
+            ConfigurationError(configFileName, string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)configurationFile.GetErrorOffset(), GetParseError_En(configurationFile.GetParseError())).c_str());
             continue;
         }
 
@@ -222,7 +222,7 @@ void Configuration::LoadPluginConfig(std::string key)
     configurationFile.Parse(Files::Read(configFilePath).c_str());
     if (configurationFile.HasParseError())
     {
-        ConfigurationError(configFileName, string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)configurationFile.GetErrorOffset(), GetParseError_En(configurationFile.GetParseError())));
+        ConfigurationError(configFileName, string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)configurationFile.GetErrorOffset(), GetParseError_En(configurationFile.GetParseError())).c_str());
         return;
     }
 

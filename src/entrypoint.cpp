@@ -29,6 +29,8 @@
 #include "precacher/Precacher.h"
 #include "menus/Menus.h"
 #include "dumps/CrashDump.h"
+#include "addons/addons.h"
+#include "addons/clients.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -55,6 +57,10 @@ extern "C" FILE *__cdecl __iob_func(void)
     return _ioccc;
 }
 #endif
+
+double g_flUniversalTime;
+float g_flLastTickedTime;
+bool g_bHasTicked;
 
 EventMap eventMap;
 GameEventMap gameEventMap;
@@ -88,6 +94,7 @@ Precacher *g_precacher = nullptr;
 CEntityListener g_entityListener;
 CCSGameRules *g_pGameRules = nullptr;
 GameMenus *g_menus = nullptr;
+Addons *g_addons = nullptr;
 
 class CGameResourceService
 {
@@ -113,6 +120,26 @@ CGlobalVars *GetGameGlobals()
         return nullptr;
 
     return g_pNetworkServerService->GetIGameServer()->GetGlobals();
+}
+
+CUtlVector<CServerSideClient *> *GetClientList()
+{
+    INetworkGameServer *server = g_pNetworkServerService->GetIGameServer();
+    if (!server)
+        return nullptr;
+
+    static int offset = g_Offsets->GetOffset("CNetworkGameServer_ClientList");
+    return (CUtlVector<CServerSideClient *> *)(&server[offset]);
+}
+
+CServerSideClient *GetClientBySlot(CPlayerSlot slot)
+{
+    CUtlVector<CServerSideClient *> *pClients = GetClientList();
+
+    if (!pClients)
+        return nullptr;
+
+    return pClients->Element(slot.Get());
 }
 
 PLUGIN_EXPOSE(SwiftlyPlugin, g_Plugin);
@@ -171,6 +198,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_entityManager = new EntityManager();
     g_precacher = new Precacher();
     g_menus = new GameMenus();
+    g_addons = new Addons();
 
     g_Config->LoadPluginConfigurations();
 
@@ -181,6 +209,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_playerManager->LoadPlayers();
     g_dbManager->LoadDatabases();
     g_conFilter->LoadFilters();
+    g_addons->RegisterAddons();
     g_translations->LoadTranslations();
 
     if (g_Config->FetchValue<bool>("core.console_filtering"))
@@ -341,6 +370,7 @@ void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config,
         g_pGameEntitySystem->AddListenerEntity(&g_entityListener);
 
         bDone = true;
+        g_ClientsPendingAddon.RemoveAll();
     }
 }
 
@@ -375,7 +405,28 @@ bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, ui
 
     OnClientConnect clientConnectEvent = OnClientConnect(&slot, pszName, xuid, pszNetworkID, unk1, pRejectReason);
     hooks::emit(clientConnectEvent);
-    RETURN_META_VALUE(MRES_SUPERCEDE, scripting_OnClientConnect(&clientConnectEvent));
+    if (!scripting_OnClientConnect(&clientConnectEvent))
+        RETURN_META_VALUE(MRES_SUPERCEDE, false);
+
+    if (g_addons->GetStatus() == false || g_addons->GetAddons().empty())
+        RETURN_META_VALUE(MRES_IGNORED, true);
+
+    int index;
+    ClientJoinInfo_t *pendingClient = GetPendingClient(xuid, index);
+
+    if (!pendingClient)
+    {
+        AddPendingClient(xuid);
+        PRINTF("ClientConnect", "Added to pending\n");
+    }
+    else if ((g_flUniversalTime - pendingClient->signon_timestamp) < g_addons->GetTimeout())
+    {
+        PRINTF("ClientConnect", "Removed from pending\n");
+        g_ClientsPendingAddon.FastRemove(index);
+    }
+
+    PRINTF("ClientConnect", "Returning pending\n");
+    RETURN_META_VALUE(MRES_IGNORED, true);
 }
 
 void scripting_OnClientDisconnect(const OnClientDisconnect *e);
@@ -394,6 +445,12 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectio
 
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
+    if (simulating && g_bHasTicked)
+        g_flUniversalTime += GetGameGlobals()->curtime - g_flLastTickedTime;
+
+    g_flLastTickedTime = GetGameGlobals()->curtime;
+    g_bHasTicked = true;
+
     hooks::emit(OnGameFrame(simulating, bFirstTick, bLastTick));
 
     for (uint16_t i = 0; i < MAX_PLAYERS; i++)

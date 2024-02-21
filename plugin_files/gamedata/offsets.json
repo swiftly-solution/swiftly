@@ -18,5 +18,9 @@
     "Respawn": {
         "windows": 245,
         "linux": 247
+    },
+    "CNetworkGameServer_ClientList": {
+        "windows": 77,
+        "linux": 79
     }
 }

@@ -4,6 +4,11 @@
 #include "../events/gameevents.h"
 #include "../commands/CommandsManager.h"
 #include "../filter/ConsoleFilter.h"
+#include "../addons/addons.h"
+#include "../addons/clients.h"
+#include "networkbasetypes.pb.h"
+#include "networksystem/inetworkserializer.h"
+#include "../sdk/entity/serversideclient.h"
 
 FuncHook<decltype(Hook_LoggingSystem_LogDirect)> LoggingSystemt_LogDirect(Hook_LoggingSystem_LogDirect, "LoggingSystem_LogDirect");
 FuncHook<decltype(Hook_LoggingSystem_Log)> LoggingSystemt_Log(Hook_LoggingSystem_Log, "LoggingSystem_Log");
@@ -14,6 +19,8 @@ FuncHook<decltype(Hook_ClientPrint)> TClientPrint(Hook_ClientPrint, "ClientPrint
 FuncHook<decltype(Hook_IsHearingClient)> TIsHearingClient(Hook_IsHearingClient, "IsHearingClient");
 FuncHook<decltype(Hook_PrecacheResource)> TPrecacheResource(Hook_PrecacheResource, "PrecacheResource");
 FuncHook<decltype(Hook_CGameRules_Constructor)> TCGameRules_Constructor(Hook_CGameRules_Constructor, "CGameRules_Constructor");
+FuncHook<decltype(Hook_SendNetMessage)> TSendNetMessage(Hook_SendNetMessage, "SendNetMessage");
+FuncHook<decltype(Hook_HostStateRequest)> THostStateRequest(Hook_HostStateRequest, "HostStateRequest");
 
 #define CHECKLOGS()                                                \
     va_list args;                                                  \
@@ -97,6 +104,43 @@ void Hook_CGameRules_Constructor(CGameRules *pThis)
     TCGameRules_Constructor(pThis);
 }
 
+extern double g_flUniversalTime;
+
+void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessage, void *pData, int a4)
+{
+    NetMessageInfo_t *info = pNetMessage->GetNetMessageInfo();
+
+    if (info->m_MessageId != 7 || g_addons->GetStatus() == false || g_addons->GetAddons().empty())
+        return TSendNetMessage(pNetChan, pNetMessage, pData, a4);
+
+    ClientJoinInfo_t *pPendingClient = GetPendingClient(pNetChan);
+
+    if (pPendingClient)
+    {
+        CNETMsg_SignonState *pMsg = (CNETMsg_SignonState *)pData;
+        pMsg->set_addons(g_addons->GetAddons().c_str());
+        pMsg->set_signon_state(SIGNONSTATE_CHANGELEVEL);
+        pPendingClient->signon_timestamp = g_flUniversalTime;
+    }
+
+    TSendNetMessage(pNetChan, pNetMessage, pData, a4);
+}
+
+void *Hook_HostStateRequest(void *a1, void **pRequest)
+{
+    if (g_addons->GetStatus() == false || g_addons->GetAddons().empty() || V_strnicmp((char *)pRequest[2], "changelevel", 11))
+        return THostStateRequest(a1, pRequest);
+
+    CUtlString *sAddonString = (CUtlString *)(pRequest + 11);
+
+    if (!sAddonString->IsEmpty())
+        sAddonString->Format("%s,%s", sAddonString->Get(), g_addons->GetAddons().c_str());
+    else
+        sAddonString->Set(g_addons->GetAddons().c_str());
+
+    return THostStateRequest(a1, pRequest);
+}
+
 CUtlVector<FuncHookBase *> g_funcHooks;
 
 bool InitializeHooks()
@@ -138,6 +182,14 @@ bool InitializeHooks()
     if (!TCGameRules_Constructor.Create())
         return false;
     TCGameRules_Constructor.Enable();
+
+    if (!TSendNetMessage.Create())
+        return false;
+    TSendNetMessage.Enable();
+
+    if (!THostStateRequest.Create())
+        return false;
+    THostStateRequest.Enable();
 
     return true;
 }
