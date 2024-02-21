@@ -286,6 +286,20 @@ void scripting_OnRoundStart(const OnRoundStart *e)
     CALL_PFUNCTION_VOID_ARGS(OnRoundStart, timelimit, fraglimit, objective)
 }
 
+void scripting_OnRoundMVP(const OnRoundMVP *e)
+{
+    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    short reason = e->pEvent->GetInt("reason");
+    long value = e->pEvent->GetInt("value");
+    long musickitmvps = e->pEvent->GetInt("musickitmvps");
+    unsigned char nomusic = e->pEvent->GetInt("nomusic");
+    long musickitid = e->pEvent->GetInt("musickitid");
+
+
+    CALL_PFUNCTION_VOID_ARGS(OnRoundMVP, slot.Get(), reason, value, musickitmvps, nomusic, musickitid)
+
+}
+
 void scripting_OnRoundEnd(const OnRoundEnd *e)
 {
     unsigned char winner = e->pEvent->GetInt("winner");
@@ -596,6 +610,7 @@ void PluginsComponent::RegisterGameEvents()
     gameevents::on<OnRoundPostStart>(scripting_OnRoundPostStart);
     gameevents::on<OnRoundStart>(scripting_OnRoundStart);
     gameevents::on<OnRoundEnd>(scripting_OnRoundEnd);
+    gameevents::on<OnRoundMVP>(scripting_OnRoundMVP);
     gameevents::on<OnPlayerSpawn>(scripting_OnClientSpawn);
 
     gameevents::on<BombBeginPlant>(scripting_BombBeginPlant);

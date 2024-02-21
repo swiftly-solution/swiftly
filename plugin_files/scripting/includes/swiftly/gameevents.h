@@ -21,6 +21,7 @@ void OnGameTick(bool simulating, bool bFirstTick, bool bLastTick) __attribute__(
 bool OnPlayerChat(Player *player, const char *text, bool teamonly) __attribute__((weak));
 void OnRoundStart(long timelimit, long fraglimit, const char *objective) __attribute__((weak));
 void OnRoundEnd(unsigned char winner, unsigned char reason, const char *message, unsigned char legacy, short player_count, unsigned char nomusic) __attribute__((weak));
+void OnRoundMVP(Player *player, short reason, long value, long musickitmvps, unsigned char nomusic, long musickitid) __attribute__((weak));
 void OnRoundPrestart() __attribute__((weak));
 void OnBombBeginPlant(Player *player, unsigned short site) __attribute__((weak));
 void OnBombAbortPlant(Player *player, unsigned short site) __attribute__((weak));
@@ -248,6 +249,16 @@ extern "C"
     {
         if (OnRoundEnd)
             OnRoundEnd(winner, reason, message, legacy, player_count, nomusic);
+    }
+    void Internal_OnRoundMVP(int slot, short reason, long value, long musickitmvps, unsigned char nomusic, long musickitid)
+    {
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        if (OnRoundMVP)
+            OnRoundMVP(player, reason, value, musickitmvps, nomusic, musickitid);
     }
     void Internal_OnRoundStart(long timelimit, long fraglimit, const char *objective)
     {
