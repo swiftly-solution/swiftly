@@ -9,6 +9,7 @@
 #include "../../Plugins/inc/Plugin.h"
 #include "../../../files/Files.h"
 #include "../../../http/HTTPManager.h"
+#include "../../../addons/addons.h"
 #include "../../Plugins/inc/plugins/CPPPlugin.h"
 #include "../../Plugins/inc/plugins/LuaPlugin.h"
 
@@ -100,6 +101,7 @@ void ShowSwiftlyCommandHelp(CPlayerSlot *slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", " help         - Show the help for Swiftly commands\n");
     if (slot->Get() == -1)
     {
+        PrintToClientOrConsole(slot, "Commands", " addons       - Addons Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " confilter    - Console Filtering Menu\n");
         PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " translations - Translations Menu\n");
@@ -377,6 +379,16 @@ void SwiftlyTranslationManagerHelp(CPlayerSlot *slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", " reload    - Reloads the translations.\n");
 }
 
+void SwiftlyAddonsManagerHelp(CPlayerSlot *slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Addons Management Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly addons <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " disable    - Disables the addons downloading.\n");
+    PrintToClientOrConsole(slot, "Commands", " enable     - Enables the addons downloading.\n");
+    PrintToClientOrConsole(slot, "Commands", " reload     - Reloads the addons from the configuration.\n");
+    PrintToClientOrConsole(slot, "Commands", " status     - Shows the status of the addons downloading.\n");
+}
+
 void SwiftlyConFilterManagerHelp(CPlayerSlot *slot, CCommandContext context)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Console Filtering Menu\n");
@@ -391,6 +403,35 @@ void SwiftlyTranslationReload(CPlayerSlot *slot, CCommandContext context)
 {
     g_translations->LoadTranslations();
     PrintToClientOrConsole(slot, "Translations", "All translations have been succesfully reloaded.\n");
+}
+
+void SwiftlyAddonsManagerReload(CPlayerSlot *slot, CCommandContext context)
+{
+    g_addons->RegisterAddons();
+    PrintToClientOrConsole(slot, "Addons", "All addons has been succesfully reloaded.\n");
+}
+
+void SwiftlyAddonsManagerDisable(CPlayerSlot *slot, CCommandContext context)
+{
+    if (!g_addons->GetStatus())
+        return PrintToClientOrConsole(slot, "Addons", "Addons is already disabled.\n");
+
+    g_addons->ToggleStatus();
+    PrintToClientOrConsole(slot, "Addons", "Addons has been disabled.\n");
+}
+
+void SwiftlyAddonsManagerEnable(CPlayerSlot *slot, CCommandContext context)
+{
+    if (g_addons->GetStatus())
+        return PrintToClientOrConsole(slot, "Addons", "Addons is already enabled.\n");
+
+    g_addons->ToggleStatus();
+    PrintToClientOrConsole(slot, "Addons", "Addons has been enabled.\n");
+}
+
+void SwiftlyAddonsManagerStatus(CPlayerSlot *slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Addons", "Addons Status: %s.\n", g_addons->GetStatus() ? "Enabled" : "Disabled");
 }
 
 void SwiftlyConFilterEnable(CPlayerSlot *slot, CCommandContext context)
@@ -480,6 +521,30 @@ void SwiftlyTranslationManager(CPlayerSlot *slot, CCommandContext context, const
         SwiftlyTranslationManagerHelp(slot, context);
 }
 
+void SwiftlyAddonsManager(CPlayerSlot *slot, CCommandContext context, const char *subcmd)
+{
+    if (slot->Get() != -1)
+        return;
+
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        SwiftlyAddonsManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "reload")
+        SwiftlyAddonsManagerReload(slot, context);
+    else if (sbcmd == "disable")
+        SwiftlyAddonsManagerDisable(slot, context);
+    else if (sbcmd == "enable")
+        SwiftlyAddonsManagerEnable(slot, context);
+    else if (sbcmd == "status")
+        SwiftlyAddonsManagerStatus(slot, context);
+    else
+        SwiftlyAddonsManagerHelp(slot, context);
+}
+
 void SwiftlyVersion(CPlayerSlot *slot, CCommandContext context)
 {
     PrintToClientOrConsole(slot, "Version", "Swiftly Version informations:\n");
@@ -511,6 +576,8 @@ void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
         SwiftlyPluginManager(slot, context, args[2], args[3]);
     else if (subcmd == "confilter")
         SwiftlyConFilterManager(slot, context, args[2]);
+    else if (subcmd == "addons")
+        SwiftlyAddonsManager(slot, context, args[2]);
     else if (subcmd == "version")
         SwiftlyVersion(slot, context);
     else if (subcmd == "translations")
