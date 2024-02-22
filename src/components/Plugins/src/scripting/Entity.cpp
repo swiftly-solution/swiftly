@@ -50,6 +50,8 @@ CEntityInstance *FetchInstanceByInput(std::string input)
 
         return player->GetPlayerController();
     }
+    else
+        return nullptr;
 }
 
 SMM_API uint32_t scripting_Entity_Create()
@@ -196,7 +198,7 @@ SMM_API void scripting_Entity_SetColors(uint32_t entityID, int r, int g, int b, 
     entity->SetColor(r, g, b, a);
 }
 
-SMM_API void scripting_Entity_AcceptInput(uint32_t entityID, const char *input, const char *activator, const char *caller, double* value)
+SMM_API void scripting_Entity_AcceptInput(uint32_t entityID, const char *input, const char *activator, const char *caller, double *value)
 {
     if (entityID == 0 || input == nullptr)
         return;
