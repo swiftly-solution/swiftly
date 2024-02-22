@@ -139,7 +139,6 @@ bool BeginCrashListener()
     startup_cmd = implode(exp2, " ");
 
     ::signal(SIGSEGV, &signal_handler);
-    ::signal(SIGABRT, &signal_handler);
 
     return true;
 }
