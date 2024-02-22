@@ -2925,7 +2925,7 @@
 								"params": {},
 								"additional": {}
 							},
-							"setdefaultchangesinattributes": {
+							"setdefaultchangeskinattributes": {
 								"title": "SetDefaultChangeSkinAttributes",
 								"template": "function-syntax",
 								"language": "both",
