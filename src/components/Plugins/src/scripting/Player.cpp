@@ -1049,6 +1049,21 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
         else if (weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask() != 2)
             weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask = 2;
     }
+
+    CCSPlayer_ViewModelServices *viewmodelServices = pawn->m_pViewModelServices();
+    if (!viewmodelServices)
+        return;
+
+    CHandle<CBaseViewModel> *viewmodelHandles = viewmodelServices->m_hViewModel();
+    if (!viewmodelHandles)
+        return;
+
+    CBaseViewModel *viewmodel = viewmodelHandles[0];
+
+    if (!viewmodel)
+        return;
+
+    viewmodel->m_CBodyComponent.StateUpdate();
 }
 
 SMM_API void scripting_Player_Weapon_SetNametag(uint32 playerId, uint32 slot, const char *text)
