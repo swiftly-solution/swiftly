@@ -58,7 +58,7 @@ private:
         this->luaState = new luacpp::LuaState(this->rawLuaState, false);
 
         std::vector<std::string> files = Files::FetchFileNames(this->m_path);
-        SetupLuaEnvironment(this);
+        SetupLuaEnvironment(this->luaState, this);
         for (std::string file : files)
         {
             if (!ends_with(file, ".lua"))

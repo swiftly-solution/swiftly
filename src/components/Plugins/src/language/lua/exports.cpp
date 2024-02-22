@@ -25,7 +25,8 @@ public:
 
 void SetupLuaExports(luacpp::LuaState *state, Plugin *plugin)
 {
-    state->CreateTable("expFuncCache");
+    if (state->Get("expFuncCache").GetType() == LUA_TNIL)
+        state->CreateTable("expFuncCache");
 
     state->CreateFunction([plugin, state](const char *export_name, luacpp::LuaObject func) -> void
                           {

@@ -25,36 +25,10 @@ int StringToInt(const char *str)
     return retval;
 }
 
-void SetupLuaEnvironment(Plugin *plugin)
+void SetupLuaEnvironment(luacpp::LuaState *state, Plugin *plugin)
 {
-    luacpp::LuaState *state = plugin->GetLuaState();
-    luacpp::LuaTable playerTable = state->CreateTable("players");
+    luacpp::LuaTable playerTable = (state->Get("players").GetType() == LUA_TNIL ? state->CreateTable("players") : state->GetTable("players"));
 
-    state->CreateFunction([plugin]() -> void
-                          {
-                                lua_State* st = plugin->GetLuaRawState();
-
-                                int n = lua_gettop(st);
-
-                                lua_getglobal(st, "tostring");
-
-                                for(int i = 1; i <= n; i++) {
-                                    lua_pushvalue(st, -1);
-                                    lua_pushvalue(st,i);
-                                    lua_call(st,1,1);
-
-                                    size_t l = 0;
-                                    const char* s = lua_tolstring(st, -1, &l);
-                                    if(s == nullptr) {
-                                        PRINTF("Runtime", "An error has occured while trying to call 'print'.\nError: 'tostring' must return a string to 'print'\n");
-                                        break;
-                                    }
-
-                                    if(i > 1) scripting_Print("\t");
-                                    scripting_Print(s);
-                                    lua_pop(st,1);
-                                } scripting_Print("\n"); },
-                          "print");
     state->CreateFunction([plugin]() -> const char *
                           { return plugin->GetName().c_str(); },
                           "PluginName");

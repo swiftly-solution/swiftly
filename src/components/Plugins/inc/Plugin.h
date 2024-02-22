@@ -15,7 +15,7 @@
 #include <string>
 
 class Plugin;
-void SetupLuaEnvironment(Plugin *plugin);
+void SetupLuaEnvironment(luacpp::LuaState *state, Plugin *plugin);
 
 const std::vector<std::string> funcsToLoad = {
     "RegisterPlayer",
@@ -173,6 +173,9 @@ private:
 public:
     std::string err;
     std::string m_path;
+
+    int boundaryRef = 0;
+    std::deque<lua_State *> m_runningThreads;
 
     Plugin(std::string path, std::string name, PluginType_t pluginType) : m_path(path)
     {

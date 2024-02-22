@@ -23,7 +23,7 @@ public:
 
 void SetupLuaTimers(luacpp::LuaState *state, Plugin *plugin)
 {
-    luacpp::LuaTable timersTable = state->CreateTable("timersTbl");
+    luacpp::LuaTable timersTable = (state->Get("timersTbl").GetType() == LUA_TNIL ? state->CreateTable("timersTbl") : state->GetTable("timersTbl"));
 
     auto timersClass = state->CreateClass<LuaTimersClass>("Timers").DefConstructor();
 
