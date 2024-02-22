@@ -74,7 +74,7 @@ void Entity::SetModel(const char *model)
         NOT_SUPPORTED("scripting_Entity_SetModel");
 }
 
-void Entity::AcceptInput(const char *input, const char *activator = nullptr, const char *caller = nullptr, double *value = nullptr)
+void Entity::AcceptInput(const char *input, const char *activator, const char *caller, double *value)
 {
     if (this->entityID == 0)
     {
