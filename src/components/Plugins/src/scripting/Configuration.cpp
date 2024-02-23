@@ -135,6 +135,7 @@ SMM_API bool scripting_Configuration_Exists(const char *key)
         return false;
 
     std::map<std::string, std::any> config = g_Config->FetchConfiguration();
+
     return (config.find(key) != config.end());
 }
 

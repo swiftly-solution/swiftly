@@ -157,7 +157,10 @@ void LoadValue(const char *key, const char *keyname, rapidjson::Value &value, st
     {
         g_Config->SetArraySize(k, value.Size());
         for (size_t i = 0; i < value.Size(); i++)
+        {
+            g_Config->SetValue(string_format("%s[%d]", k.c_str(), i).c_str(), nullptr);
             LoadValue(k.c_str(), string_format("[%d]", i).c_str(), value[i], "");
+        }
     }
 };
 
