@@ -27,7 +27,6 @@ typedef void (*Player_SetModel)(uint32_t, const char *);
 typedef int (*Player_GetHealth)(uint32_t);
 typedef void (*Player_SetHealth)(uint32_t, int);
 typedef void (*Player_TakeHealth)(uint32_t, int);
-typedef void (*Player_EmitSound)(uint32_t, const char *, float, int, float);
 typedef int (*Player_GetArmor)(uint32_t);
 typedef void (*Player_SetArmor)(uint32_t, int);
 typedef void (*Player_TakeArmor)(uint32_t, int);
