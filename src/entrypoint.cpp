@@ -4,6 +4,7 @@
 #include <interfaces/interfaces.h>
 #include <metamod_oslink.h>
 #include <chrono>
+#include <thread>
 
 #include "player/PlayerManager.h"
 #include "events/gameevents.h"
@@ -330,6 +331,7 @@ void SwiftlyPlugin::Hook_GameServerSteamAPIActivated()
 }
 
 std::string map = "None";
+bool firstMapLoaded = false;
 
 std::string SwiftlyPlugin::GetMap()
 {
@@ -346,6 +348,20 @@ void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, 
 
     map = pMapName;
     hooks::emit(OnMapLoad(pMapName));
+
+    if (g_addons->GetStatus() == true && !g_addons->GetAddons().empty())
+    {
+
+        std::thread([pMapName]() -> void
+                    {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+                    if (!firstMapLoaded)
+                    {
+                        firstMapLoaded = true;
+                        engine->ServerCommand(string_format("map %s", pMapName).c_str());
+                    } })
+            .detach();
+    }
 }
 
 void SwiftlyPlugin::OnLevelShutdown()
