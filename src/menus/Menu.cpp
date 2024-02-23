@@ -13,7 +13,7 @@ void Menu::ProcessOptions()
         tempmap.push_back({it->first, it->second});
         if (processedItems == (pages == 0 ? 4 : 3))
         {
-            if (pages == 0 || (totalProcessedItems < options.size()))
+            if (options.size() - totalProcessedItems > 0)
                 tempmap.push_back({"Next", "menunext"});
             if (pages != 0)
                 tempmap.push_back({"Back", "menuback"});
@@ -28,9 +28,7 @@ void Menu::ProcessOptions()
     }
     if (tempmap.size() > 0)
     {
-        if ((pages == 0 && totalProcessedItems > 4) || (totalProcessedItems < options.size()))
-            tempmap.push_back({"Next", "menunext"});
-        if (pages != 0)
+        if (this->processedOptions.size() != 0)
             tempmap.push_back({"Back", "menuback"});
 
         tempmap.push_back({"Exit", "menuexit"});
@@ -39,6 +37,20 @@ void Menu::ProcessOptions()
         this->processedOptions.push_back(tempmap);
         tempmap.clear();
     }
+
+    /*
+    @note Debug Function
+
+    PRINTF("ProcessOption", "Menu %s\n", this->id.c_str());
+    for (uint32_t i = 0; i < this->processedOptions.size(); i++)
+    {
+        PRINTF("ProcessOption", "Page %d.\n", i + 1);
+        for (uint32_t j = 0; j < this->processedOptions[i].size(); j++)
+        {
+            PRINTF("ProcessOption", "%d. Option: %s | Command: %s\n", j + 1, this->processedOptions[i][j].first.c_str(), this->processedOptions[i][j].second.c_str());
+        }
+    }
+    */
 }
 
 std::string Menu::GenerateItems(int page, int selected)
