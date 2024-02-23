@@ -1128,6 +1128,33 @@
 				},
 				"additional": {}
 			},
+			"onplayerjump": {
+				"title": "OnPlayerJump",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when a player jumps.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"onroundmvp": {
+				"title": "OnRoundMVP",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when MVP is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"reason": "uint16_t",
+					"value": "long",
+					"musickitmvps": "long",
+					"nomusic": "unsigned char",
+					"musickitid": "long"
+				},
+				"additional": {}
+			},
             "onplayerinfo": {
 				"title": "OnPlayerInfo",
 				"template": "event-syntax",
