@@ -1,6 +1,5 @@
 #include "PlayerManager.h"
 #include "../hooks/Hooks.h"
-#include "../hooks/GameEvents.h"
 
 void PlayerManager::LoadPlayers()
 {

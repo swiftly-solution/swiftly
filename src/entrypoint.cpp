@@ -9,7 +9,6 @@
 #include "events/gameevents.h"
 #include "configuration/Configuration.h"
 #include "hooks/Hooks.h"
-#include "hooks/GameEvents.h"
 #include "components/BasicComponent/inc/BasicComponent.h"
 #include "components/Plugins/inc/PluginsComponent.h"
 #include "sdk/schema.h"
@@ -63,7 +62,6 @@ float g_flLastTickedTime;
 bool g_bHasTicked;
 
 EventMap eventMap;
-GameEventMap gameEventMap;
 SwiftlyPlugin g_Plugin;
 Configuration *g_Config;
 IServerGameDLL *server = nullptr;

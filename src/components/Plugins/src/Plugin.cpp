@@ -6,7 +6,7 @@
 #include "../../../menus/Menus.h"
 #include <luacpp/luacpp.h>
 
-template <typename T, typename... Args>
+template <typename... Args>
 void ExecuteGameEventWithNoReturn(Plugin *plugin, std::string game_event_name, Args &&...args);
 
 void Plugin::StartPlugin()
@@ -29,14 +29,14 @@ void Plugin::StartPlugin()
         this->ExecuteFunction<Plugin_OnPlayerRegister>("RegisterPlayer", player->GetSlot()->Get(), player->IsFakeClient());
     }
 
-    ExecuteGameEventWithNoReturn<OnPluginStartFunction>(this, "OnPluginStart");
+    ExecuteGameEventWithNoReturn(this, "OnPluginStart");
 
     this->SetPluginLoaded(true);
 }
 
 void Plugin::StopPlugin()
 {
-    ExecuteGameEventWithNoReturn<OnPluginStopFunction>(this, "OnPluginStop");
+    ExecuteGameEventWithNoReturn(this, "OnPluginStop");
 
     this->DestroyPluginEnvironment();
     std::vector<std::string> cmds = g_commandsManager->FetchCommandsByPlugin(this->GetName());

@@ -1,5 +1,4 @@
 #include "CommandsManager.h"
-#include "../hooks/GameEvents.h"
 #include "../player/PlayerManager.h"
 #include "../configuration/Configuration.h"
 

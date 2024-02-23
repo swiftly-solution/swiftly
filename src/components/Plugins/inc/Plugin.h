@@ -21,50 +21,6 @@ const std::vector<std::string> funcsToLoad = {
     "RegisterPlayer",
     "UnregisterPlayer",
     "OnProgramLoad",
-    "OnPluginStart",
-    "OnPluginStop",
-    "OnClientConnect",
-    "OnClientDisconnect",
-    "OnPlayerSpawn",
-    "OnGameTick",
-    "OnPlayerChat",
-    "OnRoundStart",
-    "OnRoundPrestart",
-    "OnRoundEnd",
-    "OnRoundMVP",
-    "BombBeginPlant",
-    "BombAbortPlant",
-    "BombPlanted",
-    "BombBeginDefuse",
-    "BombAbortDefuse",
-    "BombDefused",
-    "BombExploded",
-    "BombDropped",
-    "BombPickup",
-    "OnMapLoad",
-    "OnMapUnload",
-    "OnClientGameMessage",
-    "OnPlayerDeath",
-    "OnPlayerBlind",
-    "OnPlayerInfo",
-    "OnPlayerFullUpdate",
-    "OnItemPickup",
-    "OnEnterBuyzone",
-    "OnExitBuyzone",
-    "OnRoundPostStart",
-    "OnEnterBombzone",
-    "OnPlayerTeam",
-    "OnPlayerChangeName",
-    "OnExitBombzone",
-    "OnClientFullConnected",
-    "OnPlayerFallDamage",
-    "OnPlayerJump",
-    "OnPlayerHurt",
-    "ShouldHearVoice",
-    "OnWeaponSpawned",
-    "OnClientKeyStateChange",
-    "OnServerCvarChange",
-    "OnClientCommand",
 };
 
 class LuaFuncWrapper : public luacpp::LuaRefObject
@@ -219,9 +175,13 @@ public:
     {
         std::string original_func = function;
         if (!this->FunctionExists(function))
-            return;
+        {
+            this->RegisterFunction("Internal_" + function);
+            if (!this->FunctionExists("Internal_" + function))
+                return;
+        }
 
-        if (std::find(funcsToLoad.begin(), funcsToLoad.end(), function) != funcsToLoad.end())
+        if (function != "GetPluginAuthor" && function != "GetPluginVersion" && function != "GetPluginName" && function != "GetPluginWebsite")
             function = "Internal_" + function;
 
         if (this->GetPluginType() == PluginType_t::PLUGIN_CPP)
@@ -246,9 +206,13 @@ public:
     {
         std::string original_func = function;
         if (!this->FunctionExists(function))
-            return (Ret) false;
+        {
+            this->RegisterFunction("Internal_" + function);
+            if (!this->FunctionExists("Internal_" + function))
+                return (Ret) false;
+        }
 
-        if (std::find(funcsToLoad.begin(), funcsToLoad.end(), function) != funcsToLoad.end())
+        if (function != "GetPluginAuthor" && function != "GetPluginVersion" && function != "GetPluginName" && function != "GetPluginWebsite")
             function = "Internal_" + function;
 
         if (this->GetPluginType() == PluginType_t::PLUGIN_CPP)

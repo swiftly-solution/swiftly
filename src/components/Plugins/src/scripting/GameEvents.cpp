@@ -1,38 +1,41 @@
 #include "../../inc/Scripting.h"
 #include "../../../../menus/Menus.h"
 #include "../../../../commands/CommandsManager.h"
+#include "../../../../events/gameevents.h"
 
-#define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                                                   \
-    for (uint32 i = 0; i < plugins.size(); i++)                                                        \
-    {                                                                                                  \
-        Plugin *plugin = plugins[i];                                                                   \
-        if (plugin->IsPluginLoaded())                                                                  \
-        {                                                                                              \
-            ExecuteGameEventWithNoReturn<Plugin_##FUNCTION_NAME>(plugin, #FUNCTION_NAME, __VA_ARGS__); \
-        }                                                                                              \
+#define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                           \
+    for (uint32 i = 0; i < plugins.size(); i++)                                \
+    {                                                                          \
+        Plugin *plugin = plugins[i];                                           \
+        if (plugin->IsPluginLoaded())                                          \
+        {                                                                      \
+            ExecuteGameEventWithNoReturn(plugin, #FUNCTION_NAME, __VA_ARGS__); \
+        }                                                                      \
     }
 
-#define CALL_PFUNCTION_VOID_NOARGS(FUNCTION_NAME)                                         \
-    for (uint32 i = 0; i < plugins.size(); i++)                                           \
-    {                                                                                     \
-        Plugin *plugin = plugins[i];                                                      \
-        if (plugin->IsPluginLoaded())                                                     \
-        {                                                                                 \
-            ExecuteGameEventWithNoReturn<Plugin_##FUNCTION_NAME>(plugin, #FUNCTION_NAME); \
-        }                                                                                 \
+#define CALL_PFUNCTION_VOID_NOARGS(FUNCTION_NAME)                 \
+    for (uint32 i = 0; i < plugins.size(); i++)                   \
+    {                                                             \
+        Plugin *plugin = plugins[i];                              \
+        if (plugin->IsPluginLoaded())                             \
+        {                                                         \
+            ExecuteGameEventWithNoReturn(plugin, #FUNCTION_NAME); \
+        }                                                         \
     }
 
-#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                                                            \
-    for (uint32 i = 0; i < plugins.size(); i++)                                                                                         \
-    {                                                                                                                                   \
-        Plugin *plugin = plugins[i];                                                                                                    \
-        if (plugin->IsPluginLoaded())                                                                                                   \
-        {                                                                                                                               \
-            if (!ExecuteGameEventWithReturn<bool, Plugin_##FUNCTION_NAME>(plugin, FALSE_VALUE, RET_VALUE, #FUNCTION_NAME, __VA_ARGS__)) \
-                return FALSE_VALUE;                                                                                                     \
-        }                                                                                                                               \
-    }                                                                                                                                   \
+#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                                                        \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                                                     \
+    {                                                                                                                               \
+        Plugin *plugin = plugins[i];                                                                                                \
+        if (plugin->IsPluginLoaded())                                                                                               \
+        {                                                                                                                           \
+            if (!ExecuteGameEventWithReturn<bool, Plugin_WrapperBool>(plugin, FALSE_VALUE, RET_VALUE, #FUNCTION_NAME, __VA_ARGS__)) \
+                return FALSE_VALUE;                                                                                                 \
+        }                                                                                                                           \
+    }                                                                                                                               \
     return RET_VALUE;
+
+CUtlVector<CGameEventListener *> g_GameEventListener;
 
 std::vector<int> GetBombSites()
 {
@@ -47,11 +50,11 @@ std::vector<int> GetBombSites()
 
 extern std::map<std::string, std::map<std::string, std::vector<luacpp::LuaObject>>> lua_game_events;
 
-template <typename T, typename... Args>
+template <typename... Args>
 void ExecuteGameEventWithNoReturn(Plugin *plugin, std::string game_event_name, Args &&...args)
 {
     if (plugin->GetPluginType() == PluginType_t::PLUGIN_CPP)
-        plugin->ExecuteFunction<T>(game_event_name, args...);
+        plugin->ExecuteFunction<Plugin_WrapperVoid>(game_event_name, args...);
     else if (plugin->GetPluginType() == PluginType_t::PLUGIN_LUA)
     {
         if (lua_game_events.find(plugin->GetName()) == lua_game_events.end())
@@ -106,160 +109,160 @@ Ret ExecuteGameEventWithReturn(Plugin *plugin, Ret falseValue, Ret trueValue, st
 
 bool scripting_OnClientConnect(const OnClientConnect *e)
 {
-    CALL_PFUNCTION_BOOL_ARGS(OnClientConnect, false, true, e->slot->Get())
+    CALL_PFUNCTION_BOOL_ARGS(OnClientConnect, false, true, e->slot->Get());
 }
 
-void scripting_ClientFullConnected(const ClientFullConnected *e)
+GAME_EVENT(player_connect_full)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
 
     CALL_PFUNCTION_VOID_ARGS(OnClientFullConnected, slot.Get())
 }
 
 void scripting_OnClientDisconnect(const OnClientDisconnect *e)
 {
-    CALL_PFUNCTION_VOID_ARGS(OnClientDisconnect, e->slot->Get())
+    CALL_PFUNCTION_VOID_ARGS(OnClientDisconnect, e->slot->Get());
 }
 
-void scripting_PlayerDeath(const PlayerDeath *e)
+GAME_EVENT(player_death)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    CPlayerSlot attacker = e->pEvent->GetPlayerSlot("attacker");
-    CPlayerSlot assister = e->pEvent->GetPlayerSlot("assister");
-    bool assistedflash = e->pEvent->GetBool("assistedflash");
-    std::string weapon = e->pEvent->GetString("weapon");
-    bool headshot = e->pEvent->GetBool("headshot");
-    short dominated = e->pEvent->GetInt("dominated");
-    short revenge = e->pEvent->GetInt("revenge");
-    short wipe = e->pEvent->GetInt("wipe");
-    short penetrated = e->pEvent->GetInt("penetrated");
-    bool noreplay = e->pEvent->GetBool("noreplay");
-    bool noscope = e->pEvent->GetBool("noscope");
-    bool thrusmoke = e->pEvent->GetBool("thrusmoke");
-    bool attackerblind = e->pEvent->GetBool("attackerblind");
-    float distance = e->pEvent->GetFloat("distance");
-    short dmg_health = e->pEvent->GetInt("dmg_health");
-    short dmg_armor = e->pEvent->GetInt("dmg_armor");
-    short hitgroup = e->pEvent->GetInt("hitgroup");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    CPlayerSlot attacker = pEvent->GetPlayerSlot("attacker");
+    CPlayerSlot assister = pEvent->GetPlayerSlot("assister");
+    bool assistedflash = pEvent->GetBool("assistedflash");
+    std::string weapon = pEvent->GetString("weapon");
+    bool headshot = pEvent->GetBool("headshot");
+    short dominated = pEvent->GetInt("dominated");
+    short revenge = pEvent->GetInt("revenge");
+    short wipe = pEvent->GetInt("wipe");
+    short penetrated = pEvent->GetInt("penetrated");
+    bool noreplay = pEvent->GetBool("noreplay");
+    bool noscope = pEvent->GetBool("noscope");
+    bool thrusmoke = pEvent->GetBool("thrusmoke");
+    bool attackerblind = pEvent->GetBool("attackerblind");
+    float distance = pEvent->GetFloat("distance");
+    short dmg_health = pEvent->GetInt("dmg_health");
+    short dmg_armor = pEvent->GetInt("dmg_armor");
+    short hitgroup = pEvent->GetInt("hitgroup");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerDeath, slot.Get(), attacker.Get(), assister.Get(), assistedflash, weapon.c_str(), headshot, dominated, revenge, wipe, penetrated, noreplay, noscope, thrusmoke, attackerblind, distance, dmg_health, dmg_armor, hitgroup)
 }
 
-void scripting_PlayerBlind(const PlayerBlind *e)
+GAME_EVENT(player_blind)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    CPlayerSlot attacker = e->pEvent->GetPlayerSlot("attacker");
-    short entityid = e->pEvent->GetInt("entityid");
-    float duration = e->pEvent->GetFloat("blind_duration");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    CPlayerSlot attacker = pEvent->GetPlayerSlot("attacker");
+    short entityid = pEvent->GetInt("entityid");
+    float duration = pEvent->GetFloat("blind_duration");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerBlind, slot.Get(), attacker.Get(), entityid, duration)
 }
 
-void scripting_PlayerTeam(const PlayerTeam *e)
+GAME_EVENT(player_team)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    unsigned char team = e->pEvent->GetInt("team");
-    unsigned char oldteam = e->pEvent->GetInt("oldteam");
-    bool disconnect = e->pEvent->GetBool("disconnect");
-    bool silent = e->pEvent->GetBool("silent");
-    bool isbot = e->pEvent->GetBool("isbot");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    unsigned char team = pEvent->GetInt("team");
+    unsigned char oldteam = pEvent->GetInt("oldteam");
+    bool disconnect = pEvent->GetBool("disconnect");
+    bool silent = pEvent->GetBool("silent");
+    bool isbot = pEvent->GetBool("isbot");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerTeam, slot.Get(), team, oldteam, disconnect, silent, isbot)
 }
 
-void scripting_PlayerChangeName(const PlayerChangeName *e)
+GAME_EVENT(player_changename)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    const char *oldname = e->pEvent->GetString("oldname");
-    const char *newname = e->pEvent->GetString("newname");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    const char *oldname = pEvent->GetString("oldname");
+    const char *newname = pEvent->GetString("newname");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerChangeName, slot.Get(), oldname, newname)
 }
 
-void scripting_PlayerInfo(const PlayerInfo *e)
+GAME_EVENT(player_info)
 {
-    std::string name = e->pEvent->GetString("name");
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    uint64_t steamid = e->pEvent->GetInt("steamid");
-    bool bot = e->pEvent->GetBool("bot");
+    std::string name = pEvent->GetString("name");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    uint64_t steamid = pEvent->GetInt("steamid");
+    bool bot = pEvent->GetBool("bot");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerInfo, name.c_str(), slot.Get(), steamid, bot)
 }
 
-void scripting_ItemPickup(const ItemPickup *e)
+GAME_EVENT(item_pickup)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    const char *item = e->pEvent->GetString("item");
-    bool silent = e->pEvent->GetBool("silent");
-    long defindex = e->pEvent->GetInt("defindex");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    const char *item = pEvent->GetString("item");
+    bool silent = pEvent->GetBool("silent");
+    long defindex = pEvent->GetInt("defindex");
 
     CALL_PFUNCTION_VOID_ARGS(OnItemPickup, slot.Get(), item, silent, defindex)
 }
 
-void scripting_EnterBuyzone(const EnterBuyzone *e)
+GAME_EVENT(enter_buyzone)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    bool canbuy = e->pEvent->GetBool("canbuy");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    bool canbuy = pEvent->GetBool("canbuy");
 
     CALL_PFUNCTION_VOID_ARGS(OnEnterBuyzone, slot.Get(), canbuy)
 }
 
-void scripting_EnterBombzone(const EnterBombzone *e)
+GAME_EVENT(enter_bombzone)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    bool hasbomb = e->pEvent->GetBool("hasbomb");
-    bool isplanted = e->pEvent->GetBool("isplanted");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    bool hasbomb = pEvent->GetBool("hasbomb");
+    bool isplanted = pEvent->GetBool("isplanted");
 
     CALL_PFUNCTION_VOID_ARGS(OnEnterBombzone, slot.Get(), hasbomb, isplanted)
 }
 
-void scripting_ExitBombzone(const ExitBombzone *e)
+GAME_EVENT(exit_bombzone)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    bool hasbomb = e->pEvent->GetBool("hasbomb");
-    bool isplanted = e->pEvent->GetBool("isplanted");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    bool hasbomb = pEvent->GetBool("hasbomb");
+    bool isplanted = pEvent->GetBool("isplanted");
 
     CALL_PFUNCTION_VOID_ARGS(OnExitBombzone, slot.Get(), hasbomb, isplanted)
 }
 
-void scripting_ExitBuyzone(const ExitBuyzone *e)
+GAME_EVENT(exit_buyzone)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    bool canbuy = e->pEvent->GetBool("canbuy");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    bool canbuy = pEvent->GetBool("canbuy");
 
     CALL_PFUNCTION_VOID_ARGS(OnExitBuyzone, slot.Get(), canbuy)
 }
 
-void scripting_PlayerFullUpdate(const PlayerFullUpdate *e)
+GAME_EVENT(player_full_update)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    short count = e->pEvent->GetInt("count");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    short count = pEvent->GetInt("count");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerFullUpdate, slot.Get(), count)
 }
 
-void scripting_PlayerFallDamage(const PlayerFallDamage *e)
+GAME_EVENT(player_falldamage)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    float damage = e->pEvent->GetFloat("damage");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    float damage = pEvent->GetFloat("damage");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerFallDamage, slot.Get(), damage)
 }
 
-void scripting_PlayerJump(const PlayerJump *e)
+GAME_EVENT(player_jump)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerJump, slot.Get())
 }
 
-void scripting_OnClientSpawn(const OnPlayerSpawn *e)
+GAME_EVENT(player_spawn)
 {
-    CBasePlayerController *controller = (CBasePlayerController *)e->pEvent->GetPlayerController("userid");
+    CBasePlayerController *controller = (CBasePlayerController *)pEvent->GetPlayerController("userid");
     if (!controller)
         return;
 
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
@@ -267,47 +270,45 @@ void scripting_OnClientSpawn(const OnPlayerSpawn *e)
     CALL_PFUNCTION_VOID_ARGS(OnPlayerSpawn, player->GetSlot()->Get())
 }
 
-void scripting_OnRoundPrestart(const OnRoundPrestart *e)
+GAME_EVENT(round_prestart)
 {
-    CALL_PFUNCTION_VOID_NOARGS(OnRoundPrestart)
+    CALL_PFUNCTION_VOID_NOARGS(OnRoundPrestart);
 }
 
-void scripting_OnRoundPostStart(const OnRoundPostStart *e)
+GAME_EVENT(round_poststart)
 {
-    CALL_PFUNCTION_VOID_NOARGS(OnRoundPostStart)
+    CALL_PFUNCTION_VOID_NOARGS(OnRoundPostStart);
 }
 
-void scripting_OnRoundStart(const OnRoundStart *e)
+GAME_EVENT(round_start)
 {
-    long timelimit = e->pEvent->GetUint64("timelimit");
-    long fraglimit = e->pEvent->GetUint64("fraglimit");
-    const char *objective = e->pEvent->GetString("objective");
+    long timelimit = pEvent->GetUint64("timelimit");
+    long fraglimit = pEvent->GetUint64("fraglimit");
+    const char *objective = pEvent->GetString("objective");
 
     CALL_PFUNCTION_VOID_ARGS(OnRoundStart, timelimit, fraglimit, objective)
 }
 
-void scripting_OnRoundMVP(const OnRoundMVP *e)
+GAME_EVENT(round_mvp)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    short reason = e->pEvent->GetInt("reason");
-    long value = e->pEvent->GetInt("value");
-    long musickitmvps = e->pEvent->GetInt("musickitmvps");
-    unsigned char nomusic = e->pEvent->GetInt("nomusic");
-    long musickitid = e->pEvent->GetInt("musickitid");
-
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    short reason = pEvent->GetInt("reason");
+    long value = pEvent->GetInt("value");
+    long musickitmvps = pEvent->GetInt("musickitmvps");
+    unsigned char nomusic = pEvent->GetInt("nomusic");
+    long musickitid = pEvent->GetInt("musickitid");
 
     CALL_PFUNCTION_VOID_ARGS(OnRoundMVP, slot.Get(), reason, value, musickitmvps, nomusic, musickitid)
-
 }
 
-void scripting_OnRoundEnd(const OnRoundEnd *e)
+GAME_EVENT(round_end)
 {
-    unsigned char winner = e->pEvent->GetInt("winner");
-    unsigned char reason = e->pEvent->GetInt("reason");
-    const char *message = e->pEvent->GetString("message");
-    unsigned char legacy = e->pEvent->GetInt("legacy");
-    short player_count = e->pEvent->GetInt("player_count");
-    unsigned char nomusic = e->pEvent->GetInt("nomusic");
+    unsigned char winner = pEvent->GetInt("winner");
+    unsigned char reason = pEvent->GetInt("reason");
+    const char *message = pEvent->GetString("message");
+    unsigned char legacy = pEvent->GetInt("legacy");
+    short player_count = pEvent->GetInt("player_count");
+    unsigned char nomusic = pEvent->GetInt("nomusic");
 
     CALL_PFUNCTION_VOID_ARGS(OnRoundEnd, winner, reason, message, legacy, player_count, nomusic)
 }
@@ -343,20 +344,18 @@ bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destin
     CALL_PFUNCTION_BOOL_ARGS(OnClientGameMessage, false, true, player->GetSlot()->Get(), destination, text)
 }
 
-void scripting_OnGameTick(const OnGameFrame *e)
-{
-    CALL_PFUNCTION_VOID_ARGS(OnGameTick, e->simulating, e->bFirstTick, e->bFirstTick)
-}
+void scripting_OnGameTick(const OnGameFrame *e){
+    CALL_PFUNCTION_VOID_ARGS(OnGameTick, e->simulating, e->bFirstTick, e->bFirstTick)}
 
-void scripting_BombBeginPlant(const BombBeginPlant *e)
+GAME_EVENT(bomb_beginplant)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
 
     std::vector<int> sites = GetBombSites();
-    uint16 site = e->pEvent->GetInt("site");
+    uint16 site = pEvent->GetInt("site");
     if (sites.size() == 0)
         site = SITE_UNKNOWN;
     else
@@ -365,15 +364,15 @@ void scripting_BombBeginPlant(const BombBeginPlant *e)
     CALL_PFUNCTION_VOID_ARGS(BombBeginPlant, player->GetSlot()->Get(), site)
 }
 
-void scripting_BombAbortPlant(const BombAbortPlant *e)
+GAME_EVENT(bomb_abortplant)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
 
     std::vector<int> sites = GetBombSites();
-    uint16 site = e->pEvent->GetInt("site");
+    uint16 site = pEvent->GetInt("site");
     if (sites.size() == 0)
         site = SITE_UNKNOWN;
     else
@@ -382,15 +381,15 @@ void scripting_BombAbortPlant(const BombAbortPlant *e)
     CALL_PFUNCTION_VOID_ARGS(BombAbortPlant, player->GetSlot()->Get(), site)
 }
 
-void scripting_BombPlanted(const BombPlanted *e)
+GAME_EVENT(bomb_planted)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
 
     std::vector<int> sites = GetBombSites();
-    uint16 site = e->pEvent->GetInt("site");
+    uint16 site = pEvent->GetInt("site");
     if (sites.size() == 0)
         site = SITE_UNKNOWN;
     else
@@ -399,15 +398,15 @@ void scripting_BombPlanted(const BombPlanted *e)
     CALL_PFUNCTION_VOID_ARGS(BombPlanted, player->GetSlot()->Get(), site)
 }
 
-void scripting_BombDefused(const BombDefused *e)
+GAME_EVENT(bomb_defused)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
 
     std::vector<int> sites = GetBombSites();
-    uint16 site = e->pEvent->GetInt("site");
+    uint16 site = pEvent->GetInt("site");
     if (sites.size() == 0)
         site = SITE_UNKNOWN;
     else
@@ -416,15 +415,15 @@ void scripting_BombDefused(const BombDefused *e)
     CALL_PFUNCTION_VOID_ARGS(BombDefused, player->GetSlot()->Get(), site)
 }
 
-void scripting_BombExploded(const BombExploded *e)
+GAME_EVENT(bomb_exploded)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
 
     std::vector<int> sites = GetBombSites();
-    uint16 site = e->pEvent->GetInt("site");
+    uint16 site = pEvent->GetInt("site");
     if (sites.size() == 0)
         site = SITE_UNKNOWN;
     else
@@ -433,9 +432,9 @@ void scripting_BombExploded(const BombExploded *e)
     CALL_PFUNCTION_VOID_ARGS(BombExploded, player->GetSlot()->Get(), site)
 }
 
-void scripting_BombDropped(const BombDropped *e)
+GAME_EVENT(bomb_dropped)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
@@ -443,9 +442,9 @@ void scripting_BombDropped(const BombDropped *e)
     CALL_PFUNCTION_VOID_ARGS(BombDropped, player->GetSlot()->Get())
 }
 
-void scripting_BombPickup(const BombPickup *e)
+GAME_EVENT(bomb_pickup)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
@@ -453,15 +452,15 @@ void scripting_BombPickup(const BombPickup *e)
     CALL_PFUNCTION_VOID_ARGS(BombPickup, player->GetSlot()->Get())
 }
 
-void scripting_BombBeginDefuse(const BombBeginDefuse *e)
+GAME_EVENT(bomb_begindefuse)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
 
     std::vector<int> sites = GetBombSites();
-    uint16 site = e->pEvent->GetInt("site");
+    uint16 site = pEvent->GetInt("site");
     if (sites.size() == 0)
         site = SITE_UNKNOWN;
     else
@@ -470,15 +469,15 @@ void scripting_BombBeginDefuse(const BombBeginDefuse *e)
     CALL_PFUNCTION_VOID_ARGS(BombBeginDefuse, player->GetSlot()->Get(), site)
 }
 
-void scripting_BombAbortDefuse(const BombAbortDefuse *e)
+GAME_EVENT(bomb_abortdefuse)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
     Player *player = g_playerManager->GetPlayer(&slot);
     if (!player)
         return;
 
     std::vector<int> sites = GetBombSites();
-    uint16 site = e->pEvent->GetInt("site");
+    uint16 site = pEvent->GetInt("site");
     if (sites.size() == 0)
         site = SITE_UNKNOWN;
     else
@@ -494,17 +493,17 @@ void scripting_OnMapLoad(const OnMapLoad *e)
 
 void scripting_OnMapUnload(const OnMapUnload *e)
 {
-    CALL_PFUNCTION_VOID_ARGS(OnMapUnload, e->map)
+    CALL_PFUNCTION_VOID_ARGS(OnMapUnload, e->map);
 }
 
-void scripting_PlayerHurt(const PlayerHurt *e)
+GAME_EVENT(player_hurt)
 {
-    CPlayerSlot slot = e->pEvent->GetPlayerSlot("userid");
-    CPlayerSlot attacker = e->pEvent->GetPlayerSlot("attacker");
-    short dmgHealth = e->pEvent->GetInt("dmg_health");
-    short dmgArmor = e->pEvent->GetInt("dmg_armor");
-    short hitgroup = e->pEvent->GetInt("hitgroup");
-    std::string weapon = e->pEvent->GetString("weapon");
+    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
+    CPlayerSlot attacker = pEvent->GetPlayerSlot("attacker");
+    short dmgHealth = pEvent->GetInt("dmg_health");
+    short dmgArmor = pEvent->GetInt("dmg_armor");
+    short hitgroup = pEvent->GetInt("hitgroup");
+    std::string weapon = pEvent->GetString("weapon");
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerHurt, slot.Get(), attacker.Get(), dmgHealth, dmgArmor, hitgroup, weapon.c_str())
 }
@@ -589,10 +588,10 @@ void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
     CALL_PFUNCTION_VOID_ARGS(OnClientKeyStateChange, e->slot->Get(), e->button, e->pressed);
 }
 
-void scripting_OnServerCvarChange(const OnServerCvarChange *e)
+GAME_EVENT(server_cvar)
 {
-    std::string cvarname = e->pEvent->GetString("cvarname");
-    std::string cvarvalue = e->pEvent->GetString("cvarvalue");
+    std::string cvarname = pEvent->GetString("cvarname");
+    std::string cvarvalue = pEvent->GetString("cvarvalue");
 
     CALL_PFUNCTION_VOID_ARGS(OnServerCvarChange, cvarname.c_str(), cvarvalue.c_str())
 }
@@ -605,39 +604,6 @@ bool scripting_OnClientCommand(OnClientCommand *e)
 void PluginsComponent::RegisterGameEvents()
 {
     hooks::on<OnGameFrame>(scripting_OnGameTick);
-
-    gameevents::on<OnRoundPrestart>(scripting_OnRoundPrestart);
-    gameevents::on<OnRoundPostStart>(scripting_OnRoundPostStart);
-    gameevents::on<OnRoundStart>(scripting_OnRoundStart);
-    gameevents::on<OnRoundEnd>(scripting_OnRoundEnd);
-    gameevents::on<OnRoundMVP>(scripting_OnRoundMVP);
-    gameevents::on<OnPlayerSpawn>(scripting_OnClientSpawn);
-
-    gameevents::on<BombBeginPlant>(scripting_BombBeginPlant);
-    gameevents::on<BombAbortPlant>(scripting_BombAbortPlant);
-    gameevents::on<BombPlanted>(scripting_BombPlanted);
-    gameevents::on<BombBeginDefuse>(scripting_BombBeginDefuse);
-    gameevents::on<BombAbortDefuse>(scripting_BombAbortDefuse);
-    gameevents::on<BombDefused>(scripting_BombDefused);
-    gameevents::on<BombExploded>(scripting_BombExploded);
-    gameevents::on<BombDropped>(scripting_BombDropped);
-    gameevents::on<BombPickup>(scripting_BombPickup);
-    gameevents::on<PlayerDeath>(scripting_PlayerDeath);
-    gameevents::on<PlayerHurt>(scripting_PlayerHurt);
-    gameevents::on<PlayerBlind>(scripting_PlayerBlind);
-    gameevents::on<PlayerTeam>(scripting_PlayerTeam);
-    gameevents::on<PlayerChangeName>(scripting_PlayerChangeName);
-    gameevents::on<PlayerInfo>(scripting_PlayerInfo);
-    gameevents::on<PlayerFullUpdate>(scripting_PlayerFullUpdate);
-    gameevents::on<ItemPickup>(scripting_ItemPickup);
-    gameevents::on<EnterBuyzone>(scripting_EnterBuyzone);
-    gameevents::on<ExitBuyzone>(scripting_ExitBuyzone);
-    gameevents::on<EnterBombzone>(scripting_EnterBombzone);
-    gameevents::on<ExitBombzone>(scripting_ExitBombzone);
-    gameevents::on<PlayerFallDamage>(scripting_PlayerFallDamage);
-    gameevents::on<PlayerJump>(scripting_PlayerJump);
-    gameevents::on<ClientFullConnected>(scripting_ClientFullConnected);
-    gameevents::on<OnServerCvarChange>(scripting_OnServerCvarChange);
 
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);
