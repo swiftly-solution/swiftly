@@ -104,6 +104,11 @@
         "windows": "48 89 74 24 10 57 48 83 EC 30 33 F6 48 8B FA",
         "linux": "55 48 89 E5 41 56 41 55 41 54 49 89 F4 53 48 83 7F 30 00"
     },
+    "EmitSound": {
+        "lib": "server",
+        "windows": "48 8B C4 4C 89 40 18 55 57",
+        "linux": "48 B8 2A 2A 2A 2A FF FF FF FF 55 48 89 E5 41 57 41 89 F7"
+    },
     "LoggingSystem_Log": {
         "lib": "tier0",
         "windows": "_LoggingSystem_Log",

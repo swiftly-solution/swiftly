@@ -306,6 +306,15 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_SetHealthShotBoostEffectExpirationTime");
     }
+
+    void EmitSound(const char *sound, float volume, int pitch, float delay)
+    {
+        void *player_EmitSound = FetchFunctionPtr(nullptr, "scripting_Player_EmitSound");
+        if (player_EmitSound)
+            reinterpret_cast<Player_EmitSound>(player_EmitSound)(this->m_playerSlot, sound, volume, pitch, delay);
+        else
+            NOT_SUPPORTED("scripting_Player_EmitSound");
+    }
 };
 
 #endif

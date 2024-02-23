@@ -1332,3 +1332,19 @@ SMM_API void scripting_Player_SetHealthShotBoostEffectExpirationTime(uint32 play
 
     pawn->m_flHealthShotBoostExpirationTime = expireTime;
 }
+
+SMM_API void scripting_Player_EmitSound(uint32 playerId, const char *sound, float volume, int pitch, float delay)
+{
+    if (sound == nullptr)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    pawn->EmitSound(sound, volume, pitch, delay);
+}
