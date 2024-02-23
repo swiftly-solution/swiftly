@@ -25,7 +25,6 @@ typedef void (*CAttributeList_SetOrAddAttributeValueByName)(void *, const char *
 typedef void (*CBaseModelEntity_SetBodygroup)(void *, const char *, ...);
 typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices *, const char *, int, int, int, int);
 typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController *, CCSPlayerPawn *, bool, bool);
-typedef void (*CBaseEntity_EmitSoundParams)(Z_CBaseEntity *, const char *, int, float, float);
 
 class Signatures
 {

@@ -167,10 +167,5 @@ public:
         g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this, pInputName, pActivator, pCaller, value, 0);
     }
 
-    void EmitSound(const char *pszSound, float flVolume = 1.0, int nPitch = 100, float flDelay = 0.0)
-    {
-        g_Signatures->FetchSignature<CBaseEntity_EmitSoundParams>("EmitSound")(this, pszSound, nPitch, flVolume, flDelay);
-    }
-
     CEntitySubclassVDataBase *GetVData() { return *(CEntitySubclassVDataBase **)((uint8 *)(m_nSubclassID()) + 4); }
 };
