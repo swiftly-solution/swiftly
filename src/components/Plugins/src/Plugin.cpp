@@ -30,8 +30,10 @@ void Plugin::StartPlugin()
     }
 
     ExecuteGameEventWithNoReturn(this, "OnPluginStart");
-
     this->SetPluginLoaded(true);
+
+    if (g_Plugin.m_allpluginsloaded)
+        ExecuteGameEventWithNoReturn(this, "AllPluginsLoaded");
 }
 
 void Plugin::StopPlugin()

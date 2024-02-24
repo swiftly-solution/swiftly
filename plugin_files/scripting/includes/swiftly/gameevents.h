@@ -42,7 +42,7 @@ void BombDefused(Player *player, unsigned short site) __attribute__((weak));
 void BombExploded(Player *player, unsigned short site) __attribute__((weak));
 void BombDropped(Player *player) __attribute__((weak));
 void BombPickup(Player *player) __attribute__((weak));
-
+void AllPluginsLoaded() __attribute__((weak));
 void OnMapLoad(const char *mapName) __attribute__((weak));
 void OnMapUnload(const char *mapName) __attribute__((weak));
 bool OnClientGameMessage(Player *player, int destination, const char *message) __attribute__((weak));
@@ -74,6 +74,11 @@ extern "C"
         print("");
         if (OnPluginStart)
             OnPluginStart();
+    }
+    void Internal_AllPluginsLoaded()
+    {
+        if (AllPluginsLoaded)
+            AllPluginsLoaded();
     }
     void Internal_OnPluginStop()
     {

@@ -1207,6 +1207,15 @@
 				"params": {},
 				"additional": {}
 			},
+			"allpluginsloaded": {
+				"title": "AllPluginsLoaded",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event triggers when all plugins have been loaded.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
 			"onpluginstop": {
 				"title": "OnPluginStop",
 				"template": "event-syntax",

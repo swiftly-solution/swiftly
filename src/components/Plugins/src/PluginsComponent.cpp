@@ -63,10 +63,18 @@ void PluginsComponent::LoadPlugin(std::string init_path, std::string dir)
     }
 }
 
+template <typename... Args>
+void ExecuteGameEventWithNoReturn(Plugin *plugin, std::string game_event_name, Args &&...args);
+
 void PluginsComponent::StartPlugins()
 {
     for (uint32 i = 0; i < plugins.size(); i++)
         plugins[i]->StartPlugin();
+
+    g_Plugin.m_allpluginsloaded = true;
+
+    for (uint32 i = 0; i < plugins.size(); i++)
+        ExecuteGameEventWithNoReturn(plugins[i], "AllPluginsLoaded");
 }
 
 std::map<std::string, Plugin *> FetchPluginsMap()

@@ -34,6 +34,7 @@
 #define PATH "addons/swiftly"
 
 class CCSGameRules;
+class PluginsComponent;
 
 class GameSessionConfiguration_t
 {
@@ -76,6 +77,7 @@ public:
 
 public:
     std::deque<std::function<void()>> m_nextFrame;
+    bool m_allpluginsloaded = false;
 };
 
 class CEntityListener : public IEntityListener
