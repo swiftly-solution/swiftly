@@ -179,6 +179,18 @@ public:
         }
     }
 
+    void SetConvar(const char *name, const char *value)
+    {
+        if (name == nullptr || value == nullptr)
+            return;
+
+        void *player_SetConvar = FetchFunctionPtr(nullptr, "scripting_Player_SetConvar");
+        if (player_SetConvar)
+            reinterpret_cast<Player_SetConvar>(player_SetConvar)(this->m_playerSlot, name, value);
+        else
+            NOT_SUPPORTED("scripting_Player_SetConvar");
+    }
+
     void SendMsg(HudDestination dest, const char *message, ...)
     {
         va_list ap;

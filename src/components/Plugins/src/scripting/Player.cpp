@@ -1332,3 +1332,15 @@ SMM_API void scripting_Player_SetHealthShotBoostEffectExpirationTime(uint32 play
 
     pawn->m_flHealthShotBoostExpirationTime = expireTime;
 }
+
+SMM_API void scripting_Player_SetConvar(uint32 playerId, const char *cvarname, const char *cvarvalue)
+{
+    if (cvarname == nullptr || cvarvalue == nullptr)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    player->SetClientConvar(cvarname, cvarvalue);
+}

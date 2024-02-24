@@ -92,6 +92,7 @@ extern IServerGameDLL *server;
 extern ICvar *g_pcVar;
 extern CCSGameRules *g_pGameRules;
 extern INetworkMessages *g_pNetworkMessages;
+extern IGameEventSystem *g_pGameEventSystem;
 
 PLUGIN_GLOBALVARS();
 

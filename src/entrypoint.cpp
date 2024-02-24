@@ -94,6 +94,7 @@ CEntityListener g_entityListener;
 CCSGameRules *g_pGameRules = nullptr;
 GameMenus *g_menus = nullptr;
 Addons *g_addons = nullptr;
+IGameEventSystem *g_pGameEventSystem = nullptr;
 
 class CGameResourceService
 {
@@ -156,6 +157,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     GET_V_IFACE_ANY(GetFileSystemFactory, filesystem, IFileSystem, FILESYSTEM_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameResourceService, IGameResourceServiceServer, GAMERESOURCESERVICESERVER_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pSchemaSystem2, CSchemaSystem, SCHEMASYSTEM_INTERFACE_VERSION);
+    GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameEventSystem, IGameEventSystem, GAMEEVENTSYSTEM_INTERFACE_VERSION);
 
     PRINT("Configurations", "Loading configurations...\n");
 

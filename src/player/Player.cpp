@@ -5,7 +5,9 @@
 #include "../events/gameevents.h"
 #include "../hooks/Hooks.h"
 #include "../menus/Menus.h"
+#include "networkbasetypes.pb.h"
 #include <thread>
+#include "../sdk/entity/CRecipientFilters.h"
 
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
 
@@ -438,4 +440,22 @@ void Player::HideMenu()
 
         playerListener->FireGameEvent(pEvent);
     }
+}
+
+ConVar *FetchCVar(const char *name);
+
+void Player::SetClientConvar(std::string cmd, std::string val)
+{
+    ConVar *cv = FetchCVar(cmd.c_str());
+    if (!cv)
+        return;
+
+    INetworkSerializable *netmsg = g_pNetworkMessages->FindNetworkMessagePartial("SetConVar");
+    CNETMsg_SetConVar *msg = new CNETMsg_SetConVar;
+    CMsg_CVars_CVar *cvar = msg->mutable_convars()->add_cvars();
+    cvar->set_name(cv->m_pszName);
+    cvar->set_value(val.c_str());
+
+    CSingleRecipientFilter filter(this->GetSlot()->Get());
+    g_pGameEventSystem->PostEventAbstract(0, false, &filter, netmsg, msg, 0);
 }

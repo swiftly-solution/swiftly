@@ -1893,6 +1893,22 @@
 						},
 						"additional": {}
 					},
+					"setconvar": {
+						"title": "SetConvar",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets a convar value to a client.",
+						"variable": {
+							"cpp": "player->SetConvar",
+							"lua": "player:SetConvar"
+						},
+						"return": "void",
+						"params": {
+							"name": "const char*",
+							"value": "const char*"
+						},
+						"additional": {}
+					},
 					"getipaddress": {
 						"title": "GetIPAddress",
 						"template": "function-syntax",
