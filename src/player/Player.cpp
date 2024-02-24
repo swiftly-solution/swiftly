@@ -162,7 +162,8 @@ void Player::SendMsg(int dest, const char *msg, ...)
     }
     else if (dest == HUD_PRINTCENTER)
     {
-        this->centerMessagesQueue.push_back(std::make_pair(GetTime() + 5000, msg));
+        this->centerMessageEndTime = GetTime() + 5000;
+        this->centerMessageText = msg;
     }
     else if (dest == HUD_PRINTCONSOLE)
     {
@@ -371,13 +372,6 @@ void Player::ShowMenu(std::string menuid)
 
 void Player::RenderCenterText()
 {
-    if (this->centerMessageEndTime < GetTime() && this->centerMessagesQueue.size() > 0)
-    {
-        this->centerMessageEndTime = this->centerMessagesQueue[0].first;
-        this->centerMessageText = this->centerMessagesQueue[0].second;
-        this->centerMessagesQueue.erase(this->centerMessagesQueue.begin());
-    }
-
     if (this->centerMessageEndTime != 0)
     {
         if (this->centerMessageEndTime >= GetTime())
