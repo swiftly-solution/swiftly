@@ -1860,7 +1860,7 @@
 						"title": "SetHealthShotBoostEffectExpirationTime",
 						"template": "function-syntax",
 						"language": "both",
-						"description": "Executes a command in player's console.",
+						"description": "Sets the health shot effect expiration time.",
 						"variable": {
 							"cpp": "player->SetHealthShotBoostEffectExpirationTime",
 							"lua": "player:SetHealthShotBoostEffectExpirationTime"
