@@ -11,7 +11,7 @@ CUtlVector<ClientJoinInfo_t> g_ClientsPendingAddon;
 
 void AddPendingClient(uint64 steamid)
 {
-    ClientJoinInfo_t PendingCLient{steamid, 0.f};
+    ClientJoinInfo_t PendingCLient{steamid, 0.f, 0};
     g_ClientsPendingAddon.AddToTail(PendingCLient);
 }
 

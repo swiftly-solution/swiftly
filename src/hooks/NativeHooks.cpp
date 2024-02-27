@@ -110,7 +110,7 @@ void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessag
 {
     NetMessageInfo_t *info = pNetMessage->GetNetMessageInfo();
 
-    if (info->m_MessageId != 7 || g_addons->GetStatus() == false || g_addons->GetAddons().empty())
+    if (info->m_MessageId != 7 || g_addons->GetStatus() == false || g_addons->GetAddons().size() == 0)
         return TSendNetMessage(pNetChan, pNetMessage, pData, a4);
 
     ClientJoinInfo_t *pPendingClient = GetPendingClient(pNetChan);
@@ -118,7 +118,7 @@ void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessag
     if (pPendingClient)
     {
         CNETMsg_SignonState *pMsg = (CNETMsg_SignonState *)pData;
-        pMsg->set_addons(g_addons->GetAddons().c_str());
+        pMsg->set_addons(g_addons->GetAddons()[pPendingClient->addon].c_str());
         pMsg->set_signon_state(SIGNONSTATE_CHANGELEVEL);
         pPendingClient->signon_timestamp = g_flUniversalTime;
     }
@@ -128,15 +128,15 @@ void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessag
 
 void *Hook_HostStateRequest(void *a1, void **pRequest)
 {
-    if (g_addons->GetStatus() == false || g_addons->GetAddons().empty() || V_strnicmp((char *)pRequest[2], "changelevel", 11))
+    if (g_addons->GetStatus() == false || g_addons->GetAddons().size() == 0 || V_strnicmp((char *)pRequest[2], "changelevel", 11))
         return THostStateRequest(a1, pRequest);
 
     CUtlString *sAddonString = (CUtlString *)(pRequest + 11);
 
     if (!sAddonString->IsEmpty())
-        sAddonString->Format("%s,%s", sAddonString->Get(), g_addons->GetAddons().c_str());
+        sAddonString->Format("%s,%s", sAddonString->Get(), implode(g_addons->GetAddons(), ",").c_str());
     else
-        sAddonString->Set(g_addons->GetAddons().c_str());
+        sAddonString->Set(implode(g_addons->GetAddons(), ",").c_str());
 
     return THostStateRequest(a1, pRequest);
 }

@@ -37,7 +37,7 @@ void AddonsError(std::string text)
 
 void Addons::RegisterAddons()
 {
-    std::vector<std::string> addons;
+    this->addons.clear();
 
     rapidjson::Document addonsFile;
     addonsFile.Parse(Files::Read("addons/swiftly/configs/addons.json").c_str());
@@ -62,9 +62,8 @@ void Addons::RegisterAddons()
     {
         IS_STRING(addonsFile["addons"], i, string_format("addons[%d]", i).c_str());
         if (std::string(addonsFile["addons"][i].GetString()).size() > 0)
-            addons.push_back(addonsFile["addons"][i].GetString());
+            this->addons.push_back(addonsFile["addons"][i].GetString());
     }
 
-    this->addons_str = implode(addons, ",");
-    AddonsError(string_format("Loaded %d addons.", addons.size()).c_str());
+    AddonsError(string_format("Loaded %d addons.", this->addons.size()).c_str());
 }

@@ -351,7 +351,7 @@ void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, 
     map = pMapName;
     hooks::emit(OnMapLoad(pMapName));
 
-    if (g_addons->GetStatus() == true && !g_addons->GetAddons().empty())
+    if (g_addons->GetStatus() == true && g_addons->GetAddons().size() > 0)
     {
 
         std::thread([pMapName]() -> void
@@ -424,7 +424,7 @@ bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, ui
     if (!scripting_OnClientConnect(&clientConnectEvent))
         RETURN_META_VALUE(MRES_SUPERCEDE, false);
 
-    if (g_addons->GetStatus() == false || g_addons->GetAddons().empty())
+    if (g_addons->GetStatus() == false || g_addons->GetAddons().size() == 0)
         RETURN_META_VALUE(MRES_IGNORED, true);
 
     int index;
@@ -433,7 +433,11 @@ bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, ui
     if (!pendingClient)
         AddPendingClient(xuid);
     else if ((g_flUniversalTime - pendingClient->signon_timestamp) < g_addons->GetTimeout())
-        g_ClientsPendingAddon.FastRemove(index);
+    {
+        pendingClient->addon++;
+        if (pendingClient->addon >= g_addons->GetAddons().size())
+            g_ClientsPendingAddon.FastRemove(index);
+    }
 
     RETURN_META_VALUE(MRES_IGNORED, true);
 }

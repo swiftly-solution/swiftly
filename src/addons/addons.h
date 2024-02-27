@@ -7,13 +7,14 @@
  ***************************************************/
 
 #include <string>
+#include <vector>
 
 class Addons
 {
 private:
     bool m_status = false;
     uint32_t timeout = 10;
-    std::string addons_str = "";
+    std::vector<std::string> addons;
 
 public:
     Addons() {}
@@ -24,7 +25,7 @@ public:
     bool GetStatus() { return this->m_status; }
     void SetTimeout(uint32_t timeout) { this->timeout = timeout; }
     uint32_t GetTimeout() { return this->timeout; }
-    std::string GetAddons() { return this->addons_str; }
+    std::vector<std::string> GetAddons() { return this->addons; }
 };
 
 extern Addons *g_addons;

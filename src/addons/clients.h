@@ -13,6 +13,7 @@ struct ClientJoinInfo_t
 {
     uint64 steamid;
     double signon_timestamp;
+    int addon;
 };
 
 extern CUtlVector<ClientJoinInfo_t> g_ClientsPendingAddon;
