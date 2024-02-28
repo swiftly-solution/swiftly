@@ -580,7 +580,7 @@ void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
                 if (cmd)
                     cmd->Exec(player->GetSlot()->Get(), cmdString, true);
             }
-            else
+            else if (cmd != "")
                 engine->ClientCommand(*player->GetSlot(), cmd.c_str());
         }
     }
