@@ -1476,7 +1476,7 @@
 					"id": "const char*",
 					"title": "const char*",
 					"color": "const char*",
-					"options": "std::unordered_map<std::string, std::string>"
+					"options": "std::vector<std::pair<std::string, std::string>>"
 				},
 				"additional": {
 					"cpp": ":::note\n The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB \n:::\n\n:::warning\n The options needs to be a pair of strings\n```cpp\n{\n    { \"option 1\", \"value 1\"},\n    {\"option 2\", \"value 2\"},\n    // ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. \n:::",

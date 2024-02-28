@@ -6,11 +6,11 @@ void Menu::ProcessOptions()
     int processedItems = 0;
     int totalProcessedItems = 0;
     std::vector<std::pair<std::string, std::string>> tempmap;
-    for (std::unordered_map<std::string, std::string>::iterator it = this->options.begin(); it != this->options.end(); ++it)
+    for (const std::pair<std::string, std::string> entry : this->options)
     {
         ++processedItems;
         ++totalProcessedItems;
-        tempmap.push_back({it->first, it->second});
+        tempmap.push_back({entry.first, entry.second});
         if (processedItems == (pages == 0 ? 4 : 3))
         {
             if (options.size() - totalProcessedItems > 0)

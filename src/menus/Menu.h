@@ -12,11 +12,11 @@ private:
     std::string id;
     std::string title;
     std::string color;
-    std::unordered_map<std::string, std::string> options;
+    std::vector<std::pair<std::string, std::string>> options;
     std::vector<std::vector<std::pair<std::string, std::string>>> processedOptions;
 
 public:
-    Menu(std::string id, std::string title, std::string color, std::unordered_map<std::string, std::string> options)
+    Menu(std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options)
     {
         this->id = id;
         this->color = color;
@@ -35,7 +35,8 @@ public:
         this->processedOptions.clear();
     }
 
-    std::string GetID() {
+    std::string GetID()
+    {
         return this->id;
     }
 

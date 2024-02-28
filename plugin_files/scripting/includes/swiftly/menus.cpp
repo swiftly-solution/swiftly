@@ -4,16 +4,17 @@
 #include <string>
 #include <cstdint>
 #include <unordered_map>
+#include <vector>
 
-std::string SerializeMenuData(std::unordered_map<std::string, std::string> data)
+std::string SerializeMenuData(std::vector<std::pair<std::string, std::string>> data)
 {
     rapidjson::Document document(rapidjson::kArrayType);
     document.SetArray();
 
-    for (std::unordered_map<std::string, std::string>::iterator it = data.begin(); it != data.end(); ++it)
+    for (const std::pair<std::string, std::string> entry : data)
     {
-        std::string option_title = it->first;
-        std::string option_value = it->second;
+        std::string option_title = entry.first;
+        std::string option_value = entry.second;
 
         rapidjson::Document tempdoc(rapidjson::kArrayType);
         tempdoc.PushBack(rapidjson::Value().SetString(option_title.c_str(), document.GetAllocator()), document.GetAllocator());

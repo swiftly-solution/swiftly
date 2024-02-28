@@ -7,8 +7,9 @@
 
 #include <string>
 #include <unordered_map>
+#include <vector>
 
-std::string SerializeMenuData(std::unordered_map<std::string, std::string> data);
+std::string SerializeMenuData(std::vector<std::pair<std::string, std::string>> data);
 
 typedef void (*Plugin_RegisterMenu)(const char *, const char *, const char *, const char *, const char *);
 typedef void (*Plugin_UnregisterMenu)(const char *, const char *);
@@ -21,7 +22,7 @@ private:
 public:
     Menus(std::string plugin_name) : m_plugin_name(plugin_name) {}
 
-    void RegisterMenu(std::string id, std::string title, std::string color, std::unordered_map<std::string, std::string> options)
+    void RegisterMenu(std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options)
     {
         void *menus_Register = FetchFunctionPtr(nullptr, "scripting_Menus_Register");
         if (menus_Register)

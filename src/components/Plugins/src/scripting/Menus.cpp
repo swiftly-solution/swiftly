@@ -9,7 +9,7 @@ SMM_API void scripting_Menus_Register(const char *plugin_name, const char *id, c
     if (id == nullptr || title == nullptr || color == nullptr || items == nullptr || plugin_name == nullptr)
         return;
 
-    std::unordered_map<std::string, std::string> options;
+    std::vector<std::pair<std::string, std::string>> options;
 
     rapidjson::Document document;
     document.Parse(items);
@@ -18,7 +18,7 @@ SMM_API void scripting_Menus_Register(const char *plugin_name, const char *id, c
 
     for (uint32 i = 0; i < document.Size(); i++)
         if (document[i].Size() == 2)
-            options.insert({document[i][0].GetString(), document[i][1].GetString()});
+            options.push_back({document[i][0].GetString(), document[i][1].GetString()});
 
     g_menus->RegisterMenu(plugin_name, id, title, color, options);
 }

@@ -17,7 +17,7 @@ private:
 public:
     GameMenus() {}
 
-    void RegisterMenu(std::string plugin_name, std::string id, std::string title, std::string color, std::unordered_map<std::string, std::string> options)
+    void RegisterMenu(std::string plugin_name, std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options)
     {
         if (this->menu_ids.find(id) != this->menu_ids.end())
             return;
