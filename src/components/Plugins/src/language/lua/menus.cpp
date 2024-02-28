@@ -14,15 +14,15 @@
 #include <cstdint>
 #include <map>
 
-std::string SerializeMenuData(std::unordered_map<std::string, std::string> data)
+std::string SerializeMenuData(std::vector<std::pair<std::string, std::string>> data)
 {
     rapidjson::Document document(rapidjson::kArrayType);
     document.SetArray();
 
-    for (std::unordered_map<std::string, std::string>::iterator it = data.begin(); it != data.end(); ++it)
+    for (const std::pair<std::string, std::string> entry : data)
     {
-        std::string option_title = it->first;
-        std::string option_value = it->second;
+        std::string option_title = entry.first;
+        std::string option_value = entry.second;
 
         rapidjson::Document tempdoc(rapidjson::kArrayType);
         tempdoc.PushBack(rapidjson::Value().SetString(option_title.c_str(), document.GetAllocator()), document.GetAllocator());
@@ -49,10 +49,13 @@ void SetupLuaMenus(luacpp::LuaState *state, Plugin *plugin)
 
     menusClass.DefMember("Register", [plugin, state](LuaMenusClass *base, const char *id, const char *title, const char *color, luacpp::LuaTable tbl) -> void
                          {
-                                std::unordered_map<std::string, std::string> data;
-                                for(int i = 1; i <= tbl.GetSize(); i++) 
-                                    if(tbl.GetTable(i).GetSize() == 2)
-                                        data.insert({ tbl.GetTable(i).GetString(1), tbl.GetTable(i).GetString(2) });
+                                std::vector<std::pair<std::string, std::string>> data;
+
+                                tbl.ForEach([&](const luacpp::LuaObject& key, const luacpp::LuaObject& value) -> bool {
+                                    luacpp::LuaTable tbl(value);
+                                    data.push_back({ tbl.GetString(1), tbl.GetString(2) });
+                                    return true;
+                                });
 
                                 std::string serialized = SerializeMenuData(data);
 
