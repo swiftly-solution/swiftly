@@ -1025,6 +1025,2820 @@
 				},
 				"additional": {}
 			},
+			"serverpreshutdown": {
+				"title": "OnServerPreshutdown",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when server_pre_shutdown is triggered.",
+				"return": "void",
+				"params": {
+					"reason": "const char*"
+				},
+				"additional": {}
+			},
+			"servershutdown": {
+				"title": "OnServerShutdown",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when server_shutdown is triggered.",
+				"return": "void",
+				"params": {
+					"reason": "const char*"
+				},
+				"additional": {}
+			},
+			"servermessage": {
+				"title": "OnServerMesssage",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when server_message is triggered.",
+				"return": "void",
+				"params": {
+					"text": "const char*"
+				},
+				"additional": {}
+			},
+			"playeractivate": {
+				"title": "OnPlayerActivate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_activate is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"localplayerteam": {
+				"title": "OnLocalPlayerTeam",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when local_player_team is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"localplayercontrollerteam": {
+				"title": "OnLocalPlayerControllerTeam",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when local_player_controller_team is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"localplayerpawnchanged": {
+				"title": "OnLocalPlayerPawnChanged",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when local_player_pawn_changed is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"teamplaybroadcastaudio": {
+				"title": "OnTeamplayBroadcastAudio",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when teamplay_broadcast_audio is triggered.",
+				"return": "void",
+				"params": {
+					"team": "unsigned char",
+					"sound": "const char*"
+				},
+				"additional": {}
+			},
+			"finalestart": {
+				"title": "OnFinaleStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when finale_start is triggered.",
+				"return": "void",
+				"params": {
+					"rushes": "short"
+				},
+				"additional": {}
+			},
+			"playerstatsupdated": {
+				"title": "OnPlayerStatsUpdated",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_stats_updated is triggered.",
+				"return": "void",
+				"params": {
+					"forceupload": "bool"
+				},
+				"additional": {}
+			},
+			"userdatadownloaded": {
+				"title": "OnUserDataDownloaded",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when user_data_downloaded is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"ragdolldissolved": {
+				"title": "OnRagdollDissolved",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when ragdoll_dissolved is triggered.",
+				"return": "void",
+				"params": {
+					"entindex": "long"
+				},
+				"additional": {}
+			},
+			"teaminfo": {
+				"title": "OnTeamInfo",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when team_info is triggered.",
+				"return": "void",
+				"params": {
+					"teamid": "unsigned char",
+					"teamname": "const char*"
+				},
+				"additional": {}
+			},
+			"teamscore": {
+				"title": "OnTeamScore",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when team_score is triggered.",
+				"return": "void",
+				"params": {
+					"teamid": "unsigned char",
+					"score": "short"
+				},
+				"additional": {}
+			},
+			"hltvcameraman": {
+				"title": "OnHLTVCameraman",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_cameraman is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"hltvchase": {
+				"title": "OnHLTVChase",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_chase is triggered.",
+				"return": "void",
+				"params": {
+					"target1": "player",
+					"target2": "player",
+					"distance": "short",
+					"theta": "short",
+					"phi": "short",
+					"inertia": "unsigned char",
+					"ineye": "unsigned char"
+				},
+				"additional": {}
+			},
+			"hltvrankcamera": {
+				"title": "OnHLTVRankCamera",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_rank_camera is triggered.",
+				"return": "void",
+				"params": {
+					"index": "unsigned char",
+					"rank": "float",
+					"target": "player"
+				},
+				"additional": {}
+			},
+			"hltvrankentity": {
+				"title": "OnHLTVRankEntity",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_rank_entity is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"rank": "float",
+					"target": "player"
+				},
+				"additional": {}
+			},
+			"hltvfixed": {
+				"title": "OnHLTVFixed",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_fixed is triggered.",
+				"return": "void",
+				"params": {
+					"posx": "long",
+					"posy": "long",
+					"posz": "long",
+					"theta": "short",
+					"phi": "short",
+					"offset": "short",
+					"fov": "float",
+					"target": "player"
+				},
+				"additional": {}
+			},
+			"hltvmessage": {
+				"title": "OnHLTVMessage",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_message is triggered.",
+				"return": "void",
+				"params": {
+					"text": "const char*"
+				},
+				"additional": {}
+			},
+			"hltvstatus": {
+				"title": "OnHLTVStatus",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_status is triggered.",
+				"return": "void",
+				"params": {
+					"clients": "long",
+					"slots": "long",
+					"proxies": "short",
+					"master": "const char*"
+				},
+				"additional": {}
+			},
+			"hltvtitle": {
+				"title": "OnHLTVTitle",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_title is triggered.",
+				"return": "void",
+				"params": {
+					"text": "const char*"
+				},
+				"additional": {}
+			},
+			"hltvchat": {
+				"title": "OnHLTVChat",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_chat is triggered.",
+				"return": "void",
+				"params": {
+					"text": "const char*",
+					"steamID": "uint64_t"
+				},
+				"additional": {}
+			},
+			"hltvversioninfo": {
+				"title": "OnHLTVVersioninfo",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_versioninfo is triggered.",
+				"return": "void",
+				"params": {
+					"version": "long"
+				},
+				"additional": {}
+			},
+			"hltvreplay": {
+				"title": "OnHLTVReplay",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_replay is triggered.",
+				"return": "void",
+				"params": {
+					"delay": "long",
+					"reason": "long"
+				},
+				"additional": {}
+			},
+			"mapshutdown": {
+				"title": "OnMapShutdown",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when map_shutdown is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"maptransition": {
+				"title": "OnMapTransition",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when map_transition is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"hostnamechanged": {
+				"title": "OnHostnameChanged",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hostname_changed is triggered.",
+				"return": "void",
+				"params": {
+					"hostname": "const char*"
+				},
+				"additional": {}
+			},
+			"difficultychanged": {
+				"title": "OnDifficultyChanged",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when difficulty_changed is triggered.",
+				"return": "void",
+				"params": {
+					"newDifficulty": "short",
+					"oldDifficulty": "short",
+					"strDifficulty": "const char*"
+				},
+				"additional": {}
+			},
+			"gamemessage": {
+				"title": "OnGameMessage",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when game_message is triggered.",
+				"return": "void",
+				"params": {
+					"target": "unsigned char",
+					"text": "const char*"
+				},
+				"additional": {}
+			},
+			"gamenewmap": {
+				"title": "OnGameNewmap",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when game_newmap is triggered.",
+				"return": "void",
+				"params": {
+					"mapname": "const char*"
+				},
+				"additional": {}
+			},
+			"roundstartpreentity": {
+				"title": "OnRoundStartPreEntity",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_start_pre_entity is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"roundstartpostnav": {
+				"title": "OnRoundStartPostNav",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_start_post_nav is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"roundfreezeend": {
+				"title": "OnRoundFreezeEnd",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_freeze_end is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"teamplayroundstart": {
+				"title": "OnTeamplayRoundStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when teamplay_round_start is triggered.",
+				"return": "void",
+				"params": {
+					"full_reset": "bool"
+				},
+				"additional": {}
+			},
+			"playerfootstep": {
+				"title": "OnPlayerFootstep",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_footstep is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"playerhintmessage": {
+				"title": "OnPlayerHintmessage",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_hintmessage is triggered.",
+				"return": "void",
+				"params": {
+					"hintmessage": "const char*"
+				},
+				"additional": {}
+			},
+			"breakbreakable": {
+				"title": "OnBreakBreakable",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when break_breakable is triggered.",
+				"return": "void",
+				"params": {
+					"entindex": "long",
+					"player": "player",
+					"material": "unsigned char"
+				},
+				"additional": {}
+			},
+			"breakprop": {
+				"title": "OnBreakProp",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when break_prop is triggered.",
+				"return": "void",
+				"params": {
+					"entindex": "long",
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"entitykilled": {
+				"title": "OnEntityKilled",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when entity_killed is triggered.",
+				"return": "void",
+				"params": {
+					"entindex_killed": "long",
+					"entindex_attacker": "long",
+					"entindex_inflictor": "long",
+					"damagebits": "long"
+				},
+				"additional": {}
+			},
+			"doorclose": {
+				"title": "OnDoorClose",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when door_close is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"checkpoint": "bool"
+				},
+				"additional": {}
+			},
+			"votestarted": {
+				"title": "OnVoteStarted",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vote_started is triggered.",
+				"return": "void",
+				"params": {
+					"issue": "const char*",
+					"param1": "const char*",
+					"team": "unsigned char",
+					"initiator": "long"
+				},
+				"additional": {}
+			},
+			"votefailed": {
+				"title": "OnVoteFailed",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vote_failed is triggered.",
+				"return": "void",
+				"params": {
+					"team": "unsigned char"
+				},
+				"additional": {}
+			},
+			"votepassed": {
+				"title": "OnVotePassed",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vote_passed is triggered.",
+				"return": "void",
+				"params": {
+					"details": "const char*",
+					"param1": "const char*",
+					"team": "unsigned char"
+				},
+				"additional": {}
+			},
+			"votechanged": {
+				"title": "OnVoteChanged",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vote_changed is triggered.",
+				"return": "void",
+				"params": {
+					"vote_option1": "unsigned char",
+					"vote_option2": "unsigned char",
+					"vote_option3": "unsigned char",
+					"vote_option4": "unsigned char",
+					"vote_option5": "unsigned char",
+					"potentialVotes": "unsigned char"
+				},
+				"additional": {}
+			},
+			"votecastyes": {
+				"title": "OnVoteCastYes",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vote_cast_yes is triggered.",
+				"return": "void",
+				"params": {
+					"team": "unsigned char",
+					"entityid": "long"
+				},
+				"additional": {}
+			},
+			"votecastno": {
+				"title": "OnVoteCastNo",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vote_cast_no is triggered.",
+				"return": "void",
+				"params": {
+					"team": "unsigned char",
+					"entityid": "long"
+				},
+				"additional": {}
+			},
+			"achievementevent": {
+				"title": "OnAchievementEvent",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when achievement_event is triggered.",
+				"return": "void",
+				"params": {
+					"achievement_name": "const char*",
+					"cur_val": "short",
+					"max_val": "short"
+				},
+				"additional": {}
+			},
+			"achievementearned": {
+				"title": "OnAchievementEarned",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when achievement_earned is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"achievement": "short"
+				},
+				"additional": {}
+			},
+			"achievementwritefailed": {
+				"title": "OnAchievementWriteFailed",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when achievement_write_failed is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"bonusupdated": {
+				"title": "OnBonusUpdated",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when bonus_updated is triggered.",
+				"return": "void",
+				"params": {
+					"numadvanced": "short",
+					"numbronze": "short",
+					"numsilver": "short",
+					"numgold": "short"
+				},
+				"additional": {}
+			},
+			"spectargetupdated": {
+				"title": "OnSpecTargetUpdated",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when spec_target_updated is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"target": "long"
+				},
+				"additional": {}
+			},
+			"specmodeupdated": {
+				"title": "OnSpecModeUpdated",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when spec_mode_updated is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"entityvisible": {
+				"title": "OnEntityVisible",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when entity_visible is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"subject": "short",
+					"classname": "const char*",
+					"entityname": "const char*"
+				},
+				"additional": {}
+			},
+			"gameinstructordraw": {
+				"title": "OnGameInstructorDraw",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when gameinstructor_draw is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"gameinstructornodraw": {
+				"title": "OnGameInstructorNodraw",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when gameinstructor_nodraw is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"flareignitenpc": {
+				"title": "OnFlareIgniteNCP",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when flare_ignite_npc is triggered.",
+				"return": "void",
+				"params": {
+					"entindex": "long"
+				},
+				"additional": {}
+			},
+			"helicoptergrenadepuntmiss": {
+				"title": "OnHelicoptedGrenadePuntMiss",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when helicopter_grenade_punt_miss is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"physgunpickup": {
+				"title": "OnPhysgunPickup",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when physgun_pickup is triggered.",
+				"return": "void",
+				"params": {
+					"target": "long"
+				},
+				"additional": {}
+			},
+			"inventoryupdated": {
+				"title": "OnInventoryUpdated",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when inventory_updated is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"cartupdated": {
+				"title": "OnCarUpdated",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cart_updated is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"storepricesheetupdated": {
+				"title": "OnStorePricesheetUpdated",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when store_pricesheet_updated is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"itemschemainitialized": {
+				"title": "OnItemSchemaInitialized",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when item_schema_initialized is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"dropratemodified": {
+				"title": "OnDropRateModified",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when drop_rate_modified is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"eventticketmodified": {
+				"title": "OnEventTicketModified",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when event_ticket_modified is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"gcconnected": {
+				"title": "OnGCConnected",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when gc_connected is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"instructorstartlesson": {
+				"title": "OnInstructorStartLesson",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when instructor_start_lesson is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hint_name": "const char*",
+					"hint_target": "long",
+					"vr_movement_type": "unsigned char",
+					"vr_single_controller": "bool",
+					"vr_controller_type": "unsigned char"
+				},
+				"additional": {}
+			},
+			"instructorcloselesson": {
+				"title": "OnInstructorCloseLesson",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when instructor_close_lesson is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hint_name": "const char*"
+				},
+				"additional": {}
+			},
+			"instructorserverhintcreate": {
+				"title": "OnInstructorServerHintCreate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when instructor_server_hint_create is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hint_name": "const char*",
+					"hint_replace_key": "const char*",
+					"hint_target": "long",
+					"hint_activator_user": "player",
+					"hint_timeout": "short",
+					"hint_icon_onscreen": "const char*",
+					"hint_icon_offscreen": "const char*",
+					"hint_caption": "const char*",
+					"hint_activator_caption": "const char*",
+					"hint_color": "const char*",
+					"hint_icon_offset": "float",
+					"hint_range": "float",
+					"hint_flags": "long",
+					"hint_binding": "const char*",
+					"hint_gamepad_binding": "const char*",
+					"hint_allow_nodraw_target": "bool",
+					"hint_nooffscreen": "bool",
+					"hint_forcecaption": "bool",
+					"hint_local_player_only": "bool"
+				},
+				"additional": {}
+			},
+			"clientsidelessonclosed": {
+				"title": "OnClinetsideLessonClosed",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when clientside_lesson_closed is triggered.",
+				"return": "void",
+				"params": {
+					"lesson_name": "const char*"
+				},
+				"additional": {}
+			},
+			"dynamicshadowlightchanged": {
+				"title": "OnDynamicShadowLightChanged",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when dynamic_shadow_light_changed is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"gameuihidden": {
+				"title": "OnGameuiHidden",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when gameui_hidden is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"itemsgifted": {
+				"title": "OnItemsGifted",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when items_gifted is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"itemdef": "long",
+					"numgifts": "short",
+					"giftidx": "long",
+					"accountid": "long"
+				},
+				"additional": {}
+			},
+			"playerscore": {
+				"title": "OnPlayerScore",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_score is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"kills": "short",
+					"deaths": "short",
+					"score": "short"
+				},
+				"additional": {}
+			},
+			"playershoot": {
+				"title": "OnPlayerShoot",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_shoot is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"weapon": "unsigned char",
+					"mode": "unsigned char"
+				},
+				"additional": {}
+			},
+			"gameinit": {
+				"title": "OnGameInit",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when game_init is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"gamestart": {
+				"title": "OnGameStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when game_start is triggered.",
+				"return": "void",
+				"params": {
+					"roundslimit": "long",
+					"timelimit": "long",
+					"fraglimit": "long",
+					"objective": "const char*"
+				},
+				"additional": {}
+			},
+			"gameend": {
+				"title": "OnGameEnd",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when game_end is triggered.",
+				"return": "void",
+				"params": {
+					"winner": "unsigned char"
+				},
+				"additional": {}
+			},
+			"roundannouncematchpoint": {
+				"title": "OnRoundAnnounceMatchPoint",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_announce_match_point is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"roundannouncefinal": {
+				"title": "OnRoundAnnounceFinal",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_announce_final is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"roundannouncelastroundhalf": {
+				"title": "OnRoundAnnounceLastRoundHalf",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_announce_last_round_half is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"roundannouncematchstart": {
+				"title": "OnRoundAnnouceMatchStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_announce_match_start is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"roundannouncewarmup": {
+				"title": "OnRoundAnnounceWarmup",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_announce_warmup is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"roundenduploadstats": {
+				"title": "OnRoundEndUploadStats",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_end_upload_stats is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"roundofficiallyended": {
+				"title": "OnRoundOfficiallyEnded",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_officially_ended is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"roundtimewarning": {
+				"title": "OnRoundTimeWarning",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when round_time_warning is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"ugcmapinforeceived": {
+				"title": "OnUGCMapInfoReceived",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when ugc_map_info_received is triggered.",
+				"return": "void",
+				"params": {
+					"published_file_id": "uint64_t"
+				},
+				"additional": {}
+			},
+			"ugcmapunsubscribed": {
+				"title": "OnUGCMapUnsubscribed",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when ugc_map_unsubscribed is triggered.",
+				"return": "void",
+				"params": {
+					"published_file_id": "uint64_t"
+				},
+				"additional": {}
+			},
+			"ugcmapdownloaderror": {
+				"title": "OnUGCMapDownloadError",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when ugc_map_download_error is triggered.",
+				"return": "void",
+				"params": {
+					"published_file_id": "uint64_t",
+					"error_code": "long"
+				},
+				"additional": {}
+			},
+			"ugcfiledownloadfinished": {
+				"title": "OnUGCFileDownloadFinished",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when ugc_file_download_finished is triggered.",
+				"return": "void",
+				"params": {
+					"hcontent": "uint64_t"
+				},
+				"additional": {}
+			},
+			"ugcfiledownloadstart": {
+				"title": "OnUGCFileDownloadStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when ugc_file_download_start is triggered.",
+				"return": "void",
+				"params": {
+					"hcontent": "uint64_t",
+					"published_file_id": "uint64_t"
+				},
+				"additional": {}
+			},
+			"beginnewmatch": {
+				"title": "OnBeginNewMatch",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when begin_new_match is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"dmbonusweaponstart": {
+				"title": "OnDMBonusWeaponStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when dm_bonus_weapon_start is triggered.",
+				"return": "void",
+				"params": {
+					"time": "short",
+					"Pos": "short"
+				},
+				"additional": {}
+			},
+			"survivalannouncephase": {
+				"title": "OnSurvivalAnnouncePhase",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when survival_announce_phase is triggered.",
+				"return": "void",
+				"params": {
+					"phase": "short"
+				},
+				"additional": {}
+			},
+			"brokenbreakable": {
+				"title": "OnBrokenBreakable",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when broken_breakable is triggered.",
+				"return": "void",
+				"params": {
+					"entindex": "long",
+					"player": "player",
+					"material": "unsigned char"
+				},
+				"additional": {}
+			},
+			"playerdecal": {
+				"title": "OnPlayerDecal",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_decal is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"setinstructorgroupenabled": {
+				"title": "OnSetInstructorGroupEnabled",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when set_instructor_group_enabled is triggered.",
+				"return": "void",
+				"params": {
+					"group": "const char*",
+					"enabled": "short"
+				},
+				"additional": {}
+			},
+			"instructorserverhintstop": {
+				"title": "OnInstructorServerHintStop",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when instructor_server_hint_stop is triggered.",
+				"return": "void",
+				"params": {
+					"hint_name": "const char*"
+				},
+				"additional": {}
+			},
+			"readgametitledata": {
+				"title": "OnReadGameTitledata",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when read_game_titledata is triggered.",
+				"return": "void",
+				"params": {
+					"controllerId": "short"
+				},
+				"additional": {}
+			},
+			"writegametitledata": {
+				"title": "OnWriteGameTitledata",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when write_game_titledata is triggered.",
+				"return": "void",
+				"params": {
+					"controllerId": "short"
+				},
+				"additional": {}
+			},
+			"resetgametitledata": {
+				"title": "OnResetGameTitledata",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when reset_game_titledata is triggered.",
+				"return": "void",
+				"params": {
+					"controllerId": "short"
+				},
+				"additional": {}
+			},
+			"weaponhudselection": {
+				"title": "OnWeaponhudSelection",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when weaponhud_selection is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"mode": "unsigned char",
+					"entindex": "long"
+				},
+				"additional": {}
+			},
+			"voteended": {
+				"title": "OnVoteEnded",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vote_ended is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"votecast": {
+				"title": "OnVoteCast",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vote_cast is triggered.",
+				"return": "void",
+				"params": {
+					"vote_option": "unsigned char",
+					"team": "short",
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"voteoptions": {
+				"title": "OnVoteOptions",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vote_options is triggered.",
+				"return": "void",
+				"params": {
+					"count": "unsigned char",
+					"option1": "const char*",
+					"option2": "const char*",
+					"option3": "const char*",
+					"option4": "const char*",
+					"option5": "const char*"
+				},
+				"additional": {}
+			},
+			"endmatchmapvoteselectingmap": {
+				"title": "OnEndmatchMapvoteSelectingMap",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when endmatch_mapvote_selecting_map is triggered.",
+				"return": "void",
+				"params": {
+					"count": "unsigned char",
+					"slot1": "unsigned char",
+					"slot2": "unsigned char",
+					"slot3": "unsigned char",
+					"slot4": "unsigned char",
+					"slot5": "unsigned char",
+					"slot6": "unsigned char",
+					"slot7": "unsigned char",
+					"slot8": "unsigned char",
+					"slot9": "unsigned char",
+					"slot10": "unsigned char"
+				},
+				"additional": {}
+			},
+			"endmatchcmmstartrevealitems": {
+				"title": "OnEndmatchCMMStartRevealItems",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when endmatch_cmm_start_reveal_items is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"clientloadoutchanged": {
+				"title": "OnClientLoadoutChanged",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when client_loadout_changed is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"addplayersonaricon": {
+				"title": "OnAddPlayerSonarIcon",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when add_player_sonar_icon is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"pos_x": "float",
+					"pos_y": "float",
+					"pos_z": "float"
+				},
+				"additional": {}
+			},
+			"addbullethitmarker": {
+				"title": "OnAddBulletHitMarker",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when add_bullet_hit_marker is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"bone": "short",
+					"pos_x": "short",
+					"pos_y": "short",
+					"pos_z": "short",
+					"ang_x": "short",
+					"ang_y": "short",
+					"ang_z": "short",
+					"start_x": "short",
+					"start_y": "short",
+					"start_z": "short",
+					"hit": "bool"
+				},
+				"additional": {}
+			},
+			"otherdeath": {
+				"title": "OnOtherDeath",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when other_death is triggered.",
+				"return": "void",
+				"params": {
+					"otherid": "short",
+					"othertype": "const char*",
+					"attacker": "short",
+					"weapon": "const char*",
+					"weapon_itemid": "const char*",
+					"weapon_fauxitemid": "const char*",
+					"weapon_originalowner_xuid": "const char*",
+					"headshot": "bool",
+					"penetrated": "short",
+					"noscope": "bool",
+					"thrusmoke": "bool",
+					"attackerblind": "bool"
+				},
+				"additional": {}
+			},
+			"itempurchase": {
+				"title": "OnItemPurchase",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when item_purchase is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"team": "short",
+					"loadout": "short",
+					"weapon": "const char*"
+				},
+				"additional": {}
+			},
+			"defuserdropped": {
+				"title": "OnDefuserDropped",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when defuser_dropped is triggered.",
+				"return": "void",
+				"params": {
+					"entityid": "long"
+				},
+				"additional": {}
+			},
+			"defuserpickup": {
+				"title": "OnDefuserPickup",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when defuser_pickup is triggered.",
+				"return": "void",
+				"params": {
+					"entityid": "long",
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"announcephaseend": {
+				"title": "OnAnnouncePhaseEnd",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when announce_phase_end is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"csintermission": {
+				"title": "OnCSIntermission",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cs_intermission is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"hostagefollows": {
+				"title": "OnHostageFollows",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hostage_follows is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hostage": "short"
+				},
+				"additional": {}
+			},
+			"hostagehurt": {
+				"title": "OnHostageHurt",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hostage_hurt is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hostage": "short"
+				},
+				"additional": {}
+			},
+			"hostagekilled": {
+				"title": "OnHostageKilled",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hostage_killed is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hostage": "short"
+				},
+				"additional": {}
+			},
+			"hostagerescued": {
+				"title": "OnHostageRescued",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hostage_rescued is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hostage": "short",
+					"site": "short"
+				},
+				"additional": {}
+			},
+			"hostagestopsfollowing": {
+				"title": "OnHostageStopsFollowing",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hostage_stops_following is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"hostage": "short"
+				},
+				"additional": {}
+			},
+			"hostagerescuedall": {
+				"title": "OnHostageRescuedAll",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hostage_rescued_all is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"hostagecallforhelp": {
+				"title": "OnHostageCallForHelp",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hostage_call_for_help is triggered.",
+				"return": "void",
+				"params": {
+					"hostage": "short"
+				},
+				"additional": {}
+			},
+			"vipescaped": {
+				"title": "OnVIPEscaped",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vip_escaped is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"vipkilled": {
+				"title": "OnVIPKilled",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when vip_killed is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"attacker": "player"
+				},
+				"additional": {}
+			},
+			"playerradio": {
+				"title": "OnPlayerRadio",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_radio is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"slot": "short"
+				},
+				"additional": {}
+			},
+			"bombbeep": {
+				"title": "OnBombBeep",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when bomb_beep is triggered.",
+				"return": "void",
+				"params": {
+					"entindex": "long"
+				},
+				"additional": {}
+			},
+			"weaponfire": {
+				"title": "OnWeaponFire",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when weapon_fire is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"weapon": "const char*",
+					"silenced": "bool"
+				},
+				"additional": {}
+			},
+			"weaponfireonempty": {
+				"title": "OnWeaponFireOnEmpty",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when weapon_fire_on_empty is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"weapon": "const char*"
+				},
+				"additional": {}
+			},
+			"grenadethrown": {
+				"title": "OnGrenadeThrown",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when grenade_thrown is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"weapon": "const char*"
+				},
+				"additional": {}
+			},
+			"weaponoutofammo": {
+				"title": "OnWeaponOutOfAmmo",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when weapon_outofammo is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"weaponreload": {
+				"title": "OnWeaponReload",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when weapon_reload is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"weaponzoom": {
+				"title": "OnWeaponZoom",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when weapon_zoom is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"silencerdetach": {
+				"title": "OnSilencerDetach",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when silencer_detach is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"inspectweapon": {
+				"title": "OnInspectWeapon",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when inspect_weapon is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"weaponzoomrifle": {
+				"title": "OnWeaponZoomRifle",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when weapon_zoom_rifle is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"playerspawned": {
+				"title": "OnPlayerSpawned",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_spawned is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"inrestart": "bool"
+				},
+				"additional": {}
+			},
+			"itempickupslerp": {
+				"title": "OnItemPickupSlerp",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when item_pickup_slerp is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"index": "short",
+					"behavior": "short"
+				},
+				"additional": {}
+			},
+			"itempickupfailed": {
+				"title": "OnItemPickupFailed",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when item_pickup_failed is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"item": "const char*",
+					"reason": "short",
+					"limit": "short"
+				},
+				"additional": {}
+			},
+			"itemremove": {
+				"title": "OnItemRemove",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when item_remove is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"item": "const char*",
+					"defindex": "long"
+				},
+				"additional": {}
+			},
+			"ammopickup": {
+				"title": "OnAmmoPickup",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when ammo_pickup is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"item": "const char*",
+					"index": "long"
+				},
+				"additional": {}
+			},
+			"itemequip": {
+				"title": "OnItemEquip",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when item_equip is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"item": "const char*",
+					"defindex": "long",
+					"canzoom": "bool",
+					"hassilencer": "bool",
+					"issilenced": "bool",
+					"hastracers": "bool",
+					"weptype": "short",
+					"ispainted": "bool"
+				},
+				"additional": {}
+			},
+			"buytimeended": {
+				"title": "OnBuytimeEnded",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when buytime_ended is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"enterrescuezone": {
+				"title": "OnEnterRescueZone",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when enter_rescue_zone is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"exitrescuezone": {
+				"title": "OnExitRescueZone",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when exit_rescue_zone is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"silenceroff": {
+				"title": "OnSilencerOff",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when silencer_off is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"silenceron": {
+				"title": "OnSilencerOn",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when silencer_on is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"buymenuopen": {
+				"title": "OnBuyMenuOpen",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when buymenu_open is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"buymenuclose": {
+				"title": "OnBuyMenuClose",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when buymenu_close is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"grenadebounce": {
+				"title": "OnGrenadeBounce",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when grenade_bounce is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"hegrenadedetonate": {
+				"title": "OnHEGrenadeDetonate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hegrenade_detonate is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"flashbangdetonate": {
+				"title": "OnFlashbangDetonate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when flashbang_detonate is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"smokegrenadedetonate": {
+				"title": "OnSmokeGrenadeDetonate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when smokegrenade_detonate is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"smokegrenadeexpired": {
+				"title": "OnSmokeGrenadeExpired",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when smokegrenade_expired is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"molotovdetonate": {
+				"title": "OnMolotovDetonate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when molotov_detonate is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"decoydetonate": {
+				"title": "OnDecoyDetonate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when decoy_detonate is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"decoystarted": {
+				"title": "OnDecoyStarted",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when decoy_started is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"tagrenadedetonate": {
+				"title": "OnTagrenadeDetonate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when tagrenade_detonate is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"infernostartburn": {
+				"title": "OnInfernoStartBurn",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when inferno_startburn is triggered.",
+				"return": "void",
+				"params": {
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"infernoexpire": {
+				"title": "OnInfernoExpire",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when inferno_expire is triggered.",
+				"return": "void",
+				"params": {
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"infernoextinguish": {
+				"title": "OnInfernoExtinguish",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when inferno_extinguish is triggered.",
+				"return": "void",
+				"params": {
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"decoyfiring": {
+				"title": "OnDecoyFiring",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when decoy_firing is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"bulletimpact": {
+				"title": "OnBulletImpact",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when bullet_impact is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"x": "float",
+					"y": "float",
+					"z": "float"
+				},
+				"additional": {}
+			},
+			"doormoving": {
+				"title": "OnDoorMoving",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when door_moving is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entindex": "long"
+				},
+				"additional": {}
+			},
+			"mbinputlocksuccess": {
+				"title": "OnMBInputLockSuccess",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when mb_input_lock_success is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"mbinputlockcancel": {
+				"title": "OnMBInputLockCancel",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when mb_input_lock_cancel is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"navblocked": {
+				"title": "OnNavBlocked",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when nav_blocked is triggered.",
+				"return": "void",
+				"params": {
+					"area": "long",
+					"blocked": "bool"
+				},
+				"additional": {}
+			},
+			"navgenerate": {
+				"title": "OnNavGenerate",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when nav_generate is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"achievementinfoloaded": {
+				"title": "OnAchievementInfoLoaded",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when achievement_info_loaded is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"hltvchangedmode": {
+				"title": "OnHLTVChangedMode",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_changed_mode is triggered.",
+				"return": "void",
+				"params": {
+					"oldmode": "long",
+					"newmode": "long",
+					"obs_target": "long"
+				},
+				"additional": {}
+			},
+			"csgamedisconnected": {
+				"title": "OnCSGameDisconnected",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cs_game_disconnected is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"csroundfinalbeep": {
+				"title": "OnCSRoundFinalBeep",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cs_round_final_beep is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"csroundstartbeep": {
+				"title": "OnCSRoundStartBeep",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cs_round_start_beep is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"cswinpanelround": {
+				"title": "OnCSWinPanelRound",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cs_win_panel_round is triggered.",
+				"return": "void",
+				"params": {
+					"show_timer_defend": "bool",
+					"show_timer_attack": "bool",
+					"timer_time": "short",
+					"final_event": "unsigned char",
+					"funfact_token": "const char*",
+					"funfact_player": "player",
+					"funfact_data1": "long",
+					"funfact_data2": "long",
+					"funfact_data3": "long"
+				},
+				"additional": {}
+			},
+			"cswinpanelmatch": {
+				"title": "OnCSWinPanelMath",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cs_win_panel_match is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"csmatchendrestart": {
+				"title": "OnCSMatchEndRestart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cs_match_end_restart is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"csprerestart": {
+				"title": "OnCSPreRestart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cs_pre_restart is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"showdeathpanel": {
+				"title": "OnShowDeathpanel",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when show_deathpanel is triggered.",
+				"return": "void",
+				"params": {
+					"victim": "player",
+					"killer": "long",
+					"killer_controller": "player",
+					"hits_taken": "short",
+					"damage_taken": "short",
+					"hits_given": "short",
+					"damage_given": "short"
+				},
+				"additional": {}
+			},
+			"hidedeathpanel": {
+				"title": "OnHideDeathpanel",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hide_deathpanel is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"achievementearnedlocal": {
+				"title": "OnAchievementEarnedLocal",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when achievement_earned_local is triggered.",
+				"return": "void",
+				"params": {
+					"achievement": "short",
+					"splitscreenplayer": "short"
+				},
+				"additional": {}
+			},
+			"repostxboxachievements": {
+				"title": "OnRepostXboxAchievements",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when repost_xbox_achievements is triggered.",
+				"return": "void",
+				"params": {
+					"splitscreenplayer": "short"
+				},
+				"additional": {}
+			},
+			"matchendconditions": {
+				"title": "OnMatchEndConditions",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when match_end_conditions is triggered.",
+				"return": "void",
+				"params": {
+					"frags": "long",
+					"max_rounds": "long",
+					"win_rounds": "long",
+					"time": "long"
+				},
+				"additional": {}
+			},
+			"showsurvivalrespawnstatus": {
+				"title": "OnShowSurvivalRespawnStatus",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when show_survival_respawn_status is triggered.",
+				"return": "void",
+				"params": {
+					"loc_token": "const char*",
+					"duration": "long",
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"ggkilledenemy": {
+				"title": "OnGGKilledEnemy",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when gg_killed_enemy is triggered.",
+				"return": "void",
+				"params": {
+					"victim": "player",
+					"attacker": "player",
+					"dominated": "short",
+					"revenge": "short",
+					"bonus": "bool"
+				},
+				"additional": {}
+			},
+			"switchteam": {
+				"title": "OnSwitchTeam",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when switch_team is triggered.",
+				"return": "void",
+				"params": {
+					"numPlayers": "short",
+					"numSpectators": "short",
+					"avg_rank": "short",
+					"numTSlotsFree": "short",
+					"numCTSlotsFree": "short"
+				},
+				"additional": {}
+			},
+			"writeprofiledata": {
+				"title": "OnWriteProfileData",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when write_profile_data is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"trialtimeexpired": {
+				"title": "OnTrialTimeExpired",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when trial_time_expired is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"updatematchmakingstats": {
+				"title": "OnUpdateMatchmakingStats",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when update_matchmaking_stats is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"playerresetvote": {
+				"title": "OnPlayerResetVote",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_reset_vote is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"vote": "bool"
+				},
+				"additional": {}
+			},
+			"enablerestartvoting": {
+				"title": "OnEnableRestartVoting",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when enable_restart_voting is triggered.",
+				"return": "void",
+				"params": {
+					"enable": "bool"
+				},
+				"additional": {}
+			},
+			"sfuievent": {
+				"title": "OnSfuievent",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when sfuievent is triggered.",
+				"return": "void",
+				"params": {
+					"action": "const char*",
+					"data": "const char*",
+					"slot": "unsigned char"
+				},
+				"additional": {}
+			},
+			"startvote": {
+				"title": "OnStartVote",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when start_vote is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"type": "unsigned char",
+					"vote_parameter": "short"
+				},
+				"additional": {}
+			},
+			"playergivenc4": {
+				"title": "OnPlayerGivenBomb",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_given_c4 is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"trplayerflashbanged": {
+				"title": "OnTRPlayerFlashbanged",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when tr_player_flashbanged is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"trmarkcomplete": {
+				"title": "OnTRMarkComplete",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when tr_mark_complete is triggered.",
+				"return": "void",
+				"params": {
+					"complete": "short"
+				},
+				"additional": {}
+			},
+			"trmarkbesttime": {
+				"title": "OnTRMarkBestTime",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when tr_mark_best_time is triggered.",
+				"return": "void",
+				"params": {
+					"time": "long"
+				},
+				"additional": {}
+			},
+			"trexithinttrigger": {
+				"title": "OnTRExitHintTrigger",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when tr_exit_hint_trigger is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"bottakeover": {
+				"title": "OnBotTakeover",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when bot_takeover is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"bot": "player"
+				},
+				"additional": {}
+			},
+			"trshowfinishmsgbox": {
+				"title": "OnTRShowFinishMsgbox",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when tr_show_finish_msgbox is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"trshowexitmsgbox": {
+				"title": "OnTRShowExitMsgbox",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when tr_show_exit_msgbox is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"jointeamfailed": {
+				"title": "OnJoinTeamFailed",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when jointeam_failed is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"reason": "unsigned char"
+				},
+				"additional": {}
+			},
+			"teamchangepending": {
+				"title": "OnTeamChangePending",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when teamchange_pending is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"toteam": "unsigned char"
+				},
+				"additional": {}
+			},
+			"materialdefaultcomplete": {
+				"title": "OnMaterialDefaultComplete",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when material_default_complete is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"csprevnextspectator": {
+				"title": "OnCSPrevNextSpectator",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when cs_prev_next_spectator is triggered.",
+				"return": "void",
+				"params": {
+					"next": "bool"
+				},
+				"additional": {}
+			},
+			"nextlevelchanged": {
+				"title": "OnNextLevelChanged",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when nextlevel_changed is triggered.",
+				"return": "void",
+				"params": {
+					"nextlevel": "const char*",
+					"mapgroup": "const char*",
+					"skirmishmode": "const char*"
+				},
+				"additional": {}
+			},
+			"seasoncoinlevelup": {
+				"title": "OnSeasoncoinLevelup",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when seasoncoin_levelup is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"category": "short",
+					"rank": "short"
+				},
+				"additional": {}
+			},
+			"tournamentreward": {
+				"title": "OnTournamentReward",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when tournament_reward is triggered.",
+				"return": "void",
+				"params": {
+					"defindex": "long",
+					"totalrewards": "long",
+					"accountid": "long"
+				},
+				"additional": {}
+			},
+			"starthalftime": {
+				"title": "OnStartHalftime",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when start_halftime is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"ammorefill": {
+				"title": "OnAmmoRefill",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when ammo_refill is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"success": "bool"
+				},
+				"additional": {}
+			},
+			"parachutepickup": {
+				"title": "OnParachutePickup",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when parachute_pickup is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"parachutedeploy": {
+				"title": "OnParachuteDeploy",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when parachute_deploy is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"dronegunattack": {
+				"title": "OnDronegunAttack",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when dronegun_attack is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"dronedispatched": {
+				"title": "OnDroneDispatched",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when drone_dispatched is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"priority": "short",
+					"drone_dispatched": "short"
+				},
+				"additional": {}
+			},
+			"lootcratevisible": {
+				"title": "OnLootCrateVisible",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when loot_crate_visible is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"subject": "short",
+					"type": "const char*"
+				},
+				"additional": {}
+			},
+			"lootcrateopened": {
+				"title": "OnLootCrateOpened",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when loot_crate_opened is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"type": "const char*"
+				},
+				"additional": {}
+			},
+			"opencrateinstr": {
+				"title": "OnOpenCrateInstructions",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when open_crate_instr is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"subject": "short",
+					"type": "const char*"
+				},
+				"additional": {}
+			},
+			"smokebeaconparadrop": {
+				"title": "OnSmokeBeaconParadrop",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when smoke_beacon_paradrop is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"paradrop": "short"
+				},
+				"additional": {}
+			},
+			"survivalparadropspawn": {
+				"title": "OnSurvivalParadropSpawn",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when survival_paradrop_spawn is triggered.",
+				"return": "void",
+				"params": {
+					"entityid": "short"
+				},
+				"additional": {}
+			},
+			"survivalparadropbreak": {
+				"title": "OnSurvivalParadropBreak",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when survival_paradrop_break is triggered.",
+				"return": "void",
+				"params": {
+					"entityid": "short"
+				},
+				"additional": {}
+			},
+			"dronecargodetached": {
+				"title": "OnDroneCargoDetached",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when drone_cargo_detached is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"cargo": "short",
+					"delivered": "bool"
+				},
+				"additional": {}
+			},
+			"droneaboveroof": {
+				"title": "OnDroneAboveRoof",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when drone_above_roof is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"cargo": "short"
+				},
+				"additional": {}
+			},
+			"choppersincomingwarning": {
+				"title": "OnChoppersIncomingWarning",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when choppers_incoming_warning is triggered.",
+				"return": "void",
+				"params": {
+					"global": "bool"
+				},
+				"additional": {}
+			},
+			"firstbombsincomingwarning": {
+				"title": "OnFirstbombsIncomingWarning",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when firstbombs_incoming_warning is triggered.",
+				"return": "void",
+				"params": {
+					"global": "bool"
+				},
+				"additional": {}
+			},
+			"dziteminteraction": {
+				"title": "OnDZItemInteraction",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when dz_item_interaction is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"subject": "short",
+					"type": "const char*"
+				},
+				"additional": {}
+			},
+			"survivalteammaterespawn": {
+				"title": "OnSurvivalTeammateRespawn",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when survival_teammate_respawn is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"survivalnorespawnswarning": {
+				"title": "OnSurvivalNoRespawnsWarning",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when survival_no_respawns_warning is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"survivalnorespawnsfinal": {
+				"title": "OnSurvivalNoRespawnsFinal",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when survival_no_respawns_final is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
+			"playerping": {
+				"title": "OnPlayerPing",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_ping is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entityid": "short",
+					"x": "float",
+					"y": "float",
+					"z": "float",
+					"urgent": "bool"
+				},
+				"additional": {}
+			},
+			"playerpingstop": {
+				"title": "OnPlayerPingStop",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_ping_stop is triggered.",
+				"return": "void",
+				"params": {
+					"entityid": "short"
+				},
+				"additional": {}
+			},
+			"playersound": {
+				"title": "OnPlayerSound",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player_sound is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"radius": "long",
+					"duration": "float",
+					"step": "bool"
+				},
+				"additional": {}
+			},
+			"guardianwaverestart": {
+				"title": "OnGuardianWaveRestart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when guardian_wave_restart is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"teamintrostart": {
+				"title": "OnTeamIntroStart",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when team_intro_start is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"teamintroend": {
+				"title": "OnTeamIntroEnd",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when team_intro_end is triggered.",
+				"return": "void",
+				"params": {},
+				"additional": {}
+			},
+			"bulletflightresolution": {
+				"title": "OnBulletFlightResolution",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when bullet_flight_resolution is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"pos_x": "short",
+					"pos_y": "short",
+					"pos_z": "short",
+					"ang_x": "short",
+					"ang_y": "short",
+					"ang_z": "short",
+					"start_x": "short",
+					"start_y": "short",
+					"start_z": "short"
+				},
+				"additional": {}
+			},
+			"doorbreak": {
+				"title": "OnDoorBreak",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when door_break is triggered.",
+				"return": "void",
+				"params": {
+					"entindex": "long",
+					"dmgstate": "long"
+				},
+				"additional": {}
+			},
+			"doorclosed": {
+				"title": "OnDoorClosed",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when door_closed is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entindex": "long"
+				},
+				"additional": {}
+			},
+			"dooropen": {
+				"title": "OnDoorOpen",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when door_open is triggered.",
+				"return": "void",
+				"params": {
+					"player": "player",
+					"entindex": "long"
+				},
+				"additional": {}
+			},
+			"gamephasechanged": {
+				"title": "OnGamePhaseChanged",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when game_phase_changed is triggered.",
+				"return": "void",
+				"params": {
+					"new_phase": "short"
+				},
+				"additional": {}
+			},
+			"hltvreplaystatus": {
+				"title": "OnHLTVReplayStatus",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when hltv_replay_status is triggered.",
+				"return": "void",
+				"params": {
+					"reason": "long"
+				},
+				"additional": {}
+			},
 			"onplayerblind": {
 				"title": "OnPlayerBlind",
 				"template": "event-syntax",
@@ -1155,49 +3969,49 @@
 				},
 				"additional": {}
 			},
-            "onplayerinfo": {
+			"onplayerinfo": {
 				"title": "OnPlayerInfo",
 				"template": "event-syntax",
 				"language": "both",
 				"description": "This game event is called when a player changes it's info.",
 				"return": "void",
 				"params": {
-                    "name": "const char*",
+					"name": "const char*",
 					"player": "player",
-                    "steamid": "uint64_t",
-                    "bot": "bool"
+					"steamid": "uint64_t",
+					"bot": "bool"
 				},
 				"additional": {}
 			},
-            "onplayerteam": {
-                "title": "OnPlayerTeam",
+			"onplayerteam": {
+				"title": "OnPlayerTeam",
 				"template": "event-syntax",
 				"language": "both",
 				"description": "This game event is called when a player changes it's team.",
 				"return": "void",
 				"params": {
 					"player": "player",
-                    "team": "uint8_t",
-                    "oldteam": "uint8_t",
-                    "disconnect": "bool",
-                    "silent": "bool",
-                    "isbot": "bool"
+					"team": "uint8_t",
+					"oldteam": "uint8_t",
+					"disconnect": "bool",
+					"silent": "bool",
+					"isbot": "bool"
 				},
 				"additional": {}
-            },
-            "onplayerchangename": {
-                "title": "OnPlayerChangeName",
+			},
+			"onplayerchangename": {
+				"title": "OnPlayerChangeName",
 				"template": "event-syntax",
 				"language": "both",
 				"description": "This game event is called when a player changes it's name.",
 				"return": "void",
 				"params": {
 					"player": "player",
-                    "oldname": "const char*",
-                    "newname": "const char*"
+					"oldname": "const char*",
+					"newname": "const char*"
 				},
 				"additional": {}
-            },
+			},
 			"onpluginstart": {
 				"title": "OnPluginStart",
 				"template": "event-syntax",
