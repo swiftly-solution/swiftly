@@ -187,6 +187,9 @@ void Configuration::LoadPluginConfigurations()
         if (!ends_with(configFileName, ".json"))
             continue;
 
+        configFileName = replace(configFileName, "\\", ".");
+        configFileName = replace(configFileName, "/", ".");
+
         rapidjson::Document configurationFile;
         configurationFile.Parse(Files::Read(configFilePath).c_str());
         if (configurationFile.HasParseError())
