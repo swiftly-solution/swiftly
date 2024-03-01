@@ -27,3 +27,26 @@ void CreateThread(std::function<void()> fn)
 {
     std::thread(fn).detach();
 }
+
+bool JSONObject::Parse(std::string str)
+{
+    document.Parse(str.c_str());
+    return (document.HasParseError());
+}
+
+const char *JSONObject::GetParseError()
+{
+    if (document.HasParseError())
+        return GetParseError_En(document.GetParseError());
+    else
+        return "";
+}
+
+const char *JSONObject::Encode()
+{
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    document.Accept(writer);
+    const char *encoded = buffer.GetString();
+    return encoded;
+}
