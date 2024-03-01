@@ -67,6 +67,10 @@ for sdk_target in MMSPlugin.sdk_targets:
     binary.compiler.linkflags += ['legacy_stdio_definitions.lib', 'legacy_stdio_wide_specifiers.lib']
     binary.compiler.defines += ['HAVE_STRUCT_TIMESPEC']
 
+  binary.compiler.defines += [
+    "GITHUB_SHA=\"" + (os.getenv('GITHUB_SHA') == None and "LOCAL" or os.getenv('GITHUB_SHA')) + "\""
+  ]
+
   if binary.compiler.target.platform == 'linux':
     binary.compiler.postlink += ['-lrt', '-lssl', '-lcrypto', '-fexceptions', '-lidn2', '-lpsl', '-lbrotlidec', '-lz', '-lbacktrace']
     binary.compiler.defines += ["LUA_USE_LINUX", "LUA_USE_READLINE", "BOOST_STACKTRACE_USE_BACKTRACE"]
