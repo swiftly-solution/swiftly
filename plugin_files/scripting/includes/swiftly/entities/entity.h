@@ -19,7 +19,7 @@ public:
     Angles *angles;
     Colors *color;
 
-    Entity();
+    Entity(const char *clsname = nullptr);
     ~Entity();
 
     void Spawn();

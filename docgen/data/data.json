@@ -367,8 +367,13 @@
 					"cpp": "entities->Create"
 				},
 				"return": "Entity*",
-				"params": {},
-				"additional": {}
+				"params": {
+					"classname": "const char*"
+				},
+				"additional": {
+					"lua": ":::note\nA list of the entity class names can be found here: [https://cs2.poggu.me/dumped-data/entity-list](https://cs2.poggu.me/dumped-data/entity-list).\nAs a class name it can also be used the following class name format to select a player: \"player:PLAYERID\", where PLAYERID is the player id.\n:::",
+					"cpp": ":::note\nA list of the entity class names can be found here: [https://cs2.poggu.me/dumped-data/entity-list](https://cs2.poggu.me/dumped-data/entity-list).\nAs a class name it can also be used the following class name format to select a player: \"player:PLAYERID\", where PLAYERID is the player id.\n:::"
+				}
 			},
 			"entity": {
 				"title": "Entity",

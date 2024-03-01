@@ -2,9 +2,9 @@
 #include "../sdk/entity/CBaseModelEntity.h"
 #include <thread>
 
-uint32_t EntityManager::CreateEntity()
+uint32_t EntityManager::CreateEntity(std::string classname)
 {
-    Entity *entity = new Entity();
+    Entity *entity = new Entity(classname);
 
     entity->SetSolidType(SolidType_t::SOLID_VPHYSICS);
 

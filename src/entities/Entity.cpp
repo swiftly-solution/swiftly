@@ -3,10 +3,27 @@
 #include <thread>
 
 typedef void *(*UTIL_CreateEntityByName)(const char *, int);
+CEntityInstance *FetchInstanceByInput(std::string input);
 
-Entity::Entity()
+Entity::Entity(std::string classname)
 {
-    this->worldEntity = reinterpret_cast<CBaseModelEntity *>(g_Signatures->FetchSignature<UTIL_CreateEntityByName>("UTIL_CreateEntityByName")("prop_dynamic_override", -1));
+    CEntityInstance *instance = FetchInstanceByInput(classname);
+    if (starts_with(classname, "player:"))
+    {
+        this->worldEntity = reinterpret_cast<CBaseModelEntity *>(instance);
+        this->player = true;
+        this->spawned = true;
+    }
+    else if (starts_with(classname, "entity:"))
+    {
+        this->worldEntity = nullptr;
+        PRINTF("Entity::Entity", "You can't create an entity from another entity.\n");
+    }
+    else
+    {
+        this->worldEntity = reinterpret_cast<CBaseModelEntity *>(g_Signatures->FetchSignature<UTIL_CreateEntityByName>("UTIL_CreateEntityByName")(classname.c_str(), -1));
+    }
+
     if (this->worldEntity == nullptr)
         PRINTF("Entity::Entity", "Failed to create entity.\n");
 }
@@ -41,6 +58,9 @@ void Entity::SetAngle(float x, float y, float z)
 
 void Entity::SetSolidType(SolidType_t solid_type)
 {
+    if (this->player)
+        return;
+
     this->worldEntity->m_Collision.Get().m_nSolidType = solid_type;
 }
 

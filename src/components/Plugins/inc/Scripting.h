@@ -44,7 +44,7 @@ SMM_API const char *scripting_Database_EscapeString(const char *connectionName, 
 std::vector<std::map<const char *, std::any>> scripting_Database_QueryRaw(const char *connectionName, const char *query);
 SMM_API const char *scripting_Database_Query(const char *connectionName, const char *query);
 
-SMM_API uint32_t scripting_Entity_Create();
+SMM_API uint32_t scripting_Entity_Create(const char *classname);
 SMM_API void scripting_Entity_Spawn(uint32_t entityID);
 SMM_API void scripting_Entity_Destroy(uint32_t entityID);
 SMM_API void scripting_Entity_SetModel(uint32_t entityID, const char *model);

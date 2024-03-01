@@ -17,7 +17,7 @@ private:
 public:
     EntityManager() {}
 
-    uint32_t CreateEntity();
+    uint32_t CreateEntity(std::string classname);
     Entity *GetEntity(uint32_t id);
     void DestroyEntity(uint32_t id);
 };

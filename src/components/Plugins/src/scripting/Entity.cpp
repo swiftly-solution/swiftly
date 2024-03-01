@@ -48,15 +48,19 @@ CEntityInstance *FetchInstanceByInput(std::string input)
         if (player == nullptr)
             return nullptr;
 
-        return player->GetPlayerController();
+        return player->GetPlayerPawn();
     }
     else
         return nullptr;
 }
 
-SMM_API uint32_t scripting_Entity_Create()
+SMM_API uint32_t scripting_Entity_Create(const char *classname)
 {
-    uint32_t entityID = g_entityManager->CreateEntity();
+    std::string clsname = classname;
+    if (classname == nullptr)
+        clsname = "prop_dynamic_override";
+
+    uint32_t entityID = g_entityManager->CreateEntity(classname);
     return entityID;
 }
 

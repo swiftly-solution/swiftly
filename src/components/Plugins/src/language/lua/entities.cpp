@@ -18,9 +18,9 @@ private:
     uint32_t entityID = 0;
 
 public:
-    LuaEntityClass()
+    LuaEntityClass(const char *clsname)
     {
-        this->entityID = scripting_Entity_Create();
+        this->entityID = scripting_Entity_Create(clsname);
     }
 
     uint32_t GetEntityID()
@@ -37,9 +37,9 @@ private:
 public:
     LuaEntitiesClass() {}
 
-    luacpp::LuaObject CreateEntity(luacpp::LuaClass<LuaEntityClass> entityClass)
+    luacpp::LuaObject CreateEntity(luacpp::LuaClass<LuaEntityClass> entityClass, const char *clsname)
     {
-        luacpp::LuaObject entityObject = entityClass.CreateInstance();
+        luacpp::LuaObject entityObject = entityClass.CreateInstance(clsname);
         LuaEntityClass *entity = static_cast<LuaEntityClass *>(entityObject.ToPointer());
 
         this->entities.insert(std::make_pair(entity->GetEntityID(), entityObject));
@@ -86,14 +86,14 @@ public:
 void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
 {
     auto entitiesClass = state->CreateClass<LuaEntitiesClass>("Entities").DefConstructor();
-    auto entityClass = state->CreateClass<LuaEntityClass>().DefConstructor();
+    auto entityClass = state->CreateClass<LuaEntityClass>().DefConstructor<const char *>();
 
     auto coordsClass = state->CreateClass<LuaEntityArgsClass>().DefConstructor<uint32_t>();
     auto anglesClass = state->CreateClass<LuaEntityArgsClass>().DefConstructor<uint32_t>();
     auto colorsClass = state->CreateClass<LuaEntityArgsClass>().DefConstructor<uint32_t>();
 
-    entitiesClass.DefMember("Create", [entityClass](LuaEntitiesClass *base) -> luacpp::LuaObject
-                            { return base->CreateEntity(entityClass); })
+    entitiesClass.DefMember("Create", [entityClass](LuaEntitiesClass *base, luacpp::LuaObject clsObj) -> luacpp::LuaObject
+                            { return base->CreateEntity(entityClass, clsObj.GetType() != LUA_TSTRING ? nullptr : clsObj.ToString()); })
         .DefMember("Destroy", [](LuaEntitiesClass *base, int entityid) -> void
                    { base->DestroyEntity(entityid); })
         .DefMember("Fetch", [state](LuaEntitiesClass *base, int entityID) -> luacpp::LuaObject

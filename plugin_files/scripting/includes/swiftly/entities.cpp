@@ -1,8 +1,8 @@
 #include "entities.h"
 
-Entity *Entities::Create()
+Entity *Entities::Create(const char *clsname)
 {
-    Entity *entity = new Entity();
+    Entity *entity = new Entity(clsname);
     this->entities.insert(std::make_pair(entity->GetEntityID(), entity));
     return entity;
 }

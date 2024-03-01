@@ -1,17 +1,17 @@
 #include "entity.h"
 #include "../swiftly.h"
 
-typedef uint32_t (*CreateEntity)();
+typedef uint32_t (*CreateEntity)(const char *);
 typedef void (*Entity_Spawn)(uint32_t);
 typedef void (*Entity_Destroy)(uint32_t);
 typedef void (*Entity_SetModel)(uint32_t, const char *);
 typedef void (*Entity_AcceptInput)(uint32_t, const char *, const char *, const char *, double *);
 
-Entity::Entity()
+Entity::Entity(const char *clsname)
 {
     void *createEntity = FetchFunctionPtr(nullptr, "scripting_Entity_Create");
     if (createEntity)
-        this->entityID = reinterpret_cast<CreateEntity>(createEntity)();
+        this->entityID = reinterpret_cast<CreateEntity>(createEntity)(clsname);
     else
         NOT_SUPPORTED("scripting_Entity_Create");
 

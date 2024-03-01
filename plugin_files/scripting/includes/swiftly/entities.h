@@ -14,7 +14,7 @@ private:
 public:
     Entities(){};
 
-    Entity *Create();
+    Entity *Create(const char *clsname = nullptr);
     Entity *Fetch(uint32_t id);
     void Destroy(uint32_t id);
 

@@ -13,9 +13,10 @@ private:
     Z_CBaseEntity *entity = nullptr;
     std::string model;
     bool spawned = false;
+    bool player = false;
 
 public:
-    Entity();
+    Entity(std::string classname);
     Entity(CEntityInstance *entityInstance);
 
     Vector GetCoords();
