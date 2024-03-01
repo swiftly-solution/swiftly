@@ -402,6 +402,27 @@
 						"params": {},
 						"additional": {}
 					},
+					"acceptinput": {
+						"title": "AcceptInput",
+						"template": "function-syntax",
+						"description": "Sends an input to the entity.",
+						"language": "both",
+						"variable": {
+							"cpp": "entity->AcceptInput",
+							"lua": "entity:AcceptInput"
+						},
+						"return": "void",
+						"params": {
+							"input": "const char*",
+							"activator": "const char*",
+							"caller": "const char*",
+							"value": "double*"
+						},
+						"additional": {
+							"cpp": ":::note\nThe activator and caller needs to be an entity or a player.\nTo specify a player you need to use \"player:ID\", where the ID is the player id.\nTo specify an entity you need to use \"entity:ID\", where the ID is the entity id.\n:::",
+							"lua": ":::note\nThe activator and caller needs to be an entity or a player.\nTo specify a player you need to use \"player:ID\", where the ID is the player id.\nTo specify an entity you need to use \"entity:ID\", where the ID is the entity id.\n:::"
+						}
+					},
 					"setmodel": {
 						"title": "SetModel",
 						"template": "function-syntax",

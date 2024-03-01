@@ -24,6 +24,7 @@ const GenerateLuaType = (param) => {
     else if (param == "DB_Result" || param.includes("vector") || param == "const char**" || param.includes("std::unordered_map")) return "table";
     else if (param == "Entity*" || param == "HTTPRequest*") return "object";
     else if (param == "Vector*") return "vector3";
+    else if (param == "double*") return "number";
     else if (param == "Color*") return "table ({ r -- number , g -- number, b -- number, a -- number })";
     else if (param == "MessageType") return "MessageType";
     else if (param == "") return "args: string / number / boolean";
