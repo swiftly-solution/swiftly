@@ -27,9 +27,14 @@ int CommandsManager::HandleCommands(CBasePlayerController *controller, std::stri
     bool isSilentCommand = (std::find(silentCommandPrefixes.begin(), silentCommandPrefixes.end(), std::string(1, text.at(0))) != silentCommandPrefixes.end());
     if (isCommand || isSilentCommand)
     {
-        std::vector<std::string> cmdString = explode(text, " ");
-        std::string commandName = cmdString[0];
-        cmdString.erase(cmdString.begin());
+        CCommand tokenizedArgs;
+        tokenizedArgs.Tokenize(text.c_str());
+
+        std::vector<std::string> cmdString;
+        for (int i = 1; i < tokenizedArgs.ArgC(); i++)
+            cmdString.push_back(tokenizedArgs[i]);
+
+        std::string commandName = tokenizedArgs[0];
         commandName.erase(0, 1);
 
         Command *cmd = g_commandsManager->FetchCommand(commandName);
@@ -86,9 +91,14 @@ bool CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, 
 
 static void commandsCallback(const CCommandContext &context, const CCommand &args)
 {
-    std::vector<std::string> argsplit = explode(args.GetCommandString(), " ");
-    std::string cmdName = (argsplit[0].c_str() + 3);
-    argsplit.erase(argsplit.begin());
+    CCommand tokenizedArgs;
+    tokenizedArgs.Tokenize(args.GetCommandString());
+
+    std::string cmdName = (tokenizedArgs[0] + 3);
+    std::vector<std::string> argsplit;
+    for (int i = 1; i < tokenizedArgs.ArgC(); i++)
+        argsplit.push_back(tokenizedArgs[i]);
+
     if (g_commandsManager->FetchCommand(cmdName) == nullptr)
         return;
 
