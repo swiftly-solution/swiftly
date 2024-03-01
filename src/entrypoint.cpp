@@ -516,6 +516,14 @@ void CEntityListener::OnEntityParentChanged(CEntityInstance *pEntity, CEntityIns
 {
 }
 
+void CEntityListener::OnEntityCreated(CEntityInstance *pEntity)
+{
+}
+
+void CEntityListener::OnEntityDeleted(CEntityInstance *pEntity)
+{
+}
+
 uint64_t GetTime()
 {
     return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
