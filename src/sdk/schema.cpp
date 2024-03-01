@@ -108,8 +108,11 @@ SchemaKey sch::GetOffset(const char *className, uint32_t classKey, const char *m
 
 void SetStateChanged(Z_CBaseEntity *pEntity, int offset)
 {
-    g_Signatures->FetchSignature<StateChanged>("StateChanged")(pEntity->m_NetworkTransmitComponent(), pEntity, offset, -1, -1);
+    if (pEntity->m_NetworkTransmitComponent())
+    {
+        g_Signatures->FetchSignature<StateChanged>("StateChanged")(pEntity->m_NetworkTransmitComponent(), pEntity, offset, -1, -1);
 
-    pEntity->m_lastNetworkChange = engine->GetServerGlobals()->curtime;
-    pEntity->m_isSteadyState().ClearAll();
+        pEntity->m_lastNetworkChange = engine->GetServerGlobals()->curtime;
+        pEntity->m_isSteadyState().ClearAll();
+    }
 }
