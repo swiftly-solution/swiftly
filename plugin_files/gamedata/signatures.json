@@ -32,7 +32,7 @@
     "ServerMovementUnlock": {
         "lib": "server",
         "windows": "76 2A F2 0F 10 57 2A F3 0F 10 2A 2A 0F 28 CA F3 0F 59 C0",
-        "linux": "0F 87 2A 2A 2A 2A 49 8B 7C 24 2A E8 2A 2A 2A 2A 66 0F EF ED 66 0F D6 85 2A 2A 2A 2A"
+        "linux": "0F 87 2A 2A 2A 2A 49 8B 7D 30 E8 2A 2A 2A 2A 66 0F EF ED 66 0F D6 85 2A 2A 2A 2A"
     },
     "CEntityInstance_AcceptInput": {
         "lib": "server",
