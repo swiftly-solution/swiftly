@@ -22,3 +22,8 @@ int GetPlayerId(const char *str, bool matchbots)
     }
     return -1;
 }
+
+void CreateThread(std::function<void()> fn)
+{
+    std::thread(fn).detach();
+}
