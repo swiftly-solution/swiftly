@@ -65,5 +65,5 @@ void Addons::RegisterAddons()
             this->addons.push_back(addonsFile["addons"][i].GetString());
     }
 
-    AddonsError(string_format("Loaded %d addons.", this->addons.size()).c_str());
+    AddonsError(string_format("Loaded %d addon%s.", this->addons.size(), this->addons.size() == 1 ? "" : "s").c_str());
 }
