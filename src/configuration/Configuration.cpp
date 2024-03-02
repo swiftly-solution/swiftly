@@ -52,7 +52,7 @@ bool Configuration::LoadConfiguration()
     IS_STRING("core.json", coreConfigFile["logging"], "mode", "logging.mode");
 
     std::string loggingMode = std::string(coreConfigFile["logging"]["mode"].GetString());
-    if (loggingMode != "daily" && loggingMode != "map")
+    if (loggingMode != "daily" && loggingMode != "map" && loggingMode != "permanent")
         return ConfigurationError("core.json", "The field \"logging.mode\" needs to be: \"daily\" or \"map\".");
 
     HAS_MEMBER("core.json", coreConfigFile, "commandPrefixes", "commandPrefixes");
