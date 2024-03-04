@@ -505,11 +505,6 @@ void SwiftlyPlugin::NextFrame(std::function<void()> fn)
 
 void CEntityListener::OnEntitySpawned(CEntityInstance *pEntity)
 {
-    if (CBasePlayerWeapon *weapon = dynamic_cast<CBasePlayerWeapon *>(pEntity); weapon != nullptr)
-    {
-        g_Plugin.NextFrame([weapon]()
-                           { hooks::emit(OnWeaponSpawned(weapon)); });
-    }
 }
 
 void CEntityListener::OnEntityParentChanged(CEntityInstance *pEntity, CEntityInstance *pNewParent)
@@ -518,6 +513,11 @@ void CEntityListener::OnEntityParentChanged(CEntityInstance *pEntity, CEntityIns
 
 void CEntityListener::OnEntityCreated(CEntityInstance *pEntity)
 {
+    if (CBasePlayerWeapon *weapon = dynamic_cast<CBasePlayerWeapon *>(pEntity); weapon != nullptr)
+    {
+        g_Plugin.NextFrame([weapon]()
+                           { hooks::emit(OnWeaponSpawned(weapon)); });
+    }
 }
 
 void CEntityListener::OnEntityDeleted(CEntityInstance *pEntity)
