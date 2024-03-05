@@ -1041,13 +1041,16 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
     {
         weapon->m_AttributeManager().m_Item().m_iEntityQuality = 3;
     }
-    else if (!weapon->m_AttributeManager().m_Item().m_iAccountID() && weapon->m_CBodyComponent() && weapon->m_CBodyComponent()->m_pSceneNode())
+
+    int paintkit = weapon->m_nFallbackPaintKit();
+    bool legacy = (std::find(paintkitsFallbackCheck.begin(), paintkitsFallbackCheck.end(), paintkit) == paintkitsFallbackCheck.end());
+
+    if (weapon->m_CBodyComponent() && weapon->m_CBodyComponent()->m_pSceneNode())
     {
-        int paintkit = weapon->m_nFallbackPaintKit();
-        if (std::find(paintkitsFallbackCheck.begin(), paintkitsFallbackCheck.end(), paintkit) != paintkitsFallbackCheck.end())
-            weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask = 1;
-        else if (weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask() != 2)
-            weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask = 2;
+        CSkeletonInstance *skeleton = weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
+        if (skeleton)
+            if (skeleton->m_modelState().m_MeshGroupMask() != (legacy == true ? 2 : 1))
+                skeleton->m_modelState().m_MeshGroupMask = (legacy == true ? 2 : 1);
     }
 
     CCSPlayer_ViewModelServices *viewmodelServices = pawn->m_pViewModelServices();
@@ -1062,6 +1065,14 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
 
     if (!viewmodel)
         return;
+
+    if (viewmodel->m_CBodyComponent() && viewmodel->m_CBodyComponent()->m_pSceneNode())
+    {
+        CSkeletonInstance *viewmodelskeleton = viewmodel->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
+        if (viewmodelskeleton)
+            if (viewmodelskeleton->m_modelState().m_MeshGroupMask() != (legacy == true ? 2 : 1))
+                viewmodelskeleton->m_modelState().m_MeshGroupMask = (legacy == true ? 2 : 1);
+    }
 
     viewmodel->m_CBodyComponent.StateUpdate();
 }
