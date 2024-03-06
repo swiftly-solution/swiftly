@@ -572,9 +572,14 @@ void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
             }
             else if (starts_with(cmd, "sw_"))
             {
-                std::vector<std::string> cmdString = explode(cmd, " ");
-                std::string commandName = replace(cmdString[0], "sw_", "");
-                cmdString.erase(cmdString.begin());
+                CCommand tokenizedArgs;
+                tokenizedArgs.Tokenize(cmd.c_str());
+
+                std::vector<std::string> cmdString;
+                for (int i = 1; i < tokenizedArgs.ArgC(); i++)
+                    cmdString.push_back(tokenizedArgs[i]);
+
+                std::string commandName = replace(tokenizedArgs[0], "sw_", "");
 
                 Command *cmd = g_commandsManager->FetchCommand(commandName);
                 if (cmd)

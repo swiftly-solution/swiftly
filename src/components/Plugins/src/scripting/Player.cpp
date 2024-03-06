@@ -5,6 +5,7 @@
 #include "../../../../sdk/entity/CBaseCombatCharacter.h"
 #include "../../inc/Scripting.h"
 #include "../../../../utils/plat.h"
+#include "../../../../commands/CommandsManager.h"
 
 extern CEntitySystem *g_pEntitySystem;
 std::string SerializeData(std::any data);
@@ -1097,7 +1098,23 @@ SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd)
     if (!player)
         return;
 
-    engine->ClientCommand(*player->GetSlot(), cmd);
+    if (starts_with(cmd, "sw_"))
+    {
+        CCommand tokenizedArgs;
+        tokenizedArgs.Tokenize(cmd);
+
+        std::vector<std::string> cmdString;
+        for (int i = 1; i < tokenizedArgs.ArgC(); i++)
+            cmdString.push_back(tokenizedArgs[i]);
+
+        std::string commandName = replace(tokenizedArgs[0], "sw_", "");
+
+        Command *command = g_commandsManager->FetchCommand(commandName);
+        if (command)
+            command->Exec(player->GetSlot()->Get(), cmdString, true);
+    }
+    else
+        engine->ClientCommand(*player->GetSlot(), cmd);
 }
 
 SMM_API void scripting_Player_SetModel(uint32 playerId, const char *model)
