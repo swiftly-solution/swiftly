@@ -4336,7 +4336,7 @@
 				"template": "getting-started",
 				"language": "cpp",
 				"position": 1,
-				"description": "To use the Swiftly Logging system you need the following code in your plugin.",
+				"description": "To use the Swiftly Menu system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/menus.h>\n\nMenus *menus = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    menus = new Menus(pluginName);\n    ...\n}\n```"
 				}
