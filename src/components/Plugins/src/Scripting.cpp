@@ -1,5 +1,5 @@
 #include "../../../common.h"
-#include "../../inc/Scripting.h"
+#include "../inc/Scripting.h"
 #include <vector>
 #include <string>
 
