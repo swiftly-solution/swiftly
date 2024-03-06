@@ -53,7 +53,9 @@ void SetupLuaMenus(luacpp::LuaState *state, Plugin *plugin)
 
                                 tbl.ForEach([&](const luacpp::LuaObject& key, const luacpp::LuaObject& value) -> bool {
                                     luacpp::LuaTable tbl(value);
-                                    data.push_back({ tbl.GetString(1), tbl.GetString(2) });
+                                    if(tbl.GetSize() == 2) {
+                                        data.push_back(std::make_pair(tbl.GetString(1), tbl.GetString(2)));
+                                    }
                                     return true;
                                 });
 
