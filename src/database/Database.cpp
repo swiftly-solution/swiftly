@@ -43,12 +43,15 @@ std::any ParseFieldType(enum_field_types type, const char *value)
         return atof(value);
     else if (type == enum_field_types::MYSQL_TYPE_INT24 || type == enum_field_types::MYSQL_TYPE_LONG || type == enum_field_types::MYSQL_TYPE_LONGLONG)
         return atoi(value);
-    else if (type == enum_field_types::MYSQL_TYPE_VARCHAR || type == enum_field_types::MYSQL_TYPE_VAR_STRING || type == enum_field_types::MYSQL_TYPE_BLOB)
+    else if (type == enum_field_types::MYSQL_TYPE_VARCHAR || type == enum_field_types::MYSQL_TYPE_VAR_STRING || type == enum_field_types::MYSQL_TYPE_BLOB || type == 245)
         return std::string(value);
     else if (type == enum_field_types::MYSQL_TYPE_SHORT || type == enum_field_types::MYSQL_TYPE_TINY)
         return (short)strtol(value, nullptr, 10);
     else
+    {
+        PRINTF("Database - ParseFieldType", "Invalid field type: %d.\n", type);
         return 0;
+    }
 }
 
 std::vector<std::map<const char *, std::any>> Database::Query(const char *query)
