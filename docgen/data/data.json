@@ -1,4 +1,43 @@
 {
+	"generic": {
+		"title": "Generic",
+		"description": "A list of API functions for base scripting.",
+		"iscategory": true,
+		"language": "both",
+		"data": {
+			"print": {
+				"title": "Print",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "To print a string to the console",
+				"variable": {
+					"cpp": "print",
+					"lua": "print"
+				},
+				"return": "void",
+				"params": {
+					"text": "const char*",
+					"...": ""
+				},
+				"additional": {}
+			},
+			"getpluginstate": {
+				"title": "GetPluginState",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Returns the state of a plugin",
+				"variable": {
+					"cpp": "GetPluginState",
+					"lua": "GetPluginState"
+				},
+				"return": "PluginState",
+				"params": {
+					"plugin_name": "const char*"
+				},
+				"additional": {}
+			}
+		}
+	},
 	"commands": {
 		"title": "Commands",
 		"description": "A list of API functions for commands.",

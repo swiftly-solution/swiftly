@@ -14,8 +14,10 @@
 
 typedef void (*PrintFunction)(const char *);
 typedef const char *(*FetchTranslationFunction)(const char *);
+typedef PluginState (*PluginStateFunc)(const char *);
 
 void print(const char *str, ...);
+PluginState GetPluginState(const char *plugin_name);
 const char *FetchTranslation(const char *key);
 void Swiftly_Setup(const char *pluginName, const char *mainFilePath);
 

@@ -29,6 +29,10 @@ void SetupLuaEnvironment(luacpp::LuaState *state, Plugin *plugin)
 {
     luacpp::LuaTable playerTable = (state->Get("players").GetType() == LUA_TNIL ? state->CreateTable("players") : state->GetTable("players"));
 
+    state->CreateFunction([](const char *plugin_name) -> int
+                          { return scripting_GetPluginState(plugin_name); },
+                          "GetPluginState");
+
     state->CreateFunction([plugin]() -> const char *
                           { return plugin->GetName().c_str(); },
                           "PluginName");

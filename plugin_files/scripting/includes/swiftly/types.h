@@ -157,4 +157,10 @@ enum WeaponSilencerType : uint32_t
     INTEGRATED = 0x2,
 };
 
+enum PluginState : int
+{
+    STOPPED = 0,
+    STARTED = 1
+};
+
 #endif

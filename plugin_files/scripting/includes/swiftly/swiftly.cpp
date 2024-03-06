@@ -36,3 +36,15 @@ void Swiftly_Setup(const char *pluginName, const char *mainFilePath)
     filePath = mainFilePath;
     plName = pluginName;
 }
+
+PluginState GetPluginState(const char *plugin_name)
+{
+    void *statefunc = FetchFunctionPtr(filePath, "scripting_GetPluginState");
+    if (statefunc)
+        return reinterpret_cast<PluginStateFunc>(statefunc)(plugin_name);
+    else
+    {
+        NOT_SUPPORTED("scripting_GetPluginState");
+        return STOPPED;
+    }
+}

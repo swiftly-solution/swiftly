@@ -23,6 +23,12 @@ enum PlayerStat : int
     DAMAGE = 3
 };
 
+enum PluginState : int
+{
+    STOPPED = 0,
+    STARTED = 1
+};
+
 SMM_API void scripting_Commands_RegisterCommand(const char *pluginName, const char *name, void *funcPtr);
 SMM_API void scripting_Commands_UnregisterCommand(const char *name);
 
@@ -216,6 +222,7 @@ SMM_API void scripting_Menus_Register(const char *plugin_name, const char *id, c
 SMM_API void scripting_Menus_Unregister(const char *plugin_name, const char *id);
 
 SMM_API void scripting_Print(const char *str);
+SMM_API PluginState scripting_GetPluginState(const char *plugin_name);
 
 void SetupLuaCommands(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaConfiguration(luacpp::LuaState *state, Plugin *plugin);

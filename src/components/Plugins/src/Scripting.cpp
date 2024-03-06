@@ -1,4 +1,5 @@
 #include "../../../common.h"
+#include "../../inc/Scripting.h"
 #include <vector>
 #include <string>
 
@@ -42,4 +43,19 @@ SMM_API void scripting_Print(const char *str)
         }
         g_SMAPI->ConPrint(message.c_str());
     }
+}
+
+SMM_API PluginState scripting_GetPluginState(const char *plugin_name)
+{
+    if (plugin_name == nullptr)
+        return PluginState::STOPPED;
+
+    Plugin *plugin = FetchPluginFromMap(plugin_name);
+    if (plugin == nullptr)
+        return PluginState::STOPPED;
+
+    if (plugin->IsPluginLoaded())
+        return PluginState::STARTED;
+    else
+        return PluginState::STOPPED;
 }
