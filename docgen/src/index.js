@@ -13,29 +13,47 @@ const templates = FetchTemplates();
 
 let generatedFiles = 0
 
+const lua_datamap = {
+    player: "number",
+    "Entity*": "object",
+    "Vector*": "vector3",
+    "double*": "number",
+    "Color*": "table ({ r -- number , g -- number, b -- number, a -- number })",
+    "HTTPRequest*": "object",
+    MessageType: "MessageType",
+    ELogType: "LogType",
+    ContentType: "ContentType",
+    ENetworkDisconnectionReason: "DisconnectReason",
+    HudDestination: "HudDestination",
+    PlayerStat: "PlayerStat",
+    WeaponSlot: "WeaponSlot",
+    WeaponSilencerType: "WeaponSilencerType",
+    PluginState: "PluginState",
+    DataType: "string / number / boolean as number",
+    void: "void",
+    bool: "boolean as number",
+    player: "number",
+    int32_t: "number",
+    uint32_t: "number",
+    uint16_t: "number",
+    uint64_t: "number",
+    int: "number",
+    uint8_t: "number",
+    "unsigned short": "number",
+    "unsigned long long": "number",
+    short: "number",
+    long: "number",
+    float: "number",
+    "unsigned char": "number",
+    "Weapon*": "number"
+}
+
 const GenerateLuaType = (param) => {
     if (param == "const char*" || param.includes("string")) return "string";
     else if (param == "callback" || param.includes("std::function")) return "callback";
-    else if (param == "player") return "number";
-    else if (param == "bool") return "boolean as number";
-    else if (param == "void") return "void";
-    else if (param == "int32_t" || param == "uint32_t" || param == "uint16_t" || param == "uint64_t" || param == "int" || param == "uint8_t" || param == "unsigned short" || param == "unsigned long long" || param == "short" || param == "long" || param == "float" || param == "unsigned char" || param == "Weapon*") return "number";
-    else if (param == "DataType") return "string / number / boolean as number";
     else if (param == "DB_Result" || param.includes("vector") || param == "const char**" || param.includes("std::unordered_map")) return "table";
-    else if (param == "Entity*" || param == "HTTPRequest*") return "object";
-    else if (param == "Vector*") return "vector3";
-    else if (param == "double*") return "number";
-    else if (param == "Color*") return "table ({ r -- number , g -- number, b -- number, a -- number })";
-    else if (param == "MessageType") return "MessageType";
     else if (param == "") return "args: string / number / boolean";
-    else if (param == "ELogType") return "LogType";
-    else if (param == "ContentType") return "ContentType";
-    else if (param == "ENetworkDisconnectionReason") return "DisconnectReason";
-    else if (param == "HudDestination") return "HudDestination";
-    else if (param == "PlayerStat") return "PlayerStat";
-    else if (param == "WeaponSlot") return "WeaponSlot";
-    else if (param == "WeaponSilencerType") return "WeaponSilencerType";
-    else if (param == "PluginState") return "PluginState";
+    else if (lua_datamap.hasOwnProperty(param)) return lua_datamap[param];
     else throw `${param} not implemented`;
 }
 

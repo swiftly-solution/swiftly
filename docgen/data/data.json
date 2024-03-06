@@ -17,7 +17,7 @@
 				"return": "void",
 				"params": {
 					"text": "const char*",
-					"...": ""
+					"cpp/...": ""
 				},
 				"additional": {}
 			},
