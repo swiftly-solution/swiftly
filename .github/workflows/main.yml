@@ -75,6 +75,7 @@ jobs:
               working-directory: swiftly
               shell: bash
               run: |
+                  sudo apt update
                   sudo apt install -y libreadline-dev libboost-all-dev fdupes unzip
                   bash ./setup.sh
 
