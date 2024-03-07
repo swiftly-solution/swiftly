@@ -1049,9 +1049,11 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
     if (weapon->m_CBodyComponent() && weapon->m_CBodyComponent()->m_pSceneNode())
     {
         CSkeletonInstance *skeleton = weapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
-        if (skeleton)
-            if (skeleton->m_modelState().m_MeshGroupMask() != (legacy == true ? 2 : 1))
-                skeleton->m_modelState().m_MeshGroupMask = (legacy == true ? 2 : 1);
+        if (skeleton && skeleton->m_modelState())
+            if (skeleton->m_modelState()->m_MeshGroupMask() != (legacy == true ? 2 : 1))
+            {
+                skeleton->m_modelState()->m_MeshGroupMask = (legacy == true ? 2 : 1);
+            }
     }
 
     CCSPlayer_ViewModelServices *viewmodelServices = pawn->m_pViewModelServices();
@@ -1070,9 +1072,11 @@ SMM_API void scripting_Player_Weapon_SetDefaultChangeSkinAttributes(uint32 playe
     if (viewmodel->m_CBodyComponent() && viewmodel->m_CBodyComponent()->m_pSceneNode())
     {
         CSkeletonInstance *viewmodelskeleton = viewmodel->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
-        if (viewmodelskeleton)
-            if (viewmodelskeleton->m_modelState().m_MeshGroupMask() != (legacy == true ? 2 : 1))
-                viewmodelskeleton->m_modelState().m_MeshGroupMask = (legacy == true ? 2 : 1);
+        if (viewmodelskeleton && viewmodelskeleton->m_modelState())
+            if (viewmodelskeleton->m_modelState()->m_MeshGroupMask() != (legacy == true ? 2 : 1))
+            {
+                viewmodelskeleton->m_modelState()->m_MeshGroupMask = (legacy == true ? 2 : 1);
+            }
     }
 
     viewmodel->m_CBodyComponent.StateUpdate();
