@@ -47,21 +47,24 @@ void SetupLuaMenus(luacpp::LuaState *state, Plugin *plugin)
 {
     auto menusClass = state->CreateClass<LuaMenusClass>("Menus").DefConstructor<>();
 
-    menusClass.DefMember("Register", [plugin, state](LuaMenusClass *base, const char *id, const char *title, const char *color, luacpp::LuaTable tbl) -> void
+    menusClass.DefMember("Register", [plugin, state](LuaMenusClass *base, const char *id, const char *title, const char *color, luacpp::LuaObject tblobj) -> void
                          {
-                                std::vector<std::pair<std::string, std::string>> data;
+                            if(tblobj.GetType() != LUA_TTABLE) return;
+                            luacpp::LuaTable tbl(tblobj);
 
-                                tbl.ForEach([&](const luacpp::LuaObject& key, const luacpp::LuaObject& value) -> bool {
-                                    luacpp::LuaTable tbl(value);
-                                    if(tbl.GetSize() == 2) {
-                                        data.push_back(std::make_pair(tbl.GetString(1), tbl.GetString(2)));
-                                    }
-                                    return true;
-                                });
+                            std::vector<std::pair<std::string, std::string>> data;
 
-                                std::string serialized = SerializeMenuData(data);
+                            tbl.ForEach([&](const luacpp::LuaObject& key, const luacpp::LuaObject& value) -> bool {
+                                luacpp::LuaTable tbl(value);
+                                if(tbl.GetSize() == 2) {
+                                    data.push_back(std::make_pair(tbl.GetString(1), tbl.GetString(2)));
+                                }
+                                return true;
+                            });
 
-                                scripting_Menus_Register(plugin->GetName().c_str(), id, title, color, serialized.c_str()); })
+                            std::string serialized = SerializeMenuData(data);
+
+                            scripting_Menus_Register(plugin->GetName().c_str(), id, title, color, serialized.c_str()); })
         .DefMember("Unregister", [plugin, state](LuaMenusClass *base, const char *id) -> void
                    { scripting_Menus_Unregister(plugin->GetName().c_str(), id); });
 

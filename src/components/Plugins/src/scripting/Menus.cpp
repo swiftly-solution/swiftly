@@ -20,6 +20,9 @@ SMM_API void scripting_Menus_Register(const char *plugin_name, const char *id, c
         if (document[i].Size() == 2)
             options.push_back({document[i][0].GetString(), document[i][1].GetString()});
 
+    if (options.size() == 0)
+        return;
+
     g_menus->RegisterMenu(plugin_name, id, title, color, options);
 }
 
