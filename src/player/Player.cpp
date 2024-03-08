@@ -45,6 +45,18 @@ std::string str_tolower(std::string s)
     return s;
 }
 
+std::string ProcessColor(std::string str, int team = CS_TEAM_CT)
+{
+    replace(str, "{TEAMCOLOR}", team == CS_TEAM_CT ? "{BLUEGREY}" : "{GOLD}");
+    replace(str, "{teamcolor}", team == CS_TEAM_CT ? "{bluegrey}" : "{gold}");
+    for (auto it = colors.begin(); it != colors.end(); ++it)
+    {
+        str = replace(str, it->first, it->second);
+        str = replace(str, str_tolower(it->first), it->second);
+    }
+    return str;
+}
+
 CBasePlayerController *Player::GetController()
 {
     return (CBasePlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->GetSlot()->Get() + 1));
@@ -148,11 +160,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
             message += "\x01";
             bool startsWithColor = (message.at(0) == '{');
 
-            for (auto it = colors.begin(); it != colors.end(); ++it)
-            {
-                message = replace(message, it->first, it->second);
-                message = replace(message, str_tolower(it->first), it->second);
-            }
+            message = ProcessColor(message, controller->m_iTeamNum());
 
             if (startsWithColor)
                 message = " " + message;

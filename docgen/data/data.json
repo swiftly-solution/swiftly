@@ -4956,8 +4956,8 @@
 							"...": ""
 						},
 						"additional": {
-							"cpp": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. \n:::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n```",
-							"lua": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. \n:::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n```"
+							"cpp": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. \n:::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```",
+							"lua": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. \n:::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```"
 						}
 					},
 					"setmodel": {
