@@ -26,7 +26,6 @@ class Player
 {
 private:
     uint32_t m_playerSlot;
-    bool m_firstSpawn = false;
     bool m_fakeClient = false;
 
 public:
@@ -126,10 +125,18 @@ public:
         }
     }
 
-    bool IsFirstSpawn() { return !this->m_firstSpawn; }
+    bool IsFirstSpawn()
+    {
+        void *player_IsFirstSpawn = FetchFunctionPtr(nullptr, "scripting_Player_IsFirstSpawn");
+        if (player_IsFirstSpawn)
+            return reinterpret_cast<Player_IsFirstSpawn>(player_IsFirstSpawn)(this->m_playerSlot);
+        else
+        {
+            NOT_SUPPORTED("scripting_Player_IsFirstSpawn");
+            return false;
+        }
+    }
     bool IsFakeClient() { return this->m_fakeClient; }
-
-    void SetFirstSpawn(bool val) { this->m_firstSpawn = val; }
 
     void Drop(ENetworkDisconnectionReason reason)
     {

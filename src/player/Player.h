@@ -106,6 +106,9 @@ public:
     std::string namecolor = "{teamcolor}";
     std::string chatcolor = "{default}";
 
+    bool IsFirstSpawn() { return this->firstSpawn; }
+    void SetFirstSpawn(bool value) { this->firstSpawn = value; }
+
 private:
     int slot;
     bool isFakeClient = false;
@@ -127,6 +130,8 @@ private:
 
     uint64_t centerMessageEndTime = 0;
     std::string centerMessageText;
+
+    bool firstSpawn = true;
 };
 
 #endif

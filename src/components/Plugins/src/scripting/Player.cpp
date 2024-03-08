@@ -1454,3 +1454,12 @@ SMM_API void scripting_Player_SetName(uint32 playerId, const char *name)
     auto namePtr = controller->m_iszPlayerName();
     Plat_WriteMemory((void *)namePtr, reinterpret_cast<byte *>(const_cast<char *>(name)), strlen(name));
 }
+
+SMM_API bool scripting_Player_IsFirstSpawn(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    return player->IsFirstSpawn();
+}

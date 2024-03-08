@@ -8,6 +8,7 @@
 
 typedef const char *(*Player_GetName)(uint32_t);
 typedef uint64_t (*Player_GetSteamID)(uint32_t);
+typedef bool (*Player_IsFirstSpawn)(uint32_t);
 typedef void (*Player_Drop)(uint32_t, ENetworkDisconnectionReason);
 typedef bool (*Player_IsAuthenticated)(uint32_t);
 typedef const char *(*Player_GetConvar)(uint32_t, const char *);

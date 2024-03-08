@@ -14,7 +14,6 @@ class LuaPlayerClass
 public:
     int playerSlot;
     bool fakeClient;
-    bool firstSpawn = false;
 
     LuaPlayerClass(int m_playerSlot, bool m_fakeClient) : playerSlot(m_playerSlot), fakeClient(m_fakeClient) {}
 };
@@ -69,9 +68,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("GetIPAddress", [](LuaPlayerClass *base) -> const char *
                    { return scripting_Player_GetIPAddress(base->playerSlot); })
         .DefMember("IsFirstSpawn", [](LuaPlayerClass *base) -> bool
-                   { return (base->firstSpawn == false); })
-        .DefMember("SetFirstSpawn", [](LuaPlayerClass *base, bool firstSpawn) -> void
-                   { base->firstSpawn = firstSpawn; })
+                   { return scripting_Player_IsFirstSpawn(base->playerSlot); })
         .DefMember("ShowMenu", [](LuaPlayerClass *base, const char *menuid) -> void
                    { scripting_Player_ShowMenu(base->playerSlot, menuid); })
         .DefMember("GetChatTag", [](LuaPlayerClass *base) -> const char *

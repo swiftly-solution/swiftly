@@ -268,6 +268,9 @@ GAME_EVENT(player_spawn)
         return;
 
     CALL_PFUNCTION_VOID_ARGS(OnPlayerSpawn, player->GetSlot()->Get())
+
+    if (player->IsFirstSpawn() == true)
+        player->SetFirstSpawn(false);
 }
 
 GAME_EVENT(round_prestart)

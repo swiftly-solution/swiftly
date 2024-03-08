@@ -369,9 +369,6 @@ extern "C"
 
         if (OnPlayerSpawn)
             OnPlayerSpawn(player);
-
-        if (player->IsFirstSpawn())
-            player->SetFirstSpawn(true);
     }
     bool Internal_OnPlayerChat(uint32_t slot, const char *text, bool teamonly)
     {
