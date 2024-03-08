@@ -4918,6 +4918,21 @@
 						"params": {},
 						"additional": {}
 					},
+					"setname": {
+						"title": "SetName",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player name.",
+						"variable": {
+							"cpp": "player->SetName",
+							"lua": "player:SetName"
+						},
+						"return": "void",
+						"params": {
+							"name": "const char*"
+						},
+						"additional": {}
+					},
 					"getslot": {
 						"title": "GetSlot",
 						"template": "function-syntax",

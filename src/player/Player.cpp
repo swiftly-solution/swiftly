@@ -117,7 +117,7 @@ const char *Player::GetName()
     if (!controller)
         return this->name;
 
-    return controller->m_iszPlayerName();
+    return reinterpret_cast<char *>(controller->m_iszPlayerName());
 }
 
 uint64 Player::GetSteamID()

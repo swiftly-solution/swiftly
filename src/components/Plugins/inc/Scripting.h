@@ -105,6 +105,7 @@ SMM_API void scripting_Logger_CreateLogger(const char *plugin_name);
 SMM_API void scripting_Logger_WriteLog(const char *plugin_name, ELogType log_type, const char *text);
 
 SMM_API const char *scripting_Player_GetName(uint32 playerId);
+SMM_API void scripting_Player_SetName(uint32 playerId, const char *name);
 SMM_API uint64 scripting_Player_GetSteamID(uint32 playerId);
 SMM_API float scripting_Player_GetGravity(uint32 playerId);
 SMM_API void scripting_Player_SetGravity(uint32 playerId, float gravity);

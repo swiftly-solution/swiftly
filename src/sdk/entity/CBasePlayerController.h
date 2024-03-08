@@ -26,7 +26,7 @@ public:
 
     SCHEMA_FIELD_OFFSET(uint64, m_steamID, 0)
     SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerPawn>, m_hPawn, 0)
-    SCHEMA_FIELD_POINTER_OFFSET(char, m_iszPlayerName, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(char *, m_iszPlayerName, 0)
     SCHEMA_FIELD_OFFSET(PlayerConnectedState, m_iConnected, 0)
     SCHEMA_FIELD_OFFSET(uint32_t, m_iDesiredFOV, 0)
 

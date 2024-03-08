@@ -1437,3 +1437,20 @@ SMM_API void scripting_Player_SetChatColor(uint32 playerId, const char *chatcolo
 
     player->chatcolor = chatcolor;
 }
+
+SMM_API void scripting_Player_SetName(uint32 playerId, const char *name)
+{
+    if (name == nullptr)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *controller = player->GetController();
+    if (!controller)
+        return;
+
+    auto namePtr = controller->m_iszPlayerName();
+    Plat_WriteMemory((void *)namePtr, reinterpret_cast<byte *>(const_cast<char *>(name)), strlen(name));
+}

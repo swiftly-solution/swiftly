@@ -366,6 +366,15 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_SetChatColor");
     }
+
+    void SetName(const char *name)
+    {
+        void *player_SetName = FetchFunctionPtr(nullptr, "scripting_Player_SetName");
+        if (player_SetName)
+            reinterpret_cast<Player_SetColorGeneral>(player_SetName)(this->m_playerSlot, name);
+        else
+            NOT_SUPPORTED("scripting_Player_SetName");
+    }
 };
 
 #endif
