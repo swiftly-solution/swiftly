@@ -291,6 +291,7 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
                 return;
 
             CCSPlayerController *controller = player->GetPlayerController();
+            bool teamonly = (command == "say_team");
 
             if (controller)
             {
@@ -298,7 +299,7 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
 
                 if (pEvent)
                 {
-                    pEvent->SetBool("teamonly", (command == "say_team"));
+                    pEvent->SetBool("teamonly", teamonly);
                     pEvent->SetInt("userid", slot->Get());
                     pEvent->SetString("text", args[1]);
 
@@ -311,14 +312,40 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
             {
                 RETURN_META(MRES_SUPERCEDE);
             }
-            else if (!scripting_OnClientChat(player->GetController(), args[1], command == "say_team"))
+            else if (!scripting_OnClientChat(player->GetController(), args[1], teamonly))
             {
                 RETURN_META(MRES_SUPERCEDE);
             }
             else
             {
-                SH_CALL(g_pCVar, &ICvar::DispatchConCommand)
-                (cmdHandle, ctx, args);
+                std::vector<std::string> msg;
+                if (teamonly)
+                    msg.push_back(ProcessColor(string_format("{teamcolor}[%s]{default}", controller->m_iTeamNum() == CS_TEAM_CT ? "CT" : (controller->m_iTeamNum() == CS_TEAM_T ? "T" : "SPEC")), controller->m_iTeamNum()));
+                if (player->tag.length() > 0)
+                    msg.push_back(ProcessColor(string_format("%s%s{default}", player->tagcolor.empty() ? "{default}" : player->tagcolor.c_str(), player->tag.c_str()), controller->m_iTeamNum()));
+                msg.push_back(string_format("%s%s%s:", ProcessColor(player->namecolor, controller->m_iTeamNum()).c_str(), player->GetName(), ProcessColor("{default}", CS_TEAM_CT).c_str()));
+                msg.push_back(string_format("%s%s", ProcessColor(player->chatcolor, controller->m_iTeamNum()).c_str(), args[1]));
+
+                std::string formatted_msg = (" " + implode(msg, " "));
+
+                for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
+                {
+                    Player *p = g_playerManager->GetPlayer(i);
+                    if (p == nullptr)
+                        continue;
+
+                    CCSPlayerController *pcontroller = p->GetPlayerController();
+                    if (!pcontroller)
+                        continue;
+
+                    if (teamonly)
+                    {
+                        if (pcontroller->m_iTeamNum() == controller->m_iTeamNum())
+                            pcontroller->SendMsg(HUD_PRINTTALK, formatted_msg.c_str());
+                    }
+                    else
+                        pcontroller->SendMsg(HUD_PRINTTALK, formatted_msg.c_str());
+                }
             }
             RETURN_META(MRES_SUPERCEDE);
         }

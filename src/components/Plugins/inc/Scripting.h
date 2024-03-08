@@ -202,6 +202,12 @@ SMM_API void scripting_Player_SetGloves(uint32 playerId, uint16_t defindex, int 
 SMM_API void scripting_Player_SetModel(uint32 playerId, const char *model);
 SMM_API void scripting_Player_SetMusicKit(uint32 playerId, int musicid);
 
+SMM_API const char *scripting_Player_GetChatTag(uint32 playerId);
+SMM_API void scripting_Player_SetChatTag(uint32 playerId, const char *tag);
+SMM_API void scripting_Player_SetChatTagColor(uint32 playerId, const char *tagcolor);
+SMM_API void scripting_Player_SetNameColor(uint32 playerId, const char *namecolor);
+SMM_API void scripting_Player_SetChatColor(uint32 playerId, const char *chatcolor);
+
 SMM_API void scripting_Precacher_AddModel(const char *model);
 
 SMM_API void scripting_Server_ExecuteCommand(const char *str);

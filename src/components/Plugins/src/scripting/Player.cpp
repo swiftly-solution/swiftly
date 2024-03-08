@@ -1376,3 +1376,64 @@ SMM_API void scripting_Player_SetConvar(uint32 playerId, const char *cvarname, c
 
     player->SetClientConvar(cvarname, cvarvalue);
 }
+
+SMM_API const char *scripting_Player_GetChatTag(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return "";
+
+    std::string data = player->tag;
+
+    char *result = new char[data.size() + 1];
+    strcpy(result, data.c_str());
+    return result;
+}
+
+SMM_API void scripting_Player_SetChatTag(uint32 playerId, const char *tag)
+{
+    if (tag == nullptr)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    player->tag = tag;
+}
+
+SMM_API void scripting_Player_SetChatTagColor(uint32 playerId, const char *tagcolor)
+{
+    if (tagcolor == nullptr)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    player->tagcolor = tagcolor;
+}
+
+SMM_API void scripting_Player_SetNameColor(uint32 playerId, const char *namecolor)
+{
+    if (namecolor == nullptr)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    player->namecolor = namecolor;
+}
+
+SMM_API void scripting_Player_SetChatColor(uint32 playerId, const char *chatcolor)
+{
+    if (chatcolor == nullptr)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    player->chatcolor = chatcolor;
+}

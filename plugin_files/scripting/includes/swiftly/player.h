@@ -318,6 +318,54 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_SetHealthShotBoostEffectExpirationTime");
     }
+
+    const char *GetChatTag()
+    {
+        void *player_GetChatTag = FetchFunctionPtr(nullptr, "scripting_Player_GetChatTag");
+        if (player_GetChatTag)
+            return reinterpret_cast<Player_GetChatTag>(player_GetChatTag)(this->m_playerSlot);
+        else
+        {
+            NOT_SUPPORTED("scripting_Player_GetChatTag");
+            return "";
+        }
+    }
+
+    void SetChatTag(const char *tag)
+    {
+        void *player_SetChatTag = FetchFunctionPtr(nullptr, "scripting_Player_SetChatTag");
+        if (player_SetChatTag)
+            reinterpret_cast<Player_SetColorGeneral>(player_SetChatTag)(this->m_playerSlot, tag);
+        else
+            NOT_SUPPORTED("scripting_Player_SetChatTag");
+    }
+
+    void SetChatTagColor(const char *color)
+    {
+        void *player_SetChatTagColor = FetchFunctionPtr(nullptr, "scripting_Player_SetChatTagColor");
+        if (player_SetChatTagColor)
+            reinterpret_cast<Player_SetColorGeneral>(player_SetChatTagColor)(this->m_playerSlot, color);
+        else
+            NOT_SUPPORTED("scripting_Player_SetChatTagColor");
+    }
+
+    void SetNameColor(const char *color)
+    {
+        void *player_SetNameColor = FetchFunctionPtr(nullptr, "scripting_Player_SetNameColor");
+        if (player_SetNameColor)
+            reinterpret_cast<Player_SetColorGeneral>(player_SetNameColor)(this->m_playerSlot, color);
+        else
+            NOT_SUPPORTED("scripting_Player_SetNameColor");
+    }
+
+    void SetChatColor(const char *color)
+    {
+        void *player_SetChatColor = FetchFunctionPtr(nullptr, "scripting_Player_SetChatColor");
+        if (player_SetChatColor)
+            reinterpret_cast<Player_SetColorGeneral>(player_SetChatColor)(this->m_playerSlot, color);
+        else
+            NOT_SUPPORTED("scripting_Player_SetChatColor");
+    }
 };
 
 #endif

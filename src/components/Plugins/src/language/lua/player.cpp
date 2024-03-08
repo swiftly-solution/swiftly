@@ -72,6 +72,16 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { base->firstSpawn = firstSpawn; })
         .DefMember("ShowMenu", [](LuaPlayerClass *base, const char *menuid) -> void
                    { scripting_Player_ShowMenu(base->playerSlot, menuid); })
+        .DefMember("GetChatTag", [](LuaPlayerClass *base) -> const char *
+                   { return scripting_Player_GetChatTag(base->playerSlot); })
+        .DefMember("SetChatTag", [](LuaPlayerClass *base, const char *tag) -> void
+                   { scripting_Player_SetChatTag(base->playerSlot, tag); })
+        .DefMember("SetChatTagColor", [](LuaPlayerClass *base, const char *color) -> void
+                   { scripting_Player_SetChatTagColor(base->playerSlot, color); })
+        .DefMember("SetNameColor", [](LuaPlayerClass *base, const char *color) -> void
+                   { scripting_Player_SetNameColor(base->playerSlot, color); })
+        .DefMember("SetChatColor", [](LuaPlayerClass *base, const char *color) -> void
+                   { scripting_Player_SetChatColor(base->playerSlot, color); })
         .DefMember("HideMenu", [](LuaPlayerClass *base) -> void
                    { scripting_Player_HideMenu(base->playerSlot); })
         .DefMember("GetConnectedTime", [](LuaPlayerClass *base) -> uint32_t

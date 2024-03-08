@@ -101,6 +101,11 @@ public:
 
     void RenderCenterText();
 
+    std::string tag = "";
+    std::string tagcolor = "{default}";
+    std::string namecolor = "{teamcolor}";
+    std::string chatcolor = "{default}";
+
 private:
     int slot;
     bool isFakeClient = false;

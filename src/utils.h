@@ -58,5 +58,6 @@ std::string string_format(const std::string &format, Args... args)
 
 std::vector<std::string> explode(std::string s, std::string delimiter);
 std::string implode(std::vector<std::string> elements, std::string delimiter);
+std::string ProcessColor(std::string str, int team);
 
 #endif

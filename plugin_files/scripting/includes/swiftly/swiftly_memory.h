@@ -63,6 +63,9 @@ typedef void (*Players_SendMessage)(HudDestination, const char *);
 
 typedef int (*Player_GetLatency)(uint32_t);
 
+typedef void (*Player_SetColorGeneral)(uint32_t, const char *);
+typedef const char *(*Player_GetChatTag)(uint32_t);
+
 typedef const char *(*Database_EscapeString)(const char *, const char *);
 typedef bool (*Database_Connect)(const char *);
 

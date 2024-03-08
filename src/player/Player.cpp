@@ -47,8 +47,8 @@ std::string str_tolower(std::string s)
 
 std::string ProcessColor(std::string str, int team = CS_TEAM_CT)
 {
-    replace(str, "{TEAMCOLOR}", team == CS_TEAM_CT ? "{BLUEGREY}" : "{GOLD}");
-    replace(str, "{teamcolor}", team == CS_TEAM_CT ? "{bluegrey}" : "{gold}");
+    str = replace(str, "{TEAMCOLOR}", team == CS_TEAM_CT ? "{LIGHTBLUE}" : "{GOLD}");
+    str = replace(str, "{teamcolor}", team == CS_TEAM_CT ? "{lightblue}" : "{gold}");
     for (auto it = colors.begin(); it != colors.end(); ++it)
     {
         str = replace(str, it->first, it->second);

@@ -4701,6 +4701,88 @@
 						},
 						"additional": {}
 					},
+					"getchattag": {
+						"title": "GetChatTag",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the player chat tag.",
+						"variable": {
+							"cpp": "player->GetChatTag",
+							"lua": "player:GetChatTag"
+						},
+						"return": "const char*",
+						"params": {},
+						"additional": {}
+					},
+					"setchattag": {
+						"title": "SetChatTag",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player chat tag.",
+						"variable": {
+							"cpp": "player->SetChatTag",
+							"lua": "player:SetChatTag"
+						},
+						"return": "void",
+						"params": {
+							"tag": "const char*"
+						},
+						"additional": {}
+					},
+					"setchattagcolor": {
+						"title": "SetChatTagColor",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player chat tag color.",
+						"variable": {
+							"cpp": "player->SetChatTagColor",
+							"lua": "player:SetChatTagColor"
+						},
+						"return": "void",
+						"params": {
+							"color": "const char*"
+						},
+						"additional": {
+							"cpp": "\n\n### Colors\nBelow there are listed all the supported colors by Swiftly:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```",
+							"lua": "\n\n### Colors\nBelow there are listed all the supported colors by Swiftly:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```"
+						}
+					},
+					"setnamecolor": {
+						"title": "SetNameColor",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player name color.",
+						"variable": {
+							"cpp": "player->SetNameColor",
+							"lua": "player:SetNameColor"
+						},
+						"return": "void",
+						"params": {
+							"color": "const char*"
+						},
+						"additional": {
+							"cpp": "\n\n### Colors\nBelow there are listed all the supported colors by Swiftly:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```",
+							"lua": "\n\n### Colors\nBelow there are listed all the supported colors by Swiftly:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```"
+						}
+					},
+					"setchatcolor": {
+						"title": "SetChatColor",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player chat color.",
+						"variable": {
+							"cpp": "player->SetChatColor",
+							"lua": "player:SetChatColor"
+						},
+						"return": "void",
+						"params": {
+							"color": "const char*"
+						},
+						"additional": {
+							"cpp": "\n\n### Colors\nBelow there are listed all the supported colors by Swiftly:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```",
+							"lua": "\n\n### Colors\nBelow there are listed all the supported colors by Swiftly:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```"
+						}
+					},
 					"setgloves": {
 						"title": "SetGloves",
 						"template": "function-syntax",
