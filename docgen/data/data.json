@@ -5130,6 +5130,42 @@
 					}
 				}
 			},
+			"velocity": {
+				"title": "Velocity",
+				"description": "A list of function to manipulate a players velocity.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the velocity of a player.",
+						"variable": {
+							"cpp": "player->velocity->Get",
+							"lua": "player:velocity():Get"
+						},
+						"return": "Vector*",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the velocity of a player.",
+						"variable": {
+							"cpp": "player->velocity->Set",
+							"lua": "player:velocity():Set"
+						},
+						"return": "void",
+						"params": {
+							"velocity": "Vector*"
+						},
+						"additional": {}
+					}
+				}
+			},
 			"eyeangle": {
 				"title": "Eye Angle",
 				"description": "A list of function to manipulate a players eye angle.",
