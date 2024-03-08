@@ -34,6 +34,7 @@ public:
     void Spawn();
     void Destroy();
 
+    void SetCollisionGroup(Collision_Group_t collisionGroup);
     void SetSolidType(SolidType_t solid_type);
 };
 

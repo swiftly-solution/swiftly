@@ -167,5 +167,11 @@ public:
         g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this, pInputName, pActivator, pCaller, value, 0);
     }
 
+    void OnCollisionRulesUpdate()
+    {
+        static int offset = g_Offsets->GetOffset("CollisionRulesChanged");
+        CALL_VIRTUAL(void, offset, this);
+    }
+
     CEntitySubclassVDataBase *GetVData() { return *(CEntitySubclassVDataBase **)((uint8 *)(m_nSubclassID()) + 4); }
 };

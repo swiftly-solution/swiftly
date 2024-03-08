@@ -6,6 +6,7 @@ typedef void (*Entity_Spawn)(uint32_t);
 typedef void (*Entity_Destroy)(uint32_t);
 typedef void (*Entity_SetModel)(uint32_t, const char *);
 typedef void (*Entity_AcceptInput)(uint32_t, const char *, const char *, const char *, double *);
+typedef void (*Entity_CollisionGroup)(uint32_t, int);
 
 Entity::Entity(const char *clsname)
 {
@@ -89,4 +90,19 @@ void Entity::AcceptInput(const char *input, const char *activator, const char *c
         reinterpret_cast<Entity_AcceptInput>(acceptInputEntity)(this->entityID, input, activator, caller, value);
     else
         NOT_SUPPORTED("scripting_Entity_AcceptInput");
+}
+
+void Entity::SetCollisionGroup(CollisionGroup collisionGroup)
+{
+    if (this->entityID == 0)
+    {
+        print("[Swiftly] You can't use %s because the entity couldn't be created.\n", __FUNCTION__);
+        return;
+    }
+
+    void *collisionGroupEntity = FetchFunctionPtr(nullptr, "scripting_Entity_SetCollisionGroup");
+    if (collisionGroupEntity)
+        reinterpret_cast<Entity_CollisionGroup>(collisionGroupEntity)(this->entityID, collisionGroup);
+    else
+        NOT_SUPPORTED("scripting_Entity_SetCollisionGroup");
 }

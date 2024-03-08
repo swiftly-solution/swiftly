@@ -27,6 +27,7 @@ public:
     void AcceptInput(const char *input, const char *activator = nullptr, const char *caller = nullptr, double *value = nullptr);
 
     void SetModel(const char *model);
+    void SetCollisionGroup(CollisionGroup collisionGroup);
 
     uint32_t GetEntityID() { return this->entityID; }
 };

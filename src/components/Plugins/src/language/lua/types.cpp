@@ -169,6 +169,35 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     PluginStateTable.SetInteger("Stopped", 0);
     PluginStateTable.SetInteger("Started", 1);
 
+    auto CollisionGroupTable = state->CreateTable("CollisionGroup");
+
+    CollisionGroupTable.SetInteger("Always", 0);
+    CollisionGroupTable.SetInteger("Never", 1);
+    CollisionGroupTable.SetInteger("Trigger", 2);
+    CollisionGroupTable.SetInteger("ConditionallySolid", 3);
+    CollisionGroupTable.SetInteger("Default", 4);
+    CollisionGroupTable.SetInteger("Debris", 5);
+    CollisionGroupTable.SetInteger("InteractiveDebris", 6);
+    CollisionGroupTable.SetInteger("Interactive", 7);
+    CollisionGroupTable.SetInteger("Player", 8);
+    CollisionGroupTable.SetInteger("BreakableGlass", 9);
+    CollisionGroupTable.SetInteger("Vehicle", 10);
+    CollisionGroupTable.SetInteger("PlayerMovement", 11);
+    CollisionGroupTable.SetInteger("NPC", 12);
+    CollisionGroupTable.SetInteger("InVehicle", 13);
+    CollisionGroupTable.SetInteger("Weapon", 14);
+    CollisionGroupTable.SetInteger("VehicleClip", 15);
+    CollisionGroupTable.SetInteger("Projectile", 16);
+    CollisionGroupTable.SetInteger("DoorBlocker", 17);
+    CollisionGroupTable.SetInteger("PassableDoor", 18);
+    CollisionGroupTable.SetInteger("Dissolving", 19);
+    CollisionGroupTable.SetInteger("Pushaway", 20);
+    CollisionGroupTable.SetInteger("NPCActor", 21);
+    CollisionGroupTable.SetInteger("NPCScripted", 22);
+    CollisionGroupTable.SetInteger("PZClip", 23);
+    CollisionGroupTable.SetInteger("Props", 24);
+    CollisionGroupTable.SetInteger("LastSharedCollisionGroup", 25);
+
     state->CreateInteger(0, "TEAM_NONE");
     state->CreateInteger(1, "TEAM_SPECTATOR");
     state->CreateInteger(2, "TEAM_T");

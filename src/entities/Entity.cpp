@@ -120,3 +120,11 @@ void Entity::AcceptInput(const char *pInputName, CEntityInstance *pActivator, CE
 
     g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this->worldEntity, pInputName, pActivator, pCaller, value, 0);
 }
+
+void Entity::SetCollisionGroup(Collision_Group_t collisionGroup)
+{
+    this->worldEntity->m_Collision().m_CollisionGroup = collisionGroup;
+    this->worldEntity->m_Collision().m_collisionAttribute().m_nCollisionGroup = collisionGroup;
+
+    this->worldEntity->OnCollisionRulesUpdate();
+}

@@ -482,6 +482,21 @@
 						},
 						"additional": {}
 					},
+					"setcollisiongroup": {
+						"title": "SetCollisionGroup",
+						"template": "function-syntax",
+						"description": "Sets the collision group for the entity.",
+						"language": "both",
+						"variable": {
+							"cpp": "entity->SetCollisionGroup",
+							"lua": "entity:SetCollisionGroup"
+						},
+						"return": "void",
+						"params": {
+							"collision": "CollisionGroup"
+						},
+						"additional": {}
+					},
 					"getentityid": {
 						"title": "GetEntityID",
 						"template": "function-syntax",

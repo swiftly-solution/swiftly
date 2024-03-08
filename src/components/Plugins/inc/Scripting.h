@@ -64,6 +64,7 @@ SMM_API void scripting_Entity_SetAngles(uint32_t entityID, float x, float y, flo
 Color scripting_Entity_GetColorsRaw(uint32_t entityID);
 SMM_API const char *scripting_Entity_GetColors(uint32_t entityID);
 SMM_API void scripting_Entity_SetColors(uint32_t entityID, int r, int g, int b, int a);
+SMM_API void scripting_Entity_SetCollisionGroup(uint32_t entityID, Collision_Group_t collisionGroup);
 
 SMM_API bool scripting_OnClientChat(CBasePlayerController *controller, const char *text, bool teamonly);
 SMM_API bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destination, const char *text);

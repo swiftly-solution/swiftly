@@ -221,3 +221,15 @@ SMM_API void scripting_Entity_AcceptInput(uint32_t entityID, const char *input, 
 
     entity->AcceptInput(input, activatorInstance, callerInstance, value);
 }
+
+SMM_API void scripting_Entity_SetCollisionGroup(uint32_t entityID, Collision_Group_t collisionGroup)
+{
+    if (entityID == 0)
+        return;
+
+    Entity *entity = g_entityManager->GetEntity(entityID);
+    if (entity == nullptr)
+        return;
+
+    entity->SetCollisionGroup(collisionGroup);
+}

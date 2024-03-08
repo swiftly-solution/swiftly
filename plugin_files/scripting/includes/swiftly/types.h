@@ -163,4 +163,34 @@ enum PluginState : int
     STARTED = 1
 };
 
+enum CollisionGroup
+{
+    ALWAYS = 0,
+    NEVER,
+    TRIGGER,
+    CONDITIONALLY_SOLID,
+    DEFAULT,
+    DEBRIS,
+    INTERACTIVE_DEBRIS,
+    INTERACTIVE,
+    PLAYER,
+    BREAKABLE_GLASS,
+    VEHICLE,
+    PLAYER_MOVEMENT,
+    NPC,
+    IN_VEHICLE,
+    WEAPON,
+    VEHICLE_CLIP,
+    PROJECTILE,
+    DOOR_BLOCKER,
+    PASSABLE_DOOR,
+    DISSOLVING,
+    PUSHAWAY,
+    NPC_ACTOR,
+    NPC_SCRIPTED,
+    PZ_CLIP,
+    PROPS,
+    LAST_SHARED_COLLISION_GROUP
+};
+
 #endif

@@ -45,7 +45,8 @@ const lua_datamap = {
     long: "number",
     float: "number",
     "unsigned char": "number",
-    "Weapon*": "number"
+    "Weapon*": "number",
+    CollisionGroup: "CollisionGroup"
 }
 
 const GenerateLuaType = (param) => {
