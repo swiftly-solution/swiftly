@@ -129,7 +129,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
     if (dest == HUD_PRINTTALK || dest == HUD_PRINTNOTIFY)
     {
         va_list args;
-        char buffer[1024];
+        char buffer[4096];
         va_start(args, msg);
 
         size_t len = vsnprintf(buffer, sizeof(buffer), msg, args);
