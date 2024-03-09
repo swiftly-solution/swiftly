@@ -152,7 +152,8 @@ SMM_API void scripting_Player_HideMenu(uint32 playerId);
 SMM_API int scripting_Player_GetLatency(uint32 playerId);
 SMM_API void scripting_Player_SetConvar(uint32 playerId, const char *cvarname, const char *cvarvalue);
 SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd);
-
+SMM_API void scripting_Player_SetCompetitiveRanking(uint32 playerId, int ranking);
+SMM_API void scripting_Player_SetCompetitiveRankType(uint32 playerId, int type);
 SMM_API void scripting_Player_Weapons_SetActiveWeapon(uint32 playerId, uint32 slot);
 SMM_API void scripting_Player_Weapons_Drop(uint32 playerId);
 SMM_API void scripting_Player_Weapons_Remove(uint32 playerId);

@@ -382,6 +382,24 @@ public:
         else
             NOT_SUPPORTED("scripting_Player_SetName");
     }
+
+    void SetCompetitiveRanking(int ranking)
+    {
+        void *player_SetCompetitiveRanking = FetchFunctionPtr(nullptr, "scripting_Player_SetCompetitiveRanking");
+        if (player_SetCompetitiveRanking)
+            reinterpret_cast<Player_SetMusicKit>(player_SetCompetitiveRanking)(this->m_playerSlot, ranking);
+        else
+            NOT_SUPPORTED("scripting_Player_SetCompetitiveRanking");
+    }
+
+    void SetCompetitiveRankType(int type)
+    {
+        void *player_SetCompetitiveRankType = FetchFunctionPtr(nullptr, "scripting_Player_SetCompetitiveRankType");
+        if (player_SetCompetitiveRankType)
+            reinterpret_cast<Player_SetMusicKit>(player_SetCompetitiveRankType)(this->m_playerSlot, type);
+        else
+            NOT_SUPPORTED("scripting_Player_SetCompetitiveRankType");
+    }
 };
 
 #endif

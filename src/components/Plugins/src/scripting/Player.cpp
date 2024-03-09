@@ -1463,3 +1463,29 @@ SMM_API bool scripting_Player_IsFirstSpawn(uint32 playerId)
 
     return player->IsFirstSpawn();
 }
+
+SMM_API void scripting_Player_SetCompetitiveRanking(uint32 playerId, int ranking)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *controller = player->GetPlayerController();
+    if (!controller)
+        return;
+
+    controller->m_iCompetitiveRanking = ranking;
+}
+
+SMM_API void scripting_Player_SetCompetitiveRankType(uint32 playerId, int type)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *controller = player->GetPlayerController();
+    if (!controller)
+        return;
+
+    controller->m_iCompetitiveRankType = type;
+}

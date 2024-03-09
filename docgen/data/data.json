@@ -4716,6 +4716,40 @@
 						},
 						"additional": {}
 					},
+// SetCompetitiveRankType
+					"setcompetitiveranking": {
+						"title": "SetCompetitiveRanking",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player competitive ranking.",
+						"variable": {
+							"cpp": "player->SetCompetitiveRanking",
+							"lua": "player:SetCompetitiveRanking"
+						},
+						"return": "void",
+						"params": {
+							"ranking": "int32_t"
+						},
+						"additional": {}
+					},
+					"setcompetitiveranktype": {
+						"title": "SetCompetitiveRankType",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player competitive rank type.",
+						"variable": {
+							"cpp": "player->SetCompetitiveRankType",
+							"lua": "player:SetCompetitiveRankType"
+						},
+						"return": "void",
+						"params": {
+							"ranktype": "int32_t"
+						},
+						"additional": {
+							"cpp": ":::note\nThe rank type can get the following values:\n`7` - Wingman\n`11` - Premier\n`12` - Competitive\n:::",
+							"lua": ":::note\nThe rank type can get the following values:\n`7` - Wingman\n`11` - Premier\n`12` - Competitive\n:::"
+						}
+					},
 					"getchattag": {
 						"title": "GetChatTag",
 						"template": "function-syntax",
