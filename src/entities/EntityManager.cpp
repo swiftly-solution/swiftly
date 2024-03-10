@@ -6,7 +6,8 @@ uint32_t EntityManager::CreateEntity(std::string classname)
 {
     Entity *entity = new Entity(classname);
 
-    entity->SetSolidType(SolidType_t::SOLID_VPHYSICS);
+    if (!starts_with(classname, "player:"))
+        entity->SetSolidType(SolidType_t::SOLID_VPHYSICS);
 
     ++entityIncrementID;
     this->entities.insert(std::make_pair(entityIncrementID, entity));

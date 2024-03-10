@@ -1,18 +1,28 @@
 #include "Entity.h"
-
+#include "../player/PlayerManager.h"
 #include <thread>
 
 typedef void *(*UTIL_CreateEntityByName)(const char *, int);
 CEntityInstance *FetchInstanceByInput(std::string input);
+unsigned int StringToUInt(const char *str);
 
 Entity::Entity(std::string classname)
 {
     CEntityInstance *instance = FetchInstanceByInput(classname);
     if (starts_with(classname, "player:"))
     {
-        this->worldEntity = reinterpret_cast<CBaseModelEntity *>(instance);
-        this->player = true;
-        this->spawned = true;
+        std::string playerid = explode(classname, ":")[1];
+        unsigned int pid = StringToUInt(playerid.c_str());
+        Player *player = g_playerManager->GetPlayer(pid);
+        if (player)
+        {
+            if (player->IsFirstSpawn() == false)
+            {
+                this->worldEntity = reinterpret_cast<CBaseModelEntity *>(instance);
+                this->player = true;
+                this->spawned = true;
+            }
+        }
     }
     else if (starts_with(classname, "entity:"))
     {
@@ -24,7 +34,7 @@ Entity::Entity(std::string classname)
         this->worldEntity = reinterpret_cast<CBaseModelEntity *>(g_Signatures->FetchSignature<UTIL_CreateEntityByName>("UTIL_CreateEntityByName")(classname.c_str(), -1));
     }
 
-    if (this->worldEntity == nullptr)
+    if (this->worldEntity == nullptr && !this->player)
         PRINTF("Entity::Entity", "Failed to create entity.\n");
 }
 
@@ -35,16 +45,25 @@ Entity::Entity(CEntityInstance *entityInstance)
 
 Vector Entity::GetCoords()
 {
+    if (!this->worldEntity)
+        return Vector(0.0f, 0.0f, 0.0f);
+
     return this->worldEntity->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin();
 }
 
 QAngle Entity::GetAngle()
 {
+    if (!this->worldEntity)
+        return QAngle(0.0f, 0.0f, 0.0f);
+
     return this->worldEntity->m_CBodyComponent->m_pSceneNode->m_angAbsRotation();
 }
 
 void Entity::SetCoords(float x, float y, float z)
 {
+    if (!this->worldEntity)
+        return;
+
     Vector vec(x, y, z);
 
     this->worldEntity->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin = vec;
@@ -52,13 +71,16 @@ void Entity::SetCoords(float x, float y, float z)
 
 void Entity::SetAngle(float x, float y, float z)
 {
+    if (!this->worldEntity)
+        return;
+
     QAngle angle(x, y, z);
     this->worldEntity->m_CBodyComponent->m_pSceneNode->m_angAbsRotation = angle;
 }
 
 void Entity::SetSolidType(SolidType_t solid_type)
 {
-    if (this->player)
+    if (!this->worldEntity)
         return;
 
     this->worldEntity->m_Collision.Get().m_nSolidType = solid_type;
@@ -97,12 +119,18 @@ void Entity::Spawn()
 
 void Entity::Destroy()
 {
+    if (!this->worldEntity)
+        return;
+
     this->worldEntity->Despawn();
     this->spawned = false;
 }
 
 Color Entity::GetColor()
 {
+    if (!this->worldEntity)
+        return Color(0, 0, 0, 0);
+
     return this->worldEntity->m_clrRender();
 }
 
@@ -123,6 +151,9 @@ void Entity::AcceptInput(const char *pInputName, CEntityInstance *pActivator, CE
 
 void Entity::SetCollisionGroup(Collision_Group_t collisionGroup)
 {
+    if (!this->worldEntity)
+        return;
+
     this->worldEntity->m_Collision().m_CollisionGroup = collisionGroup;
     this->worldEntity->m_Collision().m_collisionAttribute().m_nCollisionGroup = collisionGroup;
 
