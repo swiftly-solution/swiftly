@@ -3,11 +3,11 @@
 
 #include "FuncHook.h"
 #include "../sdk/entity/services.h"
+#include "../sdk/entity/CGameRules.h"
 
 class CBasePlayerController;
 class CCommand;
 class CGameRules;
-class CCSGameRules;
 class INetChannel;
 class INetworkSerializable;
 class CServerSideClient;

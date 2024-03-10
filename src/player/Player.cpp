@@ -337,6 +337,12 @@ const std::vector<std::string> key_buttons = {
     "unknown_key_grenade1",
     "unknown_key_grenade2",
     "unknown_key_lookspin",
+    "unknown_key_26",
+    "unknown_key_27",
+    "unknown_key_28",
+    "unknown_key_29",
+    "unknown_key_30",
+    "tab",
 };
 
 void Player::SetButtons(uint64_t new_buttons)
@@ -345,7 +351,7 @@ void Player::SetButtons(uint64_t new_buttons)
     {
         if (this->IsButtonPressed((1 << i)) && (new_buttons & (1 << i)) == 0)
             hooks::emit(OnClientKeyStateChange(this->GetSlot(), key_buttons[i].c_str(), false));
-        else if (!this->IsButtonPressed((1 << i)) && (new_buttons & (1 << i)))
+        else if (!this->IsButtonPressed((1 << i)) && (new_buttons & (1 << i)) != 0)
             hooks::emit(OnClientKeyStateChange(this->GetSlot(), key_buttons[i].c_str(), true));
     }
 
