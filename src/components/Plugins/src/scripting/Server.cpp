@@ -34,7 +34,7 @@ SMM_API bool scripting_Server_IsPistolRound()
     return (g_pGameRules->m_totalRoundsPlayed() == 0 || (g_pGameRules->m_bSwitchingTeamsAtRoundReset() && g_pGameRules->m_nOvertimePlaying() == 0) || g_pGameRules->m_bGameRestart());
 }
 
-SMM_API bool scripting_server_GetTotalRounds()
+SMM_API int scripting_server_GetTotalRounds()
 {
     if (g_pGameRules == nullptr)
         return 0;
