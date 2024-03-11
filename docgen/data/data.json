@@ -6384,6 +6384,19 @@
 				"params": {},
 				"additional": {}
 			},
+			"gettotalrounds": {
+				"title": "GetTotalRounds",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Get the total rounds played.",
+				"variable": {
+					"cpp": "server->GetTotalRounds",
+					"lua": "server:GetTotalRounds"
+				},
+				"return": "int32_t",
+				"params": {},
+				"additional": {}
+			},			
 			"executecommand": {
 				"title": "ExecuteCommand",
 				"template": "function-syntax",
