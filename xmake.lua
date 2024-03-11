@@ -47,7 +47,7 @@ target(PROJECT_NAME.."-Xmake")
         os.mkdir("prototemp")
 
         for _, sourcefile in ipairs(os.files("./src/protos/*.proto")) do
-            local splitted = mysplit(sourcefile, "/")
+            local splitted = mysplit(sourcefile, is_plat("windows") and "\\" or "/")
             local filename = splitted[#splitted]
 
             os.iorun(protoc .. " "..args.." --dependency_out=prototemp/"..filename..".d "..sourcefile)
