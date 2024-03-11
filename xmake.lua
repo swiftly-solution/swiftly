@@ -164,6 +164,7 @@ target(PROJECT_NAME.."-Xmake")
             "COMPILER_MSVC",
             "COMPILER_MSVC64",
             "WIN32",
+            "_WIN32",
             "WINDOWS",
             "CRT_SECURE_NO_WARNINGS",
             "CRT_SECURE_NO_DEPRECATE",
