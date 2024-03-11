@@ -133,6 +133,10 @@ public:
     int boundaryRef = 0;
     std::deque<lua_State *> m_runningThreads;
 
+    bool HasNextTick = false;
+    bool HasTimeout = false;
+    bool HasTimers = false;
+
     Plugin(std::string path, std::string name, PluginType_t pluginType) : m_path(path)
     {
         this->m_pluginName = name;

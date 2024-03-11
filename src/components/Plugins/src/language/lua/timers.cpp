@@ -111,5 +111,6 @@ void SetupLuaTimers(luacpp::LuaState *state, Plugin *plugin)
 
     state->DoString("timers = Timers()");
 
-    state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) for _, timerTbl in next,timersTbl,nil do if timerTbl.paused ~= 0 then goto continue end if (GetTime() - timerTbl.last_called) < timerTbl.delay then goto continue end timerTbl.func();timerTbl.last_called = GetTime(); ::continue:: end end)");
+    if (plugin->HasTimers)
+        state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) for _, timerTbl in next,timersTbl,nil do if timerTbl.paused ~= 0 then goto continue end if (GetTime() - timerTbl.last_called) < timerTbl.delay then goto continue end timerTbl.func();timerTbl.last_called = GetTime(); ::continue:: end end)");
 }

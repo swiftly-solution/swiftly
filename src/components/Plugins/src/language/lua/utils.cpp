@@ -26,8 +26,10 @@ void SetupLuaUtils(luacpp::LuaState *state, Plugin *plugin)
                           "GetTime");
 
     state->DoString("function NextTick(func) if type(func) ~= \"function\" then return print(\"[Swiftly] The callback needs to be a function.\") end table.insert(NextTicksFuncToCall, func); end");
-    state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) if #NextTicksFuncToCall == 0 then return end; for i=1,#NextTicksFuncToCall do NextTicksFuncToCall[i](); end NextTicksFuncToCall = {}; end)");
+    if (plugin->HasNextTick)
+        state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) if #NextTicksFuncToCall == 0 then return end; for i=1,#NextTicksFuncToCall do NextTicksFuncToCall[i](); end NextTicksFuncToCall = {}; end)");
 
     state->DoString("function SetTimeout(delay, cb) if type(cb) ~= \"function\" then return print(\"[Swiftly] The callback needs to be a function.\") end table.insert(timeoutsTbl, { call = GetTime() + delay, cb = cb }); end");
-    state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) for k,v in next,timeoutsTbl,nil do if v.call - GetTime() <= 0 then v.cb(); timeoutsTbl[k] = nil; end end end)");
+    if (plugin->HasTimeout)
+        state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) for k,v in next,timeoutsTbl,nil do if v.call - GetTime() <= 0 then v.cb(); timeoutsTbl[k] = nil; end end end)");
 }

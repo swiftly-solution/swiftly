@@ -55,9 +55,28 @@ private:
             lua_pop(this->rawLuaState, 1);
         }
 
+        this->HasNextTick = false;
+        this->HasTimeout = false;
+        this->HasTimers = false;
+
         this->luaState = new luacpp::LuaState(this->rawLuaState, false);
 
         std::vector<std::string> files = Files::FetchFileNames(this->m_path);
+        for (std::string file : files)
+        {
+            if (!ends_with(file, ".lua"))
+                continue;
+
+            std::string content = Files::Read(file);
+
+            if (!this->HasNextTick && content.find("NextTick") != std::string::npos)
+                this->HasNextTick = true;
+            if (!this->HasTimeout && content.find("SetTimeout") != std::string::npos)
+                this->HasTimeout = true;
+            if (!this->HasTimers && content.find("timers:create") != std::string::npos)
+                this->HasTimers = true;
+        }
+
         SetupLuaEnvironment(this->luaState, this);
         for (std::string file : files)
         {

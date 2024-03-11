@@ -347,8 +347,8 @@ bool scripting_OnClientGameMessage(CBasePlayerController *controller, int destin
     CALL_PFUNCTION_BOOL_ARGS(OnClientGameMessage, false, true, player->GetSlot()->Get(), destination, text)
 }
 
-void scripting_OnGameTick(const OnGameFrame *e){
-    CALL_PFUNCTION_VOID_ARGS(OnGameTick, e->simulating, e->bFirstTick, e->bFirstTick)}
+void scripting_OnGameTick(bool simulating, bool firsttick, bool lasttick){
+    CALL_PFUNCTION_VOID_ARGS(OnGameTick, simulating, firsttick, lasttick)}
 
 GAME_EVENT(bomb_beginplant)
 {
@@ -2409,8 +2409,6 @@ bool scripting_OnClientCommand(OnClientCommand *e)
 
 void PluginsComponent::RegisterGameEvents()
 {
-    hooks::on<OnGameFrame>(scripting_OnGameTick);
-
     hooks::on<OnMapLoad>(scripting_OnMapLoad);
     hooks::on<OnMapUnload>(scripting_OnMapUnload);
     hooks::on<OnClientKeyStateChange>(scripting_OnClientKeyStateChange);

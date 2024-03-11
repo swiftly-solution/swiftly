@@ -36,19 +36,6 @@ struct OnClientSettingsChanged : Event
     }
 };
 
-struct OnGameFrame : Event
-{
-    bool simulating;
-    bool bFirstTick;
-    bool bLastTick;
-    OnGameFrame(bool simulating, bool bFirstTick, bool bLastTick)
-    {
-        this->simulating = simulating;
-        this->bFirstTick = bFirstTick;
-        this->bLastTick = bLastTick;
-    }
-};
-
 struct OnClientDisconnect : Event
 {
     CPlayerSlot *slot;

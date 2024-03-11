@@ -483,6 +483,8 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectio
     hooks::emit(clientDisconnectEvent);
 }
 
+void scripting_OnGameTick(bool simulating, bool firsttick, bool lasttick);
+
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     if (simulating && g_bHasTicked)
@@ -491,7 +493,7 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
     g_flLastTickedTime = GetGameGlobals()->curtime;
     g_bHasTicked = true;
 
-    hooks::emit(OnGameFrame(simulating, bFirstTick, bLastTick));
+    scripting_OnGameTick(simulating, bFirstTick, bLastTick);
 
     for (uint16_t i = 0; i < MAX_PLAYERS; i++)
     {
