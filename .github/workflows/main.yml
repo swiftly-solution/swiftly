@@ -51,15 +51,10 @@ jobs:
                   path: swiftly
                   submodules: recursive
 
-            - name: Install XMake - Windows
-              if: matrix.os == 'windows-latest'
-              run: |
-                  Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
-
-            - name: Install XMake - Linux
-              if: matrix.os == 'Linux'
-              run: |
-                  wget https://xmake.io/shget.text -O - | bash
+            - name: Install XMake
+              uses: xmake-io/github-action-setup-xmake@v1
+              with:
+                xmake-version: '2.8.8'
 
             - name: Downloading Swiftly Utilities - Linux
               if: matrix.os == 'Linux'
