@@ -51,15 +51,15 @@ jobs:
                   path: swiftly
                   submodules: recursive
 
-            - name: Checkout AMBuild
-              uses: actions/checkout@v4
-              with:
-                  repository: alliedmodders/ambuild
-                  path: ambuild
-
-            - name: Install AMBuild
+            - name: Install XMake - Windows
+              if: matrix.os == 'windows-latest'
               run: |
-                  cd ambuild; python setup.py install; cd ..
+                  Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
+
+            - name: Install XMake - Linux
+              if: matrix.os == 'Linux'
+              run: |
+                  wget https://xmake.io/shget.text -O - | bash
 
             - name: Downloading Swiftly Utilities - Linux
               if: matrix.os == 'Linux'
@@ -70,7 +70,7 @@ jobs:
                   fileName: "swiftly_utility"
                   out-file-path: "swiftly/plugin_files/scripting"
 
-            - name: Prepare Build - Linux
+            - name: Build - Linux
               if: matrix.os == 'Linux'
               working-directory: swiftly
               shell: bash
@@ -79,19 +79,12 @@ jobs:
                   sudo apt install -y libreadline-dev libboost-all-dev fdupes unzip
                   bash ./setup.sh
 
-            - name: Prepare Build - Windows
+            - name: Build - Windows
               if: matrix.os == 'windows-latest'
               working-directory: swiftly
               run: |
                   Invoke-WebRequest -Uri https://github.com/swiftly-solution/swiftly-plugins-utility/releases/latest/download/swiftly_utility.exe -OutFile plugin_files/scripting/swiftly_utility.exe
                   ./setup.ps1
-
-            - name: Build
-              working-directory: swiftly
-              run: |
-                  gcc -v
-                  cd build
-                  ambuild
 
             - name: Upload Artifacts Linux
               if: matrix.os == 'Linux'
