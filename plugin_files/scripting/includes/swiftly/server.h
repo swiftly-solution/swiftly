@@ -66,6 +66,18 @@ public:
         }
     }
 
+    int32_t GetTotalRounds()
+    {
+        void *GetTotalRoundsFunc = FetchFunctionPtr(nullptr, "scripting_server_GetTotalRounds");
+        if (GetTotalRoundsFunc)
+            return reinterpret_cast<Server_GetTotalRounds>(GetTotalRoundsFunc)();
+        else
+        {
+            NOT_SUPPORTED("scripting_server_GetTotalRounds");
+            return 0;
+        }
+    }
+
     bool IsMapValid(const char *map)
     {
         void *IsMapValidFunc = FetchFunctionPtr(nullptr, "scripting_Server_IsMapValid");

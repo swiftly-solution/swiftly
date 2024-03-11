@@ -20,6 +20,7 @@ public:
     SCHEMA_FIELD_OFFSET(GameTime_t, m_fRoundStartTime, 0)
     SCHEMA_FIELD_OFFSET(GameTime_t, m_flRestartRoundTime, 0)
     SCHEMA_FIELD_OFFSET(int32_t, m_nOvertimePlaying, 0)
+    SCHEMA_FIELD_OFFSET(int32_t, m_totalRoundsPlayed, 0)
     SCHEMA_FIELD_OFFSET(bool, m_bSwitchingTeamsAtRoundReset, 0)
     SCHEMA_FIELD_OFFSET(bool, m_bGameRestart, 0)
     SCHEMA_FIELD_OFFSET(int, m_iRoundTime, 0)
