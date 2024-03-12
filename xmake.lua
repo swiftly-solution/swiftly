@@ -169,6 +169,10 @@ target(PROJECT_NAME.."-Xmake")
     })
 
     if(is_plat("windows")) then
+        add_includedirs({
+            "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt"
+        })
+
         add_defines({
             "COMPILER_MSVC",
             "COMPILER_MSVC64",
