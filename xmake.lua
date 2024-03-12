@@ -129,6 +129,15 @@ target(PROJECT_NAME.."-Xmake")
     add_cxxflags("gcc::-Wno-int-to-pointer-cast")
     add_cxxflags("gcc::-ffexceptions")
     add_cxxflags("gcc::-fPIC")
+    add_cxxflags("cl::/Zc:__cplusplus")
+    add_cxxflags("cl::/Ox")
+    add_cxxflags("cl::/Zo")
+    add_cxxflags("cl::/Oy-")
+    add_cxxflags("cl::/Z7")
+    add_cxxflags("cl::/TP")
+    add_cxxflags("cl::/MT")
+    add_cxxflags("cl::/W3")
+    add_cxxflags("cl::/Z7")
 
     add_includedirs({
         "src/inc",
@@ -166,11 +175,18 @@ target(PROJECT_NAME.."-Xmake")
             "WIN32",
             "_WIN32",
             "WINDOWS",
+            "_WINDOWS",
             "CRT_SECURE_NO_WARNINGS",
+            "_CRT_SECURE_NO_WARNINGS",
             "CRT_SECURE_NO_DEPRECATE",
+            "_CRT_SECURE_NO_DEPRECATE",
             "CRT_NONSTDC_NO_DEPRECATE",
+            "_CRT_NONSTDC_NO_DEPRECATE",
             "_MBCS",
-            "META_IS_SOURCE2"
+            "META_IS_SOURCE2",
+            "X64BITS",
+            "PLATFORM_64BITS",
+            "NDEBUG"
         })
     else
         add_defines({
@@ -190,7 +206,8 @@ target(PROJECT_NAME.."-Xmake")
         "HAVE_STRUCT_TIMESPEC",
         "LUA_USE_LINUX",
         "LUA_USE_READLINE",
-        "BOOST_STACKTRACE_USE_BACKTRACE"
+        "BOOST_STACKTRACE_USE_BACKTRACE",
+        "BUILDING"
     })
     
     set_languages("cxx17")
