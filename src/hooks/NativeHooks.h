@@ -24,6 +24,7 @@ bool Hook_IsHearingClient(void *, int);
 void Hook_CGameRules_Constructor(CGameRules *);
 void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessage, void *pData, int a4);
 void *Hook_HostStateRequest(void *a1, void **pRequest);
+void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase *);
 bool InitializeHooks();
 
 #endif

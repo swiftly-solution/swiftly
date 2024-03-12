@@ -109,6 +109,11 @@
         "windows": "48 8B C4 4C 89 40 18 55 57",
         "linux": "48 B8 2A 2A 2A 2A FF FF FF FF 55 48 89 E5 41 57 41 89 F7"
     },
+    "CCSPlayerPawnBase_PostThink": {
+        "lib": "server",
+        "windows": "48 8B C4 48 89 48 08 55 53 56 57 41 56 48 8D A8 D8 FE FF FF",
+        "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 53 48 89 FB 48 81 EC 2A 2A 2A 2A E8 2A 2A 2A 2A 48 89 DF"
+    },
     "LoggingSystem_Log": {
         "lib": "tier0",
         "windows": "_LoggingSystem_Log",

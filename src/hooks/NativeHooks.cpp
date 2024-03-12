@@ -21,6 +21,7 @@ FuncHook<decltype(Hook_PrecacheResource)> TPrecacheResource(Hook_PrecacheResourc
 FuncHook<decltype(Hook_CGameRules_Constructor)> TCGameRules_Constructor(Hook_CGameRules_Constructor, "CGameRules_Constructor");
 FuncHook<decltype(Hook_SendNetMessage)> TSendNetMessage(Hook_SendNetMessage, "SendNetMessage");
 FuncHook<decltype(Hook_HostStateRequest)> THostStateRequest(Hook_HostStateRequest, "HostStateRequest");
+FuncHook<decltype(Hook_CCSPlayerPawnBase_PostThink)> TCCSPlayerPawnBase_PostThink(Hook_CCSPlayerPawnBase_PostThink, "CCSPlayerPawnBase_PostThink");
 
 #define CHECKLOGS()                                                \
     va_list args;                                                  \
@@ -141,6 +142,11 @@ void *Hook_HostStateRequest(void *a1, void **pRequest)
     return THostStateRequest(a1, pRequest);
 }
 
+void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase *base)
+{
+    TCCSPlayerPawnBase_PostThink(base);
+}
+
 CUtlVector<FuncHookBase *> g_funcHooks;
 
 bool InitializeHooks()
@@ -190,6 +196,10 @@ bool InitializeHooks()
     if (!THostStateRequest.Create())
         return false;
     THostStateRequest.Enable();
+
+    if (!TCCSPlayerPawnBase_PostThink.Create())
+        return false;
+    TCCSPlayerPawnBase_PostThink.Enable();
 
     return true;
 }

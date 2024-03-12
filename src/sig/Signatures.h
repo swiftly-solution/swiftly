@@ -10,6 +10,7 @@ class CBaseModelEntity;
 class CEntityInstance;
 class CCSPlayer_ItemServices;
 class CCSPlayerPawn;
+class CCSPlayerPawnBase;
 
 typedef void (*ClientPrint)(CBasePlayerController *, int, const char *, const char *, const char *, const char *, const char *);
 typedef void (*NetworkSTChange)(uintptr_t, int, int);
@@ -25,6 +26,7 @@ typedef void (*CAttributeList_SetOrAddAttributeValueByName)(void *, const char *
 typedef void (*CBaseModelEntity_SetBodygroup)(void *, const char *, ...);
 typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices *, const char *, int, int, int, int);
 typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController *, CCSPlayerPawn *, bool, bool);
+typedef void (*CCSPlayerPawnBase_PostThink)(CCSPlayerPawnBase *);
 
 class Signatures
 {
