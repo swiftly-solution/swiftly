@@ -26,372 +26,558 @@ UserMessage::UserMessage(std::string msgname)
         return;
 
     this->msgid = msginfo->m_MessageId;
-    if (this->msgid == 0)
+    switch (this->msgid)
+    {
+    case 0:
         this->msgBuffer = new CNETMsg_NOP;
-    else if (this->msgid == 1)
+        break;
+    case 1:
         this->msgBuffer = new CNETMsg_Disconnect;
-    else if (this->msgid == 3)
+        break;
+    case 3:
         this->msgBuffer = new CNETMsg_SplitScreenUser;
-    else if (this->msgid == 4)
+        break;
+    case 4:
         this->msgBuffer = new CNETMsg_Tick;
-    else if (this->msgid == 5)
+        break;
+    case 5:
         this->msgBuffer = new CNETMsg_StringCmd;
-    else if (this->msgid == 6)
+        break;
+    case 6:
         this->msgBuffer = new CNETMsg_SetConVar;
-    else if (this->msgid == 7)
+        break;
+    case 7:
         this->msgBuffer = new CNETMsg_SignonState;
-    else if (this->msgid == 8)
+        break;
+    case 8:
         this->msgBuffer = new CNETMsg_SpawnGroup_Load;
-    else if (this->msgid == 9)
+        break;
+    case 9:
         this->msgBuffer = new CNETMsg_SpawnGroup_ManifestUpdate;
-    else if (this->msgid == 11)
+        break;
+    case 11:
         this->msgBuffer = new CNETMsg_SpawnGroup_SetCreationTick;
-    else if (this->msgid == 12)
+        break;
+    case 12:
         this->msgBuffer = new CNETMsg_SpawnGroup_Unload;
-    else if (this->msgid == 13)
+        break;
+    case 13:
         this->msgBuffer = new CNETMsg_SpawnGroup_LoadCompleted;
-    else if (this->msgid == 15)
+        break;
+    case 15:
         this->msgBuffer = new CNETMsg_DebugOverlay;
-    else if (this->msgid == 16)
+        break;
+    case 16:
         this->msgBuffer = new CBidirMsg_RebroadcastGameEvent;
-    else if (this->msgid == 17)
+        break;
+    case 17:
         this->msgBuffer = new CBidirMsg_RebroadcastSource;
-    else if (this->msgid == 20)
+        break;
+    case 20:
         this->msgBuffer = new CCLCMsg_ClientInfo;
-    else if (this->msgid == 21)
+        break;
+    case 21:
         this->msgBuffer = new CCLCMsg_Move;
-    else if (this->msgid == 22)
+        break;
+    case 22:
         this->msgBuffer = new CCLCMsg_VoiceData;
-    else if (this->msgid == 23)
+        break;
+    case 23:
         this->msgBuffer = new CCLCMsg_BaselineAck;
-    else if (this->msgid == 25)
+        break;
+    case 25:
         this->msgBuffer = new CCLCMsg_RespondCvarValue;
-    else if (this->msgid == 26)
+        break;
+    case 26:
         this->msgBuffer = new CCLCMsg_FileCRCCheck;
-    else if (this->msgid == 27)
+        break;
+    case 27:
         this->msgBuffer = new CCLCMsg_LoadingProgress;
-    else if (this->msgid == 28)
+        break;
+    case 28:
         this->msgBuffer = new CCLCMsg_SplitPlayerConnect;
-    else if (this->msgid == 30)
+        break;
+    case 30:
         this->msgBuffer = new CCLCMsg_SplitPlayerDisconnect;
-    else if (this->msgid == 31)
+        break;
+    case 31:
         this->msgBuffer = new CCLCMsg_ServerStatus;
-    else if (this->msgid == 33)
+        break;
+    case 33:
         this->msgBuffer = new CCLCMsg_RequestPause;
-    else if (this->msgid == 34)
+        break;
+    case 34:
         this->msgBuffer = new CCLCMsg_CmdKeyValues;
-    else if (this->msgid == 35)
+        break;
+    case 35:
         this->msgBuffer = new CCLCMsg_RconServerDetails;
-    else if (this->msgid == 36)
+        break;
+    case 36:
         this->msgBuffer = new CCLCMsg_HltvReplay;
-    else if (this->msgid == 40)
+        break;
+    case 40:
         this->msgBuffer = new CSVCMsg_ServerInfo;
-    else if (this->msgid == 41)
+        break;
+    case 41:
         this->msgBuffer = new CSVCMsg_FlattenedSerializer;
-    else if (this->msgid == 42)
+        break;
+    case 42:
         this->msgBuffer = new CSVCMsg_ClassInfo;
-    else if (this->msgid == 43)
+        break;
+    case 43:
         this->msgBuffer = new CSVCMsg_SetPause;
-    else if (this->msgid == 44)
+        break;
+    case 44:
         this->msgBuffer = new CSVCMsg_CreateStringTable;
-    else if (this->msgid == 45)
+        break;
+    case 45:
         this->msgBuffer = new CSVCMsg_UpdateStringTable;
-    else if (this->msgid == 46)
+        break;
+    case 46:
         this->msgBuffer = new CSVCMsg_VoiceInit;
-    else if (this->msgid == 47)
+        break;
+    case 47:
         this->msgBuffer = new CSVCMsg_VoiceData;
-    else if (this->msgid == 48)
+        break;
+    case 48:
         this->msgBuffer = new CSVCMsg_Print;
-    else if (this->msgid == 49)
+        break;
+    case 49:
         this->msgBuffer = new CSVCMsg_Sounds;
-    else if (this->msgid == 50)
+        break;
+    case 50:
         this->msgBuffer = new CSVCMsg_SetView;
-    else if (this->msgid == 51)
+        break;
+    case 51:
         this->msgBuffer = new CSVCMsg_ClearAllStringTables;
-    else if (this->msgid == 52)
+        break;
+    case 52:
         this->msgBuffer = new CSVCMsg_CmdKeyValues;
-    else if (this->msgid == 54)
+        break;
+    case 54:
         this->msgBuffer = new CSVCMsg_SplitScreen;
-    else if (this->msgid == 55)
+        break;
+    case 55:
         this->msgBuffer = new CSVCMsg_PacketEntities;
-    else if (this->msgid == 56)
+        break;
+    case 56:
         this->msgBuffer = new CSVCMsg_Prefetch;
-    else if (this->msgid == 57)
+        break;
+    case 57:
         this->msgBuffer = new CSVCMsg_Menu;
-    else if (this->msgid == 58)
+        break;
+    case 58:
         this->msgBuffer = new CSVCMsg_GetCvarValue;
-    else if (this->msgid == 59)
+        break;
+    case 59:
         this->msgBuffer = new CSVCMsg_StopSound;
-    else if (this->msgid == 60)
+        break;
+    case 60:
         this->msgBuffer = new CSVCMsg_PeerList;
-    else if (this->msgid == 61)
+        break;
+    case 61:
         this->msgBuffer = new CSVCMsg_PacketReliable;
-    else if (this->msgid == 62)
+        break;
+    case 62:
         this->msgBuffer = new CSVCMsg_HLTVStatus;
-    else if (this->msgid == 63)
+        break;
+    case 63:
         this->msgBuffer = new CSVCMsg_ServerSteamID;
-    else if (this->msgid == 70)
+        break;
+    case 70:
         this->msgBuffer = new CSVCMsg_FullFrameSplit;
-    else if (this->msgid == 71)
+        break;
+    case 71:
         this->msgBuffer = new CSVCMsg_RconServerDetails;
-    else if (this->msgid == 72)
+        break;
+    case 72:
         this->msgBuffer = new CSVCMsg_UserMessage;
-    else if (this->msgid == 74)
+        break;
+    case 74:
         this->msgBuffer = new CSVCMsg_HltvReplay;
-    else if (this->msgid == 75)
+        break;
+    case 75:
         this->msgBuffer = new CCLCMsg_HltvFixupOperatorTick;
-    else if (this->msgid == 101)
+        break;
+    case 101:
         this->msgBuffer = new CCSUsrMsg_AchievementEvent;
-    else if (this->msgid == 102)
+        break;
+    case 102:
         this->msgBuffer = new CUserMessageCloseCaption;
-    else if (this->msgid == 103)
+        break;
+    case 103:
         this->msgBuffer = new CCSUsrMsg_CloseCaptionDirect;
-    else if (this->msgid == 104)
+        break;
+    case 104:
         this->msgBuffer = new CCSUsrMsg_CurrentTimescale;
-    else if (this->msgid == 105)
+        break;
+    case 105:
         this->msgBuffer = new CUserMessageDesiredTimescale;
-    else if (this->msgid == 106)
+        break;
+    case 106:
         this->msgBuffer = new CUserMessageFade;
-    else if (this->msgid == 110)
+        break;
+    case 110:
         this->msgBuffer = new CUserMessageHudMsg;
-    else if (this->msgid == 111)
+        break;
+    case 111:
         this->msgBuffer = new CUserMessageHudText;
-    else if (this->msgid == 113)
+        break;
+    case 113:
         this->msgBuffer = new CUserMessageColoredText;
-    else if (this->msgid == 114)
+        break;
+    case 114:
         this->msgBuffer = new CUserMessageRequestState;
-    else if (this->msgid == 115)
+        break;
+    case 115:
         this->msgBuffer = new CUserMessageResetHUD;
-    else if (this->msgid == 116)
+        break;
+    case 116:
         this->msgBuffer = new CUserMessageRumble;
-    else if (this->msgid == 117)
+        break;
+    case 117:
         this->msgBuffer = new CUserMessageSayText;
-    else if (this->msgid == 118)
+        break;
+    case 118:
         this->msgBuffer = new CUserMessageSayText2;
-    else if (this->msgid == 119)
+        break;
+    case 119:
         this->msgBuffer = new CUserMessageSayTextChannel;
-    else if (this->msgid == 120)
+        break;
+    case 120:
         this->msgBuffer = new CUserMessageShake;
-    else if (this->msgid == 121)
+        break;
+    case 121:
         this->msgBuffer = new CUserMessageShakeDir;
-    else if (this->msgid == 122)
+        break;
+    case 122:
         this->msgBuffer = new CUserMessageWaterShake;
-    else if (this->msgid == 124)
+        break;
+    case 124:
         this->msgBuffer = new CUserMessageTextMsg;
-    else if (this->msgid == 125)
+        break;
+    case 125:
         this->msgBuffer = new CUserMessageScreenTilt;
-    else if (this->msgid == 128)
+        break;
+    case 128:
         this->msgBuffer = new CUserMessageVoiceMask;
-    else if (this->msgid == 130)
+        break;
+    case 130:
         this->msgBuffer = new CUserMessageSendAudio;
-    else if (this->msgid == 131)
+        break;
+    case 131:
         this->msgBuffer = new CUserMessageItemPickup;
-    else if (this->msgid == 132)
+        break;
+    case 132:
         this->msgBuffer = new CUserMessageAmmoDenied;
-    else if (this->msgid == 134)
+        break;
+    case 134:
         this->msgBuffer = new CUserMessageShowMenu;
-    else if (this->msgid == 135)
+        break;
+    case 135:
         this->msgBuffer = new CUserMessageCreditsMsg;
-    else if (this->msgid == 137)
+        break;
+    case 137:
         this->msgBuffer = new CEntityMessageScreenOverlay;
-    else if (this->msgid == 138)
+        break;
+    case 138:
         this->msgBuffer = new CEntityMessageRemoveAllDecals;
-    else if (this->msgid == 139)
+        break;
+    case 139:
         this->msgBuffer = new CEntityMessagePropagateForce;
-    else if (this->msgid == 140)
+        break;
+    case 140:
         this->msgBuffer = new CEntityMessageDoSpark;
-    else if (this->msgid == 142)
+        break;
+    case 142:
         this->msgBuffer = new CUserMessageCloseCaptionPlaceholder;
-    else if (this->msgid == 143)
+        break;
+    case 143:
         this->msgBuffer = new CUserMessageCameraTransition;
-    else if (this->msgid == 144)
+        break;
+    case 144:
         this->msgBuffer = new CUserMessageAudioParameter;
-    else if (this->msgid == 145)
+        break;
+    case 145:
         this->msgBuffer = new CUserMsg_ParticleManager;
-    else if (this->msgid == 146)
+        break;
+    case 146:
         this->msgBuffer = new CUserMsg_HudError;
-    else if (this->msgid == 148)
+        break;
+    case 148:
         this->msgBuffer = new CUserMsg_CustomGameEvent;
-    else if (this->msgid == 150)
+        break;
+    case 150:
         this->msgBuffer = new CUserMessageHapticsManagerPulse;
-    else if (this->msgid == 151)
+        break;
+    case 151:
         this->msgBuffer = new CUserMessageHapticsManagerEffect;
-    else if (this->msgid == 152)
+        break;
+    case 152:
         this->msgBuffer = new CUserMessageCommandQueueState;
-    else if (this->msgid == 153)
+        break;
+    case 153:
         this->msgBuffer = new CUserMessageUpdateCssClasses;
-    else if (this->msgid == 154)
+        break;
+    case 154:
         this->msgBuffer = new CUserMessageServerFrameTime;
-    else if (this->msgid == 155)
+        break;
+    case 155:
         this->msgBuffer = new CUserMessageLagCompensationError;
-    else if (this->msgid == 156)
+        break;
+    case 156:
         this->msgBuffer = new CUserMessageRequestDllStatus;
-    else if (this->msgid == 157)
+        break;
+    case 157:
         this->msgBuffer = new CUserMessageRequestUtilAction;
-    else if (this->msgid == 160)
+        break;
+    case 160:
         this->msgBuffer = new CUserMessageRequestInventory;
-    else if (this->msgid == 162)
+        break;
+    case 162:
         this->msgBuffer = new CUserMessageRequestDiagnostic;
-    else if (this->msgid == 205)
+        break;
+    case 205:
         this->msgBuffer = new CMsgSource1LegacyGameEventList;
-    else if (this->msgid == 206)
+        break;
+    case 206:
         this->msgBuffer = new CMsgSource1LegacyListenEvents;
-    else if (this->msgid == 207)
+        break;
+    case 207:
         this->msgBuffer = new CMsgSource1LegacyGameEvent;
-    else if (this->msgid == 208)
+        break;
+    case 208:
         this->msgBuffer = new CMsgSosStartSoundEvent;
-    else if (this->msgid == 209)
+        break;
+    case 209:
         this->msgBuffer = new CMsgSosStopSoundEvent;
-    else if (this->msgid == 210)
+        break;
+    case 210:
         this->msgBuffer = new CMsgSosSetSoundEventParams;
-    else if (this->msgid == 211)
+        break;
+    case 211:
         this->msgBuffer = new CMsgSosSetLibraryStackFields;
-    else if (this->msgid == 212)
+        break;
+    case 212:
         this->msgBuffer = new CMsgSosStopSoundEventHash;
-    else if (this->msgid == 280)
+        break;
+    case 280:
         this->msgBuffer = new CClientMsg_CustomGameEvent;
-    else if (this->msgid == 281)
+        break;
+    case 281:
         this->msgBuffer = new CClientMsg_CustomGameEventBounce;
-    else if (this->msgid == 282)
+        break;
+    case 282:
         this->msgBuffer = new CClientMsg_ClientUIEvent;
-    else if (this->msgid == 301)
+        break;
+    case 301:
         this->msgBuffer = new CCSUsrMsg_VGUIMenu;
-    else if (this->msgid == 317)
+        break;
+    case 317:
         this->msgBuffer = new CCSUsrMsg_SendAudio;
-    else if (this->msgid == 318)
+        break;
+    case 318:
         this->msgBuffer = new CCSUsrMsg_RawAudio;
-    else if (this->msgid == 321)
+        break;
+    case 321:
         this->msgBuffer = new CCSUsrMsg_Damage;
-    else if (this->msgid == 322)
+        break;
+    case 322:
         this->msgBuffer = new CCSUsrMsg_RadioText;
-    else if (this->msgid == 323)
+        break;
+    case 323:
         this->msgBuffer = new CCSUsrMsg_HintText;
-    else if (this->msgid == 324)
+        break;
+    case 324:
         this->msgBuffer = new CCSUsrMsg_KeyHintText;
-    else if (this->msgid == 325)
+        break;
+    case 325:
         this->msgBuffer = new CCSUsrMsg_ProcessSpottedEntityUpdate;
-    else if (this->msgid == 327)
+        break;
+    case 327:
         this->msgBuffer = new CCSUsrMsg_AdjustMoney;
-    else if (this->msgid == 330)
+        break;
+    case 330:
         this->msgBuffer = new CCSUsrMsg_KillCam;
-    else if (this->msgid == 334)
+        break;
+    case 334:
         this->msgBuffer = new CCSUsrMsg_MatchEndConditions;
-    else if (this->msgid == 335)
+        break;
+    case 335:
         this->msgBuffer = new CCSUsrMsg_DisconnectToLobby;
-    else if (this->msgid == 336)
+        break;
+    case 336:
         this->msgBuffer = new CCSUsrMsg_PlayerStatsUpdate;
-    else if (this->msgid == 338)
+        break;
+    case 338:
         this->msgBuffer = new CCSUsrMsg_WarmupHasEnded;
-    else if (this->msgid == 345)
+        break;
+    case 345:
         this->msgBuffer = new CCSUsrMsg_CallVoteFailed;
-    else if (this->msgid == 346)
+        break;
+    case 346:
         this->msgBuffer = new CCSUsrMsg_VoteStart;
-    else if (this->msgid == 347)
+        break;
+    case 347:
         this->msgBuffer = new CCSUsrMsg_VotePass;
-    else if (this->msgid == 348)
+        break;
+    case 348:
         this->msgBuffer = new CCSUsrMsg_VoteFailed;
-    else if (this->msgid == 349)
+        break;
+    case 349:
         this->msgBuffer = new CCSUsrMsg_VoteSetup;
-    else if (this->msgid == 350)
+        break;
+    case 350:
         this->msgBuffer = new CCSUsrMsg_ServerRankRevealAll;
-    else if (this->msgid == 351)
+        break;
+    case 351:
         this->msgBuffer = new CCSUsrMsg_SendLastKillerDamageToClient;
-    else if (this->msgid == 352)
+        break;
+    case 352:
         this->msgBuffer = new CCSUsrMsg_ServerRankUpdate;
-    else if (this->msgid == 360)
+        break;
+    case 360:
         this->msgBuffer = new CCSUsrMsg_GlowPropTurnOff;
-    else if (this->msgid == 361)
+        break;
+    case 361:
         this->msgBuffer = new CCSUsrMsg_SendPlayerItemDrops;
-    else if (this->msgid == 362)
+        break;
+    case 362:
         this->msgBuffer = new CCSUsrMsg_RoundBackupFilenames;
-    else if (this->msgid == 363)
+        break;
+    case 363:
         this->msgBuffer = new CCSUsrMsg_SendPlayerItemFound;
-    else if (this->msgid == 364)
+        break;
+    case 364:
         this->msgBuffer = new CCSUsrMsg_ReportHit;
-    else if (this->msgid == 365)
+        break;
+    case 365:
         this->msgBuffer = new CCSUsrMsg_XpUpdate;
-    else if (this->msgid == 366)
+        break;
+    case 366:
         this->msgBuffer = new CCSUsrMsg_QuestProgress;
-    else if (this->msgid == 367)
+        break;
+    case 367:
         this->msgBuffer = new CCSUsrMsg_ScoreLeaderboardData;
-    else if (this->msgid == 368)
+        break;
+    case 368:
         this->msgBuffer = new CCSUsrMsg_PlayerDecalDigitalSignature;
-    else if (this->msgid == 369)
+        break;
+    case 369:
         this->msgBuffer = new CCSUsrMsg_WeaponSound;
-    else if (this->msgid == 370)
+        break;
+    case 370:
         this->msgBuffer = new CCSUsrMsg_UpdateScreenHealthBar;
-    else if (this->msgid == 371)
+        break;
+    case 371:
         this->msgBuffer = new CCSUsrMsg_EntityOutlineHighlight;
-    else if (this->msgid == 372)
+        break;
+    case 372:
         this->msgBuffer = new CCSUsrMsg_SSUI;
-    else if (this->msgid == 373)
+        break;
+    case 373:
         this->msgBuffer = new CCSUsrMsg_SurvivalStats;
-    else if (this->msgid == 374)
+        break;
+    case 374:
         this->msgBuffer = new CCSUsrMsg_DisconnectToLobby;
-    else if (this->msgid == 375)
+        break;
+    case 375:
         this->msgBuffer = new CCSUsrMsg_EndOfMatchAllPlayersData;
-    else if (this->msgid == 376)
+        break;
+    case 376:
         this->msgBuffer = new CCSUsrMsg_PostRoundDamageReport;
-    else if (this->msgid == 379)
+        break;
+    case 379:
         this->msgBuffer = new CCSUsrMsg_RoundEndReportData;
-    else if (this->msgid == 380)
+        break;
+    case 380:
         this->msgBuffer = new CCSUsrMsg_CurrentRoundOdds;
-    else if (this->msgid == 381)
+        break;
+    case 381:
         this->msgBuffer = new CCSUsrMsg_DeepStats;
-    else if (this->msgid == 383)
+        break;
+    case 383:
         this->msgBuffer = new CCSUsrMsg_ShootInfo;
-    else if (this->msgid == 400)
+        break;
+    case 400:
         this->msgBuffer = new CMsgTEEffectDispatch;
-    else if (this->msgid == 401)
+        break;
+    case 401:
         this->msgBuffer = new CMsgTEArmorRicochet;
-    else if (this->msgid == 402)
+        break;
+    case 402:
         this->msgBuffer = new CMsgTEBeamEntPoint;
-    else if (this->msgid == 403)
+        break;
+    case 403:
         this->msgBuffer = new CMsgTEBeamEnts;
-    else if (this->msgid == 404)
+        break;
+    case 404:
         this->msgBuffer = new CMsgTEBeamPoints;
-    else if (this->msgid == 405)
+        break;
+    case 405:
         this->msgBuffer = new CMsgTEBeamRing;
-    else if (this->msgid == 407)
+        break;
+    case 407:
         this->msgBuffer = new CMsgTEBSPDecal;
-    else if (this->msgid == 408)
+        break;
+    case 408:
         this->msgBuffer = new CMsgTEBubbles;
-    else if (this->msgid == 409)
+        break;
+    case 409:
         this->msgBuffer = new CMsgTEBubbleTrail;
-    else if (this->msgid == 410)
+        break;
+    case 410:
         this->msgBuffer = new CMsgTEDecal;
-    else if (this->msgid == 411)
+        break;
+    case 411:
         this->msgBuffer = new CMsgTEWorldDecal;
-    else if (this->msgid == 412)
+        break;
+    case 412:
         this->msgBuffer = new CMsgTEEnergySplash;
-    else if (this->msgid == 413)
+        break;
+    case 413:
         this->msgBuffer = new CMsgTEFizz;
-    else if (this->msgid == 415)
+        break;
+    case 415:
         this->msgBuffer = new CMsgTEGlowSprite;
-    else if (this->msgid == 416)
+        break;
+    case 416:
         this->msgBuffer = new CMsgTEImpact;
-    else if (this->msgid == 417)
+        break;
+    case 417:
         this->msgBuffer = new CMsgTEMuzzleFlash;
-    else if (this->msgid == 418)
+        break;
+    case 418:
         this->msgBuffer = new CMsgTEBloodStream;
-    else if (this->msgid == 419)
+        break;
+    case 419:
         this->msgBuffer = new CMsgTEExplosion;
-    else if (this->msgid == 420)
+        break;
+    case 420:
         this->msgBuffer = new CMsgTEDust;
-    else if (this->msgid == 421)
+        break;
+    case 421:
         this->msgBuffer = new CMsgTELargeFunnel;
-    else if (this->msgid == 422)
+        break;
+    case 422:
         this->msgBuffer = new CMsgTESparks;
-    else if (this->msgid == 423)
+        break;
+    case 423:
         this->msgBuffer = new CMsgTEPhysicsProp;
-    else if (this->msgid == 424)
+        break;
+    case 424:
         this->msgBuffer = new CMsgTEPlayerDecal;
-    else if (this->msgid == 425)
+        break;
+    case 425:
         this->msgBuffer = new CMsgTEProjectedDecal;
-    else if (this->msgid == 426)
+        break;
+    case 426:
         this->msgBuffer = new CMsgTESmoke;
-    else if (this->msgid == 452)
+        break;
+    case 452:
         this->msgBuffer = new CMsgTEFireBullets;
+        break;
+    }
     this->msgSerializable = msg;
 }
 
