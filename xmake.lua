@@ -57,8 +57,14 @@ target(PROJECT_NAME.."-Xmake")
     add_files({
         SDK_PATH.."/entity2/entitysystem.cpp",
         SDK_PATH.."/entity2/entityidentity.cpp",
-        SDK_PATH.."/public/tier0/memoverride.cpp",
+        SDK_PATH.."/tier1/convar.cpp",
     })
+
+    if not is_plat("windows") then
+        add_files({
+            SDK_PATH.."/public/tier0/memoverride.cpp",
+        })
+    end
 
     set_symbols("hidden")
 
@@ -97,7 +103,17 @@ target(PROJECT_NAME.."-Xmake")
             "normaliz",
             "wsock32",
             "legacy_stdio_definitions",
-            "legacy_stdio_wide_specifiers"
+            "legacy_stdio_wide_specifiers",
+            "user32",
+            "gdi32",
+            "winspool",
+            "shell32",
+            "ole32",
+            "oleaut32",
+            "uuid",
+            "odbc32",
+            "odbccp32",
+            "msvcrt.lib"
         })
     else
         add_links({
@@ -169,10 +185,6 @@ target(PROJECT_NAME.."-Xmake")
     })
 
     if(is_plat("windows")) then
-        add_includedirs({
-            "src/inc/ucrt"
-        })
-
         add_defines({
             "COMPILER_MSVC",
             "COMPILER_MSVC64",
@@ -211,7 +223,8 @@ target(PROJECT_NAME.."-Xmake")
     add_defines({
         "GITHUB_SHA=\""..GITHUB_SHA.."\"",
         "HAVE_STRUCT_TIMESPEC",
-        "BUILDING"
+        "BUILDING",
+        "CURL_STATICLIB"
     })
     
     set_languages("cxx17")

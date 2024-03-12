@@ -1,7 +1,6 @@
 #ifndef _swiftly_curlrequest_h
 #define _swiftly_curlrequest_h
 
-#define CURL_STATICLIB
 #include "../../utils.h"
 #include <stdio.h>
 extern "C"
