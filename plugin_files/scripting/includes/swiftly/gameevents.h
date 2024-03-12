@@ -240,7 +240,7 @@ void OnCSGameDisconnected() __attribute__((weak));
 void OnCSRoundFinalBeep() __attribute__((weak));
 void OnCSRoundStartBeep() __attribute__((weak));
 void OnCSWinPanelRound(bool show_timer_defend, bool show_timer_attack, short timer_time, unsigned char final_event, const char *funfact_token, Player *funfact_player, long funfact_data1, long funfact_data2, long funfact_data3) __attribute__((weak));
-void OnCSWinPanelMath() __attribute__((weak));
+void OnCSWinPanelMatch() __attribute__((weak));
 void OnCSMatchEndRestart() __attribute__((weak));
 void OnCSPreRestart() __attribute__((weak));
 void OnShowDeathpanel(Player *victim, long killer, Player *killer_controller, short hits_taken, short damage_taken, short hits_given, short damage_given) __attribute__((weak));
@@ -2084,11 +2084,11 @@ extern "C"
             return;
         OnCSWinPanelRound(show_timer_defend, show_timer_attack, timer_time, final_event, funfact_token, funfact_player, funfact_data1, funfact_data2, funfact_data3);
     }
-    void Internal_OnCSWinPanelMath()
+    void Internal_OnCSWinPanelMatch()
     {
-        if (!OnCSWinPanelMath)
+        if (!OnCSWinPanelMatch)
             return;
-        OnCSWinPanelMath();
+        OnCSWinPanelMatch();
     }
     void Internal_OnCSMatchEndRestart()
     {

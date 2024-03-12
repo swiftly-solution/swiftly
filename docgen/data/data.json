@@ -3165,7 +3165,7 @@
 				"additional": {}
 			},
 			"cswinpanelmatch": {
-				"title": "OnCSWinPanelMath",
+				"title": "OnCSWinPanelMatch",
 				"template": "event-syntax",
 				"language": "both",
 				"description": "This game event is called when cs_win_panel_match is triggered.",

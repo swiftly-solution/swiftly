@@ -1923,7 +1923,7 @@ GAME_EVENT(cs_win_panel_round)
 
 GAME_EVENT(cs_win_panel_match){
 
-    CALL_PFUNCTION_VOID_NOARGS(OnCSWinPanelMath)}
+    CALL_PFUNCTION_VOID_NOARGS(OnCSWinPanelMatch)}
 
 GAME_EVENT(cs_match_end_restart){
 
