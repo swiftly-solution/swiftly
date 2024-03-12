@@ -31,6 +31,7 @@
 #include "dumps/CrashDump.h"
 #include "addons/addons.h"
 #include "addons/clients.h"
+#include "usermessages/UserMessages.h"
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -95,6 +96,7 @@ CCSGameRules *g_pGameRules = nullptr;
 GameMenus *g_menus = nullptr;
 Addons *g_addons = nullptr;
 IGameEventSystem *g_pGameEventSystem = nullptr;
+UserMessages *g_userMessages = nullptr;
 
 class CGameResourceService
 {
@@ -200,6 +202,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_precacher = new Precacher();
     g_menus = new GameMenus();
     g_addons = new Addons();
+    g_userMessages = new UserMessages();
 
     g_Config->LoadPluginConfigurations();
 
