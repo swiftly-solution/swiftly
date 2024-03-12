@@ -201,16 +201,16 @@ target(PROJECT_NAME.."-Xmake")
             "COMPILER_GCC",
             "PLATFORM_64BITS",
             "META_IS_SOURCE2",
-            "_GLIBCXX_USE_CXX11_ABI=0"
+            "_GLIBCXX_USE_CXX11_ABI=0",
+            "LUA_USE_LINUX",
+            "LUA_USE_READLINE",
+            "BOOST_STACKTRACE_USE_BACKTRACE"
         })
     end
 
     add_defines({
         "GITHUB_SHA=\""..GITHUB_SHA.."\"",
         "HAVE_STRUCT_TIMESPEC",
-        "LUA_USE_LINUX",
-        "LUA_USE_READLINE",
-        "BOOST_STACKTRACE_USE_BACKTRACE",
         "BUILDING"
     })
     
