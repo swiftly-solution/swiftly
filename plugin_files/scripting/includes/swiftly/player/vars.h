@@ -96,6 +96,7 @@ public:
             }
             catch (std::bad_any_cast err)
             {
+                print("[Swiftly] An error has occured while casting the value. Error: %s\n", err.what());
                 return 0;
             }
         }
