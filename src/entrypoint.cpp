@@ -296,6 +296,12 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
             CCSPlayerController *controller = player->GetPlayerController();
             bool teamonly = (command == "say_team");
 
+            std::vector<std::string> textSplitted = explode(args.GetCommandString(), " ");
+            textSplitted.erase(textSplitted.begin());
+            std::string text = implode(textSplitted, " ");
+            text.erase(text.begin());
+            text.pop_back();
+
             if (controller)
             {
                 IGameEvent *pEvent = g_gameEventManager->CreateEvent("player_chat");
@@ -304,18 +310,18 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
                 {
                     pEvent->SetBool("teamonly", teamonly);
                     pEvent->SetInt("userid", slot->Get());
-                    pEvent->SetString("text", args[1]);
+                    pEvent->SetString("text", text.c_str());
 
                     g_gameEventManager->FireEvent(pEvent, true);
                 }
             }
 
-            int handleCommands = g_commandsManager->HandleCommands(player->GetController(), args[1]);
+            int handleCommands = g_commandsManager->HandleCommands(player->GetController(), text.c_str());
             if (handleCommands == 2)
             {
                 RETURN_META(MRES_SUPERCEDE);
             }
-            else if (!scripting_OnClientChat(player->GetController(), args[1], teamonly))
+            else if (!scripting_OnClientChat(player->GetController(), text.c_str(), teamonly))
             {
                 RETURN_META(MRES_SUPERCEDE);
             }
@@ -327,7 +333,7 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
                 if (player->tag.length() > 0)
                     msg.push_back(ProcessColor(string_format("%s%s{default}", player->tagcolor.empty() ? "{default}" : player->tagcolor.c_str(), player->tag.c_str()), controller->m_iTeamNum()));
                 msg.push_back(string_format("%s%s%s:", ProcessColor(player->namecolor, controller->m_iTeamNum()).c_str(), player->GetName(), ProcessColor("{default}", CS_TEAM_CT).c_str()));
-                msg.push_back(string_format("%s%s", ProcessColor(player->chatcolor, controller->m_iTeamNum()).c_str(), args[1]));
+                msg.push_back(string_format("%s%s", ProcessColor(player->chatcolor, controller->m_iTeamNum()).c_str(), text.c_str()));
 
                 std::string formatted_msg = (" " + implode(msg, " "));
 
