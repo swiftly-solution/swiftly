@@ -142,9 +142,13 @@ void *Hook_HostStateRequest(void *a1, void **pRequest)
     return THostStateRequest(a1, pRequest);
 }
 
+void scripting_OnPlayerPostThink(CPlayerSlot slot);
+
 void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase *base)
 {
     TCCSPlayerPawnBase_PostThink(base);
+
+    scripting_OnPlayerPostThink(CPlayerSlot(base->GetEntityIndex().Get() - 1));
 }
 
 CUtlVector<FuncHookBase *> g_funcHooks;
