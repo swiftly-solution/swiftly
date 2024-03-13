@@ -241,14 +241,6 @@ GAME_EVENT(player_full_update)
     CALL_PFUNCTION_VOID_ARGS(OnPlayerFullUpdate, slot.Get(), count)
 }
 
-GAME_EVENT(player_falldamage)
-{
-    CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
-    float damage = pEvent->GetFloat("damage");
-
-    CALL_PFUNCTION_VOID_ARGS(OnPlayerFallDamage, slot.Get(), damage)
-}
-
 GAME_EVENT(player_jump)
 {
     CPlayerSlot slot = pEvent->GetPlayerSlot("userid");
@@ -2415,6 +2407,11 @@ bool scripting_OnPlayerPrePostThink(CPlayerSlot slot)
 void scripting_OnPlayerPostThink(CPlayerSlot slot)
 {
     CALL_PFUNCTION_VOID_ARGS(OnPlayerPostThink, slot.Get());
+}
+
+void scripting_OnPlayerFallDamage(CPlayerSlot slot, float damage)
+{
+    CALL_PFUNCTION_VOID_ARGS(OnPlayerFallDamage, slot.Get(), damage);
 }
 
 void PluginsComponent::RegisterGameEvents()

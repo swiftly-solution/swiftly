@@ -22,6 +22,7 @@ FuncHook<decltype(Hook_CGameRules_Constructor)> TCGameRules_Constructor(Hook_CGa
 FuncHook<decltype(Hook_SendNetMessage)> TSendNetMessage(Hook_SendNetMessage, "SendNetMessage");
 FuncHook<decltype(Hook_HostStateRequest)> THostStateRequest(Hook_HostStateRequest, "HostStateRequest");
 FuncHook<decltype(Hook_CCSPlayerPawnBase_PostThink)> TCCSPlayerPawnBase_PostThink(Hook_CCSPlayerPawnBase_PostThink, "CCSPlayerPawnBase_PostThink");
+FuncHook<decltype(Hook_CBaseEntity_TakeDamageOld)> TCBaseEntity_TakeDamageOld(Hook_CBaseEntity_TakeDamageOld, "CBaseEntity_TakeDamageOld");
 
 #define CHECKLOGS()                                                \
     va_list args;                                                  \
@@ -157,6 +158,26 @@ void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase *base)
     scripting_OnPlayerPostThink(slot);
 }
 
+void scripting_OnPlayerFallDamage(CPlayerSlot slot, float damage);
+
+void Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *pEntity, CTakeDamageInfo *dmgInfo)
+{
+    if (CCSPlayerPawn *pawn = dynamic_cast<CCSPlayerPawn *>(pEntity); pawn != nullptr)
+    {
+        CBasePlayerController *baseController = pawn->m_hController();
+        CCSPlayerController *controller = (CCSPlayerController *)baseController;
+        Player *player = g_playerManager->GetPlayer(controller->GetEntityIndex().Get() - 1);
+        if (player)
+        {
+            CPlayerSlot slot(player->GetSlot()->Get());
+            if (dmgInfo->m_bitsDamageType == DMG_FALL)
+                scripting_OnPlayerFallDamage(slot, dmgInfo->m_flDamage);
+        }
+    }
+
+    TCBaseEntity_TakeDamageOld(pEntity, dmgInfo);
+}
+
 CUtlVector<FuncHookBase *> g_funcHooks;
 
 bool InitializeHooks()
@@ -210,6 +231,10 @@ bool InitializeHooks()
     if (!TCCSPlayerPawnBase_PostThink.Create())
         return false;
     TCCSPlayerPawnBase_PostThink.Enable();
+
+    if (!TCBaseEntity_TakeDamageOld.Create())
+        return false;
+    TCBaseEntity_TakeDamageOld.Enable();
 
     return true;
 }
