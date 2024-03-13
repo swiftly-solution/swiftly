@@ -400,6 +400,7 @@ void Player::RenderCenterText()
                 IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
 
                 playerListener->FireGameEvent(pEvent);
+                g_gameEventManager->FreeEvent(pEvent);
             }
         }
         else
@@ -425,6 +426,7 @@ void Player::RenderMenu()
         IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
 
         playerListener->FireGameEvent(pEvent);
+        g_gameEventManager->FreeEvent(pEvent);
     }
 }
 
@@ -447,6 +449,7 @@ void Player::HideMenu()
         IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
 
         playerListener->FireGameEvent(pEvent);
+        g_gameEventManager->FreeEvent(pEvent);
     }
 }
 
