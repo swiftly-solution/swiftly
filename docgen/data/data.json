@@ -2708,6 +2708,20 @@
 				},
 				"additional": {}
 			},
+			"playerprepostthink": {
+				"title": "OnPlayerPrePostThink",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called when player post think started to execute to execute.",
+				"return": "bool",
+				"params": {
+					"player": "player"
+				},
+				"additional": {
+					"cpp": ":::note\n @return true => Allows the PostThink to execute\n@return false => Blocks the PostThink to execute \n:::",
+					"lua": ":::note\n @return true => Allows the PostThink to execute\n@return false => Blocks the PostThink to execute \n:::"
+				}
+			},
 			"itempickupslerp": {
 				"title": "OnItemPickupSlerp",
 				"template": "event-syntax",
@@ -6407,7 +6421,7 @@
 				"return": "int32_t",
 				"params": {},
 				"additional": {}
-			},			
+			},
 			"executecommand": {
 				"title": "ExecuteCommand",
 				"template": "function-syntax",

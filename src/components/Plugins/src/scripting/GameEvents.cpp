@@ -2407,6 +2407,11 @@ bool scripting_OnClientCommand(OnClientCommand *e)
     CALL_PFUNCTION_BOOL_ARGS(OnClientCommand, false, true, e->slot->Get(), e->command);
 }
 
+bool scripting_OnPlayerPrePostThink(CPlayerSlot slot)
+{
+    CALL_PFUNCTION_BOOL_ARGS(OnPlayerPrePostThink, false, true, slot.Get());
+}
+
 void scripting_OnPlayerPostThink(CPlayerSlot slot)
 {
     CALL_PFUNCTION_VOID_ARGS(OnPlayerPostThink, slot.Get());

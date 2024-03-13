@@ -17,6 +17,7 @@ bool OnClientConnect(Player *player) __attribute__((weak));
 void OnClientDisconnect(Player *player) __attribute__((weak));
 void OnClientFullConnected(Player *player) __attribute__((weak));
 void OnPlayerPostThink(Player *player) __attribute__((weak));
+bool OnPlayerPrePostThink(Player *player) __attribute__((weak));
 void OnPlayerSpawn(Player *player) __attribute__((weak));
 void OnGameTick(bool simulating, bool bFirstTick, bool bLastTick) __attribute__((weak));
 bool OnPlayerChat(Player *player, const char *text, bool teamonly) __attribute__((weak));
@@ -379,6 +380,17 @@ extern "C"
 
         if (OnPlayerPostThink)
             OnPlayerPostThink(player);
+    }
+    bool Internal_OnPlayerPrePostThink(uint32_t slot)
+    {
+        if (!OnPlayerPrePostThink)
+            return true;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return true;
+
+        return OnPlayerPrePostThink(player);
     }
     bool Internal_OnPlayerChat(uint32_t slot, const char *text, bool teamonly)
     {
