@@ -99,7 +99,7 @@ void Patches::PerformPatches()
             ++patchesPerformed;
         }
 
-        PRINTF("Patch", "Patched performed: %02d.\n", patchesPerformed);
+        PRINTF("Patch", "Patches performed: %02d.\n", patchesPerformed);
         patchesToPerform.clear();
     }
 }
