@@ -26,7 +26,7 @@ void Hook_CGameRules_Constructor(CGameRules *);
 void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessage, void *pData, int a4);
 void *Hook_HostStateRequest(void *a1, void **pRequest);
 void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase *);
-void Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *, CTakeDamageInfo *);
+void FASTCALL Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *, CTakeDamageInfo *);
 bool InitializeHooks();
 
 #endif

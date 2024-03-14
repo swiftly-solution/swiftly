@@ -5,6 +5,7 @@
 #include <public/mathlib/vector.h>
 
 class Vector;
+class CBaseEntity;
 
 enum DamageTypes_t : uint32_t
 {

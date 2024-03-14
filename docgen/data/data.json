@@ -4220,6 +4220,25 @@
 				},
 				"additional": {}
 			},
+			"onplayerdamageplayer": {
+				"title": "OnPlayerDamagePlayer",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game events is triggered when a player receives damage.",
+				"return": "bool",
+				"params": {
+					"player": "player",
+					"attacker": "player",
+					"damage": "float",
+					"damagetype": "DamageTypes",
+					"bullettype": "uint8_t",
+					"damageflags": "DamageFlags"
+				},
+				"additional": {
+					"cpp": ":::note\n @return true => Damage allowed\n@return false => Damage cancelled \n:::",
+					"lua": ":::note\n @return true => Damage allowed\n@return false => Damage cancelled \n:::"
+				}
+			},
 			"onclientfullconnect": {
 				"title": "OnClientFullConnected",
 				"template": "event-syntax",

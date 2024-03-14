@@ -198,6 +198,50 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     CollisionGroupTable.SetInteger("Props", 24);
     CollisionGroupTable.SetInteger("LastSharedCollisionGroup", 25);
 
+    auto DamageTypesTable = state->CreateTable("DamageTypes");
+
+    DamageTypesTable.SetInteger("Generic", 0);
+    DamageTypesTable.SetInteger("Crush", 1);
+    DamageTypesTable.SetInteger("Bullet", 2);
+    DamageTypesTable.SetInteger("Slash", 4);
+    DamageTypesTable.SetInteger("Burn", 8);
+    DamageTypesTable.SetInteger("Vehicle", 16);
+    DamageTypesTable.SetInteger("Fall", 32);
+    DamageTypesTable.SetInteger("Blast", 64);
+    DamageTypesTable.SetInteger("Club", 128);
+    DamageTypesTable.SetInteger("Shock", 256);
+    DamageTypesTable.SetInteger("Sonic", 512);
+    DamageTypesTable.SetInteger("Energybeam", 1024);
+    DamageTypesTable.SetInteger("Drown", 16384);
+    DamageTypesTable.SetInteger("Poison", 32768);
+    DamageTypesTable.SetInteger("Radiation", 65536);
+    DamageTypesTable.SetInteger("Drownrecover", 131072);
+    DamageTypesTable.SetInteger("Acid", 262144);
+    DamageTypesTable.SetInteger("Physgun", 1048576);
+    DamageTypesTable.SetInteger("Dissolve", 2097152);
+    DamageTypesTable.SetInteger("BlastSurface", 4194304);
+    DamageTypesTable.SetInteger("Buckshot", 16777216);
+    DamageTypesTable.SetInteger("LastGenericFlag", 16777216);
+    DamageTypesTable.SetInteger("Headshot", 33554432);
+    DamageTypesTable.SetInteger("Dangerzone", 67108864);
+
+    auto DamageFlagsTable = state->CreateTable("DamageFlags");
+
+    DamageFlagsTable.SetInteger("None", 0);
+    DamageFlagsTable.SetInteger("SupressHealthChanges", 1);
+    DamageFlagsTable.SetInteger("SupressPhysicsForce", 2);
+    DamageFlagsTable.SetInteger("SupressEffects", 4);
+    DamageFlagsTable.SetInteger("PreventDeath", 8);
+    DamageFlagsTable.SetInteger("ForceDeath", 16);
+    DamageFlagsTable.SetInteger("AlwaysGib", 32);
+    DamageFlagsTable.SetInteger("NeverGib", 64);
+    DamageFlagsTable.SetInteger("RemoveNoRagdoll", 128);
+    DamageFlagsTable.SetInteger("SupressDamageModification", 256);
+    DamageFlagsTable.SetInteger("AlwaysFireDamageEvents", 512);
+    DamageFlagsTable.SetInteger("RadiusDmg", 1024);
+    DamageFlagsTable.SetInteger("LastDFlag", 1024);
+    DamageFlagsTable.SetInteger("IgnoreArmor", 2048);
+
     state->CreateInteger(0, "TEAM_NONE");
     state->CreateInteger(1, "TEAM_SPECTATOR");
     state->CreateInteger(2, "TEAM_T");

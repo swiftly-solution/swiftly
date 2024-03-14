@@ -1,5 +1,6 @@
 #include "../../inc/Scripting.h"
 #include "../../../../menus/Menus.h"
+#include "../../../../sdk/entity/CTakeDamageInfo.h"
 #include "../../../../commands/CommandsManager.h"
 #include "../../../../events/gameevents.h"
 
@@ -2412,6 +2413,11 @@ void scripting_OnPlayerPostThink(CPlayerSlot slot)
 void scripting_OnPlayerFallDamage(CPlayerSlot slot, float damage)
 {
     CALL_PFUNCTION_VOID_ARGS(OnPlayerFallDamage, slot.Get(), damage);
+}
+
+bool scripting_OnPlayerDamagePlayer(CPlayerSlot slot, CPlayerSlot attacker, float damage, DamageTypes_t damagetype, uint8_t bullettype, TakeDamageFlags_t damageflags)
+{
+    CALL_PFUNCTION_BOOL_ARGS(OnPlayerDamagePlayer, false, true, slot.Get(), attacker.Get(), damage, (uint32_t)damagetype, bullettype, (uint32_t)damageflags);
 }
 
 void PluginsComponent::RegisterGameEvents()

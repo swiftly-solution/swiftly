@@ -19,6 +19,7 @@ void OnClientFullConnected(Player *player) __attribute__((weak));
 void OnPlayerPostThink(Player *player) __attribute__((weak));
 bool OnPlayerPrePostThink(Player *player) __attribute__((weak));
 void OnPlayerSpawn(Player *player) __attribute__((weak));
+bool OnPlayerDamagePlayer(Player *player, Player *attacker, float damage, DamageTypes damagetype, uint8_t ammotype, DamageFlags damageflags) __attribute__((weak));
 void OnGameTick(bool simulating, bool bFirstTick, bool bLastTick) __attribute__((weak));
 bool OnPlayerChat(Player *player, const char *text, bool teamonly) __attribute__((weak));
 void OnRoundStart(long timelimit, long fraglimit, const char *objective) __attribute__((weak));
@@ -782,6 +783,22 @@ extern "C"
             return true;
 
         return ShouldHearVoice(player);
+    }
+
+    bool Internal_OnPlayerDamagePlayer(uint32_t slot, uint32_t attackerslot, float damage, uint32_t damagetype, uint8_t ammotype, uint32_t damageflags)
+    {
+        if (!OnPlayerDamagePlayer)
+            return true;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return true;
+
+        Player *attacker = g_playerManager->GetPlayer(attackerslot);
+        if (attacker == nullptr)
+            return true;
+
+        return OnPlayerDamagePlayer(player, attacker, damage, (DamageTypes)damagetype, ammotype, (DamageFlags)damageflags);
     }
 
     void Internal_OnWeaponSpawned(uint32_t slot, uint32_t weaponid)
