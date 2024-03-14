@@ -148,7 +148,7 @@ bool scripting_OnPlayerPrePostThink(CPlayerSlot slot);
 
 void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase *base)
 {
-    CPlayerSlot slot(base->GetEntityIndex().Get() - 1);
+    CPlayerSlot slot(base->m_hController().Get()->GetEntityIndex().Get() - 1);
 
     if (!scripting_OnPlayerPrePostThink(slot))
         return;
