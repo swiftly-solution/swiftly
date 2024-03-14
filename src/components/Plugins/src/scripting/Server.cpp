@@ -67,3 +67,19 @@ SMM_API int scripting_Server_GetTickCount()
 
     return vars->tickcount;
 }
+
+SMM_API void scripting_Server_SetQueuedMatchmaking(bool status)
+{
+    if (!g_pGameRules)
+        return;
+
+    g_pGameRules->m_bIsQueuedMatchmaking = status;
+}
+
+SMM_API bool scripting_Server_GetQueuedMatchmaking()
+{
+    if (!g_pGameRules)
+        return false;
+
+    return g_pGameRules->m_bIsQueuedMatchmaking();
+}

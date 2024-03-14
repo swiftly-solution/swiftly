@@ -13,6 +13,8 @@
 #undef GetCurrentTime
 #endif
 
+typedef void (*Server_QueuedMatchmaking)(bool);
+
 class Server
 {
 public:
@@ -136,6 +138,27 @@ public:
             NOT_SUPPORTED("scripting_Server_GetTickCount");
             return 0;
         }
+    }
+
+    bool GetQueuedMatchmaking()
+    {
+        void *ptr = FetchFunctionPtr(nullptr, "scripting_Server_GetQueuedMatchmaking");
+        if (ptr)
+            return reinterpret_cast<Server_IsPistolRound>(ptr)();
+        else
+        {
+            NOT_SUPPORTED("scripting_Server_GetQueuedMatchmaking");
+            return false;
+        }
+    }
+
+    void SetQueuedMatchmaking(bool status)
+    {
+        void *ptr = FetchFunctionPtr(nullptr, "scripting_Server_SetQueuedMatchmaking");
+        if (ptr)
+            reinterpret_cast<Server_QueuedMatchmaking>(ptr)(status);
+        else
+            NOT_SUPPORTED("scripting_Server_GetQueuedMatchmaking");
     }
 };
 

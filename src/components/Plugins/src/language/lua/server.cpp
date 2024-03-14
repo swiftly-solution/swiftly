@@ -33,6 +33,10 @@ void SetupLuaServer(luacpp::LuaState *state, Plugin *plugin)
                    { return scripting_Server_IsPistolRound(); })
         .DefMember("GetTotalRounds", [](LuaServerClass *base) -> int32_t
                    { return scripting_server_GetTotalRounds(); })
+        .DefMember("SetQueuedMatchmaking", [](LuaServerClass *base, bool status) -> void
+                   { scripting_Server_SetQueuedMatchmaking(status); })
+        .DefMember("GetQueuedMatchmaking", [](LuaServerClass *base) -> bool
+                   { return scripting_Server_GetQueuedMatchmaking(); })
         .DefMember("GetCurrentTime", [](LuaServerClass *base) -> float
                    { return scripting_Server_GetCurrentTime(); })
         .DefMember("GetTickCount", [](LuaServerClass *base) -> int32_t
