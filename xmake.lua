@@ -163,6 +163,7 @@ target(PROJECT_NAME.."-Xmake")
         "vendor/funchook/include",
         "vendor/cpp-httplib",
         "vendor/luacpp/include",
+        "vendor/httpserver",
         "vendor/mysql/"..GetDistDirName().."/include",
         "vendor/lua",
         "vendor/openssl/"..GetDistDirName().."/include",
