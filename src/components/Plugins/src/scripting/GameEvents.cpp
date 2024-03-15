@@ -2415,6 +2415,11 @@ void scripting_OnPlayerFallDamage(CPlayerSlot slot, float damage)
     CALL_PFUNCTION_VOID_ARGS(OnPlayerFallDamage, slot.Get(), damage);
 }
 
+bool scripting_OnPlayerDamage(CPlayerSlot slot, float damage, DamageTypes_t damagetype, uint8_t bullettype, TakeDamageFlags_t damageflags)
+{
+    CALL_PFUNCTION_BOOL_ARGS(OnPlayerDamage, false, true, slot.Get(), damage, (uint32_t)damagetype, bullettype, (uint32_t)damageflags);
+}
+
 bool scripting_OnPlayerDamagePlayer(CPlayerSlot slot, CPlayerSlot attacker, float damage, DamageTypes_t damagetype, uint8_t bullettype, TakeDamageFlags_t damageflags)
 {
     CALL_PFUNCTION_BOOL_ARGS(OnPlayerDamagePlayer, false, true, slot.Get(), attacker.Get(), damage, (uint32_t)damagetype, bullettype, (uint32_t)damageflags);

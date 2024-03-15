@@ -160,6 +160,7 @@ void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase *base)
 
 void scripting_OnPlayerFallDamage(CPlayerSlot slot, float damage);
 bool scripting_OnPlayerDamagePlayer(CPlayerSlot slot, CPlayerSlot attacker, float damage, DamageTypes_t damagetype, uint8_t bullettype, TakeDamageFlags_t damageflags);
+bool scripting_OnPlayerDamage(CPlayerSlot slot, float damage, DamageTypes_t damagetype, uint8_t bullettype, TakeDamageFlags_t damageflags);
 
 void FASTCALL Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *pEntity, CTakeDamageInfo *dmgInfo)
 {
@@ -171,6 +172,9 @@ void FASTCALL Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *pEntity, CTakeDamage
         if (player)
         {
             CPlayerSlot slot(player->GetSlot()->Get());
+            if (!scripting_OnPlayerDamage(slot, dmgInfo->m_flDamage, dmgInfo->m_bitsDamageType, dmgInfo->m_iAmmoType, dmgInfo->m_nDamageFlags))
+                return;
+
             Z_CBaseEntity *attackerEntity = (Z_CBaseEntity *)(dmgInfo->m_hAttacker.Get());
             if (CCSPlayerPawn *attackerpawn = dynamic_cast<CCSPlayerPawn *>(attackerEntity); attackerpawn != nullptr)
             {
