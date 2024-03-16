@@ -18,17 +18,9 @@ public:
     Logger(const char *mainFilePath, const char *pluginName)
     {
         this->m_pluginName = pluginName;
-        void *loggerCreateLog = FetchFunctionPtr(mainFilePath, "scripting_Logger_CreateLogger");
-        if (loggerCreateLog)
-        {
-            reinterpret_cast<Logger_CreateLogger>(loggerCreateLog)(this->m_pluginName.c_str());
-            this->canWrite = true;
-        }
-        else
-        {
-            NOT_SUPPORTED("scripting_Logger_CreateLogger");
-            this->canWrite = false;
-        }
+
+        REGISTER_METHOD_VOID(scripting_Logger_CreateLogger, this->m_pluginName.c_str());
+        this->canWrite = (ptr != nullptr);
     }
 
     void Write(ELogType log_type, const char *content, ...)
@@ -36,20 +28,14 @@ public:
         if (!this->canWrite)
             return;
 
-        void *loggerWriteLog = FetchFunctionPtr(nullptr, "scripting_Logger_WriteLog");
-        if (loggerWriteLog)
-        {
-            va_list ap;
-            char buffer[4096];
+        va_list ap;
+        char buffer[4096];
 
-            va_start(ap, content);
-            UTIL_FormatArgs(buffer, sizeof(buffer), content, ap);
-            va_end(ap);
+        va_start(ap, content);
+        UTIL_FormatArgs(buffer, sizeof(buffer), content, ap);
+        va_end(ap);
 
-            reinterpret_cast<Logger_WriteLog>(loggerWriteLog)(this->m_pluginName.c_str(), log_type, buffer);
-        }
-        else
-            NOT_SUPPORTED("scripting_Logger_WriteLog");
+        REGISTER_METHOD_VOID(scripting_Logger_WriteLog, this->m_pluginName.c_str(), log_type, buffer)
     }
 };
 

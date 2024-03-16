@@ -52,274 +52,131 @@ public:
 
     void Remove()
     {
-        void *player_RemoveWeapon = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_Remove");
-        if (player_RemoveWeapon)
-            reinterpret_cast<Player_RemoveWeapon>(player_RemoveWeapon)(this->m_playerSlot, this->m_weaponID);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_Remove");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_Remove, this->m_playerSlot, this->m_weaponID);
     }
     void Drop()
     {
-        void *player_DropWeapon = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_Drop");
-        if (player_DropWeapon)
-            reinterpret_cast<Player_DropWeapon>(player_DropWeapon)(this->m_playerSlot, this->m_weaponID);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_Drop");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_Drop, this->m_playerSlot, this->m_weaponID);
     }
 
     void SetStatTrack(bool stattrack)
     {
-        void *player_SetStatTrack = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetStatTrack");
-        if (player_SetStatTrack)
-            reinterpret_cast<Player_SetStatTrack>(player_SetStatTrack)(this->m_playerSlot, this->m_weaponID, stattrack);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetStatTrack");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetStatTrack, this->m_playerSlot, this->m_weaponID, stattrack);
     }
     void SetWear(float wear)
     {
-        void *player_SetWear = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetWear");
-        if (player_SetWear)
-            reinterpret_cast<Player_SetWear>(player_SetWear)(this->m_playerSlot, this->m_weaponID, wear);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetWear");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetWear, this->m_playerSlot, this->m_weaponID, wear);
     }
     void SetPaintKit(int32_t paintkit)
     {
-        void *player_SetPaintKit = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetPaintKit");
-        if (player_SetPaintKit)
-            reinterpret_cast<Player_SetPaintKit>(player_SetPaintKit)(this->m_playerSlot, this->m_weaponID, paintkit);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetPaintKit");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetPaintKit, this->m_playerSlot, this->m_weaponID, paintkit);
     }
     void SetSeed(int32_t seed)
     {
-        void *player_SetSeed = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetSeed");
-        if (player_SetSeed)
-            reinterpret_cast<Player_SetSeed>(player_SetSeed)(this->m_playerSlot, this->m_weaponID, seed);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetSeed");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetSeed, this->m_playerSlot, this->m_weaponID, seed);
     }
 
     bool GetStatTrack()
     {
-        void *player_GetStatTrack = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetStatTrack");
-        if (player_GetStatTrack)
-            return reinterpret_cast<Player_GetStatTrack>(player_GetStatTrack)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetStatTrack");
-            return false;
-        }
+        REGISTER_METHOD(bool, false, scripting_Player_Weapon_GetStatTrack, this->m_playerSlot, this->m_weaponID);
     }
     float GetWear()
     {
-        void *player_GetWear = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetWear");
-        if (player_GetWear)
-            return reinterpret_cast<Player_GetWear>(player_GetWear)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetWear");
-            return 0.0f;
-        }
+        REGISTER_METHOD(float, 0.0f, scripting_Player_Weapon_GetWear, this->m_playerSlot, this->m_weaponID);
     }
     int32_t GetPaintKit()
     {
-        void *player_GetPaintKit = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetPaintKit");
-        if (player_GetPaintKit)
-            return reinterpret_cast<Player_GetPaintKit>(player_GetPaintKit)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetPaintKit");
-            return 0;
-        }
+        REGISTER_METHOD(int32_t, 0, scripting_Player_Weapon_GetPaintKit, this->m_playerSlot, this->m_weaponID);
     }
+
     int32_t GetSeed()
     {
-        void *player_GetSeed = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetSeed");
-        if (player_GetSeed)
-            return reinterpret_cast<Player_GetSeed>(player_GetSeed)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetSeed");
-            return 0;
-        }
+        REGISTER_METHOD(int32_t, 0, scripting_Player_Weapon_GetSeed, this->m_playerSlot, this->m_weaponID);
     }
 
     WeaponSlot GetType()
     {
-        void *player_GetType = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetType");
-        if (player_GetType)
-            return reinterpret_cast<Player_GetType>(player_GetType)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetType");
-            return WeaponSlot::INVALID;
-        }
+        REGISTER_METHOD(WeaponSlot, WeaponSlot::INVALID, scripting_Player_Weapon_GetType, this->m_playerSlot, this->m_weaponID);
     }
 
     const char *GetName()
     {
-        void *player_GetName = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetName");
-        if (player_GetName)
-            return reinterpret_cast<Player_GetWeaponName>(player_GetName)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetName");
-            return "";
-        }
+        REGISTER_METHOD(const char *, "", scripting_Player_Weapon_GetName, this->m_playerSlot, this->m_weaponID);
     }
 
     bool Exists()
     {
-        void *player_WeaponExists = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_Exists");
-        if (player_WeaponExists)
-            return reinterpret_cast<Player_WeaponExists>(player_WeaponExists)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_Exists");
-            return false;
-        }
+        REGISTER_METHOD(bool, false, scripting_Player_Weapon_Exists, this->m_playerSlot, this->m_weaponID);
     }
 
     void SetDefaultChangeSkinAttributes()
     {
-        void *player_WeaponSetDefaultChangeSkinAttributes = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetDefaultChangeSkinAttributes");
-        if (player_WeaponSetDefaultChangeSkinAttributes)
-            reinterpret_cast<Player_WeaponExists>(player_WeaponSetDefaultChangeSkinAttributes)(this->m_playerSlot, this->m_weaponID);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetDefaultChangeSkinAttributes");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetDefaultChangeSkinAttributes, this->m_playerSlot, this->m_weaponID);
     }
 
     void SetNametag(const char *text)
     {
-        void *player_WeaponSetNametag = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNametag");
-        if (player_WeaponSetNametag)
-            reinterpret_cast<Player_SetNametag>(player_WeaponSetNametag)(this->m_playerSlot, this->m_weaponID, text);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetNametag");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetNametag, this->m_playerSlot, this->m_weaponID, text);
     }
 
     void SetClipAmmo(int ammo)
     {
-        void *player_WeaponSetClipAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetClipAmmo");
-        if (player_WeaponSetClipAmmo)
-            reinterpret_cast<Player_SetClipAmmo>(player_WeaponSetClipAmmo)(this->m_playerSlot, this->m_weaponID, ammo);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetClipAmmo");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetClipAmmo, this->m_playerSlot, this->m_weaponID, ammo);
     }
 
     void SetClip2Ammo(int ammo)
     {
-        void *player_WeaponSetClip2Ammo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetClip2Ammo");
-        if (player_WeaponSetClip2Ammo)
-            reinterpret_cast<Player_SetClipAmmo>(player_WeaponSetClip2Ammo)(this->m_playerSlot, this->m_weaponID, ammo);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetClip2Ammo");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetClip2Ammo, this->m_playerSlot, this->m_weaponID, ammo);
     }
 
     void SetReserveAmmo(int ammo)
     {
-        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetReserveAmmo");
-        if (player_WeaponSetReserveAmmo)
-            reinterpret_cast<Player_SetReserveAmmo>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, ammo);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetReserveAmmo");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetReserveAmmo, this->m_playerSlot, this->m_weaponID, ammo);
     }
 
     int32_t GetNextPrimaryAttackTick()
     {
-        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetNextPrimaryAttackTick");
-        if (player_WeaponSetReserveAmmo)
-            return reinterpret_cast<Player_Weapon_GetAttackTick>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetNextPrimaryAttackTick");
-            return 0;
-        }
+        REGISTER_METHOD(int32_t, 0, scripting_Player_Weapon_GetNextPrimaryAttackTick, this->m_playerSlot, this->m_weaponID);
     }
 
     int32_t GetNextSecondaryAttackTick()
     {
-        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetNextSecondaryAttackTick");
-        if (player_WeaponSetReserveAmmo)
-            return reinterpret_cast<Player_Weapon_GetAttackTick>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetNextSecondaryAttackTick");
-            return 0;
-        }
+        REGISTER_METHOD(int32_t, 0, scripting_Player_Weapon_GetNextSecondaryAttackTick, this->m_playerSlot, this->m_weaponID);
     }
 
     void SetNextPrimaryAttackTick(int32_t tick)
     {
-        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNextPrimaryAttackTick");
-        if (player_WeaponSetReserveAmmo)
-            reinterpret_cast<Player_Weapon_SetAttackTick>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, tick);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetNextPrimaryAttackTick");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetNextPrimaryAttackTick, this->m_playerSlot, this->m_weaponID, tick);
     }
 
     void SetNextSecondaryAttackTick(int32_t tick)
     {
-        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNextSecondaryAttackTick");
-        if (player_WeaponSetReserveAmmo)
-            reinterpret_cast<Player_Weapon_SetAttackTick>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, tick);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetNextSecondaryAttackTick");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetNextSecondaryAttackTick, this->m_playerSlot, this->m_weaponID, tick);
     }
 
     float GetNextPrimaryAttackTickRatio()
     {
-        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetNextPrimaryAttackTickRatio");
-        if (player_WeaponSetReserveAmmo)
-            return reinterpret_cast<Player_Weapon_GetAttackTickRatio>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetNextPrimaryAttackTickRatio");
-            return 0.0f;
-        }
+        REGISTER_METHOD(float, 0.0f, scripting_Player_Weapon_GetNextPrimaryAttackTickRatio, this->m_playerSlot, this->m_weaponID);
     }
 
     float GetNextSecondaryAttackTickRatio()
     {
-        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetNextSecondaryAttackTickRatio");
-        if (player_WeaponSetReserveAmmo)
-            return reinterpret_cast<Player_Weapon_GetAttackTickRatio>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetNextSecondaryAttackTickRatio");
-            return 0.0f;
-        }
+        REGISTER_METHOD(float, 0.0f, scripting_Player_Weapon_GetNextSecondaryAttackTickRatio, this->m_playerSlot, this->m_weaponID);
     }
 
     void SetNextPrimaryAttackTickRatio(float ratio)
     {
-        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNextPrimaryAttackTickRatio");
-        if (player_WeaponSetReserveAmmo)
-            reinterpret_cast<Player_Weapon_SetAttackTickRatio>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, ratio);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetNextPrimaryAttackTickRatio");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetNextPrimaryAttackTickRatio, this->m_playerSlot, this->m_weaponID, ratio);
     }
 
     void SetNextSecondaryAttackTickRatio(float ratio)
     {
-        void *player_WeaponSetReserveAmmo = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_SetNextSecondaryAttackTickRatio");
-        if (player_WeaponSetReserveAmmo)
-            reinterpret_cast<Player_Weapon_SetAttackTickRatio>(player_WeaponSetReserveAmmo)(this->m_playerSlot, this->m_weaponID, ratio);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapon_SetNextSecondaryAttackTickRatio");
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetNextSecondaryAttackTickRatio, this->m_playerSlot, this->m_weaponID, ratio);
     }
 
     WeaponSilencerType GetSilencerType()
     {
-        void *player_WeaponGetSilencerType = FetchFunctionPtr(nullptr, "scripting_Player_Weapon_GetSilencerType");
-        if (player_WeaponGetSilencerType)
-            return reinterpret_cast<Player_Weapon_GetSilencerType>(player_WeaponGetSilencerType)(this->m_playerSlot, this->m_weaponID);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_Weapon_GetSilencerType");
-            return WeaponSilencerType::NONE;
-        }
+        REGISTER_METHOD(WeaponSilencerType, WeaponSilencerType::NONE, scripting_Player_Weapon_GetSilencerType, this->m_playerSlot, this->m_weaponID);
     }
 
     uint32_t GetID()

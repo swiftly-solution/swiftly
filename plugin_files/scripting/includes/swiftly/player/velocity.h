@@ -49,11 +49,7 @@ public:
 
     void Set(Vector *coords)
     {
-        void *player_SetVelocity = FetchFunctionPtr(nullptr, "scripting_Player_SetVelocity");
-        if (player_SetVelocity)
-            reinterpret_cast<Player_SetVelocity>(player_SetVelocity)(this->m_playerSlot, coords->x, coords->y, coords->z);
-        else
-            NOT_SUPPORTED("scripting_Player_SetVelocity");
+        REGISTER_METHOD_VOID(scripting_Player_SetVelocity, this->m_playerSlot, coords->x, coords->y, coords->z);
     }
 };
 

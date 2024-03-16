@@ -28,29 +28,17 @@ public:
 
     void DropWeapons()
     {
-        void *player_DropWeapons = FetchFunctionPtr(nullptr, "scripting_Player_Weapons_Drop");
-        if (player_DropWeapons)
-            reinterpret_cast<Player_DropWeapons>(player_DropWeapons)(this->m_playerSlot);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapons_Drop");
+        REGISTER_METHOD_VOID(scripting_Player_Weapons_Drop, this->m_playerSlot);
     }
 
     void RemoveWeapons()
     {
-        void *player_RemoveWeapons = FetchFunctionPtr(nullptr, "scripting_Player_Weapons_Remove");
-        if (player_RemoveWeapons)
-            reinterpret_cast<Player_RemoveWeapons>(player_RemoveWeapons)(this->m_playerSlot);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapons_Remove");
+        REGISTER_METHOD_VOID(scripting_Player_Weapons_Remove, this->m_playerSlot);
     }
 
     void GiveWeapon(const char *name)
     {
-        void *player_GiveWeapon = FetchFunctionPtr(nullptr, "scripting_Player_Weapons_Give");
-        if (player_GiveWeapon)
-            reinterpret_cast<Player_GiveWeapon>(player_GiveWeapon)(this->m_playerSlot, name);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapons_Give");
+        REGISTER_METHOD_VOID(scripting_Player_Weapons_Give, this->m_playerSlot, name);
     }
 
     Weapon *GetWeaponFromSlot(WeaponSlot slot)
@@ -72,11 +60,7 @@ public:
 
     void SetActiveWeapon(WeaponSlot slot)
     {
-        void *player_SetActiveWeapon = FetchFunctionPtr(nullptr, "scripting_Player_Weapons_SetActiveWeapon");
-        if (player_SetActiveWeapon)
-            reinterpret_cast<Player_SetActiveWeapon>(player_SetActiveWeapon)(this->m_playerSlot, slot);
-        else
-            NOT_SUPPORTED("scripting_Player_Weapons_SetActiveWeapon");
+        REGISTER_METHOD_VOID(scripting_Player_Weapons_SetActiveWeapon, this->m_playerSlot, slot);
     }
 };
 

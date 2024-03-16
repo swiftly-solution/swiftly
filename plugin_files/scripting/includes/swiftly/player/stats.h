@@ -16,23 +16,12 @@ public:
 
     int Get(PlayerStat stat)
     {
-        void *player_FetchStat = FetchFunctionPtr(nullptr, "scripting_Player_FetchMatchStat");
-        if (player_FetchStat)
-            return reinterpret_cast<Player_FetchStat>(player_FetchStat)(this->m_playerSlot, stat);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_FetchMatchStat");
-            return 0;
-        }
+        REGISTER_METHOD(int, 0, scripting_Player_FetchMatchStat, this->m_playerSlot);
     }
 
     void Set(PlayerStat stat, int value)
     {
-        void *player_SetStats = FetchFunctionPtr(nullptr, "scripting_Player_SetMatchStat");
-        if (player_SetStats)
-            reinterpret_cast<Player_SetStat>(player_SetStats)(this->m_playerSlot, stat, value);
-        else
-            NOT_SUPPORTED("scripting_Player_SetMatchStat");
+        REGISTER_METHOD_VOID(scripting_Player_SetMatchStat, this->m_playerSlot, stat, value);
     }
 };
 

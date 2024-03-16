@@ -57,11 +57,7 @@ public:
         UTIL_FormatArgs(buffer, sizeof(buffer), message, ap);
         va_end(ap);
 
-        void *players_SendMessage = FetchFunctionPtr(nullptr, "scripting_Players_SendMessage");
-        if (players_SendMessage)
-            reinterpret_cast<Players_SendMessage>(players_SendMessage)(dest, buffer);
-        else
-            NOT_SUPPORTED("scripting_Players_SendMessage");
+        REGISTER_METHOD_VOID(scripting_Players_SendMessage, dest, buffer);
     }
 
 private:

@@ -42,11 +42,7 @@ public:
 
     void Set(Vector *coords)
     {
-        void *entity_SetCoords = FetchFunctionPtr(nullptr, "scripting_Entity_SetCoords");
-        if (entity_SetCoords)
-            reinterpret_cast<Entity_SetCoords>(entity_SetCoords)(this->entityId, coords->x, coords->y, coords->z);
-        else
-            NOT_SUPPORTED("scripting_Entity_SetCoords");
+        REGISTER_METHOD_VOID(scripting_Entity_SetCoords, this->entityId, coords->x, coords->y, coords->z);
     }
 };
 

@@ -42,11 +42,10 @@ public:
 
     void Set(Vector *coords)
     {
-        void *player_SetAngles = FetchFunctionPtr(nullptr, "scripting_Player_SetEyeAngles");
-        if (player_SetAngles)
-            reinterpret_cast<Player_SetAngles>(player_SetAngles)(this->m_playerSlot, coords->x, coords->y, coords->z);
-        else
-            NOT_SUPPORTED("scripting_Player_SetEyeAngles");
+        if (!coords)
+            return;
+
+        REGISTER_METHOD_VOID(scripting_Player_SetEyeAngles, this->m_playerSlot, coords->x, coords->y, coords->z);
     }
 };
 

@@ -35,20 +35,14 @@ public:
 
     void ExecuteCommand(const char *str, ...)
     {
-        void *printfunc = FetchFunctionPtr(nullptr, "scripting_Server_ExecuteCommand");
-        if (printfunc != nullptr)
-        {
-            va_list ap;
-            char buffer[2048];
+        va_list ap;
+        char buffer[2048];
 
-            va_start(ap, str);
-            UTIL_FormatArgs(buffer, sizeof(buffer), str, ap);
-            va_end(ap);
+        va_start(ap, str);
+        UTIL_FormatArgs(buffer, sizeof(buffer), str, ap);
+        va_end(ap);
 
-            reinterpret_cast<Server_ExecuteCommand>(printfunc)(buffer);
-        }
-        else
-            NOT_SUPPORTED("scripting_Server_ExecuteCommand");
+        REGISTER_METHOD_VOID("scripting_Server_ExecuteCommand", buffer);
     }
 
     void ChangeLevel(const char *map)
@@ -58,107 +52,47 @@ public:
 
     bool IsPistolRound()
     {
-        void *IsPistolRoundFunc = FetchFunctionPtr(nullptr, "scripting_Server_IsPistolRound");
-        if (IsPistolRoundFunc)
-            return reinterpret_cast<Server_IsPistolRound>(IsPistolRoundFunc)();
-        else
-        {
-            NOT_SUPPORTED("scripting_Server_IsPistolRound");
-            return false;
-        }
+        REGISTER_METHOD_NOARGS(bool, false, scripting_Server_IsPistolRound);
     }
 
     int32_t GetTotalRounds()
     {
-        void *GetTotalRoundsFunc = FetchFunctionPtr(nullptr, "scripting_server_GetTotalRounds");
-        if (GetTotalRoundsFunc)
-            return reinterpret_cast<Server_GetTotalRounds>(GetTotalRoundsFunc)();
-        else
-        {
-            NOT_SUPPORTED("scripting_server_GetTotalRounds");
-            return 0;
-        }
+        REGISTER_METHOD_NOARGS(int32_t, 0, scripting_server_GetTotalRounds);
     }
 
     bool IsMapValid(const char *map)
     {
-        void *IsMapValidFunc = FetchFunctionPtr(nullptr, "scripting_Server_IsMapValid");
-        if (IsMapValidFunc)
-            return reinterpret_cast<Server_IsMapValid>(IsMapValidFunc)(map);
-        else
-        {
-            NOT_SUPPORTED("scripting_Server_IsMapValid");
-            return false;
-        }
+        REGISTER_METHOD_NOARGS(bool, false, scripting_Server_IsMapValid);
     }
 
     const char *GetMap()
     {
-        void *GetMapFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetMapName");
-        if (GetMapFunc)
-            return reinterpret_cast<Server_GetMap>(GetMapFunc)();
-        else
-        {
-            NOT_SUPPORTED("scripting_Server_GetMapName");
-            return nullptr;
-        }
+        REGISTER_METHOD_NOARGS(const char *, nullptr, scripting_Server_GetMapName);
     }
 
     uint16_t GetMaxPlayers()
     {
-        void *GetMaxPlayersFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetMaxPlayers");
-        if (GetMaxPlayersFunc)
-            return reinterpret_cast<Server_GetMaxPlayers>(GetMaxPlayersFunc)();
-        else
-        {
-            NOT_SUPPORTED("scripting_Server_GetMaxPlayers");
-            return 0;
-        }
+        REGISTER_METHOD_NOARGS(uint16_t, 0, scripting_Server_GetMaxPlayers)
     }
 
     float GetCurrentTime()
     {
-        void *GetCurrentTimeFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetCurrentTime");
-        if (GetCurrentTimeFunc)
-            return reinterpret_cast<Server_GetCurrentTime>(GetCurrentTimeFunc)();
-        else
-        {
-            NOT_SUPPORTED("scripting_Server_GetCurrentTime");
-            return 0.0f;
-        }
+        REGISTER_METHOD_NOARGS(float, 0.0f, scripting_Server_GetCurrentTime);
     }
 
     int32_t GetTickCount()
     {
-        void *GetTickCountFunc = FetchFunctionPtr(nullptr, "scripting_Server_GetTickCount");
-        if (GetTickCountFunc)
-            return reinterpret_cast<Server_GetTickCount>(GetTickCountFunc)();
-        else
-        {
-            NOT_SUPPORTED("scripting_Server_GetTickCount");
-            return 0;
-        }
+        REGISTER_METHOD_NOARGS(int32_t, 0, scripting_Server_GetTickCount)
     }
 
     bool GetQueuedMatchmaking()
     {
-        void *ptr = FetchFunctionPtr(nullptr, "scripting_Server_GetQueuedMatchmaking");
-        if (ptr)
-            return reinterpret_cast<Server_IsPistolRound>(ptr)();
-        else
-        {
-            NOT_SUPPORTED("scripting_Server_GetQueuedMatchmaking");
-            return false;
-        }
+        REGISTER_METHOD_NOARGS(bool, false, scripting_Server_GetQueuedMatchmaking)
     }
 
     void SetQueuedMatchmaking(bool status)
     {
-        void *ptr = FetchFunctionPtr(nullptr, "scripting_Server_SetQueuedMatchmaking");
-        if (ptr)
-            reinterpret_cast<Server_QueuedMatchmaking>(ptr)(status);
-        else
-            NOT_SUPPORTED("scripting_Server_GetQueuedMatchmaking");
+        REGISTER_METHOD_VOID(scripting_Server_SetQueuedMatchmaking, status);
     }
 };
 

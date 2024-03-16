@@ -16,23 +16,12 @@ public:
 
     float Get()
     {
-        void *player_GetGravity = FetchFunctionPtr(nullptr, "scripting_Player_GetGravity");
-        if (player_GetGravity)
-            return reinterpret_cast<Player_GetGravity>(player_GetGravity)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetGravity");
-            return 0.0f;
-        }
+        REGISTER_METHOD(float, 0.0f, scripting_Player_GetGravity, this->m_playerSlot);
     }
 
     void Set(float gravity)
     {
-        void *player_SetGravity = FetchFunctionPtr(nullptr, "scripting_Player_SetGravity");
-        if (player_SetGravity)
-            reinterpret_cast<Player_SetGravity>(player_SetGravity)(this->m_playerSlot, gravity);
-        else
-            NOT_SUPPORTED("scripting_Player_SetGravity");
+        REGISTER_METHOD_VOID(scripting_Player_SetGravity, this->m_playerSlot, gravity);
     }
 };
 

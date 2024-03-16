@@ -18,20 +18,12 @@ public:
     Commands(std::string pluginName) : m_pluginName(pluginName) {}
     void Register(const char *name, void *func)
     {
-        void *commnads_RegisterCommand = FetchFunctionPtr(nullptr, "scripting_Commands_RegisterCommand");
-        if (commnads_RegisterCommand)
-            reinterpret_cast<Commands_RegisterCommand>(commnads_RegisterCommand)(m_pluginName.c_str(), name, func);
-        else
-            NOT_SUPPORTED("scripting_Commands_RegisterCommand");
+        REGISTER_METHOD_VOID(scripting_Commands_RegisterCommand, name, func);
     }
 
     void UnregisterCommand(const char *name)
     {
-        void *commnads_UnregisterCommand = FetchFunctionPtr(nullptr, "scripting_Commands_UnregisterCommand");
-        if (commnads_UnregisterCommand)
-            reinterpret_cast<Commands_UnregisterCommand>(commnads_UnregisterCommand)(name);
-        else
-            NOT_SUPPORTED("scripting_Commands_UnregisterCommand");
+        REGISTER_METHOD_VOID(scripting_Commands_UnregisterCommand, name);
     }
 };
 

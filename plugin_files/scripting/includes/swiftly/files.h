@@ -20,110 +20,52 @@ public:
 
     const char *Read(const char *path)
     {
-        void *files_Read = FetchFunctionPtr(nullptr, "scripting_Files_Read");
-        if (files_Read)
-            return reinterpret_cast<Plugin_FilesRead>(files_Read)(path);
-        else
-        {
-            NOT_SUPPORTED("scripting_Files_Read");
-            return "";
-        }
+        REGISTER_METHOD(const char *, "", scripting_Files_Read, path);
     }
 
     void Append(const char *path, const char *content, bool hasdate)
     {
-        void *files_Append = FetchFunctionPtr(nullptr, "scripting_Files_Append");
-        if (files_Append)
-            reinterpret_cast<Plugin_FilesAppend>(files_Append)(path, content, hasdate);
-        else
-            NOT_SUPPORTED("scripting_Files_Append");
+        REGISTER_METHOD_VOID(scripting_Files_Append, path, content, hasdate)
     }
 
     void Write(const char *path, const char *content, bool hasdate)
     {
-        void *files_Write = FetchFunctionPtr(nullptr, "scripting_Files_Write");
-        if (files_Write)
-            reinterpret_cast<Plugin_FilesWrite>(files_Write)(path, content, hasdate);
-        else
-            NOT_SUPPORTED("scripting_Files_Write");
+        REGISTER_METHOD_VOID(scripting_Files_Write, path, content, hasdate)
     }
 
     void Delete(const char *path)
     {
-        void *files_Delete = FetchFunctionPtr(nullptr, "scripting_Files_Delete");
-        if (files_Delete)
-            reinterpret_cast<Plugin_FilesDelete>(files_Delete)(path);
-        else
-            NOT_SUPPORTED("scripting_Files_Delete");
+        REGISTER_METHOD_VOID(scripting_Files_Delete, path)
     }
 
-    void GetBase(const char *path)
+    const char *GetBase(const char *path)
     {
-        void *files_GetBase = FetchFunctionPtr(nullptr, "scripting_Files_GetBase");
-        if (files_GetBase)
-            reinterpret_cast<Plugin_GetBase>(files_GetBase)(path);
-        else
-            NOT_SUPPORTED("scripting_Files_GetBase");
+        REGISTER_METHOD(const char *, "", scripting_Files_GetBase, path);
     }
 
     bool ExistsPath(const char *path)
     {
-        void *files_ExistsPath = FetchFunctionPtr(nullptr, "scripting_Files_ExistsPath");
-        if (files_ExistsPath)
-            return reinterpret_cast<Plugin_ExistsPath>(files_ExistsPath)(path);
-        else
-        {
-            NOT_SUPPORTED("scripting_Files_ExistsPath");
-            return false;
-        }
+        REGISTER_METHOD(bool, false, scripting_Files_ExistsPath, path);
     }
 
     bool IsDirectory(const char *path)
     {
-        void *files_IsDirectory = FetchFunctionPtr(nullptr, "scripting_Files_IsDirectory");
-        if (files_IsDirectory)
-            return reinterpret_cast<Plugin_ExistsPath>(files_IsDirectory)(path);
-        else
-        {
-            NOT_SUPPORTED("scripting_Files_IsDirectory");
-            return false;
-        }
+        REGISTER_METHOD(bool, false, scripting_Files_IsDirectory, path);
     }
 
     const char **FetchFileNames(const char *path)
     {
-        void *files_FetchFileNames = FetchFunctionPtr(nullptr, "scripting_Files_FetchFileNames");
-        if (files_FetchFileNames)
-            return reinterpret_cast<Plugin_FetchFileNames>(files_FetchFileNames)(path);
-        else
-        {
-            NOT_SUPPORTED("scripting_Files_FetchFileNames");
-            return {};
-        }
+        REGISTER_METHOD(const char **, {}, scripting_Files_FetchFileNames, path);
     }
 
     const char **FetchDirectories(const char *path)
     {
-        void *files_FetchDirectories = FetchFunctionPtr(nullptr, "scripting_Files_FetchDirectories");
-        if (files_FetchDirectories)
-            return reinterpret_cast<Plugin_FetchFileNames>(files_FetchDirectories)(path);
-        else
-        {
-            NOT_SUPPORTED("scripting_Files_FetchDirectories");
-            return {};
-        }
+        REGISTER_METHOD(const char **, {}, scripting_Files_FetchDirectories, path);
     }
 
     bool CreateDirectory(const char *path)
     {
-        void *files_CreateDirectory = FetchFunctionPtr(nullptr, "scripting_Files_CreateDirectory");
-        if (files_CreateDirectory)
-            return reinterpret_cast<Plugin_ExistsPath>(files_CreateDirectory)(path);
-        else
-        {
-            NOT_SUPPORTED("scripting_Files_CreateDirectory");
-            return false;
-        }
+        REGISTER_METHOD(bool, false, scripting_Files_CreateDirectory, path);
     }
 };
 

@@ -21,23 +21,12 @@ public:
 
     int Get()
     {
-        void *player_GetTeam = FetchFunctionPtr(nullptr, "scripting_Player_GetTeam");
-        if (player_GetTeam)
-            return reinterpret_cast<Player_GetTeam>(player_GetTeam)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetTeam");
-            return 0;
-        }
+        REGISTER_METHOD(int, 0, scripting_Player_GetTeam, this->m_playerSlot);
     }
 
     void Set(int team)
     {
-        void *player_SetTeam = FetchFunctionPtr(nullptr, "scripting_Player_SetTeam");
-        if (player_SetTeam)
-            reinterpret_cast<Player_SetTeam>(player_SetTeam)(this->m_playerSlot, team);
-        else
-            NOT_SUPPORTED("scripting_Player_SetTeam");
+        REGISTER_METHOD_VOID(scripting_Player_SetTeam, this->m_playerSlot, team);
     }
 };
 

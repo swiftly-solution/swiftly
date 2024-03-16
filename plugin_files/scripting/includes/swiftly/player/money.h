@@ -16,32 +16,17 @@ public:
 
     int Get()
     {
-        void *player_GetMoney = FetchFunctionPtr(nullptr, "scripting_Player_GetMoney");
-        if (player_GetMoney)
-            return reinterpret_cast<Player_GetMoney>(player_GetMoney)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetMoney");
-            return 0;
-        }
+        REGISTER_METHOD(int, 0, scripting_Player_GetMoney, this->m_playerSlot);
     }
 
     void Set(int money)
     {
-        void *player_SetMoney = FetchFunctionPtr(nullptr, "scripting_Player_SetMoney");
-        if (player_SetMoney)
-            reinterpret_cast<Player_SetMoney>(player_SetMoney)(this->m_playerSlot, money);
-        else
-            NOT_SUPPORTED("scripting_Player_SetMoney");
+        REGISTER_METHOD_VOID(scripting_Player_SetMoney, this->m_playerSlot, money);
     }
 
     void Take(int money)
     {
-        void *player_TakeMoney = FetchFunctionPtr(nullptr, "scripting_Player_TakeMoney");
-        if (player_TakeMoney)
-            reinterpret_cast<Player_TakeMoney>(player_TakeMoney)(this->m_playerSlot, money);
-        else
-            NOT_SUPPORTED("scripting_Player_TakeMoney");
+        REGISTER_METHOD_VOID(scripting_Player_TakeMoney, this->m_playerSlot, money);
     }
 };
 

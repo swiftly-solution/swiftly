@@ -16,23 +16,12 @@ public:
 
     uint32_t Get()
     {
-        void *player_GetDesiredFOV = FetchFunctionPtr(nullptr, "scripting_Player_GetDesiredFOV");
-        if (player_GetDesiredFOV)
-            return reinterpret_cast<Player_GetDesiredFOV>(player_GetDesiredFOV)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetDesiredFOV");
-            return 0;
-        }
+        REGISTER_METHOD(uint32_t, 0, scripting_Player_GetDesiredFOV, this->m_playerSlot);
     }
 
     void Set(uint32_t fov)
     {
-        void *player_SetDesiredFOV = FetchFunctionPtr(nullptr, "scripting_Player_SetDesiredFOV");
-        if (player_SetDesiredFOV)
-            reinterpret_cast<Player_SetDesiredFOV>(player_SetDesiredFOV)(this->m_playerSlot, fov);
-        else
-            NOT_SUPPORTED("scripting_Player_SetDesiredFOV");
+        REGISTER_METHOD_VOID(scripting_Player_SetDesiredFOV, this->m_playerSlot, fov);
     }
 };
 

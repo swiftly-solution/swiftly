@@ -49,11 +49,10 @@ public:
 
     void Set(Vector *coords)
     {
-        void *player_SetCoords = FetchFunctionPtr(nullptr, "scripting_Player_SetCoords");
-        if (player_SetCoords)
-            reinterpret_cast<Player_SetCoords>(player_SetCoords)(this->m_playerSlot, coords->x, coords->y, coords->z);
-        else
-            NOT_SUPPORTED("scripting_Player_SetCoords");
+        if (!coords)
+            return;
+
+        REGISTER_METHOD_VOID(scripting_Player_SetCoords, this->m_playerSlot, coords->x, coords->y, coords->z);
     }
 };
 

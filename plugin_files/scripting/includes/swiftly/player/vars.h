@@ -75,11 +75,7 @@ public:
         if (type == 0)
             return;
 
-        void *player_SetVar = FetchFunctionPtr(nullptr, "scripting_Player_SetVar");
-        if (player_SetVar != nullptr)
-            reinterpret_cast<Player_SetVar>(player_SetVar)(this->m_playerSlot, name, type, value);
-        else
-            NOT_SUPPORTED("scripting_Player_SetVar");
+        REGISTER_METHOD_VOID(scripting_Player_SetVar, this->m_playerSlot, name, type, value);
     }
 
     template <typename T>

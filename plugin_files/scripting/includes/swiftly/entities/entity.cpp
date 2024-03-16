@@ -36,11 +36,7 @@ void Entity::Spawn()
         return;
     }
 
-    void *spawnEntity = FetchFunctionPtr(nullptr, "scripting_Entity_Spawn");
-    if (spawnEntity)
-        reinterpret_cast<Entity_Spawn>(spawnEntity)(this->entityID);
-    else
-        NOT_SUPPORTED("scripting_Entity_Spawn");
+    REGISTER_METHOD_VOID(scripting_Entity_Spawn, this->entityID);
 }
 
 void Entity::Destroy()
@@ -51,11 +47,7 @@ void Entity::Destroy()
         return;
     }
 
-    void *destroyEntity = FetchFunctionPtr(nullptr, "scripting_Entity_Destroy");
-    if (destroyEntity)
-        reinterpret_cast<Entity_Destroy>(destroyEntity)(this->entityID);
-    else
-        NOT_SUPPORTED("scripting_Entity_Destroy");
+    REGISTER_METHOD_VOID(scripting_Entity_Destroy, this->entityID);
 }
 
 void Entity::SetModel(const char *model)
@@ -68,11 +60,7 @@ void Entity::SetModel(const char *model)
     if (model == nullptr)
         return;
 
-    void *setModelEntity = FetchFunctionPtr(nullptr, "scripting_Entity_SetModel");
-    if (setModelEntity)
-        reinterpret_cast<Entity_SetModel>(setModelEntity)(this->entityID, model);
-    else
-        NOT_SUPPORTED("scripting_Entity_SetModel");
+    REGISTER_METHOD_VOID(scripting_Entity_SetModel, this->entityID, model);
 }
 
 void Entity::AcceptInput(const char *input, const char *activator, const char *caller, double *value)
@@ -85,11 +73,7 @@ void Entity::AcceptInput(const char *input, const char *activator, const char *c
     if (input == nullptr)
         return;
 
-    void *acceptInputEntity = FetchFunctionPtr(nullptr, "scripting_Entity_AcceptInput");
-    if (acceptInputEntity)
-        reinterpret_cast<Entity_AcceptInput>(acceptInputEntity)(this->entityID, input, activator, caller, value);
-    else
-        NOT_SUPPORTED("scripting_Entity_AcceptInput");
+    REGISTER_METHOD_VOID(scripting_Entity_AcceptInput, this->entityID, input, activator, caller, value);
 }
 
 void Entity::SetCollisionGroup(CollisionGroup collisionGroup)
@@ -100,9 +84,5 @@ void Entity::SetCollisionGroup(CollisionGroup collisionGroup)
         return;
     }
 
-    void *collisionGroupEntity = FetchFunctionPtr(nullptr, "scripting_Entity_SetCollisionGroup");
-    if (collisionGroupEntity)
-        reinterpret_cast<Entity_CollisionGroup>(collisionGroupEntity)(this->entityID, collisionGroup);
-    else
-        NOT_SUPPORTED("scripting_Entity_SetCollisionGroup");
+    REGISTER_METHOD_VOID(scripting_Entity_SetCollisionGroup, this->entityID, collisionGroup);
 }

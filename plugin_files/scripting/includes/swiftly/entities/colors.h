@@ -47,11 +47,7 @@ public:
 
     void Set(Color *color)
     {
-        void *entity_SetColors = FetchFunctionPtr(nullptr, "scripting_Entity_SetColors");
-        if (entity_SetColors)
-            reinterpret_cast<Entity_SetColors>(entity_SetColors)(this->entityId, color->r, color->g, color->b, color->a);
-        else
-            NOT_SUPPORTED("scripting_Entity_SetColors");
+        REGISTER_METHOD_VOID(scripting_Entity_SetColors, this->entityId, color->r, color->g, color->b, color->a);
     }
 };
 

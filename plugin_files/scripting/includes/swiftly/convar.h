@@ -108,11 +108,7 @@ private:
     template <typename T>
     void InternalSetConvar(const char *name, T value)
     {
-        void *setCvarfunc = FetchFunctionPtr(nullptr, "scripting_Server_SetConvar");
-        if (setCvarfunc == nullptr)
-            return;
-
-        reinterpret_cast<ServerSetConvar>(setCvarfunc)(name, value);
+        REGISTER_METHOD_VOID(scripting_Server_SetConvar, name, value);
     }
 
 public:

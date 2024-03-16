@@ -18,11 +18,7 @@ HTTPRequest *HTTPRequest::SetBody(const char *body)
         return this;
     }
 
-    void *http_SetBody = FetchFunctionPtr(nullptr, "scripting_HTTP_SetBody");
-    if (http_SetBody)
-        reinterpret_cast<HTTP_SetBody>(http_SetBody)(this->requestID, body);
-    else
-        NOT_SUPPORTED("scripting_HTTP_SetBody");
+    REGISTER_METHOD_VOID(scripting_HTTP_SetBody, this->requestID, body);
 
     return this;
 }
@@ -35,11 +31,7 @@ HTTPRequest *HTTPRequest::AddHeader(const char *key, const char *value)
         return this;
     }
 
-    void *http_AddHeader = FetchFunctionPtr(nullptr, "scripting_HTTP_AddHeader");
-    if (http_AddHeader)
-        reinterpret_cast<HTTP_AddHeader>(http_AddHeader)(this->requestID, key, value);
-    else
-        NOT_SUPPORTED("scripting_HTTP_AddHeader");
+    REGISTER_METHOD_VOID(scripting_HTTP_AddHeader, this->requestID, key, value);
 
     return this;
 }
@@ -52,11 +44,7 @@ HTTPRequest *HTTPRequest::DeleteHeader(const char *key)
         return this;
     }
 
-    void *http_DeleteHeader = FetchFunctionPtr(nullptr, "scripting_HTTP_DeleteHeader");
-    if (http_DeleteHeader)
-        reinterpret_cast<HTTP_DeleteHeader>(http_DeleteHeader)(this->requestID, key);
-    else
-        NOT_SUPPORTED("scripting_HTTP_DeleteHeader");
+    REGISTER_METHOD_VOID(scripting_HTTP_DeleteHeader, this->requestID, key);
 
     return this;
 }
@@ -69,11 +57,7 @@ HTTPRequest *HTTPRequest::AddMultipartFile(const char *field, const char *conten
         return this;
     }
 
-    void *http_AddMultipartFile = FetchFunctionPtr(nullptr, "scripting_HTTP_AddMultipartFile");
-    if (http_AddMultipartFile)
-        reinterpret_cast<HTTP_AddMultipartFile>(http_AddMultipartFile)(this->requestID, field, content, filename, file_content_type);
-    else
-        NOT_SUPPORTED("scripting_HTTP_AddMultipartFile");
+    REGISTER_METHOD_VOID(scripting_HTTP_AddMultipartFile, this->requestID, field, content, filename, file_content_type);
 
     return this;
 }
@@ -86,11 +70,7 @@ HTTPRequest *HTTPRequest::SetContentType(ContentType content_type)
         return this;
     }
 
-    void *http_SetContentType = FetchFunctionPtr(nullptr, "scripting_HTTP_SetContentType");
-    if (http_SetContentType)
-        reinterpret_cast<HTTP_SetContentType>(http_SetContentType)(this->requestID, content_type);
-    else
-        NOT_SUPPORTED("scripting_HTTP_SetContentType");
+    REGISTER_METHOD_VOID(scripting_HTTP_SetContentType, this->requestID, content_type);
 
     return this;
 }
@@ -103,11 +83,7 @@ HTTPRequest *HTTPRequest::SetBasicAuthentication(const char *username, const cha
         return this;
     }
 
-    void *http_SetBasicAuthentication = FetchFunctionPtr(nullptr, "scripting_HTTP_SetBasicAuthentication");
-    if (http_SetBasicAuthentication)
-        reinterpret_cast<HTTP_SetBasicAuthentication>(http_SetBasicAuthentication)(this->requestID, username, password);
-    else
-        NOT_SUPPORTED("scripting_HTTP_SetBasicAuthentication");
+    REGISTER_METHOD_VOID(scripting_HTTP_SetBasicAuthentication, this->requestID, username, password);
 
     return this;
 }
@@ -120,11 +96,7 @@ HTTPRequest *HTTPRequest::SetBearerAuthenticationToken(const char *token)
         return this;
     }
 
-    void *http_SetBearerAuthenticationToken = FetchFunctionPtr(nullptr, "scripting_HTTP_SetBearerAuthenticationToken");
-    if (http_SetBearerAuthenticationToken)
-        reinterpret_cast<HTTP_SetBearerAuthenticationToken>(http_SetBearerAuthenticationToken)(this->requestID, token);
-    else
-        NOT_SUPPORTED("scripting_HTTP_SetBearerAuthenticationToken");
+    REGISTER_METHOD_VOID(scripting_HTTP_SetBearerAuthenticationToken, this->requestID, token);
 
     return this;
 }
@@ -137,11 +109,7 @@ HTTPRequest *HTTPRequest::SetFollowRedirect(bool follow)
         return this;
     }
 
-    void *http_SetFollowRedirect = FetchFunctionPtr(nullptr, "scripting_HTTP_SetFollowRedirect");
-    if (http_SetFollowRedirect)
-        reinterpret_cast<HTTP_SetFollowRedirect>(http_SetFollowRedirect)(this->requestID, follow);
-    else
-        NOT_SUPPORTED("scripting_HTTP_SetFollowRedirect");
+    REGISTER_METHOD_VOID(scripting_HTTP_SetFollowRedirect, this->requestID, follow);
 
     return this;
 }
@@ -154,14 +122,7 @@ const char *HTTPRequest::GetBody()
         return "";
     }
 
-    void *http_GetBody = FetchFunctionPtr(nullptr, "scripting_HTTP_GetBody");
-    if (http_GetBody)
-        return reinterpret_cast<HTTP_GetBody>(http_GetBody)(this->requestID);
-    else
-    {
-        NOT_SUPPORTED("scripting_HTTP_GetBody");
-        return "";
-    }
+    REGISTER_METHOD(const char *, "", scripting_HTTP_GetBody, this->requestID);
 }
 
 int HTTPRequest::GetStatusCode()
@@ -172,14 +133,7 @@ int HTTPRequest::GetStatusCode()
         return 0;
     }
 
-    void *http_GetStatusCode = FetchFunctionPtr(nullptr, "scripting_HTTP_GetStatusCode");
-    if (http_GetStatusCode)
-        return reinterpret_cast<HTTP_GetStatusCode>(http_GetStatusCode)(this->requestID);
-    else
-    {
-        NOT_SUPPORTED("scripting_HTTP_GetStatusCode");
-        return 0;
-    }
+    REGISTER_METHOD(int, 0, scripting_HTTP_GetStatusCode, this->requestID);
 }
 
 const char *HTTPRequest::GetError()
@@ -190,14 +144,7 @@ const char *HTTPRequest::GetError()
         return "";
     }
 
-    void *http_GetError = FetchFunctionPtr(nullptr, "scripting_HTTP_GetError");
-    if (http_GetError)
-        return reinterpret_cast<HTTP_GetError>(http_GetError)(this->requestID);
-    else
-    {
-        NOT_SUPPORTED("scripting_HTTP_GetError");
-        return "";
-    }
+    REGISTER_METHOD(const char *, "", scripting_HTTP_GetError, this->requestID);
 }
 
 HTTPRequest *HTTPRequest::Get(const char *path)
@@ -305,9 +252,5 @@ void HTTPRequest::Close()
     if (this->requestID == 0)
         return print("[Swiftly] You can't use %s because the request couldn't be created.\n", __FUNCTION__);
 
-    void *http_Close = FetchFunctionPtr(nullptr, "scripting_HTTP_Close");
-    if (http_Close)
-        reinterpret_cast<HTTP_Close>(http_Close)(this->requestID);
-    else
-        NOT_SUPPORTED("scripting_HTTP_Close");
+    REGISTER_METHOD_VOID(scripting_HTTP_Close, this->requestID);
 }

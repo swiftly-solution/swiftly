@@ -16,23 +16,15 @@ public:
 
     const char *Get()
     {
-        void *player_GetClanTag = FetchFunctionPtr(nullptr, "scripting_Player_GetClanTag");
-        if (player_GetClanTag)
-            return reinterpret_cast<Player_GetClanTag>(player_GetClanTag)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetClanTag");
-            return "";
-        }
+        REGISTER_METHOD(const char *, "", scripting_Player_GetClanTag, this->m_playerSlot);
     }
 
     void Set(const char *text)
     {
-        void *player_SetClanTag = FetchFunctionPtr(nullptr, "scripting_Player_SetClanTag");
-        if (player_SetClanTag)
-            reinterpret_cast<Player_SetClanTag>(player_SetClanTag)(this->m_playerSlot, text);
-        else
-            NOT_SUPPORTED("scripting_Player_SetClanTag");
+        if (!text)
+            return;
+
+        REGISTER_METHOD_VOID(scripting_Player_SetClanTag, this->m_playerSlot, text);
     }
 };
 

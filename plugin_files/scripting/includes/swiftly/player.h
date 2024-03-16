@@ -85,14 +85,7 @@ public:
 
     const char *GetName()
     {
-        void *player_GetName = FetchFunctionPtr(nullptr, "scripting_Player_GetName");
-        if (player_GetName)
-            return reinterpret_cast<Player_GetName>(player_GetName)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetName");
-            return "";
-        }
+        REGISTER_METHOD(const char *, "", scripting_Player_GetName, this->m_playerSlot);
     }
 
     uint64_t GetSteamID()
@@ -100,14 +93,7 @@ public:
         if (this->IsFakeClient())
             return 0;
 
-        void *player_GetSteamID = FetchFunctionPtr(nullptr, "scripting_Player_GetSteamID");
-        if (player_GetSteamID)
-            return reinterpret_cast<Player_GetSteamID>(player_GetSteamID)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetSteamID");
-            return 0;
-        }
+        REGISTER_METHOD(uint64_t, 0, scripting_Player_GetSteamID, this->m_playerSlot);
     }
 
     const char *GetSteamID2()
@@ -115,26 +101,12 @@ public:
         if (this->IsFakeClient())
             return "STEAM_0:0:000000000";
 
-        void *player_GetSteamID2 = FetchFunctionPtr(nullptr, "scripting_Player_GetSteamID2");
-        if (player_GetSteamID2)
-            return reinterpret_cast<Player_GetName>(player_GetSteamID2)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetSteamID2");
-            return "STEAM_0:0:000000000";
-        }
+        REGISTER_METHOD(const char *, "STEAM_0:0:000000000", scripting_Player_GetSteamID2, this->m_playerSlot);
     }
 
     bool IsFirstSpawn()
     {
-        void *player_IsFirstSpawn = FetchFunctionPtr(nullptr, "scripting_Player_IsFirstSpawn");
-        if (player_IsFirstSpawn)
-            return reinterpret_cast<Player_IsFirstSpawn>(player_IsFirstSpawn)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_IsFirstSpawn");
-            return false;
-        }
+        REGISTER_METHOD(bool, false, scripting_Player_IsFirstSpawn, this->m_playerSlot);
     }
     bool IsFakeClient() { return this->m_fakeClient; }
 
@@ -143,32 +115,17 @@ public:
         if (this->IsFakeClient())
             return;
 
-        void *player_Drop = FetchFunctionPtr(nullptr, "scripting_Player_Drop");
-        if (player_Drop)
-            reinterpret_cast<Player_Drop>(player_Drop)(this->m_playerSlot, reason);
-        else
-            NOT_SUPPORTED("scripting_Player_Drop");
+        REGISTER_METHOD_VOID(scripting_Player_Drop, this->m_playerSlot, reason);
     }
 
     void Kill()
     {
-        void *player_Kill = FetchFunctionPtr(nullptr, "scripting_Player_Kill");
-        if (player_Kill)
-            reinterpret_cast<Player_Kill>(player_Kill)(this->m_playerSlot);
-        else
-            NOT_SUPPORTED("scripting_Player_Kill");
+        REGISTER_METHOD_VOID(scripting_Player_Kill, this->m_playerSlot);
     }
 
     bool IsAuthenticated()
     {
-        void *player_IsAuthenticated = FetchFunctionPtr(nullptr, "scripting_Player_IsAuthenticated");
-        if (player_IsAuthenticated)
-            return reinterpret_cast<Player_IsAuthenticated>(player_IsAuthenticated)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_IsAuthenticated");
-            return false;
-        }
+        REGISTER_METHOD(bool, false, scripting_Player_IsAuthenticated, this->m_playerSlot);
     }
 
     const char *GetConvarValue(const char *name)
@@ -176,14 +133,7 @@ public:
         if (name == nullptr)
             return "";
 
-        void *player_GetConvar = FetchFunctionPtr(nullptr, "scripting_Player_GetConvar");
-        if (player_GetConvar)
-            return reinterpret_cast<Player_GetConvar>(player_GetConvar)(this->m_playerSlot, name);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetConvar");
-            return "";
-        }
+        REGISTER_METHOD(const char *, "", scripting_Player_GetConvar, this->m_playerSlot, name);
     }
 
     void SetConvar(const char *name, const char *value)
@@ -191,11 +141,7 @@ public:
         if (name == nullptr || value == nullptr)
             return;
 
-        void *player_SetConvar = FetchFunctionPtr(nullptr, "scripting_Player_SetConvar");
-        if (player_SetConvar)
-            reinterpret_cast<Player_SetConvar>(player_SetConvar)(this->m_playerSlot, name, value);
-        else
-            NOT_SUPPORTED("scripting_Player_SetConvar");
+        REGISTER_METHOD_VOID(scripting_Player_SetConvar, this->m_playerSlot, name, value);
     }
 
     void SendMsg(HudDestination dest, const char *message, ...)
@@ -207,23 +153,12 @@ public:
         UTIL_FormatArgs(buffer, sizeof(buffer), message, ap);
         va_end(ap);
 
-        void *player_SendMessage = FetchFunctionPtr(nullptr, "scripting_Player_SendMessage");
-        if (player_SendMessage)
-            reinterpret_cast<Player_SendMessage>(player_SendMessage)(this->m_playerSlot, dest, buffer);
-        else
-            NOT_SUPPORTED("scripting_Player_SendMessage");
+        REGISTER_METHOD_VOID(scripting_Player_SendMessage, this->m_playerSlot, dest, buffer);
     }
 
     uint32_t GetConnectedTime()
     {
-        void *player_GetConnectedTime = FetchFunctionPtr(nullptr, "scripting_Player_GetConnectedTime");
-        if (player_GetConnectedTime)
-            return reinterpret_cast<Player_GetConnectedTime>(player_GetConnectedTime)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetConnectedTime");
-            return 0;
-        }
+        REGISTER_METHOD(uint32_t, 0, scripting_Player_GetConnectedTime, this->m_playerSlot);
     }
 
     void ExecuteCommand(const char *cmd, ...)
@@ -235,170 +170,92 @@ public:
         UTIL_FormatArgs(buffer, sizeof(buffer), cmd, ap);
         va_end(ap);
 
-        void *player_ExecuteCommand = FetchFunctionPtr(nullptr, "scripting_Player_ExecuteCommand");
-        if (player_ExecuteCommand)
-            reinterpret_cast<Player_ExecuteCommand>(player_ExecuteCommand)(this->m_playerSlot, buffer);
-        else
-            NOT_SUPPORTED("scripting_Player_ExecuteCommand");
+        REGISTER_METHOD_VOID(scripting_Player_ExecuteCommand, this->m_playerSlot, buffer);
     }
 
     void SetModel(const char *model)
     {
-        void *player_SetModel = FetchFunctionPtr(nullptr, "scripting_Player_SetModel");
-        if (player_SetModel)
-            reinterpret_cast<Player_SetModel>(player_SetModel)(this->m_playerSlot, model);
-        else
-            NOT_SUPPORTED("scripting_Player_SetModel");
+        REGISTER_METHOD_VOID(scripting_Player_SetModel, this->m_playerSlot, model);
     }
 
     void SetMusicKit(int id)
     {
-        void *player_SetMusicKit = FetchFunctionPtr(nullptr, "scripting_Player_SetMusicKit");
-        if (player_SetMusicKit)
-            reinterpret_cast<Player_SetMusicKit>(player_SetMusicKit)(this->m_playerSlot, id);
-        else
-            NOT_SUPPORTED("scripting_Player_SetMusicKit");
+        REGISTER_METHOD_VOID(scripting_Player_SetMusicKit, this->m_playerSlot, id);
     }
 
     void ShowMenu(const char *menuid)
     {
-        void *player_ShowMenu = FetchFunctionPtr(nullptr, "scripting_Player_ShowMenu");
-        if (player_ShowMenu)
-            reinterpret_cast<Player_ShowMenu>(player_ShowMenu)(this->m_playerSlot, menuid);
-        else
-            NOT_SUPPORTED("scripting_Player_ShowMenu");
+        REGISTER_METHOD_VOID(scripting_Player_ShowMenu, this->m_playerSlot, menuid);
     }
 
     void HideMenu()
     {
-        void *player_HideMenu = FetchFunctionPtr(nullptr, "scripting_Player_HideMenu");
-        if (player_HideMenu)
-            reinterpret_cast<Player_HideMenu>(player_HideMenu)(this->m_playerSlot);
-        else
-            NOT_SUPPORTED("scripting_Player_HideMenu");
+        REGISTER_METHOD_VOID(scripting_Player_HideMenu, this->m_playerSlot);
     }
 
     void SetFlashDuration(float duration)
     {
-        void *player_SetFlashDuration = FetchFunctionPtr(nullptr, "scripting_Player_SetFlashDuration");
-        if (player_SetFlashDuration)
-            reinterpret_cast<Player_SetFlashDuration>(player_SetFlashDuration)(this->m_playerSlot, duration);
-        else
-            NOT_SUPPORTED("scripting_Player_SetFlashDuration");
+        REGISTER_METHOD_VOID(scripting_Player_SetFlashDuration, this->m_playerSlot, duration);
     }
 
     void SetGloves(uint16_t defindex, int paintkit, int seed, float wear)
     {
-        void *player_SetGloves = FetchFunctionPtr(nullptr, "scripting_Player_SetGloves");
-        if (player_SetGloves)
-            reinterpret_cast<Player_SetGloves>(player_SetGloves)(this->m_playerSlot, defindex, paintkit, seed, wear);
-        else
-            NOT_SUPPORTED("scripting_Player_SetGloves");
+        REGISTER_METHOD_VOID(scripting_Player_SetGloves, this->m_playerSlot, defindex, paintkit, seed, wear);
     }
 
     int GetLatency()
     {
-        void *player_GetLatency = FetchFunctionPtr(nullptr, "scripting_Player_GetLatency");
-        if (player_GetLatency)
-            return reinterpret_cast<Player_GetLatency>(player_GetLatency)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetLatency");
-            return 0;
-        }
+        REGISTER_METHOD(int, 0, scripting_Player_GetLatency, this->m_playerSlot);
     }
 
     void Respawn()
     {
-        void *player_Respawn = FetchFunctionPtr(nullptr, "scripting_Player_Respawn");
-        if (player_Respawn)
-            reinterpret_cast<Player_Kill>(player_Respawn)(this->m_playerSlot);
-        else
-            NOT_SUPPORTED("scripting_Player_Respawn");
+        REGISTER_METHOD_VOID(scripting_Player_Respawn, this->m_playerSlot);
     }
 
     void SetHealthShotBoostEffectExpirationTime(float expiretime)
     {
-        void *player_SetHealthShotBoostEffectExpirationTime = FetchFunctionPtr(nullptr, "scripting_Player_SetHealthShotBoostEffectExpirationTime");
-        if (player_SetHealthShotBoostEffectExpirationTime)
-            reinterpret_cast<Player_SetGravity>(player_SetHealthShotBoostEffectExpirationTime)(this->m_playerSlot, expiretime);
-        else
-            NOT_SUPPORTED("scripting_Player_SetHealthShotBoostEffectExpirationTime");
+        REGISTER_METHOD_VOID(scripting_Player_SetHealthShotBoostEffectExpirationTime, this->m_playerSlot, expiretime);
     }
 
     const char *GetChatTag()
     {
-        void *player_GetChatTag = FetchFunctionPtr(nullptr, "scripting_Player_GetChatTag");
-        if (player_GetChatTag)
-            return reinterpret_cast<Player_GetChatTag>(player_GetChatTag)(this->m_playerSlot);
-        else
-        {
-            NOT_SUPPORTED("scripting_Player_GetChatTag");
-            return "";
-        }
+        REGISTER_METHOD(const char *, "", scripting_Player_GetChatTag, this->m_playerSlot);
     }
 
     void SetChatTag(const char *tag)
     {
-        void *player_SetChatTag = FetchFunctionPtr(nullptr, "scripting_Player_SetChatTag");
-        if (player_SetChatTag)
-            reinterpret_cast<Player_SetColorGeneral>(player_SetChatTag)(this->m_playerSlot, tag);
-        else
-            NOT_SUPPORTED("scripting_Player_SetChatTag");
+        REGISTER_METHOD_VOID(scripting_Player_SetChatTag, this->m_playerSlot, tag);
     }
 
     void SetChatTagColor(const char *color)
     {
-        void *player_SetChatTagColor = FetchFunctionPtr(nullptr, "scripting_Player_SetChatTagColor");
-        if (player_SetChatTagColor)
-            reinterpret_cast<Player_SetColorGeneral>(player_SetChatTagColor)(this->m_playerSlot, color);
-        else
-            NOT_SUPPORTED("scripting_Player_SetChatTagColor");
+        REGISTER_METHOD_VOID(scripting_Player_SetChatTagColor, this->m_playerSlot, color);
     }
 
     void SetNameColor(const char *color)
     {
-        void *player_SetNameColor = FetchFunctionPtr(nullptr, "scripting_Player_SetNameColor");
-        if (player_SetNameColor)
-            reinterpret_cast<Player_SetColorGeneral>(player_SetNameColor)(this->m_playerSlot, color);
-        else
-            NOT_SUPPORTED("scripting_Player_SetNameColor");
+        REGISTER_METHOD_VOID(scripting_Player_SetNameColor, this->m_playerSlot, color);
     }
 
     void SetChatColor(const char *color)
     {
-        void *player_SetChatColor = FetchFunctionPtr(nullptr, "scripting_Player_SetChatColor");
-        if (player_SetChatColor)
-            reinterpret_cast<Player_SetColorGeneral>(player_SetChatColor)(this->m_playerSlot, color);
-        else
-            NOT_SUPPORTED("scripting_Player_SetChatColor");
+        REGISTER_METHOD_VOID(scripting_Player_SetChatColor, this->m_playerSlot, color);
     }
 
     void SetName(const char *name)
     {
-        void *player_SetName = FetchFunctionPtr(nullptr, "scripting_Player_SetName");
-        if (player_SetName)
-            reinterpret_cast<Player_SetColorGeneral>(player_SetName)(this->m_playerSlot, name);
-        else
-            NOT_SUPPORTED("scripting_Player_SetName");
+        REGISTER_METHOD_VOID(scripting_Player_SetName, this->m_playerSlot, name);
     }
 
     void SetCompetitiveRanking(int ranking)
     {
-        void *player_SetCompetitiveRanking = FetchFunctionPtr(nullptr, "scripting_Player_SetCompetitiveRanking");
-        if (player_SetCompetitiveRanking)
-            reinterpret_cast<Player_SetMusicKit>(player_SetCompetitiveRanking)(this->m_playerSlot, ranking);
-        else
-            NOT_SUPPORTED("scripting_Player_SetCompetitiveRanking");
+        REGISTER_METHOD_VOID(scripting_Player_SetCompetitiveRanking, this->m_playerSlot, ranking);
     }
 
     void SetCompetitiveRankType(int type)
     {
-        void *player_SetCompetitiveRankType = FetchFunctionPtr(nullptr, "scripting_Player_SetCompetitiveRankType");
-        if (player_SetCompetitiveRankType)
-            reinterpret_cast<Player_SetMusicKit>(player_SetCompetitiveRankType)(this->m_playerSlot, type);
-        else
-            NOT_SUPPORTED("scripting_Player_SetCompetitiveRankType");
+        REGISTER_METHOD_VOID(scripting_Player_SetCompetitiveRankType, this->m_playerSlot, type);
     }
 };
 
