@@ -1,11 +1,14 @@
 #include "../../../../common.h"
 #include "../../../../configuration/Configuration.h"
+#include "../../../../resourcemonitor/ResourceMonitor.h"
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
 
 std::string SerializeData(std::any data)
 {
+    auto start = std::chrono::high_resolution_clock::now();
+
     rapidjson::Document document(rapidjson::kObjectType);
 
     const std::any &value = data;
@@ -89,6 +92,10 @@ std::string SerializeData(std::any data)
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     document.Accept(writer);
+
+    auto elapsed = std::chrono::high_resolution_clock::now() - start;
+    if (g_ResourceMonitor->IsEnabled())
+        g_ResourceMonitor->RecordTime("swiftly-core", "SerializeData", std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count() / 1000);
 
     return std::string(buffer.GetString());
 }

@@ -10,4 +10,4 @@ if [ -z "${GITHUB_SHA}" ]; then
 fi
 
 export XMAKE_ROOT=y
-xmake -j $(nproc)
+xmake -j $(nproc) -y

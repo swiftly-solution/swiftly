@@ -18,7 +18,7 @@ void Plugin::StartPlugin()
         return;
     }
 
-    this->ExecuteFunction<OnProgramLoadFunction>("OnProgramLoad", this->GetName().c_str(), std::string(PATH).append(WIN_LINUX("/bin/win64/swiftly.dll", "/bin/linuxsteamrt64/swiftly.so")).c_str());
+    this->ExecuteFunction<OnProgramLoadFunction>("OnProgramLoad", this->GetName().c_str(), std::string("addons/swiftly").append(WIN_LINUX("/bin/win64/swiftly.dll", "/bin/linuxsteamrt64/swiftly.so")).c_str());
 
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {

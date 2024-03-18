@@ -1,5 +1,6 @@
 #include "Command.h"
 #include "../common.h"
+#include "../resourcemonitor/ResourceMonitor.h"
 #include "../components/Plugins/inc/Plugin.h"
 
 #include "CommandsManager.h"
@@ -17,6 +18,8 @@ void Command::Exec(int slot, std::vector<std::string> args, bool silent)
 {
     if (this->m_funcPtr == nullptr)
         return;
+
+    auto start = std::chrono::high_resolution_clock::now();
 
     const char *toSendArgs[512] = {};
     for (uint32_t i = 0; i < args.size(); i++)
@@ -41,4 +44,8 @@ void Command::Exec(int slot, std::vector<std::string> args, bool silent)
     }
     else
         reinterpret_cast<Command_Main>(this->m_funcPtr)(slot, reinterpret_cast<const char **>(toSendArgs), args.size(), silent);
+
+    auto elapsed = std::chrono::high_resolution_clock::now() - start;
+    if (g_ResourceMonitor->IsEnabled())
+        g_ResourceMonitor->RecordTime(this->m_pluginName, string_format("Command: %s", this->name.c_str()), std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count() / 1000);
 }

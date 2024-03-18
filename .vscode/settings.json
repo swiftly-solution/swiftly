@@ -103,7 +103,9 @@
         "typeindex": "cpp",
         "valarray": "cpp",
         "*.ipp": "cpp",
-        "strstream": "cpp"
+        "strstream": "cpp",
+        "coroutine": "cpp",
+        "source_location": "cpp"
     },
     "C_Cpp.default.compilerPath": "C:\\msys64\\mingw64\\bin\\g++.exe",
     "C_Cpp.formatting": "clangFormat"

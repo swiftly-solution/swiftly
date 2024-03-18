@@ -12,6 +12,10 @@
 #include "../../../addons/addons.h"
 #include "../../Plugins/inc/plugins/CPPPlugin.h"
 #include "../../Plugins/inc/plugins/LuaPlugin.h"
+#include "../../../resourcemonitor/ResourceMonitor.h"
+
+#include <TextTable.h>
+#include <sstream>
 
 #ifndef GITHUB_SHA
 #define GITHUB_SHA "LOCAL"
@@ -109,6 +113,7 @@ void ShowSwiftlyCommandHelp(CPlayerSlot *slot, CCommandContext context)
         PrintToClientOrConsole(slot, "Commands", " confilter    - Console Filtering Menu\n");
         PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " translations - Translations Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " resmon       - Resource Monitor Menu\n");
     }
     PrintToClientOrConsole(slot, "Commands", " version      - Display Swiftly version\n");
 }
@@ -376,6 +381,16 @@ void SwiftlyPluginManager(CPlayerSlot *slot, CCommandContext context, const char
         ShowSwiftlyPluginManagerHelp(slot, context);
 }
 
+void SwiftlyResourceMonitorManagerHelp(CPlayerSlot *slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Resource Monitor Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly resmon <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " enable          - Enabled the usage monitoring.\n");
+    PrintToClientOrConsole(slot, "Commands", " disable         - Disables the usage monitoring.\n");
+    PrintToClientOrConsole(slot, "Commands", " view            - Shows the usage monitored.\n");
+    PrintToClientOrConsole(slot, "Commands", " viewplugin <ID> - Shows the usage monitored for a specific plugin.\n");
+}
+
 void SwiftlyTranslationManagerHelp(CPlayerSlot *slot, CCommandContext context)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Console Filtering Menu\n");
@@ -456,6 +471,225 @@ void SwiftlyConFilterDisable(CPlayerSlot *slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Console Filtering", "Console filtering has been disabled.\n");
 }
 
+void SwiftlyResourceMonitorManagerEnable(CPlayerSlot *slot, CCommandContext context)
+{
+    if (g_ResourceMonitor->IsEnabled())
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is already enabled.\n");
+
+    g_ResourceMonitor->Enable();
+    PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring has been enabled.\n");
+}
+
+void SwiftlyResourceMonitorManagerDisable(CPlayerSlot *slot, CCommandContext context)
+{
+    if (!g_ResourceMonitor->IsEnabled())
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is already disabled.\n");
+
+    g_ResourceMonitor->Disable();
+    PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring has been disabled.\n");
+}
+
+void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot *slot, CCommandContext context, std::string plugin_id)
+{
+    if (!g_ResourceMonitor->IsEnabled())
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is not enabled.\n");
+
+    if (!ExistsPluginInMap(plugin_id) && plugin_id != "swiftly-core")
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Invalid plugin ID.\n");
+
+    auto PrintTable = [](TextTable tbl) -> void
+    {
+        std::stringstream outputTable;
+        outputTable << tbl;
+        std::vector<std::string> rows = explode(outputTable.str(), "\n");
+        for (int i = 0; i < rows.size(); i++)
+            PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
+    };
+
+    Plugin *plugin = FetchPluginFromMap(plugin_id);
+
+    PrintToClientOrConsole(slot, "Resource Monitor", "Resource Monitor View Plugin\n");
+    PrintToClientOrConsole(slot, "Resource Monitor", "ID: %s\n", plugin_id.c_str());
+    PrintToClientOrConsole(slot, "Resource Monitor", " \n", plugin_id.c_str());
+
+    PrintToClientOrConsole(slot, "Resource Monitor", "Plugin Usage View\n");
+
+    TextTable usagesTable('-', '|', '+');
+
+    usagesTable.add(" ID ");
+    usagesTable.add(" Name ");
+    usagesTable.add(" min/avg/max ");
+    usagesTable.endOfRow();
+
+    std::map<std::string, std::map<std::string, std::set<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
+    if (data.count(plugin_id) > 0)
+    {
+        std::map<std::string, std::set<float>> pluginData = data.at(plugin_id);
+        uint64_t idx = 0;
+        for (std::map<std::string, std::set<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+        {
+            ++idx;
+            usagesTable.add(string_format(" %02d. ", idx));
+            usagesTable.add(string_format(" %s ", it->first.c_str()));
+
+            if (it->second.size() == 0)
+                usagesTable.add(" 0.000ms / 0.000ms / 0.000ms ");
+            else
+            {
+                float min = *(it->second.begin());
+                auto it2 = it->second.end();
+                --it2;
+                float max = *(it2);
+
+                float avg = 0;
+                uint64_t avgCount = 0;
+                for (std::set<float>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii)
+                {
+                    avg += *(ii);
+                    ++avgCount;
+                }
+
+                usagesTable.add(string_format(" %.3fms / %.3fms / %.3fms ", min, (avg / avgCount), max));
+            }
+            usagesTable.endOfRow();
+        }
+    }
+
+    PrintTable(usagesTable);
+}
+
+void SwiftlyResourceMonitorManagerView(CPlayerSlot *slot, CCommandContext context)
+{
+    if (!g_ResourceMonitor->IsEnabled())
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is not enabled.\n");
+
+    TextTable pluginsTable('-', '|', '+');
+
+    pluginsTable.add(" ID ");
+    pluginsTable.add(" Name ");
+    pluginsTable.add(" Status ");
+    pluginsTable.add(" Type ");
+    pluginsTable.add(" Memory ");
+    pluginsTable.add(" min/avg/max ");
+    pluginsTable.endOfRow();
+
+    auto PrintTable = [](TextTable tbl) -> void
+    {
+        std::stringstream outputTable;
+        outputTable << tbl;
+        std::vector<std::string> rows = explode(outputTable.str(), "\n");
+        for (int i = 0; i < rows.size(); i++)
+            PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
+    };
+
+    PRINTF("Resource Monitor", "Plugin Resource Viewer\n");
+
+    std::map<std::string, std::map<std::string, std::set<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
+
+    pluginsTable.add(" swiftly-core ");
+    pluginsTable.add(" [Swiftly] Core ");
+    pluginsTable.add(" Loaded ");
+    pluginsTable.add(" - ");
+    pluginsTable.add(" - ");
+
+    if (data.find("swiftly-core") != data.end())
+    {
+        float min = 0;
+        uint64_t minCount = 0;
+        float max = 0;
+        uint64_t maxCount = 0;
+        float avg = 0;
+        uint64_t avgCount = 0;
+
+        std::map<std::string, std::set<float>> pluginData = data.at("swiftly-core");
+        for (std::map<std::string, std::set<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+        {
+            if (it->second.size() == 0)
+                continue;
+            min += *(it->second.begin());
+            ++minCount;
+
+            auto maxend = it->second.end();
+            --maxend;
+            max += *(maxend);
+            ++maxCount;
+
+            for (std::set<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+            {
+                avg += *(it2);
+                ++avgCount;
+            }
+        }
+
+        pluginsTable.add(string_format(" %.3fms / %.3fms / %.3fms ", (min / minCount), (avg / avgCount), (max / maxCount)));
+    }
+    else
+        pluginsTable.add(" 0.000ms / 0.000ms / 0.000ms ");
+
+    pluginsTable.endOfRow();
+
+    for (Plugin *plugin : plugins)
+    {
+        std::string plugin_id = plugin->GetName();
+
+        pluginsTable.add(" " + plugin_id + " ");
+        std::string plugin_name = (plugin->IsPluginLoaded() ? plugin->ExecuteFunctionWithReturn<const char *, GetPlugin>("GetPluginName") : "-");
+        pluginsTable.add(string_format(" %s ", (plugin_name.size() > 24 ? (plugin_name.substr(0, 21) + "...") : plugin_name).c_str()));
+        pluginsTable.add(std::string(" ") + (plugin->IsPluginLoaded() ? "Loaded" : "Unloaded") + " ");
+        pluginsTable.add(std::string(" ") + (plugin->GetPluginType() == PluginType_t::PLUGIN_LUA ? "Lua" : "C++") + " ");
+        if (plugin->GetPluginType() == PluginType_t::PLUGIN_LUA && plugin->IsPluginLoaded())
+        {
+            LuaPlugin *plg = (LuaPlugin *)plugin;
+            LuaFuncWrapper wrapper(plg->GetLuaState()->Get("collectgarbage"));
+            wrapper.PrepForExec();
+            luacpp::PushValues(wrapper.GetML(), "count");
+            pluginsTable.add(string_format(" %.3f MB ", (wrapper.ExecuteWithReturn<double>("collectgarbage", 1) / 1024)));
+        }
+        else
+            pluginsTable.add(" - ");
+
+        if (plugin->IsPluginLoaded() && data.find(plugin->GetName()) != data.end())
+        {
+
+            float min = 0;
+            uint64_t minCount = 0;
+            float max = 0;
+            uint64_t maxCount = 0;
+            float avg = 0;
+            uint64_t avgCount = 0;
+
+            std::map<std::string, std::set<float>> pluginData = data.at(plugin->GetName());
+            for (std::map<std::string, std::set<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+            {
+                if (it->second.size() == 0)
+                    continue;
+                min += *(it->second.begin());
+                ++minCount;
+
+                auto maxend = it->second.end();
+                --maxend;
+                max += *(maxend);
+                ++maxCount;
+
+                for (std::set<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+                {
+                    avg += *(it2);
+                    ++avgCount;
+                }
+            }
+
+            pluginsTable.add(string_format(" %.3fms / %.3fms / %.3fms ", (min / minCount), (avg / avgCount), (max / maxCount)));
+        }
+        else
+            pluginsTable.add(" 0.000ms / 0.000ms / 0.000ms ");
+
+        pluginsTable.endOfRow();
+    }
+
+    PrintTable(pluginsTable);
+    PrintToClientOrConsole(slot, "Resource Monitor", "To view more detailed informations for each plugin, use: sw resmon viewplugin <ID>\n");
+}
+
 void SwiftlyConFilterStats(CPlayerSlot *slot, CCommandContext context)
 {
     PrintToClientOrConsole(slot, "Console Filtering", "Console Filtering status: %s.\n", g_conFilter->Status() ? "Enabled" : "Disabled");
@@ -525,6 +759,30 @@ void SwiftlyTranslationManager(CPlayerSlot *slot, CCommandContext context, const
         SwiftlyTranslationManagerHelp(slot, context);
 }
 
+void SwiftlyResourceMonitorManager(CPlayerSlot *slot, CCommandContext context, const char *subcmd, const char *subcmd2)
+{
+    if (slot->Get() != -1)
+        return;
+
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        SwiftlyResourceMonitorManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "enable")
+        SwiftlyResourceMonitorManagerEnable(slot, context);
+    else if (sbcmd == "disable")
+        SwiftlyResourceMonitorManagerDisable(slot, context);
+    else if (sbcmd == "view")
+        SwiftlyResourceMonitorManagerView(slot, context);
+    else if (sbcmd == "viewplugin")
+        SwiftlyResourceMonitorManagerViewPlugin(slot, context, (subcmd2 == nullptr ? "" : subcmd2));
+    else
+        SwiftlyResourceMonitorManagerHelp(slot, context);
+}
+
 void SwiftlyAddonsManager(CPlayerSlot *slot, CCommandContext context, const char *subcmd)
 {
     if (slot->Get() != -1)
@@ -587,6 +845,8 @@ void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
         SwiftlyVersion(slot, context);
     else if (subcmd == "translations")
         SwiftlyTranslationManager(slot, context, args[2]);
+    else if (subcmd == "resmon")
+        SwiftlyResourceMonitorManager(slot, context, args[2], args[3]);
     else
         ShowSwiftlyCommandHelp(slot, context);
 }

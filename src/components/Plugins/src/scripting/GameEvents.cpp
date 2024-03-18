@@ -3,37 +3,52 @@
 #include "../../../../sdk/entity/CTakeDamageInfo.h"
 #include "../../../../commands/CommandsManager.h"
 #include "../../../../events/gameevents.h"
+#include "../../../../resourcemonitor/ResourceMonitor.h"
 
-#define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                           \
-    for (uint32 i = 0; i < plugins.size(); i++)                                \
-    {                                                                          \
-        Plugin *plugin = plugins[i];                                           \
-        if (plugin->IsPluginLoaded())                                          \
-        {                                                                      \
-            ExecuteGameEventWithNoReturn(plugin, #FUNCTION_NAME, __VA_ARGS__); \
-        }                                                                      \
+#define CALL_PFUNCTION_VOID_ARGS(FUNCTION_NAME, ...)                                                                                                                                \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                                                                                                     \
+    {                                                                                                                                                                               \
+        Plugin *plugin = plugins[i];                                                                                                                                                \
+        if (plugin->IsPluginLoaded())                                                                                                                                               \
+        {                                                                                                                                                                           \
+            auto start = std::chrono::high_resolution_clock::now();                                                                                                                 \
+            ExecuteGameEventWithNoReturn(plugin, #FUNCTION_NAME, __VA_ARGS__);                                                                                                      \
+            auto elapsed = std::chrono::high_resolution_clock::now() - start;                                                                                                       \
+            if (g_ResourceMonitor->IsEnabled())                                                                                                                                     \
+                g_ResourceMonitor->RecordTime(plugin->GetName(), "Game Event (" #FUNCTION_NAME ")", std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count() / 1000); \
+        }                                                                                                                                                                           \
     }
 
-#define CALL_PFUNCTION_VOID_NOARGS(FUNCTION_NAME)                 \
-    for (uint32 i = 0; i < plugins.size(); i++)                   \
-    {                                                             \
-        Plugin *plugin = plugins[i];                              \
-        if (plugin->IsPluginLoaded())                             \
-        {                                                         \
-            ExecuteGameEventWithNoReturn(plugin, #FUNCTION_NAME); \
-        }                                                         \
+#define CALL_PFUNCTION_VOID_NOARGS(FUNCTION_NAME)                                                                                                                                   \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                                                                                                     \
+    {                                                                                                                                                                               \
+        Plugin *plugin = plugins[i];                                                                                                                                                \
+        if (plugin->IsPluginLoaded())                                                                                                                                               \
+        {                                                                                                                                                                           \
+            auto start = std::chrono::high_resolution_clock::now();                                                                                                                 \
+            ExecuteGameEventWithNoReturn(plugin, #FUNCTION_NAME);                                                                                                                   \
+            auto elapsed = std::chrono::high_resolution_clock::now() - start;                                                                                                       \
+            if (g_ResourceMonitor->IsEnabled())                                                                                                                                     \
+                g_ResourceMonitor->RecordTime(plugin->GetName(), "Game Event (" #FUNCTION_NAME ")", std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count() / 1000); \
+        }                                                                                                                                                                           \
     }
 
-#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                                                        \
-    for (uint32 i = 0; i < plugins.size(); i++)                                                                                     \
-    {                                                                                                                               \
-        Plugin *plugin = plugins[i];                                                                                                \
-        if (plugin->IsPluginLoaded())                                                                                               \
-        {                                                                                                                           \
-            if (!ExecuteGameEventWithReturn<bool, Plugin_WrapperBool>(plugin, FALSE_VALUE, RET_VALUE, #FUNCTION_NAME, __VA_ARGS__)) \
-                return FALSE_VALUE;                                                                                                 \
-        }                                                                                                                           \
-    }                                                                                                                               \
+#define CALL_PFUNCTION_BOOL_ARGS(FUNCTION_NAME, FALSE_VALUE, RET_VALUE, ...)                                                                                                        \
+    for (uint32 i = 0; i < plugins.size(); i++)                                                                                                                                     \
+    {                                                                                                                                                                               \
+        Plugin *plugin = plugins[i];                                                                                                                                                \
+        if (plugin->IsPluginLoaded())                                                                                                                                               \
+        {                                                                                                                                                                           \
+            auto start = std::chrono::high_resolution_clock::now();                                                                                                                 \
+            bool res = ExecuteGameEventWithReturn<bool, Plugin_WrapperBool>(plugin, FALSE_VALUE, RET_VALUE, #FUNCTION_NAME, __VA_ARGS__);                                           \
+            auto elapsed = std::chrono::high_resolution_clock::now() - start;                                                                                                       \
+            if (g_ResourceMonitor->IsEnabled())                                                                                                                                     \
+                g_ResourceMonitor->RecordTime(plugin->GetName(), "Game Event (" #FUNCTION_NAME ")", std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count() / 1000); \
+                                                                                                                                                                                    \
+            if (!res)                                                                                                                                                               \
+                return FALSE_VALUE;                                                                                                                                                 \
+        }                                                                                                                                                                           \
+    }                                                                                                                                                                               \
     return RET_VALUE;
 
 CUtlVector<CGameEventListener *> g_GameEventListener;

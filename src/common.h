@@ -31,8 +31,6 @@
 #include <deque>
 #include <functional>
 
-#define PATH "addons/swiftly"
-
 class CCSGameRules;
 class PluginsComponent;
 

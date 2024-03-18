@@ -1,6 +1,7 @@
 #include "ConsoleFilter.h"
 #include "../common.h"
 #include "../configuration/Configuration.h"
+#include "../resourcemonitor/ResourceMonitor.h"
 
 #include "../files/Files.h"
 
@@ -53,6 +54,8 @@ bool ConsoleFilter::NeedFiltering(std::string message)
     if (!this->Status())
         return false;
 
+    auto start = std::chrono::high_resolution_clock::now();
+
     for (std::map<std::string, std::string>::iterator it = this->filter.begin(); it != this->filter.end(); ++it)
     {
         std::string key = it->first;
@@ -63,9 +66,17 @@ bool ConsoleFilter::NeedFiltering(std::string message)
             if (this->counter.find(key) != this->counter.end())
                 this->counter[key]++;
 
+            auto elapsed = std::chrono::high_resolution_clock::now() - start;
+            if (g_ResourceMonitor->IsEnabled())
+                g_ResourceMonitor->RecordTime("swiftly-core", "ConsoleFilter::NeedFiltering", std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count() / 1000);
+
             return true;
         }
     }
+
+    auto elapsed = std::chrono::high_resolution_clock::now() - start;
+    if (g_ResourceMonitor->IsEnabled())
+        g_ResourceMonitor->RecordTime("swiftly-core", "ConsoleFilter::NeedFiltering", std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count() / 1000);
 
     return false;
 }
