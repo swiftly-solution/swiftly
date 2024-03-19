@@ -9,13 +9,28 @@
 
 #include <rapidjson/document.h>
 
+class LuaPlayerArgsClass;
+class LuaPlayerTwoArgsClass;
+
 class LuaPlayerClass
 {
 public:
     int playerSlot;
     bool fakeClient;
 
+    std::map<int, luacpp::LuaObject> properties;
+
     LuaPlayerClass(int m_playerSlot, bool m_fakeClient) : playerSlot(m_playerSlot), fakeClient(m_fakeClient) {}
+
+    luacpp::LuaObject GetObject(int idx, luacpp::LuaClass<LuaPlayerArgsClass> cls)
+    {
+        if (properties.find(idx) == properties.end())
+        {
+            luacpp::LuaObject obj = cls.CreateInstance(this->playerSlot);
+            properties.insert({idx, obj});
+        }
+        return properties.at(idx);
+    }
 };
 
 class LuaPlayerArgsClass
@@ -23,7 +38,19 @@ class LuaPlayerArgsClass
 public:
     int playerSlot;
 
+    std::map<int, luacpp::LuaObject> properties;
+
     LuaPlayerArgsClass(int m_playerSlot) : playerSlot(m_playerSlot) {}
+
+    luacpp::LuaObject GetObject2(int idx, luacpp::LuaClass<LuaPlayerTwoArgsClass> cls, uint32 val)
+    {
+        if (properties.find(idx) == properties.end())
+        {
+            luacpp::LuaObject obj = cls.CreateInstance(this->playerSlot, val);
+            properties.insert({idx, obj});
+        }
+        return properties.at(idx);
+    }
 };
 
 class LuaPlayerTwoArgsClass
@@ -122,33 +149,33 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("SetHealthShotBoostEffectExpirationTime", [](LuaPlayerClass *base, float expireTime) -> void
                    { scripting_Player_SetHealthShotBoostEffectExpirationTime(base->playerSlot, expireTime); })
         .DefMember("health", [healthClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return healthClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(1, healthClass); })
         .DefMember("armor", [armorClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return armorClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(2, armorClass); })
         .DefMember("clantag", [clantagClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return clantagClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(3, clantagClass); })
         .DefMember("team", [teamClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return teamClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(4, teamClass); })
         .DefMember("vars", [varsClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return varsClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(5, varsClass); })
         .DefMember("stats", [statsClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return statsClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(6, statsClass); })
         .DefMember("money", [moneyClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return moneyClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(7, moneyClass); })
         .DefMember("coords", [coordsClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return coordsClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(8, coordsClass); })
         .DefMember("velocity", [velocityClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return velocityClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(9, velocityClass); })
         .DefMember("weapons", [weaponsClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return weaponsClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(10, weaponsClass); })
         .DefMember("gravity", [gravityClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return gravityClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(11, gravityClass); })
         .DefMember("speed", [speedClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return speedClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(12, speedClass); })
         .DefMember("eyeangle", [eyeangleClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return eyeangleClass.CreateInstance(base->playerSlot); })
+                   { return base->GetObject(13, eyeangleClass); })
         .DefMember("fov", [fovClass](LuaPlayerClass *base) -> luacpp::LuaObject
-                   { return fovClass.CreateInstance(base->playerSlot); });
+                   { return base->GetObject(14, fovClass); });
 
     healthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int
                           { return scripting_Player_GetHealth(base->playerSlot); })
@@ -300,9 +327,9 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("SetActiveWeapon", [](LuaPlayerArgsClass *base, uint32 slot) -> void
                    { scripting_Player_Weapons_SetActiveWeapon(base->playerSlot, slot); })
         .DefMember("GetWeaponFromSlot", [weaponClass](LuaPlayerArgsClass *base, uint32 slot) -> luacpp::LuaObject
-                   { return weaponClass.CreateInstance(base->playerSlot, scripting_Player_Weapons_GetWeaponID(base->playerSlot, slot)); })
+                   { return base->GetObject2(1, weaponClass, scripting_Player_Weapons_GetWeaponID(base->playerSlot, slot)); })
         .DefMember("GetWeapon", [weaponClass](LuaPlayerArgsClass *base, uint32 weaponID) -> luacpp::LuaObject
-                   { return weaponClass.CreateInstance(base->playerSlot, weaponID); });
+                   { return base->GetObject2(1, weaponClass, weaponID); });
 
     weaponClass.DefMember("Remove", [](LuaPlayerTwoArgsClass *base) -> void
                           { scripting_Player_Weapon_Remove(base->playerSlot, base->slot); })
