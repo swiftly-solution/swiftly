@@ -21,9 +21,6 @@ public:
 
     inline void RegisterPlayer(Player *player)
     {
-        if (playerCount < MAX_PLAYERS)
-            ++playerCount;
-
         this->g_Players[player->GetSlot()] = player;
     }
 
@@ -34,12 +31,19 @@ public:
 
         delete this->g_Players[slot];
         this->g_Players[slot] = nullptr;
-
-        if (playerCount > 0)
-            --playerCount;
     }
 
-    inline uint16_t GetPlayers() { return playerCount; }
+    inline uint16_t GetPlayers()
+    {
+        uint16_t count = 0;
+        for (uint16_t i = 0; i < MAX_PLAYERS; i++)
+        {
+            if (this->g_Players[i] == nullptr)
+                continue;
+            ++count;
+        }
+        return count;
+    }
     inline Player *GetPlayer(int slot)
     {
         if (slot < 0 || slot >= MAX_PLAYERS)
@@ -62,7 +66,6 @@ public:
 
 private:
     Player *g_Players[MAX_PLAYERS] = {};
-    uint16_t playerCount = 0;
 };
 
 extern PlayerManager *g_playerManager;
