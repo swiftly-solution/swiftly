@@ -18,6 +18,8 @@ public:
     typedef CNetworkTransmitComponent ThisClass;
     static constexpr const char *ThisClassName = "CNetworkTransmitComponent";
     static constexpr bool IsStruct = false;
+
+    SCHEMA_FIELD_OFFSET(uint8_t, m_nTransmitStateOwnedCounter, 0)
 };
 
 class CNetworkVelocityVector
