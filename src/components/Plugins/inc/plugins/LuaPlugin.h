@@ -59,7 +59,7 @@ private:
         this->HasTimeout = false;
         this->HasTimers = false;
 
-        this->luaState = new luacpp::LuaState(this->rawLuaState, false);
+        this->luaState = new luacpp::LuaState(this->rawLuaState, true);
 
         std::vector<std::string> files = Files::FetchFileNames(this->m_path);
         for (std::string file : files)
