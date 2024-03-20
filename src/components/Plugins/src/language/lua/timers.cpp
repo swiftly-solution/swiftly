@@ -41,76 +41,54 @@ void SetupLuaTimers(luacpp::LuaState *state, Plugin *plugin)
                               }
 
                               luacpp::LuaTable newTimerTable = state->CreateTable();
+                              int timerID = base->GetNextTimerID();
 
+                              newTimerTable.SetInteger("id", timerID);
                               newTimerTable.SetInteger("delay", milliseconds);
                               newTimerTable.Set("func", function);
                               newTimerTable.SetInteger("last_called", 0);
                               newTimerTable.SetInteger("paused", false);
 
-                              int timerID = base->GetNextTimerID();
-                        
-                              state->GetTable("timersTbl").Set(timerID, newTimerTable);
+                              state->GetTable("timersTbl").Set(state->GetTable("timersTbl").GetSize() + 1, newTimerTable);
                               
                               return timerID; })
 
         .DefMember("delete", [state](LuaTimersClass *base, int timerId) -> void
                    {
                     luacpp::LuaTable timersTbl = state->GetTable("timersTbl");
+                    uint64_t tblSize = timersTbl.GetSize();
 
-                    if(timersTbl.Get(timerId).GetType() != LUA_TTABLE) {
-                        PRINT("Runtime", "The timer with the specified ID doesn't exists.\n");
-                        return;
-                    }
-
-                    timersTbl.Set(timerId, state->CreateNil()); })
-
+                    for(uint64_t i = 0; i < tblSize; i++) {
+                        if(timersTbl.GetTable(i + 1).GetInteger("id") == timerId) {
+                            state->DoString(string_format("table.remove(timersTbl, %llu)", i+1).c_str());
+                            break;
+                        }
+                    } })
         .DefMember("pause", [state](LuaTimersClass *base, int timerId) -> void
                    {
             luacpp::LuaTable timersTbl = state->GetTable("timersTbl");
+                    uint64_t tblSize = timersTbl.GetSize();
 
-                    if(timersTbl.Get(timerId).GetType() != LUA_TTABLE) {
-                        PRINT("Runtime", "The timer with the specified ID doesn't exists.\n");
-                        return;
-                    }
-
-                    luacpp::LuaTable tbl = luacpp::LuaTable(timersTbl.Get(timerId));
-
-                    if(tbl.Get("paused").GetType() != LUA_TBOOLEAN) {
-                        PRINT("Runtime", "The timer paused typed is not a boolean.\n");
-                        return;
-                    }
-
-                    if(tbl.GetInteger("paused") == 1) {
-                        PRINT("Runtime", "The timer is already paused.\n");
-                        return;
-                    }
-
-                    tbl.SetInteger("paused", true); })
+                    for(uint64_t i = 0; i < tblSize; i++) {
+                        if(timersTbl.GetTable(i + 1).GetInteger("id") == timerId) {
+                            timersTbl.GetTable(i + 1).SetInteger("paused", 1);
+                            break;
+                        }
+                    } })
         .DefMember("unpause", [state](LuaTimersClass *base, int timerId) -> void
                    {
             luacpp::LuaTable timersTbl = state->GetTable("timersTbl");
+                    uint64_t tblSize = timersTbl.GetSize();
 
-                    if(timersTbl.Get(timerId).GetType() != LUA_TTABLE) {
-                        PRINT("Runtime", "The timer with the specified ID doesn't exists.\n");
-                        return;
-                    }
-
-                    luacpp::LuaTable tbl = luacpp::LuaTable(timersTbl.Get(timerId));
-
-                    if(tbl.Get("paused").GetType() != LUA_TBOOLEAN) {
-                        PRINT("Runtime", "The timer paused typed is not a boolean.\n");
-                        return;
-                    }
-
-                    if(tbl.GetInteger("paused") == 0) {
-                        PRINT("Runtime", "The timer is not paused.\n");
-                        return;
-                    }
-
-                    tbl.SetInteger("paused", false); });
+                    for(uint64_t i = 0; i < tblSize; i++) {
+                        if(timersTbl.GetTable(i + 1).GetInteger("id") == timerId) {
+                            timersTbl.GetTable(i + 1).SetInteger("paused", 0);
+                            break;
+                        }
+                    } });
 
     state->DoString("timers = Timers()");
 
     if (plugin->HasTimers)
-        state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) for _, timerTbl in next,timersTbl,nil do if timerTbl.paused ~= 0 then goto continue end if (GetTime() - timerTbl.last_called) < timerTbl.delay then goto continue end timerTbl.func();timerTbl.last_called = GetTime(); ::continue:: end end)");
+        state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) local sz = #timersTbl; local t = GetTime(); for i=1,sz do if timersTbl[i].paused ~= 0 then goto continue end if (t - timersTbl[i].last_called) < timersTbl[i].delay then goto continue end timersTbl[i].func(); timersTbl[i].last_called = t; ::continue:: end end)");
 }

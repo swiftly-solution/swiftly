@@ -108,5 +108,6 @@
         "source_location": "cpp"
     },
     "C_Cpp.default.compilerPath": "C:\\msys64\\mingw64\\bin\\g++.exe",
-    "C_Cpp.formatting": "clangFormat"
+    "C_Cpp.formatting": "clangFormat",
+    "cmake.sourceDirectory": "/root/swiftly/hl2sdk/thirdparty/protobuf-3.21.8"
 }
