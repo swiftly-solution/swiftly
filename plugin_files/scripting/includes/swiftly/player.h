@@ -144,6 +144,11 @@ public:
         REGISTER_METHOD_VOID(scripting_Player_SetConvar, this->m_playerSlot, name, value);
     }
 
+    const char *GetIPAddress()
+    {
+        REGISTER_METHOD(const char *, "", scripting_Player_GetIPAddress, this->m_playerSlot);
+    }
+
     void SendMsg(HudDestination dest, const char *message, ...)
     {
         va_list ap;
