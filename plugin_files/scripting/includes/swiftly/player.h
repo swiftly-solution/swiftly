@@ -21,6 +21,20 @@
 #include "player/speed.h"
 #include "player/eyeangle.h"
 #include "player/fov.h"
+#include "player/autokickdisabled.h"
+#include "player/availableentitysteadystate.h"
+#include "player/predict.h"
+#include "player/tickbase.h"
+#include "player/lerptime.h"
+#include "player/lastrealcommandnumberexecuted.h"
+#include "player/lastplayertalktime.h"
+#include "player/lastlatecommandexecuted.h"
+#include "player/lastentitysteadystate.h"
+#include "player/lagcompensation.h"
+#include "player/islowviolence.h"
+#include "player/ishltv.h"
+#include "player/hasanysteadystateents.h"
+#include "player/gamepaused.h"
 
 class Player
 {
@@ -43,6 +57,20 @@ public:
     Speed *speed;
     EyeAngle *eyeangle;
     Fov *fov;
+    AutoKickDisabled *autokickdisabled;
+    AvailableEntitySteadyState *availableentitysteadystate;
+    Predict *predict;
+    TickBase *tickbase;
+    LerpTime *lerptime;
+    LastRealCommandNumberExecuted *lastrealcommandnumberexecuted;
+    LastPlayerTalkTime *lastplayertalktime;
+    LastLateCommandExecuted *lastlatecommandexecuted;
+    LastEntitySteadyState *lastentitysteadystate;
+    LagCompensation *lagcompensation;
+    IsLowViolence *islowviolence;
+    IsHLTV *ishltv;
+    HasAnySteadyStateEnts *hasanysteadystateents;
+    GamePaused *gamepaused;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -61,6 +89,20 @@ public:
         this->speed = new Speed(playerSlot);
         this->eyeangle = new EyeAngle(playerSlot);
         this->fov = new Fov(playerSlot);
+        this->lastrealcommandnumberexecuted = new LastRealCommandNumberExecuted(playerSlot);
+        this->autokickdisabled = new AutoKickDisabled(playerSlot);
+        this->availableentitysteadystate = new AvailableEntitySteadyState(playerSlot);
+        this->predict = new Predict(playerSlot);
+        this->tickbase = new TickBase(playerSlot);
+        this->lerptime = new LerpTime(playerSlot);
+        this->lastplayertalktime = new LastPlayerTalkTime(playerSlot);
+        this->lastlatecommandexecuted = new LastLateCommandExecuted(playerSlot);
+        this->lastentitysteadystate = new LastEntitySteadyState(playerSlot);
+        this->lagcompensation = new LagCompensation(playerSlot);
+        this->islowviolence = new IsLowViolence(playerSlot);
+        this->gamepaused = new GamePaused(playerSlot);
+        this->ishltv = new IsHLTV(playerSlot);
+        this->hasanysteadystateents = new HasAnySteadyStateEnts(playerSlot);
     }
 
     ~Player()
@@ -79,6 +121,20 @@ public:
         delete this->speed;
         delete this->eyeangle;
         delete this->fov;
+        delete this->autokickdisabled;
+        delete this->availableentitysteadystate;
+        delete this->predict;
+        delete this->lastrealcommandnumberexecuted;
+        delete this->lagcompensation;
+        delete this->tickbase;
+        delete this->islowviolence;
+        delete this->lastplayertalktime;
+        delete this->gamepaused;
+        delete this->hasanysteadystateents;
+        delete this->lerptime;
+        delete this->lastlatecommandexecuted;
+        delete this->lastentitysteadystate;
+        delete this->ishltv;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }

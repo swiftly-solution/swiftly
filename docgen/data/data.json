@@ -5409,6 +5409,510 @@
 					}
 				}
 			},
+			"autokickdisabled": {
+				"title": "AutoKickDisabled",
+				"description": "A list of function to manipulate a players autokickdisabled",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the auto kick disabled value.",
+						"variable": {
+							"cpp": "player->autokickdisabled->Get",
+							"lua": "player:autokickdisabled():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the auto kick disabled value.",
+						"variable": {
+							"cpp": "player->autokickdisabled->Set",
+							"lua": "player:autokickdisabled():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"availableentitysteadystate": {
+				"title": "AvailableEntitySteadyState",
+				"description": "A list of function to manipulate a players availableentitysteadystate",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the available entity steady state.",
+						"variable": {
+							"cpp": "player->availableentitysteadystate->Get",
+							"lua": "player:availableentitysteadystate():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the available entity steady state.",
+						"variable": {
+							"cpp": "player->availableentitysteadystate->Set",
+							"lua": "player:availableentitysteadystate():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"gamepaused": {
+				"title": "GamePaused",
+				"description": "A list of function to manipulate a players gamepaused",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the game is paused.",
+						"variable": {
+							"cpp": "player->gamepaused->Get",
+							"lua": "player:gamepaused():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the game is paused.",
+						"variable": {
+							"cpp": "player->gamepaused->Set",
+							"lua": "player:gamepaused():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hasanysteadystateents": {
+				"title": "HasAnySteadyStateEnts",
+				"description": "A list of function to manipulate a players hasanysteadystateents",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the player has any steady state entities.",
+						"variable": {
+							"cpp": "player->hasanysteadystateents->Get",
+							"lua": "player:hasanysteadystateents():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the player has any steady state entities.",
+						"variable": {
+							"cpp": "player->hasanysteadystateents->Set",
+							"lua": "player:hasanysteadystateents():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"ishltv": {
+				"title": "IsHLTV",
+				"description": "A list of function to manipulate a players ishltv",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the player is in HLTV.",
+						"variable": {
+							"cpp": "player->ishltv->Get",
+							"lua": "player:ishltv():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the player is in HLTV.",
+						"variable": {
+							"cpp": "player->ishltv->Set",
+							"lua": "player:ishltv():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"islowviolence": {
+				"title": "IsLowViolence",
+				"description": "A list of function to manipulate a players islowviolence",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the player is in low violence.",
+						"variable": {
+							"cpp": "player->islowviolence->Get",
+							"lua": "player:islowviolence():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the player is in low violence.",
+						"variable": {
+							"cpp": "player->islowviolence->Set",
+							"lua": "player:islowviolence():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lagcompensation": {
+				"title": "LagCompensation",
+				"description": "A list of function to manipulate a players lagcompensation",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the lag compensation.",
+						"variable": {
+							"cpp": "player->lagcompensation->Get",
+							"lua": "player:lagcompensation():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the lag compensation.",
+						"variable": {
+							"cpp": "player->lagcompensation->Set",
+							"lua": "player:lagcompensation():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastentitysteadystate": {
+				"title": "LastEntitySteadyState",
+				"description": "A list of function to manipulate a players lastentitysteadystate",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last entity steady state.",
+						"variable": {
+							"cpp": "player->lastentitysteadystate->Get",
+							"lua": "player:lastentitysteadystate():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last entity steady state.",
+						"variable": {
+							"cpp": "player->lastentitysteadystate->Set",
+							"lua": "player:lastentitysteadystate():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastlatecommandexecuted": {
+				"title": "LastLateCommandExecuted",
+				"description": "A list of function to manipulate a players lastlatecommandexecuted",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last late command executed.",
+						"variable": {
+							"cpp": "player->lastlatecommandexecuted->Get",
+							"lua": "player:lastlatecommandexecuted():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last late command executed.",
+						"variable": {
+							"cpp": "player->lastlatecommandexecuted->Set",
+							"lua": "player:lastlatecommandexecuted():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastplayertalktime": {
+				"title": "LastPlayerTalkTime",
+				"description": "A list of function to manipulate a players lastplayertalktime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last player talk time.",
+						"variable": {
+							"cpp": "player->lastplayertalktime->Get",
+							"lua": "player:lastplayertalktime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last player talk time.",
+						"variable": {
+							"cpp": "player->lastplayertalktime->Set",
+							"lua": "player:lastplayertalktime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastrealcommandnumberexecuted": {
+				"title": "LastRealCommandNumberExecuted",
+				"description": "A list of function to manipulate a players lastrealcommandnumberexecuted",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last real command number executed.",
+						"variable": {
+							"cpp": "player->lastrealcommandnumberexecuted->Get",
+							"lua": "player:lastrealcommandnumberexecuted():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last real command number executed.",
+						"variable": {
+							"cpp": "player->lastrealcommandnumberexecuted->Set",
+							"lua": "player:lastrealcommandnumberexecuted():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lerptime": {
+				"title": "LerpTime",
+				"description": "A list of function to manipulate a players lerptime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the lerp time.",
+						"variable": {
+							"cpp": "player->lerptime->Get",
+							"lua": "player:lerptime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the lerp time.",
+						"variable": {
+							"cpp": "player->lerptime->Set",
+							"lua": "player:lerptime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"predict": {
+				"title": "Predict",
+				"description": "A list of function to manipulate a players predict",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the predict value.",
+						"variable": {
+							"cpp": "player->predict->Get",
+							"lua": "player:predict():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the predict value.",
+						"variable": {
+							"cpp": "player->predict->Set",
+							"lua": "player:predict():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"tickbase": {
+				"title": "TickBase",
+				"description": "A list of function to manipulate a players tickbase",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the tick base.",
+						"variable": {
+							"cpp": "player->tickbase->Get",
+							"lua": "player:tickbase():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the tick base.",
+						"variable": {
+							"cpp": "player->tickbase->Set",
+							"lua": "player:tickbase():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
 			"health": {
 				"title": "Health",
 				"description": "A list of function to manipulate a players health.",

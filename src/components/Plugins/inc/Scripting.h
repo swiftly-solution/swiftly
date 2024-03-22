@@ -202,6 +202,35 @@ SMM_API const char *scripting_Player_Weapon_GetName(uint32 playerId, uint32 slot
 SMM_API void scripting_Player_SetDesiredFOV(uint32 playerId, uint32_t fov);
 SMM_API uint32_t scripting_Player_GetDesiredFOV(uint32 playerId);
 
+SMM_API bool scripting_Player_GetAutoKickDisabled(uint32 playerId);
+SMM_API void scripting_Player_SetAutoKickDisabled(uint32 playerId, bool val);
+SMM_API int32_t scripting_Player_GetAvailableEntitySteadyState(uint32 playerId);
+SMM_API void scripting_Player_SetAvailableEntitySteadyState(uint32 playerId, int32_t val);
+SMM_API bool scripting_Player_GetPredict(uint32 playerId);
+SMM_API void scripting_Player_SetPredict(uint32 playerId, bool val);
+SMM_API uint32_t scripting_Player_GetTickBase(uint32 playerId);
+SMM_API void scripting_Player_SetTickBase(uint32 playerId, uint32_t val);
+SMM_API bool scripting_Player_GetGamePaused(uint32 playerId);
+SMM_API void scripting_Player_SetGamePaused(uint32 playerId, bool val);
+SMM_API bool scripting_Player_GetHasAnySteadyStateEnts(uint32 playerId);
+SMM_API void scripting_Player_SetHasAnySteadyStateEnts(uint32 playerId, bool val);
+SMM_API bool scripting_Player_GetIsHLTV(uint32 playerId);
+SMM_API void scripting_Player_SetIsHLTV(uint32 playerId, bool val);
+SMM_API bool scripting_Player_GetIsLowViolence(uint32 playerId);
+SMM_API void scripting_Player_SetIsLowViolence(uint32 playerId, bool val);
+SMM_API bool scripting_Player_GetLagCompensation(uint32 playerId);
+SMM_API void scripting_Player_SetLagCompensation(uint32 playerId, bool val);
+SMM_API float scripting_Player_GetLastEntitySteadyState(uint32 playerId);
+SMM_API void scripting_Player_SetLastEntitySteadyState(uint32 playerId, float val);
+SMM_API int32_t scripting_Player_GetLastLateCommandExecuted(uint32 playerId);
+SMM_API void scripting_Player_SetLastLateCommandExecuted(uint32 playerId, int32_t val);
+SMM_API float scripting_Player_GetLastPlayerTalkTime(uint32 playerId);
+SMM_API void scripting_Player_SetLastPlayerTalkTime(uint32 playerId, float val);
+SMM_API int32_t scripting_Player_GetLastRealCommandNumberExecuted(uint32 playerId);
+SMM_API void scripting_Player_SetLastRealCommandNumberExecuted(uint32 playerId, int32_t val);
+SMM_API float scripting_Player_GetLerpTime(uint32 playerId);
+SMM_API void scripting_Player_SetLerpTime(uint32 playerId, float val);
+
 SMM_API void scripting_Player_SetGloves(uint32 playerId, uint16_t defindex, int paintkit, int seed, float wear);
 SMM_API void scripting_Player_SetModel(uint32 playerId, const char *model);
 SMM_API void scripting_Player_SetMusicKit(uint32 playerId, int musicid);

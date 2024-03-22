@@ -1489,3 +1489,367 @@ SMM_API void scripting_Player_SetCompetitiveRankType(uint32 playerId, int type)
 
     controller->m_iCompetitiveRankType = type;
 }
+
+SMM_API bool scripting_Player_GetAutoKickDisabled(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return false;
+
+    return bController->m_bAutoKickDisabled;
+}
+
+SMM_API void scripting_Player_SetAutoKickDisabled(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_bAutoKickDisabled = val;
+}
+
+SMM_API int32_t scripting_Player_GetAvailableEntitySteadyState(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return 0;
+
+    return bController->m_nAvailableEntitySteadyState;
+}
+
+SMM_API void scripting_Player_SetAvailableEntitySteadyState(uint32 playerId, int32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_nAvailableEntitySteadyState = val;
+}
+
+SMM_API bool scripting_Player_GetPredict(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return false;
+
+    return bController->m_bPredict;
+}
+
+SMM_API void scripting_Player_SetPredict(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_bPredict = val;
+}
+
+SMM_API uint32_t scripting_Player_GetTickBase(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return 0;
+
+    return bController->m_nTickBase;
+}
+
+SMM_API void scripting_Player_SetTickBase(uint32 playerId, uint32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_nTickBase = val;
+}
+
+SMM_API float scripting_Player_GetLerpTime(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return 0.0f;
+
+    return bController->m_fLerpTime;
+}
+
+SMM_API void scripting_Player_SetLerpTime(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_fLerpTime = val;
+}
+
+SMM_API int32_t scripting_Player_GetLastRealCommandNumberExecuted(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return 0;
+
+    return bController->m_nLastRealCommandNumberExecuted;
+}
+
+SMM_API void scripting_Player_SetLastRealCommandNumberExecuted(uint32 playerId, int32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_nLastRealCommandNumberExecuted = val;
+}
+
+SMM_API float scripting_Player_GetLastPlayerTalkTime(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return 0.0f;
+
+    return bController->m_flLastPlayerTalkTime;
+}
+
+SMM_API void scripting_Player_SetLastPlayerTalkTime(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_flLastPlayerTalkTime = val;
+}
+
+SMM_API int32_t scripting_Player_GetLastLateCommandExecuted(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return 0;
+
+    return bController->m_nLastLateCommandExecuted;
+}
+
+SMM_API void scripting_Player_SetLastLateCommandExecuted(uint32 playerId, int32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_nLastLateCommandExecuted = val;
+}
+
+SMM_API float scripting_Player_GetLastEntitySteadyState(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return 0.0f;
+
+    return bController->m_flLastEntitySteadyState;
+}
+
+SMM_API void scripting_Player_SetLastEntitySteadyState(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_flLastEntitySteadyState = val;
+}
+
+SMM_API bool scripting_Player_GetLagCompensation(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return false;
+
+    return bController->m_bLagCompensation;
+}
+
+SMM_API void scripting_Player_SetLagCompensation(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_bLagCompensation = val;
+}
+
+SMM_API bool scripting_Player_GetIsLowViolence(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return false;
+
+    return bController->m_bIsLowViolence;
+}
+
+SMM_API void scripting_Player_SetIsLowViolence(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_bIsLowViolence = val;
+}
+
+SMM_API bool scripting_Player_GetIsHLTV(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return false;
+
+    return bController->m_bIsHLTV;
+}
+
+SMM_API void scripting_Player_SetIsHLTV(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_bIsHLTV = val;
+}
+
+SMM_API bool scripting_Player_GetHasAnySteadyStateEnts(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return false;
+
+    return bController->m_bHasAnySteadyStateEnts;
+}
+
+SMM_API void scripting_Player_SetHasAnySteadyStateEnts(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_bHasAnySteadyStateEnts = val;
+}
+
+SMM_API bool scripting_Player_GetGamePaused(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return false;
+
+    return bController->m_bGamePaused;
+}
+
+SMM_API void scripting_Player_SetGamePaused(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerController *bController = player->GetController();
+    if (!bController)
+        return;
+
+    bController->m_bGamePaused = val;
+}
