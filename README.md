@@ -21,7 +21,7 @@
 -   [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Downloads automatically with the git cloning using Recurse Submodules)
 -   [metamod-source](https://github.com/alliedmodders/metamod-source)
 -   [python3](https://www.python.org/)
--   [ambuild](https://github.com/alliedmodders/ambuild) (MAKE SURE `ambuild` COMMAND IS AVAILABLE VIA `PATH` FOR WINDOWS)
+-   [XMake](https://xmake.io/) (MAKE SURE `xmake` COMMAND IS AVAILABLE VIA `PATH` FOR WINDOWS)
 ---
 ### Downloads
 - [Public Releases (recomended)](https://github.com/swiftly-solution/swiftly/releases)
@@ -40,18 +40,11 @@
 git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
 ```
 
-#### Setup
+#### Build
 
 ```
 ./setup.ps1 - Windows
 ./setup.sh - Linux
-```
-
-#### Build
-
-```
-cd build
-ambuild
 ```
 
 ---
@@ -64,7 +57,9 @@ Swiftly is licensed under the MIT License. You can view the license in the LICEN
 
 ### Credits
 
-I've used the Schema System and the base SDK classes fields provided by [CS2Fixes](https://github.com/Source2ZE/CS2Fixes). The rest of SDK fields were provided by [Source2SDK](https://github.com/neverlosecc/source2sdk/tree/cs2/sdk).
+I've used the Schema System and the base SDK classes fields provided by [CS2Fixes](https://github.com/Source2ZE/CS2Fixes). 
+The rest of SDK fields were provided by [Source2SDK](https://github.com/neverlosecc/source2sdk/tree/cs2/sdk).
+Thanks to the [Source2ZE](https://github.com/Source2ZE) team for providing the code for Addons Manager in Swiftly.
 
 ---
 
