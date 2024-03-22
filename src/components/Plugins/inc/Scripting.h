@@ -202,6 +202,17 @@ SMM_API const char *scripting_Player_Weapon_GetName(uint32 playerId, uint32 slot
 SMM_API void scripting_Player_SetDesiredFOV(uint32 playerId, uint32_t fov);
 SMM_API uint32_t scripting_Player_GetDesiredFOV(uint32 playerId);
 
+SMM_API uint32_t scripting_Player_GetHighestGeneratedServerViewAngleChangeIndex(uint32 playerId);
+SMM_API void scripting_Player_SetHighestGeneratedServerViewAngleChangeIndex(uint32 playerId, uint32_t val);
+SMM_API uint32_t scripting_Player_GetHideHUD(uint32 playerId);
+SMM_API void scripting_Player_SetHideHUD(uint32 playerId, uint32_t val);
+SMM_API bool scripting_Player_GetInitHUD(uint32 playerId);
+SMM_API void scripting_Player_SetInitHUD(uint32 playerId, bool val);
+SMM_API float scripting_Player_GetHltvReplayDelay(uint32 playerId);
+SMM_API void scripting_Player_SetHltvReplayDelay(uint32 playerId, float val);
+SMM_API float scripting_Player_GetHltvReplayEnd(uint32 playerId);
+SMM_API void scripting_Player_SetHltvReplayEnd(uint32 playerId, float val);
+
 SMM_API bool scripting_Player_GetAutoKickDisabled(uint32 playerId);
 SMM_API void scripting_Player_SetAutoKickDisabled(uint32 playerId, bool val);
 SMM_API int32_t scripting_Player_GetAvailableEntitySteadyState(uint32 playerId);

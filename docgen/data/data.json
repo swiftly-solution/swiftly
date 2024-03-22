@@ -5913,6 +5913,186 @@
 					}
 				}
 			},
+			"highestgeneratedserverviewanglechangeindex": {
+				"title": "HighestGeneratedServerViewAngleChangeIndex",
+				"description": "A list of function to manipulate a players highestgeneratedserverviewanglechangeindex",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the highest generated server view angle change index.",
+						"variable": {
+							"cpp": "player->highestgeneratedserverviewanglechangeindex->Get",
+							"lua": "player:highestgeneratedserverviewanglechangeindex():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the highest generated server view angle change index.",
+						"variable": {
+							"cpp": "player->highestgeneratedserverviewanglechangeindex->Set",
+							"lua": "player:highestgeneratedserverviewanglechangeindex():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hidehud": {
+				"title": "HideHUD",
+				"description": "A list of function to manipulate a players hidehud",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the hide hud value.",
+						"variable": {
+							"cpp": "player->hidehud->Get",
+							"lua": "player:hidehud():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the hide hud value.",
+						"variable": {
+							"cpp": "player->hidehud->Set",
+							"lua": "player:hidehud():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"inithud": {
+				"title": "InitHUD",
+				"description": "A list of function to manipulate a players inithud",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the init hud value.",
+						"variable": {
+							"cpp": "player->inithud->Get",
+							"lua": "player:inithud():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the init hud value.",
+						"variable": {
+							"cpp": "player->inithud->Set",
+							"lua": "player:inithud():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hltvreplaydelay": {
+				"title": "HltvReplayDelay",
+				"description": "A list of function to manipulate a players hltvreplaydelay",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the hltv replay delay.",
+						"variable": {
+							"cpp": "player->hltvreplaydelay->Get",
+							"lua": "player:hltvreplaydelay():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the hltv replay delay.",
+						"variable": {
+							"cpp": "player->hltvreplaydelay->Set",
+							"lua": "player:hltvreplaydelay():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hltvreplayend": {
+				"title": "HltvReplayEnd",
+				"description": "A list of function to manipulate a players hltvreplayend",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the hltv replay end.",
+						"variable": {
+							"cpp": "player->hltvreplayend->Get",
+							"lua": "player:hltvreplayend():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the hltv replay end.",
+						"variable": {
+							"cpp": "player->hltvreplayend->Set",
+							"lua": "player:hltvreplayend():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
 			"health": {
 				"title": "Health",
 				"description": "A list of function to manipulate a players health.",

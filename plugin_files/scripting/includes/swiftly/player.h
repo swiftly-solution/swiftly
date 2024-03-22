@@ -35,6 +35,11 @@
 #include "player/ishltv.h"
 #include "player/hasanysteadystateents.h"
 #include "player/gamepaused.h"
+#include "player/highestgeneratedserverviewanglechangeindex.h"
+#include "player/hidehud.h"
+#include "player/inithud.h"
+#include "player/hltvreplaydelay.h"
+#include "player/hltvreplayend.h"
 
 class Player
 {
@@ -71,6 +76,11 @@ public:
     IsHLTV *ishltv;
     HasAnySteadyStateEnts *hasanysteadystateents;
     GamePaused *gamepaused;
+    HighestGeneratedServerViewAngleChangeIndex *highestgeneratedserverviewanglechangeindex;
+    HideHUD *hidehud;
+    InitHUD *inithud;
+    HltvReplayDelay *hltvreplaydelay;
+    HltvReplayEnd *hltvreplayend;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -103,6 +113,11 @@ public:
         this->gamepaused = new GamePaused(playerSlot);
         this->ishltv = new IsHLTV(playerSlot);
         this->hasanysteadystateents = new HasAnySteadyStateEnts(playerSlot);
+        this->highestgeneratedserverviewanglechangeindex = new HighestGeneratedServerViewAngleChangeIndex(playerSlot);
+        this->hidehud = new HideHUD(playerSlot);
+        this->inithud = new InitHUD(playerSlot);
+        this->hltvreplaydelay = new HltvReplayDelay(playerSlot);
+        this->hltvreplayend = new HltvReplayEnd(playerSlot);
     }
 
     ~Player()
@@ -135,6 +150,11 @@ public:
         delete this->lastlatecommandexecuted;
         delete this->lastentitysteadystate;
         delete this->ishltv;
+        delete this->highestgeneratedserverviewanglechangeindex;
+        delete this->hidehud;
+        delete this->inithud;
+        delete this->hltvreplaydelay;
+        delete this->hltvreplayend;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }

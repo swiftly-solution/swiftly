@@ -1853,3 +1853,133 @@ SMM_API void scripting_Player_SetGamePaused(uint32 playerId, bool val)
 
     bController->m_bGamePaused = val;
 }
+
+SMM_API uint32_t scripting_Player_GetHighestGeneratedServerViewAngleChangeIndex(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return 0;
+
+    return bPawn->m_nHighestGeneratedServerViewAngleChangeIndex;
+}
+
+SMM_API void scripting_Player_SetHighestGeneratedServerViewAngleChangeIndex(uint32 playerId, uint32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return;
+
+    bPawn->m_nHighestGeneratedServerViewAngleChangeIndex = val;
+}
+
+SMM_API uint32_t scripting_Player_GetHideHUD(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return 0;
+
+    return bPawn->m_iHideHUD;
+}
+
+SMM_API void scripting_Player_SetHideHUD(uint32 playerId, uint32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return;
+
+    bPawn->m_iHideHUD = val;
+}
+
+SMM_API bool scripting_Player_GetInitHUD(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return false;
+
+    return bPawn->m_fInitHUD;
+}
+
+SMM_API void scripting_Player_SetInitHUD(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return;
+
+    bPawn->m_fInitHUD = val;
+}
+
+SMM_API float scripting_Player_GetHltvReplayDelay(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return 0.0f;
+
+    return bPawn->m_fHltvReplayDelay;
+}
+
+SMM_API void scripting_Player_SetHltvReplayDelay(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return;
+
+    bPawn->m_fHltvReplayDelay = val;
+}
+
+SMM_API float scripting_Player_GetHltvReplayEnd(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return 0.0f;
+
+    return bPawn->m_fHltvReplayEnd;
+}
+
+SMM_API void scripting_Player_SetHltvReplayEnd(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return;
+
+    bPawn->m_fHltvReplayEnd = val;
+}

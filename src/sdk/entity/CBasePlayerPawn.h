@@ -16,6 +16,12 @@ public:
     SCHEMA_FIELD_OFFSET(CCSPlayer_ItemServices *, m_pItemServices, 0)
     SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerController>, m_hController, 0)
 
+    SCHEMA_FIELD_OFFSET(uint32_t, m_nHighestGeneratedServerViewAngleChangeIndex, 0)
+    SCHEMA_FIELD_OFFSET(uint32_t, m_iHideHUD, 0)
+    SCHEMA_FIELD_OFFSET(bool, m_fInitHUD, 0)
+    SCHEMA_FIELD_OFFSET(float, m_fHltvReplayDelay, 0)
+    SCHEMA_FIELD_OFFSET(float, m_fHltvReplayEnd, 0)
+
     void TakeDamage(int damage)
     {
         if (this->m_iHealth() - damage <= 0)

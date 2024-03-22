@@ -68,6 +68,11 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto ishltvClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto hasanysteadystateentsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto gamepausedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto highestgeneratedserverviewanglechangeindexClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hidehudClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto inithudClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hltvreplaydelayClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hltvreplayendClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -189,8 +194,39 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return lastrealcommandnumberexecutedClass.CreateInstance(base->playerSlot); })
         .DefMember("lerptime", [lerptimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return lerptimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("highestgeneratedserverviewanglechangeindex", [highestgeneratedserverviewanglechangeindexClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return highestgeneratedserverviewanglechangeindexClass.CreateInstance(base->playerSlot); })
+        .DefMember("hidehud", [hidehudClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hidehudClass.CreateInstance(base->playerSlot); })
+        .DefMember("inithud", [inithudClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return inithudClass.CreateInstance(base->playerSlot); })
+        .DefMember("hltvreplaydelay", [hltvreplaydelayClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hltvreplaydelayClass.CreateInstance(base->playerSlot); })
+        .DefMember("hltvreplayend", [hltvreplayendClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hltvreplayendClass.CreateInstance(base->playerSlot); })
         .DefMember("fov", [fovClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return fovClass.CreateInstance(base->playerSlot); });
+
+    highestgeneratedserverviewanglechangeindexClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                                                              { return scripting_Player_GetHighestGeneratedServerViewAngleChangeIndex(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetHighestGeneratedServerViewAngleChangeIndex(base->playerSlot, val); });
+    hidehudClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                           { return scripting_Player_GetHideHUD(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetHideHUD(base->playerSlot, val); });
+    inithudClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                           { return scripting_Player_GetInitHUD(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetInitHUD(base->playerSlot, val); });
+    hltvreplaydelayClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                   { return scripting_Player_GetHltvReplayDelay(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetHltvReplayDelay(base->playerSlot, val); });
+    hltvreplayendClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                 { return scripting_Player_GetHltvReplayEnd(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetHltvReplayEnd(base->playerSlot, val); });
 
     gamepausedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
                               { return scripting_Player_GetGamePaused(base->playerSlot); })
