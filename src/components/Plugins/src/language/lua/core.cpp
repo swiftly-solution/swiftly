@@ -44,7 +44,7 @@ void SetupLuaEnvironment(luacpp::LuaState *state, Plugin *plugin)
     state->CreateFunction([playerTable, state](const char *content, bool matchbots) -> int
                           {
         if(content == nullptr) return -1;
-        int slot = StringToInt(content);
+        int slot = StringToInt(content + 1);
         if(slot != -1) return slot;
 
         std::string match = str_tolower(content);

@@ -4,7 +4,7 @@ void print(const char *str, ...);
 
 int GetPlayerId(const char *str, bool matchbots)
 {
-    int target = StringToInt(str);
+    int target = StringToInt(str + 1);
     if (target != -1)
         return target;
 
