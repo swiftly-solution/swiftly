@@ -12,28 +12,15 @@
 
 #include <rapidjson/document.h>
 
-class LuaEntityArgsClass;
-
 class LuaEntityClass
 {
 private:
     uint32_t entityID = 0;
-    std::map<int, luacpp::LuaObject> properties;
 
 public:
     LuaEntityClass(const char *clsname)
     {
         this->entityID = scripting_Entity_Create(clsname);
-    }
-
-    luacpp::LuaObject GetObject(int idx, luacpp::LuaClass<LuaEntityArgsClass> cls)
-    {
-        if (properties.find(idx) == properties.end())
-        {
-            luacpp::LuaObject obj = cls.CreateInstance(this->GetEntityID());
-            properties.insert({idx, obj});
-        }
-        return properties.at(idx);
     }
 
     uint32_t GetEntityID()
@@ -143,11 +130,11 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("SetCollisionGroup", [](LuaEntityClass *base, int group) -> void
                    { scripting_Entity_SetCollisionGroup(base->GetEntityID(), (Collision_Group_t)group); })
         .DefMember("coords", [coordsClass](LuaEntityClass *base) -> luacpp::LuaObject
-                   { return base->GetObject(1, coordsClass); })
+                   { return coordsClass.CreateInstance(base->GetEntityID()); })
         .DefMember("angles", [anglesClass](LuaEntityClass *base) -> luacpp::LuaObject
-                   { return base->GetObject(2, anglesClass); })
+                   { return anglesClass.CreateInstance(base->GetEntityID()); })
         .DefMember("colors", [colorsClass](LuaEntityClass *base) -> luacpp::LuaObject
-                   { return base->GetObject(3, colorsClass); });
+                   { return colorsClass.CreateInstance(base->GetEntityID()); });
 
     coordsClass.DefMember("Get", [state](LuaEntityArgsClass *base) -> luacpp::LuaObject
                           {
