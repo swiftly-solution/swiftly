@@ -40,6 +40,34 @@
 #include "player/inithud.h"
 #include "player/hltvreplaydelay.h"
 #include "player/hltvreplayend.h"
+#include "player/characterdefindex.h"
+#include "player/hasfemalevoice.h"
+#include "player/inhostageresetzone.h"
+#include "player/inbuyzone.h"
+#include "player/wasinbuyzone.h"
+#include "player/inhostagerescuezone.h"
+#include "player/inbombzone.h"
+#include "player/wasinhostagerescuezone.h"
+#include "player/retakesoffering.h"
+#include "player/retakesofferingcard.h"
+#include "player/retakeshasdefusekit.h"
+#include "player/retakesmvplastround.h"
+#include "player/retakesmvpboostitem.h"
+#include "player/landseconds.h"
+#include "player/aimpunchtickbase.h"
+#include "player/aimpunchtickfraction.h"
+#include "player/isbuymenuopen.h"
+#include "player/lastheadbonetransformisvalid.h"
+#include "player/lastlandtime.h"
+#include "player/ongroundlasttick.h"
+#include "player/playerlocked.h"
+#include "player/timeoflastinjury.h"
+#include "player/nextspraydecaltime.h"
+#include "player/nextspraydecaltimeexpedited.h"
+#include "player/ragdolldamagebone.h"
+#include "player/ragdolldamageheadshot.h"
+#include "player/econgloveschanged.h"
+#include "player/skiponeheadconstraintupdate.h"
 
 class Player
 {
@@ -81,6 +109,34 @@ public:
     InitHUD *inithud;
     HltvReplayDelay *hltvreplaydelay;
     HltvReplayEnd *hltvreplayend;
+    CharacterDefIndex *characterdefindex;
+    HasFemaleVoice *hasfemalevoice;
+    InHostageResetZone *inhostageresetzone;
+    InBuyZone *inbuyzone;
+    WasInBuyZone *wasinbuyzone;
+    InHostageRescueZone *inhostagerescuezone;
+    InBombZone *inbombzone;
+    WasInHostageRescueZone *wasinhostagerescuezone;
+    RetakesOffering *retakesoffering;
+    RetakesOfferingCard *retakesofferingcard;
+    RetakesHasDefuseKit *retakeshasdefusekit;
+    RetakesMVPLastRound *retakesmvplastround;
+    RetakesMVPBoostItem *retakesmvpboostitem;
+    Landseconds *landseconds;
+    AimPunchTickBase *aimpunchtickbase;
+    AimPunchTickFraction *aimpunchtickfraction;
+    IsBuyMenuOpen *isbuymenuopen;
+    LastHeadBoneTransformIsValid *lastheadbonetransformisvalid;
+    LastLandTime *lastlandtime;
+    OnGroundLastTick *ongroundlasttick;
+    PlayerLocked *playerlocked;
+    TimeOfLastInjury *timeoflastinjury;
+    NextSprayDecalTime *nextspraydecaltime;
+    NextSprayDecalTimeExpedited *nextspraydecaltimeexpedited;
+    RagdollDamageBone *ragdolldamagebone;
+    RagdollDamageHeadshot *ragdolldamageheadshot;
+    EconGlovesChanged *econgloveschanged;
+    SkipOneHeadConstraintUpdate *skiponeheadconstraintupdate;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -118,6 +174,34 @@ public:
         this->inithud = new InitHUD(playerSlot);
         this->hltvreplaydelay = new HltvReplayDelay(playerSlot);
         this->hltvreplayend = new HltvReplayEnd(playerSlot);
+        this->characterdefindex = new CharacterDefIndex(playerSlot);
+        this->hasfemalevoice = new HasFemaleVoice(playerSlot);
+        this->inhostageresetzone = new InHostageResetZone(playerSlot);
+        this->inbuyzone = new InBuyZone(playerSlot);
+        this->wasinbuyzone = new WasInBuyZone(playerSlot);
+        this->inhostagerescuezone = new InHostageRescueZone(playerSlot);
+        this->inbombzone = new InBombZone(playerSlot);
+        this->wasinhostagerescuezone = new WasInHostageRescueZone(playerSlot);
+        this->retakesoffering = new RetakesOffering(playerSlot);
+        this->retakesofferingcard = new RetakesOfferingCard(playerSlot);
+        this->retakeshasdefusekit = new RetakesHasDefuseKit(playerSlot);
+        this->retakesmvplastround = new RetakesMVPLastRound(playerSlot);
+        this->retakesmvpboostitem = new RetakesMVPBoostItem(playerSlot);
+        this->landseconds = new Landseconds(playerSlot);
+        this->aimpunchtickbase = new AimPunchTickBase(playerSlot);
+        this->aimpunchtickfraction = new AimPunchTickFraction(playerSlot);
+        this->isbuymenuopen = new IsBuyMenuOpen(playerSlot);
+        this->lastheadbonetransformisvalid = new LastHeadBoneTransformIsValid(playerSlot);
+        this->lastlandtime = new LastLandTime(playerSlot);
+        this->ongroundlasttick = new OnGroundLastTick(playerSlot);
+        this->playerlocked = new PlayerLocked(playerSlot);
+        this->timeoflastinjury = new TimeOfLastInjury(playerSlot);
+        this->nextspraydecaltime = new NextSprayDecalTime(playerSlot);
+        this->nextspraydecaltimeexpedited = new NextSprayDecalTimeExpedited(playerSlot);
+        this->ragdolldamagebone = new RagdollDamageBone(playerSlot);
+        this->ragdolldamageheadshot = new RagdollDamageHeadshot(playerSlot);
+        this->econgloveschanged = new EconGlovesChanged(playerSlot);
+        this->skiponeheadconstraintupdate = new SkipOneHeadConstraintUpdate(playerSlot);
     }
 
     ~Player()
@@ -155,6 +239,34 @@ public:
         delete this->inithud;
         delete this->hltvreplaydelay;
         delete this->hltvreplayend;
+        delete this->characterdefindex;
+        delete this->hasfemalevoice;
+        delete this->inhostageresetzone;
+        delete this->inbuyzone;
+        delete this->wasinbuyzone;
+        delete this->inhostagerescuezone;
+        delete this->inbombzone;
+        delete this->wasinhostagerescuezone;
+        delete this->retakesoffering;
+        delete this->retakesofferingcard;
+        delete this->retakeshasdefusekit;
+        delete this->retakesmvplastround;
+        delete this->retakesmvpboostitem;
+        delete this->landseconds;
+        delete this->aimpunchtickbase;
+        delete this->aimpunchtickfraction;
+        delete this->isbuymenuopen;
+        delete this->lastheadbonetransformisvalid;
+        delete this->lastlandtime;
+        delete this->ongroundlasttick;
+        delete this->playerlocked;
+        delete this->timeoflastinjury;
+        delete this->nextspraydecaltime;
+        delete this->nextspraydecaltimeexpedited;
+        delete this->ragdolldamagebone;
+        delete this->ragdolldamageheadshot;
+        delete this->econgloveschanged;
+        delete this->skiponeheadconstraintupdate;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }

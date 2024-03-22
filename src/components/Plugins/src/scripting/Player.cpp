@@ -1983,3 +1983,731 @@ SMM_API void scripting_Player_SetHltvReplayEnd(uint32 playerId, float val)
 
     bPawn->m_fHltvReplayEnd = val;
 }
+
+SMM_API uint16_t scripting_Player_GetCharacterDefIndex(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0;
+
+    return pPawn->m_nCharacterDefIndex;
+}
+
+SMM_API void scripting_Player_SetCharacterDefIndex(uint32 playerId, uint16_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_nCharacterDefIndex = val;
+}
+
+SMM_API bool scripting_Player_GetHasFemaleVoice(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bHasFemaleVoice;
+}
+
+SMM_API void scripting_Player_SetHasFemaleVoice(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bHasFemaleVoice = val;
+}
+
+SMM_API bool scripting_Player_GetInHostageResetZone(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bInHostageResetZone;
+}
+
+SMM_API void scripting_Player_SetInHostageResetZone(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bInHostageResetZone = val;
+}
+
+SMM_API bool scripting_Player_GetInBuyZone(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bInBuyZone;
+}
+
+SMM_API void scripting_Player_SetInBuyZone(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bInBuyZone = val;
+}
+
+SMM_API bool scripting_Player_GetWasInBuyZone(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bWasInBuyZone;
+}
+
+SMM_API void scripting_Player_SetWasInBuyZone(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bWasInBuyZone = val;
+}
+
+SMM_API bool scripting_Player_GetInHostageRescueZone(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bInHostageRescueZone;
+}
+
+SMM_API void scripting_Player_SetInHostageRescueZone(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bInHostageRescueZone = val;
+}
+
+SMM_API bool scripting_Player_GetInBombZone(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bInBombZone;
+}
+
+SMM_API void scripting_Player_SetInBombZone(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bInBombZone = val;
+}
+
+SMM_API bool scripting_Player_GetWasInHostageRescueZone(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bWasInHostageRescueZone;
+}
+
+SMM_API void scripting_Player_SetWasInHostageRescueZone(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bWasInHostageRescueZone = val;
+}
+
+SMM_API int32_t scripting_Player_GetRetakesOffering(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0;
+
+    return pPawn->m_iRetakesOffering;
+}
+
+SMM_API void scripting_Player_SetRetakesOffering(uint32 playerId, int32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_iRetakesOffering = val;
+}
+
+SMM_API int32_t scripting_Player_GetRetakesOfferingCard(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0;
+
+    return pPawn->m_iRetakesOfferingCard;
+}
+
+SMM_API void scripting_Player_SetRetakesOfferingCard(uint32 playerId, int32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_iRetakesOfferingCard = val;
+}
+
+SMM_API bool scripting_Player_GetRetakesHasDefuseKit(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bRetakesHasDefuseKit;
+}
+
+SMM_API void scripting_Player_SetRetakesHasDefuseKit(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bRetakesHasDefuseKit = val;
+}
+
+SMM_API bool scripting_Player_GetRetakesMVPLastRound(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bRetakesMVPLastRound;
+}
+
+SMM_API void scripting_Player_SetRetakesMVPLastRound(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bRetakesMVPLastRound = val;
+}
+
+SMM_API int32_t scripting_Player_GetRetakesMVPBoostItem(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0;
+
+    return pPawn->m_iRetakesMVPBoostItem;
+}
+
+SMM_API void scripting_Player_SetRetakesMVPBoostItem(uint32 playerId, int32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_iRetakesMVPBoostItem = val;
+}
+
+SMM_API float scripting_Player_GetLandseconds(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0.0f;
+
+    return pPawn->m_flLandseconds;
+}
+
+SMM_API void scripting_Player_SetLandseconds(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_flLandseconds = val;
+}
+
+SMM_API int32_t scripting_Player_GetAimPunchTickBase(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0;
+
+    return pPawn->m_aimPunchTickBase;
+}
+
+SMM_API void scripting_Player_SetAimPunchTickBase(uint32 playerId, int32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_aimPunchTickBase = val;
+}
+
+SMM_API float scripting_Player_GetAimPunchTickFraction(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0.0f;
+
+    return pPawn->m_aimPunchTickFraction;
+}
+
+SMM_API void scripting_Player_SetAimPunchTickFraction(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_aimPunchTickFraction = val;
+}
+
+SMM_API bool scripting_Player_GetIsBuyMenuOpen(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bIsBuyMenuOpen;
+}
+
+SMM_API void scripting_Player_SetIsBuyMenuOpen(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bIsBuyMenuOpen = val;
+}
+
+SMM_API bool scripting_Player_GetLastHeadBoneTransformIsValid(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bLastHeadBoneTransformIsValid;
+}
+
+SMM_API void scripting_Player_SetLastHeadBoneTransformIsValid(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bLastHeadBoneTransformIsValid = val;
+}
+
+SMM_API float scripting_Player_GetLastLandTime(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0.0f;
+
+    return pPawn->m_lastLandTime;
+}
+
+SMM_API void scripting_Player_SetLastLandTime(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_lastLandTime = val;
+}
+
+SMM_API bool scripting_Player_GetOnGroundLastTick(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bOnGroundLastTick;
+}
+
+SMM_API void scripting_Player_SetOnGroundLastTick(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bOnGroundLastTick = val;
+}
+
+SMM_API int32_t scripting_Player_GetPlayerLocked(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0;
+
+    return pPawn->m_iPlayerLocked;
+}
+
+SMM_API void scripting_Player_SetPlayerLocked(uint32 playerId, int32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_iPlayerLocked = val;
+}
+
+SMM_API float scripting_Player_GetTimeOfLastInjury(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0.0f;
+
+    return pPawn->m_flTimeOfLastInjury;
+}
+
+SMM_API void scripting_Player_SetTimeOfLastInjury(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_flTimeOfLastInjury = val;
+}
+
+SMM_API float scripting_Player_GetNextSprayDecalTime(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0.0f;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0.0f;
+
+    return pPawn->m_flNextSprayDecalTime;
+}
+
+SMM_API void scripting_Player_SetNextSprayDecalTime(uint32 playerId, float val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_flNextSprayDecalTime = val;
+}
+
+SMM_API bool scripting_Player_GetNextSprayDecalTimeExpedited(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bNextSprayDecalTimeExpedited;
+}
+
+SMM_API void scripting_Player_SetNextSprayDecalTimeExpedited(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bNextSprayDecalTimeExpedited = val;
+}
+
+SMM_API int32_t scripting_Player_GetRagdollDamageBone(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0;
+
+    return pPawn->m_nRagdollDamageBone;
+}
+
+SMM_API void scripting_Player_SetRagdollDamageBone(uint32 playerId, int32_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_nRagdollDamageBone = val;
+}
+
+SMM_API bool scripting_Player_GetRagdollDamageHeadshot(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bRagdollDamageHeadshot;
+}
+
+SMM_API void scripting_Player_SetRagdollDamageHeadshot(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bRagdollDamageHeadshot = val;
+}
+
+SMM_API uint8_t scripting_Player_GetEconGlovesChanged(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return 0;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return 0;
+
+    return pPawn->m_nEconGlovesChanged;
+}
+
+SMM_API void scripting_Player_SetEconGlovesChanged(uint32 playerId, uint8_t val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_nEconGlovesChanged = val;
+}
+
+SMM_API bool scripting_Player_GetSkipOneHeadConstraintUpdate(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->m_bSkipOneHeadConstraintUpdate;
+}
+
+SMM_API void scripting_Player_SetSkipOneHeadConstraintUpdate(uint32 playerId, bool val)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return;
+
+    pPawn->m_bSkipOneHeadConstraintUpdate = val;
+}
