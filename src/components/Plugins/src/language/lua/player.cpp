@@ -230,10 +230,10 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     lagcompensationClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
                                    { return scripting_Player_GetLagCompensation(base->playerSlot); })
         .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
-                   { scripting_Player_SetLagCompensation(base->playerSlot, val); })
+                   { scripting_Player_SetLagCompensation(base->playerSlot, val); });
 
-            islowviolenceClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
-                                         { return scripting_Player_GetIsLowViolence(base->playerSlot); })
+    islowviolenceClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                 { return scripting_Player_GetIsLowViolence(base->playerSlot); })
         .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
                    { scripting_Player_SetIsLowViolence(base->playerSlot, val); });
 
