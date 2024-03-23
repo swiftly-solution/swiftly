@@ -4422,7 +4422,7 @@
 				"title": "RegisterMenu",
 				"template": "function-syntax",
 				"language": "both",
-				"description": "Writes a log in log files.",
+				"description": "Registers a menu by a specific ID.",
 				"variable": {
 					"cpp": "menus->RegisterMenu",
 					"lua": "menus:Register"
