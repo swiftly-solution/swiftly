@@ -34,6 +34,11 @@
         "windows": "76 2A F2 0F 10 57 2A F3 0F 10 2A 2A 0F 28 CA F3 0F 59 C0",
         "linux": "0F 87 2A 2A 2A 2A 49 8B 7D 30 E8 2A 2A 2A 2A 66 0F EF ED 66 0F D6 85 2A 2A 2A 2A"
     },
+    "VScriptEnable": {
+        "lib": "server",
+        "windows": "BE 01 2A 2A 2A 2B D6 74 2A 3B D6",
+        "linux": "83 FE 01 0F 84 2A 2A 2A 2A 83"
+    },
     "CEntityInstance_AcceptInput": {
         "lib": "server",
         "windows": "48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 40 49 8B F0",
