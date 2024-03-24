@@ -8,15 +8,14 @@
 
 #include <functional>
 
-#define REGISTER_METHOD_VOID_NOARGS(method)           \
-    typedef void (*FuncType)();                       \
-    void *ptr = FetchFunctionPtr(nullptr, #method);   \
-    if (ptr != nullptr)                               \
-    {                                                 \
-        print("[Swiftly] [Memory] Called %p\n", ptr); \
-        reinterpret_cast<FuncType>(ptr)();            \
-    }                                                 \
-    else                                              \
+#define REGISTER_METHOD_VOID_NOARGS(method)         \
+    typedef void (*FuncType)();                     \
+    void *ptr = FetchFunctionPtr(nullptr, #method); \
+    if (ptr != nullptr)                             \
+    {                                               \
+        reinterpret_cast<FuncType>(ptr)();          \
+    }                                               \
+    else                                            \
         NOT_SUPPORTED(#method);
 
 #define REGISTER_METHOD_VOID(method, ...)             \
@@ -24,24 +23,22 @@
     void *ptr = FetchFunctionPtr(nullptr, #method);   \
     if (ptr != nullptr)                               \
     {                                                 \
-        print("[Swiftly] [Memory] Called %p\n", ptr); \
         reinterpret_cast<FuncType>(ptr)(__VA_ARGS__); \
     }                                                 \
     else                                              \
         NOT_SUPPORTED(#method);
 
-#define REGISTER_METHOD_NOARGS(TYPE, VALUE, method)   \
-    typedef TYPE (*FuncType)();                       \
-    void *ptr = FetchFunctionPtr(nullptr, #method);   \
-    if (ptr != nullptr)                               \
-    {                                                 \
-        print("[Swiftly] [Memory] Called %p\n", ptr); \
-        return reinterpret_cast<FuncType>(ptr)();     \
-    }                                                 \
-    else                                              \
-    {                                                 \
-        NOT_SUPPORTED(#method);                       \
-        return VALUE;                                 \
+#define REGISTER_METHOD_NOARGS(TYPE, VALUE, method) \
+    typedef TYPE (*FuncType)();                     \
+    void *ptr = FetchFunctionPtr(nullptr, #method); \
+    if (ptr != nullptr)                             \
+    {                                               \
+        return reinterpret_cast<FuncType>(ptr)();   \
+    }                                               \
+    else                                            \
+    {                                               \
+        NOT_SUPPORTED(#method);                     \
+        return VALUE;                               \
     }
 
 #define REGISTER_METHOD(TYPE, VALUE, method, ...)            \
@@ -49,7 +46,6 @@
     void *ptr = FetchFunctionPtr(nullptr, #method);          \
     if (ptr != nullptr)                                      \
     {                                                        \
-        print("[Swiftly] [Memory] Called %p\n", ptr);        \
         return reinterpret_cast<FuncType>(ptr)(__VA_ARGS__); \
     }                                                        \
     else                                                     \

@@ -18,7 +18,7 @@ public:
     Commands(std::string pluginName) : m_pluginName(pluginName) {}
     void Register(const char *name, void *func)
     {
-        REGISTER_METHOD_VOID(scripting_Commands_RegisterCommand, name, func);
+        REGISTER_METHOD_VOID(scripting_Commands_RegisterCommand, m_pluginName.c_str(), name, func);
     }
 
     void UnregisterCommand(const char *name)
