@@ -8,42 +8,46 @@
 
 #include <functional>
 
-#define REGISTER_METHOD_VOID_NOARGS(method)         \
-    typedef void (*FuncType)();                     \
-    void *ptr = FetchFunctionPtr(nullptr, #method); \
-    if (ptr)                                        \
-        reinterpret_cast<FuncType>(ptr)();          \
-    else                                            \
+#define REGISTER_METHOD_VOID_NOARGS(method)                                    \
+    typedef void (*FuncType)();                                                \
+    void *ptr = FetchFunctionPtr(nullptr, #method);                            \
+    print("[Swiftly] [REGISTER_METHOD_VOID_NOARGS]: %p | %s\n", ptr, #method); \
+    if (ptr)                                                                   \
+        reinterpret_cast<FuncType>(ptr)();                                     \
+    else                                                                       \
         NOT_SUPPORTED(#method);
 
-#define REGISTER_METHOD_VOID(method, ...)             \
-    typedef void (*FuncType)(...);                    \
-    void *ptr = FetchFunctionPtr(nullptr, #method);   \
-    if (ptr)                                          \
-        reinterpret_cast<FuncType>(ptr)(__VA_ARGS__); \
-    else                                              \
+#define REGISTER_METHOD_VOID(method, ...)                               \
+    typedef void (*FuncType)(...);                                      \
+    void *ptr = FetchFunctionPtr(nullptr, #method);                     \
+    print("[Swiftly] [REGISTER_METHOD_VOID]: %p | %s\n", ptr, #method); \
+    if (ptr)                                                            \
+        reinterpret_cast<FuncType>(ptr)(__VA_ARGS__);                   \
+    else                                                                \
         NOT_SUPPORTED(#method);
 
-#define REGISTER_METHOD_NOARGS(TYPE, VALUE, method) \
-    typedef TYPE (*FuncType)();                     \
-    void *ptr = FetchFunctionPtr(nullptr, #method); \
-    if (ptr)                                        \
-        return reinterpret_cast<FuncType>(ptr)();   \
-    else                                            \
-    {                                               \
-        NOT_SUPPORTED(#method);                     \
-        return VALUE;                               \
+#define REGISTER_METHOD_NOARGS(TYPE, VALUE, method)                       \
+    typedef TYPE (*FuncType)();                                           \
+    void *ptr = FetchFunctionPtr(nullptr, #method);                       \
+    print("[Swiftly] [REGISTER_METHOD_NOARGS]: %p | %s\n", ptr, #method); \
+    if (ptr)                                                              \
+        return reinterpret_cast<FuncType>(ptr)();                         \
+    else                                                                  \
+    {                                                                     \
+        NOT_SUPPORTED(#method);                                           \
+        return VALUE;                                                     \
     }
 
-#define REGISTER_METHOD(TYPE, VALUE, method, ...)            \
-    typedef TYPE (*FuncType)(...);                           \
-    void *ptr = FetchFunctionPtr(nullptr, #method);          \
-    if (ptr)                                                 \
-        return reinterpret_cast<FuncType>(ptr)(__VA_ARGS__); \
-    else                                                     \
-    {                                                        \
-        NOT_SUPPORTED(#method);                              \
-        return VALUE;                                        \
+#define REGISTER_METHOD(TYPE, VALUE, method, ...)                  \
+    typedef TYPE (*FuncType)(...);                                 \
+    void *ptr = FetchFunctionPtr(nullptr, #method);                \
+    print("[Swiftly] [REGISTER_METHOD]: %p | %s\n", ptr, #method); \
+    if (ptr)                                                       \
+        return reinterpret_cast<FuncType>(ptr)(__VA_ARGS__);       \
+    else                                                           \
+    {                                                              \
+        NOT_SUPPORTED(#method);                                    \
+        return VALUE;                                              \
     }
 
 typedef const char *(*Player_GetVar)(uint32_t, const char *);
