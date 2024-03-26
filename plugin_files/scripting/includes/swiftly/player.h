@@ -894,17 +894,11 @@ public:
 
     uint64_t GetSteamID()
     {
-        if (this->IsFakeClient())
-            return 0;
-
         REGISTER_METHOD(uint64_t, 0, scripting_Player_GetSteamID, this->m_playerSlot);
     }
 
     const char *GetSteamID2()
     {
-        if (this->IsFakeClient())
-            return "STEAM_0:0:000000000";
-
         REGISTER_METHOD(const char *, "STEAM_0:0:000000000", scripting_Player_GetSteamID2, this->m_playerSlot);
     }
 
@@ -920,9 +914,6 @@ public:
 
     void Drop(ENetworkDisconnectionReason reason)
     {
-        if (this->IsFakeClient())
-            return;
-
         REGISTER_METHOD_VOID(scripting_Player_Drop, this->m_playerSlot, reason);
     }
 
