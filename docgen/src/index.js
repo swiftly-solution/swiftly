@@ -39,6 +39,7 @@ const lua_datamap = {
     uint64_t: "number",
     int: "number",
     uint8_t: "number",
+    double: "number",
     "unsigned short": "number",
     "unsigned long long": "number",
     short: "number",
