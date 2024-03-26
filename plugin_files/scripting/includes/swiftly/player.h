@@ -912,7 +912,11 @@ public:
     {
         REGISTER_METHOD(bool, false, scripting_Player_IsFirstSpawn, this->m_playerSlot);
     }
-    bool IsFakeClient() { return this->m_fakeClient; }
+
+    bool IsFakeClient()
+    {
+        REGISTER_METHOD(bool, false, scripting_Player_IsFakeClient, this->m_playerSlot);
+    }
 
     void Drop(ENetworkDisconnectionReason reason)
     {

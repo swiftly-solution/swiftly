@@ -616,6 +616,7 @@ SMM_API void scripting_Player_SetChatTag(uint32 playerId, const char *tag);
 SMM_API void scripting_Player_SetChatTagColor(uint32 playerId, const char *tagcolor);
 SMM_API void scripting_Player_SetNameColor(uint32 playerId, const char *namecolor);
 SMM_API void scripting_Player_SetChatColor(uint32 playerId, const char *chatcolor);
+SMM_API bool scripting_Player_IsFakeClient(uint32 playerId);
 
 SMM_API void scripting_Precacher_AddModel(const char *model);
 

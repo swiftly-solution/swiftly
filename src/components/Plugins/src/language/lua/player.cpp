@@ -307,7 +307,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
         .DefMember("Drop", [](LuaPlayerClass *base, int reason) -> void
                    { scripting_Player_Drop(base->playerSlot, reason); })
         .DefMember("IsFakeClient", [](LuaPlayerClass *base) -> bool
-                   { return base->fakeClient; })
+                   { return scripting_Player_IsFakeClient(base->playerSlot); })
         .DefMember("GetLatency", [](LuaPlayerClass *base) -> int
                    { return scripting_Player_GetLatency(base->playerSlot); })
         .DefMember("GetSlot", [](LuaPlayerClass *base) -> int

@@ -1464,6 +1464,15 @@ SMM_API bool scripting_Player_IsFirstSpawn(uint32 playerId)
     return player->IsFirstSpawn();
 }
 
+SMM_API bool scripting_Player_IsFakeClient(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    return player->IsFakeClient();
+}
+
 SMM_API void scripting_Player_SetCompetitiveRanking(uint32 playerId, int ranking)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
