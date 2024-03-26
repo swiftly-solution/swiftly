@@ -18,14 +18,7 @@ void ThreadFunction()
 
 bool Timer::ShouldExecute(uint64_t time)
 {
-    if (this->m_paused)
-        return false;
     return ((time - this->m_lastExecuted) > this->m_delay);
-}
-
-void Timer::SetPaused(bool paused)
-{
-    this->m_paused = paused;
 }
 
 void Timer::Execute()
@@ -47,31 +40,12 @@ uint64_t Timers::RegisterTimer(uint64_t delay, const std::function<void()> &fn)
     return this->timerID;
 }
 
-void Timers::PauseTimer(uint64_t timerID)
-{
-    if (m_timers.find(timerID) == m_timers.end())
-        return;
-
-    Timer *timer = m_timers.at(timerID);
-    timer->SetPaused(true);
-}
-
-void Timers::UnpauseTimer(uint64_t timerID)
-{
-    if (m_timers.find(timerID) == m_timers.end())
-        return;
-
-    Timer *timer = m_timers.at(timerID);
-    timer->SetPaused(false);
-}
-
 void Timers::DestroyTimer(uint64_t timerID)
 {
     if (m_timers.find(timerID) == m_timers.end())
         return;
 
     Timer *timer = m_timers.at(timerID);
-    timer->SetPaused(true);
     timer->Destroy();
     delete timer;
 

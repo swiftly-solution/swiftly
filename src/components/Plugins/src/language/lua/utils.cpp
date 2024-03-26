@@ -31,6 +31,6 @@ void SetupLuaUtils(luacpp::LuaState *state, Plugin *plugin)
         state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) for i=1,#NextTicksFuncToCall do NextTicksFuncToCall[i](); end NextTicksFuncToCall = {}; end)");
 
     state->DoString("function SetTimeout(delay, cb) if type(cb) ~= \"function\" then return print(\"[Swiftly] The callback needs to be a function.\") end table.insert(timeoutsTbl, { call = GetTime() + delay, cb = cb }); end");
-    if (plugin->HasTimeout)
+    if (plugin->HasTimeout || plugin->HasTimers)
         state->DoString("events:on(\"OnGameTick\", function(simulating, first, last) local tblsize = #timeoutsTbl; for i=1,tblsize do if timeoutsTbl[i].call - GetTime() <= 0 then timeoutsTbl[i].cb(); timeoutsRemoveTbl[#timeoutsRemoveTbl + 1] = i end end; for i=1,#timeoutsRemoveTbl do table.remove(timeoutsTbl, timeoutsRemoveTbl[i]) end timeoutsRemoveTbl = {} end)");
 }

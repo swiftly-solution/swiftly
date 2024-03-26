@@ -8395,21 +8395,6 @@
 					"cpp": "```cpp\n#include <swiftly/timers.h>\n\nTimers *timers = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    timers = new Timers();\n    ...\n}\n```"
 				}
 			},
-			"pause": {
-				"title": "Pause",
-				"template": "function-syntax",
-				"language": "both",
-				"description": "To pause a timer you need to specify it's Timer ID from when it was created.",
-				"variable": {
-					"cpp": "timers->PauseTimer",
-					"lua": "timers:pause"
-				},
-				"return": "void",
-				"params": {
-					"timerid": "unsigned long long"
-				},
-				"additional": {}
-			},
 			"create": {
 				"title": "Register",
 				"template": "function-syntax",
@@ -8427,21 +8412,6 @@
 				"additional": {
 					"cpp": ":::note\n The function argument also supports lambda function ( \\[]\\{ ... } ). \n:::"
 				}
-			},
-			"unpause": {
-				"title": "Unpause",
-				"template": "function-syntax",
-				"language": "both",
-				"description": "To unpause a timer you need to specify it's Timer ID from when it was created.",
-				"variable": {
-					"cpp": "timers->UnpauseTimer",
-					"lua": "timers:unpause"
-				},
-				"return": "void",
-				"params": {
-					"timerid": "unsigned long long"
-				},
-				"additional": {}
 			},
 			"delete": {
 				"title": "Unregister",
