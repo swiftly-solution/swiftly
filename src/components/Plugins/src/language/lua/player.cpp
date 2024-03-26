@@ -101,6 +101,61 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto ragdolldamageheadshotClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto econgloveschangedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto skiponeheadconstraintupdateClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hascommunicationabusemuteClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto pendingteamnumClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto forceteamtimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto compteammatecolorClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto everplayedonteamClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto attemptedtogetcolorClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto teammatepreferredcolorClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto teamchangedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto inswitchteamClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hasseenjoingameClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto justbecamespectatorClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto switchteamsonnextroundresetClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto removeallitemsonnextroundresetClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto competitiverankingpredicted_winClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto competitiverankingpredicted_lossClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto competitiverankingpredicted_tieClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto endmatchnextmapvoteClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto activequestidClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto playertvcontrolflagsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto draftindexClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto queuedmodedisconnectiontimestampClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto abandonrecordedreasonClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto cannotbekickedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto everfullyconnectedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto abandonallowssurrenderClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto abandonoffersinstantsurrenderClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto disconnection1minwarningprintedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto scorereportedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto disconnectiontickClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto controllingbotClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hascontrolledbotthisroundClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hasbeencontrolledbyplayerthisroundClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto botscontrolledthisroundClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto cancontrolobservedbotClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto desiredobservermodeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto pawncharacterdefindexClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto pawnlifetimestartClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto pawnlifetimeendClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto pawnbotdifficultyClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto scoreClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto roundscoreClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto roundswonClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto mvpsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto updatecounterClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto showhintsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto nexttimecheckClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto justdidteamkillClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto punishforteamkillClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto gaveteamdamagewarningClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto gaveteamdamagewarningthisroundClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastreceivedpacketplatfloattimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastteamdamagewarningtimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lasttimeplayerwasdisconnectedforpawnsremoveClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto suspicioushitcountClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto nonsuspicioushitstreakClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -288,6 +343,116 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return econgloveschangedClass.CreateInstance(base->playerSlot); })
         .DefMember("skiponeheadconstraintupdate", [skiponeheadconstraintupdateClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return skiponeheadconstraintupdateClass.CreateInstance(base->playerSlot); })
+        .DefMember("hascommunicationabusemute", [hascommunicationabusemuteClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hascommunicationabusemuteClass.CreateInstance(base->playerSlot); })
+        .DefMember("pendingteamnum", [pendingteamnumClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return pendingteamnumClass.CreateInstance(base->playerSlot); })
+        .DefMember("forceteamtime", [forceteamtimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return forceteamtimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("compteammatecolor", [compteammatecolorClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return compteammatecolorClass.CreateInstance(base->playerSlot); })
+        .DefMember("everplayedonteam", [everplayedonteamClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return everplayedonteamClass.CreateInstance(base->playerSlot); })
+        .DefMember("attemptedtogetcolor", [attemptedtogetcolorClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return attemptedtogetcolorClass.CreateInstance(base->playerSlot); })
+        .DefMember("teammatepreferredcolor", [teammatepreferredcolorClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return teammatepreferredcolorClass.CreateInstance(base->playerSlot); })
+        .DefMember("teamchanged", [teamchangedClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return teamchangedClass.CreateInstance(base->playerSlot); })
+        .DefMember("inswitchteam", [inswitchteamClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return inswitchteamClass.CreateInstance(base->playerSlot); })
+        .DefMember("hasseenjoingame", [hasseenjoingameClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hasseenjoingameClass.CreateInstance(base->playerSlot); })
+        .DefMember("justbecamespectator", [justbecamespectatorClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return justbecamespectatorClass.CreateInstance(base->playerSlot); })
+        .DefMember("switchteamsonnextroundreset", [switchteamsonnextroundresetClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return switchteamsonnextroundresetClass.CreateInstance(base->playerSlot); })
+        .DefMember("removeallitemsonnextroundreset", [removeallitemsonnextroundresetClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return removeallitemsonnextroundresetClass.CreateInstance(base->playerSlot); })
+        .DefMember("competitiverankingpredicted_win", [competitiverankingpredicted_winClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return competitiverankingpredicted_winClass.CreateInstance(base->playerSlot); })
+        .DefMember("competitiverankingpredicted_loss", [competitiverankingpredicted_lossClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return competitiverankingpredicted_lossClass.CreateInstance(base->playerSlot); })
+        .DefMember("competitiverankingpredicted_tie", [competitiverankingpredicted_tieClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return competitiverankingpredicted_tieClass.CreateInstance(base->playerSlot); })
+        .DefMember("endmatchnextmapvote", [endmatchnextmapvoteClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return endmatchnextmapvoteClass.CreateInstance(base->playerSlot); })
+        .DefMember("activequestid", [activequestidClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return activequestidClass.CreateInstance(base->playerSlot); })
+        .DefMember("playertvcontrolflags", [playertvcontrolflagsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return playertvcontrolflagsClass.CreateInstance(base->playerSlot); })
+        .DefMember("draftindex", [draftindexClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return draftindexClass.CreateInstance(base->playerSlot); })
+        .DefMember("queuedmodedisconnectiontimestamp", [queuedmodedisconnectiontimestampClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return queuedmodedisconnectiontimestampClass.CreateInstance(base->playerSlot); })
+        .DefMember("abandonrecordedreason", [abandonrecordedreasonClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return abandonrecordedreasonClass.CreateInstance(base->playerSlot); })
+        .DefMember("cannotbekicked", [cannotbekickedClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return cannotbekickedClass.CreateInstance(base->playerSlot); })
+        .DefMember("everfullyconnected", [everfullyconnectedClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return everfullyconnectedClass.CreateInstance(base->playerSlot); })
+        .DefMember("abandonallowssurrender", [abandonallowssurrenderClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return abandonallowssurrenderClass.CreateInstance(base->playerSlot); })
+        .DefMember("abandonoffersinstantsurrender", [abandonoffersinstantsurrenderClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return abandonoffersinstantsurrenderClass.CreateInstance(base->playerSlot); })
+        .DefMember("disconnection1minwarningprinted", [disconnection1minwarningprintedClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return disconnection1minwarningprintedClass.CreateInstance(base->playerSlot); })
+        .DefMember("scorereported", [scorereportedClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return scorereportedClass.CreateInstance(base->playerSlot); })
+        .DefMember("disconnectiontick", [disconnectiontickClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return disconnectiontickClass.CreateInstance(base->playerSlot); })
+        .DefMember("controllingbot", [controllingbotClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return controllingbotClass.CreateInstance(base->playerSlot); })
+        .DefMember("hascontrolledbotthisround", [hascontrolledbotthisroundClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hascontrolledbotthisroundClass.CreateInstance(base->playerSlot); })
+        .DefMember("hasbeencontrolledbyplayerthisround", [hasbeencontrolledbyplayerthisroundClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hasbeencontrolledbyplayerthisroundClass.CreateInstance(base->playerSlot); })
+        .DefMember("botscontrolledthisround", [botscontrolledthisroundClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return botscontrolledthisroundClass.CreateInstance(base->playerSlot); })
+        .DefMember("cancontrolobservedbot", [cancontrolobservedbotClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return cancontrolobservedbotClass.CreateInstance(base->playerSlot); })
+        .DefMember("desiredobservermode", [desiredobservermodeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return desiredobservermodeClass.CreateInstance(base->playerSlot); })
+        .DefMember("pawncharacterdefindex", [pawncharacterdefindexClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return pawncharacterdefindexClass.CreateInstance(base->playerSlot); })
+        .DefMember("pawnlifetimestart", [pawnlifetimestartClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return pawnlifetimestartClass.CreateInstance(base->playerSlot); })
+        .DefMember("pawnlifetimeend", [pawnlifetimeendClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return pawnlifetimeendClass.CreateInstance(base->playerSlot); })
+        .DefMember("pawnbotdifficulty", [pawnbotdifficultyClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return pawnbotdifficultyClass.CreateInstance(base->playerSlot); })
+        .DefMember("score", [scoreClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return scoreClass.CreateInstance(base->playerSlot); })
+        .DefMember("roundscore", [roundscoreClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return roundscoreClass.CreateInstance(base->playerSlot); })
+        .DefMember("roundswon", [roundswonClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return roundswonClass.CreateInstance(base->playerSlot); })
+        .DefMember("mvps", [mvpsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return mvpsClass.CreateInstance(base->playerSlot); })
+        .DefMember("updatecounter", [updatecounterClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return updatecounterClass.CreateInstance(base->playerSlot); })
+        .DefMember("showhints", [showhintsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return showhintsClass.CreateInstance(base->playerSlot); })
+        .DefMember("nexttimecheck", [nexttimecheckClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return nexttimecheckClass.CreateInstance(base->playerSlot); })
+        .DefMember("justdidteamkill", [justdidteamkillClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return justdidteamkillClass.CreateInstance(base->playerSlot); })
+        .DefMember("punishforteamkill", [punishforteamkillClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return punishforteamkillClass.CreateInstance(base->playerSlot); })
+        .DefMember("gaveteamdamagewarning", [gaveteamdamagewarningClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return gaveteamdamagewarningClass.CreateInstance(base->playerSlot); })
+        .DefMember("gaveteamdamagewarningthisround", [gaveteamdamagewarningthisroundClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return gaveteamdamagewarningthisroundClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastreceivedpacketplatfloattime", [lastreceivedpacketplatfloattimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastreceivedpacketplatfloattimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastteamdamagewarningtime", [lastteamdamagewarningtimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastteamdamagewarningtimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("lasttimeplayerwasdisconnectedforpawnsremove", [lasttimeplayerwasdisconnectedforpawnsremoveClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lasttimeplayerwasdisconnectedforpawnsremoveClass.CreateInstance(base->playerSlot); })
+        .DefMember("suspicioushitcount", [suspicioushitcountClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return suspicioushitcountClass.CreateInstance(base->playerSlot); })
+        .DefMember("nonsuspicioushitstreak", [nonsuspicioushitstreakClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return nonsuspicioushitstreakClass.CreateInstance(base->playerSlot); })
         .DefMember("fov", [fovClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return fovClass.CreateInstance(base->playerSlot); });
 
@@ -403,6 +568,227 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                                                { return scripting_Player_GetSkipOneHeadConstraintUpdate(base->playerSlot); })
         .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
                    { scripting_Player_SetSkipOneHeadConstraintUpdate(base->playerSlot, val); });
+
+    hascommunicationabusemuteClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                             { return scripting_Player_GetHasCommunicationAbuseMute(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHasCommunicationAbuseMute(base->playerSlot, val); });
+    pendingteamnumClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint8_t
+                                  { return scripting_Player_GetPendingTeamNum(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint8_t val) -> void
+                   { scripting_Player_SetPendingTeamNum(base->playerSlot, val); });
+    forceteamtimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                 { return scripting_Player_GetForceTeamTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetForceTeamTime(base->playerSlot, val); });
+    compteammatecolorClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                     { return scripting_Player_GetCompTeammateColor(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetCompTeammateColor(base->playerSlot, val); });
+    everplayedonteamClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                    { return scripting_Player_GetEverPlayedOnTeam(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetEverPlayedOnTeam(base->playerSlot, val); });
+    attemptedtogetcolorClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                       { return scripting_Player_GetAttemptedToGetColor(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetAttemptedToGetColor(base->playerSlot, val); });
+    teammatepreferredcolorClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                          { return scripting_Player_GetTeammatePreferredColor(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetTeammatePreferredColor(base->playerSlot, val); });
+    teamchangedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                               { return scripting_Player_GetTeamChanged(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetTeamChanged(base->playerSlot, val); });
+    inswitchteamClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                { return scripting_Player_GetInSwitchTeam(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetInSwitchTeam(base->playerSlot, val); });
+    hasseenjoingameClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                   { return scripting_Player_GetHasSeenJoinGame(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHasSeenJoinGame(base->playerSlot, val); });
+    justbecamespectatorClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                       { return scripting_Player_GetJustBecameSpectator(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetJustBecameSpectator(base->playerSlot, val); });
+    switchteamsonnextroundresetClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                               { return scripting_Player_GetSwitchTeamsOnNextRoundReset(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetSwitchTeamsOnNextRoundReset(base->playerSlot, val); });
+    removeallitemsonnextroundresetClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                                  { return scripting_Player_GetRemoveAllItemsOnNextRoundReset(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetRemoveAllItemsOnNextRoundReset(base->playerSlot, val); });
+    competitiverankingpredicted_winClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                                   { return scripting_Player_GetCompetitiveRankingPredicted_Win(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetCompetitiveRankingPredicted_Win(base->playerSlot, val); });
+    competitiverankingpredicted_lossClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                                    { return scripting_Player_GetCompetitiveRankingPredicted_Loss(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetCompetitiveRankingPredicted_Loss(base->playerSlot, val); });
+    competitiverankingpredicted_tieClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                                   { return scripting_Player_GetCompetitiveRankingPredicted_Tie(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetCompetitiveRankingPredicted_Tie(base->playerSlot, val); });
+    endmatchnextmapvoteClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                       { return scripting_Player_GetEndMatchNextMapVote(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetEndMatchNextMapVote(base->playerSlot, val); });
+    activequestidClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint16_t
+                                 { return scripting_Player_GetActiveQuestId(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint16_t val) -> void
+                   { scripting_Player_SetActiveQuestId(base->playerSlot, val); });
+    playertvcontrolflagsClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                                        { return scripting_Player_GetPlayerTvControlFlags(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetPlayerTvControlFlags(base->playerSlot, val); });
+    draftindexClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                              { return scripting_Player_GetDraftIndex(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetDraftIndex(base->playerSlot, val); });
+    queuedmodedisconnectiontimestampClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                                                    { return scripting_Player_GetQueuedModeDisconnectionTimestamp(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetQueuedModeDisconnectionTimestamp(base->playerSlot, val); });
+    abandonrecordedreasonClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                                         { return scripting_Player_GetAbandonRecordedReason(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetAbandonRecordedReason(base->playerSlot, val); });
+    cannotbekickedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                  { return scripting_Player_GetCannotBeKicked(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetCannotBeKicked(base->playerSlot, val); });
+    everfullyconnectedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                      { return scripting_Player_GetEverFullyConnected(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetEverFullyConnected(base->playerSlot, val); });
+    abandonallowssurrenderClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                          { return scripting_Player_GetAbandonAllowsSurrender(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetAbandonAllowsSurrender(base->playerSlot, val); });
+    abandonoffersinstantsurrenderClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                                 { return scripting_Player_GetAbandonOffersInstantSurrender(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetAbandonOffersInstantSurrender(base->playerSlot, val); });
+    disconnection1minwarningprintedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                                   { return scripting_Player_GetDisconnection1MinWarningPrinted(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetDisconnection1MinWarningPrinted(base->playerSlot, val); });
+    scorereportedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                 { return scripting_Player_GetScoreReported(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetScoreReported(base->playerSlot, val); });
+    disconnectiontickClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                     { return scripting_Player_GetDisconnectionTick(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetDisconnectionTick(base->playerSlot, val); });
+    controllingbotClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                  { return scripting_Player_GetControllingBot(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetControllingBot(base->playerSlot, val); });
+    hascontrolledbotthisroundClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                             { return scripting_Player_GetHasControlledBotThisRound(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHasControlledBotThisRound(base->playerSlot, val); });
+    hasbeencontrolledbyplayerthisroundClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                                      { return scripting_Player_GetHasBeenControlledByPlayerThisRound(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHasBeenControlledByPlayerThisRound(base->playerSlot, val); });
+    botscontrolledthisroundClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                           { return scripting_Player_GetBotsControlledThisRound(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetBotsControlledThisRound(base->playerSlot, val); });
+    cancontrolobservedbotClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                         { return scripting_Player_GetCanControlObservedBot(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetCanControlObservedBot(base->playerSlot, val); });
+    desiredobservermodeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                       { return scripting_Player_GetDesiredObserverMode(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetDesiredObserverMode(base->playerSlot, val); });
+    pawncharacterdefindexClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint16_t
+                                         { return scripting_Player_GetPawnCharacterDefIndex(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint16_t val) -> void
+                   { scripting_Player_SetPawnCharacterDefIndex(base->playerSlot, val); });
+    pawnlifetimestartClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                     { return scripting_Player_GetPawnLifetimeStart(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetPawnLifetimeStart(base->playerSlot, val); });
+    pawnlifetimeendClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                   { return scripting_Player_GetPawnLifetimeEnd(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetPawnLifetimeEnd(base->playerSlot, val); });
+    pawnbotdifficultyClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                     { return scripting_Player_GetPawnBotDifficulty(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetPawnBotDifficulty(base->playerSlot, val); });
+    scoreClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                         { return scripting_Player_GetScore(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetScore(base->playerSlot, val); });
+    roundscoreClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                              { return scripting_Player_GetRoundScore(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetRoundScore(base->playerSlot, val); });
+    roundswonClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                             { return scripting_Player_GetRoundsWon(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetRoundsWon(base->playerSlot, val); });
+    mvpsClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                        { return scripting_Player_GetMVPs(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetMVPs(base->playerSlot, val); });
+    updatecounterClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                 { return scripting_Player_GetUpdateCounter(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetUpdateCounter(base->playerSlot, val); });
+    showhintsClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                             { return scripting_Player_GetShowHints(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetShowHints(base->playerSlot, val); });
+    nexttimecheckClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                 { return scripting_Player_GetNextTimeCheck(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetNextTimeCheck(base->playerSlot, val); });
+    justdidteamkillClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                   { return scripting_Player_GetJustDidTeamKill(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetJustDidTeamKill(base->playerSlot, val); });
+    punishforteamkillClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                     { return scripting_Player_GetPunishForTeamKill(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetPunishForTeamKill(base->playerSlot, val); });
+    gaveteamdamagewarningClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                         { return scripting_Player_GetGaveTeamDamageWarning(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetGaveTeamDamageWarning(base->playerSlot, val); });
+    gaveteamdamagewarningthisroundClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                                  { return scripting_Player_GetGaveTeamDamageWarningThisRound(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetGaveTeamDamageWarningThisRound(base->playerSlot, val); });
+    lastreceivedpacketplatfloattimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> double
+                                                   { return scripting_Player_GetLastReceivedPacketPlatFloatTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, double val) -> void
+                   { scripting_Player_SetLastReceivedPacketPlatFloatTime(base->playerSlot, val); });
+    lastteamdamagewarningtimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                             { return scripting_Player_GetLastTeamDamageWarningTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastTeamDamageWarningTime(base->playerSlot, val); });
+    lasttimeplayerwasdisconnectedforpawnsremoveClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                                               { return scripting_Player_GetLastTimePlayerWasDisconnectedForPawnsRemove(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastTimePlayerWasDisconnectedForPawnsRemove(base->playerSlot, val); });
+    suspicioushitcountClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                                      { return scripting_Player_GetSuspiciousHitCount(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetSuspiciousHitCount(base->playerSlot, val); });
+    nonsuspicioushitstreakClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                                          { return scripting_Player_GetNonSuspiciousHitStreak(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetNonSuspiciousHitStreak(base->playerSlot, val); });
 
     highestgeneratedserverviewanglechangeindexClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
                                                               { return scripting_Player_GetHighestGeneratedServerViewAngleChangeIndex(base->playerSlot); })

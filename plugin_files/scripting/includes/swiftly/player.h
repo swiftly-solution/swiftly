@@ -68,6 +68,61 @@
 #include "player/ragdolldamageheadshot.h"
 #include "player/econgloveschanged.h"
 #include "player/skiponeheadconstraintupdate.h"
+#include "player/hascommunicationabusemute.h"
+#include "player/pendingteamnum.h"
+#include "player/forceteamtime.h"
+#include "player/compteammatecolor.h"
+#include "player/everplayedonteam.h"
+#include "player/attemptedtogetcolor.h"
+#include "player/teammatepreferredcolor.h"
+#include "player/teamchanged.h"
+#include "player/inswitchteam.h"
+#include "player/hasseenjoingame.h"
+#include "player/justbecamespectator.h"
+#include "player/switchteamsonnextroundreset.h"
+#include "player/removeallitemsonnextroundreset.h"
+#include "player/competitiverankingpredicted_win.h"
+#include "player/competitiverankingpredicted_loss.h"
+#include "player/competitiverankingpredicted_tie.h"
+#include "player/endmatchnextmapvote.h"
+#include "player/activequestid.h"
+#include "player/playertvcontrolflags.h"
+#include "player/draftindex.h"
+#include "player/queuedmodedisconnectiontimestamp.h"
+#include "player/abandonrecordedreason.h"
+#include "player/cannotbekicked.h"
+#include "player/everfullyconnected.h"
+#include "player/abandonallowssurrender.h"
+#include "player/abandonoffersinstantsurrender.h"
+#include "player/disconnection1minwarningprinted.h"
+#include "player/scorereported.h"
+#include "player/disconnectiontick.h"
+#include "player/controllingbot.h"
+#include "player/hascontrolledbotthisround.h"
+#include "player/hasbeencontrolledbyplayerthisround.h"
+#include "player/botscontrolledthisround.h"
+#include "player/cancontrolobservedbot.h"
+#include "player/desiredobservermode.h"
+#include "player/pawncharacterdefindex.h"
+#include "player/pawnlifetimestart.h"
+#include "player/pawnlifetimeend.h"
+#include "player/pawnbotdifficulty.h"
+#include "player/score.h"
+#include "player/roundscore.h"
+#include "player/roundswon.h"
+#include "player/mvps.h"
+#include "player/updatecounter.h"
+#include "player/showhints.h"
+#include "player/nexttimecheck.h"
+#include "player/justdidteamkill.h"
+#include "player/punishforteamkill.h"
+#include "player/gaveteamdamagewarning.h"
+#include "player/gaveteamdamagewarningthisround.h"
+#include "player/lastreceivedpacketplatfloattime.h"
+#include "player/lastteamdamagewarningtime.h"
+#include "player/lasttimeplayerwasdisconnectedforpawnsremove.h"
+#include "player/suspicioushitcount.h"
+#include "player/nonsuspicioushitstreak.h"
 
 class Player
 {
@@ -137,6 +192,61 @@ public:
     RagdollDamageHeadshot *ragdolldamageheadshot;
     EconGlovesChanged *econgloveschanged;
     SkipOneHeadConstraintUpdate *skiponeheadconstraintupdate;
+    HasCommunicationAbuseMute *hascommunicationabusemute;
+    PendingTeamNum *pendingteamnum;
+    ForceTeamTime *forceteamtime;
+    CompTeammateColor *compteammatecolor;
+    EverPlayedOnTeam *everplayedonteam;
+    AttemptedToGetColor *attemptedtogetcolor;
+    TeammatePreferredColor *teammatepreferredcolor;
+    TeamChanged *teamchanged;
+    InSwitchTeam *inswitchteam;
+    HasSeenJoinGame *hasseenjoingame;
+    JustBecameSpectator *justbecamespectator;
+    SwitchTeamsOnNextRoundReset *switchteamsonnextroundreset;
+    RemoveAllItemsOnNextRoundReset *removeallitemsonnextroundreset;
+    CompetitiveRankingPredicted_Win *competitiverankingpredicted_win;
+    CompetitiveRankingPredicted_Loss *competitiverankingpredicted_loss;
+    CompetitiveRankingPredicted_Tie *competitiverankingpredicted_tie;
+    EndMatchNextMapVote *endmatchnextmapvote;
+    ActiveQuestId *activequestid;
+    PlayerTvControlFlags *playertvcontrolflags;
+    DraftIndex *draftindex;
+    QueuedModeDisconnectionTimestamp *queuedmodedisconnectiontimestamp;
+    AbandonRecordedReason *abandonrecordedreason;
+    CannotBeKicked *cannotbekicked;
+    EverFullyConnected *everfullyconnected;
+    AbandonAllowsSurrender *abandonallowssurrender;
+    AbandonOffersInstantSurrender *abandonoffersinstantsurrender;
+    Disconnection1MinWarningPrinted *disconnection1minwarningprinted;
+    ScoreReported *scorereported;
+    DisconnectionTick *disconnectiontick;
+    ControllingBot *controllingbot;
+    HasControlledBotThisRound *hascontrolledbotthisround;
+    HasBeenControlledByPlayerThisRound *hasbeencontrolledbyplayerthisround;
+    BotsControlledThisRound *botscontrolledthisround;
+    CanControlObservedBot *cancontrolobservedbot;
+    DesiredObserverMode *desiredobservermode;
+    PawnCharacterDefIndex *pawncharacterdefindex;
+    PawnLifetimeStart *pawnlifetimestart;
+    PawnLifetimeEnd *pawnlifetimeend;
+    PawnBotDifficulty *pawnbotdifficulty;
+    Score *score;
+    RoundScore *roundscore;
+    RoundsWon *roundswon;
+    MVPs *mvps;
+    UpdateCounter *updatecounter;
+    ShowHints *showhints;
+    NextTimeCheck *nexttimecheck;
+    JustDidTeamKill *justdidteamkill;
+    PunishForTeamKill *punishforteamkill;
+    GaveTeamDamageWarning *gaveteamdamagewarning;
+    GaveTeamDamageWarningThisRound *gaveteamdamagewarningthisround;
+    LastReceivedPacketPlatFloatTime *lastreceivedpacketplatfloattime;
+    LastTeamDamageWarningTime *lastteamdamagewarningtime;
+    LastTimePlayerWasDisconnectedForPawnsRemove *lasttimeplayerwasdisconnectedforpawnsremove;
+    SuspiciousHitCount *suspicioushitcount;
+    NonSuspiciousHitStreak *nonsuspicioushitstreak;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -202,6 +312,61 @@ public:
         this->ragdolldamageheadshot = new RagdollDamageHeadshot(playerSlot);
         this->econgloveschanged = new EconGlovesChanged(playerSlot);
         this->skiponeheadconstraintupdate = new SkipOneHeadConstraintUpdate(playerSlot);
+        this->hascommunicationabusemute = new HasCommunicationAbuseMute(playerSlot);
+        this->pendingteamnum = new PendingTeamNum(playerSlot);
+        this->forceteamtime = new ForceTeamTime(playerSlot);
+        this->compteammatecolor = new CompTeammateColor(playerSlot);
+        this->everplayedonteam = new EverPlayedOnTeam(playerSlot);
+        this->attemptedtogetcolor = new AttemptedToGetColor(playerSlot);
+        this->teammatepreferredcolor = new TeammatePreferredColor(playerSlot);
+        this->teamchanged = new TeamChanged(playerSlot);
+        this->inswitchteam = new InSwitchTeam(playerSlot);
+        this->hasseenjoingame = new HasSeenJoinGame(playerSlot);
+        this->justbecamespectator = new JustBecameSpectator(playerSlot);
+        this->switchteamsonnextroundreset = new SwitchTeamsOnNextRoundReset(playerSlot);
+        this->removeallitemsonnextroundreset = new RemoveAllItemsOnNextRoundReset(playerSlot);
+        this->competitiverankingpredicted_win = new CompetitiveRankingPredicted_Win(playerSlot);
+        this->competitiverankingpredicted_loss = new CompetitiveRankingPredicted_Loss(playerSlot);
+        this->competitiverankingpredicted_tie = new CompetitiveRankingPredicted_Tie(playerSlot);
+        this->endmatchnextmapvote = new EndMatchNextMapVote(playerSlot);
+        this->activequestid = new ActiveQuestId(playerSlot);
+        this->playertvcontrolflags = new PlayerTvControlFlags(playerSlot);
+        this->draftindex = new DraftIndex(playerSlot);
+        this->queuedmodedisconnectiontimestamp = new QueuedModeDisconnectionTimestamp(playerSlot);
+        this->abandonrecordedreason = new AbandonRecordedReason(playerSlot);
+        this->cannotbekicked = new CannotBeKicked(playerSlot);
+        this->everfullyconnected = new EverFullyConnected(playerSlot);
+        this->abandonallowssurrender = new AbandonAllowsSurrender(playerSlot);
+        this->abandonoffersinstantsurrender = new AbandonOffersInstantSurrender(playerSlot);
+        this->disconnection1minwarningprinted = new Disconnection1MinWarningPrinted(playerSlot);
+        this->scorereported = new ScoreReported(playerSlot);
+        this->disconnectiontick = new DisconnectionTick(playerSlot);
+        this->controllingbot = new ControllingBot(playerSlot);
+        this->hascontrolledbotthisround = new HasControlledBotThisRound(playerSlot);
+        this->hasbeencontrolledbyplayerthisround = new HasBeenControlledByPlayerThisRound(playerSlot);
+        this->botscontrolledthisround = new BotsControlledThisRound(playerSlot);
+        this->cancontrolobservedbot = new CanControlObservedBot(playerSlot);
+        this->desiredobservermode = new DesiredObserverMode(playerSlot);
+        this->pawncharacterdefindex = new PawnCharacterDefIndex(playerSlot);
+        this->pawnlifetimestart = new PawnLifetimeStart(playerSlot);
+        this->pawnlifetimeend = new PawnLifetimeEnd(playerSlot);
+        this->pawnbotdifficulty = new PawnBotDifficulty(playerSlot);
+        this->score = new Score(playerSlot);
+        this->roundscore = new RoundScore(playerSlot);
+        this->roundswon = new RoundsWon(playerSlot);
+        this->mvps = new MVPs(playerSlot);
+        this->updatecounter = new UpdateCounter(playerSlot);
+        this->showhints = new ShowHints(playerSlot);
+        this->nexttimecheck = new NextTimeCheck(playerSlot);
+        this->justdidteamkill = new JustDidTeamKill(playerSlot);
+        this->punishforteamkill = new PunishForTeamKill(playerSlot);
+        this->gaveteamdamagewarning = new GaveTeamDamageWarning(playerSlot);
+        this->gaveteamdamagewarningthisround = new GaveTeamDamageWarningThisRound(playerSlot);
+        this->lastreceivedpacketplatfloattime = new LastReceivedPacketPlatFloatTime(playerSlot);
+        this->lastteamdamagewarningtime = new LastTeamDamageWarningTime(playerSlot);
+        this->lasttimeplayerwasdisconnectedforpawnsremove = new LastTimePlayerWasDisconnectedForPawnsRemove(playerSlot);
+        this->suspicioushitcount = new SuspiciousHitCount(playerSlot);
+        this->nonsuspicioushitstreak = new NonSuspiciousHitStreak(playerSlot);
     }
 
     ~Player()
@@ -267,6 +432,61 @@ public:
         delete this->ragdolldamageheadshot;
         delete this->econgloveschanged;
         delete this->skiponeheadconstraintupdate;
+        delete this->hascommunicationabusemute;
+        delete this->pendingteamnum;
+        delete this->forceteamtime;
+        delete this->compteammatecolor;
+        delete this->everplayedonteam;
+        delete this->attemptedtogetcolor;
+        delete this->teammatepreferredcolor;
+        delete this->teamchanged;
+        delete this->inswitchteam;
+        delete this->hasseenjoingame;
+        delete this->justbecamespectator;
+        delete this->switchteamsonnextroundreset;
+        delete this->removeallitemsonnextroundreset;
+        delete this->competitiverankingpredicted_win;
+        delete this->competitiverankingpredicted_loss;
+        delete this->competitiverankingpredicted_tie;
+        delete this->endmatchnextmapvote;
+        delete this->activequestid;
+        delete this->playertvcontrolflags;
+        delete this->draftindex;
+        delete this->queuedmodedisconnectiontimestamp;
+        delete this->abandonrecordedreason;
+        delete this->cannotbekicked;
+        delete this->everfullyconnected;
+        delete this->abandonallowssurrender;
+        delete this->abandonoffersinstantsurrender;
+        delete this->disconnection1minwarningprinted;
+        delete this->scorereported;
+        delete this->disconnectiontick;
+        delete this->controllingbot;
+        delete this->hascontrolledbotthisround;
+        delete this->hasbeencontrolledbyplayerthisround;
+        delete this->botscontrolledthisround;
+        delete this->cancontrolobservedbot;
+        delete this->desiredobservermode;
+        delete this->pawncharacterdefindex;
+        delete this->pawnlifetimestart;
+        delete this->pawnlifetimeend;
+        delete this->pawnbotdifficulty;
+        delete this->score;
+        delete this->roundscore;
+        delete this->roundswon;
+        delete this->mvps;
+        delete this->updatecounter;
+        delete this->showhints;
+        delete this->nexttimecheck;
+        delete this->justdidteamkill;
+        delete this->punishforteamkill;
+        delete this->gaveteamdamagewarning;
+        delete this->gaveteamdamagewarningthisround;
+        delete this->lastreceivedpacketplatfloattime;
+        delete this->lastteamdamagewarningtime;
+        delete this->lasttimeplayerwasdisconnectedforpawnsremove;
+        delete this->suspicioushitcount;
+        delete this->nonsuspicioushitstreak;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }

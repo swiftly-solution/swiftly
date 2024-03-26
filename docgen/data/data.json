@@ -7348,6 +7348,1986 @@
 					}
 				}
 			},
+			"hascommunicationabusemute": {
+				"title": "HasCommunicationAbuseMute",
+				"description": "A list of function to manipulate a players hascommunicationabusemute",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the communication abuse mute status.",
+						"variable": {
+							"cpp": "player->hascommunicationabusemute->Get",
+							"lua": "player:hascommunicationabusemute():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the communication abuse mute status.",
+						"variable": {
+							"cpp": "player->hascommunicationabusemute->Set",
+							"lua": "player:hascommunicationabusemute():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"pendingteamnum": {
+				"title": "PendingTeamNum",
+				"description": "A list of function to manipulate a players pendingteamnum",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the pending team number.",
+						"variable": {
+							"cpp": "player->pendingteamnum->Get",
+							"lua": "player:pendingteamnum():Get"
+						},
+						"return": "uint8_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the pending team number.",
+						"variable": {
+							"cpp": "player->pendingteamnum->Set",
+							"lua": "player:pendingteamnum():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint8_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"forceteamtime": {
+				"title": "ForceTeamTime",
+				"description": "A list of function to manipulate a players forceteamtime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the force team time.",
+						"variable": {
+							"cpp": "player->forceteamtime->Get",
+							"lua": "player:forceteamtime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the force team time.",
+						"variable": {
+							"cpp": "player->forceteamtime->Set",
+							"lua": "player:forceteamtime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"compteammatecolor": {
+				"title": "CompTeammateColor",
+				"description": "A list of function to manipulate a players compteammatecolor",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the competitive teammate color.",
+						"variable": {
+							"cpp": "player->compteammatecolor->Get",
+							"lua": "player:compteammatecolor():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the competitive teammate color.",
+						"variable": {
+							"cpp": "player->compteammatecolor->Set",
+							"lua": "player:compteammatecolor():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"everplayedonteam": {
+				"title": "EverPlayedOnTeam",
+				"description": "A list of function to manipulate a players everplayedonteam",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if ever played on any team.",
+						"variable": {
+							"cpp": "player->everplayedonteam->Get",
+							"lua": "player:everplayedonteam():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if ever played on any team.",
+						"variable": {
+							"cpp": "player->everplayedonteam->Set",
+							"lua": "player:everplayedonteam():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"attemptedtogetcolor": {
+				"title": "AttemptedToGetColor",
+				"description": "A list of function to manipulate a players attemptedtogetcolor",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the attempt to get color.",
+						"variable": {
+							"cpp": "player->attemptedtogetcolor->Get",
+							"lua": "player:attemptedtogetcolor():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the attempt to get color.",
+						"variable": {
+							"cpp": "player->attemptedtogetcolor->Set",
+							"lua": "player:attemptedtogetcolor():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"teammatepreferredcolor": {
+				"title": "TeammatePreferredColor",
+				"description": "A list of function to manipulate a players teammatepreferredcolor",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the teammate preferred color.",
+						"variable": {
+							"cpp": "player->teammatepreferredcolor->Get",
+							"lua": "player:teammatepreferredcolor():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the teammate preferred color.",
+						"variable": {
+							"cpp": "player->teammatepreferredcolor->Set",
+							"lua": "player:teammatepreferredcolor():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"teamchanged": {
+				"title": "TeamChanged",
+				"description": "A list of function to manipulate a players teamchanged",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the team changed.",
+						"variable": {
+							"cpp": "player->teamchanged->Get",
+							"lua": "player:teamchanged():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the team changed.",
+						"variable": {
+							"cpp": "player->teamchanged->Set",
+							"lua": "player:teamchanged():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"inswitchteam": {
+				"title": "InSwitchTeam",
+				"description": "A list of function to manipulate a players inswitchteam",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it's switch team.",
+						"variable": {
+							"cpp": "player->inswitchteam->Get",
+							"lua": "player:inswitchteam():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it's switch team.",
+						"variable": {
+							"cpp": "player->inswitchteam->Set",
+							"lua": "player:inswitchteam():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hasseenjoingame": {
+				"title": "HasSeenJoinGame",
+				"description": "A list of function to manipulate a players hasseenjoingame",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if player has seen join game.",
+						"variable": {
+							"cpp": "player->hasseenjoingame->Get",
+							"lua": "player:hasseenjoingame():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if player has seen join game.",
+						"variable": {
+							"cpp": "player->hasseenjoingame->Set",
+							"lua": "player:hasseenjoingame():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"justbecamespectator": {
+				"title": "JustBecameSpectator",
+				"description": "A list of function to manipulate a players justbecamespectator",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if player just became spectator.",
+						"variable": {
+							"cpp": "player->justbecamespectator->Get",
+							"lua": "player:justbecamespectator():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if player just became spectator.",
+						"variable": {
+							"cpp": "player->justbecamespectator->Set",
+							"lua": "player:justbecamespectator():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"switchteamsonnextroundreset": {
+				"title": "SwitchTeamsOnNextRoundReset",
+				"description": "A list of function to manipulate a players switchteamsonnextroundreset",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if switch teams on next round reset.",
+						"variable": {
+							"cpp": "player->switchteamsonnextroundreset->Get",
+							"lua": "player:switchteamsonnextroundreset():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if switch teams on next round reset.",
+						"variable": {
+							"cpp": "player->switchteamsonnextroundreset->Set",
+							"lua": "player:switchteamsonnextroundreset():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"removeallitemsonnextroundreset": {
+				"title": "RemoveAllItemsOnNextRoundReset",
+				"description": "A list of function to manipulate a players removeallitemsonnextroundreset",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if remove all items on next round reset.",
+						"variable": {
+							"cpp": "player->removeallitemsonnextroundreset->Get",
+							"lua": "player:removeallitemsonnextroundreset():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if remove all items on next round reset.",
+						"variable": {
+							"cpp": "player->removeallitemsonnextroundreset->Set",
+							"lua": "player:removeallitemsonnextroundreset():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"competitiverankingpredicted_win": {
+				"title": "CompetitiveRankingPredicted_Win",
+				"description": "A list of function to manipulate a players competitiverankingpredicted_win",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the competitive ranking predicted wins.",
+						"variable": {
+							"cpp": "player->competitiverankingpredicted_win->Get",
+							"lua": "player:competitiverankingpredicted_win():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the competitive ranking predicted wins.",
+						"variable": {
+							"cpp": "player->competitiverankingpredicted_win->Set",
+							"lua": "player:competitiverankingpredicted_win():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"competitiverankingpredicted_loss": {
+				"title": "CompetitiveRankingPredicted_Loss",
+				"description": "A list of function to manipulate a players competitiverankingpredicted_loss",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the competitive ranking predicted loss.",
+						"variable": {
+							"cpp": "player->competitiverankingpredicted_loss->Get",
+							"lua": "player:competitiverankingpredicted_loss():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the competitive ranking predicted loss.",
+						"variable": {
+							"cpp": "player->competitiverankingpredicted_loss->Set",
+							"lua": "player:competitiverankingpredicted_loss():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"competitiverankingpredicted_tie": {
+				"title": "CompetitiveRankingPredicted_Tie",
+				"description": "A list of function to manipulate a players competitiverankingpredicted_tie",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the competitive ranking predicted tie.",
+						"variable": {
+							"cpp": "player->competitiverankingpredicted_tie->Get",
+							"lua": "player:competitiverankingpredicted_tie():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the competitive ranking predicted tie.",
+						"variable": {
+							"cpp": "player->competitiverankingpredicted_tie->Set",
+							"lua": "player:competitiverankingpredicted_tie():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"endmatchnextmapvote": {
+				"title": "EndMatchNextMapVote",
+				"description": "A list of function to manipulate a players endmatchnextmapvote",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the end match next map vote.",
+						"variable": {
+							"cpp": "player->endmatchnextmapvote->Get",
+							"lua": "player:endmatchnextmapvote():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the end match next map vote.",
+						"variable": {
+							"cpp": "player->endmatchnextmapvote->Set",
+							"lua": "player:endmatchnextmapvote():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"activequestid": {
+				"title": "ActiveQuestId",
+				"description": "A list of function to manipulate a players activequestid",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the active quest id.",
+						"variable": {
+							"cpp": "player->activequestid->Get",
+							"lua": "player:activequestid():Get"
+						},
+						"return": "uint16_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the active quest id.",
+						"variable": {
+							"cpp": "player->activequestid->Set",
+							"lua": "player:activequestid():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint16_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"playertvcontrolflags": {
+				"title": "PlayerTvControlFlags",
+				"description": "A list of function to manipulate a players playertvcontrolflags",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the player tv control flags.",
+						"variable": {
+							"cpp": "player->playertvcontrolflags->Get",
+							"lua": "player:playertvcontrolflags():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player tv control flags.",
+						"variable": {
+							"cpp": "player->playertvcontrolflags->Set",
+							"lua": "player:playertvcontrolflags():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"draftindex": {
+				"title": "DraftIndex",
+				"description": "A list of function to manipulate a players draftindex",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the draft index.",
+						"variable": {
+							"cpp": "player->draftindex->Get",
+							"lua": "player:draftindex():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the draft index.",
+						"variable": {
+							"cpp": "player->draftindex->Set",
+							"lua": "player:draftindex():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"queuedmodedisconnectiontimestamp": {
+				"title": "QueuedModeDisconnectionTimestamp",
+				"description": "A list of function to manipulate a players queuedmodedisconnectiontimestamp",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the queued mode disconnect timestamp.",
+						"variable": {
+							"cpp": "player->queuedmodedisconnectiontimestamp->Get",
+							"lua": "player:queuedmodedisconnectiontimestamp():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the queued mode disconnect timestamp.",
+						"variable": {
+							"cpp": "player->queuedmodedisconnectiontimestamp->Set",
+							"lua": "player:queuedmodedisconnectiontimestamp():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"abandonrecordedreason": {
+				"title": "AbandonRecordedReason",
+				"description": "A list of function to manipulate a players abandonrecordedreason",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the abandoned recorded reason.",
+						"variable": {
+							"cpp": "player->abandonrecordedreason->Get",
+							"lua": "player:abandonrecordedreason():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the abandoned recorded reason.",
+						"variable": {
+							"cpp": "player->abandonrecordedreason->Set",
+							"lua": "player:abandonrecordedreason():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"cannotbekicked": {
+				"title": "CannotBeKicked",
+				"description": "A list of function to manipulate a players cannotbekicked",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it cannot be kicked.",
+						"variable": {
+							"cpp": "player->cannotbekicked->Get",
+							"lua": "player:cannotbekicked():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it cannot be kicked.",
+						"variable": {
+							"cpp": "player->cannotbekicked->Set",
+							"lua": "player:cannotbekicked():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"everfullyconnected": {
+				"title": "EverFullyConnected",
+				"description": "A list of function to manipulate a players everfullyconnected",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if ever fully connected.",
+						"variable": {
+							"cpp": "player->everfullyconnected->Get",
+							"lua": "player:everfullyconnected():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if ever fully connected.",
+						"variable": {
+							"cpp": "player->everfullyconnected->Set",
+							"lua": "player:everfullyconnected():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"abandonallowssurrender": {
+				"title": "AbandonAllowsSurrender",
+				"description": "A list of function to manipulate a players abandonallowssurrender",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if abandon allows surrender.",
+						"variable": {
+							"cpp": "player->abandonallowssurrender->Get",
+							"lua": "player:abandonallowssurrender():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if abandon allows surrender.",
+						"variable": {
+							"cpp": "player->abandonallowssurrender->Set",
+							"lua": "player:abandonallowssurrender():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"abandonoffersinstantsurrender": {
+				"title": "AbandonOffersInstantSurrender",
+				"description": "A list of function to manipulate a players abandonoffersinstantsurrender",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if abandon offers instant surrender.",
+						"variable": {
+							"cpp": "player->abandonoffersinstantsurrender->Get",
+							"lua": "player:abandonoffersinstantsurrender():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if abandon offers instant surrender.",
+						"variable": {
+							"cpp": "player->abandonoffersinstantsurrender->Set",
+							"lua": "player:abandonoffersinstantsurrender():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"disconnection1minwarningprinted": {
+				"title": "Disconnection1MinWarningPrinted",
+				"description": "A list of function to manipulate a players disconnection1minwarningprinted",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if disconnected 1 minimum warning was printed.",
+						"variable": {
+							"cpp": "player->disconnection1minwarningprinted->Get",
+							"lua": "player:disconnection1minwarningprinted():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if disconnected 1 minimum warning was printed.",
+						"variable": {
+							"cpp": "player->disconnection1minwarningprinted->Set",
+							"lua": "player:disconnection1minwarningprinted():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"scorereported": {
+				"title": "ScoreReported",
+				"description": "A list of function to manipulate a players scorereported",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if score was reported.",
+						"variable": {
+							"cpp": "player->scorereported->Get",
+							"lua": "player:scorereported():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if score was reported.",
+						"variable": {
+							"cpp": "player->scorereported->Set",
+							"lua": "player:scorereported():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"disconnectiontick": {
+				"title": "DisconnectionTick",
+				"description": "A list of function to manipulate a players disconnectiontick",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the disconnection tick.",
+						"variable": {
+							"cpp": "player->disconnectiontick->Get",
+							"lua": "player:disconnectiontick():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the disconnection tick.",
+						"variable": {
+							"cpp": "player->disconnectiontick->Set",
+							"lua": "player:disconnectiontick():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"controllingbot": {
+				"title": "ControllingBot",
+				"description": "A list of function to manipulate a players controllingbot",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if controlling a bot.",
+						"variable": {
+							"cpp": "player->controllingbot->Get",
+							"lua": "player:controllingbot():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if controlling a bot.",
+						"variable": {
+							"cpp": "player->controllingbot->Set",
+							"lua": "player:controllingbot():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hascontrolledbotthisround": {
+				"title": "HasControlledBotThisRound",
+				"description": "A list of function to manipulate a players hascontrolledbotthisround",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns has controlled a bot this round.",
+						"variable": {
+							"cpp": "player->hascontrolledbotthisround->Get",
+							"lua": "player:hascontrolledbotthisround():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets has controlled a bot this round.",
+						"variable": {
+							"cpp": "player->hascontrolledbotthisround->Set",
+							"lua": "player:hascontrolledbotthisround():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hasbeencontrolledbyplayerthisround": {
+				"title": "HasBeenControlledByPlayerThisRound",
+				"description": "A list of function to manipulate a players hasbeencontrolledbyplayerthisround",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns has been controlled by player this round.",
+						"variable": {
+							"cpp": "player->hasbeencontrolledbyplayerthisround->Get",
+							"lua": "player:hasbeencontrolledbyplayerthisround():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets has been controlled by player this round.",
+						"variable": {
+							"cpp": "player->hasbeencontrolledbyplayerthisround->Set",
+							"lua": "player:hasbeencontrolledbyplayerthisround():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"botscontrolledthisround": {
+				"title": "BotsControlledThisRound",
+				"description": "A list of function to manipulate a players botscontrolledthisround",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns count of bots controlled this round.",
+						"variable": {
+							"cpp": "player->botscontrolledthisround->Get",
+							"lua": "player:botscontrolledthisround():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets count of bots controlled this round.",
+						"variable": {
+							"cpp": "player->botscontrolledthisround->Set",
+							"lua": "player:botscontrolledthisround():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"cancontrolobservedbot": {
+				"title": "CanControlObservedBot",
+				"description": "A list of function to manipulate a players cancontrolobservedbot",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it can control observed bot.",
+						"variable": {
+							"cpp": "player->cancontrolobservedbot->Get",
+							"lua": "player:cancontrolobservedbot():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it can control observed bot.",
+						"variable": {
+							"cpp": "player->cancontrolobservedbot->Set",
+							"lua": "player:cancontrolobservedbot():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"desiredobservermode": {
+				"title": "DesiredObserverMode",
+				"description": "A list of function to manipulate a players desiredobservermode",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the desired observer mode.",
+						"variable": {
+							"cpp": "player->desiredobservermode->Get",
+							"lua": "player:desiredobservermode():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the desired observer mode.",
+						"variable": {
+							"cpp": "player->desiredobservermode->Set",
+							"lua": "player:desiredobservermode():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"pawncharacterdefindex": {
+				"title": "PawnCharacterDefIndex",
+				"description": "A list of function to manipulate a players pawncharacterdefindex",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the pawn character definition index.",
+						"variable": {
+							"cpp": "player->pawncharacterdefindex->Get",
+							"lua": "player:pawncharacterdefindex():Get"
+						},
+						"return": "uint16_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the pawn character definition index.",
+						"variable": {
+							"cpp": "player->pawncharacterdefindex->Set",
+							"lua": "player:pawncharacterdefindex():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint16_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"pawnlifetimestart": {
+				"title": "PawnLifetimeStart",
+				"description": "A list of function to manipulate a players pawnlifetimestart",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the pawn lifetime start.",
+						"variable": {
+							"cpp": "player->pawnlifetimestart->Get",
+							"lua": "player:pawnlifetimestart():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the pawn lifetime start.",
+						"variable": {
+							"cpp": "player->pawnlifetimestart->Set",
+							"lua": "player:pawnlifetimestart():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"pawnlifetimeend": {
+				"title": "PawnLifetimeEnd",
+				"description": "A list of function to manipulate a players pawnlifetimeend",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the pawn lifetime end.",
+						"variable": {
+							"cpp": "player->pawnlifetimeend->Get",
+							"lua": "player:pawnlifetimeend():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the pawn lifetime end.",
+						"variable": {
+							"cpp": "player->pawnlifetimeend->Set",
+							"lua": "player:pawnlifetimeend():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"pawnbotdifficulty": {
+				"title": "PawnBotDifficulty",
+				"description": "A list of function to manipulate a players pawnbotdifficulty",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the pawn bot difficulty.",
+						"variable": {
+							"cpp": "player->pawnbotdifficulty->Get",
+							"lua": "player:pawnbotdifficulty():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the pawn bot difficulty.",
+						"variable": {
+							"cpp": "player->pawnbotdifficulty->Set",
+							"lua": "player:pawnbotdifficulty():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"score": {
+				"title": "Score",
+				"description": "A list of function to manipulate a players score",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the score.",
+						"variable": {
+							"cpp": "player->score->Get",
+							"lua": "player:score():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the score.",
+						"variable": {
+							"cpp": "player->score->Set",
+							"lua": "player:score():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"roundscore": {
+				"title": "RoundScore",
+				"description": "A list of function to manipulate a players roundscore",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the round score.",
+						"variable": {
+							"cpp": "player->roundscore->Get",
+							"lua": "player:roundscore():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the round score.",
+						"variable": {
+							"cpp": "player->roundscore->Set",
+							"lua": "player:roundscore():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"roundswon": {
+				"title": "RoundsWon",
+				"description": "A list of function to manipulate a players roundswon",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the rounds won.",
+						"variable": {
+							"cpp": "player->roundswon->Get",
+							"lua": "player:roundswon():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the rounds won.",
+						"variable": {
+							"cpp": "player->roundswon->Set",
+							"lua": "player:roundswon():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"mvps": {
+				"title": "MVPs",
+				"description": "A list of function to manipulate a players mvps",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the MVPs.",
+						"variable": {
+							"cpp": "player->mvps->Get",
+							"lua": "player:mvps():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the MVPs.",
+						"variable": {
+							"cpp": "player->mvps->Set",
+							"lua": "player:mvps():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"updatecounter": {
+				"title": "UpdateCounter",
+				"description": "A list of function to manipulate a players updatecounter",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the update counter.",
+						"variable": {
+							"cpp": "player->updatecounter->Get",
+							"lua": "player:updatecounter():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the update counter.",
+						"variable": {
+							"cpp": "player->updatecounter->Set",
+							"lua": "player:updatecounter():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"showhints": {
+				"title": "ShowHints",
+				"description": "A list of function to manipulate a players showhints",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it should hints.",
+						"variable": {
+							"cpp": "player->showhints->Get",
+							"lua": "player:showhints():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it should hints.",
+						"variable": {
+							"cpp": "player->showhints->Set",
+							"lua": "player:showhints():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"nexttimecheck": {
+				"title": "NextTimeCheck",
+				"description": "A list of function to manipulate a players nexttimecheck",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the next time check.",
+						"variable": {
+							"cpp": "player->nexttimecheck->Get",
+							"lua": "player:nexttimecheck():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the next time check.",
+						"variable": {
+							"cpp": "player->nexttimecheck->Set",
+							"lua": "player:nexttimecheck():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"justdidteamkill": {
+				"title": "JustDidTeamKill",
+				"description": "A list of function to manipulate a players justdidteamkill",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns it just did team kill.",
+						"variable": {
+							"cpp": "player->justdidteamkill->Get",
+							"lua": "player:justdidteamkill():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets it just did team kill.",
+						"variable": {
+							"cpp": "player->justdidteamkill->Set",
+							"lua": "player:justdidteamkill():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"punishforteamkill": {
+				"title": "PunishForTeamKill",
+				"description": "A list of function to manipulate a players punishforteamkill",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns it just should be punished for team kill.",
+						"variable": {
+							"cpp": "player->punishforteamkill->Get",
+							"lua": "player:punishforteamkill():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets it just should be punished for team kill.",
+						"variable": {
+							"cpp": "player->punishforteamkill->Set",
+							"lua": "player:punishforteamkill():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"gaveteamdamagewarning": {
+				"title": "GaveTeamDamageWarning",
+				"description": "A list of function to manipulate a players gaveteamdamagewarning",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it gave teammate damage warning.",
+						"variable": {
+							"cpp": "player->gaveteamdamagewarning->Get",
+							"lua": "player:gaveteamdamagewarning():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it gave teammate damage warning.",
+						"variable": {
+							"cpp": "player->gaveteamdamagewarning->Set",
+							"lua": "player:gaveteamdamagewarning():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"gaveteamdamagewarningthisround": {
+				"title": "GaveTeamDamageWarningThisRound",
+				"description": "A list of function to manipulate a players gaveteamdamagewarningthisround",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it gave teammate damage warning this round.",
+						"variable": {
+							"cpp": "player->gaveteamdamagewarningthisround->Get",
+							"lua": "player:gaveteamdamagewarningthisround():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it gave teammate damage warning this round.",
+						"variable": {
+							"cpp": "player->gaveteamdamagewarningthisround->Set",
+							"lua": "player:gaveteamdamagewarningthisround():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastreceivedpacketplatfloattime": {
+				"title": "LastReceivedPacketPlatFloatTime",
+				"description": "A list of function to manipulate a players lastreceivedpacketplatfloattime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last received packet platform float time.",
+						"variable": {
+							"cpp": "player->lastreceivedpacketplatfloattime->Get",
+							"lua": "player:lastreceivedpacketplatfloattime():Get"
+						},
+						"return": "double",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last received packet platform float time.",
+						"variable": {
+							"cpp": "player->lastreceivedpacketplatfloattime->Set",
+							"lua": "player:lastreceivedpacketplatfloattime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "double"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastteamdamagewarningtime": {
+				"title": "LastTeamDamageWarningTime",
+				"description": "A list of function to manipulate a players lastteamdamagewarningtime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last team damage warning time.",
+						"variable": {
+							"cpp": "player->lastteamdamagewarningtime->Get",
+							"lua": "player:lastteamdamagewarningtime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last team damage warning time.",
+						"variable": {
+							"cpp": "player->lastteamdamagewarningtime->Set",
+							"lua": "player:lastteamdamagewarningtime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lasttimeplayerwasdisconnectedforpawnsremove": {
+				"title": "LastTimePlayerWasDisconnectedForPawnsRemove",
+				"description": "A list of function to manipulate a players lasttimeplayerwasdisconnectedforpawnsremove",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last time player was disconnected for pawns remove.",
+						"variable": {
+							"cpp": "player->lasttimeplayerwasdisconnectedforpawnsremove->Get",
+							"lua": "player:lasttimeplayerwasdisconnectedforpawnsremove():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last time player was disconnected for pawns remove.",
+						"variable": {
+							"cpp": "player->lasttimeplayerwasdisconnectedforpawnsremove->Set",
+							"lua": "player:lasttimeplayerwasdisconnectedforpawnsremove():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"suspicioushitcount": {
+				"title": "SuspiciousHitCount",
+				"description": "A list of function to manipulate a players suspicioushitcount",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the suspicious hit count (maybe server-processed aimbot hit counts).",
+						"variable": {
+							"cpp": "player->suspicioushitcount->Get",
+							"lua": "player:suspicioushitcount():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the suspicious hit count (maybe server-processed aimbot hit counts).",
+						"variable": {
+							"cpp": "player->suspicioushitcount->Set",
+							"lua": "player:suspicioushitcount():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"nonsuspicioushitstreak": {
+				"title": "NonSuspiciousHitStreak",
+				"description": "A list of function to manipulate a players nonsuspicioushitstreak",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the non suspicious hit streak.",
+						"variable": {
+							"cpp": "player->nonsuspicioushitstreak->Get",
+							"lua": "player:nonsuspicioushitstreak():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the non suspicious hit streak.",
+						"variable": {
+							"cpp": "player->nonsuspicioushitstreak->Set",
+							"lua": "player:nonsuspicioushitstreak():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
 			"desiredfov": {
 				"title": "Desired FOV",
 				"description": "A list of function to manipulate a players desired FOV.",
