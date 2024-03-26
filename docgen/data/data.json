@@ -9328,6 +9328,3570 @@
 					}
 				}
 			},
+			"displayhistorybits": {
+				"title": "DisplayHistoryBits",
+				"description": "A list of function to manipulate a players displayhistorybits",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the display history bits.",
+						"variable": {
+							"cpp": "player->displayhistorybits->Get",
+							"lua": "player:displayhistorybits():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the display history bits.",
+						"variable": {
+							"cpp": "player->displayhistorybits->Set",
+							"lua": "player:displayhistorybits():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastattackedteammate": {
+				"title": "LastAttackedTeammate",
+				"description": "A list of function to manipulate a players lastattackedteammate",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last attacked teammate time.",
+						"variable": {
+							"cpp": "player->lastattackedteammate->Get",
+							"lua": "player:lastattackedteammate():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last attacked teammate time.",
+						"variable": {
+							"cpp": "player->lastattackedteammate->Set",
+							"lua": "player:lastattackedteammate():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"blinduntiltime": {
+				"title": "BlindUntilTime",
+				"description": "A list of function to manipulate a players blinduntiltime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the blind until time.",
+						"variable": {
+							"cpp": "player->blinduntiltime->Get",
+							"lua": "player:blinduntiltime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the blind until time.",
+						"variable": {
+							"cpp": "player->blinduntiltime->Set",
+							"lua": "player:blinduntiltime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"blindstarttime": {
+				"title": "BlindStartTime",
+				"description": "A list of function to manipulate a players blindstarttime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the blind start time.",
+						"variable": {
+							"cpp": "player->blindstarttime->Get",
+							"lua": "player:blindstarttime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the blind start time.",
+						"variable": {
+							"cpp": "player->blindstarttime->Set",
+							"lua": "player:blindstarttime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"allowautofollowtime": {
+				"title": "allowAutoFollowTime",
+				"description": "A list of function to manipulate a players allowautofollowtime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the allow auto follow time.",
+						"variable": {
+							"cpp": "player->allowautofollowtime->Get",
+							"lua": "player:allowautofollowtime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the allow auto follow time.",
+						"variable": {
+							"cpp": "player->allowautofollowtime->Set",
+							"lua": "player:allowautofollowtime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"spotrules": {
+				"title": "SpotRules",
+				"description": "A list of function to manipulate a players spotrules",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the spotting rules.",
+						"variable": {
+							"cpp": "player->spotrules->Get",
+							"lua": "player:spotrules():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the spotting rules.",
+						"variable": {
+							"cpp": "player->spotrules->Set",
+							"lua": "player:spotrules():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"playerstate": {
+				"title": "PlayerState",
+				"description": "A list of function to manipulate a players playerstate",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the player state.",
+						"variable": {
+							"cpp": "player->playerstate->Get",
+							"lua": "player:playerstate():Get"
+						},
+						"return": "CSPlayerState",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player state.",
+						"variable": {
+							"cpp": "player->playerstate->Set",
+							"lua": "player:playerstate():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "CSPlayerState"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastdistancetravelednotice": {
+				"title": "LastDistanceTraveledNotice",
+				"description": "A list of function to manipulate a players lastdistancetravelednotice",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last distance traveled notice.",
+						"variable": {
+							"cpp": "player->lastdistancetravelednotice->Get",
+							"lua": "player:lastdistancetravelednotice():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last distance traveled notice.",
+						"variable": {
+							"cpp": "player->lastdistancetravelednotice->Set",
+							"lua": "player:lastdistancetravelednotice():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"accumulateddistancetraveled": {
+				"title": "AccumulatedDistanceTraveled",
+				"description": "A list of function to manipulate a players accumulateddistancetraveled",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the accumulated distance traveled.",
+						"variable": {
+							"cpp": "player->accumulateddistancetraveled->Get",
+							"lua": "player:accumulateddistancetraveled():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the accumulated distance traveled.",
+						"variable": {
+							"cpp": "player->accumulateddistancetraveled->Set",
+							"lua": "player:accumulateddistancetraveled():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastfriendlyfiredamagereductionratio": {
+				"title": "LastFriendlyFireDamageReductionRatio",
+				"description": "A list of function to manipulate a players lastfriendlyfiredamagereductionratio",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last friendly fire damage reduction ratio.",
+						"variable": {
+							"cpp": "player->lastfriendlyfiredamagereductionratio->Get",
+							"lua": "player:lastfriendlyfiredamagereductionratio():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last friendly fire damage reduction ratio.",
+						"variable": {
+							"cpp": "player->lastfriendlyfiredamagereductionratio->Set",
+							"lua": "player:lastfriendlyfiredamagereductionratio():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"respawning": {
+				"title": "Respawning",
+				"description": "A list of function to manipulate a players respawning",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it's respawning.",
+						"variable": {
+							"cpp": "player->respawning->Get",
+							"lua": "player:respawning():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it's respawning.",
+						"variable": {
+							"cpp": "player->respawning->Set",
+							"lua": "player:respawning():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastpickuppriority": {
+				"title": "LastPickupPriority",
+				"description": "A list of function to manipulate a players lastpickuppriority",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last pickup priority.",
+						"variable": {
+							"cpp": "player->lastpickuppriority->Get",
+							"lua": "player:lastpickuppriority():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last pickup priority.",
+						"variable": {
+							"cpp": "player->lastpickuppriority->Set",
+							"lua": "player:lastpickuppriority():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastpickupprioritytime": {
+				"title": "LastPickupPriorityTime",
+				"description": "A list of function to manipulate a players lastpickupprioritytime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last pickup priority time.",
+						"variable": {
+							"cpp": "player->lastpickupprioritytime->Get",
+							"lua": "player:lastpickupprioritytime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last pickup priority time.",
+						"variable": {
+							"cpp": "player->lastpickupprioritytime->Set",
+							"lua": "player:lastpickupprioritytime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"isscoped": {
+				"title": "IsScoped",
+				"description": "A list of function to manipulate a players isscoped",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it's scoped.",
+						"variable": {
+							"cpp": "player->isscoped->Get",
+							"lua": "player:isscoped():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it's scoped.",
+						"variable": {
+							"cpp": "player->isscoped->Set",
+							"lua": "player:isscoped():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"iswalking": {
+				"title": "IsWalking",
+				"description": "A list of function to manipulate a players iswalking",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it's walking.",
+						"variable": {
+							"cpp": "player->iswalking->Get",
+							"lua": "player:iswalking():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it's walking.",
+						"variable": {
+							"cpp": "player->iswalking->Set",
+							"lua": "player:iswalking():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"resumezoom": {
+				"title": "ResumeZoom",
+				"description": "A list of function to manipulate a players resumezoom",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it's resuming zoom.",
+						"variable": {
+							"cpp": "player->resumezoom->Get",
+							"lua": "player:resumezoom():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it's resuming zoom.",
+						"variable": {
+							"cpp": "player->resumezoom->Set",
+							"lua": "player:resumezoom():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"isdefusing": {
+				"title": "IsDefusing",
+				"description": "A list of function to manipulate a players isdefusing",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it's defusing.",
+						"variable": {
+							"cpp": "player->isdefusing->Get",
+							"lua": "player:isdefusing():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it's defusing.",
+						"variable": {
+							"cpp": "player->isdefusing->Set",
+							"lua": "player:isdefusing():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"isgrabbinghostage": {
+				"title": "IsGrabbingHostage",
+				"description": "A list of function to manipulate a players isgrabbinghostage",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it's grabbing a hostage.",
+						"variable": {
+							"cpp": "player->isgrabbinghostage->Get",
+							"lua": "player:isgrabbinghostage():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it's grabbing a hostage.",
+						"variable": {
+							"cpp": "player->isgrabbinghostage->Set",
+							"lua": "player:isgrabbinghostage():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"blockinguseactioninprogress": {
+				"title": "BlockingUseActionInProgress",
+				"description": "A list of function to manipulate a players blockinguseactioninprogress",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the blocking use action in progress (not sure what this does).",
+						"variable": {
+							"cpp": "player->blockinguseactioninprogress->Get",
+							"lua": "player:blockinguseactioninprogress():Get"
+						},
+						"return": "CSPlayerBlockingUseAction_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the blocking use action in progress (not sure what this does).",
+						"variable": {
+							"cpp": "player->blockinguseactioninprogress->Set",
+							"lua": "player:blockinguseactioninprogress():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "CSPlayerBlockingUseAction_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"immunetogungamedamagetime": {
+				"title": "ImmuneToGunGameDamageTime",
+				"description": "A list of function to manipulate a players immunetogungamedamagetime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the immune to gun game damage time.",
+						"variable": {
+							"cpp": "player->immunetogungamedamagetime->Get",
+							"lua": "player:immunetogungamedamagetime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the immune to gun game damage time.",
+						"variable": {
+							"cpp": "player->immunetogungamedamagetime->Set",
+							"lua": "player:immunetogungamedamagetime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"gungameimmunity": {
+				"title": "GunGameImmunity",
+				"description": "A list of function to manipulate a players gungameimmunity",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it's immune to gun game.",
+						"variable": {
+							"cpp": "player->gungameimmunity->Get",
+							"lua": "player:gungameimmunity():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it's immune to gun game.",
+						"variable": {
+							"cpp": "player->gungameimmunity->Set",
+							"lua": "player:gungameimmunity():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"molotovdamagetime": {
+				"title": "MolotovDamageTime",
+				"description": "A list of function to manipulate a players molotovdamagetime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the molotov damage time.",
+						"variable": {
+							"cpp": "player->molotovdamagetime->Get",
+							"lua": "player:molotovdamagetime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the molotov damage time.",
+						"variable": {
+							"cpp": "player->molotovdamagetime->Set",
+							"lua": "player:molotovdamagetime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hasmovedsincespawn": {
+				"title": "HasMovedSinceSpawn",
+				"description": "A list of function to manipulate a players hasmovedsincespawn",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it has moved since spawn.",
+						"variable": {
+							"cpp": "player->hasmovedsincespawn->Get",
+							"lua": "player:hasmovedsincespawn():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it has moved since spawn.",
+						"variable": {
+							"cpp": "player->hasmovedsincespawn->Set",
+							"lua": "player:hasmovedsincespawn():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"canmoveduringfreezeperiod": {
+				"title": "CanMoveDuringFreezePeriod",
+				"description": "A list of function to manipulate a players canmoveduringfreezeperiod",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it can move during freeze period.",
+						"variable": {
+							"cpp": "player->canmoveduringfreezeperiod->Get",
+							"lua": "player:canmoveduringfreezeperiod():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it can move during freeze period.",
+						"variable": {
+							"cpp": "player->canmoveduringfreezeperiod->Set",
+							"lua": "player:canmoveduringfreezeperiod():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"guardiantoofardistfrac": {
+				"title": "GuardianTooFarDistFrac",
+				"description": "A list of function to manipulate a players guardiantoofardistfrac",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the guardian too far distance.",
+						"variable": {
+							"cpp": "player->guardiantoofardistfrac->Get",
+							"lua": "player:guardiantoofardistfrac():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the guardian too far distance.",
+						"variable": {
+							"cpp": "player->guardiantoofardistfrac->Set",
+							"lua": "player:guardiantoofardistfrac():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"nextguardiantoofarhurttime": {
+				"title": "NextGuardianTooFarHurtTime",
+				"description": "A list of function to manipulate a players nextguardiantoofarhurttime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the next guardian too far hurt time.",
+						"variable": {
+							"cpp": "player->nextguardiantoofarhurttime->Get",
+							"lua": "player:nextguardiantoofarhurttime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the next guardian too far hurt time.",
+						"variable": {
+							"cpp": "player->nextguardiantoofarhurttime->Set",
+							"lua": "player:nextguardiantoofarhurttime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"detectedbyenemysensortime": {
+				"title": "DetectedByEnemySensorTime",
+				"description": "A list of function to manipulate a players detectedbyenemysensortime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the detected by enemy sensor time.",
+						"variable": {
+							"cpp": "player->detectedbyenemysensortime->Get",
+							"lua": "player:detectedbyenemysensortime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the detected by enemy sensor time.",
+						"variable": {
+							"cpp": "player->detectedbyenemysensortime->Set",
+							"lua": "player:detectedbyenemysensortime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"dealtdamagetoenemymostrecenttimestamp": {
+				"title": "DealtDamageToEnemyMostRecentTimestamp",
+				"description": "A list of function to manipulate a players dealtdamagetoenemymostrecenttimestamp",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the dealt damage to enemy most recent timestamp.",
+						"variable": {
+							"cpp": "player->dealtdamagetoenemymostrecenttimestamp->Get",
+							"lua": "player:dealtdamagetoenemymostrecenttimestamp():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the dealt damage to enemy most recent timestamp.",
+						"variable": {
+							"cpp": "player->dealtdamagetoenemymostrecenttimestamp->Set",
+							"lua": "player:dealtdamagetoenemymostrecenttimestamp():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastequippedhelmettime": {
+				"title": "LastEquippedHelmetTime",
+				"description": "A list of function to manipulate a players lastequippedhelmettime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last equipped helmet time.",
+						"variable": {
+							"cpp": "player->lastequippedhelmettime->Get",
+							"lua": "player:lastequippedhelmettime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last equipped helmet time.",
+						"variable": {
+							"cpp": "player->lastequippedhelmettime->Set",
+							"lua": "player:lastequippedhelmettime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastequippedarmortime": {
+				"title": "LastEquippedArmorTime",
+				"description": "A list of function to manipulate a players lastequippedarmortime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last equipped armor time.",
+						"variable": {
+							"cpp": "player->lastequippedarmortime->Get",
+							"lua": "player:lastequippedarmortime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last equipped armor time.",
+						"variable": {
+							"cpp": "player->lastequippedarmortime->Set",
+							"lua": "player:lastequippedarmortime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"heavyassaultsuitcooldownremaining": {
+				"title": "HeavyAssaultSuitCooldownRemaining",
+				"description": "A list of function to manipulate a players heavyassaultsuitcooldownremaining",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the heavy assault suit cooldown remaining.",
+						"variable": {
+							"cpp": "player->heavyassaultsuitcooldownremaining->Get",
+							"lua": "player:heavyassaultsuitcooldownremaining():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the heavy assault suit cooldown remaining.",
+						"variable": {
+							"cpp": "player->heavyassaultsuitcooldownremaining->Set",
+							"lua": "player:heavyassaultsuitcooldownremaining():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"resetarmornextspawn": {
+				"title": "ResetArmorNextSpawn",
+				"description": "A list of function to manipulate a players resetarmornextspawn",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it should reset armor next spawn.",
+						"variable": {
+							"cpp": "player->resetarmornextspawn->Get",
+							"lua": "player:resetarmornextspawn():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it should reset armor next spawn.",
+						"variable": {
+							"cpp": "player->resetarmornextspawn->Set",
+							"lua": "player:resetarmornextspawn():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastbumpminebumptime": {
+				"title": "LastBumpMineBumpTime",
+				"description": "A list of function to manipulate a players lastbumpminebumptime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last bump mine bump time.",
+						"variable": {
+							"cpp": "player->lastbumpminebumptime->Get",
+							"lua": "player:lastbumpminebumptime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last bump mine bump time.",
+						"variable": {
+							"cpp": "player->lastbumpminebumptime->Set",
+							"lua": "player:lastbumpminebumptime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"emitsoundtime": {
+				"title": "EmitSoundTime",
+				"description": "A list of function to manipulate a players emitsoundtime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the emit sound time.",
+						"variable": {
+							"cpp": "player->emitsoundtime->Get",
+							"lua": "player:emitsoundtime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the emit sound time.",
+						"variable": {
+							"cpp": "player->emitsoundtime->Set",
+							"lua": "player:emitsoundtime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"numspawns": {
+				"title": "NumSpawns",
+				"description": "A list of function to manipulate a players numspawns",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the number of spawns.",
+						"variable": {
+							"cpp": "player->numspawns->Get",
+							"lua": "player:numspawns():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the number of spawns.",
+						"variable": {
+							"cpp": "player->numspawns->Set",
+							"lua": "player:numspawns():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"shouldhavecash": {
+				"title": "ShouldHaveCash",
+				"description": "A list of function to manipulate a players shouldhavecash",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it should have cash.",
+						"variable": {
+							"cpp": "player->shouldhavecash->Get",
+							"lua": "player:shouldhavecash():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it should have cash.",
+						"variable": {
+							"cpp": "player->shouldhavecash->Set",
+							"lua": "player:shouldhavecash():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"invalidsteamlogondelayed": {
+				"title": "InvalidSteamLogonDelayed",
+				"description": "A list of function to manipulate a players invalidsteamlogondelayed",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the invalid steam logon is delayed.",
+						"variable": {
+							"cpp": "player->invalidsteamlogondelayed->Get",
+							"lua": "player:invalidsteamlogondelayed():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the invalid steam logon is delayed.",
+						"variable": {
+							"cpp": "player->invalidsteamlogondelayed->Set",
+							"lua": "player:invalidsteamlogondelayed():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastaction": {
+				"title": "LastAction",
+				"description": "A list of function to manipulate a players lastaction",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last action.",
+						"variable": {
+							"cpp": "player->lastaction->Get",
+							"lua": "player:lastaction():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last action.",
+						"variable": {
+							"cpp": "player->lastaction->Set",
+							"lua": "player:lastaction():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastgivendefusertime": {
+				"title": "LastGivenDefuserTime",
+				"description": "A list of function to manipulate a players lastgivendefusertime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last given defuser time.",
+						"variable": {
+							"cpp": "player->lastgivendefusertime->Get",
+							"lua": "player:lastgivendefusertime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last given defuser time.",
+						"variable": {
+							"cpp": "player->lastgivendefusertime->Set",
+							"lua": "player:lastgivendefusertime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastgivenbombtime": {
+				"title": "LastGivenBombTime",
+				"description": "A list of function to manipulate a players lastgivenbombtime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last given bomb time.",
+						"variable": {
+							"cpp": "player->lastgivenbombtime->Get",
+							"lua": "player:lastgivenbombtime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last given bomb time.",
+						"variable": {
+							"cpp": "player->lastgivenbombtime->Set",
+							"lua": "player:lastgivenbombtime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hasnightvision": {
+				"title": "HasNightVision",
+				"description": "A list of function to manipulate a players hasnightvision",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it has night vision.",
+						"variable": {
+							"cpp": "player->hasnightvision->Get",
+							"lua": "player:hasnightvision():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it has night vision.",
+						"variable": {
+							"cpp": "player->hasnightvision->Set",
+							"lua": "player:hasnightvision():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"nightvisionon": {
+				"title": "NightVisionOn",
+				"description": "A list of function to manipulate a players nightvisionon",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it has night vision enabled.",
+						"variable": {
+							"cpp": "player->nightvisionon->Get",
+							"lua": "player:nightvisionon():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it has night vision enabled.",
+						"variable": {
+							"cpp": "player->nightvisionon->Set",
+							"lua": "player:nightvisionon():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"nextradarupdatetime": {
+				"title": "NextRadarUpdateTime",
+				"description": "A list of function to manipulate a players nextradarupdatetime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the next radar update time.",
+						"variable": {
+							"cpp": "player->nextradarupdatetime->Get",
+							"lua": "player:nextradarupdatetime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the next radar update time.",
+						"variable": {
+							"cpp": "player->nextradarupdatetime->Set",
+							"lua": "player:nextradarupdatetime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastmoneyupdatetime": {
+				"title": "LastMoneyUpdateTime",
+				"description": "A list of function to manipulate a players lastmoneyupdatetime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last money update time.",
+						"variable": {
+							"cpp": "player->lastmoneyupdatetime->Get",
+							"lua": "player:lastmoneyupdatetime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last money update time.",
+						"variable": {
+							"cpp": "player->lastmoneyupdatetime->Set",
+							"lua": "player:lastmoneyupdatetime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"introcamtime": {
+				"title": "IntroCamTime",
+				"description": "A list of function to manipulate a players introcamtime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the intro cam time.",
+						"variable": {
+							"cpp": "player->introcamtime->Get",
+							"lua": "player:introcamtime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the intro cam time.",
+						"variable": {
+							"cpp": "player->introcamtime->Set",
+							"lua": "player:introcamtime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"innodefusearea": {
+				"title": "InNoDefuseArea",
+				"description": "A list of function to manipulate a players innodefusearea",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the player is in no defuse area.",
+						"variable": {
+							"cpp": "player->innodefusearea->Get",
+							"lua": "player:innodefusearea():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the player is in no defuse area.",
+						"variable": {
+							"cpp": "player->innodefusearea->Set",
+							"lua": "player:innodefusearea():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"killedbytaser": {
+				"title": "KilledByTaser",
+				"description": "A list of function to manipulate a players killedbytaser",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if player was killed by taser.",
+						"variable": {
+							"cpp": "player->killedbytaser->Get",
+							"lua": "player:killedbytaser():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if player was killed by taser.",
+						"variable": {
+							"cpp": "player->killedbytaser->Set",
+							"lua": "player:killedbytaser():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"movestate": {
+				"title": "MoveState",
+				"description": "A list of function to manipulate a players movestate",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the movement state.",
+						"variable": {
+							"cpp": "player->movestate->Get",
+							"lua": "player:movestate():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the movement state.",
+						"variable": {
+							"cpp": "player->movestate->Set",
+							"lua": "player:movestate():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"grenadeparameterstashtime": {
+				"title": "GrenadeParameterStashTime",
+				"description": "A list of function to manipulate a players grenadeparameterstashtime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the grenade parameter stash time.",
+						"variable": {
+							"cpp": "player->grenadeparameterstashtime->Get",
+							"lua": "player:grenadeparameterstashtime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the grenade parameter stash time.",
+						"variable": {
+							"cpp": "player->grenadeparameterstashtime->Set",
+							"lua": "player:grenadeparameterstashtime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"grenadeparametersstashed": {
+				"title": "GrenadeParametersStashed",
+				"description": "A list of function to manipulate a players grenadeparametersstashed",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the grenade parameters were stashed.",
+						"variable": {
+							"cpp": "player->grenadeparametersstashed->Get",
+							"lua": "player:grenadeparametersstashed():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the grenade parameters were stashed.",
+						"variable": {
+							"cpp": "player->grenadeparametersstashed->Set",
+							"lua": "player:grenadeparametersstashed():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"diedairborne": {
+				"title": "DiedAirborne",
+				"description": "A list of function to manipulate a players diedairborne",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the player doed airborne.",
+						"variable": {
+							"cpp": "player->diedairborne->Get",
+							"lua": "player:diedairborne():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the player doed airborne.",
+						"variable": {
+							"cpp": "player->diedairborne->Set",
+							"lua": "player:diedairborne():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"whichbombzone": {
+				"title": "WhichBombZone",
+				"description": "A list of function to manipulate a players whichbombzone",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the bomb zone.",
+						"variable": {
+							"cpp": "player->whichbombzone->Get",
+							"lua": "player:whichbombzone():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the bomb zone.",
+						"variable": {
+							"cpp": "player->whichbombzone->Set",
+							"lua": "player:whichbombzone():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"inbombzonetrigger": {
+				"title": "InBombZoneTrigger",
+				"description": "A list of function to manipulate a players inbombzonetrigger",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if in bomb zone was triggered.",
+						"variable": {
+							"cpp": "player->inbombzonetrigger->Get",
+							"lua": "player:inbombzonetrigger():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if in bomb zone was triggered.",
+						"variable": {
+							"cpp": "player->inbombzonetrigger->Set",
+							"lua": "player:inbombzonetrigger():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"wasinbombzonetrigger": {
+				"title": "WasInBombZoneTrigger",
+				"description": "A list of function to manipulate a players wasinbombzonetrigger",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it was in bomb zone triggered.",
+						"variable": {
+							"cpp": "player->wasinbombzonetrigger->Get",
+							"lua": "player:wasinbombzonetrigger():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it was in bomb zone triggered.",
+						"variable": {
+							"cpp": "player->wasinbombzonetrigger->Set",
+							"lua": "player:wasinbombzonetrigger():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"direction": {
+				"title": "Direction",
+				"description": "A list of function to manipulate a players direction",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the direction.",
+						"variable": {
+							"cpp": "player->direction->Get",
+							"lua": "player:direction():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the direction.",
+						"variable": {
+							"cpp": "player->direction->Set",
+							"lua": "player:direction():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"shotsfired": {
+				"title": "ShotsFired",
+				"description": "A list of function to manipulate a players shotsfired",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the shots fired.",
+						"variable": {
+							"cpp": "player->shotsfired->Get",
+							"lua": "player:shotsfired():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the shots fired.",
+						"variable": {
+							"cpp": "player->shotsfired->Set",
+							"lua": "player:shotsfired():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"flinchstack": {
+				"title": "FlinchStack",
+				"description": "A list of function to manipulate a players flinchstack",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the flinch stack.",
+						"variable": {
+							"cpp": "player->flinchstack->Get",
+							"lua": "player:flinchstack():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the flinch stack.",
+						"variable": {
+							"cpp": "player->flinchstack->Set",
+							"lua": "player:flinchstack():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hitheading": {
+				"title": "HitHeading",
+				"description": "A list of function to manipulate a players hitheading",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the hit heading.",
+						"variable": {
+							"cpp": "player->hitheading->Get",
+							"lua": "player:hitheading():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the hit heading.",
+						"variable": {
+							"cpp": "player->hitheading->Set",
+							"lua": "player:hitheading():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hitbodypart": {
+				"title": "HitBodyPart",
+				"description": "A list of function to manipulate a players hitbodypart",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the hit body part.",
+						"variable": {
+							"cpp": "player->hitbodypart->Get",
+							"lua": "player:hitbodypart():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the hit body part.",
+						"variable": {
+							"cpp": "player->hitbodypart->Set",
+							"lua": "player:hitbodypart():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hostageskilled": {
+				"title": "HostagesKilled",
+				"description": "A list of function to manipulate a players hostageskilled",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the hostages killed.",
+						"variable": {
+							"cpp": "player->hostageskilled->Get",
+							"lua": "player:hostageskilled():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the hostages killed.",
+						"variable": {
+							"cpp": "player->hostageskilled->Set",
+							"lua": "player:hostageskilled():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"flashmaxalpha": {
+				"title": "FlashMaxAlpha",
+				"description": "A list of function to manipulate a players flashmaxalpha",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the flash max alpha.",
+						"variable": {
+							"cpp": "player->flashmaxalpha->Get",
+							"lua": "player:flashmaxalpha():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the flash max alpha.",
+						"variable": {
+							"cpp": "player->flashmaxalpha->Set",
+							"lua": "player:flashmaxalpha():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"progressbarstarttime": {
+				"title": "ProgressBarStartTime",
+				"description": "A list of function to manipulate a players progressbarstarttime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the progress bar start time.",
+						"variable": {
+							"cpp": "player->progressbarstarttime->Get",
+							"lua": "player:progressbarstarttime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the progress bar start time.",
+						"variable": {
+							"cpp": "player->progressbarstarttime->Set",
+							"lua": "player:progressbarstarttime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"progressbarduration": {
+				"title": "ProgressBarDuration",
+				"description": "A list of function to manipulate a players progressbarduration",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the progress bar duration.",
+						"variable": {
+							"cpp": "player->progressbarduration->Get",
+							"lua": "player:progressbarduration():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the progress bar duration.",
+						"variable": {
+							"cpp": "player->progressbarduration->Set",
+							"lua": "player:progressbarduration():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"waitfornoattack": {
+				"title": "WaitForNoAttack",
+				"description": "A list of function to manipulate a players waitfornoattack",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it should wait for no attack.",
+						"variable": {
+							"cpp": "player->waitfornoattack->Get",
+							"lua": "player:waitfornoattack():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it should wait for no attack.",
+						"variable": {
+							"cpp": "player->waitfornoattack->Set",
+							"lua": "player:waitfornoattack():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lowerbodyyawtarget": {
+				"title": "LowerBodyYawTarget",
+				"description": "A list of function to manipulate a players lowerbodyyawtarget",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the lower body yaw target.",
+						"variable": {
+							"cpp": "player->lowerbodyyawtarget->Get",
+							"lua": "player:lowerbodyyawtarget():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the lower body yaw target.",
+						"variable": {
+							"cpp": "player->lowerbodyyawtarget->Set",
+							"lua": "player:lowerbodyyawtarget():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"strafing": {
+				"title": "Strafing",
+				"description": "A list of function to manipulate a players strafing",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if strafing.",
+						"variable": {
+							"cpp": "player->strafing->Get",
+							"lua": "player:strafing():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if strafing.",
+						"variable": {
+							"cpp": "player->strafing->Set",
+							"lua": "player:strafing():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"ignoreladderjumptime": {
+				"title": "IgnoreLadderJumpTime",
+				"description": "A list of function to manipulate a players ignoreladderjumptime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the ignoring ladder jump time.",
+						"variable": {
+							"cpp": "player->ignoreladderjumptime->Get",
+							"lua": "player:ignoreladderjumptime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the ignoring ladder jump time.",
+						"variable": {
+							"cpp": "player->ignoreladderjumptime->Set",
+							"lua": "player:ignoreladderjumptime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"slopedropoffset": {
+				"title": "SlopeDropOffset",
+				"description": "A list of function to manipulate a players slopedropoffset",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the slope drop offset.",
+						"variable": {
+							"cpp": "player->slopedropoffset->Get",
+							"lua": "player:slopedropoffset():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the slope drop offset.",
+						"variable": {
+							"cpp": "player->slopedropoffset->Set",
+							"lua": "player:slopedropoffset():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"slopedropheight": {
+				"title": "SlopeDropHeight",
+				"description": "A list of function to manipulate a players slopedropheight",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the slope drop height.",
+						"variable": {
+							"cpp": "player->slopedropheight->Get",
+							"lua": "player:slopedropheight():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the slope drop height.",
+						"variable": {
+							"cpp": "player->slopedropheight->Set",
+							"lua": "player:slopedropheight():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastweaponfireusercmd": {
+				"title": "LastWeaponFireUsercmd",
+				"description": "A list of function to manipulate a players lastweaponfireusercmd",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last weapon fire usercmd.",
+						"variable": {
+							"cpp": "player->lastweaponfireusercmd->Get",
+							"lua": "player:lastweaponfireusercmd():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last weapon fire usercmd.",
+						"variable": {
+							"cpp": "player->lastweaponfireusercmd->Set",
+							"lua": "player:lastweaponfireusercmd():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"vcollisioninitted": {
+				"title": "VCollisionInitted",
+				"description": "A list of function to manipulate a players vcollisioninitted",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the VCollision was initiated.",
+						"variable": {
+							"cpp": "player->vcollisioninitted->Get",
+							"lua": "player:vcollisioninitted():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the VCollision was initiated.",
+						"variable": {
+							"cpp": "player->vcollisioninitted->Set",
+							"lua": "player:vcollisioninitted():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"isspawning": {
+				"title": "IsSpawning",
+				"description": "A list of function to manipulate a players isspawning",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the player is spawning.",
+						"variable": {
+							"cpp": "player->isspawning->Get",
+							"lua": "player:isspawning():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the player is spawning.",
+						"variable": {
+							"cpp": "player->isspawning->Set",
+							"lua": "player:isspawning():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hidetargetid": {
+				"title": "HideTargetID",
+				"description": "A list of function to manipulate a players hidetargetid",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it should hide target id.",
+						"variable": {
+							"cpp": "player->hidetargetid->Get",
+							"lua": "player:hidetargetid():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it should hide target id.",
+						"variable": {
+							"cpp": "player->hidetargetid->Set",
+							"lua": "player:hidetargetid():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"numdangerzonedamagehits": {
+				"title": "NumDangerZoneDamageHits",
+				"description": "A list of function to manipulate a players numdangerzonedamagehits",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the number of danger zone damage hits.",
+						"variable": {
+							"cpp": "player->numdangerzonedamagehits->Get",
+							"lua": "player:numdangerzonedamagehits():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the number of danger zone damage hits.",
+						"variable": {
+							"cpp": "player->numdangerzonedamagehits->Set",
+							"lua": "player:numdangerzonedamagehits():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hud_miniscorehidden": {
+				"title": "Hud_MiniScoreHidden",
+				"description": "A list of function to manipulate a players hud_miniscorehidden",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the player is hidden in scoreboard.",
+						"variable": {
+							"cpp": "player->hud_miniscorehidden->Get",
+							"lua": "player:hud_miniscorehidden():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the player is hidden in scoreboard.",
+						"variable": {
+							"cpp": "player->hud_miniscorehidden->Set",
+							"lua": "player:hud_miniscorehidden():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hud_radarhidden": {
+				"title": "Hud_RadarHidden",
+				"description": "A list of function to manipulate a players hud_radarhidden",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the player is hidden in radar.",
+						"variable": {
+							"cpp": "player->hud_radarhidden->Get",
+							"lua": "player:hud_radarhidden():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the player is hidden in radar.",
+						"variable": {
+							"cpp": "player->hud_radarhidden->Set",
+							"lua": "player:hud_radarhidden():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastconcurrentkilled": {
+				"title": "LastConcurrentKilled",
+				"description": "A list of function to manipulate a players lastconcurrentkilled",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last concurrent killed.",
+						"variable": {
+							"cpp": "player->lastconcurrentkilled->Get",
+							"lua": "player:lastconcurrentkilled():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last concurrent killed.",
+						"variable": {
+							"cpp": "player->lastconcurrentkilled->Set",
+							"lua": "player:lastconcurrentkilled():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"deathcammusic": {
+				"title": "DeathCamMusic",
+				"description": "A list of function to manipulate a players deathcammusic",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the death cam music.",
+						"variable": {
+							"cpp": "player->deathcammusic->Get",
+							"lua": "player:deathcammusic():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the death cam music.",
+						"variable": {
+							"cpp": "player->deathcammusic->Set",
+							"lua": "player:deathcammusic():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"addonbits": {
+				"title": "AddonBits",
+				"description": "A list of function to manipulate a players addonbits",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the addon bits.",
+						"variable": {
+							"cpp": "player->addonbits->Get",
+							"lua": "player:addonbits():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the addon bits.",
+						"variable": {
+							"cpp": "player->addonbits->Set",
+							"lua": "player:addonbits():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"primaryaddon": {
+				"title": "PrimaryAddon",
+				"description": "A list of function to manipulate a players primaryaddon",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the primary addon.",
+						"variable": {
+							"cpp": "player->primaryaddon->Get",
+							"lua": "player:primaryaddon():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the primary addon.",
+						"variable": {
+							"cpp": "player->primaryaddon->Set",
+							"lua": "player:primaryaddon():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"secondaryaddon": {
+				"title": "SecondaryAddon",
+				"description": "A list of function to manipulate a players secondaryaddon",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the secondary addon.",
+						"variable": {
+							"cpp": "player->secondaryaddon->Get",
+							"lua": "player:secondaryaddon():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the secondary addon.",
+						"variable": {
+							"cpp": "player->secondaryaddon->Set",
+							"lua": "player:secondaryaddon():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"numenemieskilledthisspawn": {
+				"title": "NumEnemiesKilledThisSpawn",
+				"description": "A list of function to manipulate a players numenemieskilledthisspawn",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the number of enemies killed this spawn.",
+						"variable": {
+							"cpp": "player->numenemieskilledthisspawn->Get",
+							"lua": "player:numenemieskilledthisspawn():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the number of enemies killed this spawn.",
+						"variable": {
+							"cpp": "player->numenemieskilledthisspawn->Set",
+							"lua": "player:numenemieskilledthisspawn():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"numenemieskilledthisround": {
+				"title": "NumEnemiesKilledThisRound",
+				"description": "A list of function to manipulate a players numenemieskilledthisround",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the number of enemies killed this round.",
+						"variable": {
+							"cpp": "player->numenemieskilledthisround->Get",
+							"lua": "player:numenemieskilledthisround():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the number of enemies killed this round.",
+						"variable": {
+							"cpp": "player->numenemieskilledthisround->Set",
+							"lua": "player:numenemieskilledthisround():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"numenemiesatroundstart": {
+				"title": "NumEnemiesAtRoundStart",
+				"description": "A list of function to manipulate a players numenemiesatroundstart",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the number of entities at round start.",
+						"variable": {
+							"cpp": "player->numenemiesatroundstart->Get",
+							"lua": "player:numenemiesatroundstart():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the number of entities at round start.",
+						"variable": {
+							"cpp": "player->numenemiesatroundstart->Set",
+							"lua": "player:numenemiesatroundstart():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"wasnotkillednaturally": {
+				"title": "WasNotKilledNaturally",
+				"description": "A list of function to manipulate a players wasnotkillednaturally",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it was not killed naturally.",
+						"variable": {
+							"cpp": "player->wasnotkillednaturally->Get",
+							"lua": "player:wasnotkillednaturally():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it was not killed naturally.",
+						"variable": {
+							"cpp": "player->wasnotkillednaturally->Set",
+							"lua": "player:wasnotkillednaturally():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"deathflags": {
+				"title": "DeathFlags",
+				"description": "A list of function to manipulate a players deathflags",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the death flags.",
+						"variable": {
+							"cpp": "player->deathflags->Get",
+							"lua": "player:deathflags():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the death flags.",
+						"variable": {
+							"cpp": "player->deathflags->Set",
+							"lua": "player:deathflags():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"currentequipmentvalue": {
+				"title": "CurrentEquipmentValue",
+				"description": "A list of function to manipulate a players currentequipmentvalue",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the current equipment value.",
+						"variable": {
+							"cpp": "player->currentequipmentvalue->Get",
+							"lua": "player:currentequipmentvalue():Get"
+						},
+						"return": "uint16_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the current equipment value.",
+						"variable": {
+							"cpp": "player->currentequipmentvalue->Set",
+							"lua": "player:currentequipmentvalue():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint16_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"roundstartequipmentvalue": {
+				"title": "RoundStartEquipmentValue",
+				"description": "A list of function to manipulate a players roundstartequipmentvalue",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the round start equipment value.",
+						"variable": {
+							"cpp": "player->roundstartequipmentvalue->Get",
+							"lua": "player:roundstartequipmentvalue():Get"
+						},
+						"return": "uint16_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the round start equipment value.",
+						"variable": {
+							"cpp": "player->roundstartequipmentvalue->Set",
+							"lua": "player:roundstartequipmentvalue():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint16_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"freezetimeendequipmentvalue": {
+				"title": "FreezetimeEndEquipmentValue",
+				"description": "A list of function to manipulate a players freezetimeendequipmentvalue",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the freezetime end equipment value.",
+						"variable": {
+							"cpp": "player->freezetimeendequipmentvalue->Get",
+							"lua": "player:freezetimeendequipmentvalue():Get"
+						},
+						"return": "uint16_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the freezetime end equipment value.",
+						"variable": {
+							"cpp": "player->freezetimeendequipmentvalue->Set",
+							"lua": "player:freezetimeendequipmentvalue():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "uint16_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"survivalteamnumber": {
+				"title": "SurvivalTeamNumber",
+				"description": "A list of function to manipulate a players survivalteamnumber",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the survival team number.",
+						"variable": {
+							"cpp": "player->survivalteamnumber->Get",
+							"lua": "player:survivalteamnumber():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the survival team number.",
+						"variable": {
+							"cpp": "player->survivalteamnumber->Set",
+							"lua": "player:survivalteamnumber():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"hasdeathinfo": {
+				"title": "HasDeathInfo",
+				"description": "A list of function to manipulate a players hasdeathinfo",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it has death info.",
+						"variable": {
+							"cpp": "player->hasdeathinfo->Get",
+							"lua": "player:hasdeathinfo():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it has death info.",
+						"variable": {
+							"cpp": "player->hasdeathinfo->Set",
+							"lua": "player:hasdeathinfo():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"deathinfotime": {
+				"title": "DeathInfoTime",
+				"description": "A list of function to manipulate a players deathinfotime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the death info time.",
+						"variable": {
+							"cpp": "player->deathinfotime->Get",
+							"lua": "player:deathinfotime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the death info time.",
+						"variable": {
+							"cpp": "player->deathinfotime->Set",
+							"lua": "player:deathinfotime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"killedbyheadshot": {
+				"title": "KilledByHeadshot",
+				"description": "A list of function to manipulate a players killedbyheadshot",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it was killed by headshot.",
+						"variable": {
+							"cpp": "player->killedbyheadshot->Get",
+							"lua": "player:killedbyheadshot():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it was killed by headshot.",
+						"variable": {
+							"cpp": "player->killedbyheadshot->Set",
+							"lua": "player:killedbyheadshot():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lasthitbox": {
+				"title": "LastHitBox",
+				"description": "A list of function to manipulate a players lasthitbox",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last hitbox.",
+						"variable": {
+							"cpp": "player->lasthitbox->Get",
+							"lua": "player:lasthitbox():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last hitbox.",
+						"variable": {
+							"cpp": "player->lasthitbox->Set",
+							"lua": "player:lasthitbox():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lasthealth": {
+				"title": "LastHealth",
+				"description": "A list of function to manipulate a players lasthealth",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last health.",
+						"variable": {
+							"cpp": "player->lasthealth->Get",
+							"lua": "player:lasthealth():Get"
+						},
+						"return": "int32_t",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last health.",
+						"variable": {
+							"cpp": "player->lasthealth->Set",
+							"lua": "player:lasthealth():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "int32_t"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastcollisionceiling": {
+				"title": "LastCollisionCeiling",
+				"description": "A list of function to manipulate a players lastcollisionceiling",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last collision ceiling.",
+						"variable": {
+							"cpp": "player->lastcollisionceiling->Get",
+							"lua": "player:lastcollisionceiling():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last collision ceiling.",
+						"variable": {
+							"cpp": "player->lastcollisionceiling->Set",
+							"lua": "player:lastcollisionceiling():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"lastcollisionceilingchangetime": {
+				"title": "LastCollisionCeilingChangeTime",
+				"description": "A list of function to manipulate a players lastcollisionceilingchangetime",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the last collision ceiling change time.",
+						"variable": {
+							"cpp": "player->lastcollisionceilingchangetime->Get",
+							"lua": "player:lastcollisionceilingchangetime():Get"
+						},
+						"return": "float",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the last collision ceiling change time.",
+						"variable": {
+							"cpp": "player->lastcollisionceilingchangetime->Set",
+							"lua": "player:lastcollisionceilingchangetime():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "float"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"botallowactive": {
+				"title": "BotAllowActive",
+				"description": "A list of function to manipulate a players botallowactive",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if the bot allow is active.",
+						"variable": {
+							"cpp": "player->botallowactive->Get",
+							"lua": "player:botallowactive():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if the bot allow is active.",
+						"variable": {
+							"cpp": "player->botallowactive->Set",
+							"lua": "player:botallowactive():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
+			"committingsuicideonteamchange": {
+				"title": "CommittingSuicideOnTeamChange",
+				"description": "A list of function to manipulate a players committingsuicideonteamchange",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns if it should commit suicide on team change.",
+						"variable": {
+							"cpp": "player->committingsuicideonteamchange->Get",
+							"lua": "player:committingsuicideonteamchange():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets if it should commit suicide on team change.",
+						"variable": {
+							"cpp": "player->committingsuicideonteamchange->Set",
+							"lua": "player:committingsuicideonteamchange():Set"
+						},
+						"return": "void",
+						"params": {
+							"value": "bool"
+						},
+						"additional": {}
+					}
+				}
+			},
 			"desiredfov": {
 				"title": "Desired FOV",
 				"description": "A list of function to manipulate a players desired FOV.",

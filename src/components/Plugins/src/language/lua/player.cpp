@@ -156,6 +156,105 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto lasttimeplayerwasdisconnectedforpawnsremoveClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto suspicioushitcountClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto nonsuspicioushitstreakClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto displayhistorybitsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastattackedteammateClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto blinduntiltimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto blindstarttimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto allowautofollowtimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto spotrulesClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto playerstateClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastdistancetravelednoticeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto accumulateddistancetraveledClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastfriendlyfiredamagereductionratioClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto respawningClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastpickuppriorityClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastpickupprioritytimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto isscopedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto iswalkingClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto resumezoomClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto isdefusingClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto isgrabbinghostageClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto blockinguseactioninprogressClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto immunetogungamedamagetimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto gungameimmunityClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto molotovdamagetimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hasmovedsincespawnClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto canmoveduringfreezeperiodClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto guardiantoofardistfracClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto nextguardiantoofarhurttimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto detectedbyenemysensortimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto dealtdamagetoenemymostrecenttimestampClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastequippedhelmettimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastequippedarmortimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto heavyassaultsuitcooldownremainingClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto resetarmornextspawnClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastbumpminebumptimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto emitsoundtimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto numspawnsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto shouldhavecashClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto invalidsteamlogondelayedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastactionClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastgivendefusertimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastgivenbombtimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hasnightvisionClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto nightvisiononClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto nextradarupdatetimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastmoneyupdatetimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto introcamtimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto innodefuseareaClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto killedbytaserClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto movestateClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto grenadeparameterstashtimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto grenadeparametersstashedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto diedairborneClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto whichbombzoneClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto inbombzonetriggerClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto wasinbombzonetriggerClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto directionClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto shotsfiredClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto flinchstackClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hitheadingClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hitbodypartClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hostageskilledClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto flashmaxalphaClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto progressbarstarttimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto progressbardurationClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto waitfornoattackClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lowerbodyyawtargetClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto strafingClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto ignoreladderjumptimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto slopedropoffsetClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto slopedropheightClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastweaponfireusercmdClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto vcollisioninittedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto isspawningClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hidetargetidClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto numdangerzonedamagehitsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hud_miniscorehiddenClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hud_radarhiddenClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastconcurrentkilledClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto deathcammusicClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto addonbitsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto primaryaddonClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto secondaryaddonClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto numenemieskilledthisspawnClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto numenemieskilledthisroundClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto numenemiesatroundstartClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto wasnotkillednaturallyClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto deathflagsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto currentequipmentvalueClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto roundstartequipmentvalueClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto freezetimeendequipmentvalueClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto survivalteamnumberClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto hasdeathinfoClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto deathinfotimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto killedbyheadshotClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lasthitboxClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lasthealthClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastcollisionceilingClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto lastcollisionceilingchangetimeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto botallowactiveClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto committingsuicideonteamchangeClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
 
     playerClass.DefMember("GetSteamID", [](LuaPlayerClass *base) -> uint64_t
                           { return scripting_Player_GetSteamID(base->playerSlot); })
@@ -453,8 +552,603 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return suspicioushitcountClass.CreateInstance(base->playerSlot); })
         .DefMember("nonsuspicioushitstreak", [nonsuspicioushitstreakClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return nonsuspicioushitstreakClass.CreateInstance(base->playerSlot); })
+        .DefMember("displayhistorybits", [displayhistorybitsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return displayhistorybitsClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastattackedteammate", [lastattackedteammateClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastattackedteammateClass.CreateInstance(base->playerSlot); })
+        .DefMember("blinduntiltime", [blinduntiltimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return blinduntiltimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("blindstarttime", [blindstarttimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return blindstarttimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("allowautofollowtime", [allowautofollowtimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return allowautofollowtimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("spotrules", [spotrulesClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return spotrulesClass.CreateInstance(base->playerSlot); })
+        .DefMember("playerstate", [playerstateClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return playerstateClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastdistancetravelednotice", [lastdistancetravelednoticeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastdistancetravelednoticeClass.CreateInstance(base->playerSlot); })
+        .DefMember("accumulateddistancetraveled", [accumulateddistancetraveledClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return accumulateddistancetraveledClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastfriendlyfiredamagereductionratio", [lastfriendlyfiredamagereductionratioClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastfriendlyfiredamagereductionratioClass.CreateInstance(base->playerSlot); })
+        .DefMember("respawning", [respawningClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return respawningClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastpickuppriority", [lastpickuppriorityClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastpickuppriorityClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastpickupprioritytime", [lastpickupprioritytimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastpickupprioritytimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("isscoped", [isscopedClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return isscopedClass.CreateInstance(base->playerSlot); })
+        .DefMember("iswalking", [iswalkingClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return iswalkingClass.CreateInstance(base->playerSlot); })
+        .DefMember("resumezoom", [resumezoomClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return resumezoomClass.CreateInstance(base->playerSlot); })
+        .DefMember("isdefusing", [isdefusingClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return isdefusingClass.CreateInstance(base->playerSlot); })
+        .DefMember("isgrabbinghostage", [isgrabbinghostageClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return isgrabbinghostageClass.CreateInstance(base->playerSlot); })
+        .DefMember("blockinguseactioninprogress", [blockinguseactioninprogressClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return blockinguseactioninprogressClass.CreateInstance(base->playerSlot); })
+        .DefMember("immunetogungamedamagetime", [immunetogungamedamagetimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return immunetogungamedamagetimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("gungameimmunity", [gungameimmunityClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return gungameimmunityClass.CreateInstance(base->playerSlot); })
+        .DefMember("molotovdamagetime", [molotovdamagetimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return molotovdamagetimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("hasmovedsincespawn", [hasmovedsincespawnClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hasmovedsincespawnClass.CreateInstance(base->playerSlot); })
+        .DefMember("canmoveduringfreezeperiod", [canmoveduringfreezeperiodClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return canmoveduringfreezeperiodClass.CreateInstance(base->playerSlot); })
+        .DefMember("guardiantoofardistfrac", [guardiantoofardistfracClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return guardiantoofardistfracClass.CreateInstance(base->playerSlot); })
+        .DefMember("nextguardiantoofarhurttime", [nextguardiantoofarhurttimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return nextguardiantoofarhurttimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("detectedbyenemysensortime", [detectedbyenemysensortimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return detectedbyenemysensortimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("dealtdamagetoenemymostrecenttimestamp", [dealtdamagetoenemymostrecenttimestampClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return dealtdamagetoenemymostrecenttimestampClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastequippedhelmettime", [lastequippedhelmettimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastequippedhelmettimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastequippedarmortime", [lastequippedarmortimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastequippedarmortimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("heavyassaultsuitcooldownremaining", [heavyassaultsuitcooldownremainingClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return heavyassaultsuitcooldownremainingClass.CreateInstance(base->playerSlot); })
+        .DefMember("resetarmornextspawn", [resetarmornextspawnClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return resetarmornextspawnClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastbumpminebumptime", [lastbumpminebumptimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastbumpminebumptimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("emitsoundtime", [emitsoundtimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return emitsoundtimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("numspawns", [numspawnsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return numspawnsClass.CreateInstance(base->playerSlot); })
+        .DefMember("shouldhavecash", [shouldhavecashClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return shouldhavecashClass.CreateInstance(base->playerSlot); })
+        .DefMember("invalidsteamlogondelayed", [invalidsteamlogondelayedClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return invalidsteamlogondelayedClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastaction", [lastactionClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastactionClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastgivendefusertime", [lastgivendefusertimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastgivendefusertimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastgivenbombtime", [lastgivenbombtimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastgivenbombtimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("hasnightvision", [hasnightvisionClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hasnightvisionClass.CreateInstance(base->playerSlot); })
+        .DefMember("nightvisionon", [nightvisiononClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return nightvisiononClass.CreateInstance(base->playerSlot); })
+        .DefMember("nextradarupdatetime", [nextradarupdatetimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return nextradarupdatetimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastmoneyupdatetime", [lastmoneyupdatetimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastmoneyupdatetimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("introcamtime", [introcamtimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return introcamtimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("innodefusearea", [innodefuseareaClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return innodefuseareaClass.CreateInstance(base->playerSlot); })
+        .DefMember("killedbytaser", [killedbytaserClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return killedbytaserClass.CreateInstance(base->playerSlot); })
+        .DefMember("movestate", [movestateClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return movestateClass.CreateInstance(base->playerSlot); })
+        .DefMember("grenadeparameterstashtime", [grenadeparameterstashtimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return grenadeparameterstashtimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("grenadeparametersstashed", [grenadeparametersstashedClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return grenadeparametersstashedClass.CreateInstance(base->playerSlot); })
+        .DefMember("diedairborne", [diedairborneClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return diedairborneClass.CreateInstance(base->playerSlot); })
+        .DefMember("whichbombzone", [whichbombzoneClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return whichbombzoneClass.CreateInstance(base->playerSlot); })
+        .DefMember("inbombzonetrigger", [inbombzonetriggerClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return inbombzonetriggerClass.CreateInstance(base->playerSlot); })
+        .DefMember("wasinbombzonetrigger", [wasinbombzonetriggerClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return wasinbombzonetriggerClass.CreateInstance(base->playerSlot); })
+        .DefMember("direction", [directionClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return directionClass.CreateInstance(base->playerSlot); })
+        .DefMember("shotsfired", [shotsfiredClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return shotsfiredClass.CreateInstance(base->playerSlot); })
+        .DefMember("flinchstack", [flinchstackClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return flinchstackClass.CreateInstance(base->playerSlot); })
+        .DefMember("hitheading", [hitheadingClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hitheadingClass.CreateInstance(base->playerSlot); })
+        .DefMember("hitbodypart", [hitbodypartClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hitbodypartClass.CreateInstance(base->playerSlot); })
+        .DefMember("hostageskilled", [hostageskilledClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hostageskilledClass.CreateInstance(base->playerSlot); })
+        .DefMember("flashmaxalpha", [flashmaxalphaClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return flashmaxalphaClass.CreateInstance(base->playerSlot); })
+        .DefMember("progressbarstarttime", [progressbarstarttimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return progressbarstarttimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("progressbarduration", [progressbardurationClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return progressbardurationClass.CreateInstance(base->playerSlot); })
+        .DefMember("waitfornoattack", [waitfornoattackClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return waitfornoattackClass.CreateInstance(base->playerSlot); })
+        .DefMember("lowerbodyyawtarget", [lowerbodyyawtargetClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lowerbodyyawtargetClass.CreateInstance(base->playerSlot); })
+        .DefMember("strafing", [strafingClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return strafingClass.CreateInstance(base->playerSlot); })
+        .DefMember("ignoreladderjumptime", [ignoreladderjumptimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return ignoreladderjumptimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("slopedropoffset", [slopedropoffsetClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return slopedropoffsetClass.CreateInstance(base->playerSlot); })
+        .DefMember("slopedropheight", [slopedropheightClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return slopedropheightClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastweaponfireusercmd", [lastweaponfireusercmdClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastweaponfireusercmdClass.CreateInstance(base->playerSlot); })
+        .DefMember("vcollisioninitted", [vcollisioninittedClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return vcollisioninittedClass.CreateInstance(base->playerSlot); })
+        .DefMember("isspawning", [isspawningClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return isspawningClass.CreateInstance(base->playerSlot); })
+        .DefMember("hidetargetid", [hidetargetidClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hidetargetidClass.CreateInstance(base->playerSlot); })
+        .DefMember("numdangerzonedamagehits", [numdangerzonedamagehitsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return numdangerzonedamagehitsClass.CreateInstance(base->playerSlot); })
+        .DefMember("hud_miniscorehidden", [hud_miniscorehiddenClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hud_miniscorehiddenClass.CreateInstance(base->playerSlot); })
+        .DefMember("hud_radarhidden", [hud_radarhiddenClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hud_radarhiddenClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastconcurrentkilled", [lastconcurrentkilledClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastconcurrentkilledClass.CreateInstance(base->playerSlot); })
+        .DefMember("deathcammusic", [deathcammusicClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return deathcammusicClass.CreateInstance(base->playerSlot); })
+        .DefMember("addonbits", [addonbitsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return addonbitsClass.CreateInstance(base->playerSlot); })
+        .DefMember("primaryaddon", [primaryaddonClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return primaryaddonClass.CreateInstance(base->playerSlot); })
+        .DefMember("secondaryaddon", [secondaryaddonClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return secondaryaddonClass.CreateInstance(base->playerSlot); })
+        .DefMember("numenemieskilledthisspawn", [numenemieskilledthisspawnClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return numenemieskilledthisspawnClass.CreateInstance(base->playerSlot); })
+        .DefMember("numenemieskilledthisround", [numenemieskilledthisroundClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return numenemieskilledthisroundClass.CreateInstance(base->playerSlot); })
+        .DefMember("numenemiesatroundstart", [numenemiesatroundstartClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return numenemiesatroundstartClass.CreateInstance(base->playerSlot); })
+        .DefMember("wasnotkillednaturally", [wasnotkillednaturallyClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return wasnotkillednaturallyClass.CreateInstance(base->playerSlot); })
+        .DefMember("deathflags", [deathflagsClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return deathflagsClass.CreateInstance(base->playerSlot); })
+        .DefMember("currentequipmentvalue", [currentequipmentvalueClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return currentequipmentvalueClass.CreateInstance(base->playerSlot); })
+        .DefMember("roundstartequipmentvalue", [roundstartequipmentvalueClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return roundstartequipmentvalueClass.CreateInstance(base->playerSlot); })
+        .DefMember("freezetimeendequipmentvalue", [freezetimeendequipmentvalueClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return freezetimeendequipmentvalueClass.CreateInstance(base->playerSlot); })
+        .DefMember("survivalteamnumber", [survivalteamnumberClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return survivalteamnumberClass.CreateInstance(base->playerSlot); })
+        .DefMember("hasdeathinfo", [hasdeathinfoClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return hasdeathinfoClass.CreateInstance(base->playerSlot); })
+        .DefMember("deathinfotime", [deathinfotimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return deathinfotimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("killedbyheadshot", [killedbyheadshotClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return killedbyheadshotClass.CreateInstance(base->playerSlot); })
+        .DefMember("lasthitbox", [lasthitboxClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lasthitboxClass.CreateInstance(base->playerSlot); })
+        .DefMember("lasthealth", [lasthealthClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lasthealthClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastcollisionceiling", [lastcollisionceilingClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastcollisionceilingClass.CreateInstance(base->playerSlot); })
+        .DefMember("lastcollisionceilingchangetime", [lastcollisionceilingchangetimeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return lastcollisionceilingchangetimeClass.CreateInstance(base->playerSlot); })
+        .DefMember("botallowactive", [botallowactiveClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return botallowactiveClass.CreateInstance(base->playerSlot); })
+        .DefMember("committingsuicideonteamchange", [committingsuicideonteamchangeClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return committingsuicideonteamchangeClass.CreateInstance(base->playerSlot); })
         .DefMember("fov", [fovClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return fovClass.CreateInstance(base->playerSlot); });
+
+    displayhistorybitsClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                                      { return scripting_Player_GetDisplayHistoryBits(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetDisplayHistoryBits(base->playerSlot, val); });
+    lastattackedteammateClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                        { return scripting_Player_GetLastAttackedTeammate(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastAttackedTeammate(base->playerSlot, val); });
+    blinduntiltimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                  { return scripting_Player_GetBlindUntilTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetBlindUntilTime(base->playerSlot, val); });
+    blindstarttimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                  { return scripting_Player_GetBlindStartTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetBlindStartTime(base->playerSlot, val); });
+    allowautofollowtimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                       { return scripting_Player_GetallowAutoFollowTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetallowAutoFollowTime(base->playerSlot, val); });
+    spotrulesClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                             { return scripting_Player_GetSpotRules(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetSpotRules(base->playerSlot, val); });
+    playerstateClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                               { return scripting_Player_GetPlayerState(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetPlayerState(base->playerSlot, (CSPlayerState)val); });
+    lastdistancetravelednoticeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                              { return scripting_Player_GetLastDistanceTraveledNotice(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastDistanceTraveledNotice(base->playerSlot, val); });
+    accumulateddistancetraveledClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                               { return scripting_Player_GetAccumulatedDistanceTraveled(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetAccumulatedDistanceTraveled(base->playerSlot, val); });
+    lastfriendlyfiredamagereductionratioClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                                        { return scripting_Player_GetLastFriendlyFireDamageReductionRatio(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastFriendlyFireDamageReductionRatio(base->playerSlot, val); });
+    respawningClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                              { return scripting_Player_GetRespawning(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetRespawning(base->playerSlot, val); });
+    lastpickuppriorityClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                      { return scripting_Player_GetLastPickupPriority(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetLastPickupPriority(base->playerSlot, val); });
+    lastpickupprioritytimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                          { return scripting_Player_GetLastPickupPriorityTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastPickupPriorityTime(base->playerSlot, val); });
+    isscopedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                            { return scripting_Player_GetIsScoped(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetIsScoped(base->playerSlot, val); });
+    iswalkingClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                             { return scripting_Player_GetIsWalking(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetIsWalking(base->playerSlot, val); });
+    resumezoomClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                              { return scripting_Player_GetResumeZoom(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetResumeZoom(base->playerSlot, val); });
+    isdefusingClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                              { return scripting_Player_GetIsDefusing(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetIsDefusing(base->playerSlot, val); });
+    isgrabbinghostageClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                     { return scripting_Player_GetIsGrabbingHostage(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetIsGrabbingHostage(base->playerSlot, val); });
+    blockinguseactioninprogressClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint32_t
+                                               { return scripting_Player_GetBlockingUseActionInProgress(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint32_t val) -> void
+                   { scripting_Player_SetBlockingUseActionInProgress(base->playerSlot, (CSPlayerBlockingUseAction_t)val); });
+    immunetogungamedamagetimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                             { return scripting_Player_GetImmuneToGunGameDamageTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetImmuneToGunGameDamageTime(base->playerSlot, val); });
+    gungameimmunityClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                   { return scripting_Player_GetGunGameImmunity(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetGunGameImmunity(base->playerSlot, val); });
+    molotovdamagetimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                     { return scripting_Player_GetMolotovDamageTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetMolotovDamageTime(base->playerSlot, val); });
+    hasmovedsincespawnClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                      { return scripting_Player_GetHasMovedSinceSpawn(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHasMovedSinceSpawn(base->playerSlot, val); });
+    canmoveduringfreezeperiodClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                             { return scripting_Player_GetCanMoveDuringFreezePeriod(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetCanMoveDuringFreezePeriod(base->playerSlot, val); });
+    guardiantoofardistfracClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                          { return scripting_Player_GetGuardianTooFarDistFrac(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetGuardianTooFarDistFrac(base->playerSlot, val); });
+    nextguardiantoofarhurttimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                              { return scripting_Player_GetNextGuardianTooFarHurtTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetNextGuardianTooFarHurtTime(base->playerSlot, val); });
+    detectedbyenemysensortimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                             { return scripting_Player_GetDetectedByEnemySensorTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetDetectedByEnemySensorTime(base->playerSlot, val); });
+    dealtdamagetoenemymostrecenttimestampClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                                         { return scripting_Player_GetDealtDamageToEnemyMostRecentTimestamp(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetDealtDamageToEnemyMostRecentTimestamp(base->playerSlot, val); });
+    lastequippedhelmettimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                          { return scripting_Player_GetLastEquippedHelmetTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastEquippedHelmetTime(base->playerSlot, val); });
+    lastequippedarmortimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                         { return scripting_Player_GetLastEquippedArmorTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastEquippedArmorTime(base->playerSlot, val); });
+    heavyassaultsuitcooldownremainingClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                                     { return scripting_Player_GetHeavyAssaultSuitCooldownRemaining(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetHeavyAssaultSuitCooldownRemaining(base->playerSlot, val); });
+    resetarmornextspawnClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                       { return scripting_Player_GetResetArmorNextSpawn(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetResetArmorNextSpawn(base->playerSlot, val); });
+    lastbumpminebumptimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                        { return scripting_Player_GetLastBumpMineBumpTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastBumpMineBumpTime(base->playerSlot, val); });
+    emitsoundtimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                 { return scripting_Player_GetEmitSoundTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetEmitSoundTime(base->playerSlot, val); });
+    numspawnsClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                             { return scripting_Player_GetNumSpawns(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetNumSpawns(base->playerSlot, val); });
+    shouldhavecashClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                  { return scripting_Player_GetShouldHaveCash(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetShouldHaveCash(base->playerSlot, val); });
+    invalidsteamlogondelayedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                            { return scripting_Player_GetInvalidSteamLogonDelayed(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetInvalidSteamLogonDelayed(base->playerSlot, val); });
+    lastactionClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                              { return scripting_Player_GetLastAction(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastAction(base->playerSlot, val); });
+    lastgivendefusertimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                        { return scripting_Player_GetLastGivenDefuserTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastGivenDefuserTime(base->playerSlot, val); });
+    lastgivenbombtimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                     { return scripting_Player_GetLastGivenBombTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastGivenBombTime(base->playerSlot, val); });
+    hasnightvisionClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                  { return scripting_Player_GetHasNightVision(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHasNightVision(base->playerSlot, val); });
+    nightvisiononClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                 { return scripting_Player_GetNightVisionOn(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetNightVisionOn(base->playerSlot, val); });
+    nextradarupdatetimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                       { return scripting_Player_GetNextRadarUpdateTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetNextRadarUpdateTime(base->playerSlot, val); });
+    lastmoneyupdatetimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                       { return scripting_Player_GetLastMoneyUpdateTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastMoneyUpdateTime(base->playerSlot, val); });
+    introcamtimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                { return scripting_Player_GetIntroCamTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetIntroCamTime(base->playerSlot, val); });
+    innodefuseareaClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                  { return scripting_Player_GetInNoDefuseArea(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetInNoDefuseArea(base->playerSlot, val); });
+    killedbytaserClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                 { return scripting_Player_GetKilledByTaser(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetKilledByTaser(base->playerSlot, val); });
+    movestateClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                             { return scripting_Player_GetMoveState(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetMoveState(base->playerSlot, val); });
+    grenadeparameterstashtimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                             { return scripting_Player_GetGrenadeParameterStashTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetGrenadeParameterStashTime(base->playerSlot, val); });
+    grenadeparametersstashedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                            { return scripting_Player_GetGrenadeParametersStashed(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetGrenadeParametersStashed(base->playerSlot, val); });
+    diedairborneClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                { return scripting_Player_GetDiedAirborne(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetDiedAirborne(base->playerSlot, val); });
+    whichbombzoneClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                 { return scripting_Player_GetWhichBombZone(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetWhichBombZone(base->playerSlot, val); });
+    inbombzonetriggerClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                     { return scripting_Player_GetInBombZoneTrigger(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetInBombZoneTrigger(base->playerSlot, val); });
+    wasinbombzonetriggerClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                        { return scripting_Player_GetWasInBombZoneTrigger(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetWasInBombZoneTrigger(base->playerSlot, val); });
+    directionClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                             { return scripting_Player_GetDirection(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetDirection(base->playerSlot, val); });
+    shotsfiredClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                              { return scripting_Player_GetShotsFired(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetShotsFired(base->playerSlot, val); });
+    flinchstackClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                               { return scripting_Player_GetFlinchStack(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetFlinchStack(base->playerSlot, val); });
+    hitheadingClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                              { return scripting_Player_GetHitHeading(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetHitHeading(base->playerSlot, val); });
+    hitbodypartClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                               { return scripting_Player_GetHitBodyPart(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetHitBodyPart(base->playerSlot, val); });
+    hostageskilledClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                  { return scripting_Player_GetHostagesKilled(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetHostagesKilled(base->playerSlot, val); });
+    flashmaxalphaClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                 { return scripting_Player_GetFlashMaxAlpha(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetFlashMaxAlpha(base->playerSlot, val); });
+    progressbarstarttimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                        { return scripting_Player_GetProgressBarStartTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetProgressBarStartTime(base->playerSlot, val); });
+    progressbardurationClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                       { return scripting_Player_GetProgressBarDuration(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetProgressBarDuration(base->playerSlot, val); });
+    waitfornoattackClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                   { return scripting_Player_GetWaitForNoAttack(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetWaitForNoAttack(base->playerSlot, val); });
+    lowerbodyyawtargetClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                      { return scripting_Player_GetLowerBodyYawTarget(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLowerBodyYawTarget(base->playerSlot, val); });
+    strafingClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                            { return scripting_Player_GetStrafing(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetStrafing(base->playerSlot, val); });
+    ignoreladderjumptimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                        { return scripting_Player_GetIgnoreLadderJumpTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetIgnoreLadderJumpTime(base->playerSlot, val); });
+    slopedropoffsetClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                   { return scripting_Player_GetSlopeDropOffset(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetSlopeDropOffset(base->playerSlot, val); });
+    slopedropheightClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                   { return scripting_Player_GetSlopeDropHeight(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetSlopeDropHeight(base->playerSlot, val); });
+    lastweaponfireusercmdClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                         { return scripting_Player_GetLastWeaponFireUsercmd(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetLastWeaponFireUsercmd(base->playerSlot, val); });
+    vcollisioninittedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                     { return scripting_Player_GetVCollisionInitted(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetVCollisionInitted(base->playerSlot, val); });
+    isspawningClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                              { return scripting_Player_GetIsSpawning(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetIsSpawning(base->playerSlot, val); });
+    hidetargetidClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                { return scripting_Player_GetHideTargetID(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHideTargetID(base->playerSlot, val); });
+    numdangerzonedamagehitsClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                           { return scripting_Player_GetNumDangerZoneDamageHits(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetNumDangerZoneDamageHits(base->playerSlot, val); });
+    hud_miniscorehiddenClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                       { return scripting_Player_GetHud_MiniScoreHidden(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHud_MiniScoreHidden(base->playerSlot, val); });
+    hud_radarhiddenClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                   { return scripting_Player_GetHud_RadarHidden(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHud_RadarHidden(base->playerSlot, val); });
+    lastconcurrentkilledClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                        { return scripting_Player_GetLastConcurrentKilled(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetLastConcurrentKilled(base->playerSlot, val); });
+    deathcammusicClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                 { return scripting_Player_GetDeathCamMusic(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetDeathCamMusic(base->playerSlot, val); });
+    addonbitsClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                             { return scripting_Player_GetAddonBits(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetAddonBits(base->playerSlot, val); });
+    primaryaddonClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                { return scripting_Player_GetPrimaryAddon(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetPrimaryAddon(base->playerSlot, val); });
+    secondaryaddonClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                  { return scripting_Player_GetSecondaryAddon(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetSecondaryAddon(base->playerSlot, val); });
+    numenemieskilledthisspawnClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                             { return scripting_Player_GetNumEnemiesKilledThisSpawn(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetNumEnemiesKilledThisSpawn(base->playerSlot, val); });
+    numenemieskilledthisroundClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                             { return scripting_Player_GetNumEnemiesKilledThisRound(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetNumEnemiesKilledThisRound(base->playerSlot, val); });
+    numenemiesatroundstartClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                          { return scripting_Player_GetNumEnemiesAtRoundStart(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetNumEnemiesAtRoundStart(base->playerSlot, val); });
+    wasnotkillednaturallyClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                         { return scripting_Player_GetWasNotKilledNaturally(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetWasNotKilledNaturally(base->playerSlot, val); });
+    deathflagsClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                              { return scripting_Player_GetDeathFlags(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetDeathFlags(base->playerSlot, val); });
+    currentequipmentvalueClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint16_t
+                                         { return scripting_Player_GetCurrentEquipmentValue(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint16_t val) -> void
+                   { scripting_Player_SetCurrentEquipmentValue(base->playerSlot, val); });
+    roundstartequipmentvalueClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint16_t
+                                            { return scripting_Player_GetRoundStartEquipmentValue(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint16_t val) -> void
+                   { scripting_Player_SetRoundStartEquipmentValue(base->playerSlot, val); });
+    freezetimeendequipmentvalueClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint16_t
+                                               { return scripting_Player_GetFreezetimeEndEquipmentValue(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, uint16_t val) -> void
+                   { scripting_Player_SetFreezetimeEndEquipmentValue(base->playerSlot, val); });
+    survivalteamnumberClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                                      { return scripting_Player_GetSurvivalTeamNumber(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetSurvivalTeamNumber(base->playerSlot, val); });
+    hasdeathinfoClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                { return scripting_Player_GetHasDeathInfo(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetHasDeathInfo(base->playerSlot, val); });
+    deathinfotimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                 { return scripting_Player_GetDeathInfoTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetDeathInfoTime(base->playerSlot, val); });
+    killedbyheadshotClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                    { return scripting_Player_GetKilledByHeadshot(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetKilledByHeadshot(base->playerSlot, val); });
+    lasthitboxClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                              { return scripting_Player_GetLastHitBox(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetLastHitBox(base->playerSlot, val); });
+    lasthealthClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> int32_t
+                              { return scripting_Player_GetLastHealth(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, int32_t val) -> void
+                   { scripting_Player_SetLastHealth(base->playerSlot, val); });
+    lastcollisionceilingClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                        { return scripting_Player_GetLastCollisionCeiling(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastCollisionCeiling(base->playerSlot, val); });
+    lastcollisionceilingchangetimeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
+                                                  { return scripting_Player_GetLastCollisionCeilingChangeTime(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, float val) -> void
+                   { scripting_Player_SetLastCollisionCeilingChangeTime(base->playerSlot, val); });
+    botallowactiveClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                  { return scripting_Player_GetBotAllowActive(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetBotAllowActive(base->playerSlot, val); });
+    committingsuicideonteamchangeClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> bool
+                                                 { return scripting_Player_GetCommittingSuicideOnTeamChange(base->playerSlot); })
+        .DefMember("Set", [](LuaPlayerArgsClass *base, bool val) -> void
+                   { scripting_Player_SetCommittingSuicideOnTeamChange(base->playerSlot, val); });
 
     characterdefindexClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> uint16_t
                                      { return scripting_Player_GetCharacterDefIndex(base->playerSlot); })

@@ -123,6 +123,105 @@
 #include "player/lasttimeplayerwasdisconnectedforpawnsremove.h"
 #include "player/suspicioushitcount.h"
 #include "player/nonsuspicioushitstreak.h"
+#include "player/displayhistorybits.h"
+#include "player/lastattackedteammate.h"
+#include "player/blinduntiltime.h"
+#include "player/blindstarttime.h"
+#include "player/allowautofollowtime.h"
+#include "player/spotrules.h"
+#include "player/playerstate.h"
+#include "player/lastdistancetravelednotice.h"
+#include "player/accumulateddistancetraveled.h"
+#include "player/lastfriendlyfiredamagereductionratio.h"
+#include "player/respawning.h"
+#include "player/lastpickuppriority.h"
+#include "player/lastpickupprioritytime.h"
+#include "player/isscoped.h"
+#include "player/iswalking.h"
+#include "player/resumezoom.h"
+#include "player/isdefusing.h"
+#include "player/isgrabbinghostage.h"
+#include "player/blockinguseactioninprogress.h"
+#include "player/immunetogungamedamagetime.h"
+#include "player/gungameimmunity.h"
+#include "player/molotovdamagetime.h"
+#include "player/hasmovedsincespawn.h"
+#include "player/canmoveduringfreezeperiod.h"
+#include "player/guardiantoofardistfrac.h"
+#include "player/nextguardiantoofarhurttime.h"
+#include "player/detectedbyenemysensortime.h"
+#include "player/dealtdamagetoenemymostrecenttimestamp.h"
+#include "player/lastequippedhelmettime.h"
+#include "player/lastequippedarmortime.h"
+#include "player/heavyassaultsuitcooldownremaining.h"
+#include "player/resetarmornextspawn.h"
+#include "player/lastbumpminebumptime.h"
+#include "player/emitsoundtime.h"
+#include "player/numspawns.h"
+#include "player/shouldhavecash.h"
+#include "player/invalidsteamlogondelayed.h"
+#include "player/lastaction.h"
+#include "player/lastgivendefusertime.h"
+#include "player/lastgivenbombtime.h"
+#include "player/hasnightvision.h"
+#include "player/nightvisionon.h"
+#include "player/nextradarupdatetime.h"
+#include "player/lastmoneyupdatetime.h"
+#include "player/introcamtime.h"
+#include "player/innodefusearea.h"
+#include "player/killedbytaser.h"
+#include "player/movestate.h"
+#include "player/grenadeparameterstashtime.h"
+#include "player/grenadeparametersstashed.h"
+#include "player/diedairborne.h"
+#include "player/whichbombzone.h"
+#include "player/inbombzonetrigger.h"
+#include "player/wasinbombzonetrigger.h"
+#include "player/direction.h"
+#include "player/shotsfired.h"
+#include "player/flinchstack.h"
+#include "player/hitheading.h"
+#include "player/hitbodypart.h"
+#include "player/hostageskilled.h"
+#include "player/flashmaxalpha.h"
+#include "player/progressbarstarttime.h"
+#include "player/progressbarduration.h"
+#include "player/waitfornoattack.h"
+#include "player/lowerbodyyawtarget.h"
+#include "player/strafing.h"
+#include "player/ignoreladderjumptime.h"
+#include "player/slopedropoffset.h"
+#include "player/slopedropheight.h"
+#include "player/lastweaponfireusercmd.h"
+#include "player/vcollisioninitted.h"
+#include "player/isspawning.h"
+#include "player/hidetargetid.h"
+#include "player/numdangerzonedamagehits.h"
+#include "player/hud_miniscorehidden.h"
+#include "player/hud_radarhidden.h"
+#include "player/lastconcurrentkilled.h"
+#include "player/deathcammusic.h"
+#include "player/addonbits.h"
+#include "player/primaryaddon.h"
+#include "player/secondaryaddon.h"
+#include "player/numenemieskilledthisspawn.h"
+#include "player/numenemieskilledthisround.h"
+#include "player/numenemiesatroundstart.h"
+#include "player/wasnotkillednaturally.h"
+#include "player/deathflags.h"
+#include "player/currentequipmentvalue.h"
+#include "player/roundstartequipmentvalue.h"
+#include "player/freezetimeendequipmentvalue.h"
+#include "player/survivalteamnumber.h"
+#include "player/hasdeathinfo.h"
+#include "player/deathinfotime.h"
+#include "player/killedbyheadshot.h"
+#include "player/lasthitbox.h"
+#include "player/lasthealth.h"
+#include "player/lastcollisionceiling.h"
+#include "player/lastcollisionceilingchangetime.h"
+#include "player/botallowactive.h"
+#include "player/committingsuicideonteamchange.h"
 
 class Player
 {
@@ -247,6 +346,105 @@ public:
     LastTimePlayerWasDisconnectedForPawnsRemove *lasttimeplayerwasdisconnectedforpawnsremove;
     SuspiciousHitCount *suspicioushitcount;
     NonSuspiciousHitStreak *nonsuspicioushitstreak;
+    DisplayHistoryBits *displayhistorybits;
+    LastAttackedTeammate *lastattackedteammate;
+    BlindUntilTime *blinduntiltime;
+    BlindStartTime *blindstarttime;
+    allowAutoFollowTime *allowautofollowtime;
+    SpotRules *spotrules;
+    PlayerState *playerstate;
+    LastDistanceTraveledNotice *lastdistancetravelednotice;
+    AccumulatedDistanceTraveled *accumulateddistancetraveled;
+    LastFriendlyFireDamageReductionRatio *lastfriendlyfiredamagereductionratio;
+    Respawning *respawning;
+    LastPickupPriority *lastpickuppriority;
+    LastPickupPriorityTime *lastpickupprioritytime;
+    IsScoped *isscoped;
+    IsWalking *iswalking;
+    ResumeZoom *resumezoom;
+    IsDefusing *isdefusing;
+    IsGrabbingHostage *isgrabbinghostage;
+    BlockingUseActionInProgress *blockinguseactioninprogress;
+    ImmuneToGunGameDamageTime *immunetogungamedamagetime;
+    GunGameImmunity *gungameimmunity;
+    MolotovDamageTime *molotovdamagetime;
+    HasMovedSinceSpawn *hasmovedsincespawn;
+    CanMoveDuringFreezePeriod *canmoveduringfreezeperiod;
+    GuardianTooFarDistFrac *guardiantoofardistfrac;
+    NextGuardianTooFarHurtTime *nextguardiantoofarhurttime;
+    DetectedByEnemySensorTime *detectedbyenemysensortime;
+    DealtDamageToEnemyMostRecentTimestamp *dealtdamagetoenemymostrecenttimestamp;
+    LastEquippedHelmetTime *lastequippedhelmettime;
+    LastEquippedArmorTime *lastequippedarmortime;
+    HeavyAssaultSuitCooldownRemaining *heavyassaultsuitcooldownremaining;
+    ResetArmorNextSpawn *resetarmornextspawn;
+    LastBumpMineBumpTime *lastbumpminebumptime;
+    EmitSoundTime *emitsoundtime;
+    NumSpawns *numspawns;
+    ShouldHaveCash *shouldhavecash;
+    InvalidSteamLogonDelayed *invalidsteamlogondelayed;
+    LastAction *lastaction;
+    LastGivenDefuserTime *lastgivendefusertime;
+    LastGivenBombTime *lastgivenbombtime;
+    HasNightVision *hasnightvision;
+    NightVisionOn *nightvisionon;
+    NextRadarUpdateTime *nextradarupdatetime;
+    LastMoneyUpdateTime *lastmoneyupdatetime;
+    IntroCamTime *introcamtime;
+    InNoDefuseArea *innodefusearea;
+    KilledByTaser *killedbytaser;
+    MoveState *movestate;
+    GrenadeParameterStashTime *grenadeparameterstashtime;
+    GrenadeParametersStashed *grenadeparametersstashed;
+    DiedAirborne *diedairborne;
+    WhichBombZone *whichbombzone;
+    InBombZoneTrigger *inbombzonetrigger;
+    WasInBombZoneTrigger *wasinbombzonetrigger;
+    Direction *direction;
+    ShotsFired *shotsfired;
+    FlinchStack *flinchstack;
+    HitHeading *hitheading;
+    HitBodyPart *hitbodypart;
+    HostagesKilled *hostageskilled;
+    FlashMaxAlpha *flashmaxalpha;
+    ProgressBarStartTime *progressbarstarttime;
+    ProgressBarDuration *progressbarduration;
+    WaitForNoAttack *waitfornoattack;
+    LowerBodyYawTarget *lowerbodyyawtarget;
+    Strafing *strafing;
+    IgnoreLadderJumpTime *ignoreladderjumptime;
+    SlopeDropOffset *slopedropoffset;
+    SlopeDropHeight *slopedropheight;
+    LastWeaponFireUsercmd *lastweaponfireusercmd;
+    VCollisionInitted *vcollisioninitted;
+    IsSpawning *isspawning;
+    HideTargetID *hidetargetid;
+    NumDangerZoneDamageHits *numdangerzonedamagehits;
+    Hud_MiniScoreHidden *hud_miniscorehidden;
+    Hud_RadarHidden *hud_radarhidden;
+    LastConcurrentKilled *lastconcurrentkilled;
+    DeathCamMusic *deathcammusic;
+    AddonBits *addonbits;
+    PrimaryAddon *primaryaddon;
+    SecondaryAddon *secondaryaddon;
+    NumEnemiesKilledThisSpawn *numenemieskilledthisspawn;
+    NumEnemiesKilledThisRound *numenemieskilledthisround;
+    NumEnemiesAtRoundStart *numenemiesatroundstart;
+    WasNotKilledNaturally *wasnotkillednaturally;
+    DeathFlags *deathflags;
+    CurrentEquipmentValue *currentequipmentvalue;
+    RoundStartEquipmentValue *roundstartequipmentvalue;
+    FreezetimeEndEquipmentValue *freezetimeendequipmentvalue;
+    SurvivalTeamNumber *survivalteamnumber;
+    HasDeathInfo *hasdeathinfo;
+    DeathInfoTime *deathinfotime;
+    KilledByHeadshot *killedbyheadshot;
+    LastHitBox *lasthitbox;
+    LastHealth *lasthealth;
+    LastCollisionCeiling *lastcollisionceiling;
+    LastCollisionCeilingChangeTime *lastcollisionceilingchangetime;
+    BotAllowActive *botallowactive;
+    CommittingSuicideOnTeamChange *committingsuicideonteamchange;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
@@ -367,6 +565,105 @@ public:
         this->lasttimeplayerwasdisconnectedforpawnsremove = new LastTimePlayerWasDisconnectedForPawnsRemove(playerSlot);
         this->suspicioushitcount = new SuspiciousHitCount(playerSlot);
         this->nonsuspicioushitstreak = new NonSuspiciousHitStreak(playerSlot);
+        this->displayhistorybits = new DisplayHistoryBits(playerSlot);
+        this->lastattackedteammate = new LastAttackedTeammate(playerSlot);
+        this->blinduntiltime = new BlindUntilTime(playerSlot);
+        this->blindstarttime = new BlindStartTime(playerSlot);
+        this->allowautofollowtime = new allowAutoFollowTime(playerSlot);
+        this->spotrules = new SpotRules(playerSlot);
+        this->playerstate = new PlayerState(playerSlot);
+        this->lastdistancetravelednotice = new LastDistanceTraveledNotice(playerSlot);
+        this->accumulateddistancetraveled = new AccumulatedDistanceTraveled(playerSlot);
+        this->lastfriendlyfiredamagereductionratio = new LastFriendlyFireDamageReductionRatio(playerSlot);
+        this->respawning = new Respawning(playerSlot);
+        this->lastpickuppriority = new LastPickupPriority(playerSlot);
+        this->lastpickupprioritytime = new LastPickupPriorityTime(playerSlot);
+        this->isscoped = new IsScoped(playerSlot);
+        this->iswalking = new IsWalking(playerSlot);
+        this->resumezoom = new ResumeZoom(playerSlot);
+        this->isdefusing = new IsDefusing(playerSlot);
+        this->isgrabbinghostage = new IsGrabbingHostage(playerSlot);
+        this->blockinguseactioninprogress = new BlockingUseActionInProgress(playerSlot);
+        this->immunetogungamedamagetime = new ImmuneToGunGameDamageTime(playerSlot);
+        this->gungameimmunity = new GunGameImmunity(playerSlot);
+        this->molotovdamagetime = new MolotovDamageTime(playerSlot);
+        this->hasmovedsincespawn = new HasMovedSinceSpawn(playerSlot);
+        this->canmoveduringfreezeperiod = new CanMoveDuringFreezePeriod(playerSlot);
+        this->guardiantoofardistfrac = new GuardianTooFarDistFrac(playerSlot);
+        this->nextguardiantoofarhurttime = new NextGuardianTooFarHurtTime(playerSlot);
+        this->detectedbyenemysensortime = new DetectedByEnemySensorTime(playerSlot);
+        this->dealtdamagetoenemymostrecenttimestamp = new DealtDamageToEnemyMostRecentTimestamp(playerSlot);
+        this->lastequippedhelmettime = new LastEquippedHelmetTime(playerSlot);
+        this->lastequippedarmortime = new LastEquippedArmorTime(playerSlot);
+        this->heavyassaultsuitcooldownremaining = new HeavyAssaultSuitCooldownRemaining(playerSlot);
+        this->resetarmornextspawn = new ResetArmorNextSpawn(playerSlot);
+        this->lastbumpminebumptime = new LastBumpMineBumpTime(playerSlot);
+        this->emitsoundtime = new EmitSoundTime(playerSlot);
+        this->numspawns = new NumSpawns(playerSlot);
+        this->shouldhavecash = new ShouldHaveCash(playerSlot);
+        this->invalidsteamlogondelayed = new InvalidSteamLogonDelayed(playerSlot);
+        this->lastaction = new LastAction(playerSlot);
+        this->lastgivendefusertime = new LastGivenDefuserTime(playerSlot);
+        this->lastgivenbombtime = new LastGivenBombTime(playerSlot);
+        this->hasnightvision = new HasNightVision(playerSlot);
+        this->nightvisionon = new NightVisionOn(playerSlot);
+        this->nextradarupdatetime = new NextRadarUpdateTime(playerSlot);
+        this->lastmoneyupdatetime = new LastMoneyUpdateTime(playerSlot);
+        this->introcamtime = new IntroCamTime(playerSlot);
+        this->innodefusearea = new InNoDefuseArea(playerSlot);
+        this->killedbytaser = new KilledByTaser(playerSlot);
+        this->movestate = new MoveState(playerSlot);
+        this->grenadeparameterstashtime = new GrenadeParameterStashTime(playerSlot);
+        this->grenadeparametersstashed = new GrenadeParametersStashed(playerSlot);
+        this->diedairborne = new DiedAirborne(playerSlot);
+        this->whichbombzone = new WhichBombZone(playerSlot);
+        this->inbombzonetrigger = new InBombZoneTrigger(playerSlot);
+        this->wasinbombzonetrigger = new WasInBombZoneTrigger(playerSlot);
+        this->direction = new Direction(playerSlot);
+        this->shotsfired = new ShotsFired(playerSlot);
+        this->flinchstack = new FlinchStack(playerSlot);
+        this->hitheading = new HitHeading(playerSlot);
+        this->hitbodypart = new HitBodyPart(playerSlot);
+        this->hostageskilled = new HostagesKilled(playerSlot);
+        this->flashmaxalpha = new FlashMaxAlpha(playerSlot);
+        this->progressbarstarttime = new ProgressBarStartTime(playerSlot);
+        this->progressbarduration = new ProgressBarDuration(playerSlot);
+        this->waitfornoattack = new WaitForNoAttack(playerSlot);
+        this->lowerbodyyawtarget = new LowerBodyYawTarget(playerSlot);
+        this->strafing = new Strafing(playerSlot);
+        this->ignoreladderjumptime = new IgnoreLadderJumpTime(playerSlot);
+        this->slopedropoffset = new SlopeDropOffset(playerSlot);
+        this->slopedropheight = new SlopeDropHeight(playerSlot);
+        this->lastweaponfireusercmd = new LastWeaponFireUsercmd(playerSlot);
+        this->vcollisioninitted = new VCollisionInitted(playerSlot);
+        this->isspawning = new IsSpawning(playerSlot);
+        this->hidetargetid = new HideTargetID(playerSlot);
+        this->numdangerzonedamagehits = new NumDangerZoneDamageHits(playerSlot);
+        this->hud_miniscorehidden = new Hud_MiniScoreHidden(playerSlot);
+        this->hud_radarhidden = new Hud_RadarHidden(playerSlot);
+        this->lastconcurrentkilled = new LastConcurrentKilled(playerSlot);
+        this->deathcammusic = new DeathCamMusic(playerSlot);
+        this->addonbits = new AddonBits(playerSlot);
+        this->primaryaddon = new PrimaryAddon(playerSlot);
+        this->secondaryaddon = new SecondaryAddon(playerSlot);
+        this->numenemieskilledthisspawn = new NumEnemiesKilledThisSpawn(playerSlot);
+        this->numenemieskilledthisround = new NumEnemiesKilledThisRound(playerSlot);
+        this->numenemiesatroundstart = new NumEnemiesAtRoundStart(playerSlot);
+        this->wasnotkillednaturally = new WasNotKilledNaturally(playerSlot);
+        this->deathflags = new DeathFlags(playerSlot);
+        this->currentequipmentvalue = new CurrentEquipmentValue(playerSlot);
+        this->roundstartequipmentvalue = new RoundStartEquipmentValue(playerSlot);
+        this->freezetimeendequipmentvalue = new FreezetimeEndEquipmentValue(playerSlot);
+        this->survivalteamnumber = new SurvivalTeamNumber(playerSlot);
+        this->hasdeathinfo = new HasDeathInfo(playerSlot);
+        this->deathinfotime = new DeathInfoTime(playerSlot);
+        this->killedbyheadshot = new KilledByHeadshot(playerSlot);
+        this->lasthitbox = new LastHitBox(playerSlot);
+        this->lasthealth = new LastHealth(playerSlot);
+        this->lastcollisionceiling = new LastCollisionCeiling(playerSlot);
+        this->lastcollisionceilingchangetime = new LastCollisionCeilingChangeTime(playerSlot);
+        this->botallowactive = new BotAllowActive(playerSlot);
+        this->committingsuicideonteamchange = new CommittingSuicideOnTeamChange(playerSlot);
     }
 
     ~Player()
@@ -487,6 +784,105 @@ public:
         delete this->lasttimeplayerwasdisconnectedforpawnsremove;
         delete this->suspicioushitcount;
         delete this->nonsuspicioushitstreak;
+        delete this->displayhistorybits;
+        delete this->lastattackedteammate;
+        delete this->blinduntiltime;
+        delete this->blindstarttime;
+        delete this->allowautofollowtime;
+        delete this->spotrules;
+        delete this->playerstate;
+        delete this->lastdistancetravelednotice;
+        delete this->accumulateddistancetraveled;
+        delete this->lastfriendlyfiredamagereductionratio;
+        delete this->respawning;
+        delete this->lastpickuppriority;
+        delete this->lastpickupprioritytime;
+        delete this->isscoped;
+        delete this->iswalking;
+        delete this->resumezoom;
+        delete this->isdefusing;
+        delete this->isgrabbinghostage;
+        delete this->blockinguseactioninprogress;
+        delete this->immunetogungamedamagetime;
+        delete this->gungameimmunity;
+        delete this->molotovdamagetime;
+        delete this->hasmovedsincespawn;
+        delete this->canmoveduringfreezeperiod;
+        delete this->guardiantoofardistfrac;
+        delete this->nextguardiantoofarhurttime;
+        delete this->detectedbyenemysensortime;
+        delete this->dealtdamagetoenemymostrecenttimestamp;
+        delete this->lastequippedhelmettime;
+        delete this->lastequippedarmortime;
+        delete this->heavyassaultsuitcooldownremaining;
+        delete this->resetarmornextspawn;
+        delete this->lastbumpminebumptime;
+        delete this->emitsoundtime;
+        delete this->numspawns;
+        delete this->shouldhavecash;
+        delete this->invalidsteamlogondelayed;
+        delete this->lastaction;
+        delete this->lastgivendefusertime;
+        delete this->lastgivenbombtime;
+        delete this->hasnightvision;
+        delete this->nightvisionon;
+        delete this->nextradarupdatetime;
+        delete this->lastmoneyupdatetime;
+        delete this->introcamtime;
+        delete this->innodefusearea;
+        delete this->killedbytaser;
+        delete this->movestate;
+        delete this->grenadeparameterstashtime;
+        delete this->grenadeparametersstashed;
+        delete this->diedairborne;
+        delete this->whichbombzone;
+        delete this->inbombzonetrigger;
+        delete this->wasinbombzonetrigger;
+        delete this->direction;
+        delete this->shotsfired;
+        delete this->flinchstack;
+        delete this->hitheading;
+        delete this->hitbodypart;
+        delete this->hostageskilled;
+        delete this->flashmaxalpha;
+        delete this->progressbarstarttime;
+        delete this->progressbarduration;
+        delete this->waitfornoattack;
+        delete this->lowerbodyyawtarget;
+        delete this->strafing;
+        delete this->ignoreladderjumptime;
+        delete this->slopedropoffset;
+        delete this->slopedropheight;
+        delete this->lastweaponfireusercmd;
+        delete this->vcollisioninitted;
+        delete this->isspawning;
+        delete this->hidetargetid;
+        delete this->numdangerzonedamagehits;
+        delete this->hud_miniscorehidden;
+        delete this->hud_radarhidden;
+        delete this->lastconcurrentkilled;
+        delete this->deathcammusic;
+        delete this->addonbits;
+        delete this->primaryaddon;
+        delete this->secondaryaddon;
+        delete this->numenemieskilledthisspawn;
+        delete this->numenemieskilledthisround;
+        delete this->numenemiesatroundstart;
+        delete this->wasnotkillednaturally;
+        delete this->deathflags;
+        delete this->currentequipmentvalue;
+        delete this->roundstartequipmentvalue;
+        delete this->freezetimeendequipmentvalue;
+        delete this->survivalteamnumber;
+        delete this->hasdeathinfo;
+        delete this->deathinfotime;
+        delete this->killedbyheadshot;
+        delete this->lasthitbox;
+        delete this->lasthealth;
+        delete this->lastcollisionceiling;
+        delete this->lastcollisionceilingchangetime;
+        delete this->botallowactive;
+        delete this->committingsuicideonteamchange;
     }
 
     uint32_t GetSlot() { return this->m_playerSlot; }
