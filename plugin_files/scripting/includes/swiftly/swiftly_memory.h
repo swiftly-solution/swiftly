@@ -9,40 +9,50 @@
 #include <functional>
 
 #define REGISTER_METHOD_VOID_NOARGS(method)         \
+    typedef void (*FuncType)();                     \
     void *ptr = FetchFunctionPtr(nullptr, #method); \
-    if (ptr)                                        \
-        reinterpret_cast<VoidFuncType>(ptr)();      \
+    if (ptr != nullptr)                             \
+    {                                               \
+        reinterpret_cast<FuncType>(ptr)();          \
+    }                                               \
     else                                            \
         NOT_SUPPORTED(#method);
 
-#define REGISTER_METHOD_VOID(method, ...)                 \
-    void *ptr = FetchFunctionPtr(nullptr, #method);       \
-    if (ptr)                                              \
-        reinterpret_cast<VoidFuncType>(ptr)(__VA_ARGS__); \
-    else                                                  \
+#define REGISTER_METHOD_VOID(method, ...)             \
+    typedef void (*FuncType)(...);                    \
+    void *ptr = FetchFunctionPtr(nullptr, #method);   \
+    if (ptr != nullptr)                               \
+    {                                                 \
+        reinterpret_cast<FuncType>(ptr)(__VA_ARGS__); \
+    }                                                 \
+    else                                              \
         NOT_SUPPORTED(#method);
 
-#define REGISTER_METHOD_NOARGS(TYPE, VALUE, method)    \
-    void *ptr = FetchFunctionPtr(nullptr, #method);    \
-    if (ptr)                                           \
-        return reinterpret_cast<TYPE (*)(...)>(ptr)(); \
-    else                                               \
-    {                                                  \
-        NOT_SUPPORTED(#method);                        \
-        return VALUE;                                  \
+#define REGISTER_METHOD_NOARGS(TYPE, VALUE, method) \
+    typedef TYPE (*FuncType)();                     \
+    void *ptr = FetchFunctionPtr(nullptr, #method); \
+    if (ptr != nullptr)                             \
+    {                                               \
+        return reinterpret_cast<FuncType>(ptr)();   \
+    }                                               \
+    else                                            \
+    {                                               \
+        NOT_SUPPORTED(#method);                     \
+        return VALUE;                               \
     }
 
-#define REGISTER_METHOD(TYPE, VALUE, method, ...)                 \
-    void *ptr = FetchFunctionPtr(nullptr, #method);               \
-    if (ptr)                                                      \
-        return reinterpret_cast<TYPE (*)(...)>(ptr)(__VA_ARGS__); \
-    else                                                          \
-    {                                                             \
-        NOT_SUPPORTED(#method);                                   \
-        return VALUE;                                             \
+#define REGISTER_METHOD(TYPE, VALUE, method, ...)            \
+    typedef TYPE (*FuncType)(...);                           \
+    void *ptr = FetchFunctionPtr(nullptr, #method);          \
+    if (ptr != nullptr)                                      \
+    {                                                        \
+        return reinterpret_cast<FuncType>(ptr)(__VA_ARGS__); \
+    }                                                        \
+    else                                                     \
+    {                                                        \
+        NOT_SUPPORTED(#method);                              \
+        return VALUE;                                        \
     }
-
-typedef void (*VoidFuncType)(...);
 
 typedef const char *(*Player_GetVar)(uint32_t, const char *);
 

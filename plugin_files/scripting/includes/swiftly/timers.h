@@ -14,14 +14,12 @@ private:
     std::function<void()> m_function;
     uint64_t m_delay;
     uint64_t m_lastExecuted = 0;
-    bool m_paused = false;
     bool m_destroyed = false;
 
 public:
     Timer(std::function<void()> function, uint64_t delay) : m_function(function), m_delay(delay) {}
 
     bool ShouldExecute(uint64_t time);
-    void SetPaused(bool paused);
     void Execute();
     void Destroy();
 
@@ -40,8 +38,6 @@ public:
     Timers(){};
 
     uint64_t RegisterTimer(uint64_t delay, const std::function<void()> &fn);
-    void PauseTimer(uint64_t timerID);
-    void UnpauseTimer(uint64_t timerID);
     void DestroyTimer(uint64_t timerID);
 };
 

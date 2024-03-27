@@ -242,6 +242,40 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     DamageFlagsTable.SetInteger("LastDFlag", 1024);
     DamageFlagsTable.SetInteger("IgnoreArmor", 2048);
 
+    auto CSPlayerStateTable = state->CreateTable("CSPlayerState");
+
+    CSPlayerStateTable.SetInteger("STATE_ACTIVE", 0);
+    CSPlayerStateTable.SetInteger("STATE_WELCOME", 1);
+    CSPlayerStateTable.SetInteger("STATE_PICKINGTEAM", 2);
+    CSPlayerStateTable.SetInteger("STATE_PICKINGCLASS", 3);
+    CSPlayerStateTable.SetInteger("STATE_DEATH_ANIM", 4);
+    CSPlayerStateTable.SetInteger("STATE_DEATH_WAIT_FOR_KEY", 5);
+    CSPlayerStateTable.SetInteger("STATE_OBSERVER_MODE", 6);
+    CSPlayerStateTable.SetInteger("STATE_GUNGAME_RESPAWN", 7);
+    CSPlayerStateTable.SetInteger("STATE_DORMANT", 8);
+    CSPlayerStateTable.SetInteger("NUM_PLAYER_STATES", 9);
+
+    auto CSPlayerBlockingUseAction_tTable = state->CreateTable("CSPlayerBlockingUseAction_t");
+
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_None", 0);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_DefusingDefault", 1);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_DefusingWithKit", 2);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_HostageGrabbing", 3);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_HostageDropping", 4);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_OpeningSafe", 5);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingParachute", 6);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingHeavyArmor", 7);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingContract", 8);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingTabletUpgrade", 9);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_TakingOffHeavyArmor", 10);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_PayingToOpenDoor", 11);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_CancelingSpawnRappelling", 12);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingExoJump", 13);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_PickingUpBumpMine", 14);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_MapLongUseEntity_Pickup", 15);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_MapLongUseEntity_Place", 16);
+    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_MaxCount", 17);
+
     state->CreateInteger(0, "TEAM_NONE");
     state->CreateInteger(1, "TEAM_SPECTATOR");
     state->CreateInteger(2, "TEAM_T");

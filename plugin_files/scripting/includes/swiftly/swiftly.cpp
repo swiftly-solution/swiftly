@@ -35,6 +35,8 @@ void Swiftly_Setup(const char *pluginName, const char *mainFilePath)
 {
     filePath = mainFilePath;
     plName = pluginName;
+
+    print("");
 }
 
 PluginState GetPluginState(const char *plugin_name)

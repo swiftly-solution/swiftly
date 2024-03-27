@@ -3,5 +3,10 @@
         "signature": "ServerMovementUnlock",
         "windows": "EB",
         "linux": "90 90 90 90 90 90"
+    },
+    "VScriptEnable": {
+        "signature": "VScriptEnable",
+        "windows": "BE 02",
+        "linux": "83 FE 02"
     }
 }

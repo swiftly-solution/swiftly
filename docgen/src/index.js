@@ -39,6 +39,7 @@ const lua_datamap = {
     uint64_t: "number",
     int: "number",
     uint8_t: "number",
+    double: "number",
     "unsigned short": "number",
     "unsigned long long": "number",
     short: "number",
@@ -48,7 +49,9 @@ const lua_datamap = {
     "Weapon*": "number",
     CollisionGroup: "CollisionGroup",
     DamageTypes: "DamageTypes",
-    DamageFlags: "DamageFlags"
+    DamageFlags: "DamageFlags",
+    CSPlayerState: "CSPlayerState",
+    CSPlayerBlockingUseAction_t: "CSPlayerBlockingUseAction_t"
 }
 
 const GenerateLuaType = (param) => {
