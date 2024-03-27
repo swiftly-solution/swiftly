@@ -87,7 +87,7 @@ SMM_API bool scripting_Server_GetQueuedMatchmaking()
 SMM_API int scripting_Server_SetQueuedMatchmakingMode(int status)
 {
     if (!g_pGameRules)
-        return;
+        return 0;
 
     g_pGameRules->m_nQueuedMatchmakingMode = status;
 }
