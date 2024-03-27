@@ -630,7 +630,7 @@ SMM_API float scripting_Server_GetCurrentTime();
 SMM_API int scripting_Server_GetTickCount();
 SMM_API void scripting_Server_SetQueuedMatchmaking(bool status);
 SMM_API bool scripting_Server_GetQueuedMatchmaking();
-SMM_API int scripting_server_SetQueuedMatchmakingMode(int mode);
+SMM_API int scripting_Server_SetQueuedMatchmakingMode(int mode);
 
 SMM_API const char *scripting_Translations_Fetch(const char *key);
 
