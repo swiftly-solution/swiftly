@@ -4,11 +4,10 @@
 #include "../events/gameevents.h"
 #include "../commands/CommandsManager.h"
 #include "../filter/ConsoleFilter.h"
-#include "../addons/addons.h"
-#include "../addons/clients.h"
 #include "networkbasetypes.pb.h"
 #include "networksystem/inetworkserializer.h"
-#include "../sdk/entity/serversideclient.h"
+#include "../addons/addons.h"
+#include "../addons/clients.h"
 
 FuncHook<decltype(Hook_LoggingSystem_LogDirect)> LoggingSystemt_LogDirect(Hook_LoggingSystem_LogDirect, "LoggingSystem_LogDirect");
 FuncHook<decltype(Hook_LoggingSystem_Log)> LoggingSystemt_Log(Hook_LoggingSystem_Log, "LoggingSystem_Log");
@@ -112,7 +111,7 @@ void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessag
 {
     NetMessageInfo_t *info = pNetMessage->GetNetMessageInfo();
 
-    if (info->m_MessageId != 7 || g_addons->GetStatus() == false || g_addons->GetAddons().size() == 0)
+    if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         return TSendNetMessage(pNetChan, pNetMessage, pData, a4);
 
     ClientJoinInfo_t *pPendingClient = GetPendingClient(pNetChan);
@@ -120,9 +119,10 @@ void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessag
     if (pPendingClient)
     {
         CNETMsg_SignonState *pMsg = (CNETMsg_SignonState *)pData;
-        pMsg->set_addons(g_addons->GetAddons()[pPendingClient->addon].c_str());
+        pMsg->set_addons(g_addons.GetAddons()[pPendingClient->addon].c_str());
         pMsg->set_signon_state(SIGNONSTATE_CHANGELEVEL);
-        pPendingClient->signon_timestamp = g_flUniversalTime;
+
+        pPendingClient->signon_timestamp = Plat_FloatTime();
     }
 
     TSendNetMessage(pNetChan, pNetMessage, pData, a4);
@@ -130,15 +130,38 @@ void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessag
 
 void *Hook_HostStateRequest(void *a1, void **pRequest)
 {
-    if (g_addons->GetStatus() == false || g_addons->GetAddons().size() == 0 || V_strnicmp((char *)pRequest[2], "changelevel", 11))
+    if (g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         return THostStateRequest(a1, pRequest);
 
-    CUtlString *sAddonString = (CUtlString *)(pRequest + 11);
+    CUtlString *psNextMap = (CUtlString *)(pRequest + 5);
+    CUtlString *psAddonString = (CUtlString *)(pRequest + 11);
 
-    if (!sAddonString->IsEmpty())
-        sAddonString->Format("%s,%s", sAddonString->Get(), implode(g_addons->GetAddons(), ",").c_str());
+    std::string sExtraAddonString = implode(g_addons.GetAddons(), ",");
+
+    static std::string sCurrentMap = psNextMap->Get();
+
+    if (psNextMap->IsEqual_CaseSensitive(sCurrentMap.c_str()))
+    {
+        if (g_addons.currentWorkshopMap.empty())
+            psAddonString->Clear();
+        else
+            psAddonString->Set(g_addons.currentWorkshopMap.c_str());
+    }
     else
-        sAddonString->Set(implode(g_addons->GetAddons(), ",").c_str());
+    {
+        sCurrentMap = psNextMap->Get();
+    }
+
+    if (!psAddonString->IsEmpty())
+    {
+        g_addons.currentWorkshopMap = psAddonString->Get();
+        psAddonString->Format("%s,%s", psAddonString->Get(), sExtraAddonString.c_str());
+    }
+    else
+    {
+        g_addons.currentWorkshopMap.clear();
+        psAddonString->Set(sExtraAddonString.c_str());
+    }
 
     return THostStateRequest(a1, pRequest);
 }

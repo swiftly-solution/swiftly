@@ -29,10 +29,12 @@
 #include "precacher/Precacher.h"
 #include "menus/Menus.h"
 #include "dumps/CrashDump.h"
-#include "addons/addons.h"
-#include "addons/clients.h"
 #include "usermessages/UserMessages.h"
 #include "resourcemonitor/ResourceMonitor.h"
+#include "addons/addons.h"
+#include "addons/clients.h"
+
+#include <steam/steam_gameserver.h>
 
 #define LOAD_COMPONENT(TYPE, VARIABLE_NAME) \
     {                                       \
@@ -70,7 +72,6 @@ Configuration *g_Config;
 IServerGameDLL *server = nullptr;
 IServerGameClients *gameclients = nullptr;
 IVEngineServer2 *engine = nullptr;
-IFileSystem *filesystem = nullptr;
 IServerGameClients *g_clientsManager = nullptr;
 ICvar *icvar = nullptr;
 IGameResourceServiceServer *g_pGameResourceService = nullptr;
@@ -95,10 +96,11 @@ Precacher *g_precacher = nullptr;
 CEntityListener g_entityListener;
 CCSGameRules *g_pGameRules = nullptr;
 GameMenus *g_menus = nullptr;
-Addons *g_addons = nullptr;
 IGameEventSystem *g_pGameEventSystem = nullptr;
 UserMessages *g_userMessages = nullptr;
 ResourceMonitor *g_ResourceMonitor = nullptr;
+Addons g_addons;
+CSteamGameServerAPIContext g_SteamAPI;
 
 class CGameResourceService
 {
@@ -126,26 +128,6 @@ CGlobalVars *GetGameGlobals()
     return g_pNetworkServerService->GetIGameServer()->GetGlobals();
 }
 
-CUtlVector<CServerSideClient *> *GetClientList()
-{
-    INetworkGameServer *server = g_pNetworkServerService->GetIGameServer();
-    if (!server)
-        return nullptr;
-
-    static int offset = g_Offsets->GetOffset("CNetworkGameServer_ClientList");
-    return (CUtlVector<CServerSideClient *> *)(&server[offset]);
-}
-
-CServerSideClient *GetClientBySlot(CPlayerSlot slot)
-{
-    CUtlVector<CServerSideClient *> *pClients = GetClientList();
-
-    if (!pClients)
-        return nullptr;
-
-    return pClients->Element(slot.Get());
-}
-
 PLUGIN_EXPOSE(SwiftlyPlugin, g_Plugin);
 bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool late)
 {
@@ -158,7 +140,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     GET_V_IFACE_ANY(GetServerFactory, g_clientsManager, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
     GET_V_IFACE_ANY(GetEngineFactory, g_pNetworkServerService, INetworkServerService, NETWORKSERVERSERVICE_INTERFACE_VERSION);
     GET_V_IFACE_ANY(GetEngineFactory, g_pNetworkMessages, INetworkMessages, NETWORKMESSAGES_INTERFACE_VERSION);
-    GET_V_IFACE_ANY(GetFileSystemFactory, filesystem, IFileSystem, FILESYSTEM_INTERFACE_VERSION);
+    GET_V_IFACE_ANY(GetFileSystemFactory, g_pFullFileSystem, IFileSystem, FILESYSTEM_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameResourceService, IGameResourceServiceServer, GAMERESOURCESERVICESERVER_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pSchemaSystem2, CSchemaSystem, SCHEMASYSTEM_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameEventSystem, IGameEventSystem, GAMEEVENTSYSTEM_INTERFACE_VERSION);
@@ -203,7 +185,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_entityManager = new EntityManager();
     g_precacher = new Precacher();
     g_menus = new GameMenus();
-    g_addons = new Addons();
     g_userMessages = new UserMessages();
     g_ResourceMonitor = new ResourceMonitor();
 
@@ -216,8 +197,8 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_playerManager->LoadPlayers();
     g_dbManager->LoadDatabases();
     g_conFilter->LoadFilters();
-    g_addons->RegisterAddons();
     g_translations->LoadTranslations();
+    g_addons.LoadAddons();
 
     if (g_Config->FetchValue<bool>("core.console_filtering"))
         g_conFilter->Toggle();
@@ -245,6 +226,14 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
         PRINT("Hooks", "Failed to initialize hooks.\n");
     else
         PRINT("Hooks", "All hooks has been loaded!\n");
+
+    if (late)
+    {
+        g_SteamAPI.Init();
+        m_CallbackDownloadItemResult.Register(this, &SwiftlyPlugin::OnAddonDownloaded);
+    }
+
+    g_addons.SetupThread();
 
     return true;
 }
@@ -368,7 +357,22 @@ void SwiftlyPlugin::Hook_DispatchConCommand(ConCommandHandle cmdHandle, const CC
 
 void SwiftlyPlugin::Hook_GameServerSteamAPIActivated()
 {
+    if (!CommandLine()->HasParm("-dedicated"))
+        return;
+
+    g_SteamAPI.Init();
+    m_CallbackDownloadItemResult.Register(this, &SwiftlyPlugin::OnAddonDownloaded);
+
+    std::thread([&]() -> void
+                {std::this_thread::sleep_for(std::chrono::milliseconds(3000)); g_addons.RefreshAddons(true); })
+        .detach();
+
     RETURN_META(MRES_IGNORED);
+}
+
+void SwiftlyPlugin::OnAddonDownloaded(DownloadItemResult_t *pResult)
+{
+    g_addons.OnAddonDownloaded(pResult);
 }
 
 std::string map = "None";
@@ -389,20 +393,6 @@ void SwiftlyPlugin::OnLevelInit(char const *pMapName, char const *pMapEntities, 
 
     map = pMapName;
     hooks::emit(OnMapLoad(pMapName));
-
-    if (g_addons->GetStatus() == true && g_addons->GetAddons().size() > 0)
-    {
-
-        std::thread([pMapName]() -> void
-                    {
-                    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-                    if (!firstMapLoaded)
-                    {
-                        firstMapLoaded = true;
-                        engine->ServerCommand(string_format("map %s", pMapName).c_str());
-                    } })
-            .detach();
-    }
 }
 
 void SwiftlyPlugin::OnLevelShutdown()
@@ -425,8 +415,11 @@ void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config,
         g_pGameEntitySystem->AddListenerEntity(&g_entityListener);
 
         bDone = true;
-        g_ClientsPendingAddon.RemoveAll();
     }
+
+    g_ClientsPendingAddon.RemoveAll();
+
+    g_addons.RefreshAddons();
 }
 
 void SwiftlyPlugin::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const char *pszName, uint64 xuid)
@@ -452,6 +445,9 @@ bool scripting_OnClientConnect(const OnClientConnect *e);
 
 bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
 {
+    if (!g_addons.OnClientConnect(xuid))
+        RETURN_META_VALUE(MRES_IGNORED, true);
+
     std::string ip_address = explode(pszNetworkID, ":")[0];
     Player *player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     g_playerManager->RegisterPlayer(player);
@@ -462,21 +458,6 @@ bool SwiftlyPlugin::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, ui
     hooks::emit(clientConnectEvent);
     if (!scripting_OnClientConnect(&clientConnectEvent))
         RETURN_META_VALUE(MRES_SUPERCEDE, false);
-
-    if (g_addons->GetStatus() == false || g_addons->GetAddons().size() == 0)
-        RETURN_META_VALUE(MRES_IGNORED, true);
-
-    int index;
-    ClientJoinInfo_t *pendingClient = GetPendingClient(xuid, index);
-
-    if (!pendingClient)
-        AddPendingClient(xuid);
-    else if ((g_flUniversalTime - pendingClient->signon_timestamp) < g_addons->GetTimeout())
-    {
-        pendingClient->addon++;
-        if (pendingClient->addon >= g_addons->GetAddons().size())
-            g_ClientsPendingAddon.FastRemove(index);
-    }
 
     RETURN_META_VALUE(MRES_IGNORED, true);
 }

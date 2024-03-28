@@ -27,6 +27,9 @@
 #include <networksystem/inetworkserializer.h>
 #include <networksystem/inetworkmessages.h>
 #include <engine/igameeventsystem.h>
+#include <steam/steam_api_common.h>
+#include <steam/isteamugc.h>
+#include <public/filesystem.h>
 
 #include <deque>
 #include <functional>
@@ -76,6 +79,8 @@ public:
 public:
     std::deque<std::function<void()>> m_nextFrame;
     bool m_allpluginsloaded = false;
+
+    STEAM_GAMESERVER_CALLBACK_MANUAL(SwiftlyPlugin, OnAddonDownloaded, DownloadItemResult_t, m_CallbackDownloadItemResult);
 };
 
 class CEntityListener : public IEntityListener
@@ -95,6 +100,7 @@ extern ICvar *g_pcVar;
 extern CCSGameRules *g_pGameRules;
 extern INetworkMessages *g_pNetworkMessages;
 extern IGameEventSystem *g_pGameEventSystem;
+extern CSteamGameServerAPIContext g_SteamAPI;
 
 PLUGIN_GLOBALVARS();
 

@@ -1,33 +1,76 @@
+/**************************************************
+ * This feature was inspired from https://github.com/Source2ZE/MultiAddonManager/tree/9e3c17b2d6263389417782e2971d339bf6c948e6
+ * Thanks to Source2ZE Team for providing a base implementation for the Addons Manager feature with their repository.
+ ***************************************************/
+
 #ifndef _addons_h
 #define _addons_h
 
-/**************************************************
- * This feature was taken from https://github.com/Source2ZE/CS2Fixes/commit/98cc65a8a10f03ef8a96003f2e23f74be48284bb
- * Thanks to CS2Fixes for providing this method.
- ***************************************************/
+#include "../common.h"
+#include "../utils/progressbar.h"
 
-#include <string>
 #include <vector>
+
+struct DownloadInfo
+{
+    uint64 bytesNow;
+    uint64 totalBytes;
+    uint64_t elapsedTime;
+    uint64_t timestamp;
+    ProgressBar *progressBar;
+};
 
 class Addons
 {
 private:
     bool m_status = false;
     uint32_t timeout = 10;
-    std::vector<std::string> addons;
+
+    std::vector<std::string> addonsList;
+    std::vector<std::string> mountedAddons;
+    std::vector<PublishedFileId_t> downloadQueue;
+    std::vector<PublishedFileId_t> importantDownloads;
+
+    std::map<PublishedFileId_t, DownloadInfo> downloadProgresses;
 
 public:
     Addons() {}
 
-    void RegisterAddons();
+    std::string currentWorkshopMap;
+
+    template <typename T>
+    bool ExistsInVector(std::vector<T> v, T e)
+    {
+        return (std::find(v.begin(), v.end(), e) != v.end());
+    }
+
+    void LoadAddons();
     void ToggleStatus() { this->m_status = !this->m_status; }
     void SetStatus(bool status) { this->m_status = status; }
     bool GetStatus() { return this->m_status; }
     void SetTimeout(uint32_t timeout) { this->timeout = timeout; }
     uint32_t GetTimeout() { return this->timeout; }
-    std::vector<std::string> GetAddons() { return this->addons; }
+    std::vector<std::string> GetAddons() { return this->addonsList; }
+
+    void BuildAddonPath(std::string pszAddon, std::string &buffer);
+    bool MountAddon(std::string pszAddon, bool addToTail = false);
+    bool UnmountAddon(std::string pszAddon);
+    void DownloadAddon(std::string pszAddon, bool important = false, bool force = false);
+    void PrintDownload();
+    void RefreshAddons(bool reloadMap = false);
+    void ClearAddons();
+
+    void SetupThread();
+
+    bool AddAddon(std::string pszAddon, bool refresh = false);
+    bool RemoveAddon(std::string pszAddon, bool refresh = false);
+
+    void OnAddonDownloaded(DownloadItemResult_t *result);
+    bool OnClientConnect(uint64 xuid);
+
+    void ReloadMap();
 };
 
-extern Addons *g_addons;
+extern Addons g_addons;
 
 #endif

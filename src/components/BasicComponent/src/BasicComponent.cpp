@@ -9,10 +9,10 @@
 #include "../../Plugins/inc/Plugin.h"
 #include "../../../files/Files.h"
 #include "../../../http/HTTPManager.h"
-#include "../../../addons/addons.h"
 #include "../../Plugins/inc/plugins/CPPPlugin.h"
 #include "../../Plugins/inc/plugins/LuaPlugin.h"
 #include "../../../resourcemonitor/ResourceMonitor.h"
+#include "../../../addons/addons.h"
 
 #include <TextTable.h>
 #include <sstream>
@@ -426,31 +426,31 @@ void SwiftlyTranslationReload(CPlayerSlot *slot, CCommandContext context)
 
 void SwiftlyAddonsManagerReload(CPlayerSlot *slot, CCommandContext context)
 {
-    g_addons->RegisterAddons();
+    g_addons.LoadAddons();
     PrintToClientOrConsole(slot, "Addons", "All addons has been succesfully reloaded.\n");
 }
 
 void SwiftlyAddonsManagerDisable(CPlayerSlot *slot, CCommandContext context)
 {
-    if (!g_addons->GetStatus())
+    if (!g_addons.GetStatus())
         return PrintToClientOrConsole(slot, "Addons", "Addons is already disabled.\n");
 
-    g_addons->ToggleStatus();
+    g_addons.ToggleStatus();
     PrintToClientOrConsole(slot, "Addons", "Addons has been disabled.\n");
 }
 
 void SwiftlyAddonsManagerEnable(CPlayerSlot *slot, CCommandContext context)
 {
-    if (g_addons->GetStatus())
+    if (g_addons.GetStatus())
         return PrintToClientOrConsole(slot, "Addons", "Addons is already enabled.\n");
 
-    g_addons->ToggleStatus();
+    g_addons.ToggleStatus();
     PrintToClientOrConsole(slot, "Addons", "Addons has been enabled.\n");
 }
 
 void SwiftlyAddonsManagerStatus(CPlayerSlot *slot, CCommandContext context)
 {
-    PrintToClientOrConsole(slot, "Addons", "Addons Status: %s.\n", g_addons->GetStatus() ? "Enabled" : "Disabled");
+    PrintToClientOrConsole(slot, "Addons", "Addons Status: %s.\n", g_addons.GetStatus() ? "Enabled" : "Disabled");
 }
 
 void SwiftlyConFilterEnable(CPlayerSlot *slot, CCommandContext context)

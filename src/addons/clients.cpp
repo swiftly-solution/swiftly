@@ -9,10 +9,30 @@ extern CUtlVector<CServerSideClient *> *GetClientList();
 
 CUtlVector<ClientJoinInfo_t> g_ClientsPendingAddon;
 
+CUtlVector<CServerSideClient *> *GetClientList()
+{
+    INetworkGameServer *server = g_pNetworkServerService->GetIGameServer();
+    if (!server)
+        return nullptr;
+
+    static int offset = g_Offsets->GetOffset("CNetworkGameServer_ClientList");
+    return (CUtlVector<CServerSideClient *> *)(&server[offset]);
+}
+
+CServerSideClient *GetClientBySlot(CPlayerSlot slot)
+{
+    CUtlVector<CServerSideClient *> *pClients = GetClientList();
+
+    if (!pClients)
+        return nullptr;
+
+    return pClients->Element(slot.Get());
+}
+
 void AddPendingClient(uint64 steamid)
 {
-    ClientJoinInfo_t PendingCLient{steamid, 0.f, 0};
-    g_ClientsPendingAddon.AddToTail(PendingCLient);
+    ClientJoinInfo_t PendingClient{steamid, 0.f, 0};
+    g_ClientsPendingAddon.AddToTail(PendingClient);
 }
 
 ClientJoinInfo_t *GetPendingClient(uint64 steamid, int &index)

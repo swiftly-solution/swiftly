@@ -74,6 +74,7 @@ target(PROJECT_NAME.."-Xmake")
             SDK_PATH.."/lib/public/win64/tier1.lib",
             SDK_PATH.."/lib/public/win64/interfaces.lib",
             SDK_PATH.."/lib/public/win64/mathlib.lib",
+            SDK_PATH.."/lib/public/win64/steam_api64.lib",
             SDK_PATH.."/lib/public/win64/2015/libprotobuf.lib",
         })
     else
@@ -82,6 +83,7 @@ target(PROJECT_NAME.."-Xmake")
             SDK_PATH.."/lib/linux64/tier1.a",
             SDK_PATH.."/lib/linux64/interfaces.a",
             SDK_PATH.."/lib/linux64/mathlib.a",
+            SDK_PATH.."/lib/linux64/libsteam_api.so",
             SDK_PATH.."/lib/linux64/release/libprotobuf.a",
         })
     end
