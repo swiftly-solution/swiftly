@@ -154,11 +154,11 @@ void Addons::PrintDownload()
         bar->SetProgress(0);
 
         DownloadInfo info = {
-            .bytesNow = downloadedBytes,
-            .totalBytes = totalBytes,
-            .elapsedTime = 0,
-            .timestamp = GetTime(),
-            .progressBar = bar,
+            downloadedBytes,
+            totalBytes,
+            0,
+            GetTime(),
+            bar,
         };
 
         this->downloadProgresses.insert({iAddon, info});
