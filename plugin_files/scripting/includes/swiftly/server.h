@@ -94,6 +94,11 @@ public:
     {
         REGISTER_METHOD_VOID(scripting_Server_SetQueuedMatchmaking, status);
     }
+
+    void SetQueuedMatchmakingMode(int mode)
+    {
+        REGISTER_METHOD_VOID(scripting_Server_SetQueuedMatchmakingMode, mode);
+    }
 };
 
 extern Server *server;

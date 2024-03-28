@@ -13671,6 +13671,21 @@
 				},
 				"additional": {}
 			},
+			"setqueuedmatchmakingmode": {
+				"title": "SetQueuedMatchmakingMode",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Sets the server matchmaking mode.",
+				"variable": {
+					"cpp": "server->SetQueuedMatchmakingMode",
+					"lua": "server:SetQueuedMatchmakingMode"
+				},
+				"return": "void",
+				"params": {
+					"mode": "int"
+				},
+				"additional": {}
+			},
 			"getcurrenttime": {
 				"title": "GetCurrentTime",
 				"template": "function-syntax",
