@@ -1,7 +1,7 @@
 #ifndef _utils_progressbar_h
 #define _utils_progressbar_h
 
-#include <unistd.h>
+#include <stdint.h>
 #include <string>
 
 class ProgressBar
