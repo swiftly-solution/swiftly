@@ -364,7 +364,11 @@ void SwiftlyPlugin::Hook_GameServerSteamAPIActivated()
     m_CallbackDownloadItemResult.Register(this, &SwiftlyPlugin::OnAddonDownloaded);
 
     std::thread([&]() -> void
-                {std::this_thread::sleep_for(std::chrono::milliseconds(3000)); g_addons.RefreshAddons(true); })
+                {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+
+                    if (g_addons.GetStatus())
+                        g_addons.RefreshAddons(true); })
         .detach();
 
     RETURN_META(MRES_IGNORED);
@@ -419,7 +423,8 @@ void SwiftlyPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config,
 
     g_ClientsPendingAddon.RemoveAll();
 
-    g_addons.RefreshAddons();
+    if (g_addons.GetStatus())
+        g_addons.RefreshAddons();
 }
 
 void SwiftlyPlugin::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const char *pszName, uint64 xuid)
