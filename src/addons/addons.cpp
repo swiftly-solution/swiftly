@@ -134,10 +134,10 @@ bool Addons::UnmountAddon(std::string pszAddon)
     return true;
 }
 
-void Addons::PrintDownload()
+bool Addons::PrintDownload()
 {
     if (this->downloadQueue.size() == 0)
-        return;
+        return false;
 
     uint64 downloadedBytes = 0;
     uint64 totalBytes = 0;
@@ -145,7 +145,7 @@ void Addons::PrintDownload()
     PublishedFileId_t iAddon = *this->downloadQueue.begin();
 
     if (!g_SteamAPI.SteamUGC()->GetItemDownloadInfo(iAddon, &downloadedBytes, &totalBytes) || !totalBytes)
-        return;
+        return false;
 
     if (this->downloadProgresses.find(iAddon) == this->downloadProgresses.end())
     {
@@ -203,6 +203,8 @@ void Addons::PrintDownload()
 
         AddonsPrint(info.progressBar->GetContent(format("[%.0fs] [%.2fMB/%.2fMB] %.2f%% - %.2f %s", ((double)info.elapsedTime / 1000.0f), ((double)downloadedBytes / 1024.0f / 1024.0f), ((double)totalBytes / 1024.0f / 1024.0f), (((double)downloadedBytes / (double)totalBytes) * 100.f), speed, unit.c_str())));
     }
+
+    return true;
 }
 
 void Addons::DownloadAddon(std::string pszAddon, bool important, bool force)
@@ -401,8 +403,8 @@ void Addons::SetupThread()
     std::thread([&]() -> void
                 {
         while(true) {
-            this->PrintDownload();
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            uint64_t sleeptime = this->PrintDownload() ? 100 : 1000;
+            std::this_thread::sleep_for(std::chrono::milliseconds(sleeptime));
         } })
         .detach();
 }

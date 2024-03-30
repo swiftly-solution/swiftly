@@ -56,7 +56,7 @@ public:
     bool MountAddon(std::string pszAddon, bool addToTail = false);
     bool UnmountAddon(std::string pszAddon);
     void DownloadAddon(std::string pszAddon, bool important = false, bool force = false);
-    void PrintDownload();
+    bool PrintDownload();
     void RefreshAddons(bool reloadMap = false);
     void ClearAddons();
 
