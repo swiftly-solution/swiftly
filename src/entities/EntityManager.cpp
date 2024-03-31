@@ -28,6 +28,5 @@ void EntityManager::DestroyEntity(uint32_t id)
         return;
 
     Entity *ent = this->entities.at(id);
-    delete ent;
     this->entities.erase(id);
 }

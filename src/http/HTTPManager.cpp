@@ -16,8 +16,6 @@ void HTTPManager::DeleteRequest(uint64_t requestID)
         return;
 
     HTTPRequest *request = this->requests.at(requestID);
-
-    delete request;
     this->requests.erase(requestID);
 }
 

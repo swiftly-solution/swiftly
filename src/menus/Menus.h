@@ -47,7 +47,6 @@ public:
         }
 
         Menu *menu = this->menu_ids.at(id);
-        delete menu;
         this->menu_ids.erase(id);
     }
 
