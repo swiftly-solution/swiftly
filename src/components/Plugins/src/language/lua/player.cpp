@@ -318,6 +318,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_SetModel(base->playerSlot, model); })
         .DefMember("SetMusicKit", [](LuaPlayerClass *base, int musickit) -> void
                    { scripting_Player_SetMusicKit(base->playerSlot, musickit); })
+        .DefMember("SetPin", [](LuaPlayerClass *base, int index) -> void
+                   { scripting_Player_SetPin(base->playerSlot, index); })
         .DefMember("Respawn", [](LuaPlayerClass *base) -> void
                    { scripting_Player_Respawn(base->playerSlot); })
         .DefMember("SetHealthShotBoostEffectExpirationTime", [](LuaPlayerClass *base, float expireTime) -> void
