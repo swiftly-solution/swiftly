@@ -13408,6 +13408,22 @@
 								},
 								"additional": {}
 							},
+							"setsticker": {
+								"title": "SetSticker",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the sticker to a weapon.",
+								"variable": {
+									"cpp": "weapon->SetSticker",
+									"lua": "weapon:SetSticker"
+								},
+								"return": "void",
+								"params": {
+									"stickerslot": "int",
+									"stickerid": "uint32_t"
+								},
+								"additional": {}
+							},
 							"setwear": {
 								"title": "SetWear",
 								"template": "function-syntax",

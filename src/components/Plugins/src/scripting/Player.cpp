@@ -852,6 +852,21 @@ SMM_API void scripting_Player_Weapon_SetWear(uint32 playerId, uint32 slot, float
 
     weapon->m_flFallbackWear = wear;
 }
+
+SMM_API void scripting_Player_Weapon_SetSticker(uint32 playerId, uint32 slot, int stickerslot, uint32_t stickerid)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    float stickeridfloat = *reinterpret_cast<float *>(&stickerid);
+    g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(weapon->m_AttributeManager().m_Item().m_NetworkedDynamicAttributes(), string_format("sticker slot %d id", stickerslot).c_str(), stickeridfloat);
+}
+
 SMM_API void scripting_Player_Weapon_SetPaintKit(uint32 playerId, uint32 slot, int paintkit)
 {
     Player *player = g_playerManager->GetPlayer(playerId);

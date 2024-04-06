@@ -1739,6 +1739,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_Weapon_SetStatTrack(base->playerSlot, base->slot, stattrack); })
         .DefMember("SetWear", [](LuaPlayerTwoArgsClass *base, float wear) -> void
                    { scripting_Player_Weapon_SetWear(base->playerSlot, base->slot, wear); })
+        .DefMember("SetSticker", [](LuaPlayerTwoArgsClass *base, int stickerslot, uint32_t stickerid) -> void
+                   { scripting_Player_Weapon_SetSticker(base->playerSlot, base->slot, stickerslot, stickerid); })
         .DefMember("SetPaintKit", [](LuaPlayerTwoArgsClass *base, int paintkit) -> void
                    { scripting_Player_Weapon_SetPaintKit(base->playerSlot, base->slot, paintkit); })
         .DefMember("SetSeed", [](LuaPlayerTwoArgsClass *base, int seed) -> void
