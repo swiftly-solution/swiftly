@@ -13412,7 +13412,7 @@
 								"title": "SetSticker",
 								"template": "function-syntax",
 								"language": "both",
-								"description": "Sets the sticker to a weapon.",
+								"description": "Sets the sticker to a weapon. \n:::note\n This needs to be called on NextTick.:::",
 								"variable": {
 									"cpp": "weapon->SetSticker",
 									"lua": "weapon:SetSticker"
