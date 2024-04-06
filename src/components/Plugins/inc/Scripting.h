@@ -184,6 +184,7 @@ SMM_API void scripting_Player_Weapon_SetNextSecondaryAttackTickRatio(uint32 play
 
 SMM_API void scripting_Player_Weapon_SetStatTrack(uint32 playerId, uint32 slot, bool stattrack);
 SMM_API void scripting_Player_Weapon_SetWear(uint32 playerId, uint32 slot, float wear);
+SMM_API void scripting_Player_Weapon_SetSticker(uint32 playerId, uint32 slot, int stickerslot, uint32_t stickerid);
 SMM_API void scripting_Player_Weapon_SetPaintKit(uint32 playerId, uint32 slot, int paintkit);
 SMM_API void scripting_Player_Weapon_SetSeed(uint32 playerId, uint32 slot, int seed);
 

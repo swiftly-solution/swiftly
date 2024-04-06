@@ -16,6 +16,7 @@ typedef void (*Player_SetStatTrack)(uint32_t, uint32_t, bool);
 typedef void (*Player_SetWear)(uint32_t, uint32_t, float);
 typedef void (*Player_SetPaintKit)(uint32_t, uint32_t, int);
 typedef void (*Player_SetSeed)(uint32_t, uint32_t, int);
+typedef void (*Player_SetSticker)(uint32_t, uint32_t, int, uint32_t);
 
 typedef bool (*Player_GetStatTrack)(uint32_t, uint32_t);
 typedef float (*Player_GetWear)(uint32_t, uint32_t);
@@ -66,6 +67,10 @@ public:
     void SetWear(float wear)
     {
         REGISTER_METHOD_VOID(scripting_Player_Weapon_SetWear, this->m_playerSlot, this->m_weaponID, wear);
+    }
+    void SetSticker(int stickerslot, uint32_t stickerid)
+    {
+        REGISTER_METHOD(scripting_Player_Weapon_SetSticker, this->m_playerSlot, this->m_weaponID, stickerslot, stickerid)
     }
     void SetPaintKit(int32_t paintkit)
     {
