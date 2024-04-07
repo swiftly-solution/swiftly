@@ -70,7 +70,7 @@ public:
     }
     void SetSticker(int stickerslot, uint32_t stickerid)
     {
-        REGISTER_METHOD(scripting_Player_Weapon_SetSticker, this->m_playerSlot, this->m_weaponID, stickerslot, stickerid)
+        REGISTER_METHOD_VOID(scripting_Player_Weapon_SetSticker, this->m_playerSlot, this->m_weaponID, stickerslot, stickerid)
     }
     void SetPaintKit(int32_t paintkit)
     {
