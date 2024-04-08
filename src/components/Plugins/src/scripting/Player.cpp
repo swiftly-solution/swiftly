@@ -852,6 +852,21 @@ SMM_API void scripting_Player_Weapon_SetWear(uint32 playerId, uint32 slot, float
 
     weapon->m_flFallbackWear = wear;
 }
+
+SMM_API void scripting_Player_Weapon_SetSticker(uint32 playerId, uint32 slot, int stickerslot, uint32_t stickerid)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerWeapon *weapon = player->GetPlayerWeaponFromID(slot);
+    if (!weapon)
+        return;
+
+    float stickeridfloat = *reinterpret_cast<float *>(&stickerid);
+    g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(weapon->m_AttributeManager().m_Item().m_NetworkedDynamicAttributes(), string_format("sticker slot %d id", stickerslot).c_str(), stickeridfloat);
+}
+
 SMM_API void scripting_Player_Weapon_SetPaintKit(uint32 playerId, uint32 slot, int paintkit)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
@@ -1140,6 +1155,27 @@ SMM_API void scripting_Player_SetModel(uint32 playerId, const char *model)
     }
 
     pawn->SetModel(model);
+}
+
+SMM_API void scripting_Player_SetPin(uint32 playerId, int index)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *controller = player->GetPlayerController();
+    if (!controller)
+        return;
+
+    CCSPlayerController_InventoryServices *inventory = controller->m_pInventoryServices();
+    if (!inventory)
+        return;
+
+    MedalRank_t rank[5];
+
+    rank[5] = static_cast<MedalRank_t>(index);
+    Plat_WriteMemory(reinterpret_cast<uint8_t *>(&inventory->m_rank[5]), reinterpret_cast<uint8_t *>(&rank[5]), 5);
+    SetStateChanged((Z_CBaseEntity *)controller, 0x6D0 + 0x44);
 }
 
 SMM_API void scripting_Player_SetMusicKit(uint32 playerId, int musicid)

@@ -184,6 +184,7 @@ SMM_API void scripting_Player_Weapon_SetNextSecondaryAttackTickRatio(uint32 play
 
 SMM_API void scripting_Player_Weapon_SetStatTrack(uint32 playerId, uint32 slot, bool stattrack);
 SMM_API void scripting_Player_Weapon_SetWear(uint32 playerId, uint32 slot, float wear);
+SMM_API void scripting_Player_Weapon_SetSticker(uint32 playerId, uint32 slot, int stickerslot, uint32_t stickerid);
 SMM_API void scripting_Player_Weapon_SetPaintKit(uint32 playerId, uint32 slot, int paintkit);
 SMM_API void scripting_Player_Weapon_SetSeed(uint32 playerId, uint32 slot, int seed);
 
@@ -610,6 +611,7 @@ SMM_API void scripting_Player_SetCommittingSuicideOnTeamChange(uint32 playerId, 
 SMM_API void scripting_Player_SetGloves(uint32 playerId, uint16_t defindex, int paintkit, int seed, float wear);
 SMM_API void scripting_Player_SetModel(uint32 playerId, const char *model);
 SMM_API void scripting_Player_SetMusicKit(uint32 playerId, int musicid);
+SMM_API void scripting_Player_SetPin(uint32 playerId, int index);
 
 SMM_API const char *scripting_Player_GetChatTag(uint32 playerId);
 SMM_API void scripting_Player_SetChatTag(uint32 playerId, const char *tag);

@@ -987,6 +987,11 @@ public:
         REGISTER_METHOD_VOID(scripting_Player_SetMusicKit, this->m_playerSlot, id);
     }
 
+    void SetPin(int index)
+    {
+        REGISTER_METHOD_VOID(scripting_Player_SetPin, this->m_playerSlot, index);
+    }
+
     void ShowMenu(const char *menuid)
     {
         REGISTER_METHOD_VOID(scripting_Player_ShowMenu, this->m_playerSlot, menuid);

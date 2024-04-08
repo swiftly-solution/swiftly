@@ -5197,6 +5197,21 @@
 						},
 						"additional": {}
 					},
+					"setpin": {
+						"title": "SetPin",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets player pin.",
+						"variable": {
+							"cpp": "player->SetPin",
+							"lua": "player:SetPin"
+						},
+						"return": "void",
+						"params": {
+							"index": "int"
+						},
+						"additional": {}
+					},
 					"showmenu": {
 						"title": "ShowMenu",
 						"template": "function-syntax",
@@ -13390,6 +13405,22 @@
 								"return": "void",
 								"params": {
 									"stattrack": "bool"
+								},
+								"additional": {}
+							},
+							"setsticker": {
+								"title": "SetSticker",
+								"template": "function-syntax",
+								"language": "both",
+								"description": "Sets the sticker to a weapon. \n:::note\n This needs to be called on NextTick.:::\n",
+								"variable": {
+									"cpp": "weapon->SetSticker",
+									"lua": "weapon:SetSticker"
+								},
+								"return": "void",
+								"params": {
+									"stickerslot": "int",
+									"stickerid": "uint32_t"
 								},
 								"additional": {}
 							},
