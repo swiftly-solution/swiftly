@@ -13550,7 +13550,7 @@
 				"language": "both",
 				"description": "Returns the number of players on server.",
 				"variable": {
-					"cpp": "g_playerManager->GetPlayers",
+					"cpp": "g_playerManager->GetPlayerCount",
 					"lua": "playermanager:GetPlayerCount"
 				},
 				"return": "uint16_t",
