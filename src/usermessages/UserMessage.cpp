@@ -1,5 +1,9 @@
 #include "UserMessage.h"
 
+#ifdef GetMessage
+#undef GetMessage
+#endif
+
 #define GETCHECK_FIELD()                                                                                              \
     const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName); \
     if (!field)                                                                                                       \
@@ -1215,12 +1219,12 @@ bool UserMessage::GetColor(const char *pszFieldName, Color *out)
     CHECK_FIELD_TYPE(MESSAGE);
     CHECK_FIELD_NOT_REPEATED();
 
-    const CMsgRGBA &msgRGBA = (const CMsgRGBA &)this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    const CMsgRGBA *msgRGBA = (const CMsgRGBA *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     out->SetColor(
-        msgRGBA.r(),
-        msgRGBA.g(),
-        msgRGBA.b(),
-        msgRGBA.a());
+        msgRGBA->r(),
+        msgRGBA->g(),
+        msgRGBA->b(),
+        msgRGBA->a());
 
     return true;
 }
@@ -1294,10 +1298,10 @@ bool UserMessage::GetVector2D(const char *pszFieldName, Vector2D *out)
     CHECK_FIELD_TYPE(MESSAGE);
     CHECK_FIELD_NOT_REPEATED();
 
-    const CMsgVector2D &msgVec2d = (const CMsgVector2D &)this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    const CMsgVector2D *msgVec2d = (const CMsgVector2D *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     out->Init(
-        msgVec2d.x(),
-        msgVec2d.y());
+        msgVec2d->x(),
+        msgVec2d->y());
 
     return true;
 }
@@ -1363,11 +1367,11 @@ bool UserMessage::GetVector(const char *pszFieldName, Vector *out)
     CHECK_FIELD_TYPE(MESSAGE);
     CHECK_FIELD_NOT_REPEATED();
 
-    const CMsgVector &msgVec = (const CMsgVector &)this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    const CMsgVector *msgVec = (const CMsgVector *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     out->Init(
-        msgVec.x(),
-        msgVec.y(),
-        msgVec.z());
+        msgVec->x(),
+        msgVec->y(),
+        msgVec->z());
 
     return true;
 }
@@ -1437,11 +1441,11 @@ bool UserMessage::GetQAngle(const char *pszFieldName, QAngle *out)
     CHECK_FIELD_TYPE(MESSAGE);
     CHECK_FIELD_NOT_REPEATED();
 
-    const CMsgQAngle &msgAng = (const CMsgQAngle &)this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    const CMsgQAngle *msgAng = (const CMsgQAngle *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     out->Init(
-        msgAng.x(),
-        msgAng.y(),
-        msgAng.z());
+        msgAng->x(),
+        msgAng->y(),
+        msgAng->z());
 
     return true;
 }
