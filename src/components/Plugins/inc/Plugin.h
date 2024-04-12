@@ -48,6 +48,10 @@ public:
             PRINTF("Runtime", "An error has occured while calling '%s'.\nError: %s\n", original_func_name.c_str(), err);
             return;
         }
+
+        const int nresults = lua_gettop(m_l) - top;
+        if (nresults > 0)
+            lua_pop(m_l, nresults);
     }
 
     template <typename T>
@@ -67,23 +71,30 @@ public:
         const int nresults = lua_gettop(m_l) - top;
         luacpp::LuaObject returnObject(m_l, -nresults);
 
+        T val;
+
         if constexpr (std::is_same_v<T, const char *>)
-            return returnObject.ToString();
+            val = returnObject.ToString();
         else if constexpr (std::is_same_v<T, std::string>)
-            return std::string(returnObject.ToString());
+            val = std::string(returnObject.ToString());
         else if constexpr (std::is_same_v<T, int> || std::is_same_v<T, unsigned int> ||
                            std::is_same_v<T, short> || std::is_same_v<T, unsigned short> ||
                            std::is_same_v<T, long> || std::is_same_v<T, unsigned long> ||
                            std::is_same_v<T, long long> || std::is_same_v<T, unsigned long long>)
-            return (T)returnObject.ToInteger();
+            val = (T)returnObject.ToInteger();
         else if constexpr (std::is_same_v<T, bool>)
-            return returnObject.ToBool();
+            val = returnObject.ToBool();
         else if constexpr (std::is_same_v<T, float> || std::is_same_v<T, double>)
-            return (T)returnObject.ToNumber();
+            val = (T)returnObject.ToNumber();
         else if constexpr (std::is_same_v<T, luacpp::LuaObject>)
-            return (T)returnObject;
+            val = (T)returnObject;
         else
-            return (T) false;
+            val = (T) false;
+
+        if (nresults > 0)
+            lua_pop(m_l, nresults);
+
+        return val;
     }
 
     luacpp::LuaObject ExecuteWithReturnRaw(std::string original_func_name, int argc)
