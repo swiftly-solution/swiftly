@@ -212,8 +212,10 @@ void FASTCALL Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *pEntity, CTakeDamage
                 Z_CBaseEntity *attackerEntity = (Z_CBaseEntity *)(dmgInfo->m_hAttacker.Get());
                 if (CCSPlayerPawn *attackerpawn = dynamic_cast<CCSPlayerPawn *>(attackerEntity); attackerpawn != nullptr)
                 {
-                    if (!scripting_OnPlayerDamagePlayer(slot, CPlayerSlot(attackerpawn->m_hController().Get()->GetEntityIndex().Get() - 1), dmgInfo->m_flDamage, dmgInfo->m_bitsDamageType, dmgInfo->m_iAmmoType, dmgInfo->m_nDamageFlags))
-                        dmgInfo->m_flDamage = 0.0f;
+                    CBasePlayerController *attackercontroller = attackerpawn->m_hController().Get();
+                    if (attackercontroller)
+                        if (!scripting_OnPlayerDamagePlayer(slot, CPlayerSlot(attackercontroller->GetEntityIndex().Get() - 1), dmgInfo->m_flDamage, dmgInfo->m_bitsDamageType, dmgInfo->m_iAmmoType, dmgInfo->m_nDamageFlags))
+                            dmgInfo->m_flDamage = 0.0f;
                 }
             }
             if (dmgInfo->m_bitsDamageType == DMG_FALL)
