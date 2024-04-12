@@ -1,16 +1,42 @@
 #include "UserMessage.h"
 
-#define GETCHECK_FIELD()                                                                                             \
-    const google::protobuf::FieldDescriptor *field = msgBuffer->GetDescriptor()->FindFieldByName(fieldName.c_str()); \
-    if (!field)                                                                                                      \
-    {                                                                                                                \
-        return false;                                                                                                \
+#define GETCHECK_FIELD()                                                                                              \
+    const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName); \
+    if (!field)                                                                                                       \
+    {                                                                                                                 \
+        return false;                                                                                                 \
     }
 
 #define CHECK_FIELD_NOT_REPEATED()                                           \
     if (field->label() == google::protobuf::FieldDescriptor::LABEL_REPEATED) \
     {                                                                        \
         return false;                                                        \
+    }
+
+#define CHECK_FIELD_TYPE(type)                                                  \
+    if (field->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_##type) \
+    {                                                                           \
+        return false;                                                           \
+    }
+
+#define CHECK_FIELD_TYPE2(type1, type2)                                                                                                     \
+    google::protobuf::FieldDescriptor::CppType fieldType = field->cpp_type();                                                               \
+    if (fieldType != google::protobuf::FieldDescriptor::CPPTYPE_##type1 && fieldType != google::protobuf::FieldDescriptor::CPPTYPE_##type2) \
+    {                                                                                                                                       \
+        return false;                                                                                                                       \
+    }
+
+#define CHECK_FIELD_REPEATED()                                               \
+    if (field->label() != google::protobuf::FieldDescriptor::LABEL_REPEATED) \
+    {                                                                        \
+        return false;                                                        \
+    }
+
+#define CHECK_REPEATED_ELEMENT(idx)                                                       \
+    int elemCount = this->msgBuffer->GetReflection()->FieldSize(*this->msgBuffer, field); \
+    if (elemCount == 0 || idx >= elemCount || idx < 0)                                    \
+    {                                                                                     \
+        return false;                                                                     \
     }
 
 UserMessage::UserMessage(std::string msgname)
@@ -597,7 +623,7 @@ int UserMessage::GetMessageID()
     return this->msgid;
 }
 
-bool UserMessage::HasField(std::string fieldName)
+bool UserMessage::HasField(const char *pszFieldName)
 {
     if (!this->msgBuffer)
         return false;
@@ -605,4 +631,905 @@ bool UserMessage::HasField(std::string fieldName)
     GETCHECK_FIELD()
     CHECK_FIELD_NOT_REPEATED()
     return this->msgBuffer->GetReflection()->HasField(*this->msgBuffer, field);
+}
+
+bool UserMessage::GetInt32(const char *pszFieldName, int32 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT32);
+    CHECK_FIELD_NOT_REPEATED();
+
+    *out = this->msgBuffer->GetReflection()->GetInt32(*this->msgBuffer, field);
+    return true;
+}
+
+bool UserMessage::SetInt32(const char *pszFieldName, int32 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT32);
+    CHECK_FIELD_NOT_REPEATED();
+
+    this->msgBuffer->GetReflection()->SetInt32(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetRepeatedInt32(const char *pszFieldName, int index, int32 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT32);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    *out = this->msgBuffer->GetReflection()->GetRepeatedInt32(*this->msgBuffer, field, index);
+    return true;
+}
+
+bool UserMessage::SetRepeatedInt32(const char *pszFieldName, int index, int32 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT32);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    this->msgBuffer->GetReflection()->SetRepeatedInt32(this->msgBuffer, field, index, value);
+    return true;
+}
+
+bool UserMessage::AddInt32(const char *pszFieldName, int32 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT32);
+    CHECK_FIELD_REPEATED();
+
+    this->msgBuffer->GetReflection()->AddInt32(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetInt64(const char *pszFieldName, int64 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT64);
+    CHECK_FIELD_NOT_REPEATED();
+
+    *out = this->msgBuffer->GetReflection()->GetInt64(*this->msgBuffer, field);
+    return true;
+}
+
+bool UserMessage::SetInt64(const char *pszFieldName, int64 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT64);
+    CHECK_FIELD_NOT_REPEATED();
+
+    this->msgBuffer->GetReflection()->SetInt64(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetRepeatedInt64(const char *pszFieldName, int index, int64 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT64);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    *out = this->msgBuffer->GetReflection()->GetRepeatedInt64(*this->msgBuffer, field, index);
+    return true;
+}
+
+bool UserMessage::SetRepeatedInt64(const char *pszFieldName, int index, int64 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT64);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    this->msgBuffer->GetReflection()->SetRepeatedInt64(this->msgBuffer, field, index, value);
+    return true;
+}
+
+bool UserMessage::AddInt64(const char *pszFieldName, int64 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(INT64);
+    CHECK_FIELD_REPEATED();
+
+    this->msgBuffer->GetReflection()->AddInt64(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetUInt32(const char *pszFieldName, uint32 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT32);
+    CHECK_FIELD_NOT_REPEATED();
+
+    *out = this->msgBuffer->GetReflection()->GetUInt32(*this->msgBuffer, field);
+    return true;
+}
+
+bool UserMessage::SetUInt32(const char *pszFieldName, uint32 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT32);
+    CHECK_FIELD_NOT_REPEATED();
+
+    this->msgBuffer->GetReflection()->SetUInt32(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetRepeatedUInt32(const char *pszFieldName, int index, uint32 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT32);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    *out = this->msgBuffer->GetReflection()->GetRepeatedUInt32(*this->msgBuffer, field, index);
+    return true;
+}
+
+bool UserMessage::SetRepeatedUInt32(const char *pszFieldName, int index, uint32 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT32);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    this->msgBuffer->GetReflection()->SetRepeatedUInt32(this->msgBuffer, field, index, value);
+    return true;
+}
+
+bool UserMessage::AddUInt32(const char *pszFieldName, uint32 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT32);
+    CHECK_FIELD_REPEATED();
+
+    this->msgBuffer->GetReflection()->AddUInt32(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetUInt64(const char *pszFieldName, uint64 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT64);
+    CHECK_FIELD_NOT_REPEATED();
+
+    *out = this->msgBuffer->GetReflection()->GetUInt64(*this->msgBuffer, field);
+    return true;
+}
+
+bool UserMessage::SetUInt64(const char *pszFieldName, uint64 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT64);
+    CHECK_FIELD_NOT_REPEATED();
+
+    this->msgBuffer->GetReflection()->SetUInt64(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetRepeatedUInt64(const char *pszFieldName, int index, uint64 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT64);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    *out = this->msgBuffer->GetReflection()->GetRepeatedUInt64(*this->msgBuffer, field, index);
+    return true;
+}
+
+bool UserMessage::SetRepeatedUInt64(const char *pszFieldName, int index, uint64 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT64);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    this->msgBuffer->GetReflection()->SetRepeatedUInt64(this->msgBuffer, field, index, value);
+    return true;
+}
+
+bool UserMessage::AddUInt64(const char *pszFieldName, uint64 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(UINT64);
+    CHECK_FIELD_REPEATED();
+
+    this->msgBuffer->GetReflection()->AddUInt32(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetInt64OrUnsigned(const char *pszFieldName, int64 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(INT64, UINT64);
+    CHECK_FIELD_NOT_REPEATED();
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_UINT64)
+        *out = (int64)this->msgBuffer->GetReflection()->GetUInt64(*this->msgBuffer, field);
+    else
+        *out = this->msgBuffer->GetReflection()->GetInt64(*this->msgBuffer, field);
+
+    return true;
+}
+
+bool UserMessage::SetInt64OrUnsigned(const char *pszFieldName, int64 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(INT64, UINT64);
+    CHECK_FIELD_NOT_REPEATED();
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_UINT64)
+    {
+        this->msgBuffer->GetReflection()->SetUInt64(this->msgBuffer, field, (uint64)value);
+    }
+    else
+    {
+        this->msgBuffer->GetReflection()->SetInt64(this->msgBuffer, field, value);
+    }
+
+    return true;
+}
+
+bool UserMessage::GetRepeatedInt64OrUnsigned(const char *pszFieldName, int index, int64 *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(INT64, UINT64);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_UINT64)
+        *out = (int64)this->msgBuffer->GetReflection()->GetRepeatedUInt64(*this->msgBuffer, field, index);
+    else
+        *out = this->msgBuffer->GetReflection()->GetRepeatedInt64(*this->msgBuffer, field, index);
+
+    return true;
+}
+
+bool UserMessage::SetRepeatedInt64OrUnsigned(const char *pszFieldName, int index, int64 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(INT64, UINT64);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_UINT64)
+    {
+        this->msgBuffer->GetReflection()->SetRepeatedUInt64(this->msgBuffer, field, index, (uint64)value);
+    }
+    else
+    {
+        this->msgBuffer->GetReflection()->SetRepeatedInt64(this->msgBuffer, field, index, value);
+    }
+
+    return true;
+}
+
+bool UserMessage::AddInt64OrUnsigned(const char *pszFieldName, int64 value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(INT64, UINT64);
+    CHECK_FIELD_REPEATED();
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_UINT64)
+    {
+        this->msgBuffer->GetReflection()->AddUInt64(this->msgBuffer, field, (uint64)value);
+    }
+    else
+    {
+        this->msgBuffer->GetReflection()->AddInt64(this->msgBuffer, field, value);
+    }
+
+    return true;
+}
+
+bool UserMessage::GetBool(const char *pszFieldName, bool *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(BOOL);
+    CHECK_FIELD_NOT_REPEATED();
+
+    *out = this->msgBuffer->GetReflection()->GetBool(*this->msgBuffer, field);
+    return true;
+}
+
+bool UserMessage::SetBool(const char *pszFieldName, bool value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(BOOL);
+    CHECK_FIELD_NOT_REPEATED();
+
+    this->msgBuffer->GetReflection()->SetBool(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetRepeatedBool(const char *pszFieldName, int index, bool *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(BOOL);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    *out = this->msgBuffer->GetReflection()->GetRepeatedBool(*this->msgBuffer, field, index);
+    return true;
+}
+
+bool UserMessage::SetRepeatedBool(const char *pszFieldName, int index, bool value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(BOOL);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    this->msgBuffer->GetReflection()->SetRepeatedBool(this->msgBuffer, field, index, value);
+    return true;
+}
+
+bool UserMessage::AddBool(const char *pszFieldName, bool value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(BOOL);
+    CHECK_FIELD_REPEATED();
+
+    this->msgBuffer->GetReflection()->AddBool(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetFloat(const char *pszFieldName, float *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(FLOAT);
+    CHECK_FIELD_NOT_REPEATED();
+
+    *out = this->msgBuffer->GetReflection()->GetFloat(*this->msgBuffer, field);
+    return true;
+}
+
+bool UserMessage::SetFloat(const char *pszFieldName, float value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(FLOAT);
+    CHECK_FIELD_NOT_REPEATED();
+
+    this->msgBuffer->GetReflection()->SetFloat(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetRepeatedFloat(const char *pszFieldName, int index, float *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(FLOAT);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    *out = this->msgBuffer->GetReflection()->GetRepeatedFloat(*this->msgBuffer, field, index);
+    return true;
+}
+
+bool UserMessage::SetRepeatedFloat(const char *pszFieldName, int index, float value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(FLOAT);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    this->msgBuffer->GetReflection()->SetRepeatedFloat(this->msgBuffer, field, index, value);
+    return true;
+}
+
+bool UserMessage::AddFloat(const char *pszFieldName, float value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(FLOAT);
+    CHECK_FIELD_REPEATED();
+
+    this->msgBuffer->GetReflection()->AddFloat(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetDouble(const char *pszFieldName, double *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(DOUBLE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    *out = this->msgBuffer->GetReflection()->GetDouble(*this->msgBuffer, field);
+    return true;
+}
+
+bool UserMessage::SetDouble(const char *pszFieldName, double value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(DOUBLE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    this->msgBuffer->GetReflection()->SetDouble(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetRepeatedDouble(const char *pszFieldName, int index, double *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(DOUBLE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    *out = this->msgBuffer->GetReflection()->GetRepeatedDouble(*this->msgBuffer, field, index);
+    return true;
+}
+
+bool UserMessage::SetRepeatedDouble(const char *pszFieldName, int index, double value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(DOUBLE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    this->msgBuffer->GetReflection()->SetRepeatedDouble(this->msgBuffer, field, index, value);
+    return true;
+}
+
+bool UserMessage::AddDouble(const char *pszFieldName, double value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(DOUBLE);
+    CHECK_FIELD_REPEATED();
+
+    this->msgBuffer->GetReflection()->AddDouble(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetFloatOrDouble(const char *pszFieldName, float *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(FLOAT, DOUBLE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE)
+        *out = (float)this->msgBuffer->GetReflection()->GetDouble(*this->msgBuffer, field);
+    else
+        *out = this->msgBuffer->GetReflection()->GetFloat(*this->msgBuffer, field);
+
+    return true;
+}
+
+bool UserMessage::SetFloatOrDouble(const char *pszFieldName, float value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(FLOAT, DOUBLE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE)
+        this->msgBuffer->GetReflection()->SetDouble(this->msgBuffer, field, (double)value);
+    else
+        this->msgBuffer->GetReflection()->SetFloat(this->msgBuffer, field, value);
+
+    return true;
+}
+
+bool UserMessage::GetRepeatedFloatOrDouble(const char *pszFieldName, int index, float *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(FLOAT, DOUBLE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE)
+        *out = (float)this->msgBuffer->GetReflection()->GetRepeatedDouble(*this->msgBuffer, field, index);
+    else
+        *out = this->msgBuffer->GetReflection()->GetRepeatedFloat(*this->msgBuffer, field, index);
+
+    return true;
+}
+
+bool UserMessage::SetRepeatedFloatOrDouble(const char *pszFieldName, int index, float value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(FLOAT, DOUBLE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE)
+        this->msgBuffer->GetReflection()->SetRepeatedDouble(this->msgBuffer, field, index, (double)value);
+    else
+        this->msgBuffer->GetReflection()->SetRepeatedFloat(this->msgBuffer, field, index, value);
+
+    return true;
+}
+
+bool UserMessage::AddFloatOrDouble(const char *pszFieldName, float value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE2(FLOAT, DOUBLE);
+    CHECK_FIELD_REPEATED();
+
+    if (fieldType == google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE)
+        this->msgBuffer->GetReflection()->AddDouble(this->msgBuffer, field, (double)value);
+    else
+        this->msgBuffer->GetReflection()->AddFloat(this->msgBuffer, field, value);
+
+    return true;
+}
+
+bool UserMessage::GetString(const char *pszFieldName, char *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(STRING);
+    CHECK_FIELD_NOT_REPEATED();
+
+    strcpy(out, this->msgBuffer->GetReflection()->GetString(*this->msgBuffer, field).c_str());
+
+    return true;
+}
+
+bool UserMessage::SetString(const char *pszFieldName, const char *value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(STRING);
+    CHECK_FIELD_NOT_REPEATED();
+
+    this->msgBuffer->GetReflection()->SetString(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetRepeatedString(const char *pszFieldName, int index, char *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(STRING);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    std::string scratch;
+    strcpy(out, this->msgBuffer->GetReflection()->GetRepeatedStringReference(*this->msgBuffer, field, index, &scratch).c_str());
+
+    return true;
+}
+
+bool UserMessage::SetRepeatedString(const char *pszFieldName, int index, const char *value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(STRING);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    this->msgBuffer->GetReflection()->SetRepeatedString(this->msgBuffer, field, index, value);
+
+    return true;
+}
+
+bool UserMessage::AddString(const char *pszFieldName, const char *value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(STRING);
+    CHECK_FIELD_REPEATED();
+
+    this->msgBuffer->GetReflection()->AddString(this->msgBuffer, field, value);
+    return true;
+}
+
+bool UserMessage::GetColor(const char *pszFieldName, Color *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    const CMsgRGBA &msgRGBA = (const CMsgRGBA &)this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    out->SetColor(
+        msgRGBA.r(),
+        msgRGBA.g(),
+        msgRGBA.b(),
+        msgRGBA.a());
+
+    return true;
+}
+
+bool UserMessage::SetColor(const char *pszFieldName, const Color &value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    CMsgRGBA *msgRGBA = (CMsgRGBA *)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
+    msgRGBA->set_r(value.r());
+    msgRGBA->set_g(value.g());
+    msgRGBA->set_b(value.b());
+    msgRGBA->set_a(value.a());
+
+    return true;
+}
+
+bool UserMessage::GetRepeatedColor(const char *pszFieldName, int index, Color *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    const CMsgRGBA &msgRGBA = (const CMsgRGBA &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
+    out->SetColor(
+        msgRGBA.r(),
+        msgRGBA.g(),
+        msgRGBA.b(),
+        msgRGBA.a());
+
+    return true;
+}
+
+bool UserMessage::SetRepeatedColor(const char *pszFieldName, int index, const Color &value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    CMsgRGBA *msgRGBA = (CMsgRGBA *)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
+    msgRGBA->set_r(value.r());
+    msgRGBA->set_g(value.g());
+    msgRGBA->set_b(value.b());
+    msgRGBA->set_a(value.a());
+
+    return true;
+}
+
+bool UserMessage::AddColor(const char *pszFieldName, const Color &value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+
+    CMsgRGBA *msgRGBA = (CMsgRGBA *)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
+    msgRGBA->set_r(value.r());
+    msgRGBA->set_g(value.g());
+    msgRGBA->set_b(value.b());
+    msgRGBA->set_a(value.a());
+
+    return true;
+}
+
+bool UserMessage::GetVector2D(const char *pszFieldName, Vector2D *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    const CMsgVector2D &msgVec2d = (const CMsgVector2D &)this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    out->Init(
+        msgVec2d.x(),
+        msgVec2d.y());
+
+    return true;
+}
+
+bool UserMessage::SetVector2D(const char *pszFieldName, Vector2D &vec)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    CMsgVector2D *msgVec2d = (CMsgVector2D *)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
+    msgVec2d->set_x(vec.x);
+    msgVec2d->set_y(vec.y);
+
+    return true;
+}
+
+bool UserMessage::GetRepeatedVector2D(const char *pszFieldName, int index, Vector2D *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    const CMsgVector2D &msgVec2d = (const CMsgVector2D &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
+    out->Init(
+        msgVec2d.x(),
+        msgVec2d.y());
+
+    return true;
+}
+
+bool UserMessage::SetRepeatedVector2D(const char *pszFieldName, int index, Vector2D &vec)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    CMsgVector2D *msgVec2d = (CMsgVector2D *)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
+    msgVec2d->set_x(vec.x);
+    msgVec2d->set_y(vec.y);
+
+    return true;
+}
+
+bool UserMessage::AddVector2D(const char *pszFieldName, Vector2D &vec)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+
+    CMsgVector2D *msgVec2d = (CMsgVector2D *)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
+    msgVec2d->set_x(vec.x);
+    msgVec2d->set_y(vec.y);
+
+    return true;
+}
+
+bool UserMessage::GetVector(const char *pszFieldName, Vector *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    const CMsgVector &msgVec = (const CMsgVector &)this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    out->Init(
+        msgVec.x(),
+        msgVec.y(),
+        msgVec.z());
+
+    return true;
+}
+
+bool UserMessage::SetVector(const char *pszFieldName, Vector &vec)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    CMsgVector *msgVec = (CMsgVector *)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
+    msgVec->set_x(vec.x);
+    msgVec->set_y(vec.y);
+    msgVec->set_z(vec.z);
+
+    return true;
+}
+
+bool UserMessage::GetRepeatedVector(const char *pszFieldName, int index, Vector *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    const CMsgVector &msgVec = (const CMsgVector &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
+    out->Init(
+        msgVec.x(),
+        msgVec.y(),
+        msgVec.z());
+
+    return true;
+}
+
+bool UserMessage::SetRepeatedVector(const char *pszFieldName, int index, Vector &vec)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    CMsgVector *msgVec = (CMsgVector *)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
+    msgVec->set_x(vec.x);
+    msgVec->set_y(vec.y);
+    msgVec->set_z(vec.z);
+
+    return true;
+}
+
+bool UserMessage::AddVector(const char *pszFieldName, Vector &vec)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+
+    CMsgVector *msgVec = (CMsgVector *)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
+    msgVec->set_x(vec.x);
+    msgVec->set_y(vec.y);
+    msgVec->set_z(vec.z);
+
+    return true;
+}
+
+bool UserMessage::GetQAngle(const char *pszFieldName, QAngle *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    const CMsgQAngle &msgAng = (const CMsgQAngle &)this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    out->Init(
+        msgAng.x(),
+        msgAng.y(),
+        msgAng.z());
+
+    return true;
+}
+
+bool UserMessage::SetQAngle(const char *pszFieldName, QAngle &vec)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_NOT_REPEATED();
+
+    CMsgQAngle *msgAng = (CMsgQAngle *)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
+    msgAng->set_x(vec.x);
+    msgAng->set_y(vec.y);
+    msgAng->set_z(vec.z);
+
+    return true;
+}
+
+bool UserMessage::GetRepeatedQAngle(const char *pszFieldName, int index, QAngle *out)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    const CMsgQAngle &msgAng = (const CMsgQAngle &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
+    out->Init(
+        msgAng.x(),
+        msgAng.y(),
+        msgAng.z());
+
+    return true;
+}
+
+bool UserMessage::SetRepeatedQAngle(const char *pszFieldName, int index, QAngle &vec)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    CMsgQAngle *msgAng = (CMsgQAngle *)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
+    msgAng->set_x(vec.x);
+    msgAng->set_y(vec.y);
+    msgAng->set_z(vec.z);
+
+    return true;
+}
+
+bool UserMessage::AddQAngle(const char *pszFieldName, QAngle &vec)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE(MESSAGE);
+    CHECK_FIELD_REPEATED();
+
+    CMsgQAngle *msgAng = (CMsgQAngle *)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
+    msgAng->set_x(vec.x);
+    msgAng->set_y(vec.y);
+    msgAng->set_z(vec.z);
+
+    return true;
+}
+
+int UserMessage::GetRepeatedFieldCount(const char *pszFieldName)
+{
+    const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName);
+    if (!field)
+        return -1;
+
+    if (field->label() != google::protobuf::FieldDescriptor::LABEL_REPEATED)
+        return -1;
+
+    return this->msgBuffer->GetReflection()->FieldSize(*this->msgBuffer, field);
+}
+
+bool UserMessage::RemoveRepeatedFieldValue(const char *pszFieldName, int index)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT(index);
+
+    const google::protobuf::Reflection *pReflection = this->msgBuffer->GetReflection();
+    for (int i = index; i < elemCount - 1; ++i)
+    {
+        pReflection->SwapElements(this->msgBuffer, field, i, i + 1);
+    }
+
+    pReflection->RemoveLast(this->msgBuffer, field);
+
+    return true;
 }
