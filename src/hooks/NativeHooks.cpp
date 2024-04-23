@@ -195,7 +195,8 @@ bool scripting_OnPlayerDamage(CPlayerSlot slot, float damage, DamageTypes_t dama
 
 void FASTCALL Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *pEntity, CTakeDamageInfo *dmgInfo)
 {
-    if (CCSPlayerPawn *pawn = dynamic_cast<CCSPlayerPawn *>(pEntity); pawn != nullptr)
+    // Temporary removed due to an invalid pointer, more more searches soon
+    /*if (CCSPlayerPawn *pawn = dynamic_cast<CCSPlayerPawn *>(pEntity); pawn != nullptr)
     {
         CBasePlayerController *baseController = pawn->m_hController();
         CCSPlayerController *controller = (CCSPlayerController *)baseController;
@@ -221,7 +222,7 @@ void FASTCALL Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *pEntity, CTakeDamage
             if (dmgInfo->m_bitsDamageType == DMG_FALL)
                 scripting_OnPlayerFallDamage(slot, dmgInfo->m_flDamage);
         }
-    }
+    }*/
 
     TCBaseEntity_TakeDamageOld(pEntity, dmgInfo);
 }

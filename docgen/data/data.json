@@ -4212,7 +4212,7 @@
 				"title": "OnPlayerFallDamage",
 				"template": "event-syntax",
 				"language": "both",
-				"description": "This game events is triggered when a player receives fall damage.",
+				"description": "This game events is triggered when a player receives fall damage. (Temporary Removed)",
 				"return": "void",
 				"params": {
 					"player": "player",
@@ -4224,7 +4224,7 @@
 				"title": "OnPlayerDamage",
 				"template": "event-syntax",
 				"language": "both",
-				"description": "This game events is triggered when a player receives damage.",
+				"description": "This game events is triggered when a player receives damage. (Temporary Removed)",
 				"return": "bool",
 				"params": {
 					"player": "player",
@@ -4242,7 +4242,7 @@
 				"title": "OnPlayerDamagePlayer",
 				"template": "event-syntax",
 				"language": "both",
-				"description": "This game events is triggered when a player receives damage from another player.",
+				"description": "This game events is triggered when a player receives damage from another player. (Temporary Removed)",
 				"return": "bool",
 				"params": {
 					"player": "player",
