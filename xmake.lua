@@ -58,6 +58,7 @@ target(PROJECT_NAME.."-Xmake")
         SDK_PATH.."/entity2/entitysystem.cpp",
         SDK_PATH.."/entity2/entityidentity.cpp",
         SDK_PATH.."/tier1/convar.cpp",
+        "vendor/dynlibutils/module.cpp",
     })
 
     if not is_plat("windows") then
@@ -163,6 +164,7 @@ target(PROJECT_NAME.."-Xmake")
         "prototemp",
         "vendor/rapidjson/include",
         "vendor/funchook/include",
+        "vendor/dynlibutils",
         "vendor/luacpp/include",
         "vendor/mysql/"..GetDistDirName().."/include",
         "vendor/lua",

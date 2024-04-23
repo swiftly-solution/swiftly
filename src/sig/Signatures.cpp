@@ -6,6 +6,7 @@
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
+#include <module.h>
 
 #ifdef _WIN32
 #define ROOTBIN "/bin/win64/"
@@ -134,17 +135,32 @@ void Signatures::LoadSignatures()
 
         const char *lib = it->value["lib"].GetString();
         std::string rawSig = it->value[WIN_LINUX("windows", "linux")].GetString();
-        std::string finalSig = (rawSig.at(0) == '_') ? rawSig : ("\\x" + replace(rawSig, " ", "\\x"));
-
         PRINTF("Signatures", "Searching for \"%s\"...\n", rawSig.c_str());
 
-        void *sig = FindSignature(lib, finalSig.c_str());
-        if (sig == nullptr)
+        void *sig = nullptr;
+        if (rawSig.find("?") == std::string::npos)
         {
-            SignaturesError(string_format("Couldn't find the signature for '%s' (Library '%s').", name.c_str(), lib));
-            continue;
+            std::string finalSig = (rawSig.at(0) == '_') ? rawSig : ("\\x" + replace(rawSig, " ", "\\x"));
+            sig = FindSignature(lib, finalSig.c_str());
+            if (sig == nullptr)
+            {
+                SignaturesError(string_format("Couldn't find the signature for '%s' (Library '%s').", name.c_str(), lib));
+                continue;
+            }
+            SignaturesError(string_format("Found function '%s' (Library '%s') pointing at %p.", name.c_str(), lib, sig));
         }
-        SignaturesError(string_format("Found function '%s' (Library '%s') pointing at 0x%p.", name.c_str(), lib, sig));
+        else
+        {
+            DynLibUtils::CModule module(std::string(lib) == "server" ? server : nullptr);
+            DynLibUtils::CMemory sg = module.FindPattern(rawSig);
+            if (!sg)
+            {
+                SignaturesError(string_format("Couldn't find the signature for '%s' (Library '%s').", name.c_str(), lib));
+                continue;
+            }
+            sig = sg.RCast<void *>();
+            SignaturesError(string_format("Found function '%s' (Library '%s') pointing at %p.", name.c_str(), lib, sig));
+        }
 
         this->signatures.insert(std::make_pair(name, sig));
     }
