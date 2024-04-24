@@ -309,6 +309,8 @@ void OnDoorClosed(Player *player, long entindex) __attribute__((weak));
 void OnDoorOpen(Player *player, long entindex) __attribute__((weak));
 void OnGamePhaseChanged(short new_phase) __attribute__((weak));
 void OnHLTVReplayStatus(long reason) __attribute__((weak));
+bool OnPlayerPreJump(Player *player) __attribute__((weak));
+void OnPlayerPostJump(Player *player) __attribute__((weak));
 
 extern "C"
 {
@@ -744,6 +746,30 @@ extern "C"
             return;
 
         OnPlayerFallDamage(player, damage);
+    }
+
+    bool Internal_OnPlayerPreJump(int slot)
+    {
+        if (!OnPlayerPreJump)
+            return true;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return true;
+
+        return OnPlayerPreJump(player);
+    }
+
+    void Internal_OnPlayerPostJump(int slot)
+    {
+        if (!OnPlayerPostJump)
+            return;
+
+        Player *player = g_playerManager->GetPlayer(slot);
+        if (player == nullptr)
+            return;
+
+        OnPlayerPostJump(player);
     }
 
     void Internal_OnPlayerJump(int slot)

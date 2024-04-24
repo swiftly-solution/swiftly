@@ -4047,6 +4047,31 @@
 				},
 				"additional": {}
 			},
+			"onplayerprejump": {
+				"title": "OnPlayerPreJump",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called before a player jumps.",
+				"return": "bool",
+				"params": {
+					"player": "player"
+				},
+				"additional": {
+					"cpp": ":::note\n @return true => Player can jump\n@return false => Player can't jump \n:::",
+					"lua": ":::note\n @return true => Player can jump\n@return false => Player can't jump \n:::"
+				}
+			},
+			"onplayerpostjump": {
+				"title": "OnPlayerPostJump",
+				"template": "event-syntax",
+				"language": "both",
+				"description": "This game event is called after a player jumps.",
+				"return": "void",
+				"params": {
+					"player": "player"
+				},
+				"additional": {}
+			},
 			"onplayerjump": {
 				"title": "OnPlayerJump",
 				"template": "event-syntax",

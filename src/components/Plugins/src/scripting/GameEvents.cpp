@@ -96,7 +96,15 @@ template <typename Ret, typename T, typename... Args>
 Ret ExecuteGameEventWithReturn(Plugin *plugin, Ret falseValue, Ret trueValue, std::string game_event_name, Args &&...args)
 {
     if (plugin->GetPluginType() == PluginType_t::PLUGIN_CPP)
+    {
+        if (!plugin->FunctionExists(game_event_name))
+        {
+            plugin->RegisterFunction("Internal_" + game_event_name);
+            if (!plugin->FunctionExists("Internal_" + game_event_name))
+                return trueValue;
+        }
         return plugin->ExecuteFunctionWithReturn<Ret, T>(game_event_name, args...);
+    }
     else if (plugin->GetPluginType() == PluginType_t::PLUGIN_LUA)
     {
         if (lua_game_events.find(plugin->GetName()) == lua_game_events.end())
@@ -2438,6 +2446,16 @@ bool scripting_OnPlayerDamage(CPlayerSlot slot, float damage, DamageTypes_t dama
 bool scripting_OnPlayerDamagePlayer(CPlayerSlot slot, CPlayerSlot attacker, float damage, DamageTypes_t damagetype, uint8_t bullettype, TakeDamageFlags_t damageflags)
 {
     CALL_PFUNCTION_BOOL_ARGS(OnPlayerDamagePlayer, false, true, slot.Get(), attacker.Get(), damage, (uint32_t)damagetype, bullettype, (uint32_t)damageflags);
+}
+
+bool scripting_OnPlayerPreJump(int slot)
+{
+    CALL_PFUNCTION_BOOL_ARGS(OnPlayerPreJump, false, true, slot);
+}
+
+void scripting_OnPlayerPostJump(int slot)
+{
+    CALL_PFUNCTION_VOID_ARGS(OnPlayerPostJump, slot);
 }
 
 void PluginsComponent::RegisterGameEvents()

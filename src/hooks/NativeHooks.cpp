@@ -8,6 +8,7 @@
 #include "networksystem/inetworkserializer.h"
 #include "../addons/addons.h"
 #include "../addons/clients.h"
+#include "../sdk/entity/services.h"
 
 FuncHook<decltype(Hook_LoggingSystem_LogDirect)> LoggingSystemt_LogDirect(Hook_LoggingSystem_LogDirect, "LoggingSystem_LogDirect");
 FuncHook<decltype(Hook_LoggingSystem_Log)> LoggingSystemt_Log(Hook_LoggingSystem_Log, "LoggingSystem_Log");
@@ -22,6 +23,7 @@ FuncHook<decltype(Hook_SendNetMessage)> TSendNetMessage(Hook_SendNetMessage, "Se
 FuncHook<decltype(Hook_HostStateRequest)> THostStateRequest(Hook_HostStateRequest, "HostStateRequest");
 FuncHook<decltype(Hook_CCSPlayerPawnBase_PostThink)> TCCSPlayerPawnBase_PostThink(Hook_CCSPlayerPawnBase_PostThink, "CCSPlayerPawnBase_PostThink");
 FuncHook<decltype(Hook_CBaseEntity_TakeDamageOld)> TCBaseEntity_TakeDamageOld(Hook_CBaseEntity_TakeDamageOld, "CBaseEntity_TakeDamageOld");
+FuncHook<decltype(Hook_CCSPlayer_MovementServices_CheckJumpPre)> TCCSPlayer_MovementServices_CheckJumpPre(Hook_CCSPlayer_MovementServices_CheckJumpPre, "CCSPlayer_MovementServices_CheckJumpPre");
 
 #define CHECKLOGS()                                                \
     va_list args;                                                  \
@@ -227,6 +229,40 @@ void FASTCALL Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *pEntity, CTakeDamage
     TCBaseEntity_TakeDamageOld(pEntity, dmgInfo);
 }
 
+bool scripting_OnPlayerPreJump(int slot);
+void scripting_OnPlayerPostJump(int slot);
+
+void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices *movServices, void *mt)
+{
+    Player *player = nullptr;
+    for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
+    {
+        Player *pl = g_playerManager->GetPlayer(i);
+        if (!pl)
+            continue;
+
+        CBasePlayerPawn *pwn = pl->GetPawn();
+        if (!pwn)
+            continue;
+
+        CCSPlayer_MovementServices *movementServices = (CCSPlayer_MovementServices *)pwn->m_pMovementServices();
+        if (movementServices == movServices)
+        {
+            player = pl;
+            break;
+        }
+    }
+    if (player)
+    {
+        if (!scripting_OnPlayerPreJump(player->GetSlot()->Get()))
+            return;
+    }
+    TCCSPlayer_MovementServices_CheckJumpPre(movServices, mt);
+
+    if (player)
+        scripting_OnPlayerPostJump(player->GetSlot()->Get());
+}
+
 CUtlVector<FuncHookBase *> g_funcHooks;
 
 bool InitializeHooks()
@@ -284,6 +320,10 @@ bool InitializeHooks()
     if (!TCBaseEntity_TakeDamageOld.Create())
         return false;
     TCBaseEntity_TakeDamageOld.Enable();
+
+    if (!TCCSPlayer_MovementServices_CheckJumpPre.Create())
+        return false;
+    TCCSPlayer_MovementServices_CheckJumpPre.Enable();
 
     return true;
 }

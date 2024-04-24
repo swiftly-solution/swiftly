@@ -134,7 +134,6 @@ private:
     bool isPluginLoaded = false;
     PluginType_t pluginType;
 
-    virtual void RegisterFunction(std::string function) = 0;
     virtual bool InternalLoadPlugin() = 0;
 
 public:
@@ -249,6 +248,7 @@ public:
     }
 
     virtual bool FunctionExists(std::string function) = 0;
+    virtual void RegisterFunction(std::string function) = 0;
 
     virtual luacpp::LuaState *GetLuaState() = 0;
     virtual lua_State *GetLuaRawState() = 0;
