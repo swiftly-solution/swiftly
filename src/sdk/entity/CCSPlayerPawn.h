@@ -13,6 +13,7 @@ public:
     SCHEMA_FIELD_POINTER_OFFSET(CEconItemView, m_EconGloves, 0)
     SCHEMA_FIELD_OFFSET(float, m_flHealthShotBoostExpirationTime, 0)
 
+    SCHEMA_FIELD_OFFSET(int, m_ArmorValue, 0)
     SCHEMA_FIELD_OFFSET(uint16_t, m_nCharacterDefIndex, 0)
     SCHEMA_FIELD_OFFSET(bool, m_bHasFemaleVoice, 0)
     SCHEMA_FIELD_OFFSET(bool, m_bInHostageResetZone, 0)
