@@ -1522,6 +1522,19 @@ SMM_API void scripting_Player_SetCompetitiveRanking(uint32 playerId, int ranking
     controller->m_iCompetitiveRanking = ranking;
 }
 
+SMM_API void scripting_Player_SetCompetitiveWins(uint32 playerId, int wins)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerController *controller = player->GetPlayerController();
+    if (!controller)
+        return;
+
+    controller->m_m_iCompetitiveWins = wins;
+}
+
 SMM_API void scripting_Player_SetCompetitiveRankType(uint32 playerId, int type)
 {
     Player *player = g_playerManager->GetPlayer(playerId);

@@ -4818,6 +4818,21 @@
 						},
 						"additional": {}
 					},
+					"setcompetitivewins": {
+						"title": "SetCompetitiveWins",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player competitive wins.",
+						"variable": {
+							"cpp": "player->SetCompetitiveWins",
+							"lua": "player:SetCompetitiveWins"
+						},
+						"return": "void",
+						"params": {
+							"wins": "int32_t"
+						},
+						"additional": {}
+					},
 					"setcompetitiveranktype": {
 						"title": "SetCompetitiveRankType",
 						"template": "function-syntax",

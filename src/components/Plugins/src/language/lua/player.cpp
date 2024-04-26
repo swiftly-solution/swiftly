@@ -278,6 +278,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_SetChatTag(base->playerSlot, tag); })
         .DefMember("SetCompetitiveRanking", [](LuaPlayerClass *base, int ranking) -> void
                    { scripting_Player_SetCompetitiveRanking(base->playerSlot, ranking); })
+        .DefMember("SetCompetitiveWins", [](LuaPlayerClass *base, int wins) -> void
+                   { scripting_Player_SetCompetitiveWins(base->playerSlot, wins); })
         .DefMember("SetCompetitiveRankType", [](LuaPlayerClass *base, int type) -> void
                    { scripting_Player_SetCompetitiveRankType(base->playerSlot, type); })
         .DefMember("SetChatTagColor", [](LuaPlayerClass *base, const char *color) -> void

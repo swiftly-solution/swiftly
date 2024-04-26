@@ -18,6 +18,7 @@ public:
 
     SCHEMA_FIELD_OFFSET(int32_t, m_iCompetitiveRanking, 0)
     SCHEMA_FIELD_OFFSET(int8_t, m_iCompetitiveRankType, 0)
+    SCHEMA_FIELD_OFFSET(int32_t, m_m_iCompetitiveWins, 0)
 
     SCHEMA_FIELD_OFFSET(bool, m_bHasCommunicationAbuseMute, 0)
     SCHEMA_FIELD_OFFSET(uint8_t, m_iPendingTeamNum, 0)
