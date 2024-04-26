@@ -215,7 +215,7 @@ SMM_API int scripting_Player_GetArmor(uint32 playerId)
     if (!player)
         return 0;
 
-    CCSPlayerPawnBase *pPlayerPawn = player->GetPlayerBasePawn();
+    CCSPlayerPawn *pPlayerPawn = player->GetPlayerPawn();
     if (!pPlayerPawn)
         return 0;
 
@@ -228,7 +228,7 @@ SMM_API void scripting_Player_SetArmor(uint32 playerId, int armor)
     if (!player)
         return;
 
-    CCSPlayerPawnBase *pPlayerPawn = player->GetPlayerBasePawn();
+    CCSPlayerPawn *pPlayerPawn = player->GetPlayerPawn();
     if (!pPlayerPawn)
         return;
 
@@ -241,7 +241,7 @@ SMM_API void scripting_Player_TakeArmor(uint32 playerId, int armor)
     if (!player)
         return;
 
-    CCSPlayerPawnBase *pPlayerPawn = player->GetPlayerBasePawn();
+    CCSPlayerPawn *pPlayerPawn = player->GetPlayerPawn();
     if (!pPlayerPawn)
         return;
 
