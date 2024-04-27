@@ -1069,7 +1069,7 @@ public:
 
     void SetCompetitiveWins(int wins)
     {
-        REGISTER_METHOD_VOID(scripting_Player_SetCompetitiveRanking, this->m_playerSlot, wins);
+        REGISTER_METHOD_VOID(scripting_Player_SetCompetitiveWins, this->m_playerSlot, wins);
     }
 };
 
