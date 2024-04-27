@@ -1532,7 +1532,7 @@ SMM_API void scripting_Player_SetCompetitiveWins(uint32 playerId, int wins)
     if (!controller)
         return;
 
-    controller->m_m_iCompetitiveWins = wins;
+    controller->m_iCompetitiveWins = wins;
 }
 
 SMM_API void scripting_Player_SetCompetitiveRankType(uint32 playerId, int type)
