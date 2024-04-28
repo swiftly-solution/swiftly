@@ -232,13 +232,12 @@ Vector Player::GetCoords()
 
 void Player::SetCoords(float x, float y, float z)
 {
-
-    CCSPlayerPawn *pawn = this->GetPlayerPawn();
+    CBasePlayerPawn *pawn = this->GetPawn();
     if (!pawn)
         return;
 
     Vector vec(x, y, z);
-    pawn->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin = vec;
+    pawn->Teleport(&vec, nullptr, nullptr)
 }
 
 CBasePlayerWeapon *Player::GetPlayerWeaponFromID(uint32 weaponid)
