@@ -237,7 +237,7 @@ void Player::SetCoords(float x, float y, float z)
         return;
 
     Vector vec(x, y, z);
-    pawn->Teleport(&vec, nullptr, nullptr)
+    pawn->Teleport(&vec, nullptr, nullptr);
 }
 
 CBasePlayerWeapon *Player::GetPlayerWeaponFromID(uint32 weaponid)
