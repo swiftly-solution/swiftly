@@ -270,6 +270,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return scripting_Player_GetIPAddress(base->playerSlot); })
         .DefMember("IsFirstSpawn", [](LuaPlayerClass *base) -> bool
                    { return scripting_Player_IsFirstSpawn(base->playerSlot); })
+        .DefMember("IsAlive", [](LuaPlayerClass *base) -> bool
+                   { return scripting_Player_IsAlive(base->playerSlot); })
         .DefMember("ShowMenu", [](LuaPlayerClass *base, const char *menuid) -> void
                    { scripting_Player_ShowMenu(base->playerSlot, menuid); })
         .DefMember("GetChatTag", [](LuaPlayerClass *base) -> const char *

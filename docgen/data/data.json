@@ -5161,6 +5161,19 @@
 						"params": {},
 						"additional": {}
 					},
+					"isalive": {
+						"title": "IsAlive",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Checks if the player is alive.",
+						"variable": {
+							"cpp": "player->IsAlive",
+							"lua": "player:IsAlive"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
 					"kill": {
 						"title": "Kill",
 						"template": "function-syntax",

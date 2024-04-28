@@ -907,6 +907,11 @@ public:
         REGISTER_METHOD(bool, false, scripting_Player_IsFirstSpawn, this->m_playerSlot);
     }
 
+    bool IsAlive()
+    {
+        REGISTER_METHOD(bool, false, scripting_Player_IsAlive, this->m_playerSlot);
+    }
+
     bool IsFakeClient()
     {
         REGISTER_METHOD(bool, false, scripting_Player_IsFakeClient, this->m_playerSlot);

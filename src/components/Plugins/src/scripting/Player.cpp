@@ -1500,6 +1500,20 @@ SMM_API bool scripting_Player_IsFirstSpawn(uint32 playerId)
     return player->IsFirstSpawn();
 }
 
+SMM_API bool scripting_Player_IsAlive(uint32 playerId)
+{
+
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pPawn = player->GetPlayerPawn();
+    if (!pPawn)
+        return false;
+
+    return pPawn->IsAlive();
+}
+
 SMM_API bool scripting_Player_IsFakeClient(uint32 playerId)
 {
     Player *player = g_playerManager->GetPlayer(playerId);

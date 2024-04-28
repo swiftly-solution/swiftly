@@ -140,6 +140,7 @@ public:
     SCHEMA_FIELD_OFFSET(float, m_flGravityScale, 0)
 
     int EntityIndex() { return this->m_pEntity->GetRefEHandle().GetEntryIndex(); }
+    bool IsAlive() { return m_lifeState == LifeState_t::LIFE_ALIVE; }
 
     void Teleport(Vector *position, QAngle *angles, Vector *velocity)
     {
