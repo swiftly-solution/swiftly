@@ -129,6 +129,7 @@ public:
     SCHEMA_FIELD_OFFSET(int, m_iMaxHealth, 0)
     SCHEMA_FIELD_OFFSET(int, m_iTeamNum, 0)
     SCHEMA_FIELD_OFFSET(MoveType_t, m_MoveType, 0)
+    SCHEMA_FIELD_OFFSET(MoveType_t, m_nActualMoveType, 0)
     SCHEMA_FIELD_OFFSET(uint32, m_spawnflags, 0)
     SCHEMA_FIELD_OFFSET(uint32, m_fFlags, 0)
     SCHEMA_FIELD_OFFSET(LifeState_t, m_lifeState, 0)

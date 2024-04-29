@@ -276,6 +276,23 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_MapLongUseEntity_Place", 16);
     CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_MaxCount", 17);
 
+    auto MoveType_tTable = state->CreateTable("MoveType_t");
+
+    MoveType_tTable.SetInteger("MOVETYPE_NONE", 0);
+    MoveType_tTable.SetInteger("MOVETYPE_OBSOLETE", 1);
+    MoveType_tTable.SetInteger("MOVETYPE_WALK", 2);
+    MoveType_tTable.SetInteger("MOVETYPE_FLY", 3);
+    MoveType_tTable.SetInteger("MOVETYPE_FLYGRAVITY", 4);
+    MoveType_tTable.SetInteger("MOVETYPE_VPHYSICS", 5);
+    MoveType_tTable.SetInteger("MOVETYPE_PUSH", 6);
+    MoveType_tTable.SetInteger("MOVETYPE_NOCLIP", 7);
+    MoveType_tTable.SetInteger("MOVETYPE_OBSERVER", 8);
+    MoveType_tTable.SetInteger("MOVETYPE_LADDER", 9);
+    MoveType_tTable.SetInteger("MOVETYPE_CUSTOM", 10);
+    MoveType_tTable.SetInteger("MOVETYPE_LAST", 11);
+    MoveType_tTable.SetInteger("MOVETYPE_INVALID", 11);
+    MoveType_tTable.SetInteger("MOVETYPE_MAX_BITS", 5);
+
     state->CreateInteger(0, "TEAM_NONE");
     state->CreateInteger(1, "TEAM_SPECTATOR");
     state->CreateInteger(2, "TEAM_T");

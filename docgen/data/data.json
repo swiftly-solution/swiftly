@@ -4933,6 +4933,62 @@
 							"lua": "\n\n### Colors\nBelow there are listed all the supported colors by Swiftly:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```"
 						}
 					},
+					"SetMoveType": {
+						"title": "SetMoveType",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player move type.",
+						"variable": {
+							"cpp": "player->SetMoveType",
+							"lua": "player:SetMoveType"
+						},
+						"return": "void",
+						"params": {
+							"movetype": "MoveType_t"
+						},
+						"additional": {}
+					},
+					"SetActualMoveType": {
+						"title": "SetActualMoveType",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the player actual move type.",
+						"variable": {
+							"cpp": "player->SetActualMoveType",
+							"lua": "player:SetActualMoveType"
+						},
+						"return": "void",
+						"params": {
+							"actualmovetype": "MoveType_t"
+						},
+						"additional": {}
+					},
+					"getmovetype": {
+						"title": "GetMoveType",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the Move Type of a player.",
+						"variable": {
+							"cpp": "player->GetMoveType",
+							"lua": "player:GetMoveType"
+						},
+						"return": "MoveType_t",
+						"params": {},
+						"additional": {}
+					},
+					"getactualmovetype": {
+						"title": "GetActualMoveType",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the Actual Move Type of a player.",
+						"variable": {
+							"cpp": "player->GetActualMoveType",
+							"lua": "player:GetActualMoveType"
+						},
+						"return": "MoveType_t",
+						"params": {},
+						"additional": {}
+					},
 					"setgloves": {
 						"title": "SetGloves",
 						"template": "function-syntax",
