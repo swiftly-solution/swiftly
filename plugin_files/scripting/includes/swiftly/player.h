@@ -1007,6 +1007,16 @@ public:
         REGISTER_METHOD_VOID(scripting_Player_HideMenu, this->m_playerSlot);
     }
 
+    void SetMoveType(MoveType_t movetype)
+    {
+        REGISTER_METHOD_VOID(scripting_Player_SetMoveType, this->m_playerSlot, movetype);
+    }
+
+    void SetActualMoveType(MoveType_t actualmovetype)
+    {
+        REGISTER_METHOD_VOID(scripting_Player_SetActualMoveType, this->m_playerSlot, actualmovetype);
+    }
+
     void SetFlashDuration(float duration)
     {
         REGISTER_METHOD_VOID(scripting_Player_SetFlashDuration, this->m_playerSlot, duration);
@@ -1020,6 +1030,16 @@ public:
     int GetLatency()
     {
         REGISTER_METHOD(int, 0, scripting_Player_GetLatency, this->m_playerSlot);
+    }
+
+    MoveType_t GetMoveType()
+    {
+        REGISTER_METHOD(MoveType_t, 0, scripting_Player_GetMoveType, this->m_playerSlot);
+    }
+
+    MoveType_t GetActualMoveType()
+    {
+        REGISTER_METHOD(MoveType_t, 0, scripting_Player_GetActualMoveType, this->m_playerSlot);
     }
 
     void Respawn()

@@ -1272,6 +1272,32 @@ SMM_API float scripting_Player_GetGravity(uint32 playerId)
     return pawn->m_flGravityScale();
 }
 
+SMM_API MoveType_t scripting_Player_GetMoveType(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return MOVETYPE_NONE;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return MOVETYPE_NONE;
+
+    return bPawn->m_MoveType();
+}
+
+SMM_API MoveType_t scripting_Player_GetActualMoveType(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return MOVETYPE_NONE;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return MOVETYPE_NONE;
+
+    return bPawn->m_nActualMoveType();
+}
+
 SMM_API void scripting_Player_SetGravity(uint32 playerId, float gravity)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
@@ -1512,6 +1538,32 @@ SMM_API bool scripting_Player_IsAlive(uint32 playerId)
         return false;
 
     return pPawn->IsAlive();
+}
+
+SMM_API void scripting_Player_SetMoveType(uint32 playerId, MoveType_t movetype)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return;
+
+    bPawn->m_MoveType = movetype;
+}
+
+SMM_API void scripting_Player_SetActualMoveType(uint32 playerId, MoveType_t actualmovetype)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CBasePlayerPawn *bPawn = player->GetPawn();
+    if (!bPawn)
+        return;
+
+    bPawn->m_nActualMoveType = actualmovetype;
 }
 
 SMM_API bool scripting_Player_IsFakeClient(uint32 playerId)

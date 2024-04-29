@@ -135,6 +135,8 @@ SMM_API void scripting_Player_TakeArmor(uint32 playerId, int armor);
 SMM_API const char *scripting_Player_GetClanTag(uint32 playerId);
 SMM_API void scripting_Player_SetClanTag(uint32 playerId, const char *tag);
 SMM_API void scripting_Player_SetVar(uint32 playerId, const char *name, int type, ...);
+SMM_API void scripting_Player_SetActualMoveType(uint32 playerId, MoveType_t movetype);
+SMM_API void scripting_Player_SetMoveType(uint32 playerId, MoveType_t movetype);
 SMM_API const char *scripting_Player_GetVar(uint32 playerId, const char *name);
 SMM_API uint32 scripting_Player_GetConnectedTime(uint32 playerId);
 SMM_API int scripting_Player_FetchMatchStat(uint32 playerId, PlayerStat stat);
@@ -151,6 +153,8 @@ SMM_API void scripting_Player_SetHealthShotBoostEffectExpirationTime(uint32 play
 SMM_API void scripting_Player_ShowMenu(uint32 playerId, const char *menuid);
 SMM_API void scripting_Player_HideMenu(uint32 playerId);
 SMM_API int scripting_Player_GetLatency(uint32 playerId);
+SMM_API MoveType_t scripting_Player_GetMoveType(uint32 playerId);
+SMM_API MoveType_t scripting_Player_GetActualMoveType(uint32 playerId);
 SMM_API void scripting_Player_SetConvar(uint32 playerId, const char *cvarname, const char *cvarvalue);
 SMM_API void scripting_Player_ExecuteCommand(uint32 playerId, const char *cmd);
 SMM_API void scripting_Player_SetCompetitiveRanking(uint32 playerId, int ranking);
