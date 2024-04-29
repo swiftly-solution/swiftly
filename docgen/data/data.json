@@ -4939,17 +4939,14 @@
 						"language": "both",
 						"description": "Sets the player move type.",
 						"variable": {
-							"cpp": "player->MoveType",
-							"lua": "player:MoveType"
+							"cpp": "player->SetMoveType",
+							"lua": "player:SetMoveType"
 						},
 						"return": "void",
 						"params": {
 							"movetype": "MoveType_t"
 						},
-						"additional": {
-							"cpp": "\n\n### Move Types\nBelow there are listed all the supported Move Types:\n```\nMOVETYPE_NONE\nMOVETYPE_OBSOLETE\nMOVETYPE_WALK\nMOVETYPE_FLY\nMOVETYPE_FLYGRAVITY\nMOVETYPE_VPHYSICS\nMOVETYPE_PUSH\nMOVETYPE_NOCLIP\nMOVETYPE_OBSERVER\nMOVETYPE_LADDER\nMOVETYPE_CUSTOM\nMOVETYPE_LAST\n```",
-							"lua": "\n\n### Move Types\nBelow there are listed all the supported Move Types:\n```\nMOVETYPE_NONE\nMOVETYPE_OBSOLETE\nMOVETYPE_WALK\nMOVETYPE_FLY\nMOVETYPE_FLYGRAVITY\nMOVETYPE_VPHYSICS\nMOVETYPE_PUSH\nMOVETYPE_NOCLIP\nMOVETYPE_OBSERVER\nMOVETYPE_LADDER\nMOVETYPE_CUSTOM\nMOVETYPE_LAST\n```"
-						}
+						"additional": {}
 					},
 					"SetActualMoveType": {
 						"title": "SetActualMoveType",
@@ -4957,17 +4954,14 @@
 						"language": "both",
 						"description": "Sets the player actual move type.",
 						"variable": {
-							"cpp": "player->ActualMoveType",
-							"lua": "player:ActualMoveType"
+							"cpp": "player->SetActualMoveType",
+							"lua": "player:SetActualMoveType"
 						},
 						"return": "void",
 						"params": {
 							"actualmovetype": "MoveType_t"
 						},
-						"additional": {
-							"cpp": "\n\n### Move Types\nBelow there are listed all the supported Move Types:\n```\nMOVETYPE_NONE\nMOVETYPE_OBSOLETE\nMOVETYPE_WALK\nMOVETYPE_FLY\nMOVETYPE_FLYGRAVITY\nMOVETYPE_VPHYSICS\nMOVETYPE_PUSH\nMOVETYPE_NOCLIP\nMOVETYPE_OBSERVER\nMOVETYPE_LADDER\nMOVETYPE_CUSTOM\nMOVETYPE_LAST\n```",
-							"lua": "\n\n### Move Types\nBelow there are listed all the supported Move Types:\n```\nMOVETYPE_NONE\nMOVETYPE_OBSOLETE\nMOVETYPE_WALK\nMOVETYPE_FLY\nMOVETYPE_FLYGRAVITY\nMOVETYPE_VPHYSICS\nMOVETYPE_PUSH\nMOVETYPE_NOCLIP\nMOVETYPE_OBSERVER\nMOVETYPE_LADDER\nMOVETYPE_CUSTOM\nMOVETYPE_LAST\n```"
-						}
+						"additional": {}
 					},
 					"getmovetype": {
 						"title": "GetMoveType",
