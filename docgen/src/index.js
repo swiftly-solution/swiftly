@@ -51,7 +51,8 @@ const lua_datamap = {
     DamageTypes: "DamageTypes",
     DamageFlags: "DamageFlags",
     CSPlayerState: "CSPlayerState",
-    CSPlayerBlockingUseAction_t: "CSPlayerBlockingUseAction_t"
+    CSPlayerBlockingUseAction_t: "CSPlayerBlockingUseAction_t",
+    MoveType_t: "MoveType_t"
 }
 
 const GenerateLuaType = (param) => {
