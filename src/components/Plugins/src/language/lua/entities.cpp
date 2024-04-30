@@ -129,8 +129,8 @@ void SetupLuaEntities(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Entity_AcceptInput(base->GetEntityID(), input, activator, caller, &value); })
         .DefMember("SetCollisionGroup", [](LuaEntityClass *base, int group) -> void
                    { scripting_Entity_SetCollisionGroup(base->GetEntityID(), (Collision_Group_t)group); })
-        .DefMember("GetCollisionGroup", [](LuaEntityClass *base) -> void
-                   { scripting_Entity_GetCollisionGroup(base->GetEntityID()); })
+        .DefMember("GetCollisionGroup", [](LuaEntityClass *base) -> int
+                   { return (int)scripting_Entity_GetCollisionGroup(base->GetEntityID()); })
         .DefMember("coords", [coordsClass](LuaEntityClass *base) -> luacpp::LuaObject
                    { return coordsClass.CreateInstance(base->GetEntityID()); })
         .DefMember("angles", [anglesClass](LuaEntityClass *base) -> luacpp::LuaObject
