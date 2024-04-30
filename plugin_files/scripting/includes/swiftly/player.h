@@ -446,11 +446,13 @@ public:
     LastCollisionCeilingChangeTime *lastcollisionceilingchangetime;
     BotAllowActive *botallowactive;
     CommittingSuicideOnTeamChange *committingsuicideonteamchange;
+    Helmet *helmet;
 
 public:
     Player(uint32_t playerSlot, bool fakeClient) : m_playerSlot(playerSlot), m_fakeClient(fakeClient)
     {
         this->health = new Health(playerSlot);
+        this->helmet = new Helmet(playerSlot);
         this->armor = new Armor(playerSlot);
         this->clantag = new ClanTag(playerSlot);
         this->team = new Team(playerSlot);
@@ -670,6 +672,7 @@ public:
     ~Player()
     {
         delete this->health;
+        delete this->helmet;
         delete this->armor;
         delete this->clantag;
         delete this->team;
