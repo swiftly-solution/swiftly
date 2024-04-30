@@ -8,6 +8,7 @@
 #include <luacpp/func_utils.h>
 
 #include <rapidjson/document.h>
+#include "sdk/entity/CBaseEntity.h"
 
 class LuaPlayerClass
 {
@@ -310,10 +311,18 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { scripting_Player_Kill(base->playerSlot); })
         .DefMember("Drop", [](LuaPlayerClass *base, int reason) -> void
                    { scripting_Player_Drop(base->playerSlot, reason); })
+        .DefMember("SetMoveType", [](LuaPlayerClass *base, int movetype) -> void
+                   { scripting_Player_SetMoveType(base->playerSlot, (MoveType_t)movetype); })
+        .DefMember("SetActualMoveType", [](LuaPlayerClass *base, int actualmovetype) -> void
+                   { scripting_Player_SetActualMoveType(base->playerSlot, (MoveType_t)actualmovetype); })
         .DefMember("IsFakeClient", [](LuaPlayerClass *base) -> bool
                    { return scripting_Player_IsFakeClient(base->playerSlot); })
         .DefMember("GetLatency", [](LuaPlayerClass *base) -> int
                    { return scripting_Player_GetLatency(base->playerSlot); })
+        .DefMember("GetMoveType", [](LuaPlayerClass *base) -> int
+                   { return (int)scripting_Player_GetMoveType(base->playerSlot); })
+        .DefMember("GetActualMoveType", [](LuaPlayerClass *base) -> int
+                   { return (int)scripting_Player_GetActualMoveType(base->playerSlot); })
         .DefMember("GetSlot", [](LuaPlayerClass *base) -> int
                    { return base->playerSlot; })
         .DefMember("ExecuteCommand", [](LuaPlayerClass *base, const char *command) -> void
