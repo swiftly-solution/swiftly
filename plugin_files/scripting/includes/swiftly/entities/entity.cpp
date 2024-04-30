@@ -86,3 +86,15 @@ void Entity::SetCollisionGroup(CollisionGroup collisionGroup)
 
     REGISTER_METHOD_VOID(scripting_Entity_SetCollisionGroup, this->entityID, collisionGroup);
 }
+
+Collision_Group_t Entity::GetCollisionGroup(uint32_t entityID)
+{
+
+    if (this->entityID == 0)
+    {
+        print("[Swiftly] You can't use %s because the entity couldn't be created.\n", __FUNCTION__);
+        return COLLISION_GROUP_ALWAYS;
+    }
+
+    REGISTER_METHOD_VOID(scripting_Entity_GetCollisionGroup, this->entityID);
+}

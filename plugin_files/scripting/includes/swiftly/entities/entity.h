@@ -29,6 +29,8 @@ public:
     void SetModel(const char *model);
     void SetCollisionGroup(CollisionGroup collisionGroup);
 
+    Collision_Group_t GetCollisionGroup(uint32_t entityID);
+
     uint32_t GetEntityID() { return this->entityID; }
 };
 

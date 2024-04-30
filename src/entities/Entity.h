@@ -36,6 +36,7 @@ public:
 
     void SetCollisionGroup(Collision_Group_t collisionGroup);
     void SetSolidType(SolidType_t solid_type);
+    Collision_Group_t GetCollisionGroup(uint32_t entityID);
 };
 
 #endif

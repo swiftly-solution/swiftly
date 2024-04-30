@@ -493,6 +493,21 @@
 						},
 						"return": "void",
 						"params": {
+							"entityid": "uint32_t"
+						},
+						"additional": {}
+					},
+					"getcollisiongroup": {
+						"title": "GetCollisionGroup",
+						"template": "function-syntax",
+						"description": "Gets the collision group for the entity.",
+						"language": "both",
+						"variable": {
+							"cpp": "entity->GetCollisionGroup",
+							"lua": "entity:GetCollisionGroup"
+						},
+						"return": "Collision_Group_t",
+						"params": {
 							"collision": "CollisionGroup"
 						},
 						"additional": {}

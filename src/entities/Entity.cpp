@@ -159,3 +159,11 @@ void Entity::SetCollisionGroup(Collision_Group_t collisionGroup)
 
     this->worldEntity->OnCollisionRulesUpdate();
 }
+
+Collision_Group_t Entity::GetCollisionGroup(uint32_t entityID)
+{
+    if (!this->worldEntity)
+        return COLLISION_GROUP_ALWAYS;
+
+    return (Collision_Group_t)this->worldEntity->m_Collision().m_CollisionGroup();
+}

@@ -233,3 +233,15 @@ SMM_API void scripting_Entity_SetCollisionGroup(uint32_t entityID, Collision_Gro
 
     entity->SetCollisionGroup(collisionGroup);
 }
+
+SMM_API Collision_Group_t scripting_Entity_GetCollisionGroup(uint32_t entityID)
+{
+    if (entityID == 0)
+        return COLLISION_GROUP_ALWAYS;
+
+    Entity *entity = g_entityManager->GetEntity(entityID);
+    if (entity == nullptr)
+        return COLLISION_GROUP_ALWAYS;
+
+    return entity->GetCollisionGroup(entityID);
+}
