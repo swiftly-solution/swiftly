@@ -7472,6 +7472,53 @@
 					}
 				}
 			},
+			"helmet": {
+				"title": "Helmet",
+				"description": "A list of function to manipulate a players helmet.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"has": {
+						"title": "Has",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the helmet of a player.",
+						"variable": {
+							"cpp": "player->helmet->Get",
+							"lua": "player:helmet():Get"
+						},
+						"return": "bool",
+						"params": {},
+						"additional": {}
+					},
+					"give": {
+						"title": "Give",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the helmet of a player.",
+						"variable": {
+							"cpp": "player->helmet->Set",
+							"lua": "player:helmet():Set"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					},
+					"remove": {
+						"title": "Remove",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Removes the helmet of a player.",
+						"variable": {
+							"cpp": "player->helmet->Remove",
+							"lua": "player:helmet():Remove"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					}
+				}
+			},
 			"hascommunicationabusemute": {
 				"title": "HasCommunicationAbuseMute",
 				"description": "A list of function to manipulate a players hascommunicationabusemute",

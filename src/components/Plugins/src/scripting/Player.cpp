@@ -4331,6 +4331,57 @@ SMM_API float scripting_Player_GetBlindUntilTime(uint32 playerId)
     return pPawnBase->m_blindUntilTime;
 }
 
+SMM_API bool scripting_Player_HasHelmet(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return false;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return false;
+
+    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    if (!itemServices)
+        return false;
+
+    return itemServices->m_bHasHelmet;
+}
+
+SMM_API void scripting_Player_GiveHelmet(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    if (!itemServices)
+        return;
+
+    itemServices->m_bHasHelmet = true;
+}
+
+SMM_API void scripting_Player_RemoveHelmet(uint32 playerId)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    if (!itemServices)
+        return;
+
+    itemServices->m_bHasHelmet = false;
+}
+
 SMM_API void scripting_Player_SetBlindUntilTime(uint32 playerId, float val)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
