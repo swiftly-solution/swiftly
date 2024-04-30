@@ -52,6 +52,7 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
     auto weaponsClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto gravityClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto speedClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
+    auto helmetClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto eyeangleClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto fovClass = state->CreateClass<LuaPlayerArgsClass>().DefConstructor<int>();
     auto weaponClass = state->CreateClass<LuaPlayerTwoArgsClass>().DefConstructor<int, uint32>();
@@ -359,6 +360,8 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                    { return weaponsClass.CreateInstance(base->playerSlot); })
         .DefMember("gravity", [gravityClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return gravityClass.CreateInstance(base->playerSlot); })
+        .DefMember("helmet", [helmetClass](LuaPlayerClass *base) -> luacpp::LuaObject
+                   { return helmetClass.CreateInstance(base->playerSlot); })
         .DefMember("speed", [speedClass](LuaPlayerClass *base) -> luacpp::LuaObject
                    { return speedClass.CreateInstance(base->playerSlot); })
         .DefMember("eyeangle", [eyeangleClass](LuaPlayerClass *base) -> luacpp::LuaObject
@@ -1585,6 +1588,13 @@ void SetupLuaPlayer(luacpp::LuaState *state, Plugin *plugin)
                            { return scripting_Player_GetGravity(base->playerSlot); })
         .DefMember("Set", [](LuaPlayerArgsClass *base, float gravity) -> void
                    { scripting_Player_SetGravity(base->playerSlot, gravity); });
+
+    helmetClass.DefMember("Has", [](LuaPlayerArgsClass *base) -> bool
+                          { return scripting_Player_HasHelmet(base->playerSlot); })
+        .DefMember("Give", [](LuaPlayerArgsClass *base) -> void
+                   { scripting_Player_GiveHelmet(base->playerSlot); })
+        .DefMember("Remove", [](LuaPlayerArgsClass *base) -> void
+                   { scripting_Player_RemoveHelmet(base->playerSlot); });
 
     speedClass.DefMember("Get", [](LuaPlayerArgsClass *base) -> float
                          { return scripting_Player_GetSpeed(base->playerSlot); })

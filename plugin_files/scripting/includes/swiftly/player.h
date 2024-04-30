@@ -18,6 +18,7 @@
 #include "player/velocity.h"
 #include "player/weapons.h"
 #include "player/gravity.h"
+#include "player/helmet.h"
 #include "player/speed.h"
 #include "player/eyeangle.h"
 #include "player/fov.h"
