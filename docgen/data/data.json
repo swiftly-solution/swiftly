@@ -7478,8 +7478,8 @@
 				"iscategory": true,
 				"language": "both",
 				"data": {
-					"get": {
-						"title": "Get",
+					"has": {
+						"title": "Has",
 						"template": "function-syntax",
 						"language": "both",
 						"description": "Returns the helmet of a player.",
