@@ -92,7 +92,7 @@
     "GiveNamedItem": {
         "lib": "server",
         "windows": "48 89 5C 24 2A 48 89 74 24 2A 55 57 41 2A 41 2A 41 2A 48 2A 2A 2A 2A 48 2A 2A 2A 2A 2A 2A 4D 2A 2A 48",
-        "linux": "55 48 89 E5 41 57 41 56 49 89 D6 41 55 49 89 FD 41 54 48 8D 3D 7F CB 77 00"
+        "linux": "55 48 89 E5 41 57 41 56 49 89 D6 41 55 49 89 FD 41 54 48"
     },
     "CBasePlayerController_SetPawn": {
         "lib": "server",
