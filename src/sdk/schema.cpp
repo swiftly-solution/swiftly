@@ -14,12 +14,10 @@ typedef void (*StateChanged)(void *, Z_CBaseEntity *, int, int, int);
 
 static bool IsFieldNetworked(SchemaClassFieldData_t &field)
 {
-    for (int i = 0; i < field.m_metadata_size; i++)
-    {
-        static auto networkEnabled = hash_32_fnv1a_const("MNetworkEnable");
-        if (networkEnabled == hash_32_fnv1a_const(field.m_metadata[i].m_name))
+    static auto networkEnabled = hash_32_fnv1a_const("MNetworkEnable");
+    for (int i = 0; i < field.m_nStaticMetadataCount; i++)
+        if (networkEnabled == hash_32_fnv1a_const(field.m_pStaticMetadata[i].m_pszName))
             return true;
-    }
 
     return false;
 }
@@ -40,8 +38,8 @@ static bool InitSchemaFieldsForClass(SchemaTableMap_t *tableMap, const char *cla
         return false;
     }
 
-    short fieldsSize = pClassInfo->GetFieldsSize();
-    SchemaClassFieldData_t *pFields = pClassInfo->GetFields();
+    short fieldsSize = pClassInfo->m_nFieldCount;
+    SchemaClassFieldData_t *pFields = pClassInfo->m_pFields;
 
     SchemaKeyValueMap_t *keyValueMap = new SchemaKeyValueMap_t(0, 0, DefLessFunc(uint32_t));
     keyValueMap->EnsureCapacity(fieldsSize);
@@ -51,7 +49,7 @@ static bool InitSchemaFieldsForClass(SchemaTableMap_t *tableMap, const char *cla
     {
         SchemaClassFieldData_t &field = pFields[i];
 
-        keyValueMap->Insert(hash_32_fnv1a_const(field.m_name), {field.m_offset, IsFieldNetworked(field)});
+        keyValueMap->Insert(hash_32_fnv1a_const(field.m_pszName), {field.m_nSingleInheritanceOffset, IsFieldNetworked(field)});
     }
 
     return true;
@@ -68,18 +66,18 @@ int16_t sch::FindChainOffset(const char *className)
 
     do
     {
-        SchemaClassFieldData_t *pFields = pClassInfo->GetFields();
-        short fieldsSize = pClassInfo->GetFieldsSize();
+        SchemaClassFieldData_t *pFields = pClassInfo->m_pFields;
+        short fieldsSize = pClassInfo->m_nFieldCount;
         for (int i = 0; i < fieldsSize; ++i)
         {
             SchemaClassFieldData_t &field = pFields[i];
 
-            if (V_strcmp(field.m_name, "__m_pChainEntity") == 0)
+            if (V_strcmp(field.m_pszName, "__m_pChainEntity") == 0)
             {
-                return field.m_offset;
+                return field.m_nSingleInheritanceOffset;
             }
         }
-    } while ((pClassInfo = pClassInfo->GetParent()) != nullptr);
+    } while ((pClassInfo = pClassInfo->m_pBaseClasses ? pClassInfo->m_pBaseClasses->m_pClass : nullptr) != nullptr);
 
     return 0;
 }

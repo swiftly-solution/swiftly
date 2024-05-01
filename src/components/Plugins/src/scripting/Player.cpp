@@ -1229,7 +1229,7 @@ SMM_API int scripting_Player_GetLatency(uint32 playerId)
 
     INetChannelInfo *netinfo = engine->GetPlayerNetInfo(*player->GetSlot());
 
-    return netinfo->GetLatency(FLOW_INCOMING) + netinfo->GetLatency(FLOW_OUTGOING);
+    return netinfo->GetAvgLatency();
 }
 
 SMM_API void scripting_Player_SetGloves(uint32 playerId, uint16_t defindex, int paintkit, int seed, float wear)
