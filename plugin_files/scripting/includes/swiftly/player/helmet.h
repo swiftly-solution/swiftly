@@ -21,12 +21,12 @@ public:
 
     void Give()
     {
-        REGISTER_METHOD_VOID(scripting_Player_GiveHelmet, this->m_playerSlot, val);
+        REGISTER_METHOD_VOID(scripting_Player_GiveHelmet, this->m_playerSlot);
     }
 
     void Remove()
     {
-        REGISTER_METHOD_VOID(scripting_Player_RemoveHelmet, this->m_playerSlot, val);
+        REGISTER_METHOD_VOID(scripting_Player_RemoveHelmet, this->m_playerSlot);
     }
 };
 
