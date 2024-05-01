@@ -87,7 +87,7 @@ void Entity::SetCollisionGroup(CollisionGroup collisionGroup)
     REGISTER_METHOD_VOID(scripting_Entity_SetCollisionGroup, this->entityID, collisionGroup);
 }
 
-Collision_Group_t Entity::GetCollisionGroup(uint32_t entityID)
+CollisionGroup Entity::GetCollisionGroup(uint32_t entityID)
 {
 
     if (this->entityID == 0)
