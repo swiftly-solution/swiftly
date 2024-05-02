@@ -7532,6 +7532,40 @@
 					}
 				}
 			},
+			"playerflags": {
+				"title": "Player Flags",
+				"description": "A list of function to manipulate a players flags.",
+				"iscategory": true,
+				"language": "both",
+				"data": {
+					"get": {
+						"title": "Get",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Returns the flag of a player.",
+						"variable": {
+							"cpp": "player->flags->Get",
+							"lua": "player:flags():Get"
+						},
+						"return": "uint32_t",
+						"params": {},
+						"additional": {}
+					},
+					"Set": {
+						"title": "Set",
+						"template": "function-syntax",
+						"language": "both",
+						"description": "Sets the flag of a player.",
+						"variable": {
+							"cpp": "player->flags->Set",
+							"lua": "player:flags():Set"
+						},
+						"return": "void",
+						"params": {},
+						"additional": {}
+					}
+				}
+			},
 			"hascommunicationabusemute": {
 				"title": "HasCommunicationAbuseMute",
 				"description": "A list of function to manipulate a players hascommunicationabusemute",
