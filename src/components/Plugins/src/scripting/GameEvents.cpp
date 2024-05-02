@@ -568,9 +568,11 @@ void scripting_OnClientKeyStateChange(const OnClientKeyStateChange *e)
         {
             player->MoveSelection();
             player->RenderMenu();
+            engine->ClientCommand(player->GetSlot()->Get(), "play sounds/ui/csgo_ui_contract_type2.vsnd_c", true);
         }
         else if (but == "e")
         {
+            engine->ClientCommand(player->GetSlot()->Get(), "play sounds/ui/csgo_ui_contract_type2.vsnd_c", true);
             std::string cmd = player->GetMenu()->GetCommandFromOption(player->GetPage(), player->GetSelection());
             if (cmd == "menunext")
             {
