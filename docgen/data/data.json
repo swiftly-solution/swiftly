@@ -7564,6 +7564,7 @@
 						"params": {},
 						"additional": {}
 					}
+				}
 			},
 			"hascommunicationabusemute": {
 				"title": "HasCommunicationAbuseMute",
