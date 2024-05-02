@@ -3,15 +3,15 @@
 ```cpp
 enum PlayerFlags : uint32_t
 {
-    FL_ONGROUND = 0x0,
-    FL_DUCKING = 0x1,
-    FL_WATERJUMP = 0x2,
-    FL_ONTRAIN = 0x3,
-    FL_INRAIN = 0x4,
-    FL_FROZEN = 0x5,
-    FL_ATCONTROLS = 0x6,
-    FL_CLIENT = 0x7,
-    FL_FAKECLIENT = 0x8,
-    FL_INWATER = 0x9,
+    FL_ONGROUND = 1 << 0,
+    FL_DUCKING = 1 << 1,
+    FL_WATERJUMP = 1 << 2,
+    FL_ONTRAIN = 1 << 3,
+    FL_INRAIN = 1 << 4,
+    FL_FROZEN = 1 << 5,
+    FL_ATCONTROLS = 1 << 6,
+    FL_CLIENT = 1 << 7,
+    FL_FAKECLIENT = 1 << 8,
+    FL_INWATER = 1 << 9,
 };
 ```
