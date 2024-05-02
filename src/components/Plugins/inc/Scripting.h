@@ -128,6 +128,8 @@ SMM_API uint8 scripting_Player_GetTeam(uint32 playerId);
 SMM_API void scripting_Player_SetTeam(uint32 playerId, int team);
 SMM_API int scripting_Player_GetHealth(uint32 playerId);
 SMM_API void scripting_Player_SetHealth(uint32 playerId, int health);
+SMM_API int scripting_Player_GetFlags(uint32 playerId);
+SMM_API void scripting_Player_SetFlags(uint32 playerId, uint32_t flag);
 SMM_API int scripting_Player_GetMaxHealth(uint32 playerId);
 SMM_API void scripting_Player_SetMaxHealth(uint32 playerId, int health);
 SMM_API void scripting_Player_TakeHealth(uint32 playerId, int health);

@@ -293,6 +293,19 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     MoveType_tTable.SetInteger("MOVETYPE_INVALID", 11);
     MoveType_tTable.SetInteger("MOVETYPE_MAX_BITS", 5);
 
+    auto PlayerFlags = state->CreateTable("PlayerFlags");
+
+    PlayerFlags.SetInteger("FL_ONGROUND", 0);
+    PlayerFlags.SetInteger("FL_DUCKING", 1);
+    PlayerFlags.SetInteger("FL_WATERJUMP", 2);
+    PlayerFlags.SetInteger("FL_ONTRAIN", 3);
+    PlayerFlags.SetInteger("FL_INRAIN", 4);
+    PlayerFlags.SetInteger("FL_FROZEN", 5);
+    PlayerFlags.SetInteger("FL_ATCONTROLS", 6);
+    PlayerFlags.SetInteger("FL_CLIENT", 7);
+    PlayerFlags.SetInteger("FL_FAKECLIENT", 8);
+    PlayerFlags.SetInteger("FL_INWATER", 9);
+
     state->CreateInteger(0, "TEAM_NONE");
     state->CreateInteger(1, "TEAM_SPECTATOR");
     state->CreateInteger(2, "TEAM_T");
