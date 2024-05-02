@@ -132,7 +132,7 @@ SMM_API int scripting_Player_GetHealth(uint32 playerId)
     return pawn->m_iHealth();
 }
 
-SMM_API int scripting_Player_GetFlags(uint32 playerId)
+SMM_API uint32_t scripting_Player_GetFlags(uint32 playerId)
 {
     Player *player = g_playerManager->GetPlayer(playerId);
     if (!player)
