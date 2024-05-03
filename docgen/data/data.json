@@ -13959,6 +13959,32 @@
 				"params": {},
 				"additional": {}
 			},
+			"iswarmup": {
+				"title": "IsWarmup",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Checks if warmup is active.",
+				"variable": {
+					"cpp": "server->IsWarmup",
+					"lua": "server:IsWarmup"
+				},
+				"return": "bool",
+				"params": {},
+				"additional": {}
+			},
+			"isfreeztime": {
+				"title": "IsFreezeTime",
+				"template": "function-syntax",
+				"language": "both",
+				"description": "Checks if Freeze time is active.",
+				"variable": {
+					"cpp": "server->IsFreezeTime",
+					"lua": "server:IsFreezeTime"
+				},
+				"return": "bool",
+				"params": {},
+				"additional": {}
+			},
 			"gettotalrounds": {
 				"title": "GetTotalRounds",
 				"template": "function-syntax",

@@ -34,6 +34,22 @@ SMM_API bool scripting_Server_IsPistolRound()
     return (g_pGameRules->m_totalRoundsPlayed() == 0 || g_pGameRules->m_nRoundsPlayedThisPhase() == 0 || (g_pGameRules->m_bSwitchingTeamsAtRoundReset() && g_pGameRules->m_nOvertimePlaying() == 0) || g_pGameRules->m_bGameRestart());
 }
 
+SMM_API bool scripting_Server_IsFreezeTime()
+{
+    if (g_pGameRules == nullptr)
+        return false;
+
+    return (g_pGameRules->m_bFreezePeriod());
+}
+
+SMM_API bool scripting_Server_IsWarmup()
+{
+    if (g_pGameRules == nullptr)
+        return false;
+
+    return (g_pGameRules->m_bWarmupPeriod());
+}
+
 SMM_API int scripting_server_GetTotalRounds()
 {
     if (g_pGameRules == nullptr)

@@ -31,6 +31,10 @@ void SetupLuaServer(luacpp::LuaState *state, Plugin *plugin)
             scripting_Server_ExecuteCommand(string_format("map %s", map).c_str()); })
         .DefMember("IsPistolRound", [](LuaServerClass *base) -> bool
                    { return scripting_Server_IsPistolRound(); })
+        .DefMember("IsWarmup", [](LuaServerClass *base) -> bool
+                   { return scripting_Server_IsWarmup(); })
+        .DefMember("IsFreezeTime", [](LuaServerClass *base) -> bool
+                   { return scripting_Server_IsFreezeTime(); })
         .DefMember("GetTotalRounds", [](LuaServerClass *base) -> int32_t
                    { return scripting_server_GetTotalRounds(); })
         .DefMember("SetQueuedMatchmaking", [](LuaServerClass *base, bool status) -> void

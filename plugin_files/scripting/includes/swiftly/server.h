@@ -55,6 +55,16 @@ public:
         REGISTER_METHOD_NOARGS(bool, false, scripting_Server_IsPistolRound);
     }
 
+    bool IsWarmup()
+    {
+        REGISTER_METHOD_NOARGS(bool, false, scripting_Server_IsWarmup);
+    }
+
+    bool IsFreezeTime()
+    {
+        REGISTER_METHOD_NOARGS(bool, false, scripting_Server_IsFreezeTime);
+    }
+
     int32_t GetTotalRounds()
     {
         REGISTER_METHOD_NOARGS(int32_t, 0, scripting_server_GetTotalRounds);
