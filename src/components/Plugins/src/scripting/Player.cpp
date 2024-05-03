@@ -354,7 +354,6 @@ SMM_API const char *scripting_Player_GetVar(uint32 playerId, const char *name)
     std::string data = SerializeData(value);
 
     MemStr str(data);
-    str.DeleteAfter(500);
     return str.Get();
 }
 
@@ -1474,7 +1473,6 @@ SMM_API const char *scripting_Player_GetChatTag(uint32 playerId)
     std::string data = player->tag;
 
     MemStr str(data);
-    str.DeleteAfter(500);
     return str.Get();
 }
 

@@ -114,7 +114,6 @@ SMM_API const char *scripting_HTTP_GetError(uint64_t requestID)
     std::string error = request->GetError();
 
     MemStr str(error);
-    str.DeleteAfter(500);
     return str.Get();
 }
 
