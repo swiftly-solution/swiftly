@@ -1,4 +1,5 @@
 #include "../../../../common.h"
+#include "../../../../utils/memstr.h"
 #include "../../../../translations/Translations.h"
 
 SMM_API const char *scripting_Translations_Fetch(const char *key)
@@ -8,7 +9,6 @@ SMM_API const char *scripting_Translations_Fetch(const char *key)
 
     std::string translation = g_translations->FetchTranslation(key);
 
-    char *result = new char[translation.size() + 1];
-    strcpy(result, translation.c_str());
-    return result;
+    MemStr str(translation);
+    return str.Get();
 }

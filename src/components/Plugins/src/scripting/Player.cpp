@@ -1,4 +1,5 @@
 #include "../../../../common.h"
+#include "../../../../utils/memstr.h"
 #include "../../../../player/PlayerManager.h"
 #include "../../../../sdk/entity/CCSPlayerController.h"
 #include "../../../../sdk/entity/CCSPlayerPawnBase.h"
@@ -41,9 +42,8 @@ SMM_API const char *scripting_Player_GetSteamID2(uint32 playerId)
     static const uint64_t base = 76561197960265728;
     std::string data = string_format("STEAM_0:%d:%llu", (steamid - base) % 2, (steamid - base) / 2);
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    MemStr str(data);
+    return str.Get();
 }
 
 SMM_API void scripting_Player_Drop(uint32 playerId, int reason)
@@ -353,9 +353,9 @@ SMM_API const char *scripting_Player_GetVar(uint32 playerId, const char *name)
 
     std::string data = SerializeData(value);
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    MemStr str(data);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API uint32 scripting_Player_GetConnectedTime(uint32 playerId)
@@ -434,9 +434,9 @@ SMM_API const char *scripting_Player_GetCoords(uint32 playerId)
 
     std::string data = SerializeData(player->GetCoords());
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    MemStr str(data);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API void scripting_Player_SetCoords(uint32 playerId, float x, float y, float z)
@@ -460,9 +460,9 @@ SMM_API const char *scripting_Player_GetVelocity(uint32 playerId)
 
     std::string data = SerializeData(pawn->m_vecAbsVelocity());
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    MemStr str(data);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API void scripting_Player_SetVelocity(uint32 playerId, float x, float y, float z)
@@ -1382,9 +1382,9 @@ SMM_API const char *scripting_Player_GetEyeAngles(uint32 playerId)
 {
     std::string data = SerializeData(scripting_Player_GetEyeAnglesRaw(playerId));
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    MemStr str(data);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API void scripting_Player_SetEyeAngles(uint32 playerId, float x, float y, float z)
@@ -1473,9 +1473,9 @@ SMM_API const char *scripting_Player_GetChatTag(uint32 playerId)
 
     std::string data = player->tag;
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    MemStr str(data);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API void scripting_Player_SetChatTag(uint32 playerId, const char *tag)

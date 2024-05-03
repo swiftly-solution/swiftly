@@ -1,6 +1,7 @@
 #include "../../../../common.h"
 #include "../../../../entities/EntityManager.h"
 #include "../../../../player/PlayerManager.h"
+#include "../../../../utils/memstr.h"
 
 #include <string>
 #include <any>
@@ -116,9 +117,9 @@ SMM_API const char *scripting_Entity_GetCoords(uint32_t entityID)
 {
     std::string data = SerializeData(scripting_Entity_GetCoordsRaw(entityID));
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    MemStr str(data);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API void scripting_Entity_SetCoords(uint32_t entityID, float x, float y, float z)
@@ -150,9 +151,9 @@ SMM_API const char *scripting_Entity_GetAngles(uint32_t entityID)
 {
     std::string data = SerializeData(scripting_Entity_GetAnglesRaw(entityID));
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    MemStr str(data);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API void scripting_Entity_SetAngles(uint32_t entityID, float x, float y, float z)
@@ -185,9 +186,9 @@ SMM_API const char *scripting_Entity_GetColors(uint32_t entityID)
 {
     std::string data = SerializeData(scripting_Entity_GetColorsRaw(entityID));
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    MemStr str(data);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API void scripting_Entity_SetColors(uint32_t entityID, int r, int g, int b, int a)

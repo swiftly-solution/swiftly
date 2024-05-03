@@ -1,4 +1,5 @@
 #include "../../../../common.h"
+#include "../../../../utils/memstr.h"
 #include "../../../../files/Files.h"
 #include "../../inc/Scripting.h"
 
@@ -9,9 +10,9 @@ SMM_API const char *scripting_Files_Read(const char *path)
 
     std::string content = Files::Read(path);
 
-    char *result = new char[content.size() + 1];
-    strcpy(result, content.c_str());
-    return result;
+    MemStr str(content);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API void scripting_Files_Append(const char *path, const char *content, bool hasdate)
@@ -45,9 +46,9 @@ SMM_API const char *scripting_Files_GetBase(const char *path)
 
     std::string content = Files::getBase(path);
 
-    char *result = new char[content.size() + 1];
-    strcpy(result, content.c_str());
-    return result;
+    MemStr str(content);
+    str.DeleteAfter(500);
+    return str.Get();
 }
 
 SMM_API bool scripting_Files_ExistsPath(const char *path)

@@ -1,4 +1,5 @@
 #include "../../../../common.h"
+#include "../../../../utils/memstr.h"
 #include "sdk/entity/CGameRules.h"
 
 SMM_API void scripting_Server_ExecuteCommand(const char *str)
@@ -21,9 +22,8 @@ SMM_API const char *scripting_Server_GetMapName()
 
     const char *mapname = engine->GetServerGlobals()->mapname.ToCStr();
 
-    char *res = new char[strlen(mapname) + 1];
-    strcpy(res, mapname);
-    return res;
+    MemStr str(mapname);
+    return str.Get();
 }
 
 SMM_API bool scripting_Server_IsPistolRound()

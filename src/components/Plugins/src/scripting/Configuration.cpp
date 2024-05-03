@@ -4,6 +4,7 @@
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
+#include "../../../../utils/memstr.h"
 
 std::string SerializeData(std::any data)
 {
@@ -110,17 +111,15 @@ SMM_API const char *scripting_Configuration_Fetch(const char *key)
     if (config.find(key) == config.end())
     {
         std::string data = SerializeData(key);
-        char *result = new char[data.size() + 1];
-        strcpy(result, data.c_str());
-        return result;
+        MemStr ret(data);
+        return ret.Get();
     }
 
     std::any value = config.at(key);
-    std::string data = SerializeData(value);
 
-    char *result = new char[data.size() + 1];
-    strcpy(result, data.c_str());
-    return result;
+    std::string data = SerializeData(value);
+    MemStr ret(data);
+    return ret.Get();
 }
 
 SMM_API uint32 scripting_Configuration_FetchArraySize(const char *key)

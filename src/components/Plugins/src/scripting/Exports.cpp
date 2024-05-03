@@ -1,4 +1,5 @@
 #include "../../../../common.h"
+#include "../../../../utils/memstr.h"
 #include "../../inc/Plugin.h"
 
 #include <vector>
@@ -145,9 +146,8 @@ SMM_API const char *scripting_Exports_Call(const char *plugin_name, const char *
     std::any retval = plugin->ExecuteExport(export_name, data);
     std::string jsonRetData = SerializeData(retval);
 
-    char *result = new char[jsonRetData.size() + 1];
-    strcpy(result, jsonRetData.c_str());
-    return result;
+    MemStr str(jsonRetData);
+    return str.Get();
 }
 
 SMM_API void scripting_Exports_Register(const char *plugin_name, const char *export_name, void *functionPtr)
