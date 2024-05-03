@@ -39,7 +39,7 @@ void MemStr::DeleteAfter(uint64_t ms)
 {
     std::string deleteString = this->getStr;
 
-    std::thread([deleteString, ms]() -> void
+    /*std::thread([deleteString, ms]() -> void
                 {
         std::this_thread::sleep_for(std::chrono::milliseconds(ms));
         if(memstrCache.find(deleteString) != memstrCache.end()) {
@@ -47,5 +47,5 @@ void MemStr::DeleteAfter(uint64_t ms)
             delete[] ptr;
             memstrCache.erase(deleteString);
         } })
-        .detach();
+        .detach();*/
 }
