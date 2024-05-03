@@ -22,6 +22,16 @@ MemStr::MemStr(std::string str)
 
 char *MemStr::Get()
 {
+    if (memstrCache.find(this->getStr) == memstrCache.end())
+    {
+        std::string str = this->getStr;
+        char *strPtr = new char[str.size() + 1];
+        strcpy(strPtr, str.c_str());
+        memstrCache.insert({
+            str,
+            strPtr,
+        });
+    }
     return memstrCache.at(this->getStr);
 }
 
