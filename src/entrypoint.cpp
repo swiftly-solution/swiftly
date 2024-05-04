@@ -33,6 +33,7 @@
 #include "resourcemonitor/ResourceMonitor.h"
 #include "addons/addons.h"
 #include "addons/clients.h"
+#include "utils/memstr.h"
 
 #include <steam/steam_gameserver.h>
 
@@ -205,6 +206,7 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     if (!BeginCrashListener())
         return false;
+    MemStrCleanup();
 
     PRINT("Components", "Loading components...\n");
 
@@ -219,7 +221,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
     g_Patches->LoadPatches();
-
     g_Patches->PerformPatches();
 
     if (!InitializeHooks())

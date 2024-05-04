@@ -8,7 +8,6 @@ struct StrCache
 {
     char *stringptr;
     uint64_t lastUsed;
-    bool hasDetachThreadActivated;
 };
 
 extern std::map<std::string, StrCache> memstrCache;
@@ -24,5 +23,7 @@ public:
     char *Get();
     void DeleteAfter(uint64_t ms);
 };
+
+void MemStrCleanup();
 
 #endif

@@ -3,8 +3,16 @@
 
 #include <cstring>
 #include <thread>
+#include <set>
+
+struct DeleteCache
+{
+    std::string key;
+    uint64_t ms;
+};
 
 std::map<std::string, StrCache> memstrCache;
+std::set<DeleteCache> memstrDelete;
 
 MemStr::MemStr(std::string str)
 {
@@ -38,24 +46,28 @@ void MemStr::DeleteAfter(uint64_t ms)
 
     if (memstrCache.find(deleteString) == memstrCache.end())
         return;
+}
 
-    if (memstrCache.at(deleteString).hasDetachThreadActivated)
-        return;
-
-    StrCache str = memstrCache.at(deleteString);
-    str.hasDetachThreadActivated = true;
-    memstrCache[deleteString] = str;
-
-    std::thread([deleteString, ms]() -> void
+void MemStrCleanup()
+{
+    std::thread([]() -> void
                 {
-        if(memstrCache.find(deleteString) != memstrCache.end()) {
-            try {
-                while(GetTime() - memstrCache.at(deleteString).lastUsed <= ms) { std::this_thread::sleep_for(std::chrono::milliseconds(ms)); }
-                StrCache str = memstrCache.at(deleteString);
-                memstrCache.erase(deleteString);
-                delete[] str.stringptr;
-            } catch(std::out_of_range &e) {
-                PRINTF("EXCEPTION", "%s not in delete list: %s\n", deleteString.c_str(), e.what());
+        while(true) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            for(auto it = memstrDelete.begin(); it != memstrDelete.end(); ++it)
+            {
+                DeleteCache value = *it;
+                if(memstrCache.find(value.key) == memstrCache.end()) {
+                    memstrDelete.erase(it);
+                    continue;
+                }
+
+                StrCache cache = memstrCache.at(value.key);
+                if(GetTime() - cache.lastUsed <= value.ms) continue;
+
+                delete[] cache.stringptr;
+                memstrCache.erase(value.key);
+                memstrDelete.erase(it);
             }
         } })
         .detach();
