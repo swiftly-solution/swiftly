@@ -206,7 +206,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     if (!BeginCrashListener())
         return false;
-    MemStrCleanup();
 
     PRINT("Components", "Loading components...\n");
 
@@ -488,6 +487,8 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
 {
     if (simulating && g_bHasTicked)
         g_flUniversalTime += GetGameGlobals()->curtime - g_flLastTickedTime;
+
+    MemStrCleanup();
 
     g_flLastTickedTime = GetGameGlobals()->curtime;
     g_bHasTicked = true;

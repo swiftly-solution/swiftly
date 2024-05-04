@@ -3,16 +3,17 @@
 
 #include <cstring>
 #include <thread>
-#include <set>
+#include <vector>
 
-struct DeleteCache
+struct DeleteStrCache
 {
     std::string key;
     uint64_t ms;
 };
 
 std::map<std::string, StrCache> memstrCache;
-std::set<DeleteCache> memstrDelete;
+std::vector<DeleteStrCache> memstrDelete;
+uint64_t GetTime();
 
 MemStr::MemStr(std::string str)
 {
@@ -51,31 +52,26 @@ void MemStr::DeleteAfter(uint64_t ms)
         if ((*it).key == deleteString)
             return;
 
-    DeleteCache value = {deleteString, ms};
-    memstrDelete.insert(value);
+    DeleteStrCache value = {deleteString, ms};
+    memstrDelete.push_back(value);
 }
 
 void MemStrCleanup()
 {
-    std::thread([]() -> void
-                {
-        while(true) {
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
-            for(auto it = memstrDelete.begin(); it != memstrDelete.end(); ++it)
-            {
-                DeleteCache value = *it;
-                if(memstrCache.find(value.key) == memstrCache.end()) {
-                    memstrDelete.erase(it);
-                    continue;
-                }
+    for (auto it = memstrDelete.begin(); it != memstrDelete.end(); ++it)
+    {
+        if (memstrCache.find((*it).key) == memstrCache.end())
+        {
+            memstrDelete.erase(it);
+            continue;
+        }
 
-                StrCache cache = memstrCache.at(value.key);
-                if(GetTime() - cache.lastUsed <= value.ms) continue;
+        StrCache cache = memstrCache.at((*it).key);
+        if (GetTime() - cache.lastUsed <= (*it).ms)
+            continue;
 
-                delete[] cache.stringptr;
-                memstrCache.erase(value.key);
-                memstrDelete.erase(it);
-            }
-        } })
-        .detach();
+        delete[] cache.stringptr;
+        memstrCache.erase((*it).key);
+        memstrDelete.erase(it);
+    }
 }
