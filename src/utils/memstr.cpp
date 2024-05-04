@@ -46,6 +46,13 @@ void MemStr::DeleteAfter(uint64_t ms)
 
     if (memstrCache.find(deleteString) == memstrCache.end())
         return;
+
+    for (auto it = memstrDelete.begin(); it != memstrDelete.end(); ++it)
+        if ((*it).key == deleteString)
+            return;
+
+    DeleteCache value = {deleteString, ms};
+    memstrDelete.insert(value);
 }
 
 void MemStrCleanup()
