@@ -4,7 +4,14 @@
 #include <map>
 #include <string>
 
-extern std::map<std::string, char *> memstrCache;
+struct StrCache
+{
+    char *stringptr;
+    uint64_t lastUsed;
+    bool hasDetachThreadActivated;
+};
+
+extern std::map<std::string, StrCache> memstrCache;
 
 class MemStr
 {

@@ -4,7 +4,7 @@
 #include <cstring>
 #include <thread>
 
-std::map<std::string, char *> memstrCache;
+std::map<std::string, StrCache> memstrCache;
 
 MemStr::MemStr(std::string str)
 {
@@ -13,39 +13,50 @@ MemStr::MemStr(std::string str)
     {
         char *strPtr = new char[str.size() + 1];
         strcpy(strPtr, str.c_str());
+        StrCache strcache = {
+            strPtr,
+            GetTime(),
+        };
         memstrCache.insert({
             str,
-            strPtr,
+            strcache,
         });
     }
 }
 
 char *MemStr::Get()
 {
-    if (memstrCache.find(this->getStr) == memstrCache.end())
-    {
-        std::string str = this->getStr;
-        char *strPtr = new char[str.size() + 1];
-        strcpy(strPtr, str.c_str());
-        memstrCache.insert({
-            str,
-            strPtr,
-        });
-    }
-    return memstrCache.at(this->getStr);
+    StrCache str = memstrCache.at(this->getStr);
+    str.lastUsed = GetTime();
+    memstrCache[this->getStr] = str;
+    return str.stringptr;
 }
 
 void MemStr::DeleteAfter(uint64_t ms)
 {
     std::string deleteString = this->getStr;
 
-    /*std::thread([deleteString, ms]() -> void
+    if (memstrCache.find(deleteString) == memstrCache.end())
+        return;
+
+    if (memstrCache.at(deleteString).hasDetachThreadActivated)
+        return;
+
+    StrCache str = memstrCache.at(deleteString);
+    str.hasDetachThreadActivated = true;
+    memstrCache[deleteString] = str;
+
+    std::thread([deleteString, ms]() -> void
                 {
-        std::this_thread::sleep_for(std::chrono::milliseconds(ms));
         if(memstrCache.find(deleteString) != memstrCache.end()) {
-            char* ptr = memstrCache.at(deleteString);
-            delete[] ptr;
-            memstrCache.erase(deleteString);
+            try {
+                while(GetTime() - memstrCache.at(deleteString).lastUsed <= ms) { std::this_thread::sleep_for(std::chrono::milliseconds(ms)); }
+                StrCache str = memstrCache.at(deleteString);
+                memstrCache.erase(deleteString);
+                delete[] str.stringptr;
+            } catch(std::out_of_range &e) {
+                PRINTF("EXCEPTION", "%s not in delete list: %s\n", deleteString.c_str(), e.what());
+            }
         } })
-        .detach();*/
+        .detach();
 }
