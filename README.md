@@ -17,7 +17,7 @@
 
 ---
 
-### Requirements
+### Build Requirements
 -   [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Downloads automatically with the git cloning using Recurse Submodules)
 -   [metamod-source](https://github.com/alliedmodders/metamod-source)
 -   [python3](https://www.python.org/)
@@ -26,6 +26,10 @@
 ### Downloads
 - [Public Releases (recomended)](https://github.com/swiftly-solution/swiftly/releases)
 - [Builds (use at your own risk)](https://github.com/swiftly-solution/swiftly/actions)
+---
+### Get Plugins
+- [Discord (recomended)](https://swiftlycs2.net/discord)
+- [GitHub Topic](https://github.com/topics/swiftly-solution)
 ---
 ### For Developers
 - [My First Plugin](https://docs.swiftlycs2.net/category/my-first-plugin)
