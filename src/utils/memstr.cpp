@@ -60,18 +60,20 @@ void MemStrCleanup()
 {
     for (auto it = memstrDelete.begin(); it != memstrDelete.end(); ++it)
     {
-        if (memstrCache.find((*it).key) == memstrCache.end())
+        DeleteStrCache value = *it;
+
+        if (memstrCache.find(value.key) == memstrCache.end())
         {
             memstrDelete.erase(it);
             continue;
         }
 
-        StrCache cache = memstrCache.at((*it).key);
-        if (GetTime() - cache.lastUsed <= (*it).ms)
-            continue;
-
-        delete[] cache.stringptr;
-        memstrCache.erase((*it).key);
-        memstrDelete.erase(it);
+        if (GetTime() - memstrCache.at(value.key).lastUsed > value.ms)
+        {
+            StrCache cache = memstrCache.at(value.key);
+            delete[] cache.stringptr;
+            memstrCache.erase(value.key);
+            memstrDelete.erase(it);
+        }
     }
 }
