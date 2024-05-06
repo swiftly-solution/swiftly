@@ -11,6 +11,9 @@ bool BeginCrashListener() { return true; }
 #include <execinfo.h>
 #include <dlfcn.h>
 #include <cxxabi.h>
+#include <signal.h> 
+
+#include <tier0/icommandline.h>
 
 #include <TextTable.h>
 #include <sstream>
@@ -121,7 +124,7 @@ TextTable GetBacktrace()
     int nFrames = backtrace(callstack, nMaxFrames);
     char **symbols = backtrace_symbols(callstack, nFrames);
 
-    for (int i = 1; i < nFrames; i++)
+    for (int i = 2; i < nFrames; i++)
     {
         backtraceTable.add(string_format(" %02d. ", i));
 
@@ -186,8 +189,10 @@ void signal_handler(int signumber)
 
         rapidjson::Document document(rapidjson::kObjectType);
 
+        std::string empty_string = "";
+
         document.AddMember(rapidjson::Value().SetString("coredumpdata", document.GetAllocator()), rapidjson::Value().SetString(backtraceData.c_str(), document.GetAllocator()), document.GetAllocator());
-        document.AddMember(rapidjson::Value().SetString("startup_cmd", document.GetAllocator()), rapidjson::Value().SetString("", document.GetAllocator()), document.GetAllocator());
+        document.AddMember(rapidjson::Value().SetString("startup_cmd", document.GetAllocator()), rapidjson::Value().SetString(empty_string.c_str(), document.GetAllocator()), document.GetAllocator());
         document.AddMember(rapidjson::Value().SetString("map", document.GetAllocator()), rapidjson::Value().SetString(g_Plugin.GetMap().c_str(), document.GetAllocator()), document.GetAllocator());
 
         rapidjson::StringBuffer buffer;
@@ -222,6 +227,8 @@ bool BeginCrashListener()
         }
     }
 
+    ::signal(SIGSEGV, &signal_handler);
+
     startup_cmd = CommandLine()->GetCmdLine();
     std::vector<std::string> exp = explode(startup_cmd, " ");
     std::vector<std::string> exp2;
@@ -237,8 +244,6 @@ bool BeginCrashListener()
         exp2.push_back(str);
     }
     startup_cmd = implode(exp2, " ");
-
-    ::signal(SIGSEGV, &signal_handler);
 
     return true;
 }

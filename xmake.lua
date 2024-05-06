@@ -138,10 +138,8 @@ target(PROJECT_NAME.."-Xmake")
             "backtrace",
             "stdc++"
         })
-        add_cxxflags("-g")
-        add_cxxflags("-rdynamic")
         set_symbols("debug")
-        set_optimize("none")
+        set_optimize("fastest")
     end
 
     add_cxxflags("gcc::-Wno-invalid-offsetof")
