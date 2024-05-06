@@ -520,7 +520,7 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
         m_nextFrame.pop_front();
     }
     if (g_ResourceMonitor->IsEnabled()) {
-        gameframeEnd = std::chrono::high_resolution_clock::now() - start;
+        gameframeEnd = std::chrono::high_resolution_clock::now() - gameframeStart;
         g_ResourceMonitor->RecordTime("swiftly-core", "SwiftlyPlugin::Hook_GameFrame", std::chrono::duration_cast<std::chrono::microseconds>(gameframeEnd).count() / 1000);
     }
 }
