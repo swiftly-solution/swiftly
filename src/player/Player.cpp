@@ -59,7 +59,7 @@ std::string ProcessColor(std::string str, int team = CS_TEAM_CT)
 
 CBasePlayerController *Player::GetController()
 {
-    return (CBasePlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->GetSlot()->Get() + 1));
+    return (CBasePlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->slot + 1));
 }
 
 CBasePlayerPawn *Player::GetPawn()
@@ -73,7 +73,7 @@ CBasePlayerPawn *Player::GetPawn()
 
 CCSPlayerController *Player::GetPlayerController()
 {
-    return (CCSPlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->GetSlot()->Get() + 1));
+    return (CCSPlayerController *)g_pEntitySystem->GetBaseEntity(CEntityIndex(this->slot + 1));
 }
 
 CCSPlayerPawn *Player::GetPlayerPawn()

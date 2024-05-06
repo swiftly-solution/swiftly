@@ -107,8 +107,6 @@ void Hook_CGameRules_Constructor(CGameRules *pThis)
     TCGameRules_Constructor(pThis);
 }
 
-extern double g_flUniversalTime;
-
 void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessage, void *pData, int a4)
 {
     NetMessageInfo_t *info = pNetMessage->GetNetMessageInfo();
