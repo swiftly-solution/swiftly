@@ -58,22 +58,24 @@ void MemStr::DeleteAfter(uint64_t ms)
 
 void MemStrCleanup()
 {
-    for (auto it = memstrDelete.begin(); it != memstrDelete.end(); ++it)
+    auto it = memstrDelete.begin();
+    while(it != memstrDelete.end())
     {
         DeleteStrCache value = *it;
-
         if (memstrCache.find(value.key) == memstrCache.end())
         {
-            memstrDelete.erase(it);
+            it = memstrDelete.erase(it);
             continue;
         }
 
-        if (GetTime() - memstrCache.at(value.key).lastUsed > value.ms)
-        {
-            StrCache cache = memstrCache.at(value.key);
-            delete[] cache.stringptr;
-            memstrCache.erase(value.key);
-            memstrDelete.erase(it);
+        if (GetTime() - memstrCache.at(value.key).lastUsed <= value.ms) {
+            ++it;
+            continue;
         }
+
+        StrCache cache = memstrCache.at(value.key);
+        delete[] cache.stringptr;
+        memstrCache.erase(value.key);
+        it = memstrDelete.erase(it);
     }
 }
