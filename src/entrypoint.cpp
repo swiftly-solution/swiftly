@@ -63,10 +63,6 @@ extern "C" FILE *__cdecl __iob_func(void)
 }
 #endif
 
-double g_flUniversalTime;
-float g_flLastTickedTime;
-bool g_bHasTicked;
-
 EventMap eventMap;
 SwiftlyPlugin g_Plugin;
 Configuration *g_Config;
@@ -483,15 +479,13 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectio
 
 void scripting_OnGameTick(bool simulating, bool firsttick, bool lasttick);
 
+std::chrono::_V2::system_clock::time_point gameframeStart;
+std::chrono::_V2::system_clock::time_point gameframeEnd;
+
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
-    if (simulating && g_bHasTicked)
-        g_flUniversalTime += GetGameGlobals()->curtime - g_flLastTickedTime;
-
+    if (g_ResourceMonitor->IsEnabled()) gameframeStart = std::chrono::high_resolution_clock::now();
     MemStrCleanup();
-
-    g_flLastTickedTime = GetGameGlobals()->curtime;
-    g_bHasTicked = true;
 
     scripting_OnGameTick(simulating, bFirstTick, bLastTick);
 
@@ -524,6 +518,10 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
     {
         m_nextFrame.front()();
         m_nextFrame.pop_front();
+    }
+    if (g_ResourceMonitor->IsEnabled()) {
+        gameframeEnd = std::chrono::high_resolution_clock::now() - start;
+        g_ResourceMonitor->RecordTime("swiftly-core", "SwiftlyPlugin::Hook_GameFrame", std::chrono::duration_cast<std::chrono::microseconds>(gameframeEnd).count() / 1000);
     }
 }
 
