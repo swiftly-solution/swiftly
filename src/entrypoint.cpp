@@ -479,12 +479,9 @@ void SwiftlyPlugin::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectio
 
 void scripting_OnGameTick(bool simulating, bool firsttick, bool lasttick);
 
-std::chrono::_V2::system_clock::time_point gameframeStart;
-std::chrono::_V2::system_clock::time_point gameframeEnd;
-
 void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
-    if (g_ResourceMonitor->IsEnabled()) gameframeStart = std::chrono::high_resolution_clock::now();
+    auto gameframeStart = std::chrono::high_resolution_clock::now();
     MemStrCleanup();
 
     scripting_OnGameTick(simulating, bFirstTick, bLastTick);
@@ -520,7 +517,7 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
         m_nextFrame.pop_front();
     }
     if (g_ResourceMonitor->IsEnabled()) {
-        gameframeEnd = std::chrono::high_resolution_clock::now() - gameframeStart;
+        auto gameframeEnd = std::chrono::high_resolution_clock::now() - gameframeStart;
         g_ResourceMonitor->RecordTime("swiftly-core", "SwiftlyPlugin::Hook_GameFrame", std::chrono::duration_cast<std::chrono::microseconds>(gameframeEnd).count() / 1000);
     }
 }
