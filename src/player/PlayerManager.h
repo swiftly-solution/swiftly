@@ -50,6 +50,7 @@ public:
             }
         }
 
+        delete this->g_Players[sl];
         this->g_Players[sl] = nullptr;
     }
 
