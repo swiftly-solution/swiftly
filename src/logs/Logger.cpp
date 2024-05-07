@@ -26,5 +26,6 @@ void Logger::RemoveLogger(std::string key)
     if (this->m_Loggers.find(key) == this->m_Loggers.end())
         return;
 
+    delete this->m_Loggers.at(key);
     this->m_Loggers.erase(key);
 }

@@ -294,6 +294,8 @@ void Addons::OnAddonDownloaded(DownloadItemResult_t *result)
 
     AddonsPrint(info.progressBar->GetContent(format("[%.0fs] [%.2fMB] %.2f%%", ((double)info.elapsedTime / 1000.0f), ((double)info.totalBytes / 1024.0f / 1024.0f), 100.0f)));
 
+    delete info.progressBar;
+
     this->downloadProgresses.erase(result->m_nPublishedFileId);
     this->downloadQueue.erase(std::find(this->downloadQueue.begin(), this->downloadQueue.end(), result->m_nPublishedFileId));
 
