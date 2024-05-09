@@ -1,4 +1,4 @@
-import { cpSync, mkdirSync, readFileSync, rm, writeFileSync } from "fs";
+import { cpSync, existsSync, mkdirSync, readFileSync, rm, writeFileSync } from "fs";
 
 const FetchData = () => {
     return JSON.parse(readFileSync("data/data.json").toString());
@@ -10,8 +10,13 @@ const FetchTemplates = () => {
 
 const data = FetchData();
 const templates = FetchTemplates();
+const languages = ["lua", "cpp"];
+const languagePrettyNames = {
+    lua: "Lua",
+    cpp: "C++"
+}
 
-let generatedFiles = 0
+let generatedFiles = 0;
 
 const lua_datamap = {
     player: "number",
@@ -95,55 +100,112 @@ const GenerateType = (param, language) => {
     else return GenerateCPPType(param);
 }
 
-const GenerateEventData = (data, language) => {
+const GenerateEventString = (data, language) => {
     if (language == "lua") return `events:on("${data.title}", function({parameters}) --[[ ... ]] end)`
     else if (language == "cpp") return `${data.return} ${data.title}({parameters})`
 }
 
-const ProcessTemplate = (data, language) => {
+const GenerateEventData = (data) => {
+    const callouts = [];
+
+    for (const lang of languages) {
+        callouts.push(`<Tabs.Tab>
+            \`\`\`${lang}
+            @returns ${GenerateType(data.return, lang)}
+            ${GenerateEventString(data, lang)}
+            \`\`\`
+
+            ${data.additional[lang] || ""}
+        </Tabs.Tab>`.replace(/{parameters}/g, ProcessParameters(data.params, lang)))
+    }
+
+    return `<Tabs items={${JSON.stringify(Object.values(languagePrettyNames))}} defaultIndex="0">
+        ${callouts.join("\n")}
+    </Tabs>`
+}
+
+const GenerateGettingStarted = (data) => {
+    const langs = [];
+    if (data.language == "both") langs.push(...languages);
+    else langs.push(data.language)
+
+    const prettyNames = []
+    for (const lang of langs) prettyNames.push(languagePrettyNames[lang]);
+
+    const callouts = [];
+
+    for (const lang of langs) {
+        callouts.push(`<Tabs.Tab>
+            ${data.content[lang]}
+
+            ${data.additional ? data.additional[lang] : ""}
+        </Tabs.Tab>`)
+    }
+
+    return `<Tabs items={${JSON.stringify(prettyNames)}} defaultIndex="0">
+        ${callouts.join("\n")}
+    </Tabs>`
+}
+
+const GenerateFunctionSyntax = (data) => {
+    const langs = [];
+    if (data.language == "both") langs.push(...languages);
+    else langs.push(data.language)
+
+    const prettyNames = []
+    for (const lang of langs) prettyNames.push(languagePrettyNames[lang]);
+
+    const callouts = [];
+
+    for (const lang of langs) {
+        callouts.push(`<Tabs.Tab>
+            \`\`\`${lang}
+            @returns ${GenerateType(data.return, lang)}
+            ${data.variable[lang]}(${ProcessParameters(data.params, lang)})
+            \`\`\`
+
+            ${data.additional ? (data.additional[lang] || "") : ""}
+        </Tabs.Tab>`)
+    }
+
+    return `<Tabs items={${JSON.stringify(prettyNames)}} defaultIndex="0">
+        ${callouts.join("\n")}
+    </Tabs>`
+}
+
+const ProcessTemplate = (data) => {
     const template = templates[data.template]
     if (template == undefined) return "";
 
-    if (data.template == "getting-started") return template.replace(/{description}/g, data.description).replace(/{content}/g, data.content[language]).replace(/{additional}/g, (data.additional || ""));
-    else if (data.template == "function-syntax") return template.replace(/{description}/g, data.description).replace(/{return_type}/g, GenerateType(data.return, language)).replace(/{highlight_lang}/g, language).replace(/{variable}/g, data.variable[language]).replace(/{parameters}/g, ProcessParameters(data.params, language)).replace(/{additional}/g, (data.additional[language] || ""));
-    else if (data.template == "event-syntax") return template.replace(/{description}/g, data.description).replace(/{highlight_lang}/g, language).replace(/{return_type}/g, GenerateType(data.return, language)).replace(/{variable}/g, GenerateEventData(data, language)).replace(/{parameters}/g, ProcessParameters(data.params, language)).replace(/{additional}/g, (data.additional[language] || ""))
+    if (data.template == "getting-started") return template.replace(/{description}/g, data.description).replace(/{callout}/g, GenerateGettingStarted(data));
+    // else if (data.template == "function-syntax") return template.replace(/{description}/g, data.description).replace(/{return_type}/g, GenerateType(data.return, language)).replace(/{highlight_lang}/g, language).replace(/{variable}/g, data.variable[language]).replace(/{parameters}/g, ProcessParameters(data.params, language)).replace(/{additional}/g, (data.additional[language] || ""));
+    else if (data.template == "function-syntax") return template.replace(/{description}/g, data.description).replace(/{callout}/g, GenerateFunctionSyntax(data));
+    else if (data.template == "event-syntax") return template.replace(/{description}/g, data.description).replace(/{callout}/g, GenerateEventData(data));
 }
-
-
-const languages = ["lua", "cpp"];
 
 const ProcessData = async (data, subfolder) => {
     for (const key of Object.keys(data)) {
-        if (data[key].iscategory == true) {
-            const langs = [];
-            if (data[key].language == "both") langs.push(...languages);
-            else langs.push(data[key].language)
+        if (data[key].iscategory) {
+            mkdirSync(`output/${subfolder}${key}`, { recursive: true });
 
-            for (const lang of langs) {
-                mkdirSync(`output/${lang}/${subfolder}${key}`, { recursive: true });
-
-                writeFileSync(`output/${lang}/${subfolder}${key}/_category_.json`, JSON.stringify({
-                    label: data[key].title,
-                    position: 2,
-                    link: {
-                        type: "generated-index",
-                        description: data[key].description
-                    }
-                }, null, 4));
-                generatedFiles++;
+            if (Object.keys(data[key].data).length > 0) writeFileSync(`output/${subfolder}${key}/_meta.json`, JSON.stringify({}, null, 4));
+            if (existsSync(`output/${subfolder}_meta.json`)) {
+                let jsonParsed = JSON.parse(readFileSync(`output/${subfolder}_meta.json`).toString())
+                jsonParsed[key] = data[key].title
+                writeFileSync(`output/${subfolder}_meta.json`, JSON.stringify(jsonParsed, null, 4))
             }
+            generatedFiles++;
             ProcessData(data[key].data, `${subfolder}${key}/`)
         } else {
-            const langs = [];
-            if (data[key].language == "both") langs.push(...languages);
-            else langs.push(data[key].language)
-
-            for (const lang of langs) {
-                writeFileSync(`output/${lang}/${subfolder}${key}.md`,
-                    `${data[key].position != undefined ? `---\nsidebar_position: ${data[key].position}\n---\n\n` : ""}# ${data[key].title}\n\n${ProcessTemplate(data[key], lang)}`
-                )
-                generatedFiles++;
+            writeFileSync(`output/${subfolder}${key}.mdx`,
+                `import { Callout } from 'nextra/components'\nimport { Tabs } from 'nextra/components'\n\n# ${data[key].title}\n\n${ProcessTemplate(data[key])}`
+            )
+            if (existsSync(`output/${subfolder}_meta.json`)) {
+                let jsonParsed = JSON.parse(readFileSync(`output/${subfolder}_meta.json`).toString())
+                jsonParsed[key] = data[key].title
+                writeFileSync(`output/${subfolder}_meta.json`, JSON.stringify(jsonParsed, null, 4))
             }
+            generatedFiles++;
         }
     }
 }

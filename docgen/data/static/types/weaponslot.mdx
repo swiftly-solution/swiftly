@@ -1,0 +1,56 @@
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+
+# WeaponSlot
+
+<Tabs items={["Lua", "C++"]} defaultIndex="0">
+    <Tabs.Tab>
+```lua
+WeaponSlot = {
+    Invalid = 4294967295,
+    Rifle = 0,
+    Pistol = 1,
+    Knife = 2,
+    Grenades = 3,
+    C4 = 4,
+    ReservedSlot6 = 5,
+    ReservedSlot7 = 6,
+    ReservedSlot8 = 7,
+    ReservedSlot9 = 8,
+    ReservedSlot10 = 9,
+    ReservedSlot11 = 10,
+    Boosts = 11,
+    Utility = 12,
+    Count = 13,
+    CurrentWeapon = 14,
+    First = 0,
+    Last = 12,
+}
+```
+    </Tabs.Tab>
+    <Tabs.Tab>
+```cpp
+enum WeaponSlot : uint32_t
+{
+    INVALID = 0xffffffff,
+    RIFLE = 0x0,
+    PISTOL = 0x1,
+    KNIFE = 0x2,
+    GRENADES = 0x3,
+    C4 = 0x4,
+    RSLOT6 = 0x5,
+    RSLOT7 = 0x6,
+    RSLOT8 = 0x7,
+    RSLOT9 = 0x8,
+    RSLOT10 = 0x9,
+    RSLOT11 = 0xa,
+    BOOSTS = 0xb,
+    UTILITY = 0xc,
+    COUNT = 0xd,
+    CURRENT_WEAPON = 0xe,
+    FIRST = 0x0,
+    LAST = 0xC,
+};
+```
+    </Tabs.Tab>
+</Tabs>

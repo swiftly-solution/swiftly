@@ -1,0 +1,26 @@
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+
+# WeaponSilencerType
+
+<Tabs items={["Lua", "C++"]} defaultIndex="0">
+    <Tabs.Tab>
+```lua
+WeaponSilencerType = {
+    None = 0,
+    Detachable = 1,
+    Integrated = 2
+}
+```
+    </Tabs.Tab>
+    <Tabs.Tab>
+```cpp
+enum WeaponSilencerType : uint32_t
+{
+    NONE = 0x0,
+    DETACHABLE = 0x1,
+    INTEGRATED = 0x2,
+};
+```
+    </Tabs.Tab>
+</Tabs>

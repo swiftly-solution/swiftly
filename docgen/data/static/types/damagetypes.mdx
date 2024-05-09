@@ -1,0 +1,68 @@
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+
+# DamageTypes
+
+<Tabs items={["Lua", "C++"]} defaultIndex="0">
+    <Tabs.Tab>
+```lua
+DamageTypes = {
+    Generic = 0,
+    Crush = 1,
+    Bullet = 2,
+    Slash = 4,
+    Burn = 8,
+    Vehicle = 16,
+    Fall = 32,
+    Blast = 64,
+    Club = 128,
+    Shock = 256,
+    Sonic = 512,
+    Energybeam = 1024,
+    Drown = 16384,
+    Poison = 32768,
+    Radiation = 65536,
+    Drownrecover = 131072,
+    Acid = 262144,
+    Physgun = 1048576,
+    Dissolve = 2097152,
+    BlastSurface = 4194304,
+    Buckshot = 16777216,
+    LastGenericFlag = 16777216,
+    Headshot = 33554432,
+    Dangerzone = 67108864
+}
+```
+    </Tabs.Tab>
+    <Tabs.Tab>
+```cpp
+enum DamageTypes : uint32_t
+{
+    DMG_GENERIC = 0x0,
+    DMG_CRUSH = 0x1,
+    DMG_BULLET = 0x2,
+    DMG_SLASH = 0x4,
+    DMG_BURN = 0x8,
+    DMG_VEHICLE = 0x10,
+    DMG_FALL = 0x20,
+    DMG_BLAST = 0x40,
+    DMG_CLUB = 0x80,
+    DMG_SHOCK = 0x100,
+    DMG_SONIC = 0x200,
+    DMG_ENERGYBEAM = 0x400,
+    DMG_DROWN = 0x4000,
+    DMG_POISON = 0x8000,
+    DMG_RADIATION = 0x10000,
+    DMG_DROWNRECOVER = 0x20000,
+    DMG_ACID = 0x40000,
+    DMG_PHYSGUN = 0x100000,
+    DMG_DISSOLVE = 0x200000,
+    DMG_BLAST_SURFACE = 0x400000,
+    DMG_BUCKSHOT = 0x1000000,
+    DMG_LASTGENERICFLAG = 0x1000000,
+    DMG_HEADSHOT = 0x2000000,
+    DMG_DANGERZONE = 0x4000000,
+};
+```
+    </Tabs.Tab>
+</Tabs>

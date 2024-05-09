@@ -1,8 +1,0 @@
-{
-    "label": "JSON",
-    "position": 1,
-    "link": {
-        "type": "generated-index",
-        "description": "A list of API functions for Swiftly JSON Utils."
-    }
-}

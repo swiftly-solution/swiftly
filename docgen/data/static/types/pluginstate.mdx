@@ -1,0 +1,24 @@
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+
+# PluginState
+
+<Tabs items={["Lua", "C++"]} defaultIndex="0">
+    <Tabs.Tab>
+```lua
+PluginState = {
+    Stopped = 0,
+    Started = 1
+}
+```
+    </Tabs.Tab>
+    <Tabs.Tab>
+```cpp
+enum PluginState : int
+{
+    STOPPED = 0,
+    STARTED = 1
+};
+```
+    </Tabs.Tab>
+</Tabs>

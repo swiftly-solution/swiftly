@@ -48,7 +48,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Commands system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/commands.h>\n\nCommands *commands = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    commands = new Commands(pluginName);\n    ...\n}\n```"
@@ -100,12 +99,13 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Configuration system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/configuration.h>\n\nConfiguration *config = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    config = new Configuration();\n    ...\n}\n```"
 				},
-				"additional": "# Configuration Files\n\nTo use Swiftly Configuration system you need to create a `JSON` file in `addons/swiftly/configs/plugins` folder with the following schema:\n\n#### File Name\n\n```\nMAIN_CONFIG_KEY.json\n```"
+				"additional": {
+					"cpp": "# Configuration Files\n\nTo use Swiftly Configuration system you need to create a `JSON` file in `addons/swiftly/configs/plugins` folder with the following schema:\n\n#### File Name\n\n```\nMAIN_CONFIG_KEY.json\n```"
+				}
 			},
 			"reload": {
 				"title": "Reload",
@@ -136,8 +136,8 @@
 					"key": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::",
-					"lua": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n If the key is invalid or the key is not an array key, it returns 0.\n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n If the key is invalid or the key is not an array key, it returns 0.\n</Callout>"
 				}
 			},
 			"fetch": {
@@ -154,8 +154,8 @@
 					"key": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::",
-					"lua": ":::note\n If the key is invalid or the key is not an array key, it returns 0.\n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n If the key is invalid or the key is not an array key, it returns 0.\n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n If the key is invalid or the key is not an array key, it returns 0.\n</Callout>"
 				}
 			},
 			"exists": {
@@ -235,12 +235,11 @@
 			"getting-started": {
 				"title": "Getting Started",
 				"language": "both",
-				"position": 1,
 				"template": "getting-started",
 				"description": "To use the Swiftly Database system you need the following code in your plugin.",
 				"content": {
-					"cpp": "```cpp\n#include <swiftly/database.h>\n\nDatabase *db = nullptr;\n\nvoid OnPluginStart()\n{\n    ...\n    db = new Database(\"CONNECTION_NAME\");\n    ...\n}```",
-					"lua": "```lua\nevents:on(\"OnPluginStart\", function()\n    db = Database(\"CONNECTION_NAME\")\nend)```"
+					"cpp": "```cpp\n#include <swiftly/database.h>\n\nDatabase *db = nullptr;\n\nvoid OnPluginStart()\n{\n    ...\n    db = new Database(\"CONNECTION_NAME\");\n    ...\n}\n```",
+					"lua": "```lua\nevents:on(\"OnPluginStart\", function()\n    db = Database(\"CONNECTION_NAME\")\nend)\n```"
 				}
 			},
 			"escapestring": {
@@ -257,8 +256,8 @@
 					"value": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note\n If database is not connected it will return the same value \n:::",
-					"lua": ":::note\n If database is not connected it will return the same value \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n If database is not connected it will return the same value \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n If database is not connected it will return the same value \n</Callout>"
 				}
 			},
 			"isconnected": {
@@ -288,8 +287,8 @@
 					"query": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note\n If database is not connected it will return an empty value. \n:::",
-					"lua": ":::note\n If database is not connected it will return an empty value. \n:::\n### Parsing table\nTo parse the table you need to create a for iteration for parsing each row.\n```lua\nevents:on(\"OnClientConnect\", function(playerid)\n    local player = GetPlayer(playerid)\n    if not player then return false end\n\n    local result = db:Query(string.format(\"select * from users where steamid = '%.0f'\", player:GetSteamID()))\n    for i=1,#result do\n        print(json.encode(result[i])) -- prints the row with index i\n    end\n    return true\nend)\n```"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n If database is not connected it will return an empty value. \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n If database is not connected it will return an empty value. \n</Callout>\n### Parsing table\nTo parse the table you need to create a for iteration for parsing each row.\n```lua\nevents:on(\"OnClientConnect\", function(playerid)\n    local player = GetPlayer(playerid)\n    if not player then return false end\n\n    local result = db:Query(string.format(\"select * from users where steamid = '%.0f'\", player:GetSteamID()))\n    for i=1,#result do\n        print(json.encode(result[i])) -- prints the row with index i\n    end\n    return true\nend)\n```"
 				}
 			},
 			"fetchfields": {
@@ -334,7 +333,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Entity system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/entities.h>\n\nEntities *entities = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    entities = new Entities();\n    ...\n}\n```"
@@ -410,8 +408,8 @@
 					"classname": "const char*"
 				},
 				"additional": {
-					"lua": ":::note\nA list of the entity class names can be found here: [https://cs2.poggu.me/dumped-data/entity-list](https://cs2.poggu.me/dumped-data/entity-list).\nAs a class name it can also be used the following class name format to select a player: \"player:PLAYERID\", where PLAYERID is the player id.\n:::",
-					"cpp": ":::note\nA list of the entity class names can be found here: [https://cs2.poggu.me/dumped-data/entity-list](https://cs2.poggu.me/dumped-data/entity-list).\nAs a class name it can also be used the following class name format to select a player: \"player:PLAYERID\", where PLAYERID is the player id.\n:::"
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\nA list of the entity class names can be found here: [https://cs2.poggu.me/dumped-data/entity-list](https://cs2.poggu.me/dumped-data/entity-list).\nAs a class name it can also be used the following class name format to select a player: \"player:PLAYERID\", where PLAYERID is the player id.\n</Callout>",
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\nA list of the entity class names can be found here: [https://cs2.poggu.me/dumped-data/entity-list](https://cs2.poggu.me/dumped-data/entity-list).\nAs a class name it can also be used the following class name format to select a player: \"player:PLAYERID\", where PLAYERID is the player id.\n</Callout>"
 				}
 			},
 			"entity": {
@@ -463,8 +461,8 @@
 							"value": "double*"
 						},
 						"additional": {
-							"cpp": ":::note\nThe activator and caller needs to be an entity or a player.\nTo specify a player you need to use \"player:ID\", where the ID is the player id.\nTo specify an entity you need to use \"entity:ID\", where the ID is the entity id.\n:::",
-							"lua": ":::note\nThe activator and caller needs to be an entity or a player.\nTo specify a player you need to use \"player:ID\", where the ID is the player id.\nTo specify an entity you need to use \"entity:ID\", where the ID is the entity id.\n:::"
+							"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\nThe activator and caller needs to be an entity or a player.\nTo specify a player you need to use \"player:ID\", where the ID is the player id.\nTo specify an entity you need to use \"entity:ID\", where the ID is the entity id.\n</Callout>",
+							"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\nThe activator and caller needs to be an entity or a player.\nTo specify a player you need to use \"player:ID\", where the ID is the player id.\nTo specify an entity you need to use \"entity:ID\", where the ID is the entity id.\n</Callout>"
 						}
 					},
 					"setmodel": {
@@ -645,7 +643,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Exports system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/exports.h>\n\nExports *exports = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    exports = new Exports(pluginName);\n    ...\n}\n```"
@@ -709,7 +706,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Files system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/files.h>\n\nFiles *files = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    files = new Files();\n    ...\n}\n```"
@@ -881,19 +877,18 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Game Events system you need the following code in your plugin.",
 				"content": {
-					"cpp": "```cpp\n#include <swiftly/gameevents.h>\n```"
+					"gameevents": "```cpp\n#include <swiftly/gameevents.h>\n```"
 				},
 				"additional": {
-					"cpp": ":::warning\n This include needs to exist only in one source code file. \n:::"
+					"gameevents": "<Callout type=\"warning\" emoji=\"⚠️\">\n This include needs to exist only in one source code file. \n</Callout>"
 				}
 			},
 			"onbombabortdefuse": {
 				"title": "BombAbortDefuse",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a bomb is not being defused anymore.",
 				"return": "void",
 				"params": {
@@ -901,14 +896,14 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
-					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>"
 				}
 			},
 			"onbombabortplant": {
 				"title": "BombAbortPlant",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a bomb is not being planted anymore.",
 				"return": "void",
 				"params": {
@@ -916,14 +911,14 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
-					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>"
 				}
 			},
 			"onbombbeginplant": {
 				"title": "BombBeginPlant",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a bomb is being planted.",
 				"return": "void",
 				"params": {
@@ -931,14 +926,14 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
-					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>"
 				}
 			},
 			"onbombbegindefuse": {
 				"title": "BombBeginDefuse",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a bomb is being defused.",
 				"return": "void",
 				"params": {
@@ -946,14 +941,14 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
-					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>"
 				}
 			},
 			"onbombdefused": {
 				"title": "BombDefused",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a bomb has been defused.",
 				"return": "void",
 				"params": {
@@ -961,14 +956,14 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
-					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>"
 				}
 			},
 			"onbombdropped": {
 				"title": "BombDropped",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a bomb was dropped.",
 				"return": "void",
 				"params": {
@@ -979,7 +974,7 @@
 			"onbombpickup": {
 				"title": "BombPickup",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a bomb was picked up.",
 				"return": "void",
 				"params": {
@@ -990,7 +985,7 @@
 			"onbombexploded": {
 				"title": "BombExploded",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a bomb exploded.",
 				"return": "void",
 				"params": {
@@ -998,14 +993,14 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
-					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>"
 				}
 			},
 			"onbombplanted": {
 				"title": "BombPlanted",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a bomb has been planted.",
 				"return": "void",
 				"params": {
@@ -1013,28 +1008,28 @@
 					"site": "unsigned short"
 				},
 				"additional": {
-					"cpp": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::",
-					"lua": ":::note\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n site can take 3 values: SITE_A, SITE_B or SITE_UNKNOWN \n</Callout>"
 				}
 			},
 			"onclientconnect": {
 				"title": "OnClientConnect",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event triggers when a player is connecting to server.",
 				"return": "bool",
 				"params": {
 					"player": "player"
 				},
 				"additional": {
-					"cpp": ":::info This game event is not triggered on fake clients (bots). \n:::\n:::note\n @return true => Allows the connection\n@return false => Blocks the connection \n:::",
-					"lua": ":::info This game event is not triggered on fake clients (bots). \n:::\n:::note\n @return true => Allows the connection\n@return false => Blocks the connection \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\nThis game event is not triggered on fake clients (bots). \n</Callout>\n<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the connection\n@return false => Blocks the connection \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\nThis game event is not triggered on fake clients (bots). \n</Callout>\n<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the connection\n@return false => Blocks the connection \n</Callout>"
 				}
 			},
 			"onclientdisconnect": {
 				"title": "OnClientDisconnect",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event triggers when a player was disconnected.",
 				"return": "void",
 				"params": {
@@ -1045,7 +1040,7 @@
 			"onclientgamemessage": {
 				"title": "OnClientGameMessage",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event triggers when a game message is sent.",
 				"return": "bool",
 				"params": {
@@ -1054,14 +1049,14 @@
 					"message": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note\n @return true => Allows the message\n@return false => Blocks the message \n:::",
-					"lua": ":::note\n @return true => Allows the message\n@return false => Blocks the message \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the message\n@return false => Blocks the message \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the message\n@return false => Blocks the message \n</Callout>"
 				}
 			},
 			"onclientkeystatechange": {
 				"title": "OnClientKeyStateChange",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a client pressed or releases a specific button.",
 				"return": "void",
 				"params": {
@@ -1074,7 +1069,7 @@
 			"onservercvarchange": {
 				"title": "OnServerCvarChange",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a server convar is changed.",
 				"return": "void",
 				"params": {
@@ -1086,7 +1081,7 @@
 			"ongametick": {
 				"title": "OnGameTick",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called at every server tick.",
 				"return": "void",
 				"params": {
@@ -1099,7 +1094,7 @@
 			"onmapload": {
 				"title": "OnMapLoad",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a map is loaded.",
 				"return": "void",
 				"params": {
@@ -1110,7 +1105,7 @@
 			"onmapunload": {
 				"title": "OnMapUnload",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a map is unloaded.",
 				"return": "void",
 				"params": {
@@ -1121,7 +1116,7 @@
 			"serverpreshutdown": {
 				"title": "OnServerPreshutdown",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when server_pre_shutdown is triggered.",
 				"return": "void",
 				"params": {
@@ -1132,7 +1127,7 @@
 			"servershutdown": {
 				"title": "OnServerShutdown",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when server_shutdown is triggered.",
 				"return": "void",
 				"params": {
@@ -1143,7 +1138,7 @@
 			"servermessage": {
 				"title": "OnServerMesssage",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when server_message is triggered.",
 				"return": "void",
 				"params": {
@@ -1154,7 +1149,7 @@
 			"playeractivate": {
 				"title": "OnPlayerActivate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_activate is triggered.",
 				"return": "void",
 				"params": {
@@ -1165,7 +1160,7 @@
 			"localplayerteam": {
 				"title": "OnLocalPlayerTeam",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when local_player_team is triggered.",
 				"return": "void",
 				"params": {},
@@ -1174,7 +1169,7 @@
 			"localplayercontrollerteam": {
 				"title": "OnLocalPlayerControllerTeam",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when local_player_controller_team is triggered.",
 				"return": "void",
 				"params": {},
@@ -1183,7 +1178,7 @@
 			"localplayerpawnchanged": {
 				"title": "OnLocalPlayerPawnChanged",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when local_player_pawn_changed is triggered.",
 				"return": "void",
 				"params": {},
@@ -1192,7 +1187,7 @@
 			"teamplaybroadcastaudio": {
 				"title": "OnTeamplayBroadcastAudio",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when teamplay_broadcast_audio is triggered.",
 				"return": "void",
 				"params": {
@@ -1204,7 +1199,7 @@
 			"finalestart": {
 				"title": "OnFinaleStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when finale_start is triggered.",
 				"return": "void",
 				"params": {
@@ -1215,7 +1210,7 @@
 			"playerstatsupdated": {
 				"title": "OnPlayerStatsUpdated",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_stats_updated is triggered.",
 				"return": "void",
 				"params": {
@@ -1226,7 +1221,7 @@
 			"userdatadownloaded": {
 				"title": "OnUserDataDownloaded",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when user_data_downloaded is triggered.",
 				"return": "void",
 				"params": {},
@@ -1235,7 +1230,7 @@
 			"ragdolldissolved": {
 				"title": "OnRagdollDissolved",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when ragdoll_dissolved is triggered.",
 				"return": "void",
 				"params": {
@@ -1246,7 +1241,7 @@
 			"teaminfo": {
 				"title": "OnTeamInfo",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when team_info is triggered.",
 				"return": "void",
 				"params": {
@@ -1258,7 +1253,7 @@
 			"teamscore": {
 				"title": "OnTeamScore",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when team_score is triggered.",
 				"return": "void",
 				"params": {
@@ -1270,7 +1265,7 @@
 			"hltvcameraman": {
 				"title": "OnHLTVCameraman",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_cameraman is triggered.",
 				"return": "void",
 				"params": {
@@ -1281,7 +1276,7 @@
 			"hltvchase": {
 				"title": "OnHLTVChase",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_chase is triggered.",
 				"return": "void",
 				"params": {
@@ -1298,7 +1293,7 @@
 			"hltvrankcamera": {
 				"title": "OnHLTVRankCamera",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_rank_camera is triggered.",
 				"return": "void",
 				"params": {
@@ -1311,7 +1306,7 @@
 			"hltvrankentity": {
 				"title": "OnHLTVRankEntity",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_rank_entity is triggered.",
 				"return": "void",
 				"params": {
@@ -1324,7 +1319,7 @@
 			"hltvfixed": {
 				"title": "OnHLTVFixed",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_fixed is triggered.",
 				"return": "void",
 				"params": {
@@ -1342,7 +1337,7 @@
 			"hltvmessage": {
 				"title": "OnHLTVMessage",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_message is triggered.",
 				"return": "void",
 				"params": {
@@ -1353,7 +1348,7 @@
 			"hltvstatus": {
 				"title": "OnHLTVStatus",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_status is triggered.",
 				"return": "void",
 				"params": {
@@ -1367,7 +1362,7 @@
 			"hltvtitle": {
 				"title": "OnHLTVTitle",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_title is triggered.",
 				"return": "void",
 				"params": {
@@ -1378,7 +1373,7 @@
 			"hltvchat": {
 				"title": "OnHLTVChat",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_chat is triggered.",
 				"return": "void",
 				"params": {
@@ -1390,7 +1385,7 @@
 			"hltvversioninfo": {
 				"title": "OnHLTVVersioninfo",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_versioninfo is triggered.",
 				"return": "void",
 				"params": {
@@ -1401,7 +1396,7 @@
 			"hltvreplay": {
 				"title": "OnHLTVReplay",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_replay is triggered.",
 				"return": "void",
 				"params": {
@@ -1413,7 +1408,7 @@
 			"mapshutdown": {
 				"title": "OnMapShutdown",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when map_shutdown is triggered.",
 				"return": "void",
 				"params": {},
@@ -1422,7 +1417,7 @@
 			"maptransition": {
 				"title": "OnMapTransition",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when map_transition is triggered.",
 				"return": "void",
 				"params": {},
@@ -1431,7 +1426,7 @@
 			"hostnamechanged": {
 				"title": "OnHostnameChanged",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hostname_changed is triggered.",
 				"return": "void",
 				"params": {
@@ -1442,7 +1437,7 @@
 			"difficultychanged": {
 				"title": "OnDifficultyChanged",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when difficulty_changed is triggered.",
 				"return": "void",
 				"params": {
@@ -1455,7 +1450,7 @@
 			"gamemessage": {
 				"title": "OnGameMessage",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when game_message is triggered.",
 				"return": "void",
 				"params": {
@@ -1467,7 +1462,7 @@
 			"gamenewmap": {
 				"title": "OnGameNewmap",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when game_newmap is triggered.",
 				"return": "void",
 				"params": {
@@ -1478,7 +1473,7 @@
 			"roundstartpreentity": {
 				"title": "OnRoundStartPreEntity",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_start_pre_entity is triggered.",
 				"return": "void",
 				"params": {},
@@ -1487,7 +1482,7 @@
 			"roundstartpostnav": {
 				"title": "OnRoundStartPostNav",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_start_post_nav is triggered.",
 				"return": "void",
 				"params": {},
@@ -1496,7 +1491,7 @@
 			"roundfreezeend": {
 				"title": "OnRoundFreezeEnd",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_freeze_end is triggered.",
 				"return": "void",
 				"params": {},
@@ -1505,7 +1500,7 @@
 			"teamplayroundstart": {
 				"title": "OnTeamplayRoundStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when teamplay_round_start is triggered.",
 				"return": "void",
 				"params": {
@@ -1516,7 +1511,7 @@
 			"playerfootstep": {
 				"title": "OnPlayerFootstep",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_footstep is triggered.",
 				"return": "void",
 				"params": {
@@ -1527,7 +1522,7 @@
 			"playerhintmessage": {
 				"title": "OnPlayerHintmessage",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_hintmessage is triggered.",
 				"return": "void",
 				"params": {
@@ -1538,7 +1533,7 @@
 			"breakbreakable": {
 				"title": "OnBreakBreakable",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when break_breakable is triggered.",
 				"return": "void",
 				"params": {
@@ -1551,7 +1546,7 @@
 			"breakprop": {
 				"title": "OnBreakProp",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when break_prop is triggered.",
 				"return": "void",
 				"params": {
@@ -1563,7 +1558,7 @@
 			"entitykilled": {
 				"title": "OnEntityKilled",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when entity_killed is triggered.",
 				"return": "void",
 				"params": {
@@ -1577,7 +1572,7 @@
 			"doorclose": {
 				"title": "OnDoorClose",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when door_close is triggered.",
 				"return": "void",
 				"params": {
@@ -1589,7 +1584,7 @@
 			"votestarted": {
 				"title": "OnVoteStarted",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vote_started is triggered.",
 				"return": "void",
 				"params": {
@@ -1603,7 +1598,7 @@
 			"votefailed": {
 				"title": "OnVoteFailed",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vote_failed is triggered.",
 				"return": "void",
 				"params": {
@@ -1614,7 +1609,7 @@
 			"votepassed": {
 				"title": "OnVotePassed",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vote_passed is triggered.",
 				"return": "void",
 				"params": {
@@ -1627,7 +1622,7 @@
 			"votechanged": {
 				"title": "OnVoteChanged",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vote_changed is triggered.",
 				"return": "void",
 				"params": {
@@ -1643,7 +1638,7 @@
 			"votecastyes": {
 				"title": "OnVoteCastYes",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vote_cast_yes is triggered.",
 				"return": "void",
 				"params": {
@@ -1655,7 +1650,7 @@
 			"votecastno": {
 				"title": "OnVoteCastNo",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vote_cast_no is triggered.",
 				"return": "void",
 				"params": {
@@ -1667,7 +1662,7 @@
 			"achievementevent": {
 				"title": "OnAchievementEvent",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when achievement_event is triggered.",
 				"return": "void",
 				"params": {
@@ -1680,7 +1675,7 @@
 			"achievementearned": {
 				"title": "OnAchievementEarned",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when achievement_earned is triggered.",
 				"return": "void",
 				"params": {
@@ -1692,7 +1687,7 @@
 			"achievementwritefailed": {
 				"title": "OnAchievementWriteFailed",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when achievement_write_failed is triggered.",
 				"return": "void",
 				"params": {},
@@ -1701,7 +1696,7 @@
 			"bonusupdated": {
 				"title": "OnBonusUpdated",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when bonus_updated is triggered.",
 				"return": "void",
 				"params": {
@@ -1715,7 +1710,7 @@
 			"spectargetupdated": {
 				"title": "OnSpecTargetUpdated",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when spec_target_updated is triggered.",
 				"return": "void",
 				"params": {
@@ -1727,7 +1722,7 @@
 			"specmodeupdated": {
 				"title": "OnSpecModeUpdated",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when spec_mode_updated is triggered.",
 				"return": "void",
 				"params": {
@@ -1738,7 +1733,7 @@
 			"entityvisible": {
 				"title": "OnEntityVisible",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when entity_visible is triggered.",
 				"return": "void",
 				"params": {
@@ -1752,7 +1747,7 @@
 			"gameinstructordraw": {
 				"title": "OnGameInstructorDraw",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when gameinstructor_draw is triggered.",
 				"return": "void",
 				"params": {},
@@ -1761,7 +1756,7 @@
 			"gameinstructornodraw": {
 				"title": "OnGameInstructorNodraw",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when gameinstructor_nodraw is triggered.",
 				"return": "void",
 				"params": {},
@@ -1770,7 +1765,7 @@
 			"flareignitenpc": {
 				"title": "OnFlareIgniteNCP",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when flare_ignite_npc is triggered.",
 				"return": "void",
 				"params": {
@@ -1781,7 +1776,7 @@
 			"helicoptergrenadepuntmiss": {
 				"title": "OnHelicoptedGrenadePuntMiss",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when helicopter_grenade_punt_miss is triggered.",
 				"return": "void",
 				"params": {},
@@ -1790,7 +1785,7 @@
 			"physgunpickup": {
 				"title": "OnPhysgunPickup",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when physgun_pickup is triggered.",
 				"return": "void",
 				"params": {
@@ -1801,7 +1796,7 @@
 			"inventoryupdated": {
 				"title": "OnInventoryUpdated",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when inventory_updated is triggered.",
 				"return": "void",
 				"params": {},
@@ -1810,7 +1805,7 @@
 			"cartupdated": {
 				"title": "OnCarUpdated",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cart_updated is triggered.",
 				"return": "void",
 				"params": {},
@@ -1819,7 +1814,7 @@
 			"storepricesheetupdated": {
 				"title": "OnStorePricesheetUpdated",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when store_pricesheet_updated is triggered.",
 				"return": "void",
 				"params": {},
@@ -1828,7 +1823,7 @@
 			"itemschemainitialized": {
 				"title": "OnItemSchemaInitialized",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when item_schema_initialized is triggered.",
 				"return": "void",
 				"params": {},
@@ -1837,7 +1832,7 @@
 			"dropratemodified": {
 				"title": "OnDropRateModified",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when drop_rate_modified is triggered.",
 				"return": "void",
 				"params": {},
@@ -1846,7 +1841,7 @@
 			"eventticketmodified": {
 				"title": "OnEventTicketModified",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when event_ticket_modified is triggered.",
 				"return": "void",
 				"params": {},
@@ -1855,7 +1850,7 @@
 			"gcconnected": {
 				"title": "OnGCConnected",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when gc_connected is triggered.",
 				"return": "void",
 				"params": {},
@@ -1864,7 +1859,7 @@
 			"instructorstartlesson": {
 				"title": "OnInstructorStartLesson",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when instructor_start_lesson is triggered.",
 				"return": "void",
 				"params": {
@@ -1880,7 +1875,7 @@
 			"instructorcloselesson": {
 				"title": "OnInstructorCloseLesson",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when instructor_close_lesson is triggered.",
 				"return": "void",
 				"params": {
@@ -1892,7 +1887,7 @@
 			"instructorserverhintcreate": {
 				"title": "OnInstructorServerHintCreate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when instructor_server_hint_create is triggered.",
 				"return": "void",
 				"params": {
@@ -1922,7 +1917,7 @@
 			"clientsidelessonclosed": {
 				"title": "OnClinetsideLessonClosed",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when clientside_lesson_closed is triggered.",
 				"return": "void",
 				"params": {
@@ -1933,7 +1928,7 @@
 			"dynamicshadowlightchanged": {
 				"title": "OnDynamicShadowLightChanged",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when dynamic_shadow_light_changed is triggered.",
 				"return": "void",
 				"params": {},
@@ -1942,7 +1937,7 @@
 			"gameuihidden": {
 				"title": "OnGameuiHidden",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when gameui_hidden is triggered.",
 				"return": "void",
 				"params": {},
@@ -1951,7 +1946,7 @@
 			"itemsgifted": {
 				"title": "OnItemsGifted",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when items_gifted is triggered.",
 				"return": "void",
 				"params": {
@@ -1966,7 +1961,7 @@
 			"playerscore": {
 				"title": "OnPlayerScore",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_score is triggered.",
 				"return": "void",
 				"params": {
@@ -1980,7 +1975,7 @@
 			"playershoot": {
 				"title": "OnPlayerShoot",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_shoot is triggered.",
 				"return": "void",
 				"params": {
@@ -1993,7 +1988,7 @@
 			"gameinit": {
 				"title": "OnGameInit",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when game_init is triggered.",
 				"return": "void",
 				"params": {},
@@ -2002,7 +1997,7 @@
 			"gamestart": {
 				"title": "OnGameStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when game_start is triggered.",
 				"return": "void",
 				"params": {
@@ -2016,7 +2011,7 @@
 			"gameend": {
 				"title": "OnGameEnd",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when game_end is triggered.",
 				"return": "void",
 				"params": {
@@ -2027,7 +2022,7 @@
 			"roundannouncematchpoint": {
 				"title": "OnRoundAnnounceMatchPoint",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_announce_match_point is triggered.",
 				"return": "void",
 				"params": {},
@@ -2036,7 +2031,7 @@
 			"roundannouncefinal": {
 				"title": "OnRoundAnnounceFinal",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_announce_final is triggered.",
 				"return": "void",
 				"params": {},
@@ -2045,7 +2040,7 @@
 			"roundannouncelastroundhalf": {
 				"title": "OnRoundAnnounceLastRoundHalf",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_announce_last_round_half is triggered.",
 				"return": "void",
 				"params": {},
@@ -2054,7 +2049,7 @@
 			"roundannouncematchstart": {
 				"title": "OnRoundAnnouceMatchStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_announce_match_start is triggered.",
 				"return": "void",
 				"params": {},
@@ -2063,7 +2058,7 @@
 			"roundannouncewarmup": {
 				"title": "OnRoundAnnounceWarmup",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_announce_warmup is triggered.",
 				"return": "void",
 				"params": {},
@@ -2072,7 +2067,7 @@
 			"roundenduploadstats": {
 				"title": "OnRoundEndUploadStats",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_end_upload_stats is triggered.",
 				"return": "void",
 				"params": {},
@@ -2081,7 +2076,7 @@
 			"roundofficiallyended": {
 				"title": "OnRoundOfficiallyEnded",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_officially_ended is triggered.",
 				"return": "void",
 				"params": {},
@@ -2090,7 +2085,7 @@
 			"roundtimewarning": {
 				"title": "OnRoundTimeWarning",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when round_time_warning is triggered.",
 				"return": "void",
 				"params": {},
@@ -2099,7 +2094,7 @@
 			"ugcmapinforeceived": {
 				"title": "OnUGCMapInfoReceived",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when ugc_map_info_received is triggered.",
 				"return": "void",
 				"params": {
@@ -2110,7 +2105,7 @@
 			"ugcmapunsubscribed": {
 				"title": "OnUGCMapUnsubscribed",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when ugc_map_unsubscribed is triggered.",
 				"return": "void",
 				"params": {
@@ -2121,7 +2116,7 @@
 			"ugcmapdownloaderror": {
 				"title": "OnUGCMapDownloadError",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when ugc_map_download_error is triggered.",
 				"return": "void",
 				"params": {
@@ -2133,7 +2128,7 @@
 			"ugcfiledownloadfinished": {
 				"title": "OnUGCFileDownloadFinished",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when ugc_file_download_finished is triggered.",
 				"return": "void",
 				"params": {
@@ -2144,7 +2139,7 @@
 			"ugcfiledownloadstart": {
 				"title": "OnUGCFileDownloadStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when ugc_file_download_start is triggered.",
 				"return": "void",
 				"params": {
@@ -2156,7 +2151,7 @@
 			"beginnewmatch": {
 				"title": "OnBeginNewMatch",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when begin_new_match is triggered.",
 				"return": "void",
 				"params": {},
@@ -2165,7 +2160,7 @@
 			"dmbonusweaponstart": {
 				"title": "OnDMBonusWeaponStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when dm_bonus_weapon_start is triggered.",
 				"return": "void",
 				"params": {
@@ -2177,7 +2172,7 @@
 			"survivalannouncephase": {
 				"title": "OnSurvivalAnnouncePhase",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when survival_announce_phase is triggered.",
 				"return": "void",
 				"params": {
@@ -2188,7 +2183,7 @@
 			"brokenbreakable": {
 				"title": "OnBrokenBreakable",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when broken_breakable is triggered.",
 				"return": "void",
 				"params": {
@@ -2201,7 +2196,7 @@
 			"playerdecal": {
 				"title": "OnPlayerDecal",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_decal is triggered.",
 				"return": "void",
 				"params": {
@@ -2212,7 +2207,7 @@
 			"setinstructorgroupenabled": {
 				"title": "OnSetInstructorGroupEnabled",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when set_instructor_group_enabled is triggered.",
 				"return": "void",
 				"params": {
@@ -2224,7 +2219,7 @@
 			"instructorserverhintstop": {
 				"title": "OnInstructorServerHintStop",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when instructor_server_hint_stop is triggered.",
 				"return": "void",
 				"params": {
@@ -2235,7 +2230,7 @@
 			"readgametitledata": {
 				"title": "OnReadGameTitledata",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when read_game_titledata is triggered.",
 				"return": "void",
 				"params": {
@@ -2246,7 +2241,7 @@
 			"writegametitledata": {
 				"title": "OnWriteGameTitledata",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when write_game_titledata is triggered.",
 				"return": "void",
 				"params": {
@@ -2257,7 +2252,7 @@
 			"resetgametitledata": {
 				"title": "OnResetGameTitledata",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when reset_game_titledata is triggered.",
 				"return": "void",
 				"params": {
@@ -2268,7 +2263,7 @@
 			"weaponhudselection": {
 				"title": "OnWeaponhudSelection",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when weaponhud_selection is triggered.",
 				"return": "void",
 				"params": {
@@ -2281,7 +2276,7 @@
 			"voteended": {
 				"title": "OnVoteEnded",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vote_ended is triggered.",
 				"return": "void",
 				"params": {},
@@ -2290,7 +2285,7 @@
 			"votecast": {
 				"title": "OnVoteCast",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vote_cast is triggered.",
 				"return": "void",
 				"params": {
@@ -2303,7 +2298,7 @@
 			"voteoptions": {
 				"title": "OnVoteOptions",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vote_options is triggered.",
 				"return": "void",
 				"params": {
@@ -2319,7 +2314,7 @@
 			"endmatchmapvoteselectingmap": {
 				"title": "OnEndmatchMapvoteSelectingMap",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when endmatch_mapvote_selecting_map is triggered.",
 				"return": "void",
 				"params": {
@@ -2340,7 +2335,7 @@
 			"endmatchcmmstartrevealitems": {
 				"title": "OnEndmatchCMMStartRevealItems",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when endmatch_cmm_start_reveal_items is triggered.",
 				"return": "void",
 				"params": {},
@@ -2349,7 +2344,7 @@
 			"clientloadoutchanged": {
 				"title": "OnClientLoadoutChanged",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when client_loadout_changed is triggered.",
 				"return": "void",
 				"params": {},
@@ -2358,7 +2353,7 @@
 			"addplayersonaricon": {
 				"title": "OnAddPlayerSonarIcon",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when add_player_sonar_icon is triggered.",
 				"return": "void",
 				"params": {
@@ -2372,7 +2367,7 @@
 			"addbullethitmarker": {
 				"title": "OnAddBulletHitMarker",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when add_bullet_hit_marker is triggered.",
 				"return": "void",
 				"params": {
@@ -2394,7 +2389,7 @@
 			"otherdeath": {
 				"title": "OnOtherDeath",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when other_death is triggered.",
 				"return": "void",
 				"params": {
@@ -2416,7 +2411,7 @@
 			"itempurchase": {
 				"title": "OnItemPurchase",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when item_purchase is triggered.",
 				"return": "void",
 				"params": {
@@ -2430,7 +2425,7 @@
 			"defuserdropped": {
 				"title": "OnDefuserDropped",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when defuser_dropped is triggered.",
 				"return": "void",
 				"params": {
@@ -2441,7 +2436,7 @@
 			"defuserpickup": {
 				"title": "OnDefuserPickup",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when defuser_pickup is triggered.",
 				"return": "void",
 				"params": {
@@ -2453,7 +2448,7 @@
 			"announcephaseend": {
 				"title": "OnAnnouncePhaseEnd",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when announce_phase_end is triggered.",
 				"return": "void",
 				"params": {},
@@ -2462,7 +2457,7 @@
 			"csintermission": {
 				"title": "OnCSIntermission",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cs_intermission is triggered.",
 				"return": "void",
 				"params": {},
@@ -2471,7 +2466,7 @@
 			"hostagefollows": {
 				"title": "OnHostageFollows",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hostage_follows is triggered.",
 				"return": "void",
 				"params": {
@@ -2483,7 +2478,7 @@
 			"hostagehurt": {
 				"title": "OnHostageHurt",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hostage_hurt is triggered.",
 				"return": "void",
 				"params": {
@@ -2495,7 +2490,7 @@
 			"hostagekilled": {
 				"title": "OnHostageKilled",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hostage_killed is triggered.",
 				"return": "void",
 				"params": {
@@ -2507,7 +2502,7 @@
 			"hostagerescued": {
 				"title": "OnHostageRescued",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hostage_rescued is triggered.",
 				"return": "void",
 				"params": {
@@ -2520,7 +2515,7 @@
 			"hostagestopsfollowing": {
 				"title": "OnHostageStopsFollowing",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hostage_stops_following is triggered.",
 				"return": "void",
 				"params": {
@@ -2532,7 +2527,7 @@
 			"hostagerescuedall": {
 				"title": "OnHostageRescuedAll",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hostage_rescued_all is triggered.",
 				"return": "void",
 				"params": {},
@@ -2541,7 +2536,7 @@
 			"hostagecallforhelp": {
 				"title": "OnHostageCallForHelp",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hostage_call_for_help is triggered.",
 				"return": "void",
 				"params": {
@@ -2552,7 +2547,7 @@
 			"vipescaped": {
 				"title": "OnVIPEscaped",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vip_escaped is triggered.",
 				"return": "void",
 				"params": {
@@ -2563,7 +2558,7 @@
 			"vipkilled": {
 				"title": "OnVIPKilled",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when vip_killed is triggered.",
 				"return": "void",
 				"params": {
@@ -2575,7 +2570,7 @@
 			"playerradio": {
 				"title": "OnPlayerRadio",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_radio is triggered.",
 				"return": "void",
 				"params": {
@@ -2587,7 +2582,7 @@
 			"bombbeep": {
 				"title": "OnBombBeep",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when bomb_beep is triggered.",
 				"return": "void",
 				"params": {
@@ -2598,7 +2593,7 @@
 			"weaponfire": {
 				"title": "OnWeaponFire",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when weapon_fire is triggered.",
 				"return": "void",
 				"params": {
@@ -2611,7 +2606,7 @@
 			"weaponfireonempty": {
 				"title": "OnWeaponFireOnEmpty",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when weapon_fire_on_empty is triggered.",
 				"return": "void",
 				"params": {
@@ -2623,7 +2618,7 @@
 			"grenadethrown": {
 				"title": "OnGrenadeThrown",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when grenade_thrown is triggered.",
 				"return": "void",
 				"params": {
@@ -2635,7 +2630,7 @@
 			"weaponoutofammo": {
 				"title": "OnWeaponOutOfAmmo",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when weapon_outofammo is triggered.",
 				"return": "void",
 				"params": {
@@ -2646,7 +2641,7 @@
 			"weaponreload": {
 				"title": "OnWeaponReload",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when weapon_reload is triggered.",
 				"return": "void",
 				"params": {
@@ -2657,7 +2652,7 @@
 			"weaponzoom": {
 				"title": "OnWeaponZoom",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when weapon_zoom is triggered.",
 				"return": "void",
 				"params": {
@@ -2668,7 +2663,7 @@
 			"silencerdetach": {
 				"title": "OnSilencerDetach",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when silencer_detach is triggered.",
 				"return": "void",
 				"params": {
@@ -2679,7 +2674,7 @@
 			"inspectweapon": {
 				"title": "OnInspectWeapon",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when inspect_weapon is triggered.",
 				"return": "void",
 				"params": {
@@ -2690,7 +2685,7 @@
 			"weaponzoomrifle": {
 				"title": "OnWeaponZoomRifle",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when weapon_zoom_rifle is triggered.",
 				"return": "void",
 				"params": {
@@ -2701,7 +2696,7 @@
 			"playerspawned": {
 				"title": "OnPlayerSpawned",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_spawned is triggered.",
 				"return": "void",
 				"params": {
@@ -2713,7 +2708,7 @@
 			"playerpostthink": {
 				"title": "OnPlayerPostThink",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player post think finished to execute.",
 				"return": "void",
 				"params": {
@@ -2724,21 +2719,21 @@
 			"playerprepostthink": {
 				"title": "OnPlayerPrePostThink",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player post think started to execute to execute.",
 				"return": "bool",
 				"params": {
 					"player": "player"
 				},
 				"additional": {
-					"cpp": ":::note\n @return true => Allows the PostThink to execute\n@return false => Blocks the PostThink to execute \n:::",
-					"lua": ":::note\n @return true => Allows the PostThink to execute\n@return false => Blocks the PostThink to execute \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the PostThink to execute\n@return false => Blocks the PostThink to execute \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the PostThink to execute\n@return false => Blocks the PostThink to execute \n</Callout>"
 				}
 			},
 			"itempickupslerp": {
 				"title": "OnItemPickupSlerp",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when item_pickup_slerp is triggered.",
 				"return": "void",
 				"params": {
@@ -2751,7 +2746,7 @@
 			"itempickupfailed": {
 				"title": "OnItemPickupFailed",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when item_pickup_failed is triggered.",
 				"return": "void",
 				"params": {
@@ -2765,7 +2760,7 @@
 			"itemremove": {
 				"title": "OnItemRemove",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when item_remove is triggered.",
 				"return": "void",
 				"params": {
@@ -2778,7 +2773,7 @@
 			"ammopickup": {
 				"title": "OnAmmoPickup",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when ammo_pickup is triggered.",
 				"return": "void",
 				"params": {
@@ -2791,7 +2786,7 @@
 			"itemequip": {
 				"title": "OnItemEquip",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when item_equip is triggered.",
 				"return": "void",
 				"params": {
@@ -2810,7 +2805,7 @@
 			"buytimeended": {
 				"title": "OnBuytimeEnded",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when buytime_ended is triggered.",
 				"return": "void",
 				"params": {},
@@ -2819,7 +2814,7 @@
 			"enterrescuezone": {
 				"title": "OnEnterRescueZone",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when enter_rescue_zone is triggered.",
 				"return": "void",
 				"params": {
@@ -2830,7 +2825,7 @@
 			"exitrescuezone": {
 				"title": "OnExitRescueZone",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when exit_rescue_zone is triggered.",
 				"return": "void",
 				"params": {
@@ -2841,7 +2836,7 @@
 			"silenceroff": {
 				"title": "OnSilencerOff",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when silencer_off is triggered.",
 				"return": "void",
 				"params": {
@@ -2852,7 +2847,7 @@
 			"silenceron": {
 				"title": "OnSilencerOn",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when silencer_on is triggered.",
 				"return": "void",
 				"params": {
@@ -2863,7 +2858,7 @@
 			"buymenuopen": {
 				"title": "OnBuyMenuOpen",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when buymenu_open is triggered.",
 				"return": "void",
 				"params": {
@@ -2874,7 +2869,7 @@
 			"buymenuclose": {
 				"title": "OnBuyMenuClose",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when buymenu_close is triggered.",
 				"return": "void",
 				"params": {
@@ -2885,7 +2880,7 @@
 			"grenadebounce": {
 				"title": "OnGrenadeBounce",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when grenade_bounce is triggered.",
 				"return": "void",
 				"params": {
@@ -2896,7 +2891,7 @@
 			"hegrenadedetonate": {
 				"title": "OnHEGrenadeDetonate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hegrenade_detonate is triggered.",
 				"return": "void",
 				"params": {
@@ -2911,7 +2906,7 @@
 			"flashbangdetonate": {
 				"title": "OnFlashbangDetonate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when flashbang_detonate is triggered.",
 				"return": "void",
 				"params": {
@@ -2926,7 +2921,7 @@
 			"smokegrenadedetonate": {
 				"title": "OnSmokeGrenadeDetonate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when smokegrenade_detonate is triggered.",
 				"return": "void",
 				"params": {
@@ -2941,7 +2936,7 @@
 			"smokegrenadeexpired": {
 				"title": "OnSmokeGrenadeExpired",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when smokegrenade_expired is triggered.",
 				"return": "void",
 				"params": {
@@ -2956,7 +2951,7 @@
 			"molotovdetonate": {
 				"title": "OnMolotovDetonate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when molotov_detonate is triggered.",
 				"return": "void",
 				"params": {
@@ -2970,7 +2965,7 @@
 			"decoydetonate": {
 				"title": "OnDecoyDetonate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when decoy_detonate is triggered.",
 				"return": "void",
 				"params": {
@@ -2985,7 +2980,7 @@
 			"decoystarted": {
 				"title": "OnDecoyStarted",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when decoy_started is triggered.",
 				"return": "void",
 				"params": {
@@ -3000,7 +2995,7 @@
 			"tagrenadedetonate": {
 				"title": "OnTagrenadeDetonate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when tagrenade_detonate is triggered.",
 				"return": "void",
 				"params": {
@@ -3015,7 +3010,7 @@
 			"infernostartburn": {
 				"title": "OnInfernoStartBurn",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when inferno_startburn is triggered.",
 				"return": "void",
 				"params": {
@@ -3029,7 +3024,7 @@
 			"infernoexpire": {
 				"title": "OnInfernoExpire",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when inferno_expire is triggered.",
 				"return": "void",
 				"params": {
@@ -3043,7 +3038,7 @@
 			"infernoextinguish": {
 				"title": "OnInfernoExtinguish",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when inferno_extinguish is triggered.",
 				"return": "void",
 				"params": {
@@ -3057,7 +3052,7 @@
 			"decoyfiring": {
 				"title": "OnDecoyFiring",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when decoy_firing is triggered.",
 				"return": "void",
 				"params": {
@@ -3072,7 +3067,7 @@
 			"bulletimpact": {
 				"title": "OnBulletImpact",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when bullet_impact is triggered.",
 				"return": "void",
 				"params": {
@@ -3086,7 +3081,7 @@
 			"doormoving": {
 				"title": "OnDoorMoving",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when door_moving is triggered.",
 				"return": "void",
 				"params": {
@@ -3098,7 +3093,7 @@
 			"mbinputlocksuccess": {
 				"title": "OnMBInputLockSuccess",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when mb_input_lock_success is triggered.",
 				"return": "void",
 				"params": {},
@@ -3107,7 +3102,7 @@
 			"mbinputlockcancel": {
 				"title": "OnMBInputLockCancel",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when mb_input_lock_cancel is triggered.",
 				"return": "void",
 				"params": {},
@@ -3116,7 +3111,7 @@
 			"navblocked": {
 				"title": "OnNavBlocked",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when nav_blocked is triggered.",
 				"return": "void",
 				"params": {
@@ -3128,7 +3123,7 @@
 			"navgenerate": {
 				"title": "OnNavGenerate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when nav_generate is triggered.",
 				"return": "void",
 				"params": {},
@@ -3137,7 +3132,7 @@
 			"achievementinfoloaded": {
 				"title": "OnAchievementInfoLoaded",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when achievement_info_loaded is triggered.",
 				"return": "void",
 				"params": {},
@@ -3146,7 +3141,7 @@
 			"hltvchangedmode": {
 				"title": "OnHLTVChangedMode",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_changed_mode is triggered.",
 				"return": "void",
 				"params": {
@@ -3159,7 +3154,7 @@
 			"csgamedisconnected": {
 				"title": "OnCSGameDisconnected",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cs_game_disconnected is triggered.",
 				"return": "void",
 				"params": {},
@@ -3168,7 +3163,7 @@
 			"csroundfinalbeep": {
 				"title": "OnCSRoundFinalBeep",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cs_round_final_beep is triggered.",
 				"return": "void",
 				"params": {},
@@ -3177,7 +3172,7 @@
 			"csroundstartbeep": {
 				"title": "OnCSRoundStartBeep",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cs_round_start_beep is triggered.",
 				"return": "void",
 				"params": {},
@@ -3186,7 +3181,7 @@
 			"cswinpanelround": {
 				"title": "OnCSWinPanelRound",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cs_win_panel_round is triggered.",
 				"return": "void",
 				"params": {
@@ -3205,7 +3200,7 @@
 			"cswinpanelmatch": {
 				"title": "OnCSWinPanelMatch",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cs_win_panel_match is triggered.",
 				"return": "void",
 				"params": {},
@@ -3214,7 +3209,7 @@
 			"csmatchendrestart": {
 				"title": "OnCSMatchEndRestart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cs_match_end_restart is triggered.",
 				"return": "void",
 				"params": {},
@@ -3223,7 +3218,7 @@
 			"csprerestart": {
 				"title": "OnCSPreRestart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cs_pre_restart is triggered.",
 				"return": "void",
 				"params": {},
@@ -3232,7 +3227,7 @@
 			"showdeathpanel": {
 				"title": "OnShowDeathpanel",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when show_deathpanel is triggered.",
 				"return": "void",
 				"params": {
@@ -3249,7 +3244,7 @@
 			"hidedeathpanel": {
 				"title": "OnHideDeathpanel",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hide_deathpanel is triggered.",
 				"return": "void",
 				"params": {},
@@ -3258,7 +3253,7 @@
 			"achievementearnedlocal": {
 				"title": "OnAchievementEarnedLocal",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when achievement_earned_local is triggered.",
 				"return": "void",
 				"params": {
@@ -3270,7 +3265,7 @@
 			"repostxboxachievements": {
 				"title": "OnRepostXboxAchievements",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when repost_xbox_achievements is triggered.",
 				"return": "void",
 				"params": {
@@ -3281,7 +3276,7 @@
 			"matchendconditions": {
 				"title": "OnMatchEndConditions",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when match_end_conditions is triggered.",
 				"return": "void",
 				"params": {
@@ -3295,7 +3290,7 @@
 			"showsurvivalrespawnstatus": {
 				"title": "OnShowSurvivalRespawnStatus",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when show_survival_respawn_status is triggered.",
 				"return": "void",
 				"params": {
@@ -3308,7 +3303,7 @@
 			"ggkilledenemy": {
 				"title": "OnGGKilledEnemy",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when gg_killed_enemy is triggered.",
 				"return": "void",
 				"params": {
@@ -3323,7 +3318,7 @@
 			"switchteam": {
 				"title": "OnSwitchTeam",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when switch_team is triggered.",
 				"return": "void",
 				"params": {
@@ -3338,7 +3333,7 @@
 			"writeprofiledata": {
 				"title": "OnWriteProfileData",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when write_profile_data is triggered.",
 				"return": "void",
 				"params": {},
@@ -3347,7 +3342,7 @@
 			"trialtimeexpired": {
 				"title": "OnTrialTimeExpired",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when trial_time_expired is triggered.",
 				"return": "void",
 				"params": {
@@ -3358,7 +3353,7 @@
 			"updatematchmakingstats": {
 				"title": "OnUpdateMatchmakingStats",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when update_matchmaking_stats is triggered.",
 				"return": "void",
 				"params": {},
@@ -3367,7 +3362,7 @@
 			"playerresetvote": {
 				"title": "OnPlayerResetVote",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_reset_vote is triggered.",
 				"return": "void",
 				"params": {
@@ -3379,7 +3374,7 @@
 			"enablerestartvoting": {
 				"title": "OnEnableRestartVoting",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when enable_restart_voting is triggered.",
 				"return": "void",
 				"params": {
@@ -3390,7 +3385,7 @@
 			"sfuievent": {
 				"title": "OnSfuievent",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when sfuievent is triggered.",
 				"return": "void",
 				"params": {
@@ -3403,7 +3398,7 @@
 			"startvote": {
 				"title": "OnStartVote",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when start_vote is triggered.",
 				"return": "void",
 				"params": {
@@ -3416,7 +3411,7 @@
 			"playergivenc4": {
 				"title": "OnPlayerGivenBomb",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_given_c4 is triggered.",
 				"return": "void",
 				"params": {
@@ -3427,7 +3422,7 @@
 			"trplayerflashbanged": {
 				"title": "OnTRPlayerFlashbanged",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when tr_player_flashbanged is triggered.",
 				"return": "void",
 				"params": {
@@ -3438,7 +3433,7 @@
 			"trmarkcomplete": {
 				"title": "OnTRMarkComplete",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when tr_mark_complete is triggered.",
 				"return": "void",
 				"params": {
@@ -3449,7 +3444,7 @@
 			"trmarkbesttime": {
 				"title": "OnTRMarkBestTime",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when tr_mark_best_time is triggered.",
 				"return": "void",
 				"params": {
@@ -3460,7 +3455,7 @@
 			"trexithinttrigger": {
 				"title": "OnTRExitHintTrigger",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when tr_exit_hint_trigger is triggered.",
 				"return": "void",
 				"params": {},
@@ -3469,7 +3464,7 @@
 			"bottakeover": {
 				"title": "OnBotTakeover",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when bot_takeover is triggered.",
 				"return": "void",
 				"params": {
@@ -3481,7 +3476,7 @@
 			"trshowfinishmsgbox": {
 				"title": "OnTRShowFinishMsgbox",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when tr_show_finish_msgbox is triggered.",
 				"return": "void",
 				"params": {},
@@ -3490,7 +3485,7 @@
 			"trshowexitmsgbox": {
 				"title": "OnTRShowExitMsgbox",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when tr_show_exit_msgbox is triggered.",
 				"return": "void",
 				"params": {},
@@ -3499,7 +3494,7 @@
 			"jointeamfailed": {
 				"title": "OnJoinTeamFailed",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when jointeam_failed is triggered.",
 				"return": "void",
 				"params": {
@@ -3511,7 +3506,7 @@
 			"teamchangepending": {
 				"title": "OnTeamChangePending",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when teamchange_pending is triggered.",
 				"return": "void",
 				"params": {
@@ -3523,7 +3518,7 @@
 			"materialdefaultcomplete": {
 				"title": "OnMaterialDefaultComplete",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when material_default_complete is triggered.",
 				"return": "void",
 				"params": {},
@@ -3532,7 +3527,7 @@
 			"csprevnextspectator": {
 				"title": "OnCSPrevNextSpectator",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when cs_prev_next_spectator is triggered.",
 				"return": "void",
 				"params": {
@@ -3543,7 +3538,7 @@
 			"nextlevelchanged": {
 				"title": "OnNextLevelChanged",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when nextlevel_changed is triggered.",
 				"return": "void",
 				"params": {
@@ -3556,7 +3551,7 @@
 			"seasoncoinlevelup": {
 				"title": "OnSeasoncoinLevelup",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when seasoncoin_levelup is triggered.",
 				"return": "void",
 				"params": {
@@ -3569,7 +3564,7 @@
 			"tournamentreward": {
 				"title": "OnTournamentReward",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when tournament_reward is triggered.",
 				"return": "void",
 				"params": {
@@ -3582,7 +3577,7 @@
 			"starthalftime": {
 				"title": "OnStartHalftime",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when start_halftime is triggered.",
 				"return": "void",
 				"params": {},
@@ -3591,7 +3586,7 @@
 			"ammorefill": {
 				"title": "OnAmmoRefill",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when ammo_refill is triggered.",
 				"return": "void",
 				"params": {
@@ -3603,7 +3598,7 @@
 			"parachutepickup": {
 				"title": "OnParachutePickup",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when parachute_pickup is triggered.",
 				"return": "void",
 				"params": {
@@ -3614,7 +3609,7 @@
 			"parachutedeploy": {
 				"title": "OnParachuteDeploy",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when parachute_deploy is triggered.",
 				"return": "void",
 				"params": {
@@ -3625,7 +3620,7 @@
 			"dronegunattack": {
 				"title": "OnDronegunAttack",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when dronegun_attack is triggered.",
 				"return": "void",
 				"params": {
@@ -3636,7 +3631,7 @@
 			"dronedispatched": {
 				"title": "OnDroneDispatched",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when drone_dispatched is triggered.",
 				"return": "void",
 				"params": {
@@ -3649,7 +3644,7 @@
 			"lootcratevisible": {
 				"title": "OnLootCrateVisible",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when loot_crate_visible is triggered.",
 				"return": "void",
 				"params": {
@@ -3662,7 +3657,7 @@
 			"lootcrateopened": {
 				"title": "OnLootCrateOpened",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when loot_crate_opened is triggered.",
 				"return": "void",
 				"params": {
@@ -3674,7 +3669,7 @@
 			"opencrateinstr": {
 				"title": "OnOpenCrateInstructions",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when open_crate_instr is triggered.",
 				"return": "void",
 				"params": {
@@ -3687,7 +3682,7 @@
 			"smokebeaconparadrop": {
 				"title": "OnSmokeBeaconParadrop",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when smoke_beacon_paradrop is triggered.",
 				"return": "void",
 				"params": {
@@ -3699,7 +3694,7 @@
 			"survivalparadropspawn": {
 				"title": "OnSurvivalParadropSpawn",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when survival_paradrop_spawn is triggered.",
 				"return": "void",
 				"params": {
@@ -3710,7 +3705,7 @@
 			"survivalparadropbreak": {
 				"title": "OnSurvivalParadropBreak",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when survival_paradrop_break is triggered.",
 				"return": "void",
 				"params": {
@@ -3721,7 +3716,7 @@
 			"dronecargodetached": {
 				"title": "OnDroneCargoDetached",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when drone_cargo_detached is triggered.",
 				"return": "void",
 				"params": {
@@ -3734,7 +3729,7 @@
 			"droneaboveroof": {
 				"title": "OnDroneAboveRoof",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when drone_above_roof is triggered.",
 				"return": "void",
 				"params": {
@@ -3746,7 +3741,7 @@
 			"choppersincomingwarning": {
 				"title": "OnChoppersIncomingWarning",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when choppers_incoming_warning is triggered.",
 				"return": "void",
 				"params": {
@@ -3757,7 +3752,7 @@
 			"firstbombsincomingwarning": {
 				"title": "OnFirstbombsIncomingWarning",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when firstbombs_incoming_warning is triggered.",
 				"return": "void",
 				"params": {
@@ -3768,7 +3763,7 @@
 			"dziteminteraction": {
 				"title": "OnDZItemInteraction",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when dz_item_interaction is triggered.",
 				"return": "void",
 				"params": {
@@ -3781,7 +3776,7 @@
 			"survivalteammaterespawn": {
 				"title": "OnSurvivalTeammateRespawn",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when survival_teammate_respawn is triggered.",
 				"return": "void",
 				"params": {
@@ -3792,7 +3787,7 @@
 			"survivalnorespawnswarning": {
 				"title": "OnSurvivalNoRespawnsWarning",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when survival_no_respawns_warning is triggered.",
 				"return": "void",
 				"params": {
@@ -3803,7 +3798,7 @@
 			"survivalnorespawnsfinal": {
 				"title": "OnSurvivalNoRespawnsFinal",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when survival_no_respawns_final is triggered.",
 				"return": "void",
 				"params": {
@@ -3814,7 +3809,7 @@
 			"playerping": {
 				"title": "OnPlayerPing",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_ping is triggered.",
 				"return": "void",
 				"params": {
@@ -3830,7 +3825,7 @@
 			"playerpingstop": {
 				"title": "OnPlayerPingStop",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_ping_stop is triggered.",
 				"return": "void",
 				"params": {
@@ -3841,7 +3836,7 @@
 			"playersound": {
 				"title": "OnPlayerSound",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when player_sound is triggered.",
 				"return": "void",
 				"params": {
@@ -3855,7 +3850,7 @@
 			"guardianwaverestart": {
 				"title": "OnGuardianWaveRestart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when guardian_wave_restart is triggered.",
 				"return": "void",
 				"params": {},
@@ -3864,7 +3859,7 @@
 			"teamintrostart": {
 				"title": "OnTeamIntroStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when team_intro_start is triggered.",
 				"return": "void",
 				"params": {},
@@ -3873,7 +3868,7 @@
 			"teamintroend": {
 				"title": "OnTeamIntroEnd",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when team_intro_end is triggered.",
 				"return": "void",
 				"params": {},
@@ -3882,7 +3877,7 @@
 			"bulletflightresolution": {
 				"title": "OnBulletFlightResolution",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when bullet_flight_resolution is triggered.",
 				"return": "void",
 				"params": {
@@ -3902,7 +3897,7 @@
 			"doorbreak": {
 				"title": "OnDoorBreak",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when door_break is triggered.",
 				"return": "void",
 				"params": {
@@ -3914,7 +3909,7 @@
 			"doorclosed": {
 				"title": "OnDoorClosed",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when door_closed is triggered.",
 				"return": "void",
 				"params": {
@@ -3926,7 +3921,7 @@
 			"dooropen": {
 				"title": "OnDoorOpen",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when door_open is triggered.",
 				"return": "void",
 				"params": {
@@ -3938,7 +3933,7 @@
 			"gamephasechanged": {
 				"title": "OnGamePhaseChanged",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when game_phase_changed is triggered.",
 				"return": "void",
 				"params": {
@@ -3949,7 +3944,7 @@
 			"hltvreplaystatus": {
 				"title": "OnHLTVReplayStatus",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when hltv_replay_status is triggered.",
 				"return": "void",
 				"params": {
@@ -3960,7 +3955,7 @@
 			"onplayerblind": {
 				"title": "OnPlayerBlind",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a player gets blinded by a flashbang.",
 				"return": "void",
 				"params": {
@@ -3974,7 +3969,7 @@
 			"onplayerchat": {
 				"title": "OnPlayerChat",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is triggered at every message that a player sends.",
 				"return": "bool",
 				"params": {
@@ -3983,14 +3978,14 @@
 					"teamonly": "bool"
 				},
 				"additional": {
-					"cpp": ":::note\n @return true => Allows the message\n@return false => Blocks the message \n:::",
-					"lua": ":::note\n @return true => Allows the message\n@return false => Blocks the message \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the message\n@return false => Blocks the message \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the message\n@return false => Blocks the message \n</Callout>"
 				}
 			},
 			"onclientcommand": {
 				"title": "OnClientCommand",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is triggered a client wants to execute a command.",
 				"return": "bool",
 				"params": {
@@ -3998,14 +3993,14 @@
 					"command": "const char*"
 				},
 				"additional": {
-					"cpp": ":::note\n @return true => Allows the command\n@return false => Blocks the command \n:::",
-					"lua": ":::note\n @return true => Allows the command\n@return false => Blocks the command \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the command\n@return false => Blocks the command \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Allows the command\n@return false => Blocks the command \n</Callout>"
 				}
 			},
 			"onplayerdeath": {
 				"title": "OnPlayerDeath",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is triggered a player dies.",
 				"return": "void",
 				"params": {
@@ -4029,14 +4024,14 @@
 					"hitgroup": "short"
 				},
 				"additional": {
-					"cpp": ":::warning\n `attacker` and `assister` can be invalid players \n:::",
-					"lua": ":::warning\n `attackerid` and `assisterid` can be invalid player ids \n:::"
+					"cpp": "<Callout type=\"warning\" emoji=\"⚠️\">\n `attacker` and `assister` can be invalid players \n</Callout>",
+					"lua": "<Callout type=\"warning\" emoji=\"⚠️\">\n `attackerid` and `assisterid` can be invalid player ids \n</Callout>"
 				}
 			},
 			"onplayerhurt": {
 				"title": "OnPlayerHurt",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a player is hurt.",
 				"return": "void",
 				"params": {
@@ -4052,7 +4047,7 @@
 			"onplayerspawn": {
 				"title": "OnPlayerSpawn",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a player spawns on server.",
 				"return": "void",
 				"params": {
@@ -4063,21 +4058,21 @@
 			"onplayerprejump": {
 				"title": "OnPlayerPreJump",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called before a player jumps.",
 				"return": "bool",
 				"params": {
 					"player": "player"
 				},
 				"additional": {
-					"cpp": ":::note\n @return true => Player can jump\n@return false => Player can't jump \n:::",
-					"lua": ":::note\n @return true => Player can jump\n@return false => Player can't jump \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Player can jump\n@return false => Player can't jump \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Player can jump\n@return false => Player can't jump \n</Callout>"
 				}
 			},
 			"onplayerpostjump": {
 				"title": "OnPlayerPostJump",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called after a player jumps.",
 				"return": "void",
 				"params": {
@@ -4088,7 +4083,7 @@
 			"onplayerjump": {
 				"title": "OnPlayerJump",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a player jumps.",
 				"return": "void",
 				"params": {
@@ -4099,7 +4094,7 @@
 			"onroundmvp": {
 				"title": "OnRoundMVP",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when MVP is triggered.",
 				"return": "void",
 				"params": {
@@ -4115,7 +4110,7 @@
 			"onplayerinfo": {
 				"title": "OnPlayerInfo",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a player changes it's info.",
 				"return": "void",
 				"params": {
@@ -4129,7 +4124,7 @@
 			"onplayerteam": {
 				"title": "OnPlayerTeam",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a player changes it's team.",
 				"return": "void",
 				"params": {
@@ -4145,7 +4140,7 @@
 			"onplayerchangename": {
 				"title": "OnPlayerChangeName",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a player changes it's name.",
 				"return": "void",
 				"params": {
@@ -4158,7 +4153,7 @@
 			"onpluginstart": {
 				"title": "OnPluginStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event triggers when plugin starts.",
 				"return": "void",
 				"params": {},
@@ -4167,7 +4162,7 @@
 			"allpluginsloaded": {
 				"title": "AllPluginsLoaded",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event triggers when all plugins have been loaded.",
 				"return": "void",
 				"params": {},
@@ -4176,7 +4171,7 @@
 			"onpluginstop": {
 				"title": "OnPluginStop",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event triggers when plugin stops.",
 				"return": "void",
 				"params": {},
@@ -4185,7 +4180,7 @@
 			"onroundend": {
 				"title": "OnRoundEnd",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a round ends.",
 				"return": "void",
 				"params": {
@@ -4201,7 +4196,7 @@
 			"onroundprestart": {
 				"title": "OnRoundPrestart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called before the player spawns for a new round.",
 				"return": "void",
 				"params": {},
@@ -4210,7 +4205,7 @@
 			"onroundstart": {
 				"title": "OnRoundStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a new round starts.",
 				"return": "void",
 				"params": {
@@ -4223,7 +4218,7 @@
 			"onweaponspawned": {
 				"title": "OnWeaponSpawned",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called when a weapon is spawned on world by a player.",
 				"return": "void",
 				"params": {
@@ -4235,21 +4230,21 @@
 			"shouldhearvoice": {
 				"title": "ShouldHearVoice",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player needs to be checked if he needs to hear a voice or not.",
 				"return": "bool",
 				"params": {
 					"player": "player"
 				},
 				"additional": {
-					"cpp": ":::note\n @return true => Player can talk\n@return false => Player can't talk \n:::",
-					"lua": ":::note\n @return true => Player can talk\n@return false => Player can't talk \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Player can talk\n@return false => Player can't talk \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Player can talk\n@return false => Player can't talk \n</Callout>"
 				}
 			},
 			"onplayerfalldamage": {
 				"title": "OnPlayerFallDamage",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player receives fall damage. (Temporary Removed)",
 				"return": "void",
 				"params": {
@@ -4261,7 +4256,7 @@
 			"onplayerdamage": {
 				"title": "OnPlayerDamage",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player receives damage. (Temporary Removed)",
 				"return": "bool",
 				"params": {
@@ -4272,14 +4267,14 @@
 					"damageflags": "DamageFlags"
 				},
 				"additional": {
-					"cpp": ":::note\n @return true => Damage allowed\n@return false => Damage cancelled \n:::",
-					"lua": ":::note\n @return true => Damage allowed\n@return false => Damage cancelled \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Damage allowed\n@return false => Damage cancelled \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Damage allowed\n@return false => Damage cancelled \n</Callout>"
 				}
 			},
 			"onplayerdamageplayer": {
 				"title": "OnPlayerDamagePlayer",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player receives damage from another player. (Temporary Removed)",
 				"return": "bool",
 				"params": {
@@ -4291,14 +4286,14 @@
 					"damageflags": "DamageFlags"
 				},
 				"additional": {
-					"cpp": ":::note\n @return true => Damage allowed\n@return false => Damage cancelled \n:::",
-					"lua": ":::note\n @return true => Damage allowed\n@return false => Damage cancelled \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Damage allowed\n@return false => Damage cancelled \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n @return true => Damage allowed\n@return false => Damage cancelled \n</Callout>"
 				}
 			},
 			"onclientfullconnect": {
 				"title": "OnClientFullConnected",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player fully connects to server.",
 				"return": "void",
 				"params": {
@@ -4309,7 +4304,7 @@
 			"onplayerfullupdate": {
 				"title": "OnPlayerFullUpdate",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player fully updates.",
 				"return": "void",
 				"params": {
@@ -4321,7 +4316,7 @@
 			"onitempickup": {
 				"title": "OnItemPickup",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player picks up an item.",
 				"return": "void",
 				"params": {
@@ -4335,7 +4330,7 @@
 			"onenterbuyzone": {
 				"title": "OnEnterBuyzone",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player enters in a buyzone.",
 				"return": "void",
 				"params": {
@@ -4347,7 +4342,7 @@
 			"onclientexecutecommand": {
 				"title": "OnClientExecuteCommand",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player executes a command.",
 				"return": "void",
 				"params": {
@@ -4359,7 +4354,7 @@
 			"onexitbuyzone": {
 				"title": "OnExitBuyzone",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player leaves a buyzone.",
 				"return": "void",
 				"params": {
@@ -4371,7 +4366,7 @@
 			"onenterbombzone": {
 				"title": "OnEnterBombzone",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player enters in a bombzone.",
 				"return": "void",
 				"params": {
@@ -4384,7 +4379,7 @@
 			"onexitbombzone": {
 				"title": "OnExitBombzone",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game events is triggered when a player leaves a bombzone.",
 				"return": "void",
 				"params": {
@@ -4397,7 +4392,7 @@
 			"onroundpoststart": {
 				"title": "OnRoundPostStart",
 				"template": "event-syntax",
-				"language": "both",
+				"language": "gameevents",
 				"description": "This game event is called after OnRoundStart.",
 				"return": "void",
 				"params": {},
@@ -4415,7 +4410,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Logging system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/logger.h>\n\nLogger *logger = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    logger = new Logger(mainFilePath, pluginName);\n    ...\n}\n```"
@@ -4450,7 +4444,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Menu system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/menus.h>\n\nMenus *menus = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    menus = new Menus(pluginName);\n    ...\n}\n```"
@@ -4473,15 +4466,15 @@
 					"options": "std::vector<std::pair<std::string, std::string>>"
 				},
 				"additional": {
-					"cpp": ":::note\n The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB \n:::\n\n:::warning\n The options needs to be a pair of strings\n```cpp\n{\n    { \"option 1\", \"value 1\"},\n    {\"option 2\", \"value 2\"},\n    // ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. \n:::",
-					"lua": ":::note\n The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB \n:::\n\n:::warning\n The options needs to be a pair of strings\n```lua\n{\n    { \"option 1\", \"value 1\"},\n    {\"option 2\", \"value 2\"},\n    -- ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB \n</Callout>\n\n<Callout type=\"warning\" emoji=\"⚠️\">\n The options needs to be a pair of strings\n```cpp\n{\n    { \"option 1\", \"value 1\" },\n    { \"option 2\", \"value 2\" },\n    // ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. \n</Callout>",
+					"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n The color needs to be a hex string by the model RRGGBB.\n\nExample: 344CEB \n</Callout>\n\n<Callout type=\"warning\" emoji=\"⚠️\">\n The options needs to be a pair of strings\n```lua\n{\n    { \"option 1\", \"value 1\" },\n    { \"option 2\", \"value 2\" },\n    -- ...\n}\n```\nThe value can be replaced with a command from Swiftly and it's arguments, or it can be replaced with a menu id to open another menu.\n\nThe value can be also a blank string to not execute anything when it's selected. \n</Callout>"
 				}
 			},
 			"unregister": {
 				"title": "UnregisterMenu",
 				"template": "function-syntax",
 				"language": "both",
-				"description": "Unregistered a menu by the specified id.\n:::note\n It can unregister only the menus which were created from the inside of the plugin. \n:::",
+				"description": "Unregistered a menu by the specified id.\n<Callout type=\"info\" emoji=\"ℹ️\">\n It can unregister only the menus which were created from the inside of the plugin. \n</Callout>",
 				"variable": {
 					"cpp": "menus->UnregisterMenu",
 					"lua": "menus:Unregister"
@@ -4504,7 +4497,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly HTTP system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/http.h>\n\nHTTP *http = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    http = new HTTP();\n    ...\n}\n```"
@@ -4860,8 +4852,8 @@
 							"ranktype": "int32_t"
 						},
 						"additional": {
-							"cpp": ":::note\nThe rank type can get the following values:\n`7` - Wingman\n`11` - Premier\n`12` - Competitive\n:::",
-							"lua": ":::note\nThe rank type can get the following values:\n`7` - Wingman\n`11` - Premier\n`12` - Competitive\n:::"
+							"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\nThe rank type can get the following values:\n`7` - Wingman\n`11` - Premier\n`12` - Competitive\n</Callout>",
+							"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\nThe rank type can get the following values:\n`7` - Wingman\n`11` - Premier\n`12` - Competitive\n</Callout>"
 						}
 					},
 					"getchattag": {
@@ -5050,8 +5042,8 @@
 							"expiretime": "float"
 						},
 						"additional": {
-							"lua": ":::note\n The expiretime needs to be the form of server:GetCurrentTime() + Duration. \n:::",
-							"cpp": ":::note\n The expiretime needs to be the form of server->GetCurrentTime() + Duration. \n:::"
+							"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n The expiretime needs to be the form of server:GetCurrentTime() + Duration. \n</Callout>",
+							"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n The expiretime needs to be the form of server->GetCurrentTime() + Duration. \n</Callout>"
 						}
 					},
 					"getconnectedtime": {
@@ -5285,8 +5277,8 @@
 							"cpp/...": ""
 						},
 						"additional": {
-							"cpp": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. \n:::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```",
-							"lua": ":::note\n HUD_PRINTCENTER as destination supports HTML elements. \n:::\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```"
+							"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n HUD_PRINTCENTER as destination supports HTML elements. \n</Callout>\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```",
+							"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n HUD_PRINTCENTER as destination supports HTML elements. \n</Callout>\n\n### Colors\nBelow there are listed all the supported colors by Swiftly in chat:\n```\n{DEFAULT}\n{WHITE}\n{DARKRED}\n{LIGHTPURPLE}\n{GREEN}\n{OLIVE}\n{LIME}\n{RED}\n{GRAY}\n{GREY}\n{LIGHTYELLOW}\n{YELLOW}\n{SILVER}\n{BLUEGREY}\n{LIGHTBLUE}\n{BLUE}\n{DARKBLUE}\n{PURPLE}\n{MAGENTA}\n{LIGHTRED}\n{GOLD}\n{ORANGE}\n{TEAMCOLOR}\n```"
 						}
 					},
 					"setmodel": {
@@ -7425,8 +7417,8 @@
 						"return": "int",
 						"params": {},
 						"additional": {
-							"cpp": ":::note\n The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n:::",
-							"lua": ":::note\n The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n:::"
+							"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n</Callout>",
+							"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n The values which it can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n</Callout>"
 						}
 					},
 					"set": {
@@ -7443,8 +7435,8 @@
 							"team": "int"
 						},
 						"additional": {
-							"cpp": ":::note\n The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n:::",
-							"lua": ":::note\n The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n:::"
+							"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n</Callout>",
+							"lua": "<Callout type=\"info\" emoji=\"ℹ️\">\n The values which team can get are: `TEAM_NONE`, `TEAM_SPECTATOR`, `TEAM_T` and `TEAM_CT`. \n</Callout>"
 						}
 					}
 				}
@@ -13202,7 +13194,7 @@
 							"name": "const char*"
 						},
 						"additional": {
-							"cpp": ":::warning\n If the data type is not correct, the value returned will be 0. \n:::"
+							"cpp": "<Callout type=\"warning\" emoji=\"⚠️\">\n If the data type is not correct, the value returned will be 0. \n</Callout>"
 						}
 					},
 					"set": {
@@ -13220,8 +13212,8 @@
 							"value": "DataType"
 						},
 						"additional": {
-							"cpp": ":::warning\n If the data type is not supported, it will not be set. \n:::",
-							"lua": ":::warning\n If the data type is not supported, it will not be set. \n:::"
+							"cpp": "<Callout type=\"warning\" emoji=\"⚠️\">\n If the data type is not supported, it will not be set. \n</Callout>",
+							"lua": "<Callout type=\"warning\" emoji=\"⚠️\">\n If the data type is not supported, it will not be set. \n</Callout>"
 						}
 					}
 				}
@@ -13615,7 +13607,7 @@
 								"title": "SetSticker",
 								"template": "function-syntax",
 								"language": "both",
-								"description": "Sets the sticker to a weapon. \n:::note\n This needs to be called on NextTick.:::\n",
+								"description": "Sets the sticker to a weapon. \n<Callout type=\"info\" emoji=\"ℹ️\">\n This needs to be called on NextTick.\n</Callout>\n",
 								"variable": {
 									"cpp": "weapon->SetSticker",
 									"lua": "weapon:SetSticker"
@@ -13744,12 +13736,13 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "You need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/swiftly.h>\n\nPlayerManager *g_playerManager = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    g_playerManager = new PlayerManager();\n    ...\n}\n```"
 				},
-				"additional": ":::warning\n This is mandatory code in every plugin main entry file. \n:::"
+				"additional": {
+					"cpp": "<Callout type=\"warning\" emoji=\"⚠️\">\n This is mandatory code in every plugin main entry file. \n</Callout>"
+				}
 			},
 			"getplayer": {
 				"title": "GetPlayer",
@@ -13811,7 +13804,7 @@
 		}
 	},
 	"precacher": {
-		"title": "Precacher",
+		"title": "Precacher (Lua)",
 		"description": "A list of API functions for precaching files.",
 		"iscategory": true,
 		"language": "lua",
@@ -13856,7 +13849,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Server system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/server.h>\n\nServer *server = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    server = new Server();\n    ...\n}\n```"
@@ -14208,7 +14200,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "cpp",
-				"position": 1,
 				"description": "To use the Swiftly Timers system you need the following code in your plugin.",
 				"content": {
 					"cpp": "```cpp\n#include <swiftly/timers.h>\n\nTimers *timers = nullptr;\n\nvoid OnProgramLoad(const char *pluginName, const char *mainFilePath)\n{\n    ...\n    timers = new Timers();\n    ...\n}\n```"
@@ -14229,7 +14220,7 @@
 					"fn": "std::function<void()>"
 				},
 				"additional": {
-					"cpp": ":::note\n The function argument also supports lambda function ( \\[]\\{ ... } ). \n:::"
+					"cpp": "<Callout type=\"info\" emoji=\"ℹ️\">\n The function argument also supports lambda function ( \\[]\\{ ... } ). \n</Callout>"
 				}
 			},
 			"delete": {
@@ -14259,7 +14250,6 @@
 				"title": "Getting Started",
 				"template": "getting-started",
 				"language": "both",
-				"position": 1,
 				"description": "To use Swiftly Translation system you need to create a `JSON` file in `translations` folder with the following schema:",
 				"content": {
 					"cpp": "#### File Name\n```\ntranslation.MAIN_TRANSLATION_KEY.json\n```\n\n#### File Content\n```json\n{\n    \"key1.key2\": {\n        \"en\": \"English Translation\",\n        \"ro\": \"Traducere Română\"\n    },\n    ...\n}\n```",
@@ -14270,7 +14260,7 @@
 				"title": "Fetch",
 				"template": "function-syntax",
 				"language": "both",
-				"description": "Returns the translation for the specified key.\n:::warning\n If the translation key is non-existent for the specified language in core.json, it returns the the translation key. :::\n:::note\n\n Key Format: MAIN_TRANSLATION_KEY.TRANSLATION_KEY\n\nExample: test_plugin.core.started :::",
+				"description": "Returns the translation for the specified key.\n<Callout type=\"warning\" emoji=\"⚠️\">\n If the translation key is non-existent for the specified language in core.json, it returns the the translation key.\n</Callout>\n<Callout type=\"info\" emoji=\"ℹ️\">\n\n Key Format: MAIN_TRANSLATION_KEY.TRANSLATION_KEY\n\nExample: test_plugin.core.started\n</Callout>",
 				"variable": {
 					"cpp": "FetchTranslation",
 					"lua": "FetchTranslation"
@@ -14282,5 +14272,19 @@
 				"additional": {}
 			}
 		}
+	},
+	"types": {
+		"title": "Types",
+		"description": "All the types existent in Swiftly API.",
+		"iscategory": true,
+		"language": "both",
+		"data": {}
+	},
+	"utils": {
+		"title": "Utils",
+		"description": "A list of API functions for Swiftly Utils.",
+		"iscategory": true,
+		"language": "both",
+		"data": {}
 	}
 }

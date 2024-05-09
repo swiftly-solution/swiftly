@@ -1,5 +1,5 @@
 {
-    "getting-started": "{description}\n\n{content}\n{additional}",
-    "function-syntax": "{description}\n```{highlight_lang}\n@returns {return_type}\n{variable}({parameters})\n```\n{additional}",
-    "event-syntax": "{description}\n```{highlight_lang}\n@returns {return_type}\n{variable}\n```\n{additional}"
+    "getting-started": "{description}\n\n{callout}",
+    "function-syntax": "{description}\n{callout}",
+    "event-syntax": "{description}\n{callout}"
 }

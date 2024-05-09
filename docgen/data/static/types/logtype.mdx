@@ -1,0 +1,28 @@
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+
+# LogType
+
+<Tabs items={["Lua", "C++"]} defaultIndex="0">
+    <Tabs.Tab>
+```lua
+LogType = {
+    Debug = 1,
+    Warning = 2,
+    Error = 3,
+    Common = 4,
+}
+```
+    </Tabs.Tab>
+    <Tabs.Tab>
+```cpp
+enum ELogType
+{
+    LOGLEVEL_DEBUG = 1,
+    LOGLEVEL_WARNING = 2,
+    LOGLEVEL_ERROR = 3,
+    LOGLEVEL_COMMON = 4,
+};
+```
+    </Tabs.Tab>
+</Tabs>
