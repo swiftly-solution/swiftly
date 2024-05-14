@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+#include "generated/types.h"
+
 class Color
 {
 public:
@@ -128,35 +130,6 @@ enum ENetworkDisconnectionReason
     NETWORK_DISCONNECT_SERVER_SHUTDOWN = 69
 };
 
-enum WeaponSlot : uint32_t
-{
-    INVALID = 0xffffffff,
-    RIFLE = 0x0,
-    PISTOL = 0x1,
-    KNIFE = 0x2,
-    GRENADES = 0x3,
-    C4 = 0x4,
-    RSLOT6 = 0x5,
-    RSLOT7 = 0x6,
-    RSLOT8 = 0x7,
-    RSLOT9 = 0x8,
-    RSLOT10 = 0x9,
-    RSLOT11 = 0xa,
-    BOOSTS = 0xb,
-    UTILITY = 0xc,
-    COUNT = 0xd,
-    CURRENT_WEAPON = 0xe,
-    FIRST = 0x0,
-    LAST = 0xC,
-};
-
-enum WeaponSilencerType : uint32_t
-{
-    NONE = 0x0,
-    DETACHABLE = 0x1,
-    INTEGRATED = 0x2,
-};
-
 enum PluginState : int
 {
     STOPPED = 0,
@@ -191,120 +164,6 @@ enum CollisionGroup
     PZ_CLIP,
     PROPS,
     LAST_SHARED_COLLISION_GROUP
-};
-
-enum DamageTypes : uint32_t
-{
-    DMG_GENERIC = 0x0,
-    DMG_CRUSH = 0x1,
-    DMG_BULLET = 0x2,
-    DMG_SLASH = 0x4,
-    DMG_BURN = 0x8,
-    DMG_VEHICLE = 0x10,
-    DMG_FALL = 0x20,
-    DMG_BLAST = 0x40,
-    DMG_CLUB = 0x80,
-    DMG_SHOCK = 0x100,
-    DMG_SONIC = 0x200,
-    DMG_ENERGYBEAM = 0x400,
-    DMG_DROWN = 0x4000,
-    DMG_POISON = 0x8000,
-    DMG_RADIATION = 0x10000,
-    DMG_DROWNRECOVER = 0x20000,
-    DMG_ACID = 0x40000,
-    DMG_PHYSGUN = 0x100000,
-    DMG_DISSOLVE = 0x200000,
-    DMG_BLAST_SURFACE = 0x400000,
-    DMG_BUCKSHOT = 0x1000000,
-    DMG_LASTGENERICFLAG = 0x1000000,
-    DMG_HEADSHOT = 0x2000000,
-    DMG_DANGERZONE = 0x4000000,
-};
-
-enum DamageFlags : uint32_t
-{
-    FLAG_NONE = 0x0,
-    FLAG_SUPPRESS_HEALTH_CHANGES = 0x1,
-    FLAG_SUPPRESS_PHYSICS_FORCE = 0x2,
-    FLAG_SUPPRESS_EFFECTS = 0x4,
-    FLAG_PREVENT_DEATH = 0x8,
-    FLAG_FORCE_DEATH = 0x10,
-    FLAG_ALWAYS_GIB = 0x20,
-    FLAG_NEVER_GIB = 0x40,
-    FLAG_REMOVE_NO_RAGDOLL = 0x80,
-    FLAG_SUPPRESS_DAMAGE_MODIFICATION = 0x100,
-    FLAG_ALWAYS_FIRE_DAMAGE_EVENTS = 0x200,
-    FLAG_RADIUS_DMG = 0x400,
-    FLAG_LASTDFLAG = 0x400,
-    FLAG_IGNORE_ARMOR = 0x800,
-};
-
-enum CSPlayerState : uint32_t
-{
-    STATE_ACTIVE = 0x0,
-    STATE_WELCOME = 0x1,
-    STATE_PICKINGTEAM = 0x2,
-    STATE_PICKINGCLASS = 0x3,
-    STATE_DEATH_ANIM = 0x4,
-    STATE_DEATH_WAIT_FOR_KEY = 0x5,
-    STATE_OBSERVER_MODE = 0x6,
-    STATE_GUNGAME_RESPAWN = 0x7,
-    STATE_DORMANT = 0x8,
-    NUM_PLAYER_STATES = 0x9,
-};
-
-enum CSPlayerBlockingUseAction_t : uint32_t
-{
-    k_CSPlayerBlockingUseAction_None = 0x0,
-    k_CSPlayerBlockingUseAction_DefusingDefault = 0x1,
-    k_CSPlayerBlockingUseAction_DefusingWithKit = 0x2,
-    k_CSPlayerBlockingUseAction_HostageGrabbing = 0x3,
-    k_CSPlayerBlockingUseAction_HostageDropping = 0x4,
-    k_CSPlayerBlockingUseAction_OpeningSafe = 0x5,
-    k_CSPlayerBlockingUseAction_EquippingParachute = 0x6,
-    k_CSPlayerBlockingUseAction_EquippingHeavyArmor = 0x7,
-    k_CSPlayerBlockingUseAction_EquippingContract = 0x8,
-    k_CSPlayerBlockingUseAction_EquippingTabletUpgrade = 0x9,
-    k_CSPlayerBlockingUseAction_TakingOffHeavyArmor = 0xa,
-    k_CSPlayerBlockingUseAction_PayingToOpenDoor = 0xb,
-    k_CSPlayerBlockingUseAction_CancelingSpawnRappelling = 0xc,
-    k_CSPlayerBlockingUseAction_EquippingExoJump = 0xd,
-    k_CSPlayerBlockingUseAction_PickingUpBumpMine = 0xe,
-    k_CSPlayerBlockingUseAction_MapLongUseEntity_Pickup = 0xf,
-    k_CSPlayerBlockingUseAction_MapLongUseEntity_Place = 0x10,
-    k_CSPlayerBlockingUseAction_MaxCount = 0x11,
-};
-
-enum MoveType_t : uint8_t
-{
-    MOVETYPE_NONE = 0x0,
-    MOVETYPE_OBSOLETE = 0x1,
-    MOVETYPE_WALK = 0x2,
-    MOVETYPE_FLY = 0x3,
-    MOVETYPE_FLYGRAVITY = 0x4,
-    MOVETYPE_VPHYSICS = 0x5,
-    MOVETYPE_PUSH = 0x6,
-    MOVETYPE_NOCLIP = 0x7,
-    MOVETYPE_OBSERVER = 0x8,
-    MOVETYPE_LADDER = 0x9,
-    MOVETYPE_CUSTOM = 0xa,
-    MOVETYPE_LAST = 0xb,
-    MOVETYPE_INVALID = 0xb,
-    MOVETYPE_MAX_BITS = 0x5,
-};
-
-enum PlayerFlags : uint32_t
-{
-    FL_ONGROUND = 1 << 0,
-    FL_DUCKING = 1 << 1,
-    FL_WATERJUMP = 1 << 2,
-    FL_ONTRAIN = 1 << 3,
-    FL_INRAIN = 1 << 4,
-    FL_FROZEN = 1 << 5,
-    FL_ATCONTROLS = 1 << 6,
-    FL_CLIENT = 1 << 7,
-    FL_FAKECLIENT = 1 << 8,
-    FL_INWATER = 1 << 9,
 };
 
 #endif

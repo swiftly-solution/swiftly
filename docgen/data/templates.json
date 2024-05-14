@@ -1,5 +1,6 @@
 {
     "getting-started": "{description}\n\n{callout}",
     "function-syntax": "{description}\n{callout}",
-    "event-syntax": "{description}\n{callout}"
+    "event-syntax": "{description}\n{callout}",
+    "types-syntax": "{callout}"
 }

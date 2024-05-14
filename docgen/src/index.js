@@ -53,8 +53,8 @@ const lua_datamap = {
     "unsigned char": "number",
     "Weapon*": "number",
     CollisionGroup: "CollisionGroup",
-    DamageTypes: "DamageTypes",
-    DamageFlags: "DamageFlags",
+    DamageTypes_t: "DamageTypes_t",
+    TakeDamageFlags_t: "TakeDamageFlags_t",
     CSPlayerState: "CSPlayerState",
     CSPlayerBlockingUseAction_t: "CSPlayerBlockingUseAction_t",
     MoveType_t: "MoveType_t"
@@ -173,14 +173,35 @@ const GenerateFunctionSyntax = (data) => {
     </Tabs>`
 }
 
+const GenerateTypeData = (data) => {
+    const langs = languages;
+
+    const prettyNames = []
+    for (const lang of langs) prettyNames.push(languagePrettyNames[lang]);
+
+    const callouts = [];
+
+    for (const lang of langs) {
+        callouts.push(`<Tabs.Tab>
+            \`\`\`${lang}
+            ${lang == "cpp" ? "enum " : ""}${data.title} = {\n${(Object.keys(data.values).map((val) => `    ${val} = ${data.values[val]},`)).join("\n")}\n}
+            \`\`\`
+        </Tabs.Tab>`)
+    }
+
+    return `<Tabs items={${JSON.stringify(prettyNames)}} defaultIndex="0">
+        ${callouts.join("\n")}
+    </Tabs>`
+}
+
 const ProcessTemplate = (data) => {
     const template = templates[data.template]
     if (template == undefined) return "";
 
     if (data.template == "getting-started") return template.replace(/{description}/g, data.description).replace(/{callout}/g, GenerateGettingStarted(data));
-    // else if (data.template == "function-syntax") return template.replace(/{description}/g, data.description).replace(/{return_type}/g, GenerateType(data.return, language)).replace(/{highlight_lang}/g, language).replace(/{variable}/g, data.variable[language]).replace(/{parameters}/g, ProcessParameters(data.params, language)).replace(/{additional}/g, (data.additional[language] || ""));
     else if (data.template == "function-syntax") return template.replace(/{description}/g, data.description).replace(/{callout}/g, GenerateFunctionSyntax(data));
     else if (data.template == "event-syntax") return template.replace(/{description}/g, data.description).replace(/{callout}/g, GenerateEventData(data));
+    else if (data.template == "types-syntax") return template.replace(/{callout}/g, GenerateTypeData(data));
 }
 
 const ProcessData = async (data, subfolder) => {
@@ -188,7 +209,7 @@ const ProcessData = async (data, subfolder) => {
         if (data[key].iscategory) {
             mkdirSync(`output/${subfolder}${key}`, { recursive: true });
 
-            if (Object.keys(data[key].data).length > 0) writeFileSync(`output/${subfolder}${key}/_meta.json`, JSON.stringify({}, null, 4));
+            if (Object.keys(data[key].data).length > 0 && !existsSync(`output/${subfolder}${key}/_meta.json`)) writeFileSync(`output/${subfolder}${key}/_meta.json`, JSON.stringify({}, null, 4));
             if (existsSync(`output/${subfolder}_meta.json`)) {
                 let jsonParsed = JSON.parse(readFileSync(`output/${subfolder}_meta.json`).toString())
                 jsonParsed[key] = data[key].title

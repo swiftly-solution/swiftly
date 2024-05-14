@@ -137,33 +137,6 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     ConVarTypeTable.SetInteger("Vector4", 13);
     ConVarTypeTable.SetInteger("Qangle", 14);
 
-    auto WeaponSlotTable = state->CreateTable("WeaponSlot");
-
-    WeaponSlotTable.SetInteger("Invalid", 0xffffffff);
-    WeaponSlotTable.SetInteger("Rifle", 0x0);
-    WeaponSlotTable.SetInteger("Pistol", 0x1);
-    WeaponSlotTable.SetInteger("Knife", 0x2);
-    WeaponSlotTable.SetInteger("Grenades", 0x3);
-    WeaponSlotTable.SetInteger("C4", 0x4);
-    WeaponSlotTable.SetInteger("ReservedSlot6", 0x5);
-    WeaponSlotTable.SetInteger("ReservedSlot7", 0x6);
-    WeaponSlotTable.SetInteger("ReservedSlot8", 0x7);
-    WeaponSlotTable.SetInteger("ReservedSlot9", 0x8);
-    WeaponSlotTable.SetInteger("ReservedSlot10", 0x9);
-    WeaponSlotTable.SetInteger("ReservedSlot11", 0xa);
-    WeaponSlotTable.SetInteger("Boosts", 0xb);
-    WeaponSlotTable.SetInteger("Utility", 0xc);
-    WeaponSlotTable.SetInteger("Count", 0xd);
-    WeaponSlotTable.SetInteger("CurrentWeapon", 0xe);
-    WeaponSlotTable.SetInteger("First", 0x0);
-    WeaponSlotTable.SetInteger("Last", 0xC);
-
-    auto WeaponSilencerTypeTable = state->CreateTable("WeaponSilencerType");
-
-    WeaponSilencerTypeTable.SetInteger("None", 0x0);
-    WeaponSilencerTypeTable.SetInteger("Detachable", 0x1);
-    WeaponSilencerTypeTable.SetInteger("Integrated", 0x2);
-
     auto PluginStateTable = state->CreateTable("PluginState");
 
     PluginStateTable.SetInteger("Stopped", 0);
@@ -198,114 +171,6 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     CollisionGroupTable.SetInteger("Props", 24);
     CollisionGroupTable.SetInteger("LastSharedCollisionGroup", 25);
 
-    auto DamageTypesTable = state->CreateTable("DamageTypes");
-
-    DamageTypesTable.SetInteger("Generic", 0);
-    DamageTypesTable.SetInteger("Crush", 1);
-    DamageTypesTable.SetInteger("Bullet", 2);
-    DamageTypesTable.SetInteger("Slash", 4);
-    DamageTypesTable.SetInteger("Burn", 8);
-    DamageTypesTable.SetInteger("Vehicle", 16);
-    DamageTypesTable.SetInteger("Fall", 32);
-    DamageTypesTable.SetInteger("Blast", 64);
-    DamageTypesTable.SetInteger("Club", 128);
-    DamageTypesTable.SetInteger("Shock", 256);
-    DamageTypesTable.SetInteger("Sonic", 512);
-    DamageTypesTable.SetInteger("Energybeam", 1024);
-    DamageTypesTable.SetInteger("Drown", 16384);
-    DamageTypesTable.SetInteger("Poison", 32768);
-    DamageTypesTable.SetInteger("Radiation", 65536);
-    DamageTypesTable.SetInteger("Drownrecover", 131072);
-    DamageTypesTable.SetInteger("Acid", 262144);
-    DamageTypesTable.SetInteger("Physgun", 1048576);
-    DamageTypesTable.SetInteger("Dissolve", 2097152);
-    DamageTypesTable.SetInteger("BlastSurface", 4194304);
-    DamageTypesTable.SetInteger("Buckshot", 16777216);
-    DamageTypesTable.SetInteger("LastGenericFlag", 16777216);
-    DamageTypesTable.SetInteger("Headshot", 33554432);
-    DamageTypesTable.SetInteger("Dangerzone", 67108864);
-
-    auto DamageFlagsTable = state->CreateTable("DamageFlags");
-
-    DamageFlagsTable.SetInteger("None", 0);
-    DamageFlagsTable.SetInteger("SupressHealthChanges", 1);
-    DamageFlagsTable.SetInteger("SupressPhysicsForce", 2);
-    DamageFlagsTable.SetInteger("SupressEffects", 4);
-    DamageFlagsTable.SetInteger("PreventDeath", 8);
-    DamageFlagsTable.SetInteger("ForceDeath", 16);
-    DamageFlagsTable.SetInteger("AlwaysGib", 32);
-    DamageFlagsTable.SetInteger("NeverGib", 64);
-    DamageFlagsTable.SetInteger("RemoveNoRagdoll", 128);
-    DamageFlagsTable.SetInteger("SupressDamageModification", 256);
-    DamageFlagsTable.SetInteger("AlwaysFireDamageEvents", 512);
-    DamageFlagsTable.SetInteger("RadiusDmg", 1024);
-    DamageFlagsTable.SetInteger("LastDFlag", 1024);
-    DamageFlagsTable.SetInteger("IgnoreArmor", 2048);
-
-    auto CSPlayerStateTable = state->CreateTable("CSPlayerState");
-
-    CSPlayerStateTable.SetInteger("STATE_ACTIVE", 0);
-    CSPlayerStateTable.SetInteger("STATE_WELCOME", 1);
-    CSPlayerStateTable.SetInteger("STATE_PICKINGTEAM", 2);
-    CSPlayerStateTable.SetInteger("STATE_PICKINGCLASS", 3);
-    CSPlayerStateTable.SetInteger("STATE_DEATH_ANIM", 4);
-    CSPlayerStateTable.SetInteger("STATE_DEATH_WAIT_FOR_KEY", 5);
-    CSPlayerStateTable.SetInteger("STATE_OBSERVER_MODE", 6);
-    CSPlayerStateTable.SetInteger("STATE_GUNGAME_RESPAWN", 7);
-    CSPlayerStateTable.SetInteger("STATE_DORMANT", 8);
-    CSPlayerStateTable.SetInteger("NUM_PLAYER_STATES", 9);
-
-    auto CSPlayerBlockingUseAction_tTable = state->CreateTable("CSPlayerBlockingUseAction_t");
-
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_None", 0);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_DefusingDefault", 1);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_DefusingWithKit", 2);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_HostageGrabbing", 3);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_HostageDropping", 4);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_OpeningSafe", 5);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingParachute", 6);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingHeavyArmor", 7);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingContract", 8);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingTabletUpgrade", 9);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_TakingOffHeavyArmor", 10);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_PayingToOpenDoor", 11);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_CancelingSpawnRappelling", 12);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_EquippingExoJump", 13);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_PickingUpBumpMine", 14);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_MapLongUseEntity_Pickup", 15);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_MapLongUseEntity_Place", 16);
-    CSPlayerBlockingUseAction_tTable.SetInteger("k_CSPlayerBlockingUseAction_MaxCount", 17);
-
-    auto MoveType_tTable = state->CreateTable("MoveType_t");
-
-    MoveType_tTable.SetInteger("MOVETYPE_NONE", 0);
-    MoveType_tTable.SetInteger("MOVETYPE_OBSOLETE", 1);
-    MoveType_tTable.SetInteger("MOVETYPE_WALK", 2);
-    MoveType_tTable.SetInteger("MOVETYPE_FLY", 3);
-    MoveType_tTable.SetInteger("MOVETYPE_FLYGRAVITY", 4);
-    MoveType_tTable.SetInteger("MOVETYPE_VPHYSICS", 5);
-    MoveType_tTable.SetInteger("MOVETYPE_PUSH", 6);
-    MoveType_tTable.SetInteger("MOVETYPE_NOCLIP", 7);
-    MoveType_tTable.SetInteger("MOVETYPE_OBSERVER", 8);
-    MoveType_tTable.SetInteger("MOVETYPE_LADDER", 9);
-    MoveType_tTable.SetInteger("MOVETYPE_CUSTOM", 10);
-    MoveType_tTable.SetInteger("MOVETYPE_LAST", 11);
-    MoveType_tTable.SetInteger("MOVETYPE_INVALID", 11);
-    MoveType_tTable.SetInteger("MOVETYPE_MAX_BITS", 5);
-
-    auto PlayerFlags = state->CreateTable("PlayerFlags");
-
-    PlayerFlags.SetInteger("FL_ONGROUND", 1 << 0);
-    PlayerFlags.SetInteger("FL_DUCKING", 1 << 1);
-    PlayerFlags.SetInteger("FL_WATERJUMP", 1 << 2);
-    PlayerFlags.SetInteger("FL_ONTRAIN", 1 << 3);
-    PlayerFlags.SetInteger("FL_INRAIN", 1 << 4);
-    PlayerFlags.SetInteger("FL_FROZEN", 1 << 5);
-    PlayerFlags.SetInteger("FL_ATCONTROLS", 1 << 6);
-    PlayerFlags.SetInteger("FL_CLIENT", 1 << 7);
-    PlayerFlags.SetInteger("FL_FAKECLIENT", 1 << 8);
-    PlayerFlags.SetInteger("FL_INWATER", 1 << 9);
-
     state->CreateInteger(0, "TEAM_NONE");
     state->CreateInteger(1, "TEAM_SPECTATOR");
     state->CreateInteger(2, "TEAM_T");
@@ -314,4 +179,6 @@ void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin)
     state->CreateInteger(0, "SITE_A");
     state->CreateInteger(1, "SITE_B");
     state->CreateInteger(2, "SITE_UNKNOWN");
+
+    SetupLuaGeneratedTypes(state, plugin);
 }

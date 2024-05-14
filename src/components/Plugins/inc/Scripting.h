@@ -677,6 +677,7 @@ void SetupLuaPrecacher(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaServer(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaTimers(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaTranslation(luacpp::LuaState *state, Plugin *plugin);
+void SetupLuaGeneratedTypes(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaTypes(luacpp::LuaState *state, Plugin *plugin);
 void SetupLuaUtils(luacpp::LuaState *state, Plugin *plugin);
 
