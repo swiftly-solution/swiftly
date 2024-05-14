@@ -25,8 +25,6 @@ typedef int (*Player_GetSeed)(uint32_t, uint32_t);
 
 typedef bool (*Player_WeaponExists)(uint32_t, uint32_t);
 
-typedef WeaponSlot (*Player_GetType)(uint32_t, uint32_t);
-
 typedef const char *(*Player_GetWeaponName)(uint32_t, uint32_t);
 
 typedef void (*Player_SetNametag)(uint32_t, uint32_t, const char *);
@@ -40,7 +38,7 @@ typedef void (*Player_Weapon_SetAttackTick)(uint32_t, uint32_t, int32_t);
 typedef float (*Player_Weapon_GetAttackTickRatio)(uint32_t, uint32_t);
 typedef void (*Player_Weapon_SetAttackTickRatio)(uint32_t, uint32_t, float);
 
-typedef WeaponSilencerType (*Player_Weapon_GetSilencerType)(uint32_t, uint32_t);
+typedef CSWeaponSilencerType (*Player_Weapon_GetSilencerType)(uint32_t, uint32_t);
 
 class Weapon
 {
@@ -99,9 +97,9 @@ public:
         REGISTER_METHOD(int32_t, 0, scripting_Player_Weapon_GetSeed, this->m_playerSlot, this->m_weaponID);
     }
 
-    WeaponSlot GetType()
+    gear_slot_t GetType()
     {
-        REGISTER_METHOD(WeaponSlot, WeaponSlot::INVALID, scripting_Player_Weapon_GetType, this->m_playerSlot, this->m_weaponID);
+        REGISTER_METHOD(gear_slot_t, gear_slot_t::GEAR_SLOT_INVALID, scripting_Player_Weapon_GetType, this->m_playerSlot, this->m_weaponID);
     }
 
     const char *GetName()
@@ -179,9 +177,9 @@ public:
         REGISTER_METHOD_VOID(scripting_Player_Weapon_SetNextSecondaryAttackTickRatio, this->m_playerSlot, this->m_weaponID, ratio);
     }
 
-    WeaponSilencerType GetSilencerType()
+    CSWeaponSilencerType GetSilencerType()
     {
-        REGISTER_METHOD(WeaponSilencerType, WeaponSilencerType::NONE, scripting_Player_Weapon_GetSilencerType, this->m_playerSlot, this->m_weaponID);
+        REGISTER_METHOD(CSWeaponSilencerType, WeaponSilencerType::NONE, scripting_Player_Weapon_GetSilencerType, this->m_playerSlot, this->m_weaponID);
     }
 
     uint32_t GetID()

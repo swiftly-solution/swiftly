@@ -41,7 +41,7 @@ public:
         REGISTER_METHOD_VOID(scripting_Player_Weapons_Give, this->m_playerSlot, name);
     }
 
-    Weapon *GetWeaponFromSlot(WeaponSlot slot)
+    Weapon *GetWeaponFromSlot(gear_slot_t slot)
     {
         void *player_GetWeaponID = FetchFunctionPtr(nullptr, "scripting_Player_Weapons_GetWeaponID");
         if (player_GetWeaponID)
@@ -58,7 +58,7 @@ public:
         return (new Weapon(this->m_playerSlot, weaponID));
     }
 
-    void SetActiveWeapon(WeaponSlot slot)
+    void SetActiveWeapon(gear_slot_t slot)
     {
         REGISTER_METHOD_VOID(scripting_Player_Weapons_SetActiveWeapon, this->m_playerSlot, slot);
     }
