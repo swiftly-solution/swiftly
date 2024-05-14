@@ -13297,7 +13297,7 @@
 									"cpp": "weapon->GetSilencerType",
 									"lua": "weapon:GetSilencerType"
 								},
-								"return": "WeaponSilencerType",
+								"return": "CSWeaponSilencerType",
 								"params": {},
 								"additional": {}
 							},
@@ -13515,7 +13515,7 @@
 									"cpp": "weapon->GetType",
 									"lua": "weapon:GetType"
 								},
-								"return": "WeaponSlot",
+								"return": "gear_slot_t",
 								"params": {},
 								"additional": {}
 							},
@@ -13660,7 +13660,7 @@
 						},
 						"return": "void",
 						"params": {
-							"slot": "WeaponSlot"
+							"slot": "gear_slot_t"
 						},
 						"additional": {}
 					},
@@ -13690,7 +13690,7 @@
 						},
 						"return": "Weapon*",
 						"params": {
-							"slot": "WeaponSlot"
+							"slot": "gear_slot_t"
 						},
 						"additional": {}
 					},

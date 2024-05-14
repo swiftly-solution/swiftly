@@ -12,5 +12,6 @@
     "pluginstate": "PluginState",
     "supported-data-types": "Supported Data Types (C++)",
     "vector": "Vector",
-    "vector3": "vector3"
+    "vector3": "vector3",
+    "playerstat": "PlayerStat"
 }
