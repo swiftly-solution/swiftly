@@ -184,7 +184,7 @@ const GenerateTypeData = (data) => {
     for (const lang of langs) {
         callouts.push(`<Tabs.Tab>
             \`\`\`${lang}
-            ${lang == "cpp" ? "enum " : ""}${data.title} = {\n${(Object.keys(data.values).map((val) => `    ${val} = ${data.values[val]},`)).join("\n")}\n}
+${lang == "cpp" ? "enum " : ""}${data.title}${lang == "cpp" ? "" : " ="} {\n${(Object.keys(data.values).map((val) => `    ${val} = ${data.values[val]},`)).join("\n")}\n}
             \`\`\`
         </Tabs.Tab>`)
     }
