@@ -179,7 +179,7 @@ public:
 
     CSWeaponSilencerType GetSilencerType()
     {
-        REGISTER_METHOD(CSWeaponSilencerType, WeaponSilencerType::NONE, scripting_Player_Weapon_GetSilencerType, this->m_playerSlot, this->m_weaponID);
+        REGISTER_METHOD(CSWeaponSilencerType, CSWeaponSilencerType::WEAPONSILENCER_NONE, scripting_Player_Weapon_GetSilencerType, this->m_playerSlot, this->m_weaponID);
     }
 
     uint32_t GetID()
