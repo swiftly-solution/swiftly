@@ -19,8 +19,8 @@ void OnClientFullConnected(Player *player) __attribute__((weak));
 void OnPlayerPostThink(Player *player) __attribute__((weak));
 bool OnPlayerPrePostThink(Player *player) __attribute__((weak));
 void OnPlayerSpawn(Player *player) __attribute__((weak));
-bool OnPlayerDamagePlayer(Player *player, Player *attacker, float damage, DamageTypes damagetype, uint8_t ammotype, DamageFlags damageflags) __attribute__((weak));
-bool OnPlayerDamage(Player *player, float damage, DamageTypes damagetype, uint8_t ammotype, DamageFlags damageflags) __attribute__((weak));
+bool OnPlayerDamagePlayer(Player *player, Player *attacker, float damage, DamageTypes_t damagetype, uint8_t ammotype, TakeDamageFlags_t damageflags) __attribute__((weak));
+bool OnPlayerDamage(Player *player, float damage, DamageTypes_t damagetype, uint8_t ammotype, TakeDamageFlags_t damageflags) __attribute__((weak));
 void OnGameTick(bool simulating, bool bFirstTick, bool bLastTick) __attribute__((weak));
 bool OnPlayerChat(Player *player, const char *text, bool teamonly) __attribute__((weak));
 void OnRoundStart(long timelimit, long fraglimit, const char *objective) __attribute__((weak));
@@ -825,7 +825,7 @@ extern "C"
         if (attacker == nullptr)
             return true;
 
-        return OnPlayerDamagePlayer(player, attacker, damage, (DamageTypes)damagetype, ammotype, (DamageFlags)damageflags);
+        return OnPlayerDamagePlayer(player, attacker, damage, (DamageTypes_t)damagetype, ammotype, (TakeDamageFlags_t)damageflags);
     }
 
     bool Internal_OnPlayerDamage(uint32_t slot, float damage, uint32_t damagetype, uint8_t ammotype, uint32_t damageflags)
@@ -837,7 +837,7 @@ extern "C"
         if (player == nullptr)
             return true;
 
-        return OnPlayerDamage(player, damage, (DamageTypes)damagetype, ammotype, (DamageFlags)damageflags);
+        return OnPlayerDamage(player, damage, (DamageTypes_t)damagetype, ammotype, (TakeDamageFlags_t)damageflags);
     }
 
     void Internal_OnWeaponSpawned(uint32_t slot, uint32_t weaponid)
