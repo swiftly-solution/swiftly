@@ -4,13 +4,12 @@
 
 void RegisterEventListeners()
 {
-    if (!g_gameEventManager) {
+    if (!g_gameEventManager)
         return;
-    }
 
     FOR_EACH_VEC(g_GameEventListener, i)
     {
-        PRINTF("RegisterEventListeners", "%s: %d\n", g_GameEventListener[i]->GetName(), g_gameEventManager->AddListener(g_GameEventListener[i], g_GameEventListener[i]->GetName(), true));
+        g_gameEventManager->AddListener(g_GameEventListener[i], g_GameEventListener[i]->GetName(), true);
     }
 }
 

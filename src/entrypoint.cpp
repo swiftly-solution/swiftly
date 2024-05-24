@@ -189,8 +189,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
 
-    g_gameEventManager = static_cast<IGameEventManager2 *>(CallVFunc<IToolGameEventAPI *>(93, server));
-
     g_playerManager->LoadPlayers();
     g_dbManager->LoadDatabases();
     g_conFilter->LoadFilters();
@@ -214,7 +212,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
     g_Offsets->LoadOffsets();
     g_Patches->LoadPatches();
     g_Patches->PerformPatches();
-
     if (!InitializeHooks())
     {
         PRINT("Hooks", "Failed to initialize hooks.\n");
@@ -239,9 +236,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
 void SwiftlyPlugin::AllPluginsLoaded()
 {
-    PRINT("Game Events", "Loading game events...\n");
-    RegisterEventListeners();
-    PRINT("Game Events", "Game events has been succesfully loaded.\n");
 }
 
 bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
