@@ -9,7 +9,8 @@ void RegisterEventListeners()
 
     FOR_EACH_VEC(g_GameEventListener, i)
     {
-        g_gameEventManager->AddListener(g_GameEventListener[i], g_GameEventListener[i]->GetName(), true);
+        if(!g_gameEventManager->FindListener(g_GameEventListener[i], g_GameEventListener[i]->GetName()))
+            g_gameEventManager->AddListener(g_GameEventListener[i], g_GameEventListener[i]->GetName(), true);
     }
 }
 
@@ -20,7 +21,8 @@ void UnregisterEventListeners()
 
     FOR_EACH_VEC(g_GameEventListener, i)
     {
-        g_gameEventManager->RemoveListener(g_GameEventListener[i]);
+        if(g_gameEventManager->FindListener(g_GameEventListener[i], g_GameEventListener[i]->GetName()))
+            g_gameEventManager->RemoveListener(g_GameEventListener[i]);
     }
 
     g_GameEventListener.Purge();

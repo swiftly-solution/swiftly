@@ -157,8 +157,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     PRINT("Hooks", "Loading Hooks...\n");
 
-    g_gameEventManager = static_cast<IGameEventManager2 *>(CallVFunc<IToolGameEventAPI *>(93, server));
-
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &SwiftlyPlugin::Hook_GameFrame, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &SwiftlyPlugin::Hook_ClientActive, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &SwiftlyPlugin::Hook_ClientDisconnect, true);
@@ -210,18 +208,20 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
     PRINT("Components", "All components has been loaded!\n");
 
-    plugins_component->RegisterGameEvents();
-    plugins_component->StartPlugins();
-
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
     g_Patches->LoadPatches();
     g_Patches->PerformPatches();
-
     if (!InitializeHooks())
+    {
         PRINT("Hooks", "Failed to initialize hooks.\n");
+        return false;
+    }
     else
         PRINT("Hooks", "All hooks has been loaded!\n");
+
+    plugins_component->RegisterGameEvents();
+    plugins_component->StartPlugins();
 
     if (late)
     {
@@ -236,9 +236,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
 void SwiftlyPlugin::AllPluginsLoaded()
 {
-    PRINT("Game Events", "Loading game events...\n");
-    RegisterEventListeners();
-    PRINT("Game Events", "Game events has been succesfully loaded.\n");
 }
 
 bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
@@ -516,7 +513,8 @@ void SwiftlyPlugin::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastT
         m_nextFrame.front()();
         m_nextFrame.pop_front();
     }
-    if (g_ResourceMonitor->IsEnabled()) {
+    if (g_ResourceMonitor->IsEnabled())
+    {
         auto gameframeEnd = std::chrono::high_resolution_clock::now() - gameframeStart;
         g_ResourceMonitor->RecordTime("swiftly-core", "SwiftlyPlugin::Hook_GameFrame", std::chrono::duration_cast<std::chrono::microseconds>(gameframeEnd).count() / 1000);
     }

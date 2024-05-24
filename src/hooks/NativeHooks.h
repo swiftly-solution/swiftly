@@ -13,6 +13,7 @@ class INetChannel;
 class INetworkSerializable;
 class CServerSideClient;
 class IEngineServiceMgr;
+class IGameEventManager2;
 
 void Hook_LoggingSystem_LogDirect(int, int, const char *, ...);
 void Hook_LoggingSystem_Log(int, int, const char *, ...);
@@ -27,6 +28,7 @@ void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessag
 void *Hook_HostStateRequest(void *a1, void **pRequest);
 void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase *);
 void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices *movServices, void *mt);
+void Hook_CGameEventManager_Init(IGameEventManager2 *);
 void FASTCALL Hook_CBaseEntity_TakeDamageOld(Z_CBaseEntity *, CTakeDamageInfo *);
 bool InitializeHooks();
 

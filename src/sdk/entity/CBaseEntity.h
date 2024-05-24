@@ -115,7 +115,7 @@ public:
     SCHEMA_FIELD_OFFSET(CGameSceneNode *, m_pSceneNode, 0)
 };
 
-class Z_CBaseEntity : public CBaseEntity
+class Z_CBaseEntity : public CEntityInstance
 {
 public:
     typedef Z_CBaseEntity ThisClass;
