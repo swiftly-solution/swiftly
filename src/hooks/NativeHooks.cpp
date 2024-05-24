@@ -24,7 +24,6 @@ FuncHook<decltype(Hook_HostStateRequest)> THostStateRequest(Hook_HostStateReques
 FuncHook<decltype(Hook_CCSPlayerPawnBase_PostThink)> TCCSPlayerPawnBase_PostThink(Hook_CCSPlayerPawnBase_PostThink, "CCSPlayerPawnBase_PostThink");
 FuncHook<decltype(Hook_CBaseEntity_TakeDamageOld)> TCBaseEntity_TakeDamageOld(Hook_CBaseEntity_TakeDamageOld, "CBaseEntity_TakeDamageOld");
 FuncHook<decltype(Hook_CCSPlayer_MovementServices_CheckJumpPre)> TCCSPlayer_MovementServices_CheckJumpPre(Hook_CCSPlayer_MovementServices_CheckJumpPre, "CCSPlayer_MovementServices_CheckJumpPre");
-FuncHook<decltype(Hook_CGameEventManager_Init)> TCGameEventManager_Init(Hook_CGameEventManager_Init, "CGameEventManager_Init");
 
 #define CHECKLOGS()                                                \
     va_list args;                                                  \
@@ -188,16 +187,6 @@ void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase *base)
     TCCSPlayerPawnBase_PostThink(base);
 
     scripting_OnPlayerPostThink(slot);
-}
-
-void Hook_CGameEventManager_Init(IGameEventManager2 *pGameEventManager)
-{
-    g_gameEventManager = pGameEventManager;
-    TCGameEventManager_Init(pGameEventManager);
-
-    PRINT("Game Events", "Loading game events...\n");
-    RegisterEventListeners();
-    PRINT("Game Events", "Game events has been succesfully loaded.\n");
 }
 
 void scripting_OnPlayerFallDamage(CPlayerSlot slot, float damage);

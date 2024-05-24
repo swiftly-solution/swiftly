@@ -4,8 +4,9 @@
 
 void RegisterEventListeners()
 {
-    if (!g_gameEventManager)
+    if (!g_gameEventManager) {
         return;
+    }
 
     FOR_EACH_VEC(g_GameEventListener, i)
     {
