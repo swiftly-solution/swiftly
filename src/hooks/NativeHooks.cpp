@@ -334,5 +334,9 @@ bool InitializeHooks()
         return false;
     TCCSPlayer_MovementServices_CheckJumpPre.Enable();
 
+    if(!TCGameEventManager_Init.Create())
+        return false;
+    TCGameEventManager_Init.Enable();
+
     return true;
 }
