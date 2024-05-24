@@ -194,6 +194,10 @@ void Hook_CGameEventManager_Init(IGameEventManager2 *pGameEventManager)
 {
     g_gameEventManager = pGameEventManager;
     TCGameEventManager_Init(pGameEventManager);
+
+    PRINT("Game Events", "Loading game events...\n");
+    RegisterEventListeners();
+    PRINT("Game Events", "Game events has been succesfully loaded.\n");
 }
 
 void scripting_OnPlayerFallDamage(CPlayerSlot slot, float damage);

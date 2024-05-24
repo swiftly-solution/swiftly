@@ -236,9 +236,6 @@ bool SwiftlyPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen,
 
 void SwiftlyPlugin::AllPluginsLoaded()
 {
-    PRINT("Game Events", "Loading game events...\n");
-    RegisterEventListeners();
-    PRINT("Game Events", "Game events has been succesfully loaded.\n");
 }
 
 bool SwiftlyPlugin::Unload(char *error, size_t maxlen)
