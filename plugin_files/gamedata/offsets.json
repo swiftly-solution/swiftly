@@ -4,20 +4,20 @@
         "linux": 80
     },
     "CommitSuicide": {
-        "windows": 360,
-        "linux": 360
+        "windows": 372,
+        "linux": 372
     },
     "ChangeTeam": {
-        "windows": 93,
-        "linux": 92
+        "windows": 98,
+        "linux": 97
     },
     "Teleport": {
-        "windows": 149,
-        "linux": 148
+        "windows": 155,
+        "linux": 154
     },
     "Respawn": {
-        "windows": 244,
-        "linux": 246
+        "windows": 254,
+        "linux": 256
     },
     "CNetworkGameServer_ClientList": {
         "windows": 78,
