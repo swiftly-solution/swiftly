@@ -1507,22 +1507,6 @@ enum MoveType_t
     MOVETYPE_MAX_BITS = 0x5,
 };
 
-enum Hull_t
-{
-    HULL_HUMAN = 0x0,
-    HULL_SMALL_CENTERED = 0x1,
-    HULL_WIDE_HUMAN = 0x2,
-    HULL_TINY = 0x3,
-    HULL_MEDIUM = 0x4,
-    HULL_TINY_CENTERED = 0x5,
-    HULL_LARGE = 0x6,
-    HULL_LARGE_CENTERED = 0x7,
-    HULL_MEDIUM_TALL = 0x8,
-    HULL_SMALL = 0x9,
-    NUM_HULLS = 0xa,
-    HULL_NONE = 0xb,
-};
-
 enum ParticleTextureLayerBlendType_t
 {
     SPRITECARD_TEXTURE_BLEND_MULTIPLY = 0x0,
@@ -1532,14 +1516,6 @@ enum ParticleTextureLayerBlendType_t
     SPRITECARD_TEXTURE_BLEND_SUBTRACT = 0x4,
     SPRITECARD_TEXTURE_BLEND_AVERAGE = 0x5,
     SPRITECARD_TEXTURE_BLEND_LUMINANCE = 0x6,
-};
-
-enum MoveMountingAmount_t
-{
-    MOVE_MOUNT_NONE = 0x0,
-    MOVE_MOUNT_LOW = 0x1,
-    MOVE_MOUNT_HIGH = 0x2,
-    MOVE_MOUNT_MAXCOUNT = 0x3,
 };
 
 enum AnimationProcessingType_t
@@ -1567,14 +1543,6 @@ enum RenderPrimitiveType_t
     RENDER_PRIM_HETEROGENOUS = 0xa,
     RENDER_PRIM_COMPUTE_SHADER = 0xb,
     RENDER_PRIM_TYPE_COUNT = 0xc,
-};
-
-enum CommandExecMode_t
-{
-    EXEC_MANUAL = 0x0,
-    EXEC_LEVELSTART = 0x1,
-    EXEC_PERIODIC = 0x2,
-    EXEC_MODES_COUNT = 0x3,
 };
 
 enum ObjectTypeFlags_t
@@ -1676,24 +1644,6 @@ enum StateActionBehavior
     STATETAGBEHAVIOR_FIRE_ON_ENTER_AND_EXIT = 0x3,
 };
 
-enum AmmoPosition_t
-{
-    AMMO_POSITION_INVALID = 0xffffffffffffffff,
-    AMMO_POSITION_PRIMARY = 0x0,
-    AMMO_POSITION_SECONDARY = 0x1,
-    AMMO_POSITION_COUNT = 0x2,
-};
-
-enum MoveCollide_t
-{
-    MOVECOLLIDE_DEFAULT = 0x0,
-    MOVECOLLIDE_FLY_BOUNCE = 0x1,
-    MOVECOLLIDE_FLY_CUSTOM = 0x2,
-    MOVECOLLIDE_FLY_SLIDE = 0x3,
-    MOVECOLLIDE_COUNT = 0x4,
-    MOVECOLLIDE_MAX_BITS = 0x3,
-};
-
 enum Blend2DMode
 {
     Blend2DMode_General = 0x0,
@@ -1704,17 +1654,6 @@ enum ParticleOrientationSetMode_t
 {
     PARTICLE_ORIENTATION_SET_FROM_VELOCITY = 0x0,
     PARTICLE_ORIENTATION_SET_FROM_ROTATIONS = 0x1,
-};
-
-enum PlayerConnectedState
-{
-    PlayerNeverConnected = 0xffffffffffffffff,
-    PlayerConnected = 0x0,
-    PlayerConnecting = 0x1,
-    PlayerReconnecting = 0x2,
-    PlayerDisconnecting = 0x3,
-    PlayerDisconnected = 0x4,
-    PlayerReserved = 0x5,
 };
 
 enum ParticleVRHandChoiceList_t
@@ -1741,114 +1680,11 @@ enum JointMotion_t
     JOINT_MOTION_COUNT = 0x2,
 };
 
-enum HitGroup_t
-{
-    HITGROUP_INVALID = 0xffffffffffffffff,
-    HITGROUP_GENERIC = 0x0,
-    HITGROUP_HEAD = 0x1,
-    HITGROUP_CHEST = 0x2,
-    HITGROUP_STOMACH = 0x3,
-    HITGROUP_LEFTARM = 0x4,
-    HITGROUP_RIGHTARM = 0x5,
-    HITGROUP_LEFTLEG = 0x6,
-    HITGROUP_RIGHTLEG = 0x7,
-    HITGROUP_NECK = 0x8,
-    HITGROUP_UNUSED = 0x9,
-    HITGROUP_GEAR = 0xa,
-    HITGROUP_SPECIAL = 0xb,
-    HITGROUP_COUNT = 0xc,
-};
-
-enum StanceType_t
-{
-    STANCE_CURRENT = 0xffffffffffffffff,
-    STANCE_DEFAULT = 0x0,
-    STANCE_CROUCHING = 0x1,
-    STANCE_PRONE = 0x2,
-    NUM_STANCES = 0x3,
-};
-
 enum ParticleLightingQuality_t
 {
     PARTICLE_LIGHTING_PER_PARTICLE = 0x0,
     PARTICLE_LIGHTING_PER_VERTEX = 0x1,
     PARTICLE_LIGHTING_PER_PIXEL = 0xffffffffffffffff,
-};
-
-enum RenderFx_t
-{
-    kRenderFxNone = 0x0,
-    kRenderFxPulseSlow = 0x1,
-    kRenderFxPulseFast = 0x2,
-    kRenderFxPulseSlowWide = 0x3,
-    kRenderFxPulseFastWide = 0x4,
-    kRenderFxFadeSlow = 0x5,
-    kRenderFxFadeFast = 0x6,
-    kRenderFxSolidSlow = 0x7,
-    kRenderFxSolidFast = 0x8,
-    kRenderFxStrobeSlow = 0x9,
-    kRenderFxStrobeFast = 0xa,
-    kRenderFxStrobeFaster = 0xb,
-    kRenderFxFlickerSlow = 0xc,
-    kRenderFxFlickerFast = 0xd,
-    kRenderFxNoDissipation = 0xe,
-    kRenderFxFadeOut = 0xf,
-    kRenderFxFadeIn = 0x10,
-    kRenderFxPulseFastWider = 0x11,
-    kRenderFxGlowShell = 0x12,
-    kRenderFxMax = 0x13,
-};
-
-enum SoundEventStartType_t
-{
-    SOUNDEVENT_START_PLAYER = 0x0,
-    SOUNDEVENT_START_WORLD = 0x1,
-    SOUNDEVENT_START_ENTITY = 0x2,
-};
-
-enum TOGGLE_STATE
-{
-    TS_AT_TOP = 0x0,
-    TS_AT_BOTTOM = 0x1,
-    TS_GOING_UP = 0x2,
-    TS_GOING_DOWN = 0x3,
-    DOOR_OPEN = 0x0,
-    DOOR_CLOSED = 0x1,
-    DOOR_OPENING = 0x2,
-    DOOR_CLOSING = 0x3,
-};
-
-enum PointWorldTextJustifyVertical_t
-{
-    POINT_WORLD_TEXT_JUSTIFY_VERTICAL_BOTTOM = 0x0,
-    POINT_WORLD_TEXT_JUSTIFY_VERTICAL_CENTER = 0x1,
-    POINT_WORLD_TEXT_JUSTIFY_VERTICAL_TOP = 0x2,
-};
-
-enum TakeDamageFlags_t
-{
-    DFLAG_NONE = 0x0,
-    DFLAG_SUPPRESS_HEALTH_CHANGES = 0x1,
-    DFLAG_SUPPRESS_PHYSICS_FORCE = 0x2,
-    DFLAG_SUPPRESS_EFFECTS = 0x4,
-    DFLAG_PREVENT_DEATH = 0x8,
-    DFLAG_FORCE_DEATH = 0x10,
-    DFLAG_ALWAYS_GIB = 0x20,
-    DFLAG_NEVER_GIB = 0x40,
-    DFLAG_REMOVE_NO_RAGDOLL = 0x80,
-    DFLAG_SUPPRESS_DAMAGE_MODIFICATION = 0x100,
-    DFLAG_ALWAYS_FIRE_DAMAGE_EVENTS = 0x200,
-    DFLAG_RADIUS_DMG = 0x400,
-    DMG_LASTDFLAG = 0x400,
-    DFLAG_IGNORE_ARMOR = 0x800,
-    DFLAG_SUPPRESS_UTILREMOVE = 0x1000,
-};
-
-enum CSWeaponSilencerType
-{
-    WEAPONSILENCER_NONE = 0x0,
-    WEAPONSILENCER_DETACHABLE = 0x1,
-    WEAPONSILENCER_INTEGRATED = 0x2,
 };
 
 enum SnapshotIndexType_t
@@ -1861,13 +1697,6 @@ enum RagdollPoseControl
 {
     Absolute = 0x0,
     Relative = 0x1,
-};
-
-enum PointTemplateOwnerSpawnGroupType_t
-{
-    INSERT_INTO_POINT_TEMPLATE_SPAWN_GROUP = 0x0,
-    INSERT_INTO_CURRENTLY_ACTIVE_SPAWN_GROUP = 0x1,
-    INSERT_INTO_NEWLY_CREATED_SPAWN_GROUP = 0x2,
 };
 
 enum ParticleOutputBlendMode_t
@@ -1900,15 +1729,6 @@ enum VMixFilterSlope_t
     FILTER_SLOPE_MAX = 0x7,
 };
 
-enum NavDirType
-{
-    NORTH = 0x0,
-    EAST = 0x1,
-    SOUTH = 0x2,
-    WEST = 0x3,
-    NUM_NAV_DIR_TYPE_DIRECTIONS = 0x4,
-};
-
 enum ViewFadeMode_t
 {
     VIEW_FADE_CONSTANT_COLOR = 0x0,
@@ -1916,32 +1736,11 @@ enum ViewFadeMode_t
     VIEW_FADE_MOD2X = 0x2,
 };
 
-enum ForcedCrouchState_t
-{
-    FORCEDCROUCH_NONE = 0x0,
-    FORCEDCROUCH_CROUCHED = 0x1,
-    FORCEDCROUCH_UNCROUCHED = 0x2,
-};
-
 enum PulseCursorExecResult_t
 {
     Succeeded = 0x0,
     Canceled = 0x1,
     Failed = 0x2,
-};
-
-enum SurroundingBoundsType_t
-{
-    USE_OBB_COLLISION_BOUNDS = 0x0,
-    USE_BEST_COLLISION_BOUNDS = 0x1,
-    USE_HITBOXES = 0x2,
-    USE_SPECIFIED_BOUNDS = 0x3,
-    USE_GAME_CODE = 0x4,
-    USE_ROTATION_EXPANDED_BOUNDS = 0x5,
-    USE_ROTATION_EXPANDED_ORIENTED_BOUNDS = 0x6,
-    USE_COLLISION_BOUNDS_NEVER_VPHYSICS = 0x7,
-    USE_ROTATION_EXPANDED_SEQUENCE_BOUNDS = 0x8,
-    SURROUNDING_TYPE_BIT_COUNT = 0x3,
 };
 
 enum CNmBoneMask__WeightInfo_t
@@ -2019,13 +1818,6 @@ enum IKSolverType
     IKSOLVER_COUNT = 0x5,
 };
 
-enum WorldTextPanelOrientation_t
-{
-    WORLDTEXT_ORIENTATION_DEFAULT = 0x0,
-    WORLDTEXT_ORIENTATION_FACEUSER = 0x1,
-    WORLDTEXT_ORIENTATION_FACEUSER_UPRIGHT = 0x2,
-};
-
 enum SolveIKChainAnimNodeDebugSetting
 {
     SOLVEIKCHAINANIMNODEDEBUGSETTING_None = 0x0,
@@ -2045,61 +1837,10 @@ enum PulseCursorCancelPriority_t
     HardCancel = 0x3,
 };
 
-enum GrenadeType_t
-{
-    GRENADE_TYPE_EXPLOSIVE = 0x0,
-    GRENADE_TYPE_FLASH = 0x1,
-    GRENADE_TYPE_FIRE = 0x2,
-    GRENADE_TYPE_DECOY = 0x3,
-    GRENADE_TYPE_SMOKE = 0x4,
-    GRENADE_TYPE_SENSOR = 0x5,
-    GRENADE_TYPE_SNOWBALL = 0x6,
-    GRENADE_TYPE_TOTAL = 0x7,
-};
-
 enum MaterialProxyType_t
 {
     MATERIAL_PROXY_STATUS_EFFECT = 0x0,
     MATERIAL_PROXY_TINT = 0x1,
-};
-
-enum vote_create_failed_t
-{
-    VOTE_FAILED_GENERIC = 0x0,
-    VOTE_FAILED_TRANSITIONING_PLAYERS = 0x1,
-    VOTE_FAILED_RATE_EXCEEDED = 0x2,
-    VOTE_FAILED_YES_MUST_EXCEED_NO = 0x3,
-    VOTE_FAILED_QUORUM_FAILURE = 0x4,
-    VOTE_FAILED_ISSUE_DISABLED = 0x5,
-    VOTE_FAILED_MAP_NOT_FOUND = 0x6,
-    VOTE_FAILED_MAP_NAME_REQUIRED = 0x7,
-    VOTE_FAILED_FAILED_RECENTLY = 0x8,
-    VOTE_FAILED_TEAM_CANT_CALL = 0x9,
-    VOTE_FAILED_WAITINGFORPLAYERS = 0xa,
-    VOTE_FAILED_PLAYERNOTFOUND = 0xb,
-    VOTE_FAILED_CANNOT_KICK_ADMIN = 0xc,
-    VOTE_FAILED_SCRAMBLE_IN_PROGRESS = 0xd,
-    VOTE_FAILED_SPECTATOR = 0xe,
-    VOTE_FAILED_FAILED_RECENT_KICK = 0xf,
-    VOTE_FAILED_FAILED_RECENT_CHANGEMAP = 0x10,
-    VOTE_FAILED_FAILED_RECENT_SWAPTEAMS = 0x11,
-    VOTE_FAILED_FAILED_RECENT_SCRAMBLETEAMS = 0x12,
-    VOTE_FAILED_FAILED_RECENT_RESTART = 0x13,
-    VOTE_FAILED_SWAP_IN_PROGRESS = 0x14,
-    VOTE_FAILED_DISABLED = 0x15,
-    VOTE_FAILED_NEXTLEVEL_SET = 0x16,
-    VOTE_FAILED_TOO_EARLY_SURRENDER = 0x17,
-    VOTE_FAILED_MATCH_PAUSED = 0x18,
-    VOTE_FAILED_MATCH_NOT_PAUSED = 0x19,
-    VOTE_FAILED_NOT_IN_WARMUP = 0x1a,
-    VOTE_FAILED_NOT_10_PLAYERS = 0x1b,
-    VOTE_FAILED_TIMEOUT_ACTIVE = 0x1c,
-    VOTE_FAILED_TIMEOUT_INACTIVE = 0x1d,
-    VOTE_FAILED_TIMEOUT_EXHAUSTED = 0x1e,
-    VOTE_FAILED_CANT_ROUND_END = 0x1f,
-    VOTE_FAILED_REMATCH = 0x20,
-    VOTE_FAILED_CONTINUE = 0x21,
-    VOTE_FAILED_MAX = 0x22,
 };
 
 enum PFuncVisualizationType_t
@@ -2111,25 +1852,6 @@ enum PFuncVisualizationType_t
     PFUNC_VISUALIZATION_PLANE = 0x4,
     PFUNC_VISUALIZATION_LINE = 0x5,
     PFUNC_VISUALIZATION_CYLINDER = 0x6,
-};
-
-enum C4LightEffect_t
-{
-    eLightEffectNone = 0x0,
-    eLightEffectDropped = 0x1,
-    eLightEffectThirdPersonHeld = 0x2,
-};
-
-enum EKillTypes_t
-{
-    KILL_NONE = 0x0,
-    KILL_DEFAULT = 0x1,
-    KILL_HEADSHOT = 0x2,
-    KILL_BLAST = 0x3,
-    KILL_BURN = 0x4,
-    KILL_SLASH = 0x5,
-    KILL_SHOCK = 0x6,
-    KILLTYPE_COUNT = 0x7,
 };
 
 enum VPhysXJoint_t__Flags_t
@@ -2155,22 +1877,6 @@ enum VMixPannerType_t
     PANNER_TYPE_EQUAL_POWER = 0x1,
 };
 
-enum Materials
-{
-    matGlass = 0x0,
-    matWood = 0x1,
-    matMetal = 0x2,
-    matFlesh = 0x3,
-    matCinderBlock = 0x4,
-    matCeilingTile = 0x5,
-    matComputer = 0x6,
-    matUnbreakableGlass = 0x7,
-    matRocks = 0x8,
-    matWeb = 0x9,
-    matNone = 0xa,
-    matLastMaterial = 0xb,
-};
-
 enum LayoutPositionType_e
 {
     LAYOUTPOSITIONTYPE_VIEWPORT_RELATIVE = 0x0,
@@ -2183,84 +1889,6 @@ enum AnimParamNetworkSetting
     Auto = 0x0,
     AlwaysNetwork = 0x1,
     NeverNetwork = 0x2,
-};
-
-enum loadout_slot_t
-{
-    LOADOUT_SLOT_PROMOTED = 0xfffffffffffffffe,
-    LOADOUT_SLOT_INVALID = 0xffffffffffffffff,
-    LOADOUT_SLOT_MELEE = 0x0,
-    LOADOUT_SLOT_C4 = 0x1,
-    LOADOUT_SLOT_FIRST_AUTO_BUY_WEAPON = 0x0,
-    LOADOUT_SLOT_LAST_AUTO_BUY_WEAPON = 0x1,
-    LOADOUT_SLOT_SECONDARY0 = 0x2,
-    LOADOUT_SLOT_SECONDARY1 = 0x3,
-    LOADOUT_SLOT_SECONDARY2 = 0x4,
-    LOADOUT_SLOT_SECONDARY3 = 0x5,
-    LOADOUT_SLOT_SECONDARY4 = 0x6,
-    LOADOUT_SLOT_SECONDARY5 = 0x7,
-    LOADOUT_SLOT_SMG0 = 0x8,
-    LOADOUT_SLOT_SMG1 = 0x9,
-    LOADOUT_SLOT_SMG2 = 0xa,
-    LOADOUT_SLOT_SMG3 = 0xb,
-    LOADOUT_SLOT_SMG4 = 0xc,
-    LOADOUT_SLOT_SMG5 = 0xd,
-    LOADOUT_SLOT_RIFLE0 = 0xe,
-    LOADOUT_SLOT_RIFLE1 = 0xf,
-    LOADOUT_SLOT_RIFLE2 = 0x10,
-    LOADOUT_SLOT_RIFLE3 = 0x11,
-    LOADOUT_SLOT_RIFLE4 = 0x12,
-    LOADOUT_SLOT_RIFLE5 = 0x13,
-    LOADOUT_SLOT_HEAVY0 = 0x14,
-    LOADOUT_SLOT_HEAVY1 = 0x15,
-    LOADOUT_SLOT_HEAVY2 = 0x16,
-    LOADOUT_SLOT_HEAVY3 = 0x17,
-    LOADOUT_SLOT_HEAVY4 = 0x18,
-    LOADOUT_SLOT_HEAVY5 = 0x19,
-    LOADOUT_SLOT_FIRST_WHEEL_WEAPON = 0x2,
-    LOADOUT_SLOT_LAST_WHEEL_WEAPON = 0x19,
-    LOADOUT_SLOT_FIRST_PRIMARY_WEAPON = 0x8,
-    LOADOUT_SLOT_LAST_PRIMARY_WEAPON = 0x19,
-    LOADOUT_SLOT_FIRST_WHEEL_GRENADE = 0x1a,
-    LOADOUT_SLOT_GRENADE0 = 0x1a,
-    LOADOUT_SLOT_GRENADE1 = 0x1b,
-    LOADOUT_SLOT_GRENADE2 = 0x1c,
-    LOADOUT_SLOT_GRENADE3 = 0x1d,
-    LOADOUT_SLOT_GRENADE4 = 0x1e,
-    LOADOUT_SLOT_GRENADE5 = 0x1f,
-    LOADOUT_SLOT_LAST_WHEEL_GRENADE = 0x1f,
-    LOADOUT_SLOT_EQUIPMENT0 = 0x20,
-    LOADOUT_SLOT_EQUIPMENT1 = 0x21,
-    LOADOUT_SLOT_EQUIPMENT2 = 0x22,
-    LOADOUT_SLOT_EQUIPMENT3 = 0x23,
-    LOADOUT_SLOT_EQUIPMENT4 = 0x24,
-    LOADOUT_SLOT_EQUIPMENT5 = 0x25,
-    LOADOUT_SLOT_FIRST_WHEEL_EQUIPMENT = 0x20,
-    LOADOUT_SLOT_LAST_WHEEL_EQUIPMENT = 0x25,
-    LOADOUT_SLOT_CLOTHING_CUSTOMPLAYER = 0x26,
-    LOADOUT_SLOT_PET = 0x27,
-    LOADOUT_SLOT_CLOTHING_FACEMASK = 0x28,
-    LOADOUT_SLOT_CLOTHING_HANDS = 0x29,
-    LOADOUT_SLOT_FIRST_COSMETIC = 0x29,
-    LOADOUT_SLOT_LAST_COSMETIC = 0x29,
-    LOADOUT_SLOT_CLOTHING_EYEWEAR = 0x2a,
-    LOADOUT_SLOT_CLOTHING_HAT = 0x2b,
-    LOADOUT_SLOT_CLOTHING_LOWERBODY = 0x2c,
-    LOADOUT_SLOT_CLOTHING_TORSO = 0x2d,
-    LOADOUT_SLOT_CLOTHING_APPEARANCE = 0x2e,
-    LOADOUT_SLOT_MISC0 = 0x2f,
-    LOADOUT_SLOT_MISC1 = 0x30,
-    LOADOUT_SLOT_MISC2 = 0x31,
-    LOADOUT_SLOT_MISC3 = 0x32,
-    LOADOUT_SLOT_MISC4 = 0x33,
-    LOADOUT_SLOT_MISC5 = 0x34,
-    LOADOUT_SLOT_MISC6 = 0x35,
-    LOADOUT_SLOT_MUSICKIT = 0x36,
-    LOADOUT_SLOT_FLAIR0 = 0x37,
-    LOADOUT_SLOT_SPRAY0 = 0x38,
-    LOADOUT_SLOT_FIRST_ALL_CHARACTER = 0x36,
-    LOADOUT_SLOT_LAST_ALL_CHARACTER = 0x38,
-    LOADOUT_SLOT_COUNT = 0x39,
 };
 
 enum JointAxis_t
@@ -2351,21 +1979,6 @@ enum MeshDrawPrimitiveFlags_t
     MESH_DRAW_FLAGS_DRAW_LAST = 0x80,
 };
 
-enum ScriptedOnDeath_t
-{
-    SS_ONDEATH_NOT_APPLICABLE = 0xffffffffffffffff,
-    SS_ONDEATH_UNDEFINED = 0x0,
-    SS_ONDEATH_RAGDOLL = 0x1,
-    SS_ONDEATH_ANIMATED_DEATH = 0x2,
-};
-
-enum ChatIgnoreType_t
-{
-    CHAT_IGNORE_NONE = 0x0,
-    CHAT_IGNORE_ALL = 0x1,
-    CHAT_IGNORE_TEAM = 0x2,
-};
-
 enum ParticleFloatType_t
 {
     PF_TYPE_INVALID = 0xffffffffffffffff,
@@ -2392,15 +2005,6 @@ enum ParticleFloatType_t
     PF_TYPE_PARTICLE_NUMBER = 0x14,
     PF_TYPE_PARTICLE_NUMBER_NORMALIZED = 0x15,
     PF_TYPE_COUNT = 0x16,
-};
-
-enum MedalRank_t
-{
-    MEDAL_RANK_NONE = 0x0,
-    MEDAL_RANK_BRONZE = 0x1,
-    MEDAL_RANK_SILVER = 0x2,
-    MEDAL_RANK_GOLD = 0x3,
-    MEDAL_RANK_COUNT = 0x4,
 };
 
 enum NmTransitionRule_t
@@ -2431,12 +2035,6 @@ enum SelectorTagBehavior_t
     SelectorTagBehavior_OffBeforeFinished = 0x2,
 };
 
-enum ShardSolid_t
-{
-    SHARD_SOLID = 0x0,
-    SHARD_DEBRIS = 0x1,
-};
-
 enum ParticleFloatMapType_t
 {
     PF_MAP_TYPE_INVALID = 0xffffffffffffffff,
@@ -2447,36 +2045,6 @@ enum ParticleFloatMapType_t
     PF_MAP_TYPE_CURVE = 0x4,
     PF_MAP_TYPE_NOTCHED = 0x5,
     PF_MAP_TYPE_COUNT = 0x6,
-};
-
-enum BeamType_t
-{
-    BEAM_INVALID = 0x0,
-    BEAM_POINTS = 0x1,
-    BEAM_ENTPOINT = 0x2,
-    BEAM_ENTS = 0x3,
-    BEAM_HOSE = 0x4,
-    BEAM_SPLINE = 0x5,
-    BEAM_LASER = 0x6,
-};
-
-enum ObserverMode_t
-{
-    OBS_MODE_NONE = 0x0,
-    OBS_MODE_FIXED = 0x1,
-    OBS_MODE_IN_EYE = 0x2,
-    OBS_MODE_CHASE = 0x3,
-    OBS_MODE_ROAMING = 0x4,
-    OBS_MODE_DIRECTED = 0x5,
-    NUM_OBSERVER_MODES = 0x6,
-};
-
-enum ValueRemapperOutputType_t
-{
-    OutputType_AnimationCycle = 0x0,
-    OutputType_RotationX = 0x1,
-    OutputType_RotationY = 0x2,
-    OutputType_RotationZ = 0x3,
 };
 
 enum VMixFilterType_t
@@ -2491,24 +2059,6 @@ enum VMixFilterType_t
     FILTER_HIGH_SHELF = 0x6,
     FILTER_ALLPASS = 0x7,
     FILTER_PASSTHROUGH = 0x8,
-};
-
-enum NPCFollowFormation_t
-{
-    Default = 0xffffffffffffffff,
-    CloseCircle = 0x0,
-    WideCircle = 0x1,
-    MediumCircle = 0x5,
-    Sidekick = 0x6,
-};
-
-enum AnimLoopMode_t
-{
-    ANIM_LOOP_MODE_INVALID = 0xffffffffffffffff,
-    ANIM_LOOP_MODE_NOT_LOOPING = 0x0,
-    ANIM_LOOP_MODE_LOOPING = 0x1,
-    ANIM_LOOP_MODE_USE_SEQUENCE_SETTINGS = 0x2,
-    ANIM_LOOP_MODE_COUNT = 0x3,
 };
 
 enum ParticleAttrBoxFlags_t
@@ -2579,14 +2129,6 @@ enum CompMatPropertyMutatorConditionType_t
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EQUALS = 0x2,
 };
 
-enum PerformanceMode_t
-{
-    PM_NORMAL = 0x0,
-    PM_NO_GIBS = 0x1,
-    PM_FULL_GIBS = 0x2,
-    PM_REDUCED_GIBS = 0x3,
-};
-
 enum ParticleSetMethod_t
 {
     PARTICLE_SET_REPLACE_VALUE = 0x0,
@@ -2614,19 +2156,6 @@ enum ChoiceMethod
     WeightedRandomNoRepeat = 0x1,
     Iterate = 0x2,
     IterateRandom = 0x3,
-};
-
-enum ItemFlagTypes_t
-{
-    ITEM_FLAG_NONE = 0x0,
-    ITEM_FLAG_CAN_SELECT_WITHOUT_AMMO = 0x1,
-    ITEM_FLAG_NOAUTORELOAD = 0x2,
-    ITEM_FLAG_NOAUTOSWITCHEMPTY = 0x4,
-    ITEM_FLAG_LIMITINWORLD = 0x8,
-    ITEM_FLAG_EXHAUSTIBLE = 0x10,
-    ITEM_FLAG_DOHITLOCATIONDMG = 0x20,
-    ITEM_FLAG_NOAMMOPICKUPS = 0x40,
-    ITEM_FLAG_NOITEMPICKUP = 0x80,
 };
 
 enum NmFootPhaseCondition_t
@@ -2680,13 +2209,6 @@ enum ParticleFogType_t
     PARTICLE_FOG_DISABLED = 0x2,
 };
 
-enum BrushSolidities_e
-{
-    BRUSHSOLID_TOGGLE = 0x0,
-    BRUSHSOLID_NEVER = 0x1,
-    BRUSHSOLID_ALWAYS = 0x2,
-};
-
 enum Detail2Combo_t
 {
     DETAIL_2_COMBO_UNINITIALIZED = 0xffffffffffffffff,
@@ -2696,39 +2218,6 @@ enum Detail2Combo_t
     DETAIL_2_COMBO_MOD2X = 0x3,
     DETAIL_2_COMBO_MUL = 0x4,
     DETAIL_2_COMBO_CROSSFADE = 0x5,
-};
-
-enum SoundFlags_t
-{
-    SOUND_NONE = 0x0,
-    SOUND_COMBAT = 0x1,
-    SOUND_WORLD = 0x2,
-    SOUND_PLAYER = 0x4,
-    SOUND_DANGER = 0x8,
-    SOUND_BULLET_IMPACT = 0x10,
-    SOUND_THUMPER = 0x20,
-    SOUND_PHYSICS_DANGER = 0x40,
-    SOUND_MOVE_AWAY = 0x80,
-    SOUND_PLAYER_VEHICLE = 0x100,
-    SOUND_GLASS_BREAK = 0x200,
-    SOUND_PHYSICS_OBJECT = 0x400,
-    SOUND_CONTEXT_GUNFIRE = 0x100000,
-    SOUND_CONTEXT_COMBINE_ONLY = 0x200000,
-    SOUND_CONTEXT_REACT_TO_SOURCE = 0x400000,
-    SOUND_CONTEXT_EXPLOSION = 0x800000,
-    SOUND_CONTEXT_EXCLUDE_COMBINE = 0x1000000,
-    SOUND_CONTEXT_DANGER_APPROACH = 0x2000000,
-    SOUND_CONTEXT_ALLIES_ONLY = 0x4000000,
-    SOUND_CONTEXT_PANIC_NPCS = 0x8000000,
-    ALL_CONTEXTS = 0xfffffffffff00000,
-    ALL_SCENTS = 0x0,
-    ALL_SOUNDS = 0xfffff,
-};
-
-enum ValueRemapperInputType_t
-{
-    InputType_PlayerShootPosition = 0x0,
-    InputType_PlayerShootPositionAroundAxis = 0x1,
 };
 
 enum ParticleAlphaReferenceType_t
@@ -2769,34 +2258,12 @@ enum ThreeState_t
     TRS_NONE = 0x2,
 };
 
-enum TrainOrientationType_t
-{
-    TrainOrientation_Fixed = 0x0,
-    TrainOrientation_AtPathTracks = 0x1,
-    TrainOrientation_LinearBlend = 0x2,
-    TrainOrientation_EaseInEaseOut = 0x3,
-};
-
 enum PFNoiseModifier_t
 {
     PF_NOISE_MODIFIER_NONE = 0x0,
     PF_NOISE_MODIFIER_LINES = 0x1,
     PF_NOISE_MODIFIER_CLUMPS = 0x2,
     PF_NOISE_MODIFIER_RINGS = 0x3,
-};
-
-enum ValueRemapperMomentumType_t
-{
-    MomentumType_None = 0x0,
-    MomentumType_Friction = 0x1,
-    MomentumType_SpringTowardSnapValue = 0x2,
-    MomentumType_SpringAwayFromSnapValue = 0x3,
-};
-
-enum ValueRemapperHapticsType_t
-{
-    HaticsType_Default = 0x0,
-    HaticsType_None = 0x1,
 };
 
 enum ParticleImpulseType_t
@@ -2876,13 +2343,6 @@ enum PulseValueType_t
     PVAL_COUNT = 0x11,
 };
 
-enum CanPlaySequence_t
-{
-    CANNOT_PLAY = 0x0,
-    CAN_PLAY_NOW = 0x1,
-    CAN_PLAY_ENQUEUED = 0x2,
-};
-
 enum FacingMode
 {
     FacingMode_Manual = 0x0,
@@ -2911,42 +2371,10 @@ enum SeqCmd_t
     SeqCmd_Transform = 0x10,
 };
 
-enum navproperties_t
-{
-    NAV_IGNORE = 0x1,
-};
-
 enum ChoiceBlendMethod
 {
     SingleBlendTime = 0x0,
     PerChoiceBlendTimes = 0x1,
-};
-
-enum gear_slot_t
-{
-    GEAR_SLOT_INVALID = 0xffffffffffffffff,
-    GEAR_SLOT_RIFLE = 0x0,
-    GEAR_SLOT_PISTOL = 0x1,
-    GEAR_SLOT_KNIFE = 0x2,
-    GEAR_SLOT_GRENADES = 0x3,
-    GEAR_SLOT_C4 = 0x4,
-    GEAR_SLOT_RESERVED_SLOT6 = 0x5,
-    GEAR_SLOT_RESERVED_SLOT7 = 0x6,
-    GEAR_SLOT_RESERVED_SLOT8 = 0x7,
-    GEAR_SLOT_RESERVED_SLOT9 = 0x8,
-    GEAR_SLOT_RESERVED_SLOT10 = 0x9,
-    GEAR_SLOT_RESERVED_SLOT11 = 0xa,
-    GEAR_SLOT_BOOSTS = 0xb,
-    GEAR_SLOT_UTILITY = 0xc,
-    GEAR_SLOT_COUNT = 0xd,
-    GEAR_SLOT_FIRST = 0x0,
-    GEAR_SLOT_LAST = 0xc,
-};
-
-enum CRR_Response__ResponseEnum_t
-{
-    MAX_RESPONSE_NAME = 0xc0,
-    MAX_RULE_NAME = 0x80,
 };
 
 enum ParticleParentSetMode_t
@@ -2954,13 +2382,6 @@ enum ParticleParentSetMode_t
     PARTICLE_SET_PARENT_NO = 0x0,
     PARTICLE_SET_PARENT_IMMEDIATE = 0x1,
     PARTICLE_SET_PARENT_ROOT = 0x1,
-};
-
-enum Explosions
-{
-    expRandom = 0x0,
-    expDirected = 0x1,
-    expUsePrecise = 0x2,
 };
 
 enum VMixProcessorType_t
@@ -3004,73 +2425,6 @@ enum ChoiceChangeMethod
     OnResetOrCycleEnd = 0x2,
 };
 
-enum Touch_t
-{
-    touch_none = 0x0,
-    touch_player_only = 0x1,
-    touch_npc_only = 0x2,
-    touch_player_or_npc = 0x3,
-    touch_player_or_npc_or_physicsprop = 0x4,
-};
-
-enum PropDoorRotatingSpawnPos_t
-{
-    DOOR_SPAWN_CLOSED = 0x0,
-    DOOR_SPAWN_OPEN_FORWARD = 0x1,
-    DOOR_SPAWN_OPEN_BACK = 0x2,
-    DOOR_SPAWN_AJAR = 0x3,
-};
-
-enum PreviewEOMCelebration
-{
-    WALKUP = 0x0,
-    PUNCHING = 0x1,
-    SWAGGER = 0x2,
-    DROPDOWN = 0x3,
-    STRETCH = 0x4,
-    SWAT_FEMALE = 0x5,
-    MASK_F = 0x6,
-    GUERILLA = 0x7,
-    GUERILLA02 = 0x8,
-    GENDARMERIE = 0x9,
-    SCUBA_FEMALE = 0xa,
-    SCUBA_MALE = 0xb,
-    AVA_DEFEAT = 0xc,
-    GENDARMERIE_DEFEAT = 0xd,
-    MAE_DEFEAT = 0xe,
-    RICKSAW_DEFEAT = 0xf,
-    SCUBA_FEMALE_DEFEAT = 0x10,
-    SCUBA_MALE_DEFEAT = 0x11,
-    CRASSWATER_DEFEAT = 0x12,
-    DARRYL_DEFEAT = 0x13,
-    DOCTOR_DEFEAT = 0x14,
-    MUHLIK_DEFEAT = 0x15,
-    VYPA_DEFEAT = 0x16,
-};
-
-enum SceneOnPlayerDeath_t
-{
-    SCENE_ONPLAYERDEATH_DO_NOTHING = 0x0,
-    SCENE_ONPLAYERDEATH_CANCEL = 0x1,
-};
-
-enum CSWeaponState_t
-{
-    WEAPON_NOT_CARRIED = 0x0,
-    WEAPON_IS_CARRIED_BY_PLAYER = 0x1,
-    WEAPON_IS_ACTIVE = 0x2,
-};
-
-enum ScriptedMoveTo_t
-{
-    CINE_MOVETO_WAIT = 0x0,
-    CINE_MOVETO_WALK = 0x1,
-    CINE_MOVETO_RUN = 0x2,
-    CINE_MOVETO_CUSTOM = 0x3,
-    CINE_MOVETO_TELEPORT = 0x4,
-    CINE_MOVETO_WAIT_FACING = 0x5,
-};
-
 enum BinaryNodeChildOption
 {
     Child1 = 0x0,
@@ -3088,29 +2442,12 @@ enum CompositeMaterialInputTextureType_t
     INPUT_TEXTURE_TYPE_AO = 0x6,
 };
 
-enum HierarchyType_t
-{
-    HIERARCHY_NONE = 0x0,
-    HIERARCHY_BONE_MERGE = 0x1,
-    HIERARCHY_ATTACHMENT = 0x2,
-    HIERARCHY_ABSORIGIN = 0x3,
-    HIERARCHY_BONE = 0x4,
-    HIERARCHY_TYPE_COUNT = 0x5,
-};
-
 enum BoneMaskBlendSpace
 {
     BlendSpace_Parent = 0x0,
     BlendSpace_Model = 0x1,
     BlendSpace_Model_RotationOnly = 0x2,
     BlendSpace_Model_TranslationOnly = 0x3,
-};
-
-enum MoveLinearAuthoredPos_t
-{
-    MOVELINEAR_AUTHORED_AT_START_POSITION = 0x0,
-    MOVELINEAR_AUTHORED_AT_OPEN_POSITION = 0x1,
-    MOVELINEAR_AUTHORED_AT_CLOSED_POSITION = 0x2,
 };
 
 enum AnimScriptType
@@ -3132,15 +2469,6 @@ enum DetailCombo_t
     DETAIL_COMBO_ADD = 0x1,
     DETAIL_COMBO_ADD_SELF_ILLUM = 0x2,
     DETAIL_COMBO_MOD2X = 0x3,
-};
-
-enum DoorState_t
-{
-    DOOR_STATE_CLOSED = 0x0,
-    DOOR_STATE_OPENING = 0x1,
-    DOOR_STATE_OPEN = 0x2,
-    DOOR_STATE_CLOSING = 0x3,
-    DOOR_STATE_AJAR = 0x4,
 };
 
 enum InheritableBoolType_t
@@ -3314,39 +2642,12 @@ enum ParticleTraceSet_t
     PARTICLE_TRACE_SET_DYNAMIC = 0x3,
 };
 
-enum EInButtonState
-{
-    IN_BUTTON_UP = 0x0,
-    IN_BUTTON_DOWN = 0x1,
-    IN_BUTTON_DOWN_UP = 0x2,
-    IN_BUTTON_UP_DOWN = 0x3,
-    IN_BUTTON_UP_DOWN_UP = 0x4,
-    IN_BUTTON_DOWN_UP_DOWN = 0x5,
-    IN_BUTTON_DOWN_UP_DOWN_UP = 0x6,
-    IN_BUTTON_UP_DOWN_UP_DOWN = 0x7,
-    IN_BUTTON_STATE_COUNT = 0x8,
-};
-
-enum LessonPanelLayoutFileTypes_t
-{
-    LAYOUT_HAND_DEFAULT = 0x0,
-    LAYOUT_WORLD_DEFAULT = 0x1,
-    LAYOUT_CUSTOM = 0x2,
-};
-
 enum EntityIOTargetType_t
 {
     ENTITY_IO_TARGET_INVALID = 0xffffffffffffffff,
     ENTITY_IO_TARGET_ENTITYNAME = 0x2,
     ENTITY_IO_TARGET_EHANDLE = 0x6,
     ENTITY_IO_TARGET_ENTITYNAME_OR_CLASSNAME = 0x7,
-};
-
-enum AmmoFlags_t
-{
-    AMMO_FORCE_DROP_IF_CARRIED = 0x1,
-    AMMO_RESERVE_STAYS_WITH_WEAPON = 0x2,
-    AMMO_FLAG_MAX = 0x2,
 };
 
 enum ModelSkeletonData_t__BoneFlags_t
@@ -3392,96 +2693,16 @@ enum CompositeMaterialInputContainerSourceType_t
     CONTAINER_SOURCE_TYPE_TARGET_INSTANCE_MATERIAL = 0x5,
 };
 
-enum SubclassVDataChangeType_t
-{
-    SUBCLASS_VDATA_CREATED = 0x0,
-    SUBCLASS_VDATA_SUBCLASS_CHANGED = 0x1,
-    SUBCLASS_VDATA_RELOADED = 0x2,
-};
-
-enum PointWorldTextReorientMode_t
-{
-    POINT_WORLD_TEXT_REORIENT_NONE = 0x0,
-    POINT_WORLD_TEXT_REORIENT_AROUND_UP = 0x1,
-};
-
 enum ParticleSortingChoiceList_t
 {
     PARTICLE_SORTING_NEAREST = 0x0,
     PARTICLE_SORTING_CREATION_TIME = 0x1,
 };
 
-enum NPCLookType_t
-{
-    Chest = 0x0,
-    Head = 0x1,
-    Eyes = 0x2,
-};
-
-enum PlayerAnimEvent_t
-{
-    PLAYERANIMEVENT_FIRE_GUN_PRIMARY = 0x0,
-    PLAYERANIMEVENT_FIRE_GUN_SECONDARY = 0x1,
-    PLAYERANIMEVENT_GRENADE_PULL_PIN = 0x2,
-    PLAYERANIMEVENT_THROW_GRENADE = 0x3,
-    PLAYERANIMEVENT_JUMP = 0x4,
-    PLAYERANIMEVENT_RELOAD = 0x5,
-    PLAYERANIMEVENT_CLEAR_FIRING = 0x6,
-    PLAYERANIMEVENT_DEPLOY = 0x7,
-    PLAYERANIMEVENT_SILENCER_STATE = 0x8,
-    PLAYERANIMEVENT_SILENCER_TOGGLE = 0x9,
-    PLAYERANIMEVENT_THROW_GRENADE_UNDERHAND = 0xa,
-    PLAYERANIMEVENT_CATCH_WEAPON = 0xb,
-    PLAYERANIMEVENT_LOOKATWEAPON_REQUEST = 0xc,
-    PLAYERANIMEVENT_RELOAD_CANCEL_LOOKATWEAPON = 0xd,
-    PLAYERANIMEVENT_HAULBACK = 0xe,
-    PLAYERANIMEVENT_IDLE = 0xf,
-    PLAYERANIMEVENT_STRIKE_HIT = 0x10,
-    PLAYERANIMEVENT_STRIKE_MISS = 0x11,
-    PLAYERANIMEVENT_BACKSTAB = 0x12,
-    PLAYERANIMEVENT_DRYFIRE = 0x13,
-    PLAYERANIMEVENT_FIDGET = 0x14,
-    PLAYERANIMEVENT_RELEASE = 0x15,
-    PLAYERANIMEVENT_TAUNT = 0x16,
-    PLAYERANIMEVENT_COUNT = 0x17,
-};
-
-enum WeaponSwitchReason_t
-{
-    eDrawn = 0x0,
-    eEquipped = 0x1,
-    eUserInitiatedSwitchToLast = 0x2,
-    eUserInitiatedSwitchHands = 0x3,
-};
-
 enum SosActionSortType_t
 {
     SOS_SORTTYPE_HIGHEST = 0x0,
     SOS_SORTTYPE_LOWEST = 0x1,
-};
-
-enum CSWeaponType
-{
-    WEAPONTYPE_KNIFE = 0x0,
-    WEAPONTYPE_PISTOL = 0x1,
-    WEAPONTYPE_SUBMACHINEGUN = 0x2,
-    WEAPONTYPE_RIFLE = 0x3,
-    WEAPONTYPE_SHOTGUN = 0x4,
-    WEAPONTYPE_SNIPER_RIFLE = 0x5,
-    WEAPONTYPE_MACHINEGUN = 0x6,
-    WEAPONTYPE_C4 = 0x7,
-    WEAPONTYPE_TASER = 0x8,
-    WEAPONTYPE_GRENADE = 0x9,
-    WEAPONTYPE_EQUIPMENT = 0xa,
-    WEAPONTYPE_STACKABLEITEM = 0xb,
-    WEAPONTYPE_FISTS = 0xc,
-    WEAPONTYPE_BREACHCHARGE = 0xd,
-    WEAPONTYPE_BUMPMINE = 0xe,
-    WEAPONTYPE_TABLET = 0xf,
-    WEAPONTYPE_MELEE = 0x10,
-    WEAPONTYPE_SHIELD = 0x11,
-    WEAPONTYPE_ZONE_REPULSOR = 0x12,
-    WEAPONTYPE_UNKNOWN = 0x13,
 };
 
 enum ParticleFalloffFunction_t
@@ -3491,24 +2712,10 @@ enum ParticleFalloffFunction_t
     PARTICLE_FALLOFF_EXPONENTIAL = 0x2,
 };
 
-enum WorldTextPanelHorizontalAlign_t
-{
-    WORLDTEXT_HORIZONTAL_ALIGN_LEFT = 0x0,
-    WORLDTEXT_HORIZONTAL_ALIGN_CENTER = 0x1,
-    WORLDTEXT_HORIZONTAL_ALIGN_RIGHT = 0x2,
-};
-
 enum JumpCorrectionMethod
 {
     ScaleMotion = 0x0,
     AddCorrectionDelta = 0x1,
-};
-
-enum OnFrame
-{
-    ONFRAME_UNKNOWN = 0x0,
-    ONFRAME_TRUE = 0x1,
-    ONFRAME_FALSE = 0x2,
 };
 
 enum PetGroundType_t
@@ -3609,76 +2816,6 @@ enum VertJustification_e
     VERT_JUSTIFICATION_NONE = 0x3,
 };
 
-enum MoveType_t
-{
-    MOVETYPE_NONE = 0x0,
-    MOVETYPE_OBSOLETE = 0x1,
-    MOVETYPE_WALK = 0x2,
-    MOVETYPE_FLY = 0x3,
-    MOVETYPE_FLYGRAVITY = 0x4,
-    MOVETYPE_VPHYSICS = 0x5,
-    MOVETYPE_PUSH = 0x6,
-    MOVETYPE_NOCLIP = 0x7,
-    MOVETYPE_OBSERVER = 0x8,
-    MOVETYPE_LADDER = 0x9,
-    MOVETYPE_CUSTOM = 0xa,
-    MOVETYPE_LAST = 0xb,
-    MOVETYPE_INVALID = 0xb,
-    MOVETYPE_MAX_BITS = 0x5,
-};
-
-enum LatchDirtyPermission_t
-{
-    LATCH_DIRTY_DISALLOW = 0x0,
-    LATCH_DIRTY_SERVER_CONTROLLED = 0x1,
-    LATCH_DIRTY_CLIENT_SIMULATED = 0x2,
-    LATCH_DIRTY_PREDICTION = 0x3,
-    LATCH_DIRTY_FRAMESIMULATE = 0x4,
-    LATCH_DIRTY_PARTICLE_SIMULATE = 0x5,
-};
-
-enum RumbleEffect_t
-{
-    RUMBLE_INVALID = 0xffffffffffffffff,
-    RUMBLE_STOP_ALL = 0x0,
-    RUMBLE_PISTOL = 0x1,
-    RUMBLE_357 = 0x2,
-    RUMBLE_SMG1 = 0x3,
-    RUMBLE_AR2 = 0x4,
-    RUMBLE_SHOTGUN_SINGLE = 0x5,
-    RUMBLE_SHOTGUN_DOUBLE = 0x6,
-    RUMBLE_AR2_ALT_FIRE = 0x7,
-    RUMBLE_RPG_MISSILE = 0x8,
-    RUMBLE_CROWBAR_SWING = 0x9,
-    RUMBLE_AIRBOAT_GUN = 0xa,
-    RUMBLE_JEEP_ENGINE_LOOP = 0xb,
-    RUMBLE_FLAT_LEFT = 0xc,
-    RUMBLE_FLAT_RIGHT = 0xd,
-    RUMBLE_FLAT_BOTH = 0xe,
-    RUMBLE_DMG_LOW = 0xf,
-    RUMBLE_DMG_MED = 0x10,
-    RUMBLE_DMG_HIGH = 0x11,
-    RUMBLE_FALL_LONG = 0x12,
-    RUMBLE_FALL_SHORT = 0x13,
-    RUMBLE_PHYSCANNON_OPEN = 0x14,
-    RUMBLE_PHYSCANNON_PUNT = 0x15,
-    RUMBLE_PHYSCANNON_LOW = 0x16,
-    RUMBLE_PHYSCANNON_MEDIUM = 0x17,
-    RUMBLE_PHYSCANNON_HIGH = 0x18,
-    NUM_RUMBLE_EFFECTS = 0x19,
-};
-
-enum IChoreoServices__ChoreoState_t
-{
-    STATE_PRE_SCRIPT = 0x0,
-    STATE_WAIT_FOR_SCRIPT = 0x1,
-    STATE_WALK_TO_MARK = 0x2,
-    STATE_SYNCHRONIZE_SCRIPT = 0x3,
-    STATE_PLAY_SCRIPT = 0x4,
-    STATE_PLAY_SCRIPT_POST_IDLE = 0x5,
-    STATE_PLAY_SCRIPT_POST_IDLE_DONE = 0x6,
-};
-
 enum HorizJustification_e
 {
     HORIZ_JUSTIFICATION_LEFT = 0x0,
@@ -3693,12 +2830,6 @@ enum EDemoBoneSelectionMode
     CaptureSelectedBones = 0x1,
 };
 
-enum PointTemplateClientOnlyEntityBehavior_t
-{
-    CREATE_FOR_CURRENTLY_CONNECTED_CLIENTS_ONLY = 0x0,
-    CREATE_FOR_CLIENTS_WHO_CONNECT_LATER = 0x1,
-};
-
 enum SeqPoseSetting_t
 {
     SEQ_POSE_SETTING_CONSTANT = 0x0,
@@ -3707,36 +2838,12 @@ enum SeqPoseSetting_t
     SEQ_POSE_SETTING_VELOCITY = 0x3,
 };
 
-enum ShatterGlassStressType
-{
-    SHATTERGLASS_BLUNT = 0x0,
-    SHATTERGLASS_BALLISTIC = 0x1,
-    SHATTERGLASS_PULSE = 0x2,
-    SHATTERDRYWALL_CHUNKS = 0x3,
-    SHATTERGLASS_EXPLOSIVE = 0x4,
-};
-
-enum TimelineCompression_t
-{
-    TIMELINE_COMPRESSION_SUM = 0x0,
-    TIMELINE_COMPRESSION_COUNT_PER_INTERVAL = 0x1,
-    TIMELINE_COMPRESSION_AVERAGE = 0x2,
-    TIMELINE_COMPRESSION_AVERAGE_BLEND = 0x3,
-    TIMELINE_COMPRESSION_TOTAL = 0x4,
-};
-
 enum MorphFlexControllerRemapType_t
 {
     MORPH_FLEXCONTROLLER_REMAP_PASSTHRU = 0x0,
     MORPH_FLEXCONTROLLER_REMAP_2WAY = 0x1,
     MORPH_FLEXCONTROLLER_REMAP_NWAY = 0x2,
     MORPH_FLEXCONTROLLER_REMAP_EYELID = 0x3,
-};
-
-enum attributeprovidertypes_t
-{
-    PROVIDER_GENERIC = 0x0,
-    PROVIDER_WEAPON = 0x1,
 };
 
 enum SpawnDebugOverrideState_t
@@ -3758,29 +2865,6 @@ enum MorphBundleType_t
     MORPH_BUNDLE_TYPE_POSITION_SPEED = 0x1,
     MORPH_BUNDLE_TYPE_NORMAL_WRINKLE = 0x2,
     MORPH_BUNDLE_TYPE_COUNT = 0x3,
-};
-
-enum NavAttributeEnum
-{
-    NAV_MESH_AVOID = 0x80,
-    NAV_MESH_STAIRS = 0x1000,
-    NAV_MESH_NON_ZUP = 0x8000,
-    NAV_MESH_SHORT_HEIGHT = 0x10000,
-    NAV_MESH_CROUCH = 0x10000,
-    NAV_MESH_JUMP = 0x2,
-    NAV_MESH_PRECISE = 0x4,
-    NAV_MESH_NO_JUMP = 0x8,
-    NAV_MESH_STOP = 0x10,
-    NAV_MESH_RUN = 0x20,
-    NAV_MESH_WALK = 0x40,
-    NAV_MESH_TRANSIENT = 0x100,
-    NAV_MESH_DONT_HIDE = 0x200,
-    NAV_MESH_STAND = 0x400,
-    NAV_MESH_NO_HOSTAGES = 0x800,
-    NAV_MESH_NO_MERGE = 0x2000,
-    NAV_MESH_OBSTACLE_TOP = 0x4000,
-    NAV_ATTR_FIRST_GAME_INDEX = 0x13,
-    NAV_ATTR_LAST_INDEX = 0x1f,
 };
 
 enum ParticleLightFogLightingMode_t
@@ -3814,13 +2898,6 @@ enum ParticleDetailLevel_t
     PARTICLEDETAIL_ULTRA = 0x3,
 };
 
-enum TRAIN_CODE
-{
-    TRAIN_SAFE = 0x0,
-    TRAIN_BLOCKING = 0x1,
-    TRAIN_FOLLOWING = 0x2,
-};
-
 enum FootstepLandedFootSoundType_t
 {
     FOOTSOUND_Left = 0x0,
@@ -3836,12 +2913,6 @@ enum SosEditItemType_t
     SOS_EDIT_ITEM_TYPE_STACK = 0x3,
     SOS_EDIT_ITEM_TYPE_OPERATOR = 0x4,
     SOS_EDIT_ITEM_TYPE_FIELD = 0x5,
-};
-
-enum filter_t
-{
-    FILTER_AND = 0x0,
-    FILTER_OR = 0x1,
 };
 
 enum SosActionStopType_t
@@ -3881,19 +2952,6 @@ enum ParticleAttachment_t
     MAX_PATTACH_TYPES = 0x10,
 };
 
-enum PreviewCharacterMode
-{
-    DIORAMA = 0x0,
-    MAIN_MENU = 0x1,
-    BUY_MENU = 0x2,
-    TEAM_SELECT = 0x3,
-    END_OF_MATCH = 0x4,
-    INVENTORY_INSPECT = 0x5,
-    WALKING = 0x6,
-    TEAM_INTRO = 0x7,
-    WINGMAN_INTRO = 0x8,
-};
-
 enum CompMatPropertyMutatorType_t
 {
     COMP_MAT_PROPERTY_MUTATOR_INIT = 0x0,
@@ -3908,25 +2966,6 @@ enum CompMatPropertyMutatorType_t
     COMP_MAT_PROPERTY_MUTATOR_RANDOM_ROLL_INPUT_VARIABLES = 0x9,
 };
 
-enum SolidType_t
-{
-    SOLID_NONE = 0x0,
-    SOLID_BSP = 0x1,
-    SOLID_BBOX = 0x2,
-    SOLID_OBB = 0x3,
-    SOLID_SPHERE = 0x4,
-    SOLID_POINT = 0x5,
-    SOLID_VPHYSICS = 0x6,
-    SOLID_CAPSULE = 0x7,
-    SOLID_LAST = 0x8,
-};
-
-enum FuncDoorSpawnPos_t
-{
-    FUNC_DOOR_SPAWN_CLOSED = 0x0,
-    FUNC_DOOR_SPAWN_OPEN = 0x1,
-};
-
 enum ParticleOrientationChoiceList_t
 {
     PARTICLE_ORIENTATION_SCREEN_ALIGNED = 0x0,
@@ -3937,74 +2976,10 @@ enum ParticleOrientationChoiceList_t
     PARTICLE_ORIENTATION_FULL_3AXIS_ROTATION = 0x5,
 };
 
-enum EntityDisolveType_t
-{
-    ENTITY_DISSOLVE_INVALID = 0xffffffffffffffff,
-    ENTITY_DISSOLVE_NORMAL = 0x0,
-    ENTITY_DISSOLVE_ELECTRICAL = 0x1,
-    ENTITY_DISSOLVE_ELECTRICAL_LIGHT = 0x2,
-    ENTITY_DISSOLVE_CORE = 0x3,
-};
-
 enum NmFrameSnapEventMode_t
 {
     Floor = 0x0,
     Round = 0x1,
-};
-
-enum ObserverInterpState_t
-{
-    OBSERVER_INTERP_NONE = 0x0,
-    OBSERVER_INTERP_TRAVELING = 0x1,
-    OBSERVER_INTERP_SETTLING = 0x2,
-};
-
-enum ShadowType_t
-{
-    SHADOWS_NONE = 0x0,
-    SHADOWS_SIMPLE = 0x1,
-};
-
-enum Class_T
-{
-    CLASS_NONE = 0x0,
-    CLASS_PLAYER = 0x1,
-    CLASS_PLAYER_ALLY = 0x2,
-    CLASS_BOMB = 0x3,
-    CLASS_FOOT_CONTACT_SHADOW = 0x4,
-    CLASS_WEAPON = 0x5,
-    CLASS_WATER_SPLASHER = 0x6,
-    CLASS_WEAPON_VIEWMODEL = 0x7,
-    CLASS_DOOR = 0x8,
-    NUM_CLASSIFY_CLASSES = 0x9,
-};
-
-enum BeginDeathLifeStateTransition_t
-{
-    NO_CHANGE_IN_LIFESTATE = 0x0,
-    TRANSITION_TO_LIFESTATE_DYING = 0x1,
-    TRANSITION_TO_LIFESTATE_DEAD = 0x2,
-};
-
-enum TrainVelocityType_t
-{
-    TrainVelocity_Instantaneous = 0x0,
-    TrainVelocity_LinearBlend = 0x1,
-    TrainVelocity_EaseInEaseOut = 0x2,
-};
-
-enum Disposition_t
-{
-    D_ER = 0x0,
-    D_HT = 0x1,
-    D_FR = 0x2,
-    D_LI = 0x3,
-    D_NU = 0x4,
-    D_ERROR = 0x0,
-    D_HATE = 0x1,
-    D_FEAR = 0x2,
-    D_LIKE = 0x3,
-    D_NEUTRAL = 0x4,
 };
 
 enum JiggleBoneSimSpace
@@ -4012,13 +2987,6 @@ enum JiggleBoneSimSpace
     SimSpace_Local = 0x0,
     SimSpace_Model = 0x1,
     SimSpace_World = 0x2,
-};
-
-enum TrackOrientationType_t
-{
-    TrackOrientation_Fixed = 0x0,
-    TrackOrientation_FacePath = 0x1,
-    TrackOrientation_FacePathAngles = 0x2,
 };
 
 enum ParticleTopology_t
@@ -4030,161 +2998,11 @@ enum ParticleTopology_t
     PARTICLE_TOPOLOGY_CUBES = 0x4,
 };
 
-enum WaterLevel_t
-{
-    WL_NotInWater = 0x0,
-    WL_Feet = 0x1,
-    WL_Knees = 0x2,
-    WL_Waist = 0x3,
-    WL_Chest = 0x4,
-    WL_FullyUnderwater = 0x5,
-    WL_Count = 0x6,
-};
-
-enum DebugOverlayBits_t
-{
-    OVERLAY_TEXT_BIT = 0x1,
-    OVERLAY_NAME_BIT = 0x2,
-    OVERLAY_BBOX_BIT = 0x4,
-    OVERLAY_PIVOT_BIT = 0x8,
-    OVERLAY_MESSAGE_BIT = 0x10,
-    OVERLAY_ABSBOX_BIT = 0x20,
-    OVERLAY_RBOX_BIT = 0x40,
-    OVERLAY_SHOW_BLOCKSLOS = 0x80,
-    OVERLAY_ATTACHMENTS_BIT = 0x100,
-    OVERLAY_INTERPOLATED_ATTACHMENTS_BIT = 0x200,
-    OVERLAY_INTERPOLATED_PIVOT_BIT = 0x400,
-    OVERLAY_SKELETON_BIT = 0x800,
-    OVERLAY_INTERPOLATED_SKELETON_BIT = 0x1000,
-    OVERLAY_TRIGGER_BOUNDS_BIT = 0x2000,
-    OVERLAY_HITBOX_BIT = 0x4000,
-    OVERLAY_INTERPOLATED_HITBOX_BIT = 0x8000,
-    OVERLAY_AUTOAIM_BIT = 0x10000,
-    OVERLAY_NPC_SELECTED_BIT = 0x20000,
-    OVERLAY_JOINT_INFO_BIT = 0x40000,
-    OVERLAY_NPC_ROUTE_BIT = 0x80000,
-    OVERLAY_VISIBILITY_TRACES_BIT = 0x100000,
-    OVERLAY_NPC_ENEMIES_BIT = 0x400000,
-    OVERLAY_NPC_CONDITIONS_BIT = 0x800000,
-    OVERLAY_NPC_COMBAT_BIT = 0x1000000,
-    OVERLAY_NPC_TASK_BIT = 0x2000000,
-    OVERLAY_NPC_BODYLOCATIONS = 0x4000000,
-    OVERLAY_NPC_VIEWCONE_BIT = 0x8000000,
-    OVERLAY_NPC_KILL_BIT = 0x10000000,
-    OVERLAY_WC_CHANGE_ENTITY = 0x20000000,
-    OVERLAY_BUDDHA_MODE = 0x40000000,
-    OVERLAY_NPC_STEERING_REGULATIONS = 0x80000000,
-    OVERLAY_NPC_TASK_TEXT_BIT = 0x100000000,
-    OVERLAY_PROP_DEBUG = 0x200000000,
-    OVERLAY_NPC_RELATION_BIT = 0x400000000,
-    OVERLAY_VIEWOFFSET = 0x800000000,
-    OVERLAY_VCOLLIDE_WIREFRAME_BIT = 0x1000000000,
-    OVERLAY_ACTORNAME_BIT = 0x4000000000,
-    OVERLAY_NPC_CONDITIONS_TEXT_BIT = 0x8000000000,
-    OVERLAY_NPC_ABILITY_RANGE_DEBUG_BIT = 0x10000000000,
-};
-
-enum QuestProgress__Reason
-{
-    QUEST_NONINITIALIZED = 0x0,
-    QUEST_OK = 0x1,
-    QUEST_NOT_ENOUGH_PLAYERS = 0x2,
-    QUEST_WARMUP = 0x3,
-    QUEST_NOT_CONNECTED_TO_STEAM = 0x4,
-    QUEST_NONOFFICIAL_SERVER = 0x5,
-    QUEST_NO_ENTITLEMENT = 0x6,
-    QUEST_NO_QUEST = 0x7,
-    QUEST_PLAYER_IS_BOT = 0x8,
-    QUEST_WRONG_MAP = 0x9,
-    QUEST_WRONG_MODE = 0xa,
-    QUEST_NOT_SYNCED_WITH_SERVER = 0xb,
-    QUEST_REASON_MAX = 0xc,
-};
-
 enum DampingSpeedFunction
 {
     NoDamping = 0x0,
     Constant = 0x1,
     Spring = 0x2,
-};
-
-enum PreviewWeaponState
-{
-    DROPPED = 0x0,
-    HOLSTERED = 0x1,
-    DEPLOYED = 0x2,
-    PLANTED = 0x3,
-    INSPECT = 0x4,
-    ICON = 0x5,
-};
-
-enum ShatterDamageCause
-{
-    SHATTERDAMAGE_BULLET = 0x0,
-    SHATTERDAMAGE_MELEE = 0x1,
-    SHATTERDAMAGE_THROWN = 0x2,
-    SHATTERDAMAGE_SCRIPT = 0x3,
-    SHATTERDAMAGE_EXPLOSIVE = 0x4,
-};
-
-enum RenderMode_t
-{
-    kRenderNormal = 0x0,
-    kRenderTransColor = 0x1,
-    kRenderTransTexture = 0x2,
-    kRenderGlow = 0x3,
-    kRenderTransAlpha = 0x4,
-    kRenderTransAdd = 0x5,
-    kRenderEnvironmental = 0x6,
-    kRenderTransAddFrameBlend = 0x7,
-    kRenderTransAlphaAdd = 0x8,
-    kRenderWorldGlow = 0x9,
-    kRenderNone = 0xa,
-    kRenderDevVisualizer = 0xb,
-    kRenderModeCount = 0xc,
-};
-
-enum ScriptedConflictResponse_t
-{
-    SS_CONFLICT_ENQUEUE = 0x0,
-    SS_CONFLICT_INTERRUPT = 0x1,
-};
-
-enum ShatterPanelMode
-{
-    SHATTER_GLASS = 0x0,
-    SHATTER_DRYWALL = 0x1,
-};
-
-enum InputBitMask_t
-{
-    IN_NONE = 0x0,
-    IN_ALL = 0xffffffffffffffff,
-    IN_ATTACK = 0x1,
-    IN_JUMP = 0x2,
-    IN_DUCK = 0x4,
-    IN_FORWARD = 0x8,
-    IN_BACK = 0x10,
-    IN_USE = 0x20,
-    IN_TURNLEFT = 0x80,
-    IN_TURNRIGHT = 0x100,
-    IN_MOVELEFT = 0x200,
-    IN_MOVERIGHT = 0x400,
-    IN_ATTACK2 = 0x800,
-    IN_RELOAD = 0x2000,
-    IN_SPEED = 0x10000,
-    IN_JOYAUTOSPRINT = 0x20000,
-    IN_FIRST_MOD_SPECIFIC_BIT = 0x100000000,
-    IN_USEORRELOAD = 0x100000000,
-    IN_SCORE = 0x200000000,
-    IN_ZOOM = 0x400000000,
-    IN_LOOK_AT_WEAPON = 0x800000000,
-};
-
-enum ModifyDamageReturn_t
-{
-    CONTINUE_TO_APPLY_DAMAGE = 0x0,
-    ABORT_DO_NOT_APPLY_DAMAGE = 0x1,
 };
 
 enum ParticleColorBlendType_t
@@ -4202,42 +3020,6 @@ enum ParticleColorBlendType_t
     PARTICLE_COLOR_BLEND_AVERAGE = 0xa,
     PARTICLE_COLOR_BLEND_NEGATE = 0xb,
     PARTICLE_COLOR_BLEND_LUMINANCE = 0xc,
-};
-
-enum BeamClipStyle_t
-{
-    kNOCLIP = 0x0,
-    kGEOCLIP = 0x1,
-    kMODELCLIP = 0x2,
-    kBEAMCLIPSTYLE_NUMBITS = 0x2,
-};
-
-enum DamageTypes_t
-{
-    DMG_GENERIC = 0x0,
-    DMG_CRUSH = 0x1,
-    DMG_BULLET = 0x2,
-    DMG_SLASH = 0x4,
-    DMG_BURN = 0x8,
-    DMG_VEHICLE = 0x10,
-    DMG_FALL = 0x20,
-    DMG_BLAST = 0x40,
-    DMG_CLUB = 0x80,
-    DMG_SHOCK = 0x100,
-    DMG_SONIC = 0x200,
-    DMG_ENERGYBEAM = 0x400,
-    DMG_DROWN = 0x4000,
-    DMG_POISON = 0x8000,
-    DMG_RADIATION = 0x10000,
-    DMG_DROWNRECOVER = 0x20000,
-    DMG_ACID = 0x40000,
-    DMG_PHYSGUN = 0x100000,
-    DMG_DISSOLVE = 0x200000,
-    DMG_BLAST_SURFACE = 0x400000,
-    DMG_BUCKSHOT = 0x1000000,
-    DMG_LASTGENERICFLAG = 0x1000000,
-    DMG_HEADSHOT = 0x2000000,
-    DMG_DANGERZONE = 0x4000000,
 };
 
 enum VMixSubgraphSwitchInterpolationType_t
@@ -4292,39 +3074,6 @@ enum AnimationSnapshotType_t
     ANIMATION_SNAPSHOT_MAX = 0x6,
 };
 
-enum CSWeaponCategory
-{
-    WEAPONCATEGORY_OTHER = 0x0,
-    WEAPONCATEGORY_MELEE = 0x1,
-    WEAPONCATEGORY_SECONDARY = 0x2,
-    WEAPONCATEGORY_SMG = 0x3,
-    WEAPONCATEGORY_RIFLE = 0x4,
-    WEAPONCATEGORY_HEAVY = 0x5,
-    WEAPONCATEGORY_COUNT = 0x6,
-};
-
-enum CSPlayerBlockingUseAction_t
-{
-    k_CSPlayerBlockingUseAction_None = 0x0,
-    k_CSPlayerBlockingUseAction_DefusingDefault = 0x1,
-    k_CSPlayerBlockingUseAction_DefusingWithKit = 0x2,
-    k_CSPlayerBlockingUseAction_HostageGrabbing = 0x3,
-    k_CSPlayerBlockingUseAction_HostageDropping = 0x4,
-    k_CSPlayerBlockingUseAction_OpeningSafe = 0x5,
-    k_CSPlayerBlockingUseAction_EquippingParachute = 0x6,
-    k_CSPlayerBlockingUseAction_EquippingHeavyArmor = 0x7,
-    k_CSPlayerBlockingUseAction_EquippingContract = 0x8,
-    k_CSPlayerBlockingUseAction_EquippingTabletUpgrade = 0x9,
-    k_CSPlayerBlockingUseAction_TakingOffHeavyArmor = 0xa,
-    k_CSPlayerBlockingUseAction_PayingToOpenDoor = 0xb,
-    k_CSPlayerBlockingUseAction_CancelingSpawnRappelling = 0xc,
-    k_CSPlayerBlockingUseAction_EquippingExoJump = 0xd,
-    k_CSPlayerBlockingUseAction_PickingUpBumpMine = 0xe,
-    k_CSPlayerBlockingUseAction_MapLongUseEntity_Pickup = 0xf,
-    k_CSPlayerBlockingUseAction_MapLongUseEntity_Place = 0x10,
-    k_CSPlayerBlockingUseAction_MaxCount = 0x11,
-};
-
 enum SpriteCardPerParticleScale_t
 {
     SPRITECARD_TEXTURE_PP_SCALE_NONE = 0x0,
@@ -4343,23 +3092,10 @@ enum SpriteCardPerParticleScale_t
     SPRITECARD_TEXTURE_PP_SCALE_NEG_RANDOM_TIME = 0xd,
 };
 
-enum FixAngleSet_t
-{
-    None = 0x0,
-    Absolute = 0x1,
-    Relative = 0x2,
-};
-
 enum SpriteCardShaderType_t
 {
     SPRITECARD_SHADER_BASE = 0x0,
     SPRITECARD_SHADER_CUSTOM = 0x1,
-};
-
-enum ValueRemapperRatchetType_t
-{
-    RatchetType_Absolute = 0x0,
-    RatchetType_EachEngage = 0x1,
 };
 
 enum BBoxVolumeType_t
@@ -4376,14 +3112,6 @@ enum PulseTestEnumColor_t
     RED = 0x2,
     GREEN = 0x3,
     BLUE = 0x4,
-};
-
-enum ScriptedMoveType_t
-{
-    SCRIPTED_MOVETYPE_NONE = 0x0,
-    SCRIPTED_MOVETYPE_TO_WITH_DURATION = 0x1,
-    SCRIPTED_MOVETYPE_TO_WITH_MOVESPEED = 0x2,
-    SCRIPTED_MOVETYPE_SWEEP_TO_AT_MOVEMENT_SPEED = 0x3,
 };
 
 enum ParticleCollisionMode_t
@@ -4422,53 +3150,6 @@ enum ParticleControlPointAxis_t
     PARTICLE_CP_AXIS_NEGATIVE_X = 0x3,
     PARTICLE_CP_AXIS_NEGATIVE_Y = 0x4,
     PARTICLE_CP_AXIS_NEGATIVE_Z = 0x5,
-};
-
-enum GameAnimEventIndex_t
-{
-    AE_EMPTY = 0x0,
-    AE_CL_PLAYSOUND = 0x1,
-    AE_CL_PLAYSOUND_ATTACHMENT = 0x2,
-    AE_CL_PLAYSOUND_POSITION = 0x3,
-    AE_SV_PLAYSOUND = 0x4,
-    AE_CL_STOPSOUND = 0x5,
-    AE_CL_PLAYSOUND_LOOPING = 0x6,
-    AE_CL_CREATE_PARTICLE_EFFECT = 0x7,
-    AE_CL_STOP_PARTICLE_EFFECT = 0x8,
-    AE_CL_CREATE_PARTICLE_EFFECT_CFG = 0x9,
-    AE_SV_CREATE_PARTICLE_EFFECT_CFG = 0xa,
-    AE_SV_STOP_PARTICLE_EFFECT = 0xb,
-    AE_FOOTSTEP = 0xc,
-    AE_RAGDOLL = 0xd,
-    AE_CL_STOP_RAGDOLL_CONTROL = 0xe,
-    AE_CL_ENABLE_BODYGROUP = 0xf,
-    AE_CL_DISABLE_BODYGROUP = 0x10,
-    AE_BODYGROUP_SET_VALUE = 0x11,
-    AE_CL_BODYGROUP_SET_VALUE_CMODEL_WPN = 0x12,
-    AE_WEAPON_PERFORM_ATTACK = 0x13,
-    AE_FIRE_INPUT = 0x14,
-    AE_CL_CLOTH_ATTR = 0x15,
-    AE_CL_CLOTH_GROUND_OFFSET = 0x16,
-    AE_CL_CLOTH_STIFFEN = 0x17,
-    AE_CL_CLOTH_EFFECT = 0x18,
-    AE_CL_CREATE_ANIM_SCOPE_PROP = 0x19,
-    AE_PULSE_GRAPH = 0x1a,
-    AE_PULSE_GRAPH_LOOKAT = 0x1b,
-    AE_PULSE_GRAPH_AIMAT = 0x1c,
-    AE_PULSE_GRAPH_IKLOCKLEFTARM = 0x1d,
-    AE_PULSE_GRAPH_IKLOCKRIGHTARM = 0x1e,
-    AE_CL_WEAPON_TRANSITION_INTO_HAND = 0x1f,
-    AE_CL_BODYGROUP_SET_TO_CLIP = 0x20,
-    AE_CL_BODYGROUP_SET_TO_NEXTCLIP = 0x21,
-    AE_SV_SHOW_SILENCER = 0x22,
-    AE_SV_ATTACH_SILENCER_COMPLETE = 0x23,
-    AE_SV_HIDE_SILENCER = 0x24,
-    AE_SV_DETACH_SILENCER_COMPLETE = 0x25,
-    AE_CL_EJECT_MAG = 0x26,
-    AE_WPN_COMPLETE_RELOAD = 0x27,
-    AE_WPN_HEALTHSHOT_INJECT = 0x28,
-    AE_CL_C4_SCREEN_TEXT = 0x29,
-    AE_GRENADE_THROW_COMPLETE = 0x2a,
 };
 
 enum ELayoutNodeType
@@ -4525,13 +3206,6 @@ enum AnimParamType_t
     ANIMPARAM_COUNT = 0x8,
 };
 
-enum PropDoorRotatingOpenDirection_e
-{
-    DOOR_ROTATING_OPEN_BOTH_WAYS = 0x0,
-    DOOR_ROTATING_OPEN_FORWARD = 0x1,
-    DOOR_ROTATING_OPEN_BACKWARD = 0x2,
-};
-
 enum ParticleLightUnitChoiceList_t
 {
     PARTICLE_LIGHT_UNIT_CANDELAS = 0x0,
@@ -4545,52 +3219,6 @@ enum VMixLFOShape_t
     LFO_SHAPE_TRI = 0x2,
     LFO_SHAPE_SAW = 0x3,
     LFO_SHAPE_NOISE = 0x4,
-};
-
-enum LifeState_t
-{
-    LIFE_ALIVE = 0x0,
-    LIFE_DYING = 0x1,
-    LIFE_DEAD = 0x2,
-    LIFE_RESPAWNABLE = 0x3,
-    LIFE_RESPAWNING = 0x4,
-};
-
-enum IChoreoServices__ScriptState_t
-{
-    SCRIPT_PLAYING = 0x0,
-    SCRIPT_WAIT = 0x1,
-    SCRIPT_POST_IDLE = 0x2,
-    SCRIPT_CLEANUP = 0x3,
-    SCRIPT_WALK_TO_MARK = 0x4,
-    SCRIPT_RUN_TO_MARK = 0x5,
-    SCRIPT_CUSTOM_MOVE_TO_MARK = 0x6,
-};
-
-enum EntitySubclassScope_t
-{
-    SUBCLASS_SCOPE_NONE = 0xffffffffffffffff,
-    SUBCLASS_SCOPE_PRECIPITATION = 0x0,
-    SUBCLASS_SCOPE_PLAYER_WEAPONS = 0x1,
-    SUBCLASS_SCOPE_COUNT = 0x2,
-};
-
-enum EntFinderMethod_t
-{
-    ENT_FIND_METHOD_NEAREST = 0x0,
-    ENT_FIND_METHOD_FARTHEST = 0x1,
-    ENT_FIND_METHOD_RANDOM = 0x2,
-};
-
-enum ChickenActivity
-{
-    IDLE = 0x0,
-    WALK = 0x1,
-    RUN = 0x2,
-    HOP = 0x3,
-    JUMP = 0x4,
-    GLIDE = 0x5,
-    LAND = 0x6,
 };
 
 enum IkEndEffectorType
@@ -4618,35 +3246,6 @@ enum EStyleNodeType
     REFERENCE_PASSTHROUGH = 0xe,
 };
 
-enum WeaponSound_t
-{
-    WEAPON_SOUND_EMPTY = 0x0,
-    WEAPON_SOUND_SECONDARY_EMPTY = 0x1,
-    WEAPON_SOUND_SINGLE = 0x2,
-    WEAPON_SOUND_SECONDARY_ATTACK = 0x3,
-    WEAPON_SOUND_MELEE_MISS = 0x4,
-    WEAPON_SOUND_MELEE_HIT = 0x5,
-    WEAPON_SOUND_MELEE_HIT_WORLD = 0x6,
-    WEAPON_SOUND_MELEE_HIT_PLAYER = 0x7,
-    WEAPON_SOUND_MELEE_HIT_NPC = 0x8,
-    WEAPON_SOUND_SPECIAL1 = 0x9,
-    WEAPON_SOUND_SPECIAL2 = 0xa,
-    WEAPON_SOUND_SPECIAL3 = 0xb,
-    WEAPON_SOUND_NEARLYEMPTY = 0xc,
-    WEAPON_SOUND_IMPACT = 0xd,
-    WEAPON_SOUND_REFLECT = 0xe,
-    WEAPON_SOUND_SECONDARY_IMPACT = 0xf,
-    WEAPON_SOUND_SECONDARY_REFLECT = 0x10,
-    WEAPON_SOUND_RELOAD = 0x11,
-    WEAPON_SOUND_SINGLE_ACCURATE = 0x12,
-    WEAPON_SOUND_ZOOM_IN = 0x13,
-    WEAPON_SOUND_ZOOM_OUT = 0x14,
-    WEAPON_SOUND_MOUSE_PRESSED = 0x15,
-    WEAPON_SOUND_DROP = 0x16,
-    WEAPON_SOUND_RADIO_USE = 0x17,
-    WEAPON_SOUND_NUM_TYPES = 0x18,
-};
-
 enum FieldNetworkOption
 {
     Auto = 0x0,
@@ -4669,32 +3268,11 @@ enum IkTargetType
     IkTarget_Parameter_WorldSpace = 0x3,
 };
 
-enum CSPlayerState
-{
-    STATE_ACTIVE = 0x0,
-    STATE_WELCOME = 0x1,
-    STATE_PICKINGTEAM = 0x2,
-    STATE_PICKINGCLASS = 0x3,
-    STATE_DEATH_ANIM = 0x4,
-    STATE_DEATH_WAIT_FOR_KEY = 0x5,
-    STATE_OBSERVER_MODE = 0x6,
-    STATE_GUNGAME_RESPAWN = 0x7,
-    STATE_DORMANT = 0x8,
-    NUM_PLAYER_STATES = 0x9,
-};
-
 enum FootPinningTimingSource
 {
     FootMotion = 0x0,
     Tag = 0x1,
     Parameter = 0x2,
-};
-
-enum doorCheck_e
-{
-    DOOR_CHECK_FORWARD = 0x0,
-    DOOR_CHECK_BACKWARD = 0x1,
-    DOOR_CHECK_FULL = 0x2,
 };
 
 enum PFNoiseType_t
@@ -4703,13 +3281,6 @@ enum PFNoiseType_t
     PF_NOISE_TYPE_SIMPLEX = 0x1,
     PF_NOISE_TYPE_WORLEY = 0x2,
     PF_NOISE_TYPE_CURL = 0x3,
-};
-
-enum CSWeaponMode
-{
-    Primary_Mode = 0x0,
-    Secondary_Mode = 0x1,
-    WeaponMode_MAX = 0x2,
 };
 
 enum ParticleFloatBiasType_t
@@ -4797,27 +3368,12 @@ enum HitboxLerpType_t
     HITBOX_LERP_CONSTANT = 0x1,
 };
 
-enum WeaponAttackType_t
-{
-    eInvalid = 0xffffffffffffffff,
-    ePrimary = 0x0,
-    eSecondary = 0x1,
-    eCount = 0x2,
-};
-
 enum BoneTransformSpace_t
 {
     BoneTransformSpace_Invalid = 0xffffffffffffffff,
     BoneTransformSpace_Parent = 0x0,
     BoneTransformSpace_Model = 0x1,
     BoneTransformSpace_World = 0x2,
-};
-
-enum EOverrideBlockLOS_t
-{
-    BLOCK_LOS_DEFAULT = 0x0,
-    BLOCK_LOS_FORCE_FALSE = 0x1,
-    BLOCK_LOS_FORCE_TRUE = 0x2,
 };
 
 enum VPhysXBodyPart_t__VPhysXFlagEnum_t
@@ -4834,27 +3390,6 @@ enum EntityDormancyType_t
     ENTITY_NOT_DORMANT = 0x0,
     ENTITY_DORMANT = 0x1,
     ENTITY_SUSPENDED = 0x2,
-};
-
-enum BaseExplosionTypes_t
-{
-    EXPLOSION_TYPE_DEFAULT = 0x0,
-    EXPLOSION_TYPE_GRENADE = 0x1,
-    EXPLOSION_TYPE_MOLOTOV = 0x2,
-    EXPLOSION_TYPE_FIREWORKS = 0x3,
-    EXPLOSION_TYPE_GASCAN = 0x4,
-    EXPLOSION_TYPE_GASCYLINDER = 0x5,
-    EXPLOSION_TYPE_EXPLOSIVEBARREL = 0x6,
-    EXPLOSION_TYPE_ELECTRICAL = 0x7,
-    EXPLOSION_TYPE_EMP = 0x8,
-    EXPLOSION_TYPE_SHRAPNEL = 0x9,
-    EXPLOSION_TYPE_SMOKEGRENADE = 0xa,
-    EXPLOSION_TYPE_FLASHBANG = 0xb,
-    EXPLOSION_TYPE_TRIPMINE = 0xc,
-    EXPLOSION_TYPE_ICE = 0xd,
-    EXPLOSION_TYPE_NONE = 0xe,
-    EXPLOSION_TYPE_CUSTOM = 0xf,
-    EXPLOSION_TYPE_COUNT = 0x10,
 };
 
 enum ParticleTraceMissBehavior_t
@@ -4957,23 +3492,6 @@ enum FootFallTagFoot_t
     FOOT8 = 0x7,
 };
 
-enum ShakeCommand_t
-{
-    SHAKE_START = 0x0,
-    SHAKE_STOP = 0x1,
-    SHAKE_AMPLITUDE = 0x2,
-    SHAKE_FREQUENCY = 0x3,
-    SHAKE_START_RUMBLEONLY = 0x4,
-    SHAKE_START_NORUMBLE = 0x5,
-};
-
-enum SimpleConstraintSoundProfile__SimpleConstraintsSoundProfileKeypoints_t
-{
-    kMIN_THRESHOLD = 0x0,
-    kMIN_FULL = 0x1,
-    kHIGHWATER = 0x2,
-};
-
 enum IKTargetSource
 {
     IKTARGETSOURCE_Bone = 0x0,
@@ -4981,36 +3499,9 @@ enum IKTargetSource
     IKTARGETSOURCE_COUNT = 0x2,
 };
 
-enum CommandEntitySpecType_t
-{
-    SPEC_SEARCH = 0x0,
-    SPEC_TYPES_COUNT = 0x1,
-};
-
-enum WorldTextPanelVerticalAlign_t
-{
-    WORLDTEXT_VERTICAL_ALIGN_TOP = 0x0,
-    WORLDTEXT_VERTICAL_ALIGN_CENTER = 0x1,
-    WORLDTEXT_VERTICAL_ALIGN_BOTTOM = 0x2,
-};
-
 enum ClosestPointTestType_t
 {
     PARTICLE_CLOSEST_TYPE_BOX = 0x0,
     PARTICLE_CLOSEST_TYPE_CAPSULE = 0x1,
     PARTICLE_CLOSEST_TYPE_HYBRID = 0x2,
-};
-
-enum SequenceFinishNotifyState_t
-{
-    eDoNotNotify = 0x0,
-    eNotifyWhenFinished = 0x1,
-    eNotifyTriggered = 0x2,
-};
-
-enum PointWorldTextJustifyHorizontal_t
-{
-    POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_LEFT = 0x0,
-    POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_CENTER = 0x1,
-    POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_RIGHT = 0x2,
 };
