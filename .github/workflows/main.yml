@@ -20,6 +20,15 @@ jobs:
               with:
                   path: swiftly
 
+            - name: Set up cache for Xmake
+              id: xmake-cache
+              uses: actions/cache@v2
+              with:
+                path: ${{ github.workspace }}/swiftly/build/.build_cache
+                key: ${{ runner.os }}-xmake-${{ hashFiles('**/*') }}
+                restore-keys: |
+                  ${{ runner.os }}-xmake-
+
             - name: Generate Documentation
               working-directory: swiftly/docgen
               run: |
@@ -71,7 +80,7 @@ jobs:
               shell: bash
               run: |
                   sudo apt update
-                  sudo apt install -y libreadline-dev libboost-all-dev fdupes unzip
+                  sudo apt install -y libreadline-dev libboost-all-dev fdupes unzip ccache
                   bash ./setup.sh
 
             - name: Build - Windows

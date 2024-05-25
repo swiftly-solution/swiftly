@@ -4,6 +4,8 @@ includes("@builtin/xpack")
 includes("core.base.option")
 includes("platform.os")
 
+set_policy("build.ccache", true)
+
 local SDK_PATH = os.getenv("HL2SDKCS2")
 local MM_PATH = os.getenv("MMSOURCE112")
 local GITHUB_SHA = os.getenv("GITHUB_SHA") or "Local"
@@ -20,6 +22,8 @@ end
 
 target(PROJECT_NAME.."-Xmake")
     set_kind("shared")
+
+    set_policy("build.cache", true)
 
     --[[ Source Files ]]
     add_files("src/**.cpp")
