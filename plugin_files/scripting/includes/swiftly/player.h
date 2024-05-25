@@ -1042,12 +1042,12 @@ public:
 
     MoveType_t GetMoveType()
     {
-        REGISTER_METHOD(MoveType_t, MOVETYPE_NONE, scripting_Player_GetMoveType, this->m_playerSlot);
+        REGISTER_METHOD(MoveType_t, MoveType_t::MOVETYPE_NONE, scripting_Player_GetMoveType, this->m_playerSlot);
     }
 
     MoveType_t GetActualMoveType()
     {
-        REGISTER_METHOD(MoveType_t, MOVETYPE_NONE, scripting_Player_GetActualMoveType, this->m_playerSlot);
+        REGISTER_METHOD(MoveType_t, MoveType_t::MOVETYPE_NONE, scripting_Player_GetActualMoveType, this->m_playerSlot);
     }
 
     void Respawn()

@@ -1,26 +1,26 @@
 #include <cstdint>
 
-enum class PropDoorRotatingOpenDirection_e : uint32_t
+enum class PropDoorRotatingOpenDirection_e : uint64_t
 {
     DOOR_ROTATING_OPEN_BOTH_WAYS = 0x0,
     DOOR_ROTATING_OPEN_FORWARD = 0x1,
     DOOR_ROTATING_OPEN_BACKWARD = 0x2,
 };
 
-enum class SceneOnPlayerDeath_t : uint32_t
+enum class SceneOnPlayerDeath_t : uint64_t
 {
     SCENE_ONPLAYERDEATH_DO_NOTHING = 0x0,
     SCENE_ONPLAYERDEATH_CANCEL = 0x1,
 };
 
-enum class LessonPanelLayoutFileTypes_t : uint32_t
+enum class LessonPanelLayoutFileTypes_t : uint64_t
 {
     LAYOUT_HAND_DEFAULT = 0x0,
     LAYOUT_WORLD_DEFAULT = 0x1,
     LAYOUT_CUSTOM = 0x2,
 };
 
-enum class TimelineCompression_t : uint32_t
+enum class TimelineCompression_t : uint64_t
 {
     TIMELINE_COMPRESSION_SUM = 0x0,
     TIMELINE_COMPRESSION_COUNT_PER_INTERVAL = 0x1,
@@ -29,21 +29,21 @@ enum class TimelineCompression_t : uint32_t
     TIMELINE_COMPRESSION_TOTAL = 0x4,
 };
 
-enum class SubclassVDataChangeType_t : uint32_t
+enum class SubclassVDataChangeType_t : uint64_t
 {
     SUBCLASS_VDATA_CREATED = 0x0,
     SUBCLASS_VDATA_SUBCLASS_CHANGED = 0x1,
     SUBCLASS_VDATA_RELOADED = 0x2,
 };
 
-enum class C4LightEffect_t : uint32_t
+enum class C4LightEffect_t : uint64_t
 {
     eLightEffectNone = 0x0,
     eLightEffectDropped = 0x1,
     eLightEffectThirdPersonHeld = 0x2,
 };
 
-enum class StanceType_t : uint32_t
+enum class StanceType_t : uint64_t
 {
     STANCE_CURRENT = 0xffffffffffffffff,
     STANCE_DEFAULT = 0x0,
@@ -52,14 +52,14 @@ enum class StanceType_t : uint32_t
     NUM_STANCES = 0x3,
 };
 
-enum class Explosions : uint32_t
+enum class Explosions : uint64_t
 {
     expRandom = 0x0,
     expDirected = 0x1,
     expUsePrecise = 0x2,
 };
 
-enum class PreviewCharacterMode : uint32_t
+enum class PreviewCharacterMode : uint64_t
 {
     DIORAMA = 0x0,
     MAIN_MENU = 0x1,
@@ -72,42 +72,42 @@ enum class PreviewCharacterMode : uint32_t
     WINGMAN_INTRO = 0x8,
 };
 
-enum class ObserverInterpState_t : uint32_t
+enum class ObserverInterpState_t : uint64_t
 {
     OBSERVER_INTERP_NONE = 0x0,
     OBSERVER_INTERP_TRAVELING = 0x1,
     OBSERVER_INTERP_SETTLING = 0x2,
 };
 
-enum class WorldTextPanelOrientation_t : uint32_t
+enum class WorldTextPanelOrientation_t : uint64_t
 {
     WORLDTEXT_ORIENTATION_DEFAULT = 0x0,
     WORLDTEXT_ORIENTATION_FACEUSER = 0x1,
     WORLDTEXT_ORIENTATION_FACEUSER_UPRIGHT = 0x2,
 };
 
-enum class WorldTextPanelHorizontalAlign_t : uint32_t
+enum class WorldTextPanelHorizontalAlign_t : uint64_t
 {
     WORLDTEXT_HORIZONTAL_ALIGN_LEFT = 0x0,
     WORLDTEXT_HORIZONTAL_ALIGN_CENTER = 0x1,
     WORLDTEXT_HORIZONTAL_ALIGN_RIGHT = 0x2,
 };
 
-enum class SequenceFinishNotifyState_t : uint8_t
+enum class SequenceFinishNotifyState_t : uint64_t
 {
     eDoNotNotify = 0x0,
     eNotifyWhenFinished = 0x1,
     eNotifyTriggered = 0x2,
 };
 
-enum class SoundEventStartType_t : uint32_t
+enum class SoundEventStartType_t : uint64_t
 {
     SOUNDEVENT_START_PLAYER = 0x0,
     SOUNDEVENT_START_WORLD = 0x1,
     SOUNDEVENT_START_ENTITY = 0x2,
 };
 
-enum class TrainOrientationType_t : uint32_t
+enum class TrainOrientationType_t : uint64_t
 {
     TrainOrientation_Fixed = 0x0,
     TrainOrientation_AtPathTracks = 0x1,
@@ -115,7 +115,7 @@ enum class TrainOrientationType_t : uint32_t
     TrainOrientation_EaseInEaseOut = 0x3,
 };
 
-enum class CSWeaponCategory : uint32_t
+enum class CSWeaponCategory : uint64_t
 {
     WEAPONCATEGORY_OTHER = 0x0,
     WEAPONCATEGORY_MELEE = 0x1,
@@ -126,14 +126,14 @@ enum class CSWeaponCategory : uint32_t
     WEAPONCATEGORY_COUNT = 0x6,
 };
 
-enum class BeginDeathLifeStateTransition_t : uint8_t
+enum class BeginDeathLifeStateTransition_t : uint64_t
 {
     NO_CHANGE_IN_LIFESTATE = 0x0,
     TRANSITION_TO_LIFESTATE_DYING = 0x1,
     TRANSITION_TO_LIFESTATE_DEAD = 0x2,
 };
 
-enum class PlayerAnimEvent_t : uint32_t
+enum class PlayerAnimEvent_t : uint64_t
 {
     PLAYERANIMEVENT_FIRE_GUN_PRIMARY = 0x0,
     PLAYERANIMEVENT_FIRE_GUN_SECONDARY = 0x1,
@@ -161,7 +161,7 @@ enum class PlayerAnimEvent_t : uint32_t
     PLAYERANIMEVENT_COUNT = 0x17,
 };
 
-enum class ItemFlagTypes_t : uint8_t
+enum class ItemFlagTypes_t : uint64_t
 {
     ITEM_FLAG_NONE = 0x0,
     ITEM_FLAG_CAN_SELECT_WITHOUT_AMMO = 0x1,
@@ -174,13 +174,13 @@ enum class ItemFlagTypes_t : uint8_t
     ITEM_FLAG_NOITEMPICKUP = 0x80,
 };
 
-enum class ShatterPanelMode : uint8_t
+enum class ShatterPanelMode : uint64_t
 {
     SHATTER_GLASS = 0x0,
     SHATTER_DRYWALL = 0x1,
 };
 
-enum class SurroundingBoundsType_t : uint8_t
+enum class SurroundingBoundsType_t : uint64_t
 {
     USE_OBB_COLLISION_BOUNDS = 0x0,
     USE_BEST_COLLISION_BOUNDS = 0x1,
@@ -194,7 +194,7 @@ enum class SurroundingBoundsType_t : uint8_t
     SURROUNDING_TYPE_BIT_COUNT = 0x3,
 };
 
-enum class LifeState_t : uint32_t
+enum class LifeState_t : uint64_t
 {
     LIFE_ALIVE = 0x0,
     LIFE_DYING = 0x1,
@@ -203,7 +203,7 @@ enum class LifeState_t : uint32_t
     LIFE_RESPAWNING = 0x4,
 };
 
-enum class NPCFollowFormation_t : uint32_t
+enum class NPCFollowFormation_t : uint64_t
 {
     Default = 0xffffffffffffffff,
     CloseCircle = 0x0,
@@ -212,21 +212,21 @@ enum class NPCFollowFormation_t : uint32_t
     Sidekick = 0x6,
 };
 
-enum class CSWeaponMode : uint32_t
+enum class CSWeaponMode : uint64_t
 {
     Primary_Mode = 0x0,
     Secondary_Mode = 0x1,
     WeaponMode_MAX = 0x2,
 };
 
-enum class OnFrame : uint8_t
+enum class OnFrame : uint64_t
 {
     ONFRAME_UNKNOWN = 0x0,
     ONFRAME_TRUE = 0x1,
     ONFRAME_FALSE = 0x2,
 };
 
-enum class Materials : uint32_t
+enum class Materials : uint64_t
 {
     matGlass = 0x0,
     matWood = 0x1,
@@ -242,7 +242,7 @@ enum class Materials : uint32_t
     matLastMaterial = 0xb,
 };
 
-enum class ScriptedMoveTo_t : uint32_t
+enum class ScriptedMoveTo_t : uint64_t
 {
     CINE_MOVETO_WAIT = 0x0,
     CINE_MOVETO_WALK = 0x1,
@@ -252,7 +252,7 @@ enum class ScriptedMoveTo_t : uint32_t
     CINE_MOVETO_WAIT_FACING = 0x5,
 };
 
-enum class AnimLoopMode_t : uint32_t
+enum class AnimLoopMode_t : uint64_t
 {
     ANIM_LOOP_MODE_INVALID = 0xffffffffffffffff,
     ANIM_LOOP_MODE_NOT_LOOPING = 0x0,
@@ -261,7 +261,7 @@ enum class AnimLoopMode_t : uint32_t
     ANIM_LOOP_MODE_COUNT = 0x3,
 };
 
-enum class SoundFlags_t : uint32_t
+enum class SoundFlags_t : uint64_t
 {
     SOUND_NONE = 0x0,
     SOUND_COMBAT = 0x1,
@@ -288,7 +288,7 @@ enum class SoundFlags_t : uint32_t
     ALL_SOUNDS = 0xfffff,
 };
 
-enum class Class_T : uint32_t
+enum class Class_T : uint64_t
 {
     CLASS_NONE = 0x0,
     CLASS_PLAYER = 0x1,
@@ -302,20 +302,20 @@ enum class Class_T : uint32_t
     NUM_CLASSIFY_CLASSES = 0x9,
 };
 
-enum class filter_t : uint32_t
+enum class filter_t : uint64_t
 {
     FILTER_AND = 0x0,
     FILTER_OR = 0x1,
 };
 
-enum class CSWeaponSilencerType : uint32_t
+enum class CSWeaponSilencerType : uint64_t
 {
     WEAPONSILENCER_NONE = 0x0,
     WEAPONSILENCER_DETACHABLE = 0x1,
     WEAPONSILENCER_INTEGRATED = 0x2,
 };
 
-enum class BaseExplosionTypes_t : uint32_t
+enum class BaseExplosionTypes_t : uint64_t
 {
     EXPLOSION_TYPE_DEFAULT = 0x0,
     EXPLOSION_TYPE_GRENADE = 0x1,
@@ -336,7 +336,7 @@ enum class BaseExplosionTypes_t : uint32_t
     EXPLOSION_TYPE_COUNT = 0x10,
 };
 
-enum class GameAnimEventIndex_t : uint32_t
+enum class GameAnimEventIndex_t : uint64_t
 {
     AE_EMPTY = 0x0,
     AE_CL_PLAYSOUND = 0x1,
@@ -383,14 +383,14 @@ enum class GameAnimEventIndex_t : uint32_t
     AE_GRENADE_THROW_COMPLETE = 0x2a,
 };
 
-enum class FixAngleSet_t : uint8_t
+enum class FixAngleSet_t : uint64_t
 {
     None = 0x0,
     Absolute = 0x1,
     Relative = 0x2,
 };
 
-enum class IChoreoServices__ScriptState_t : uint32_t
+enum class IChoreoServices__ScriptState_t : uint64_t
 {
     SCRIPT_PLAYING = 0x0,
     SCRIPT_WAIT = 0x1,
@@ -401,13 +401,13 @@ enum class IChoreoServices__ScriptState_t : uint32_t
     SCRIPT_CUSTOM_MOVE_TO_MARK = 0x6,
 };
 
-enum class CommandEntitySpecType_t : uint32_t
+enum class CommandEntitySpecType_t : uint64_t
 {
     SPEC_SEARCH = 0x0,
     SPEC_TYPES_COUNT = 0x1,
 };
 
-enum class Touch_t : uint32_t
+enum class Touch_t : uint64_t
 {
     touch_none = 0x0,
     touch_player_only = 0x1,
@@ -416,14 +416,14 @@ enum class Touch_t : uint32_t
     touch_player_or_npc_or_physicsprop = 0x4,
 };
 
-enum class TrainVelocityType_t : uint32_t
+enum class TrainVelocityType_t : uint64_t
 {
     TrainVelocity_Instantaneous = 0x0,
     TrainVelocity_LinearBlend = 0x1,
     TrainVelocity_EaseInEaseOut = 0x2,
 };
 
-enum class CSWeaponType : uint32_t
+enum class CSWeaponType : uint64_t
 {
     WEAPONTYPE_KNIFE = 0x0,
     WEAPONTYPE_PISTOL = 0x1,
@@ -447,14 +447,14 @@ enum class CSWeaponType : uint32_t
     WEAPONTYPE_UNKNOWN = 0x13,
 };
 
-enum class EntFinderMethod_t : uint32_t
+enum class EntFinderMethod_t : uint64_t
 {
     ENT_FIND_METHOD_NEAREST = 0x0,
     ENT_FIND_METHOD_FARTHEST = 0x1,
     ENT_FIND_METHOD_RANDOM = 0x2,
 };
 
-enum class PropDoorRotatingSpawnPos_t : uint32_t
+enum class PropDoorRotatingSpawnPos_t : uint64_t
 {
     DOOR_SPAWN_CLOSED = 0x0,
     DOOR_SPAWN_OPEN_FORWARD = 0x1,
@@ -462,13 +462,13 @@ enum class PropDoorRotatingSpawnPos_t : uint32_t
     DOOR_SPAWN_AJAR = 0x3,
 };
 
-enum class ShardSolid_t : uint8_t
+enum class ShardSolid_t : uint64_t
 {
     SHARD_SOLID = 0x0,
     SHARD_DEBRIS = 0x1,
 };
 
-enum class RenderMode_t : uint8_t
+enum class RenderMode_t : uint64_t
 {
     kRenderNormal = 0x0,
     kRenderTransColor = 0x1,
@@ -485,14 +485,14 @@ enum class RenderMode_t : uint8_t
     kRenderModeCount = 0xc,
 };
 
-enum class ForcedCrouchState_t : uint32_t
+enum class ForcedCrouchState_t : uint64_t
 {
     FORCEDCROUCH_NONE = 0x0,
     FORCEDCROUCH_CROUCHED = 0x1,
     FORCEDCROUCH_UNCROUCHED = 0x2,
 };
 
-enum class PerformanceMode_t : uint32_t
+enum class PerformanceMode_t : uint64_t
 {
     PM_NORMAL = 0x0,
     PM_NO_GIBS = 0x1,
@@ -500,7 +500,7 @@ enum class PerformanceMode_t : uint32_t
     PM_REDUCED_GIBS = 0x3,
 };
 
-enum class TOGGLE_STATE : uint32_t
+enum class TOGGLE_STATE : uint64_t
 {
     TS_AT_TOP = 0x0,
     TS_AT_BOTTOM = 0x1,
@@ -512,7 +512,7 @@ enum class TOGGLE_STATE : uint32_t
     DOOR_CLOSING = 0x3,
 };
 
-enum class loadout_slot_t : uint32_t
+enum class loadout_slot_t : uint64_t
 {
     LOADOUT_SLOT_PROMOTED = 0xfffffffffffffffe,
     LOADOUT_SLOT_INVALID = 0xffffffffffffffff,
@@ -590,7 +590,7 @@ enum class loadout_slot_t : uint32_t
     LOADOUT_SLOT_COUNT = 0x39,
 };
 
-enum class NavAttributeEnum : uint32_t
+enum class NavAttributeEnum : uint64_t
 {
     NAV_MESH_AVOID = 0x80,
     NAV_MESH_STAIRS = 0x1000,
@@ -613,14 +613,14 @@ enum class NavAttributeEnum : uint32_t
     NAV_ATTR_LAST_INDEX = 0x1f,
 };
 
-enum class MoveLinearAuthoredPos_t : uint32_t
+enum class MoveLinearAuthoredPos_t : uint64_t
 {
     MOVELINEAR_AUTHORED_AT_START_POSITION = 0x0,
     MOVELINEAR_AUTHORED_AT_OPEN_POSITION = 0x1,
     MOVELINEAR_AUTHORED_AT_CLOSED_POSITION = 0x2,
 };
 
-enum class ValueRemapperMomentumType_t : uint32_t
+enum class ValueRemapperMomentumType_t : uint64_t
 {
     MomentumType_None = 0x0,
     MomentumType_Friction = 0x1,
@@ -628,7 +628,7 @@ enum class ValueRemapperMomentumType_t : uint32_t
     MomentumType_SpringAwayFromSnapValue = 0x3,
 };
 
-enum class Hull_t : uint32_t
+enum class Hull_t : uint64_t
 {
     HULL_HUMAN = 0x0,
     HULL_SMALL_CENTERED = 0x1,
@@ -644,7 +644,7 @@ enum class Hull_t : uint32_t
     HULL_NONE = 0xb,
 };
 
-enum class PreviewWeaponState : uint32_t
+enum class PreviewWeaponState : uint64_t
 {
     DROPPED = 0x0,
     HOLSTERED = 0x1,
@@ -654,7 +654,7 @@ enum class PreviewWeaponState : uint32_t
     ICON = 0x5,
 };
 
-enum class EInButtonState : uint32_t
+enum class EInButtonState : uint64_t
 {
     IN_BUTTON_UP = 0x0,
     IN_BUTTON_DOWN = 0x1,
@@ -667,7 +667,7 @@ enum class EInButtonState : uint32_t
     IN_BUTTON_STATE_COUNT = 0x8,
 };
 
-enum class BeamClipStyle_t : uint32_t
+enum class BeamClipStyle_t : uint64_t
 {
     kNOCLIP = 0x0,
     kGEOCLIP = 0x1,
@@ -675,7 +675,7 @@ enum class BeamClipStyle_t : uint32_t
     kBEAMCLIPSTYLE_NUMBITS = 0x2,
 };
 
-enum class WeaponAttackType_t : uint32_t
+enum class WeaponAttackType_t : uint64_t
 {
     eInvalid = 0xffffffffffffffff,
     ePrimary = 0x0,
@@ -683,7 +683,7 @@ enum class WeaponAttackType_t : uint32_t
     eCount = 0x2,
 };
 
-enum class CSPlayerBlockingUseAction_t : uint32_t
+enum class CSPlayerBlockingUseAction_t : uint64_t
 {
     k_CSPlayerBlockingUseAction_None = 0x0,
     k_CSPlayerBlockingUseAction_DefusingDefault = 0x1,
@@ -705,14 +705,14 @@ enum class CSPlayerBlockingUseAction_t : uint32_t
     k_CSPlayerBlockingUseAction_MaxCount = 0x11,
 };
 
-enum class CSWeaponState_t : uint32_t
+enum class CSWeaponState_t : uint64_t
 {
     WEAPON_NOT_CARRIED = 0x0,
     WEAPON_IS_CARRIED_BY_PLAYER = 0x1,
     WEAPON_IS_ACTIVE = 0x2,
 };
 
-enum class CommandExecMode_t : uint32_t
+enum class CommandExecMode_t : uint64_t
 {
     EXEC_MANUAL = 0x0,
     EXEC_LEVELSTART = 0x1,
@@ -720,7 +720,7 @@ enum class CommandExecMode_t : uint32_t
     EXEC_MODES_COUNT = 0x3,
 };
 
-enum class ShatterDamageCause : uint8_t
+enum class ShatterDamageCause : uint64_t
 {
     SHATTERDAMAGE_BULLET = 0x0,
     SHATTERDAMAGE_MELEE = 0x1,
@@ -729,7 +729,7 @@ enum class ShatterDamageCause : uint8_t
     SHATTERDAMAGE_EXPLOSIVE = 0x4,
 };
 
-enum class ScriptedOnDeath_t : uint32_t
+enum class ScriptedOnDeath_t : uint64_t
 {
     SS_ONDEATH_NOT_APPLICABLE = 0xffffffffffffffff,
     SS_ONDEATH_UNDEFINED = 0x0,
@@ -737,7 +737,7 @@ enum class ScriptedOnDeath_t : uint32_t
     SS_ONDEATH_ANIMATED_DEATH = 0x2,
 };
 
-enum class ScriptedMoveType_t : uint32_t
+enum class ScriptedMoveType_t : uint64_t
 {
     SCRIPTED_MOVETYPE_NONE = 0x0,
     SCRIPTED_MOVETYPE_TO_WITH_DURATION = 0x1,
@@ -745,14 +745,14 @@ enum class ScriptedMoveType_t : uint32_t
     SCRIPTED_MOVETYPE_SWEEP_TO_AT_MOVEMENT_SPEED = 0x3,
 };
 
-enum class NPCLookType_t : uint32_t
+enum class NPCLookType_t : uint64_t
 {
     Chest = 0x0,
     Head = 0x1,
     Eyes = 0x2,
 };
 
-enum class gear_slot_t : uint32_t
+enum class gear_slot_t : uint64_t
 {
     GEAR_SLOT_INVALID = 0xffffffffffffffff,
     GEAR_SLOT_RIFLE = 0x0,
@@ -773,7 +773,7 @@ enum class gear_slot_t : uint32_t
     GEAR_SLOT_LAST = 0xc,
 };
 
-enum class CSPlayerState : uint32_t
+enum class CSPlayerState : uint64_t
 {
     STATE_ACTIVE = 0x0,
     STATE_WELCOME = 0x1,
@@ -787,13 +787,13 @@ enum class CSPlayerState : uint32_t
     NUM_PLAYER_STATES = 0x9,
 };
 
-enum class ScriptedConflictResponse_t : uint32_t
+enum class ScriptedConflictResponse_t : uint64_t
 {
     SS_CONFLICT_ENQUEUE = 0x0,
     SS_CONFLICT_INTERRUPT = 0x1,
 };
 
-enum class WaterLevel_t : uint8_t
+enum class WaterLevel_t : uint64_t
 {
     WL_NotInWater = 0x0,
     WL_Feet = 0x1,
@@ -804,14 +804,14 @@ enum class WaterLevel_t : uint8_t
     WL_Count = 0x6,
 };
 
-enum class WorldTextPanelVerticalAlign_t : uint32_t
+enum class WorldTextPanelVerticalAlign_t : uint64_t
 {
     WORLDTEXT_VERTICAL_ALIGN_TOP = 0x0,
     WORLDTEXT_VERTICAL_ALIGN_CENTER = 0x1,
     WORLDTEXT_VERTICAL_ALIGN_BOTTOM = 0x2,
 };
 
-enum class AmmoPosition_t : uint32_t
+enum class AmmoPosition_t : uint64_t
 {
     AMMO_POSITION_INVALID = 0xffffffffffffffff,
     AMMO_POSITION_PRIMARY = 0x0,
@@ -819,7 +819,7 @@ enum class AmmoPosition_t : uint32_t
     AMMO_POSITION_COUNT = 0x2,
 };
 
-enum class PreviewEOMCelebration : uint32_t
+enum class PreviewEOMCelebration : uint64_t
 {
     WALKUP = 0x0,
     PUNCHING = 0x1,
@@ -846,7 +846,7 @@ enum class PreviewEOMCelebration : uint32_t
     VYPA_DEFEAT = 0x16,
 };
 
-enum class EntityDisolveType_t : uint32_t
+enum class EntityDisolveType_t : uint64_t
 {
     ENTITY_DISSOLVE_INVALID = 0xffffffffffffffff,
     ENTITY_DISSOLVE_NORMAL = 0x0,
@@ -880,7 +880,7 @@ enum class InputBitMask_t : uint64_t
     IN_LOOK_AT_WEAPON = 0x800000000,
 };
 
-enum class HitGroup_t : uint32_t
+enum class HitGroup_t : uint64_t
 {
     HITGROUP_INVALID = 0xffffffffffffffff,
     HITGROUP_GENERIC = 0x0,
@@ -898,7 +898,7 @@ enum class HitGroup_t : uint32_t
     HITGROUP_COUNT = 0xc,
 };
 
-enum class ChickenActivity : uint32_t
+enum class ChickenActivity : uint64_t
 {
     IDLE = 0x0,
     WALK = 0x1,
@@ -909,7 +909,7 @@ enum class ChickenActivity : uint32_t
     LAND = 0x6,
 };
 
-enum class PointWorldTextReorientMode_t : uint32_t
+enum class PointWorldTextReorientMode_t : uint64_t
 {
     POINT_WORLD_TEXT_REORIENT_NONE = 0x0,
     POINT_WORLD_TEXT_REORIENT_AROUND_UP = 0x1,
@@ -958,14 +958,14 @@ enum class DebugOverlayBits_t : uint64_t
     OVERLAY_NPC_ABILITY_RANGE_DEBUG_BIT = 0x10000000000,
 };
 
-enum class AmmoFlags_t : uint32_t
+enum class AmmoFlags_t : uint64_t
 {
     AMMO_FORCE_DROP_IF_CARRIED = 0x1,
     AMMO_RESERVE_STAYS_WITH_WEAPON = 0x2,
     AMMO_FLAG_MAX = 0x2,
 };
 
-enum class HierarchyType_t : uint32_t
+enum class HierarchyType_t : uint64_t
 {
     HIERARCHY_NONE = 0x0,
     HIERARCHY_BONE_MERGE = 0x1,
@@ -975,14 +975,14 @@ enum class HierarchyType_t : uint32_t
     HIERARCHY_TYPE_COUNT = 0x5,
 };
 
-enum class doorCheck_e : uint32_t
+enum class doorCheck_e : uint64_t
 {
     DOOR_CHECK_FORWARD = 0x0,
     DOOR_CHECK_BACKWARD = 0x1,
     DOOR_CHECK_FULL = 0x2,
 };
 
-enum class BeamType_t : uint32_t
+enum class BeamType_t : uint64_t
 {
     BEAM_INVALID = 0x0,
     BEAM_POINTS = 0x1,
@@ -993,7 +993,7 @@ enum class BeamType_t : uint32_t
     BEAM_LASER = 0x6,
 };
 
-enum class EntitySubclassScope_t : uint32_t
+enum class EntitySubclassScope_t : uint64_t
 {
     SUBCLASS_SCOPE_NONE = 0xffffffffffffffff,
     SUBCLASS_SCOPE_PRECIPITATION = 0x0,
@@ -1001,13 +1001,13 @@ enum class EntitySubclassScope_t : uint32_t
     SUBCLASS_SCOPE_COUNT = 0x2,
 };
 
-enum class PointTemplateClientOnlyEntityBehavior_t : uint32_t
+enum class PointTemplateClientOnlyEntityBehavior_t : uint64_t
 {
     CREATE_FOR_CURRENTLY_CONNECTED_CLIENTS_ONLY = 0x0,
     CREATE_FOR_CLIENTS_WHO_CONNECT_LATER = 0x1,
 };
 
-enum class ShatterGlassStressType : uint8_t
+enum class ShatterGlassStressType : uint64_t
 {
     SHATTERGLASS_BLUNT = 0x0,
     SHATTERGLASS_BALLISTIC = 0x1,
@@ -1016,14 +1016,14 @@ enum class ShatterGlassStressType : uint8_t
     SHATTERGLASS_EXPLOSIVE = 0x4,
 };
 
-enum class TrackOrientationType_t : uint32_t
+enum class TrackOrientationType_t : uint64_t
 {
     TrackOrientation_Fixed = 0x0,
     TrackOrientation_FacePath = 0x1,
     TrackOrientation_FacePathAngles = 0x2,
 };
 
-enum class WeaponSwitchReason_t : uint32_t
+enum class WeaponSwitchReason_t : uint64_t
 {
     eDrawn = 0x0,
     eEquipped = 0x1,
@@ -1031,13 +1031,13 @@ enum class WeaponSwitchReason_t : uint32_t
     eUserInitiatedSwitchHands = 0x3,
 };
 
-enum class ValueRemapperRatchetType_t : uint32_t
+enum class ValueRemapperRatchetType_t : uint64_t
 {
     RatchetType_Absolute = 0x0,
     RatchetType_EachEngage = 0x1,
 };
 
-enum class NavDirType : uint32_t
+enum class NavDirType : uint64_t
 {
     NORTH = 0x0,
     EAST = 0x1,
@@ -1046,13 +1046,13 @@ enum class NavDirType : uint32_t
     NUM_NAV_DIR_TYPE_DIRECTIONS = 0x4,
 };
 
-enum class CRR_Response__ResponseEnum_t : uint32_t
+enum class CRR_Response__ResponseEnum_t : uint64_t
 {
     MAX_RESPONSE_NAME = 0xc0,
     MAX_RULE_NAME = 0x80,
 };
 
-enum class MoveMountingAmount_t : uint32_t
+enum class MoveMountingAmount_t : uint64_t
 {
     MOVE_MOUNT_NONE = 0x0,
     MOVE_MOUNT_LOW = 0x1,
@@ -1060,7 +1060,7 @@ enum class MoveMountingAmount_t : uint32_t
     MOVE_MOUNT_MAXCOUNT = 0x3,
 };
 
-enum class RenderFx_t : uint8_t
+enum class RenderFx_t : uint64_t
 {
     kRenderFxNone = 0x0,
     kRenderFxPulseSlow = 0x1,
@@ -1084,7 +1084,7 @@ enum class RenderFx_t : uint8_t
     kRenderFxMax = 0x13,
 };
 
-enum class vote_create_failed_t : uint32_t
+enum class vote_create_failed_t : uint64_t
 {
     VOTE_FAILED_GENERIC = 0x0,
     VOTE_FAILED_TRANSITIONING_PLAYERS = 0x1,
@@ -1123,7 +1123,7 @@ enum class vote_create_failed_t : uint32_t
     VOTE_FAILED_MAX = 0x22,
 };
 
-enum class RumbleEffect_t : uint32_t
+enum class RumbleEffect_t : uint64_t
 {
     RUMBLE_INVALID = 0xffffffffffffffff,
     RUMBLE_STOP_ALL = 0x0,
@@ -1154,7 +1154,7 @@ enum class RumbleEffect_t : uint32_t
     NUM_RUMBLE_EFFECTS = 0x19,
 };
 
-enum class LatchDirtyPermission_t : uint32_t
+enum class LatchDirtyPermission_t : uint64_t
 {
     LATCH_DIRTY_DISALLOW = 0x0,
     LATCH_DIRTY_SERVER_CONTROLLED = 0x1,
@@ -1164,7 +1164,7 @@ enum class LatchDirtyPermission_t : uint32_t
     LATCH_DIRTY_PARTICLE_SIMULATE = 0x5,
 };
 
-enum class DoorState_t : uint32_t
+enum class DoorState_t : uint64_t
 {
     DOOR_STATE_CLOSED = 0x0,
     DOOR_STATE_OPENING = 0x1,
@@ -1173,14 +1173,14 @@ enum class DoorState_t : uint32_t
     DOOR_STATE_AJAR = 0x4,
 };
 
-enum class ChatIgnoreType_t : uint32_t
+enum class ChatIgnoreType_t : uint64_t
 {
     CHAT_IGNORE_NONE = 0x0,
     CHAT_IGNORE_ALL = 0x1,
     CHAT_IGNORE_TEAM = 0x2,
 };
 
-enum class PlayerConnectedState : uint32_t
+enum class PlayerConnectedState : uint64_t
 {
     PlayerNeverConnected = 0xffffffffffffffff,
     PlayerConnected = 0x0,
@@ -1191,19 +1191,19 @@ enum class PlayerConnectedState : uint32_t
     PlayerReserved = 0x5,
 };
 
-enum class SimpleConstraintSoundProfile__SimpleConstraintsSoundProfileKeypoints_t : uint32_t
+enum class SimpleConstraintSoundProfile__SimpleConstraintsSoundProfileKeypoints_t : uint64_t
 {
     kMIN_THRESHOLD = 0x0,
     kMIN_FULL = 0x1,
     kHIGHWATER = 0x2,
 };
 
-enum class navproperties_t : uint32_t
+enum class navproperties_t : uint64_t
 {
     NAV_IGNORE = 0x1,
 };
 
-enum class SolidType_t : uint8_t
+enum class SolidType_t : uint64_t
 {
     SOLID_NONE = 0x0,
     SOLID_BSP = 0x1,
@@ -1216,7 +1216,7 @@ enum class SolidType_t : uint8_t
     SOLID_LAST = 0x8,
 };
 
-enum class DamageTypes_t : uint32_t
+enum class DamageTypes_t : uint64_t
 {
     DMG_GENERIC = 0x0,
     DMG_CRUSH = 0x1,
@@ -1244,20 +1244,20 @@ enum class DamageTypes_t : uint32_t
     DMG_DANGERZONE = 0x4000000,
 };
 
-enum class PointWorldTextJustifyVertical_t : uint32_t
+enum class PointWorldTextJustifyVertical_t : uint64_t
 {
     POINT_WORLD_TEXT_JUSTIFY_VERTICAL_BOTTOM = 0x0,
     POINT_WORLD_TEXT_JUSTIFY_VERTICAL_CENTER = 0x1,
     POINT_WORLD_TEXT_JUSTIFY_VERTICAL_TOP = 0x2,
 };
 
-enum class attributeprovidertypes_t : uint32_t
+enum class attributeprovidertypes_t : uint64_t
 {
     PROVIDER_GENERIC = 0x0,
     PROVIDER_WEAPON = 0x1,
 };
 
-enum class MoveCollide_t : uint8_t
+enum class MoveCollide_t : uint64_t
 {
     MOVECOLLIDE_DEFAULT = 0x0,
     MOVECOLLIDE_FLY_BOUNCE = 0x1,
@@ -1267,7 +1267,7 @@ enum class MoveCollide_t : uint8_t
     MOVECOLLIDE_MAX_BITS = 0x3,
 };
 
-enum class IChoreoServices__ChoreoState_t : uint32_t
+enum class IChoreoServices__ChoreoState_t : uint64_t
 {
     STATE_PRE_SCRIPT = 0x0,
     STATE_WAIT_FOR_SCRIPT = 0x1,
@@ -1278,7 +1278,7 @@ enum class IChoreoServices__ChoreoState_t : uint32_t
     STATE_PLAY_SCRIPT_POST_IDLE_DONE = 0x6,
 };
 
-enum class ValueRemapperOutputType_t : uint32_t
+enum class ValueRemapperOutputType_t : uint64_t
 {
     OutputType_AnimationCycle = 0x0,
     OutputType_RotationX = 0x1,
@@ -1286,21 +1286,21 @@ enum class ValueRemapperOutputType_t : uint32_t
     OutputType_RotationZ = 0x3,
 };
 
-enum class PointTemplateOwnerSpawnGroupType_t : uint32_t
+enum class PointTemplateOwnerSpawnGroupType_t : uint64_t
 {
     INSERT_INTO_POINT_TEMPLATE_SPAWN_GROUP = 0x0,
     INSERT_INTO_CURRENTLY_ACTIVE_SPAWN_GROUP = 0x1,
     INSERT_INTO_NEWLY_CREATED_SPAWN_GROUP = 0x2,
 };
 
-enum class PointWorldTextJustifyHorizontal_t : uint32_t
+enum class PointWorldTextJustifyHorizontal_t : uint64_t
 {
     POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_LEFT = 0x0,
     POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_CENTER = 0x1,
     POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_RIGHT = 0x2,
 };
 
-enum class ShakeCommand_t : uint32_t
+enum class ShakeCommand_t : uint64_t
 {
     SHAKE_START = 0x0,
     SHAKE_STOP = 0x1,
@@ -1310,21 +1310,21 @@ enum class ShakeCommand_t : uint32_t
     SHAKE_START_NORUMBLE = 0x5,
 };
 
-enum class TRAIN_CODE : uint32_t
+enum class TRAIN_CODE : uint64_t
 {
     TRAIN_SAFE = 0x0,
     TRAIN_BLOCKING = 0x1,
     TRAIN_FOLLOWING = 0x2,
 };
 
-enum class BrushSolidities_e : uint32_t
+enum class BrushSolidities_e : uint64_t
 {
     BRUSHSOLID_TOGGLE = 0x0,
     BRUSHSOLID_NEVER = 0x1,
     BRUSHSOLID_ALWAYS = 0x2,
 };
 
-enum class QuestProgress__Reason : uint32_t
+enum class QuestProgress__Reason : uint64_t
 {
     QUEST_NONINITIALIZED = 0x0,
     QUEST_OK = 0x1,
@@ -1341,19 +1341,19 @@ enum class QuestProgress__Reason : uint32_t
     QUEST_REASON_MAX = 0xc,
 };
 
-enum class ModifyDamageReturn_t : uint32_t
+enum class ModifyDamageReturn_t : uint64_t
 {
     CONTINUE_TO_APPLY_DAMAGE = 0x0,
     ABORT_DO_NOT_APPLY_DAMAGE = 0x1,
 };
 
-enum class ShadowType_t : uint32_t
+enum class ShadowType_t : uint64_t
 {
     SHADOWS_NONE = 0x0,
     SHADOWS_SIMPLE = 0x1,
 };
 
-enum class GrenadeType_t : uint32_t
+enum class GrenadeType_t : uint64_t
 {
     GRENADE_TYPE_EXPLOSIVE = 0x0,
     GRENADE_TYPE_FLASH = 0x1,
@@ -1365,13 +1365,13 @@ enum class GrenadeType_t : uint32_t
     GRENADE_TYPE_TOTAL = 0x7,
 };
 
-enum class ValueRemapperInputType_t : uint32_t
+enum class ValueRemapperInputType_t : uint64_t
 {
     InputType_PlayerShootPosition = 0x0,
     InputType_PlayerShootPositionAroundAxis = 0x1,
 };
 
-enum class EKillTypes_t : uint8_t
+enum class EKillTypes_t : uint64_t
 {
     KILL_NONE = 0x0,
     KILL_DEFAULT = 0x1,
@@ -1383,7 +1383,7 @@ enum class EKillTypes_t : uint8_t
     KILLTYPE_COUNT = 0x7,
 };
 
-enum class WeaponSound_t : uint32_t
+enum class WeaponSound_t : uint64_t
 {
     WEAPON_SOUND_EMPTY = 0x0,
     WEAPON_SOUND_SECONDARY_EMPTY = 0x1,
@@ -1412,7 +1412,7 @@ enum class WeaponSound_t : uint32_t
     WEAPON_SOUND_NUM_TYPES = 0x18,
 };
 
-enum class TakeDamageFlags_t : uint32_t
+enum class TakeDamageFlags_t : uint64_t
 {
     DFLAG_NONE = 0x0,
     DFLAG_SUPPRESS_HEALTH_CHANGES = 0x1,
@@ -1431,13 +1431,13 @@ enum class TakeDamageFlags_t : uint32_t
     DFLAG_SUPPRESS_UTILREMOVE = 0x1000,
 };
 
-enum class ValueRemapperHapticsType_t : uint32_t
+enum class ValueRemapperHapticsType_t : uint64_t
 {
     HaticsType_Default = 0x0,
     HaticsType_None = 0x1,
 };
 
-enum class Disposition_t : uint32_t
+enum class Disposition_t : uint64_t
 {
     D_ER = 0x0,
     D_HT = 0x1,
@@ -1451,14 +1451,14 @@ enum class Disposition_t : uint32_t
     D_NEUTRAL = 0x4,
 };
 
-enum class CanPlaySequence_t : uint32_t
+enum class CanPlaySequence_t : uint64_t
 {
     CANNOT_PLAY = 0x0,
     CAN_PLAY_NOW = 0x1,
     CAN_PLAY_ENQUEUED = 0x2,
 };
 
-enum class MedalRank_t : uint32_t
+enum class MedalRank_t : uint64_t
 {
     MEDAL_RANK_NONE = 0x0,
     MEDAL_RANK_BRONZE = 0x1,
@@ -1467,7 +1467,7 @@ enum class MedalRank_t : uint32_t
     MEDAL_RANK_COUNT = 0x4,
 };
 
-enum class ObserverMode_t : uint32_t
+enum class ObserverMode_t : uint64_t
 {
     OBS_MODE_NONE = 0x0,
     OBS_MODE_FIXED = 0x1,
@@ -1478,20 +1478,20 @@ enum class ObserverMode_t : uint32_t
     NUM_OBSERVER_MODES = 0x6,
 };
 
-enum class FuncDoorSpawnPos_t : uint32_t
+enum class FuncDoorSpawnPos_t : uint64_t
 {
     FUNC_DOOR_SPAWN_CLOSED = 0x0,
     FUNC_DOOR_SPAWN_OPEN = 0x1,
 };
 
-enum class EOverrideBlockLOS_t : uint32_t
+enum class EOverrideBlockLOS_t : uint64_t
 {
     BLOCK_LOS_DEFAULT = 0x0,
     BLOCK_LOS_FORCE_FALSE = 0x1,
     BLOCK_LOS_FORCE_TRUE = 0x2,
 };
 
-enum class MoveType_t : uint8_t
+enum class MoveType_t : uint64_t
 {
     MOVETYPE_NONE = 0x0,
     MOVETYPE_OBSOLETE = 0x1,
@@ -1509,7 +1509,7 @@ enum class MoveType_t : uint8_t
     MOVETYPE_MAX_BITS = 0x5,
 };
 
-enum class ParticleTextureLayerBlendType_t : uint32_t
+enum class ParticleTextureLayerBlendType_t : uint64_t
 {
     SPRITECARD_TEXTURE_BLEND_MULTIPLY = 0x0,
     SPRITECARD_TEXTURE_BLEND_MOD2X = 0x1,
@@ -1520,7 +1520,7 @@ enum class ParticleTextureLayerBlendType_t : uint32_t
     SPRITECARD_TEXTURE_BLEND_LUMINANCE = 0x6,
 };
 
-enum class AnimationProcessingType_t : uint32_t
+enum class AnimationProcessingType_t : uint64_t
 {
     ANIMATION_PROCESSING_SERVER_SIMULATION = 0x0,
     ANIMATION_PROCESSING_CLIENT_SIMULATION = 0x1,
@@ -1530,7 +1530,7 @@ enum class AnimationProcessingType_t : uint32_t
     ANIMATION_PROCESSING_MAX = 0x5,
 };
 
-enum class RenderPrimitiveType_t : uint32_t
+enum class RenderPrimitiveType_t : uint64_t
 {
     RENDER_PRIM_POINTS = 0x0,
     RENDER_PRIM_LINES = 0x1,
@@ -1547,7 +1547,7 @@ enum class RenderPrimitiveType_t : uint32_t
     RENDER_PRIM_TYPE_COUNT = 0xc,
 };
 
-enum class ObjectTypeFlags_t : uint32_t
+enum class ObjectTypeFlags_t : uint64_t
 {
     OBJECT_TYPE_NONE = 0x0,
     OBJECT_TYPE_MODEL = 0x8,
@@ -1564,7 +1564,7 @@ enum class ObjectTypeFlags_t : uint32_t
     OBJECT_TYPE_STATIC_CUBE_MAP = 0x8000,
 };
 
-enum class ParticleModelType_t : uint32_t
+enum class ParticleModelType_t : uint64_t
 {
     PM_TYPE_INVALID = 0x0,
     PM_TYPE_NAMED_VALUE_MODEL = 0x1,
@@ -1573,7 +1573,7 @@ enum class ParticleModelType_t : uint32_t
     PM_TYPE_COUNT = 0x4,
 };
 
-enum class PulseInstructionCode_t : uint16_t
+enum class PulseInstructionCode_t : uint64_t
 {
     INVALID = 0x0,
     IMMEDIATE_HALT = 0x1,
@@ -1638,7 +1638,7 @@ enum class PulseInstructionCode_t : uint16_t
     GET_CONST_INLINE_STORAGE = 0x3c,
 };
 
-enum class StateActionBehavior : uint32_t
+enum class StateActionBehavior : uint64_t
 {
     STATETAGBEHAVIOR_ACTIVE_WHILE_CURRENT = 0x0,
     STATETAGBEHAVIOR_FIRE_ON_ENTER = 0x1,
@@ -1646,19 +1646,19 @@ enum class StateActionBehavior : uint32_t
     STATETAGBEHAVIOR_FIRE_ON_ENTER_AND_EXIT = 0x3,
 };
 
-enum class Blend2DMode : uint32_t
+enum class Blend2DMode : uint64_t
 {
     Blend2DMode_General = 0x0,
     Blend2DMode_Directional = 0x1,
 };
 
-enum class ParticleOrientationSetMode_t : uint32_t
+enum class ParticleOrientationSetMode_t : uint64_t
 {
     PARTICLE_ORIENTATION_SET_FROM_VELOCITY = 0x0,
     PARTICLE_ORIENTATION_SET_FROM_ROTATIONS = 0x1,
 };
 
-enum class ParticleVRHandChoiceList_t : uint32_t
+enum class ParticleVRHandChoiceList_t : uint64_t
 {
     PARTICLE_VRHAND_LEFT = 0x0,
     PARTICLE_VRHAND_RIGHT = 0x1,
@@ -1666,7 +1666,7 @@ enum class ParticleVRHandChoiceList_t : uint32_t
     PARTICLE_VRHAND_CP_OBJECT = 0x3,
 };
 
-enum class SpawnDebugRestrictionOverrideState_t : uint32_t
+enum class SpawnDebugRestrictionOverrideState_t : uint64_t
 {
     SPAWN_DEBUG_RESTRICT_NONE = 0x0,
     SPAWN_DEBUG_RESTRICT_IGNORE_MANAGER_DISTANCE_REQS = 0x1,
@@ -1675,33 +1675,33 @@ enum class SpawnDebugRestrictionOverrideState_t : uint32_t
     SPAWN_DEBUG_RESTRICT_IGNORE_TARGET_COOLDOWN_LIMITS = 0x8,
 };
 
-enum class JointMotion_t : uint32_t
+enum class JointMotion_t : uint64_t
 {
     JOINT_MOTION_FREE = 0x0,
     JOINT_MOTION_LOCKED = 0x1,
     JOINT_MOTION_COUNT = 0x2,
 };
 
-enum class ParticleLightingQuality_t : uint32_t
+enum class ParticleLightingQuality_t : uint64_t
 {
     PARTICLE_LIGHTING_PER_PARTICLE = 0x0,
     PARTICLE_LIGHTING_PER_VERTEX = 0x1,
     PARTICLE_LIGHTING_PER_PIXEL = 0xffffffffffffffff,
 };
 
-enum class SnapshotIndexType_t : uint32_t
+enum class SnapshotIndexType_t : uint64_t
 {
     SNAPSHOT_INDEX_INCREMENT = 0x0,
     SNAPSHOT_INDEX_DIRECT = 0x1,
 };
 
-enum class RagdollPoseControl : uint32_t
+enum class RagdollPoseControl : uint64_t
 {
     Absolute = 0x0,
     Relative = 0x1,
 };
 
-enum class ParticleOutputBlendMode_t : uint32_t
+enum class ParticleOutputBlendMode_t : uint64_t
 {
     PARTICLE_OUTPUT_BLEND_MODE_ALPHA = 0x0,
     PARTICLE_OUTPUT_BLEND_MODE_ADD = 0x1,
@@ -1712,13 +1712,13 @@ enum class ParticleOutputBlendMode_t : uint32_t
     PARTICLE_OUTPUT_BLEND_MODE_LIGHTEN = 0x6,
 };
 
-enum class PulseMethodCallMode_t : uint32_t
+enum class PulseMethodCallMode_t : uint64_t
 {
     SYNC_WAIT_FOR_COMPLETION = 0x0,
     ASYNC_FIRE_AND_FORGET = 0x1,
 };
 
-enum class VMixFilterSlope_t : uint8_t
+enum class VMixFilterSlope_t : uint64_t
 {
     FILTER_SLOPE_1POLE_6dB = 0x0,
     FILTER_SLOPE_1POLE_12dB = 0x1,
@@ -1731,28 +1731,28 @@ enum class VMixFilterSlope_t : uint8_t
     FILTER_SLOPE_MAX = 0x7,
 };
 
-enum class ViewFadeMode_t : uint32_t
+enum class ViewFadeMode_t : uint64_t
 {
     VIEW_FADE_CONSTANT_COLOR = 0x0,
     VIEW_FADE_MODULATE = 0x1,
     VIEW_FADE_MOD2X = 0x2,
 };
 
-enum class PulseCursorExecResult_t : uint32_t
+enum class PulseCursorExecResult_t : uint64_t
 {
     Succeeded = 0x0,
     Canceled = 0x1,
     Failed = 0x2,
 };
 
-enum class CNmBoneMask__WeightInfo_t : uint8_t
+enum class CNmBoneMask__WeightInfo_t : uint64_t
 {
     Zero = 0x0,
     Mixed = 0x1,
     One = 0x2,
 };
 
-enum class NmTransitionRuleCondition_t : uint8_t
+enum class NmTransitionRuleCondition_t : uint64_t
 {
     AnyAllowed = 0x0,
     FullyAllowed = 0x1,
@@ -1760,7 +1760,7 @@ enum class NmTransitionRuleCondition_t : uint8_t
     Blocked = 0x3,
 };
 
-enum class FlexOpCode_t : uint32_t
+enum class FlexOpCode_t : uint64_t
 {
     FLEX_OP_CONST = 0x1,
     FLEX_OP_FETCH1 = 0x2,
@@ -1790,7 +1790,7 @@ enum class FlexOpCode_t : uint32_t
     FLEX_OP_ABS = 0x1a,
 };
 
-enum class RenderMultisampleType_t : uint8_t
+enum class RenderMultisampleType_t : uint64_t
 {
     RENDER_MULTISAMPLE_INVALID = 0xffffffffffffffff,
     RENDER_MULTISAMPLE_NONE = 0x0,
@@ -1802,7 +1802,7 @@ enum class RenderMultisampleType_t : uint8_t
     RENDER_MULTISAMPLE_TYPE_COUNT = 0x6,
 };
 
-enum class ParticleLightTypeChoiceList_t : uint32_t
+enum class ParticleLightTypeChoiceList_t : uint64_t
 {
     PARTICLE_LIGHT_TYPE_POINT = 0x0,
     PARTICLE_LIGHT_TYPE_SPOT = 0x1,
@@ -1810,7 +1810,7 @@ enum class ParticleLightTypeChoiceList_t : uint32_t
     PARTICLE_LIGHT_TYPE_CAPSULE = 0x3,
 };
 
-enum class IKSolverType : uint32_t
+enum class IKSolverType : uint64_t
 {
     IKSOLVER_Perlin = 0x0,
     IKSOLVER_TwoBone = 0x1,
@@ -1820,7 +1820,7 @@ enum class IKSolverType : uint32_t
     IKSOLVER_COUNT = 0x5,
 };
 
-enum class SolveIKChainAnimNodeDebugSetting : uint32_t
+enum class SolveIKChainAnimNodeDebugSetting : uint64_t
 {
     SOLVEIKCHAINANIMNODEDEBUGSETTING_None = 0x0,
     SOLVEIKCHAINANIMNODEDEBUGSETTING_X_Axis_Circle = 0x1,
@@ -1831,7 +1831,7 @@ enum class SolveIKChainAnimNodeDebugSetting : uint32_t
     SOLVEIKCHAINANIMNODEDEBUGSETTING_Left = 0x6,
 };
 
-enum class PulseCursorCancelPriority_t : uint32_t
+enum class PulseCursorCancelPriority_t : uint64_t
 {
     None = 0x0,
     CancelOnSucceeded = 0x1,
@@ -1839,13 +1839,13 @@ enum class PulseCursorCancelPriority_t : uint32_t
     HardCancel = 0x3,
 };
 
-enum class MaterialProxyType_t : uint32_t
+enum class MaterialProxyType_t : uint64_t
 {
     MATERIAL_PROXY_STATUS_EFFECT = 0x0,
     MATERIAL_PROXY_TINT = 0x1,
 };
 
-enum class PFuncVisualizationType_t : uint32_t
+enum class PFuncVisualizationType_t : uint64_t
 {
     PFUNC_VISUALIZATION_SPHERE_WIREFRAME = 0x0,
     PFUNC_VISUALIZATION_SPHERE_SOLID = 0x1,
@@ -1856,14 +1856,14 @@ enum class PFuncVisualizationType_t : uint32_t
     PFUNC_VISUALIZATION_CYLINDER = 0x6,
 };
 
-enum class VPhysXJoint_t__Flags_t : uint32_t
+enum class VPhysXJoint_t__Flags_t : uint64_t
 {
     JOINT_FLAGS_NONE = 0x0,
     JOINT_FLAGS_BODY1_FIXED = 0x1,
     JOINT_FLAGS_USE_BLOCK_SOLVER = 0x2,
 };
 
-enum class ParticlePostProcessPriorityGroup_t : uint32_t
+enum class ParticlePostProcessPriorityGroup_t : uint64_t
 {
     PARTICLE_POST_PROCESS_PRIORITY_LEVEL_VOLUME = 0x0,
     PARTICLE_POST_PROCESS_PRIORITY_LEVEL_OVERRIDE = 0x1,
@@ -1873,27 +1873,27 @@ enum class ParticlePostProcessPriorityGroup_t : uint32_t
     PARTICLE_POST_PROCESS_PRIORITY_GLOBAL_UI = 0x5,
 };
 
-enum class VMixPannerType_t : uint32_t
+enum class VMixPannerType_t : uint64_t
 {
     PANNER_TYPE_LINEAR = 0x0,
     PANNER_TYPE_EQUAL_POWER = 0x1,
 };
 
-enum class LayoutPositionType_e : uint32_t
+enum class LayoutPositionType_e : uint64_t
 {
     LAYOUTPOSITIONTYPE_VIEWPORT_RELATIVE = 0x0,
     LAYOUTPOSITIONTYPE_FRACTIONAL = 0x1,
     LAYOUTPOSITIONTYPE_NONE = 0x2,
 };
 
-enum class AnimParamNetworkSetting : uint32_t
+enum class AnimParamNetworkSetting : uint64_t
 {
     Auto = 0x0,
     AlwaysNetwork = 0x1,
     NeverNetwork = 0x2,
 };
 
-enum class JointAxis_t : uint32_t
+enum class JointAxis_t : uint64_t
 {
     JOINT_AXIS_X = 0x0,
     JOINT_AXIS_Y = 0x1,
@@ -1901,7 +1901,7 @@ enum class JointAxis_t : uint32_t
     JOINT_AXIS_COUNT = 0x3,
 };
 
-enum class MovementGait_t : uint8_t
+enum class MovementGait_t : uint64_t
 {
     eInvalid = 0xffffffffffffffff,
     eWalk = 0x0,
@@ -1910,14 +1910,14 @@ enum class MovementGait_t : uint8_t
     eSprint = 0x3,
 };
 
-enum class ParticleRotationLockType_t : uint32_t
+enum class ParticleRotationLockType_t : uint64_t
 {
     PARTICLE_ROTATION_LOCK_NONE = 0x0,
     PARTICLE_ROTATION_LOCK_ROTATIONS = 0x1,
     PARTICLE_ROTATION_LOCK_NORMAL = 0x2,
 };
 
-enum class ParticleFloatInputMode_t : uint32_t
+enum class ParticleFloatInputMode_t : uint64_t
 {
     PF_INPUT_MODE_INVALID = 0xffffffffffffffff,
     PF_INPUT_MODE_CLAMPED = 0x0,
@@ -1925,7 +1925,7 @@ enum class ParticleFloatInputMode_t : uint32_t
     PF_INPUT_MODE_COUNT = 0x2,
 };
 
-enum class AimMatrixBlendMode : uint32_t
+enum class AimMatrixBlendMode : uint64_t
 {
     AimMatrixBlendMode_None = 0x0,
     AimMatrixBlendMode_Additive = 0x1,
@@ -1933,13 +1933,13 @@ enum class AimMatrixBlendMode : uint32_t
     AimMatrixBlendMode_BoneMask = 0x3,
 };
 
-enum class ParticleHitboxBiasType_t : uint32_t
+enum class ParticleHitboxBiasType_t : uint64_t
 {
     PARTICLE_HITBOX_BIAS_ENTITY = 0x0,
     PARTICLE_HITBOX_BIAS_HITBOX = 0x1,
 };
 
-enum class CompositeMaterialInputLooseVariableType_t : uint32_t
+enum class CompositeMaterialInputLooseVariableType_t : uint64_t
 {
     LOOSE_VARIABLE_TYPE_BOOLEAN = 0x0,
     LOOSE_VARIABLE_TYPE_INTEGER1 = 0x1,
@@ -1957,19 +1957,19 @@ enum class CompositeMaterialInputLooseVariableType_t : uint32_t
     LOOSE_VARIABLE_TYPE_RESOURCE_TEXTURE = 0xd,
 };
 
-enum class BlurFilterType_t : uint32_t
+enum class BlurFilterType_t : uint64_t
 {
     BLURFILTER_GAUSSIAN = 0x0,
     BLURFILTER_BOX = 0x1,
 };
 
-enum class StanceOverrideMode : uint32_t
+enum class StanceOverrideMode : uint64_t
 {
     Sequence = 0x0,
     Node = 0x1,
 };
 
-enum class MeshDrawPrimitiveFlags_t : uint32_t
+enum class MeshDrawPrimitiveFlags_t : uint64_t
 {
     MESH_DRAW_FLAGS_NONE = 0x0,
     MESH_DRAW_FLAGS_USE_SHADOW_FAST_PATH = 0x1,
@@ -1981,7 +1981,7 @@ enum class MeshDrawPrimitiveFlags_t : uint32_t
     MESH_DRAW_FLAGS_DRAW_LAST = 0x80,
 };
 
-enum class ParticleFloatType_t : uint32_t
+enum class ParticleFloatType_t : uint64_t
 {
     PF_TYPE_INVALID = 0xffffffffffffffff,
     PF_TYPE_LITERAL = 0x0,
@@ -2009,14 +2009,14 @@ enum class ParticleFloatType_t : uint32_t
     PF_TYPE_COUNT = 0x16,
 };
 
-enum class NmTransitionRule_t : uint8_t
+enum class NmTransitionRule_t : uint64_t
 {
     AllowTransition = 0x0,
     ConditionallyAllowTransition = 0x1,
     BlockTransition = 0x2,
 };
 
-enum class SpriteCardTextureType_t : uint32_t
+enum class SpriteCardTextureType_t : uint64_t
 {
     SPRITECARD_TEXTURE_DIFFUSE = 0x0,
     SPRITECARD_TEXTURE_ZOOM = 0x1,
@@ -2030,14 +2030,14 @@ enum class SpriteCardTextureType_t : uint32_t
     SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_C = 0x9,
 };
 
-enum class SelectorTagBehavior_t : uint32_t
+enum class SelectorTagBehavior_t : uint64_t
 {
     SelectorTagBehavior_OnWhileCurrent = 0x0,
     SelectorTagBehavior_OffWhenFinished = 0x1,
     SelectorTagBehavior_OffBeforeFinished = 0x2,
 };
 
-enum class ParticleFloatMapType_t : uint32_t
+enum class ParticleFloatMapType_t : uint64_t
 {
     PF_MAP_TYPE_INVALID = 0xffffffffffffffff,
     PF_MAP_TYPE_DIRECT = 0x0,
@@ -2049,7 +2049,7 @@ enum class ParticleFloatMapType_t : uint32_t
     PF_MAP_TYPE_COUNT = 0x6,
 };
 
-enum class VMixFilterType_t : uint16_t
+enum class VMixFilterType_t : uint64_t
 {
     FILTER_UNKNOWN = 0xffffffffffffffff,
     FILTER_LOWPASS = 0x0,
@@ -2063,19 +2063,19 @@ enum class VMixFilterType_t : uint16_t
     FILTER_PASSTHROUGH = 0x8,
 };
 
-enum class ParticleAttrBoxFlags_t : uint32_t
+enum class ParticleAttrBoxFlags_t : uint64_t
 {
     PARTICLE_ATTR_BOX_FLAGS_NONE = 0x0,
     PARTICLE_ATTR_BOX_FLAGS_WATER = 0x1,
 };
 
-enum class SosGroupType_t : uint32_t
+enum class SosGroupType_t : uint64_t
 {
     SOS_GROUPTYPE_DYNAMIC = 0x0,
     SOS_GROUPTYPE_STATIC = 0x1,
 };
 
-enum class PFNoiseTurbulence_t : uint32_t
+enum class PFNoiseTurbulence_t : uint64_t
 {
     PF_NOISE_TURB_NONE = 0x0,
     PF_NOISE_TURB_HIGHLIGHT = 0x1,
@@ -2085,7 +2085,7 @@ enum class PFNoiseTurbulence_t : uint32_t
     PF_NOISE_TURB_ALTERNATE = 0x5,
 };
 
-enum class MissingParentInheritBehavior_t : uint32_t
+enum class MissingParentInheritBehavior_t : uint64_t
 {
     MISSING_PARENT_DO_NOTHING = 0xffffffffffffffff,
     MISSING_PARENT_KILL = 0x0,
@@ -2093,14 +2093,14 @@ enum class MissingParentInheritBehavior_t : uint32_t
     MISSING_PARENT_SAME_INDEX = 0x2,
 };
 
-enum class AnimationType_t : uint32_t
+enum class AnimationType_t : uint64_t
 {
     ANIMATION_TYPE_FIXED_RATE = 0x0,
     ANIMATION_TYPE_FIT_LIFETIME = 0x1,
     ANIMATION_TYPE_MANUAL_FRAMES = 0x2,
 };
 
-enum class AnimParamButton_t : uint32_t
+enum class AnimParamButton_t : uint64_t
 {
     ANIMPARAM_BUTTON_NONE = 0x0,
     ANIMPARAM_BUTTON_DPAD_UP = 0x1,
@@ -2117,21 +2117,21 @@ enum class AnimParamButton_t : uint32_t
     ANIMPARAM_BUTTON_RTRIGGER = 0xc,
 };
 
-enum class BloomBlendMode_t : uint32_t
+enum class BloomBlendMode_t : uint64_t
 {
     BLOOM_BLEND_ADD = 0x0,
     BLOOM_BLEND_SCREEN = 0x1,
     BLOOM_BLEND_BLUR = 0x2,
 };
 
-enum class CompMatPropertyMutatorConditionType_t : uint32_t
+enum class CompMatPropertyMutatorConditionType_t : uint64_t
 {
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_EXISTS = 0x0,
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EXISTS = 0x1,
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EQUALS = 0x2,
 };
 
-enum class ParticleSetMethod_t : uint32_t
+enum class ParticleSetMethod_t : uint64_t
 {
     PARTICLE_SET_REPLACE_VALUE = 0x0,
     PARTICLE_SET_SCALE_INITIAL_VALUE = 0x1,
@@ -2141,7 +2141,7 @@ enum class ParticleSetMethod_t : uint32_t
     PARTICLE_SET_ADD_TO_CURRENT_VALUE = 0x5,
 };
 
-enum class VectorFloatExpressionType_t : uint32_t
+enum class VectorFloatExpressionType_t : uint64_t
 {
     VECTOR_FLOAT_EXPRESSION_UNINITIALIZED = 0xffffffffffffffff,
     VECTOR_FLOAT_EXPRESSION_DOTPRODUCT = 0x0,
@@ -2152,7 +2152,7 @@ enum class VectorFloatExpressionType_t : uint32_t
     VECTOR_FLOAT_EXPRESSION_INPUT1_NOISE = 0x5,
 };
 
-enum class ChoiceMethod : uint32_t
+enum class ChoiceMethod : uint64_t
 {
     WeightedRandom = 0x0,
     WeightedRandomNoRepeat = 0x1,
@@ -2160,7 +2160,7 @@ enum class ChoiceMethod : uint32_t
     IterateRandom = 0x3,
 };
 
-enum class NmFootPhaseCondition_t : uint8_t
+enum class NmFootPhaseCondition_t : uint64_t
 {
     LeftFootDown = 0x0,
     LeftFootPassing = 0x1,
@@ -2170,13 +2170,13 @@ enum class NmFootPhaseCondition_t : uint8_t
     RightPhase = 0x5,
 };
 
-enum class CompositeMaterialVarSystemVar_t : uint32_t
+enum class CompositeMaterialVarSystemVar_t : uint64_t
 {
     COMPMATSYSVAR_COMPOSITETIME = 0x0,
     COMPMATSYSVAR_EMPTY_RESOURCE_SPACER = 0x1,
 };
 
-enum class VectorExpressionType_t : uint32_t
+enum class VectorExpressionType_t : uint64_t
 {
     VECTOR_EXPRESSION_UNINITIALIZED = 0xffffffffffffffff,
     VECTOR_EXPRESSION_ADD = 0x0,
@@ -2189,14 +2189,14 @@ enum class VectorExpressionType_t : uint32_t
     VECTOR_EXPRESSION_CROSSPRODUCT = 0x7,
 };
 
-enum class ParticleSelection_t : uint32_t
+enum class ParticleSelection_t : uint64_t
 {
     PARTICLE_SELECTION_FIRST = 0x0,
     PARTICLE_SELECTION_LAST = 0x1,
     PARTICLE_SELECTION_NUMBER = 0x2,
 };
 
-enum class DisableShadows_t : uint8_t
+enum class DisableShadows_t : uint64_t
 {
     kDisableShadows_None = 0x0,
     kDisableShadows_All = 0x1,
@@ -2204,14 +2204,14 @@ enum class DisableShadows_t : uint8_t
     kDisableShadows_Realtime = 0x3,
 };
 
-enum class ParticleFogType_t : uint32_t
+enum class ParticleFogType_t : uint64_t
 {
     PARTICLE_FOG_GAME_DEFAULT = 0x0,
     PARTICLE_FOG_ENABLED = 0x1,
     PARTICLE_FOG_DISABLED = 0x2,
 };
 
-enum class Detail2Combo_t : uint32_t
+enum class Detail2Combo_t : uint64_t
 {
     DETAIL_2_COMBO_UNINITIALIZED = 0xffffffffffffffff,
     DETAIL_2_COMBO_OFF = 0x0,
@@ -2222,7 +2222,7 @@ enum class Detail2Combo_t : uint32_t
     DETAIL_2_COMBO_CROSSFADE = 0x5,
 };
 
-enum class ParticleAlphaReferenceType_t : uint32_t
+enum class ParticleAlphaReferenceType_t : uint64_t
 {
     PARTICLE_ALPHA_REFERENCE_ALPHA_ALPHA = 0x0,
     PARTICLE_ALPHA_REFERENCE_OPAQUE_ALPHA = 0x1,
@@ -2230,7 +2230,7 @@ enum class ParticleAlphaReferenceType_t : uint32_t
     PARTICLE_ALPHA_REFERENCE_OPAQUE_OPAQUE = 0x3,
 };
 
-enum class ParticleVecType_t : uint32_t
+enum class ParticleVecType_t : uint64_t
 {
     PVEC_TYPE_INVALID = 0xffffffffffffffff,
     PVEC_TYPE_LITERAL = 0x0,
@@ -2253,14 +2253,14 @@ enum class ParticleVecType_t : uint32_t
     PVEC_TYPE_COUNT = 0x11,
 };
 
-enum class ThreeState_t : uint32_t
+enum class ThreeState_t : uint64_t
 {
     TRS_FALSE = 0x0,
     TRS_TRUE = 0x1,
     TRS_NONE = 0x2,
 };
 
-enum class PFNoiseModifier_t : uint32_t
+enum class PFNoiseModifier_t : uint64_t
 {
     PF_NOISE_MODIFIER_NONE = 0x0,
     PF_NOISE_MODIFIER_LINES = 0x1,
@@ -2268,7 +2268,7 @@ enum class PFNoiseModifier_t : uint32_t
     PF_NOISE_MODIFIER_RINGS = 0x3,
 };
 
-enum class ParticleImpulseType_t : uint32_t
+enum class ParticleImpulseType_t : uint64_t
 {
     IMPULSE_TYPE_NONE = 0x0,
     IMPULSE_TYPE_GENERIC = 0x1,
@@ -2278,14 +2278,14 @@ enum class ParticleImpulseType_t : uint32_t
     IMPULSE_TYPE_PARTICLE_SYSTEM = 0x10,
 };
 
-enum class VPhysXAggregateData_t__VPhysXFlagEnum_t : uint32_t
+enum class VPhysXAggregateData_t__VPhysXFlagEnum_t : uint64_t
 {
     FLAG_IS_POLYSOUP_GEOMETRY = 0x1,
     FLAG_LEVEL_COLLISION = 0x10,
     FLAG_IGNORE_SCALE_OBSOLETE_DO_NOT_USE = 0x20,
 };
 
-enum class ParticleFloatRandomMode_t : uint32_t
+enum class ParticleFloatRandomMode_t : uint64_t
 {
     PF_RANDOM_MODE_INVALID = 0xffffffffffffffff,
     PF_RANDOM_MODE_CONSTANT = 0x0,
@@ -2293,13 +2293,13 @@ enum class ParticleFloatRandomMode_t : uint32_t
     PF_RANDOM_MODE_COUNT = 0x2,
 };
 
-enum class AnimNodeNetworkMode : uint32_t
+enum class AnimNodeNetworkMode : uint64_t
 {
     ServerAuthoritative = 0x0,
     ClientSimulate = 0x1,
 };
 
-enum class CompositeMaterialMatchFilterType_t : uint32_t
+enum class CompositeMaterialMatchFilterType_t : uint64_t
 {
     MATCH_FILTER_MATERIAL_ATTRIBUTE_EXISTS = 0x0,
     MATCH_FILTER_MATERIAL_SHADER = 0x1,
@@ -2309,20 +2309,20 @@ enum class CompositeMaterialMatchFilterType_t : uint32_t
     MATCH_FILTER_MATERIAL_PROPERTY_EQUALS = 0x5,
 };
 
-enum class AnimPoseControl : uint32_t
+enum class AnimPoseControl : uint64_t
 {
     NoPoseControl = 0x0,
     AbsolutePoseControl = 0x1,
     RelativePoseControl = 0x2,
 };
 
-enum class FootLockSubVisualization : uint32_t
+enum class FootLockSubVisualization : uint64_t
 {
     FOOTLOCKSUBVISUALIZATION_ReachabilityAnalysis = 0x0,
     FOOTLOCKSUBVISUALIZATION_IKSolve = 0x1,
 };
 
-enum class PulseValueType_t : uint32_t
+enum class PulseValueType_t : uint64_t
 {
     PVAL_INVALID = 0xffffffffffffffff,
     PVAL_BOOL = 0x0,
@@ -2345,14 +2345,14 @@ enum class PulseValueType_t : uint32_t
     PVAL_COUNT = 0x11,
 };
 
-enum class FacingMode : uint32_t
+enum class FacingMode : uint64_t
 {
     FacingMode_Manual = 0x0,
     FacingMode_Path = 0x1,
     FacingMode_LookTarget = 0x2,
 };
 
-enum class SeqCmd_t : uint32_t
+enum class SeqCmd_t : uint64_t
 {
     SeqCmd_Nop = 0x0,
     SeqCmd_LinearDelta = 0x1,
@@ -2373,20 +2373,20 @@ enum class SeqCmd_t : uint32_t
     SeqCmd_Transform = 0x10,
 };
 
-enum class ChoiceBlendMethod : uint32_t
+enum class ChoiceBlendMethod : uint64_t
 {
     SingleBlendTime = 0x0,
     PerChoiceBlendTimes = 0x1,
 };
 
-enum class ParticleParentSetMode_t : uint32_t
+enum class ParticleParentSetMode_t : uint64_t
 {
     PARTICLE_SET_PARENT_NO = 0x0,
     PARTICLE_SET_PARENT_IMMEDIATE = 0x1,
     PARTICLE_SET_PARENT_ROOT = 0x1,
 };
 
-enum class VMixProcessorType_t : uint16_t
+enum class VMixProcessorType_t : uint64_t
 {
     VPROCESSOR_UNKNOWN = 0x0,
     VPROCESSOR_STEAMAUDIO_REVERB = 0x1,
@@ -2420,20 +2420,20 @@ enum class VMixProcessorType_t : uint16_t
     VPROCESSOR_STEAMAUDIO_DIRECT = 0x1d,
 };
 
-enum class ChoiceChangeMethod : uint32_t
+enum class ChoiceChangeMethod : uint64_t
 {
     OnReset = 0x0,
     OnCycleEnd = 0x1,
     OnResetOrCycleEnd = 0x2,
 };
 
-enum class BinaryNodeChildOption : uint32_t
+enum class BinaryNodeChildOption : uint64_t
 {
     Child1 = 0x0,
     Child2 = 0x1,
 };
 
-enum class CompositeMaterialInputTextureType_t : uint32_t
+enum class CompositeMaterialInputTextureType_t : uint64_t
 {
     INPUT_TEXTURE_TYPE_DEFAULT = 0x0,
     INPUT_TEXTURE_TYPE_NORMALMAP = 0x1,
@@ -2444,7 +2444,7 @@ enum class CompositeMaterialInputTextureType_t : uint32_t
     INPUT_TEXTURE_TYPE_AO = 0x6,
 };
 
-enum class BoneMaskBlendSpace : uint32_t
+enum class BoneMaskBlendSpace : uint64_t
 {
     BlendSpace_Parent = 0x0,
     BlendSpace_Model = 0x1,
@@ -2452,20 +2452,20 @@ enum class BoneMaskBlendSpace : uint32_t
     BlendSpace_Model_TranslationOnly = 0x3,
 };
 
-enum class AnimScriptType : uint16_t
+enum class AnimScriptType : uint64_t
 {
     ANIMSCRIPT_TYPE_INVALID = 0xffffffffffffffff,
     ANIMSCRIPT_FUSE_GENERAL = 0x0,
     ANIMSCRIPT_FUSE_STATEMACHINE = 0x1,
 };
 
-enum class FuseVariableAccess_t : uint8_t
+enum class FuseVariableAccess_t : uint64_t
 {
     WRITABLE = 0x0,
     READ_ONLY = 0x1,
 };
 
-enum class DetailCombo_t : uint32_t
+enum class DetailCombo_t : uint64_t
 {
     DETAIL_COMBO_OFF = 0x0,
     DETAIL_COMBO_ADD = 0x1,
@@ -2473,14 +2473,14 @@ enum class DetailCombo_t : uint32_t
     DETAIL_COMBO_MOD2X = 0x3,
 };
 
-enum class InheritableBoolType_t : uint32_t
+enum class InheritableBoolType_t : uint64_t
 {
     INHERITABLE_BOOL_INHERIT = 0x0,
     INHERITABLE_BOOL_FALSE = 0x1,
     INHERITABLE_BOOL_TRUE = 0x2,
 };
 
-enum class ParticleTransformType_t : uint32_t
+enum class ParticleTransformType_t : uint64_t
 {
     PT_TYPE_INVALID = 0x0,
     PT_TYPE_NAMED_VALUE = 0x1,
@@ -2489,13 +2489,13 @@ enum class ParticleTransformType_t : uint32_t
     PT_TYPE_COUNT = 0x4,
 };
 
-enum class ParticleHitboxDataSelection_t : uint32_t
+enum class ParticleHitboxDataSelection_t : uint64_t
 {
     PARTICLE_HITBOX_AVERAGE_SPEED = 0x0,
     PARTICLE_HITBOX_COUNT = 0x1,
 };
 
-enum class AnimVectorSource : uint32_t
+enum class AnimVectorSource : uint64_t
 {
     MoveDirection = 0x0,
     FacingDirection = 0x1,
@@ -2512,13 +2512,13 @@ enum class AnimVectorSource : uint32_t
     RootMotionVelocity = 0xc,
 };
 
-enum class TextureRepetitionMode_t : uint32_t
+enum class TextureRepetitionMode_t : uint64_t
 {
     TEXTURE_REPETITION_PARTICLE = 0x0,
     TEXTURE_REPETITION_PATH = 0x1,
 };
 
-enum class fieldtype_t : uint8_t
+enum class fieldtype_t : uint64_t
 {
     FIELD_VOID = 0x0,
     FIELD_FLOAT32 = 0x1,
@@ -2603,27 +2603,27 @@ enum class fieldtype_t : uint8_t
     FIELD_TYPECOUNT = 0x50,
 };
 
-enum class IKTargetCoordinateSystem : uint32_t
+enum class IKTargetCoordinateSystem : uint64_t
 {
     IKTARGETCOORDINATESYSTEM_WorldSpace = 0x0,
     IKTARGETCOORDINATESYSTEM_ModelSpace = 0x1,
     IKTARGETCOORDINATESYSTEM_COUNT = 0x2,
 };
 
-enum class StandardLightingAttenuationStyle_t : uint32_t
+enum class StandardLightingAttenuationStyle_t : uint64_t
 {
     LIGHT_STYLE_OLD = 0x0,
     LIGHT_STYLE_NEW = 0x1,
 };
 
-enum class PoseType_t : uint8_t
+enum class PoseType_t : uint64_t
 {
     POSETYPE_STATIC = 0x0,
     POSETYPE_DYNAMIC = 0x1,
     POSETYPE_INVALID = 0xff,
 };
 
-enum class FuseVariableType_t : uint8_t
+enum class FuseVariableType_t : uint64_t
 {
     INVALID = 0x0,
     BOOL = 0x1,
@@ -2636,7 +2636,7 @@ enum class FuseVariableType_t : uint8_t
     FLOAT32 = 0x8,
 };
 
-enum class ParticleTraceSet_t : uint32_t
+enum class ParticleTraceSet_t : uint64_t
 {
     PARTICLE_TRACE_SET_ALL = 0x0,
     PARTICLE_TRACE_SET_STATIC = 0x1,
@@ -2644,7 +2644,7 @@ enum class ParticleTraceSet_t : uint32_t
     PARTICLE_TRACE_SET_DYNAMIC = 0x3,
 };
 
-enum class EntityIOTargetType_t : uint32_t
+enum class EntityIOTargetType_t : uint64_t
 {
     ENTITY_IO_TARGET_INVALID = 0xffffffffffffffff,
     ENTITY_IO_TARGET_ENTITYNAME = 0x2,
@@ -2652,7 +2652,7 @@ enum class EntityIOTargetType_t : uint32_t
     ENTITY_IO_TARGET_ENTITYNAME_OR_CLASSNAME = 0x7,
 };
 
-enum class ModelSkeletonData_t__BoneFlags_t : uint32_t
+enum class ModelSkeletonData_t__BoneFlags_t : uint64_t
 {
     FLAG_NO_BONE_FLAGS = 0x0,
     FLAG_BONEFLEXDRIVER = 0x4,
@@ -2678,14 +2678,14 @@ enum class ModelSkeletonData_t__BoneFlags_t : uint32_t
     FLAG_PROCEDURAL = 0x400000,
 };
 
-enum class ParticleLightBehaviorChoiceList_t : uint32_t
+enum class ParticleLightBehaviorChoiceList_t : uint64_t
 {
     PARTICLE_LIGHT_BEHAVIOR_FOLLOW_DIRECTION = 0x0,
     PARTICLE_LIGHT_BEHAVIOR_ROPE = 0x1,
     PARTICLE_LIGHT_BEHAVIOR_TRAILS = 0x2,
 };
 
-enum class CompositeMaterialInputContainerSourceType_t : uint32_t
+enum class CompositeMaterialInputContainerSourceType_t : uint64_t
 {
     CONTAINER_SOURCE_TYPE_TARGET_MATERIAL = 0x0,
     CONTAINER_SOURCE_TYPE_MATERIAL_FROM_TARGET_ATTR = 0x1,
@@ -2695,39 +2695,39 @@ enum class CompositeMaterialInputContainerSourceType_t : uint32_t
     CONTAINER_SOURCE_TYPE_TARGET_INSTANCE_MATERIAL = 0x5,
 };
 
-enum class ParticleSortingChoiceList_t : uint32_t
+enum class ParticleSortingChoiceList_t : uint64_t
 {
     PARTICLE_SORTING_NEAREST = 0x0,
     PARTICLE_SORTING_CREATION_TIME = 0x1,
 };
 
-enum class SosActionSortType_t : uint32_t
+enum class SosActionSortType_t : uint64_t
 {
     SOS_SORTTYPE_HIGHEST = 0x0,
     SOS_SORTTYPE_LOWEST = 0x1,
 };
 
-enum class ParticleFalloffFunction_t : uint32_t
+enum class ParticleFalloffFunction_t : uint64_t
 {
     PARTICLE_FALLOFF_CONSTANT = 0x0,
     PARTICLE_FALLOFF_LINEAR = 0x1,
     PARTICLE_FALLOFF_EXPONENTIAL = 0x2,
 };
 
-enum class JumpCorrectionMethod : uint32_t
+enum class JumpCorrectionMethod : uint64_t
 {
     ScaleMotion = 0x0,
     AddCorrectionDelta = 0x1,
 };
 
-enum class PetGroundType_t : uint32_t
+enum class PetGroundType_t : uint64_t
 {
     PET_GROUND_NONE = 0x0,
     PET_GROUND_GRID = 0x1,
     PET_GROUND_PLANE = 0x2,
 };
 
-enum class VMixChannelOperation_t : uint32_t
+enum class VMixChannelOperation_t : uint64_t
 {
     VMIX_CHAN_STEREO = 0x0,
     VMIX_CHAN_LEFT = 0x1,
@@ -2737,20 +2737,20 @@ enum class VMixChannelOperation_t : uint32_t
     VMIX_CHAN_MID_SIDE = 0x5,
 };
 
-enum class MatterialAttributeTagType_t : uint32_t
+enum class MatterialAttributeTagType_t : uint64_t
 {
     MATERIAL_ATTRIBUTE_TAG_VALUE = 0x0,
     MATERIAL_ATTRIBUTE_TAG_COLOR = 0x1,
 };
 
-enum class ParticleDirectionNoiseType_t : uint32_t
+enum class ParticleDirectionNoiseType_t : uint64_t
 {
     PARTICLE_DIR_NOISE_PERLIN = 0x0,
     PARTICLE_DIR_NOISE_CURL = 0x1,
     PARTICLE_DIR_NOISE_WORLEY_BASIC = 0x2,
 };
 
-enum class InputLayoutVariation_t : uint32_t
+enum class InputLayoutVariation_t : uint64_t
 {
     INPUT_LAYOUT_VARIATION_DEFAULT = 0x0,
     INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID = 0x1,
@@ -2758,7 +2758,7 @@ enum class InputLayoutVariation_t : uint32_t
     INPUT_LAYOUT_VARIATION_MAX = 0x3,
 };
 
-enum class CAnimationGraphVisualizerPrimitiveType : uint32_t
+enum class CAnimationGraphVisualizerPrimitiveType : uint64_t
 {
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Text = 0x0,
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Sphere = 0x1,
@@ -2767,7 +2767,7 @@ enum class CAnimationGraphVisualizerPrimitiveType : uint32_t
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Axis = 0x4,
 };
 
-enum class BlendKeyType : uint32_t
+enum class BlendKeyType : uint64_t
 {
     BlendKey_UserValue = 0x0,
     BlendKey_Velocity = 0x1,
@@ -2775,7 +2775,7 @@ enum class BlendKeyType : uint32_t
     BlendKey_RemainingDistance = 0x3,
 };
 
-enum class ParticlePinDistance_t : uint32_t
+enum class ParticlePinDistance_t : uint64_t
 {
     PARTICLE_PIN_DISTANCE_NONE = 0xffffffffffffffff,
     PARTICLE_PIN_DISTANCE_NEIGHBOR = 0x0,
@@ -2791,7 +2791,7 @@ enum class ParticlePinDistance_t : uint32_t
     PARTICLE_PIN_FLOAT_VALUE = 0xb,
 };
 
-enum class SpriteCardTextureChannel_t : uint32_t
+enum class SpriteCardTextureChannel_t : uint64_t
 {
     SPRITECARD_TEXTURE_CHANNEL_MIX_RGB = 0x0,
     SPRITECARD_TEXTURE_CHANNEL_MIX_RGBA = 0x1,
@@ -2810,7 +2810,7 @@ enum class SpriteCardTextureChannel_t : uint32_t
     SPRITECARD_TEXTURE_CHANNEL_MIX_BALPHA = 0xe,
 };
 
-enum class VertJustification_e : uint32_t
+enum class VertJustification_e : uint64_t
 {
     VERT_JUSTIFICATION_TOP = 0x0,
     VERT_JUSTIFICATION_CENTER = 0x1,
@@ -2818,7 +2818,7 @@ enum class VertJustification_e : uint32_t
     VERT_JUSTIFICATION_NONE = 0x3,
 };
 
-enum class HorizJustification_e : uint32_t
+enum class HorizJustification_e : uint64_t
 {
     HORIZ_JUSTIFICATION_LEFT = 0x0,
     HORIZ_JUSTIFICATION_CENTER = 0x1,
@@ -2826,13 +2826,13 @@ enum class HorizJustification_e : uint32_t
     HORIZ_JUSTIFICATION_NONE = 0x3,
 };
 
-enum class EDemoBoneSelectionMode : uint32_t
+enum class EDemoBoneSelectionMode : uint64_t
 {
     CaptureAllBones = 0x0,
     CaptureSelectedBones = 0x1,
 };
 
-enum class SeqPoseSetting_t : uint32_t
+enum class SeqPoseSetting_t : uint64_t
 {
     SEQ_POSE_SETTING_CONSTANT = 0x0,
     SEQ_POSE_SETTING_ROTATION = 0x1,
@@ -2840,7 +2840,7 @@ enum class SeqPoseSetting_t : uint32_t
     SEQ_POSE_SETTING_VELOCITY = 0x3,
 };
 
-enum class MorphFlexControllerRemapType_t : uint32_t
+enum class MorphFlexControllerRemapType_t : uint64_t
 {
     MORPH_FLEXCONTROLLER_REMAP_PASSTHRU = 0x0,
     MORPH_FLEXCONTROLLER_REMAP_2WAY = 0x1,
@@ -2848,20 +2848,20 @@ enum class MorphFlexControllerRemapType_t : uint32_t
     MORPH_FLEXCONTROLLER_REMAP_EYELID = 0x3,
 };
 
-enum class SpawnDebugOverrideState_t : uint32_t
+enum class SpawnDebugOverrideState_t : uint64_t
 {
     SPAWN_DEBUG_OVERRIDE_NONE = 0x0,
     SPAWN_DEBUG_OVERRIDE_FORCE_ENABLED = 0x1,
     SPAWN_DEBUG_OVERRIDE_FORCE_DISABLED = 0x2,
 };
 
-enum class ParticleLightnintBranchBehavior_t : uint32_t
+enum class ParticleLightnintBranchBehavior_t : uint64_t
 {
     PARTICLE_LIGHTNING_BRANCH_CURRENT_DIR = 0x0,
     PARTICLE_LIGHTNING_BRANCH_ENDPOINT_DIR = 0x1,
 };
 
-enum class MorphBundleType_t : uint32_t
+enum class MorphBundleType_t : uint64_t
 {
     MORPH_BUNDLE_TYPE_NONE = 0x0,
     MORPH_BUNDLE_TYPE_POSITION_SPEED = 0x1,
@@ -2869,14 +2869,14 @@ enum class MorphBundleType_t : uint32_t
     MORPH_BUNDLE_TYPE_COUNT = 0x3,
 };
 
-enum class ParticleLightFogLightingMode_t : uint32_t
+enum class ParticleLightFogLightingMode_t : uint64_t
 {
     PARTICLE_LIGHT_FOG_LIGHTING_MODE_NONE = 0x0,
     PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC = 0x2,
     PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC_NOSHADOWS = 0x4,
 };
 
-enum class RenderBufferFlags_t : uint32_t
+enum class RenderBufferFlags_t : uint64_t
 {
     RENDER_BUFFER_USAGE_VERTEX_BUFFER = 0x1,
     RENDER_BUFFER_USAGE_INDEX_BUFFER = 0x2,
@@ -2892,7 +2892,7 @@ enum class RenderBufferFlags_t : uint32_t
     RENDER_BUFFER_PER_FRAME_WRITE_ONCE = 0x800,
 };
 
-enum class ParticleDetailLevel_t : uint32_t
+enum class ParticleDetailLevel_t : uint64_t
 {
     PARTICLEDETAIL_LOW = 0x0,
     PARTICLEDETAIL_MEDIUM = 0x1,
@@ -2900,14 +2900,14 @@ enum class ParticleDetailLevel_t : uint32_t
     PARTICLEDETAIL_ULTRA = 0x3,
 };
 
-enum class FootstepLandedFootSoundType_t : uint32_t
+enum class FootstepLandedFootSoundType_t : uint64_t
 {
     FOOTSOUND_Left = 0x0,
     FOOTSOUND_Right = 0x1,
     FOOTSOUND_UseOverrideSound = 0x2,
 };
 
-enum class SosEditItemType_t : uint32_t
+enum class SosEditItemType_t : uint64_t
 {
     SOS_EDIT_ITEM_TYPE_SOUNDEVENTS = 0x0,
     SOS_EDIT_ITEM_TYPE_SOUNDEVENT = 0x1,
@@ -2917,14 +2917,14 @@ enum class SosEditItemType_t : uint32_t
     SOS_EDIT_ITEM_TYPE_FIELD = 0x5,
 };
 
-enum class SosActionStopType_t : uint32_t
+enum class SosActionStopType_t : uint64_t
 {
     SOS_STOPTYPE_NONE = 0x0,
     SOS_STOPTYPE_TIME = 0x1,
     SOS_STOPTYPE_OPVAR = 0x2,
 };
 
-enum class ModelBoneFlexComponent_t : uint32_t
+enum class ModelBoneFlexComponent_t : uint64_t
 {
     MODEL_BONE_FLEX_INVALID = 0xffffffffffffffff,
     MODEL_BONE_FLEX_TX = 0x0,
@@ -2932,7 +2932,7 @@ enum class ModelBoneFlexComponent_t : uint32_t
     MODEL_BONE_FLEX_TZ = 0x2,
 };
 
-enum class ParticleAttachment_t : uint32_t
+enum class ParticleAttachment_t : uint64_t
 {
     PATTACH_INVALID = 0xffffffffffffffff,
     PATTACH_ABSORIGIN = 0x0,
@@ -2954,7 +2954,7 @@ enum class ParticleAttachment_t : uint32_t
     MAX_PATTACH_TYPES = 0x10,
 };
 
-enum class CompMatPropertyMutatorType_t : uint32_t
+enum class CompMatPropertyMutatorType_t : uint64_t
 {
     COMP_MAT_PROPERTY_MUTATOR_INIT = 0x0,
     COMP_MAT_PROPERTY_MUTATOR_COPY_MATCHING_KEYS = 0x1,
@@ -2968,7 +2968,7 @@ enum class CompMatPropertyMutatorType_t : uint32_t
     COMP_MAT_PROPERTY_MUTATOR_RANDOM_ROLL_INPUT_VARIABLES = 0x9,
 };
 
-enum class ParticleOrientationChoiceList_t : uint32_t
+enum class ParticleOrientationChoiceList_t : uint64_t
 {
     PARTICLE_ORIENTATION_SCREEN_ALIGNED = 0x0,
     PARTICLE_ORIENTATION_SCREEN_Z_ALIGNED = 0x1,
@@ -2978,20 +2978,20 @@ enum class ParticleOrientationChoiceList_t : uint32_t
     PARTICLE_ORIENTATION_FULL_3AXIS_ROTATION = 0x5,
 };
 
-enum class NmFrameSnapEventMode_t : uint32_t
+enum class NmFrameSnapEventMode_t : uint64_t
 {
     Floor = 0x0,
     Round = 0x1,
 };
 
-enum class JiggleBoneSimSpace : uint32_t
+enum class JiggleBoneSimSpace : uint64_t
 {
     SimSpace_Local = 0x0,
     SimSpace_Model = 0x1,
     SimSpace_World = 0x2,
 };
 
-enum class ParticleTopology_t : uint32_t
+enum class ParticleTopology_t : uint64_t
 {
     PARTICLE_TOPOLOGY_POINTS = 0x0,
     PARTICLE_TOPOLOGY_LINES = 0x1,
@@ -3000,14 +3000,14 @@ enum class ParticleTopology_t : uint32_t
     PARTICLE_TOPOLOGY_CUBES = 0x4,
 };
 
-enum class DampingSpeedFunction : uint32_t
+enum class DampingSpeedFunction : uint64_t
 {
     NoDamping = 0x0,
     Constant = 0x1,
     Spring = 0x2,
 };
 
-enum class ParticleColorBlendType_t : uint32_t
+enum class ParticleColorBlendType_t : uint64_t
 {
     PARTICLE_COLOR_BLEND_MULTIPLY = 0x0,
     PARTICLE_COLOR_BLEND_MULTIPLY2X = 0x1,
@@ -3024,14 +3024,14 @@ enum class ParticleColorBlendType_t : uint32_t
     PARTICLE_COLOR_BLEND_LUMINANCE = 0xc,
 };
 
-enum class VMixSubgraphSwitchInterpolationType_t : uint32_t
+enum class VMixSubgraphSwitchInterpolationType_t : uint64_t
 {
     SUBGRAPH_INTERPOLATION_TEMPORAL_CROSSFADE = 0x0,
     SUBGRAPH_INTERPOLATION_TEMPORAL_FADE_OUT = 0x1,
     SUBGRAPH_INTERPOLATION_KEEP_LAST_SUBGRAPH_RUNNING = 0x2,
 };
 
-enum class soundlevel_t : uint32_t
+enum class soundlevel_t : uint64_t
 {
     SNDLVL_NONE = 0x0,
     SNDLVL_20dB = 0x14,
@@ -3065,7 +3065,7 @@ enum class soundlevel_t : uint32_t
     SNDLVL_180dB = 0xb4,
 };
 
-enum class AnimationSnapshotType_t : uint32_t
+enum class AnimationSnapshotType_t : uint64_t
 {
     ANIMATION_SNAPSHOT_SERVER_SIMULATION = 0x0,
     ANIMATION_SNAPSHOT_CLIENT_SIMULATION = 0x1,
@@ -3076,7 +3076,7 @@ enum class AnimationSnapshotType_t : uint32_t
     ANIMATION_SNAPSHOT_MAX = 0x6,
 };
 
-enum class SpriteCardPerParticleScale_t : uint32_t
+enum class SpriteCardPerParticleScale_t : uint64_t
 {
     SPRITECARD_TEXTURE_PP_SCALE_NONE = 0x0,
     SPRITECARD_TEXTURE_PP_SCALE_PARTICLE_AGE = 0x1,
@@ -3094,20 +3094,20 @@ enum class SpriteCardPerParticleScale_t : uint32_t
     SPRITECARD_TEXTURE_PP_SCALE_NEG_RANDOM_TIME = 0xd,
 };
 
-enum class SpriteCardShaderType_t : uint32_t
+enum class SpriteCardShaderType_t : uint64_t
 {
     SPRITECARD_SHADER_BASE = 0x0,
     SPRITECARD_SHADER_CUSTOM = 0x1,
 };
 
-enum class BBoxVolumeType_t : uint32_t
+enum class BBoxVolumeType_t : uint64_t
 {
     BBOX_VOLUME = 0x0,
     BBOX_DIMENSIONS = 0x1,
     BBOX_MINS_MAXS = 0x2,
 };
 
-enum class PulseTestEnumColor_t : uint32_t
+enum class PulseTestEnumColor_t : uint64_t
 {
     BLACK = 0x0,
     WHITE = 0x1,
@@ -3116,7 +3116,7 @@ enum class PulseTestEnumColor_t : uint32_t
     BLUE = 0x4,
 };
 
-enum class ParticleCollisionMode_t : uint32_t
+enum class ParticleCollisionMode_t : uint64_t
 {
     COLLISION_MODE_PER_PARTICLE_TRACE = 0x3,
     COLLISION_MODE_USE_NEAREST_TRACE = 0x2,
@@ -3125,7 +3125,7 @@ enum class ParticleCollisionMode_t : uint32_t
     COLLISION_MODE_DISABLED = 0xffffffffffffffff,
 };
 
-enum class PermModelInfo_t__FlagEnum : uint32_t
+enum class PermModelInfo_t__FlagEnum : uint64_t
 {
     FLAG_TRANSLUCENT = 0x1,
     FLAG_TRANSLUCENT_TWO_PASS = 0x2,
@@ -3144,7 +3144,7 @@ enum class PermModelInfo_t__FlagEnum : uint32_t
     FLAG_MODEL_DOC = 0x800000,
 };
 
-enum class ParticleControlPointAxis_t : uint32_t
+enum class ParticleControlPointAxis_t : uint64_t
 {
     PARTICLE_CP_AXIS_X = 0x0,
     PARTICLE_CP_AXIS_Y = 0x1,
@@ -3154,7 +3154,7 @@ enum class ParticleControlPointAxis_t : uint32_t
     PARTICLE_CP_AXIS_NEGATIVE_Z = 0x5,
 };
 
-enum class ELayoutNodeType : uint32_t
+enum class ELayoutNodeType : uint64_t
 {
     ROOT = 0x0,
     STYLES = 0x1,
@@ -3171,7 +3171,7 @@ enum class ELayoutNodeType : uint32_t
     REFERENCE_PASSTHROUGH = 0xc,
 };
 
-enum class IKChannelMode : uint32_t
+enum class IKChannelMode : uint64_t
 {
     TwoBone = 0x0,
     TwoBone_Translate = 0x1,
@@ -3179,14 +3179,14 @@ enum class IKChannelMode : uint32_t
     OneBone_Translate = 0x3,
 };
 
-enum class PulseTestEnumShape_t : uint32_t
+enum class PulseTestEnumShape_t : uint64_t
 {
     CIRCLE = 0x64,
     SQUARE = 0xc8,
     TRIANGLE = 0x12c,
 };
 
-enum class ParticleColorBlendMode_t : uint32_t
+enum class ParticleColorBlendMode_t : uint64_t
 {
     PARTICLEBLEND_DEFAULT = 0x0,
     PARTICLEBLEND_OVERLAY = 0x1,
@@ -3195,7 +3195,7 @@ enum class ParticleColorBlendMode_t : uint32_t
     PARTICLEBLEND_MULTIPLY = 0x4,
 };
 
-enum class AnimParamType_t : uint8_t
+enum class AnimParamType_t : uint64_t
 {
     ANIMPARAM_UNKNOWN = 0x0,
     ANIMPARAM_BOOL = 0x1,
@@ -3208,13 +3208,13 @@ enum class AnimParamType_t : uint8_t
     ANIMPARAM_COUNT = 0x8,
 };
 
-enum class ParticleLightUnitChoiceList_t : uint32_t
+enum class ParticleLightUnitChoiceList_t : uint64_t
 {
     PARTICLE_LIGHT_UNIT_CANDELAS = 0x0,
     PARTICLE_LIGHT_UNIT_LUMENS = 0x1,
 };
 
-enum class VMixLFOShape_t : uint32_t
+enum class VMixLFOShape_t : uint64_t
 {
     LFO_SHAPE_SINE = 0x0,
     LFO_SHAPE_SQUARE = 0x1,
@@ -3223,13 +3223,13 @@ enum class VMixLFOShape_t : uint32_t
     LFO_SHAPE_NOISE = 0x4,
 };
 
-enum class IkEndEffectorType : uint32_t
+enum class IkEndEffectorType : uint64_t
 {
     IkEndEffector_Attachment = 0x0,
     IkEndEffector_Bone = 0x1,
 };
 
-enum class EStyleNodeType : uint32_t
+enum class EStyleNodeType : uint64_t
 {
     ROOT = 0x0,
     EXPRESSION = 0x1,
@@ -3248,21 +3248,21 @@ enum class EStyleNodeType : uint32_t
     REFERENCE_PASSTHROUGH = 0xe,
 };
 
-enum class FieldNetworkOption : uint32_t
+enum class FieldNetworkOption : uint64_t
 {
     Auto = 0x0,
     ForceEnable = 0x1,
     ForceDisable = 0x2,
 };
 
-enum class VelocityMetricMode : uint8_t
+enum class VelocityMetricMode : uint64_t
 {
     DirectionOnly = 0x0,
     MagnitudeOnly = 0x1,
     DirectionAndMagnitude = 0x2,
 };
 
-enum class IkTargetType : uint32_t
+enum class IkTargetType : uint64_t
 {
     IkTarget_Attachment = 0x0,
     IkTarget_Bone = 0x1,
@@ -3270,14 +3270,14 @@ enum class IkTargetType : uint32_t
     IkTarget_Parameter_WorldSpace = 0x3,
 };
 
-enum class FootPinningTimingSource : uint32_t
+enum class FootPinningTimingSource : uint64_t
 {
     FootMotion = 0x0,
     Tag = 0x1,
     Parameter = 0x2,
 };
 
-enum class PFNoiseType_t : uint32_t
+enum class PFNoiseType_t : uint64_t
 {
     PF_NOISE_TYPE_PERLIN = 0x0,
     PF_NOISE_TYPE_SIMPLEX = 0x1,
@@ -3285,7 +3285,7 @@ enum class PFNoiseType_t : uint32_t
     PF_NOISE_TYPE_CURL = 0x3,
 };
 
-enum class ParticleFloatBiasType_t : uint32_t
+enum class ParticleFloatBiasType_t : uint64_t
 {
     PF_BIAS_TYPE_INVALID = 0xffffffffffffffff,
     PF_BIAS_TYPE_STANDARD = 0x0,
@@ -3294,28 +3294,28 @@ enum class ParticleFloatBiasType_t : uint32_t
     PF_BIAS_TYPE_COUNT = 0x3,
 };
 
-enum class ParticleDepthFeatheringMode_t : uint32_t
+enum class ParticleDepthFeatheringMode_t : uint64_t
 {
     PARTICLE_DEPTH_FEATHERING_OFF = 0x0,
     PARTICLE_DEPTH_FEATHERING_ON_OPTIONAL = 0x1,
     PARTICLE_DEPTH_FEATHERING_ON_REQUIRED = 0x2,
 };
 
-enum class ParticleSequenceCropOverride_t : uint32_t
+enum class ParticleSequenceCropOverride_t : uint64_t
 {
     PARTICLE_SEQUENCE_CROP_OVERRIDE_DEFAULT = 0xffffffffffffffff,
     PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_OFF = 0x0,
     PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_ON = 0x1,
 };
 
-enum class RenderSlotType_t : uint32_t
+enum class RenderSlotType_t : uint64_t
 {
     RENDER_SLOT_INVALID = 0xffffffffffffffff,
     RENDER_SLOT_PER_VERTEX = 0x0,
     RENDER_SLOT_PER_INSTANCE = 0x1,
 };
 
-enum class VPhysXConstraintParams_t__EnumFlags0_t : uint32_t
+enum class VPhysXConstraintParams_t__EnumFlags0_t : uint64_t
 {
     FLAG0_SHIFT_INTERPENETRATE = 0x0,
     FLAG0_SHIFT_CONSTRAIN = 0x1,
@@ -3323,7 +3323,7 @@ enum class VPhysXConstraintParams_t__EnumFlags0_t : uint32_t
     FLAG0_SHIFT_BREAKABLE_TORQUE = 0x3,
 };
 
-enum class AnimValueSource : uint32_t
+enum class AnimValueSource : uint64_t
 {
     MoveHeading = 0x0,
     MoveSpeed = 0x1,
@@ -3364,13 +3364,13 @@ enum class AnimValueSource : uint32_t
     FingerSplay_Ring_Pinky = 0x24,
 };
 
-enum class HitboxLerpType_t : uint32_t
+enum class HitboxLerpType_t : uint64_t
 {
     HITBOX_LERP_LIFETIME = 0x0,
     HITBOX_LERP_CONSTANT = 0x1,
 };
 
-enum class BoneTransformSpace_t : uint32_t
+enum class BoneTransformSpace_t : uint64_t
 {
     BoneTransformSpace_Invalid = 0xffffffffffffffff,
     BoneTransformSpace_Parent = 0x0,
@@ -3378,7 +3378,7 @@ enum class BoneTransformSpace_t : uint32_t
     BoneTransformSpace_World = 0x2,
 };
 
-enum class VPhysXBodyPart_t__VPhysXFlagEnum_t : uint32_t
+enum class VPhysXBodyPart_t__VPhysXFlagEnum_t : uint64_t
 {
     FLAG_STATIC = 0x1,
     FLAG_KINEMATIC = 0x2,
@@ -3387,21 +3387,21 @@ enum class VPhysXBodyPart_t__VPhysXFlagEnum_t : uint32_t
     FLAG_ALWAYS_DYNAMIC_ON_CLIENT = 0x10,
 };
 
-enum class EntityDormancyType_t : uint32_t
+enum class EntityDormancyType_t : uint64_t
 {
     ENTITY_NOT_DORMANT = 0x0,
     ENTITY_DORMANT = 0x1,
     ENTITY_SUSPENDED = 0x2,
 };
 
-enum class ParticleTraceMissBehavior_t : uint32_t
+enum class ParticleTraceMissBehavior_t : uint64_t
 {
     PARTICLE_TRACE_MISS_BEHAVIOR_NONE = 0x0,
     PARTICLE_TRACE_MISS_BEHAVIOR_KILL = 0x1,
     PARTICLE_TRACE_MISS_BEHAVIOR_TRACE_END = 0x2,
 };
 
-enum class NmFootPhase_t : uint8_t
+enum class NmFootPhase_t : uint64_t
 {
     LeftFootDown = 0x0,
     RightFootPassing = 0x1,
@@ -3409,26 +3409,26 @@ enum class NmFootPhase_t : uint8_t
     LeftFootPassing = 0x3,
 };
 
-enum class ParticleOmni2LightTypeChoiceList_t : uint32_t
+enum class ParticleOmni2LightTypeChoiceList_t : uint64_t
 {
     PARTICLE_OMNI2_LIGHT_TYPE_POINT = 0x0,
     PARTICLE_OMNI2_LIGHT_TYPE_SPHERE = 0x1,
 };
 
-enum class BinaryNodeTiming : uint32_t
+enum class BinaryNodeTiming : uint64_t
 {
     UseChild1 = 0x0,
     UseChild2 = 0x1,
     SyncChildren = 0x2,
 };
 
-enum class StepPhase : uint32_t
+enum class StepPhase : uint64_t
 {
     StepPhase_OnGround = 0x0,
     StepPhase_InAir = 0x1,
 };
 
-enum class ScalarExpressionType_t : uint32_t
+enum class ScalarExpressionType_t : uint64_t
 {
     SCALAR_EXPRESSION_UNINITIALIZED = 0xffffffffffffffff,
     SCALAR_EXPRESSION_ADD = 0x0,
@@ -3441,7 +3441,7 @@ enum class ScalarExpressionType_t : uint32_t
     SCALAR_EXPRESSION_MOD = 0x7,
 };
 
-enum class ResetCycleOption : uint32_t
+enum class ResetCycleOption : uint64_t
 {
     Beginning = 0x0,
     SameCycleAsSource = 0x1,
@@ -3450,7 +3450,7 @@ enum class ResetCycleOption : uint32_t
     SameTimeAsSource = 0x4,
 };
 
-enum class ModelConfigAttachmentType_t : uint32_t
+enum class ModelConfigAttachmentType_t : uint64_t
 {
     MODEL_CONFIG_ATTACHMENT_INVALID = 0xffffffffffffffff,
     MODEL_CONFIG_ATTACHMENT_BONE_OR_ATTACHMENT = 0x0,
@@ -3459,7 +3459,7 @@ enum class ModelConfigAttachmentType_t : uint32_t
     MODEL_CONFIG_ATTACHMENT_COUNT = 0x3,
 };
 
-enum class ActionType_t : uint32_t
+enum class ActionType_t : uint64_t
 {
     SOS_ACTION_NONE = 0x0,
     SOS_ACTION_LIMITER = 0x1,
@@ -3469,20 +3469,20 @@ enum class ActionType_t : uint32_t
     SOS_ACTION_SOUNDEVENT_CLUSTER = 0x5,
 };
 
-enum class MoodType_t : uint32_t
+enum class MoodType_t : uint64_t
 {
     eMoodType_Head = 0x0,
     eMoodType_Body = 0x1,
 };
 
-enum class ParticleEndcapMode_t : uint32_t
+enum class ParticleEndcapMode_t : uint64_t
 {
     PARTICLE_ENDCAP_ALWAYS_ON = 0xffffffffffffffff,
     PARTICLE_ENDCAP_ENDCAP_OFF = 0x0,
     PARTICLE_ENDCAP_ENDCAP_ON = 0x1,
 };
 
-enum class FootFallTagFoot_t : uint32_t
+enum class FootFallTagFoot_t : uint64_t
 {
     FOOT1 = 0x0,
     FOOT2 = 0x1,
@@ -3494,14 +3494,14 @@ enum class FootFallTagFoot_t : uint32_t
     FOOT8 = 0x7,
 };
 
-enum class IKTargetSource : uint32_t
+enum class IKTargetSource : uint64_t
 {
     IKTARGETSOURCE_Bone = 0x0,
     IKTARGETSOURCE_AnimgraphParameter = 0x1,
     IKTARGETSOURCE_COUNT = 0x2,
 };
 
-enum class ClosestPointTestType_t : uint32_t
+enum class ClosestPointTestType_t : uint64_t
 {
     PARTICLE_CLOSEST_TYPE_BOX = 0x0,
     PARTICLE_CLOSEST_TYPE_CAPSULE = 0x1,

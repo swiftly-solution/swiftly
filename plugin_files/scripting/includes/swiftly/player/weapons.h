@@ -45,7 +45,7 @@ public:
     {
         void *player_GetWeaponID = FetchFunctionPtr(nullptr, "scripting_Player_Weapons_GetWeaponID");
         if (player_GetWeaponID)
-            return (new Weapon(this->m_playerSlot, reinterpret_cast<Player_GetWeaponID>(player_GetWeaponID)(this->m_playerSlot, slot)));
+            return (new Weapon(this->m_playerSlot, reinterpret_cast<Player_GetWeaponID>(player_GetWeaponID)(this->m_playerSlot, (uint32_t)slot)));
         else
         {
             NOT_SUPPORTED("scripting_Player_Weapons_GetWeaponID");
