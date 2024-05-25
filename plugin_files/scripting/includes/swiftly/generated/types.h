@@ -1,24 +1,24 @@
-enum PropDoorRotatingOpenDirection_e
+enum class PropDoorRotatingOpenDirection_e
 {
     DOOR_ROTATING_OPEN_BOTH_WAYS = 0x0,
     DOOR_ROTATING_OPEN_FORWARD = 0x1,
     DOOR_ROTATING_OPEN_BACKWARD = 0x2,
 };
 
-enum SceneOnPlayerDeath_t
+enum class SceneOnPlayerDeath_t
 {
     SCENE_ONPLAYERDEATH_DO_NOTHING = 0x0,
     SCENE_ONPLAYERDEATH_CANCEL = 0x1,
 };
 
-enum LessonPanelLayoutFileTypes_t
+enum class LessonPanelLayoutFileTypes_t
 {
     LAYOUT_HAND_DEFAULT = 0x0,
     LAYOUT_WORLD_DEFAULT = 0x1,
     LAYOUT_CUSTOM = 0x2,
 };
 
-enum TimelineCompression_t
+enum class TimelineCompression_t
 {
     TIMELINE_COMPRESSION_SUM = 0x0,
     TIMELINE_COMPRESSION_COUNT_PER_INTERVAL = 0x1,
@@ -27,21 +27,21 @@ enum TimelineCompression_t
     TIMELINE_COMPRESSION_TOTAL = 0x4,
 };
 
-enum SubclassVDataChangeType_t
+enum class SubclassVDataChangeType_t
 {
     SUBCLASS_VDATA_CREATED = 0x0,
     SUBCLASS_VDATA_SUBCLASS_CHANGED = 0x1,
     SUBCLASS_VDATA_RELOADED = 0x2,
 };
 
-enum C4LightEffect_t
+enum class C4LightEffect_t
 {
     eLightEffectNone = 0x0,
     eLightEffectDropped = 0x1,
     eLightEffectThirdPersonHeld = 0x2,
 };
 
-enum StanceType_t
+enum class StanceType_t
 {
     STANCE_CURRENT = 0xffffffffffffffff,
     STANCE_DEFAULT = 0x0,
@@ -50,14 +50,14 @@ enum StanceType_t
     NUM_STANCES = 0x3,
 };
 
-enum Explosions
+enum class Explosions
 {
     expRandom = 0x0,
     expDirected = 0x1,
     expUsePrecise = 0x2,
 };
 
-enum PreviewCharacterMode
+enum class PreviewCharacterMode
 {
     DIORAMA = 0x0,
     MAIN_MENU = 0x1,
@@ -70,42 +70,42 @@ enum PreviewCharacterMode
     WINGMAN_INTRO = 0x8,
 };
 
-enum ObserverInterpState_t
+enum class ObserverInterpState_t
 {
     OBSERVER_INTERP_NONE = 0x0,
     OBSERVER_INTERP_TRAVELING = 0x1,
     OBSERVER_INTERP_SETTLING = 0x2,
 };
 
-enum WorldTextPanelOrientation_t
+enum class WorldTextPanelOrientation_t
 {
     WORLDTEXT_ORIENTATION_DEFAULT = 0x0,
     WORLDTEXT_ORIENTATION_FACEUSER = 0x1,
     WORLDTEXT_ORIENTATION_FACEUSER_UPRIGHT = 0x2,
 };
 
-enum WorldTextPanelHorizontalAlign_t
+enum class WorldTextPanelHorizontalAlign_t
 {
     WORLDTEXT_HORIZONTAL_ALIGN_LEFT = 0x0,
     WORLDTEXT_HORIZONTAL_ALIGN_CENTER = 0x1,
     WORLDTEXT_HORIZONTAL_ALIGN_RIGHT = 0x2,
 };
 
-enum SequenceFinishNotifyState_t
+enum class SequenceFinishNotifyState_t
 {
     eDoNotNotify = 0x0,
     eNotifyWhenFinished = 0x1,
     eNotifyTriggered = 0x2,
 };
 
-enum SoundEventStartType_t
+enum class SoundEventStartType_t
 {
     SOUNDEVENT_START_PLAYER = 0x0,
     SOUNDEVENT_START_WORLD = 0x1,
     SOUNDEVENT_START_ENTITY = 0x2,
 };
 
-enum TrainOrientationType_t
+enum class TrainOrientationType_t
 {
     TrainOrientation_Fixed = 0x0,
     TrainOrientation_AtPathTracks = 0x1,
@@ -113,7 +113,7 @@ enum TrainOrientationType_t
     TrainOrientation_EaseInEaseOut = 0x3,
 };
 
-enum CSWeaponCategory
+enum class CSWeaponCategory
 {
     WEAPONCATEGORY_OTHER = 0x0,
     WEAPONCATEGORY_MELEE = 0x1,
@@ -124,14 +124,14 @@ enum CSWeaponCategory
     WEAPONCATEGORY_COUNT = 0x6,
 };
 
-enum BeginDeathLifeStateTransition_t
+enum class BeginDeathLifeStateTransition_t
 {
     NO_CHANGE_IN_LIFESTATE = 0x0,
     TRANSITION_TO_LIFESTATE_DYING = 0x1,
     TRANSITION_TO_LIFESTATE_DEAD = 0x2,
 };
 
-enum PlayerAnimEvent_t
+enum class PlayerAnimEvent_t
 {
     PLAYERANIMEVENT_FIRE_GUN_PRIMARY = 0x0,
     PLAYERANIMEVENT_FIRE_GUN_SECONDARY = 0x1,
@@ -159,7 +159,7 @@ enum PlayerAnimEvent_t
     PLAYERANIMEVENT_COUNT = 0x17,
 };
 
-enum ItemFlagTypes_t
+enum class ItemFlagTypes_t
 {
     ITEM_FLAG_NONE = 0x0,
     ITEM_FLAG_CAN_SELECT_WITHOUT_AMMO = 0x1,
@@ -172,13 +172,13 @@ enum ItemFlagTypes_t
     ITEM_FLAG_NOITEMPICKUP = 0x80,
 };
 
-enum ShatterPanelMode
+enum class ShatterPanelMode
 {
     SHATTER_GLASS = 0x0,
     SHATTER_DRYWALL = 0x1,
 };
 
-enum SurroundingBoundsType_t
+enum class SurroundingBoundsType_t
 {
     USE_OBB_COLLISION_BOUNDS = 0x0,
     USE_BEST_COLLISION_BOUNDS = 0x1,
@@ -192,7 +192,7 @@ enum SurroundingBoundsType_t
     SURROUNDING_TYPE_BIT_COUNT = 0x3,
 };
 
-enum LifeState_t
+enum class LifeState_t
 {
     LIFE_ALIVE = 0x0,
     LIFE_DYING = 0x1,
@@ -201,7 +201,7 @@ enum LifeState_t
     LIFE_RESPAWNING = 0x4,
 };
 
-enum NPCFollowFormation_t
+enum class NPCFollowFormation_t
 {
     Default = 0xffffffffffffffff,
     CloseCircle = 0x0,
@@ -210,21 +210,21 @@ enum NPCFollowFormation_t
     Sidekick = 0x6,
 };
 
-enum CSWeaponMode
+enum class CSWeaponMode
 {
     Primary_Mode = 0x0,
     Secondary_Mode = 0x1,
     WeaponMode_MAX = 0x2,
 };
 
-enum OnFrame
+enum class OnFrame
 {
     ONFRAME_UNKNOWN = 0x0,
     ONFRAME_TRUE = 0x1,
     ONFRAME_FALSE = 0x2,
 };
 
-enum Materials
+enum class Materials
 {
     matGlass = 0x0,
     matWood = 0x1,
@@ -240,7 +240,7 @@ enum Materials
     matLastMaterial = 0xb,
 };
 
-enum ScriptedMoveTo_t
+enum class ScriptedMoveTo_t
 {
     CINE_MOVETO_WAIT = 0x0,
     CINE_MOVETO_WALK = 0x1,
@@ -250,7 +250,7 @@ enum ScriptedMoveTo_t
     CINE_MOVETO_WAIT_FACING = 0x5,
 };
 
-enum AnimLoopMode_t
+enum class AnimLoopMode_t
 {
     ANIM_LOOP_MODE_INVALID = 0xffffffffffffffff,
     ANIM_LOOP_MODE_NOT_LOOPING = 0x0,
@@ -259,7 +259,7 @@ enum AnimLoopMode_t
     ANIM_LOOP_MODE_COUNT = 0x3,
 };
 
-enum SoundFlags_t
+enum class SoundFlags_t
 {
     SOUND_NONE = 0x0,
     SOUND_COMBAT = 0x1,
@@ -286,7 +286,7 @@ enum SoundFlags_t
     ALL_SOUNDS = 0xfffff,
 };
 
-enum Class_T
+enum class Class_T
 {
     CLASS_NONE = 0x0,
     CLASS_PLAYER = 0x1,
@@ -300,20 +300,20 @@ enum Class_T
     NUM_CLASSIFY_CLASSES = 0x9,
 };
 
-enum filter_t
+enum class filter_t
 {
     FILTER_AND = 0x0,
     FILTER_OR = 0x1,
 };
 
-enum CSWeaponSilencerType
+enum class CSWeaponSilencerType
 {
     WEAPONSILENCER_NONE = 0x0,
     WEAPONSILENCER_DETACHABLE = 0x1,
     WEAPONSILENCER_INTEGRATED = 0x2,
 };
 
-enum BaseExplosionTypes_t
+enum class BaseExplosionTypes_t
 {
     EXPLOSION_TYPE_DEFAULT = 0x0,
     EXPLOSION_TYPE_GRENADE = 0x1,
@@ -334,7 +334,7 @@ enum BaseExplosionTypes_t
     EXPLOSION_TYPE_COUNT = 0x10,
 };
 
-enum GameAnimEventIndex_t
+enum class GameAnimEventIndex_t
 {
     AE_EMPTY = 0x0,
     AE_CL_PLAYSOUND = 0x1,
@@ -381,14 +381,14 @@ enum GameAnimEventIndex_t
     AE_GRENADE_THROW_COMPLETE = 0x2a,
 };
 
-enum FixAngleSet_t
+enum class FixAngleSet_t
 {
     None = 0x0,
     Absolute = 0x1,
     Relative = 0x2,
 };
 
-enum IChoreoServices__ScriptState_t
+enum class IChoreoServices__ScriptState_t
 {
     SCRIPT_PLAYING = 0x0,
     SCRIPT_WAIT = 0x1,
@@ -399,13 +399,13 @@ enum IChoreoServices__ScriptState_t
     SCRIPT_CUSTOM_MOVE_TO_MARK = 0x6,
 };
 
-enum CommandEntitySpecType_t
+enum class CommandEntitySpecType_t
 {
     SPEC_SEARCH = 0x0,
     SPEC_TYPES_COUNT = 0x1,
 };
 
-enum Touch_t
+enum class Touch_t
 {
     touch_none = 0x0,
     touch_player_only = 0x1,
@@ -414,14 +414,14 @@ enum Touch_t
     touch_player_or_npc_or_physicsprop = 0x4,
 };
 
-enum TrainVelocityType_t
+enum class TrainVelocityType_t
 {
     TrainVelocity_Instantaneous = 0x0,
     TrainVelocity_LinearBlend = 0x1,
     TrainVelocity_EaseInEaseOut = 0x2,
 };
 
-enum CSWeaponType
+enum class CSWeaponType
 {
     WEAPONTYPE_KNIFE = 0x0,
     WEAPONTYPE_PISTOL = 0x1,
@@ -445,14 +445,14 @@ enum CSWeaponType
     WEAPONTYPE_UNKNOWN = 0x13,
 };
 
-enum EntFinderMethod_t
+enum class EntFinderMethod_t
 {
     ENT_FIND_METHOD_NEAREST = 0x0,
     ENT_FIND_METHOD_FARTHEST = 0x1,
     ENT_FIND_METHOD_RANDOM = 0x2,
 };
 
-enum PropDoorRotatingSpawnPos_t
+enum class PropDoorRotatingSpawnPos_t
 {
     DOOR_SPAWN_CLOSED = 0x0,
     DOOR_SPAWN_OPEN_FORWARD = 0x1,
@@ -460,13 +460,13 @@ enum PropDoorRotatingSpawnPos_t
     DOOR_SPAWN_AJAR = 0x3,
 };
 
-enum ShardSolid_t
+enum class ShardSolid_t
 {
     SHARD_SOLID = 0x0,
     SHARD_DEBRIS = 0x1,
 };
 
-enum RenderMode_t
+enum class RenderMode_t
 {
     kRenderNormal = 0x0,
     kRenderTransColor = 0x1,
@@ -483,14 +483,14 @@ enum RenderMode_t
     kRenderModeCount = 0xc,
 };
 
-enum ForcedCrouchState_t
+enum class ForcedCrouchState_t
 {
     FORCEDCROUCH_NONE = 0x0,
     FORCEDCROUCH_CROUCHED = 0x1,
     FORCEDCROUCH_UNCROUCHED = 0x2,
 };
 
-enum PerformanceMode_t
+enum class PerformanceMode_t
 {
     PM_NORMAL = 0x0,
     PM_NO_GIBS = 0x1,
@@ -498,7 +498,7 @@ enum PerformanceMode_t
     PM_REDUCED_GIBS = 0x3,
 };
 
-enum TOGGLE_STATE
+enum class TOGGLE_STATE
 {
     TS_AT_TOP = 0x0,
     TS_AT_BOTTOM = 0x1,
@@ -510,7 +510,7 @@ enum TOGGLE_STATE
     DOOR_CLOSING = 0x3,
 };
 
-enum loadout_slot_t
+enum class loadout_slot_t
 {
     LOADOUT_SLOT_PROMOTED = 0xfffffffffffffffe,
     LOADOUT_SLOT_INVALID = 0xffffffffffffffff,
@@ -588,7 +588,7 @@ enum loadout_slot_t
     LOADOUT_SLOT_COUNT = 0x39,
 };
 
-enum NavAttributeEnum
+enum class NavAttributeEnum
 {
     NAV_MESH_AVOID = 0x80,
     NAV_MESH_STAIRS = 0x1000,
@@ -611,14 +611,14 @@ enum NavAttributeEnum
     NAV_ATTR_LAST_INDEX = 0x1f,
 };
 
-enum MoveLinearAuthoredPos_t
+enum class MoveLinearAuthoredPos_t
 {
     MOVELINEAR_AUTHORED_AT_START_POSITION = 0x0,
     MOVELINEAR_AUTHORED_AT_OPEN_POSITION = 0x1,
     MOVELINEAR_AUTHORED_AT_CLOSED_POSITION = 0x2,
 };
 
-enum ValueRemapperMomentumType_t
+enum class ValueRemapperMomentumType_t
 {
     MomentumType_None = 0x0,
     MomentumType_Friction = 0x1,
@@ -626,7 +626,7 @@ enum ValueRemapperMomentumType_t
     MomentumType_SpringAwayFromSnapValue = 0x3,
 };
 
-enum Hull_t
+enum class Hull_t
 {
     HULL_HUMAN = 0x0,
     HULL_SMALL_CENTERED = 0x1,
@@ -642,7 +642,7 @@ enum Hull_t
     HULL_NONE = 0xb,
 };
 
-enum PreviewWeaponState
+enum class PreviewWeaponState
 {
     DROPPED = 0x0,
     HOLSTERED = 0x1,
@@ -652,7 +652,7 @@ enum PreviewWeaponState
     ICON = 0x5,
 };
 
-enum EInButtonState
+enum class EInButtonState
 {
     IN_BUTTON_UP = 0x0,
     IN_BUTTON_DOWN = 0x1,
@@ -665,7 +665,7 @@ enum EInButtonState
     IN_BUTTON_STATE_COUNT = 0x8,
 };
 
-enum BeamClipStyle_t
+enum class BeamClipStyle_t
 {
     kNOCLIP = 0x0,
     kGEOCLIP = 0x1,
@@ -673,7 +673,7 @@ enum BeamClipStyle_t
     kBEAMCLIPSTYLE_NUMBITS = 0x2,
 };
 
-enum WeaponAttackType_t
+enum class WeaponAttackType_t
 {
     eInvalid = 0xffffffffffffffff,
     ePrimary = 0x0,
@@ -681,7 +681,7 @@ enum WeaponAttackType_t
     eCount = 0x2,
 };
 
-enum CSPlayerBlockingUseAction_t
+enum class CSPlayerBlockingUseAction_t
 {
     k_CSPlayerBlockingUseAction_None = 0x0,
     k_CSPlayerBlockingUseAction_DefusingDefault = 0x1,
@@ -703,14 +703,14 @@ enum CSPlayerBlockingUseAction_t
     k_CSPlayerBlockingUseAction_MaxCount = 0x11,
 };
 
-enum CSWeaponState_t
+enum class CSWeaponState_t
 {
     WEAPON_NOT_CARRIED = 0x0,
     WEAPON_IS_CARRIED_BY_PLAYER = 0x1,
     WEAPON_IS_ACTIVE = 0x2,
 };
 
-enum CommandExecMode_t
+enum class CommandExecMode_t
 {
     EXEC_MANUAL = 0x0,
     EXEC_LEVELSTART = 0x1,
@@ -718,7 +718,7 @@ enum CommandExecMode_t
     EXEC_MODES_COUNT = 0x3,
 };
 
-enum ShatterDamageCause
+enum class ShatterDamageCause
 {
     SHATTERDAMAGE_BULLET = 0x0,
     SHATTERDAMAGE_MELEE = 0x1,
@@ -727,7 +727,7 @@ enum ShatterDamageCause
     SHATTERDAMAGE_EXPLOSIVE = 0x4,
 };
 
-enum ScriptedOnDeath_t
+enum class ScriptedOnDeath_t
 {
     SS_ONDEATH_NOT_APPLICABLE = 0xffffffffffffffff,
     SS_ONDEATH_UNDEFINED = 0x0,
@@ -735,7 +735,7 @@ enum ScriptedOnDeath_t
     SS_ONDEATH_ANIMATED_DEATH = 0x2,
 };
 
-enum ScriptedMoveType_t
+enum class ScriptedMoveType_t
 {
     SCRIPTED_MOVETYPE_NONE = 0x0,
     SCRIPTED_MOVETYPE_TO_WITH_DURATION = 0x1,
@@ -743,14 +743,14 @@ enum ScriptedMoveType_t
     SCRIPTED_MOVETYPE_SWEEP_TO_AT_MOVEMENT_SPEED = 0x3,
 };
 
-enum NPCLookType_t
+enum class NPCLookType_t
 {
     Chest = 0x0,
     Head = 0x1,
     Eyes = 0x2,
 };
 
-enum gear_slot_t
+enum class gear_slot_t
 {
     GEAR_SLOT_INVALID = 0xffffffffffffffff,
     GEAR_SLOT_RIFLE = 0x0,
@@ -771,7 +771,7 @@ enum gear_slot_t
     GEAR_SLOT_LAST = 0xc,
 };
 
-enum CSPlayerState
+enum class CSPlayerState
 {
     STATE_ACTIVE = 0x0,
     STATE_WELCOME = 0x1,
@@ -785,13 +785,13 @@ enum CSPlayerState
     NUM_PLAYER_STATES = 0x9,
 };
 
-enum ScriptedConflictResponse_t
+enum class ScriptedConflictResponse_t
 {
     SS_CONFLICT_ENQUEUE = 0x0,
     SS_CONFLICT_INTERRUPT = 0x1,
 };
 
-enum WaterLevel_t
+enum class WaterLevel_t
 {
     WL_NotInWater = 0x0,
     WL_Feet = 0x1,
@@ -802,14 +802,14 @@ enum WaterLevel_t
     WL_Count = 0x6,
 };
 
-enum WorldTextPanelVerticalAlign_t
+enum class WorldTextPanelVerticalAlign_t
 {
     WORLDTEXT_VERTICAL_ALIGN_TOP = 0x0,
     WORLDTEXT_VERTICAL_ALIGN_CENTER = 0x1,
     WORLDTEXT_VERTICAL_ALIGN_BOTTOM = 0x2,
 };
 
-enum AmmoPosition_t
+enum class AmmoPosition_t
 {
     AMMO_POSITION_INVALID = 0xffffffffffffffff,
     AMMO_POSITION_PRIMARY = 0x0,
@@ -817,7 +817,7 @@ enum AmmoPosition_t
     AMMO_POSITION_COUNT = 0x2,
 };
 
-enum PreviewEOMCelebration
+enum class PreviewEOMCelebration
 {
     WALKUP = 0x0,
     PUNCHING = 0x1,
@@ -844,7 +844,7 @@ enum PreviewEOMCelebration
     VYPA_DEFEAT = 0x16,
 };
 
-enum EntityDisolveType_t
+enum class EntityDisolveType_t
 {
     ENTITY_DISSOLVE_INVALID = 0xffffffffffffffff,
     ENTITY_DISSOLVE_NORMAL = 0x0,
@@ -853,7 +853,7 @@ enum EntityDisolveType_t
     ENTITY_DISSOLVE_CORE = 0x3,
 };
 
-enum InputBitMask_t
+enum class InputBitMask_t
 {
     IN_NONE = 0x0,
     IN_ALL = 0xffffffffffffffff,
@@ -878,7 +878,7 @@ enum InputBitMask_t
     IN_LOOK_AT_WEAPON = 0x800000000,
 };
 
-enum HitGroup_t
+enum class HitGroup_t
 {
     HITGROUP_INVALID = 0xffffffffffffffff,
     HITGROUP_GENERIC = 0x0,
@@ -896,7 +896,7 @@ enum HitGroup_t
     HITGROUP_COUNT = 0xc,
 };
 
-enum ChickenActivity
+enum class ChickenActivity
 {
     IDLE = 0x0,
     WALK = 0x1,
@@ -907,13 +907,13 @@ enum ChickenActivity
     LAND = 0x6,
 };
 
-enum PointWorldTextReorientMode_t
+enum class PointWorldTextReorientMode_t
 {
     POINT_WORLD_TEXT_REORIENT_NONE = 0x0,
     POINT_WORLD_TEXT_REORIENT_AROUND_UP = 0x1,
 };
 
-enum DebugOverlayBits_t
+enum class DebugOverlayBits_t
 {
     OVERLAY_TEXT_BIT = 0x1,
     OVERLAY_NAME_BIT = 0x2,
@@ -956,14 +956,14 @@ enum DebugOverlayBits_t
     OVERLAY_NPC_ABILITY_RANGE_DEBUG_BIT = 0x10000000000,
 };
 
-enum AmmoFlags_t
+enum class AmmoFlags_t
 {
     AMMO_FORCE_DROP_IF_CARRIED = 0x1,
     AMMO_RESERVE_STAYS_WITH_WEAPON = 0x2,
     AMMO_FLAG_MAX = 0x2,
 };
 
-enum HierarchyType_t
+enum class HierarchyType_t
 {
     HIERARCHY_NONE = 0x0,
     HIERARCHY_BONE_MERGE = 0x1,
@@ -973,14 +973,14 @@ enum HierarchyType_t
     HIERARCHY_TYPE_COUNT = 0x5,
 };
 
-enum doorCheck_e
+enum class doorCheck_e
 {
     DOOR_CHECK_FORWARD = 0x0,
     DOOR_CHECK_BACKWARD = 0x1,
     DOOR_CHECK_FULL = 0x2,
 };
 
-enum BeamType_t
+enum class BeamType_t
 {
     BEAM_INVALID = 0x0,
     BEAM_POINTS = 0x1,
@@ -991,7 +991,7 @@ enum BeamType_t
     BEAM_LASER = 0x6,
 };
 
-enum EntitySubclassScope_t
+enum class EntitySubclassScope_t
 {
     SUBCLASS_SCOPE_NONE = 0xffffffffffffffff,
     SUBCLASS_SCOPE_PRECIPITATION = 0x0,
@@ -999,13 +999,13 @@ enum EntitySubclassScope_t
     SUBCLASS_SCOPE_COUNT = 0x2,
 };
 
-enum PointTemplateClientOnlyEntityBehavior_t
+enum class PointTemplateClientOnlyEntityBehavior_t
 {
     CREATE_FOR_CURRENTLY_CONNECTED_CLIENTS_ONLY = 0x0,
     CREATE_FOR_CLIENTS_WHO_CONNECT_LATER = 0x1,
 };
 
-enum ShatterGlassStressType
+enum class ShatterGlassStressType
 {
     SHATTERGLASS_BLUNT = 0x0,
     SHATTERGLASS_BALLISTIC = 0x1,
@@ -1014,14 +1014,14 @@ enum ShatterGlassStressType
     SHATTERGLASS_EXPLOSIVE = 0x4,
 };
 
-enum TrackOrientationType_t
+enum class TrackOrientationType_t
 {
     TrackOrientation_Fixed = 0x0,
     TrackOrientation_FacePath = 0x1,
     TrackOrientation_FacePathAngles = 0x2,
 };
 
-enum WeaponSwitchReason_t
+enum class WeaponSwitchReason_t
 {
     eDrawn = 0x0,
     eEquipped = 0x1,
@@ -1029,13 +1029,13 @@ enum WeaponSwitchReason_t
     eUserInitiatedSwitchHands = 0x3,
 };
 
-enum ValueRemapperRatchetType_t
+enum class ValueRemapperRatchetType_t
 {
     RatchetType_Absolute = 0x0,
     RatchetType_EachEngage = 0x1,
 };
 
-enum NavDirType
+enum class NavDirType
 {
     NORTH = 0x0,
     EAST = 0x1,
@@ -1044,13 +1044,13 @@ enum NavDirType
     NUM_NAV_DIR_TYPE_DIRECTIONS = 0x4,
 };
 
-enum CRR_Response__ResponseEnum_t
+enum class CRR_Response__ResponseEnum_t
 {
     MAX_RESPONSE_NAME = 0xc0,
     MAX_RULE_NAME = 0x80,
 };
 
-enum MoveMountingAmount_t
+enum class MoveMountingAmount_t
 {
     MOVE_MOUNT_NONE = 0x0,
     MOVE_MOUNT_LOW = 0x1,
@@ -1058,7 +1058,7 @@ enum MoveMountingAmount_t
     MOVE_MOUNT_MAXCOUNT = 0x3,
 };
 
-enum RenderFx_t
+enum class RenderFx_t
 {
     kRenderFxNone = 0x0,
     kRenderFxPulseSlow = 0x1,
@@ -1082,7 +1082,7 @@ enum RenderFx_t
     kRenderFxMax = 0x13,
 };
 
-enum vote_create_failed_t
+enum class vote_create_failed_t
 {
     VOTE_FAILED_GENERIC = 0x0,
     VOTE_FAILED_TRANSITIONING_PLAYERS = 0x1,
@@ -1121,7 +1121,7 @@ enum vote_create_failed_t
     VOTE_FAILED_MAX = 0x22,
 };
 
-enum RumbleEffect_t
+enum class RumbleEffect_t
 {
     RUMBLE_INVALID = 0xffffffffffffffff,
     RUMBLE_STOP_ALL = 0x0,
@@ -1152,7 +1152,7 @@ enum RumbleEffect_t
     NUM_RUMBLE_EFFECTS = 0x19,
 };
 
-enum LatchDirtyPermission_t
+enum class LatchDirtyPermission_t
 {
     LATCH_DIRTY_DISALLOW = 0x0,
     LATCH_DIRTY_SERVER_CONTROLLED = 0x1,
@@ -1162,7 +1162,7 @@ enum LatchDirtyPermission_t
     LATCH_DIRTY_PARTICLE_SIMULATE = 0x5,
 };
 
-enum DoorState_t
+enum class DoorState_t
 {
     DOOR_STATE_CLOSED = 0x0,
     DOOR_STATE_OPENING = 0x1,
@@ -1171,14 +1171,14 @@ enum DoorState_t
     DOOR_STATE_AJAR = 0x4,
 };
 
-enum ChatIgnoreType_t
+enum class ChatIgnoreType_t
 {
     CHAT_IGNORE_NONE = 0x0,
     CHAT_IGNORE_ALL = 0x1,
     CHAT_IGNORE_TEAM = 0x2,
 };
 
-enum PlayerConnectedState
+enum class PlayerConnectedState
 {
     PlayerNeverConnected = 0xffffffffffffffff,
     PlayerConnected = 0x0,
@@ -1189,19 +1189,19 @@ enum PlayerConnectedState
     PlayerReserved = 0x5,
 };
 
-enum SimpleConstraintSoundProfile__SimpleConstraintsSoundProfileKeypoints_t
+enum class SimpleConstraintSoundProfile__SimpleConstraintsSoundProfileKeypoints_t
 {
     kMIN_THRESHOLD = 0x0,
     kMIN_FULL = 0x1,
     kHIGHWATER = 0x2,
 };
 
-enum navproperties_t
+enum class navproperties_t
 {
     NAV_IGNORE = 0x1,
 };
 
-enum SolidType_t
+enum class SolidType_t
 {
     SOLID_NONE = 0x0,
     SOLID_BSP = 0x1,
@@ -1214,7 +1214,7 @@ enum SolidType_t
     SOLID_LAST = 0x8,
 };
 
-enum DamageTypes_t
+enum class DamageTypes_t
 {
     DMG_GENERIC = 0x0,
     DMG_CRUSH = 0x1,
@@ -1242,20 +1242,20 @@ enum DamageTypes_t
     DMG_DANGERZONE = 0x4000000,
 };
 
-enum PointWorldTextJustifyVertical_t
+enum class PointWorldTextJustifyVertical_t
 {
     POINT_WORLD_TEXT_JUSTIFY_VERTICAL_BOTTOM = 0x0,
     POINT_WORLD_TEXT_JUSTIFY_VERTICAL_CENTER = 0x1,
     POINT_WORLD_TEXT_JUSTIFY_VERTICAL_TOP = 0x2,
 };
 
-enum attributeprovidertypes_t
+enum class attributeprovidertypes_t
 {
     PROVIDER_GENERIC = 0x0,
     PROVIDER_WEAPON = 0x1,
 };
 
-enum MoveCollide_t
+enum class MoveCollide_t
 {
     MOVECOLLIDE_DEFAULT = 0x0,
     MOVECOLLIDE_FLY_BOUNCE = 0x1,
@@ -1265,7 +1265,7 @@ enum MoveCollide_t
     MOVECOLLIDE_MAX_BITS = 0x3,
 };
 
-enum IChoreoServices__ChoreoState_t
+enum class IChoreoServices__ChoreoState_t
 {
     STATE_PRE_SCRIPT = 0x0,
     STATE_WAIT_FOR_SCRIPT = 0x1,
@@ -1276,7 +1276,7 @@ enum IChoreoServices__ChoreoState_t
     STATE_PLAY_SCRIPT_POST_IDLE_DONE = 0x6,
 };
 
-enum ValueRemapperOutputType_t
+enum class ValueRemapperOutputType_t
 {
     OutputType_AnimationCycle = 0x0,
     OutputType_RotationX = 0x1,
@@ -1284,21 +1284,21 @@ enum ValueRemapperOutputType_t
     OutputType_RotationZ = 0x3,
 };
 
-enum PointTemplateOwnerSpawnGroupType_t
+enum class PointTemplateOwnerSpawnGroupType_t
 {
     INSERT_INTO_POINT_TEMPLATE_SPAWN_GROUP = 0x0,
     INSERT_INTO_CURRENTLY_ACTIVE_SPAWN_GROUP = 0x1,
     INSERT_INTO_NEWLY_CREATED_SPAWN_GROUP = 0x2,
 };
 
-enum PointWorldTextJustifyHorizontal_t
+enum class PointWorldTextJustifyHorizontal_t
 {
     POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_LEFT = 0x0,
     POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_CENTER = 0x1,
     POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_RIGHT = 0x2,
 };
 
-enum ShakeCommand_t
+enum class ShakeCommand_t
 {
     SHAKE_START = 0x0,
     SHAKE_STOP = 0x1,
@@ -1308,21 +1308,21 @@ enum ShakeCommand_t
     SHAKE_START_NORUMBLE = 0x5,
 };
 
-enum TRAIN_CODE
+enum class TRAIN_CODE
 {
     TRAIN_SAFE = 0x0,
     TRAIN_BLOCKING = 0x1,
     TRAIN_FOLLOWING = 0x2,
 };
 
-enum BrushSolidities_e
+enum class BrushSolidities_e
 {
     BRUSHSOLID_TOGGLE = 0x0,
     BRUSHSOLID_NEVER = 0x1,
     BRUSHSOLID_ALWAYS = 0x2,
 };
 
-enum QuestProgress__Reason
+enum class QuestProgress__Reason
 {
     QUEST_NONINITIALIZED = 0x0,
     QUEST_OK = 0x1,
@@ -1339,19 +1339,19 @@ enum QuestProgress__Reason
     QUEST_REASON_MAX = 0xc,
 };
 
-enum ModifyDamageReturn_t
+enum class ModifyDamageReturn_t
 {
     CONTINUE_TO_APPLY_DAMAGE = 0x0,
     ABORT_DO_NOT_APPLY_DAMAGE = 0x1,
 };
 
-enum ShadowType_t
+enum class ShadowType_t
 {
     SHADOWS_NONE = 0x0,
     SHADOWS_SIMPLE = 0x1,
 };
 
-enum GrenadeType_t
+enum class GrenadeType_t
 {
     GRENADE_TYPE_EXPLOSIVE = 0x0,
     GRENADE_TYPE_FLASH = 0x1,
@@ -1363,13 +1363,13 @@ enum GrenadeType_t
     GRENADE_TYPE_TOTAL = 0x7,
 };
 
-enum ValueRemapperInputType_t
+enum class ValueRemapperInputType_t
 {
     InputType_PlayerShootPosition = 0x0,
     InputType_PlayerShootPositionAroundAxis = 0x1,
 };
 
-enum EKillTypes_t
+enum class EKillTypes_t
 {
     KILL_NONE = 0x0,
     KILL_DEFAULT = 0x1,
@@ -1381,7 +1381,7 @@ enum EKillTypes_t
     KILLTYPE_COUNT = 0x7,
 };
 
-enum WeaponSound_t
+enum class WeaponSound_t
 {
     WEAPON_SOUND_EMPTY = 0x0,
     WEAPON_SOUND_SECONDARY_EMPTY = 0x1,
@@ -1410,7 +1410,7 @@ enum WeaponSound_t
     WEAPON_SOUND_NUM_TYPES = 0x18,
 };
 
-enum TakeDamageFlags_t
+enum class TakeDamageFlags_t
 {
     DFLAG_NONE = 0x0,
     DFLAG_SUPPRESS_HEALTH_CHANGES = 0x1,
@@ -1429,13 +1429,13 @@ enum TakeDamageFlags_t
     DFLAG_SUPPRESS_UTILREMOVE = 0x1000,
 };
 
-enum ValueRemapperHapticsType_t
+enum class ValueRemapperHapticsType_t
 {
     HaticsType_Default = 0x0,
     HaticsType_None = 0x1,
 };
 
-enum Disposition_t
+enum class Disposition_t
 {
     D_ER = 0x0,
     D_HT = 0x1,
@@ -1449,14 +1449,14 @@ enum Disposition_t
     D_NEUTRAL = 0x4,
 };
 
-enum CanPlaySequence_t
+enum class CanPlaySequence_t
 {
     CANNOT_PLAY = 0x0,
     CAN_PLAY_NOW = 0x1,
     CAN_PLAY_ENQUEUED = 0x2,
 };
 
-enum MedalRank_t
+enum class MedalRank_t
 {
     MEDAL_RANK_NONE = 0x0,
     MEDAL_RANK_BRONZE = 0x1,
@@ -1465,7 +1465,7 @@ enum MedalRank_t
     MEDAL_RANK_COUNT = 0x4,
 };
 
-enum ObserverMode_t
+enum class ObserverMode_t
 {
     OBS_MODE_NONE = 0x0,
     OBS_MODE_FIXED = 0x1,
@@ -1476,20 +1476,20 @@ enum ObserverMode_t
     NUM_OBSERVER_MODES = 0x6,
 };
 
-enum FuncDoorSpawnPos_t
+enum class FuncDoorSpawnPos_t
 {
     FUNC_DOOR_SPAWN_CLOSED = 0x0,
     FUNC_DOOR_SPAWN_OPEN = 0x1,
 };
 
-enum EOverrideBlockLOS_t
+enum class EOverrideBlockLOS_t
 {
     BLOCK_LOS_DEFAULT = 0x0,
     BLOCK_LOS_FORCE_FALSE = 0x1,
     BLOCK_LOS_FORCE_TRUE = 0x2,
 };
 
-enum MoveType_t
+enum class MoveType_t
 {
     MOVETYPE_NONE = 0x0,
     MOVETYPE_OBSOLETE = 0x1,
@@ -1507,7 +1507,7 @@ enum MoveType_t
     MOVETYPE_MAX_BITS = 0x5,
 };
 
-enum ParticleTextureLayerBlendType_t
+enum class ParticleTextureLayerBlendType_t
 {
     SPRITECARD_TEXTURE_BLEND_MULTIPLY = 0x0,
     SPRITECARD_TEXTURE_BLEND_MOD2X = 0x1,
@@ -1518,7 +1518,7 @@ enum ParticleTextureLayerBlendType_t
     SPRITECARD_TEXTURE_BLEND_LUMINANCE = 0x6,
 };
 
-enum AnimationProcessingType_t
+enum class AnimationProcessingType_t
 {
     ANIMATION_PROCESSING_SERVER_SIMULATION = 0x0,
     ANIMATION_PROCESSING_CLIENT_SIMULATION = 0x1,
@@ -1528,7 +1528,7 @@ enum AnimationProcessingType_t
     ANIMATION_PROCESSING_MAX = 0x5,
 };
 
-enum RenderPrimitiveType_t
+enum class RenderPrimitiveType_t
 {
     RENDER_PRIM_POINTS = 0x0,
     RENDER_PRIM_LINES = 0x1,
@@ -1545,7 +1545,7 @@ enum RenderPrimitiveType_t
     RENDER_PRIM_TYPE_COUNT = 0xc,
 };
 
-enum ObjectTypeFlags_t
+enum class ObjectTypeFlags_t
 {
     OBJECT_TYPE_NONE = 0x0,
     OBJECT_TYPE_MODEL = 0x8,
@@ -1562,7 +1562,7 @@ enum ObjectTypeFlags_t
     OBJECT_TYPE_STATIC_CUBE_MAP = 0x8000,
 };
 
-enum ParticleModelType_t
+enum class ParticleModelType_t
 {
     PM_TYPE_INVALID = 0x0,
     PM_TYPE_NAMED_VALUE_MODEL = 0x1,
@@ -1571,7 +1571,7 @@ enum ParticleModelType_t
     PM_TYPE_COUNT = 0x4,
 };
 
-enum PulseInstructionCode_t
+enum class PulseInstructionCode_t
 {
     INVALID = 0x0,
     IMMEDIATE_HALT = 0x1,
@@ -1636,7 +1636,7 @@ enum PulseInstructionCode_t
     GET_CONST_INLINE_STORAGE = 0x3c,
 };
 
-enum StateActionBehavior
+enum class StateActionBehavior
 {
     STATETAGBEHAVIOR_ACTIVE_WHILE_CURRENT = 0x0,
     STATETAGBEHAVIOR_FIRE_ON_ENTER = 0x1,
@@ -1644,19 +1644,19 @@ enum StateActionBehavior
     STATETAGBEHAVIOR_FIRE_ON_ENTER_AND_EXIT = 0x3,
 };
 
-enum Blend2DMode
+enum class Blend2DMode
 {
     Blend2DMode_General = 0x0,
     Blend2DMode_Directional = 0x1,
 };
 
-enum ParticleOrientationSetMode_t
+enum class ParticleOrientationSetMode_t
 {
     PARTICLE_ORIENTATION_SET_FROM_VELOCITY = 0x0,
     PARTICLE_ORIENTATION_SET_FROM_ROTATIONS = 0x1,
 };
 
-enum ParticleVRHandChoiceList_t
+enum class ParticleVRHandChoiceList_t
 {
     PARTICLE_VRHAND_LEFT = 0x0,
     PARTICLE_VRHAND_RIGHT = 0x1,
@@ -1664,7 +1664,7 @@ enum ParticleVRHandChoiceList_t
     PARTICLE_VRHAND_CP_OBJECT = 0x3,
 };
 
-enum SpawnDebugRestrictionOverrideState_t
+enum class SpawnDebugRestrictionOverrideState_t
 {
     SPAWN_DEBUG_RESTRICT_NONE = 0x0,
     SPAWN_DEBUG_RESTRICT_IGNORE_MANAGER_DISTANCE_REQS = 0x1,
@@ -1673,33 +1673,33 @@ enum SpawnDebugRestrictionOverrideState_t
     SPAWN_DEBUG_RESTRICT_IGNORE_TARGET_COOLDOWN_LIMITS = 0x8,
 };
 
-enum JointMotion_t
+enum class JointMotion_t
 {
     JOINT_MOTION_FREE = 0x0,
     JOINT_MOTION_LOCKED = 0x1,
     JOINT_MOTION_COUNT = 0x2,
 };
 
-enum ParticleLightingQuality_t
+enum class ParticleLightingQuality_t
 {
     PARTICLE_LIGHTING_PER_PARTICLE = 0x0,
     PARTICLE_LIGHTING_PER_VERTEX = 0x1,
     PARTICLE_LIGHTING_PER_PIXEL = 0xffffffffffffffff,
 };
 
-enum SnapshotIndexType_t
+enum class SnapshotIndexType_t
 {
     SNAPSHOT_INDEX_INCREMENT = 0x0,
     SNAPSHOT_INDEX_DIRECT = 0x1,
 };
 
-enum RagdollPoseControl
+enum class RagdollPoseControl
 {
     Absolute = 0x0,
     Relative = 0x1,
 };
 
-enum ParticleOutputBlendMode_t
+enum class ParticleOutputBlendMode_t
 {
     PARTICLE_OUTPUT_BLEND_MODE_ALPHA = 0x0,
     PARTICLE_OUTPUT_BLEND_MODE_ADD = 0x1,
@@ -1710,13 +1710,13 @@ enum ParticleOutputBlendMode_t
     PARTICLE_OUTPUT_BLEND_MODE_LIGHTEN = 0x6,
 };
 
-enum PulseMethodCallMode_t
+enum class PulseMethodCallMode_t
 {
     SYNC_WAIT_FOR_COMPLETION = 0x0,
     ASYNC_FIRE_AND_FORGET = 0x1,
 };
 
-enum VMixFilterSlope_t
+enum class VMixFilterSlope_t
 {
     FILTER_SLOPE_1POLE_6dB = 0x0,
     FILTER_SLOPE_1POLE_12dB = 0x1,
@@ -1729,28 +1729,28 @@ enum VMixFilterSlope_t
     FILTER_SLOPE_MAX = 0x7,
 };
 
-enum ViewFadeMode_t
+enum class ViewFadeMode_t
 {
     VIEW_FADE_CONSTANT_COLOR = 0x0,
     VIEW_FADE_MODULATE = 0x1,
     VIEW_FADE_MOD2X = 0x2,
 };
 
-enum PulseCursorExecResult_t
+enum class PulseCursorExecResult_t
 {
     Succeeded = 0x0,
     Canceled = 0x1,
     Failed = 0x2,
 };
 
-enum CNmBoneMask__WeightInfo_t
+enum class CNmBoneMask__WeightInfo_t
 {
     Zero = 0x0,
     Mixed = 0x1,
     One = 0x2,
 };
 
-enum NmTransitionRuleCondition_t
+enum class NmTransitionRuleCondition_t
 {
     AnyAllowed = 0x0,
     FullyAllowed = 0x1,
@@ -1758,7 +1758,7 @@ enum NmTransitionRuleCondition_t
     Blocked = 0x3,
 };
 
-enum FlexOpCode_t
+enum class FlexOpCode_t
 {
     FLEX_OP_CONST = 0x1,
     FLEX_OP_FETCH1 = 0x2,
@@ -1788,7 +1788,7 @@ enum FlexOpCode_t
     FLEX_OP_ABS = 0x1a,
 };
 
-enum RenderMultisampleType_t
+enum class RenderMultisampleType_t
 {
     RENDER_MULTISAMPLE_INVALID = 0xffffffffffffffff,
     RENDER_MULTISAMPLE_NONE = 0x0,
@@ -1800,7 +1800,7 @@ enum RenderMultisampleType_t
     RENDER_MULTISAMPLE_TYPE_COUNT = 0x6,
 };
 
-enum ParticleLightTypeChoiceList_t
+enum class ParticleLightTypeChoiceList_t
 {
     PARTICLE_LIGHT_TYPE_POINT = 0x0,
     PARTICLE_LIGHT_TYPE_SPOT = 0x1,
@@ -1808,7 +1808,7 @@ enum ParticleLightTypeChoiceList_t
     PARTICLE_LIGHT_TYPE_CAPSULE = 0x3,
 };
 
-enum IKSolverType
+enum class IKSolverType
 {
     IKSOLVER_Perlin = 0x0,
     IKSOLVER_TwoBone = 0x1,
@@ -1818,7 +1818,7 @@ enum IKSolverType
     IKSOLVER_COUNT = 0x5,
 };
 
-enum SolveIKChainAnimNodeDebugSetting
+enum class SolveIKChainAnimNodeDebugSetting
 {
     SOLVEIKCHAINANIMNODEDEBUGSETTING_None = 0x0,
     SOLVEIKCHAINANIMNODEDEBUGSETTING_X_Axis_Circle = 0x1,
@@ -1829,7 +1829,7 @@ enum SolveIKChainAnimNodeDebugSetting
     SOLVEIKCHAINANIMNODEDEBUGSETTING_Left = 0x6,
 };
 
-enum PulseCursorCancelPriority_t
+enum class PulseCursorCancelPriority_t
 {
     None = 0x0,
     CancelOnSucceeded = 0x1,
@@ -1837,13 +1837,13 @@ enum PulseCursorCancelPriority_t
     HardCancel = 0x3,
 };
 
-enum MaterialProxyType_t
+enum class MaterialProxyType_t
 {
     MATERIAL_PROXY_STATUS_EFFECT = 0x0,
     MATERIAL_PROXY_TINT = 0x1,
 };
 
-enum PFuncVisualizationType_t
+enum class PFuncVisualizationType_t
 {
     PFUNC_VISUALIZATION_SPHERE_WIREFRAME = 0x0,
     PFUNC_VISUALIZATION_SPHERE_SOLID = 0x1,
@@ -1854,14 +1854,14 @@ enum PFuncVisualizationType_t
     PFUNC_VISUALIZATION_CYLINDER = 0x6,
 };
 
-enum VPhysXJoint_t__Flags_t
+enum class VPhysXJoint_t__Flags_t
 {
     JOINT_FLAGS_NONE = 0x0,
     JOINT_FLAGS_BODY1_FIXED = 0x1,
     JOINT_FLAGS_USE_BLOCK_SOLVER = 0x2,
 };
 
-enum ParticlePostProcessPriorityGroup_t
+enum class ParticlePostProcessPriorityGroup_t
 {
     PARTICLE_POST_PROCESS_PRIORITY_LEVEL_VOLUME = 0x0,
     PARTICLE_POST_PROCESS_PRIORITY_LEVEL_OVERRIDE = 0x1,
@@ -1871,27 +1871,27 @@ enum ParticlePostProcessPriorityGroup_t
     PARTICLE_POST_PROCESS_PRIORITY_GLOBAL_UI = 0x5,
 };
 
-enum VMixPannerType_t
+enum class VMixPannerType_t
 {
     PANNER_TYPE_LINEAR = 0x0,
     PANNER_TYPE_EQUAL_POWER = 0x1,
 };
 
-enum LayoutPositionType_e
+enum class LayoutPositionType_e
 {
     LAYOUTPOSITIONTYPE_VIEWPORT_RELATIVE = 0x0,
     LAYOUTPOSITIONTYPE_FRACTIONAL = 0x1,
     LAYOUTPOSITIONTYPE_NONE = 0x2,
 };
 
-enum AnimParamNetworkSetting
+enum class AnimParamNetworkSetting
 {
     Auto = 0x0,
     AlwaysNetwork = 0x1,
     NeverNetwork = 0x2,
 };
 
-enum JointAxis_t
+enum class JointAxis_t
 {
     JOINT_AXIS_X = 0x0,
     JOINT_AXIS_Y = 0x1,
@@ -1899,7 +1899,7 @@ enum JointAxis_t
     JOINT_AXIS_COUNT = 0x3,
 };
 
-enum MovementGait_t
+enum class MovementGait_t
 {
     eInvalid = 0xffffffffffffffff,
     eWalk = 0x0,
@@ -1908,14 +1908,14 @@ enum MovementGait_t
     eSprint = 0x3,
 };
 
-enum ParticleRotationLockType_t
+enum class ParticleRotationLockType_t
 {
     PARTICLE_ROTATION_LOCK_NONE = 0x0,
     PARTICLE_ROTATION_LOCK_ROTATIONS = 0x1,
     PARTICLE_ROTATION_LOCK_NORMAL = 0x2,
 };
 
-enum ParticleFloatInputMode_t
+enum class ParticleFloatInputMode_t
 {
     PF_INPUT_MODE_INVALID = 0xffffffffffffffff,
     PF_INPUT_MODE_CLAMPED = 0x0,
@@ -1923,7 +1923,7 @@ enum ParticleFloatInputMode_t
     PF_INPUT_MODE_COUNT = 0x2,
 };
 
-enum AimMatrixBlendMode
+enum class AimMatrixBlendMode
 {
     AimMatrixBlendMode_None = 0x0,
     AimMatrixBlendMode_Additive = 0x1,
@@ -1931,13 +1931,13 @@ enum AimMatrixBlendMode
     AimMatrixBlendMode_BoneMask = 0x3,
 };
 
-enum ParticleHitboxBiasType_t
+enum class ParticleHitboxBiasType_t
 {
     PARTICLE_HITBOX_BIAS_ENTITY = 0x0,
     PARTICLE_HITBOX_BIAS_HITBOX = 0x1,
 };
 
-enum CompositeMaterialInputLooseVariableType_t
+enum class CompositeMaterialInputLooseVariableType_t
 {
     LOOSE_VARIABLE_TYPE_BOOLEAN = 0x0,
     LOOSE_VARIABLE_TYPE_INTEGER1 = 0x1,
@@ -1955,19 +1955,19 @@ enum CompositeMaterialInputLooseVariableType_t
     LOOSE_VARIABLE_TYPE_RESOURCE_TEXTURE = 0xd,
 };
 
-enum BlurFilterType_t
+enum class BlurFilterType_t
 {
     BLURFILTER_GAUSSIAN = 0x0,
     BLURFILTER_BOX = 0x1,
 };
 
-enum StanceOverrideMode
+enum class StanceOverrideMode
 {
     Sequence = 0x0,
     Node = 0x1,
 };
 
-enum MeshDrawPrimitiveFlags_t
+enum class MeshDrawPrimitiveFlags_t
 {
     MESH_DRAW_FLAGS_NONE = 0x0,
     MESH_DRAW_FLAGS_USE_SHADOW_FAST_PATH = 0x1,
@@ -1979,7 +1979,7 @@ enum MeshDrawPrimitiveFlags_t
     MESH_DRAW_FLAGS_DRAW_LAST = 0x80,
 };
 
-enum ParticleFloatType_t
+enum class ParticleFloatType_t
 {
     PF_TYPE_INVALID = 0xffffffffffffffff,
     PF_TYPE_LITERAL = 0x0,
@@ -2007,14 +2007,14 @@ enum ParticleFloatType_t
     PF_TYPE_COUNT = 0x16,
 };
 
-enum NmTransitionRule_t
+enum class NmTransitionRule_t
 {
     AllowTransition = 0x0,
     ConditionallyAllowTransition = 0x1,
     BlockTransition = 0x2,
 };
 
-enum SpriteCardTextureType_t
+enum class SpriteCardTextureType_t
 {
     SPRITECARD_TEXTURE_DIFFUSE = 0x0,
     SPRITECARD_TEXTURE_ZOOM = 0x1,
@@ -2028,14 +2028,14 @@ enum SpriteCardTextureType_t
     SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_C = 0x9,
 };
 
-enum SelectorTagBehavior_t
+enum class SelectorTagBehavior_t
 {
     SelectorTagBehavior_OnWhileCurrent = 0x0,
     SelectorTagBehavior_OffWhenFinished = 0x1,
     SelectorTagBehavior_OffBeforeFinished = 0x2,
 };
 
-enum ParticleFloatMapType_t
+enum class ParticleFloatMapType_t
 {
     PF_MAP_TYPE_INVALID = 0xffffffffffffffff,
     PF_MAP_TYPE_DIRECT = 0x0,
@@ -2047,7 +2047,7 @@ enum ParticleFloatMapType_t
     PF_MAP_TYPE_COUNT = 0x6,
 };
 
-enum VMixFilterType_t
+enum class VMixFilterType_t
 {
     FILTER_UNKNOWN = 0xffffffffffffffff,
     FILTER_LOWPASS = 0x0,
@@ -2061,19 +2061,19 @@ enum VMixFilterType_t
     FILTER_PASSTHROUGH = 0x8,
 };
 
-enum ParticleAttrBoxFlags_t
+enum class ParticleAttrBoxFlags_t
 {
     PARTICLE_ATTR_BOX_FLAGS_NONE = 0x0,
     PARTICLE_ATTR_BOX_FLAGS_WATER = 0x1,
 };
 
-enum SosGroupType_t
+enum class SosGroupType_t
 {
     SOS_GROUPTYPE_DYNAMIC = 0x0,
     SOS_GROUPTYPE_STATIC = 0x1,
 };
 
-enum PFNoiseTurbulence_t
+enum class PFNoiseTurbulence_t
 {
     PF_NOISE_TURB_NONE = 0x0,
     PF_NOISE_TURB_HIGHLIGHT = 0x1,
@@ -2083,7 +2083,7 @@ enum PFNoiseTurbulence_t
     PF_NOISE_TURB_ALTERNATE = 0x5,
 };
 
-enum MissingParentInheritBehavior_t
+enum class MissingParentInheritBehavior_t
 {
     MISSING_PARENT_DO_NOTHING = 0xffffffffffffffff,
     MISSING_PARENT_KILL = 0x0,
@@ -2091,14 +2091,14 @@ enum MissingParentInheritBehavior_t
     MISSING_PARENT_SAME_INDEX = 0x2,
 };
 
-enum AnimationType_t
+enum class AnimationType_t
 {
     ANIMATION_TYPE_FIXED_RATE = 0x0,
     ANIMATION_TYPE_FIT_LIFETIME = 0x1,
     ANIMATION_TYPE_MANUAL_FRAMES = 0x2,
 };
 
-enum AnimParamButton_t
+enum class AnimParamButton_t
 {
     ANIMPARAM_BUTTON_NONE = 0x0,
     ANIMPARAM_BUTTON_DPAD_UP = 0x1,
@@ -2115,21 +2115,21 @@ enum AnimParamButton_t
     ANIMPARAM_BUTTON_RTRIGGER = 0xc,
 };
 
-enum BloomBlendMode_t
+enum class BloomBlendMode_t
 {
     BLOOM_BLEND_ADD = 0x0,
     BLOOM_BLEND_SCREEN = 0x1,
     BLOOM_BLEND_BLUR = 0x2,
 };
 
-enum CompMatPropertyMutatorConditionType_t
+enum class CompMatPropertyMutatorConditionType_t
 {
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_EXISTS = 0x0,
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EXISTS = 0x1,
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EQUALS = 0x2,
 };
 
-enum ParticleSetMethod_t
+enum class ParticleSetMethod_t
 {
     PARTICLE_SET_REPLACE_VALUE = 0x0,
     PARTICLE_SET_SCALE_INITIAL_VALUE = 0x1,
@@ -2139,7 +2139,7 @@ enum ParticleSetMethod_t
     PARTICLE_SET_ADD_TO_CURRENT_VALUE = 0x5,
 };
 
-enum VectorFloatExpressionType_t
+enum class VectorFloatExpressionType_t
 {
     VECTOR_FLOAT_EXPRESSION_UNINITIALIZED = 0xffffffffffffffff,
     VECTOR_FLOAT_EXPRESSION_DOTPRODUCT = 0x0,
@@ -2150,7 +2150,7 @@ enum VectorFloatExpressionType_t
     VECTOR_FLOAT_EXPRESSION_INPUT1_NOISE = 0x5,
 };
 
-enum ChoiceMethod
+enum class ChoiceMethod
 {
     WeightedRandom = 0x0,
     WeightedRandomNoRepeat = 0x1,
@@ -2158,7 +2158,7 @@ enum ChoiceMethod
     IterateRandom = 0x3,
 };
 
-enum NmFootPhaseCondition_t
+enum class NmFootPhaseCondition_t
 {
     LeftFootDown = 0x0,
     LeftFootPassing = 0x1,
@@ -2168,13 +2168,13 @@ enum NmFootPhaseCondition_t
     RightPhase = 0x5,
 };
 
-enum CompositeMaterialVarSystemVar_t
+enum class CompositeMaterialVarSystemVar_t
 {
     COMPMATSYSVAR_COMPOSITETIME = 0x0,
     COMPMATSYSVAR_EMPTY_RESOURCE_SPACER = 0x1,
 };
 
-enum VectorExpressionType_t
+enum class VectorExpressionType_t
 {
     VECTOR_EXPRESSION_UNINITIALIZED = 0xffffffffffffffff,
     VECTOR_EXPRESSION_ADD = 0x0,
@@ -2187,14 +2187,14 @@ enum VectorExpressionType_t
     VECTOR_EXPRESSION_CROSSPRODUCT = 0x7,
 };
 
-enum ParticleSelection_t
+enum class ParticleSelection_t
 {
     PARTICLE_SELECTION_FIRST = 0x0,
     PARTICLE_SELECTION_LAST = 0x1,
     PARTICLE_SELECTION_NUMBER = 0x2,
 };
 
-enum DisableShadows_t
+enum class DisableShadows_t
 {
     kDisableShadows_None = 0x0,
     kDisableShadows_All = 0x1,
@@ -2202,14 +2202,14 @@ enum DisableShadows_t
     kDisableShadows_Realtime = 0x3,
 };
 
-enum ParticleFogType_t
+enum class ParticleFogType_t
 {
     PARTICLE_FOG_GAME_DEFAULT = 0x0,
     PARTICLE_FOG_ENABLED = 0x1,
     PARTICLE_FOG_DISABLED = 0x2,
 };
 
-enum Detail2Combo_t
+enum class Detail2Combo_t
 {
     DETAIL_2_COMBO_UNINITIALIZED = 0xffffffffffffffff,
     DETAIL_2_COMBO_OFF = 0x0,
@@ -2220,7 +2220,7 @@ enum Detail2Combo_t
     DETAIL_2_COMBO_CROSSFADE = 0x5,
 };
 
-enum ParticleAlphaReferenceType_t
+enum class ParticleAlphaReferenceType_t
 {
     PARTICLE_ALPHA_REFERENCE_ALPHA_ALPHA = 0x0,
     PARTICLE_ALPHA_REFERENCE_OPAQUE_ALPHA = 0x1,
@@ -2228,7 +2228,7 @@ enum ParticleAlphaReferenceType_t
     PARTICLE_ALPHA_REFERENCE_OPAQUE_OPAQUE = 0x3,
 };
 
-enum ParticleVecType_t
+enum class ParticleVecType_t
 {
     PVEC_TYPE_INVALID = 0xffffffffffffffff,
     PVEC_TYPE_LITERAL = 0x0,
@@ -2251,14 +2251,14 @@ enum ParticleVecType_t
     PVEC_TYPE_COUNT = 0x11,
 };
 
-enum ThreeState_t
+enum class ThreeState_t
 {
     TRS_FALSE = 0x0,
     TRS_TRUE = 0x1,
     TRS_NONE = 0x2,
 };
 
-enum PFNoiseModifier_t
+enum class PFNoiseModifier_t
 {
     PF_NOISE_MODIFIER_NONE = 0x0,
     PF_NOISE_MODIFIER_LINES = 0x1,
@@ -2266,7 +2266,7 @@ enum PFNoiseModifier_t
     PF_NOISE_MODIFIER_RINGS = 0x3,
 };
 
-enum ParticleImpulseType_t
+enum class ParticleImpulseType_t
 {
     IMPULSE_TYPE_NONE = 0x0,
     IMPULSE_TYPE_GENERIC = 0x1,
@@ -2276,14 +2276,14 @@ enum ParticleImpulseType_t
     IMPULSE_TYPE_PARTICLE_SYSTEM = 0x10,
 };
 
-enum VPhysXAggregateData_t__VPhysXFlagEnum_t
+enum class VPhysXAggregateData_t__VPhysXFlagEnum_t
 {
     FLAG_IS_POLYSOUP_GEOMETRY = 0x1,
     FLAG_LEVEL_COLLISION = 0x10,
     FLAG_IGNORE_SCALE_OBSOLETE_DO_NOT_USE = 0x20,
 };
 
-enum ParticleFloatRandomMode_t
+enum class ParticleFloatRandomMode_t
 {
     PF_RANDOM_MODE_INVALID = 0xffffffffffffffff,
     PF_RANDOM_MODE_CONSTANT = 0x0,
@@ -2291,13 +2291,13 @@ enum ParticleFloatRandomMode_t
     PF_RANDOM_MODE_COUNT = 0x2,
 };
 
-enum AnimNodeNetworkMode
+enum class AnimNodeNetworkMode
 {
     ServerAuthoritative = 0x0,
     ClientSimulate = 0x1,
 };
 
-enum CompositeMaterialMatchFilterType_t
+enum class CompositeMaterialMatchFilterType_t
 {
     MATCH_FILTER_MATERIAL_ATTRIBUTE_EXISTS = 0x0,
     MATCH_FILTER_MATERIAL_SHADER = 0x1,
@@ -2307,20 +2307,20 @@ enum CompositeMaterialMatchFilterType_t
     MATCH_FILTER_MATERIAL_PROPERTY_EQUALS = 0x5,
 };
 
-enum AnimPoseControl
+enum class AnimPoseControl
 {
     NoPoseControl = 0x0,
     AbsolutePoseControl = 0x1,
     RelativePoseControl = 0x2,
 };
 
-enum FootLockSubVisualization
+enum class FootLockSubVisualization
 {
     FOOTLOCKSUBVISUALIZATION_ReachabilityAnalysis = 0x0,
     FOOTLOCKSUBVISUALIZATION_IKSolve = 0x1,
 };
 
-enum PulseValueType_t
+enum class PulseValueType_t
 {
     PVAL_INVALID = 0xffffffffffffffff,
     PVAL_BOOL = 0x0,
@@ -2343,14 +2343,14 @@ enum PulseValueType_t
     PVAL_COUNT = 0x11,
 };
 
-enum FacingMode
+enum class FacingMode
 {
     FacingMode_Manual = 0x0,
     FacingMode_Path = 0x1,
     FacingMode_LookTarget = 0x2,
 };
 
-enum SeqCmd_t
+enum class SeqCmd_t
 {
     SeqCmd_Nop = 0x0,
     SeqCmd_LinearDelta = 0x1,
@@ -2371,20 +2371,20 @@ enum SeqCmd_t
     SeqCmd_Transform = 0x10,
 };
 
-enum ChoiceBlendMethod
+enum class ChoiceBlendMethod
 {
     SingleBlendTime = 0x0,
     PerChoiceBlendTimes = 0x1,
 };
 
-enum ParticleParentSetMode_t
+enum class ParticleParentSetMode_t
 {
     PARTICLE_SET_PARENT_NO = 0x0,
     PARTICLE_SET_PARENT_IMMEDIATE = 0x1,
     PARTICLE_SET_PARENT_ROOT = 0x1,
 };
 
-enum VMixProcessorType_t
+enum class VMixProcessorType_t
 {
     VPROCESSOR_UNKNOWN = 0x0,
     VPROCESSOR_STEAMAUDIO_REVERB = 0x1,
@@ -2418,20 +2418,20 @@ enum VMixProcessorType_t
     VPROCESSOR_STEAMAUDIO_DIRECT = 0x1d,
 };
 
-enum ChoiceChangeMethod
+enum class ChoiceChangeMethod
 {
     OnReset = 0x0,
     OnCycleEnd = 0x1,
     OnResetOrCycleEnd = 0x2,
 };
 
-enum BinaryNodeChildOption
+enum class BinaryNodeChildOption
 {
     Child1 = 0x0,
     Child2 = 0x1,
 };
 
-enum CompositeMaterialInputTextureType_t
+enum class CompositeMaterialInputTextureType_t
 {
     INPUT_TEXTURE_TYPE_DEFAULT = 0x0,
     INPUT_TEXTURE_TYPE_NORMALMAP = 0x1,
@@ -2442,7 +2442,7 @@ enum CompositeMaterialInputTextureType_t
     INPUT_TEXTURE_TYPE_AO = 0x6,
 };
 
-enum BoneMaskBlendSpace
+enum class BoneMaskBlendSpace
 {
     BlendSpace_Parent = 0x0,
     BlendSpace_Model = 0x1,
@@ -2450,20 +2450,20 @@ enum BoneMaskBlendSpace
     BlendSpace_Model_TranslationOnly = 0x3,
 };
 
-enum AnimScriptType
+enum class AnimScriptType
 {
     ANIMSCRIPT_TYPE_INVALID = 0xffffffffffffffff,
     ANIMSCRIPT_FUSE_GENERAL = 0x0,
     ANIMSCRIPT_FUSE_STATEMACHINE = 0x1,
 };
 
-enum FuseVariableAccess_t
+enum class FuseVariableAccess_t
 {
     WRITABLE = 0x0,
     READ_ONLY = 0x1,
 };
 
-enum DetailCombo_t
+enum class DetailCombo_t
 {
     DETAIL_COMBO_OFF = 0x0,
     DETAIL_COMBO_ADD = 0x1,
@@ -2471,14 +2471,14 @@ enum DetailCombo_t
     DETAIL_COMBO_MOD2X = 0x3,
 };
 
-enum InheritableBoolType_t
+enum class InheritableBoolType_t
 {
     INHERITABLE_BOOL_INHERIT = 0x0,
     INHERITABLE_BOOL_FALSE = 0x1,
     INHERITABLE_BOOL_TRUE = 0x2,
 };
 
-enum ParticleTransformType_t
+enum class ParticleTransformType_t
 {
     PT_TYPE_INVALID = 0x0,
     PT_TYPE_NAMED_VALUE = 0x1,
@@ -2487,13 +2487,13 @@ enum ParticleTransformType_t
     PT_TYPE_COUNT = 0x4,
 };
 
-enum ParticleHitboxDataSelection_t
+enum class ParticleHitboxDataSelection_t
 {
     PARTICLE_HITBOX_AVERAGE_SPEED = 0x0,
     PARTICLE_HITBOX_COUNT = 0x1,
 };
 
-enum AnimVectorSource
+enum class AnimVectorSource
 {
     MoveDirection = 0x0,
     FacingDirection = 0x1,
@@ -2510,13 +2510,13 @@ enum AnimVectorSource
     RootMotionVelocity = 0xc,
 };
 
-enum TextureRepetitionMode_t
+enum class TextureRepetitionMode_t
 {
     TEXTURE_REPETITION_PARTICLE = 0x0,
     TEXTURE_REPETITION_PATH = 0x1,
 };
 
-enum fieldtype_t
+enum class fieldtype_t
 {
     FIELD_VOID = 0x0,
     FIELD_FLOAT32 = 0x1,
@@ -2601,27 +2601,27 @@ enum fieldtype_t
     FIELD_TYPECOUNT = 0x50,
 };
 
-enum IKTargetCoordinateSystem
+enum class IKTargetCoordinateSystem
 {
     IKTARGETCOORDINATESYSTEM_WorldSpace = 0x0,
     IKTARGETCOORDINATESYSTEM_ModelSpace = 0x1,
     IKTARGETCOORDINATESYSTEM_COUNT = 0x2,
 };
 
-enum StandardLightingAttenuationStyle_t
+enum class StandardLightingAttenuationStyle_t
 {
     LIGHT_STYLE_OLD = 0x0,
     LIGHT_STYLE_NEW = 0x1,
 };
 
-enum PoseType_t
+enum class PoseType_t
 {
     POSETYPE_STATIC = 0x0,
     POSETYPE_DYNAMIC = 0x1,
     POSETYPE_INVALID = 0xff,
 };
 
-enum FuseVariableType_t
+enum class FuseVariableType_t
 {
     INVALID = 0x0,
     BOOL = 0x1,
@@ -2634,7 +2634,7 @@ enum FuseVariableType_t
     FLOAT32 = 0x8,
 };
 
-enum ParticleTraceSet_t
+enum class ParticleTraceSet_t
 {
     PARTICLE_TRACE_SET_ALL = 0x0,
     PARTICLE_TRACE_SET_STATIC = 0x1,
@@ -2642,7 +2642,7 @@ enum ParticleTraceSet_t
     PARTICLE_TRACE_SET_DYNAMIC = 0x3,
 };
 
-enum EntityIOTargetType_t
+enum class EntityIOTargetType_t
 {
     ENTITY_IO_TARGET_INVALID = 0xffffffffffffffff,
     ENTITY_IO_TARGET_ENTITYNAME = 0x2,
@@ -2650,7 +2650,7 @@ enum EntityIOTargetType_t
     ENTITY_IO_TARGET_ENTITYNAME_OR_CLASSNAME = 0x7,
 };
 
-enum ModelSkeletonData_t__BoneFlags_t
+enum class ModelSkeletonData_t__BoneFlags_t
 {
     FLAG_NO_BONE_FLAGS = 0x0,
     FLAG_BONEFLEXDRIVER = 0x4,
@@ -2676,14 +2676,14 @@ enum ModelSkeletonData_t__BoneFlags_t
     FLAG_PROCEDURAL = 0x400000,
 };
 
-enum ParticleLightBehaviorChoiceList_t
+enum class ParticleLightBehaviorChoiceList_t
 {
     PARTICLE_LIGHT_BEHAVIOR_FOLLOW_DIRECTION = 0x0,
     PARTICLE_LIGHT_BEHAVIOR_ROPE = 0x1,
     PARTICLE_LIGHT_BEHAVIOR_TRAILS = 0x2,
 };
 
-enum CompositeMaterialInputContainerSourceType_t
+enum class CompositeMaterialInputContainerSourceType_t
 {
     CONTAINER_SOURCE_TYPE_TARGET_MATERIAL = 0x0,
     CONTAINER_SOURCE_TYPE_MATERIAL_FROM_TARGET_ATTR = 0x1,
@@ -2693,39 +2693,39 @@ enum CompositeMaterialInputContainerSourceType_t
     CONTAINER_SOURCE_TYPE_TARGET_INSTANCE_MATERIAL = 0x5,
 };
 
-enum ParticleSortingChoiceList_t
+enum class ParticleSortingChoiceList_t
 {
     PARTICLE_SORTING_NEAREST = 0x0,
     PARTICLE_SORTING_CREATION_TIME = 0x1,
 };
 
-enum SosActionSortType_t
+enum class SosActionSortType_t
 {
     SOS_SORTTYPE_HIGHEST = 0x0,
     SOS_SORTTYPE_LOWEST = 0x1,
 };
 
-enum ParticleFalloffFunction_t
+enum class ParticleFalloffFunction_t
 {
     PARTICLE_FALLOFF_CONSTANT = 0x0,
     PARTICLE_FALLOFF_LINEAR = 0x1,
     PARTICLE_FALLOFF_EXPONENTIAL = 0x2,
 };
 
-enum JumpCorrectionMethod
+enum class JumpCorrectionMethod
 {
     ScaleMotion = 0x0,
     AddCorrectionDelta = 0x1,
 };
 
-enum PetGroundType_t
+enum class PetGroundType_t
 {
     PET_GROUND_NONE = 0x0,
     PET_GROUND_GRID = 0x1,
     PET_GROUND_PLANE = 0x2,
 };
 
-enum VMixChannelOperation_t
+enum class VMixChannelOperation_t
 {
     VMIX_CHAN_STEREO = 0x0,
     VMIX_CHAN_LEFT = 0x1,
@@ -2735,20 +2735,20 @@ enum VMixChannelOperation_t
     VMIX_CHAN_MID_SIDE = 0x5,
 };
 
-enum MatterialAttributeTagType_t
+enum class MatterialAttributeTagType_t
 {
     MATERIAL_ATTRIBUTE_TAG_VALUE = 0x0,
     MATERIAL_ATTRIBUTE_TAG_COLOR = 0x1,
 };
 
-enum ParticleDirectionNoiseType_t
+enum class ParticleDirectionNoiseType_t
 {
     PARTICLE_DIR_NOISE_PERLIN = 0x0,
     PARTICLE_DIR_NOISE_CURL = 0x1,
     PARTICLE_DIR_NOISE_WORLEY_BASIC = 0x2,
 };
 
-enum InputLayoutVariation_t
+enum class InputLayoutVariation_t
 {
     INPUT_LAYOUT_VARIATION_DEFAULT = 0x0,
     INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID = 0x1,
@@ -2756,7 +2756,7 @@ enum InputLayoutVariation_t
     INPUT_LAYOUT_VARIATION_MAX = 0x3,
 };
 
-enum CAnimationGraphVisualizerPrimitiveType
+enum class CAnimationGraphVisualizerPrimitiveType
 {
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Text = 0x0,
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Sphere = 0x1,
@@ -2765,7 +2765,7 @@ enum CAnimationGraphVisualizerPrimitiveType
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Axis = 0x4,
 };
 
-enum BlendKeyType
+enum class BlendKeyType
 {
     BlendKey_UserValue = 0x0,
     BlendKey_Velocity = 0x1,
@@ -2773,7 +2773,7 @@ enum BlendKeyType
     BlendKey_RemainingDistance = 0x3,
 };
 
-enum ParticlePinDistance_t
+enum class ParticlePinDistance_t
 {
     PARTICLE_PIN_DISTANCE_NONE = 0xffffffffffffffff,
     PARTICLE_PIN_DISTANCE_NEIGHBOR = 0x0,
@@ -2789,7 +2789,7 @@ enum ParticlePinDistance_t
     PARTICLE_PIN_FLOAT_VALUE = 0xb,
 };
 
-enum SpriteCardTextureChannel_t
+enum class SpriteCardTextureChannel_t
 {
     SPRITECARD_TEXTURE_CHANNEL_MIX_RGB = 0x0,
     SPRITECARD_TEXTURE_CHANNEL_MIX_RGBA = 0x1,
@@ -2808,7 +2808,7 @@ enum SpriteCardTextureChannel_t
     SPRITECARD_TEXTURE_CHANNEL_MIX_BALPHA = 0xe,
 };
 
-enum VertJustification_e
+enum class VertJustification_e
 {
     VERT_JUSTIFICATION_TOP = 0x0,
     VERT_JUSTIFICATION_CENTER = 0x1,
@@ -2816,7 +2816,7 @@ enum VertJustification_e
     VERT_JUSTIFICATION_NONE = 0x3,
 };
 
-enum HorizJustification_e
+enum class HorizJustification_e
 {
     HORIZ_JUSTIFICATION_LEFT = 0x0,
     HORIZ_JUSTIFICATION_CENTER = 0x1,
@@ -2824,13 +2824,13 @@ enum HorizJustification_e
     HORIZ_JUSTIFICATION_NONE = 0x3,
 };
 
-enum EDemoBoneSelectionMode
+enum class EDemoBoneSelectionMode
 {
     CaptureAllBones = 0x0,
     CaptureSelectedBones = 0x1,
 };
 
-enum SeqPoseSetting_t
+enum class SeqPoseSetting_t
 {
     SEQ_POSE_SETTING_CONSTANT = 0x0,
     SEQ_POSE_SETTING_ROTATION = 0x1,
@@ -2838,7 +2838,7 @@ enum SeqPoseSetting_t
     SEQ_POSE_SETTING_VELOCITY = 0x3,
 };
 
-enum MorphFlexControllerRemapType_t
+enum class MorphFlexControllerRemapType_t
 {
     MORPH_FLEXCONTROLLER_REMAP_PASSTHRU = 0x0,
     MORPH_FLEXCONTROLLER_REMAP_2WAY = 0x1,
@@ -2846,20 +2846,20 @@ enum MorphFlexControllerRemapType_t
     MORPH_FLEXCONTROLLER_REMAP_EYELID = 0x3,
 };
 
-enum SpawnDebugOverrideState_t
+enum class SpawnDebugOverrideState_t
 {
     SPAWN_DEBUG_OVERRIDE_NONE = 0x0,
     SPAWN_DEBUG_OVERRIDE_FORCE_ENABLED = 0x1,
     SPAWN_DEBUG_OVERRIDE_FORCE_DISABLED = 0x2,
 };
 
-enum ParticleLightnintBranchBehavior_t
+enum class ParticleLightnintBranchBehavior_t
 {
     PARTICLE_LIGHTNING_BRANCH_CURRENT_DIR = 0x0,
     PARTICLE_LIGHTNING_BRANCH_ENDPOINT_DIR = 0x1,
 };
 
-enum MorphBundleType_t
+enum class MorphBundleType_t
 {
     MORPH_BUNDLE_TYPE_NONE = 0x0,
     MORPH_BUNDLE_TYPE_POSITION_SPEED = 0x1,
@@ -2867,14 +2867,14 @@ enum MorphBundleType_t
     MORPH_BUNDLE_TYPE_COUNT = 0x3,
 };
 
-enum ParticleLightFogLightingMode_t
+enum class ParticleLightFogLightingMode_t
 {
     PARTICLE_LIGHT_FOG_LIGHTING_MODE_NONE = 0x0,
     PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC = 0x2,
     PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC_NOSHADOWS = 0x4,
 };
 
-enum RenderBufferFlags_t
+enum class RenderBufferFlags_t
 {
     RENDER_BUFFER_USAGE_VERTEX_BUFFER = 0x1,
     RENDER_BUFFER_USAGE_INDEX_BUFFER = 0x2,
@@ -2890,7 +2890,7 @@ enum RenderBufferFlags_t
     RENDER_BUFFER_PER_FRAME_WRITE_ONCE = 0x800,
 };
 
-enum ParticleDetailLevel_t
+enum class ParticleDetailLevel_t
 {
     PARTICLEDETAIL_LOW = 0x0,
     PARTICLEDETAIL_MEDIUM = 0x1,
@@ -2898,14 +2898,14 @@ enum ParticleDetailLevel_t
     PARTICLEDETAIL_ULTRA = 0x3,
 };
 
-enum FootstepLandedFootSoundType_t
+enum class FootstepLandedFootSoundType_t
 {
     FOOTSOUND_Left = 0x0,
     FOOTSOUND_Right = 0x1,
     FOOTSOUND_UseOverrideSound = 0x2,
 };
 
-enum SosEditItemType_t
+enum class SosEditItemType_t
 {
     SOS_EDIT_ITEM_TYPE_SOUNDEVENTS = 0x0,
     SOS_EDIT_ITEM_TYPE_SOUNDEVENT = 0x1,
@@ -2915,14 +2915,14 @@ enum SosEditItemType_t
     SOS_EDIT_ITEM_TYPE_FIELD = 0x5,
 };
 
-enum SosActionStopType_t
+enum class SosActionStopType_t
 {
     SOS_STOPTYPE_NONE = 0x0,
     SOS_STOPTYPE_TIME = 0x1,
     SOS_STOPTYPE_OPVAR = 0x2,
 };
 
-enum ModelBoneFlexComponent_t
+enum class ModelBoneFlexComponent_t
 {
     MODEL_BONE_FLEX_INVALID = 0xffffffffffffffff,
     MODEL_BONE_FLEX_TX = 0x0,
@@ -2930,7 +2930,7 @@ enum ModelBoneFlexComponent_t
     MODEL_BONE_FLEX_TZ = 0x2,
 };
 
-enum ParticleAttachment_t
+enum class ParticleAttachment_t
 {
     PATTACH_INVALID = 0xffffffffffffffff,
     PATTACH_ABSORIGIN = 0x0,
@@ -2952,7 +2952,7 @@ enum ParticleAttachment_t
     MAX_PATTACH_TYPES = 0x10,
 };
 
-enum CompMatPropertyMutatorType_t
+enum class CompMatPropertyMutatorType_t
 {
     COMP_MAT_PROPERTY_MUTATOR_INIT = 0x0,
     COMP_MAT_PROPERTY_MUTATOR_COPY_MATCHING_KEYS = 0x1,
@@ -2966,7 +2966,7 @@ enum CompMatPropertyMutatorType_t
     COMP_MAT_PROPERTY_MUTATOR_RANDOM_ROLL_INPUT_VARIABLES = 0x9,
 };
 
-enum ParticleOrientationChoiceList_t
+enum class ParticleOrientationChoiceList_t
 {
     PARTICLE_ORIENTATION_SCREEN_ALIGNED = 0x0,
     PARTICLE_ORIENTATION_SCREEN_Z_ALIGNED = 0x1,
@@ -2976,20 +2976,20 @@ enum ParticleOrientationChoiceList_t
     PARTICLE_ORIENTATION_FULL_3AXIS_ROTATION = 0x5,
 };
 
-enum NmFrameSnapEventMode_t
+enum class NmFrameSnapEventMode_t
 {
     Floor = 0x0,
     Round = 0x1,
 };
 
-enum JiggleBoneSimSpace
+enum class JiggleBoneSimSpace
 {
     SimSpace_Local = 0x0,
     SimSpace_Model = 0x1,
     SimSpace_World = 0x2,
 };
 
-enum ParticleTopology_t
+enum class ParticleTopology_t
 {
     PARTICLE_TOPOLOGY_POINTS = 0x0,
     PARTICLE_TOPOLOGY_LINES = 0x1,
@@ -2998,14 +2998,14 @@ enum ParticleTopology_t
     PARTICLE_TOPOLOGY_CUBES = 0x4,
 };
 
-enum DampingSpeedFunction
+enum class DampingSpeedFunction
 {
     NoDamping = 0x0,
     Constant = 0x1,
     Spring = 0x2,
 };
 
-enum ParticleColorBlendType_t
+enum class ParticleColorBlendType_t
 {
     PARTICLE_COLOR_BLEND_MULTIPLY = 0x0,
     PARTICLE_COLOR_BLEND_MULTIPLY2X = 0x1,
@@ -3022,14 +3022,14 @@ enum ParticleColorBlendType_t
     PARTICLE_COLOR_BLEND_LUMINANCE = 0xc,
 };
 
-enum VMixSubgraphSwitchInterpolationType_t
+enum class VMixSubgraphSwitchInterpolationType_t
 {
     SUBGRAPH_INTERPOLATION_TEMPORAL_CROSSFADE = 0x0,
     SUBGRAPH_INTERPOLATION_TEMPORAL_FADE_OUT = 0x1,
     SUBGRAPH_INTERPOLATION_KEEP_LAST_SUBGRAPH_RUNNING = 0x2,
 };
 
-enum soundlevel_t
+enum class soundlevel_t
 {
     SNDLVL_NONE = 0x0,
     SNDLVL_20dB = 0x14,
@@ -3063,7 +3063,7 @@ enum soundlevel_t
     SNDLVL_180dB = 0xb4,
 };
 
-enum AnimationSnapshotType_t
+enum class AnimationSnapshotType_t
 {
     ANIMATION_SNAPSHOT_SERVER_SIMULATION = 0x0,
     ANIMATION_SNAPSHOT_CLIENT_SIMULATION = 0x1,
@@ -3074,7 +3074,7 @@ enum AnimationSnapshotType_t
     ANIMATION_SNAPSHOT_MAX = 0x6,
 };
 
-enum SpriteCardPerParticleScale_t
+enum class SpriteCardPerParticleScale_t
 {
     SPRITECARD_TEXTURE_PP_SCALE_NONE = 0x0,
     SPRITECARD_TEXTURE_PP_SCALE_PARTICLE_AGE = 0x1,
@@ -3092,20 +3092,20 @@ enum SpriteCardPerParticleScale_t
     SPRITECARD_TEXTURE_PP_SCALE_NEG_RANDOM_TIME = 0xd,
 };
 
-enum SpriteCardShaderType_t
+enum class SpriteCardShaderType_t
 {
     SPRITECARD_SHADER_BASE = 0x0,
     SPRITECARD_SHADER_CUSTOM = 0x1,
 };
 
-enum BBoxVolumeType_t
+enum class BBoxVolumeType_t
 {
     BBOX_VOLUME = 0x0,
     BBOX_DIMENSIONS = 0x1,
     BBOX_MINS_MAXS = 0x2,
 };
 
-enum PulseTestEnumColor_t
+enum class PulseTestEnumColor_t
 {
     BLACK = 0x0,
     WHITE = 0x1,
@@ -3114,7 +3114,7 @@ enum PulseTestEnumColor_t
     BLUE = 0x4,
 };
 
-enum ParticleCollisionMode_t
+enum class ParticleCollisionMode_t
 {
     COLLISION_MODE_PER_PARTICLE_TRACE = 0x3,
     COLLISION_MODE_USE_NEAREST_TRACE = 0x2,
@@ -3123,7 +3123,7 @@ enum ParticleCollisionMode_t
     COLLISION_MODE_DISABLED = 0xffffffffffffffff,
 };
 
-enum PermModelInfo_t__FlagEnum
+enum class PermModelInfo_t__FlagEnum
 {
     FLAG_TRANSLUCENT = 0x1,
     FLAG_TRANSLUCENT_TWO_PASS = 0x2,
@@ -3142,7 +3142,7 @@ enum PermModelInfo_t__FlagEnum
     FLAG_MODEL_DOC = 0x800000,
 };
 
-enum ParticleControlPointAxis_t
+enum class ParticleControlPointAxis_t
 {
     PARTICLE_CP_AXIS_X = 0x0,
     PARTICLE_CP_AXIS_Y = 0x1,
@@ -3152,7 +3152,7 @@ enum ParticleControlPointAxis_t
     PARTICLE_CP_AXIS_NEGATIVE_Z = 0x5,
 };
 
-enum ELayoutNodeType
+enum class ELayoutNodeType
 {
     ROOT = 0x0,
     STYLES = 0x1,
@@ -3169,7 +3169,7 @@ enum ELayoutNodeType
     REFERENCE_PASSTHROUGH = 0xc,
 };
 
-enum IKChannelMode
+enum class IKChannelMode
 {
     TwoBone = 0x0,
     TwoBone_Translate = 0x1,
@@ -3177,14 +3177,14 @@ enum IKChannelMode
     OneBone_Translate = 0x3,
 };
 
-enum PulseTestEnumShape_t
+enum class PulseTestEnumShape_t
 {
     CIRCLE = 0x64,
     SQUARE = 0xc8,
     TRIANGLE = 0x12c,
 };
 
-enum ParticleColorBlendMode_t
+enum class ParticleColorBlendMode_t
 {
     PARTICLEBLEND_DEFAULT = 0x0,
     PARTICLEBLEND_OVERLAY = 0x1,
@@ -3193,7 +3193,7 @@ enum ParticleColorBlendMode_t
     PARTICLEBLEND_MULTIPLY = 0x4,
 };
 
-enum AnimParamType_t
+enum class AnimParamType_t
 {
     ANIMPARAM_UNKNOWN = 0x0,
     ANIMPARAM_BOOL = 0x1,
@@ -3206,13 +3206,13 @@ enum AnimParamType_t
     ANIMPARAM_COUNT = 0x8,
 };
 
-enum ParticleLightUnitChoiceList_t
+enum class ParticleLightUnitChoiceList_t
 {
     PARTICLE_LIGHT_UNIT_CANDELAS = 0x0,
     PARTICLE_LIGHT_UNIT_LUMENS = 0x1,
 };
 
-enum VMixLFOShape_t
+enum class VMixLFOShape_t
 {
     LFO_SHAPE_SINE = 0x0,
     LFO_SHAPE_SQUARE = 0x1,
@@ -3221,13 +3221,13 @@ enum VMixLFOShape_t
     LFO_SHAPE_NOISE = 0x4,
 };
 
-enum IkEndEffectorType
+enum class IkEndEffectorType
 {
     IkEndEffector_Attachment = 0x0,
     IkEndEffector_Bone = 0x1,
 };
 
-enum EStyleNodeType
+enum class EStyleNodeType
 {
     ROOT = 0x0,
     EXPRESSION = 0x1,
@@ -3246,21 +3246,21 @@ enum EStyleNodeType
     REFERENCE_PASSTHROUGH = 0xe,
 };
 
-enum FieldNetworkOption
+enum class FieldNetworkOption
 {
     Auto = 0x0,
     ForceEnable = 0x1,
     ForceDisable = 0x2,
 };
 
-enum VelocityMetricMode
+enum class VelocityMetricMode
 {
     DirectionOnly = 0x0,
     MagnitudeOnly = 0x1,
     DirectionAndMagnitude = 0x2,
 };
 
-enum IkTargetType
+enum class IkTargetType
 {
     IkTarget_Attachment = 0x0,
     IkTarget_Bone = 0x1,
@@ -3268,14 +3268,14 @@ enum IkTargetType
     IkTarget_Parameter_WorldSpace = 0x3,
 };
 
-enum FootPinningTimingSource
+enum class FootPinningTimingSource
 {
     FootMotion = 0x0,
     Tag = 0x1,
     Parameter = 0x2,
 };
 
-enum PFNoiseType_t
+enum class PFNoiseType_t
 {
     PF_NOISE_TYPE_PERLIN = 0x0,
     PF_NOISE_TYPE_SIMPLEX = 0x1,
@@ -3283,7 +3283,7 @@ enum PFNoiseType_t
     PF_NOISE_TYPE_CURL = 0x3,
 };
 
-enum ParticleFloatBiasType_t
+enum class ParticleFloatBiasType_t
 {
     PF_BIAS_TYPE_INVALID = 0xffffffffffffffff,
     PF_BIAS_TYPE_STANDARD = 0x0,
@@ -3292,28 +3292,28 @@ enum ParticleFloatBiasType_t
     PF_BIAS_TYPE_COUNT = 0x3,
 };
 
-enum ParticleDepthFeatheringMode_t
+enum class ParticleDepthFeatheringMode_t
 {
     PARTICLE_DEPTH_FEATHERING_OFF = 0x0,
     PARTICLE_DEPTH_FEATHERING_ON_OPTIONAL = 0x1,
     PARTICLE_DEPTH_FEATHERING_ON_REQUIRED = 0x2,
 };
 
-enum ParticleSequenceCropOverride_t
+enum class ParticleSequenceCropOverride_t
 {
     PARTICLE_SEQUENCE_CROP_OVERRIDE_DEFAULT = 0xffffffffffffffff,
     PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_OFF = 0x0,
     PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_ON = 0x1,
 };
 
-enum RenderSlotType_t
+enum class RenderSlotType_t
 {
     RENDER_SLOT_INVALID = 0xffffffffffffffff,
     RENDER_SLOT_PER_VERTEX = 0x0,
     RENDER_SLOT_PER_INSTANCE = 0x1,
 };
 
-enum VPhysXConstraintParams_t__EnumFlags0_t
+enum class VPhysXConstraintParams_t__EnumFlags0_t
 {
     FLAG0_SHIFT_INTERPENETRATE = 0x0,
     FLAG0_SHIFT_CONSTRAIN = 0x1,
@@ -3321,7 +3321,7 @@ enum VPhysXConstraintParams_t__EnumFlags0_t
     FLAG0_SHIFT_BREAKABLE_TORQUE = 0x3,
 };
 
-enum AnimValueSource
+enum class AnimValueSource
 {
     MoveHeading = 0x0,
     MoveSpeed = 0x1,
@@ -3362,13 +3362,13 @@ enum AnimValueSource
     FingerSplay_Ring_Pinky = 0x24,
 };
 
-enum HitboxLerpType_t
+enum class HitboxLerpType_t
 {
     HITBOX_LERP_LIFETIME = 0x0,
     HITBOX_LERP_CONSTANT = 0x1,
 };
 
-enum BoneTransformSpace_t
+enum class BoneTransformSpace_t
 {
     BoneTransformSpace_Invalid = 0xffffffffffffffff,
     BoneTransformSpace_Parent = 0x0,
@@ -3376,7 +3376,7 @@ enum BoneTransformSpace_t
     BoneTransformSpace_World = 0x2,
 };
 
-enum VPhysXBodyPart_t__VPhysXFlagEnum_t
+enum class VPhysXBodyPart_t__VPhysXFlagEnum_t
 {
     FLAG_STATIC = 0x1,
     FLAG_KINEMATIC = 0x2,
@@ -3385,21 +3385,21 @@ enum VPhysXBodyPart_t__VPhysXFlagEnum_t
     FLAG_ALWAYS_DYNAMIC_ON_CLIENT = 0x10,
 };
 
-enum EntityDormancyType_t
+enum class EntityDormancyType_t
 {
     ENTITY_NOT_DORMANT = 0x0,
     ENTITY_DORMANT = 0x1,
     ENTITY_SUSPENDED = 0x2,
 };
 
-enum ParticleTraceMissBehavior_t
+enum class ParticleTraceMissBehavior_t
 {
     PARTICLE_TRACE_MISS_BEHAVIOR_NONE = 0x0,
     PARTICLE_TRACE_MISS_BEHAVIOR_KILL = 0x1,
     PARTICLE_TRACE_MISS_BEHAVIOR_TRACE_END = 0x2,
 };
 
-enum NmFootPhase_t
+enum class NmFootPhase_t
 {
     LeftFootDown = 0x0,
     RightFootPassing = 0x1,
@@ -3407,26 +3407,26 @@ enum NmFootPhase_t
     LeftFootPassing = 0x3,
 };
 
-enum ParticleOmni2LightTypeChoiceList_t
+enum class ParticleOmni2LightTypeChoiceList_t
 {
     PARTICLE_OMNI2_LIGHT_TYPE_POINT = 0x0,
     PARTICLE_OMNI2_LIGHT_TYPE_SPHERE = 0x1,
 };
 
-enum BinaryNodeTiming
+enum class BinaryNodeTiming
 {
     UseChild1 = 0x0,
     UseChild2 = 0x1,
     SyncChildren = 0x2,
 };
 
-enum StepPhase
+enum class StepPhase
 {
     StepPhase_OnGround = 0x0,
     StepPhase_InAir = 0x1,
 };
 
-enum ScalarExpressionType_t
+enum class ScalarExpressionType_t
 {
     SCALAR_EXPRESSION_UNINITIALIZED = 0xffffffffffffffff,
     SCALAR_EXPRESSION_ADD = 0x0,
@@ -3439,7 +3439,7 @@ enum ScalarExpressionType_t
     SCALAR_EXPRESSION_MOD = 0x7,
 };
 
-enum ResetCycleOption
+enum class ResetCycleOption
 {
     Beginning = 0x0,
     SameCycleAsSource = 0x1,
@@ -3448,7 +3448,7 @@ enum ResetCycleOption
     SameTimeAsSource = 0x4,
 };
 
-enum ModelConfigAttachmentType_t
+enum class ModelConfigAttachmentType_t
 {
     MODEL_CONFIG_ATTACHMENT_INVALID = 0xffffffffffffffff,
     MODEL_CONFIG_ATTACHMENT_BONE_OR_ATTACHMENT = 0x0,
@@ -3457,7 +3457,7 @@ enum ModelConfigAttachmentType_t
     MODEL_CONFIG_ATTACHMENT_COUNT = 0x3,
 };
 
-enum ActionType_t
+enum class ActionType_t
 {
     SOS_ACTION_NONE = 0x0,
     SOS_ACTION_LIMITER = 0x1,
@@ -3467,20 +3467,20 @@ enum ActionType_t
     SOS_ACTION_SOUNDEVENT_CLUSTER = 0x5,
 };
 
-enum MoodType_t
+enum class MoodType_t
 {
     eMoodType_Head = 0x0,
     eMoodType_Body = 0x1,
 };
 
-enum ParticleEndcapMode_t
+enum class ParticleEndcapMode_t
 {
     PARTICLE_ENDCAP_ALWAYS_ON = 0xffffffffffffffff,
     PARTICLE_ENDCAP_ENDCAP_OFF = 0x0,
     PARTICLE_ENDCAP_ENDCAP_ON = 0x1,
 };
 
-enum FootFallTagFoot_t
+enum class FootFallTagFoot_t
 {
     FOOT1 = 0x0,
     FOOT2 = 0x1,
@@ -3492,14 +3492,14 @@ enum FootFallTagFoot_t
     FOOT8 = 0x7,
 };
 
-enum IKTargetSource
+enum class IKTargetSource
 {
     IKTARGETSOURCE_Bone = 0x0,
     IKTARGETSOURCE_AnimgraphParameter = 0x1,
     IKTARGETSOURCE_COUNT = 0x2,
 };
 
-enum ClosestPointTestType_t
+enum class ClosestPointTestType_t
 {
     PARTICLE_CLOSEST_TYPE_BOX = 0x0,
     PARTICLE_CLOSEST_TYPE_CAPSULE = 0x1,
