@@ -16039,6 +16039,2389 @@
 					"MOVETYPE_INVALID": "0xb",
 					"MOVETYPE_MAX_BITS": "0x5"
 				}
+			},
+			"particletexturelayerblendtype_t": {
+				"title": "ParticleTextureLayerBlendType_t",
+				"template": "types-syntax",
+				"values": {
+					"SPRITECARD_TEXTURE_BLEND_MULTIPLY": "0x0",
+					"SPRITECARD_TEXTURE_BLEND_MOD2X": "0x1",
+					"SPRITECARD_TEXTURE_BLEND_REPLACE": "0x2",
+					"SPRITECARD_TEXTURE_BLEND_ADD": "0x3",
+					"SPRITECARD_TEXTURE_BLEND_SUBTRACT": "0x4",
+					"SPRITECARD_TEXTURE_BLEND_AVERAGE": "0x5",
+					"SPRITECARD_TEXTURE_BLEND_LUMINANCE": "0x6"
+				}
+			},
+			"animationprocessingtype_t": {
+				"title": "AnimationProcessingType_t",
+				"template": "types-syntax",
+				"values": {
+					"ANIMATION_PROCESSING_SERVER_SIMULATION": "0x0",
+					"ANIMATION_PROCESSING_CLIENT_SIMULATION": "0x1",
+					"ANIMATION_PROCESSING_CLIENT_PREDICTION": "0x2",
+					"ANIMATION_PROCESSING_CLIENT_INTERPOLATION": "0x3",
+					"ANIMATION_PROCESSING_CLIENT_RENDER": "0x4",
+					"ANIMATION_PROCESSING_MAX": "0x5"
+				}
+			},
+			"renderprimitivetype_t": {
+				"title": "RenderPrimitiveType_t",
+				"template": "types-syntax",
+				"values": {
+					"RENDER_PRIM_POINTS": "0x0",
+					"RENDER_PRIM_LINES": "0x1",
+					"RENDER_PRIM_LINES_WITH_ADJACENCY": "0x2",
+					"RENDER_PRIM_LINE_STRIP": "0x3",
+					"RENDER_PRIM_LINE_STRIP_WITH_ADJACENCY": "0x4",
+					"RENDER_PRIM_TRIANGLES": "0x5",
+					"RENDER_PRIM_TRIANGLES_WITH_ADJACENCY": "0x6",
+					"RENDER_PRIM_TRIANGLE_STRIP": "0x7",
+					"RENDER_PRIM_TRIANGLE_STRIP_WITH_ADJACENCY": "0x8",
+					"RENDER_PRIM_INSTANCED_QUADS": "0x9",
+					"RENDER_PRIM_HETEROGENOUS": "0xa",
+					"RENDER_PRIM_COMPUTE_SHADER": "0xb",
+					"RENDER_PRIM_TYPE_COUNT": "0xc"
+				}
+			},
+			"objecttypeflags_t": {
+				"title": "ObjectTypeFlags_t",
+				"template": "types-syntax",
+				"values": {
+					"OBJECT_TYPE_NONE": "0x0",
+					"OBJECT_TYPE_MODEL": "0x8",
+					"OBJECT_TYPE_BLOCK_LIGHT": "0x10",
+					"OBJECT_TYPE_NO_SHADOWS": "0x20",
+					"OBJECT_TYPE_WORLDSPACE_TEXURE_BLEND": "0x40",
+					"OBJECT_TYPE_DISABLED_IN_LOW_QUALITY": "0x80",
+					"OBJECT_TYPE_NO_SUN_SHADOWS": "0x100",
+					"OBJECT_TYPE_RENDER_WITH_DYNAMIC": "0x200",
+					"OBJECT_TYPE_RENDER_TO_CUBEMAPS": "0x400",
+					"OBJECT_TYPE_MODEL_HAS_LODS": "0x800",
+					"OBJECT_TYPE_OVERLAY": "0x2000",
+					"OBJECT_TYPE_PRECOMPUTED_VISMEMBERS": "0x4000",
+					"OBJECT_TYPE_STATIC_CUBE_MAP": "0x8000"
+				}
+			},
+			"particlemodeltype_t": {
+				"title": "ParticleModelType_t",
+				"template": "types-syntax",
+				"values": {
+					"PM_TYPE_INVALID": "0x0",
+					"PM_TYPE_NAMED_VALUE_MODEL": "0x1",
+					"PM_TYPE_NAMED_VALUE_EHANDLE": "0x2",
+					"PM_TYPE_CONTROL_POINT": "0x3",
+					"PM_TYPE_COUNT": "0x4"
+				}
+			},
+			"pulseinstructioncode_t": {
+				"title": "PulseInstructionCode_t",
+				"template": "types-syntax",
+				"values": {
+					"INVALID": "0x0",
+					"IMMEDIATE_HALT": "0x1",
+					"RETURN_VOID": "0x2",
+					"RETURN_VALUE": "0x3",
+					"NOP": "0x4",
+					"JUMP": "0x5",
+					"JUMP_COND": "0x6",
+					"CHUNK_LEAP": "0x7",
+					"CHUNK_LEAP_COND": "0x8",
+					"PULSE_CALL_SYNC": "0x9",
+					"PULSE_CALL_ASYNC_FIRE": "0xa",
+					"CELL_INVOKE": "0xb",
+					"LIBRARY_INVOKE": "0xc",
+					"SET_VAR": "0xd",
+					"GET_VAR": "0xe",
+					"GET_CONST": "0xf",
+					"SET_REGISTER_DOMAIN_VALUE": "0x10",
+					"COPY": "0x11",
+					"NOT": "0x12",
+					"NEGATE": "0x13",
+					"ADD": "0x14",
+					"SUB": "0x15",
+					"MUL": "0x16",
+					"DIV": "0x17",
+					"MOD": "0x18",
+					"LT": "0x19",
+					"LTE": "0x1a",
+					"EQ": "0x1b",
+					"NE": "0x1c",
+					"AND": "0x1d",
+					"OR": "0x1e",
+					"CONVERT_VALUE": "0x1f",
+					"LAST_SERIALIZED_CODE": "0x20",
+					"NEGATE_INT": "0x21",
+					"NEGATE_FLOAT": "0x22",
+					"ADD_INT": "0x23",
+					"ADD_FLOAT": "0x24",
+					"ADD_STRING": "0x25",
+					"SUB_INT": "0x26",
+					"SUB_FLOAT": "0x27",
+					"MUL_INT": "0x28",
+					"MUL_FLOAT": "0x29",
+					"DIV_INT": "0x2a",
+					"DIV_FLOAT": "0x2b",
+					"MOD_INT": "0x2c",
+					"MOD_FLOAT": "0x2d",
+					"LT_INT": "0x2e",
+					"LT_FLOAT": "0x2f",
+					"LTE_INT": "0x30",
+					"LTE_FLOAT": "0x31",
+					"EQ_BOOL": "0x32",
+					"EQ_INT": "0x33",
+					"EQ_FLOAT": "0x34",
+					"EQ_STRING": "0x35",
+					"EQ_ENTITY_NAME": "0x36",
+					"NE_BOOL": "0x37",
+					"NE_INT": "0x38",
+					"NE_FLOAT": "0x39",
+					"NE_STRING": "0x3a",
+					"NE_ENTITY_NAME": "0x3b",
+					"GET_CONST_INLINE_STORAGE": "0x3c"
+				}
+			},
+			"stateactionbehavior": {
+				"title": "StateActionBehavior",
+				"template": "types-syntax",
+				"values": {
+					"STATETAGBEHAVIOR_ACTIVE_WHILE_CURRENT": "0x0",
+					"STATETAGBEHAVIOR_FIRE_ON_ENTER": "0x1",
+					"STATETAGBEHAVIOR_FIRE_ON_EXIT": "0x2",
+					"STATETAGBEHAVIOR_FIRE_ON_ENTER_AND_EXIT": "0x3"
+				}
+			},
+			"blend2dmode": {
+				"title": "Blend2DMode",
+				"template": "types-syntax",
+				"values": {
+					"Blend2DMode_General": "0x0",
+					"Blend2DMode_Directional": "0x1"
+				}
+			},
+			"particleorientationsetmode_t": {
+				"title": "ParticleOrientationSetMode_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_ORIENTATION_SET_FROM_VELOCITY": "0x0",
+					"PARTICLE_ORIENTATION_SET_FROM_ROTATIONS": "0x1"
+				}
+			},
+			"particlevrhandchoicelist_t": {
+				"title": "ParticleVRHandChoiceList_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_VRHAND_LEFT": "0x0",
+					"PARTICLE_VRHAND_RIGHT": "0x1",
+					"PARTICLE_VRHAND_CP": "0x2",
+					"PARTICLE_VRHAND_CP_OBJECT": "0x3"
+				}
+			},
+			"spawndebugrestrictionoverridestate_t": {
+				"title": "SpawnDebugRestrictionOverrideState_t",
+				"template": "types-syntax",
+				"values": {
+					"SPAWN_DEBUG_RESTRICT_NONE": "0x0",
+					"SPAWN_DEBUG_RESTRICT_IGNORE_MANAGER_DISTANCE_REQS": "0x1",
+					"SPAWN_DEBUG_RESTRICT_IGNORE_TEMPLATE_DISTANCE_LOS_REQS": "0x2",
+					"SPAWN_DEBUG_RESTRICT_IGNORE_TEMPLATE_COOLDOWN_LIMITS": "0x4",
+					"SPAWN_DEBUG_RESTRICT_IGNORE_TARGET_COOLDOWN_LIMITS": "0x8"
+				}
+			},
+			"jointmotion_t": {
+				"title": "JointMotion_t",
+				"template": "types-syntax",
+				"values": {
+					"JOINT_MOTION_FREE": "0x0",
+					"JOINT_MOTION_LOCKED": "0x1",
+					"JOINT_MOTION_COUNT": "0x2"
+				}
+			},
+			"particlelightingquality_t": {
+				"title": "ParticleLightingQuality_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_LIGHTING_PER_PARTICLE": "0x0",
+					"PARTICLE_LIGHTING_PER_VERTEX": "0x1",
+					"PARTICLE_LIGHTING_PER_PIXEL": "0xffffffffffffffff"
+				}
+			},
+			"snapshotindextype_t": {
+				"title": "SnapshotIndexType_t",
+				"template": "types-syntax",
+				"values": {
+					"SNAPSHOT_INDEX_INCREMENT": "0x0",
+					"SNAPSHOT_INDEX_DIRECT": "0x1"
+				}
+			},
+			"ragdollposecontrol": {
+				"title": "RagdollPoseControl",
+				"template": "types-syntax",
+				"values": {
+					"Absolute": "0x0",
+					"Relative": "0x1"
+				}
+			},
+			"particleoutputblendmode_t": {
+				"title": "ParticleOutputBlendMode_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_OUTPUT_BLEND_MODE_ALPHA": "0x0",
+					"PARTICLE_OUTPUT_BLEND_MODE_ADD": "0x1",
+					"PARTICLE_OUTPUT_BLEND_MODE_BLEND_ADD": "0x2",
+					"PARTICLE_OUTPUT_BLEND_MODE_HALF_BLEND_ADD": "0x3",
+					"PARTICLE_OUTPUT_BLEND_MODE_NEG_HALF_BLEND_ADD": "0x4",
+					"PARTICLE_OUTPUT_BLEND_MODE_MOD2X": "0x5",
+					"PARTICLE_OUTPUT_BLEND_MODE_LIGHTEN": "0x6"
+				}
+			},
+			"pulsemethodcallmode_t": {
+				"title": "PulseMethodCallMode_t",
+				"template": "types-syntax",
+				"values": {
+					"SYNC_WAIT_FOR_COMPLETION": "0x0",
+					"ASYNC_FIRE_AND_FORGET": "0x1"
+				}
+			},
+			"vmixfilterslope_t": {
+				"title": "VMixFilterSlope_t",
+				"template": "types-syntax",
+				"values": {
+					"FILTER_SLOPE_1POLE_6dB": "0x0",
+					"FILTER_SLOPE_1POLE_12dB": "0x1",
+					"FILTER_SLOPE_1POLE_18dB": "0x2",
+					"FILTER_SLOPE_1POLE_24dB": "0x3",
+					"FILTER_SLOPE_12dB": "0x4",
+					"FILTER_SLOPE_24dB": "0x5",
+					"FILTER_SLOPE_36dB": "0x6",
+					"FILTER_SLOPE_48dB": "0x7",
+					"FILTER_SLOPE_MAX": "0x7"
+				}
+			},
+			"viewfademode_t": {
+				"title": "ViewFadeMode_t",
+				"template": "types-syntax",
+				"values": {
+					"VIEW_FADE_CONSTANT_COLOR": "0x0",
+					"VIEW_FADE_MODULATE": "0x1",
+					"VIEW_FADE_MOD2X": "0x2"
+				}
+			},
+			"pulsecursorexecresult_t": {
+				"title": "PulseCursorExecResult_t",
+				"template": "types-syntax",
+				"values": {
+					"Succeeded": "0x0",
+					"Canceled": "0x1",
+					"Failed": "0x2"
+				}
+			},
+			"cnmbonemask__weightinfo_t": {
+				"title": "CNmBoneMask__WeightInfo_t",
+				"template": "types-syntax",
+				"values": {
+					"Zero": "0x0",
+					"Mixed": "0x1",
+					"One": "0x2"
+				}
+			},
+			"nmtransitionrulecondition_t": {
+				"title": "NmTransitionRuleCondition_t",
+				"template": "types-syntax",
+				"values": {
+					"AnyAllowed": "0x0",
+					"FullyAllowed": "0x1",
+					"ConditionallyAllowed": "0x2",
+					"Blocked": "0x3"
+				}
+			},
+			"flexopcode_t": {
+				"title": "FlexOpCode_t",
+				"template": "types-syntax",
+				"values": {
+					"FLEX_OP_CONST": "0x1",
+					"FLEX_OP_FETCH1": "0x2",
+					"FLEX_OP_FETCH2": "0x3",
+					"FLEX_OP_ADD": "0x4",
+					"FLEX_OP_SUB": "0x5",
+					"FLEX_OP_MUL": "0x6",
+					"FLEX_OP_DIV": "0x7",
+					"FLEX_OP_NEG": "0x8",
+					"FLEX_OP_EXP": "0x9",
+					"FLEX_OP_OPEN": "0xa",
+					"FLEX_OP_CLOSE": "0xb",
+					"FLEX_OP_COMMA": "0xc",
+					"FLEX_OP_MAX": "0xd",
+					"FLEX_OP_MIN": "0xe",
+					"FLEX_OP_2WAY_0": "0xf",
+					"FLEX_OP_2WAY_1": "0x10",
+					"FLEX_OP_NWAY": "0x11",
+					"FLEX_OP_COMBO": "0x12",
+					"FLEX_OP_DOMINATE": "0x13",
+					"FLEX_OP_DME_LOWER_EYELID": "0x14",
+					"FLEX_OP_DME_UPPER_EYELID": "0x15",
+					"FLEX_OP_SQRT": "0x16",
+					"FLEX_OP_REMAPVALCLAMPED": "0x17",
+					"FLEX_OP_SIN": "0x18",
+					"FLEX_OP_COS": "0x19",
+					"FLEX_OP_ABS": "0x1a"
+				}
+			},
+			"rendermultisampletype_t": {
+				"title": "RenderMultisampleType_t",
+				"template": "types-syntax",
+				"values": {
+					"RENDER_MULTISAMPLE_INVALID": "0xffffffffffffffff",
+					"RENDER_MULTISAMPLE_NONE": "0x0",
+					"RENDER_MULTISAMPLE_2X": "0x1",
+					"RENDER_MULTISAMPLE_4X": "0x2",
+					"RENDER_MULTISAMPLE_6X": "0x3",
+					"RENDER_MULTISAMPLE_8X": "0x4",
+					"RENDER_MULTISAMPLE_16X": "0x5",
+					"RENDER_MULTISAMPLE_TYPE_COUNT": "0x6"
+				}
+			},
+			"particlelighttypechoicelist_t": {
+				"title": "ParticleLightTypeChoiceList_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_LIGHT_TYPE_POINT": "0x0",
+					"PARTICLE_LIGHT_TYPE_SPOT": "0x1",
+					"PARTICLE_LIGHT_TYPE_FX": "0x2",
+					"PARTICLE_LIGHT_TYPE_CAPSULE": "0x3"
+				}
+			},
+			"iksolvertype": {
+				"title": "IKSolverType",
+				"template": "types-syntax",
+				"values": {
+					"IKSOLVER_Perlin": "0x0",
+					"IKSOLVER_TwoBone": "0x1",
+					"IKSOLVER_Fabrik": "0x2",
+					"IKSOLVER_DogLeg3Bone": "0x3",
+					"IKSOLVER_CCD": "0x4",
+					"IKSOLVER_COUNT": "0x5"
+				}
+			},
+			"solveikchainanimnodedebugsetting": {
+				"title": "SolveIKChainAnimNodeDebugSetting",
+				"template": "types-syntax",
+				"values": {
+					"SOLVEIKCHAINANIMNODEDEBUGSETTING_None": "0x0",
+					"SOLVEIKCHAINANIMNODEDEBUGSETTING_X_Axis_Circle": "0x1",
+					"SOLVEIKCHAINANIMNODEDEBUGSETTING_Y_Axis_Circle": "0x2",
+					"SOLVEIKCHAINANIMNODEDEBUGSETTING_Z_Axis_Circle": "0x3",
+					"SOLVEIKCHAINANIMNODEDEBUGSETTING_Forward": "0x4",
+					"SOLVEIKCHAINANIMNODEDEBUGSETTING_Up": "0x5",
+					"SOLVEIKCHAINANIMNODEDEBUGSETTING_Left": "0x6"
+				}
+			},
+			"pulsecursorcancelpriority_t": {
+				"title": "PulseCursorCancelPriority_t",
+				"template": "types-syntax",
+				"values": {
+					"None": "0x0",
+					"CancelOnSucceeded": "0x1",
+					"SoftCancel": "0x2",
+					"HardCancel": "0x3"
+				}
+			},
+			"materialproxytype_t": {
+				"title": "MaterialProxyType_t",
+				"template": "types-syntax",
+				"values": {
+					"MATERIAL_PROXY_STATUS_EFFECT": "0x0",
+					"MATERIAL_PROXY_TINT": "0x1"
+				}
+			},
+			"pfuncvisualizationtype_t": {
+				"title": "PFuncVisualizationType_t",
+				"template": "types-syntax",
+				"values": {
+					"PFUNC_VISUALIZATION_SPHERE_WIREFRAME": "0x0",
+					"PFUNC_VISUALIZATION_SPHERE_SOLID": "0x1",
+					"PFUNC_VISUALIZATION_BOX": "0x2",
+					"PFUNC_VISUALIZATION_RING": "0x3",
+					"PFUNC_VISUALIZATION_PLANE": "0x4",
+					"PFUNC_VISUALIZATION_LINE": "0x5",
+					"PFUNC_VISUALIZATION_CYLINDER": "0x6"
+				}
+			},
+			"vphysxjoint_t__flags_t": {
+				"title": "VPhysXJoint_t__Flags_t",
+				"template": "types-syntax",
+				"values": {
+					"JOINT_FLAGS_NONE": "0x0",
+					"JOINT_FLAGS_BODY1_FIXED": "0x1",
+					"JOINT_FLAGS_USE_BLOCK_SOLVER": "0x2"
+				}
+			},
+			"particlepostprocessprioritygroup_t": {
+				"title": "ParticlePostProcessPriorityGroup_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_POST_PROCESS_PRIORITY_LEVEL_VOLUME": "0x0",
+					"PARTICLE_POST_PROCESS_PRIORITY_LEVEL_OVERRIDE": "0x1",
+					"PARTICLE_POST_PROCESS_PRIORITY_GAMEPLAY_EFFECT": "0x2",
+					"PARTICLE_POST_PROCESS_PRIORITY_GAMEPLAY_STATE_LOW": "0x3",
+					"PARTICLE_POST_PROCESS_PRIORITY_GAMEPLAY_STATE_HIGH": "0x4",
+					"PARTICLE_POST_PROCESS_PRIORITY_GLOBAL_UI": "0x5"
+				}
+			},
+			"vmixpannertype_t": {
+				"title": "VMixPannerType_t",
+				"template": "types-syntax",
+				"values": {
+					"PANNER_TYPE_LINEAR": "0x0",
+					"PANNER_TYPE_EQUAL_POWER": "0x1"
+				}
+			},
+			"layoutpositiontype_e": {
+				"title": "LayoutPositionType_e",
+				"template": "types-syntax",
+				"values": {
+					"LAYOUTPOSITIONTYPE_VIEWPORT_RELATIVE": "0x0",
+					"LAYOUTPOSITIONTYPE_FRACTIONAL": "0x1",
+					"LAYOUTPOSITIONTYPE_NONE": "0x2"
+				}
+			},
+			"animparamnetworksetting": {
+				"title": "AnimParamNetworkSetting",
+				"template": "types-syntax",
+				"values": {
+					"Auto": "0x0",
+					"AlwaysNetwork": "0x1",
+					"NeverNetwork": "0x2"
+				}
+			},
+			"jointaxis_t": {
+				"title": "JointAxis_t",
+				"template": "types-syntax",
+				"values": {
+					"JOINT_AXIS_X": "0x0",
+					"JOINT_AXIS_Y": "0x1",
+					"JOINT_AXIS_Z": "0x2",
+					"JOINT_AXIS_COUNT": "0x3"
+				}
+			},
+			"movementgait_t": {
+				"title": "MovementGait_t",
+				"template": "types-syntax",
+				"values": {
+					"eInvalid": "0xffffffffffffffff",
+					"eWalk": "0x0",
+					"eJog": "0x1",
+					"eRun": "0x2",
+					"eSprint": "0x3"
+				}
+			},
+			"particlerotationlocktype_t": {
+				"title": "ParticleRotationLockType_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_ROTATION_LOCK_NONE": "0x0",
+					"PARTICLE_ROTATION_LOCK_ROTATIONS": "0x1",
+					"PARTICLE_ROTATION_LOCK_NORMAL": "0x2"
+				}
+			},
+			"particlefloatinputmode_t": {
+				"title": "ParticleFloatInputMode_t",
+				"template": "types-syntax",
+				"values": {
+					"PF_INPUT_MODE_INVALID": "0xffffffffffffffff",
+					"PF_INPUT_MODE_CLAMPED": "0x0",
+					"PF_INPUT_MODE_LOOPED": "0x1",
+					"PF_INPUT_MODE_COUNT": "0x2"
+				}
+			},
+			"aimmatrixblendmode": {
+				"title": "AimMatrixBlendMode",
+				"template": "types-syntax",
+				"values": {
+					"AimMatrixBlendMode_None": "0x0",
+					"AimMatrixBlendMode_Additive": "0x1",
+					"AimMatrixBlendMode_ModelSpaceAdditive": "0x2",
+					"AimMatrixBlendMode_BoneMask": "0x3"
+				}
+			},
+			"particlehitboxbiastype_t": {
+				"title": "ParticleHitboxBiasType_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_HITBOX_BIAS_ENTITY": "0x0",
+					"PARTICLE_HITBOX_BIAS_HITBOX": "0x1"
+				}
+			},
+			"compositematerialinputloosevariabletype_t": {
+				"title": "CompositeMaterialInputLooseVariableType_t",
+				"template": "types-syntax",
+				"values": {
+					"LOOSE_VARIABLE_TYPE_BOOLEAN": "0x0",
+					"LOOSE_VARIABLE_TYPE_INTEGER1": "0x1",
+					"LOOSE_VARIABLE_TYPE_INTEGER2": "0x2",
+					"LOOSE_VARIABLE_TYPE_INTEGER3": "0x3",
+					"LOOSE_VARIABLE_TYPE_INTEGER4": "0x4",
+					"LOOSE_VARIABLE_TYPE_FLOAT1": "0x5",
+					"LOOSE_VARIABLE_TYPE_FLOAT2": "0x6",
+					"LOOSE_VARIABLE_TYPE_FLOAT3": "0x7",
+					"LOOSE_VARIABLE_TYPE_FLOAT4": "0x8",
+					"LOOSE_VARIABLE_TYPE_COLOR4": "0x9",
+					"LOOSE_VARIABLE_TYPE_STRING": "0xa",
+					"LOOSE_VARIABLE_TYPE_SYSTEMVAR": "0xb",
+					"LOOSE_VARIABLE_TYPE_RESOURCE_MATERIAL": "0xc",
+					"LOOSE_VARIABLE_TYPE_RESOURCE_TEXTURE": "0xd"
+				}
+			},
+			"blurfiltertype_t": {
+				"title": "BlurFilterType_t",
+				"template": "types-syntax",
+				"values": {
+					"BLURFILTER_GAUSSIAN": "0x0",
+					"BLURFILTER_BOX": "0x1"
+				}
+			},
+			"stanceoverridemode": {
+				"title": "StanceOverrideMode",
+				"template": "types-syntax",
+				"values": {
+					"Sequence": "0x0",
+					"Node": "0x1"
+				}
+			},
+			"meshdrawprimitiveflags_t": {
+				"title": "MeshDrawPrimitiveFlags_t",
+				"template": "types-syntax",
+				"values": {
+					"MESH_DRAW_FLAGS_NONE": "0x0",
+					"MESH_DRAW_FLAGS_USE_SHADOW_FAST_PATH": "0x1",
+					"MESH_DRAW_FLAGS_USE_COMPRESSED_NORMAL_TANGENT": "0x2",
+					"MESH_DRAW_INPUT_LAYOUT_IS_NOT_MATCHED_TO_MATERIAL": "0x8",
+					"MESH_DRAW_FLAGS_USE_COMPRESSED_PER_VERTEX_LIGHTING": "0x10",
+					"MESH_DRAW_FLAGS_USE_UNCOMPRESSED_PER_VERTEX_LIGHTING": "0x20",
+					"MESH_DRAW_FLAGS_CAN_BATCH_WITH_DYNAMIC_SHADER_CONSTANTS": "0x40",
+					"MESH_DRAW_FLAGS_DRAW_LAST": "0x80"
+				}
+			},
+			"particlefloattype_t": {
+				"title": "ParticleFloatType_t",
+				"template": "types-syntax",
+				"values": {
+					"PF_TYPE_INVALID": "0xffffffffffffffff",
+					"PF_TYPE_LITERAL": "0x0",
+					"PF_TYPE_NAMED_VALUE": "0x1",
+					"PF_TYPE_RANDOM_UNIFORM": "0x2",
+					"PF_TYPE_RANDOM_BIASED": "0x3",
+					"PF_TYPE_COLLECTION_AGE": "0x4",
+					"PF_TYPE_ENDCAP_AGE": "0x5",
+					"PF_TYPE_CONTROL_POINT_COMPONENT": "0x6",
+					"PF_TYPE_CONTROL_POINT_CHANGE_AGE": "0x7",
+					"PF_TYPE_CONTROL_POINT_SPEED": "0x8",
+					"PF_TYPE_PARTICLE_DETAIL_LEVEL": "0x9",
+					"PF_TYPE_CONCURRENT_DEF_COUNT": "0xa",
+					"PF_TYPE_CLOSEST_CAMERA_DISTANCE": "0xb",
+					"PF_TYPE_RENDERER_CAMERA_DISTANCE": "0xc",
+					"PF_TYPE_RENDERER_CAMERA_DOT_PRODUCT": "0xd",
+					"PF_TYPE_PARTICLE_NOISE": "0xe",
+					"PF_TYPE_PARTICLE_AGE": "0xf",
+					"PF_TYPE_PARTICLE_AGE_NORMALIZED": "0x10",
+					"PF_TYPE_PARTICLE_FLOAT": "0x11",
+					"PF_TYPE_PARTICLE_VECTOR_COMPONENT": "0x12",
+					"PF_TYPE_PARTICLE_SPEED": "0x13",
+					"PF_TYPE_PARTICLE_NUMBER": "0x14",
+					"PF_TYPE_PARTICLE_NUMBER_NORMALIZED": "0x15",
+					"PF_TYPE_COUNT": "0x16"
+				}
+			},
+			"nmtransitionrule_t": {
+				"title": "NmTransitionRule_t",
+				"template": "types-syntax",
+				"values": {
+					"AllowTransition": "0x0",
+					"ConditionallyAllowTransition": "0x1",
+					"BlockTransition": "0x2"
+				}
+			},
+			"spritecardtexturetype_t": {
+				"title": "SpriteCardTextureType_t",
+				"template": "types-syntax",
+				"values": {
+					"SPRITECARD_TEXTURE_DIFFUSE": "0x0",
+					"SPRITECARD_TEXTURE_ZOOM": "0x1",
+					"SPRITECARD_TEXTURE_1D_COLOR_LOOKUP": "0x2",
+					"SPRITECARD_TEXTURE_UVDISTORTION": "0x3",
+					"SPRITECARD_TEXTURE_UVDISTORTION_ZOOM": "0x4",
+					"SPRITECARD_TEXTURE_NORMALMAP": "0x5",
+					"SPRITECARD_TEXTURE_ANIMMOTIONVEC": "0x6",
+					"SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_A": "0x7",
+					"SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_B": "0x8",
+					"SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_C": "0x9"
+				}
+			},
+			"selectortagbehavior_t": {
+				"title": "SelectorTagBehavior_t",
+				"template": "types-syntax",
+				"values": {
+					"SelectorTagBehavior_OnWhileCurrent": "0x0",
+					"SelectorTagBehavior_OffWhenFinished": "0x1",
+					"SelectorTagBehavior_OffBeforeFinished": "0x2"
+				}
+			},
+			"particlefloatmaptype_t": {
+				"title": "ParticleFloatMapType_t",
+				"template": "types-syntax",
+				"values": {
+					"PF_MAP_TYPE_INVALID": "0xffffffffffffffff",
+					"PF_MAP_TYPE_DIRECT": "0x0",
+					"PF_MAP_TYPE_MULT": "0x1",
+					"PF_MAP_TYPE_REMAP": "0x2",
+					"PF_MAP_TYPE_REMAP_BIASED": "0x3",
+					"PF_MAP_TYPE_CURVE": "0x4",
+					"PF_MAP_TYPE_NOTCHED": "0x5",
+					"PF_MAP_TYPE_COUNT": "0x6"
+				}
+			},
+			"vmixfiltertype_t": {
+				"title": "VMixFilterType_t",
+				"template": "types-syntax",
+				"values": {
+					"FILTER_UNKNOWN": "0xffffffffffffffff",
+					"FILTER_LOWPASS": "0x0",
+					"FILTER_HIGHPASS": "0x1",
+					"FILTER_BANDPASS": "0x2",
+					"FILTER_NOTCH": "0x3",
+					"FILTER_PEAKING_EQ": "0x4",
+					"FILTER_LOW_SHELF": "0x5",
+					"FILTER_HIGH_SHELF": "0x6",
+					"FILTER_ALLPASS": "0x7",
+					"FILTER_PASSTHROUGH": "0x8"
+				}
+			},
+			"particleattrboxflags_t": {
+				"title": "ParticleAttrBoxFlags_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_ATTR_BOX_FLAGS_NONE": "0x0",
+					"PARTICLE_ATTR_BOX_FLAGS_WATER": "0x1"
+				}
+			},
+			"sosgrouptype_t": {
+				"title": "SosGroupType_t",
+				"template": "types-syntax",
+				"values": {
+					"SOS_GROUPTYPE_DYNAMIC": "0x0",
+					"SOS_GROUPTYPE_STATIC": "0x1"
+				}
+			},
+			"pfnoiseturbulence_t": {
+				"title": "PFNoiseTurbulence_t",
+				"template": "types-syntax",
+				"values": {
+					"PF_NOISE_TURB_NONE": "0x0",
+					"PF_NOISE_TURB_HIGHLIGHT": "0x1",
+					"PF_NOISE_TURB_FEEDBACK": "0x2",
+					"PF_NOISE_TURB_LOOPY": "0x3",
+					"PF_NOISE_TURB_CONTRAST": "0x4",
+					"PF_NOISE_TURB_ALTERNATE": "0x5"
+				}
+			},
+			"missingparentinheritbehavior_t": {
+				"title": "MissingParentInheritBehavior_t",
+				"template": "types-syntax",
+				"values": {
+					"MISSING_PARENT_DO_NOTHING": "0xffffffffffffffff",
+					"MISSING_PARENT_KILL": "0x0",
+					"MISSING_PARENT_FIND_NEW": "0x1",
+					"MISSING_PARENT_SAME_INDEX": "0x2"
+				}
+			},
+			"animationtype_t": {
+				"title": "AnimationType_t",
+				"template": "types-syntax",
+				"values": {
+					"ANIMATION_TYPE_FIXED_RATE": "0x0",
+					"ANIMATION_TYPE_FIT_LIFETIME": "0x1",
+					"ANIMATION_TYPE_MANUAL_FRAMES": "0x2"
+				}
+			},
+			"animparambutton_t": {
+				"title": "AnimParamButton_t",
+				"template": "types-syntax",
+				"values": {
+					"ANIMPARAM_BUTTON_NONE": "0x0",
+					"ANIMPARAM_BUTTON_DPAD_UP": "0x1",
+					"ANIMPARAM_BUTTON_DPAD_RIGHT": "0x2",
+					"ANIMPARAM_BUTTON_DPAD_DOWN": "0x3",
+					"ANIMPARAM_BUTTON_DPAD_LEFT": "0x4",
+					"ANIMPARAM_BUTTON_A": "0x5",
+					"ANIMPARAM_BUTTON_B": "0x6",
+					"ANIMPARAM_BUTTON_X": "0x7",
+					"ANIMPARAM_BUTTON_Y": "0x8",
+					"ANIMPARAM_BUTTON_LEFT_SHOULDER": "0x9",
+					"ANIMPARAM_BUTTON_RIGHT_SHOULDER": "0xa",
+					"ANIMPARAM_BUTTON_LTRIGGER": "0xb",
+					"ANIMPARAM_BUTTON_RTRIGGER": "0xc"
+				}
+			},
+			"bloomblendmode_t": {
+				"title": "BloomBlendMode_t",
+				"template": "types-syntax",
+				"values": {
+					"BLOOM_BLEND_ADD": "0x0",
+					"BLOOM_BLEND_SCREEN": "0x1",
+					"BLOOM_BLEND_BLUR": "0x2"
+				}
+			},
+			"compmatpropertymutatorconditiontype_t": {
+				"title": "CompMatPropertyMutatorConditionType_t",
+				"template": "types-syntax",
+				"values": {
+					"COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_EXISTS": "0x0",
+					"COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EXISTS": "0x1",
+					"COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EQUALS": "0x2"
+				}
+			},
+			"particlesetmethod_t": {
+				"title": "ParticleSetMethod_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_SET_REPLACE_VALUE": "0x0",
+					"PARTICLE_SET_SCALE_INITIAL_VALUE": "0x1",
+					"PARTICLE_SET_ADD_TO_INITIAL_VALUE": "0x2",
+					"PARTICLE_SET_RAMP_CURRENT_VALUE": "0x3",
+					"PARTICLE_SET_SCALE_CURRENT_VALUE": "0x4",
+					"PARTICLE_SET_ADD_TO_CURRENT_VALUE": "0x5"
+				}
+			},
+			"vectorfloatexpressiontype_t": {
+				"title": "VectorFloatExpressionType_t",
+				"template": "types-syntax",
+				"values": {
+					"VECTOR_FLOAT_EXPRESSION_UNINITIALIZED": "0xffffffffffffffff",
+					"VECTOR_FLOAT_EXPRESSION_DOTPRODUCT": "0x0",
+					"VECTOR_FLOAT_EXPRESSION_DISTANCE": "0x1",
+					"VECTOR_FLOAT_EXPRESSION_DISTANCESQR": "0x2",
+					"VECTOR_FLOAT_EXPRESSION_INPUT1_LENGTH": "0x3",
+					"VECTOR_FLOAT_EXPRESSION_INPUT1_LENGTHSQR": "0x4",
+					"VECTOR_FLOAT_EXPRESSION_INPUT1_NOISE": "0x5"
+				}
+			},
+			"choicemethod": {
+				"title": "ChoiceMethod",
+				"template": "types-syntax",
+				"values": {
+					"WeightedRandom": "0x0",
+					"WeightedRandomNoRepeat": "0x1",
+					"Iterate": "0x2",
+					"IterateRandom": "0x3"
+				}
+			},
+			"nmfootphasecondition_t": {
+				"title": "NmFootPhaseCondition_t",
+				"template": "types-syntax",
+				"values": {
+					"LeftFootDown": "0x0",
+					"LeftFootPassing": "0x1",
+					"LeftPhase": "0x4",
+					"RightFootDown": "0x2",
+					"RightFootPassing": "0x3",
+					"RightPhase": "0x5"
+				}
+			},
+			"compositematerialvarsystemvar_t": {
+				"title": "CompositeMaterialVarSystemVar_t",
+				"template": "types-syntax",
+				"values": {
+					"COMPMATSYSVAR_COMPOSITETIME": "0x0",
+					"COMPMATSYSVAR_EMPTY_RESOURCE_SPACER": "0x1"
+				}
+			},
+			"vectorexpressiontype_t": {
+				"title": "VectorExpressionType_t",
+				"template": "types-syntax",
+				"values": {
+					"VECTOR_EXPRESSION_UNINITIALIZED": "0xffffffffffffffff",
+					"VECTOR_EXPRESSION_ADD": "0x0",
+					"VECTOR_EXPRESSION_SUBTRACT": "0x1",
+					"VECTOR_EXPRESSION_MUL": "0x2",
+					"VECTOR_EXPRESSION_DIVIDE": "0x3",
+					"VECTOR_EXPRESSION_INPUT_1": "0x4",
+					"VECTOR_EXPRESSION_MIN": "0x5",
+					"VECTOR_EXPRESSION_MAX": "0x6",
+					"VECTOR_EXPRESSION_CROSSPRODUCT": "0x7"
+				}
+			},
+			"particleselection_t": {
+				"title": "ParticleSelection_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_SELECTION_FIRST": "0x0",
+					"PARTICLE_SELECTION_LAST": "0x1",
+					"PARTICLE_SELECTION_NUMBER": "0x2"
+				}
+			},
+			"disableshadows_t": {
+				"title": "DisableShadows_t",
+				"template": "types-syntax",
+				"values": {
+					"kDisableShadows_None": "0x0",
+					"kDisableShadows_All": "0x1",
+					"kDisableShadows_Baked": "0x2",
+					"kDisableShadows_Realtime": "0x3"
+				}
+			},
+			"particlefogtype_t": {
+				"title": "ParticleFogType_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_FOG_GAME_DEFAULT": "0x0",
+					"PARTICLE_FOG_ENABLED": "0x1",
+					"PARTICLE_FOG_DISABLED": "0x2"
+				}
+			},
+			"detail2combo_t": {
+				"title": "Detail2Combo_t",
+				"template": "types-syntax",
+				"values": {
+					"DETAIL_2_COMBO_UNINITIALIZED": "0xffffffffffffffff",
+					"DETAIL_2_COMBO_OFF": "0x0",
+					"DETAIL_2_COMBO_ADD": "0x1",
+					"DETAIL_2_COMBO_ADD_SELF_ILLUM": "0x2",
+					"DETAIL_2_COMBO_MOD2X": "0x3",
+					"DETAIL_2_COMBO_MUL": "0x4",
+					"DETAIL_2_COMBO_CROSSFADE": "0x5"
+				}
+			},
+			"particlealphareferencetype_t": {
+				"title": "ParticleAlphaReferenceType_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_ALPHA_REFERENCE_ALPHA_ALPHA": "0x0",
+					"PARTICLE_ALPHA_REFERENCE_OPAQUE_ALPHA": "0x1",
+					"PARTICLE_ALPHA_REFERENCE_ALPHA_OPAQUE": "0x2",
+					"PARTICLE_ALPHA_REFERENCE_OPAQUE_OPAQUE": "0x3"
+				}
+			},
+			"particlevectype_t": {
+				"title": "ParticleVecType_t",
+				"template": "types-syntax",
+				"values": {
+					"PVEC_TYPE_INVALID": "0xffffffffffffffff",
+					"PVEC_TYPE_LITERAL": "0x0",
+					"PVEC_TYPE_LITERAL_COLOR": "0x1",
+					"PVEC_TYPE_NAMED_VALUE": "0x2",
+					"PVEC_TYPE_PARTICLE_VECTOR": "0x3",
+					"PVEC_TYPE_PARTICLE_VELOCITY": "0x4",
+					"PVEC_TYPE_CP_VALUE": "0x5",
+					"PVEC_TYPE_CP_RELATIVE_POSITION": "0x6",
+					"PVEC_TYPE_CP_RELATIVE_DIR": "0x7",
+					"PVEC_TYPE_CP_RELATIVE_RANDOM_DIR": "0x8",
+					"PVEC_TYPE_FLOAT_COMPONENTS": "0x9",
+					"PVEC_TYPE_FLOAT_INTERP_CLAMPED": "0xa",
+					"PVEC_TYPE_FLOAT_INTERP_OPEN": "0xb",
+					"PVEC_TYPE_FLOAT_INTERP_GRADIENT": "0xc",
+					"PVEC_TYPE_RANDOM_UNIFORM": "0xd",
+					"PVEC_TYPE_RANDOM_UNIFORM_OFFSET": "0xe",
+					"PVEC_TYPE_CP_DELTA": "0xf",
+					"PVEC_TYPE_CLOSEST_CAMERA_POSITION": "0x10",
+					"PVEC_TYPE_COUNT": "0x11"
+				}
+			},
+			"threestate_t": {
+				"title": "ThreeState_t",
+				"template": "types-syntax",
+				"values": {
+					"TRS_FALSE": "0x0",
+					"TRS_TRUE": "0x1",
+					"TRS_NONE": "0x2"
+				}
+			},
+			"pfnoisemodifier_t": {
+				"title": "PFNoiseModifier_t",
+				"template": "types-syntax",
+				"values": {
+					"PF_NOISE_MODIFIER_NONE": "0x0",
+					"PF_NOISE_MODIFIER_LINES": "0x1",
+					"PF_NOISE_MODIFIER_CLUMPS": "0x2",
+					"PF_NOISE_MODIFIER_RINGS": "0x3"
+				}
+			},
+			"particleimpulsetype_t": {
+				"title": "ParticleImpulseType_t",
+				"template": "types-syntax",
+				"values": {
+					"IMPULSE_TYPE_NONE": "0x0",
+					"IMPULSE_TYPE_GENERIC": "0x1",
+					"IMPULSE_TYPE_ROPE": "0x2",
+					"IMPULSE_TYPE_EXPLOSION": "0x4",
+					"IMPULSE_TYPE_EXPLOSION_UNDERWATER": "0x8",
+					"IMPULSE_TYPE_PARTICLE_SYSTEM": "0x10"
+				}
+			},
+			"vphysxaggregatedata_t__vphysxflagenum_t": {
+				"title": "VPhysXAggregateData_t__VPhysXFlagEnum_t",
+				"template": "types-syntax",
+				"values": {
+					"FLAG_IS_POLYSOUP_GEOMETRY": "0x1",
+					"FLAG_LEVEL_COLLISION": "0x10",
+					"FLAG_IGNORE_SCALE_OBSOLETE_DO_NOT_USE": "0x20"
+				}
+			},
+			"particlefloatrandommode_t": {
+				"title": "ParticleFloatRandomMode_t",
+				"template": "types-syntax",
+				"values": {
+					"PF_RANDOM_MODE_INVALID": "0xffffffffffffffff",
+					"PF_RANDOM_MODE_CONSTANT": "0x0",
+					"PF_RANDOM_MODE_VARYING": "0x1",
+					"PF_RANDOM_MODE_COUNT": "0x2"
+				}
+			},
+			"animnodenetworkmode": {
+				"title": "AnimNodeNetworkMode",
+				"template": "types-syntax",
+				"values": {
+					"ServerAuthoritative": "0x0",
+					"ClientSimulate": "0x1"
+				}
+			},
+			"compositematerialmatchfiltertype_t": {
+				"title": "CompositeMaterialMatchFilterType_t",
+				"template": "types-syntax",
+				"values": {
+					"MATCH_FILTER_MATERIAL_ATTRIBUTE_EXISTS": "0x0",
+					"MATCH_FILTER_MATERIAL_SHADER": "0x1",
+					"MATCH_FILTER_MATERIAL_NAME_SUBSTR": "0x2",
+					"MATCH_FILTER_MATERIAL_ATTRIBUTE_EQUALS": "0x3",
+					"MATCH_FILTER_MATERIAL_PROPERTY_EXISTS": "0x4",
+					"MATCH_FILTER_MATERIAL_PROPERTY_EQUALS": "0x5"
+				}
+			},
+			"animposecontrol": {
+				"title": "AnimPoseControl",
+				"template": "types-syntax",
+				"values": {
+					"NoPoseControl": "0x0",
+					"AbsolutePoseControl": "0x1",
+					"RelativePoseControl": "0x2"
+				}
+			},
+			"footlocksubvisualization": {
+				"title": "FootLockSubVisualization",
+				"template": "types-syntax",
+				"values": {
+					"FOOTLOCKSUBVISUALIZATION_ReachabilityAnalysis": "0x0",
+					"FOOTLOCKSUBVISUALIZATION_IKSolve": "0x1"
+				}
+			},
+			"pulsevaluetype_t": {
+				"title": "PulseValueType_t",
+				"template": "types-syntax",
+				"values": {
+					"PVAL_INVALID": "0xffffffffffffffff",
+					"PVAL_BOOL": "0x0",
+					"PVAL_INT": "0x1",
+					"PVAL_FLOAT": "0x2",
+					"PVAL_STRING": "0x3",
+					"PVAL_VEC3": "0x4",
+					"PVAL_TRANSFORM": "0x5",
+					"PVAL_COLOR_RGB": "0x6",
+					"PVAL_EHANDLE": "0x7",
+					"PVAL_RESOURCE": "0x8",
+					"PVAL_SNDEVT_GUID": "0x9",
+					"PVAL_ENTITY_NAME": "0xa",
+					"PVAL_SCHEMA_PTR": "0xb",
+					"PVAL_TYPESAFE_INT": "0xc",
+					"PVAL_CURSOR_FLOW": "0xd",
+					"PVAL_ANY": "0xe",
+					"PVAL_SCHEMA_ENUM": "0xf",
+					"PVAL_PANORAMA_PANEL_HANDLE": "0x10",
+					"PVAL_COUNT": "0x11"
+				}
+			},
+			"facingmode": {
+				"title": "FacingMode",
+				"template": "types-syntax",
+				"values": {
+					"FacingMode_Manual": "0x0",
+					"FacingMode_Path": "0x1",
+					"FacingMode_LookTarget": "0x2"
+				}
+			},
+			"seqcmd_t": {
+				"title": "SeqCmd_t",
+				"template": "types-syntax",
+				"values": {
+					"SeqCmd_Nop": "0x0",
+					"SeqCmd_LinearDelta": "0x1",
+					"SeqCmd_FetchFrameRange": "0x2",
+					"SeqCmd_Slerp": "0x3",
+					"SeqCmd_Add": "0x4",
+					"SeqCmd_Subtract": "0x5",
+					"SeqCmd_Scale": "0x6",
+					"SeqCmd_Copy": "0x7",
+					"SeqCmd_Blend": "0x8",
+					"SeqCmd_Worldspace": "0x9",
+					"SeqCmd_Sequence": "0xa",
+					"SeqCmd_FetchCycle": "0xb",
+					"SeqCmd_FetchFrame": "0xc",
+					"SeqCmd_IKLockInPlace": "0xd",
+					"SeqCmd_IKRestoreAll": "0xe",
+					"SeqCmd_ReverseSequence": "0xf",
+					"SeqCmd_Transform": "0x10"
+				}
+			},
+			"choiceblendmethod": {
+				"title": "ChoiceBlendMethod",
+				"template": "types-syntax",
+				"values": {
+					"SingleBlendTime": "0x0",
+					"PerChoiceBlendTimes": "0x1"
+				}
+			},
+			"particleparentsetmode_t": {
+				"title": "ParticleParentSetMode_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_SET_PARENT_NO": "0x0",
+					"PARTICLE_SET_PARENT_IMMEDIATE": "0x1",
+					"PARTICLE_SET_PARENT_ROOT": "0x1"
+				}
+			},
+			"vmixprocessortype_t": {
+				"title": "VMixProcessorType_t",
+				"template": "types-syntax",
+				"values": {
+					"VPROCESSOR_UNKNOWN": "0x0",
+					"VPROCESSOR_STEAMAUDIO_REVERB": "0x1",
+					"VPROCESSOR_RT_PITCH": "0x2",
+					"VPROCESSOR_STEAMAUDIO_HRTF": "0x3",
+					"VPROCESSOR_DYNAMICS": "0x4",
+					"VPROCESSOR_PRESETDSP": "0x5",
+					"VPROCESSOR_DELAY": "0x6",
+					"VPROCESSOR_MOD_DELAY": "0x7",
+					"VPROCESSOR_DIFFUSOR": "0x8",
+					"VPROCESSOR_BOXVERB": "0x9",
+					"VPROCESSOR_FREEVERB": "0xa",
+					"VPROCESSOR_PLATEVERB": "0xb",
+					"VPROCESSOR_FULLWAVE_INTEGRATOR": "0xc",
+					"VPROCESSOR_FILTER": "0xd",
+					"VPROCESSOR_STEAMAUDIO_PATHING": "0xe",
+					"VPROCESSOR_EQ8": "0xf",
+					"VPROCESSOR_ENVELOPE": "0x10",
+					"VPROCESSOR_VOCODER": "0x11",
+					"VPROCESSOR_CONVOLUTION": "0x12",
+					"VPROCESSOR_DYNAMICS_3BAND": "0x13",
+					"VPROCESSOR_DYNAMICS_COMPRESSOR": "0x14",
+					"VPROCESSOR_SHAPER": "0x15",
+					"VPROCESSOR_PANNER": "0x16",
+					"VPROCESSOR_UTILITY": "0x17",
+					"VPROCESSOR_AUTOFILTER": "0x18",
+					"VPROCESSOR_OSC": "0x19",
+					"VPROCESSOR_STEREODELAY": "0x1a",
+					"VPROCESSOR_EFFECT_CHAIN": "0x1b",
+					"VPROCESSOR_SUBGRAPH_SWITCH": "0x1c",
+					"VPROCESSOR_STEAMAUDIO_DIRECT": "0x1d"
+				}
+			},
+			"choicechangemethod": {
+				"title": "ChoiceChangeMethod",
+				"template": "types-syntax",
+				"values": {
+					"OnReset": "0x0",
+					"OnCycleEnd": "0x1",
+					"OnResetOrCycleEnd": "0x2"
+				}
+			},
+			"binarynodechildoption": {
+				"title": "BinaryNodeChildOption",
+				"template": "types-syntax",
+				"values": {
+					"Child1": "0x0",
+					"Child2": "0x1"
+				}
+			},
+			"compositematerialinputtexturetype_t": {
+				"title": "CompositeMaterialInputTextureType_t",
+				"template": "types-syntax",
+				"values": {
+					"INPUT_TEXTURE_TYPE_DEFAULT": "0x0",
+					"INPUT_TEXTURE_TYPE_NORMALMAP": "0x1",
+					"INPUT_TEXTURE_TYPE_COLOR": "0x2",
+					"INPUT_TEXTURE_TYPE_MASKS": "0x3",
+					"INPUT_TEXTURE_TYPE_ROUGHNESS": "0x4",
+					"INPUT_TEXTURE_TYPE_PEARLESCENCE_MASK": "0x5",
+					"INPUT_TEXTURE_TYPE_AO": "0x6"
+				}
+			},
+			"bonemaskblendspace": {
+				"title": "BoneMaskBlendSpace",
+				"template": "types-syntax",
+				"values": {
+					"BlendSpace_Parent": "0x0",
+					"BlendSpace_Model": "0x1",
+					"BlendSpace_Model_RotationOnly": "0x2",
+					"BlendSpace_Model_TranslationOnly": "0x3"
+				}
+			},
+			"animscripttype": {
+				"title": "AnimScriptType",
+				"template": "types-syntax",
+				"values": {
+					"ANIMSCRIPT_TYPE_INVALID": "0xffffffffffffffff",
+					"ANIMSCRIPT_FUSE_GENERAL": "0x0",
+					"ANIMSCRIPT_FUSE_STATEMACHINE": "0x1"
+				}
+			},
+			"fusevariableaccess_t": {
+				"title": "FuseVariableAccess_t",
+				"template": "types-syntax",
+				"values": {
+					"WRITABLE": "0x0",
+					"READ_ONLY": "0x1"
+				}
+			},
+			"detailcombo_t": {
+				"title": "DetailCombo_t",
+				"template": "types-syntax",
+				"values": {
+					"DETAIL_COMBO_OFF": "0x0",
+					"DETAIL_COMBO_ADD": "0x1",
+					"DETAIL_COMBO_ADD_SELF_ILLUM": "0x2",
+					"DETAIL_COMBO_MOD2X": "0x3"
+				}
+			},
+			"inheritablebooltype_t": {
+				"title": "InheritableBoolType_t",
+				"template": "types-syntax",
+				"values": {
+					"INHERITABLE_BOOL_INHERIT": "0x0",
+					"INHERITABLE_BOOL_FALSE": "0x1",
+					"INHERITABLE_BOOL_TRUE": "0x2"
+				}
+			},
+			"particletransformtype_t": {
+				"title": "ParticleTransformType_t",
+				"template": "types-syntax",
+				"values": {
+					"PT_TYPE_INVALID": "0x0",
+					"PT_TYPE_NAMED_VALUE": "0x1",
+					"PT_TYPE_CONTROL_POINT": "0x2",
+					"PT_TYPE_CONTROL_POINT_RANGE": "0x3",
+					"PT_TYPE_COUNT": "0x4"
+				}
+			},
+			"particlehitboxdataselection_t": {
+				"title": "ParticleHitboxDataSelection_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_HITBOX_AVERAGE_SPEED": "0x0",
+					"PARTICLE_HITBOX_COUNT": "0x1"
+				}
+			},
+			"animvectorsource": {
+				"title": "AnimVectorSource",
+				"template": "types-syntax",
+				"values": {
+					"MoveDirection": "0x0",
+					"FacingDirection": "0x1",
+					"LookDirection": "0x2",
+					"VectorParameter": "0x3",
+					"WayPointDirection": "0x4",
+					"Acceleration": "0x5",
+					"SlopeNormal": "0x6",
+					"SlopeNormal_WorldSpace": "0x7",
+					"LookTarget": "0x8",
+					"LookTarget_WorldSpace": "0x9",
+					"WayPointPosition": "0xa",
+					"GoalPosition": "0xb",
+					"RootMotionVelocity": "0xc"
+				}
+			},
+			"texturerepetitionmode_t": {
+				"title": "TextureRepetitionMode_t",
+				"template": "types-syntax",
+				"values": {
+					"TEXTURE_REPETITION_PARTICLE": "0x0",
+					"TEXTURE_REPETITION_PATH": "0x1"
+				}
+			},
+			"fieldtype_t": {
+				"title": "fieldtype_t",
+				"template": "types-syntax",
+				"values": {
+					"FIELD_VOID": "0x0",
+					"FIELD_FLOAT32": "0x1",
+					"FIELD_STRING": "0x2",
+					"FIELD_VECTOR": "0x3",
+					"FIELD_QUATERNION": "0x4",
+					"FIELD_INT32": "0x5",
+					"FIELD_BOOLEAN": "0x6",
+					"FIELD_INT16": "0x7",
+					"FIELD_CHARACTER": "0x8",
+					"FIELD_COLOR32": "0x9",
+					"FIELD_EMBEDDED": "0xa",
+					"FIELD_CUSTOM": "0xb",
+					"FIELD_CLASSPTR": "0xc",
+					"FIELD_EHANDLE": "0xd",
+					"FIELD_POSITION_VECTOR": "0xe",
+					"FIELD_TIME": "0xf",
+					"FIELD_TICK": "0x10",
+					"FIELD_SOUNDNAME": "0x11",
+					"FIELD_INPUT": "0x12",
+					"FIELD_FUNCTION": "0x13",
+					"FIELD_VMATRIX": "0x14",
+					"FIELD_VMATRIX_WORLDSPACE": "0x15",
+					"FIELD_MATRIX3X4_WORLDSPACE": "0x16",
+					"FIELD_INTERVAL": "0x17",
+					"FIELD_UNUSED": "0x18",
+					"FIELD_VECTOR2D": "0x19",
+					"FIELD_INT64": "0x1a",
+					"FIELD_VECTOR4D": "0x1b",
+					"FIELD_RESOURCE": "0x1c",
+					"FIELD_TYPEUNKNOWN": "0x1d",
+					"FIELD_CSTRING": "0x1e",
+					"FIELD_HSCRIPT": "0x1f",
+					"FIELD_VARIANT": "0x20",
+					"FIELD_UINT64": "0x21",
+					"FIELD_FLOAT64": "0x22",
+					"FIELD_POSITIVEINTEGER_OR_NULL": "0x23",
+					"FIELD_HSCRIPT_NEW_INSTANCE": "0x24",
+					"FIELD_UINT32": "0x25",
+					"FIELD_UTLSTRINGTOKEN": "0x26",
+					"FIELD_QANGLE": "0x27",
+					"FIELD_NETWORK_ORIGIN_CELL_QUANTIZED_VECTOR": "0x28",
+					"FIELD_HMATERIAL": "0x29",
+					"FIELD_HMODEL": "0x2a",
+					"FIELD_NETWORK_QUANTIZED_VECTOR": "0x2b",
+					"FIELD_NETWORK_QUANTIZED_FLOAT": "0x2c",
+					"FIELD_DIRECTION_VECTOR_WORLDSPACE": "0x2d",
+					"FIELD_QANGLE_WORLDSPACE": "0x2e",
+					"FIELD_QUATERNION_WORLDSPACE": "0x2f",
+					"FIELD_HSCRIPT_LIGHTBINDING": "0x30",
+					"FIELD_V8_VALUE": "0x31",
+					"FIELD_V8_OBJECT": "0x32",
+					"FIELD_V8_ARRAY": "0x33",
+					"FIELD_V8_CALLBACK_INFO": "0x34",
+					"FIELD_UTLSTRING": "0x35",
+					"FIELD_NETWORK_ORIGIN_CELL_QUANTIZED_POSITION_VECTOR": "0x36",
+					"FIELD_HRENDERTEXTURE": "0x37",
+					"FIELD_HPARTICLESYSTEMDEFINITION": "0x38",
+					"FIELD_UINT8": "0x39",
+					"FIELD_UINT16": "0x3a",
+					"FIELD_CTRANSFORM": "0x3b",
+					"FIELD_CTRANSFORM_WORLDSPACE": "0x3c",
+					"FIELD_HPOSTPROCESSING": "0x3d",
+					"FIELD_MATRIX3X4": "0x3e",
+					"FIELD_SHIM": "0x3f",
+					"FIELD_CMOTIONTRANSFORM": "0x40",
+					"FIELD_CMOTIONTRANSFORM_WORLDSPACE": "0x41",
+					"FIELD_ATTACHMENT_HANDLE": "0x42",
+					"FIELD_AMMO_INDEX": "0x43",
+					"FIELD_CONDITION_ID": "0x44",
+					"FIELD_AI_SCHEDULE_BITS": "0x45",
+					"FIELD_MODIFIER_HANDLE": "0x46",
+					"FIELD_ROTATION_VECTOR": "0x47",
+					"FIELD_ROTATION_VECTOR_WORLDSPACE": "0x48",
+					"FIELD_HVDATA": "0x49",
+					"FIELD_SCALE32": "0x4a",
+					"FIELD_STRING_AND_TOKEN": "0x4b",
+					"FIELD_ENGINE_TIME": "0x4c",
+					"FIELD_ENGINE_TICK": "0x4d",
+					"FIELD_WORLD_GROUP_ID": "0x4e",
+					"FIELD_GLOBALSYMBOL": "0x4f",
+					"FIELD_TYPECOUNT": "0x50"
+				}
+			},
+			"iktargetcoordinatesystem": {
+				"title": "IKTargetCoordinateSystem",
+				"template": "types-syntax",
+				"values": {
+					"IKTARGETCOORDINATESYSTEM_WorldSpace": "0x0",
+					"IKTARGETCOORDINATESYSTEM_ModelSpace": "0x1",
+					"IKTARGETCOORDINATESYSTEM_COUNT": "0x2"
+				}
+			},
+			"standardlightingattenuationstyle_t": {
+				"title": "StandardLightingAttenuationStyle_t",
+				"template": "types-syntax",
+				"values": {
+					"LIGHT_STYLE_OLD": "0x0",
+					"LIGHT_STYLE_NEW": "0x1"
+				}
+			},
+			"posetype_t": {
+				"title": "PoseType_t",
+				"template": "types-syntax",
+				"values": {
+					"POSETYPE_STATIC": "0x0",
+					"POSETYPE_DYNAMIC": "0x1",
+					"POSETYPE_INVALID": "0xff"
+				}
+			},
+			"fusevariabletype_t": {
+				"title": "FuseVariableType_t",
+				"template": "types-syntax",
+				"values": {
+					"INVALID": "0x0",
+					"BOOL": "0x1",
+					"INT8": "0x2",
+					"INT16": "0x3",
+					"INT32": "0x4",
+					"UINT8": "0x5",
+					"UINT16": "0x6",
+					"UINT32": "0x7",
+					"FLOAT32": "0x8"
+				}
+			},
+			"particletraceset_t": {
+				"title": "ParticleTraceSet_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_TRACE_SET_ALL": "0x0",
+					"PARTICLE_TRACE_SET_STATIC": "0x1",
+					"PARTICLE_TRACE_SET_STATIC_AND_KEYFRAMED": "0x2",
+					"PARTICLE_TRACE_SET_DYNAMIC": "0x3"
+				}
+			},
+			"entityiotargettype_t": {
+				"title": "EntityIOTargetType_t",
+				"template": "types-syntax",
+				"values": {
+					"ENTITY_IO_TARGET_INVALID": "0xffffffffffffffff",
+					"ENTITY_IO_TARGET_ENTITYNAME": "0x2",
+					"ENTITY_IO_TARGET_EHANDLE": "0x6",
+					"ENTITY_IO_TARGET_ENTITYNAME_OR_CLASSNAME": "0x7"
+				}
+			},
+			"modelskeletondata_t__boneflags_t": {
+				"title": "ModelSkeletonData_t__BoneFlags_t",
+				"template": "types-syntax",
+				"values": {
+					"FLAG_NO_BONE_FLAGS": "0x0",
+					"FLAG_BONEFLEXDRIVER": "0x4",
+					"FLAG_CLOTH": "0x8",
+					"FLAG_PHYSICS": "0x10",
+					"FLAG_ATTACHMENT": "0x20",
+					"FLAG_ANIMATION": "0x40",
+					"FLAG_MESH": "0x80",
+					"FLAG_HITBOX": "0x100",
+					"FLAG_BONE_USED_BY_VERTEX_LOD0": "0x400",
+					"FLAG_BONE_USED_BY_VERTEX_LOD1": "0x800",
+					"FLAG_BONE_USED_BY_VERTEX_LOD2": "0x1000",
+					"FLAG_BONE_USED_BY_VERTEX_LOD3": "0x2000",
+					"FLAG_BONE_USED_BY_VERTEX_LOD4": "0x4000",
+					"FLAG_BONE_USED_BY_VERTEX_LOD5": "0x8000",
+					"FLAG_BONE_USED_BY_VERTEX_LOD6": "0x10000",
+					"FLAG_BONE_USED_BY_VERTEX_LOD7": "0x20000",
+					"FLAG_BONE_MERGE_READ": "0x40000",
+					"FLAG_BONE_MERGE_WRITE": "0x80000",
+					"FLAG_ALL_BONE_FLAGS": "0xfffff",
+					"BLEND_PREALIGNED": "0x100000",
+					"FLAG_RIGIDLENGTH": "0x200000",
+					"FLAG_PROCEDURAL": "0x400000"
+				}
+			},
+			"particlelightbehaviorchoicelist_t": {
+				"title": "ParticleLightBehaviorChoiceList_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_LIGHT_BEHAVIOR_FOLLOW_DIRECTION": "0x0",
+					"PARTICLE_LIGHT_BEHAVIOR_ROPE": "0x1",
+					"PARTICLE_LIGHT_BEHAVIOR_TRAILS": "0x2"
+				}
+			},
+			"compositematerialinputcontainersourcetype_t": {
+				"title": "CompositeMaterialInputContainerSourceType_t",
+				"template": "types-syntax",
+				"values": {
+					"CONTAINER_SOURCE_TYPE_TARGET_MATERIAL": "0x0",
+					"CONTAINER_SOURCE_TYPE_MATERIAL_FROM_TARGET_ATTR": "0x1",
+					"CONTAINER_SOURCE_TYPE_SPECIFIC_MATERIAL": "0x2",
+					"CONTAINER_SOURCE_TYPE_LOOSE_VARIABLES": "0x3",
+					"CONTAINER_SOURCE_TYPE_VARIABLE_FROM_TARGET_ATTR": "0x4",
+					"CONTAINER_SOURCE_TYPE_TARGET_INSTANCE_MATERIAL": "0x5"
+				}
+			},
+			"particlesortingchoicelist_t": {
+				"title": "ParticleSortingChoiceList_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_SORTING_NEAREST": "0x0",
+					"PARTICLE_SORTING_CREATION_TIME": "0x1"
+				}
+			},
+			"sosactionsorttype_t": {
+				"title": "SosActionSortType_t",
+				"template": "types-syntax",
+				"values": {
+					"SOS_SORTTYPE_HIGHEST": "0x0",
+					"SOS_SORTTYPE_LOWEST": "0x1"
+				}
+			},
+			"particlefallofffunction_t": {
+				"title": "ParticleFalloffFunction_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_FALLOFF_CONSTANT": "0x0",
+					"PARTICLE_FALLOFF_LINEAR": "0x1",
+					"PARTICLE_FALLOFF_EXPONENTIAL": "0x2"
+				}
+			},
+			"jumpcorrectionmethod": {
+				"title": "JumpCorrectionMethod",
+				"template": "types-syntax",
+				"values": {
+					"ScaleMotion": "0x0",
+					"AddCorrectionDelta": "0x1"
+				}
+			},
+			"petgroundtype_t": {
+				"title": "PetGroundType_t",
+				"template": "types-syntax",
+				"values": {
+					"PET_GROUND_NONE": "0x0",
+					"PET_GROUND_GRID": "0x1",
+					"PET_GROUND_PLANE": "0x2"
+				}
+			},
+			"vmixchanneloperation_t": {
+				"title": "VMixChannelOperation_t",
+				"template": "types-syntax",
+				"values": {
+					"VMIX_CHAN_STEREO": "0x0",
+					"VMIX_CHAN_LEFT": "0x1",
+					"VMIX_CHAN_RIGHT": "0x2",
+					"VMIX_CHAN_SWAP": "0x3",
+					"VMIX_CHAN_MONO": "0x4",
+					"VMIX_CHAN_MID_SIDE": "0x5"
+				}
+			},
+			"matterialattributetagtype_t": {
+				"title": "MatterialAttributeTagType_t",
+				"template": "types-syntax",
+				"values": {
+					"MATERIAL_ATTRIBUTE_TAG_VALUE": "0x0",
+					"MATERIAL_ATTRIBUTE_TAG_COLOR": "0x1"
+				}
+			},
+			"particledirectionnoisetype_t": {
+				"title": "ParticleDirectionNoiseType_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_DIR_NOISE_PERLIN": "0x0",
+					"PARTICLE_DIR_NOISE_CURL": "0x1",
+					"PARTICLE_DIR_NOISE_WORLEY_BASIC": "0x2"
+				}
+			},
+			"inputlayoutvariation_t": {
+				"title": "InputLayoutVariation_t",
+				"template": "types-syntax",
+				"values": {
+					"INPUT_LAYOUT_VARIATION_DEFAULT": "0x0",
+					"INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID": "0x1",
+					"INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID_MORPH_VERT_ID": "0x2",
+					"INPUT_LAYOUT_VARIATION_MAX": "0x3"
+				}
+			},
+			"canimationgraphvisualizerprimitivetype": {
+				"title": "CAnimationGraphVisualizerPrimitiveType",
+				"template": "types-syntax",
+				"values": {
+					"ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Text": "0x0",
+					"ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Sphere": "0x1",
+					"ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Line": "0x2",
+					"ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Pie": "0x3",
+					"ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Axis": "0x4"
+				}
+			},
+			"blendkeytype": {
+				"title": "BlendKeyType",
+				"template": "types-syntax",
+				"values": {
+					"BlendKey_UserValue": "0x0",
+					"BlendKey_Velocity": "0x1",
+					"BlendKey_Distance": "0x2",
+					"BlendKey_RemainingDistance": "0x3"
+				}
+			},
+			"particlepindistance_t": {
+				"title": "ParticlePinDistance_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_PIN_DISTANCE_NONE": "0xffffffffffffffff",
+					"PARTICLE_PIN_DISTANCE_NEIGHBOR": "0x0",
+					"PARTICLE_PIN_DISTANCE_FARTHEST": "0x1",
+					"PARTICLE_PIN_DISTANCE_FIRST": "0x2",
+					"PARTICLE_PIN_DISTANCE_LAST": "0x3",
+					"PARTICLE_PIN_DISTANCE_CENTER": "0x5",
+					"PARTICLE_PIN_DISTANCE_CP": "0x6",
+					"PARTICLE_PIN_DISTANCE_CP_PAIR_EITHER": "0x7",
+					"PARTICLE_PIN_DISTANCE_CP_PAIR_BOTH": "0x8",
+					"PARTICLE_PIN_SPEED": "0x9",
+					"PARTICLE_PIN_COLLECTION_AGE": "0xa",
+					"PARTICLE_PIN_FLOAT_VALUE": "0xb"
+				}
+			},
+			"spritecardtexturechannel_t": {
+				"title": "SpriteCardTextureChannel_t",
+				"template": "types-syntax",
+				"values": {
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_RGB": "0x0",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_RGBA": "0x1",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_A": "0x2",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_RGB_A": "0x3",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_RGB_ALPHAMASK": "0x4",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_RGB_RGBMASK": "0x5",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_RGBA_RGBALPHA": "0x6",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_A_RGBALPHA": "0x7",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_RGB_A_RGBALPHA": "0x8",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_R": "0x9",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_G": "0xa",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_B": "0xb",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_RALPHA": "0xc",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_GALPHA": "0xd",
+					"SPRITECARD_TEXTURE_CHANNEL_MIX_BALPHA": "0xe"
+				}
+			},
+			"vertjustification_e": {
+				"title": "VertJustification_e",
+				"template": "types-syntax",
+				"values": {
+					"VERT_JUSTIFICATION_TOP": "0x0",
+					"VERT_JUSTIFICATION_CENTER": "0x1",
+					"VERT_JUSTIFICATION_BOTTOM": "0x2",
+					"VERT_JUSTIFICATION_NONE": "0x3"
+				}
+			},
+			"horizjustification_e": {
+				"title": "HorizJustification_e",
+				"template": "types-syntax",
+				"values": {
+					"HORIZ_JUSTIFICATION_LEFT": "0x0",
+					"HORIZ_JUSTIFICATION_CENTER": "0x1",
+					"HORIZ_JUSTIFICATION_RIGHT": "0x2",
+					"HORIZ_JUSTIFICATION_NONE": "0x3"
+				}
+			},
+			"edemoboneselectionmode": {
+				"title": "EDemoBoneSelectionMode",
+				"template": "types-syntax",
+				"values": {
+					"CaptureAllBones": "0x0",
+					"CaptureSelectedBones": "0x1"
+				}
+			},
+			"seqposesetting_t": {
+				"title": "SeqPoseSetting_t",
+				"template": "types-syntax",
+				"values": {
+					"SEQ_POSE_SETTING_CONSTANT": "0x0",
+					"SEQ_POSE_SETTING_ROTATION": "0x1",
+					"SEQ_POSE_SETTING_POSITION": "0x2",
+					"SEQ_POSE_SETTING_VELOCITY": "0x3"
+				}
+			},
+			"morphflexcontrollerremaptype_t": {
+				"title": "MorphFlexControllerRemapType_t",
+				"template": "types-syntax",
+				"values": {
+					"MORPH_FLEXCONTROLLER_REMAP_PASSTHRU": "0x0",
+					"MORPH_FLEXCONTROLLER_REMAP_2WAY": "0x1",
+					"MORPH_FLEXCONTROLLER_REMAP_NWAY": "0x2",
+					"MORPH_FLEXCONTROLLER_REMAP_EYELID": "0x3"
+				}
+			},
+			"spawndebugoverridestate_t": {
+				"title": "SpawnDebugOverrideState_t",
+				"template": "types-syntax",
+				"values": {
+					"SPAWN_DEBUG_OVERRIDE_NONE": "0x0",
+					"SPAWN_DEBUG_OVERRIDE_FORCE_ENABLED": "0x1",
+					"SPAWN_DEBUG_OVERRIDE_FORCE_DISABLED": "0x2"
+				}
+			},
+			"particlelightnintbranchbehavior_t": {
+				"title": "ParticleLightnintBranchBehavior_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_LIGHTNING_BRANCH_CURRENT_DIR": "0x0",
+					"PARTICLE_LIGHTNING_BRANCH_ENDPOINT_DIR": "0x1"
+				}
+			},
+			"morphbundletype_t": {
+				"title": "MorphBundleType_t",
+				"template": "types-syntax",
+				"values": {
+					"MORPH_BUNDLE_TYPE_NONE": "0x0",
+					"MORPH_BUNDLE_TYPE_POSITION_SPEED": "0x1",
+					"MORPH_BUNDLE_TYPE_NORMAL_WRINKLE": "0x2",
+					"MORPH_BUNDLE_TYPE_COUNT": "0x3"
+				}
+			},
+			"particlelightfoglightingmode_t": {
+				"title": "ParticleLightFogLightingMode_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_LIGHT_FOG_LIGHTING_MODE_NONE": "0x0",
+					"PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC": "0x2",
+					"PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC_NOSHADOWS": "0x4"
+				}
+			},
+			"renderbufferflags_t": {
+				"title": "RenderBufferFlags_t",
+				"template": "types-syntax",
+				"values": {
+					"RENDER_BUFFER_USAGE_VERTEX_BUFFER": "0x1",
+					"RENDER_BUFFER_USAGE_INDEX_BUFFER": "0x2",
+					"RENDER_BUFFER_USAGE_SHADER_RESOURCE": "0x4",
+					"RENDER_BUFFER_USAGE_UNORDERED_ACCESS": "0x8",
+					"RENDER_BUFFER_BYTEADDRESS_BUFFER": "0x10",
+					"RENDER_BUFFER_STRUCTURED_BUFFER": "0x20",
+					"RENDER_BUFFER_APPEND_CONSUME_BUFFER": "0x40",
+					"RENDER_BUFFER_UAV_COUNTER": "0x80",
+					"RENDER_BUFFER_UAV_DRAW_INDIRECT_ARGS": "0x100",
+					"RENDER_BUFFER_ACCELERATION_STRUCTURE": "0x200",
+					"RENDER_BUFFER_SHADER_BINDING_TABLE": "0x400",
+					"RENDER_BUFFER_PER_FRAME_WRITE_ONCE": "0x800"
+				}
+			},
+			"particledetaillevel_t": {
+				"title": "ParticleDetailLevel_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLEDETAIL_LOW": "0x0",
+					"PARTICLEDETAIL_MEDIUM": "0x1",
+					"PARTICLEDETAIL_HIGH": "0x2",
+					"PARTICLEDETAIL_ULTRA": "0x3"
+				}
+			},
+			"footsteplandedfootsoundtype_t": {
+				"title": "FootstepLandedFootSoundType_t",
+				"template": "types-syntax",
+				"values": {
+					"FOOTSOUND_Left": "0x0",
+					"FOOTSOUND_Right": "0x1",
+					"FOOTSOUND_UseOverrideSound": "0x2"
+				}
+			},
+			"sosedititemtype_t": {
+				"title": "SosEditItemType_t",
+				"template": "types-syntax",
+				"values": {
+					"SOS_EDIT_ITEM_TYPE_SOUNDEVENTS": "0x0",
+					"SOS_EDIT_ITEM_TYPE_SOUNDEVENT": "0x1",
+					"SOS_EDIT_ITEM_TYPE_LIBRARYSTACKS": "0x2",
+					"SOS_EDIT_ITEM_TYPE_STACK": "0x3",
+					"SOS_EDIT_ITEM_TYPE_OPERATOR": "0x4",
+					"SOS_EDIT_ITEM_TYPE_FIELD": "0x5"
+				}
+			},
+			"sosactionstoptype_t": {
+				"title": "SosActionStopType_t",
+				"template": "types-syntax",
+				"values": {
+					"SOS_STOPTYPE_NONE": "0x0",
+					"SOS_STOPTYPE_TIME": "0x1",
+					"SOS_STOPTYPE_OPVAR": "0x2"
+				}
+			},
+			"modelboneflexcomponent_t": {
+				"title": "ModelBoneFlexComponent_t",
+				"template": "types-syntax",
+				"values": {
+					"MODEL_BONE_FLEX_INVALID": "0xffffffffffffffff",
+					"MODEL_BONE_FLEX_TX": "0x0",
+					"MODEL_BONE_FLEX_TY": "0x1",
+					"MODEL_BONE_FLEX_TZ": "0x2"
+				}
+			},
+			"particleattachment_t": {
+				"title": "ParticleAttachment_t",
+				"template": "types-syntax",
+				"values": {
+					"PATTACH_INVALID": "0xffffffffffffffff",
+					"PATTACH_ABSORIGIN": "0x0",
+					"PATTACH_ABSORIGIN_FOLLOW": "0x1",
+					"PATTACH_CUSTOMORIGIN": "0x2",
+					"PATTACH_CUSTOMORIGIN_FOLLOW": "0x3",
+					"PATTACH_POINT": "0x4",
+					"PATTACH_POINT_FOLLOW": "0x5",
+					"PATTACH_EYES_FOLLOW": "0x6",
+					"PATTACH_OVERHEAD_FOLLOW": "0x7",
+					"PATTACH_WORLDORIGIN": "0x8",
+					"PATTACH_ROOTBONE_FOLLOW": "0x9",
+					"PATTACH_RENDERORIGIN_FOLLOW": "0xa",
+					"PATTACH_MAIN_VIEW": "0xb",
+					"PATTACH_WATERWAKE": "0xc",
+					"PATTACH_CENTER_FOLLOW": "0xd",
+					"PATTACH_CUSTOM_GAME_STATE_1": "0xe",
+					"PATTACH_HEALTHBAR": "0xf",
+					"MAX_PATTACH_TYPES": "0x10"
+				}
+			},
+			"compmatpropertymutatortype_t": {
+				"title": "CompMatPropertyMutatorType_t",
+				"template": "types-syntax",
+				"values": {
+					"COMP_MAT_PROPERTY_MUTATOR_INIT": "0x0",
+					"COMP_MAT_PROPERTY_MUTATOR_COPY_MATCHING_KEYS": "0x1",
+					"COMP_MAT_PROPERTY_MUTATOR_COPY_KEYS_WITH_SUFFIX": "0x2",
+					"COMP_MAT_PROPERTY_MUTATOR_COPY_PROPERTY": "0x3",
+					"COMP_MAT_PROPERTY_MUTATOR_SET_VALUE": "0x4",
+					"COMP_MAT_PROPERTY_MUTATOR_GENERATE_TEXTURE": "0x5",
+					"COMP_MAT_PROPERTY_MUTATOR_CONDITIONAL_MUTATORS": "0x6",
+					"COMP_MAT_PROPERTY_MUTATOR_POP_INPUT_QUEUE": "0x7",
+					"COMP_MAT_PROPERTY_MUTATOR_DRAW_TEXT": "0x8",
+					"COMP_MAT_PROPERTY_MUTATOR_RANDOM_ROLL_INPUT_VARIABLES": "0x9"
+				}
+			},
+			"particleorientationchoicelist_t": {
+				"title": "ParticleOrientationChoiceList_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_ORIENTATION_SCREEN_ALIGNED": "0x0",
+					"PARTICLE_ORIENTATION_SCREEN_Z_ALIGNED": "0x1",
+					"PARTICLE_ORIENTATION_WORLD_Z_ALIGNED": "0x2",
+					"PARTICLE_ORIENTATION_ALIGN_TO_PARTICLE_NORMAL": "0x3",
+					"PARTICLE_ORIENTATION_SCREENALIGN_TO_PARTICLE_NORMAL": "0x4",
+					"PARTICLE_ORIENTATION_FULL_3AXIS_ROTATION": "0x5"
+				}
+			},
+			"nmframesnapeventmode_t": {
+				"title": "NmFrameSnapEventMode_t",
+				"template": "types-syntax",
+				"values": {
+					"Floor": "0x0",
+					"Round": "0x1"
+				}
+			},
+			"jigglebonesimspace": {
+				"title": "JiggleBoneSimSpace",
+				"template": "types-syntax",
+				"values": {
+					"SimSpace_Local": "0x0",
+					"SimSpace_Model": "0x1",
+					"SimSpace_World": "0x2"
+				}
+			},
+			"particletopology_t": {
+				"title": "ParticleTopology_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_TOPOLOGY_POINTS": "0x0",
+					"PARTICLE_TOPOLOGY_LINES": "0x1",
+					"PARTICLE_TOPOLOGY_TRIS": "0x2",
+					"PARTICLE_TOPOLOGY_QUADS": "0x3",
+					"PARTICLE_TOPOLOGY_CUBES": "0x4"
+				}
+			},
+			"dampingspeedfunction": {
+				"title": "DampingSpeedFunction",
+				"template": "types-syntax",
+				"values": {
+					"NoDamping": "0x0",
+					"Constant": "0x1",
+					"Spring": "0x2"
+				}
+			},
+			"particlecolorblendtype_t": {
+				"title": "ParticleColorBlendType_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_COLOR_BLEND_MULTIPLY": "0x0",
+					"PARTICLE_COLOR_BLEND_MULTIPLY2X": "0x1",
+					"PARTICLE_COLOR_BLEND_DIVIDE": "0x2",
+					"PARTICLE_COLOR_BLEND_ADD": "0x3",
+					"PARTICLE_COLOR_BLEND_SUBTRACT": "0x4",
+					"PARTICLE_COLOR_BLEND_MOD2X": "0x5",
+					"PARTICLE_COLOR_BLEND_SCREEN": "0x6",
+					"PARTICLE_COLOR_BLEND_MAX": "0x7",
+					"PARTICLE_COLOR_BLEND_MIN": "0x8",
+					"PARTICLE_COLOR_BLEND_REPLACE": "0x9",
+					"PARTICLE_COLOR_BLEND_AVERAGE": "0xa",
+					"PARTICLE_COLOR_BLEND_NEGATE": "0xb",
+					"PARTICLE_COLOR_BLEND_LUMINANCE": "0xc"
+				}
+			},
+			"vmixsubgraphswitchinterpolationtype_t": {
+				"title": "VMixSubgraphSwitchInterpolationType_t",
+				"template": "types-syntax",
+				"values": {
+					"SUBGRAPH_INTERPOLATION_TEMPORAL_CROSSFADE": "0x0",
+					"SUBGRAPH_INTERPOLATION_TEMPORAL_FADE_OUT": "0x1",
+					"SUBGRAPH_INTERPOLATION_KEEP_LAST_SUBGRAPH_RUNNING": "0x2"
+				}
+			},
+			"soundlevel_t": {
+				"title": "soundlevel_t",
+				"template": "types-syntax",
+				"values": {
+					"SNDLVL_NONE": "0x0",
+					"SNDLVL_20dB": "0x14",
+					"SNDLVL_25dB": "0x19",
+					"SNDLVL_30dB": "0x1e",
+					"SNDLVL_35dB": "0x23",
+					"SNDLVL_40dB": "0x28",
+					"SNDLVL_45dB": "0x2d",
+					"SNDLVL_50dB": "0x32",
+					"SNDLVL_55dB": "0x37",
+					"SNDLVL_IDLE": "0x3c",
+					"SNDLVL_60dB": "0x3c",
+					"SNDLVL_65dB": "0x41",
+					"SNDLVL_STATIC": "0x42",
+					"SNDLVL_70dB": "0x46",
+					"SNDLVL_NORM": "0x4b",
+					"SNDLVL_75dB": "0x4b",
+					"SNDLVL_80dB": "0x50",
+					"SNDLVL_TALKING": "0x50",
+					"SNDLVL_85dB": "0x55",
+					"SNDLVL_90dB": "0x5a",
+					"SNDLVL_95dB": "0x5f",
+					"SNDLVL_100dB": "0x64",
+					"SNDLVL_105dB": "0x69",
+					"SNDLVL_110dB": "0x6e",
+					"SNDLVL_120dB": "0x78",
+					"SNDLVL_130dB": "0x82",
+					"SNDLVL_GUNFIRE": "0x8c",
+					"SNDLVL_140dB": "0x8c",
+					"SNDLVL_150dB": "0x96",
+					"SNDLVL_180dB": "0xb4"
+				}
+			},
+			"animationsnapshottype_t": {
+				"title": "AnimationSnapshotType_t",
+				"template": "types-syntax",
+				"values": {
+					"ANIMATION_SNAPSHOT_SERVER_SIMULATION": "0x0",
+					"ANIMATION_SNAPSHOT_CLIENT_SIMULATION": "0x1",
+					"ANIMATION_SNAPSHOT_CLIENT_PREDICTION": "0x2",
+					"ANIMATION_SNAPSHOT_CLIENT_INTERPOLATION": "0x3",
+					"ANIMATION_SNAPSHOT_CLIENT_RENDER": "0x4",
+					"ANIMATION_SNAPSHOT_FINAL_COMPOSITE": "0x5",
+					"ANIMATION_SNAPSHOT_MAX": "0x6"
+				}
+			},
+			"spritecardperparticlescale_t": {
+				"title": "SpriteCardPerParticleScale_t",
+				"template": "types-syntax",
+				"values": {
+					"SPRITECARD_TEXTURE_PP_SCALE_NONE": "0x0",
+					"SPRITECARD_TEXTURE_PP_SCALE_PARTICLE_AGE": "0x1",
+					"SPRITECARD_TEXTURE_PP_SCALE_ANIMATION_FRAME": "0x2",
+					"SPRITECARD_TEXTURE_PP_SCALE_SHADER_EXTRA_DATA1": "0x3",
+					"SPRITECARD_TEXTURE_PP_SCALE_SHADER_EXTRA_DATA2": "0x4",
+					"SPRITECARD_TEXTURE_PP_SCALE_PARTICLE_ALPHA": "0x5",
+					"SPRITECARD_TEXTURE_PP_SCALE_SHADER_RADIUS": "0x6",
+					"SPRITECARD_TEXTURE_PP_SCALE_ROLL": "0x7",
+					"SPRITECARD_TEXTURE_PP_SCALE_YAW": "0x8",
+					"SPRITECARD_TEXTURE_PP_SCALE_PITCH": "0x9",
+					"SPRITECARD_TEXTURE_PP_SCALE_RANDOM": "0xa",
+					"SPRITECARD_TEXTURE_PP_SCALE_NEG_RANDOM": "0xb",
+					"SPRITECARD_TEXTURE_PP_SCALE_RANDOM_TIME": "0xc",
+					"SPRITECARD_TEXTURE_PP_SCALE_NEG_RANDOM_TIME": "0xd"
+				}
+			},
+			"spritecardshadertype_t": {
+				"title": "SpriteCardShaderType_t",
+				"template": "types-syntax",
+				"values": {
+					"SPRITECARD_SHADER_BASE": "0x0",
+					"SPRITECARD_SHADER_CUSTOM": "0x1"
+				}
+			},
+			"bboxvolumetype_t": {
+				"title": "BBoxVolumeType_t",
+				"template": "types-syntax",
+				"values": {
+					"BBOX_VOLUME": "0x0",
+					"BBOX_DIMENSIONS": "0x1",
+					"BBOX_MINS_MAXS": "0x2"
+				}
+			},
+			"pulsetestenumcolor_t": {
+				"title": "PulseTestEnumColor_t",
+				"template": "types-syntax",
+				"values": {
+					"BLACK": "0x0",
+					"WHITE": "0x1",
+					"RED": "0x2",
+					"GREEN": "0x3",
+					"BLUE": "0x4"
+				}
+			},
+			"particlecollisionmode_t": {
+				"title": "ParticleCollisionMode_t",
+				"template": "types-syntax",
+				"values": {
+					"COLLISION_MODE_PER_PARTICLE_TRACE": "0x3",
+					"COLLISION_MODE_USE_NEAREST_TRACE": "0x2",
+					"COLLISION_MODE_PER_FRAME_PLANESET": "0x1",
+					"COLLISION_MODE_INITIAL_TRACE_DOWN": "0x0",
+					"COLLISION_MODE_DISABLED": "0xffffffffffffffff"
+				}
+			},
+			"permmodelinfo_t__flagenum": {
+				"title": "PermModelInfo_t__FlagEnum",
+				"template": "types-syntax",
+				"values": {
+					"FLAG_TRANSLUCENT": "0x1",
+					"FLAG_TRANSLUCENT_TWO_PASS": "0x2",
+					"FLAG_MODEL_IS_RUNTIME_COMBINED": "0x4",
+					"FLAG_SOURCE1_IMPORT": "0x8",
+					"FLAG_MODEL_PART_CHILD": "0x10",
+					"FLAG_NAV_GEN_NONE": "0x20",
+					"FLAG_NAV_GEN_HULL": "0x40",
+					"FLAG_NO_FORCED_FADE": "0x800",
+					"FLAG_HAS_SKINNED_MESHES": "0x400",
+					"FLAG_DO_NOT_CAST_SHADOWS": "0x20000",
+					"FLAG_FORCE_PHONEME_CROSSFADE": "0x1000",
+					"FLAG_NO_ANIM_EVENTS": "0x100000",
+					"FLAG_ANIMATION_DRIVEN_FLEXES": "0x200000",
+					"FLAG_IMPLICIT_BIND_POSE_SEQUENCE": "0x400000",
+					"FLAG_MODEL_DOC": "0x800000"
+				}
+			},
+			"particlecontrolpointaxis_t": {
+				"title": "ParticleControlPointAxis_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_CP_AXIS_X": "0x0",
+					"PARTICLE_CP_AXIS_Y": "0x1",
+					"PARTICLE_CP_AXIS_Z": "0x2",
+					"PARTICLE_CP_AXIS_NEGATIVE_X": "0x3",
+					"PARTICLE_CP_AXIS_NEGATIVE_Y": "0x4",
+					"PARTICLE_CP_AXIS_NEGATIVE_Z": "0x5"
+				}
+			},
+			"elayoutnodetype": {
+				"title": "ELayoutNodeType",
+				"template": "types-syntax",
+				"values": {
+					"ROOT": "0x0",
+					"STYLES": "0x1",
+					"SCRIPT_BODY": "0x2",
+					"SCRIPTS": "0x3",
+					"SNIPPETS": "0x4",
+					"INCLUDE": "0x5",
+					"SNIPPET": "0x6",
+					"PANEL": "0x7",
+					"PANEL_ATTRIBUTE": "0x8",
+					"PANEL_ATTRIBUTE_VALUE": "0x9",
+					"REFERENCE_CONTENT": "0xa",
+					"REFERENCE_COMPILED": "0xb",
+					"REFERENCE_PASSTHROUGH": "0xc"
+				}
+			},
+			"ikchannelmode": {
+				"title": "IKChannelMode",
+				"template": "types-syntax",
+				"values": {
+					"TwoBone": "0x0",
+					"TwoBone_Translate": "0x1",
+					"OneBone": "0x2",
+					"OneBone_Translate": "0x3"
+				}
+			},
+			"pulsetestenumshape_t": {
+				"title": "PulseTestEnumShape_t",
+				"template": "types-syntax",
+				"values": {
+					"CIRCLE": "0x64",
+					"SQUARE": "0xc8",
+					"TRIANGLE": "0x12c"
+				}
+			},
+			"particlecolorblendmode_t": {
+				"title": "ParticleColorBlendMode_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLEBLEND_DEFAULT": "0x0",
+					"PARTICLEBLEND_OVERLAY": "0x1",
+					"PARTICLEBLEND_DARKEN": "0x2",
+					"PARTICLEBLEND_LIGHTEN": "0x3",
+					"PARTICLEBLEND_MULTIPLY": "0x4"
+				}
+			},
+			"animparamtype_t": {
+				"title": "AnimParamType_t",
+				"template": "types-syntax",
+				"values": {
+					"ANIMPARAM_UNKNOWN": "0x0",
+					"ANIMPARAM_BOOL": "0x1",
+					"ANIMPARAM_ENUM": "0x2",
+					"ANIMPARAM_INT": "0x3",
+					"ANIMPARAM_FLOAT": "0x4",
+					"ANIMPARAM_VECTOR": "0x5",
+					"ANIMPARAM_QUATERNION": "0x6",
+					"ANIMPARAM_GLOBALSYMBOL": "0x7",
+					"ANIMPARAM_COUNT": "0x8"
+				}
+			},
+			"particlelightunitchoicelist_t": {
+				"title": "ParticleLightUnitChoiceList_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_LIGHT_UNIT_CANDELAS": "0x0",
+					"PARTICLE_LIGHT_UNIT_LUMENS": "0x1"
+				}
+			},
+			"vmixlfoshape_t": {
+				"title": "VMixLFOShape_t",
+				"template": "types-syntax",
+				"values": {
+					"LFO_SHAPE_SINE": "0x0",
+					"LFO_SHAPE_SQUARE": "0x1",
+					"LFO_SHAPE_TRI": "0x2",
+					"LFO_SHAPE_SAW": "0x3",
+					"LFO_SHAPE_NOISE": "0x4"
+				}
+			},
+			"ikendeffectortype": {
+				"title": "IkEndEffectorType",
+				"template": "types-syntax",
+				"values": {
+					"IkEndEffector_Attachment": "0x0",
+					"IkEndEffector_Bone": "0x1"
+				}
+			},
+			"estylenodetype": {
+				"title": "EStyleNodeType",
+				"template": "types-syntax",
+				"values": {
+					"ROOT": "0x0",
+					"EXPRESSION": "0x1",
+					"PROPERTY": "0x2",
+					"DEFINE": "0x3",
+					"IMPORT": "0x4",
+					"KEYFRAMES": "0x5",
+					"KEYFRAME_SELECTOR": "0x6",
+					"STYLE_SELECTOR": "0x7",
+					"WHITESPACE": "0x8",
+					"EXPRESSION_TEXT": "0x9",
+					"EXPRESSION_URL": "0xa",
+					"EXPRESSION_CONCAT": "0xb",
+					"REFERENCE_CONTENT": "0xc",
+					"REFERENCE_COMPILED": "0xd",
+					"REFERENCE_PASSTHROUGH": "0xe"
+				}
+			},
+			"fieldnetworkoption": {
+				"title": "FieldNetworkOption",
+				"template": "types-syntax",
+				"values": {
+					"Auto": "0x0",
+					"ForceEnable": "0x1",
+					"ForceDisable": "0x2"
+				}
+			},
+			"velocitymetricmode": {
+				"title": "VelocityMetricMode",
+				"template": "types-syntax",
+				"values": {
+					"DirectionOnly": "0x0",
+					"MagnitudeOnly": "0x1",
+					"DirectionAndMagnitude": "0x2"
+				}
+			},
+			"iktargettype": {
+				"title": "IkTargetType",
+				"template": "types-syntax",
+				"values": {
+					"IkTarget_Attachment": "0x0",
+					"IkTarget_Bone": "0x1",
+					"IkTarget_Parameter_ModelSpace": "0x2",
+					"IkTarget_Parameter_WorldSpace": "0x3"
+				}
+			},
+			"footpinningtimingsource": {
+				"title": "FootPinningTimingSource",
+				"template": "types-syntax",
+				"values": {
+					"FootMotion": "0x0",
+					"Tag": "0x1",
+					"Parameter": "0x2"
+				}
+			},
+			"pfnoisetype_t": {
+				"title": "PFNoiseType_t",
+				"template": "types-syntax",
+				"values": {
+					"PF_NOISE_TYPE_PERLIN": "0x0",
+					"PF_NOISE_TYPE_SIMPLEX": "0x1",
+					"PF_NOISE_TYPE_WORLEY": "0x2",
+					"PF_NOISE_TYPE_CURL": "0x3"
+				}
+			},
+			"particlefloatbiastype_t": {
+				"title": "ParticleFloatBiasType_t",
+				"template": "types-syntax",
+				"values": {
+					"PF_BIAS_TYPE_INVALID": "0xffffffffffffffff",
+					"PF_BIAS_TYPE_STANDARD": "0x0",
+					"PF_BIAS_TYPE_GAIN": "0x1",
+					"PF_BIAS_TYPE_EXPONENTIAL": "0x2",
+					"PF_BIAS_TYPE_COUNT": "0x3"
+				}
+			},
+			"particledepthfeatheringmode_t": {
+				"title": "ParticleDepthFeatheringMode_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_DEPTH_FEATHERING_OFF": "0x0",
+					"PARTICLE_DEPTH_FEATHERING_ON_OPTIONAL": "0x1",
+					"PARTICLE_DEPTH_FEATHERING_ON_REQUIRED": "0x2"
+				}
+			},
+			"particlesequencecropoverride_t": {
+				"title": "ParticleSequenceCropOverride_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_SEQUENCE_CROP_OVERRIDE_DEFAULT": "0xffffffffffffffff",
+					"PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_OFF": "0x0",
+					"PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_ON": "0x1"
+				}
+			},
+			"renderslottype_t": {
+				"title": "RenderSlotType_t",
+				"template": "types-syntax",
+				"values": {
+					"RENDER_SLOT_INVALID": "0xffffffffffffffff",
+					"RENDER_SLOT_PER_VERTEX": "0x0",
+					"RENDER_SLOT_PER_INSTANCE": "0x1"
+				}
+			},
+			"vphysxconstraintparams_t__enumflags0_t": {
+				"title": "VPhysXConstraintParams_t__EnumFlags0_t",
+				"template": "types-syntax",
+				"values": {
+					"FLAG0_SHIFT_INTERPENETRATE": "0x0",
+					"FLAG0_SHIFT_CONSTRAIN": "0x1",
+					"FLAG0_SHIFT_BREAKABLE_FORCE": "0x2",
+					"FLAG0_SHIFT_BREAKABLE_TORQUE": "0x3"
+				}
+			},
+			"animvaluesource": {
+				"title": "AnimValueSource",
+				"template": "types-syntax",
+				"values": {
+					"MoveHeading": "0x0",
+					"MoveSpeed": "0x1",
+					"ForwardSpeed": "0x2",
+					"StrafeSpeed": "0x3",
+					"FacingHeading": "0x4",
+					"ManualFacingHeading": "0x5",
+					"LookHeading": "0x6",
+					"LookPitch": "0x7",
+					"LookDistance": "0x8",
+					"Parameter": "0x9",
+					"WayPointHeading": "0xa",
+					"WayPointDistance": "0xb",
+					"BoundaryRadius": "0xc",
+					"TargetMoveHeading": "0xd",
+					"TargetMoveSpeed": "0xe",
+					"AccelerationHeading": "0xf",
+					"AccelerationSpeed": "0x10",
+					"SlopeHeading": "0x11",
+					"SlopeAngle": "0x12",
+					"SlopePitch": "0x13",
+					"SlopeYaw": "0x14",
+					"GoalDistance": "0x15",
+					"AccelerationLeftRight": "0x16",
+					"AccelerationFrontBack": "0x17",
+					"RootMotionSpeed": "0x18",
+					"RootMotionTurnSpeed": "0x19",
+					"MoveHeadingRelativeToLookHeading": "0x1a",
+					"MaxMoveSpeed": "0x1b",
+					"FingerCurl_Thumb": "0x1c",
+					"FingerCurl_Index": "0x1d",
+					"FingerCurl_Middle": "0x1e",
+					"FingerCurl_Ring": "0x1f",
+					"FingerCurl_Pinky": "0x20",
+					"FingerSplay_Thumb_Index": "0x21",
+					"FingerSplay_Index_Middle": "0x22",
+					"FingerSplay_Middle_Ring": "0x23",
+					"FingerSplay_Ring_Pinky": "0x24"
+				}
+			},
+			"hitboxlerptype_t": {
+				"title": "HitboxLerpType_t",
+				"template": "types-syntax",
+				"values": {
+					"HITBOX_LERP_LIFETIME": "0x0",
+					"HITBOX_LERP_CONSTANT": "0x1"
+				}
+			},
+			"bonetransformspace_t": {
+				"title": "BoneTransformSpace_t",
+				"template": "types-syntax",
+				"values": {
+					"BoneTransformSpace_Invalid": "0xffffffffffffffff",
+					"BoneTransformSpace_Parent": "0x0",
+					"BoneTransformSpace_Model": "0x1",
+					"BoneTransformSpace_World": "0x2"
+				}
+			},
+			"vphysxbodypart_t__vphysxflagenum_t": {
+				"title": "VPhysXBodyPart_t__VPhysXFlagEnum_t",
+				"template": "types-syntax",
+				"values": {
+					"FLAG_STATIC": "0x1",
+					"FLAG_KINEMATIC": "0x2",
+					"FLAG_JOINT": "0x4",
+					"FLAG_MASS": "0x8",
+					"FLAG_ALWAYS_DYNAMIC_ON_CLIENT": "0x10"
+				}
+			},
+			"entitydormancytype_t": {
+				"title": "EntityDormancyType_t",
+				"template": "types-syntax",
+				"values": {
+					"ENTITY_NOT_DORMANT": "0x0",
+					"ENTITY_DORMANT": "0x1",
+					"ENTITY_SUSPENDED": "0x2"
+				}
+			},
+			"particletracemissbehavior_t": {
+				"title": "ParticleTraceMissBehavior_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_TRACE_MISS_BEHAVIOR_NONE": "0x0",
+					"PARTICLE_TRACE_MISS_BEHAVIOR_KILL": "0x1",
+					"PARTICLE_TRACE_MISS_BEHAVIOR_TRACE_END": "0x2"
+				}
+			},
+			"nmfootphase_t": {
+				"title": "NmFootPhase_t",
+				"template": "types-syntax",
+				"values": {
+					"LeftFootDown": "0x0",
+					"RightFootPassing": "0x1",
+					"RightFootDown": "0x2",
+					"LeftFootPassing": "0x3"
+				}
+			},
+			"particleomni2lighttypechoicelist_t": {
+				"title": "ParticleOmni2LightTypeChoiceList_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_OMNI2_LIGHT_TYPE_POINT": "0x0",
+					"PARTICLE_OMNI2_LIGHT_TYPE_SPHERE": "0x1"
+				}
+			},
+			"binarynodetiming": {
+				"title": "BinaryNodeTiming",
+				"template": "types-syntax",
+				"values": {
+					"UseChild1": "0x0",
+					"UseChild2": "0x1",
+					"SyncChildren": "0x2"
+				}
+			},
+			"stepphase": {
+				"title": "StepPhase",
+				"template": "types-syntax",
+				"values": {
+					"StepPhase_OnGround": "0x0",
+					"StepPhase_InAir": "0x1"
+				}
+			},
+			"scalarexpressiontype_t": {
+				"title": "ScalarExpressionType_t",
+				"template": "types-syntax",
+				"values": {
+					"SCALAR_EXPRESSION_UNINITIALIZED": "0xffffffffffffffff",
+					"SCALAR_EXPRESSION_ADD": "0x0",
+					"SCALAR_EXPRESSION_SUBTRACT": "0x1",
+					"SCALAR_EXPRESSION_MUL": "0x2",
+					"SCALAR_EXPRESSION_DIVIDE": "0x3",
+					"SCALAR_EXPRESSION_INPUT_1": "0x4",
+					"SCALAR_EXPRESSION_MIN": "0x5",
+					"SCALAR_EXPRESSION_MAX": "0x6",
+					"SCALAR_EXPRESSION_MOD": "0x7"
+				}
+			},
+			"resetcycleoption": {
+				"title": "ResetCycleOption",
+				"template": "types-syntax",
+				"values": {
+					"Beginning": "0x0",
+					"SameCycleAsSource": "0x1",
+					"InverseSourceCycle": "0x2",
+					"FixedValue": "0x3",
+					"SameTimeAsSource": "0x4"
+				}
+			},
+			"modelconfigattachmenttype_t": {
+				"title": "ModelConfigAttachmentType_t",
+				"template": "types-syntax",
+				"values": {
+					"MODEL_CONFIG_ATTACHMENT_INVALID": "0xffffffffffffffff",
+					"MODEL_CONFIG_ATTACHMENT_BONE_OR_ATTACHMENT": "0x0",
+					"MODEL_CONFIG_ATTACHMENT_ROOT_RELATIVE": "0x1",
+					"MODEL_CONFIG_ATTACHMENT_BONEMERGE": "0x2",
+					"MODEL_CONFIG_ATTACHMENT_COUNT": "0x3"
+				}
+			},
+			"actiontype_t": {
+				"title": "ActionType_t",
+				"template": "types-syntax",
+				"values": {
+					"SOS_ACTION_NONE": "0x0",
+					"SOS_ACTION_LIMITER": "0x1",
+					"SOS_ACTION_TIME_LIMIT": "0x2",
+					"SOS_ACTION_TIME_BLOCK_LIMITER": "0x3",
+					"SOS_ACTION_SET_SOUNDEVENT_PARAM": "0x4",
+					"SOS_ACTION_SOUNDEVENT_CLUSTER": "0x5"
+				}
+			},
+			"moodtype_t": {
+				"title": "MoodType_t",
+				"template": "types-syntax",
+				"values": {
+					"eMoodType_Head": "0x0",
+					"eMoodType_Body": "0x1"
+				}
+			},
+			"particleendcapmode_t": {
+				"title": "ParticleEndcapMode_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_ENDCAP_ALWAYS_ON": "0xffffffffffffffff",
+					"PARTICLE_ENDCAP_ENDCAP_OFF": "0x0",
+					"PARTICLE_ENDCAP_ENDCAP_ON": "0x1"
+				}
+			},
+			"footfalltagfoot_t": {
+				"title": "FootFallTagFoot_t",
+				"template": "types-syntax",
+				"values": {
+					"FOOT1": "0x0",
+					"FOOT2": "0x1",
+					"FOOT3": "0x2",
+					"FOOT4": "0x3",
+					"FOOT5": "0x4",
+					"FOOT6": "0x5",
+					"FOOT7": "0x6",
+					"FOOT8": "0x7"
+				}
+			},
+			"iktargetsource": {
+				"title": "IKTargetSource",
+				"template": "types-syntax",
+				"values": {
+					"IKTARGETSOURCE_Bone": "0x0",
+					"IKTARGETSOURCE_AnimgraphParameter": "0x1",
+					"IKTARGETSOURCE_COUNT": "0x2"
+				}
+			},
+			"closestpointtesttype_t": {
+				"title": "ClosestPointTestType_t",
+				"template": "types-syntax",
+				"values": {
+					"PARTICLE_CLOSEST_TYPE_BOX": "0x0",
+					"PARTICLE_CLOSEST_TYPE_CAPSULE": "0x1",
+					"PARTICLE_CLOSEST_TYPE_HYBRID": "0x2"
+				}
 			}
 		}
 	},
