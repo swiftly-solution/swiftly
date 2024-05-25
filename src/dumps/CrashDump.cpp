@@ -185,28 +185,6 @@ void signal_handler(int signumber)
 
         Files::Append(file_path, string_format("================================\nCommand: %s\nMap: %s\n================================\n\n%s", startup_cmd.c_str(), g_Plugin.GetMap().c_str(), backtraceData.c_str()), false);
         PRINTF("Crash Reporter", "A dump log file has been created at: %s\n", file_path.c_str());
-        PRINTF("Crash Reporter", "A crash report has been sent to Swiftly Crash Reporter Server.\n");
-
-        rapidjson::Document document(rapidjson::kObjectType);
-
-        std::string empty_string = "";
-
-        document.AddMember(rapidjson::Value().SetString("coredumpdata", document.GetAllocator()), rapidjson::Value().SetString(backtraceData.c_str(), document.GetAllocator()), document.GetAllocator());
-        document.AddMember(rapidjson::Value().SetString("startup_cmd", document.GetAllocator()), rapidjson::Value().SetString(empty_string.c_str(), document.GetAllocator()), document.GetAllocator());
-        document.AddMember(rapidjson::Value().SetString("map", document.GetAllocator()), rapidjson::Value().SetString(g_Plugin.GetMap().c_str(), document.GetAllocator()), document.GetAllocator());
-
-        rapidjson::StringBuffer buffer;
-        rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-        document.Accept(writer);
-
-        std::string json = std::string(buffer.GetString());
-
-        uint64_t requestid = g_httpManager->CreateRequest("https://crashreporter.swiftlycs2.net");
-        HTTPRequest *req = g_httpManager->FetchRequest(requestid);
-        req->SetBody(json);
-        req->SetContentType(ContentType::APPLICATION_JSON);
-        req->Post("/");
-        g_httpManager->DeleteRequest(requestid);
     }
     catch (const std::runtime_error &e)
     {
