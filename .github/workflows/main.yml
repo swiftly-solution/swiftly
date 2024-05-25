@@ -20,15 +20,6 @@ jobs:
               with:
                   path: swiftly
 
-            - name: Set up cache for Xmake
-              id: xmake-cache
-              uses: actions/cache@v2
-              with:
-                path: ${{ github.workspace }}/swiftly/build/.build_cache
-                key: ${{ runner.os }}-xmake-${{ hashFiles('**/*') }}
-                restore-keys: |
-                  ${{ runner.os }}-xmake-
-
             - name: Generate Documentation
               working-directory: swiftly/docgen
               run: |
@@ -59,6 +50,14 @@ jobs:
               with:
                   path: swiftly
                   submodules: recursive
+
+            - name: Restore cached XMake Build
+              id: cache-xmake-build
+              uses: actions/cache/restore@v4
+              with:
+                path: |
+                  ${{ github.workspace }}/swiftly/build/.build_cache
+                key: ${{ runner.os }}-swiftly-build
 
             - name: Install XMake
               uses: xmake-io/github-action-setup-xmake@v1
@@ -122,3 +121,11 @@ jobs:
               with:
                   name: Swiftly Plugin Depot Linux
                   path: ${{ github.workspace }}/swiftly/build/package
+
+            - name: Save cached XMake Build
+              id: save-xmake-build
+              uses: actions/cache/save@v4
+              with:
+                path: |
+                  ${{ github.workspace }}/swiftly/build/.build_cache
+                key: ${{ steps.cache-xmake-build.outputs.cache-primary-key }}
