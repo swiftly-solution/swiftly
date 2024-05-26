@@ -267,7 +267,7 @@ void Addons::ReloadMap()
     std::string cmd;
 
     if (this->currentWorkshopMap.empty())
-        cmd = string_format("changelevel %s", GetGameGlobals()->mapname.ToCStr());
+        cmd = string_format("changelevel %s", engine->GetServerGlobals()->mapname.ToCStr());
     else
         cmd = string_format("host_workshop_map %s", currentWorkshopMap.c_str());
 
