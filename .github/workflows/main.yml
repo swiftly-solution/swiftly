@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - '**'
+            - '!rewrite'
     pull_request:
 
 jobs:
