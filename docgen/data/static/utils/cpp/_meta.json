@@ -1,9 +1,0 @@
-{
-  "createthread": "CreateThread",
-  "nexttick": "NextTick",
-  "conversion": "Conversion",
-  "formatter": "Formatter",
-  "json": "JSON",
-  "target_selector": "Target Selector",
-  "time": "Time"
-}
