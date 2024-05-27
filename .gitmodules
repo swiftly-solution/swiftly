@@ -14,3 +14,6 @@
 [submodule "vendor/json"]
 	path = vendor/json
 	url = https://github.com/Tencent/rapidjson
+[submodule "alliedmodders/hl2sdk-manifests"]
+	path = alliedmodders/hl2sdk-manifests
+	url = https://github.com/alliedmodders/hl2sdk-manifests
