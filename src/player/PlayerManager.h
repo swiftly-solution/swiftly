@@ -27,4 +27,6 @@ private:
     Player *g_Players[MAX_PLAYERS] = {};
 };
 
+extern PlayerManager *g_playerManager;
+
 #endif
