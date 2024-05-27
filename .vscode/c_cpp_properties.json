@@ -6,7 +6,9 @@
                 "${workspaceFolder}/alliedmodders/hl2sdk/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
-                "${workspaceFolder}/src/**"
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/vendor/lua/**",
+                "${workspaceFolder}/vendor/LuaBridge/Source/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -23,7 +25,9 @@
                 "${workspaceFolder}/alliedmodders/hl2sdk/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
-                "${workspaceFolder}/src/**"
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/vendor/lua/**",
+                "${workspaceFolder}/vendor/LuaBridge/Source/**"
             ],
             "defines": [
                 "_DEBUG",

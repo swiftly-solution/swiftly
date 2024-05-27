@@ -27,6 +27,10 @@ target(PROJECT_NAME.."-XMake")
     add_files("src/**.cpp")
     add_files("prototemp/**.cc")
 
+    -- Vendor Source Code Section
+    add_files("vendor/lua/*.c")
+    remove_files("vendor/lua/onelua.c")
+
     set_policy("build.cache", true)
 
     -- Protobuf Generation
@@ -212,6 +216,12 @@ target(PROJECT_NAME.."-XMake")
     })
 
     set_languages("cxx17")
+
+    -- Custom Includes
+    add_includedirs({
+        "vendor/lua",
+        "vendor/LuaBridge/Source"
+    })
 
     after_build(function(target)
         function GetDistDirName()

@@ -51,6 +51,7 @@ public:
     void OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background);
     void OnLevelShutdown();
     void NextFrame(std::function<void()> fn);
+    void UpdatePlayers();
 
 public:
     void Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *);
@@ -61,6 +62,7 @@ public:
     void Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer);
     bool Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason);
     void Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext &ctx, const CCommand &args);
+    void Hook_GameServerSteamAPIActivated();
 
 public:
     const char *GetAuthor();

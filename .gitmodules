@@ -5,3 +5,6 @@
 [submodule "alliedmodders/metamod"]
 	path = alliedmodders/metamod
 	url = https://github.com/alliedmodders/metamod-source
+[submodule "vendor/LuaBridge"]
+	path = vendor/LuaBridge
+	url = https://github.com/vinniefalco/LuaBridge
