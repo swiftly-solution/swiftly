@@ -8,3 +8,9 @@
 [submodule "vendor/LuaBridge"]
 	path = vendor/LuaBridge
 	url = https://github.com/vinniefalco/LuaBridge
+[submodule "vendor/dynlib"]
+	path = vendor/dynlib
+	url = https://github.com/komashchenko/DynLibUtils
+[submodule "vendor/json"]
+	path = vendor/json
+	url = https://github.com/Tencent/rapidjson

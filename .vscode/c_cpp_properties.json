@@ -3,12 +3,15 @@
         {
             "name": "Win32",
             "includePath": [
+                "${workspaceFolder}/prototemp/**",
                 "${workspaceFolder}/alliedmodders/hl2sdk/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
                 "${workspaceFolder}/src/**",
                 "${workspaceFolder}/vendor/lua/**",
-                "${workspaceFolder}/vendor/LuaBridge/Source/**"
+                "${workspaceFolder}/vendor/dynlib/**",
+                "${workspaceFolder}/vendor/LuaBridge/Source/**",
+                "${workspaceFolder}/vendor/json/include/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -22,17 +25,22 @@
         {
             "name": "Linux",
             "includePath": [
+                "${workspaceFolder}/prototemp/**",
                 "${workspaceFolder}/alliedmodders/hl2sdk/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
                 "${workspaceFolder}/src/**",
                 "${workspaceFolder}/vendor/lua/**",
-                "${workspaceFolder}/vendor/LuaBridge/Source/**"
+                "${workspaceFolder}/vendor/dynlib/**",
+                "${workspaceFolder}/vendor/LuaBridge/Source/**",
+                "${workspaceFolder}/vendor/json/include/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "POSIX",
+                "COMPILER_GCC"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",

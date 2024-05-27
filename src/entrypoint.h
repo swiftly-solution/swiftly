@@ -10,7 +10,7 @@
 #endif
 
 #define META_IS_SOURCE2 1
-#define MAX_PLAYERS 128
+#define MAX_PLAYERS 64
 
 #include <public/playerslot.h>
 #include <public/inetchannelinfo.h>
@@ -87,7 +87,7 @@ class CEntityListener : public IEntityListener
 };
 
 extern Swiftly g_Plugin;
-extern IServerGameDLL *server;
+extern ISource2Server *server;
 extern IServerGameClients *gameclients;
 extern IVEngineServer2 *engine;
 extern IServerGameClients *g_clientsManager;

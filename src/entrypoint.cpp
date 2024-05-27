@@ -6,7 +6,10 @@
 
 #include <steam/steam_gameserver.h>
 
+#include "player/PlayerManager.h"
 #include "plugins/PluginManager.h"
+#include "signatures/Signatures.h"
+#include "signatures/Offsets.h"
 
 SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t &, ISource2WorldSession *, const char *);
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
@@ -33,7 +36,7 @@ extern "C" FILE *__cdecl __iob_func(void)
 ////////////////////////////////////////////////////////////
 
 Swiftly g_Plugin;
-IServerGameDLL *server = nullptr;
+ISource2Server *server = nullptr;
 IServerGameClients *gameclients = nullptr;
 IVEngineServer2 *engine = nullptr;
 IServerGameClients *g_clientsManager = nullptr;
@@ -44,14 +47,15 @@ CGameEntitySystem *g_pGameEntitySystem = nullptr;
 IGameEventManager2 *g_gameEventManager = nullptr;
 IGameEventSystem *g_pGameEventSystem = nullptr;
 CEntityListener g_entityListener;
-CSteamGameServerAPIContext g_steamAPI;
+CSteamGameServerAPIContext g_SteamAPI;
+CSchemaSystem *g_pSchemaSystem2 = nullptr;
 
 class CGameResourceService
 {
 public:
     CGameEntitySystem *GetGameEntitySystem()
     {
-        return *reinterpret_cast<CGameEntitySystem **>((uintptr_t)(this) + WIN_LINUX(88, 80));
+        return *reinterpret_cast<CGameEntitySystem **>((uintptr_t)(this) + g_Offsets->GetOffset("GameEntitySystem"));
     }
 };
 
@@ -65,6 +69,9 @@ CGameEntitySystem *GameEntitySystem()
 ////////////////////////////////////////////////////////////
 
 PluginManager *g_pluginManager = nullptr;
+Signatures *g_Signatures = nullptr;
+Offsets *g_Offsets = nullptr;
+PlayerManager *g_playerManager = nullptr;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -79,7 +86,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
 
     GET_V_IFACE_CURRENT(GetEngineFactory, engine, IVEngineServer, INTERFACEVERSION_VENGINESERVER);
     GET_V_IFACE_CURRENT(GetEngineFactory, icvar, ICvar, CVAR_INTERFACE_VERSION);
-    GET_V_IFACE_ANY(GetServerFactory, server, IServerGameDLL, INTERFACEVERSION_SERVERGAMEDLL);
+    GET_V_IFACE_ANY(GetServerFactory, server, ISource2Server, INTERFACEVERSION_SERVERGAMEDLL);
     GET_V_IFACE_ANY(GetServerFactory, gameclients, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
     GET_V_IFACE_ANY(GetServerFactory, g_clientsManager, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
     GET_V_IFACE_ANY(GetEngineFactory, g_pNetworkServerService, INetworkServerService, NETWORKSERVERSERVICE_INTERFACE_VERSION);
@@ -87,6 +94,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     GET_V_IFACE_ANY(GetFileSystemFactory, g_pFullFileSystem, IFileSystem, FILESYSTEM_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameResourceService, IGameResourceService, GAMERESOURCESERVICESERVER_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameEventSystem, IGameEventSystem, GAMEEVENTSYSTEM_INTERFACE_VERSION);
+    GET_V_IFACE_CURRENT(GetEngineFactory, g_pSchemaSystem2, CSchemaSystem, SCHEMASYSTEM_INTERFACE_VERSION);
 
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &Swiftly::Hook_ClientActive, true);
@@ -101,13 +109,21 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
 
     g_pluginManager = new PluginManager();
+    g_Signatures = new Signatures();
+    g_Offsets = new Offsets();
+    g_playerManager = new PlayerManager();
+
+    g_Signatures->LoadSignatures();
+    g_Offsets->LoadOffsets();
+
+    g_playerManager->LoadPlayers();
 
     g_pluginManager->LoadPlugins();
     g_pluginManager->StartPlugins();
 
     if (late)
     {
-        g_steamAPI.Init();
+        g_SteamAPI.Init();
     }
 
     PRINT("Succesfully started.\n");
@@ -120,7 +136,7 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
     if (!CommandLine()->HasParm("-dedicated"))
         return;
 
-    g_steamAPI.Init();
+    g_SteamAPI.Init();
 
     RETURN_META(MRES_IGNORED);
 }
@@ -142,6 +158,7 @@ bool Swiftly::Unload(char *error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &Swiftly::Hook_ClientConnect, false);
     SH_REMOVE_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &Swiftly::Hook_StartupServer, true);
     SH_REMOVE_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &Swiftly::Hook_DispatchConCommand, false);
+    SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &Swiftly::Hook_GameServerSteamAPIActivated, false);
 
     g_pGameEntitySystem->RemoveListenerEntity(&g_entityListener);
 
@@ -177,16 +194,16 @@ void Swiftly::UpdatePlayers()
     if (!engine->GetServerGlobals())
         return;
 
-    /*for (int i = 0; i < MAX_PLAYERS; i++)
+    for (int i = 0; i < engine->GetServerGlobals()->maxClients; i++)
     {
         auto steamId = engine->GetClientSteamID(CPlayerSlot(i));
         if (steamId)
         {
             auto controller = (CBasePlayerController *)g_pEntitySystem->GetEntityInstance(CEntityIndex(i + 1));
             if (controller)
-                g_steamAPI.SteamGameServer()->BUpdateUserData(*steamId, controller->GetPlayerName(), gameclients->GetPlayerScore(CPlayerSlot(i)));
+                g_SteamAPI.SteamGameServer()->BUpdateUserData(*steamId, controller->m_iszPlayerName(), gameclients->GetPlayerScore(CPlayerSlot(i)));
         }
-    }*/
+    }
 }
 
 void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
@@ -215,6 +232,9 @@ void Swiftly::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const char *ps
 
 void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char *pszName, uint64 xuid, const char *pszNetworkID)
 {
+    Player *player = g_playerManager->GetPlayer(slot);
+    if (player)
+        g_playerManager->UnregisterPlayer(slot);
 }
 
 void Swiftly::Hook_ClientSettingsChanged(CPlayerSlot slot)
@@ -223,10 +243,21 @@ void Swiftly::Hook_ClientSettingsChanged(CPlayerSlot slot)
 
 void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer)
 {
+    if (bFakePlayer)
+    {
+        Player *player = new Player(true, slot.Get(), pszName, 0, "127.0.0.1");
+        g_playerManager->RegisterPlayer(player);
+    }
 }
 
 bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
 {
+    std::string ip_address = explode(pszNetworkID, ":")[0];
+    Player *player = new Player(false, slot.Get(), pszName, xuid, ip_address);
+    g_playerManager->RegisterPlayer(player);
+
+    player->SetConnected(true);
+
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
 

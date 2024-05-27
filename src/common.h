@@ -1,7 +1,11 @@
 #ifndef _common_h
 #define _common_h
 
+#include <memory>
 #include <string>
+#include <stdexcept>
+#include <vector>
+#include <tier0/platform.h>
 
 #ifdef _WIN32
 #define WIN_LINUX(win, linux) win

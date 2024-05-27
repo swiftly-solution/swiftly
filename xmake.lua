@@ -31,6 +31,10 @@ target(PROJECT_NAME.."-XMake")
     add_files("vendor/lua/*.c")
     remove_files("vendor/lua/onelua.c")
 
+    add_files({
+        "vendor/dynlib/module.cpp"
+    })
+
     set_policy("build.cache", true)
 
     -- Protobuf Generation
@@ -220,7 +224,9 @@ target(PROJECT_NAME.."-XMake")
     -- Custom Includes
     add_includedirs({
         "vendor/lua",
-        "vendor/LuaBridge/Source"
+        "vendor/LuaBridge/Source",
+        "vendor/dynlib",
+        "vendor/json/include"
     })
 
     after_build(function(target)
