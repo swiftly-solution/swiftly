@@ -85,6 +85,16 @@ class CEntityListener : public IEntityListener
 };
 
 extern Swiftly g_Plugin;
+extern IServerGameDLL *server;
+extern IServerGameClients *gameclients;
+extern IVEngineServer2 *engine;
+extern IServerGameClients *g_clientsManager;
+extern ICvar *icvar;
+extern IGameResourceService *g_pGameResourceService;
+extern CEntitySystem *g_pEntitySystem;
+extern CGameEntitySystem *g_pGameEntitySystem;
+extern IGameEventManager2 *g_gameEventManager;
+extern IGameEventSystem *g_pGameEventSystem;
 
 PLUGIN_GLOBALVARS();
 
