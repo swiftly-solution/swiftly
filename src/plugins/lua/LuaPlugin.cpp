@@ -40,10 +40,48 @@ bool LuaPlugin::LoadScriptingEnvironment()
 
 void LuaPlugin::DestroyScriptingEnvironment()
 {
+    lua_close(this->state);
+    this->state = nullptr;
 }
 
 bool LuaPlugin::ExecuteStart()
 {
+    auto PluginAuthor = luabridge::getGlobal(this->state, "GetPluginAuthor");
+    if (!PluginAuthor.isFunction())
+    {
+        PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+        PRINT("Error: Mandatory function 'GetPluginAuthor' is not defined.\n");
+        this->SetLoadError("Mandatory function 'GetPluginAuthor' is not defined.");
+        return false;
+    }
+
+    auto PluginWebsite = luabridge::getGlobal(this->state, "GetPluginWebsite");
+    if (!PluginWebsite.isFunction())
+    {
+        PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+        PRINT("Error: Mandatory function 'GetPluginWebsite' is not defined.\n");
+        this->SetLoadError("Mandatory function 'GetPluginWebsite' is not defined.");
+        return false;
+    }
+
+    auto PluginVersion = luabridge::getGlobal(this->state, "GetPluginVersion");
+    if (!PluginVersion.isFunction())
+    {
+        PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+        PRINT("Error: Mandatory function 'GetPluginVersion' is not defined.\n");
+        this->SetLoadError("Mandatory function 'GetPluginVersion' is not defined.");
+        return false;
+    }
+
+    auto PluginName = luabridge::getGlobal(this->state, "GetPluginName");
+    if (!PluginName.isFunction())
+    {
+        PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+        PRINT("Error: Mandatory function 'GetPluginName' is not defined.\n");
+        this->SetLoadError("Mandatory function 'GetPluginName' is not defined.");
+        return false;
+    }
+
     return true;
 }
 
