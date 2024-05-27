@@ -1,4 +1,5 @@
 import os
+import fnmatch
 
 MMSPlugin.plugin_name = 'swiftly'
 MMSPlugin.plugin_alias = 'swiftly'
@@ -20,6 +21,8 @@ for sdk_target in MMSPlugin.sdk_targets:
 				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
 	binary.sources.append("vendor/dynlib/module.cpp")
+	binary.sources.append(os.path.join(sdk['path'], 'entity2', 'entitysystem.cpp'))
+	binary.sources.append(os.path.join(sdk['path'], 'entity2', 'entityidentity.cpp'))
 
 	if binary.compiler.target.platform == 'linux':
 		binary.compiler.cxxflags += [
@@ -29,7 +32,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-Wno-non-virtual-dtor",
 			"-Wno-attributes",
 			"-Wno-int-to-pointer-cast",
-			"-ffexceptions",
+			"-fexceptions",
 			"-fPIC",
 		]
 		binary.compiler.cflags += [
@@ -39,7 +42,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-Wno-non-virtual-dtor",
 			"-Wno-attributes",
 			"-Wno-int-to-pointer-cast",
-			"-ffexceptions",
+			"-fexceptions",
 			"-fPIC",
 		]
 		binary.compiler.postlink += [
@@ -55,7 +58,7 @@ for sdk_target in MMSPlugin.sdk_targets:
             "-lpsl",
             "-lbrotlidec",
             "-lbacktrace",
-            "-lstdc++"
+            "-lstdc++",
 			os.path.join(sdk['path'], 'lib', 'linux64', 'libsteam_api.so')
 		]
 		binary.compiler.defines += [
@@ -129,7 +132,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 		]
 	
 	binary.compiler.defines += [
-		"GITHUB_SHA=\"" + (os.getenv('GITHUB_SHA') == None and "LOCAL" or os.getenv('GITHUB_SHA')) + "\""
+		"GITHUB_SHA=\"" + (os.getenv('GITHUB_SHA') == None and "LOCAL" or os.getenv('GITHUB_SHA')) + "\"",
 		"HAVE_STRUCT_TIMESPEC",
 		"BUILDING",
 		"CURL_STATICLIB",
@@ -158,23 +161,22 @@ for sdk_target in MMSPlugin.sdk_targets:
 	]
 
 	protoc_builder = builder.tools.Protoc(protoc = sdk_target.protoc, sources = [
-		os.path.join(sdk['path'], 'game', 'shared', 'clienmessages.proto'),
+		os.path.join(sdk['path'], 'game', 'shared', 'clientmessages.proto'),
 		os.path.join(sdk['path'], 'game', 'shared', 'usermessages.proto'),
 		os.path.join(sdk['path'], 'game', 'shared', 'te.proto'),
 		os.path.join(sdk['path'], 'game', 'shared', 'usercmd.proto'),
 		
-		os.path.join(sdk['path'], 'game', 'shared', 'cs', 'cs_gameevents.proto'),
-		os.path.join(sdk['path'], 'game', 'shared', 'cs', 'cs_usercmd.proto'),
+		os.path.join(builder.sourcePath, 'protobufs', 'cs_gameevents.proto'),
+		os.path.join(builder.sourcePath, 'protobufs', 'cs_usercmd.proto'),
 
-		os.path.join(sdk['path'], 'game', 'shared', 'cstrike15', 'cstrike15_gcmessages.proto'),
-		os.path.join(sdk['path'], 'game', 'shared', 'cstrike15', 'cstrike15_usermessages.proto'),
+		os.path.join(builder.sourcePath, 'protobufs', 'cstrike15_gcmessages.proto'),
+		os.path.join(builder.sourcePath, 'protobufs', 'cstrike15_usermessages.proto'),
 
 		os.path.join(sdk['path'], 'gcsdk', 'gcsdk_gcmessages.proto'),
 		os.path.join(sdk['path'], 'gcsdk', 'steammessages.proto'),
 
 		os.path.join(sdk['path'], 'common', 'network_connection.proto'),
 		os.path.join(sdk['path'], 'common', 'networkbasetypes.proto'),
-		os.path.join(sdk['path'], 'common', 'engine_gcmessages.proto'),
 		os.path.join(sdk['path'], 'common', 'netmessages.proto'),
 		os.path.join(sdk['path'], 'common', 'engine_gcmessages.proto'),
 	])
@@ -182,8 +184,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 		os.path.join(sdk['path'], 'gcsdk'),
 		os.path.join(sdk['path'], 'common'),
 		os.path.join(sdk['path'], 'game', 'shared'),
-		os.path.join(sdk['path'], 'game', 'shared', 'cstrike15'),
-		os.path.join(builder.sourcePath, 'protobuf'),
+		os.path.join(builder.sourcePath, 'protobufs')
 	]
 
 	binary.custom = [protoc_builder]
