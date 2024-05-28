@@ -7,11 +7,12 @@
 
 #include <steam/steam_gameserver.h>
 
+#include "crashreporter/CrashReport.h"
+#include "hooks/NativeHooks.h"
 #include "player/PlayerManager.h"
 #include "plugins/PluginManager.h"
 #include "signatures/Signatures.h"
 #include "signatures/Offsets.h"
-#include "hooks/NativeHooks.h"
 
 SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t &, ISource2WorldSession *, const char *);
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
@@ -112,6 +113,9 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_pCVar = icvar;
 
     ConVar_Register(FCVAR_RELEASE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_GAMEDLL);
+
+    if (!BeginCrashListener())
+        PRINTRET("Crash Reporter failed to initialize.\n", false)
 
     g_pluginManager = new PluginManager();
     g_Signatures = new Signatures();

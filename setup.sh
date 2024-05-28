@@ -10,7 +10,7 @@ fi
 if [ ! -d build ]; then
     mkdir build
     cd build
-    CC=gcc CXX=g++ python ../configure.py --enable-optimize --symbol-files -s cs2
+    CC=gcc CXX=g++ python ../configure.py --enable-optimize -s cs2
     cd ..
 fi
 

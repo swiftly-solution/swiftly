@@ -7,7 +7,7 @@ if (-not $env:GITHUB_SHA) {
 if (!(Test-Path -Path "$PSScriptRoot\build")) {
     mkdir build
     Set-Location build
-    python ../configure.py --enable-optimize --symbol-files -s cs2
+    python ../configure.py --enable-optimize -s cs2
     Set-Location ..
 }
 
