@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/prototemp/**",
+                "${workspaceFolder}/build/swiftly/windows-x86_64/**",
                 "${workspaceFolder}/alliedmodders/hl2sdk/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
@@ -11,7 +11,8 @@
                 "${workspaceFolder}/vendor/lua/**",
                 "${workspaceFolder}/vendor/dynlib/**",
                 "${workspaceFolder}/vendor/LuaBridge/Source/**",
-                "${workspaceFolder}/vendor/json/include/**"
+                "${workspaceFolder}/vendor/json/include/**",
+                "${workspaceFolder}/vendor/funchook/include/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -25,7 +26,7 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/prototemp/**",
+                "${workspaceFolder}/build/swiftly/linux-x86_64/**",
                 "${workspaceFolder}/alliedmodders/hl2sdk/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
@@ -33,7 +34,8 @@
                 "${workspaceFolder}/vendor/lua/**",
                 "${workspaceFolder}/vendor/dynlib/**",
                 "${workspaceFolder}/vendor/LuaBridge/Source/**",
-                "${workspaceFolder}/vendor/json/include/**"
+                "${workspaceFolder}/vendor/json/include/**",
+                "${workspaceFolder}/vendor/funchook/include/**"
             ],
             "defines": [
                 "_DEBUG",

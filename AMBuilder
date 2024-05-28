@@ -46,6 +46,9 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-fPIC",
 		]
 		binary.compiler.postlink += [
+			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libfunchook.a'),
+      		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libdistorm.a'),
+
 			"-lz",
             "-lpthread",
             "-lm",
@@ -87,6 +90,8 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"/Z7"
 		]
 		binary.compiler.postlink += [
+			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
+		    os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
 			"psapi.lib",
             "winmm.lib",
             "ws2_32.lib",
@@ -143,6 +148,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 		os.path.join(builder.sourcePath, 'vendor', 'LuaBridge', 'Source'),
 		os.path.join(builder.sourcePath, 'vendor', 'dynlib'),
 		os.path.join(builder.sourcePath, 'vendor', 'json', 'include'),
+		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
 
 		os.path.join(sdk['path']),
 		os.path.join(sdk['path'], 'public'),
