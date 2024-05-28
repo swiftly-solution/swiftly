@@ -129,7 +129,7 @@ void Signatures::LoadSignatures()
         void *sig = nullptr;
         if (rawSig.find("?") == std::string::npos)
         {
-            std::string finalSig = (rawSig.at(0) == '_') ? rawSig : ("\\x" + replace(rawSig, " ", "\\x"));
+            std::string finalSig = (rawSig.at(0) == '@') ? rawSig : ("\\x" + replace(rawSig, " ", "\\x"));
             sig = FindSignature(lib, finalSig.c_str());
             if (sig == nullptr)
             {
