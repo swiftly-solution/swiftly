@@ -9,6 +9,7 @@
 #include "../player/PlayerManager.h"
 #include "../filters/ConsoleFilter.h"
 #include "../addons/addons.h"
+#include "../translations/Translations.h"
 
 #ifndef GITHUB_SHA
 #define GITHUB_SHA "LOCAL"
@@ -111,6 +112,7 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
     {
         PrintToClientOrConsole(slot, "Commands", " addons       - Addons Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " confilter    - Console Filtering Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " translations - Translations Menu\n");
     }
     PrintToClientOrConsole(slot, "Commands", " version      - Display Swiftly version\n");
 }
@@ -266,6 +268,41 @@ void SwiftlyConFilterManager(CPlayerSlot slot, CCommandContext context, const ch
 }
 
 //////////////////////////////////////////////////////////////
+/////////////////         Translations         //////////////
+////////////////////////////////////////////////////////////
+
+void SwiftlyTranslationManagerHelp(CPlayerSlot slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Console Filtering Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly translations <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " reload    - Reloads the translations.\n");
+}
+
+void SwiftlyTranslationReload(CPlayerSlot slot, CCommandContext context)
+{
+    g_translations->LoadTranslations();
+    PrintToClientOrConsole(slot, "Translations", "All translations have been succesfully reloaded.\n");
+}
+
+void SwiftlyTranslationManager(CPlayerSlot slot, CCommandContext context, const char *subcmd)
+{
+    if (slot.Get() != -1)
+        return;
+
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        SwiftlyTranslationManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "reload")
+        SwiftlyTranslationReload(slot, context);
+    else
+        SwiftlyTranslationManagerHelp(slot, context);
+}
+
+//////////////////////////////////////////////////////////////
 /////////////////            Version           //////////////
 ////////////////////////////////////////////////////////////
 
@@ -312,6 +349,8 @@ void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
         SwiftlyConFilterManager(slot, context, args[2]);
     else if (subcmd == "addons")
         SwiftlyAddonsManager(slot, context, args[2]);
+    else if (subcmd == "translations")
+        SwiftlyTranslationManager(slot, context, args[2]);
     else if (subcmd == "status")
         SwiftlyStatus(slot, context);
     else
