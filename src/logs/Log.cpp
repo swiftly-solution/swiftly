@@ -21,13 +21,13 @@ void Log::WriteLog(LogType_t logType, std::string str)
 {
     auto GetLogPrefix = [logType]()
     {
-        if (logType == LogType_t::LOGLEVEL_DEBUG)
+        if (logType == LogType_t::Debug)
             return "Debug";
-        else if (logType == LogType_t::LOGLEVEL_ERROR)
+        else if (logType == LogType_t::Error)
             return "Error";
-        else if (logType == LogType_t::LOGLEVEL_WARNING)
+        else if (logType == LogType_t::Warning)
             return "Warning";
-        else if (logType == LogType_t::LOGLEVEL_COMMON)
+        else if (logType == LogType_t::Common)
             return "Common";
         else
             return "Unknown";
