@@ -3,13 +3,7 @@
 
 #include <string>
 
-enum ELogType
-{
-    LOGLEVEL_DEBUG = 1,
-    LOGLEVEL_WARNING = 2,
-    LOGLEVEL_ERROR = 3,
-    LOGLEVEL_COMMON = 4,
-};
+#include "../types/LogType.h"
 
 class Log
 {
@@ -23,7 +17,7 @@ public:
     }
     ~Log() {}
 
-    void WriteLog(ELogType logType, std::string str);
+    void WriteLog(LogType_t logType, std::string str);
     std::string GenerateLogName();
 };
 

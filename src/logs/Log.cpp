@@ -17,7 +17,7 @@ std::string Log::GenerateLogName()
         return string_format("%s.log", this->m_path.c_str());
 }
 
-void Log::WriteLog(ELogType logType, std::string str)
+void Log::WriteLog(LogType_t logType, std::string str)
 {
     auto GetLogPrefix = [logType]()
     {
