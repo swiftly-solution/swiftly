@@ -14,7 +14,12 @@ class FuncHookBase
 public:
     virtual const char *GetName() = 0;
     virtual void Free() = 0;
+    virtual bool Create() = 0;
+    virtual void Enable() = 0;
+    virtual void Disable() = 0;
 };
+
+extern CUtlVector<FuncHookBase *> g_vecHooks;
 
 template <typename T>
 class FuncHook : FuncHookBase
@@ -31,15 +36,17 @@ public:
     {
         this->m_fn = fn;
         this->m_name = name;
+
+        g_vecHooks.AddToTail(this);
     }
     ~FuncHook()
     {
         this->Free();
     }
 
-    bool Create();
-    void Enable();
-    void Disable();
+    bool Create() override;
+    void Enable() override;
+    void Disable() override;
     void Free() override;
     const char *GetName() override { return this->m_name; }
     T *GetFn() { return this->m_fn; }

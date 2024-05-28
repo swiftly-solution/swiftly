@@ -7,5 +7,6 @@
 #include "../sdk/entity/CGameRules.h"
 
 bool InitializeHooks();
+void UnloadHooks();
 
 #endif

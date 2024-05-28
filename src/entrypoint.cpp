@@ -156,6 +156,8 @@ bool Swiftly::Unload(char *error, size_t maxlen)
     g_pluginManager->StopPlugins();
     g_pluginManager->UnloadPlugins();
 
+    UnloadHooks();
+
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &Swiftly::Hook_ClientActive, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &Swiftly::Hook_ClientDisconnect, true);
