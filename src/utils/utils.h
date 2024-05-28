@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <TextTable.h>
+#include <chrono>
 #include "../entrypoint.h"
 
 std::string replace(std::string str, const std::string from, const std::string to);
@@ -13,6 +14,7 @@ std::string ProcessColor(std::string str, int team);
 bool ends_with(std::string value, std::string ending);
 bool starts_with(std::string value, std::string starting);
 void PrintTextTable(std::string category, TextTable table);
+uint64_t GetTime();
 
 template <typename... Args>
 std::string string_format(const std::string &format, Args... args)

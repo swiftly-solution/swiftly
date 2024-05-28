@@ -252,6 +252,19 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
         g_flNextUpdate = curtime + 5.0;
     }
 
+    //////////////////////////////////////////////////////////////
+    /////////////////            Player            //////////////
+    ////////////////////////////////////////////////////////////
+    for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
+    {
+        Player *player = g_playerManager->GetPlayer(i);
+        if (!player)
+            continue;
+
+        if (player->HasCenterText())
+            player->RenderCenterText();
+    }
+
     while (!m_nextFrame.empty())
     {
         m_nextFrame.front()();

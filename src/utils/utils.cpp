@@ -96,3 +96,8 @@ void PrintTextTable(std::string category, TextTable table)
     for (int i = 0; i < rows.size() - 1; i++)
         PLUGIN_PRINTF(category, "%s\n", rows[i].c_str());
 }
+
+uint64_t GetTime()
+{
+    return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+}

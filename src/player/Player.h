@@ -34,6 +34,8 @@ public:
 
     void SendMsg(int dest, const char *msg, ...);
 
+    void RenderCenterText();
+
     void Authenticate();
     const char *GetName();
     uint64 GetSteamID();
@@ -57,6 +59,8 @@ public:
     bool IsFirstSpawn();
     void SetFirstSpawn(bool value);
 
+    bool HasCenterText();
+
 private:
     int slot;
     bool isFakeClient = false;
@@ -67,6 +71,9 @@ private:
     const char *name;
     uint64 xuid;
     std::string ip_address = "0.0.0.0";
+
+    uint64_t centerMessageEndTime = 0;
+    std::string centerMessageText;
 
     bool firstSpawn = true;
 };

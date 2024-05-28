@@ -154,8 +154,8 @@ void Player::SendMsg(int dest, const char *msg, ...)
     }
     else if (dest == HUD_PRINTCENTER)
     {
-        // this->centerMessageEndTime = GetTime() + 5000;
-        // this->centerMessageText = msg;
+        this->centerMessageEndTime = GetTime() + 5000;
+        this->centerMessageText = msg;
     }
     else if (dest == HUD_PRINTCONSOLE)
     {
@@ -233,6 +233,32 @@ void Player::SwitchTeam(int team)
     else
         g_Signatures->FetchSignature<CCSPlayerController_SwitchTeam>("CCSPlayerController_SwitchTeam")(playerController, team);
 }
+
+void Player::RenderCenterText()
+{
+    if (this->centerMessageEndTime != 0)
+    {
+        if (this->centerMessageEndTime >= GetTime())
+        {
+            IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+            if (pEvent)
+            {
+                pEvent->SetString("loc_token", this->centerMessageText.c_str());
+                pEvent->SetUint64("duration", 1);
+                pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
+
+                IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
+
+                playerListener->FireGameEvent(pEvent);
+                g_gameEventManager->FreeEvent(pEvent);
+            }
+        }
+        else
+            this->centerMessageEndTime = 0;
+    }
+}
+
+bool Player::HasCenterText() { return (this->centerMessageEndTime != 0); }
 
 bool Player::IsFirstSpawn() { return this->firstSpawn; }
 void Player::SetFirstSpawn(bool value) { this->firstSpawn = value; }
