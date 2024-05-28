@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "entrypoint.h"
 
+#include <tier1/convar.h>
 #include <interfaces/interfaces.h>
 #include <metamod_oslink.h>
 
@@ -42,6 +43,7 @@ IServerGameClients *gameclients = nullptr;
 IVEngineServer2 *engine = nullptr;
 IServerGameClients *g_clientsManager = nullptr;
 ICvar *icvar = nullptr;
+ICvar *g_pcVar = nullptr;
 IGameResourceService *g_pGameResourceService = nullptr;
 CEntitySystem *g_pEntitySystem = nullptr;
 CGameEntitySystem *g_pGameEntitySystem = nullptr;
@@ -107,7 +109,9 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     SH_ADD_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &Swiftly::Hook_DispatchConCommand, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &Swiftly::Hook_GameServerSteamAPIActivated, false);
 
-    ConVar_Register(FCVAR_RELEASE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_GAMEDLL);
+    g_pCVar = icvar;
+
+    ConVar_Register(FCVAR_RELEASE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_GAMEDLL);
 
     g_pluginManager = new PluginManager();
     g_Signatures = new Signatures();

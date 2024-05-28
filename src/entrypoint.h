@@ -92,6 +92,7 @@ extern IServerGameClients *gameclients;
 extern IVEngineServer2 *engine;
 extern IServerGameClients *g_clientsManager;
 extern ICvar *icvar;
+extern ICvar *g_pcVar;
 extern IGameResourceService *g_pGameResourceService;
 extern CEntitySystem *g_pEntitySystem;
 extern CGameEntitySystem *g_pGameEntitySystem;

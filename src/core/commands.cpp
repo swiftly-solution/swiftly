@@ -1,5 +1,7 @@
 #include <string>
 
+#include <tier1/convar.h>
+
 #include "../entrypoint.h"
 #include "../common.h"
 #include "../utils/utils.h"
