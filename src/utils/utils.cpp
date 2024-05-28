@@ -87,3 +87,12 @@ void PLUGIN_PRINTF(std::string category, std::string str, ...)
 
     g_SMAPI->ConPrint((PREFIX " [" + category + "] " + std::string(buffer)).c_str());
 }
+
+void PrintTextTable(std::string category, TextTable table)
+{
+    std::stringstream outputTable;
+    outputTable << table;
+    std::vector<std::string> rows = explode(outputTable.str(), "\n");
+    for (int i = 0; i < rows.size() - 1; i++)
+        PLUGIN_PRINTF(category, "%s\n", rows[i].c_str());
+}

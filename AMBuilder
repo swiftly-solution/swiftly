@@ -149,6 +149,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 		os.path.join(builder.sourcePath, 'vendor', 'dynlib'),
 		os.path.join(builder.sourcePath, 'vendor', 'json', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
+		os.path.join(builder.sourcePath, 'vendor', 'texttable'),
 
 		os.path.join(sdk['path']),
 		os.path.join(sdk['path'], 'public'),

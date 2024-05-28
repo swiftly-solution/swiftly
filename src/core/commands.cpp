@@ -1,4 +1,5 @@
 #include <string>
+#include <TextTable.h>
 
 #include <tier1/convar.h>
 
@@ -64,7 +65,14 @@ void SwiftlyList(CPlayerSlot slot, CCommandContext context)
 
 void SwiftlyStatus(CPlayerSlot slot, CCommandContext context)
 {
-    PrintToClientOrConsole(slot, "Status", "playerid\tname\tsteamid\t\ttime\t\tstate\n");
+    TextTable statusTable('-', '|', '+');
+
+    statusTable.add(" playerid ");
+    statusTable.add(" name ");
+    statusTable.add(" steamid ");
+    statusTable.add(" time ");
+    statusTable.add(" state ");
+    statusTable.endOfRow();
 
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
@@ -76,13 +84,16 @@ void SwiftlyStatus(CPlayerSlot slot, CCommandContext context)
         if (!controller)
             continue;
 
-        if (player->IsFakeClient())
-            PrintToClientOrConsole(slot, "Status", "#%d\t%s\t%s\t%s\t%s\n",
-                                   player->GetSlot().Get(), player->GetName(), "BOT\t", seconds_to_time(player->GetConnectedTime()).c_str(), "Active");
-        else
-            PrintToClientOrConsole(slot, "Status", "#%d\t%s\t%llu\t%s\t%s\n",
-                                   player->GetSlot().Get(), player->GetName(), controller->m_steamID(), seconds_to_time(player->GetConnectedTime()).c_str(), "Active");
+        statusTable.add(string_format(" #%d ", player->GetSlot().Get()));
+        statusTable.add(string_format(" %s ", player->GetName()));
+        statusTable.add(string_format(" %s ", player->IsFakeClient() ? "BOT" : std::to_string(controller->m_steamID()).c_str()));
+        statusTable.add(string_format(" %s ", seconds_to_time(player->GetConnectedTime()).c_str()));
+        statusTable.add(string_format(" %s ", "Active"));
+        statusTable.endOfRow();
     }
+
+    PrintTextTable("Status", statusTable);
+
     PrintToClientOrConsole(slot, "Status", "end of status\n");
 }
 

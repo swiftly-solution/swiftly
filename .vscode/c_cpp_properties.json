@@ -12,7 +12,8 @@
                 "${workspaceFolder}/vendor/dynlib/**",
                 "${workspaceFolder}/vendor/LuaBridge/Source/**",
                 "${workspaceFolder}/vendor/json/include/**",
-                "${workspaceFolder}/vendor/funchook/include/**"
+                "${workspaceFolder}/vendor/funchook/include/**",
+                "${workspaceFolder}/vendor/texttable/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -35,7 +36,8 @@
                 "${workspaceFolder}/vendor/dynlib/**",
                 "${workspaceFolder}/vendor/LuaBridge/Source/**",
                 "${workspaceFolder}/vendor/json/include/**",
-                "${workspaceFolder}/vendor/funchook/include/**"
+                "${workspaceFolder}/vendor/funchook/include/**",
+                "${workspaceFolder}/vendor/texttable/**"
             ],
             "defines": [
                 "_DEBUG",
