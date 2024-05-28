@@ -40,4 +40,5 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     luabridge::setGlobal(state, plugin->GetName(), "plugin_name");
 
     SetupLuaTypes(plugin, state);
+    SetupLuaTranslations(plugin, state);
 }

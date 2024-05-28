@@ -32,6 +32,8 @@ public:
 
     bool StartPlugin(std::string plugin_name);
     void StopPlugin(std::string plugin_name);
+
+    Plugin *FetchPlugin(std::string name);
 };
 
 extern PluginManager *g_pluginManager;

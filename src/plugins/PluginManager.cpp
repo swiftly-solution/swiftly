@@ -128,3 +128,11 @@ void PluginManager::StopPlugin(std::string plugin_name)
     plugin->ExecuteStop();
     plugin->DestroyScriptingEnvironment();
 }
+
+Plugin *PluginManager::FetchPlugin(std::string name)
+{
+    if (!PluginExists(name))
+        return nullptr;
+
+    return pluginsMap.at(name);
+}
