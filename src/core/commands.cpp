@@ -7,6 +7,7 @@
 #include "../common.h"
 #include "../utils/utils.h"
 #include "../player/PlayerManager.h"
+#include "../filters/ConsoleFilter.h"
 
 #ifndef GITHUB_SHA
 #define GITHUB_SHA "LOCAL"
@@ -105,8 +106,99 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", " help         - Show the help for Swiftly commands\n");
     PrintToClientOrConsole(slot, "Commands", " list         - Show the list of online players\n");
     PrintToClientOrConsole(slot, "Commands", " status       - Show the status of the players\n");
+    if (slot.Get() == -1)
+    {
+        PrintToClientOrConsole(slot, "Commands", " confilter    - Console Filtering Menu\n");
+    }
     PrintToClientOrConsole(slot, "Commands", " version      - Display Swiftly version\n");
 }
+
+//////////////////////////////////////////////////////////////
+/////////////////        Console Filter        //////////////
+////////////////////////////////////////////////////////////
+
+void SwiftlyConFilterManagerHelp(CPlayerSlot slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Console Filtering Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly confilter <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " disable    - Disables the console filtering.\n");
+    PrintToClientOrConsole(slot, "Commands", " enable     - Enables the console filtering.\n");
+    PrintToClientOrConsole(slot, "Commands", " reload     - Reloads the console filtering messages.\n");
+    PrintToClientOrConsole(slot, "Commands", " stats      - Shows the console filter stats.\n");
+}
+
+void SwiftlyConFilterEnable(CPlayerSlot slot, CCommandContext context)
+{
+    if (g_conFilter->Status())
+        return PrintToClientOrConsole(slot, "Console Filtering", "Console filtering is already enabled.\n");
+
+    g_conFilter->Toggle();
+    PrintToClientOrConsole(slot, "Console Filtering", "Console filtering has been enabled.\n");
+}
+
+void SwiftlyConFilterDisable(CPlayerSlot slot, CCommandContext context)
+{
+    if (!g_conFilter->Status())
+        return PrintToClientOrConsole(slot, "Console Filtering", "Console filtering is already disabled.\n");
+
+    g_conFilter->Toggle();
+    PrintToClientOrConsole(slot, "Console Filtering", "Console filtering has been disabled.\n");
+}
+
+void SwiftlyConFilterStats(CPlayerSlot slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Console Filtering", "Console Filtering status: %s.\n", g_conFilter->Status() ? "Enabled" : "Disabled");
+    PrintToClientOrConsole(slot, "Console Filtering", "Below it will be shown the amount of messages filtered:\n");
+    std::map<std::string, uint64> counters = g_conFilter->GetCounters();
+    uint32 idx = 0;
+    for (std::map<std::string, uint64>::iterator it = counters.begin(); it != counters.end(); ++it)
+    {
+        ++idx;
+        PrintToClientOrConsole(slot, "Console Filtering", "%02d. %s -> %llu\n", idx, it->first.c_str(), it->second);
+    }
+}
+
+void SwiftlyConFilterReload(CPlayerSlot slot, CCommandContext context)
+{
+    bool shouldRestart = g_conFilter->Status();
+
+    if (g_conFilter->Status())
+        g_conFilter->Toggle();
+
+    g_conFilter->LoadFilters();
+    PrintToClientOrConsole(slot, "Console Filtering", "Console Filtering messages have been succesfully reloaded.\n");
+
+    if (shouldRestart)
+        g_conFilter->Toggle();
+}
+
+void SwiftlyConFilterManager(CPlayerSlot slot, CCommandContext context, const char *subcmd)
+{
+    if (slot.Get() != -1)
+        return;
+
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        SwiftlyConFilterManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "enable")
+        SwiftlyConFilterEnable(slot, context);
+    else if (sbcmd == "disable")
+        SwiftlyConFilterDisable(slot, context);
+    else if (sbcmd == "stats")
+        SwiftlyConFilterStats(slot, context);
+    else if (sbcmd == "reload")
+        SwiftlyConFilterReload(slot, context);
+    else
+        SwiftlyConFilterManagerHelp(slot, context);
+}
+
+//////////////////////////////////////////////////////////////
+/////////////////            Version           //////////////
+////////////////////////////////////////////////////////////
 
 void SwiftlyVersion(CPlayerSlot slot, CCommandContext context)
 {
@@ -118,6 +210,10 @@ void SwiftlyVersion(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Version", " Github Commit: https://github.com/swiftly-solution/swiftly/commit/%s\n", std::string(GITHUB_SHA).c_str());
     PrintToClientOrConsole(slot, "Version", " https://github.com/swiftly-solution \n");
 }
+
+//////////////////////////////////////////////////////////////
+/////////////////            Credits           //////////////
+////////////////////////////////////////////////////////////
 
 void ShowSwiftlyCredits(CPlayerSlot slot, CCommandContext context)
 {
@@ -143,6 +239,8 @@ void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
         SwiftlyVersion(slot, context);
     else if (subcmd == "list")
         SwiftlyList(slot, context);
+    else if (subcmd == "confilter")
+        SwiftlyConFilterManager(slot, context, args[2]);
     else if (subcmd == "status")
         SwiftlyStatus(slot, context);
     else

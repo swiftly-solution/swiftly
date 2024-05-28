@@ -48,6 +48,12 @@ with open(os.path.join(builder.buildPath, 'pdblog.txt'), 'wt') as fp:
   for line in pdb_list:
     fp.write(line.path + '\n')
 
+configs_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'configs'))
+configs_plugins_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'configs', 'plugins'))
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'core.json'), configs_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'console_filter.json'), configs_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'plugins', '.gitignore'), configs_plugins_folder)
+
 gamedata_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'gamedata'))
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'signatures.json'), gamedata_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'patches.json'), gamedata_folder)

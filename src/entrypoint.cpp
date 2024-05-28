@@ -7,7 +7,9 @@
 
 #include <steam/steam_gameserver.h>
 
+#include "configuration/Configuration.h"
 #include "crashreporter/CrashReport.h"
+#include "filters/ConsoleFilter.h"
 #include "hooks/NativeHooks.h"
 #include "player/PlayerManager.h"
 #include "plugins/PluginManager.h"
@@ -53,6 +55,8 @@ IGameEventSystem *g_pGameEventSystem = nullptr;
 CEntityListener g_entityListener;
 CSteamGameServerAPIContext g_SteamAPI;
 CSchemaSystem *g_pSchemaSystem2 = nullptr;
+Configuration *g_Config = nullptr;
+ConsoleFilter *g_conFilter = nullptr;
 
 class CGameResourceService
 {
@@ -72,6 +76,7 @@ CGameEntitySystem *GameEntitySystem()
 /////////////////      Internal Variables      //////////////
 ////////////////////////////////////////////////////////////
 
+CUtlVector<FuncHookBase *> g_vecHooks;
 PluginManager *g_pluginManager = nullptr;
 Signatures *g_Signatures = nullptr;
 Offsets *g_Offsets = nullptr;
@@ -118,10 +123,18 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
         PRINTRET("Crash Reporter failed to initialize.\n", false)
 
     g_pluginManager = new PluginManager();
+    g_Config = new Configuration();
+    g_conFilter = new ConsoleFilter();
     g_Signatures = new Signatures();
     g_Offsets = new Offsets();
     g_playerManager = new PlayerManager();
 
+    if (g_Config->LoadConfiguration())
+        PRINT("The configurations has been succesfully loaded.\n");
+    else
+        PRINTRET("Failed to load configurations. The plugin will not work.\n", false)
+
+    g_Config->LoadPluginConfigurations();
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
 
@@ -131,6 +144,10 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
         PRINT("Hooks initialized succesfully.\n");
 
     g_playerManager->LoadPlayers();
+    g_conFilter->LoadFilters();
+
+    if (g_Config->FetchValue<bool>("core.console_filtering"))
+        g_conFilter->Toggle();
 
     g_pluginManager->LoadPlugins();
     g_pluginManager->StartPlugins();
