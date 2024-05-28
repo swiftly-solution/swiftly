@@ -14,6 +14,7 @@
 #include "crashreporter/CrashReport.h"
 #include "gameevents/gameevents.h"
 #include "logs/Logger.h"
+#include "precacher/precacher.h"
 #include "translations/Translations.h"
 #include "filters/ConsoleFilter.h"
 #include "hooks/NativeHooks.h"
@@ -92,6 +93,7 @@ PlayerManager *g_playerManager = nullptr;
 PluginManager *g_pluginManager = nullptr;
 Offsets *g_Offsets = nullptr;
 Signatures *g_Signatures = nullptr;
+Precacher *g_precacher = nullptr;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -141,6 +143,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_playerManager = new PlayerManager();
     g_Logger = new Logger();
     g_translations = new Translations();
+    g_precacher = new Precacher();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -235,10 +238,16 @@ bool Swiftly::Unload(char *error, size_t maxlen)
 
 void Swiftly::OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
 {
+    if (!g_precacher->GetSoundsPrecached())
+    {
+        g_precacher->CacheSounds();
+        g_precacher->SetSoundsPrecached(true);
+    }
 }
 
 void Swiftly::OnLevelShutdown()
 {
+    g_precacher->Reset();
     g_translations->LoadTranslations();
     g_Config->LoadPluginConfigurations();
 }

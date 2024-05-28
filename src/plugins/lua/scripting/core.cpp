@@ -46,4 +46,5 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     SetupLuaTranslations(plugin, state);
     SetupLuaConfiguration(plugin, state);
     SetupLuaFiles(plugin, state);
+    SetupLuaPrecacher(plugin, state);
 }
