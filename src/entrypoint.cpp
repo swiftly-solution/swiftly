@@ -13,6 +13,7 @@
 #include "configuration/Configuration.h"
 #include "crashreporter/CrashReport.h"
 #include "logs/Logger.h"
+#include "translations/Translations.h"
 #include "filters/ConsoleFilter.h"
 #include "hooks/NativeHooks.h"
 #include "player/PlayerManager.h"
@@ -82,6 +83,7 @@ CUtlVector<FuncHookBase *> g_vecHooks;
 Addons g_addons;
 Configuration *g_Config = nullptr;
 ConsoleFilter *g_conFilter = nullptr;
+Translations *g_translations = nullptr;
 Logger *g_Logger = nullptr;
 PlayerManager *g_playerManager = nullptr;
 PluginManager *g_pluginManager = nullptr;
@@ -128,8 +130,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     if (!BeginCrashListener())
         PRINTRET("Crash Reporter failed to initialize.\n", false)
 
-    
-
     g_pluginManager = new PluginManager();
     g_Config = new Configuration();
     g_conFilter = new ConsoleFilter();
@@ -137,6 +137,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_Offsets = new Offsets();
     g_playerManager = new PlayerManager();
     g_Logger = new Logger();
+    g_translations = new Translations();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -156,6 +157,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
 
     g_playerManager->LoadPlayers();
     g_conFilter->LoadFilters();
+    g_translations->LoadTranslations();
 
     if (g_Config->FetchValue<bool>("core.console_filtering"))
         g_conFilter->Toggle();
@@ -233,6 +235,8 @@ void Swiftly::OnLevelInit(char const *pMapName, char const *pMapEntities, char c
 
 void Swiftly::OnLevelShutdown()
 {
+    g_translations->LoadTranslations();
+    g_Config->LoadPluginConfigurations();
 }
 
 bool bDone = false;
