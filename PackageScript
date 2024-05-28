@@ -62,3 +62,6 @@ builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'of
 
 plugins_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'plugins'))
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'plugins', '.gitignore'), plugins_folder)
+
+translations_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'translations'))
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'translations', '.gitignore'), translations_folder)

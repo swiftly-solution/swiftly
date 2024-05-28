@@ -44,6 +44,9 @@ void Translations::LoadTranslations()
 
     this->m_translations.clear();
 
+    if (!Files::ExistsPath("addons/swiftly/translations"))
+        Files::CreateDirectory("addons/swiftly/translations");
+
     std::vector<std::string> translationFiles = Files::FetchFileNames("addons/swiftly/translations");
 
     for (const std::string &translationFilePath : translationFiles)
