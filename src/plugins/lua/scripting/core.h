@@ -10,3 +10,4 @@
 void SetupLuaLogs(LuaPlugin *plugin, lua_State *state);
 void SetupLuaTypes(LuaPlugin *plugin, lua_State *state);
 void SetupLuaTranslations(LuaPlugin *plugin, lua_State *state);
+void SetupLuaConfiguration(LuaPlugin *plugin, lua_State *state);
