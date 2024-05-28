@@ -9,6 +9,13 @@ extern "C"
 }
 
 #include <LuaBridge/LuaBridge.h>
+#include <LuaBridge/Array.h>
+#include <LuaBridge/List.h>
+#include <LuaBridge/Map.h>
+#include <LuaBridge/Optional.h>
+#include <LuaBridge/Pair.h>
+#include <LuaBridge/UnorderedMap.h>
+#include <LuaBridge/Vector.h>
 
 #include "../Plugin.h"
 

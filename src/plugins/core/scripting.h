@@ -45,6 +45,30 @@ public:
 };
 
 //////////////////////////////////////////////////////////////
+/////////////////             Files            //////////////
+////////////////////////////////////////////////////////////
+
+class PluginFiles
+{
+private:
+    std::string plugin_name;
+
+public:
+    PluginFiles(std::string m_plugin_name);
+
+    void Append(std::string path, std::string content, bool hasdate);
+    bool CreateDirectory(std::string path);
+    void Delete(std::string path);
+    bool ExistsPath(std::string path);
+    std::vector<std::string> FetchDirectories(std::string path);
+    std::vector<std::string> FetchFileNames(std::string path);
+    std::string GetBase(std::string path);
+    bool IsDirectory(std::string path);
+    std::string Read(std::string path);
+    void Write(std::string path, std::string content, bool hasdate);
+};
+
+//////////////////////////////////////////////////////////////
 /////////////////         Translations         //////////////
 ////////////////////////////////////////////////////////////
 
