@@ -1,5 +1,4 @@
-#include "../LuaPlugin.h"
-#include "../../../entrypoint.h"
+#include "core.h"
 
 int customPrint(lua_State *state)
 {
@@ -35,9 +34,10 @@ int customPrint(lua_State *state)
 
 void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
 {
-
     luabridge::getGlobalNamespace(state)
         .addCFunction("print", &customPrint);
 
     luabridge::setGlobal(state, plugin->GetName(), "plugin_name");
+
+    SetupLuaTypes(plugin, state);
 }
