@@ -76,6 +76,9 @@ public:
 
 public:
     std::deque<std::function<void()>> m_nextFrame;
+
+public:
+    STEAM_GAMESERVER_CALLBACK_MANUAL(Swiftly, OnAddonDownloaded, DownloadItemResult_t, m_CallbackDownloadItemResult);
 };
 
 class CEntityListener : public IEntityListener
@@ -98,6 +101,7 @@ extern CEntitySystem *g_pEntitySystem;
 extern CGameEntitySystem *g_pGameEntitySystem;
 extern IGameEventManager2 *g_gameEventManager;
 extern IGameEventSystem *g_pGameEventSystem;
+extern CSteamGameServerAPIContext g_SteamAPI;
 
 PLUGIN_GLOBALVARS();
 

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <thread>
 #include "entrypoint.h"
 
 #include <tier1/convar.h>
@@ -7,6 +8,8 @@
 
 #include <steam/steam_gameserver.h>
 
+#include "addons/addons.h"
+#include "addons/clients.h"
 #include "configuration/Configuration.h"
 #include "crashreporter/CrashReport.h"
 #include "filters/ConsoleFilter.h"
@@ -55,8 +58,6 @@ IGameEventSystem *g_pGameEventSystem = nullptr;
 CEntityListener g_entityListener;
 CSteamGameServerAPIContext g_SteamAPI;
 CSchemaSystem *g_pSchemaSystem2 = nullptr;
-Configuration *g_Config = nullptr;
-ConsoleFilter *g_conFilter = nullptr;
 
 class CGameResourceService
 {
@@ -77,10 +78,13 @@ CGameEntitySystem *GameEntitySystem()
 ////////////////////////////////////////////////////////////
 
 CUtlVector<FuncHookBase *> g_vecHooks;
-PluginManager *g_pluginManager = nullptr;
-Signatures *g_Signatures = nullptr;
-Offsets *g_Offsets = nullptr;
+Addons g_addons;
+Configuration *g_Config = nullptr;
+ConsoleFilter *g_conFilter = nullptr;
 PlayerManager *g_playerManager = nullptr;
+PluginManager *g_pluginManager = nullptr;
+Offsets *g_Offsets = nullptr;
+Signatures *g_Signatures = nullptr;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -138,6 +142,8 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
 
+    g_addons.LoadAddons();
+
     if (!InitializeHooks())
         PRINTRET("Hooks failed to initialize.\n", false)
     else
@@ -155,7 +161,10 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     if (late)
     {
         g_SteamAPI.Init();
+        m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
     }
+
+    g_addons.SetupThread();
 
     PRINT("Succesfully started.\n");
 
@@ -168,8 +177,22 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
         return;
 
     g_SteamAPI.Init();
+    m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
+
+    std::thread([&]() -> void
+                {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+
+                    if (g_addons.GetStatus())
+                        g_addons.RefreshAddons(true); })
+        .detach();
 
     RETURN_META(MRES_IGNORED);
+}
+
+void Swiftly::OnAddonDownloaded(DownloadItemResult_t *pResult)
+{
+    g_addons.OnAddonDownloaded(pResult);
 }
 
 void Swiftly::AllPluginsLoaded()
@@ -219,6 +242,11 @@ void Swiftly::Hook_StartupServer(const GameSessionConfiguration_t &config, ISour
 
         bDone = true;
     }
+
+    g_ClientsPendingAddon.RemoveAll();
+
+    if (g_addons.GetStatus())
+        g_addons.RefreshAddons();
 }
 
 void Swiftly::UpdatePlayers()
@@ -298,6 +326,9 @@ void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint
 
 bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
 {
+    if (!g_addons.OnClientConnect(xuid))
+        RETURN_META_VALUE(MRES_IGNORED, true);
+
     std::string ip_address = explode(pszNetworkID, ":")[0];
     Player *player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     g_playerManager->RegisterPlayer(player);
