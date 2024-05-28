@@ -4,4 +4,13 @@ if (-not $env:GITHUB_SHA) {
     $env:GITHUB_SHA = (git rev-parse HEAD)
 }
 
-xmake -j ([Environment]::ProcessorCount) -y
+if (!(Test-Path -Path "$PSScriptRoot\build")) {
+    mkdir build
+    Set-Location build
+    python ../configure.py --enable-optimize --symbol-files -s cs2
+    Set-Location ..
+}
+
+Set-Location build
+ambuild
+Set-Location ..
