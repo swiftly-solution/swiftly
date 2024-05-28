@@ -12,6 +12,7 @@
 #include "addons/clients.h"
 #include "configuration/Configuration.h"
 #include "crashreporter/CrashReport.h"
+#include "logs/Logger.h"
 #include "filters/ConsoleFilter.h"
 #include "hooks/NativeHooks.h"
 #include "player/PlayerManager.h"
@@ -81,6 +82,7 @@ CUtlVector<FuncHookBase *> g_vecHooks;
 Addons g_addons;
 Configuration *g_Config = nullptr;
 ConsoleFilter *g_conFilter = nullptr;
+Logger *g_Logger = nullptr;
 PlayerManager *g_playerManager = nullptr;
 PluginManager *g_pluginManager = nullptr;
 Offsets *g_Offsets = nullptr;
@@ -126,12 +128,15 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     if (!BeginCrashListener())
         PRINTRET("Crash Reporter failed to initialize.\n", false)
 
+    
+
     g_pluginManager = new PluginManager();
     g_Config = new Configuration();
     g_conFilter = new ConsoleFilter();
     g_Signatures = new Signatures();
     g_Offsets = new Offsets();
     g_playerManager = new PlayerManager();
+    g_Logger = new Logger();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
