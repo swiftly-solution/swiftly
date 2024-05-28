@@ -128,7 +128,7 @@ void AddonsPrint(std::string str)
     if (!g_SMAPI)
         return;
 
-    PRINTF("Addons", "%s\n", str.c_str());
+    PLUGIN_PRINTF("Addons", "%s\n", str.c_str());
 }
 
 void Addons::BuildAddonPath(std::string pszAddon, std::string &buffer)
