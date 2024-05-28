@@ -12,6 +12,7 @@
 #include "addons/clients.h"
 #include "configuration/Configuration.h"
 #include "crashreporter/CrashReport.h"
+#include "gameevents/gameevents.h"
 #include "logs/Logger.h"
 #include "translations/Translations.h"
 #include "filters/ConsoleFilter.h"
@@ -80,6 +81,8 @@ CGameEntitySystem *GameEntitySystem()
 ////////////////////////////////////////////////////////////
 
 CUtlVector<FuncHookBase *> g_vecHooks;
+CUtlVector<CGameEventListener *> g_GameEventListener;
+
 Addons g_addons;
 Configuration *g_Config = nullptr;
 ConsoleFilter *g_conFilter = nullptr;
@@ -212,6 +215,7 @@ bool Swiftly::Unload(char *error, size_t maxlen)
     g_pluginManager->UnloadPlugins();
 
     UnloadHooks();
+    UnregisterEventListeners();
 
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &Swiftly::Hook_ClientActive, true);
