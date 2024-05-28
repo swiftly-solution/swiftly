@@ -136,7 +136,6 @@ void Signatures::LoadSignatures()
                 SignaturesError(string_format("Couldn't find the signature for '%s' (Library '%s').", name.c_str(), lib));
                 continue;
             }
-            SignaturesError(string_format("Found function '%s' (Library '%s') pointing at %p.", name.c_str(), lib, sig));
         }
         else
         {
@@ -148,7 +147,6 @@ void Signatures::LoadSignatures()
                 continue;
             }
             sig = sg.RCast<void *>();
-            SignaturesError(string_format("Found function '%s' (Library '%s') pointing at %p.", name.c_str(), lib, sig));
         }
         SignaturesError(string_format("Found function '%s' (Library '%s') pointing at %p.", name.c_str(), lib, sig));
 
