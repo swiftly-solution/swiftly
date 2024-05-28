@@ -35,10 +35,13 @@ int customPrint(lua_State *state)
 void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
-        .addCFunction("print", &customPrint);
+        .addCFunction("print", &customPrint)
+        .addFunction("GetCurrentPluginName", +[](lua_State *L) -> std::string
+                     { return FetchPluginName(L); });
 
     luabridge::setGlobal(state, plugin->GetName(), "plugin_name");
 
+    SetupLuaLogs(plugin, state);
     SetupLuaTypes(plugin, state);
     SetupLuaTranslations(plugin, state);
 }

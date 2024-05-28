@@ -13,7 +13,7 @@ private:
 public:
     Log(std::string path)
     {
-        this->m_path = "addons/swiftly/logs" + path;
+        this->m_path = "addons/swiftly/logs/" + path;
     }
     ~Log() {}
 
