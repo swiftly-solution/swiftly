@@ -13,6 +13,8 @@ public:
         this->m_commandName = name;
     }
 
+    ~Command();
+
     void Execute(int slot, std::vector<std::string> args, bool silent);
     std::string GetPluginName();
 

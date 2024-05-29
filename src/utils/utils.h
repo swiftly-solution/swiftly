@@ -17,6 +17,7 @@ void PrintTextTable(std::string category, TextTable table);
 uint64_t GetTime();
 std::string str_tolower(std::string s);
 std::string str_toupper(std::string s);
+std::string get_uuid();
 
 template <typename... Args>
 std::string string_format(const std::string &format, Args... args)
