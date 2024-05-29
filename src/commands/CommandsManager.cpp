@@ -1,10 +1,56 @@
 #include "CommandsManager.h"
 
+#include "../configuration/Configuration.h"
+
 CommandsManager::CommandsManager() {}
 CommandsManager::~CommandsManager() {}
 
 static void commandsCallback(const CCommandContext &context, const CCommand &args);
 std::map<std::string, bool> conCommandCreated;
+
+// @returns 1 - command is not silent
+// @returns 2 - command is silent
+// @returns -1 - invalid controller
+// @returns 0 - is not command
+int CommandsManager::HandleCommand(Player *player, std::string text)
+{
+    if (text == "" || text.size() == 0)
+        return -1;
+
+    if (player == nullptr)
+        return -1;
+
+    std::vector<std::string> commandPrefixes = explode(g_Config->FetchValue<std::string>("core.commandPrefixes"), " ");
+    std::vector<std::string> silentCommandPrefixes = explode(g_Config->FetchValue<std::string>("core.silentCommandPrefixes"), " ");
+    bool isCommand = (std::find(commandPrefixes.begin(), commandPrefixes.end(), std::string(1, text.at(0))) != commandPrefixes.end());
+    bool isSilentCommand = (std::find(silentCommandPrefixes.begin(), silentCommandPrefixes.end(), std::string(1, text.at(0))) != silentCommandPrefixes.end());
+
+    if (isCommand || isSilentCommand)
+    {
+        CCommand tokenizedArgs;
+        tokenizedArgs.Tokenize(text.c_str());
+
+        std::vector<std::string> cmdString;
+        for (int i = 1; i < tokenizedArgs.ArgC(); i++)
+            cmdString.push_back(tokenizedArgs[i]);
+
+        std::string commandName = tokenizedArgs[0];
+        commandName.erase(0, 1);
+
+        Command *cmd = g_commandsManager->FetchCommand(commandName);
+        if (cmd == nullptr)
+            return 0;
+
+        cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand);
+    }
+
+    if (isCommand)
+        return 1;
+    else if (isSilentCommand)
+        return 2;
+    else
+        return 0;
+}
 
 Command *CommandsManager::FetchCommand(std::string cmd)
 {

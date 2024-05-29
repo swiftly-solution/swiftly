@@ -31,13 +31,6 @@ std::map<std::string, std::string> colors = {
     {"{ORANGE}", "\x10"},
 };
 
-std::string str_tolower(std::string s)
-{
-    std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c)
-                   { return std::tolower(c); });
-    return s;
-}
-
 std::string ProcessColor(std::string str, int team = CS_TEAM_CT)
 {
     str = replace(str, "{TEAMCOLOR}", team == CS_TEAM_CT ? "{LIGHTBLUE}" : "{GOLD}");

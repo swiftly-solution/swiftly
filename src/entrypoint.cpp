@@ -365,6 +365,78 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 x
 
 void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext &ctx, const CCommand &args)
 {
+    CPlayerSlot slot = ctx.GetPlayerSlot();
+
+    std::string command = args.Arg(0);
+
+    if (slot.Get() != -1)
+    {
+        if (command == "say" || command == "say_team")
+        {
+            Player *player = g_playerManager->GetPlayer(slot);
+            if (!player)
+                return;
+
+            CCSPlayerController *controller = player->GetPlayerController();
+            bool teamonly = (command == "say_team");
+
+            std::vector<std::string> textSplitted = explode(args.GetCommandString(), " ");
+            textSplitted.erase(textSplitted.begin());
+            std::string text = implode(textSplitted, " ");
+            text.erase(text.begin());
+            text.pop_back();
+
+            if (controller)
+            {
+                IGameEvent *pEvent = g_gameEventManager->CreateEvent("player_chat");
+
+                if (pEvent)
+                {
+                    pEvent->SetBool("teamonly", teamonly);
+                    pEvent->SetInt("userid", slot.Get());
+                    pEvent->SetString("text", text.c_str());
+
+                    g_gameEventManager->FireEvent(pEvent, true);
+                }
+            }
+
+            int handleCommandReturn = g_commandsManager->HandleCommand(player, text);
+            if (handleCommandReturn == 2)
+                RETURN_META(MRES_SUPERCEDE);
+            else
+            {
+                std::vector<std::string> msg;
+                if (teamonly)
+                    msg.push_back(ProcessColor(string_format("{teamcolor}[%s]{default}", controller->m_iTeamNum() == CS_TEAM_CT ? "CT" : (controller->m_iTeamNum() == CS_TEAM_T ? "T" : "SPEC")), controller->m_iTeamNum()));
+                if (player->tag.length() > 0)
+                    msg.push_back(ProcessColor(string_format("%s%s{default}", player->tagcolor.empty() ? "{default}" : player->tagcolor.c_str(), player->tag.c_str()), controller->m_iTeamNum()));
+                msg.push_back(string_format("%s%s%s:", ProcessColor(player->namecolor, controller->m_iTeamNum()).c_str(), player->GetName(), ProcessColor("{default}", CS_TEAM_CT).c_str()));
+                msg.push_back(string_format("%s%s", ProcessColor(player->chatcolor, controller->m_iTeamNum()).c_str(), text.c_str()));
+
+                std::string formatted_msg = (" " + implode(msg, " "));
+
+                for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
+                {
+                    Player *p = g_playerManager->GetPlayer(i);
+                    if (p == nullptr)
+                        continue;
+
+                    CCSPlayerController *pcontroller = p->GetPlayerController();
+                    if (!pcontroller)
+                        continue;
+
+                    if (teamonly)
+                    {
+                        if (pcontroller->m_iTeamNum() == controller->m_iTeamNum())
+                            pcontroller->SendMsg(HUD_PRINTTALK, formatted_msg.c_str());
+                    }
+                    else
+                        pcontroller->SendMsg(HUD_PRINTTALK, formatted_msg.c_str());
+                }
+            }
+            RETURN_META(MRES_SUPERCEDE);
+        }
+    }
 }
 
 void Swiftly::NextFrame(std::function<void()> fn)

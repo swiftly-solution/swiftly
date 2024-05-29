@@ -15,6 +15,8 @@ bool ends_with(std::string value, std::string ending);
 bool starts_with(std::string value, std::string starting);
 void PrintTextTable(std::string category, TextTable table);
 uint64_t GetTime();
+std::string str_tolower(std::string s);
+std::string str_toupper(std::string s);
 
 template <typename... Args>
 std::string string_format(const std::string &format, Args... args)

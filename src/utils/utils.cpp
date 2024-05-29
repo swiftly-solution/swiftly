@@ -101,3 +101,17 @@ uint64_t GetTime()
 {
     return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
+
+std::string str_tolower(std::string s)
+{
+    std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c)
+                   { return std::tolower(c); });
+    return s;
+}
+
+std::string str_toupper(std::string s)
+{
+    std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c)
+                   { return std::toupper(c); });
+    return s;
+}
