@@ -2,6 +2,7 @@
 
 #include "../../common.h"
 #include "../../files/Files.h"
+#include "../../commands/CommandsManager.h"
 
 void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state);
 
@@ -40,6 +41,10 @@ bool LuaPlugin::LoadScriptingEnvironment()
 
 void LuaPlugin::DestroyScriptingEnvironment()
 {
+    std::vector<std::string> commandNames = g_commandsManager->FetchCommandsByPlugin(this->GetName());
+    for (std::string command : commandNames)
+        g_commandsManager->UnregisterCommand(command);
+
     lua_close(this->state);
     this->state = nullptr;
 }
