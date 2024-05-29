@@ -2,6 +2,7 @@
 #define _plugins_plugin_h
 
 #include <string>
+#include <vector>
 #include "../types/PluginKind.h"
 #include "../types/PluginState.h"
 
@@ -30,6 +31,8 @@ public:
     virtual void DestroyScriptingEnvironment() = 0;
     virtual bool ExecuteStart() = 0;
     virtual void ExecuteStop() = 0;
+
+    virtual void ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent) = 0;
 };
 
 #endif

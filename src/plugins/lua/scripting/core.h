@@ -13,3 +13,4 @@ void SetupLuaTranslations(LuaPlugin *plugin, lua_State *state);
 void SetupLuaConfiguration(LuaPlugin *plugin, lua_State *state);
 void SetupLuaFiles(LuaPlugin *plugin, lua_State *state);
 void SetupLuaPrecacher(LuaPlugin *plugin, lua_State *state);
+void SetupLuaCommands(LuaPlugin *plugin, lua_State *state);

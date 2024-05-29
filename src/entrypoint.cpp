@@ -11,6 +11,7 @@
 #include "addons/addons.h"
 #include "addons/clients.h"
 #include "configuration/Configuration.h"
+#include "commands/CommandsManager.h"
 #include "crashreporter/CrashReport.h"
 #include "gameevents/gameevents.h"
 #include "logs/Logger.h"
@@ -85,6 +86,7 @@ CUtlVector<FuncHookBase *> g_vecHooks;
 CUtlVector<CGameEventListener *> g_GameEventListener;
 
 Addons g_addons;
+CommandsManager *g_commandsManager = nullptr;
 Configuration *g_Config = nullptr;
 ConsoleFilter *g_conFilter = nullptr;
 Translations *g_translations = nullptr;
@@ -144,6 +146,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_Logger = new Logger();
     g_translations = new Translations();
     g_precacher = new Precacher();
+    g_commandsManager = new CommandsManager();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");

@@ -25,6 +25,27 @@ public:
 };
 
 //////////////////////////////////////////////////////////////
+/////////////////            Commands          //////////////
+////////////////////////////////////////////////////////////
+
+class PluginCommands
+{
+private:
+    std::string plugin_name;
+
+public:
+    PluginCommands(std::string m_plugin_name);
+
+    void RegisterCommand(std::string commandName, void *callback);
+    void UnregisterCommand(std::string commandName);
+
+    void RegisterAlias(std::string commandName, std::string aliasName);
+    void UnregisterAlias(std::string aliasName);
+
+    void RegisterCommandLua(std::string commandName, luabridge::LuaRef callback);
+};
+
+//////////////////////////////////////////////////////////////
 /////////////////         Configuration        //////////////
 ////////////////////////////////////////////////////////////
 

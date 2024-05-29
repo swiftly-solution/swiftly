@@ -88,3 +88,17 @@ bool LuaPlugin::ExecuteStart()
 void LuaPlugin::ExecuteStop()
 {
 }
+
+void LuaPlugin::ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent)
+{
+    if (functionPtr == nullptr)
+        return;
+
+    luabridge::LuaRef *commandRef = (luabridge::LuaRef *)functionPtr;
+
+    if (!commandRef->isFunction())
+        return;
+
+    luabridge::LuaRef command = *commandRef;
+    command(slot, args, args.size(), silent);
+}
