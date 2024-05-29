@@ -1,6 +1,7 @@
 #include "core.h"
 
 #include "../../../types/LogType.h"
+#include "../../../player/Player.h"
 
 void SetupLuaTypes(LuaPlugin *plugin, lua_State *state)
 {
@@ -9,6 +10,13 @@ void SetupLuaTypes(LuaPlugin *plugin, lua_State *state)
         .beginNamespace("PluginState_t")
         .addConstant("Started", (uint64_t)PluginState_t::Started)
         .addConstant("Stopped", (uint64_t)PluginState_t::Stopped)
+        .endNamespace()
+
+        .beginNamespace("MessageType")
+        .addConstant("Notify", HUD_PRINTNOTIFY)
+        .addConstant("Console", HUD_PRINTCONSOLE)
+        .addConstant("Chat", HUD_PRINTTALK)
+        .addConstant("Center", HUD_PRINTCENTER)
         .endNamespace()
 
         .beginNamespace("LogType_t")
