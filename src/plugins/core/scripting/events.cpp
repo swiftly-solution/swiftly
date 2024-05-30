@@ -1,5 +1,9 @@
 #include "../scripting.h"
 
+#include "../../../signatures/Signatures.h"
+
+typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
+
 PluginEvent::PluginEvent(std::string m_plugin_name, IGameEvent *m_gameEvent, void *m_hookPtr)
 {
     this->plugin_name = m_plugin_name;
@@ -132,4 +136,21 @@ std::string PluginEvent::GetString(std::string key)
         return "";
 
     return this->gameEvent->GetString(key.c_str());
+}
+
+void PluginEvent::FireEvent(bool dontBroadcast)
+{
+    if (!this->gameEvent)
+        return;
+
+    g_gameEventManager->FireEvent(this->gameEvent, dontBroadcast);
+}
+
+void PluginEvent::FireEventToClient(int slot)
+{
+    if (!this->gameEvent)
+        return;
+
+    IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(slot);
+    playerListener->FireGameEvent(this->gameEvent);
 }

@@ -62,6 +62,8 @@ void SetupLuaEvents(LuaPlugin *plugin, lua_State *state)
         .addFunction("GetFloat", &PluginEvent::GetFloat)
         .addFunction("GetString", &PluginEvent::GetString)
         .addFunction("SetReturn", &PluginEvent::SetReturnLua)
+        .addFunction("FireEvent", &PluginEvent::FireEvent)
+        .addFunction("FireEventToClient", &PluginEvent::FireEventToClient)
         .addFunction("GetReturn", GetReturnValueInternal)
         .endClass();
 }

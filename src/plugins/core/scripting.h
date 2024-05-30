@@ -74,6 +74,9 @@ public:
     float GetFloat(std::string key);
     std::string GetString(std::string key);
 
+    void FireEvent(bool dontBroadcast);
+    void FireEventToClient(int slot);
+
     void SetReturn(std::any value);
     void SetReturnLua(luabridge::LuaRef value);
     std::any GetReturnValue();
