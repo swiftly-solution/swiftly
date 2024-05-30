@@ -136,3 +136,15 @@ Plugin *PluginManager::FetchPlugin(std::string name)
 
     return pluginsMap.at(name);
 }
+
+EventResult PluginManager::ExecuteEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event)
+{
+    for (Plugin *plugin : this->pluginsList)
+    {
+        EventResult result = plugin->TriggerEvent(invokedBy, eventName, eventPayload, event);
+        if (result != EventResult::Continue)
+            return result;
+    }
+
+    return EventResult::Continue;
+}

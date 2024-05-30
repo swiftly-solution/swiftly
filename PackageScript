@@ -48,6 +48,10 @@ with open(os.path.join(builder.buildPath, 'pdblog.txt'), 'wt') as fp:
   for line in pdb_list:
     fp.write(line.path + '\n')
 
+bin_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'bin'))
+bin_scripting_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'bin', 'scripting'))
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'events.lua'), bin_scripting_folder)
+
 configs_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'configs'))
 configs_plugins_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'configs', 'plugins'))
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'addons.json'), configs_folder)

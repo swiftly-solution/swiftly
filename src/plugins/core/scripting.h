@@ -42,6 +42,44 @@ public:
 };
 
 //////////////////////////////////////////////////////////////
+/////////////////         Event System         //////////////
+////////////////////////////////////////////////////////////
+
+class PluginEvent
+{
+private:
+    std::string plugin_name;
+    IGameEvent *gameEvent;
+    void *hookPtr;
+
+    std::any returnValue;
+
+public:
+    PluginEvent(std::string m_plugin_name, IGameEvent *m_gameEvent, void *m_hookPtr);
+    ~PluginEvent();
+
+    std::string GetInvokingPlugin();
+    bool IsGameEvent();
+    bool IsHook();
+
+    void SetBool(std::string key, bool value);
+    void SetInt(std::string key, int value);
+    void SetUint64(std::string key, uint64_t value);
+    void SetFloat(std::string key, float value);
+    void SetString(std::string key, std::string value);
+
+    bool GetBool(std::string key);
+    int GetInt(std::string key);
+    uint64_t GetUint64(std::string key);
+    float GetFloat(std::string key);
+    std::string GetString(std::string key);
+
+    void SetReturn(std::any value);
+    void SetReturnLua(luabridge::LuaRef value);
+    std::any GetReturnValue();
+};
+
+//////////////////////////////////////////////////////////////
 /////////////////            Commands          //////////////
 ////////////////////////////////////////////////////////////
 

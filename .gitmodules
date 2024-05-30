@@ -17,3 +17,10 @@
 [submodule "hl2sdk-manifests"]
 	path = hl2sdk-manifests
 	url = https://github.com/alliedmodders/hl2sdk-manifests
+[submodule "vendor/msgpack"]
+	path = vendor/msgpack
+	url = https://github.com/msgpack/msgpack-c
+	branch = cpp_master
+[submodule "vendor/json-lua"]
+	path = vendor/json-lua
+	url = https://github.com/xpol/lua-rapidjson

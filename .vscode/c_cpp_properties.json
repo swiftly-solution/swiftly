@@ -12,6 +12,7 @@
                 "${workspaceFolder}/vendor/dynlib/**",
                 "${workspaceFolder}/vendor/LuaBridge/Source/**",
                 "${workspaceFolder}/vendor/json/include/**",
+                "${workspaceFolder}/vendor/msgpack/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
                 "${workspaceFolder}/vendor/texttable/**"
             ],
@@ -36,6 +37,7 @@
                 "${workspaceFolder}/vendor/dynlib/**",
                 "${workspaceFolder}/vendor/LuaBridge/Source/**",
                 "${workspaceFolder}/vendor/json/include/**",
+                "${workspaceFolder}/vendor/msgpack/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
                 "${workspaceFolder}/vendor/texttable/**"
             ],

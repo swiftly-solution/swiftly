@@ -19,10 +19,16 @@ extern "C"
 
 #include "../Plugin.h"
 
+#include <any>
+
+class PluginEvent;
+
 class LuaPlugin : public Plugin
 {
 private:
     lua_State *state;
+    luabridge::LuaRef *globalEventHandler;
+    std::map<std::string, bool> eventHandlers;
 
 public:
     LuaPlugin(std::string plugin_name, PluginKind_t kind) : Plugin(plugin_name, kind) {}
@@ -33,6 +39,12 @@ public:
     void ExecuteStop();
 
     void ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent);
+
+    void RegisterEventHandler(void *functionPtr);
+    void RegisterEventHandling(std::string eventName);
+    EventResult TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event);
 };
+
+luabridge::LuaRef LuaSerializeData(std::any data, lua_State *state);
 
 #endif

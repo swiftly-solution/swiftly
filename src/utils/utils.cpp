@@ -1,6 +1,7 @@
 #include "utils.h"
 
 #include <cstdarg>
+#include <random>
 
 size_t UTIL_FormatArgs(char *buffer, size_t maxlength, const char *fmt, va_list params)
 {

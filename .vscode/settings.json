@@ -69,6 +69,16 @@
         "cfenv": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "csignal": "cpp",
+        "*.ipp": "cpp",
+        "strstream": "cpp",
+        "complex": "cpp",
+        "coroutine": "cpp",
+        "source_location": "cpp",
+        "future": "cpp",
+        "span": "cpp",
+        "typeindex": "cpp",
+        "variant": "cpp"
     }
 }
