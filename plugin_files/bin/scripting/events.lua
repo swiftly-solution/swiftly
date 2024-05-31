@@ -2,8 +2,8 @@
 local eventHandlers = {}
 
 AddGlobalEvents(function(event, eventSource, eventName, eventData)
-    if not eventHandlers[eventName] then return end
-    if not eventHandlers[eventName].handlers then return end
+    if not eventHandlers[eventName] then return EventResult.Continue end
+    if not eventHandlers[eventName].handlers then return EventResult.Continue end
 
     local data = msgpack.unpack(eventData)
     if not data then return end

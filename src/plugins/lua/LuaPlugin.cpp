@@ -192,7 +192,7 @@ EventResult LuaPlugin::TriggerEvent(std::string invokedBy, std::string eventName
         if (!result.isNumber())
             return EventResult::Continue;
 
-        int res = result.cast<int>();
+        res = result.cast<int>();
         if (res < (int)EventResult::Continue || res > (int)EventResult::Handled)
             return EventResult::Continue;
     }
