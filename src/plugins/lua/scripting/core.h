@@ -17,3 +17,4 @@ void SetupLuaPrecacher(LuaPlugin *plugin, lua_State *state);
 void SetupLuaCommands(LuaPlugin *plugin, lua_State *state);
 void SetupLuaPlayerManager(LuaPlugin *plugin, lua_State *state);
 void SetupLuaEvents(LuaPlugin *plugin, lua_State *state);
+void SetupLuaHTTP(LuaPlugin *plugin, lua_State *state);

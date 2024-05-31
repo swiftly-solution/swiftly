@@ -183,15 +183,23 @@ EventResult LuaPlugin::TriggerEvent(std::string invokedBy, std::string eventName
     if (this->eventHandlers.find(eventName) == this->eventHandlers.end())
         return EventResult::Continue;
 
-    luabridge::LuaRef func = *this->globalEventHandler;
-    auto result = func(event, invokedBy, eventName, eventPayload);
+    int res = (int)EventResult::Continue;
+    try
+    {
+        luabridge::LuaRef func = *this->globalEventHandler;
+        auto result = func(event, invokedBy, eventName, eventPayload);
 
-    if (!result.isNumber())
-        return EventResult::Continue;
+        if (!result.isNumber())
+            return EventResult::Continue;
 
-    int res = result.cast<int>();
-    if (res < (int)EventResult::Continue || res > (int)EventResult::Handled)
-        return EventResult::Continue;
+        int res = result.cast<int>();
+        if (res < (int)EventResult::Continue || res > (int)EventResult::Handled)
+            return EventResult::Continue;
+    }
+    catch (luabridge::LuaException &e)
+    {
+        PRINTF("An error has occured: %s\n", e.what());
+    }
 
     return (EventResult)res;
 }

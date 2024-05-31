@@ -14,7 +14,9 @@
                 "${workspaceFolder}/vendor/json/include/**",
                 "${workspaceFolder}/vendor/msgpack/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
-                "${workspaceFolder}/vendor/texttable/**"
+                "${workspaceFolder}/vendor/texttable/**",
+                "${workspaceFolder}/vendor/httplib/**",
+                "${workspaceFolder}/vendor/curl/win64/include/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -39,14 +41,17 @@
                 "${workspaceFolder}/vendor/json/include/**",
                 "${workspaceFolder}/vendor/msgpack/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
-                "${workspaceFolder}/vendor/texttable/**"
+                "${workspaceFolder}/vendor/texttable/**",
+                "${workspaceFolder}/vendor/curl/linuxsteamrt64/include/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE",
                 "POSIX",
-                "COMPILER_GCC"
+                "COMPILER_GCC",
+                "CPPHTTPLIB_OPENSSL_SUPPORT",
+                "CURL_STATICLIB"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",

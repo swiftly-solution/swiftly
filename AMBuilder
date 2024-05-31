@@ -57,15 +57,16 @@ for sdk_target in MMSPlugin.sdk_targets:
 		binary.compiler.postlink += [
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libfunchook.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libdistorm.a'),
+      		os.path.join(builder.sourcePath, 'vendor', 'curl', 'linuxsteamrt64', 'lib', 'libcurl.a'),
 
 			"-lz",
             "-lpthread",
+			"-lssl",
+			"-lcrypto",
             "-lm",
             "-ldl",
             "-lreadline",
             "-lrt",
-            "-lssl",
-            "-lcrypto",
             "-lidn2",
             "-lpsl",
             "-lbrotlidec",
@@ -101,6 +102,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 		binary.compiler.postlink += [
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
 		    os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
+      		os.path.join(builder.sourcePath, 'vendor', 'curl', 'win64', 'lib', 'libcurl_a.lib'),
 			"psapi.lib",
             "winmm.lib",
             "ws2_32.lib",
@@ -154,12 +156,14 @@ for sdk_target in MMSPlugin.sdk_targets:
 
 	binary.compiler.cxxincludes += [
 		os.path.join(builder.sourcePath, 'vendor', 'lua'),
+		os.path.join(builder.sourcePath, 'vendor', 'httplib'),
 		os.path.join(builder.sourcePath, 'vendor', 'LuaBridge', 'Source'),
 		os.path.join(builder.sourcePath, 'vendor', 'dynlib'),
 		os.path.join(builder.sourcePath, 'vendor', 'msgpack', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'json', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'texttable'),
+		os.path.join(builder.sourcePath, 'vendor', 'curl', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
 
 		os.path.join(sdk['path']),
 		os.path.join(sdk['path'], 'public'),
