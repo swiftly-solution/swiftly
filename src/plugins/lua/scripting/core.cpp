@@ -1,8 +1,10 @@
 #include "core.h"
 
+#include "../../../utils/utils.h"
+
 int customPrint(lua_State *state)
 {
-    g_SMAPI->ConPrintf("[Swiftly] [%16s] ", ("plugin:" + luabridge::getGlobal(state, "plugin_name").tostring()).c_str());
+    g_SMAPI->ConPrintf("[Swiftly] %s[%16s]\e[39m ", GetTerminalStringColor(luabridge::getGlobal(state, "plugin_name").tostring()).c_str(), ("plugin:" + luabridge::getGlobal(state, "plugin_name").tostring()).c_str());
 
     int n = lua_gettop(state);
 
@@ -25,10 +27,10 @@ int customPrint(lua_State *state)
         if (i > 1)
             g_SMAPI->ConPrint("\t");
 
-        g_SMAPI->ConPrint(s);
+        g_SMAPI->ConPrint(TerminalProcessColor(s).c_str());
         lua_pop(state, 1);
     }
-    g_SMAPI->ConPrint("\n");
+    g_SMAPI->ConPrint("\e[39m\e[49m\n");
     return 0;
 }
 
@@ -52,4 +54,5 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     SetupLuaEvents(plugin, state);
     SetupLuaHTTP(plugin, state);
     SetupLuaDatabase(plugin, state);
+    SetupLuaMenus(plugin, state);
 }

@@ -160,6 +160,23 @@ public:
 };
 
 //////////////////////////////////////////////////////////////
+/////////////////             Menus            //////////////
+////////////////////////////////////////////////////////////
+
+class PluginMenus
+{
+private:
+    std::string plugin_name;
+
+public:
+    PluginMenus(std::string m_plugin_name);
+
+    void Register(std::string custom_id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options);
+    void RegisterTemporary(std::string custom_id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options);
+    void Unregister(std::string id);
+};
+
+//////////////////////////////////////////////////////////////
 /////////////////             Files            //////////////
 ////////////////////////////////////////////////////////////
 

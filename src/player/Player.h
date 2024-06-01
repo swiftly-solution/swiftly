@@ -6,6 +6,7 @@
 #include "../sdk/entity/CBasePlayerPawn.h"
 #include "../sdk/entity/CCSPlayerPawn.h"
 #include "../sdk/entity/CCSPlayerPawnBase.h"
+#include "../menus/Menu.h"
 
 #include <string>
 #include <public/mathlib/vector.h>
@@ -65,6 +66,21 @@ public:
 
     bool HasCenterText();
 
+    void ShowMenu(std::string menuid);
+    void RenderMenu();
+    void HideMenu();
+    bool HasMenuShown();
+    Menu *GetMenu();
+
+    int GetPage();
+    void SetPage(int pg);
+    int GetSelection();
+    void MoveSelection();
+
+    void PerformMenuAction(std::string button);
+
+    void PerformCommand(std::string command);
+
 private:
     int slot;
     bool isFakeClient = false;
@@ -82,6 +98,10 @@ private:
     std::string centerMessageText;
 
     bool firstSpawn = true;
+
+    Menu *menu = nullptr;
+    int page = 0;
+    int selected = 0;
 };
 
 #endif

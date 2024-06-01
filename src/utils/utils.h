@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 #include <TextTable.h>
 #include <chrono>
 #include "../entrypoint.h"
@@ -18,6 +19,8 @@ uint64_t GetTime();
 std::string str_tolower(std::string s);
 std::string str_toupper(std::string s);
 std::string get_uuid();
+std::string TerminalProcessColor(std::string str);
+std::string GetTerminalStringColor(std::string plugin_name);
 
 template <typename... Args>
 std::string string_format(const std::string &format, Args... args)
@@ -31,5 +34,8 @@ std::string string_format(const std::string &format, Args... args)
     snprintf(buf.get(), size, format.c_str(), args...);
     return std::string(buf.get(), buf.get() + size - 1); // We don't want the '\0' inside
 }
+
+extern std::map<std::string, std::string> terminalColors;
+extern std::vector<std::string> terminalPrefixColors;
 
 #endif

@@ -1,11 +1,21 @@
 #include "../scripting.h"
 #include "../../PluginManager.h"
+#include "../../../player/PlayerManager.h"
 
 #include <vector>
 #include <msgpack.hpp>
 
 void OnClientKeyStateChange(int playerid, std::string key, bool pressed)
 {
+    if (pressed)
+    {
+        Player *player = g_playerManager->GetPlayer(playerid);
+        if (!player)
+            return;
+
+        player->PerformMenuAction(key);
+    }
+
     std::stringstream ss;
     std::vector<msgpack::object> eventData;
 

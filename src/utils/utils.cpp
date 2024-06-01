@@ -3,6 +3,95 @@
 #include <cstdarg>
 #include <random>
 
+#include "../sdk/schema.h"
+
+std::map<std::string, std::string> terminalColors = {
+    {"{DEFAULT}", "\e[39m"},
+    {"{WHITE}", "\e[39m"},
+    {"{DARKRED}", "\e[31m"},
+    {"{LIGHTPURPLE}", "\e[95m"},
+    {"{GREEN}", "\e[32m"},
+    {"{OLIVE}", "\e[33m"},
+    {"{LIME}", "\e[92m"},
+    {"{RED}", "\e[31m"},
+    {"{GRAY}", "\e[37m"},
+    {"{GREY}", "\e[37m"},
+    {"{LIGHTYELLOW}", "\e[93m"},
+    {"{YELLOW}", "\e[93m"},
+    {"{SILVER}", "\e[37m"},
+    {"{BLUEGREY}", "\e[94m"},
+    {"{LIGHTBLUE}", "\e[94m"},
+    {"{BLUE}", "\e[34m"},
+    {"{DARKBLUE}", "\e[34m"},
+    {"{PURPLE}", "\e[35m"},
+    {"{MAGENTA}", "\e[35m"},
+    {"{LIGHTRED}", "\e[91m"},
+    {"{GOLD}", "\e[93m"},
+    {"{ORANGE}", "\e[33m"},
+
+    {"{BGDEFAULT}", "\e[49m"},
+    {"{BGWHITE}", "\e[49m"},
+    {"{BGDARKRED}", "\e[41m"},
+    {"{BGLIGHTPURPLE}", "\e[105m"},
+    {"{BGGREEN}", "\e[42m"},
+    {"{BGOLIVE}", "\e[43m"},
+    {"{BGLIME}", "\e[102m"},
+    {"{BGRED}", "\e[41m"},
+    {"{BGGRAY}", "\e[47m"},
+    {"{BGGREY}", "\e[47m"},
+    {"{BGLIGHTYELLOW}", "\e[103m"},
+    {"{BGYELLOW}", "\e[103m"},
+    {"{BGSILVER}", "\e[47m"},
+    {"{BGBLUEGREY}", "\e[104m"},
+    {"{BGLIGHTBLUE}", "\e[104m"},
+    {"{BGBLUE}", "\e[44m"},
+    {"{BGDARKBLUE}", "\e[44m"},
+    {"{BGPURPLE}", "\e[45m"},
+    {"{BGMAGENTA}", "\e[45m"},
+    {"{BGLIGHTRED}", "\e[101m"},
+    {"{BGGOLD}", "\e[103m"},
+    {"{BGORANGE}", "\e[43m"},
+};
+
+std::vector<std::string> terminalPrefixColors = {
+    "{DEFAULT}",
+    "{WHITE}",
+    "{DARKRED}",
+    "{LIGHTPURPLE}",
+    "{GREEN}",
+    "{OLIVE}",
+    "{LIME}",
+    "{RED}",
+    "{LIGHTYELLOW}",
+    "{YELLOW}",
+    "{BLUEGREY}",
+    "{LIGHTBLUE}",
+    "{BLUE}",
+    "{DARKBLUE}",
+    "{PURPLE}",
+    "{MAGENTA}",
+    "{LIGHTRED}",
+    "{GOLD}",
+    "{ORANGE}",
+};
+
+std::string TerminalProcessColor(std::string str)
+{
+    for (auto it = terminalColors.begin(); it != terminalColors.end(); ++it)
+    {
+        str = replace(str, it->first, it->second);
+        str = replace(str, str_tolower(it->first), it->second);
+    }
+    return str;
+}
+
+std::string GetTerminalStringColor(std::string plugin_name)
+{
+    auto hash = hash_64_fnv1a_const(plugin_name.c_str());
+    uint64_t steps = (hash % terminalPrefixColors.size());
+    return terminalColors.at(terminalPrefixColors[steps]);
+}
+
 size_t UTIL_FormatArgs(char *buffer, size_t maxlength, const char *fmt, va_list params)
 {
     size_t len = vsnprintf(buffer, maxlength, fmt, params);
@@ -74,7 +163,7 @@ bool starts_with(std::string value, std::string starting)
 
 void PLUGIN_PRINT(std::string category, std::string str)
 {
-    g_SMAPI->ConPrint((PREFIX " [" + category + "] " + str).c_str());
+    g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]\e[39m " + str).c_str());
 }
 
 void PLUGIN_PRINTF(std::string category, std::string str, ...)
@@ -86,7 +175,7 @@ void PLUGIN_PRINTF(std::string category, std::string str, ...)
     UTIL_FormatArgs(buffer, sizeof(buffer), str.c_str(), ap);
     va_end(ap);
 
-    g_SMAPI->ConPrint((PREFIX " [" + category + "] " + std::string(buffer)).c_str());
+    g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]\e[39m " + std::string(buffer)).c_str());
 }
 
 void PrintTextTable(std::string category, TextTable table)

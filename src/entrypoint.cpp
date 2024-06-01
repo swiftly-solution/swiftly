@@ -20,6 +20,7 @@
 #include "precacher/precacher.h"
 #include "translations/Translations.h"
 #include "filters/ConsoleFilter.h"
+#include "menus/MenuManager.h"
 #include "hooks/NativeHooks.h"
 #include "player/PlayerManager.h"
 #include "plugins/PluginManager.h"
@@ -100,6 +101,7 @@ Offsets *g_Offsets = nullptr;
 Signatures *g_Signatures = nullptr;
 Precacher *g_precacher = nullptr;
 DatabaseManager *g_dbManager = nullptr;
+MenuManager *g_MenuManager = nullptr;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -152,6 +154,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_precacher = new Precacher();
     g_commandsManager = new CommandsManager();
     g_dbManager = new DatabaseManager();
+    g_MenuManager = new MenuManager();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -398,6 +401,8 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 
         if (player->HasCenterText())
             player->RenderCenterText();
+        if (player->HasMenuShown())
+            player->RenderMenu();
     }
 
     //////////////////////////////////////////////////////////////

@@ -3,6 +3,8 @@
 #include "../entrypoint.h"
 #include "../common.h"
 #include "../utils/utils.h"
+#include "../menus/MenuManager.h"
+#include "../commands/CommandsManager.h"
 
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
 
@@ -323,4 +325,154 @@ uint64_t Player::GetButtons()
 bool Player::IsButtonPressed(uint64_t but)
 {
     return ((this->buttons & but) != 0);
+}
+
+bool Player::HasMenuShown() { return (this->menu != nullptr); }
+Menu *Player::GetMenu() { return this->menu; }
+
+int Player::GetPage() { return this->page; }
+void Player::SetPage(int pg)
+{
+    this->page = pg;
+    this->selected = 0;
+    this->menu->RegeneratePage(this->page, this->selected);
+}
+int Player::GetSelection() { return this->selected; }
+void Player::MoveSelection()
+{
+    if (this->page == 0)
+        return;
+
+    int itemsPerPage = this->menu->GetItemsOnPage(this->page);
+    ++this->selected;
+    if (itemsPerPage == this->selected)
+        this->selected = 0;
+
+    this->menu->RegeneratePage(this->page, this->selected);
+}
+
+void Player::ShowMenu(std::string menuid)
+{
+    if (this->menu != nullptr)
+        return;
+
+    Menu *m = g_MenuManager->FetchMenu(menuid);
+    if (m == nullptr)
+        return;
+
+    this->menu = m;
+    this->page = 1;
+    this->selected = 0;
+
+    this->menu->RegeneratePage(this->page, this->selected);
+    this->RenderMenu();
+}
+
+void Player::RenderMenu()
+{
+    if (this->menu == nullptr)
+        return;
+
+    if (this->centerMessageEndTime > 0)
+        this->centerMessageEndTime = 0;
+
+    IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+    if (pEvent)
+    {
+        pEvent->SetString("loc_token", this->menu->GeneratedItems(this->page).c_str());
+        pEvent->SetUint64("duration", 10);
+        pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
+
+        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
+
+        playerListener->FireGameEvent(pEvent);
+        g_gameEventManager->FreeEvent(pEvent);
+    }
+}
+
+void Player::HideMenu()
+{
+    if (this->menu == nullptr)
+        return;
+
+    this->page = 0;
+    this->selected = 0;
+    if (this->menu->IsTemporary())
+    {
+        std::string menuID = this->menu->GetID();
+        g_MenuManager->UnregisterMenu(menuID);
+    }
+    this->menu = nullptr;
+
+    IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+    if (pEvent)
+    {
+        pEvent->SetString("loc_token", "Exiting...");
+        pEvent->SetUint64("duration", 1);
+        pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
+
+        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
+
+        playerListener->FireGameEvent(pEvent);
+        g_gameEventManager->FreeEvent(pEvent);
+    }
+}
+
+void Player::PerformMenuAction(std::string button)
+{
+    if (!this->HasMenuShown())
+        return;
+
+    if (button == "shift")
+    {
+        this->PerformCommand("play sounds/ui/csgo_ui_contract_type2.vsnd_c");
+        this->MoveSelection();
+        this->RenderMenu();
+    }
+    else if (button == "e")
+    {
+        this->PerformCommand("play sounds/ui/csgo_ui_contract_type2.vsnd_c");
+        std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
+        if (cmd == "menunext")
+        {
+            this->SetPage(this->GetPage() + 1);
+            this->RenderMenu();
+        }
+        else if (cmd == "menuback")
+        {
+            this->SetPage(this->GetPage() - 1);
+            this->RenderMenu();
+        }
+        else if (cmd == "menuexit")
+        {
+            this->HideMenu();
+        }
+        else if (g_MenuManager->FetchMenu(cmd))
+        {
+            this->HideMenu();
+            this->ShowMenu(cmd);
+        }
+        else if (starts_with(cmd, "sw_"))
+        {
+            CCommand tokenizedArgs;
+            tokenizedArgs.Tokenize(cmd.c_str());
+
+            std::vector<std::string> cmdString;
+            for (int i = 1; i < tokenizedArgs.ArgC(); i++)
+                cmdString.push_back(tokenizedArgs[i]);
+
+            std::string commandName = replace(tokenizedArgs[0], "sw_", "");
+
+            Command *cmd = g_commandsManager->FetchCommand(commandName);
+            if (cmd)
+                cmd->Execute(this->GetSlot().Get(), cmdString, true);
+        }
+        else if (cmd != "")
+            this->PerformCommand(cmd);
+    }
+}
+
+void Player::PerformCommand(std::string command)
+{
+    engine->ClientCommand(this->GetSlot(), command.c_str());
 }
