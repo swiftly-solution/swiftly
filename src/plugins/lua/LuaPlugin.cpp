@@ -3,6 +3,11 @@
 #include "../../common.h"
 #include "../../files/Files.h"
 #include "../../commands/CommandsManager.h"
+#include "../core/scripting.h"
+#include "../PluginManager.h"
+
+#include <vector>
+#include <msgpack.hpp>
 
 int luaopen_cmsgpack(lua_State *L);
 extern "C"
@@ -139,11 +144,28 @@ bool LuaPlugin::ExecuteStart()
         return false;
     }
 
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnPluginStart", ss.str(), event);
+    delete event;
+
     return true;
 }
 
 void LuaPlugin::ExecuteStop()
 {
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnPluginStop", ss.str(), event);
+    delete event;
 }
 
 void LuaPlugin::ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent)

@@ -51,6 +51,10 @@ public:
 
     void SwitchTeam(int team);
 
+    void SetButtons(uint64_t new_buttons);
+    uint64_t GetButtons();
+    bool IsButtonPressed(uint64_t but);
+
     std::string tag = "";
     std::string tagcolor = "{default}";
     std::string namecolor = "{teamcolor}";
@@ -66,6 +70,8 @@ private:
     bool isFakeClient = false;
     bool isAuthenticated = false;
     bool isConnected = false;
+
+    uint64_t buttons = 0;
 
     std::time_t connectTime;
     const char *name;

@@ -5,6 +5,7 @@
 #include <tier1/convar.h>
 #include <interfaces/interfaces.h>
 #include <metamod_oslink.h>
+#include <msgpack.hpp>
 
 #include <steam/steam_gameserver.h>
 
@@ -22,6 +23,7 @@
 #include "hooks/NativeHooks.h"
 #include "player/PlayerManager.h"
 #include "plugins/PluginManager.h"
+#include "plugins/core/scripting.h"
 #include "signatures/Signatures.h"
 #include "signatures/Offsets.h"
 
@@ -243,6 +245,8 @@ bool Swiftly::Unload(char *error, size_t maxlen)
     return true;
 }
 
+std::string currentMap = "None";
+
 void Swiftly::OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
 {
     if (!g_precacher->GetSoundsPrecached())
@@ -250,6 +254,19 @@ void Swiftly::OnLevelInit(char const *pMapName, char const *pMapEntities, char c
         g_precacher->CacheSounds();
         g_precacher->SetSoundsPrecached(true);
     }
+
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    eventData.push_back(msgpack::object(pMapName));
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnMapLoad", ss.str(), event);
+    delete event;
+
+    currentMap = pMapName;
 }
 
 void Swiftly::OnLevelShutdown()
@@ -257,6 +274,17 @@ void Swiftly::OnLevelShutdown()
     g_precacher->Reset();
     g_translations->LoadTranslations();
     g_Config->LoadPluginConfigurations();
+
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    eventData.push_back(msgpack::object(currentMap.c_str()));
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnMapUnload", ss.str(), event);
+    delete event;
 }
 
 bool bDone = false;
@@ -296,6 +324,21 @@ void Swiftly::UpdatePlayers()
     }
 }
 
+struct GameFrameMsgPackCache
+{
+    bool simulating;
+    bool bFirstTick;
+    bool bLastTick;
+};
+
+PluginEvent *gameFrameEvent = nullptr;
+std::string gameFramePack;
+GameFrameMsgPackCache gameFrameCache = {
+    false,
+    false,
+    false,
+};
+
 void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     static double g_flNextUpdate = 0.0;
@@ -310,6 +353,29 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     }
 
     //////////////////////////////////////////////////////////////
+    /////////////////         Game Event           //////////////
+    ////////////////////////////////////////////////////////////
+    if (gameFrameCache.bFirstTick != bFirstTick || gameFrameCache.bLastTick != bLastTick || gameFrameCache.simulating != simulating || gameFrameEvent == nullptr)
+    {
+        std::stringstream ss;
+        std::vector<msgpack::object> eventData;
+
+        eventData.push_back(msgpack::object(simulating));
+        eventData.push_back(msgpack::object(bFirstTick));
+        eventData.push_back(msgpack::object(bLastTick));
+
+        msgpack::pack(ss, eventData);
+        gameFramePack = ss.str();
+
+        gameFrameCache.bFirstTick = bFirstTick;
+        gameFrameCache.bLastTick = bLastTick;
+        gameFrameCache.simulating = simulating;
+        if (gameFrameEvent == nullptr)
+            gameFrameEvent = new PluginEvent("core", nullptr, nullptr);
+    }
+    g_pluginManager->ExecuteEvent("core", "OnGameTick", gameFramePack, gameFrameEvent);
+
+    //////////////////////////////////////////////////////////////
     /////////////////            Player            //////////////
     ////////////////////////////////////////////////////////////
     for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
@@ -317,11 +383,26 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
         Player *player = g_playerManager->GetPlayer(i);
         if (!player)
             continue;
+        if (player->IsFakeClient())
+            continue;
+
+        CBasePlayerPawn *pawn = player->GetPawn();
+        if (!pawn)
+            continue;
+
+        CPlayer_MovementServices *movementServices = pawn->m_pMovementServices();
+        if (!movementServices)
+            continue;
+
+        player->SetButtons(movementServices->m_nButtons().m_pButtonStates()[0]);
 
         if (player->HasCenterText())
             player->RenderCenterText();
     }
 
+    //////////////////////////////////////////////////////////////
+    /////////////////         Next Frames          //////////////
+    ////////////////////////////////////////////////////////////
     while (!m_nextFrame.empty())
     {
         m_nextFrame.front()();
@@ -335,6 +416,16 @@ void Swiftly::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const char *ps
 
 void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char *pszName, uint64 xuid, const char *pszNetworkID)
 {
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    eventData.push_back(msgpack::object(slot.Get()));
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnClientDisconnect", ss.str(), event);
+
     Player *player = g_playerManager->GetPlayer(slot);
     if (player)
         g_playerManager->UnregisterPlayer(slot);
@@ -364,8 +455,35 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 x
 
     player->SetConnected(true);
 
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    eventData.push_back(msgpack::object(slot.Get()));
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnClientConnect", ss.str(), event);
+
+    bool response = true;
+    try
+    {
+        response = std::any_cast<bool>(event->GetReturnValue());
+    }
+    catch (std::bad_any_cast &e)
+    {
+        response = true;
+    }
+    delete event;
+
+    if (!response)
+        RETURN_META_VALUE(MRES_SUPERCEDE, false);
+
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
+
+bool OnClientCommand(int playerid, std::string command);
+bool OnClientChat(int playerid, std::string text, bool teamonly);
 
 void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext &ctx, const CCommand &args)
 {
@@ -375,6 +493,9 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
 
     if (slot.Get() != -1)
     {
+        if (!OnClientCommand(slot.Get(), args.GetCommandString()))
+            RETURN_META(MRES_SUPERCEDE);
+
         if (command == "say" || command == "say_team")
         {
             Player *player = g_playerManager->GetPlayer(slot);
@@ -406,6 +527,8 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
 
             int handleCommandReturn = g_commandsManager->HandleCommand(player, text);
             if (handleCommandReturn == 2)
+                RETURN_META(MRES_SUPERCEDE);
+            else if (!OnClientChat(slot.Get(), text, teamonly))
                 RETURN_META(MRES_SUPERCEDE);
             else
             {
