@@ -13,6 +13,7 @@
 #include "configuration/Configuration.h"
 #include "commands/CommandsManager.h"
 #include "crashreporter/CrashReport.h"
+#include "database/DatabaseManager.h"
 #include "gameevents/gameevents.h"
 #include "logs/Logger.h"
 #include "precacher/precacher.h"
@@ -96,6 +97,7 @@ PluginManager *g_pluginManager = nullptr;
 Offsets *g_Offsets = nullptr;
 Signatures *g_Signatures = nullptr;
 Precacher *g_precacher = nullptr;
+DatabaseManager *g_dbManager = nullptr;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -147,6 +149,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_translations = new Translations();
     g_precacher = new Precacher();
     g_commandsManager = new CommandsManager();
+    g_dbManager = new DatabaseManager();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -156,6 +159,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_Config->LoadPluginConfigurations();
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
+    g_dbManager->LoadDatabases();
 
     g_addons.LoadAddons();
 

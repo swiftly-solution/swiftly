@@ -58,6 +58,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libfunchook.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libdistorm.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'curl', 'linuxsteamrt64', 'lib', 'libcurl.a'),
+      		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'linuxsteamrt64', 'lib', 'libmysqlclient.a'),
 
 			"-lz",
             "-lpthread",
@@ -103,6 +104,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
 		    os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'curl', 'win64', 'lib', 'libcurl_a.lib'),
+      		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'win64', 'lib', 'mysqlclient.lib'),
 			"psapi.lib",
             "winmm.lib",
             "ws2_32.lib",
@@ -164,6 +166,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'texttable'),
 		os.path.join(builder.sourcePath, 'vendor', 'curl', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
+		os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
 
 		os.path.join(sdk['path']),
 		os.path.join(sdk['path'], 'public'),

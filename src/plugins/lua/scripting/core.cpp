@@ -51,4 +51,5 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     SetupLuaPlayerManager(plugin, state);
     SetupLuaEvents(plugin, state);
     SetupLuaHTTP(plugin, state);
+    SetupLuaDatabase(plugin, state);
 }

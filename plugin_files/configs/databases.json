@@ -1,0 +1,9 @@
+{
+    "default_connection": {
+        "hostname": "127.0.0.1",
+        "username": "root",
+        "password": "",
+        "database": "testdb",
+        "port": 3306
+    }
+}

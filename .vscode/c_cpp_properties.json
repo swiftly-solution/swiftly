@@ -16,7 +16,8 @@
                 "${workspaceFolder}/vendor/funchook/include/**",
                 "${workspaceFolder}/vendor/texttable/**",
                 "${workspaceFolder}/vendor/httplib/**",
-                "${workspaceFolder}/vendor/curl/win64/include/**"
+                "${workspaceFolder}/vendor/curl/win64/include/**",
+                "${workspaceFolder}/vendor/mysql/win64/include/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -42,7 +43,8 @@
                 "${workspaceFolder}/vendor/msgpack/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
                 "${workspaceFolder}/vendor/texttable/**",
-                "${workspaceFolder}/vendor/curl/linuxsteamrt64/include/**"
+                "${workspaceFolder}/vendor/curl/linuxsteamrt64/include/**",
+                "${workspaceFolder}/vendor/mysql/linuxsteamrt64/include/**"
             ],
             "defines": [
                 "_DEBUG",

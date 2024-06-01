@@ -43,6 +43,8 @@ public:
     void RegisterEventHandler(void *functionPtr);
     void RegisterEventHandling(std::string eventName);
     EventResult TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event);
+
+    lua_State *GetState() { return this->state; }
 };
 
 luabridge::LuaRef LuaSerializeData(std::any data, lua_State *state);

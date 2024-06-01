@@ -4,6 +4,7 @@
 #include "../../entrypoint.h"
 #include "../Plugin.h"
 #include "../PluginManager.h"
+#include "../../database/DatabaseManager.h"
 #include "../../types/LogType.h"
 #include "../../logs/Logger.h"
 
@@ -116,6 +117,26 @@ public:
     void UnregisterAlias(std::string aliasName);
 
     void RegisterCommandLua(std::string commandName, luabridge::LuaRef callback);
+};
+
+//////////////////////////////////////////////////////////////
+/////////////////           Database           //////////////
+////////////////////////////////////////////////////////////
+
+class PluginDatabase
+{
+private:
+    std::string connection_name;
+    Database *db;
+    bool dbConnected;
+
+public:
+    PluginDatabase(std::string m_connection_name);
+
+    bool IsConnected();
+    std::string EscapeString(std::string str);
+
+    void QueryLua(std::string query, luabridge::LuaRef callback, lua_State *L);
 };
 
 //////////////////////////////////////////////////////////////
