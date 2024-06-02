@@ -53,6 +53,7 @@ bin_scripting_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'events.lua'), bin_scripting_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'exports.lua'), bin_scripting_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'http.lua'), bin_scripting_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'timers.lua'), bin_scripting_folder)
 
 configs_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'configs'))
 configs_plugins_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'configs', 'plugins'))
