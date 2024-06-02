@@ -46,9 +46,26 @@ bool LuaPlugin::LoadScriptingEnvironment()
 
     SetupLuaEnvironment(this, this->state);
 
+    int loadStatus = luaL_dofile(this->state, "addons/swiftly/bin/scripting/events.lua");
+
+    if (loadStatus != 0)
+    {
+        std::string error = lua_tostring(this->state, -1);
+        PRINTF("Failed to load plugin file '%s'.\n", "addons/swiftly/bin/scripting/events.lua");
+        PRINTF("Error: %s\n", error.c_str());
+
+        this->SetLoadError(error);
+
+        lua_pop(this->state, 1);
+        return false;
+    }
+
     std::vector<std::string> scriptingFiles = Files::FetchFileNames("addons/swiftly/bin/scripting");
     for (std::string file : scriptingFiles)
     {
+        if (file == "addons/swiftly/bin/scripting/events.lua")
+            continue;
+
         if (ends_with(file, ".lua"))
         {
             int loadStatus = luaL_dofile(this->state, file.c_str());

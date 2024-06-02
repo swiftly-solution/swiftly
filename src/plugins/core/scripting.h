@@ -160,6 +160,25 @@ public:
 };
 
 //////////////////////////////////////////////////////////////
+/////////////////          Convars         //////////////
+////////////////////////////////////////////////////////////
+
+class PluginConvars
+{
+private:
+    std::string plugin_name;
+
+public:
+    PluginConvars(std::string m_plugin_name);
+
+    std::any GetConvarValue(std::string cvarname);
+    luabridge::LuaRef GetConvarValueLua(std::string cvarname, lua_State *L);
+
+    int16_t GetConvarType(std::string cvarname);
+    void SetConvar(std::string cvarname, std::string value);
+};
+
+//////////////////////////////////////////////////////////////
 /////////////////             Menus            //////////////
 ////////////////////////////////////////////////////////////
 

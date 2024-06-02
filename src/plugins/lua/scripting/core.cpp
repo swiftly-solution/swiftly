@@ -55,4 +55,5 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     SetupLuaHTTP(plugin, state);
     SetupLuaDatabase(plugin, state);
     SetupLuaMenus(plugin, state);
+    SetupLuaConvars(plugin, state);
 }
