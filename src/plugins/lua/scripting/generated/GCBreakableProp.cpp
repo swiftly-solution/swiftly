@@ -1,0 +1,36 @@
+#include "../../../core/scripting/generated/classes/GCBreakableProp.h"
+#include "../core.h"
+
+void SetupLuaClassGCBreakableProp(LuaPlugin *plugin, lua_State *state)
+{
+    luabridge::getGlobalNamespace(state)
+        .beginClass<GCBreakableProp>("CBreakableProp")
+        .addProperty("CPropDataComponent", &GCBreakableProp::GetCPropDataComponent, &GCBreakableProp::SetCPropDataComponent)
+        .addProperty("OnBreak", &GCBreakableProp::GetOnBreak, &GCBreakableProp::SetOnBreak)
+        .addProperty("OnTakeDamage", &GCBreakableProp::GetOnTakeDamage, &GCBreakableProp::SetOnTakeDamage)
+        .addProperty("ImpactEnergyScale", &GCBreakableProp::GetImpactEnergyScale, &GCBreakableProp::SetImpactEnergyScale)
+        .addProperty("MinHealthDmg", &GCBreakableProp::GetMinHealthDmg, &GCBreakableProp::SetMinHealthDmg)
+        .addProperty("PreferredCarryAngles", &GCBreakableProp::GetPreferredCarryAngles, &GCBreakableProp::SetPreferredCarryAngles)
+        .addProperty("PressureDelay", &GCBreakableProp::GetPressureDelay, &GCBreakableProp::SetPressureDelay)
+        .addProperty("DefBurstScale", &GCBreakableProp::GetDefBurstScale, &GCBreakableProp::SetDefBurstScale)
+        .addProperty("DefBurstOffset", &GCBreakableProp::GetDefBurstOffset, &GCBreakableProp::SetDefBurstOffset)
+        .addProperty("Breaker", &GCBreakableProp::GetBreaker, &GCBreakableProp::SetBreaker)
+        .addProperty("PerformanceMode", &GCBreakableProp::GetPerformanceMode, &GCBreakableProp::SetPerformanceMode)
+        .addProperty("HasBreakPiecesOrCommands", &GCBreakableProp::GetHasBreakPiecesOrCommands, &GCBreakableProp::SetHasBreakPiecesOrCommands)
+        .addProperty("ExplodeDamage", &GCBreakableProp::GetExplodeDamage, &GCBreakableProp::SetExplodeDamage)
+        .addProperty("ExplodeRadius", &GCBreakableProp::GetExplodeRadius, &GCBreakableProp::SetExplodeRadius)
+        .addProperty("ExplosionDelay", &GCBreakableProp::GetExplosionDelay, &GCBreakableProp::SetExplosionDelay)
+        .addProperty("ExplosionBuildupSound", &GCBreakableProp::GetExplosionBuildupSound, &GCBreakableProp::SetExplosionBuildupSound)
+        .addProperty("ExplosionCustomEffect", &GCBreakableProp::GetExplosionCustomEffect, &GCBreakableProp::SetExplosionCustomEffect)
+        .addProperty("ExplosionCustomSound", &GCBreakableProp::GetExplosionCustomSound, &GCBreakableProp::SetExplosionCustomSound)
+        .addProperty("ExplosionModifier", &GCBreakableProp::GetExplosionModifier, &GCBreakableProp::SetExplosionModifier)
+        .addProperty("PhysicsAttacker", &GCBreakableProp::GetPhysicsAttacker, &GCBreakableProp::SetPhysicsAttacker)
+        .addProperty("OriginalBlockLOS", &GCBreakableProp::GetOriginalBlockLOS, &GCBreakableProp::SetOriginalBlockLOS)
+        .addProperty("DefaultFadeScale", &GCBreakableProp::GetDefaultFadeScale, &GCBreakableProp::SetDefaultFadeScale)
+        .addProperty("LastAttacker", &GCBreakableProp::GetLastAttacker, &GCBreakableProp::SetLastAttacker)
+        .addProperty("FlareEnt", &GCBreakableProp::GetFlareEnt, &GCBreakableProp::SetFlareEnt)
+        .addProperty("UsePuntSound", &GCBreakableProp::GetUsePuntSound, &GCBreakableProp::SetUsePuntSound)
+        .addProperty("PuntSound", &GCBreakableProp::GetPuntSound, &GCBreakableProp::SetPuntSound)
+        .addProperty("NoGhostCollision", &GCBreakableProp::GetNoGhostCollision, &GCBreakableProp::SetNoGhostCollision)
+        .endClass();
+}

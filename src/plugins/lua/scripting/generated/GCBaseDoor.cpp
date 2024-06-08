@@ -1,0 +1,36 @@
+#include "../../../core/scripting/generated/classes/GCBaseDoor.h"
+#include "../core.h"
+
+void SetupLuaClassGCBaseDoor(LuaPlugin *plugin, lua_State *state)
+{
+    luabridge::getGlobalNamespace(state)
+        .beginClass<GCBaseDoor>("CBaseDoor")
+        .addProperty("MoveEntitySpace", &GCBaseDoor::GetMoveEntitySpace, &GCBaseDoor::SetMoveEntitySpace)
+        .addProperty("MoveDirParentSpace", &GCBaseDoor::GetMoveDirParentSpace, &GCBaseDoor::SetMoveDirParentSpace)
+        .addProperty("Ls", &GCBaseDoor::GetLs, &GCBaseDoor::SetLs)
+        .addProperty("ForceClosed", &GCBaseDoor::GetForceClosed, &GCBaseDoor::SetForceClosed)
+        .addProperty("DoorGroup", &GCBaseDoor::GetDoorGroup, &GCBaseDoor::SetDoorGroup)
+        .addProperty("Locked", &GCBaseDoor::GetLocked, &GCBaseDoor::SetLocked)
+        .addProperty("IgnoreDebris", &GCBaseDoor::GetIgnoreDebris, &GCBaseDoor::SetIgnoreDebris)
+        .addProperty("SpawnPosition", &GCBaseDoor::GetSpawnPosition, &GCBaseDoor::SetSpawnPosition)
+        .addProperty("BlockDamage", &GCBaseDoor::GetBlockDamage, &GCBaseDoor::SetBlockDamage)
+        .addProperty("NoiseMoving", &GCBaseDoor::GetNoiseMoving, &GCBaseDoor::SetNoiseMoving)
+        .addProperty("NoiseArrived", &GCBaseDoor::GetNoiseArrived, &GCBaseDoor::SetNoiseArrived)
+        .addProperty("NoiseMovingClosed", &GCBaseDoor::GetNoiseMovingClosed, &GCBaseDoor::SetNoiseMovingClosed)
+        .addProperty("NoiseArrivedClosed", &GCBaseDoor::GetNoiseArrivedClosed, &GCBaseDoor::SetNoiseArrivedClosed)
+        .addProperty("ChainTarget", &GCBaseDoor::GetChainTarget, &GCBaseDoor::SetChainTarget)
+        .addProperty("OnBlockedClosing", &GCBaseDoor::GetOnBlockedClosing, &GCBaseDoor::SetOnBlockedClosing)
+        .addProperty("OnBlockedOpening", &GCBaseDoor::GetOnBlockedOpening, &GCBaseDoor::SetOnBlockedOpening)
+        .addProperty("OnUnblockedClosing", &GCBaseDoor::GetOnUnblockedClosing, &GCBaseDoor::SetOnUnblockedClosing)
+        .addProperty("OnUnblockedOpening", &GCBaseDoor::GetOnUnblockedOpening, &GCBaseDoor::SetOnUnblockedOpening)
+        .addProperty("OnFullyClosed", &GCBaseDoor::GetOnFullyClosed, &GCBaseDoor::SetOnFullyClosed)
+        .addProperty("OnFullyOpen", &GCBaseDoor::GetOnFullyOpen, &GCBaseDoor::SetOnFullyOpen)
+        .addProperty("OnClose", &GCBaseDoor::GetOnClose, &GCBaseDoor::SetOnClose)
+        .addProperty("OnOpen", &GCBaseDoor::GetOnOpen, &GCBaseDoor::SetOnOpen)
+        .addProperty("OnLockedUse", &GCBaseDoor::GetOnLockedUse, &GCBaseDoor::SetOnLockedUse)
+        .addProperty("LoopMoveSound", &GCBaseDoor::GetLoopMoveSound, &GCBaseDoor::SetLoopMoveSound)
+        .addProperty("CreateNavObstacle", &GCBaseDoor::GetCreateNavObstacle, &GCBaseDoor::SetCreateNavObstacle)
+        .addProperty("IsChaining", &GCBaseDoor::GetIsChaining, &GCBaseDoor::SetIsChaining)
+        .addProperty("IsUsable", &GCBaseDoor::GetIsUsable, &GCBaseDoor::SetIsUsable)
+        .endClass();
+}

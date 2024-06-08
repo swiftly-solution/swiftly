@@ -45,6 +45,7 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
 
     SetupLuaLogs(plugin, state);
     SetupLuaTypes(plugin, state);
+    SetupLuaGeneratedTypes(plugin, state);
     SetupLuaTranslations(plugin, state);
     SetupLuaConfiguration(plugin, state);
     SetupLuaFiles(plugin, state);
@@ -57,4 +58,6 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     SetupLuaMenus(plugin, state);
     SetupLuaConvars(plugin, state);
     SetupLuaUtils(plugin, state);
+    SetupLuaCoreClasses(plugin, state);
+    SetupLuaClasses(plugin, state);
 }

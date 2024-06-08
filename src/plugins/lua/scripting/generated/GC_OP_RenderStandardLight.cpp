@@ -1,0 +1,37 @@
+#include "../../../core/scripting/generated/classes/GC_OP_RenderStandardLight.h"
+#include "../core.h"
+
+void SetupLuaClassGC_OP_RenderStandardLight(LuaPlugin *plugin, lua_State *state)
+{
+    luabridge::getGlobalNamespace(state)
+        .beginClass<GC_OP_RenderStandardLight>("C_OP_RenderStandardLight")
+        .addProperty("LightType", &GC_OP_RenderStandardLight::GetLightType, &GC_OP_RenderStandardLight::SetLightType)
+        .addProperty("ColorBlendType", &GC_OP_RenderStandardLight::GetColorBlendType, &GC_OP_RenderStandardLight::SetColorBlendType)
+        .addProperty("Intensity", &GC_OP_RenderStandardLight::GetIntensity, &GC_OP_RenderStandardLight::SetIntensity)
+        .addProperty("CastShadows", &GC_OP_RenderStandardLight::GetCastShadows, &GC_OP_RenderStandardLight::SetCastShadows)
+        .addProperty("Theta", &GC_OP_RenderStandardLight::GetTheta, &GC_OP_RenderStandardLight::SetTheta)
+        .addProperty("Phi", &GC_OP_RenderStandardLight::GetPhi, &GC_OP_RenderStandardLight::SetPhi)
+        .addProperty("RadiusMultiplier", &GC_OP_RenderStandardLight::GetRadiusMultiplier, &GC_OP_RenderStandardLight::SetRadiusMultiplier)
+        .addProperty("AttenuationStyle", &GC_OP_RenderStandardLight::GetAttenuationStyle, &GC_OP_RenderStandardLight::SetAttenuationStyle)
+        .addProperty("FalloffLinearity", &GC_OP_RenderStandardLight::GetFalloffLinearity, &GC_OP_RenderStandardLight::SetFalloffLinearity)
+        .addProperty("FiftyPercentFalloff", &GC_OP_RenderStandardLight::GetFiftyPercentFalloff, &GC_OP_RenderStandardLight::SetFiftyPercentFalloff)
+        .addProperty("ZeroPercentFalloff", &GC_OP_RenderStandardLight::GetZeroPercentFalloff, &GC_OP_RenderStandardLight::SetZeroPercentFalloff)
+        .addProperty("RenderDiffuse", &GC_OP_RenderStandardLight::GetRenderDiffuse, &GC_OP_RenderStandardLight::SetRenderDiffuse)
+        .addProperty("RenderSpecular", &GC_OP_RenderStandardLight::GetRenderSpecular, &GC_OP_RenderStandardLight::SetRenderSpecular)
+        .addProperty("LightCookie", &GC_OP_RenderStandardLight::GetLightCookie, &GC_OP_RenderStandardLight::SetLightCookie)
+        .addProperty("Priority", &GC_OP_RenderStandardLight::GetPriority, &GC_OP_RenderStandardLight::SetPriority)
+        .addProperty("FogLightingMode", &GC_OP_RenderStandardLight::GetFogLightingMode, &GC_OP_RenderStandardLight::SetFogLightingMode)
+        .addProperty("FogContribution", &GC_OP_RenderStandardLight::GetFogContribution, &GC_OP_RenderStandardLight::SetFogContribution)
+        .addProperty("CapsuleLightBehavior", &GC_OP_RenderStandardLight::GetCapsuleLightBehavior, &GC_OP_RenderStandardLight::SetCapsuleLightBehavior)
+        .addProperty("CapsuleLength", &GC_OP_RenderStandardLight::GetCapsuleLength, &GC_OP_RenderStandardLight::SetCapsuleLength)
+        .addProperty("ReverseOrder", &GC_OP_RenderStandardLight::GetReverseOrder, &GC_OP_RenderStandardLight::SetReverseOrder)
+        .addProperty("ClosedLoop", &GC_OP_RenderStandardLight::GetClosedLoop, &GC_OP_RenderStandardLight::SetClosedLoop)
+        .addProperty("PrevPntSource", &GC_OP_RenderStandardLight::GetPrevPntSource, &GC_OP_RenderStandardLight::SetPrevPntSource)
+        .addProperty("MaxLength", &GC_OP_RenderStandardLight::GetMaxLength, &GC_OP_RenderStandardLight::SetMaxLength)
+        .addProperty("MinLength", &GC_OP_RenderStandardLight::GetMinLength, &GC_OP_RenderStandardLight::SetMinLength)
+        .addProperty("IgnoreDT", &GC_OP_RenderStandardLight::GetIgnoreDT, &GC_OP_RenderStandardLight::SetIgnoreDT)
+        .addProperty("ConstrainRadiusToLengthRatio", &GC_OP_RenderStandardLight::GetConstrainRadiusToLengthRatio, &GC_OP_RenderStandardLight::SetConstrainRadiusToLengthRatio)
+        .addProperty("LengthScale", &GC_OP_RenderStandardLight::GetLengthScale, &GC_OP_RenderStandardLight::SetLengthScale)
+        .addProperty("LengthFadeInTime", &GC_OP_RenderStandardLight::GetLengthFadeInTime, &GC_OP_RenderStandardLight::SetLengthFadeInTime)
+        .endClass();
+}

@@ -1,0 +1,15 @@
+#ifndef _gparticleoutputblendmode_t_h
+#define _gparticleoutputblendmode_t_h
+
+enum class ParticleOutputBlendMode_t : uint64_t
+{
+    PARTICLE_OUTPUT_BLEND_MODE_ALPHA = 0x0,
+    PARTICLE_OUTPUT_BLEND_MODE_ADD = 0x1,
+    PARTICLE_OUTPUT_BLEND_MODE_BLEND_ADD = 0x2,
+    PARTICLE_OUTPUT_BLEND_MODE_HALF_BLEND_ADD = 0x3,
+    PARTICLE_OUTPUT_BLEND_MODE_NEG_HALF_BLEND_ADD = 0x4,
+    PARTICLE_OUTPUT_BLEND_MODE_MOD2X = 0x5,
+    PARTICLE_OUTPUT_BLEND_MODE_LIGHTEN = 0x6,
+};
+
+#endif
