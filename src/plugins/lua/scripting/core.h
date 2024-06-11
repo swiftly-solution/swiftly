@@ -24,4 +24,7 @@ void SetupLuaUtils(LuaPlugin *plugin, lua_State *state);
 void SetupLuaConvars(LuaPlugin *plugin, lua_State *state);
 void SetupLuaClasses(LuaPlugin *plugin, lua_State *state);
 void SetupLuaGeneratedTypes(LuaPlugin *plugin, lua_State *state);
-void SetupLuaCoreClasses(LuaPlugin* plugin, lua_State* state);
+void SetupLuaCoreClasses(LuaPlugin *plugin, lua_State *state);
+void SetupLuaServer(LuaPlugin *plugin, lua_State *state);
+void SetupLuaPlayer(LuaPlugin *plugin, lua_State *state);
+void SetupLuaEntities(LuaPlugin *plugin, lua_State *state);

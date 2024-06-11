@@ -60,4 +60,7 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     SetupLuaUtils(plugin, state);
     SetupLuaCoreClasses(plugin, state);
     SetupLuaClasses(plugin, state);
+    SetupLuaServer(plugin, state);
+    SetupLuaPlayer(plugin, state);
+    SetupLuaEntities(plugin, state);
 }

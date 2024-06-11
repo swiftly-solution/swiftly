@@ -10,9 +10,11 @@ public:
 
     ~CSingleRecipientFilter() override {}
 
-    bool IsReliable(void) const override { return m_bReliable; }
+    bool IsReliable(void) const { return m_bReliable; }
 
     bool IsInitMessage(void) const override { return m_bInitMessage; }
+
+    NetChannelBufType_t GetNetworkBufType(void) const override { return m_bReliable ? BUF_RELIABLE : BUF_UNRELIABLE; }
 
     int GetRecipientCount(void) const override { return 1; }
 

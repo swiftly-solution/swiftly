@@ -76,7 +76,8 @@ void DatabaseQueryThread()
                 luabridge::LuaRef ref = *(luabridge::LuaRef *)queue.callback;
                 try
                 {
-                    ref(queue.db->GetError(), tbl);
+                    if (ref.isFunction())
+                        ref(queue.db->GetError(), tbl);
                 }
                 catch (luabridge::LuaException &e)
                 {

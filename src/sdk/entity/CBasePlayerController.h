@@ -4,7 +4,7 @@
 #include "CBaseEntity.h"
 #include "CCSPlayerPawn.h"
 
-enum class PlayerConnectedState : uint32_t
+enum class CPlayerConnectedState : uint32_t
 {
     PlayerNeverConnected = 0xFFFFFFFF,
     PlayerConnected = 0x0,
@@ -27,7 +27,7 @@ public:
     SCHEMA_FIELD_OFFSET(uint64, m_steamID, 0)
     SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerPawn>, m_hPawn, 0)
     SCHEMA_FIELD_POINTER_OFFSET(char, m_iszPlayerName, 0)
-    SCHEMA_FIELD_OFFSET(PlayerConnectedState, m_iConnected, 0)
+    SCHEMA_FIELD_OFFSET(CPlayerConnectedState, m_iConnected, 0)
     SCHEMA_FIELD_OFFSET(uint32_t, m_iDesiredFOV, 0)
 
     void SendMsg(int destination, const char *message)

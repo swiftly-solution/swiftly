@@ -1,79 +1,17 @@
-#pragma once
+#ifndef _core_scripting_h
+#define _core_scripting_h
 
-#include "../../common.h"
-#include "../../entrypoint.h"
-#include "../Plugin.h"
-#include "../PluginManager.h"
-#include "../../database/DatabaseManager.h"
-#include "../../types/LogType.h"
-#include "../../logs/Logger.h"
-#include "../../sdk/schema.h"
-#include "../../utils/plat.h"
-#include "ehandle.h"
+#include "scripting_includes.h"
 
 #include <any>
 
-//////////////////////////////////////////////////////////////
-/////////////////            Schema            //////////////
-////////////////////////////////////////////////////////////
-
-template <class T>
-T GetSchemaValue(void *ptr, const char *className, const char *fieldName)
-{
-    auto datatable_hash = hash_32_fnv1a_const(className);
-    auto prop_hash = hash_32_fnv1a_const(fieldName);
-    const auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
-
-    return *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr) + m_key.offset);
-}
-
-void WriteSchemaPtrValue(void *ptr, const char *className, const char *fieldName, bool isStruct, byte *value, int size);
-
-template <class T>
-void SetSchemaValue(void *ptr, const char *className, const char *fieldName, bool isStruct, T value)
-{
-    auto datatable_hash = hash_32_fnv1a_const(className);
-    auto prop_hash = hash_32_fnv1a_const(fieldName);
-
-    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
-    auto m_chain = sch::FindChainOffset(className);
-
-    if (m_chain != 0 && m_key.networked)
-        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(ptr) + m_chain, m_key.offset, 0xFFFFFFFF);
-    else if (m_key.networked)
-    {
-        if (!isStruct)
-            SetStateChanged((Z_CBaseEntity *)ptr, m_key.offset);
-        else if (IsPlatformPosix())
-            CALL_VIRTUAL(void, 1, ptr, m_key.offset, 0xFFFFFFFF, 0xFFFF);
-    }
-    *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr) + m_key.offset) = value;
-}
-
-template <class T>
-void SetSchemaValueCUtlVector(void *ptr, const char *className, const char *fieldName, bool isStruct, std::vector<T> value)
-{
-    auto datatable_hash = hash_32_fnv1a_const(className);
-    auto prop_hash = hash_32_fnv1a_const(fieldName);
-
-    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
-    auto m_chain = sch::FindChainOffset(className);
-
-    if (m_chain != 0 && m_key.networked)
-        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(ptr) + m_chain, m_key.offset, 0xFFFFFFFF);
-    else if (m_key.networked)
-    {
-        if (!isStruct)
-            SetStateChanged((Z_CBaseEntity *)ptr, m_key.offset);
-        else if (IsPlatformPosix())
-            CALL_VIRTUAL(void, 1, ptr, m_key.offset, 0xFFFFFFFF, 0xFFFF);
-    }
-
-    CUtlVector<T> *vec = reinterpret_cast<CUtlVector<T> *>((uintptr_t)(ptr) + m_key.offset);
-    vec->Purge();
-    for (auto elem : value)
-        vec->AddToTail(elem);
-}
+class GCBaseEntity;
+class GCBasePlayerController;
+class GCBasePlayerPawn;
+class GCCSPlayerController;
+class GCCSPlayerPawn;
+class GCCSPlayerPawnBase;
+class GCEntityInstance;
 
 //////////////////////////////////////////////////////////////
 /////////////////            Logger            //////////////
@@ -301,7 +239,93 @@ public:
 };
 
 //////////////////////////////////////////////////////////////
+/////////////////            Server            //////////////
+////////////////////////////////////////////////////////////
+
+class PluginServer
+{
+private:
+    std::string plugin_name;
+
+public:
+    PluginServer(std::string m_plugin_name);
+
+    std::string GetMap();
+    bool IsMapValid(std::string map);
+    void ChangeMap(std::string map, bool workshop);
+
+    uint16_t GetMaxPlayers();
+
+    void Execute(std::string cmd);
+
+    float GetCurrentTime();
+    int GetTickCount();
+};
+
+//////////////////////////////////////////////////////////////
+/////////////////            Player            //////////////
+////////////////////////////////////////////////////////////
+
+class PluginPlayer
+{
+private:
+    std::string plugin_name;
+    int playerId;
+
+    std::map<std::string, void *> ptrs;
+
+public:
+    PluginPlayer(std::string m_plugin_name, int m_playerId);
+    ~PluginPlayer();
+
+    GCBaseEntity *GetCBaseEntity();
+    GCBasePlayerController *GetCBasePlayerController();
+    GCBasePlayerPawn *GetCBasePlayerPawn();
+    GCCSPlayerController *GetCCSPlayerController();
+    GCCSPlayerPawn *GetCCSPlayerPawn();
+    GCCSPlayerPawnBase *GetCCSPlayerPawnBase();
+    void Drop(int reason);
+    std::string GetChatTag();
+    void SetChatTag(std::string tag);
+    void SetChatTagColor(std::string color);
+    void SetNameColor(std::string color);
+    void SetChatColor(std::string color);
+    void ExecuteCommand(std::string cmd);
+    std::string GetConvarValue(std::string name);
+    void SetConvar(std::string name, std::string value);
+    std::string GetIPAddress();
+    int GetLatency();
+    int GetSlot();
+    uint64_t GetSteamID();
+    std::string GetSteamID2();
+    void HideMenu();
+    bool IsFakeClient();
+    bool IsFirstSpawn();
+    void Kill();
+    void Respawn();
+    void SendMsg(int dest, std::string msg);
+    void SetModel(std::string model);
+    void ShowMenu(std::string menuid);
+};
+
+//////////////////////////////////////////////////////////////
 /////////////////         Translations         //////////////
 ////////////////////////////////////////////////////////////
 
 std::string scripting_FetchTranslation(Plugin *plugin, std::string key);
+
+//////////////////////////////////////////////////////////////
+/////////////////           Entities           //////////////
+////////////////////////////////////////////////////////////
+
+std::vector<GCEntityInstance *> UTIL_FindEntitiesByClassname(const char *name);
+
+//////////////////////////////////////////////////////////////
+/////////////////             Utils            //////////////
+////////////////////////////////////////////////////////////
+
+bool scripting_IsWindows();
+bool scripting_IsLinux();
+std::string scripting_GetOS();
+
+#endif

@@ -81,6 +81,8 @@ public:
 
     void PerformCommand(std::string command);
 
+    void SetClientConvar(std::string cmd, std::string val);
+
 private:
     int slot;
     bool isFakeClient = false;

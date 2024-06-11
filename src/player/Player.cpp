@@ -6,6 +6,9 @@
 #include "../menus/MenuManager.h"
 #include "../commands/CommandsManager.h"
 
+#include "networkbasetypes.pb.h"
+#include "../sdk/entity/CRecipientFilters.h"
+
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
 
 std::map<std::string, std::string> colors = {
@@ -475,4 +478,22 @@ void Player::PerformMenuAction(std::string button)
 void Player::PerformCommand(std::string command)
 {
     engine->ClientCommand(this->GetSlot(), command.c_str());
+}
+
+ConVar *FetchCVar(std::string cvarname);
+
+void Player::SetClientConvar(std::string cmd, std::string val)
+{
+    ConVar *cv = FetchCVar(cmd.c_str());
+    if (!cv)
+        return;
+
+    INetworkSerializable *netmsg = g_pNetworkMessages->FindNetworkMessagePartial("SetConVar");
+    CNETMsg_SetConVar *msg = new CNETMsg_SetConVar;
+    CMsg_CVars_CVar *cvar = msg->mutable_convars()->add_cvars();
+    cvar->set_name(cv->m_pszName);
+    cvar->set_value(val.c_str());
+
+    CSingleRecipientFilter filter(this->GetSlot().Get());
+    g_pGameEventSystem->PostEventAbstract(0, false, &filter, netmsg, msg, 0);
 }
