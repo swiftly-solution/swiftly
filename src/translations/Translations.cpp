@@ -70,15 +70,15 @@ void Translations::LoadTranslations()
         {
             std::string key = it->name.GetString();
 
-            IS_OBJECT(transFile, key.c_str(), string_format("%s.%s", mainTranslationKey, key))
-            HAS_MEMBER(it->value, "en", string_format("%s.%s", mainTranslationKey, key))
+            IS_OBJECT(transFile, key.c_str(), string_format("%s.%s", mainTranslationKey, key).c_str())
+            HAS_MEMBER(it->value, "en", string_format("%s.%s", mainTranslationKey, key).c_str())
 
             Translation *translation = new Translation();
             for (auto it2 = it->value.MemberBegin(); it2 != it->value.MemberEnd(); ++it2)
             {
                 std::string transKey = it2->name.GetString();
 
-                IS_STRING(it->value, transKey.c_str(), string_format("%s.%s.%s", mainTranslationKey, key, transKey))
+                IS_STRING(it->value, transKey.c_str(), string_format("%s.%s.%s", mainTranslationKey.c_str(), key.c_str(), transKey.c_str()).c_str())
 
                 std::string transVal = it2->value.GetString();
                 translation->RegisterLanguage(transKey, transVal);

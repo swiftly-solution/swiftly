@@ -13,6 +13,8 @@
 #include <public/playerslot.h>
 #include <ctime>
 
+#include <any>
+
 #define HUD_PRINTNOTIFY 1
 #define HUD_PRINTCONSOLE 2
 #define HUD_PRINTTALK 3
@@ -83,6 +85,9 @@ public:
 
     void SetClientConvar(std::string cmd, std::string val);
 
+    std::any GetInternalVar(std::string name);
+    void SetInternalVar(std::string name, std::any value);
+
 private:
     int slot;
     bool isFakeClient = false;
@@ -104,6 +109,8 @@ private:
     Menu *menu = nullptr;
     int page = 0;
     int selected = 0;
+
+    std::map<std::string, std::any> internalVars;
 };
 
 #endif

@@ -167,7 +167,7 @@ bool LuaPlugin::ExecuteStart()
     msgpack::pack(ss, eventData);
 
     PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnPluginStart", ss.str(), event);
+    this->TriggerEvent("core", "OnPluginStart", ss.str(), event);
     delete event;
 
     return true;

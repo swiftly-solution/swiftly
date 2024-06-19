@@ -64,7 +64,7 @@ const char *format(const char *str, ...)
     return return_str.c_str();
 }
 
-void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessage, void *pData, int a4)
+void Hook_SendNetMessage(INetChannel *pNetChan, INetworkMessageInternal *pNetMessage, CNetMessage *pData, int a4)
 {
     NetMessageInfo_t *info = pNetMessage->GetNetMessageInfo();
 
@@ -75,7 +75,7 @@ void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessag
 
     if (pPendingClient)
     {
-        CNETMsg_SignonState *pMsg = (CNETMsg_SignonState *)pData;
+        auto pMsg = pData->ToPB<CNETMsg_SignonState>();
         pMsg->set_addons(g_addons.GetAddons()[pPendingClient->addon].c_str());
         pMsg->set_signon_state(SIGNONSTATE_CHANGELEVEL);
 

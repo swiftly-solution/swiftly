@@ -488,6 +488,28 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 x
 bool OnClientCommand(int playerid, std::string command);
 bool OnClientChat(int playerid, std::string text, bool teamonly);
 
+const char *wws = " \t\n\r\f\v";
+
+// trim from end of string (right)
+inline std::string &rrtrim(std::string &s, const char *t = wws)
+{
+    s.erase(s.find_last_not_of(t) + 1);
+    return s;
+}
+
+// trim from beginning of string (left)
+inline std::string &lltrim(std::string &s, const char *t = wws)
+{
+    s.erase(0, s.find_first_not_of(t));
+    return s;
+}
+
+// trim from both ends of string (right then left)
+inline std::string &strim(std::string &s, const char *t = wws)
+{
+    return lltrim(rrtrim(s, t), t);
+}
+
 void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext &ctx, const CCommand &args)
 {
     CPlayerSlot slot = ctx.GetPlayerSlot();
@@ -513,6 +535,9 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
             std::string text = implode(textSplitted, " ");
             text.erase(text.begin());
             text.pop_back();
+
+            if (strim(text).length() == 0)
+                RETURN_META(MRES_SUPERCEDE);
 
             if (controller)
             {

@@ -10,3 +10,12 @@ void WriteSchemaPtrValue(void *ptr, const char *className, const char *fieldName
 
     Plat_WriteMemory(fieldPtr, value, size);
 }
+
+void *GetSchemaPtr(void *ptr, const char *className, const char *fieldName)
+{
+    auto datatable_hash = hash_32_fnv1a_const(className);
+    auto prop_hash = hash_32_fnv1a_const(fieldName);
+    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
+
+    return reinterpret_cast<void *>((uintptr_t)(ptr) + m_key.offset);
+}

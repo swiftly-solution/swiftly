@@ -95,7 +95,16 @@ void SwiftlyStatus(CPlayerSlot slot, CCommandContext context)
         statusTable.endOfRow();
     }
 
-    PrintTextTable("Status", statusTable);
+    auto PrintTT = [slot](std::string category, TextTable table) -> void
+    {
+        std::stringstream outputTable;
+        outputTable << table;
+        std::vector<std::string> rows = explode(outputTable.str(), "\n");
+        for (int i = 0; i < rows.size() - 1; i++)
+            PrintToClientOrConsole(slot, category, "%s\n", rows[i].c_str());
+    };
+
+    PrintTT("Status", statusTable);
 
     PrintToClientOrConsole(slot, "Status", "end of status\n");
 }

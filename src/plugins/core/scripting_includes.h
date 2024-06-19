@@ -20,7 +20,7 @@ T GetSchemaValue(void *ptr, const char *className, const char *fieldName)
 {
     auto datatable_hash = hash_32_fnv1a_const(className);
     auto prop_hash = hash_32_fnv1a_const(fieldName);
-    const auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
+    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
 
     return *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr) + m_key.offset);
 }
@@ -30,10 +30,12 @@ T *GetSchemaValuePtr(void *ptr, const char *className, const char *fieldName)
 {
     auto datatable_hash = hash_32_fnv1a_const(className);
     auto prop_hash = hash_32_fnv1a_const(fieldName);
-    const auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
+    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
 
     return reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr) + m_key.offset);
 }
+
+void *GetSchemaPtr(void *ptr, const char *className, const char *fieldName);
 
 void WriteSchemaPtrValue(void *ptr, const char *className, const char *fieldName, bool isStruct, byte *value, int size);
 

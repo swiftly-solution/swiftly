@@ -3,6 +3,10 @@
 
 #include "scripting_includes.h"
 
+#include <dynohook/core.h>
+#include <dynohook/manager.h>
+#include <dynohook/conventions/x64_systemV_call.h>
+
 #include <any>
 
 class GCBaseEntity;
@@ -12,6 +16,7 @@ class GCCSPlayerController;
 class GCCSPlayerPawn;
 class GCCSPlayerPawnBase;
 class GCEntityInstance;
+class PluginMemory;
 
 //////////////////////////////////////////////////////////////
 /////////////////            Logger            //////////////
@@ -69,17 +74,18 @@ class PluginEvent
 private:
     std::string plugin_name;
     IGameEvent *gameEvent;
-    void *hookPtr;
+    dyno::IHook *hookPtr;
 
     std::any returnValue;
 
 public:
-    PluginEvent(std::string m_plugin_name, IGameEvent *m_gameEvent, void *m_hookPtr);
+    PluginEvent(std::string m_plugin_name, IGameEvent *m_gameEvent, dyno::IHook *m_hookPtr);
     ~PluginEvent();
 
     std::string GetInvokingPlugin();
+
+    // Game Event Section
     bool IsGameEvent();
-    bool IsHook();
 
     void SetBool(std::string key, bool value);
     void SetInt(std::string key, int value);
@@ -99,6 +105,33 @@ public:
     void SetReturn(std::any value);
     void SetReturnLua(luabridge::LuaRef value);
     std::any GetReturnValue();
+
+    // Hooks section
+    bool IsHook();
+
+    bool GetHookBool(int index);
+    int GetHookInt(int index);
+    uint64_t GetHookUint64(int index);
+    float GetHookFloat(int index);
+    std::string GetHookString(int index);
+    PluginMemory GetHookPointer(int index);
+    double GetHookDouble(int index);
+    uint32_t GetHookUInt(int index);
+    int64_t GetHookInt64(int index);
+
+    void SetHookBool(int index, bool value);
+    void SetHookInt(int index, int value);
+    void SetHookUint64(int index, uint64_t value);
+    void SetHookFloat(int index, float value);
+    void SetHookString(int index, std::string value);
+    void SetHookPointer(int index, PluginMemory value);
+    void SetHookDouble(int index, double value);
+    void SetHookUInt(int index, uint32_t value);
+    void SetHookInt64(int index, int64_t value);
+
+    void SetHookReturn(std::any value);
+    void SetHookReturnLua(luabridge::LuaRef value);
+    std::any GetHookReturn();
 };
 
 //////////////////////////////////////////////////////////////
@@ -294,7 +327,6 @@ public:
     std::string GetConvarValue(std::string name);
     void SetConvar(std::string name, std::string value);
     std::string GetIPAddress();
-    int GetLatency();
     int GetSlot();
     uint64_t GetSteamID();
     std::string GetSteamID2();
@@ -306,6 +338,12 @@ public:
     void SendMsg(int dest, std::string msg);
     void SetModel(std::string model);
     void ShowMenu(std::string menuid);
+
+    std::any GetVarValue(std::string key);
+    luabridge::LuaRef GetVarValueLua(std::string key, lua_State *L);
+
+    void SetVarValue(std::string key, std::any value);
+    void SetVarValueLua(std::string key, luabridge::LuaRef value);
 };
 
 //////////////////////////////////////////////////////////////
@@ -313,6 +351,91 @@ public:
 ////////////////////////////////////////////////////////////
 
 std::string scripting_FetchTranslation(Plugin *plugin, std::string key);
+
+//////////////////////////////////////////////////////////////
+/////////////////            Memory            //////////////
+////////////////////////////////////////////////////////////
+
+class PluginMemory
+{
+private:
+    void *m_ptr;
+
+public:
+    PluginMemory();
+
+    void LoadFromPtr(void *ptr);
+    void LoadFromAddress(std::string addr);
+    void LoadFromSignatureName(std::string signature_name);
+    void LoadFromSignature(std::string library, std::string signature);
+
+    void AddOffset(int64_t offset);
+    void RemoveOffset(int64_t offset);
+
+    void Clear();
+
+    void *GetRawPtr();
+    std::string GetPtr();
+    bool IsValid();
+};
+
+//////////////////////////////////////////////////////////////
+/////////////////           DynHook            //////////////
+////////////////////////////////////////////////////////////
+
+enum class DataType_t
+{
+    VOID,
+    BOOL,
+    CHAR,
+    UCHAR,
+    SHORT,
+    USHORT,
+    INT,
+    UINT,
+    LONG,
+    ULONG,
+    LONG_LONG,
+    ULONG_LONG,
+    FLOAT,
+    DOUBLE,
+    POINTER,
+    STRING,
+    VARIANT
+};
+
+/*
+    Args List Convention
+        - p -> Pointer
+        - b -> Boolean
+        - f -> Float
+        - d -> Double
+        - i -> Integer 32-bit
+        - u -> Unsigned Integer 32-bit
+        - s -> const char*
+        - I -> Integer 64-bit
+        - U -> Unsigned Integer 64-bit
+        - v -> Void
+*/
+
+struct Hook
+{
+    void *ptr;
+    std::string argsList;
+    std::string retType;
+    std::string id;
+};
+
+class PluginHooks
+{
+private:
+    std::string m_plugin_name;
+
+public:
+    PluginHooks(std::string plugin_name);
+
+    std::string AddHook(PluginMemory mem, std::string args_list, std::string ret_type);
+};
 
 //////////////////////////////////////////////////////////////
 /////////////////           Entities           //////////////

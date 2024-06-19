@@ -24,3 +24,9 @@
 [submodule "vendor/json-lua"]
 	path = vendor/json-lua
 	url = https://github.com/xpol/lua-rapidjson
+[submodule "vendor/asmjit"]
+	path = vendor/asmjit
+	url = https://github.com/asmjit/asmjit
+[submodule "vendor/asmtk"]
+	path = vendor/asmtk
+	url = https://github.com/asmjit/asmtk

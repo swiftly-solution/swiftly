@@ -40,6 +40,11 @@ luabridge::LuaRef GetReturnValueInternal(PluginEvent *event, lua_State *L)
     return LuaSerializeData(event->GetReturnValue(), L);
 }
 
+luabridge::LuaRef GetHookReturnValueInternal(PluginEvent *event, lua_State *L)
+{
+    return LuaSerializeData(event->GetHookReturn(), L);
+}
+
 void SetupLuaEvents(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
@@ -65,5 +70,28 @@ void SetupLuaEvents(LuaPlugin *plugin, lua_State *state)
         .addFunction("FireEvent", &PluginEvent::FireEvent)
         .addFunction("FireEventToClient", &PluginEvent::FireEventToClient)
         .addFunction("GetReturn", GetReturnValueInternal)
+
+        .addFunction("GetHookBool", &PluginEvent::GetHookBool)
+        .addFunction("GetHookInt", &PluginEvent::GetHookInt)
+        .addFunction("GetHookUint64", &PluginEvent::GetHookUint64)
+        .addFunction("GetHookFloat", &PluginEvent::GetHookFloat)
+        .addFunction("GetHookString", &PluginEvent::GetHookString)
+        .addFunction("GetHookPointer", &PluginEvent::GetHookPointer)
+        .addFunction("GetHookDouble", &PluginEvent::GetHookDouble)
+        .addFunction("GetHookUInt", &PluginEvent::GetHookUInt)
+        .addFunction("GetHookInt64", &PluginEvent::GetHookInt64)
+        .addFunction("SetHookBool", &PluginEvent::SetHookBool)
+        .addFunction("SetHookInt", &PluginEvent::SetHookInt)
+        .addFunction("SetHookUint64", &PluginEvent::SetHookUint64)
+        .addFunction("SetHookFloat", &PluginEvent::SetHookFloat)
+        .addFunction("SetHookString", &PluginEvent::SetHookString)
+        .addFunction("SetHookPointer", &PluginEvent::SetHookPointer)
+        .addFunction("SetHookDouble", &PluginEvent::SetHookDouble)
+        .addFunction("SetHookUInt", &PluginEvent::SetHookUInt)
+        .addFunction("SetHookInt64", &PluginEvent::SetHookInt64)
+
+        .addFunction("SetHookReturn", &PluginEvent::SetHookReturnLua)
+        .addFunction("GetHookReturn", GetHookReturnValueInternal)
+
         .endClass();
 }

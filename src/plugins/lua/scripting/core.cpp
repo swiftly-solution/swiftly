@@ -63,4 +63,6 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     SetupLuaServer(plugin, state);
     SetupLuaPlayer(plugin, state);
     SetupLuaEntities(plugin, state);
+    SetupLuaMemory(plugin, state);
+    SetupLuaHooks(plugin, state);
 }

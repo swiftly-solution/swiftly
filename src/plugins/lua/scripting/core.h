@@ -28,3 +28,5 @@ void SetupLuaCoreClasses(LuaPlugin *plugin, lua_State *state);
 void SetupLuaServer(LuaPlugin *plugin, lua_State *state);
 void SetupLuaPlayer(LuaPlugin *plugin, lua_State *state);
 void SetupLuaEntities(LuaPlugin *plugin, lua_State *state);
+void SetupLuaMemory(LuaPlugin *plugin, lua_State *state);
+void SetupLuaHooks(LuaPlugin *plugin, lua_State *state);

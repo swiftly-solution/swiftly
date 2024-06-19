@@ -214,19 +214,6 @@ std::string PluginPlayer::GetIPAddress()
     return player->GetIPAddress();
 }
 
-int PluginPlayer::GetLatency()
-{
-    Player *player = g_playerManager->GetPlayer(this->playerId);
-    if (!player)
-        return -1;
-    if (player->IsFakeClient())
-        return 0;
-
-    INetChannelInfo *netinfo = engine->GetPlayerNetInfo(player->GetSlot());
-
-    return netinfo->GetAvgLatency();
-}
-
 int PluginPlayer::GetSlot()
 {
     Player *player = g_playerManager->GetPlayer(this->playerId);
@@ -357,4 +344,47 @@ void PluginPlayer::ShowMenu(std::string menuid)
         return;
 
     player->ShowMenu(menuid);
+}
+
+std::any PluginPlayer::GetVarValue(std::string key)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return nullptr;
+
+    return player->GetInternalVar(key);
+}
+
+luabridge::LuaRef PluginPlayer::GetVarValueLua(std::string key, lua_State *L)
+{
+    luabridge::LuaRef val = LuaSerializeData(GetVarValue(key), L);
+
+    return val;
+}
+
+void PluginPlayer::SetVarValue(std::string key, std::any value)
+{
+    Player *player = g_playerManager->GetPlayer(playerId);
+    if (!player)
+        return;
+
+    player->SetInternalVar(key, value);
+}
+
+void PluginPlayer::SetVarValueLua(std::string key, luabridge::LuaRef value)
+{
+    std::any returnValue;
+
+    if (value.isBool())
+        returnValue = value.cast<bool>();
+    else if (value.isNil())
+        returnValue = nullptr;
+    else if (value.isNumber())
+        returnValue = value.cast<int64_t>();
+    else if (value.isString())
+        returnValue = value.cast<std::string>();
+    else
+        returnValue = nullptr;
+
+    this->SetVarValue(key, returnValue);
 }

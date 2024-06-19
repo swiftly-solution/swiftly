@@ -1603,6 +1603,8 @@ public:
     void SetEndLerpTo(float value);
     float GetMaxdensityLerpTo() const;
     void SetMaxdensityLerpTo(float value);
+    float GetLerptime() const;
+    void SetLerptime(float value);
     float GetDuration() const;
     void SetDuration(float value);
     float GetBlendtobackground() const;
@@ -1689,8 +1691,8 @@ public:
     GCEntityInstance(std::string ptr);
     GCEntityInstance(void *ptr);
 
-    CUtlSymbolLarge GetPrivateVScripts() const;
-    void SetPrivateVScripts(CUtlSymbolLarge value);
+    std::string GetPrivateVScripts() const;
+    void SetPrivateVScripts(std::string value);
     GCEntityIdentity GetEntity() const;
     void SetEntity(GCEntityIdentity* value);
     GCScriptComponent GetCScriptComponent() const;
@@ -1719,14 +1721,16 @@ public:
     void SetThinkFunctions(std::vector<Gthinkfunc_t> value);
     int32_t GetCurrentThinkContext() const;
     void SetCurrentThinkContext(int32_t value);
+    int32 GetLastThinkTick() const;
+    void SetLastThinkTick(int32 value);
     bool GetDisabledContextThinks() const;
     void SetDisabledContextThinks(bool value);
     float GetLastNetworkChange() const;
     void SetLastNetworkChange(float value);
     std::vector<GResponseContext_t> GetResponseContexts() const;
     void SetResponseContexts(std::vector<GResponseContext_t> value);
-    CUtlSymbolLarge GetResponseContext() const;
-    void SetResponseContext(CUtlSymbolLarge value);
+    std::string GetResponseContext() const;
+    void SetResponseContext(std::string value);
     int32_t GetHealth() const;
     void SetHealth(int32_t value);
     int32_t GetMaxHealth() const;
@@ -1753,12 +1757,12 @@ public:
     void SetSlimeTouch(uint8_t value);
     bool GetRestoreInHierarchy() const;
     void SetRestoreInHierarchy(bool value);
-    CUtlSymbolLarge GetTarget() const;
-    void SetTarget(CUtlSymbolLarge value);
+    std::string GetTarget() const;
+    void SetTarget(std::string value);
     GCBaseFilter GetDamageFilter() const;
     void SetDamageFilter(GCBaseFilter* value);
-    CUtlSymbolLarge GetDamageFilterName() const;
-    void SetDamageFilterName(CUtlSymbolLarge value);
+    std::string GetDamageFilterName() const;
+    void SetDamageFilterName(std::string value);
     float GetMoveDoneTime() const;
     void SetMoveDoneTime(float value);
     CUtlStringToken GetSubclassID() const;
@@ -1767,6 +1771,8 @@ public:
     void SetAnimTime(float value);
     float GetSimulationTime() const;
     void SetSimulationTime(float value);
+    float GetCreateTime() const;
+    void SetCreateTime(float value);
     bool GetClientSideRagdoll() const;
     void SetClientSideRagdoll(bool value);
     uint8_t GetInterpolationFrame() const;
@@ -1775,16 +1781,18 @@ public:
     void SetPrevVPhysicsUpdatePos(Vector value);
     uint8_t GetTeamNum() const;
     void SetTeamNum(uint8_t value);
-    CUtlSymbolLarge GetGlobalname() const;
-    void SetGlobalname(CUtlSymbolLarge value);
+    std::string GetGlobalname() const;
+    void SetGlobalname(std::string value);
     int32_t GetSentToClients() const;
     void SetSentToClients(int32_t value);
     float GetSpeed() const;
     void SetSpeed(float value);
-    CUtlString GetUniqueHammerID() const;
-    void SetUniqueHammerID(CUtlString value);
+    std::string GetUniqueHammerID() const;
+    void SetUniqueHammerID(std::string value);
     uint32_t GetSpawnflags() const;
     void SetSpawnflags(uint32_t value);
+    int32 GetNextThinkTick() const;
+    void SetNextThinkTick(int32 value);
     int32_t GetSimulationTick() const;
     void SetSimulationTick(int32_t value);
     GCEntityIOOutput GetOnKilled() const;
@@ -1839,6 +1847,8 @@ public:
     void SetOnUser4(GCEntityIOOutput value);
     int32_t GetInitialTeamNum() const;
     void SetInitialTeamNum(int32_t value);
+    float GetNavIgnoreUntilTime() const;
+    void SetNavIgnoreUntilTime(float value);
     QAngle GetAngVelocity() const;
     void SetAngVelocity(QAngle value);
     bool GetNetworkQuantizeOriginAndAngles() const;
@@ -1855,6 +1865,8 @@ public:
     void SetVPhysicsUpdateLocalTime(float value);
     BloodType GetBloodType() const;
     void SetBloodType(BloodType value);
+    GCEntityInstance GetParent() const;
+    void SetParent(GCEntityInstance value);
 
     std::string ToPtr();
     bool IsValid();
@@ -1877,10 +1889,10 @@ public:
     void SetDmgModExplosive(float value);
     float GetDmgModFire() const;
     void SetDmgModFire(float value);
-    CUtlSymbolLarge GetPhysicsDamageTableName() const;
-    void SetPhysicsDamageTableName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetBasePropData() const;
-    void SetBasePropData(CUtlSymbolLarge value);
+    std::string GetPhysicsDamageTableName() const;
+    void SetPhysicsDamageTableName(std::string value);
+    std::string GetBasePropData() const;
+    void SetBasePropData(std::string value);
     int32_t GetInteractions() const;
     void SetInteractions(int32_t value);
     bool GetSpawnMotionDisabled() const;
@@ -1889,6 +1901,8 @@ public:
     void SetDisableTakePhysicsDamageSpawnFlag(int32_t value);
     int32_t GetMotionDisabledSpawnFlag() const;
     void SetMotionDisabledSpawnFlag(int32_t value);
+    GCEntityComponent GetParent() const;
+    void SetParent(GCEntityComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -1905,6 +1919,8 @@ public:
 
     std::vector<uint32_t> GetDisabledHitGroups() const;
     void SetDisabledHitGroups(std::vector<uint32_t> value);
+    GCEntityComponent GetParent() const;
+    void SetParent(GCEntityComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2001,6 +2017,8 @@ public:
     void SetCRenderComponent(GCRenderComponent* value);
     GCHitboxComponent GetCHitboxComponent() const;
     void SetCHitboxComponent(GCHitboxComponent value);
+    float GetDissolveStartTime() const;
+    void SetDissolveStartTime(float value);
     GCEntityIOOutput GetOnIgnite() const;
     void SetOnIgnite(GCEntityIOOutput value);
     RenderMode_t GetRenderMode() const;
@@ -2045,6 +2063,8 @@ public:
     void SetConfigEntitiesToPropagateMaterialDecalsTo(std::vector<GCBaseModelEntity*> value);
     GCNetworkViewOffsetVector GetViewOffset() const;
     void SetViewOffset(GCNetworkViewOffsetVector value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2059,7 +2079,8 @@ public:
     GCServerOnlyEntity(std::string ptr);
     GCServerOnlyEntity(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2104,8 +2125,10 @@ public:
     void SetFinalAngle(QAngle value);
     int32_t GetMovementType() const;
     void SetMovementType(int32_t value);
-    CUtlSymbolLarge GetMaster() const;
-    void SetMaster(CUtlSymbolLarge value);
+    std::string GetMaster() const;
+    void SetMaster(std::string value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2122,8 +2145,8 @@ public:
 
     bool GetDisabled() const;
     void SetDisabled(bool value);
-    CUtlSymbolLarge GetFilterName() const;
-    void SetFilterName(CUtlSymbolLarge value);
+    std::string GetFilterName() const;
+    void SetFilterName(std::string value);
     GCBaseFilter GetFilter() const;
     void SetFilter(GCBaseFilter* value);
     GCEntityIOOutput GetOnStartTouch() const;
@@ -2142,6 +2165,8 @@ public:
     void SetOnNotTouching(GCEntityIOOutput value);
     bool GetClientSidePredicted() const;
     void SetClientSidePredicted(bool value);
+    GCBaseToggle GetParent() const;
+    void SetParent(GCBaseToggle value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2158,12 +2183,14 @@ public:
 
     GCBaseEntity GetMeasureTarget() const;
     void SetMeasureTarget(GCBaseEntity* value);
-    CUtlSymbolLarge GetMeasureTarget1() const;
-    void SetMeasureTarget1(CUtlSymbolLarge value);
+    std::string GetMeasureTarget1() const;
+    void SetMeasureTarget1(std::string value);
     float GetRadius() const;
     void SetRadius(float value);
     int32_t GetTouchers() const;
     void SetTouchers(int32_t value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2178,7 +2205,8 @@ public:
     GCLogicalEntity(std::string ptr);
     GCLogicalEntity(void *ptr);
 
-
+    GCServerOnlyEntity GetParent() const;
+    void SetParent(GCServerOnlyEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2201,12 +2229,14 @@ public:
     void SetTriggerOnStartTouch(bool value);
     bool GetUsePathSimple() const;
     void SetUsePathSimple(bool value);
-    CUtlSymbolLarge GetPathSimpleName() const;
-    void SetPathSimpleName(CUtlSymbolLarge value);
+    std::string GetPathSimpleName() const;
+    void SetPathSimpleName(std::string value);
     GCPathSimple GetPathSimple() const;
     void SetPathSimple(GCPathSimple* value);
     uint32_t GetSplinePushType() const;
     void SetSplinePushType(uint32_t value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2223,6 +2253,8 @@ public:
 
     GCEntityIOOutput GetOnTrigger() const;
     void SetOnTrigger(GCEntityIOOutput value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2237,16 +2269,18 @@ public:
     GCBasePlatTrain(std::string ptr);
     GCBasePlatTrain(void *ptr);
 
-    CUtlSymbolLarge GetNoiseMoving() const;
-    void SetNoiseMoving(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetNoiseArrived() const;
-    void SetNoiseArrived(CUtlSymbolLarge value);
+    std::string GetNoiseMoving() const;
+    void SetNoiseMoving(std::string value);
+    std::string GetNoiseArrived() const;
+    void SetNoiseArrived(std::string value);
     float GetVolume() const;
     void SetVolume(float value);
     float GetTWidth() const;
     void SetTWidth(float value);
     float GetTLength() const;
     void SetTLength(float value);
+    GCBaseToggle GetParent() const;
+    void SetParent(GCBaseToggle value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2261,10 +2295,12 @@ public:
     GCTonemapTrigger(std::string ptr);
     GCTonemapTrigger(void *ptr);
 
-    CUtlSymbolLarge GetTonemapControllerName() const;
-    void SetTonemapControllerName(CUtlSymbolLarge value);
+    std::string GetTonemapControllerName() const;
+    void SetTonemapControllerName(std::string value);
     GCEntityInstance GetTonemapController() const;
     void SetTonemapController(GCEntityInstance* value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2327,6 +2363,8 @@ public:
 
     Gfogparams_t GetFog() const;
     void SetFog(Gfogparams_t value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2347,6 +2385,8 @@ public:
     void SetOnPass(GCEntityIOOutput value);
     GCEntityIOOutput GetOnFail() const;
     void SetOnFail(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2376,7 +2416,8 @@ public:
     GCTriggerHostageReset(std::string ptr);
     GCTriggerHostageReset(void *ptr);
 
-
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2391,7 +2432,8 @@ public:
     GCServerOnlyPointEntity(std::string ptr);
     GCServerOnlyPointEntity(void *ptr);
 
-
+    GCServerOnlyEntity GetParent() const;
+    void SetParent(GCServerOnlyEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2406,7 +2448,8 @@ public:
     GCPointEntity(std::string ptr);
     GCPointEntity(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2423,6 +2466,8 @@ public:
 
     float GetDuration() const;
     void SetDuration(float value);
+    float GetTimestamp() const;
+    void SetTimestamp(float value);
     float GetTimescale() const;
     void SetTimescale(float value);
     WorldGroupId_t GetWorldGroupId() const;
@@ -2477,12 +2522,14 @@ public:
     void SetInTangentLocal(Vector value);
     Vector GetOutTangentLocal() const;
     void SetOutTangentLocal(Vector value);
-    CUtlSymbolLarge GetParentPathUniqueID() const;
-    void SetParentPathUniqueID(CUtlSymbolLarge value);
+    std::string GetParentPathUniqueID() const;
+    void SetParentPathUniqueID(std::string value);
     GCEntityIOOutput GetOnPassThrough() const;
     void SetOnPassThrough(GCEntityIOOutput value);
     GCPathMover GetMover() const;
     void SetMover(GCPathMover* value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2512,7 +2559,8 @@ public:
     GCPlayer_ViewModelServices(std::string ptr);
     GCPlayer_ViewModelServices(void *ptr);
 
-
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2546,10 +2594,10 @@ public:
     void SetOnPlay(GCEntityIOOutput value);
     float GetRadius() const;
     void SetRadius(float value);
-    CUtlSymbolLarge GetSoundscapeName() const;
-    void SetSoundscapeName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundEventName() const;
-    void SetSoundEventName(CUtlSymbolLarge value);
+    std::string GetSoundscapeName() const;
+    void SetSoundscapeName(std::string value);
+    std::string GetSoundEventName() const;
+    void SetSoundEventName(std::string value);
     bool GetOverrideWithEvent() const;
     void SetOverrideWithEvent(bool value);
     int32_t GetSoundscapeIndex() const;
@@ -2564,6 +2612,8 @@ public:
     void SetProxySoundscape(GCEnvSoundscape* value);
     bool GetDisabled() const;
     void SetDisabled(bool value);
+    GCServerOnlyEntity GetParent() const;
+    void SetParent(GCServerOnlyEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2626,6 +2676,8 @@ public:
     void SetUseAngles(bool value);
     int32_t GetChangedVariables() const;
     void SetChangedVariables(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2658,8 +2710,8 @@ public:
     GCModelState(std::string ptr);
     GCModelState(void *ptr);
 
-    CUtlSymbolLarge GetModelName() const;
-    void SetModelName(CUtlSymbolLarge value);
+    std::string GetModelName() const;
+    void SetModelName(std::string value);
     bool GetClientClothCreationSuppressed() const;
     void SetClientClothCreationSuppressed(bool value);
     uint64_t GetMeshGroupMask() const;
@@ -2704,6 +2756,8 @@ public:
     void SetRagdollPose(GPhysicsRagdollPose_t* value);
     bool GetRagdollClientSide() const;
     void SetRagdollClientSide(bool value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2718,7 +2772,8 @@ public:
     GCEnableMotionFixup(std::string ptr);
     GCEnableMotionFixup(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2749,7 +2804,8 @@ public:
     GCBtNodeDecorator(std::string ptr);
     GCBtNodeDecorator(void *ptr);
 
-
+    GCBtNode GetParent() const;
+    void SetParent(GCBtNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2794,6 +2850,8 @@ public:
     void SetHealthMin(int32_t value);
     int32_t GetHealthMax() const;
     void SetHealthMax(int32_t value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2818,6 +2876,8 @@ public:
     void SetUrgent(bool value);
     std::string GetPlaceName() const;
     void SetPlaceName(std::string value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2832,7 +2892,8 @@ public:
     GCCSPointScriptEntity(std::string ptr);
     GCCSPointScriptEntity(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2875,7 +2936,8 @@ public:
     GCInfoLandmark(std::string ptr);
     GCInfoLandmark(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2896,10 +2958,16 @@ public:
     void SetLookTargetPosition(Vector value);
     bool GetBlinktoggle() const;
     void SetBlinktoggle(bool value);
+    float GetAllowResponsesEndTime() const;
+    void SetAllowResponsesEndTime(float value);
+    float GetLastFlexAnimationTime() const;
+    void SetLastFlexAnimationTime(float value);
     GSceneEventId_t GetNextSceneEventId() const;
     void SetNextSceneEventId(GSceneEventId_t value);
     bool GetUpdateLayerPriorities() const;
     void SetUpdateLayerPriorities(bool value);
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -2940,6 +3008,8 @@ public:
     void SetCustomName(std::string value);
     std::string GetCustomNameOverride() const;
     void SetCustomNameOverride(std::string value);
+    GIEconItemInterface GetParent() const;
+    void SetParent(GIEconItemInterface value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3016,6 +3086,8 @@ public:
     void SetSceneNode(GCGameSceneNode* value);
     GCNetworkVarChainer Get__pChainEntity() const;
     void Set__pChainEntity(GCNetworkVarChainer value);
+    GCEntityComponent GetParent() const;
+    void SetParent(GCEntityComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3046,6 +3118,8 @@ public:
     void SetOnHeatLevelStart(GCEntityIOOutput value);
     GCEntityIOOutput GetOnHeatLevelEnd() const;
     void SetOnHeatLevelEnd(GCEntityIOOutput value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3066,8 +3140,8 @@ public:
     void SetRandom(int32_t value);
     int32_t GetOrdinal() const;
     void SetOrdinal(int32_t value);
-    CUtlString GetWeaponName() const;
-    void SetWeaponName(CUtlString value);
+    std::string GetWeaponName() const;
+    void SetWeaponName(std::string value);
     uint64_t GetXuid() const;
     void SetXuid(uint64_t value);
     GCEconItemView GetAgentItem() const;
@@ -3076,6 +3150,8 @@ public:
     void SetGlovesItem(GCEconItemView value);
     GCEconItemView GetWeaponItem() const;
     void SetWeaponItem(GCEconItemView value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3116,6 +3192,8 @@ public:
     void SetConformToCollisionBounds(bool value);
     matrix3x4_t GetMPreferredCatchTransform() const;
     void SetMPreferredCatchTransform(matrix3x4_t value);
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3130,10 +3208,12 @@ public:
     GCPointGamestatsCounter(std::string ptr);
     GCPointGamestatsCounter(void *ptr);
 
-    CUtlSymbolLarge GetStrStatisticName() const;
-    void SetStrStatisticName(CUtlSymbolLarge value);
+    std::string GetStrStatisticName() const;
+    void SetStrStatisticName(std::string value);
     bool GetDisabled() const;
     void SetDisabled(bool value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3172,14 +3252,14 @@ public:
     void SetBreaker(GCBaseEntity* value);
     Explosions GetExplosion() const;
     void SetExplosion(Explosions value);
-    CUtlSymbolLarge GetSpawnObject() const;
-    void SetSpawnObject(CUtlSymbolLarge value);
+    std::string GetSpawnObject() const;
+    void SetSpawnObject(std::string value);
     float GetPressureDelay() const;
     void SetPressureDelay(float value);
     int32_t GetMinHealthDmg() const;
     void SetMinHealthDmg(int32_t value);
-    CUtlSymbolLarge GetPropData() const;
-    void SetPropData(CUtlSymbolLarge value);
+    std::string GetPropData() const;
+    void SetPropData(std::string value);
     float GetImpactEnergyScale() const;
     void SetImpactEnergyScale(float value);
     EOverrideBlockLOS_t GetOverrideBlockLOS() const;
@@ -3190,6 +3270,10 @@ public:
     void SetPerformanceMode(PerformanceMode_t value);
     GCBasePlayerPawn GetPhysicsAttacker() const;
     void SetPhysicsAttacker(GCBasePlayerPawn* value);
+    float GetLastPhysicsInfluenceTime() const;
+    void SetLastPhysicsInfluenceTime(float value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3210,8 +3294,8 @@ public:
     void SetAngles(QAngle value);
     Quaternion GetAngle() const;
     void SetAngle(Quaternion value);
-    CUtlSymbolLarge GetNextKey() const;
-    void SetNextKey(CUtlSymbolLarge value);
+    std::string GetNextKey() const;
+    void SetNextKey(std::string value);
     float GetNextTime() const;
     void SetNextTime(float value);
     GCPathKeyFrame GetNextKey1() const;
@@ -3220,6 +3304,8 @@ public:
     void SetPrevKey(GCPathKeyFrame* value);
     float GetMoveSpeed() const;
     void SetMoveSpeed(float value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3234,7 +3320,8 @@ public:
     GCTriggerTripWire(std::string ptr);
     GCTriggerTripWire(void *ptr);
 
-
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3255,6 +3342,10 @@ public:
     void SetRadius(float value);
     float GetTiltTime() const;
     void SetTiltTime(float value);
+    float GetStopTime() const;
+    void SetStopTime(float value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3271,6 +3362,8 @@ public:
 
     GCEconItemView GetItem() const;
     void SetItem(GCEconItemView value);
+    GCAttributeManager GetParent() const;
+    void SetParent(GCAttributeManager value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3285,7 +3378,8 @@ public:
     GCItemGenericTriggerHelper(std::string ptr);
     GCItemGenericTriggerHelper(void *ptr);
 
-
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3310,6 +3404,8 @@ public:
     void SetOnAllFalse(GCEntityIOOutput value);
     GCEntityIOOutput GetOnMixed() const;
     void SetOnMixed(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3366,6 +3462,8 @@ public:
     void SetOldProvidee(GCBaseEntity* value);
     int32_t GetOldOwnerClass() const;
     void SetOldOwnerClass(int32_t value);
+    GCBaseFlex GetParent() const;
+    void SetParent(GCBaseFlex value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3380,7 +3478,8 @@ public:
     GCModelPointEntity(std::string ptr);
     GCModelPointEntity(void *ptr);
 
-
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3395,10 +3494,10 @@ public:
     GCMultiLightProxy(std::string ptr);
     GCMultiLightProxy(void *ptr);
 
-    CUtlSymbolLarge GetLightNameFilter() const;
-    void SetLightNameFilter(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetLightClassFilter() const;
-    void SetLightClassFilter(CUtlSymbolLarge value);
+    std::string GetLightNameFilter() const;
+    void SetLightNameFilter(std::string value);
+    std::string GetLightClassFilter() const;
+    void SetLightClassFilter(std::string value);
     float GetLightRadiusFilter() const;
     void SetLightRadiusFilter(float value);
     float GetBrightnessDelta() const;
@@ -3409,6 +3508,8 @@ public:
     void SetTargetBrightnessMultiplier(float value);
     float GetCurrentBrightnessMultiplier() const;
     void SetCurrentBrightnessMultiplier(float value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3475,7 +3576,8 @@ public:
     GCEntityBlocker(std::string ptr);
     GCEntityBlocker(void *ptr);
 
-
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3500,6 +3602,8 @@ public:
     void SetUchShuffleCaseMap(std::vector<uint8_t> value);
     std::vector<GCEntityIOOutput> GetOnCase() const;
     void SetOnCase(std::vector<GCEntityIOOutput> value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3530,6 +3634,8 @@ public:
     void SetOriginalSpawnAngles(QAngle value);
     bool GetPhysStartAsleep() const;
     void SetPhysStartAsleep(bool value);
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3544,8 +3650,10 @@ public:
     GCRuleEntity(std::string ptr);
     GCRuleEntity(void *ptr);
 
-    CUtlSymbolLarge GetMaster() const;
-    void SetMaster(CUtlSymbolLarge value);
+    std::string GetMaster() const;
+    void SetMaster(std::string value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3590,18 +3698,20 @@ public:
     void SetSavedIsPlaying(bool value);
     float GetSavedElapsedTime() const;
     void SetSavedElapsedTime(float value);
-    CUtlSymbolLarge GetSourceEntityName() const;
-    void SetSourceEntityName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetAttachmentName() const;
-    void SetAttachmentName(CUtlSymbolLarge value);
+    std::string GetSourceEntityName() const;
+    void SetSourceEntityName(std::string value);
+    std::string GetAttachmentName() const;
+    void SetAttachmentName(std::string value);
     GCEntityIOOutput GetOnSoundFinished() const;
     void SetOnSoundFinished(GCEntityIOOutput value);
-    CUtlSymbolLarge GetSoundName() const;
-    void SetSoundName(CUtlSymbolLarge value);
+    std::string GetSoundName() const;
+    void SetSoundName(std::string value);
     GCEntityInstance GetSource() const;
     void SetSource(GCEntityInstance* value);
     int32_t GetEntityIndexSelection() const;
     void SetEntityIndexSelection(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3618,6 +3728,8 @@ public:
 
     std::vector<GCBaseViewModel*> GetViewModel() const;
     void SetViewModel(std::vector<GCBaseViewModel*> value);
+    GCPlayer_ViewModelServices GetParent() const;
+    void SetParent(GCPlayer_ViewModelServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3632,8 +3744,12 @@ public:
     GCBasePlayerWeapon(std::string ptr);
     GCBasePlayerWeapon(void *ptr);
 
+    int32 GetNextPrimaryAttackTick() const;
+    void SetNextPrimaryAttackTick(int32 value);
     float GetNextPrimaryAttackTickRatio() const;
     void SetNextPrimaryAttackTickRatio(float value);
+    int32 GetNextSecondaryAttackTick() const;
+    void SetNextSecondaryAttackTick(int32 value);
     float GetNextSecondaryAttackTickRatio() const;
     void SetNextSecondaryAttackTickRatio(float value);
     int32_t GetClip1() const;
@@ -3644,6 +3760,8 @@ public:
     void SetReserveAmmo(std::vector<int32_t> value);
     GCEntityIOOutput GetOnPlayerUse() const;
     void SetOnPlayerUse(GCEntityIOOutput value);
+    GCEconEntity GetParent() const;
+    void SetParent(GCEconEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3658,7 +3776,8 @@ public:
     GCInfoParticleTarget(std::string ptr);
     GCInfoParticleTarget(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3699,6 +3818,12 @@ public:
     void SetBoxMaxs(Vector value);
     bool GetActive() const;
     void SetActive(bool value);
+    float GetStartAnisoTime() const;
+    void SetStartAnisoTime(float value);
+    float GetStartScatterTime() const;
+    void SetStartScatterTime(float value);
+    float GetStartDrawDistanceTime() const;
+    void SetStartDrawDistanceTime(float value);
     float GetStartAnisotropy() const;
     void SetStartAnisotropy(float value);
     float GetStartScattering() const;
@@ -3729,6 +3854,8 @@ public:
     void SetNoiseScale(Vector value);
     bool GetFirstTime() const;
     void SetFirstTime(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3773,6 +3900,8 @@ public:
     void SetLastMovementImpulses(Vector value);
     QAngle GetOldViewAngles() const;
     void SetOldViewAngles(QAngle value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3809,6 +3938,8 @@ public:
     void SetBreaker(GCBaseEntity* value);
     PerformanceMode_t GetPerformanceMode() const;
     void SetPerformanceMode(PerformanceMode_t value);
+    float GetPreventDamageBeforeTime() const;
+    void SetPreventDamageBeforeTime(float value);
     bool GetHasBreakPiecesOrCommands() const;
     void SetHasBreakPiecesOrCommands(bool value);
     float GetExplodeDamage() const;
@@ -3817,16 +3948,18 @@ public:
     void SetExplodeRadius(float value);
     float GetExplosionDelay() const;
     void SetExplosionDelay(float value);
-    CUtlSymbolLarge GetExplosionBuildupSound() const;
-    void SetExplosionBuildupSound(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetExplosionCustomEffect() const;
-    void SetExplosionCustomEffect(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetExplosionCustomSound() const;
-    void SetExplosionCustomSound(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetExplosionModifier() const;
-    void SetExplosionModifier(CUtlSymbolLarge value);
+    std::string GetExplosionBuildupSound() const;
+    void SetExplosionBuildupSound(std::string value);
+    std::string GetExplosionCustomEffect() const;
+    void SetExplosionCustomEffect(std::string value);
+    std::string GetExplosionCustomSound() const;
+    void SetExplosionCustomSound(std::string value);
+    std::string GetExplosionModifier() const;
+    void SetExplosionModifier(std::string value);
     GCBasePlayerPawn GetPhysicsAttacker() const;
     void SetPhysicsAttacker(GCBasePlayerPawn* value);
+    float GetLastPhysicsInfluenceTime() const;
+    void SetLastPhysicsInfluenceTime(float value);
     bool GetOriginalBlockLOS() const;
     void SetOriginalBlockLOS(bool value);
     float GetDefaultFadeScale() const;
@@ -3837,10 +3970,12 @@ public:
     void SetFlareEnt(GCBaseEntity* value);
     bool GetUsePuntSound() const;
     void SetUsePuntSound(bool value);
-    CUtlSymbolLarge GetPuntSound() const;
-    void SetPuntSound(CUtlSymbolLarge value);
+    std::string GetPuntSound() const;
+    void SetPuntSound(std::string value);
     bool GetNoGhostCollision() const;
     void SetNoGhostCollision(bool value);
+    GCBaseProp GetParent() const;
+    void SetParent(GCBaseProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3855,8 +3990,10 @@ public:
     GCEnvSoundscapeProxy(std::string ptr);
     GCEnvSoundscapeProxy(void *ptr);
 
-    CUtlSymbolLarge GetMainSoundscapeName() const;
-    void SetMainSoundscapeName(CUtlSymbolLarge value);
+    std::string GetMainSoundscapeName() const;
+    void SetMainSoundscapeName(std::string value);
+    GCEnvSoundscape GetParent() const;
+    void SetParent(GCEnvSoundscape value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3871,20 +4008,20 @@ public:
     GCPhysConstraint(std::string ptr);
     GCPhysConstraint(void *ptr);
 
-    CUtlSymbolLarge GetNameAttach1() const;
-    void SetNameAttach1(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetNameAttach2() const;
-    void SetNameAttach2(CUtlSymbolLarge value);
+    std::string GetNameAttach1() const;
+    void SetNameAttach1(std::string value);
+    std::string GetNameAttach2() const;
+    void SetNameAttach2(std::string value);
     GCBaseEntity GetAttach1() const;
     void SetAttach1(GCBaseEntity* value);
     GCBaseEntity GetAttach2() const;
     void SetAttach2(GCBaseEntity* value);
-    CUtlSymbolLarge GetNameAttachment1() const;
-    void SetNameAttachment1(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetNameAttachment2() const;
-    void SetNameAttachment2(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetBreakSound() const;
-    void SetBreakSound(CUtlSymbolLarge value);
+    std::string GetNameAttachment1() const;
+    void SetNameAttachment1(std::string value);
+    std::string GetNameAttachment2() const;
+    void SetNameAttachment2(std::string value);
+    std::string GetBreakSound() const;
+    void SetBreakSound(std::string value);
     float GetForceLimit() const;
     void SetForceLimit(float value);
     float GetTorqueLimit() const;
@@ -3897,6 +4034,8 @@ public:
     void SetSnapObjectPositions(bool value);
     GCEntityIOOutput GetOnBreak() const;
     void SetOnBreak(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3927,7 +4066,8 @@ public:
     GCItemAssaultSuit(std::string ptr);
     GCItemAssaultSuit(void *ptr);
 
-
+    GCItem GetParent() const;
+    void SetParent(GCItem value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3944,6 +4084,8 @@ public:
 
     bool GetDisabled() const;
     void SetDisabled(bool value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -3962,20 +4104,22 @@ public:
     void SetDisabled(bool value);
     GCEntityInstance GetSource() const;
     void SetSource(GCEntityInstance* value);
-    CUtlSymbolLarge GetSourceEntityName() const;
-    void SetSourceEntityName(CUtlSymbolLarge value);
+    std::string GetSourceEntityName() const;
+    void SetSourceEntityName(std::string value);
     Vector GetLastPosition() const;
     void SetLastPosition(Vector value);
-    CUtlSymbolLarge GetStackName() const;
-    void SetStackName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOperatorName() const;
-    void SetOperatorName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOpvarName() const;
-    void SetOpvarName(CUtlSymbolLarge value);
+    std::string GetStackName() const;
+    void SetStackName(std::string value);
+    std::string GetOperatorName() const;
+    void SetOperatorName(std::string value);
+    std::string GetOpvarName() const;
+    void SetOpvarName(std::string value);
     int32_t GetOpvarIndex() const;
     void SetOpvarIndex(int32_t value);
     bool GetUseAutoCompare() const;
     void SetUseAutoCompare(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4016,6 +4160,8 @@ public:
     void SetOwningPlayer(GCCSPlayerPawn* value);
     GCCSPlayerPawn GetKillingPlayer() const;
     void SetKillingPlayer(GCCSPlayerPawn* value);
+    GCItem GetParent() const;
+    void SetParent(GCItem value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4032,6 +4178,8 @@ public:
 
     GCLightComponent GetCLightComponent() const;
     void SetCLightComponent(GCLightComponent* value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4046,7 +4194,8 @@ public:
     GCPlayer_WaterServices(std::string ptr);
     GCPlayer_WaterServices(void *ptr);
 
-
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4065,6 +4214,8 @@ public:
     void SetWorldGroupId(WorldGroupId_t value);
     GCSkyCamera GetSkyCamera() const;
     void SetSkyCamera(GCSkyCamera* value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4095,8 +4246,8 @@ public:
     void SetOnAnimReachedStart(GCEntityIOOutput value);
     GCEntityIOOutput GetOnAnimReachedEnd() const;
     void SetOnAnimReachedEnd(GCEntityIOOutput value);
-    CUtlSymbolLarge GetIdleAnim() const;
-    void SetIdleAnim(CUtlSymbolLarge value);
+    std::string GetIdleAnim() const;
+    void SetIdleAnim(std::string value);
     AnimLoopMode_t GetIdleAnimLoopMode() const;
     void SetIdleAnimLoopMode(AnimLoopMode_t value);
     bool GetRandomizeCycle() const;
@@ -4121,6 +4272,8 @@ public:
     void SetGlowColor(Color value);
     int32_t GetGlowTeam() const;
     void SetGlowTeam(int32_t value);
+    GCBreakableProp GetParent() const;
+    void SetParent(GCBreakableProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4137,8 +4290,8 @@ public:
 
     uint16_t GetRopeFlags() const;
     void SetRopeFlags(uint16_t value);
-    CUtlSymbolLarge GetNextLinkName() const;
-    void SetNextLinkName(CUtlSymbolLarge value);
+    std::string GetNextLinkName() const;
+    void SetNextLinkName(std::string value);
     int16_t GetSlack() const;
     void SetSlack(int16_t value);
     float GetWidth() const;
@@ -4149,8 +4302,8 @@ public:
     void SetSegments(uint8_t value);
     bool GetConstrainBetweenEndpoints() const;
     void SetConstrainBetweenEndpoints(bool value);
-    CUtlSymbolLarge GetStrRopeMaterialModel() const;
-    void SetStrRopeMaterialModel(CUtlSymbolLarge value);
+    std::string GetStrRopeMaterialModel() const;
+    void SetStrRopeMaterialModel(std::string value);
     uint8_t GetSubdiv() const;
     void SetSubdiv(uint8_t value);
     uint8_t GetChangeCount() const;
@@ -4171,6 +4324,8 @@ public:
     void SetStartPoint(GCBaseEntity* value);
     GCBaseEntity GetEndPoint() const;
     void SetEndPoint(GCBaseEntity* value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4207,8 +4362,10 @@ public:
     void SetLuminaireSize(float value);
     float GetLuminaireAnisotropy() const;
     void SetLuminaireAnisotropy(float value);
-    CUtlString GetLightStyleString() const;
-    void SetLightStyleString(CUtlString value);
+    std::string GetLightStyleString() const;
+    void SetLightStyleString(std::string value);
+    float GetLightStyleStartTime() const;
+    void SetLightStyleStartTime(float value);
     std::vector<CUtlString> GetQueuedLightStyleStrings() const;
     void SetQueuedLightStyleStrings(std::vector<CUtlString> value);
     std::vector<CUtlString> GetLightStyleEvents() const;
@@ -4285,6 +4442,8 @@ public:
     void SetPrecomputedOBBExtent(Vector value);
     bool GetPvsModifyEntity() const;
     void SetPvsModifyEntity(bool value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4305,6 +4464,8 @@ public:
     void SetEnabled(bool value);
     int32_t GetType() const;
     void SetType(int32_t value);
+    GCServerOnlyPointEntity GetParent() const;
+    void SetParent(GCServerOnlyPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4323,6 +4484,8 @@ public:
     void SetRadius(float value);
     QAngle GetViewPunch() const;
     void SetViewPunch(QAngle value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4357,12 +4520,18 @@ public:
     void SetRequireUseToTouch(bool value);
     CSWeaponState_t GetState() const;
     void SetState(CSWeaponState_t value);
+    float GetLastTimeInAir() const;
+    void SetLastTimeInAir(float value);
+    float GetLastDeployTime() const;
+    void SetLastDeployTime(float value);
     int32_t GetLastEmptySoundCmdNum() const;
     void SetLastEmptySoundCmdNum(int32_t value);
     uint32_t GetViewModelIndex() const;
     void SetViewModelIndex(uint32_t value);
     bool GetReloadsWithClips() const;
     void SetReloadsWithClips(bool value);
+    float GetTimeWeaponIdle() const;
+    void SetTimeWeaponIdle(float value);
     bool GetFireOnEmpty() const;
     void SetFireOnEmpty(bool value);
     GCEntityIOOutput GetOnPlayerPickup() const;
@@ -4377,24 +4546,34 @@ public:
     void SetTurningInaccuracy(float value);
     float GetAccuracyPenalty() const;
     void SetAccuracyPenalty(float value);
+    float GetLastAccuracyUpdateTime() const;
+    void SetLastAccuracyUpdateTime(float value);
     float GetAccuracySmoothedForZoom() const;
     void SetAccuracySmoothedForZoom(float value);
+    float GetScopeZoomEndTime() const;
+    void SetScopeZoomEndTime(float value);
     int32_t GetRecoilIndex() const;
     void SetRecoilIndex(int32_t value);
     float GetRecoilIndex1() const;
     void SetRecoilIndex1(float value);
     bool GetBurstMode() const;
     void SetBurstMode(bool value);
+    int32 GetPostponeFireReadyTicks() const;
+    void SetPostponeFireReadyTicks(int32 value);
     float GetPostponeFireReadyFrac() const;
     void SetPostponeFireReadyFrac(float value);
     bool GetInReload() const;
     void SetInReload(bool value);
     bool GetReloadVisuallyComplete() const;
     void SetReloadVisuallyComplete(bool value);
+    float GetDroppedAtTime() const;
+    void SetDroppedAtTime(float value);
     bool GetIsHauledBack() const;
     void SetIsHauledBack(bool value);
     bool GetSilencerOn() const;
     void SetSilencerOn(bool value);
+    float GetTimeSilencerSwitchComplete() const;
+    void SetTimeSilencerSwitchComplete(float value);
     int32_t GetOriginalTeamNumber() const;
     void SetOriginalTeamNumber(int32_t value);
     int32_t GetMostRecentTeamNumber() const;
@@ -4407,10 +4586,18 @@ public:
     void SetCanBePickedUp(bool value);
     bool GetUseCanOverrideNextOwnerTouchTime() const;
     void SetUseCanOverrideNextOwnerTouchTime(bool value);
+    float GetNextOwnerTouchTime() const;
+    void SetNextOwnerTouchTime(float value);
+    float GetNextPrevOwnerTouchTime() const;
+    void SetNextPrevOwnerTouchTime(float value);
     GCCSPlayerPawn GetPrevOwner() const;
     void SetPrevOwner(GCCSPlayerPawn* value);
+    int32 GetDropTick() const;
+    void SetDropTick(int32 value);
     bool GetDonated() const;
     void SetDonated(bool value);
+    float GetLastShotTime() const;
+    void SetLastShotTime(float value);
     bool GetWasOwnedByCT() const;
     void SetWasOwnedByCT(bool value);
     bool GetWasOwnedByTerrorist() const;
@@ -4423,10 +4610,14 @@ public:
     void SetIronSightController(GCIronSightController value);
     int32_t GetIronSightMode() const;
     void SetIronSightMode(int32_t value);
+    float GetLastLOSTraceFailureTime() const;
+    void SetLastLOSTraceFailureTime(float value);
     int32_t GetNumEmptyAttacks() const;
     void SetNumEmptyAttacks(int32_t value);
     float GetWatTickOffset() const;
     void SetWatTickOffset(float value);
+    GCBasePlayerWeapon GetParent() const;
+    void SetParent(GCBasePlayerWeapon value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4447,6 +4638,8 @@ public:
     void SetRadius(float value);
     GCEntityIOOutput GetOnPass() const;
     void SetOnPass(GCEntityIOOutput value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4481,6 +4674,8 @@ public:
     void SetSequenceCompleteTimer(GCountdownTimer value);
     bool GetRedraw() const;
     void SetRedraw(bool value);
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4509,12 +4704,14 @@ public:
     void SetApplyStressDamage(bool value);
     int32_t GetDamageCount() const;
     void SetDamageCount(int32_t value);
-    CUtlSymbolLarge GetStrRelationships() const;
-    void SetStrRelationships(CUtlSymbolLarge value);
+    std::string GetStrRelationships() const;
+    void SetStrRelationships(std::string value);
     Hull_t GetHull() const;
     void SetHull(Hull_t value);
     uint32_t GetNavHullIdx() const;
     void SetNavHullIdx(uint32_t value);
+    GCBaseFlex GetParent() const;
+    void SetParent(GCBaseFlex value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4537,8 +4734,10 @@ public:
     void SetOnTrigger(GCEntityIOOutput value);
     int32_t GetTotal() const;
     void SetTotal(int32_t value);
-    CUtlSymbolLarge GetGlobalstate() const;
-    void SetGlobalstate(CUtlSymbolLarge value);
+    std::string GetGlobalstate() const;
+    void SetGlobalstate(std::string value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4557,6 +4756,8 @@ public:
     void SetIsOn(bool value);
     navproperties_t GetNavProperty() const;
     void SetNavProperty(navproperties_t value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4589,12 +4790,14 @@ public:
     void SetPostSpawnSpeed(float value);
     bool GetPostSpawnUseAngles() const;
     void SetPostSpawnUseAngles(bool value);
-    CUtlSymbolLarge GetTemplate() const;
-    void SetTemplate(CUtlSymbolLarge value);
+    std::string GetTemplate() const;
+    void SetTemplate(std::string value);
     GCEntityIOOutput GetOutputOnSpawned() const;
     void SetOutputOnSpawned(GCEntityIOOutput value);
     GCEntityIOOutput GetOutputOnFailedSpawn() const;
     void SetOutputOnFailedSpawn(GCEntityIOOutput value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4613,6 +4816,8 @@ public:
     void SetTexture(int32_t value);
     float GetDistance() const;
     void SetDistance(float value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4627,14 +4832,16 @@ public:
     GCLogicEventListener(std::string ptr);
     GCLogicEventListener(void *ptr);
 
-    CUtlString GetStrEventName() const;
-    void SetStrEventName(CUtlString value);
+    std::string GetStrEventName() const;
+    void SetStrEventName(std::string value);
     bool GetIsEnabled() const;
     void SetIsEnabled(bool value);
     int32_t GetTeam() const;
     void SetTeam(int32_t value);
     GCEntityIOOutput GetOnEventFired() const;
     void SetOnEventFired(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4657,6 +4864,8 @@ public:
     void SetFilter(std::vector<GCBaseEntity*> value);
     int32_t GetFilterCount() const;
     void SetFilterCount(int32_t value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4671,7 +4880,8 @@ public:
     GCPlayer_UseServices(std::string ptr);
     GCPlayer_UseServices(void *ptr);
 
-
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4686,8 +4896,10 @@ public:
     GCScriptComponent(std::string ptr);
     GCScriptComponent(void *ptr);
 
-    CUtlSymbolLarge GetScriptClassName() const;
-    void SetScriptClassName(CUtlSymbolLarge value);
+    std::string GetScriptClassName() const;
+    void SetScriptClassName(std::string value);
+    GCEntityComponent GetParent() const;
+    void SetParent(GCEntityComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4704,6 +4916,8 @@ public:
 
     int32_t GetDensity() const;
     void SetDensity(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4718,10 +4932,12 @@ public:
     Glocksound_t(std::string ptr);
     Glocksound_t(void *ptr);
 
-    CUtlSymbolLarge GetLockedSound() const;
-    void SetLockedSound(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetUnlockedSound() const;
-    void SetUnlockedSound(CUtlSymbolLarge value);
+    std::string GetLockedSound() const;
+    void SetLockedSound(std::string value);
+    std::string GetUnlockedSound() const;
+    void SetUnlockedSound(std::string value);
+    float GetFlwaitSound() const;
+    void SetFlwaitSound(float value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4759,6 +4975,8 @@ public:
     void SetScaleTime(float value);
     uint32_t GetFlags() const;
     void SetFlags(uint32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4773,7 +4991,8 @@ public:
     GCBumpMine(std::string ptr);
     GCBumpMine(void *ptr);
 
-
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4802,6 +5021,8 @@ public:
     void SetGlowProxySize(float value);
     float GetHDRColorScale() const;
     void SetHDRColorScale(float value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4882,30 +5103,30 @@ public:
     void SetLatchWorldPosition(Vector value);
     GCBaseEntity GetActivator() const;
     void SetActivator(GCBaseEntity* value);
-    CUtlSymbolLarge GetSoundMoving() const;
-    void SetSoundMoving(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundOpen() const;
-    void SetSoundOpen(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundClose() const;
-    void SetSoundClose(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundLock() const;
-    void SetSoundLock(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundUnlock() const;
-    void SetSoundUnlock(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundLatch() const;
-    void SetSoundLatch(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundPound() const;
-    void SetSoundPound(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundJiggle() const;
-    void SetSoundJiggle(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundLockedAnim() const;
-    void SetSoundLockedAnim(CUtlSymbolLarge value);
+    std::string GetSoundMoving() const;
+    void SetSoundMoving(std::string value);
+    std::string GetSoundOpen() const;
+    void SetSoundOpen(std::string value);
+    std::string GetSoundClose() const;
+    void SetSoundClose(std::string value);
+    std::string GetSoundLock() const;
+    void SetSoundLock(std::string value);
+    std::string GetSoundUnlock() const;
+    void SetSoundUnlock(std::string value);
+    std::string GetSoundLatch() const;
+    void SetSoundLatch(std::string value);
+    std::string GetSoundPound() const;
+    void SetSoundPound(std::string value);
+    std::string GetSoundJiggle() const;
+    void SetSoundJiggle(std::string value);
+    std::string GetSoundLockedAnim() const;
+    void SetSoundLockedAnim(std::string value);
     int32_t GetNumCloseAttempts() const;
     void SetNumCloseAttempts(int32_t value);
     CUtlStringToken GetPhysicsMaterial() const;
     void SetPhysicsMaterial(CUtlStringToken value);
-    CUtlSymbolLarge GetSlaveName() const;
-    void SetSlaveName(CUtlSymbolLarge value);
+    std::string GetSlaveName() const;
+    void SetSlaveName(std::string value);
     GCBasePropDoor GetMaster() const;
     void SetMaster(GCBasePropDoor* value);
     GCEntityIOOutput GetOnBlockedClosing() const;
@@ -4928,6 +5149,8 @@ public:
     void SetOnLockedUse(GCEntityIOOutput value);
     GCEntityIOOutput GetOnAjarOpen() const;
     void SetOnAjarOpen(GCEntityIOOutput value);
+    GCDynamicProp GetParent() const;
+    void SetParent(GCDynamicProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4948,6 +5171,8 @@ public:
     void SetMaxRagdollCount(int32_t value);
     bool GetSaveImportant() const;
     void SetSaveImportant(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -4986,6 +5211,8 @@ public:
     void SetAddNoise(bool value);
     GCountdownTimer GetRampTimer() const;
     void SetRampTimer(GCountdownTimer value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5010,16 +5237,26 @@ public:
     void SetJumpThrow(bool value);
     bool GetThrowAnimating() const;
     void SetThrowAnimating(bool value);
+    float GetThrowTime() const;
+    void SetThrowTime(float value);
     float GetThrowStrength() const;
     void SetThrowStrength(float value);
     float GetThrowStrengthApproach() const;
     void SetThrowStrengthApproach(float value);
+    float GetDropTime() const;
+    void SetDropTime(float value);
+    float GetPinPullTime() const;
+    void SetPinPullTime(float value);
     bool GetJustPulledPin() const;
     void SetJustPulledPin(bool value);
+    int32 GetNextHoldTick() const;
+    void SetNextHoldTick(int32 value);
     float GetNextHoldFrac() const;
     void SetNextHoldFrac(float value);
     GCCSWeaponBase GetSwitchToWeaponAfterThrow() const;
     void SetSwitchToWeaponAfterThrow(GCCSWeaponBase* value);
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5034,7 +5271,8 @@ public:
     GCPathCornerCrash(std::string ptr);
     GCPathCornerCrash(void *ptr);
 
-
+    GCPathCorner GetParent() const;
+    void SetParent(GCPathCorner value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5053,6 +5291,8 @@ public:
     void SetHandle(GCBaseEntity* value);
     bool GetSendHandle() const;
     void SetSendHandle(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5067,22 +5307,24 @@ public:
     GCSoundOpvarSetEntity(std::string ptr);
     GCSoundOpvarSetEntity(void *ptr);
 
-    CUtlSymbolLarge GetStackName() const;
-    void SetStackName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOperatorName() const;
-    void SetOperatorName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOpvarName() const;
-    void SetOpvarName(CUtlSymbolLarge value);
+    std::string GetStackName() const;
+    void SetStackName(std::string value);
+    std::string GetOperatorName() const;
+    void SetOperatorName(std::string value);
+    std::string GetOpvarName() const;
+    void SetOpvarName(std::string value);
     int32_t GetOpvarType() const;
     void SetOpvarType(int32_t value);
     int32_t GetOpvarIndex() const;
     void SetOpvarIndex(int32_t value);
     float GetOpvarValue() const;
     void SetOpvarValue(float value);
-    CUtlSymbolLarge GetOpvarValueString() const;
-    void SetOpvarValueString(CUtlSymbolLarge value);
+    std::string GetOpvarValueString() const;
+    void SetOpvarValueString(std::string value);
     bool GetSetOnSpawn() const;
     void SetSetOnSpawn(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5117,6 +5359,8 @@ public:
 
     bool GetCreateFlightSpace() const;
     void SetCreateFlightSpace(bool value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5133,10 +5377,12 @@ public:
 
     bool GetDisabled() const;
     void SetDisabled(bool value);
-    CUtlSymbolLarge GetAchievementEventID() const;
-    void SetAchievementEventID(CUtlSymbolLarge value);
+    std::string GetAchievementEventID() const;
+    void SetAchievementEventID(std::string value);
     GCEntityIOOutput GetOnFired() const;
     void SetOnFired(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5151,8 +5397,10 @@ public:
     GCPathSimple(std::string ptr);
     GCPathSimple(void *ptr);
 
-    CUtlString GetPathString() const;
-    void SetPathString(CUtlString value);
+    std::string GetPathString() const;
+    void SetPathString(std::string value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5169,6 +5417,8 @@ public:
 
     GCountdownTimer GetActionTimer() const;
     void SetActionTimer(GCountdownTimer value);
+    GCBtNode GetParent() const;
+    void SetParent(GCBtNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5185,6 +5435,8 @@ public:
 
     QAngle GetCsViewPunchAngle() const;
     void SetCsViewPunchAngle(QAngle value);
+    int32 GetCsViewPunchAngleTick() const;
+    void SetCsViewPunchAngleTick(int32 value);
     float GetCsViewPunchAngleTickRatio() const;
     void SetCsViewPunchAngleTickRatio(float value);
     Gfogplayerparams_t GetPlayerFog() const;
@@ -5203,6 +5455,8 @@ public:
     void SetOldPlayerZ(float value);
     float GetOldPlayerViewOffsetZ() const;
     void SetOldPlayerViewOffsetZ(float value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5217,7 +5471,8 @@ public:
     GCTouchExpansionComponent(std::string ptr);
     GCTouchExpansionComponent(void *ptr);
 
-
+    GCEntityComponent GetParent() const;
+    void SetParent(GCEntityComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5252,12 +5507,12 @@ public:
 
     bool GetEnabled() const;
     void SetEnabled(bool value);
-    CUtlSymbolLarge GetDialogXMLName() const;
-    void SetDialogXMLName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetPanelClassName() const;
-    void SetPanelClassName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetPanelID() const;
-    void SetPanelID(CUtlSymbolLarge value);
+    std::string GetDialogXMLName() const;
+    void SetDialogXMLName(std::string value);
+    std::string GetPanelClassName() const;
+    void SetPanelClassName(std::string value);
+    std::string GetPanelID() const;
+    void SetPanelID(std::string value);
     GCEntityIOOutput GetCustomOutput0() const;
     void SetCustomOutput0(GCEntityIOOutput value);
     GCEntityIOOutput GetCustomOutput1() const;
@@ -5278,6 +5533,8 @@ public:
     void SetCustomOutput8(GCEntityIOOutput value);
     GCEntityIOOutput GetCustomOutput9() const;
     void SetCustomOutput9(GCEntityIOOutput value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5308,6 +5565,8 @@ public:
     void SetProjectOnWater(bool value);
     float GetDepthSortBias() const;
     void SetDepthSortBias(float value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5415,8 +5674,10 @@ public:
     void SetOnVREnabled(GCEntityIOOutput value);
     GCEntityIOOutput GetOnVRNotEnabled() const;
     void SetOnVRNotEnabled(GCEntityIOOutput value);
-    CUtlSymbolLarge GetGlobalstate() const;
-    void SetGlobalstate(CUtlSymbolLarge value);
+    std::string GetGlobalstate() const;
+    void SetGlobalstate(std::string value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5447,6 +5708,8 @@ public:
     void SetWindMapMin(float value);
     float GetWindMapMax() const;
     void SetWindMapMax(float value);
+    GCSoundOpvarSetPointBase GetParent() const;
+    void SetParent(GCSoundOpvarSetPointBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5461,7 +5724,8 @@ public:
     GCLightDirectionalEntity(std::string ptr);
     GCLightDirectionalEntity(void *ptr);
 
-
+    GCLightEntity GetParent() const;
+    void SetParent(GCLightEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5494,8 +5758,8 @@ public:
     void SetOnMaxCount_3(GCEntityIOOutput value);
     GCEntityInstance GetSource() const;
     void SetSource(GCEntityInstance* value);
-    CUtlSymbolLarge GetSourceEntityName() const;
-    void SetSourceEntityName(CUtlSymbolLarge value);
+    std::string GetSourceEntityName() const;
+    void SetSourceEntityName(std::string value);
     float GetDistanceMax() const;
     void SetDistanceMax(float value);
     bool GetDisabled() const;
@@ -5508,8 +5772,8 @@ public:
     void SetMinFactorAll(int32_t value);
     int32_t GetMaxFactorAll() const;
     void SetMaxFactorAll(int32_t value);
-    CUtlSymbolLarge GetNPCClassname_1() const;
-    void SetNPCClassname_1(CUtlSymbolLarge value);
+    std::string GetNPCClassname_1() const;
+    void SetNPCClassname_1(std::string value);
     int32_t GetNPCState_1() const;
     void SetNPCState_1(int32_t value);
     bool GetInvertState_1() const;
@@ -5524,8 +5788,8 @@ public:
     void SetMaxFactor_1(int32_t value);
     float GetDefaultDist_1() const;
     void SetDefaultDist_1(float value);
-    CUtlSymbolLarge GetNPCClassname_2() const;
-    void SetNPCClassname_2(CUtlSymbolLarge value);
+    std::string GetNPCClassname_2() const;
+    void SetNPCClassname_2(std::string value);
     int32_t GetNPCState_2() const;
     void SetNPCState_2(int32_t value);
     bool GetInvertState_2() const;
@@ -5540,8 +5804,8 @@ public:
     void SetMaxFactor_2(int32_t value);
     float GetDefaultDist_2() const;
     void SetDefaultDist_2(float value);
-    CUtlSymbolLarge GetNPCClassname_3() const;
-    void SetNPCClassname_3(CUtlSymbolLarge value);
+    std::string GetNPCClassname_3() const;
+    void SetNPCClassname_3(std::string value);
     int32_t GetNPCState_3() const;
     void SetNPCState_3(int32_t value);
     bool GetInvertState_3() const;
@@ -5556,6 +5820,8 @@ public:
     void SetMaxFactor_3(int32_t value);
     float GetDefaultDist_3() const;
     void SetDefaultDist_3(float value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5570,7 +5836,8 @@ public:
     GCCSObserver_UseServices(std::string ptr);
     GCCSObserver_UseServices(void *ptr);
 
-
+    GCPlayer_UseServices GetParent() const;
+    void SetParent(GCPlayer_UseServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5585,8 +5852,10 @@ public:
     GCFuncPlat(std::string ptr);
     GCFuncPlat(void *ptr);
 
-    CUtlSymbolLarge GetNoise() const;
-    void SetNoise(CUtlSymbolLarge value);
+    std::string GetNoise() const;
+    void SetNoise(std::string value);
+    GCBasePlatTrain GetParent() const;
+    void SetParent(GCBasePlatTrain value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5601,7 +5870,8 @@ public:
     GCRuleBrushEntity(std::string ptr);
     GCRuleBrushEntity(void *ptr);
 
-
+    GCRuleEntity GetParent() const;
+    void SetParent(GCRuleEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5618,6 +5888,8 @@ public:
 
     int32_t GetScore() const;
     void SetScore(int32_t value);
+    GCRuleEntity GetParent() const;
+    void SetParent(GCRuleEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5634,14 +5906,16 @@ public:
 
     int32_t GetRadius() const;
     void SetRadius(int32_t value);
-    CUtlSymbolLarge GetMessageText() const;
-    void SetMessageText(CUtlSymbolLarge value);
+    std::string GetMessageText() const;
+    void SetMessageText(std::string value);
     bool GetDrawText() const;
     void SetDrawText(bool value);
     bool GetDeveloperOnly() const;
     void SetDeveloperOnly(bool value);
     bool GetEnabled() const;
     void SetEnabled(bool value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5656,7 +5930,8 @@ public:
     GCSmokeGrenade(std::string ptr);
     GCSmokeGrenade(void *ptr);
 
-
+    GCBaseCSGrenade GetParent() const;
+    void SetParent(GCBaseCSGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5681,16 +5956,18 @@ public:
     void SetAnimationStartTime(float value);
     GCBasePlayerWeapon GetWeapon() const;
     void SetWeapon(GCBasePlayerWeapon* value);
-    CUtlSymbolLarge GetVMName() const;
-    void SetVMName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetAnimationPrefix() const;
-    void SetAnimationPrefix(CUtlSymbolLarge value);
+    std::string GetVMName() const;
+    void SetVMName(std::string value);
+    std::string GetAnimationPrefix() const;
+    void SetAnimationPrefix(std::string value);
     int32_t GetOldLayer() const;
     void SetOldLayer(int32_t value);
     float GetOldLayerStartTime() const;
     void SetOldLayerStartTime(float value);
     GCBaseEntity GetControlPanel() const;
     void SetControlPanel(GCBaseEntity* value);
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5705,8 +5982,12 @@ public:
     GCCSPlayer_PingServices(std::string ptr);
     GCCSPlayer_PingServices(void *ptr);
 
+    std::vector<float> GetPlayerPingTokens() const;
+    void SetPlayerPingTokens(std::vector<float> value);
     GCBaseEntity GetPlayerPing() const;
     void SetPlayerPing(GCBaseEntity* value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5721,7 +6002,8 @@ public:
     GCPlayer_FlashlightServices(std::string ptr);
     GCPlayer_FlashlightServices(void *ptr);
 
-
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5736,7 +6018,8 @@ public:
     GCServerOnlyModelEntity(std::string ptr);
     GCServerOnlyModelEntity(void *ptr);
 
-
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5751,14 +6034,16 @@ public:
     GCBtActionCombatPositioning(std::string ptr);
     GCBtActionCombatPositioning(void *ptr);
 
-    CUtlString GetSensorInputKey() const;
-    void SetSensorInputKey(CUtlString value);
-    CUtlString GetIsAttackingKey() const;
-    void SetIsAttackingKey(CUtlString value);
+    std::string GetSensorInputKey() const;
+    void SetSensorInputKey(std::string value);
+    std::string GetIsAttackingKey() const;
+    void SetIsAttackingKey(std::string value);
     GCountdownTimer GetActionTimer() const;
     void SetActionTimer(GCountdownTimer value);
     bool GetCrouching() const;
     void SetCrouching(bool value);
+    GCBtNode GetParent() const;
+    void SetParent(GCBtNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5777,6 +6062,8 @@ public:
     void SetFlameModelIndex(int32_t value);
     int32_t GetFlameFromAboveModelIndex() const;
     void SetFlameFromAboveModelIndex(int32_t value);
+    GCBaseFire GetParent() const;
+    void SetParent(GCBaseFire value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5809,6 +6096,8 @@ public:
     void SetSkillBoltInterruptAvailable(bool value);
     bool GetSkillBoltLiftedFireKey() const;
     void SetSkillBoltLiftedFireKey(bool value);
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5823,7 +6112,8 @@ public:
     GCWeaponGlock(std::string ptr);
     GCWeaponGlock(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5838,7 +6128,8 @@ public:
     GCPredictedViewModel(std::string ptr);
     GCPredictedViewModel(void *ptr);
 
-
+    GCBaseViewModel GetParent() const;
+    void SetParent(GCBaseViewModel value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5855,8 +6146,10 @@ public:
 
     GCEntityIOOutput GetOnTouchedActiveWeapon() const;
     void SetOnTouchedActiveWeapon(GCEntityIOOutput value);
-    CUtlSymbolLarge GetWeaponClassName() const;
-    void SetWeaponClassName(CUtlSymbolLarge value);
+    std::string GetWeaponClassName() const;
+    void SetWeaponClassName(std::string value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5885,16 +6178,16 @@ public:
     void SetSmoothFactor(float value);
     float GetMaxRange() const;
     void SetMaxRange(float value);
-    CUtlSymbolLarge GetSpeakerName() const;
-    void SetSpeakerName(CUtlSymbolLarge value);
+    std::string GetSpeakerName() const;
+    void SetSpeakerName(std::string value);
     GCBaseEntity GetSpeaker() const;
     void SetSpeaker(GCBaseEntity* value);
     bool GetAvoidFeedback() const;
     void SetAvoidFeedback(bool value);
     int32_t GetSpeakerDSPPreset() const;
     void SetSpeakerDSPPreset(int32_t value);
-    CUtlSymbolLarge GetListenFilter() const;
-    void SetListenFilter(CUtlSymbolLarge value);
+    std::string GetListenFilter() const;
+    void SetListenFilter(std::string value);
     GCBaseFilter GetListenFilter1() const;
     void SetListenFilter1(GCBaseFilter* value);
     GCEntityIOOutput GetOnRoutedSound() const;
@@ -5905,6 +6198,8 @@ public:
     void SetLastSound(std::string value);
     int32_t GetLastRoutedFrame() const;
     void SetLastRoutedFrame(int32_t value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5927,20 +6222,22 @@ public:
     void SetOnSpawnGroupUnloadStarted(GCEntityIOOutput value);
     GCEntityIOOutput GetOnSpawnGroupUnloadFinished() const;
     void SetOnSpawnGroupUnloadFinished(GCEntityIOOutput value);
-    CUtlSymbolLarge GetSpawnGroupName() const;
-    void SetSpawnGroupName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSpawnGroupFilterName() const;
-    void SetSpawnGroupFilterName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetLandmarkName() const;
-    void SetLandmarkName(CUtlSymbolLarge value);
-    CUtlString GetFixedSpawnGroupName() const;
-    void SetFixedSpawnGroupName(CUtlString value);
+    std::string GetSpawnGroupName() const;
+    void SetSpawnGroupName(std::string value);
+    std::string GetSpawnGroupFilterName() const;
+    void SetSpawnGroupFilterName(std::string value);
+    std::string GetLandmarkName() const;
+    void SetLandmarkName(std::string value);
+    std::string GetFixedSpawnGroupName() const;
+    void SetFixedSpawnGroupName(std::string value);
     float GetTimeoutInterval() const;
     void SetTimeoutInterval(float value);
     bool GetStreamingStarted() const;
     void SetStreamingStarted(bool value);
     bool GetUnloadingStarted() const;
     void SetUnloadingStarted(bool value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -5973,8 +6270,8 @@ public:
     void SetConnected(PlayerConnectedState value);
     std::string GetPlayerName() const;
     void SetPlayerName(std::string value);
-    CUtlString GetNetworkIDString() const;
-    void SetNetworkIDString(CUtlString value);
+    std::string GetNetworkIDString() const;
+    void SetNetworkIDString(std::string value);
     float GetLerpTime() const;
     void SetLerpTime(float value);
     bool GetLagCompensation() const;
@@ -6005,6 +6302,8 @@ public:
     void SetSteamID(uint64_t value);
     uint32_t GetDesiredFOV() const;
     void SetDesiredFOV(uint32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6036,6 +6335,8 @@ public:
 
     bool GetFirstAttack() const;
     void SetFirstAttack(bool value);
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6080,20 +6381,22 @@ public:
     void SetMaxSpeed(float value);
     float GetDir() const;
     void SetDir(float value);
-    CUtlSymbolLarge GetSoundMove() const;
-    void SetSoundMove(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundMovePing() const;
-    void SetSoundMovePing(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundStart() const;
-    void SetSoundStart(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundStop() const;
-    void SetSoundStop(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetStrPathTarget() const;
-    void SetStrPathTarget(CUtlSymbolLarge value);
+    std::string GetSoundMove() const;
+    void SetSoundMove(std::string value);
+    std::string GetSoundMovePing() const;
+    void SetSoundMovePing(std::string value);
+    std::string GetSoundStart() const;
+    void SetSoundStart(std::string value);
+    std::string GetSoundStop() const;
+    void SetSoundStop(std::string value);
+    std::string GetStrPathTarget() const;
+    void SetStrPathTarget(std::string value);
     float GetMoveSoundMinDuration() const;
     void SetMoveSoundMinDuration(float value);
     float GetMoveSoundMaxDuration() const;
     void SetMoveSoundMaxDuration(float value);
+    float GetNextMoveSoundTime() const;
+    void SetNextMoveSoundTime(float value);
     float GetMoveSoundMinPitch() const;
     void SetMoveSoundMinPitch(float value);
     float GetMoveSoundMaxPitch() const;
@@ -6112,12 +6415,18 @@ public:
     void SetManualSpeedChanges(bool value);
     float GetDesiredSpeed() const;
     void SetDesiredSpeed(float value);
+    float GetSpeedChangeTime() const;
+    void SetSpeedChangeTime(float value);
     float GetAccelSpeed() const;
     void SetAccelSpeed(float value);
     float GetDecelSpeed() const;
     void SetDecelSpeed(float value);
     bool GetAccelToSpeed() const;
     void SetAccelToSpeed(bool value);
+    float GetNextMPSoundTime() const;
+    void SetNextMPSoundTime(float value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6132,16 +6441,18 @@ public:
     GCFogVolume(std::string ptr);
     GCFogVolume(void *ptr);
 
-    CUtlSymbolLarge GetFogName() const;
-    void SetFogName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetPostProcessName() const;
-    void SetPostProcessName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetColorCorrectionName() const;
-    void SetColorCorrectionName(CUtlSymbolLarge value);
+    std::string GetFogName() const;
+    void SetFogName(std::string value);
+    std::string GetPostProcessName() const;
+    void SetPostProcessName(std::string value);
+    std::string GetColorCorrectionName() const;
+    void SetColorCorrectionName(std::string value);
     bool GetDisabled() const;
     void SetDisabled(bool value);
     bool GetInFogVolumesList() const;
     void SetInFogVolumesList(bool value);
+    GCServerOnlyModelEntity GetParent() const;
+    void SetParent(GCServerOnlyModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6156,7 +6467,8 @@ public:
     GCInfoPlayerCounterterrorist(std::string ptr);
     GCInfoPlayerCounterterrorist(void *ptr);
 
-
+    GSpawnPoint GetParent() const;
+    void SetParent(GSpawnPoint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6179,8 +6491,14 @@ public:
     void SetFireType(int32_t value);
     float GetFuel() const;
     void SetFuel(float value);
+    float GetDamageTime() const;
+    void SetDamageTime(float value);
+    float GetLastDamage() const;
+    void SetLastDamage(float value);
     float GetFireSize() const;
     void SetFireSize(float value);
+    float GetLastNavUpdateTime() const;
+    void SetLastNavUpdateTime(float value);
     float GetHeatLevel() const;
     void SetHeatLevel(float value);
     float GetHeatAbsorb() const;
@@ -6203,6 +6521,8 @@ public:
     void SetOnIgnited(GCEntityIOOutput value);
     GCEntityIOOutput GetOnExtinguished() const;
     void SetOnExtinguished(GCEntityIOOutput value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6232,7 +6552,8 @@ public:
     GCCSServerPointScriptEntity(std::string ptr);
     GCCSServerPointScriptEntity(void *ptr);
 
-
+    GCCSPointScriptEntity GetParent() const;
+    void SetParent(GCCSPointScriptEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6247,7 +6568,8 @@ public:
     GCWeaponBizon(std::string ptr);
     GCWeaponBizon(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6266,6 +6588,8 @@ public:
     void SetEnd(QAngle value);
     QAngle GetStart() const;
     void SetStart(QAngle value);
+    GCFuncPlat GetParent() const;
+    void SetParent(GCFuncPlat value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6310,6 +6634,12 @@ public:
     void SetBreakAfterTimeY(float value);
     float GetBreakAfterTimeZ() const;
     void SetBreakAfterTimeZ(float value);
+    float GetBreakAfterTimeStartTimeX() const;
+    void SetBreakAfterTimeStartTimeX(float value);
+    float GetBreakAfterTimeStartTimeY() const;
+    void SetBreakAfterTimeStartTimeY(float value);
+    float GetBreakAfterTimeStartTimeZ() const;
+    void SetBreakAfterTimeStartTimeZ(float value);
     float GetBreakAfterTimeThresholdX() const;
     void SetBreakAfterTimeThresholdX(float value);
     float GetBreakAfterTimeThresholdY() const;
@@ -6328,6 +6658,12 @@ public:
     void SetNotifyForceMinTimeY(float value);
     float GetNotifyForceMinTimeZ() const;
     void SetNotifyForceMinTimeZ(float value);
+    float GetNotifyForceLastTimeX() const;
+    void SetNotifyForceLastTimeX(float value);
+    float GetNotifyForceLastTimeY() const;
+    void SetNotifyForceLastTimeY(float value);
+    float GetNotifyForceLastTimeZ() const;
+    void SetNotifyForceLastTimeZ(float value);
     bool GetAxisNotifiedX() const;
     void SetAxisNotifiedX(bool value);
     bool GetAxisNotifiedY() const;
@@ -6364,6 +6700,8 @@ public:
     void SetNotifyForceReachedY(GCEntityIOOutput value);
     GCEntityIOOutput GetNotifyForceReachedZ() const;
     void SetNotifyForceReachedZ(GCEntityIOOutput value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6378,7 +6716,8 @@ public:
     GCDecoyGrenade(std::string ptr);
     GCDecoyGrenade(void *ptr);
 
-
+    GCBaseCSGrenade GetParent() const;
+    void SetParent(GCBaseCSGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6393,7 +6732,8 @@ public:
     GCWeaponG3SG1(std::string ptr);
     GCWeaponG3SG1(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6412,6 +6752,8 @@ public:
     void SetEntitySpottedState(GEntitySpottedState_t value);
     int32_t GetSpotRules() const;
     void SetSpotRules(int32_t value);
+    GCItem GetParent() const;
+    void SetParent(GCItem value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6448,7 +6790,8 @@ public:
     GCDEagle(std::string ptr);
     GCDEagle(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6485,14 +6828,22 @@ public:
     void SetKiller(GCBaseEntity* value);
     GCBasePlayerPawn GetPhysicsAttacker() const;
     void SetPhysicsAttacker(GCBasePlayerPawn* value);
+    float GetLastPhysicsInfluenceTime() const;
+    void SetLastPhysicsInfluenceTime(float value);
+    float GetFadeOutStartTime() const;
+    void SetFadeOutStartTime(float value);
     float GetFadeTime() const;
     void SetFadeTime(float value);
     Vector GetLastOrigin() const;
     void SetLastOrigin(Vector value);
-    CUtlSymbolLarge GetStrOriginClassName() const;
-    void SetStrOriginClassName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetStrSourceClassName() const;
-    void SetStrSourceClassName(CUtlSymbolLarge value);
+    float GetAwakeTime() const;
+    void SetAwakeTime(float value);
+    float GetLastOriginChangeTime() const;
+    void SetLastOriginChangeTime(float value);
+    std::string GetStrOriginClassName() const;
+    void SetStrOriginClassName(std::string value);
+    std::string GetStrSourceClassName() const;
+    void SetStrSourceClassName(std::string value);
     bool GetHasBeenPhysgunned() const;
     void SetHasBeenPhysgunned(bool value);
     bool GetShouldTeleportPhysics() const;
@@ -6509,6 +6860,8 @@ public:
     void SetShouldDeleteActivationRecord(bool value);
     bool GetValidatePoweredRagdollPose() const;
     void SetValidatePoweredRagdollPose(bool value);
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6523,7 +6876,8 @@ public:
     GCItemSoda(std::string ptr);
     GCItemSoda(void *ptr);
 
-
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6572,6 +6926,8 @@ public:
     void SetEntity_bCopyDiffuseFromDefaultCubemap(bool value);
     bool GetEntity_bEnabled() const;
     void SetEntity_bEnabled(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6620,6 +6976,8 @@ public:
     void SetFadeStartDist(float value);
     float GetFadeEndDist() const;
     void SetFadeEndDist(float value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6634,7 +6992,8 @@ public:
     GCTriggerOnce(std::string ptr);
     GCTriggerOnce(void *ptr);
 
-
+    GCTriggerMultiple GetParent() const;
+    void SetParent(GCTriggerMultiple value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6649,7 +7008,8 @@ public:
     GCInfoTeleportDestination(std::string ptr);
     GCInfoTeleportDestination(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6684,6 +7044,8 @@ public:
     void SetOnFellBelowMin(GCEntityIOOutput value);
     GCEntityIOOutput GetOnFellBelowMax() const;
     void SetOnFellBelowMax(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6698,12 +7060,14 @@ public:
     GCInstructorEventEntity(std::string ptr);
     GCInstructorEventEntity(void *ptr);
 
-    CUtlSymbolLarge GetName() const;
-    void SetName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetHintTargetEntity() const;
-    void SetHintTargetEntity(CUtlSymbolLarge value);
+    std::string GetName() const;
+    void SetName(std::string value);
+    std::string GetHintTargetEntity() const;
+    void SetHintTargetEntity(std::string value);
     GCBasePlayerPawn GetTargetPlayer() const;
     void SetTargetPlayer(GCBasePlayerPawn* value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6748,6 +7112,8 @@ public:
     void SetIsEnabled(bool value);
     bool GetGradientFogNeedsTextures() const;
     void SetGradientFogNeedsTextures(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6762,10 +7128,12 @@ public:
     GCFootstepControl(std::string ptr);
     GCFootstepControl(void *ptr);
 
-    CUtlSymbolLarge GetSource() const;
-    void SetSource(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetDestination() const;
-    void SetDestination(CUtlSymbolLarge value);
+    std::string GetSource() const;
+    void SetSource(std::string value);
+    std::string GetDestination() const;
+    void SetDestination(std::string value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6780,10 +7148,12 @@ public:
     GCTriggerVolume(std::string ptr);
     GCTriggerVolume(void *ptr);
 
-    CUtlSymbolLarge GetFilterName() const;
-    void SetFilterName(CUtlSymbolLarge value);
+    std::string GetFilterName() const;
+    void SetFilterName(std::string value);
     GCBaseFilter GetFilter() const;
     void SetFilter(GCBaseFilter* value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6798,7 +7168,8 @@ public:
     GCInfoInstructorHintHostageRescueZone(std::string ptr);
     GCInfoInstructorHintHostageRescueZone(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6813,7 +7184,8 @@ public:
     GCEnvSoundscapeAlias_snd_soundscape(std::string ptr);
     GCEnvSoundscapeAlias_snd_soundscape(void *ptr);
 
-
+    GCEnvSoundscape GetParent() const;
+    void SetParent(GCEnvSoundscape value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6840,6 +7212,8 @@ public:
     void SetIsDormant(bool value);
     GCountdownTimer GetVisTimer() const;
     void SetVisTimer(GCountdownTimer value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6854,7 +7228,8 @@ public:
     GCPointClientCommand(std::string ptr);
     GCPointClientCommand(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6871,6 +7246,8 @@ public:
 
     bool GetDisabled() const;
     void SetDisabled(bool value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6885,8 +7262,18 @@ public:
     GCCSPlayer_RadioServices(std::string ptr);
     GCCSPlayer_RadioServices(void *ptr);
 
+    float GetGotHostageTalkTimer() const;
+    void SetGotHostageTalkTimer(float value);
+    float GetDefusingTalkTimer() const;
+    void SetDefusingTalkTimer(float value);
+    float GetC4PlantTalkTimer() const;
+    void SetC4PlantTalkTimer(float value);
+    std::vector<float> GetRadioTokenSlots() const;
+    void SetRadioTokenSlots(std::vector<float> value);
     bool GetIgnoreRadio() const;
     void SetIgnoreRadio(bool value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -6901,26 +7288,26 @@ public:
     GCSceneEntity(std::string ptr);
     GCSceneEntity(void *ptr);
 
-    CUtlSymbolLarge GetSceneFile() const;
-    void SetSceneFile(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetResumeSceneFile() const;
-    void SetResumeSceneFile(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTarget1() const;
-    void SetTarget1(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTarget2() const;
-    void SetTarget2(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTarget3() const;
-    void SetTarget3(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTarget4() const;
-    void SetTarget4(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTarget5() const;
-    void SetTarget5(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTarget6() const;
-    void SetTarget6(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTarget7() const;
-    void SetTarget7(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTarget8() const;
-    void SetTarget8(CUtlSymbolLarge value);
+    std::string GetSceneFile() const;
+    void SetSceneFile(std::string value);
+    std::string GetResumeSceneFile() const;
+    void SetResumeSceneFile(std::string value);
+    std::string GetTarget1() const;
+    void SetTarget1(std::string value);
+    std::string GetTarget2() const;
+    void SetTarget2(std::string value);
+    std::string GetTarget3() const;
+    void SetTarget3(std::string value);
+    std::string GetTarget4() const;
+    void SetTarget4(std::string value);
+    std::string GetTarget5() const;
+    void SetTarget5(std::string value);
+    std::string GetTarget6() const;
+    void SetTarget6(std::string value);
+    std::string GetTarget7() const;
+    void SetTarget7(std::string value);
+    std::string GetTarget8() const;
+    void SetTarget8(std::string value);
     GCBaseEntity GetTarget11() const;
     void SetTarget11(GCBaseEntity* value);
     GCBaseEntity GetTarget21() const;
@@ -6937,8 +7324,8 @@ public:
     void SetTarget71(GCBaseEntity* value);
     GCBaseEntity GetTarget81() const;
     void SetTarget81(GCBaseEntity* value);
-    CUtlSymbolLarge GetTargetAttachment() const;
-    void SetTargetAttachment(CUtlSymbolLarge value);
+    std::string GetTargetAttachment() const;
+    void SetTargetAttachment(std::string value);
     bool GetIsPlayingBack() const;
     void SetIsPlayingBack(bool value);
     bool GetPaused() const;
@@ -7015,10 +7402,10 @@ public:
     void SetInterruptSceneFinished(bool value);
     bool GetRestoring() const;
     void SetRestoring(bool value);
-    CUtlSymbolLarge GetSoundName() const;
-    void SetSoundName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSequenceName() const;
-    void SetSequenceName(CUtlSymbolLarge value);
+    std::string GetSoundName() const;
+    void SetSoundName(std::string value);
+    std::string GetSequenceName() const;
+    void SetSequenceName(std::string value);
     GCBaseFlex GetActor() const;
     void SetActor(GCBaseFlex* value);
     GCBaseEntity GetActivator() const;
@@ -7027,6 +7414,8 @@ public:
     void SetBusyActor(int32_t value);
     SceneOnPlayerDeath_t GetPlayerDeathBehavior() const;
     void SetPlayerDeathBehavior(SceneOnPlayerDeath_t value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7041,8 +7430,10 @@ public:
     GCEnvHudHint(std::string ptr);
     GCEnvHudHint(void *ptr);
 
-    CUtlSymbolLarge GetMessage() const;
-    void SetMessage(CUtlSymbolLarge value);
+    std::string GetMessage() const;
+    void SetMessage(std::string value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7069,6 +7460,8 @@ public:
     void SetStopType(int32_t value);
     bool GetAnimateDuringGameplayPause() const;
     void SetAnimateDuringGameplayPause(bool value);
+    float GetStartTime() const;
+    void SetStartTime(float value);
     float GetPreSimTime() const;
     void SetPreSimTime(float value);
     std::vector<Vector> GetServerControlPoints() const;
@@ -7085,8 +7478,8 @@ public:
     void SetNoRamp(bool value);
     bool GetStartActive() const;
     void SetStartActive(bool value);
-    CUtlSymbolLarge GetEffectName() const;
-    void SetEffectName(CUtlSymbolLarge value);
+    std::string GetEffectName() const;
+    void SetEffectName(std::string value);
     std::vector<CUtlSymbolLarge> GetControlPointNames() const;
     void SetControlPointNames(std::vector<CUtlSymbolLarge> value);
     int32_t GetDataCP() const;
@@ -7097,6 +7490,8 @@ public:
     void SetTintCP(int32_t value);
     Color GetTint() const;
     void SetTint(Color value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7155,6 +7550,8 @@ public:
 
     MoveType_t GetMoveTypeOverride() const;
     void SetMoveTypeOverride(MoveType_t value);
+    GCItem GetParent() const;
+    void SetParent(GCItem value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7169,6 +7566,8 @@ public:
     GIntervalTimer(std::string ptr);
     GIntervalTimer(void *ptr);
 
+    float GetTimestamp() const;
+    void SetTimestamp(float value);
     WorldGroupId_t GetWorldGroupId() const;
     void SetWorldGroupId(WorldGroupId_t value);
 
@@ -7185,7 +7584,8 @@ public:
     GCWeaponSG556(std::string ptr);
     GCWeaponSG556(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7282,6 +7682,8 @@ public:
     void SetOuterAngle(float value);
     float GetSpotRadius() const;
     void SetSpotRadius(float value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7296,7 +7698,8 @@ public:
     GCWeaponP90(std::string ptr);
     GCWeaponP90(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7311,7 +7714,8 @@ public:
     GCTriggerToggleSave(std::string ptr);
     GCTriggerToggleSave(void *ptr);
 
-
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7326,7 +7730,8 @@ public:
     GCPrecipitation(std::string ptr);
     GCPrecipitation(void *ptr);
 
-
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7341,7 +7746,8 @@ public:
     GCPointServerCommand(std::string ptr);
     GCPointServerCommand(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7356,7 +7762,8 @@ public:
     GCCSGO_TeamIntroCharacterPosition(std::string ptr);
     GCCSGO_TeamIntroCharacterPosition(void *ptr);
 
-
+    GCCSGO_TeamPreviewCharacterPosition GetParent() const;
+    void SetParent(GCCSGO_TeamPreviewCharacterPosition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7371,16 +7778,18 @@ public:
     GCLogicCollisionPair(std::string ptr);
     GCLogicCollisionPair(void *ptr);
 
-    CUtlSymbolLarge GetNameAttach1() const;
-    void SetNameAttach1(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetNameAttach2() const;
-    void SetNameAttach2(CUtlSymbolLarge value);
+    std::string GetNameAttach1() const;
+    void SetNameAttach1(std::string value);
+    std::string GetNameAttach2() const;
+    void SetNameAttach2(std::string value);
     bool GetSupportMultipleEntitiesWithSameName() const;
     void SetSupportMultipleEntitiesWithSameName(bool value);
     bool GetDisabled() const;
     void SetDisabled(bool value);
     bool GetSucceeded() const;
     void SetSucceeded(bool value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7407,6 +7816,8 @@ public:
     void SetMaterialGroup(CUtlStringToken value);
     uint8_t GetHitboxSet() const;
     void SetHitboxSet(uint8_t value);
+    GCGameSceneNode GetParent() const;
+    void SetParent(GCGameSceneNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7467,6 +7878,8 @@ public:
     void SetHasBeenAwakened(bool value);
     bool GetIsOverrideProp() const;
     void SetIsOverrideProp(bool value);
+    float GetNextCheckDisableMotionContactsTime() const;
+    void SetNextCheckDisableMotionContactsTime(float value);
     int32_t GetInitialGlowState() const;
     void SetInitialGlowState(int32_t value);
     int32_t GetGlowRange() const;
@@ -7485,6 +7898,8 @@ public:
     void SetEnableUseOutput(bool value);
     bool GetAwake() const;
     void SetAwake(bool value);
+    GCBreakableProp GetParent() const;
+    void SetParent(GCBreakableProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7501,6 +7916,8 @@ public:
 
     int32_t GetState() const;
     void SetState(int32_t value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7515,7 +7932,8 @@ public:
     GCItemDefuserAlias_item_defuser(std::string ptr);
     GCItemDefuserAlias_item_defuser(void *ptr);
 
-
+    GCItemDefuser GetParent() const;
+    void SetParent(GCItemDefuser value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7542,18 +7960,24 @@ public:
     void SetIsLive(bool value);
     float GetDmgRadius() const;
     void SetDmgRadius(float value);
+    float GetDetonateTime() const;
+    void SetDetonateTime(float value);
     float GetWarnAITime() const;
     void SetWarnAITime(float value);
     float GetDamage() const;
     void SetDamage(float value);
-    CUtlSymbolLarge GetBounceSound() const;
-    void SetBounceSound(CUtlSymbolLarge value);
-    CUtlString GetExplosionSound() const;
-    void SetExplosionSound(CUtlString value);
+    std::string GetBounceSound() const;
+    void SetBounceSound(std::string value);
+    std::string GetExplosionSound() const;
+    void SetExplosionSound(std::string value);
     GCCSPlayerPawn GetThrower() const;
     void SetThrower(GCCSPlayerPawn* value);
+    float GetNextAttack() const;
+    void SetNextAttack(float value);
     GCCSPlayerPawn GetOriginalThrower() const;
     void SetOriginalThrower(GCCSPlayerPawn* value);
+    GCBaseFlex GetParent() const;
+    void SetParent(GCBaseFlex value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7572,12 +7996,16 @@ public:
     void SetFOV(uint32_t value);
     uint32_t GetFOVStart() const;
     void SetFOVStart(uint32_t value);
+    float GetFOVTime() const;
+    void SetFOVTime(float value);
     float GetFOVRate() const;
     void SetFOVRate(float value);
     GCBaseEntity GetZoomOwner() const;
     void SetZoomOwner(GCBaseEntity* value);
     GCBaseEntity GetLastFogTrigger() const;
     void SetLastFogTrigger(GCBaseEntity* value);
+    GCPlayer_CameraServices GetParent() const;
+    void SetParent(GCPlayer_CameraServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7592,7 +8020,8 @@ public:
     GCCSGO_WingmanIntroCharacterPosition(std::string ptr);
     GCCSGO_WingmanIntroCharacterPosition(void *ptr);
 
-
+    GCCSGO_TeamIntroCharacterPosition GetParent() const;
+    void SetParent(GCCSGO_TeamIntroCharacterPosition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7649,6 +8078,8 @@ public:
     void SetEntryCount(int32_t value);
     int32_t GetEntryWins() const;
     void SetEntryWins(int32_t value);
+    GCSPerRoundStats_t GetParent() const;
+    void SetParent(GCSPerRoundStats_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7679,12 +8110,14 @@ public:
     void SetFakeLadder(bool value);
     bool GetHasSlack() const;
     void SetHasSlack(bool value);
-    CUtlSymbolLarge GetSurfacePropName() const;
-    void SetSurfacePropName(CUtlSymbolLarge value);
+    std::string GetSurfacePropName() const;
+    void SetSurfacePropName(std::string value);
     GCEntityIOOutput GetOnPlayerGotOnLadder() const;
     void SetOnPlayerGotOnLadder(GCEntityIOOutput value);
     GCEntityIOOutput GetOnPlayerGotOffLadder() const;
     void SetOnPlayerGotOffLadder(GCEntityIOOutput value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7707,12 +8140,12 @@ public:
     void SetMinVal(float value);
     float GetMaxVal() const;
     void SetMaxVal(float value);
-    CUtlSymbolLarge GetOpvarName() const;
-    void SetOpvarName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetStackName() const;
-    void SetStackName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOperatorName() const;
-    void SetOperatorName(CUtlSymbolLarge value);
+    std::string GetOpvarName() const;
+    void SetOpvarName(std::string value);
+    std::string GetStackName() const;
+    void SetStackName(std::string value);
+    std::string GetOperatorName() const;
+    void SetOperatorName(std::string value);
     bool GetVolIs2D() const;
     void SetVolIs2D(bool value);
     std::string GetOpvarNameChar() const;
@@ -7725,6 +8158,8 @@ public:
     void SetVecNormPos(Vector value);
     float GetNormCenterSize() const;
     void SetNormCenterSize(float value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7739,7 +8174,8 @@ public:
     GCItemHeavyAssaultSuit(std::string ptr);
     GCItemHeavyAssaultSuit(void *ptr);
 
-
+    GCItemAssaultSuit GetParent() const;
+    void SetParent(GCItemAssaultSuit value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7754,22 +8190,22 @@ public:
     GCScriptedSequence(std::string ptr);
     GCScriptedSequence(void *ptr);
 
-    CUtlSymbolLarge GetEntry() const;
-    void SetEntry(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetPreIdle() const;
-    void SetPreIdle(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetPlay() const;
-    void SetPlay(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetPostIdle() const;
-    void SetPostIdle(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetModifierToAddOnPlay() const;
-    void SetModifierToAddOnPlay(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetNextScript() const;
-    void SetNextScript(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetEntity() const;
-    void SetEntity(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSyncGroup() const;
-    void SetSyncGroup(CUtlSymbolLarge value);
+    std::string GetEntry() const;
+    void SetEntry(std::string value);
+    std::string GetPreIdle() const;
+    void SetPreIdle(std::string value);
+    std::string GetPlay() const;
+    void SetPlay(std::string value);
+    std::string GetPostIdle() const;
+    void SetPostIdle(std::string value);
+    std::string GetModifierToAddOnPlay() const;
+    void SetModifierToAddOnPlay(std::string value);
+    std::string GetNextScript() const;
+    void SetNextScript(std::string value);
+    std::string GetEntity() const;
+    void SetEntity(std::string value);
+    std::string GetSyncGroup() const;
+    void SetSyncGroup(std::string value);
     ScriptedMoveTo_t GetMoveTo() const;
     void SetMoveTo(ScriptedMoveTo_t value);
     MovementGait_t GetMoveToGait() const;
@@ -7832,6 +8268,8 @@ public:
     void SetAngRate(float value);
     int32_t GetNotReadySequenceCount() const;
     void SetNotReadySequenceCount(int32_t value);
+    float GetStartTime() const;
+    void SetStartTime(float value);
     bool GetWaitForBeginSequence() const;
     void SetWaitForBeginSequence(bool value);
     int32_t GetSaved_effects() const;
@@ -7890,6 +8328,8 @@ public:
     void SetInteractionMainEntity(GCBaseEntity* value);
     int32_t GetPlayerDeathBehavior() const;
     void SetPlayerDeathBehavior(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7904,7 +8344,8 @@ public:
     GCWeaponNegev(std::string ptr);
     GCWeaponNegev(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7919,7 +8360,8 @@ public:
     GCWeaponGalilAR(std::string ptr);
     GCWeaponGalilAR(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -7994,6 +8436,8 @@ public:
     void SetRotation(float value);
     bool GetFlipHorizontal() const;
     void SetFlipHorizontal(bool value);
+    GCModelPointEntity GetParent() const;
+    void SetParent(GCModelPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8008,7 +8452,8 @@ public:
     GCDynamicPropAlias_prop_dynamic_override(std::string ptr);
     GCDynamicPropAlias_prop_dynamic_override(void *ptr);
 
-
+    GCDynamicProp GetParent() const;
+    void SetParent(GCDynamicProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8027,6 +8472,8 @@ public:
     void SetScenes(std::vector<CUtlSymbolLarge> value);
     std::vector<GCBaseEntity*> GetScenes1() const;
     void SetScenes1(std::vector<GCBaseEntity*> value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8043,6 +8490,8 @@ public:
 
     Vector GetAnchorOffsetRestore() const;
     void SetAnchorOffsetRestore(Vector value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8057,7 +8506,8 @@ public:
     GCCSObserver_ViewModelServices(std::string ptr);
     GCCSObserver_ViewModelServices(void *ptr);
 
-
+    GCPlayer_ViewModelServices GetParent() const;
+    void SetParent(GCPlayer_ViewModelServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8072,7 +8522,8 @@ public:
     GCDynamicPropAlias_dynamic_prop(std::string ptr);
     GCDynamicPropAlias_dynamic_prop(void *ptr);
 
-
+    GCDynamicProp GetParent() const;
+    void SetParent(GCDynamicProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8103,7 +8554,8 @@ public:
     GCPhysicsPropMultiplayer(std::string ptr);
     GCPhysicsPropMultiplayer(void *ptr);
 
-
+    GCPhysicsProp GetParent() const;
+    void SetParent(GCPhysicsProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8124,18 +8576,20 @@ public:
     void SetTrackBottom(GCPathTrack* value);
     GCFuncTrackTrain GetTrain() const;
     void SetTrain(GCFuncTrackTrain* value);
-    CUtlSymbolLarge GetTrackTopName() const;
-    void SetTrackTopName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTrackBottomName() const;
-    void SetTrackBottomName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTrainName() const;
-    void SetTrainName(CUtlSymbolLarge value);
+    std::string GetTrackTopName() const;
+    void SetTrackTopName(std::string value);
+    std::string GetTrackBottomName() const;
+    void SetTrackBottomName(std::string value);
+    std::string GetTrainName() const;
+    void SetTrainName(std::string value);
     TRAIN_CODE GetCode() const;
     void SetCode(TRAIN_CODE value);
     int32_t GetTargetState() const;
     void SetTargetState(int32_t value);
     int32_t GetUse() const;
     void SetUse(int32_t value);
+    GCFuncPlatRot GetParent() const;
+    void SetParent(GCFuncPlatRot value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8152,6 +8606,8 @@ public:
 
     bool GetDisabled() const;
     void SetDisabled(bool value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8166,7 +8622,8 @@ public:
     GCInfoPlayerTerrorist(std::string ptr);
     GCInfoPlayerTerrorist(void *ptr);
 
-
+    GSpawnPoint GetParent() const;
+    void SetParent(GSpawnPoint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8183,6 +8640,8 @@ public:
 
     Vector GetPrevSample() const;
     void SetPrevSample(Vector value);
+    float GetPrevSampleTime() const;
+    void SetPrevSampleTime(float value);
     float GetIdealSampleRate() const;
     void SetIdealSampleRate(float value);
 
@@ -8199,8 +8658,10 @@ public:
     GCTankTargetChange(std::string ptr);
     GCTankTargetChange(void *ptr);
 
-    CUtlSymbolLarge GetNewTargetName() const;
-    void SetNewTargetName(CUtlSymbolLarge value);
+    std::string GetNewTargetName() const;
+    void SetNewTargetName(std::string value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8219,6 +8680,8 @@ public:
     void SetInValue(float value);
     float GetCompareValue() const;
     void SetCompareValue(float value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8235,6 +8698,8 @@ public:
 
     int32_t GetTotalHitsOnServer() const;
     void SetTotalHitsOnServer(int32_t value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8263,6 +8728,8 @@ public:
     void SetFastRetrigger(bool value);
     bool GetPassthoughCaller() const;
     void SetPassthoughCaller(bool value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8277,7 +8744,8 @@ public:
     GCPlayer_ItemServices(std::string ptr);
     GCPlayer_ItemServices(void *ptr);
 
-
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8296,8 +8764,8 @@ public:
     void SetWorldGoalAxis(Vector value);
     Vector GetLocalTestAxis() const;
     void SetLocalTestAxis(Vector value);
-    CUtlSymbolLarge GetNameAttach() const;
-    void SetNameAttach(CUtlSymbolLarge value);
+    std::string GetNameAttach() const;
+    void SetNameAttach(std::string value);
     GCBaseEntity GetAttachedObject() const;
     void SetAttachedObject(GCBaseEntity* value);
     float GetAngularLimit() const;
@@ -8306,6 +8774,8 @@ public:
     void SetActive(bool value);
     bool GetDampAllRotation() const;
     void SetDampAllRotation(bool value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8326,6 +8796,8 @@ public:
     void SetDuration(float value);
     float GetHoldTime() const;
     void SetHoldTime(float value);
+    GCModelPointEntity GetParent() const;
+    void SetParent(GCModelPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8342,6 +8814,8 @@ public:
 
     GCBuoyancyHelper GetBuoyancyHelper() const;
     void SetBuoyancyHelper(GCBuoyancyHelper value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8366,6 +8840,8 @@ public:
     void SetBlendDeltaMultiplier(float value);
     bool GetIsStarted() const;
     void SetIsStarted(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8380,12 +8856,12 @@ public:
     GCBtActionMoveTo(std::string ptr);
     GCBtActionMoveTo(void *ptr);
 
-    CUtlString GetDestinationInputKey() const;
-    void SetDestinationInputKey(CUtlString value);
-    CUtlString GetHidingSpotInputKey() const;
-    void SetHidingSpotInputKey(CUtlString value);
-    CUtlString GetThreatInputKey() const;
-    void SetThreatInputKey(CUtlString value);
+    std::string GetDestinationInputKey() const;
+    void SetDestinationInputKey(std::string value);
+    std::string GetHidingSpotInputKey() const;
+    void SetHidingSpotInputKey(std::string value);
+    std::string GetThreatInputKey() const;
+    void SetThreatInputKey(std::string value);
     Vector GetDestination() const;
     void SetDestination(Vector value);
     bool GetAutoLookAdjust() const;
@@ -8408,6 +8884,8 @@ public:
     void SetHidingSpotCheckDistanceThreshold(float value);
     float GetNearestAreaDistanceThreshold() const;
     void SetNearestAreaDistanceThreshold(float value);
+    GCBtNode GetParent() const;
+    void SetParent(GCBtNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8438,6 +8916,8 @@ public:
     void SetExposureAdaptationSpeedDown(float value);
     float GetTonemapEVSmoothingRange() const;
     void SetTonemapEVSmoothingRange(float value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8452,7 +8932,8 @@ public:
     GCRopeKeyframeAlias_move_rope(std::string ptr);
     GCRopeKeyframeAlias_move_rope(void *ptr);
 
-
+    GCRopeKeyframe GetParent() const;
+    void SetParent(GCRopeKeyframe value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8467,24 +8948,26 @@ public:
     GCEnvInstructorVRHint(std::string ptr);
     GCEnvInstructorVRHint(void *ptr);
 
-    CUtlSymbolLarge GetName() const;
-    void SetName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetHintTargetEntity() const;
-    void SetHintTargetEntity(CUtlSymbolLarge value);
+    std::string GetName() const;
+    void SetName(std::string value);
+    std::string GetHintTargetEntity() const;
+    void SetHintTargetEntity(std::string value);
     int32_t GetTimeout() const;
     void SetTimeout(int32_t value);
-    CUtlSymbolLarge GetCaption() const;
-    void SetCaption(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetStartSound() const;
-    void SetStartSound(CUtlSymbolLarge value);
+    std::string GetCaption() const;
+    void SetCaption(std::string value);
+    std::string GetStartSound() const;
+    void SetStartSound(std::string value);
     int32_t GetLayoutFileType() const;
     void SetLayoutFileType(int32_t value);
-    CUtlSymbolLarge GetCustomLayoutFile() const;
-    void SetCustomLayoutFile(CUtlSymbolLarge value);
+    std::string GetCustomLayoutFile() const;
+    void SetCustomLayoutFile(std::string value);
     int32_t GetAttachType() const;
     void SetAttachType(int32_t value);
     float GetHeightOffset() const;
     void SetHeightOffset(float value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8499,7 +8982,8 @@ public:
     GCWeaponXM1014(std::string ptr);
     GCWeaponXM1014(void *ptr);
 
-
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8516,6 +9000,8 @@ public:
 
     GCFuncPlat GetPlatform() const;
     void SetPlatform(GCFuncPlat* value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8530,6 +9016,8 @@ public:
     GCEnvWindShared(std::string ptr);
     GCEnvWindShared(void *ptr);
 
+    float GetStartTime() const;
+    void SetStartTime(float value);
     uint32_t GetWindSeed() const;
     void SetWindSeed(uint32_t value);
     uint16_t GetMinWind() const;
@@ -8572,6 +9060,14 @@ public:
     void SetOnGustStart(GCEntityIOOutput value);
     GCEntityIOOutput GetOnGustEnd() const;
     void SetOnGustEnd(GCEntityIOOutput value);
+    float GetVariationTime() const;
+    void SetVariationTime(float value);
+    float GetSwayTime() const;
+    void SetSwayTime(float value);
+    float GetSimTime() const;
+    void SetSimTime(float value);
+    float GetSwitchTime() const;
+    void SetSwitchTime(float value);
     float GetAveWindSpeed() const;
     void SetAveWindSpeed(float value);
     bool GetGusting() const;
@@ -8596,7 +9092,8 @@ public:
     GCMolotovGrenade(std::string ptr);
     GCMolotovGrenade(void *ptr);
 
-
+    GCBaseCSGrenade GetParent() const;
+    void SetParent(GCBaseCSGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8619,10 +9116,12 @@ public:
     void SetRadius(float value);
     float GetDelay() const;
     void SetDelay(float value);
-    CUtlSymbolLarge GetStrTarget() const;
-    void SetStrTarget(CUtlSymbolLarge value);
+    std::string GetStrTarget() const;
+    void SetStrTarget(std::string value);
     GCBaseEntity GetActivator() const;
     void SetActivator(GCBaseEntity* value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8643,10 +9142,10 @@ public:
     void SetUpdateOnClient(bool value);
     ValueRemapperInputType_t GetInputType() const;
     void SetInputType(ValueRemapperInputType_t value);
-    CUtlSymbolLarge GetRemapLineStartName() const;
-    void SetRemapLineStartName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetRemapLineEndName() const;
-    void SetRemapLineEndName(CUtlSymbolLarge value);
+    std::string GetRemapLineStartName() const;
+    void SetRemapLineStartName(std::string value);
+    std::string GetRemapLineEndName() const;
+    void SetRemapLineEndName(std::string value);
     GCBaseEntity GetRemapLineStart() const;
     void SetRemapLineStart(GCBaseEntity* value);
     GCBaseEntity GetRemapLineEnd() const;
@@ -8661,14 +9160,14 @@ public:
     void SetRequiresUseKey(bool value);
     ValueRemapperOutputType_t GetOutputType() const;
     void SetOutputType(ValueRemapperOutputType_t value);
-    CUtlSymbolLarge GetOutputEntityName() const;
-    void SetOutputEntityName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOutputEntity2Name() const;
-    void SetOutputEntity2Name(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOutputEntity3Name() const;
-    void SetOutputEntity3Name(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOutputEntity4Name() const;
-    void SetOutputEntity4Name(CUtlSymbolLarge value);
+    std::string GetOutputEntityName() const;
+    void SetOutputEntityName(std::string value);
+    std::string GetOutputEntity2Name() const;
+    void SetOutputEntity2Name(std::string value);
+    std::string GetOutputEntity3Name() const;
+    void SetOutputEntity3Name(std::string value);
+    std::string GetOutputEntity4Name() const;
+    void SetOutputEntity4Name(std::string value);
     std::vector<GCBaseEntity*> GetOutputEntities() const;
     void SetOutputEntities(std::vector<GCBaseEntity*> value);
     ValueRemapperHapticsType_t GetHapticsType() const;
@@ -8693,22 +9192,24 @@ public:
     void SetFirstUpdate(bool value);
     float GetPreviousValue() const;
     void SetPreviousValue(float value);
+    float GetPreviousUpdateTickTime() const;
+    void SetPreviousUpdateTickTime(float value);
     Vector GetPreviousTestPoint() const;
     void SetPreviousTestPoint(Vector value);
     GCBasePlayerPawn GetUsingPlayer() const;
     void SetUsingPlayer(GCBasePlayerPawn* value);
     float GetCustomOutputValue() const;
     void SetCustomOutputValue(float value);
-    CUtlSymbolLarge GetSoundEngage() const;
-    void SetSoundEngage(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundDisengage() const;
-    void SetSoundDisengage(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundReachedValueZero() const;
-    void SetSoundReachedValueZero(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundReachedValueOne() const;
-    void SetSoundReachedValueOne(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundMovingLoop() const;
-    void SetSoundMovingLoop(CUtlSymbolLarge value);
+    std::string GetSoundEngage() const;
+    void SetSoundEngage(std::string value);
+    std::string GetSoundDisengage() const;
+    void SetSoundDisengage(std::string value);
+    std::string GetSoundReachedValueZero() const;
+    void SetSoundReachedValueZero(std::string value);
+    std::string GetSoundReachedValueOne() const;
+    void SetSoundReachedValueOne(std::string value);
+    std::string GetSoundMovingLoop() const;
+    void SetSoundMovingLoop(std::string value);
     GCEntityIOOutput GetOnReachedValueZero() const;
     void SetOnReachedValueZero(GCEntityIOOutput value);
     GCEntityIOOutput GetOnReachedValueOne() const;
@@ -8719,6 +9220,8 @@ public:
     void SetOnEngage(GCEntityIOOutput value);
     GCEntityIOOutput GetOnDisengage() const;
     void SetOnDisengage(GCEntityIOOutput value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8741,6 +9244,8 @@ public:
     void SetOuterMins(Vector value);
     Vector GetOuterMaxs() const;
     void SetOuterMaxs(Vector value);
+    GCLogicNPCCounter GetParent() const;
+    void SetParent(GCLogicNPCCounter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8755,7 +9260,8 @@ public:
     GCLightOrthoEntity(std::string ptr);
     GCLightOrthoEntity(void *ptr);
 
-
+    GCLightEntity GetParent() const;
+    void SetParent(GCLightEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8770,7 +9276,8 @@ public:
     GCEnvSoundscapeTriggerable(std::string ptr);
     GCEnvSoundscapeTriggerable(void *ptr);
 
-
+    GCEnvSoundscape GetParent() const;
+    void SetParent(GCEnvSoundscape value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8819,8 +9326,8 @@ public:
     void SetDynamicMaximumOcclusion(float value);
     GCEntityInstance GetDynamicEntity() const;
     void SetDynamicEntity(GCEntityInstance* value);
-    CUtlSymbolLarge GetDynamicEntityName() const;
-    void SetDynamicEntityName(CUtlSymbolLarge value);
+    std::string GetDynamicEntityName() const;
+    void SetDynamicEntityName(std::string value);
     float GetPathingDistanceNormFactor() const;
     void SetPathingDistanceNormFactor(float value);
     Vector GetPathingSourcePos() const;
@@ -8831,6 +9338,8 @@ public:
     void SetPathingDirection(Vector value);
     int32_t GetPathingSourceIndex() const;
     void SetPathingSourceIndex(int32_t value);
+    GCSoundOpvarSetPointBase GetParent() const;
+    void SetParent(GCSoundOpvarSetPointBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8875,6 +9384,12 @@ public:
     void SetHideHUD(uint32_t value);
     Gsky3dparams_t GetSkybox3d() const;
     void SetSkybox3d(Gsky3dparams_t value);
+    float GetTimeLastHurt() const;
+    void SetTimeLastHurt(float value);
+    float GetDeathTime() const;
+    void SetDeathTime(float value);
+    float GetNextSuicideTime() const;
+    void SetNextSuicideTime(float value);
     bool GetInitHUD() const;
     void SetInitHUD(bool value);
     GCAI_Expresser GetExpresser() const;
@@ -8889,6 +9404,8 @@ public:
     void SetHltvReplayEntity(CEntityIndex value);
     std::vector<Gsndopvarlatchdata_t> GetSndOpvarLatchData() const;
     void SetSndOpvarLatchData(std::vector<Gsndopvarlatchdata_t> value);
+    GCBaseCombatCharacter GetParent() const;
+    void SetParent(GCBaseCombatCharacter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8909,8 +9426,10 @@ public:
     void SetOnMoneySpentFail(GCEntityIOOutput value);
     int32_t GetMoney() const;
     void SetMoney(int32_t value);
-    CUtlString GetStrAwardText() const;
-    void SetStrAwardText(CUtlString value);
+    std::string GetStrAwardText() const;
+    void SetStrAwardText(std::string value);
+    GCRulePointEntity GetParent() const;
+    void SetParent(GCRulePointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8933,6 +9452,8 @@ public:
     void SetPlayerHasNoAmmo(GCEntityIOOutput value);
     GCEntityIOOutput GetPlayerDied() const;
     void SetPlayerDied(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8955,6 +9476,8 @@ public:
     void SetObserverLastMode(ObserverMode_t value);
     bool GetForcedObserverMode() const;
     void SetForcedObserverMode(bool value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8969,7 +9492,8 @@ public:
     GCWeaponZoneRepulsor(std::string ptr);
     GCWeaponZoneRepulsor(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -8988,8 +9512,10 @@ public:
     void SetDamage(float value);
     float GetDistance() const;
     void SetDistance(float value);
-    CUtlSymbolLarge GetDirectionEntityName() const;
-    void SetDirectionEntityName(CUtlSymbolLarge value);
+    std::string GetDirectionEntityName() const;
+    void SetDirectionEntityName(std::string value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9042,6 +9568,8 @@ public:
     void SetEntity_nLightProbeAtlasZ(int32_t value);
     bool GetEntity_bEnabled() const;
     void SetEntity_bEnabled(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9060,12 +9588,16 @@ public:
     void SetNextDrownDamageTime(float value);
     int32_t GetDrownDmgRate() const;
     void SetDrownDmgRate(int32_t value);
+    float GetAirFinishedTime() const;
+    void SetAirFinishedTime(float value);
     float GetWaterJumpTime() const;
     void SetWaterJumpTime(float value);
     Vector GetWaterJumpVel() const;
     void SetWaterJumpVel(Vector value);
     float GetSwimSoundTime() const;
     void SetSwimSoundTime(float value);
+    GCPlayer_WaterServices GetParent() const;
+    void SetParent(GCPlayer_WaterServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9080,7 +9612,8 @@ public:
     GCWeaponM249(std::string ptr);
     GCWeaponM249(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9103,6 +9636,8 @@ public:
     void SetSelfIllumScale(float value);
     Color GetColorTint() const;
     void SetColorTint(Color value);
+    GCParticleSystem GetParent() const;
+    void SetParent(GCParticleSystem value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9117,7 +9652,8 @@ public:
     GCFuncVehicleClip(std::string ptr);
     GCFuncVehicleClip(void *ptr);
 
-
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9134,10 +9670,12 @@ public:
 
     bool GetDisabled() const;
     void SetDisabled(bool value);
-    CUtlSymbolLarge GetSoundAreaType() const;
-    void SetSoundAreaType(CUtlSymbolLarge value);
+    std::string GetSoundAreaType() const;
+    void SetSoundAreaType(std::string value);
     Vector GetPos() const;
     void SetPos(Vector value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9158,12 +9696,14 @@ public:
     void SetDisabled(int32_t value);
     bool GetSolidBsp() const;
     void SetSolidBsp(bool value);
-    CUtlSymbolLarge GetExcludedClass() const;
-    void SetExcludedClass(CUtlSymbolLarge value);
+    std::string GetExcludedClass() const;
+    void SetExcludedClass(std::string value);
     bool GetInvertExclusion() const;
     void SetInvertExclusion(bool value);
     bool GetScriptedMovement() const;
     void SetScriptedMovement(bool value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9178,7 +9718,8 @@ public:
     GCEnvFunnel(std::string ptr);
     GCEnvFunnel(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9193,6 +9734,8 @@ public:
     GSequenceHistory_t(std::string ptr);
     GSequenceHistory_t(void *ptr);
 
+    float GetSeqStartTime() const;
+    void SetSeqStartTime(float value);
     float GetSeqFixedCycle() const;
     void SetSeqFixedCycle(float value);
     AnimLoopMode_t GetSeqLoopMode() const;
@@ -9215,7 +9758,8 @@ public:
     GCCSGameModeRules_Noop(std::string ptr);
     GCCSGameModeRules_Noop(void *ptr);
 
-
+    GCCSGameModeRules GetParent() const;
+    void SetParent(GCCSGameModeRules value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9238,6 +9782,8 @@ public:
     void SetLastCompareResult(int32_t value);
     int32_t GetLastFireResult() const;
     void SetLastFireResult(int32_t value);
+    float GetFireTime() const;
+    void SetFireTime(float value);
     float GetFireInterval() const;
     void SetFireInterval(float value);
     float GetLastAngVelocity() const;
@@ -9258,6 +9804,8 @@ public:
     void SetOnGreaterThanOrEqualTo(GCEntityIOOutput value);
     GCEntityIOOutput GetOnEqualTo() const;
     void SetOnEqualTo(GCEntityIOOutput value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9282,6 +9830,8 @@ public:
     void SetExplodeEffectTickBegin(int32_t value);
     Vector GetExplodeEffectOrigin() const;
     void SetExplodeEffectOrigin(Vector value);
+    float GetSpawnTime() const;
+    void SetSpawnTime(float value);
     uint8_t GetOGSExtraFlags() const;
     void SetOGSExtraFlags(uint8_t value);
     bool GetDetonationRecorded() const;
@@ -9290,6 +9840,8 @@ public:
     void SetItemIndex(uint16_t value);
     Vector GetOriginalSpawnLocation() const;
     void SetOriginalSpawnLocation(Vector value);
+    float GetLastBounceSoundTime() const;
+    void SetLastBounceSoundTime(float value);
     Vector GetGrenadeSpin() const;
     void SetGrenadeSpin(Vector value);
     Vector GetLastHitSurfaceNormal() const;
@@ -9300,6 +9852,8 @@ public:
     void SetHasEverHitPlayer(bool value);
     bool GetClearFromPlayers() const;
     void SetClearFromPlayers(bool value);
+    GCBaseGrenade GetParent() const;
+    void SetParent(GCBaseGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9314,7 +9868,8 @@ public:
     GCHostageRescueZoneShim(std::string ptr);
     GCHostageRescueZoneShim(void *ptr);
 
-
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9329,24 +9884,24 @@ public:
     GCEnvInstructorHint(std::string ptr);
     GCEnvInstructorHint(void *ptr);
 
-    CUtlSymbolLarge GetName() const;
-    void SetName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetReplace_Key() const;
-    void SetReplace_Key(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetHintTargetEntity() const;
-    void SetHintTargetEntity(CUtlSymbolLarge value);
+    std::string GetName() const;
+    void SetName(std::string value);
+    std::string GetReplace_Key() const;
+    void SetReplace_Key(std::string value);
+    std::string GetHintTargetEntity() const;
+    void SetHintTargetEntity(std::string value);
     int32_t GetTimeout() const;
     void SetTimeout(int32_t value);
     int32_t GetDisplayLimit() const;
     void SetDisplayLimit(int32_t value);
-    CUtlSymbolLarge GetIcon_Onscreen() const;
-    void SetIcon_Onscreen(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetIcon_Offscreen() const;
-    void SetIcon_Offscreen(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetCaption() const;
-    void SetCaption(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetActivatorCaption() const;
-    void SetActivatorCaption(CUtlSymbolLarge value);
+    std::string GetIcon_Onscreen() const;
+    void SetIcon_Onscreen(std::string value);
+    std::string GetIcon_Offscreen() const;
+    void SetIcon_Offscreen(std::string value);
+    std::string GetCaption() const;
+    void SetCaption(std::string value);
+    std::string GetActivatorCaption() const;
+    void SetActivatorCaption(std::string value);
     Color GetColor() const;
     void SetColor(Color value);
     float GetIconOffset() const;
@@ -9369,14 +9924,16 @@ public:
     void SetInstanceType(int32_t value);
     bool GetSuppressRest() const;
     void SetSuppressRest(bool value);
-    CUtlSymbolLarge GetBinding() const;
-    void SetBinding(CUtlSymbolLarge value);
+    std::string GetBinding() const;
+    void SetBinding(std::string value);
     bool GetAllowNoDrawTarget() const;
     void SetAllowNoDrawTarget(bool value);
     bool GetAutoStart() const;
     void SetAutoStart(bool value);
     bool GetLocalPlayerOnly() const;
     void SetLocalPlayerOnly(bool value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9395,6 +9952,8 @@ public:
     void SetEnd(Vector value);
     float GetDelay() const;
     void SetDelay(float value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9409,10 +9968,12 @@ public:
     GCInfoGameEventProxy(std::string ptr);
     GCInfoGameEventProxy(void *ptr);
 
-    CUtlSymbolLarge GetEventName() const;
-    void SetEventName(CUtlSymbolLarge value);
+    std::string GetEventName() const;
+    void SetEventName(std::string value);
     float GetRange() const;
     void SetRange(float value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9477,6 +10038,8 @@ public:
     void SetIsOn(bool value);
     GCPointCamera GetNext() const;
     void SetNext(GCPointCamera* value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9493,6 +10056,8 @@ public:
 
     GCSkeletonInstance GetSkeletonInstance() const;
     void SetSkeletonInstance(GCSkeletonInstance value);
+    GCBodyComponent GetParent() const;
+    void SetParent(GCBodyComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9507,7 +10072,8 @@ public:
     GCFuncLadderAlias_func_useableladder(std::string ptr);
     GCFuncLadderAlias_func_useableladder(void *ptr);
 
-
+    GCFuncLadder GetParent() const;
+    void SetParent(GCFuncLadder value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9544,6 +10110,8 @@ public:
     void SetTimeIntoFrame(float value);
     int32_t GetDirection() const;
     void SetDirection(int32_t value);
+    GCPathKeyFrame GetParent() const;
+    void SetParent(GCPathKeyFrame value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9560,10 +10128,12 @@ public:
 
     bool GetDisabled() const;
     void SetDisabled(bool value);
-    CUtlSymbolLarge GetInteractsAs() const;
-    void SetInteractsAs(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetInteractsWith() const;
-    void SetInteractsWith(CUtlSymbolLarge value);
+    std::string GetInteractsAs() const;
+    void SetInteractsAs(std::string value);
+    std::string GetInteractsWith() const;
+    void SetInteractsWith(std::string value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9578,7 +10148,8 @@ public:
     GCWeaponMAC10(std::string ptr);
     GCWeaponMAC10(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9619,7 +10190,8 @@ public:
     GCWeaponRevolver(std::string ptr);
     GCWeaponRevolver(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9634,8 +10206,10 @@ public:
     GCOrnamentProp(std::string ptr);
     GCOrnamentProp(void *ptr);
 
-    CUtlSymbolLarge GetInitialOwner() const;
-    void SetInitialOwner(CUtlSymbolLarge value);
+    std::string GetInitialOwner() const;
+    void SetInitialOwner(std::string value);
+    GCDynamicProp GetParent() const;
+    void SetParent(GCDynamicProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9650,8 +10224,10 @@ public:
     GCLogicGameEvent(std::string ptr);
     GCLogicGameEvent(void *ptr);
 
-    CUtlSymbolLarge GetEventName() const;
-    void SetEventName(CUtlSymbolLarge value);
+    std::string GetEventName() const;
+    void SetEventName(std::string value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9668,8 +10244,10 @@ public:
 
     float GetScale() const;
     void SetScale(float value);
-    CUtlSymbolLarge GetParentAttachment() const;
-    void SetParentAttachment(CUtlSymbolLarge value);
+    std::string GetParentAttachment() const;
+    void SetParentAttachment(std::string value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9714,6 +10292,8 @@ public:
     void SetVersion(uint8_t value);
     std::vector<uint8_t> GetSignature() const;
     void SetSignature(std::vector<uint8_t> value);
+    GCModelPointEntity GetParent() const;
+    void SetParent(GCModelPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9740,12 +10320,14 @@ public:
     void SetIsHeistBombTarget(bool value);
     bool GetBombPlantedHere() const;
     void SetBombPlantedHere(bool value);
-    CUtlSymbolLarge GetMountTarget() const;
-    void SetMountTarget(CUtlSymbolLarge value);
+    std::string GetMountTarget() const;
+    void SetMountTarget(std::string value);
     GCBaseEntity GetInstructorHint() const;
     void SetInstructorHint(GCBaseEntity* value);
     int32_t GetBombSiteDesignation() const;
     void SetBombSiteDesignation(int32_t value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9766,16 +10348,18 @@ public:
     void SetDampingRatio(float value);
     float GetRestLength() const;
     void SetRestLength(float value);
-    CUtlSymbolLarge GetNameAttachStart() const;
-    void SetNameAttachStart(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetNameAttachEnd() const;
-    void SetNameAttachEnd(CUtlSymbolLarge value);
+    std::string GetNameAttachStart() const;
+    void SetNameAttachStart(std::string value);
+    std::string GetNameAttachEnd() const;
+    void SetNameAttachEnd(std::string value);
     Vector GetStart() const;
     void SetStart(Vector value);
     Vector GetEnd() const;
     void SetEnd(Vector value);
     uint32_t GetTeleportTick() const;
     void SetTeleportTick(uint32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9816,6 +10400,8 @@ public:
     void SetEntity_nLightProbeAtlasZ(int32_t value);
     bool GetEntity_bEnabled() const;
     void SetEntity_bEnabled(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9832,6 +10418,8 @@ public:
 
     std::vector<CUtlString> GetWeaponSequence() const;
     void SetWeaponSequence(std::vector<CUtlString> value);
+    GCCSGameModeRules GetParent() const;
+    void SetParent(GCCSGameModeRules value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9848,6 +10436,8 @@ public:
 
     Vector GetExtent() const;
     void SetExtent(Vector value);
+    GCTriggerPush GetParent() const;
+    void SetParent(GCTriggerPush value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9864,6 +10454,8 @@ public:
 
     float GetLifetime() const;
     void SetLifetime(float value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9878,7 +10470,8 @@ public:
     GCFuncWallToggle(std::string ptr);
     GCFuncWallToggle(void *ptr);
 
-
+    GCFuncWall GetParent() const;
+    void SetParent(GCFuncWall value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9901,10 +10494,10 @@ public:
     void SetPlayerControllerDamager(GCCSPlayerController* value);
     GCCSPlayerController GetPlayerControllerRecipient() const;
     void SetPlayerControllerRecipient(GCCSPlayerController* value);
-    CUtlString GetPlayerDamagerName() const;
-    void SetPlayerDamagerName(CUtlString value);
-    CUtlString GetPlayerRecipientName() const;
-    void SetPlayerRecipientName(CUtlString value);
+    std::string GetPlayerDamagerName() const;
+    void SetPlayerDamagerName(std::string value);
+    std::string GetPlayerRecipientName() const;
+    void SetPlayerRecipientName(std::string value);
     uint64_t GetDamagerXuid() const;
     void SetDamagerXuid(uint64_t value);
     uint64_t GetRecipientXuid() const;
@@ -9941,6 +10534,8 @@ public:
     void SetMinHitPoints(int32_t value);
     int32_t GetMinHitPointsToCommit() const;
     void SetMinHitPointsToCommit(int32_t value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9959,6 +10554,8 @@ public:
     void SetSendUpdate(int32_t value);
     std::vector<GCDamageRecord> GetDamageList() const;
     void SetDamageList(std::vector<GCDamageRecord> value);
+    GCPlayerControllerComponent GetParent() const;
+    void SetParent(GCPlayerControllerComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9983,6 +10580,8 @@ public:
     void SetEnableRendering(bool value);
     bool GetInterpolationReadyToDraw() const;
     void SetInterpolationReadyToDraw(bool value);
+    GCEntityComponent GetParent() const;
+    void SetParent(GCEntityComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -9997,8 +10596,8 @@ public:
     GCSoundEventPathCornerEntity(std::string ptr);
     GCSoundEventPathCornerEntity(void *ptr);
 
-    CUtlSymbolLarge GetPathCorner() const;
-    void SetPathCorner(CUtlSymbolLarge value);
+    std::string GetPathCorner() const;
+    void SetPathCorner(std::string value);
     int32_t GetCountMax() const;
     void SetCountMax(int32_t value);
     float GetDistanceMax() const;
@@ -10009,6 +10608,8 @@ public:
     void SetDotProductMax(float value);
     bool GetPlaying() const;
     void SetPlaying(bool value);
+    GCSoundEventEntity GetParent() const;
+    void SetParent(GCSoundEventEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10023,7 +10624,8 @@ public:
     GCEnvSoundscapeProxyAlias_snd_soundscape_proxy(std::string ptr);
     GCEnvSoundscapeProxyAlias_snd_soundscape_proxy(void *ptr);
 
-
+    GCEnvSoundscapeProxy GetParent() const;
+    void SetParent(GCEnvSoundscapeProxy value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10084,8 +10686,8 @@ public:
     void SetOrthoLightHeight(float value);
     int32_t GetStyle() const;
     void SetStyle(int32_t value);
-    CUtlString GetPattern() const;
-    void SetPattern(CUtlString value);
+    std::string GetPattern() const;
+    void SetPattern(std::string value);
     int32_t GetCascadeRenderStaticObjects() const;
     void SetCascadeRenderStaticObjects(int32_t value);
     float GetShadowCascadeCrossFade() const;
@@ -10162,12 +10764,16 @@ public:
     void SetUseSecondaryColor(bool value);
     bool GetMixedShadows() const;
     void SetMixedShadows(bool value);
+    float GetLightStyleStartTime() const;
+    void SetLightStyleStartTime(float value);
     float GetCapsuleLength() const;
     void SetCapsuleLength(float value);
     float GetMinRoughness() const;
     void SetMinRoughness(float value);
     bool GetPvsModifyEntity() const;
     void SetPvsModifyEntity(bool value);
+    GCEntityComponent GetParent() const;
+    void SetParent(GCEntityComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10194,6 +10800,12 @@ public:
     void SetSmokeDetonationPos(Vector value);
     std::vector<uint8> GetVoxelFrameData() const;
     void SetVoxelFrameData(std::vector<uint8> value);
+    float GetLastBounce() const;
+    void SetLastBounce(float value);
+    float GetFllastSimulationTime() const;
+    void SetFllastSimulationTime(float value);
+    GCBaseCSGrenadeProjectile GetParent() const;
+    void SetParent(GCBaseCSGrenadeProjectile value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10210,6 +10822,8 @@ public:
 
     Vector GetExtent() const;
     void SetExtent(Vector value);
+    GCTriggerMultiple GetParent() const;
+    void SetParent(GCTriggerMultiple value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10232,6 +10846,8 @@ public:
     void SetHeightTolerance(float value);
     float GetSizeSqr() const;
     void SetSizeSqr(float value);
+    GCSoundOpvarSetPointEntity GetParent() const;
+    void SetParent(GCSoundOpvarSetPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10248,6 +10864,8 @@ public:
 
     GCGameSceneNode GetSceneNode() const;
     void SetSceneNode(GCGameSceneNode value);
+    GCBodyComponent GetParent() const;
+    void SetParent(GCBodyComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10264,6 +10882,8 @@ public:
 
     int32_t GetDamageType() const;
     void SetDamageType(int32_t value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10342,6 +10962,8 @@ public:
 
     float GetRadius() const;
     void SetRadius(float value);
+    GCSoundAreaEntityBase GetParent() const;
+    void SetParent(GCSoundAreaEntityBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10358,6 +10980,12 @@ public:
 
     GCBaseEntity GetLastKnownUseEntity() const;
     void SetLastKnownUseEntity(GCBaseEntity* value);
+    float GetLastUseTimeStamp() const;
+    void SetLastUseTimeStamp(float value);
+    float GetTimeLastUsedWindow() const;
+    void SetTimeLastUsedWindow(float value);
+    GCPlayer_UseServices GetParent() const;
+    void SetParent(GCPlayer_UseServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10372,7 +11000,8 @@ public:
     GCCSGO_WingmanIntroCounterTerroristPosition(std::string ptr);
     GCCSGO_WingmanIntroCounterTerroristPosition(void *ptr);
 
-
+    GCCSGO_WingmanIntroCharacterPosition GetParent() const;
+    void SetParent(GCCSGO_WingmanIntroCharacterPosition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10387,7 +11016,8 @@ public:
     GCItemKevlar(std::string ptr);
     GCItemKevlar(void *ptr);
 
-
+    GCItem GetParent() const;
+    void SetParent(GCItem value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10408,6 +11038,8 @@ public:
     void SetDamage(float value);
     float GetDamageCap() const;
     void SetDamageCap(float value);
+    float GetLastDmgTime() const;
+    void SetLastDmgTime(float value);
     float GetForgivenessDelay() const;
     void SetForgivenessDelay(float value);
     int32_t GetBitsDamageInflict() const;
@@ -10426,6 +11058,8 @@ public:
     void SetOnHurt(GCEntityIOOutput value);
     GCEntityIOOutput GetOnHurtPlayer() const;
     void SetOnHurtPlayer(GCEntityIOOutput value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10452,6 +11086,8 @@ public:
     void SetMinTwistAngle(float value);
     float GetMaxTwistAngle() const;
     void SetMaxTwistAngle(float value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10504,6 +11140,8 @@ public:
     void SetPhaseStartTick(int32_t value);
     int32_t GetPhaseDurationTicks() const;
     void SetPhaseDurationTicks(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10518,7 +11156,8 @@ public:
     GCCSMinimapBoundary(std::string ptr);
     GCCSMinimapBoundary(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10541,6 +11180,8 @@ public:
     void SetCLastActiveSounds(int32_t value);
     std::vector<GCSound> GetSoundPool() const;
     void SetSoundPool(std::vector<GCSound> value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10555,7 +11196,8 @@ public:
     GCInfoSpawnGroupLandmark(std::string ptr);
     GCInfoSpawnGroupLandmark(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10578,6 +11220,8 @@ public:
     void SetInCrouch(bool value);
     uint32_t GetCrouchState() const;
     void SetCrouchState(uint32_t value);
+    float GetCrouchTransitionStartTime() const;
+    void SetCrouchTransitionStartTime(float value);
     bool GetDucked() const;
     void SetDucked(bool value);
     bool GetDucking() const;
@@ -10596,6 +11240,8 @@ public:
     void SetTargetVolume(int32_t value);
     Vector GetSmoothedVelocity() const;
     void SetSmoothedVelocity(Vector value);
+    GCPlayer_MovementServices GetParent() const;
+    void SetParent(GCPlayer_MovementServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10616,6 +11262,8 @@ public:
     void SetDangerousTimer(float value);
     int32_t GetMinHitPoints() const;
     void SetMinHitPoints(int32_t value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10652,6 +11300,8 @@ public:
     void SetSteeringAxisFriction(float value);
     float GetSpinAxisFriction() const;
     void SetSpinAxisFriction(float value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10678,6 +11328,8 @@ public:
     void SetEnableLinearConstraint(bool value);
     bool GetEnableAngularConstraint() const;
     void SetEnableAngularConstraint(bool value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10708,7 +11360,8 @@ public:
     GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(std::string ptr);
     GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(void *ptr);
 
-
+    GCEnvSoundscapeTriggerable GetParent() const;
+    void SetParent(GCEnvSoundscapeTriggerable value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10735,6 +11388,8 @@ public:
     void SetTotalCashSpent(int32_t value);
     int32_t GetCashSpentThisRound() const;
     void SetCashSpentThisRound(int32_t value);
+    GCPlayerControllerComponent GetParent() const;
+    void SetParent(GCPlayerControllerComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10755,6 +11410,8 @@ public:
     void SetSpriteFramerate(float value);
     float GetFrame() const;
     void SetFrame(float value);
+    float GetDieTime() const;
+    void SetDieTime(float value);
     uint32_t GetBrightness() const;
     void SetBrightness(uint32_t value);
     float GetBrightnessDuration() const;
@@ -10769,20 +11426,28 @@ public:
     void SetGlowProxySize(float value);
     float GetHDRColorScale() const;
     void SetHDRColorScale(float value);
+    float GetLastTime() const;
+    void SetLastTime(float value);
     float GetMaxFrame() const;
     void SetMaxFrame(float value);
     float GetStartScale() const;
     void SetStartScale(float value);
     float GetDestScale() const;
     void SetDestScale(float value);
+    float GetScaleTimeStart() const;
+    void SetScaleTimeStart(float value);
     int32_t GetStartBrightness() const;
     void SetStartBrightness(int32_t value);
     int32_t GetDestBrightness() const;
     void SetDestBrightness(int32_t value);
+    float GetBrightnessTimeStart() const;
+    void SetBrightnessTimeStart(float value);
     int32_t GetSpriteWidth() const;
     void SetSpriteWidth(int32_t value);
     int32_t GetSpriteHeight() const;
     void SetSpriteHeight(int32_t value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10815,6 +11480,8 @@ public:
     void SetOuterMins(Vector value);
     Vector GetOuterMaxs() const;
     void SetOuterMaxs(Vector value);
+    GCSoundOpvarSetPointEntity GetParent() const;
+    void SetParent(GCSoundOpvarSetPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10829,7 +11496,8 @@ public:
     GCWeaponM4A1(std::string ptr);
     GCWeaponM4A1(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10848,6 +11516,8 @@ public:
     void SetFrameRate(float value);
     float GetHDRColorScale() const;
     void SetHDRColorScale(float value);
+    float GetFireTime() const;
+    void SetFireTime(float value);
     float GetDamage() const;
     void SetDamage(float value);
     uint8_t GetNumBeamEnts() const;
@@ -10884,6 +11554,8 @@ public:
     void SetEndEntity(GCBaseEntity* value);
     int32_t GetDissolveType() const;
     void SetDissolveType(int32_t value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10898,7 +11570,8 @@ public:
     GCCommentaryViewPosition(std::string ptr);
     GCCommentaryViewPosition(void *ptr);
 
-
+    GCSprite GetParent() const;
+    void SetParent(GCSprite value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10913,7 +11586,8 @@ public:
     GCTonemapController2Alias_env_tonemap_controller2(std::string ptr);
     GCTonemapController2Alias_env_tonemap_controller2(void *ptr);
 
-
+    GCTonemapController2 GetParent() const;
+    void SetParent(GCTonemapController2 value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10936,6 +11610,8 @@ public:
     void SetAddLength(float value);
     float GetGearRatio() const;
     void SetGearRatio(float value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10950,7 +11626,8 @@ public:
     GCGameRulesProxy(std::string ptr);
     GCGameRulesProxy(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10965,7 +11642,8 @@ public:
     GCWeaponMP7(std::string ptr);
     GCWeaponMP7(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -10990,6 +11668,8 @@ public:
     void SetNumRoundKillsHeadshots(int32_t value);
     uint32_t GetTotalRoundDamageDealt() const;
     void SetTotalRoundDamageDealt(uint32_t value);
+    GCPlayerControllerComponent GetParent() const;
+    void SetParent(GCPlayerControllerComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11004,7 +11684,8 @@ public:
     GCPrecipitationBlocker(std::string ptr);
     GCPrecipitationBlocker(void *ptr);
 
-
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11019,7 +11700,8 @@ public:
     GCBaseFlexAlias_funCBaseFlex(std::string ptr);
     GCBaseFlexAlias_funCBaseFlex(void *ptr);
 
-
+    GCBaseFlex GetParent() const;
+    void SetParent(GCBaseFlex value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11082,6 +11764,8 @@ public:
     void SetProximityTimer(GCountdownTimer value);
     std::vector<GCFish*> GetVisible() const;
     void SetVisible(std::vector<GCFish*> value);
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11102,6 +11786,8 @@ public:
     void SetRadius(float value);
     float GetDamage() const;
     void SetDamage(float value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11116,7 +11802,8 @@ public:
     GCInfoLadderDismount(std::string ptr);
     GCInfoLadderDismount(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11131,12 +11818,14 @@ public:
     GCTriggerGameEvent(std::string ptr);
     GCTriggerGameEvent(void *ptr);
 
-    CUtlString GetStrStartTouchEventName() const;
-    void SetStrStartTouchEventName(CUtlString value);
-    CUtlString GetStrEndTouchEventName() const;
-    void SetStrEndTouchEventName(CUtlString value);
-    CUtlString GetStrTriggerID() const;
-    void SetStrTriggerID(CUtlString value);
+    std::string GetStrStartTouchEventName() const;
+    void SetStrStartTouchEventName(std::string value);
+    std::string GetStrEndTouchEventName() const;
+    void SetStrEndTouchEventName(std::string value);
+    std::string GetStrTriggerID() const;
+    void SetStrTriggerID(std::string value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11173,6 +11862,8 @@ public:
 
     int32_t GetNpcEvents() const;
     void SetNpcEvents(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11187,7 +11878,8 @@ public:
     GCInfoData(std::string ptr);
     GCInfoData(void *ptr);
 
-
+    GCServerOnlyEntity GetParent() const;
+    void SetParent(GCServerOnlyEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11202,7 +11894,8 @@ public:
     GCHostageCarriableProp(std::string ptr);
     GCHostageCarriableProp(void *ptr);
 
-
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11217,7 +11910,8 @@ public:
     GCLightSpotEntity(std::string ptr);
     GCLightSpotEntity(void *ptr);
 
-
+    GCLightEntity GetParent() const;
+    void SetParent(GCLightEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11252,8 +11946,8 @@ public:
     void SetMaxSpeed(float value);
     float GetBlockDamage() const;
     void SetBlockDamage(float value);
-    CUtlSymbolLarge GetNoiseRunning() const;
-    void SetNoiseRunning(CUtlSymbolLarge value);
+    std::string GetNoiseRunning() const;
+    void SetNoiseRunning(std::string value);
     bool GetReversed() const;
     void SetReversed(bool value);
     bool GetAccelDecel() const;
@@ -11268,6 +11962,8 @@ public:
     void SetClientOrigin(Vector value);
     QAngle GetClientAngles() const;
     void SetClientAngles(QAngle value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11286,8 +11982,12 @@ public:
     void SetDecoyShotTick(int32_t value);
     int32_t GetShotsRemaining() const;
     void SetShotsRemaining(int32_t value);
+    float GetExpireTime() const;
+    void SetExpireTime(float value);
     uint16_t GetDecoyWeaponDefIndex() const;
     void SetDecoyWeaponDefIndex(uint16_t value);
+    GCBaseCSGrenadeProjectile GetParent() const;
+    void SetParent(GCBaseCSGrenadeProjectile value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11302,8 +12002,10 @@ public:
     GCCSPlace(std::string ptr);
     GCCSPlace(void *ptr);
 
-    CUtlSymbolLarge GetName() const;
-    void SetName(CUtlSymbolLarge value);
+    std::string GetName() const;
+    void SetName(std::string value);
+    GCServerOnlyModelEntity GetParent() const;
+    void SetParent(GCServerOnlyModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11318,7 +12020,8 @@ public:
     GCFuncTrainControls(std::string ptr);
     GCFuncTrainControls(void *ptr);
 
-
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11345,12 +12048,16 @@ public:
     void SetFadeOutStart(float value);
     float GetFadeOutLength() const;
     void SetFadeOutLength(float value);
+    float GetStartTime() const;
+    void SetStartTime(float value);
     EntityDisolveType_t GetDissolveType() const;
     void SetDissolveType(EntityDisolveType_t value);
     Vector GetDissolverOrigin() const;
     void SetDissolverOrigin(Vector value);
     uint32_t GetMagnitude() const;
     void SetMagnitude(uint32_t value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11367,8 +12074,8 @@ public:
 
     bool GetDisabled() const;
     void SetDisabled(bool value);
-    CUtlSymbolLarge GetLookAtName() const;
-    void SetLookAtName(CUtlSymbolLarge value);
+    std::string GetLookAtName() const;
+    void SetLookAtName(std::string value);
     GCBaseEntity GetTargetEntity() const;
     void SetTargetEntity(GCBaseEntity* value);
     GCBaseEntity GetLookAtEntity() const;
@@ -11377,12 +12084,16 @@ public:
     void SetDuration(float value);
     float GetDotTolerance() const;
     void SetDotTolerance(float value);
+    float GetFacingTime() const;
+    void SetFacingTime(float value);
     bool GetFired() const;
     void SetFired(bool value);
     GCEntityIOOutput GetOnFacingLookat() const;
     void SetOnFacingLookat(GCEntityIOOutput value);
     GCEntityIOOutput GetOnNotFacingLookat() const;
     void SetOnNotFacingLookat(GCEntityIOOutput value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11401,6 +12112,8 @@ public:
     void SetMins(Vector value);
     Vector GetMaxs() const;
     void SetMaxs(Vector value);
+    GCSoundEventEntity GetParent() const;
+    void SetParent(GCSoundEventEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11417,6 +12130,8 @@ public:
 
     bool GetNegated() const;
     void SetNegated(bool value);
+    GCBtNodeDecorator GetParent() const;
+    void SetParent(GCBtNodeDecorator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11476,6 +12191,8 @@ public:
     void SetOverrideSunLightStrength(bool value);
     bool GetOverrideNoiseStrength() const;
     void SetOverrideNoiseStrength(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11492,10 +12209,10 @@ public:
 
     int32_t GetActive() const;
     void SetActive(int32_t value);
-    CUtlSymbolLarge GetStartEntity() const;
-    void SetStartEntity(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetEndEntity() const;
-    void SetEndEntity(CUtlSymbolLarge value);
+    std::string GetStartEntity() const;
+    void SetStartEntity(std::string value);
+    std::string GetEndEntity() const;
+    void SetEndEntity(std::string value);
     float GetLife() const;
     void SetLife(float value);
     float GetBoltWidth() const;
@@ -11506,8 +12223,8 @@ public:
     void SetSpeed(int32_t value);
     float GetRestrike() const;
     void SetRestrike(float value);
-    CUtlSymbolLarge GetSpriteName() const;
-    void SetSpriteName(CUtlSymbolLarge value);
+    std::string GetSpriteName() const;
+    void SetSpriteName(std::string value);
     int32_t GetFrameStart() const;
     void SetFrameStart(int32_t value);
     Vector GetEndPointWorld() const;
@@ -11518,14 +12235,16 @@ public:
     void SetRadius(float value);
     Touch_t GetTouchType() const;
     void SetTouchType(Touch_t value);
-    CUtlSymbolLarge GetFilterName() const;
-    void SetFilterName(CUtlSymbolLarge value);
+    std::string GetFilterName() const;
+    void SetFilterName(std::string value);
     GCBaseEntity GetFilter() const;
     void SetFilter(GCBaseEntity* value);
-    CUtlSymbolLarge GetDecal() const;
-    void SetDecal(CUtlSymbolLarge value);
+    std::string GetDecal() const;
+    void SetDecal(std::string value);
     GCEntityIOOutput GetOnTouchedByEntity() const;
     void SetOnTouchedByEntity(GCEntityIOOutput value);
+    GCBeam GetParent() const;
+    void SetParent(GCBeam value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11540,7 +12259,8 @@ public:
     GCFuncIllusionary(std::string ptr);
     GCFuncIllusionary(void *ptr);
 
-
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11575,8 +12295,12 @@ public:
     void SetTotalMass(float value);
     float GetRadius() const;
     void SetRadius(float value);
+    float GetNextSuckTime() const;
+    void SetNextSuckTime(float value);
     int32_t GetMaxObjectsAttached() const;
     void SetMaxObjectsAttached(int32_t value);
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11591,7 +12315,8 @@ public:
     GCSceneEntityAlias_logic_choreographed_scene(std::string ptr);
     GCSceneEntityAlias_logic_choreographed_scene(void *ptr);
 
-
+    GCSceneEntity GetParent() const;
+    void SetParent(GCSceneEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11610,6 +12335,8 @@ public:
     void SetDisabled(bool value);
     int32_t GetBlockedTeamNumber() const;
     void SetBlockedTeamNumber(int32_t value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11632,6 +12359,8 @@ public:
     void SetForce(float value);
     Vector GetAxis() const;
     void SetAxis(Vector value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11646,14 +12375,16 @@ public:
     GCFuncElectrifiedVolume(std::string ptr);
     GCFuncElectrifiedVolume(void *ptr);
 
-    CUtlSymbolLarge GetEffectName() const;
-    void SetEffectName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetEffectInterpenetrateName() const;
-    void SetEffectInterpenetrateName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetEffectZapName() const;
-    void SetEffectZapName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetEffectSource() const;
-    void SetEffectSource(CUtlSymbolLarge value);
+    std::string GetEffectName() const;
+    void SetEffectName(std::string value);
+    std::string GetEffectInterpenetrateName() const;
+    void SetEffectInterpenetrateName(std::string value);
+    std::string GetEffectZapName() const;
+    void SetEffectZapName(std::string value);
+    std::string GetEffectSource() const;
+    void SetEffectSource(std::string value);
+    GCFuncBrush GetParent() const;
+    void SetParent(GCFuncBrush value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11672,6 +12403,8 @@ public:
     void SetDisabled(bool value);
     GCBaseEntity GetTargetEntity() const;
     void SetTargetEntity(GCBaseEntity* value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11702,8 +12435,10 @@ public:
     GCFilterClass(std::string ptr);
     GCFilterClass(void *ptr);
 
-    CUtlSymbolLarge GetFilterClass() const;
-    void SetFilterClass(CUtlSymbolLarge value);
+    std::string GetFilterClass() const;
+    void SetFilterClass(std::string value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11718,7 +12453,8 @@ public:
     GCMelee(std::string ptr);
     GCMelee(void *ptr);
 
-
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11733,7 +12469,8 @@ public:
     GCMultiplayRules(std::string ptr);
     GCMultiplayRules(void *ptr);
 
-
+    GCGameRules GetParent() const;
+    void SetParent(GCGameRules value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11748,7 +12485,8 @@ public:
     GCFilterLOS(std::string ptr);
     GCFilterLOS(void *ptr);
 
-
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11813,6 +12551,8 @@ public:
     void SetOnStartTouch(GCEntityIOOutput value);
     GCBasePlayerPawn GetCarryingPlayer() const;
     void SetCarryingPlayer(GCBasePlayerPawn* value);
+    GCBreakable GetParent() const;
+    void SetParent(GCBreakable value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11827,8 +12567,14 @@ public:
     GCSensorGrenadeProjectile(std::string ptr);
     GCSensorGrenadeProjectile(void *ptr);
 
+    float GetExpireTime() const;
+    void SetExpireTime(float value);
+    float GetNextDetectPlayerSound() const;
+    void SetNextDetectPlayerSound(float value);
     GCBaseEntity GetDisplayGrenade() const;
     void SetDisplayGrenade(GCBaseEntity* value);
+    GCBaseCSGrenadeProjectile GetParent() const;
+    void SetParent(GCBaseCSGrenadeProjectile value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11869,6 +12615,8 @@ public:
     void SetRemainingTime(float value);
     bool GetPaused() const;
     void SetPaused(bool value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11883,7 +12631,8 @@ public:
     GCCSGO_TeamIntroCounterTerroristPosition(std::string ptr);
     GCCSGO_TeamIntroCounterTerroristPosition(void *ptr);
 
-
+    GCCSGO_TeamIntroCharacterPosition GetParent() const;
+    void SetParent(GCCSGO_TeamIntroCharacterPosition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11898,7 +12647,8 @@ public:
     GCHEGrenadeProjectile(std::string ptr);
     GCHEGrenadeProjectile(void *ptr);
 
-
+    GCBaseCSGrenadeProjectile GetParent() const;
+    void SetParent(GCBaseCSGrenadeProjectile value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11915,6 +12665,8 @@ public:
 
     GCEnvWindShared GetEnvWindShared() const;
     void SetEnvWindShared(GCEnvWindShared value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11943,6 +12695,8 @@ public:
     void SetCompressionType(TimelineCompression_t value);
     bool GetStopped() const;
     void SetStopped(bool value);
+    GIntervalTimer GetParent() const;
+    void SetParent(GIntervalTimer value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11971,6 +12725,8 @@ public:
     void SetDelayedHardPunchIncoming(bool value);
     bool GetDestroyAfterTaunt() const;
     void SetDestroyAfterTaunt(bool value);
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11985,7 +12741,8 @@ public:
     GCHandleDummy(std::string ptr);
     GCHandleDummy(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12018,6 +12775,8 @@ public:
     void SetYfriction(float value);
     float GetZfriction() const;
     void SetZfriction(float value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12040,8 +12799,8 @@ public:
     void SetDamage(float value);
     float GetRadius() const;
     void SetRadius(float value);
-    CUtlSymbolLarge GetTargetEntityName() const;
-    void SetTargetEntityName(CUtlSymbolLarge value);
+    std::string GetTargetEntityName() const;
+    void SetTargetEntityName(std::string value);
     float GetInnerRadius() const;
     void SetInnerRadius(float value);
     float GetPushScale() const;
@@ -12050,6 +12809,8 @@ public:
     void SetConvertToDebrisWhenPossible(bool value);
     GCEntityIOOutput GetOnPushedPlayer() const;
     void SetOnPushedPlayer(GCEntityIOOutput value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12074,10 +12835,12 @@ public:
     void SetInnerRadius(float value);
     float GetConeOfInfluence() const;
     void SetConeOfInfluence(float value);
-    CUtlSymbolLarge GetFilterName() const;
-    void SetFilterName(CUtlSymbolLarge value);
+    std::string GetFilterName() const;
+    void SetFilterName(std::string value);
     GCBaseFilter GetFilter() const;
     void SetFilter(GCBaseFilter* value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12098,6 +12861,8 @@ public:
     void SetRolledOutroCredits(bool value);
     float GetLogoLength() const;
     void SetLogoLength(float value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12132,6 +12897,8 @@ public:
     void SetEndMatchNextMapAllVoted(bool value);
     bool GetFoundGoalPositions() const;
     void SetFoundGoalPositions(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12156,6 +12923,8 @@ public:
     void SetAmmo(std::vector<uint16_t> value);
     bool GetPreventWeaponPickup() const;
     void SetPreventWeaponPickup(bool value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12172,8 +12941,8 @@ public:
 
     float GetIn() const;
     void SetIn(float value);
-    CUtlSymbolLarge GetAttribHook() const;
-    void SetAttribHook(CUtlSymbolLarge value);
+    std::string GetAttribHook() const;
+    void SetAttribHook(std::string value);
     float GetOut() const;
     void SetOut(float value);
 
@@ -12198,6 +12967,8 @@ public:
     void SetScore(int32_t value);
     std::string GetTeamname() const;
     void SetTeamname(std::string value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12212,10 +12983,14 @@ public:
     GCCSGameModeRules_Deathmatch(std::string ptr);
     GCCSGameModeRules_Deathmatch(void *ptr);
 
+    float GetDMBonusStartTime() const;
+    void SetDMBonusStartTime(float value);
     float GetDMBonusTimeLength() const;
     void SetDMBonusTimeLength(float value);
-    CUtlString GetDMBonusWeapon() const;
-    void SetDMBonusWeapon(CUtlString value);
+    std::string GetDMBonusWeapon() const;
+    void SetDMBonusWeapon(std::string value);
+    GCCSGameModeRules GetParent() const;
+    void SetParent(GCCSGameModeRules value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12232,6 +13007,8 @@ public:
 
     bool GetDisabled() const;
     void SetDisabled(bool value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12252,6 +13029,8 @@ public:
     void SetNoise(float value);
     float GetViewkick() const;
     void SetViewkick(float value);
+    GCTriggerMultiple GetParent() const;
+    void SetParent(GCTriggerMultiple value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12270,10 +13049,10 @@ public:
     void SetDirection(Vector value);
     Color GetOverlay() const;
     void SetOverlay(Color value);
-    CUtlSymbolLarge GetEffectName() const;
-    void SetEffectName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSSEffectName() const;
-    void SetSSEffectName(CUtlSymbolLarge value);
+    std::string GetEffectName() const;
+    void SetEffectName(std::string value);
+    std::string GetSSEffectName() const;
+    void SetSSEffectName(std::string value);
     bool GetOn() const;
     void SetOn(bool value);
     bool GetBmaxColor() const;
@@ -12294,6 +13073,8 @@ public:
     void SetHDRColorScale(float value);
     float GetFarZScale() const;
     void SetFarZScale(float value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12312,6 +13093,8 @@ public:
     void SetPlayerFireOnly(bool value);
     GCEntityIOOutput GetOnDetectedBulletFire() const;
     void SetOnDetectedBulletFire(GCEntityIOOutput value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12326,7 +13109,8 @@ public:
     GCWorld(std::string ptr);
     GCWorld(void *ptr);
 
-
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12343,6 +13127,8 @@ public:
 
     GCBaseEntity GetActivator() const;
     void SetActivator(GCBaseEntity* value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12363,12 +13149,12 @@ public:
     void SetMoveEntitySpace(QAngle value);
     Vector GetMoveDirParentSpace() const;
     void SetMoveDirParentSpace(Vector value);
-    CUtlSymbolLarge GetSoundStart() const;
-    void SetSoundStart(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSoundStop() const;
-    void SetSoundStop(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetCurrentSound() const;
-    void SetCurrentSound(CUtlSymbolLarge value);
+    std::string GetSoundStart() const;
+    void SetSoundStart(std::string value);
+    std::string GetSoundStop() const;
+    void SetSoundStop(std::string value);
+    std::string GetCurrentSound() const;
+    void SetCurrentSound(std::string value);
     float GetBlockDamage() const;
     void SetBlockDamage(float value);
     float GetStartPosition() const;
@@ -12381,6 +13167,8 @@ public:
     void SetCreateMovableNavMesh(bool value);
     bool GetCreateNavObstacle() const;
     void SetCreateNavObstacle(bool value);
+    GCBaseToggle GetParent() const;
+    void SetParent(GCBaseToggle value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12399,8 +13187,8 @@ public:
     void SetStartActive(bool value);
     float GetMaxSimulationTime() const;
     void SetMaxSimulationTime(float value);
-    CUtlSymbolLarge GetEffectName() const;
-    void SetEffectName(CUtlSymbolLarge value);
+    std::string GetEffectName() const;
+    void SetEffectName(std::string value);
     std::vector<CUtlSymbolLarge> GetPathNodes_Name() const;
     void SetPathNodes_Name(std::vector<CUtlSymbolLarge> value);
     float GetParticleSpacing() const;
@@ -12425,6 +13213,8 @@ public:
     void SetPathNodes_PinEnabled(std::vector<bool> value);
     std::vector<float32> GetPathNodes_RadiusScale() const;
     void SetPathNodes_RadiusScale(std::vector<float32> value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12451,6 +13241,8 @@ public:
     void SetStartDisabled(bool value);
     bool GetIsEnabled() const;
     void SetIsEnabled(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12473,6 +13265,8 @@ public:
     void SetTeleportParentedEntities(bool value);
     bool GetTeleportUseCurrentAngle() const;
     void SetTeleportUseCurrentAngle(bool value);
+    GCServerOnlyPointEntity GetParent() const;
+    void SetParent(GCServerOnlyPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12487,7 +13281,8 @@ public:
     GCAK47(std::string ptr);
     GCAK47(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12502,12 +13297,14 @@ public:
     GCTriggerTeleport(std::string ptr);
     GCTriggerTeleport(void *ptr);
 
-    CUtlSymbolLarge GetLandmark() const;
-    void SetLandmark(CUtlSymbolLarge value);
+    std::string GetLandmark() const;
+    void SetLandmark(std::string value);
     bool GetUseLandmarkAngles() const;
     void SetUseLandmarkAngles(bool value);
     bool GetMirrorPlayer() const;
     void SetMirrorPlayer(bool value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12522,7 +13319,8 @@ public:
     GCCSObserver_CameraServices(std::string ptr);
     GCCSObserver_CameraServices(void *ptr);
 
-
+    GCCSPlayerBase_CameraServices GetParent() const;
+    void SetParent(GCCSPlayerBase_CameraServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12537,7 +13335,8 @@ public:
     GCCSGO_TeamIntroTerroristPosition(std::string ptr);
     GCCSGO_TeamIntroTerroristPosition(void *ptr);
 
-
+    GCCSGO_TeamIntroCharacterPosition GetParent() const;
+    void SetParent(GCCSGO_TeamIntroCharacterPosition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12552,12 +13351,12 @@ public:
     GCFuncMover(std::string ptr);
     GCFuncMover(void *ptr);
 
-    CUtlSymbolLarge GetPathName() const;
-    void SetPathName(CUtlSymbolLarge value);
+    std::string GetPathName() const;
+    void SetPathName(std::string value);
     GCPathMover GetPathMover() const;
     void SetPathMover(GCPathMover* value);
-    CUtlSymbolLarge GetPathNodeStart() const;
-    void SetPathNodeStart(CUtlSymbolLarge value);
+    std::string GetPathNodeStart() const;
+    void SetPathNodeStart(std::string value);
     GCFuncMover GetMoveType() const;
     void SetMoveType(GCFuncMover value);
     bool GetIsReversing() const;
@@ -12586,6 +13385,10 @@ public:
     void SetTimeToReachMaxSpeed(float value);
     float GetTimeToReachZeroSpeed() const;
     void SetTimeToReachZeroSpeed(float value);
+    float GetTimeMovementStart() const;
+    void SetTimeMovementStart(float value);
+    float GetTimeMovementStop() const;
+    void SetTimeMovementStop(float value);
     GCMoverPathNode GetStopAtNode() const;
     void SetStopAtNode(GCMoverPathNode* value);
     float GetPathLocationToBeginStop() const;
@@ -12594,10 +13397,14 @@ public:
     void SetMatchPathNodeUp(bool value);
     bool GetFacePlayer() const;
     void SetFacePlayer(bool value);
+    float GetTimeStartRoll() const;
+    void SetTimeStartRoll(float value);
     Vector GetOriginalUp() const;
     void SetOriginalUp(Vector value);
     float GetTimeToRollToNewUp() const;
     void SetTimeToRollToNewUp(float value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12612,7 +13419,8 @@ public:
     GCCSPlayer_CameraServices(std::string ptr);
     GCCSPlayer_CameraServices(void *ptr);
 
-
+    GCCSPlayerBase_CameraServices GetParent() const;
+    void SetParent(GCCSPlayerBase_CameraServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12627,7 +13435,8 @@ public:
     GCHEGrenade(std::string ptr);
     GCHEGrenade(void *ptr);
 
-
+    GCBaseCSGrenade GetParent() const;
+    void SetParent(GCBaseCSGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12642,7 +13451,8 @@ public:
     GCGameEnd(std::string ptr);
     GCGameEnd(void *ptr);
 
-
+    GCRulePointEntity GetParent() const;
+    void SetParent(GCRulePointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12657,7 +13467,8 @@ public:
     GCTriggerCallback(std::string ptr);
     GCTriggerCallback(void *ptr);
 
-
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12678,6 +13489,8 @@ public:
     void SetFrequency(int32_t value);
     int32_t GetState() const;
     void SetState(int32_t value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12692,7 +13505,8 @@ public:
     GCTeamplayRules(std::string ptr);
     GCTeamplayRules(void *ptr);
 
-
+    GCMultiplayRules GetParent() const;
+    void SetParent(GCMultiplayRules value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12707,7 +13521,8 @@ public:
     GCPhysicsPropOverride(std::string ptr);
     GCPhysicsPropOverride(void *ptr);
 
-
+    GCPhysicsProp GetParent() const;
+    void SetParent(GCPhysicsProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12724,12 +13539,14 @@ public:
 
     int32_t GetSearchType() const;
     void SetSearchType(int32_t value);
-    CUtlSymbolLarge GetStrSearchName() const;
-    void SetStrSearchName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetStrNewHintGroup() const;
-    void SetStrNewHintGroup(CUtlSymbolLarge value);
+    std::string GetStrSearchName() const;
+    void SetStrSearchName(std::string value);
+    std::string GetStrNewHintGroup() const;
+    void SetStrNewHintGroup(std::string value);
     float GetRadius() const;
     void SetRadius(float value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12758,8 +13575,14 @@ public:
     void SetLookupFilename(std::string value);
     float GetLastEnterWeight() const;
     void SetLastEnterWeight(float value);
+    float GetLastEnterTime() const;
+    void SetLastEnterTime(float value);
     float GetLastExitWeight() const;
     void SetLastExitWeight(float value);
+    float GetLastExitTime() const;
+    void SetLastExitTime(float value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12774,16 +13597,18 @@ public:
     GCFilterEnemy(std::string ptr);
     GCFilterEnemy(void *ptr);
 
-    CUtlSymbolLarge GetEnemyName() const;
-    void SetEnemyName(CUtlSymbolLarge value);
+    std::string GetEnemyName() const;
+    void SetEnemyName(std::string value);
     float GetRadius() const;
     void SetRadius(float value);
     float GetOuterRadius() const;
     void SetOuterRadius(float value);
     int32_t GetMaxSquadmatesPerEnemy() const;
     void SetMaxSquadmatesPerEnemy(int32_t value);
-    CUtlSymbolLarge GetPlayerName() const;
-    void SetPlayerName(CUtlSymbolLarge value);
+    std::string GetPlayerName() const;
+    void SetPlayerName(std::string value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12798,7 +13623,8 @@ public:
     GCShower(std::string ptr);
     GCShower(void *ptr);
 
-
+    GCModelPointEntity GetParent() const;
+    void SetParent(GCModelPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12839,12 +13665,14 @@ public:
     void SetFogMaxOpacity(float value);
     int32_t GetCubemapSourceType() const;
     void SetCubemapSourceType(int32_t value);
-    CUtlSymbolLarge GetSkyEntity() const;
-    void SetSkyEntity(CUtlSymbolLarge value);
+    std::string GetSkyEntity() const;
+    void SetSkyEntity(std::string value);
     bool GetHasHeightFogEnd() const;
     void SetHasHeightFogEnd(bool value);
     bool GetFirstTime() const;
     void SetFirstTime(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12867,18 +13695,20 @@ public:
     void SetRotating(bool value);
     Glocksound_t GetLs() const;
     void SetLs(Glocksound_t value);
-    CUtlSymbolLarge GetUseSound() const;
-    void SetUseSound(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetLockedSound() const;
-    void SetLockedSound(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetUnlockedSound() const;
-    void SetUnlockedSound(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOverrideAnticipationName() const;
-    void SetOverrideAnticipationName(CUtlSymbolLarge value);
+    std::string GetUseSound() const;
+    void SetUseSound(std::string value);
+    std::string GetLockedSound() const;
+    void SetLockedSound(std::string value);
+    std::string GetUnlockedSound() const;
+    void SetUnlockedSound(std::string value);
+    std::string GetOverrideAnticipationName() const;
+    void SetOverrideAnticipationName(std::string value);
     bool GetLocked() const;
     void SetLocked(bool value);
     bool GetDisabled() const;
     void SetDisabled(bool value);
+    float GetUseLockedTime() const;
+    void SetUseLockedTime(float value);
     bool GetSolidBsp() const;
     void SetSolidBsp(bool value);
     GCEntityIOOutput GetOnDamaged() const;
@@ -12899,14 +13729,16 @@ public:
     void SetConstraintParent(GCEntityInstance* value);
     bool GetForceNpcExclude() const;
     void SetForceNpcExclude(bool value);
-    CUtlSymbolLarge GetGlowEntity() const;
-    void SetGlowEntity(CUtlSymbolLarge value);
+    std::string GetGlowEntity() const;
+    void SetGlowEntity(std::string value);
     GCBaseModelEntity GetGlowEntity1() const;
     void SetGlowEntity1(GCBaseModelEntity* value);
     bool GetUsable() const;
     void SetUsable(bool value);
-    CUtlSymbolLarge GetDisplayText() const;
-    void SetDisplayText(CUtlSymbolLarge value);
+    std::string GetDisplayText() const;
+    void SetDisplayText(std::string value);
+    GCBaseToggle GetParent() const;
+    void SetParent(GCBaseToggle value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12937,20 +13769,22 @@ public:
     void SetInflictor(GCBaseEntity* value);
     int32_t GetCustomDamageType() const;
     void SetCustomDamageType(int32_t value);
-    CUtlSymbolLarge GetExplosionType() const;
-    void SetExplosionType(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetCustomEffectName() const;
-    void SetCustomEffectName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetCustomSoundName() const;
-    void SetCustomSoundName(CUtlSymbolLarge value);
+    std::string GetExplosionType() const;
+    void SetExplosionType(std::string value);
+    std::string GetCustomEffectName() const;
+    void SetCustomEffectName(std::string value);
+    std::string GetCustomSoundName() const;
+    void SetCustomSoundName(std::string value);
     Class_T GetClassIgnore() const;
     void SetClassIgnore(Class_T value);
     Class_T GetClassIgnore2() const;
     void SetClassIgnore2(Class_T value);
-    CUtlSymbolLarge GetEntityIgnoreName() const;
-    void SetEntityIgnoreName(CUtlSymbolLarge value);
+    std::string GetEntityIgnoreName() const;
+    void SetEntityIgnoreName(std::string value);
     GCBaseEntity GetEntityIgnore() const;
     void SetEntityIgnore(GCBaseEntity* value);
+    GCModelPointEntity GetParent() const;
+    void SetParent(GCModelPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12969,6 +13803,8 @@ public:
     void SetMins(Vector value);
     Vector GetMaxs() const;
     void SetMaxs(Vector value);
+    GCSoundEventEntity GetParent() const;
+    void SetParent(GCSoundEventEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -12991,6 +13827,8 @@ public:
     void SetLookTime(float value);
     float GetLookTimeTotal() const;
     void SetLookTimeTotal(float value);
+    float GetLookTimeLast() const;
+    void SetLookTimeLast(float value);
     float GetTimeoutDuration() const;
     void SetTimeoutDuration(float value);
     bool GetTimeoutFired() const;
@@ -13009,6 +13847,8 @@ public:
     void SetOnStartLook(GCEntityIOOutput value);
     GCEntityIOOutput GetOnEndLook() const;
     void SetOnEndLook(GCEntityIOOutput value);
+    GCTriggerOnce GetParent() const;
+    void SetParent(GCTriggerOnce value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13038,7 +13878,8 @@ public:
     GCLogicProximity(std::string ptr);
     GCLogicProximity(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13099,6 +13940,8 @@ public:
     void SetDisableMipGen(bool value);
     int32_t GetExplicitImageLayout() const;
     void SetExplicitImageLayout(int32_t value);
+    GCBaseClientUIEntity GetParent() const;
+    void SetParent(GCBaseClientUIEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13113,8 +13956,10 @@ public:
     GCFilterContext(std::string ptr);
     GCFilterContext(void *ptr);
 
-    CUtlSymbolLarge GetFilterContext() const;
-    void SetFilterContext(CUtlSymbolLarge value);
+    std::string GetFilterContext() const;
+    void SetFilterContext(std::string value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13129,7 +13974,8 @@ public:
     GCPathParticleRopeAlias_path_particle_rope_clientside(std::string ptr);
     GCPathParticleRopeAlias_path_particle_rope_clientside(void *ptr);
 
-
+    GCPathParticleRope GetParent() const;
+    void SetParent(GCPathParticleRope value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13148,6 +13994,8 @@ public:
     void SetBuoyancyHelper(GCBuoyancyHelper value);
     float GetFluidDensity() const;
     void SetFluidDensity(float value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13164,6 +14012,8 @@ public:
 
     CUtlStringToken GetAttributeName() const;
     void SetAttributeName(CUtlStringToken value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13186,6 +14036,8 @@ public:
     void SetWeaponPurchasesThisMatch(GWeaponPurchaseTracker_t value);
     GWeaponPurchaseTracker_t GetWeaponPurchasesThisRound() const;
     void SetWeaponPurchasesThisRound(GWeaponPurchaseTracker_t value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13210,8 +14062,10 @@ public:
     void SetSoundIndex(int32_t value);
     float GetDuration() const;
     void SetDuration(float value);
-    CUtlSymbolLarge GetProxyEntityName() const;
-    void SetProxyEntityName(CUtlSymbolLarge value);
+    std::string GetProxyEntityName() const;
+    void SetProxyEntityName(std::string value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13228,18 +14082,20 @@ public:
 
     GCBaseEntity GetEntity() const;
     void SetEntity(GCBaseEntity* value);
-    CUtlSymbolLarge GetFilterName() const;
-    void SetFilterName(CUtlSymbolLarge value);
+    std::string GetFilterName() const;
+    void SetFilterName(std::string value);
     GCBaseFilter GetFilter() const;
     void SetFilter(GCBaseFilter* value);
-    CUtlSymbolLarge GetRefName() const;
-    void SetRefName(CUtlSymbolLarge value);
+    std::string GetRefName() const;
+    void SetRefName(std::string value);
     GCBaseEntity GetReference() const;
     void SetReference(GCBaseEntity* value);
     EntFinderMethod_t GetFindMethod() const;
     void SetFindMethod(EntFinderMethod_t value);
     GCEntityIOOutput GetOnFoundEntity() const;
     void SetOnFoundEntity(GCEntityIOOutput value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13300,6 +14156,8 @@ public:
     void SetOriginalMaxs(Vector value);
     float GetRespawnDuration() const;
     void SetRespawnDuration(float value);
+    GCPhysicsProp GetParent() const;
+    void SetParent(GCPhysicsProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13334,6 +14192,8 @@ public:
     void SetFogMaxEnd(float value);
     bool GetEnabled() const;
     void SetEnabled(bool value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13358,6 +14218,8 @@ public:
     void SetPrevVelocity(float value);
     float GetAvgInterval() const;
     void SetAvgInterval(float value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13374,6 +14236,8 @@ public:
 
     float GetFilterMass() const;
     void SetFilterMass(float value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13390,6 +14254,8 @@ public:
 
     int32_t GetFilterTeam() const;
     void SetFilterTeam(int32_t value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13406,6 +14272,8 @@ public:
 
     GCEntityIOOutput GetOnDeath() const;
     void SetOnDeath(GCEntityIOOutput value);
+    GCFuncTrackTrain GetParent() const;
+    void SetParent(GCFuncTrackTrain value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13420,7 +14288,8 @@ public:
     GCNullEntity(std::string ptr);
     GCNullEntity(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13460,6 +14329,8 @@ public:
     void SetGroupOtherGroups(bool value);
     bool GetIsInGroup() const;
     void SetIsInGroup(bool value);
+    GCMarkupVolume GetParent() const;
+    void SetParent(GCMarkupVolume value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13476,6 +14347,8 @@ public:
 
     int32_t GetLegacyTeamNum() const;
     void SetLegacyTeamNum(int32_t value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13490,12 +14363,12 @@ public:
     GCPointTemplate(std::string ptr);
     GCPointTemplate(void *ptr);
 
-    CUtlSymbolLarge GetWorldName() const;
-    void SetWorldName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSource2EntityLumpName() const;
-    void SetSource2EntityLumpName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetEntityFilterName() const;
-    void SetEntityFilterName(CUtlSymbolLarge value);
+    std::string GetWorldName() const;
+    void SetWorldName(std::string value);
+    std::string GetSource2EntityLumpName() const;
+    void SetSource2EntityLumpName(std::string value);
+    std::string GetEntityFilterName() const;
+    void SetEntityFilterName(std::string value);
     float GetTimeoutInterval() const;
     void SetTimeoutInterval(float value);
     bool GetAsynchronouslySpawnEntities() const;
@@ -13510,6 +14383,8 @@ public:
     void SetCreatedSpawnGroupHandles(std::vector<uint32> value);
     std::vector<GCEntityInstance*> GetSpawnedEntityHandles() const;
     void SetSpawnedEntityHandles(std::vector<GCEntityInstance*> value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13524,7 +14399,8 @@ public:
     GCTripWireFire(std::string ptr);
     GCTripWireFire(void *ptr);
 
-
+    GCBaseCSGrenade GetParent() const;
+    void SetParent(GCBaseCSGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13539,8 +14415,8 @@ public:
     GCPhysForce(std::string ptr);
     GCPhysForce(void *ptr);
 
-    CUtlSymbolLarge GetNameAttach() const;
-    void SetNameAttach(CUtlSymbolLarge value);
+    std::string GetNameAttach() const;
+    void SetNameAttach(std::string value);
     float GetForce() const;
     void SetForce(float value);
     float GetForceTime() const;
@@ -13551,6 +14427,8 @@ public:
     void SetWasRestored(bool value);
     GCConstantForceController GetIntegrator() const;
     void SetIntegrator(GCConstantForceController value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13565,8 +14443,8 @@ public:
     GCLogicDistanceAutosave(std::string ptr);
     GCLogicDistanceAutosave(void *ptr);
 
-    CUtlSymbolLarge GetTargetEntity() const;
-    void SetTargetEntity(CUtlSymbolLarge value);
+    std::string GetTargetEntity() const;
+    void SetTargetEntity(std::string value);
     float GetDistanceToPlayer() const;
     void SetDistanceToPlayer(float value);
     bool GetForceNewLevelUnit() const;
@@ -13577,6 +14455,8 @@ public:
     void SetThinkDangerous(bool value);
     float GetDangerousTime() const;
     void SetDangerousTime(float value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13601,6 +14481,8 @@ public:
     void SetLightChoice(int32_t value);
     GCBaseEntity GetLight() const;
     void SetLight(GCBaseEntity* value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13615,7 +14497,8 @@ public:
     GCSoundOpvarSetOBBEntity(std::string ptr);
     GCSoundOpvarSetOBBEntity(void *ptr);
 
-
+    GCSoundOpvarSetAABBEntity GetParent() const;
+    void SetParent(GCSoundOpvarSetAABBEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13665,6 +14548,8 @@ public:
 
     Vector GetExtent() const;
     void SetExtent(Vector value);
+    GCTriggerOnce GetParent() const;
+    void SetParent(GCTriggerOnce value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13679,7 +14564,8 @@ public:
     GCNavWalkable(std::string ptr);
     GCNavWalkable(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13694,16 +14580,16 @@ public:
     GCFuncMonitor(std::string ptr);
     GCFuncMonitor(void *ptr);
 
-    CUtlString GetTargetCamera() const;
-    void SetTargetCamera(CUtlString value);
+    std::string GetTargetCamera() const;
+    void SetTargetCamera(std::string value);
     int32_t GetResolutionEnum() const;
     void SetResolutionEnum(int32_t value);
     bool GetRenderShadows() const;
     void SetRenderShadows(bool value);
     bool GetUseUniqueColorTarget() const;
     void SetUseUniqueColorTarget(bool value);
-    CUtlString GetBrushModelName() const;
-    void SetBrushModelName(CUtlString value);
+    std::string GetBrushModelName() const;
+    void SetBrushModelName(std::string value);
     GCBaseEntity GetTargetCamera1() const;
     void SetTargetCamera1(GCBaseEntity* value);
     bool GetEnabled() const;
@@ -13712,6 +14598,8 @@ public:
     void SetDraw3DSkybox(bool value);
     bool GetStartEnabled() const;
     void SetStartEnabled(bool value);
+    GCFuncBrush GetParent() const;
+    void SetParent(GCFuncBrush value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13732,6 +14620,8 @@ public:
     void SetNumOpponentsHit(uint8_t value);
     uint8_t GetNumTeammatesHit() const;
     void SetNumTeammatesHit(uint8_t value);
+    GCBaseCSGrenadeProjectile GetParent() const;
+    void SetParent(GCBaseCSGrenadeProjectile value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13748,6 +14638,8 @@ public:
 
     std::string GetMessageText() const;
     void SetMessageText(std::string value);
+    GCPointClientUIWorldPanel GetParent() const;
+    void SetParent(GCPointClientUIWorldPanel value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13762,7 +14654,8 @@ public:
     GCInfoInstructorHintTarget(std::string ptr);
     GCInfoInstructorHintTarget(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13781,6 +14674,8 @@ public:
     void SetCarriedHostage(GCBaseEntity* value);
     GCBaseEntity GetCarriedHostageProp() const;
     void SetCarriedHostageProp(GCBaseEntity* value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13795,7 +14690,8 @@ public:
     GCWeaponSSG08(std::string ptr);
     GCWeaponSSG08(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13810,7 +14706,8 @@ public:
     GCBreachCharge(std::string ptr);
     GCBreachCharge(void *ptr);
 
-
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13831,6 +14728,8 @@ public:
     void SetOnTrue(GCEntityIOOutput value);
     GCEntityIOOutput GetOnFalse() const;
     void SetOnFalse(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13845,7 +14744,8 @@ public:
     GCWeaponUMP45(std::string ptr);
     GCWeaponUMP45(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13860,7 +14760,8 @@ public:
     GCSpriteAlias_env_glow(std::string ptr);
     GCSpriteAlias_env_glow(void *ptr);
 
-
+    GCSprite GetParent() const;
+    void SetParent(GCSprite value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13875,7 +14776,8 @@ public:
     GCPhysicalButton(std::string ptr);
     GCPhysicalButton(void *ptr);
 
-
+    GCBaseButton GetParent() const;
+    void SetParent(GCBaseButton value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13902,6 +14804,8 @@ public:
     void SetTotalLength(float value);
     bool GetEnableCollision() const;
     void SetEnableCollision(bool value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13916,7 +14820,8 @@ public:
     GCLogicNPCCounterOBB(std::string ptr);
     GCLogicNPCCounterOBB(void *ptr);
 
-
+    GCLogicNPCCounterAABB GetParent() const;
+    void SetParent(GCLogicNPCCounterAABB value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13937,6 +14842,8 @@ public:
     void SetWeaponParity(uint32_t value);
     uint32_t GetOldWeaponParity() const;
     void SetOldWeaponParity(uint32_t value);
+    GCPredictedViewModel GetParent() const;
+    void SetParent(GCPredictedViewModel value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13953,8 +14860,12 @@ public:
 
     float GetBulletDamageAbsorbed() const;
     void SetBulletDamageAbsorbed(float value);
+    float GetLastBulletHitSoundTime() const;
+    void SetLastBulletHitSoundTime(float value);
     float GetDisplayHealth() const;
     void SetDisplayHealth(float value);
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13977,6 +14888,8 @@ public:
     void SetAmount(float value);
     BloodType GetColor() const;
     void SetColor(BloodType value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -13999,6 +14912,8 @@ public:
     void SetHoldDuration(float value);
     GCEntityIOOutput GetOnBeginFade() const;
     void SetOnBeginFade(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14013,7 +14928,8 @@ public:
     GCDynamicPropAlias_cable_dynamic(std::string ptr);
     GCDynamicPropAlias_cable_dynamic(void *ptr);
 
-
+    GCDynamicProp GetParent() const;
+    void SetParent(GCDynamicProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14030,6 +14946,8 @@ public:
 
     std::vector<GSellbackPurchaseEntry_t> GetSellbackPurchaseEntries() const;
     void SetSellbackPurchaseEntries(std::vector<GSellbackPurchaseEntry_t> value);
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14046,6 +14964,8 @@ public:
 
     GCAI_Expresser GetExpresser() const;
     void SetExpresser(GCAI_Expresser* value);
+    GCBaseCombatCharacter GetParent() const;
+    void SetParent(GCBaseCombatCharacter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14110,6 +15030,8 @@ public:
     void SetNextSpreadTimer(GCountdownTimer value);
     uint16_t GetSourceItemDefIndex() const;
     void SetSourceItemDefIndex(uint16_t value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14124,14 +15046,16 @@ public:
     GCEnvGlobal(std::string ptr);
     GCEnvGlobal(void *ptr);
 
-    CUtlSymbolLarge GetGlobalstate() const;
-    void SetGlobalstate(CUtlSymbolLarge value);
+    std::string GetGlobalstate() const;
+    void SetGlobalstate(std::string value);
     int32_t GetTriggermode() const;
     void SetTriggermode(int32_t value);
     int32_t GetInitialstate() const;
     void SetInitialstate(int32_t value);
     int32_t GetCounter() const;
     void SetCounter(int32_t value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14146,8 +15070,10 @@ public:
     GCFilterName(std::string ptr);
     GCFilterName(void *ptr);
 
-    CUtlSymbolLarge GetFilterName() const;
-    void SetFilterName(CUtlSymbolLarge value);
+    std::string GetFilterName() const;
+    void SetFilterName(std::string value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14190,6 +15116,8 @@ public:
     void SetNextResourceTime(float value);
     int32_t GetLastUpdateSentAt() const;
     void SetLastUpdateSentAt(int32_t value);
+    GCTeam GetParent() const;
+    void SetParent(GCTeam value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14204,7 +15132,8 @@ public:
     GCWeaponUSPSilencer(std::string ptr);
     GCWeaponUSPSilencer(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14219,7 +15148,8 @@ public:
     GCSpriteOriented(std::string ptr);
     GCSpriteOriented(void *ptr);
 
-
+    GCSprite GetParent() const;
+    void SetParent(GCSprite value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14234,7 +15164,8 @@ public:
     GCTriggerGravity(std::string ptr);
     GCTriggerGravity(void *ptr);
 
-
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14249,7 +15180,8 @@ public:
     GCServerRagdollTrigger(std::string ptr);
     GCServerRagdollTrigger(void *ptr);
 
-
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14268,6 +15200,8 @@ public:
     void SetBoxMins(Vector value);
     Vector GetBoxMaxs() const;
     void SetBoxMaxs(Vector value);
+    GCInfoDynamicShadowHint GetParent() const;
+    void SetParent(GCInfoDynamicShadowHint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14286,6 +15220,8 @@ public:
     void SetPathLength(float value);
     bool GetClosedLoop() const;
     void SetClosedLoop(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14300,7 +15236,8 @@ public:
     GCFlashbang(std::string ptr);
     GCFlashbang(void *ptr);
 
-
+    GCBaseCSGrenade GetParent() const;
+    void SetParent(GCBaseCSGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14315,7 +15252,8 @@ public:
     GCWeaponAug(std::string ptr);
     GCWeaponAug(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14330,7 +15268,8 @@ public:
     GCIncendiaryGrenade(std::string ptr);
     GCIncendiaryGrenade(void *ptr);
 
-
+    GCMolotovGrenade GetParent() const;
+    void SetParent(GCMolotovGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14345,10 +15284,10 @@ public:
     GCChangeLevel(std::string ptr);
     GCChangeLevel(void *ptr);
 
-    CUtlString GetMapName() const;
-    void SetMapName(CUtlString value);
-    CUtlString GetLandmarkName() const;
-    void SetLandmarkName(CUtlString value);
+    std::string GetMapName() const;
+    void SetMapName(std::string value);
+    std::string GetLandmarkName() const;
+    void SetLandmarkName(std::string value);
     GCEntityIOOutput GetOnChangeLevel() const;
     void SetOnChangeLevel(GCEntityIOOutput value);
     bool GetTouched() const;
@@ -14359,6 +15298,8 @@ public:
     void SetNewChapter(bool value);
     bool GetOnChangeLevelFired() const;
     void SetOnChangeLevelFired(bool value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14373,12 +15314,12 @@ public:
     GCTriggerLerpObject(std::string ptr);
     GCTriggerLerpObject(void *ptr);
 
-    CUtlSymbolLarge GetLerpTarget() const;
-    void SetLerpTarget(CUtlSymbolLarge value);
+    std::string GetLerpTarget() const;
+    void SetLerpTarget(std::string value);
     GCBaseEntity GetLerpTarget1() const;
     void SetLerpTarget1(GCBaseEntity* value);
-    CUtlSymbolLarge GetLerpTargetAttachment() const;
-    void SetLerpTargetAttachment(CUtlSymbolLarge value);
+    std::string GetLerpTargetAttachment() const;
+    void SetLerpTargetAttachment(std::string value);
     float GetLerpDuration() const;
     void SetLerpDuration(float value);
     bool GetLerpRestoreMoveType() const;
@@ -14387,10 +15328,10 @@ public:
     void SetSingleLerpObject(bool value);
     std::vector<Glerpdata_t> GetLerpingObjects() const;
     void SetLerpingObjects(std::vector<Glerpdata_t> value);
-    CUtlSymbolLarge GetLerpEffect() const;
-    void SetLerpEffect(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetLerpSound() const;
-    void SetLerpSound(CUtlSymbolLarge value);
+    std::string GetLerpEffect() const;
+    void SetLerpEffect(std::string value);
+    std::string GetLerpSound() const;
+    void SetLerpSound(std::string value);
     bool GetAttachTouchingObject() const;
     void SetAttachTouchingObject(bool value);
     GCBaseEntity GetEntityToWaitForDisconnect() const;
@@ -14399,6 +15340,8 @@ public:
     void SetOnLerpStarted(GCEntityIOOutput value);
     GCEntityIOOutput GetOnLerpFinished() const;
     void SetOnLerpFinished(GCEntityIOOutput value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14415,8 +15358,10 @@ public:
 
     GCEnvSoundscapeTriggerable GetSoundscape() const;
     void SetSoundscape(GCEnvSoundscapeTriggerable* value);
-    CUtlSymbolLarge GetSoundscapeName() const;
-    void SetSoundscapeName(CUtlSymbolLarge value);
+    std::string GetSoundscapeName() const;
+    void SetSoundscapeName(std::string value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14431,7 +15376,8 @@ public:
     GCLogicScript(std::string ptr);
     GCLogicScript(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14446,7 +15392,8 @@ public:
     GCWeaponFiveSeven(std::string ptr);
     GCWeaponFiveSeven(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14471,6 +15418,8 @@ public:
     void SetInputFilter(int32_t value);
     int32_t GetDontMessageParent() const;
     void SetDontMessageParent(int32_t value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14491,6 +15440,10 @@ public:
     void SetPhysicsBlocker(GCBaseEntity* value);
     float GetSeparationDuration() const;
     void SetSeparationDuration(float value);
+    float GetCancelTime() const;
+    void SetCancelTime(float value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14555,6 +15508,8 @@ public:
     void SetJustifyVertical(PointWorldTextJustifyVertical_t value);
     PointWorldTextReorientMode_t GetReorientMode() const;
     void SetReorientMode(PointWorldTextReorientMode_t value);
+    GCModelPointEntity GetParent() const;
+    void SetParent(GCModelPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14573,6 +15528,8 @@ public:
     void SetMin(Vector value);
     Vector GetMax() const;
     void SetMax(Vector value);
+    GCSoundAreaEntityBase GetParent() const;
+    void SetParent(GCSoundAreaEntityBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14613,6 +15570,8 @@ public:
     void SetLinearForceDirection(Vector value);
     bool GetConvertToDebrisWhenPossible() const;
     void SetConvertToDebrisWhenPossible(bool value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14645,7 +15604,8 @@ public:
     GCPointBroadcastClientCommand(std::string ptr);
     GCPointBroadcastClientCommand(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14672,6 +15632,12 @@ public:
     void SetPanelNormalWs(Vector value);
     int32_t GetNumShardsEverCreated() const;
     void SetNumShardsEverCreated(int32_t value);
+    float GetLastShatterSoundEmitTime() const;
+    void SetLastShatterSoundEmitTime(float value);
+    float GetLastCleanupTime() const;
+    void SetLastCleanupTime(float value);
+    float GetInitAtTime() const;
+    void SetInitAtTime(float value);
     float GetGlassThickness() const;
     void SetGlassThickness(float value);
     float GetSpawnInvulnerability() const;
@@ -14692,14 +15658,14 @@ public:
     void SetStartBroken(bool value);
     uint8_t GetInitialDamageType() const;
     void SetInitialDamageType(uint8_t value);
-    CUtlSymbolLarge GetDamagePositioningEntityName01() const;
-    void SetDamagePositioningEntityName01(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetDamagePositioningEntityName02() const;
-    void SetDamagePositioningEntityName02(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetDamagePositioningEntityName03() const;
-    void SetDamagePositioningEntityName03(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetDamagePositioningEntityName04() const;
-    void SetDamagePositioningEntityName04(CUtlSymbolLarge value);
+    std::string GetDamagePositioningEntityName01() const;
+    void SetDamagePositioningEntityName01(std::string value);
+    std::string GetDamagePositioningEntityName02() const;
+    void SetDamagePositioningEntityName02(std::string value);
+    std::string GetDamagePositioningEntityName03() const;
+    void SetDamagePositioningEntityName03(std::string value);
+    std::string GetDamagePositioningEntityName04() const;
+    void SetDamagePositioningEntityName04(std::string value);
     std::vector<Vector> GetInitialDamagePositions() const;
     void SetInitialDamagePositions(std::vector<Vector> value);
     std::vector<Vector> GetExtraDamagePositions() const;
@@ -14708,6 +15674,8 @@ public:
     void SetOnBroken(GCEntityIOOutput value);
     uint8_t GetSurfaceType() const;
     void SetSurfaceType(uint8_t value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14722,7 +15690,8 @@ public:
     GCRotButton(std::string ptr);
     GCRotButton(void *ptr);
 
-
+    GCBaseButton GetParent() const;
+    void SetParent(GCBaseButton value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14739,6 +15708,8 @@ public:
 
     float GetRadius() const;
     void SetRadius(float value);
+    GCSoundEventEntity GetParent() const;
+    void SetParent(GCSoundEventEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14753,7 +15724,8 @@ public:
     GCWeaponHKP2000(std::string ptr);
     GCWeaponHKP2000(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14770,6 +15742,8 @@ public:
 
     bool GetBombTicking() const;
     void SetBombTicking(bool value);
+    float GetC4Blow() const;
+    void SetC4Blow(float value);
     int32_t GetBombSite() const;
     void SetBombSite(int32_t value);
     int32_t GetSourceSoundscapeHash() const;
@@ -14794,8 +15768,12 @@ public:
     void SetTimerLength(float value);
     bool GetBeingDefused() const;
     void SetBeingDefused(bool value);
+    float GetLastDefuseTime() const;
+    void SetLastDefuseTime(float value);
     float GetDefuseLength() const;
     void SetDefuseLength(float value);
+    float GetDefuseCountDown() const;
+    void SetDefuseCountDown(float value);
     bool GetBombDefused() const;
     void SetBombDefused(bool value);
     GCCSPlayerPawn GetBombDefuser() const;
@@ -14808,8 +15786,14 @@ public:
     void SetVoiceAlertFired(bool value);
     std::vector<bool> GetVoiceAlertPlayed() const;
     void SetVoiceAlertPlayed(std::vector<bool> value);
+    float GetNextBotBeepTime() const;
+    void SetNextBotBeepTime(float value);
     QAngle GetCatchUpToPlayerEye() const;
     void SetCatchUpToPlayerEye(QAngle value);
+    float GetLastSpinDetectionTime() const;
+    void SetLastSpinDetectionTime(float value);
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14828,6 +15812,8 @@ public:
     void SetActivator(GCBaseEntity* value);
     bool GetStartEnabled() const;
     void SetStartEnabled(bool value);
+    GCBaseClientUIEntity GetParent() const;
+    void SetParent(GCBaseClientUIEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14844,6 +15830,8 @@ public:
 
     float GetScale() const;
     void SetScale(float value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14866,6 +15854,8 @@ public:
     void SetUseAngles(bool value);
     GCSkyCamera GetNext() const;
     void SetNext(GCSkyCamera* value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14880,7 +15870,8 @@ public:
     GCWeaponNOVA(std::string ptr);
     GCWeaponNOVA(void *ptr);
 
-
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14897,6 +15888,8 @@ public:
 
     float GetVerticalFOV() const;
     void SetVerticalFOV(float value);
+    GCPointCamera GetParent() const;
+    void SetParent(GCPointCamera value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14911,8 +15904,12 @@ public:
     GCWeaponTaser(std::string ptr);
     GCWeaponTaser(void *ptr);
 
+    float GetFireTime() const;
+    void SetFireTime(float value);
     int32_t GetLastAttackTick() const;
     void SetLastAttackTick(int32_t value);
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14927,7 +15924,8 @@ public:
     GCWaterBullet(std::string ptr);
     GCWaterBullet(void *ptr);
 
-
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14948,6 +15946,8 @@ public:
     void SetRefPos(Vector value);
     float GetRefDot() const;
     void SetRefDot(float value);
+    GCMarkupVolumeTagged GetParent() const;
+    void SetParent(GCMarkupVolumeTagged value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14962,18 +15962,20 @@ public:
     GCMessage(std::string ptr);
     GCMessage(void *ptr);
 
-    CUtlSymbolLarge GetMessage() const;
-    void SetMessage(CUtlSymbolLarge value);
+    std::string GetMessage() const;
+    void SetMessage(std::string value);
     float GetMessageVolume() const;
     void SetMessageVolume(float value);
     int32_t GetMessageAttenuation() const;
     void SetMessageAttenuation(int32_t value);
     float GetRadius() const;
     void SetRadius(float value);
-    CUtlSymbolLarge GetNoise() const;
-    void SetNoise(CUtlSymbolLarge value);
+    std::string GetNoise() const;
+    void SetNoise(std::string value);
     GCEntityIOOutput GetOnShowMessage() const;
     void SetOnShowMessage(GCEntityIOOutput value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -14990,14 +15992,16 @@ public:
 
     GCEntityIOOutput GetOnEventFired() const;
     void SetOnEventFired(GCEntityIOOutput value);
-    CUtlSymbolLarge GetGameEventName() const;
-    void SetGameEventName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetGameEventItem() const;
-    void SetGameEventItem(CUtlSymbolLarge value);
+    std::string GetGameEventName() const;
+    void SetGameEventName(std::string value);
+    std::string GetGameEventItem() const;
+    void SetGameEventItem(std::string value);
     bool GetEnabled() const;
     void SetEnabled(bool value);
     bool GetStartDisabled() const;
     void SetStartDisabled(bool value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15012,7 +16016,8 @@ public:
     GCPushable(std::string ptr);
     GCPushable(void *ptr);
 
-
+    GCBreakable GetParent() const;
+    void SetParent(GCBreakable value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15029,6 +16034,8 @@ public:
 
     GCEntityIOOutput GetOnRemove() const;
     void SetOnRemove(GCEntityIOOutput value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15043,7 +16050,8 @@ public:
     GCInfoTarget(std::string ptr);
     GCInfoTarget(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15074,8 +16082,8 @@ public:
     void SetEnd(QAngle value);
     float GetIdealYaw() const;
     void SetIdealYaw(float value);
-    CUtlSymbolLarge GetNoise() const;
-    void SetNoise(CUtlSymbolLarge value);
+    std::string GetNoise() const;
+    void SetNoise(std::string value);
     bool GetUpdateTarget() const;
     void SetUpdateTarget(bool value);
     int32_t GetDirection() const;
@@ -15084,6 +16092,8 @@ public:
     void SetReturnSpeed(float value);
     float GetStartPosition() const;
     void SetStartPosition(float value);
+    GCRotButton GetParent() const;
+    void SetParent(GCRotButton value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15132,6 +16142,8 @@ public:
     void SetAjarDoorShouldntAlwaysOpen(bool value);
     GCEntityBlocker GetEntityBlocker() const;
     void SetEntityBlocker(GCEntityBlocker* value);
+    GCBasePropDoor GetParent() const;
+    void SetParent(GCBasePropDoor value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15172,7 +16184,8 @@ public:
     GCWeaponMP5SD(std::string ptr);
     GCWeaponMP5SD(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15199,6 +16212,8 @@ public:
     void SetStartTime(float value);
     float GetStartFrame() const;
     void SetStartFrame(float value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15215,6 +16230,8 @@ public:
 
     bool GetFloodFillAttribute() const;
     void SetFloodFillAttribute(bool value);
+    GCMarkupVolumeWithRef GetParent() const;
+    void SetParent(GCMarkupVolumeWithRef value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15231,6 +16248,8 @@ public:
 
     Vector GetLocalOrigin() const;
     void SetLocalOrigin(Vector value);
+    GCPhysForce GetParent() const;
+    void SetParent(GCPhysForce value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15260,12 +16279,12 @@ public:
     GCCitadelSoundOpvarSetOBB(std::string ptr);
     GCCitadelSoundOpvarSetOBB(void *ptr);
 
-    CUtlSymbolLarge GetStackName() const;
-    void SetStackName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOperatorName() const;
-    void SetOperatorName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOpvarName() const;
-    void SetOpvarName(CUtlSymbolLarge value);
+    std::string GetStackName() const;
+    void SetStackName(std::string value);
+    std::string GetOperatorName() const;
+    void SetOperatorName(std::string value);
+    std::string GetOpvarName() const;
+    void SetOpvarName(std::string value);
     Vector GetDistanceInnerMins() const;
     void SetDistanceInnerMins(Vector value);
     Vector GetDistanceInnerMaxs() const;
@@ -15276,6 +16295,8 @@ public:
     void SetDistanceOuterMaxs(Vector value);
     int32_t GetAABBDirection() const;
     void SetAABBDirection(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15314,7 +16335,8 @@ public:
     GCWeaponFamas(std::string ptr);
     GCWeaponFamas(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15335,6 +16357,8 @@ public:
     void SetParentShard(uint32_t value);
     Gshard_model_desc_t GetShardDesc() const;
     void SetShardDesc(Gshard_model_desc_t value);
+    GCPhysicsProp GetParent() const;
+    void SetParent(GCPhysicsProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15349,8 +16373,10 @@ public:
     GCFilterModel(std::string ptr);
     GCFilterModel(void *ptr);
 
-    CUtlSymbolLarge GetFilterModel() const;
-    void SetFilterModel(CUtlSymbolLarge value);
+    std::string GetFilterModel() const;
+    void SetFilterModel(std::string value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15371,10 +16397,16 @@ public:
     void SetPingServices(GCCSPlayer_PingServices* value);
     GCPlayer_ViewModelServices GetViewModelServices() const;
     void SetViewModelServices(GCPlayer_ViewModelServices* value);
+    float GetBlindUntilTime() const;
+    void SetBlindUntilTime(float value);
+    float GetBlindStartTime() const;
+    void SetBlindStartTime(float value);
     CSPlayerState GetPlayerState() const;
     void SetPlayerState(CSPlayerState value);
     bool GetRespawning() const;
     void SetRespawning(bool value);
+    float GetImmuneToGunGameDamageTime() const;
+    void SetImmuneToGunGameDamageTime(float value);
     bool GetGunGameImmunity() const;
     void SetGunGameImmunity(bool value);
     float GetMolotovDamageTime() const;
@@ -15405,6 +16437,8 @@ public:
     void SetCommittingSuicideOnTeamChange(bool value);
     GCCSPlayerController GetOriginalController() const;
     void SetOriginalController(GCCSPlayerController* value);
+    GCBasePlayerPawn GetParent() const;
+    void SetParent(GCBasePlayerPawn value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15429,14 +16463,16 @@ public:
     void SetRadius(float value);
     float GetLength() const;
     void SetLength(float value);
-    CUtlSymbolLarge GetAltName() const;
-    void SetAltName(CUtlSymbolLarge value);
+    std::string GetAltName() const;
+    void SetAltName(std::string value);
     int32_t GetIterVal() const;
     void SetIterVal(int32_t value);
     TrackOrientationType_t GetOrientationType() const;
     void SetOrientationType(TrackOrientationType_t value);
     GCEntityIOOutput GetOnPass() const;
     void SetOnPass(GCEntityIOOutput value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15451,10 +16487,10 @@ public:
     GCLogicDistanceCheck(std::string ptr);
     GCLogicDistanceCheck(void *ptr);
 
-    CUtlSymbolLarge GetEntityA() const;
-    void SetEntityA(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetEntityB() const;
-    void SetEntityB(CUtlSymbolLarge value);
+    std::string GetEntityA() const;
+    void SetEntityA(std::string value);
+    std::string GetEntityB() const;
+    void SetEntityB(std::string value);
     float GetZone1Distance() const;
     void SetZone1Distance(float value);
     float GetZone2Distance() const;
@@ -15465,6 +16501,8 @@ public:
     void SetInZone2(GCEntityIOOutput value);
     GCEntityIOOutput GetInZone3() const;
     void SetInZone3(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15485,6 +16523,8 @@ public:
     void SetOuterAngle(float value);
     bool GetShowLight() const;
     void SetShowLight(bool value);
+    GCBarnLight GetParent() const;
+    void SetParent(GCBarnLight value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15505,18 +16545,20 @@ public:
     void SetResolutionX(int32_t value);
     int32_t GetResolutionY() const;
     void SetResolutionY(int32_t value);
-    CUtlSymbolLarge GetLayoutFileName() const;
-    void SetLayoutFileName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetRenderAttrName() const;
-    void SetRenderAttrName(CUtlSymbolLarge value);
+    std::string GetLayoutFileName() const;
+    void SetLayoutFileName(std::string value);
+    std::string GetRenderAttrName() const;
+    void SetRenderAttrName(std::string value);
     std::vector<GCBaseModelEntity*> GetTargetEntities() const;
     void SetTargetEntities(std::vector<GCBaseModelEntity*> value);
     int32_t GetTargetChangeCount() const;
     void SetTargetChangeCount(int32_t value);
     std::vector<CUtlSymbolLarge> GetCSSClasses() const;
     void SetCSSClasses(std::vector<CUtlSymbolLarge> value);
-    CUtlSymbolLarge GetTargetsName() const;
-    void SetTargetsName(CUtlSymbolLarge value);
+    std::string GetTargetsName() const;
+    void SetTargetsName(std::string value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15537,6 +16579,8 @@ public:
     void SetBoxSize(Vector value);
     bool GetEnabled() const;
     void SetEnabled(bool value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15551,7 +16595,8 @@ public:
     GCGamePlayerEquip(std::string ptr);
     GCGamePlayerEquip(void *ptr);
 
-
+    GCRulePointEntity GetParent() const;
+    void SetParent(GCRulePointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15566,7 +16611,8 @@ public:
     GCInfoTargetServerOnly(std::string ptr);
     GCInfoTargetServerOnly(void *ptr);
 
-
+    GCServerOnlyPointEntity GetParent() const;
+    void SetParent(GCServerOnlyPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15585,8 +16631,10 @@ public:
     void SetDistMinSqr(float value);
     float GetDistMaxSqr() const;
     void SetDistMaxSqr(float value);
-    CUtlSymbolLarge GetPathCornerEntityName() const;
-    void SetPathCornerEntityName(CUtlSymbolLarge value);
+    std::string GetPathCornerEntityName() const;
+    void SetPathCornerEntityName(std::string value);
+    GCSoundOpvarSetPointEntity GetParent() const;
+    void SetParent(GCSoundOpvarSetPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15601,6 +16649,8 @@ public:
     GCCSPlayer_WeaponServices(std::string ptr);
     GCCSPlayer_WeaponServices(void *ptr);
 
+    float GetNextAttack() const;
+    void SetNextAttack(float value);
     bool GetIsLookingAtWeapon() const;
     void SetIsLookingAtWeapon(bool value);
     bool GetIsHoldingLookAtWeapon() const;
@@ -15629,6 +16679,8 @@ public:
     void SetOldShootPositionHistoryCount(uint32_t value);
     uint32_t GetOldInputHistoryCount() const;
     void SetOldInputHistoryCount(uint32_t value);
+    GCPlayer_WeaponServices GetParent() const;
+    void SetParent(GCPlayer_WeaponServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15655,6 +16707,8 @@ public:
     void SetNumHitboxFires(int32_t value);
     float GetHitboxFireScale() const;
     void SetHitboxFireScale(float value);
+    float GetLifetime() const;
+    void SetLifetime(float value);
     GCBaseEntity GetAttacker() const;
     void SetAttacker(GCBaseEntity* value);
     int32_t GetDangerSound() const;
@@ -15663,6 +16717,8 @@ public:
     void SetDirectDamagePerSecond(float value);
     int32_t GetCustomDamageType() const;
     void SetCustomDamageType(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15677,7 +16733,8 @@ public:
     GCWeaponMP9(std::string ptr);
     GCWeaponMP9(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15756,6 +16813,8 @@ public:
     void SetEyeAnglesUnderPathFinderControl(bool value);
     int32_t GetPathIndex() const;
     void SetPathIndex(int32_t value);
+    float GetAreaEnteredTimestamp() const;
+    void SetAreaEnteredTimestamp(float value);
     GCountdownTimer GetRepathTimer() const;
     void SetRepathTimer(GCountdownTimer value);
     GCountdownTimer GetAvoidFriendTimer() const;
@@ -15862,10 +16921,14 @@ public:
     void SetAimError(QAngle value);
     QAngle GetAimGoal() const;
     void SetAimGoal(QAngle value);
+    float GetTargetSpotTime() const;
+    void SetTargetSpotTime(float value);
     float GetAimFocus() const;
     void SetAimFocus(float value);
     float GetAimFocusInterval() const;
     void SetAimFocusInterval(float value);
+    float GetAimFocusNextUpdate() const;
+    void SetAimFocusNextUpdate(float value);
     GCountdownTimer GetIgnoreEnemiesTimer() const;
     void SetIgnoreEnemiesTimer(GCountdownTimer value);
     GCCSPlayerPawn GetEnemy() const;
@@ -15916,6 +16979,8 @@ public:
     void SetEquipTimer(GIntervalTimer value);
     GCountdownTimer GetZoomTimer() const;
     void SetZoomTimer(GCountdownTimer value);
+    float GetFireWeaponTimestamp() const;
+    void SetFireWeaponTimestamp(float value);
     GCountdownTimer GetLookForWeaponsOnGroundTimer() const;
     void SetLookForWeaponsOnGroundTimer(GCountdownTimer value);
     bool GetIsSleeping() const;
@@ -15932,12 +16997,16 @@ public:
     void SetEnemyQueueAttendIndex(uint8_t value);
     bool GetIsStuck() const;
     void SetIsStuck(bool value);
+    float GetStuckTimestamp() const;
+    void SetStuckTimestamp(float value);
     Vector GetStuckSpot() const;
     void SetStuckSpot(Vector value);
     GCountdownTimer GetWiggleTimer() const;
     void SetWiggleTimer(GCountdownTimer value);
     GCountdownTimer GetStuckJumpTimer() const;
     void SetStuckJumpTimer(GCountdownTimer value);
+    float GetNextCleanupCheckTimestamp() const;
+    void SetNextCleanupCheckTimestamp(float value);
     std::vector<float> GetAvgVel() const;
     void SetAvgVel(std::vector<float> value);
     int32_t GetAvgVelIndex() const;
@@ -15958,6 +17027,8 @@ public:
     void SetVoiceEndTimestamp(float value);
     int32_t GetLastValidReactionQueueFrame() const;
     void SetLastValidReactionQueueFrame(int32_t value);
+    GCBot GetParent() const;
+    void SetParent(GCBot value);
 
     std::string ToPtr();
     bool IsValid();
@@ -15974,10 +17045,10 @@ public:
 
     int32_t GetNameStringableIndex() const;
     void SetNameStringableIndex(int32_t value);
-    CUtlSymbolLarge GetName() const;
-    void SetName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetDesignerName() const;
-    void SetDesignerName(CUtlSymbolLarge value);
+    std::string GetName() const;
+    void SetName(std::string value);
+    std::string GetDesignerName() const;
+    void SetDesignerName(std::string value);
     uint32_t GetFlags() const;
     void SetFlags(uint32_t value);
     WorldGroupId_t GetWorldGroupId() const;
@@ -16014,6 +17085,8 @@ public:
     void SetTargetEnt(GCBaseEntity* value);
     GCEntityIOOutput GetOnDeath() const;
     void SetOnDeath(GCEntityIOOutput value);
+    GCBaseToggle GetParent() const;
+    void SetParent(GCBaseToggle value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16028,10 +17101,12 @@ public:
     GCSoundEventParameter(std::string ptr);
     GCSoundEventParameter(void *ptr);
 
-    CUtlSymbolLarge GetParamName() const;
-    void SetParamName(CUtlSymbolLarge value);
+    std::string GetParamName() const;
+    void SetParamName(std::string value);
     float GetFloatValue() const;
     void SetFloatValue(float value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16046,7 +17121,8 @@ public:
     GCSimpleMarkupVolumeTagged(std::string ptr);
     GCSimpleMarkupVolumeTagged(void *ptr);
 
-
+    GCMarkupVolumeTagged GetParent() const;
+    void SetParent(GCMarkupVolumeTagged value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16067,6 +17143,12 @@ public:
     void SetBeam(int32_t value);
     std::vector<GCBeam*> GetBeam1() const;
     void SetBeam1(std::vector<GCBeam*> value);
+    std::vector<float> GetBeamTime() const;
+    void SetBeamTime(std::vector<float> value);
+    float GetStartTime() const;
+    void SetStartTime(float value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16081,7 +17163,8 @@ public:
     GCWeaponM4A1Silencer(std::string ptr);
     GCWeaponM4A1Silencer(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16098,6 +17181,8 @@ public:
 
     Vector GetExtent() const;
     void SetExtent(Vector value);
+    GCFuncNavBlocker GetParent() const;
+    void SetParent(GCFuncNavBlocker value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16114,6 +17199,8 @@ public:
 
     float GetMassScale() const;
     void SetMassScale(float value);
+    GCBaseAnimGraph GetParent() const;
+    void SetParent(GCBaseAnimGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16128,7 +17215,8 @@ public:
     GCWeaponTec9(std::string ptr);
     GCWeaponTec9(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16143,7 +17231,8 @@ public:
     GCMarkupVolumeTagged_Nav(std::string ptr);
     GCMarkupVolumeTagged_Nav(void *ptr);
 
-
+    GCMarkupVolumeTagged GetParent() const;
+    void SetParent(GCMarkupVolumeTagged value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16172,6 +17261,8 @@ public:
     void SetRemoveOnCompletion(bool value);
     GCBaseEntity GetTarget() const;
     void SetTarget(GCBaseEntity* value);
+    GCSceneEntity GetParent() const;
+    void SetParent(GCSceneEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16186,7 +17277,8 @@ public:
     GCLightEnvironmentEntity(std::string ptr);
     GCLightEnvironmentEntity(void *ptr);
 
-
+    GCLightDirectionalEntity GetParent() const;
+    void SetParent(GCLightDirectionalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16205,8 +17297,12 @@ public:
     void SetTriggerHitPoints(int32_t value);
     float GetTimeToTrigger() const;
     void SetTimeToTrigger(float value);
+    float GetStartTime() const;
+    void SetStartTime(float value);
     float GetDangerousTime() const;
     void SetDangerousTime(float value);
+    GCLogicAutosave GetParent() const;
+    void SetParent(GCLogicAutosave value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16225,6 +17321,8 @@ public:
     void SetCanInDispenser(bool value);
     int32_t GetBeverageType() const;
     void SetBeverageType(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16239,7 +17337,8 @@ public:
     GCWeaponCZ75a(std::string ptr);
     GCWeaponCZ75a(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16254,7 +17353,8 @@ public:
     GCWeaponP250(std::string ptr);
     GCWeaponP250(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16327,10 +17427,18 @@ public:
     void SetHandsHaveBeenCut(bool value);
     GCCSPlayerPawn GetHostageGrabber() const;
     void SetHostageGrabber(GCCSPlayerPawn* value);
+    float GetLastGrabTime() const;
+    void SetLastGrabTime(float value);
     Vector GetPositionWhenStartedDroppingToGround() const;
     void SetPositionWhenStartedDroppingToGround(Vector value);
     Vector GetGrabbedPos() const;
     void SetGrabbedPos(Vector value);
+    float GetRescueStartTime() const;
+    void SetRescueStartTime(float value);
+    float GetGrabSuccessTime() const;
+    void SetGrabSuccessTime(float value);
+    float GetDropStartTime() const;
+    void SetDropStartTime(float value);
     int32_t GetApproachRewardPayouts() const;
     void SetApproachRewardPayouts(int32_t value);
     int32_t GetPickupEventCount() const;
@@ -16339,6 +17447,8 @@ public:
     void SetSpawnGroundPos(Vector value);
     Vector GetHostageResetPosition() const;
     void SetHostageResetPosition(Vector value);
+    GCHostageExpresserShim GetParent() const;
+    void SetParent(GCHostageExpresserShim value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16355,6 +17465,8 @@ public:
 
     Vector GetExtent() const;
     void SetExtent(Vector value);
+    GCTriggerHurt GetParent() const;
+    void SetParent(GCTriggerHurt value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16373,8 +17485,8 @@ public:
     void SetBuiltRightHanded(bool value);
     bool GetAllowFlipping() const;
     void SetAllowFlipping(bool value);
-    CUtlString GetMuzzleAttachment() const;
-    void SetMuzzleAttachment(CUtlString value);
+    std::string GetMuzzleAttachment() const;
+    void SetMuzzleAttachment(std::string value);
     ItemFlagTypes_t GetFlags() const;
     void SetFlags(ItemFlagTypes_t value);
     uint8_t GetPrimaryAmmoType() const;
@@ -16403,6 +17515,8 @@ public:
     void SetSlot(int32_t value);
     int32_t GetPosition() const;
     void SetPosition(int32_t value);
+    GCEntitySubclassVDataBase GetParent() const;
+    void SetParent(GCEntitySubclassVDataBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16425,6 +17539,8 @@ public:
     void SetOutColor1(Color value);
     Color GetOutColor2() const;
     void SetOutColor2(Color value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16443,10 +17559,14 @@ public:
     void SetOverlayNames(std::vector<CUtlSymbolLarge> value);
     std::vector<float> GetOverlayTimes() const;
     void SetOverlayTimes(std::vector<float> value);
+    float GetStartTime() const;
+    void SetStartTime(float value);
     int32_t GetDesiredOverlay() const;
     void SetDesiredOverlay(int32_t value);
     bool GetIsActive() const;
     void SetIsActive(bool value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16477,8 +17597,8 @@ public:
     void SetCharacterDefIndex(uint16_t value);
     bool GetHasFemaleVoice() const;
     void SetHasFemaleVoice(bool value);
-    CUtlString GetStrVOPrefix() const;
-    void SetStrVOPrefix(CUtlString value);
+    std::string GetStrVOPrefix() const;
+    void SetStrVOPrefix(std::string value);
     std::string GetLastPlaceName() const;
     void SetLastPlaceName(std::string value);
     bool GetInHostageResetZone() const;
@@ -16505,6 +17625,8 @@ public:
     void SetRetakesMVPBoostItem(int32_t value);
     loadout_slot_t GetRetakesMVPBoostExtraUtility() const;
     void SetRetakesMVPBoostExtraUtility(loadout_slot_t value);
+    float GetHealthShotBoostExpirationTime() const;
+    void SetHealthShotBoostExpirationTime(float value);
     float GetLandingTimeSeconds() const;
     void SetLandingTimeSeconds(float value);
     QAngle GetAimPunchAngle() const;
@@ -16521,10 +17643,16 @@ public:
     void SetIsBuyMenuOpen(bool value);
     bool GetLastHeadBoneTransformIsValid() const;
     void SetLastHeadBoneTransformIsValid(bool value);
+    float GetLastLandTime() const;
+    void SetLastLandTime(float value);
     bool GetOnGroundLastTick() const;
     void SetOnGroundLastTick(bool value);
     int32_t GetPlayerLocked() const;
     void SetPlayerLocked(int32_t value);
+    float GetTimeOfLastInjury() const;
+    void SetTimeOfLastInjury(float value);
+    float GetNextSprayDecalTime() const;
+    void SetNextSprayDecalTime(float value);
     bool GetNextSprayDecalTimeExpedited() const;
     void SetNextSprayDecalTimeExpedited(bool value);
     int32_t GetRagdollDamageBone() const;
@@ -16549,6 +17677,8 @@ public:
     void SetSkipOneHeadConstraintUpdate(bool value);
     bool GetLeftHanded() const;
     void SetLeftHanded(bool value);
+    float GetSwitchedHandednessTime() const;
+    void SetSwitchedHandednessTime(float value);
     float GetViewmodelOffsetX() const;
     void SetViewmodelOffsetX(float value);
     float GetViewmodelOffsetY() const;
@@ -16569,6 +17699,8 @@ public:
     void SetDisplayHistoryBits(uint32_t value);
     float GetLastAttackedTeammate() const;
     void SetLastAttackedTeammate(float value);
+    float GetAllowAutoFollowTime() const;
+    void SetAllowAutoFollowTime(float value);
     bool GetResetArmorNextSpawn() const;
     void SetResetArmorNextSpawn(bool value);
     CEntityIndex GetLastKillerIndex() const;
@@ -16587,6 +17719,8 @@ public:
     void SetIsGrabbingHostage(bool value);
     CSPlayerBlockingUseAction_t GetBlockingUseActionInProgress() const;
     void SetBlockingUseActionInProgress(CSPlayerBlockingUseAction_t value);
+    float GetEmitSoundTime() const;
+    void SetEmitSoundTime(float value);
     bool GetInNoDefuseArea() const;
     void SetInNoDefuseArea(bool value);
     CEntityIndex GetBombSiteIndex() const;
@@ -16661,6 +17795,8 @@ public:
     void SetPlayerPatchEconIndices(std::vector<uint32_t> value);
     Color GetGunGameImmunityColor() const;
     void SetGunGameImmunityColor(Color value);
+    float GetGrenadeParameterStashTime() const;
+    void SetGrenadeParameterStashTime(float value);
     bool GetGrenadeParametersStashed() const;
     void SetGrenadeParametersStashed(bool value);
     QAngle GetStashedShootAngles() const;
@@ -16675,6 +17811,8 @@ public:
     void SetThrowPositionHistory(std::vector<Vector> value);
     std::vector<Vector> GetVelocityHistory() const;
     void SetVelocityHistory(std::vector<Vector> value);
+    GCCSPlayerPawnBase GetParent() const;
+    void SetParent(GCCSPlayerPawnBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16689,7 +17827,8 @@ public:
     GCBumpMineProjectile(std::string ptr);
     GCBumpMineProjectile(void *ptr);
 
-
+    GCBaseGrenade GetParent() const;
+    void SetParent(GCBaseGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16716,10 +17855,12 @@ public:
     void SetPing(uint32_t value);
     bool GetHasCommunicationAbuseMute() const;
     void SetHasCommunicationAbuseMute(bool value);
-    CUtlSymbolLarge GetCrosshairCodes() const;
-    void SetCrosshairCodes(CUtlSymbolLarge value);
+    std::string GetCrosshairCodes() const;
+    void SetCrosshairCodes(std::string value);
     uint8_t GetPendingTeamNum() const;
     void SetPendingTeamNum(uint8_t value);
+    float GetForceTeamTime() const;
+    void SetForceTeamTime(float value);
     int32_t GetCompTeammateColor() const;
     void SetCompTeammateColor(int32_t value);
     bool GetEverPlayedOnTeam() const;
@@ -16740,8 +17881,8 @@ public:
     void SetSwitchTeamsOnNextRoundReset(bool value);
     bool GetRemoveAllItemsOnNextRoundReset() const;
     void SetRemoveAllItemsOnNextRoundReset(bool value);
-    CUtlSymbolLarge GetClan() const;
-    void SetClan(CUtlSymbolLarge value);
+    std::string GetClan() const;
+    void SetClan(std::string value);
     std::string GetClanName() const;
     void SetClanName(std::string value);
     int32_t GetCoachingTeam() const;
@@ -16866,10 +18007,16 @@ public:
     void SetGaveTeamDamageWarningThisRound(bool value);
     double GetDblLastReceivedPacketPlatFloatTime() const;
     void SetDblLastReceivedPacketPlatFloatTime(double value);
+    float GetLastTeamDamageWarningTime() const;
+    void SetLastTeamDamageWarningTime(float value);
+    float GetLastTimePlayerWasDisconnectedForPawnsRemove() const;
+    void SetLastTimePlayerWasDisconnectedForPawnsRemove(float value);
     uint32_t GetSuspiciousHitCount() const;
     void SetSuspiciousHitCount(uint32_t value);
     uint32_t GetNonSuspiciousHitStreak() const;
     void SetNonSuspiciousHitStreak(uint32_t value);
+    GCBasePlayerController GetParent() const;
+    void SetParent(GCBasePlayerController value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16916,6 +18063,8 @@ public:
     void SetStartleTimer(GCountdownTimer value);
     GCountdownTimer GetVocalizeTimer() const;
     void SetVocalizeTimer(GCountdownTimer value);
+    float GetWhenZombified() const;
+    void SetWhenZombified(float value);
     bool GetJumpedThisFrame() const;
     void SetJumpedThisFrame(bool value);
     GCCSPlayerPawn GetLeader() const;
@@ -16940,12 +18089,16 @@ public:
     void SetInhibitObstacleAvoidanceTimer(GCountdownTimer value);
     Vector GetPathGoal() const;
     void SetPathGoal(Vector value);
+    float GetActiveFollowStartTime() const;
+    void SetActiveFollowStartTime(float value);
     GCountdownTimer GetFollowMinuteTimer() const;
     void SetFollowMinuteTimer(GCountdownTimer value);
     Vector GetLastEggPoopPosition() const;
     void SetLastEggPoopPosition(Vector value);
     GCountdownTimer GetBlockDirectionTimer() const;
     void SetBlockDirectionTimer(GCountdownTimer value);
+    GCDynamicProp GetParent() const;
+    void SetParent(GCDynamicProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16960,7 +18113,8 @@ public:
     GCInfoInstructorHintBombTargetA(std::string ptr);
     GCInfoInstructorHintBombTargetA(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16975,7 +18129,8 @@ public:
     GCWeaponAWP(std::string ptr);
     GCWeaponAWP(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -16990,7 +18145,8 @@ public:
     GCCSObserverPawn(std::string ptr);
     GCCSObserverPawn(void *ptr);
 
-
+    GCCSPlayerPawnBase GetParent() const;
+    void SetParent(GCCSPlayerPawnBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17035,6 +18191,8 @@ public:
     void SetTonemapPercentBrightPixels(float value);
     float GetTonemapMinAvgLum() const;
     void SetTonemapMinAvgLum(float value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17057,6 +18215,8 @@ public:
     void SetSpotlightDir(Vector value);
     Vector GetSpotlightOrg() const;
     void SetSpotlightOrg(Vector value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17075,6 +18235,8 @@ public:
     void SetOnPlayerInZone(GCEntityIOOutput value);
     GCEntityIOOutput GetOnPlayerOutZone() const;
     void SetOnPlayerOutZone(GCEntityIOOutput value);
+    GCRuleBrushEntity GetParent() const;
+    void SetParent(GCRuleBrushEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17089,7 +18251,8 @@ public:
     GCSensorGrenade(std::string ptr);
     GCSensorGrenade(void *ptr);
 
-
+    GCBaseCSGrenade GetParent() const;
+    void SetParent(GCBaseCSGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17104,7 +18267,8 @@ public:
     GCCSGO_WingmanIntroTerroristPosition(std::string ptr);
     GCCSGO_WingmanIntroTerroristPosition(void *ptr);
 
-
+    GCCSGO_WingmanIntroCharacterPosition GetParent() const;
+    void SetParent(GCCSGO_WingmanIntroCharacterPosition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17121,6 +18285,8 @@ public:
 
     GCEntityIOOutput GetOnDetectedExplosion() const;
     void SetOnDetectedExplosion(GCEntityIOOutput value);
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17135,8 +18301,10 @@ public:
     GCSoundStackSave(std::string ptr);
     GCSoundStackSave(void *ptr);
 
-    CUtlSymbolLarge GetStackName() const;
-    void SetStackName(CUtlSymbolLarge value);
+    std::string GetStackName() const;
+    void SetStackName(std::string value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17157,10 +18325,10 @@ public:
     void SetSoundProfile(GSimpleConstraintSoundProfile value);
     Vector GetForwardAxis() const;
     void SetForwardAxis(Vector value);
-    CUtlSymbolLarge GetTravelSoundFwd() const;
-    void SetTravelSoundFwd(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTravelSoundBack() const;
-    void SetTravelSoundBack(CUtlSymbolLarge value);
+    std::string GetTravelSoundFwd() const;
+    void SetTravelSoundFwd(std::string value);
+    std::string GetTravelSoundBack() const;
+    void SetTravelSoundBack(std::string value);
     std::vector<CUtlSymbolLarge> GetReversalSounds() const;
     void SetReversalSounds(std::vector<CUtlSymbolLarge> value);
     bool GetPlayTravelSound() const;
@@ -17183,6 +18351,8 @@ public:
 
     bool GetSinglePlayerGameEnding() const;
     void SetSinglePlayerGameEnding(bool value);
+    GCGameRules GetParent() const;
+    void SetParent(GCGameRules value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17199,6 +18369,8 @@ public:
 
     float GetRadius() const;
     void SetRadius(float value);
+    GCBaseFilter GetParent() const;
+    void SetParent(GCBaseFilter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17217,6 +18389,8 @@ public:
     void SetForceSkin(int32_t value);
     bool GetAlwaysAllow() const;
     void SetAlwaysAllow(bool value);
+    GCEconEntity GetParent() const;
+    void SetParent(GCEconEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17237,6 +18411,8 @@ public:
     void SetHasHelmet(bool value);
     bool GetHasHeavyArmor() const;
     void SetHasHeavyArmor(bool value);
+    GCPlayer_ItemServices GetParent() const;
+    void SetParent(GCPlayer_ItemServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17251,8 +18427,8 @@ public:
     GCFuncConveyor(std::string ptr);
     GCFuncConveyor(void *ptr);
 
-    CUtlSymbolLarge GetConveyorModels() const;
-    void SetConveyorModels(CUtlSymbolLarge value);
+    std::string GetConveyorModels() const;
+    void SetConveyorModels(std::string value);
     float GetTransitionDurationSeconds() const;
     void SetTransitionDurationSeconds(float value);
     QAngle GetMoveEntitySpace() const;
@@ -17261,12 +18437,16 @@ public:
     void SetMoveDirEntitySpace(Vector value);
     float GetTargetSpeed() const;
     void SetTargetSpeed(float value);
+    int32 GetTransitionStartTick() const;
+    void SetTransitionStartTick(int32 value);
     int32_t GetTransitionDurationTicks() const;
     void SetTransitionDurationTicks(int32_t value);
     float GetTransitionStartSpeed() const;
     void SetTransitionStartSpeed(float value);
     std::vector<GCBaseEntity*> GetConveyorModels1() const;
     void SetConveyorModels1(std::vector<GCBaseEntity*> value);
+    GCBaseModelEntity GetParent() const;
+    void SetParent(GCBaseModelEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17281,7 +18461,8 @@ public:
     GCWeaponMag7(std::string ptr);
     GCWeaponMag7(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17314,6 +18495,8 @@ public:
     void SetOnChangedFromMin(GCEntityIOOutput value);
     GCEntityIOOutput GetOnChangedFromMax() const;
     void SetOnChangedFromMax(GCEntityIOOutput value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17330,10 +18513,10 @@ public:
 
     GCEntityIOOutput GetOutputOnEntitiesSpawned() const;
     void SetOutputOnEntitiesSpawned(GCEntityIOOutput value);
-    CUtlSymbolLarge GetWorldName() const;
-    void SetWorldName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetLayerName() const;
-    void SetLayerName(CUtlSymbolLarge value);
+    std::string GetWorldName() const;
+    void SetWorldName(std::string value);
+    std::string GetLayerName() const;
+    void SetLayerName(std::string value);
     bool GetWorldLayerVisible() const;
     void SetWorldLayerVisible(bool value);
     bool GetEntitiesSpawned() const;
@@ -17342,6 +18525,8 @@ public:
     void SetCreateAsChildSpawnGroup(bool value);
     uint32_t GetLayerSpawnGroup() const;
     void SetLayerSpawnGroup(uint32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17358,6 +18543,8 @@ public:
 
     bool GetShowLight() const;
     void SetShowLight(bool value);
+    GCBarnLight GetParent() const;
+    void SetParent(GCBarnLight value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17372,7 +18559,8 @@ public:
     GCCSGO_TeamSelectCharacterPosition(std::string ptr);
     GCCSGO_TeamSelectCharacterPosition(void *ptr);
 
-
+    GCCSGO_TeamPreviewCharacterPosition GetParent() const;
+    void SetParent(GCCSGO_TeamPreviewCharacterPosition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17405,16 +18593,16 @@ public:
     void SetSpawnPosition(FuncDoorSpawnPos_t value);
     float GetBlockDamage() const;
     void SetBlockDamage(float value);
-    CUtlSymbolLarge GetNoiseMoving() const;
-    void SetNoiseMoving(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetNoiseArrived() const;
-    void SetNoiseArrived(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetNoiseMovingClosed() const;
-    void SetNoiseMovingClosed(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetNoiseArrivedClosed() const;
-    void SetNoiseArrivedClosed(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetChainTarget() const;
-    void SetChainTarget(CUtlSymbolLarge value);
+    std::string GetNoiseMoving() const;
+    void SetNoiseMoving(std::string value);
+    std::string GetNoiseArrived() const;
+    void SetNoiseArrived(std::string value);
+    std::string GetNoiseMovingClosed() const;
+    void SetNoiseMovingClosed(std::string value);
+    std::string GetNoiseArrivedClosed() const;
+    void SetNoiseArrivedClosed(std::string value);
+    std::string GetChainTarget() const;
+    void SetChainTarget(std::string value);
     GCEntityIOOutput GetOnBlockedClosing() const;
     void SetOnBlockedClosing(GCEntityIOOutput value);
     GCEntityIOOutput GetOnBlockedOpening() const;
@@ -17441,6 +18629,8 @@ public:
     void SetIsChaining(bool value);
     bool GetIsUsable() const;
     void SetIsUsable(bool value);
+    GCBaseToggle GetParent() const;
+    void SetParent(GCBaseToggle value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17455,12 +18645,14 @@ public:
     GCLogicLineToEntity(std::string ptr);
     GCLogicLineToEntity(void *ptr);
 
-    CUtlSymbolLarge GetSourceName() const;
-    void SetSourceName(CUtlSymbolLarge value);
+    std::string GetSourceName() const;
+    void SetSourceName(std::string value);
     GCBaseEntity GetStartEntity() const;
     void SetStartEntity(GCBaseEntity* value);
     GCBaseEntity GetEndEntity() const;
     void SetEndEntity(GCBaseEntity* value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17501,6 +18693,8 @@ public:
 
     GCCSGameRules GetGameRules() const;
     void SetGameRules(GCCSGameRules* value);
+    GCGameRulesProxy GetParent() const;
+    void SetParent(GCGameRulesProxy value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17515,7 +18709,8 @@ public:
     GCEnvCubemapBox(std::string ptr);
     GCEnvCubemapBox(void *ptr);
 
-
+    GCEnvCubemap GetParent() const;
+    void SetParent(GCEnvCubemap value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17530,7 +18725,8 @@ public:
     GCCSPlayer_DamageReactServices(std::string ptr);
     GCCSPlayer_DamageReactServices(void *ptr);
 
-
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17569,6 +18765,10 @@ public:
     void SetFreezePeriod(bool value);
     bool GetWarmupPeriod() const;
     void SetWarmupPeriod(bool value);
+    float GetWarmupPeriodEnd() const;
+    void SetWarmupPeriodEnd(float value);
+    float GetWarmupPeriodStart() const;
+    void SetWarmupPeriodStart(float value);
     bool GetServerPaused() const;
     void SetServerPaused(bool value);
     bool GetTerroristTimeOutActive() const;
@@ -17591,6 +18791,10 @@ public:
     void SetRoundTime(int32_t value);
     float GetMatchStartTime() const;
     void SetMatchStartTime(float value);
+    float GetRoundStartTime() const;
+    void SetRoundStartTime(float value);
+    float GetRestartRoundTime() const;
+    void SetRestartRoundTime(float value);
     bool GetGameRestart() const;
     void SetGameRestart(bool value);
     float GetGameStartTime() const;
@@ -17643,6 +18847,10 @@ public:
     void SetTournamentPredictionsTxt(std::string value);
     int32_t GetTournamentPredictionsPct() const;
     void SetTournamentPredictionsPct(int32_t value);
+    float GetCMMItemDropRevealStartTime() const;
+    void SetCMMItemDropRevealStartTime(float value);
+    float GetCMMItemDropRevealEndTime() const;
+    void SetCMMItemDropRevealEndTime(float value);
     bool GetIsDroppingItems() const;
     void SetIsDroppingItems(bool value);
     bool GetIsQuestEligible() const;
@@ -17677,6 +18885,8 @@ public:
     void SetMatchStats_PlayersAlive_T(std::vector<int32_t> value);
     std::vector<float> GetTeamRespawnWaveTimes() const;
     void SetTeamRespawnWaveTimes(std::vector<float> value);
+    std::vector<float> GetNextRespawnWave() const;
+    void SetNextRespawnWave(std::vector<float> value);
     int32_t GetServerQuestID() const;
     void SetServerQuestID(int32_t value);
     Vector GetMinimapMins() const;
@@ -17699,6 +18909,10 @@ public:
     void SetNumConsecutiveTerroristLoses(int32_t value);
     bool GetHasHostageBeenTouched() const;
     void SetHasHostageBeenTouched(bool value);
+    float GetIntermissionStartTime() const;
+    void SetIntermissionStartTime(float value);
+    float GetIntermissionEndTime() const;
+    void SetIntermissionEndTime(float value);
     bool GetLevelInitialized() const;
     void SetLevelInitialized(bool value);
     int32_t GetTotalRoundsPlayed1() const;
@@ -17851,8 +19065,12 @@ public:
     void SetAllowWeaponSwitch(bool value);
     bool GetRoundTimeWarningTriggered() const;
     void SetRoundTimeWarningTriggered(bool value);
+    float GetPhaseChangeAnnouncementTime() const;
+    void SetPhaseChangeAnnouncementTime(float value);
     float GetNextUpdateTeamClanNamesTime() const;
     void SetNextUpdateTeamClanNamesTime(float value);
+    float GetLastThinkTime() const;
+    void SetLastThinkTime(float value);
     float GetAccumulatedRoundOffDamage() const;
     void SetAccumulatedRoundOffDamage(float value);
     int32_t GetShorthandedBonusLastEvalRound() const;
@@ -17879,6 +19097,8 @@ public:
     void SetCTTeamIntroVariant(int32_t value);
     bool GetTeamIntroPeriod() const;
     void SetTeamIntroPeriod(bool value);
+    float GetTeamIntroPeriodEnd() const;
+    void SetTeamIntroPeriodEnd(float value);
     bool GetPlayedTeamIntroVO() const;
     void SetPlayedTeamIntroVO(bool value);
     int32_t GetRoundEndWinnerTeam() const;
@@ -17889,8 +19109,8 @@ public:
     void SetRoundEndShowTimerDefend(bool value);
     int32_t GetRoundEndTimerTime() const;
     void SetRoundEndTimerTime(int32_t value);
-    CUtlString GetRoundEndFunFactToken() const;
-    void SetRoundEndFunFactToken(CUtlString value);
+    std::string GetRoundEndFunFactToken() const;
+    void SetRoundEndFunFactToken(std::string value);
     int32_t GetRoundEndFunFactPlayerSlot() const;
     void SetRoundEndFunFactPlayerSlot(int32_t value);
     int32_t GetRoundEndFunFactData1() const;
@@ -17899,8 +19119,8 @@ public:
     void SetRoundEndFunFactData2(int32_t value);
     int32_t GetRoundEndFunFactData3() const;
     void SetRoundEndFunFactData3(int32_t value);
-    CUtlString GetRoundEndMessage() const;
-    void SetRoundEndMessage(CUtlString value);
+    std::string GetRoundEndMessage() const;
+    void SetRoundEndMessage(std::string value);
     int32_t GetRoundEndPlayerCount() const;
     void SetRoundEndPlayerCount(int32_t value);
     bool GetRoundEndNoMusic() const;
@@ -17915,6 +19135,8 @@ public:
     void SetRoundStartCount(uint8_t value);
     double GetLastPerfSampleTime() const;
     void SetLastPerfSampleTime(double value);
+    GCTeamplayRules GetParent() const;
+    void SetParent(GCTeamplayRules value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17937,6 +19159,10 @@ public:
     void SetStartFadeInWeight(float value);
     float GetStartFadeOutWeight() const;
     void SetStartFadeOutWeight(float value);
+    float GetTimeStartFadeIn() const;
+    void SetTimeStartFadeIn(float value);
+    float GetTimeStartFadeOut() const;
+    void SetTimeStartFadeOut(float value);
     float GetMaxWeight() const;
     void SetMaxWeight(float value);
     bool GetStartDisabled() const;
@@ -17957,8 +19183,10 @@ public:
     void SetCurWeight(float value);
     std::string GetNetlookupFilename() const;
     void SetNetlookupFilename(std::string value);
-    CUtlSymbolLarge GetLookupFilename() const;
-    void SetLookupFilename(CUtlSymbolLarge value);
+    std::string GetLookupFilename() const;
+    void SetLookupFilename(std::string value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17973,7 +19201,8 @@ public:
     GCWeaponElite(std::string ptr);
     GCWeaponElite(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -17988,7 +19217,8 @@ public:
     GCSoundEventEntityAlias_snd_event_point(std::string ptr);
     GCSoundEventEntityAlias_snd_event_point(void *ptr);
 
-
+    GCSoundEventEntity GetParent() const;
+    void SetParent(GCSoundEventEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18026,6 +19256,8 @@ public:
     void SetDoValidDroppedPositionCheck(bool value);
     bool GetStartedArming() const;
     void SetStartedArming(bool value);
+    float GetArmedTime() const;
+    void SetArmedTime(float value);
     bool GetBombPlacedAnimation() const;
     void SetBombPlacedAnimation(bool value);
     bool GetIsPlantingViaUse() const;
@@ -18038,6 +19270,8 @@ public:
     void SetPlayedArmingBeeps(std::vector<bool> value);
     bool GetBombPlanted() const;
     void SetBombPlanted(bool value);
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18052,7 +19286,8 @@ public:
     GCHostageRescueZone(std::string ptr);
     GCHostageRescueZone(void *ptr);
 
-
+    GCHostageRescueZoneShim GetParent() const;
+    void SetParent(GCHostageRescueZoneShim value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18067,18 +19302,20 @@ public:
     GCPointPrefab(std::string ptr);
     GCPointPrefab(void *ptr);
 
-    CUtlSymbolLarge GetTargetMapName() const;
-    void SetTargetMapName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetForceWorldGroupID() const;
-    void SetForceWorldGroupID(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetAssociatedRelayTargetName() const;
-    void SetAssociatedRelayTargetName(CUtlSymbolLarge value);
+    std::string GetTargetMapName() const;
+    void SetTargetMapName(std::string value);
+    std::string GetForceWorldGroupID() const;
+    void SetForceWorldGroupID(std::string value);
+    std::string GetAssociatedRelayTargetName() const;
+    void SetAssociatedRelayTargetName(std::string value);
     bool GetFixupNames() const;
     void SetFixupNames(bool value);
     bool GetLoadDynamic() const;
     void SetLoadDynamic(bool value);
     GCPointPrefab GetAssociatedRelayEntity() const;
     void SetAssociatedRelayEntity(GCPointPrefab* value);
+    GCServerOnlyPointEntity GetParent() const;
+    void SetParent(GCServerOnlyPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18095,6 +19332,8 @@ public:
 
     bool GetSolidBsp() const;
     void SetSolidBsp(bool value);
+    GCBaseDoor GetParent() const;
+    void SetParent(GCBaseDoor value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18111,6 +19350,8 @@ public:
 
     GCSkeletonInstance GetSkeletonInstance() const;
     void SetSkeletonInstance(GCSkeletonInstance* value);
+    GISkeletonAnimationController GetParent() const;
+    void SetParent(GISkeletonAnimationController value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18125,7 +19366,8 @@ public:
     GCTablet(std::string ptr);
     GCTablet(void *ptr);
 
-
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18146,14 +19388,16 @@ public:
     void SetTargetEntity(GCBaseEntity* value);
     int32_t GetSoundPlaying() const;
     void SetSoundPlaying(int32_t value);
-    CUtlSymbolLarge GetStartSoundName() const;
-    void SetStartSoundName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetEngineSoundName() const;
-    void SetEngineSoundName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetMovementSoundName() const;
-    void SetMovementSoundName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetTargetEntityName() const;
-    void SetTargetEntityName(CUtlSymbolLarge value);
+    std::string GetStartSoundName() const;
+    void SetStartSoundName(std::string value);
+    std::string GetEngineSoundName() const;
+    void SetEngineSoundName(std::string value);
+    std::string GetMovementSoundName() const;
+    void SetMovementSoundName(std::string value);
+    std::string GetTargetEntityName() const;
+    void SetTargetEntityName(std::string value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18176,6 +19420,8 @@ public:
     void SetMaxPieces(int32_t value);
     int32_t GetLastFrame() const;
     void SetLastFrame(int32_t value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18206,7 +19452,8 @@ public:
     GCRagdollPropAlias_physics_prop_ragdoll(std::string ptr);
     GCRagdollPropAlias_physics_prop_ragdoll(void *ptr);
 
-
+    GCRagdollProp GetParent() const;
+    void SetParent(GCRagdollProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18221,7 +19468,8 @@ public:
     GCCSSprite(std::string ptr);
     GCCSSprite(void *ptr);
 
-
+    GCSprite GetParent() const;
+    void SetParent(GCSprite value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18236,7 +19484,8 @@ public:
     GCFuncPropRespawnZone(std::string ptr);
     GCFuncPropRespawnZone(void *ptr);
 
-
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18251,7 +19500,8 @@ public:
     GCInfoDeathmatchSpawn(std::string ptr);
     GCInfoDeathmatchSpawn(void *ptr);
 
-
+    GSpawnPoint GetParent() const;
+    void SetParent(GSpawnPoint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18266,7 +19516,8 @@ public:
     GCWeaponSCAR20(std::string ptr);
     GCWeaponSCAR20(void *ptr);
 
-
+    GCCSWeaponBaseGun GetParent() const;
+    void SetParent(GCCSWeaponBaseGun value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18281,7 +19532,8 @@ public:
     GCTripWireFireProjectile(std::string ptr);
     GCTripWireFireProjectile(void *ptr);
 
-
+    GCBaseGrenade GetParent() const;
+    void SetParent(GCBaseGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18296,7 +19548,8 @@ public:
     GCFuncTrackAuto(std::string ptr);
     GCFuncTrackAuto(void *ptr);
 
-
+    GCFuncTrackChange GetParent() const;
+    void SetParent(GCFuncTrackChange value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18321,6 +19574,8 @@ public:
     void SetType(int32_t value);
     GCEntityIOOutput GetOnSpark() const;
     void SetOnSpark(GCEntityIOOutput value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18335,7 +19590,8 @@ public:
     GCCSObserver_ObserverServices(std::string ptr);
     GCCSObserver_ObserverServices(void *ptr);
 
-
+    GCPlayer_ObserverServices GetParent() const;
+    void SetParent(GCPlayer_ObserverServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18350,7 +19606,8 @@ public:
     GCPlayer_AutoaimServices(std::string ptr);
     GCPlayer_AutoaimServices(void *ptr);
 
-
+    GCPlayerPawnComponent GetParent() const;
+    void SetParent(GCPlayerPawnComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18373,8 +19630,12 @@ public:
     void SetEnemy(GCBaseEntity* value);
     float GetBlockDamage() const;
     void SetBlockDamage(float value);
-    CUtlSymbolLarge GetLastTarget() const;
-    void SetLastTarget(CUtlSymbolLarge value);
+    float GetNextBlockTime() const;
+    void SetNextBlockTime(float value);
+    std::string GetLastTarget() const;
+    void SetLastTarget(std::string value);
+    GCBasePlatTrain GetParent() const;
+    void SetParent(GCBasePlatTrain value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18389,7 +19650,8 @@ public:
     GCHostageAlias_info_hostage_spawn(std::string ptr);
     GCHostageAlias_info_hostage_spawn(void *ptr);
 
-
+    GCHostage GetParent() const;
+    void SetParent(GCHostage value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18410,18 +19672,18 @@ public:
     void SetLocatorOffset(Vector value);
     QAngle GetLocatorAnglesOffset() const;
     void SetLocatorAnglesOffset(QAngle value);
-    CUtlSymbolLarge GetStrMovementForward() const;
-    void SetStrMovementForward(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetStrMovementReverse() const;
-    void SetStrMovementReverse(CUtlSymbolLarge value);
+    std::string GetStrMovementForward() const;
+    void SetStrMovementForward(std::string value);
+    std::string GetStrMovementReverse() const;
+    void SetStrMovementReverse(std::string value);
     int32_t GetNavLinkIdForward() const;
     void SetNavLinkIdForward(int32_t value);
     int32_t GetNavLinkIdReverse() const;
     void SetNavLinkIdReverse(int32_t value);
     bool GetEnabled() const;
     void SetEnabled(bool value);
-    CUtlSymbolLarge GetStrFilterName() const;
-    void SetStrFilterName(CUtlSymbolLarge value);
+    std::string GetStrFilterName() const;
+    void SetStrFilterName(std::string value);
     GCBaseFilter GetFilter() const;
     void SetFilter(GCBaseFilter* value);
     GCEntityIOOutput GetOnNavLinkStart() const;
@@ -18430,6 +19692,8 @@ public:
     void SetOnNavLinkFinish(GCEntityIOOutput value);
     bool GetIsTerminus() const;
     void SetIsTerminus(bool value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18444,7 +19708,8 @@ public:
     GCFuncMoveLinearAlias_momentary_door(std::string ptr);
     GCFuncMoveLinearAlias_momentary_door(void *ptr);
 
-
+    GCFuncMoveLinear GetParent() const;
+    void SetParent(GCFuncMoveLinear value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18465,6 +19730,8 @@ public:
     void SetOnCommentaryMidGame(GCEntityIOOutput value);
     GCEntityIOOutput GetOnCommentaryMultiplayerSpawn() const;
     void SetOnCommentaryMultiplayerSpawn(GCEntityIOOutput value);
+    GCBaseEntity GetParent() const;
+    void SetParent(GCBaseEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18495,6 +19762,8 @@ public:
     void SetHostageCount(int32_t value);
     bool GetFadePlayerVisibilityFarZ() const;
     void SetFadePlayerVisibilityFarZ(bool value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18509,7 +19778,8 @@ public:
     GCTriggerBombReset(std::string ptr);
     GCTriggerBombReset(void *ptr);
 
-
+    GCBaseTrigger GetParent() const;
+    void SetParent(GCBaseTrigger value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18524,8 +19794,10 @@ public:
     GCBaseDMStart(std::string ptr);
     GCBaseDMStart(void *ptr);
 
-    CUtlSymbolLarge GetMaster() const;
-    void SetMaster(CUtlSymbolLarge value);
+    std::string GetMaster() const;
+    void SetMaster(std::string value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18540,12 +19812,12 @@ public:
     GCLogicMeasureMovement(std::string ptr);
     GCLogicMeasureMovement(void *ptr);
 
-    CUtlSymbolLarge GetStrMeasureTarget() const;
-    void SetStrMeasureTarget(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetStrMeasureReference() const;
-    void SetStrMeasureReference(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetStrTargetReference() const;
-    void SetStrTargetReference(CUtlSymbolLarge value);
+    std::string GetStrMeasureTarget() const;
+    void SetStrMeasureTarget(std::string value);
+    std::string GetStrMeasureReference() const;
+    void SetStrMeasureReference(std::string value);
+    std::string GetStrTargetReference() const;
+    void SetStrTargetReference(std::string value);
     GCBaseEntity GetMeasureTarget() const;
     void SetMeasureTarget(GCBaseEntity* value);
     GCBaseEntity GetMeasureReference() const;
@@ -18558,6 +19830,8 @@ public:
     void SetScale(float value);
     int32_t GetMeasureType() const;
     void SetMeasureType(int32_t value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18610,7 +19884,8 @@ public:
     GCBreachChargeProjectile(std::string ptr);
     GCBreachChargeProjectile(void *ptr);
 
-
+    GCBaseGrenade GetParent() const;
+    void SetParent(GCBaseGrenade value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18738,6 +20013,8 @@ public:
     void SetEquippedPlayerSprayIDs(std::vector<uint32_t> value);
     std::vector<GServerAuthoritativeWeaponSlot_t> GetServerAuthoritativeWeaponSlots() const;
     void SetServerAuthoritativeWeaponSlots(std::vector<GServerAuthoritativeWeaponSlot_t> value);
+    GCPlayerControllerComponent GetParent() const;
+    void SetParent(GCPlayerControllerComponent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18836,6 +20113,8 @@ public:
     void SetOnStartMoving(GCEntityIOOutput value);
     GCEntityIOOutput GetOnStopMoving() const;
     void SetOnStopMoving(GCEntityIOOutput value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18850,6 +20129,8 @@ public:
     GCSimpleSimTimer(std::string ptr);
     GCSimpleSimTimer(void *ptr);
 
+    float GetNext() const;
+    void SetNext(float value);
     WorldGroupId_t GetWorldGroupId() const;
     void SetWorldGroupId(WorldGroupId_t value);
 
@@ -18886,7 +20167,8 @@ public:
     GCAnimEventQueueListener(std::string ptr);
     GCAnimEventQueueListener(void *ptr);
 
-
+    GCAnimEventListenerBase GetParent() const;
+    void SetParent(GCAnimEventListenerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18901,16 +20183,18 @@ public:
     GCEnvLaser(std::string ptr);
     GCEnvLaser(void *ptr);
 
-    CUtlSymbolLarge GetLaserTarget() const;
-    void SetLaserTarget(CUtlSymbolLarge value);
+    std::string GetLaserTarget() const;
+    void SetLaserTarget(std::string value);
     GCSprite GetSprite() const;
     void SetSprite(GCSprite* value);
-    CUtlSymbolLarge GetSpriteName() const;
-    void SetSpriteName(CUtlSymbolLarge value);
+    std::string GetSpriteName() const;
+    void SetSpriteName(std::string value);
     Vector GetFirePosition() const;
     void SetFirePosition(Vector value);
     float GetStartFrame() const;
     void SetStartFrame(float value);
+    GCBeam GetParent() const;
+    void SetParent(GCBeam value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18959,10 +20243,12 @@ public:
     GResponseContext_t(std::string ptr);
     GResponseContext_t(void *ptr);
 
-    CUtlSymbolLarge GetName() const;
-    void SetName(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetValue() const;
-    void SetValue(CUtlSymbolLarge value);
+    std::string GetName() const;
+    void SetName(std::string value);
+    std::string GetValue() const;
+    void SetValue(std::string value);
+    float GetExpirationTime() const;
+    void SetExpirationTime(float value);
 
     std::string ToPtr();
     bool IsValid();
@@ -18992,7 +20278,8 @@ public:
     GCCSObserver_MovementServices(std::string ptr);
     GCCSObserver_MovementServices(void *ptr);
 
-
+    GCPlayer_MovementServices GetParent() const;
+    void SetParent(GCPlayer_MovementServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19038,6 +20325,8 @@ public:
     void SetAngRate(float value);
     float GetDuration() const;
     void SetDuration(float value);
+    float GetStartTime() const;
+    void SetStartTime(float value);
     bool GetActive() const;
     void SetActive(bool value);
     bool GetTeleportOnEnd() const;
@@ -19074,6 +20363,8 @@ public:
     void SetSoundSyncTime(float value);
     uint32_t GetActiveIKChainMask() const;
     void SetActiveIKChainMask(uint32_t value);
+    float GetSeqStartTime() const;
+    void SetSeqStartTime(float value);
     float GetSeqFixedCycle() const;
     void SetSeqFixedCycle(float value);
     AnimLoopMode_t GetAnimLoopMode() const;
@@ -19088,6 +20379,10 @@ public:
     void SetNetworkedSequenceChanged(bool value);
     bool GetLastUpdateSkipped() const;
     void SetLastUpdateSkipped(bool value);
+    float GetPrevAnimUpdateTime() const;
+    void SetPrevAnimUpdateTime(float value);
+    GCSkeletonAnimationController GetParent() const;
+    void SetParent(GCSkeletonAnimationController value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19106,6 +20401,8 @@ public:
     void SetCenter(Vector value);
     float GetRadius() const;
     void SetRadius(float value);
+    GCNavVolume GetParent() const;
+    void SetParent(GCNavVolume value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19138,8 +20435,16 @@ public:
     GCAI_Expresser(std::string ptr);
     GCAI_Expresser(void *ptr);
 
+    float GetStopTalkTime() const;
+    void SetStopTalkTime(float value);
+    float GetStopTalkTimeWithoutDelay() const;
+    void SetStopTalkTimeWithoutDelay(float value);
+    float GetBlockedTalkTime() const;
+    void SetBlockedTalkTime(float value);
     int32_t GetVoicePitch() const;
     void SetVoicePitch(int32_t value);
+    float GetLastTimeAcceptedSpeak() const;
+    void SetLastTimeAcceptedSpeak(float value);
     bool GetAllowSpeakingInterrupts() const;
     void SetAllowSpeakingInterrupts(bool value);
     bool GetConsiderSceneInvolvementAsSpeech() const;
@@ -19181,6 +20486,8 @@ public:
 
     bool GetIsRunning() const;
     void SetIsRunning(bool value);
+    GCSimpleSimTimer GetParent() const;
+    void SetParent(GCSimpleSimTimer value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19215,7 +20522,8 @@ public:
     GCItem_Healthshot(std::string ptr);
     GCItem_Healthshot(void *ptr);
 
-
+    GCWeaponBaseItem GetParent() const;
+    void SetParent(GCWeaponBaseItem value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19230,7 +20538,8 @@ public:
     GCPhysHingeAlias_phys_hinge_local(std::string ptr);
     GCPhysHingeAlias_phys_hinge_local(void *ptr);
 
-
+    GCPhysHinge GetParent() const;
+    void SetParent(GCPhysHinge value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19289,7 +20598,8 @@ public:
     Gdynpitchvol_t(std::string ptr);
     Gdynpitchvol_t(void *ptr);
 
-
+    Gdynpitchvol_base_t GetParent() const;
+    void SetParent(Gdynpitchvol_base_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19306,6 +20616,8 @@ public:
 
     float GetInterval() const;
     void SetInterval(float value);
+    GCStopwatchBase GetParent() const;
+    void SetParent(GCStopwatchBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19322,6 +20634,8 @@ public:
 
     bool GetHasBeenPreFiltered() const;
     void SetHasBeenPreFiltered(bool value);
+    GCNavVolume GetParent() const;
+    void SetParent(GCNavVolume value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19354,8 +20668,8 @@ public:
     GCEnvShake(std::string ptr);
     GCEnvShake(void *ptr);
 
-    CUtlSymbolLarge GetLimitToEntity() const;
-    void SetLimitToEntity(CUtlSymbolLarge value);
+    std::string GetLimitToEntity() const;
+    void SetLimitToEntity(std::string value);
     float GetAmplitude() const;
     void SetAmplitude(float value);
     float GetFrequency() const;
@@ -19364,12 +20678,18 @@ public:
     void SetDuration(float value);
     float GetRadius() const;
     void SetRadius(float value);
+    float GetStopTime() const;
+    void SetStopTime(float value);
+    float GetNextShake() const;
+    void SetNextShake(float value);
     float GetCurrentAmp() const;
     void SetCurrentAmp(float value);
     Vector GetMaxForce() const;
     void SetMaxForce(Vector value);
     GCPhysicsShake GetShakeCallback() const;
     void SetShakeCallback(GCPhysicsShake value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19404,6 +20724,8 @@ public:
     void SetUseEntityPivot(bool value);
     GConstraintSoundInfo GetSoundInfo() const;
     void SetSoundInfo(GConstraintSoundInfo value);
+    GCPhysConstraint GetParent() const;
+    void SetParent(GCPhysConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19428,6 +20750,8 @@ public:
     void SetOcclusionScale(float value);
     int32_t GetNextAudible() const;
     void SetNextAudible(int32_t value);
+    float GetExpireTime() const;
+    void SetExpireTime(float value);
     int16_t GetNext() const;
     void SetNext(int16_t value);
     bool GetNoExpirationTime() const;
@@ -19484,6 +20808,8 @@ public:
     void SetStillTimer(GIntervalTimer value);
     bool GetHasBouncedOffPlayer() const;
     void SetHasBouncedOffPlayer(bool value);
+    GCBaseCSGrenadeProjectile GetParent() const;
+    void SetParent(GCBaseCSGrenadeProjectile value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19502,6 +20828,8 @@ public:
     void SetCommentaryConvarsChanging(bool value);
     bool GetCommentaryEnabledMidGame() const;
     void SetCommentaryEnabledMidGame(bool value);
+    float GetNextTeleportTime() const;
+    void SetNextTeleportTime(float value);
     int32_t GetTeleportStage() const;
     void SetTeleportStage(int32_t value);
     bool GetCheatState() const;
@@ -19584,7 +20912,8 @@ public:
     GCCSGO_TeamSelectCounterTerroristPosition(std::string ptr);
     GCCSGO_TeamSelectCounterTerroristPosition(void *ptr);
 
-
+    GCCSGO_TeamSelectCharacterPosition GetParent() const;
+    void SetParent(GCCSGO_TeamSelectCharacterPosition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19682,6 +21011,8 @@ public:
     void SetMinInterval(float value);
     float GetMaxInterval() const;
     void SetMaxInterval(float value);
+    GCStopwatchBase GetParent() const;
+    void SetParent(GCStopwatchBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19704,6 +21035,10 @@ public:
     void SetScriptState(GIChoreoServices value);
     GIChoreoServices GetChoreoState() const;
     void SetChoreoState(GIChoreoServices value);
+    float GetTimeStartedState() const;
+    void SetTimeStartedState(float value);
+    GIChoreoServices GetParent() const;
+    void SetParent(GIChoreoServices value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19718,7 +21053,8 @@ public:
     GCSimpleStopwatch(std::string ptr);
     GCSimpleStopwatch(void *ptr);
 
-
+    GCStopwatchBase GetParent() const;
+    void SetParent(GCStopwatchBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19783,6 +21119,8 @@ public:
     void SetStressPositionBIsValid(bool value);
     bool GetFlaggedForRemoval() const;
     void SetFlaggedForRemoval(bool value);
+    float GetPhysicsEntitySpawnedAtTime() const;
+    void SetPhysicsEntitySpawnedAtTime(float value);
     bool GetShatterRateLimited() const;
     void SetShatterRateLimited(bool value);
     GCBaseEntity GetEntityHittingMe() const;
@@ -19809,20 +21147,20 @@ public:
     void SetOpened(bool value);
     uint32_t GetInternalId() const;
     void SetInternalId(uint32_t value);
-    CUtlString GetShortName() const;
-    void SetShortName(CUtlString value);
+    std::string GetShortName() const;
+    void SetShortName(std::string value);
     CommandExecMode_t GetExecMode() const;
     void SetExecMode(CommandExecMode_t value);
-    CUtlString GetSpawnGroup() const;
-    void SetSpawnGroup(CUtlString value);
+    std::string GetSpawnGroup() const;
+    void SetSpawnGroup(std::string value);
     float GetPeriodicExecDelay() const;
     void SetPeriodicExecDelay(float value);
     CommandEntitySpecType_t GetSpecType() const;
     void SetSpecType(CommandEntitySpecType_t value);
-    CUtlString GetEntitySpec() const;
-    void SetEntitySpec(CUtlString value);
-    CUtlString GetCommands() const;
-    void SetCommands(CUtlString value);
+    std::string GetEntitySpec() const;
+    void SetEntitySpec(std::string value);
+    std::string GetCommands() const;
+    void SetCommands(std::string value);
     DebugOverlayBits_t GetSetDebugBits() const;
     void SetSetDebugBits(DebugOverlayBits_t value);
     DebugOverlayBits_t GetClearDebugBits() const;
@@ -19861,7 +21199,8 @@ public:
     GCBodyComponentBaseModelEntity(std::string ptr);
     GCBodyComponentBaseModelEntity(void *ptr);
 
-
+    GCBodyComponentSkeletonInstance GetParent() const;
+    void SetParent(GCBodyComponentSkeletonInstance value);
 
     std::string ToPtr();
     bool IsValid();
@@ -19948,6 +21287,10 @@ public:
 
     CUtlStringToken GetContext() const;
     void SetContext(CUtlStringToken value);
+    int32 GetNextThinkTick() const;
+    void SetNextThinkTick(int32 value);
+    int32 GetLastThinkTick() const;
+    void SetLastThinkTick(int32 value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20004,6 +21347,8 @@ public:
     void SetUseAngleTolerance(float value);
     float GetCrouchTime() const;
     void SetCrouchTime(float value);
+    GCEntitySubclassVDataBase GetParent() const;
+    void SetParent(GCEntitySubclassVDataBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20028,6 +21373,8 @@ public:
     void SetHasArrived(bool value);
     int32_t GetType() const;
     void SetType(int32_t value);
+    float GetNext() const;
+    void SetNext(float value);
     bool GetIsGesture() const;
     void SetIsGesture(bool value);
     bool GetShouldRemove() const;
@@ -20080,6 +21427,8 @@ public:
     void SetCurrentDamageState(int32_t value);
     std::vector<CUtlSymbolLarge> GetDamageStates() const;
     void SetDamageStates(std::vector<CUtlSymbolLarge> value);
+    GCPropDoorRotating GetParent() const;
+    void SetParent(GCPropDoorRotating value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20094,10 +21443,10 @@ public:
     GCBtActionAim(std::string ptr);
     GCBtActionAim(void *ptr);
 
-    CUtlString GetSensorInputKey() const;
-    void SetSensorInputKey(CUtlString value);
-    CUtlString GetAimReadyKey() const;
-    void SetAimReadyKey(CUtlString value);
+    std::string GetSensorInputKey() const;
+    void SetSensorInputKey(std::string value);
+    std::string GetAimReadyKey() const;
+    void SetAimReadyKey(std::string value);
     float GetZoomCooldownTimestamp() const;
     void SetZoomCooldownTimestamp(float value);
     bool GetDoneAiming() const;
@@ -20118,6 +21467,8 @@ public:
     void SetFocusIntervalTimer(GCountdownTimer value);
     bool GetAcquired() const;
     void SetAcquired(bool value);
+    GCBtNode GetParent() const;
+    void SetParent(GCBtNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20156,8 +21507,8 @@ public:
     void SetShutdownTime(float value);
     float GetLastTime() const;
     void SetLastTime(float value);
-    CUtlSymbolLarge GetSoundScriptName() const;
-    void SetSoundScriptName(CUtlSymbolLarge value);
+    std::string GetSoundScriptName() const;
+    void SetSoundScriptName(std::string value);
     GCBaseEntity GetEnt() const;
     void SetEnt(GCBaseEntity* value);
     CEntityIndex GetSoundEntityIndex() const;
@@ -20172,8 +21523,8 @@ public:
     void SetCloseCaptionDuration(float value);
     bool GetUpdatedSoundOrigin() const;
     void SetUpdatedSoundOrigin(bool value);
-    CUtlSymbolLarge GetClassName() const;
-    void SetClassName(CUtlSymbolLarge value);
+    std::string GetClassName() const;
+    void SetClassName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20239,6 +21590,8 @@ public:
     void SetShouldDetach(bool value);
     bool GetShouldDeleteAttachedActivationRecord() const;
     void SetShouldDeleteAttachedActivationRecord(bool value);
+    GCRagdollProp GetParent() const;
+    void SetParent(GCRagdollProp value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20289,6 +21642,8 @@ public:
 
     GCBaseAnimGraphController GetAnimationController() const;
     void SetAnimationController(GCBaseAnimGraphController value);
+    GCBodyComponentSkeletonInstance GetParent() const;
+    void SetParent(GCBodyComponentSkeletonInstance value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20307,6 +21662,8 @@ public:
     void SetBuySize(int32_t value);
     int32_t GetCost() const;
     void SetCost(int32_t value);
+    GAmmoTypeInfo_t GetParent() const;
+    void SetParent(GAmmoTypeInfo_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20321,8 +21678,8 @@ public:
     GCPhysMotor(std::string ptr);
     GCPhysMotor(void *ptr);
 
-    CUtlSymbolLarge GetNameAttach() const;
-    void SetNameAttach(CUtlSymbolLarge value);
+    std::string GetNameAttach() const;
+    void SetNameAttach(std::string value);
     GCBaseEntity GetAttachedObject() const;
     void SetAttachedObject(GCBaseEntity* value);
     float GetSpinUp() const;
@@ -20331,8 +21688,12 @@ public:
     void SetAdditionalAcceleration(float value);
     float GetAngularAcceleration() const;
     void SetAngularAcceleration(float value);
+    float GetLastTime() const;
+    void SetLastTime(float value);
     GCMotorController GetMotor() const;
     void SetMotor(GCMotorController value);
+    GCLogicalEntity GetParent() const;
+    void SetParent(GCLogicalEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20349,6 +21710,8 @@ public:
 
     float GetInterval() const;
     void SetInterval(float value);
+    GCSimpleSimTimer GetParent() const;
+    void SetParent(GCSimpleSimTimer value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20455,6 +21818,8 @@ public:
 
     Vector GetAxis() const;
     void SetAxis(Vector value);
+    GCPhysForce GetParent() const;
+    void SetParent(GCPhysForce value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20495,6 +21860,8 @@ public:
     void SetMinInterval(float value);
     float GetMaxInterval() const;
     void SetMaxInterval(float value);
+    GCSimpleSimTimer GetParent() const;
+    void SetParent(GCSimpleSimTimer value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20509,7 +21876,8 @@ public:
     GCBtNodeComposite(std::string ptr);
     GCBtNodeComposite(void *ptr);
 
-
+    GCBtNode GetParent() const;
+    void SetParent(GCBtNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20524,7 +21892,8 @@ public:
     GCFireCrackerBlast(std::string ptr);
     GCFireCrackerBlast(void *ptr);
 
-
+    GCInferno GetParent() const;
+    void SetParent(GCInferno value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20539,12 +21908,12 @@ public:
     Gsndopvarlatchdata_t(std::string ptr);
     Gsndopvarlatchdata_t(void *ptr);
 
-    CUtlSymbolLarge GetStack() const;
-    void SetStack(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOperator() const;
-    void SetOperator(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetOpvar() const;
-    void SetOpvar(CUtlSymbolLarge value);
+    std::string GetStack() const;
+    void SetStack(std::string value);
+    std::string GetOperator() const;
+    void SetOperator(std::string value);
+    std::string GetOpvar() const;
+    void SetOpvar(std::string value);
     float GetVal() const;
     void SetVal(float value);
     Vector GetPos() const;
@@ -20563,7 +21932,8 @@ public:
     GCCSGO_TeamSelectTerroristPosition(std::string ptr);
     GCCSGO_TeamSelectTerroristPosition(void *ptr);
 
-
+    GCCSGO_TeamSelectCharacterPosition GetParent() const;
+    void SetParent(GCCSGO_TeamSelectCharacterPosition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20580,6 +21950,8 @@ public:
 
     GResponseFollowup GetPostponedFollowup() const;
     void SetPostponedFollowup(GResponseFollowup* value);
+    GCAI_Expresser GetParent() const;
+    void SetParent(GCAI_Expresser value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20594,7 +21966,8 @@ public:
     GCNavVolumeMarkupVolume(std::string ptr);
     GCNavVolumeMarkupVolume(void *ptr);
 
-
+    GCNavVolume GetParent() const;
+    void SetParent(GCNavVolume value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20628,6 +22001,8 @@ public:
     void SetEnt(GCBaseEntity* value);
     MoveType_t GetMoveType() const;
     void SetMoveType(MoveType_t value);
+    float GetStartTime() const;
+    void SetStartTime(float value);
     Vector GetStartOrigin() const;
     void SetStartOrigin(Vector value);
     Quaternion GetStartRot() const;
@@ -20650,6 +22025,8 @@ public:
 
     bool GetAllowMultipleScenes() const;
     void SetAllowMultipleScenes(bool value);
+    GCAI_ExpresserWithFollowup GetParent() const;
+    void SetParent(GCAI_ExpresserWithFollowup value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20680,7 +22057,8 @@ public:
     GCWeaponSawedoff(std::string ptr);
     GCWeaponSawedoff(void *ptr);
 
-
+    GCCSWeaponBase GetParent() const;
+    void SetParent(GCCSWeaponBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20757,6 +22135,8 @@ public:
     void SetJumpUntil(float value);
     float GetJumpVel() const;
     void SetJumpVel(float value);
+    float GetStashGrenadeParameterWhen() const;
+    void SetStashGrenadeParameterWhen(float value);
     uint64_t GetButtonDownMaskPrev() const;
     void SetButtonDownMaskPrev(uint64_t value);
     float GetOffsetTickCompleteTime() const;
@@ -20769,6 +22149,8 @@ public:
     void SetHeightAtJumpStart(float value);
     float GetMaxJumpHeightThisJump() const;
     void SetMaxJumpHeightThisJump(float value);
+    GCPlayer_MovementServices_Humanoid GetParent() const;
+    void SetParent(GCPlayer_MovementServices_Humanoid value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20839,7 +22221,8 @@ public:
     GCAnimEventListener(std::string ptr);
     GCAnimEventListener(void *ptr);
 
-
+    GCAnimEventListenerBase GetParent() const;
+    void SetParent(GCAnimEventListenerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20854,7 +22237,8 @@ public:
     GCNavVolumeCalculatedVector(std::string ptr);
     GCNavVolumeCalculatedVector(void *ptr);
 
-
+    GCNavVolume GetParent() const;
+    void SetParent(GCNavVolume value);
 
     std::string ToPtr();
     bool IsValid();
@@ -20879,8 +22263,8 @@ public:
     void SetGearSlotPosition(int32_t value);
     loadout_slot_t GetDefaultLoadoutSlot() const;
     void SetDefaultLoadoutSlot(loadout_slot_t value);
-    CUtlString GetWrongTeamMsg() const;
-    void SetWrongTeamMsg(CUtlString value);
+    std::string GetWrongTeamMsg() const;
+    void SetWrongTeamMsg(std::string value);
     int32_t GetPrice() const;
     void SetPrice(int32_t value);
     int32_t GetKillAward() const;
@@ -20897,8 +22281,8 @@ public:
     void SetIsRevolver(bool value);
     bool GetCannotShootUnderwater() const;
     void SetCannotShootUnderwater(bool value);
-    CUtlString GetAnimExtension() const;
-    void SetAnimExtension(CUtlString value);
+    std::string GetAnimExtension() const;
+    void SetAnimExtension(std::string value);
     CSWeaponSilencerType GetSilencerType() const;
     void SetSilencerType(CSWeaponSilencerType value);
     int32_t GetCrosshairMinDistance() const;
@@ -20963,8 +22347,8 @@ public:
     void SetInaccuracyAltSoundThreshold(float value);
     float GetBotAudibleRange() const;
     void SetBotAudibleRange(float value);
-    CUtlString GetUseRadioSubtitle() const;
-    void SetUseRadioSubtitle(CUtlString value);
+    std::string GetUseRadioSubtitle() const;
+    void SetUseRadioSubtitle(std::string value);
     bool GetUnzoomsAfterShot() const;
     void SetUnzoomsAfterShot(bool value);
     bool GetHideViewModelWhenZoomed() const;
@@ -21027,6 +22411,8 @@ public:
     void SetThrowVelocity(float value);
     Vector GetSmokeColor() const;
     void SetSmokeColor(Vector value);
+    GCBasePlayerWeaponVData GetParent() const;
+    void SetParent(GCBasePlayerWeaponVData value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21047,6 +22433,8 @@ public:
     void SetSensorInactivityThresholdSeconds(float value);
     GCountdownTimer GetSensorInactivityTimer() const;
     void SetSensorInactivityTimer(GCountdownTimer value);
+    GCBtNodeCondition GetParent() const;
+    void SetParent(GCBtNodeCondition value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21089,8 +22477,8 @@ public:
 
     GModelConfigHandle_t GetHandle() const;
     void SetHandle(GModelConfigHandle_t value);
-    CUtlSymbolLarge GetName() const;
-    void SetName(CUtlSymbolLarge value);
+    std::string GetName() const;
+    void SetName(std::string value);
     std::vector<GCBaseModelEntity*> GetAssociatedEntities() const;
     void SetAssociatedEntities(std::vector<GCBaseModelEntity*> value);
     std::vector<CUtlSymbolLarge> GetAssociatedEntityNames() const;
@@ -21119,8 +22507,10 @@ public:
     void SetRTEnvCP(int32_t value);
     int32_t GetRTEnvCPComponent() const;
     void SetRTEnvCPComponent(int32_t value);
-    CUtlString GetModifier() const;
-    void SetModifier(CUtlString value);
+    std::string GetModifier() const;
+    void SetModifier(std::string value);
+    GCEntitySubclassVDataBase GetParent() const;
+    void SetParent(GCEntitySubclassVDataBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21157,6 +22547,8 @@ public:
     void SetStartPos(Vector value);
     float GetSearchDist() const;
     void SetSearchDist(float value);
+    GCNavVolumeCalculatedVector GetParent() const;
+    void SetParent(GCNavVolumeCalculatedVector value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21183,14 +22575,16 @@ public:
     void SetActive(bool value);
     bool GetLooping() const;
     void SetLooping(bool value);
-    CUtlSymbolLarge GetSound() const;
-    void SetSound(CUtlSymbolLarge value);
-    CUtlSymbolLarge GetSourceEntName() const;
-    void SetSourceEntName(CUtlSymbolLarge value);
+    std::string GetSound() const;
+    void SetSound(std::string value);
+    std::string GetSourceEntName() const;
+    void SetSourceEntName(std::string value);
     GCBaseEntity GetSoundSource() const;
     void SetSoundSource(GCBaseEntity* value);
     CEntityIndex GetSoundSourceEntIndex() const;
     void SetSoundSourceEntIndex(CEntityIndex value);
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21229,6 +22623,8 @@ public:
     void SetNumTeamKills(int32_t value);
     int32_t GetTeamDamage() const;
     void SetTeamDamage(int32_t value);
+    GCSAdditionalPerRoundStats_t GetParent() const;
+    void SetParent(GCSAdditionalPerRoundStats_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21258,10 +22654,12 @@ public:
     GCGameText(std::string ptr);
     GCGameText(void *ptr);
 
-    CUtlSymbolLarge GetMessage() const;
-    void SetMessage(CUtlSymbolLarge value);
+    std::string GetMessage() const;
+    void SetMessage(std::string value);
     Ghudtextparms_t GetTextParms() const;
     void SetTextParms(Ghudtextparms_t value);
+    GCRulePointEntity GetParent() const;
+    void SetParent(GCRulePointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21276,7 +22674,8 @@ public:
     GCInfoInstructorHintBombTargetB(std::string ptr);
     GCInfoInstructorHintBombTargetB(void *ptr);
 
-
+    GCPointEntity GetParent() const;
+    void SetParent(GCPointEntity value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21291,7 +22690,8 @@ public:
     GCNavVolumeAll(std::string ptr);
     GCNavVolumeAll(void *ptr);
 
-
+    GCNavVolumeVector GetParent() const;
+    void SetParent(GCNavVolumeVector value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21308,6 +22708,8 @@ public:
 
     float GetRadiusInner() const;
     void SetRadiusInner(float value);
+    GCNavVolumeSphere GetParent() const;
+    void SetParent(GCNavVolumeSphere value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21326,6 +22728,8 @@ public:
     void SetEntity(GCBaseEntity* value);
     Class_T GetClassType() const;
     void SetClassType(Class_T value);
+    GRelationship_t GetParent() const;
+    void SetParent(GRelationship_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21459,6 +22863,8 @@ public:
     void SetBiasType(ParticleFloatBiasType_t value);
     float GetBiasParameter() const;
     void SetBiasParameter(float value);
+    GCParticleInput GetParent() const;
+    void SetParent(GCParticleInput value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21561,7 +22967,8 @@ public:
     GCParticleCollectionFloatInput(std::string ptr);
     GCParticleCollectionFloatInput(void *ptr);
 
-
+    GCParticleFloatInput GetParent() const;
+    void SetParent(GCParticleFloatInput value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21606,8 +23013,8 @@ public:
     void SetOpTimeScaleMax(float value);
     bool GetDisableOperator() const;
     void SetDisableOperator(bool value);
-    CUtlString GetNotes() const;
-    void SetNotes(CUtlString value);
+    std::string GetNotes() const;
+    void SetNotes(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21622,7 +23029,8 @@ public:
     GCParticleFunctionOperator(std::string ptr);
     GCParticleFunctionOperator(void *ptr);
 
-
+    GCParticleFunction GetParent() const;
+    void SetParent(GCParticleFunction value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21709,14 +23117,14 @@ public:
     void SetControlPoint(int32_t value);
     ParticleAttachment_t GetAttachType() const;
     void SetAttachType(ParticleAttachment_t value);
-    CUtlString GetAttachmentName() const;
-    void SetAttachmentName(CUtlString value);
+    std::string GetAttachmentName() const;
+    void SetAttachmentName(std::string value);
     Vector GetOffset() const;
     void SetOffset(Vector value);
     QAngle GetOffset1() const;
     void SetOffset1(QAngle value);
-    CUtlString GetEntityName() const;
-    void SetEntityName(CUtlString value);
+    std::string GetEntityName() const;
+    void SetEntityName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21897,8 +23305,8 @@ public:
     GGeneratedTextureHandle_t(std::string ptr);
     GGeneratedTextureHandle_t(void *ptr);
 
-    CUtlString GetStrBitmapName() const;
-    void SetStrBitmapName(CUtlString value);
+    std::string GetStrBitmapName() const;
+    void SetStrBitmapName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22161,28 +23569,28 @@ public:
     GCPhysSurfacePropertiesSoundNames(std::string ptr);
     GCPhysSurfacePropertiesSoundNames(void *ptr);
 
-    CUtlString GetImpactSoft() const;
-    void SetImpactSoft(CUtlString value);
-    CUtlString GetImpactHard() const;
-    void SetImpactHard(CUtlString value);
-    CUtlString GetScrapeSmooth() const;
-    void SetScrapeSmooth(CUtlString value);
-    CUtlString GetScrapeRough() const;
-    void SetScrapeRough(CUtlString value);
-    CUtlString GetBulletImpact() const;
-    void SetBulletImpact(CUtlString value);
-    CUtlString GetRolling() const;
-    void SetRolling(CUtlString value);
-    CUtlString GetBreak() const;
-    void SetBreak(CUtlString value);
-    CUtlString GetStrain() const;
-    void SetStrain(CUtlString value);
-    CUtlString GetMeleeImpact() const;
-    void SetMeleeImpact(CUtlString value);
-    CUtlString GetPushOff() const;
-    void SetPushOff(CUtlString value);
-    CUtlString GetSkidStop() const;
-    void SetSkidStop(CUtlString value);
+    std::string GetImpactSoft() const;
+    void SetImpactSoft(std::string value);
+    std::string GetImpactHard() const;
+    void SetImpactHard(std::string value);
+    std::string GetScrapeSmooth() const;
+    void SetScrapeSmooth(std::string value);
+    std::string GetScrapeRough() const;
+    void SetScrapeRough(std::string value);
+    std::string GetBulletImpact() const;
+    void SetBulletImpact(std::string value);
+    std::string GetRolling() const;
+    void SetRolling(std::string value);
+    std::string GetBreak() const;
+    void SetBreak(std::string value);
+    std::string GetStrain() const;
+    void SetStrain(std::string value);
+    std::string GetMeleeImpact() const;
+    void SetMeleeImpact(std::string value);
+    std::string GetPushOff() const;
+    void SetPushOff(std::string value);
+    std::string GetSkidStop() const;
+    void SetSkidStop(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22233,6 +23641,8 @@ public:
     void SetFilterGoalDistance(bool value);
     bool GetFilterGoalOvershoot() const;
     void SetFilterGoalOvershoot(bool value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22335,6 +23745,8 @@ public:
 
     bool GetRunOnce() const;
     void SetRunOnce(bool value);
+    GCParticleFunctionOperator GetParent() const;
+    void SetParent(GCParticleFunctionOperator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22349,7 +23761,8 @@ public:
     GCPerParticleFloatInput(std::string ptr);
     GCPerParticleFloatInput(void *ptr);
 
-
+    GCParticleFloatInput GetParent() const;
+    void SetParent(GCParticleFloatInput value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22364,8 +23777,8 @@ public:
     GCSosGroupActionSchema(std::string ptr);
     GCSosGroupActionSchema(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     ActionType_t GetActionType() const;
     void SetActionType(ActionType_t value);
     ActionType_t GetActionInstanceType() const;
@@ -22388,6 +23801,8 @@ public:
     void SetDistance(float value);
     float GetTime() const;
     void SetTime(float value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22472,6 +23887,8 @@ public:
 
     int32_t GetAssociatedEmitterIndex() const;
     void SetAssociatedEmitterIndex(int32_t value);
+    GCParticleFunction GetParent() const;
+    void SetParent(GCParticleFunction value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22524,7 +23941,8 @@ public:
     GCNmPoseNode(std::string ptr);
     GCNmPoseNode(void *ptr);
 
-
+    GCNmGraphNode GetParent() const;
+    void SetParent(GCNmGraphNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22539,7 +23957,8 @@ public:
     GCParticleFunctionConstraint(std::string ptr);
     GCParticleFunctionConstraint(void *ptr);
 
-
+    GCParticleFunction GetParent() const;
+    void SetParent(GCParticleFunction value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22620,7 +24039,8 @@ public:
     GCParticleCollectionRendererFloatInput(std::string ptr);
     GCParticleCollectionRendererFloatInput(void *ptr);
 
-
+    GCParticleCollectionFloatInput GetParent() const;
+    void SetParent(GCParticleCollectionFloatInput value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22690,6 +24110,8 @@ public:
     void SetControlPointRangeMax(int32_t value);
     float GetEndCPGrowthTime() const;
     void SetEndCPGrowthTime(float value);
+    GCParticleInput GetParent() const;
+    void SetParent(GCParticleInput value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22756,8 +24178,8 @@ public:
     GMaterialGroup_t(std::string ptr);
     GMaterialGroup_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22776,8 +24198,8 @@ public:
     void SetNodePath(GCAnimNodePath value);
     AnimNodeNetworkMode GetNetworkMode() const;
     void SetNetworkMode(AnimNodeNetworkMode value);
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22798,6 +24220,8 @@ public:
     void SetCannotBeRefracted(bool value);
     bool GetSkipRenderingOnMobile() const;
     void SetSkipRenderingOnMobile(bool value);
+    GCParticleFunction GetParent() const;
+    void SetParent(GCParticleFunction value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22854,6 +24278,8 @@ public:
     void SetRandomMin(Vector value);
     Vector GetRandomMax() const;
     void SetRandomMax(Vector value);
+    GCParticleInput GetParent() const;
+    void SetParent(GCParticleInput value);
 
     std::string ToPtr();
     bool IsValid();
@@ -22994,7 +24420,8 @@ public:
     GEventServerPollNetworking_t(std::string ptr);
     GEventServerPollNetworking_t(void *ptr);
 
-
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23009,8 +24436,8 @@ public:
     GCDspPresetModifierList(std::string ptr);
     GCDspPresetModifierList(void *ptr);
 
-    CUtlString GetDspName() const;
-    void SetDspName(CUtlString value);
+    std::string GetDspName() const;
+    void SetDspName(std::string value);
     std::vector<GCDSPMixgroupModifier> GetModifiers() const;
     void SetModifiers(std::vector<GCDSPMixgroupModifier> value);
 
@@ -23083,6 +24510,8 @@ public:
 
     GCAnimUpdateNodeRef GetChildNode() const;
     void SetChildNode(GCAnimUpdateNodeRef value);
+    GCAnimUpdateNodeBase GetParent() const;
+    void SetParent(GCAnimUpdateNodeBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23193,6 +24622,8 @@ public:
     void SetResetChild1(bool value);
     bool GetResetChild2() const;
     void SetResetChild2(bool value);
+    GCAnimUpdateNodeBase GetParent() const;
+    void SetParent(GCAnimUpdateNodeBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23251,6 +24682,8 @@ public:
     void SetSpinRateMinDegrees(int32_t value);
     float GetSpinRateStopTime() const;
     void SetSpinRateStopTime(float value);
+    GCParticleFunctionOperator GetParent() const;
+    void SetParent(GCParticleFunctionOperator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23443,6 +24876,8 @@ public:
     void SetType(ParticleModelType_t value);
     int32_t GetControlPoint() const;
     void SetControlPoint(int32_t value);
+    GCParticleInput GetParent() const;
+    void SetParent(GCParticleInput value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23459,6 +24894,8 @@ public:
 
     int16_t GetChildNodeIdx() const;
     void SetChildNodeIdx(int16_t value);
+    GCNmPoseNode GetParent() const;
+    void SetParent(GCNmPoseNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23543,7 +24980,8 @@ public:
     GCPerParticleVecInput(std::string ptr);
     GCPerParticleVecInput(void *ptr);
 
-
+    GCParticleVecInput GetParent() const;
+    void SetParent(GCParticleVecInput value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23572,6 +25010,8 @@ public:
     void SetBlendValueSource(AnimValueSource value);
     GCAnimParamHandle GetBlendParameter() const;
     void SetBlendParameter(GCAnimParamHandle value);
+    GCBinaryUpdateNode GetParent() const;
+    void SetParent(GCBinaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23660,8 +25100,8 @@ public:
     GCDSPMixgroupModifier(std::string ptr);
     GCDSPMixgroupModifier(void *ptr);
 
-    CUtlString GetMixgroup() const;
-    void SetMixgroup(CUtlString value);
+    std::string GetMixgroup() const;
+    void SetMixgroup(std::string value);
     float GetModifier() const;
     void SetModifier(float value);
     float GetModifierMin() const;
@@ -23709,6 +25149,8 @@ public:
     void SetTotalTicksThisFrame(int32_t value);
     int32_t GetTotalTicks() const;
     void SetTotalTicks(int32_t value);
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23765,12 +25207,12 @@ public:
     GCFootDefinition(std::string ptr);
     GCFootDefinition(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
-    CUtlString GetAnkleBoneName() const;
-    void SetAnkleBoneName(CUtlString value);
-    CUtlString GetToeBoneName() const;
-    void SetToeBoneName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
+    std::string GetAnkleBoneName() const;
+    void SetAnkleBoneName(std::string value);
+    std::string GetToeBoneName() const;
+    void SetToeBoneName(std::string value);
     Vector GetBallOffset() const;
     void SetBallOffset(Vector value);
     Vector GetHeelOffset() const;
@@ -23797,7 +25239,8 @@ public:
     GCFootCycle(std::string ptr);
     GCFootCycle(void *ptr);
 
-
+    GCCycleBase GetParent() const;
+    void SetParent(GCCycleBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23848,6 +25291,8 @@ public:
 
     int32_t GetEmitterIndex() const;
     void SetEmitterIndex(int32_t value);
+    GCParticleFunction GetParent() const;
+    void SetParent(GCParticleFunction value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23888,14 +25333,16 @@ public:
     GCBaseConstraint(std::string ptr);
     GCBaseConstraint(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     Vector GetUpVector() const;
     void SetUpVector(Vector value);
     std::vector<GCConstraintSlave> GetSlaves() const;
     void SetSlaves(std::vector<GCConstraintSlave> value);
     std::vector<GCConstraintTarget> GetTargets() const;
     void SetTargets(std::vector<GCConstraintTarget> value);
+    GCBoneConstraintBase GetParent() const;
+    void SetParent(GCBoneConstraintBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23966,8 +25413,8 @@ public:
     GManifestTestResource_t(std::string ptr);
     GManifestTestResource_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24018,6 +25465,8 @@ public:
     void SetParams(std::vector<GCAnimParamHandle> value);
     bool GetResetChild() const;
     void SetResetChild(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24032,7 +25481,8 @@ public:
     GCLeafUpdateNode(std::string ptr);
     GCLeafUpdateNode(void *ptr);
 
-
+    GCAnimUpdateNodeBase GetParent() const;
+    void SetParent(GCAnimUpdateNodeBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24047,8 +25497,8 @@ public:
     GCAnimMotorUpdaterBase(std::string ptr);
     GCAnimMotorUpdaterBase(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     bool GetDefault() const;
     void SetDefault(bool value);
 
@@ -24097,8 +25547,8 @@ public:
     GCModelConfigElement(std::string ptr);
     GCModelConfigElement(void *ptr);
 
-    CUtlString GetElementName() const;
-    void SetElementName(CUtlString value);
+    std::string GetElementName() const;
+    void SetElementName(std::string value);
     std::vector<GCModelConfigElement*> GetNestedElements() const;
     void SetNestedElements(std::vector<GCModelConfigElement*> value);
 
@@ -24145,8 +25595,8 @@ public:
     void SetCollisionAttributes(std::vector<GVPhysXCollisionAttributes_t> value);
     std::vector<CUtlString> GetDebugPartNames() const;
     void SetDebugPartNames(std::vector<CUtlString> value);
-    CUtlString GetEmbeddedKeyvalues() const;
-    void SetEmbeddedKeyvalues(CUtlString value);
+    std::string GetEmbeddedKeyvalues() const;
+    void SetEmbeddedKeyvalues(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24171,6 +25621,8 @@ public:
     void SetDuration(float value);
     bool GetLoop() const;
     void SetLoop(bool value);
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24185,8 +25637,10 @@ public:
     GCModelConfigElement_Command(std::string ptr);
     GCModelConfigElement_Command(void *ptr);
 
-    CUtlString GetCommand() const;
-    void SetCommand(CUtlString value);
+    std::string GetCommand() const;
+    void SetCommand(std::string value);
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24201,14 +25655,14 @@ public:
     GCAnimParameterBase(std::string ptr);
     GCAnimParameterBase(void *ptr);
 
-    CUtlString GetComment() const;
-    void SetComment(CUtlString value);
-    CUtlString GetGroup() const;
-    void SetGroup(CUtlString value);
+    std::string GetComment() const;
+    void SetComment(std::string value);
+    std::string GetGroup() const;
+    void SetGroup(std::string value);
     GAnimParamID GetId() const;
     void SetId(GAnimParamID value);
-    CUtlString GetComponentName() const;
-    void SetComponentName(CUtlString value);
+    std::string GetComponentName() const;
+    void SetComponentName(std::string value);
     bool GetNetworkingRequested() const;
     void SetNetworkingRequested(bool value);
     bool GetIsReferenced() const;
@@ -24227,20 +25681,20 @@ public:
     GCompositeMaterialInputLooseVariable_t(std::string ptr);
     GCompositeMaterialInputLooseVariable_t(void *ptr);
 
-    CUtlString GetStrName() const;
-    void SetStrName(CUtlString value);
+    std::string GetStrName() const;
+    void SetStrName(std::string value);
     bool GetExposeExternally() const;
     void SetExposeExternally(bool value);
-    CUtlString GetStrExposedFriendlyName() const;
-    void SetStrExposedFriendlyName(CUtlString value);
-    CUtlString GetStrExposedFriendlyGroupName() const;
-    void SetStrExposedFriendlyGroupName(CUtlString value);
+    std::string GetStrExposedFriendlyName() const;
+    void SetStrExposedFriendlyName(std::string value);
+    std::string GetStrExposedFriendlyGroupName() const;
+    void SetStrExposedFriendlyGroupName(std::string value);
     bool GetExposedVariableIsFixedRange() const;
     void SetExposedVariableIsFixedRange(bool value);
-    CUtlString GetStrExposedVisibleWhenTrue() const;
-    void SetStrExposedVisibleWhenTrue(CUtlString value);
-    CUtlString GetStrExposedHiddenWhenTrue() const;
-    void SetStrExposedHiddenWhenTrue(CUtlString value);
+    std::string GetStrExposedVisibleWhenTrue() const;
+    void SetStrExposedVisibleWhenTrue(std::string value);
+    std::string GetStrExposedHiddenWhenTrue() const;
+    void SetStrExposedHiddenWhenTrue(std::string value);
     CompositeMaterialInputLooseVariableType_t GetVariableType() const;
     void SetVariableType(CompositeMaterialInputLooseVariableType_t value);
     bool GetValueBoolean() const;
@@ -24283,16 +25737,16 @@ public:
     void SetCValueColor4(Color value);
     CompositeMaterialVarSystemVar_t GetValueSystemVar() const;
     void SetValueSystemVar(CompositeMaterialVarSystemVar_t value);
-    CUtlString GetStrTextureContentAssetPath() const;
-    void SetStrTextureContentAssetPath(CUtlString value);
-    CUtlString GetStrTextureCompilationVtexTemplate() const;
-    void SetStrTextureCompilationVtexTemplate(CUtlString value);
+    std::string GetStrTextureContentAssetPath() const;
+    void SetStrTextureContentAssetPath(std::string value);
+    std::string GetStrTextureCompilationVtexTemplate() const;
+    void SetStrTextureCompilationVtexTemplate(std::string value);
     CompositeMaterialInputTextureType_t GetTextureType() const;
     void SetTextureType(CompositeMaterialInputTextureType_t value);
-    CUtlString GetStrString() const;
-    void SetStrString(CUtlString value);
-    CUtlString GetStrPanoramaPanelPath() const;
-    void SetStrPanoramaPanelPath(CUtlString value);
+    std::string GetStrString() const;
+    void SetStrString(std::string value);
+    std::string GetStrPanoramaPanelPath() const;
+    void SetStrPanoramaPanelPath(std::string value);
     int32_t GetPanoramaRenderRes() const;
     void SetPanoramaRenderRes(int32_t value);
 
@@ -24309,8 +25763,8 @@ public:
     GVecInputMaterialVariable_t(std::string ptr);
     GVecInputMaterialVariable_t(void *ptr);
 
-    CUtlString GetStrVariable() const;
-    void SetStrVariable(CUtlString value);
+    std::string GetStrVariable() const;
+    void SetStrVariable(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24358,8 +25812,8 @@ public:
     GCModelConfig(std::string ptr);
     GCModelConfig(void *ptr);
 
-    CUtlString GetConfigName() const;
-    void SetConfigName(CUtlString value);
+    std::string GetConfigName() const;
+    void SetConfigName(std::string value);
     std::vector<GCModelConfigElement*> GetElements() const;
     void SetElements(std::vector<GCModelConfigElement*> value);
     bool GetTopLevel() const;
@@ -24452,10 +25906,12 @@ public:
     void SetMinValue(float value);
     float GetMaxValue() const;
     void SetMaxValue(float value);
-    CUtlString GetOpvarName() const;
-    void SetOpvarName(CUtlString value);
+    std::string GetOpvarName() const;
+    void SetOpvarName(std::string value);
     SosActionSortType_t GetSortType() const;
     void SetSortType(SosActionSortType_t value);
+    GCSosGroupActionSchema GetParent() const;
+    void SetParent(GCSosGroupActionSchema value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24474,6 +25930,8 @@ public:
     void SetFootIndices(std::vector<int32> value);
     float GetMinStepsRemaining() const;
     void SetMinStepsRemaining(float value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24522,7 +25980,8 @@ public:
     GCModelConfigElement_RandomColor(std::string ptr);
     GCModelConfigElement_RandomColor(void *ptr);
 
-
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24537,8 +25996,8 @@ public:
     GCMotionNode(std::string ptr);
     GCMotionNode(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     GAnimNodeID GetId() const;
     void SetId(GAnimNodeID value);
 
@@ -24555,8 +26014,8 @@ public:
     GCAnimTagBase(std::string ptr);
     GCAnimTagBase(void *ptr);
 
-    CUtlString GetComment() const;
-    void SetComment(CUtlString value);
+    std::string GetComment() const;
+    void SetComment(std::string value);
     GAnimTagID GetTagID() const;
     void SetTagID(GAnimTagID value);
     bool GetIsReferenced() const;
@@ -24621,8 +26080,8 @@ public:
     void SetCollisionAttributeIndex(uint32_t value);
     uint32_t GetSurfacePropertyIndex() const;
     void SetSurfacePropertyIndex(uint32_t value);
-    CUtlString GetUserFriendlyName() const;
-    void SetUserFriendlyName(CUtlString value);
+    std::string GetUserFriendlyName() const;
+    void SetUserFriendlyName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24655,6 +26114,8 @@ public:
 
     Color GetColor() const;
     void SetColor(Color value);
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24790,6 +26251,8 @@ public:
 
     NmFrameSnapEventMode_t GetFrameSnapMode() const;
     void SetFrameSnapMode(NmFrameSnapEventMode_t value);
+    GCNmEvent GetParent() const;
+    void SetParent(GCNmEvent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24820,6 +26283,8 @@ public:
     void SetTranslationAxis(std::vector<bool> value);
     bool GetScaleSpeed() const;
     void SetScaleSpeed(bool value);
+    GCSequenceUpdateNode GetParent() const;
+    void SetParent(GCSequenceUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24852,14 +26317,16 @@ public:
     GCMaterialAttributeAnimTag(std::string ptr);
     GCMaterialAttributeAnimTag(void *ptr);
 
-    CUtlString GetAttributeName() const;
-    void SetAttributeName(CUtlString value);
+    std::string GetAttributeName() const;
+    void SetAttributeName(std::string value);
     MatterialAttributeTagType_t GetAttributeType() const;
     void SetAttributeType(MatterialAttributeTagType_t value);
     float GetValue() const;
     void SetValue(float value);
     Color GetColor() const;
     void SetColor(Color value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24874,8 +26341,8 @@ public:
     GCAnimComponentUpdater(std::string ptr);
     GCAnimComponentUpdater(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     GAnimComponentID GetId() const;
     void SetId(GAnimComponentID value);
     AnimNodeNetworkMode GetNetworkMode() const;
@@ -24940,7 +26407,8 @@ public:
     GCNmValueNode(std::string ptr);
     GCNmValueNode(void *ptr);
 
-
+    GCNmGraphNode GetParent() const;
+    void SetParent(GCNmGraphNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24981,6 +26449,8 @@ public:
     void SetTurnToFaceOffset(float value);
     bool GetTurnToFace() const;
     void SetTurnToFace(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24995,7 +26465,8 @@ public:
     GEventClientPostSimulate_t(std::string ptr);
     GEventClientPostSimulate_t(void *ptr);
 
-
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25056,8 +26527,8 @@ public:
 
     ModelBoneFlexComponent_t GetBoneComponent() const;
     void SetBoneComponent(ModelBoneFlexComponent_t value);
-    CUtlString GetFlexController() const;
-    void SetFlexController(CUtlString value);
+    std::string GetFlexController() const;
+    void SetFlexController(std::string value);
     uint32_t GetFlexControllerToken() const;
     void SetFlexControllerToken(uint32_t value);
     float GetMin() const;
@@ -25104,8 +26575,8 @@ public:
     GConstantInfo_t(std::string ptr);
     GConstantInfo_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     CUtlStringToken GetNameToken() const;
     void SetNameToken(CUtlStringToken value);
     float GetValue() const;
@@ -25165,6 +26636,8 @@ public:
     void SetMinScale(float value);
     GCAnimInputDamping GetDamping() const;
     void SetDamping(GCAnimInputDamping value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25219,16 +26692,16 @@ public:
     GParticleNamedValueConfiguration_t(std::string ptr);
     GParticleNamedValueConfiguration_t(void *ptr);
 
-    CUtlString GetConfigName() const;
-    void SetConfigName(CUtlString value);
+    std::string GetConfigName() const;
+    void SetConfigName(std::string value);
     ParticleAttachment_t GetAttachType() const;
     void SetAttachType(ParticleAttachment_t value);
-    CUtlString GetBoundEntityPath() const;
-    void SetBoundEntityPath(CUtlString value);
-    CUtlString GetStrEntityScope() const;
-    void SetStrEntityScope(CUtlString value);
-    CUtlString GetStrAttachmentName() const;
-    void SetStrAttachmentName(CUtlString value);
+    std::string GetBoundEntityPath() const;
+    void SetBoundEntityPath(std::string value);
+    std::string GetStrEntityScope() const;
+    void SetStrEntityScope(std::string value);
+    std::string GetStrAttachmentName() const;
+    void SetStrAttachmentName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25291,6 +26764,8 @@ public:
     void SetPriority(int32_t value);
     std::vector<GCBodyGroupSetting> GetBodyGroupSettings() const;
     void SetBodyGroupSettings(std::vector<GCBodyGroupSetting> value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25345,8 +26820,8 @@ public:
     GFunctionInfo_t(std::string ptr);
     GFunctionInfo_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     CUtlStringToken GetNameToken() const;
     void SetNameToken(CUtlStringToken value);
     int32_t GetParamCount() const;
@@ -25475,7 +26950,8 @@ public:
     GCNmBoolValueNode(std::string ptr);
     GCNmBoolValueNode(void *ptr);
 
-
+    GCNmValueNode GetParent() const;
+    void SetParent(GCNmValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25518,7 +26994,8 @@ public:
     GCCPPScriptComponentUpdater(std::string ptr);
     GCCPPScriptComponentUpdater(void *ptr);
 
-
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25535,6 +27012,8 @@ public:
 
     std::vector<GCDampedValueUpdateItem> GetItems() const;
     void SetItems(std::vector<GCDampedValueUpdateItem> value);
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25682,6 +27161,8 @@ public:
     void SetResetChosen(bool value);
     bool GetDontResetSameSelection() const;
     void SetDontResetSameSelection(bool value);
+    GCAnimUpdateNodeBase GetParent() const;
+    void SetParent(GCAnimUpdateNodeBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25718,6 +27199,8 @@ public:
     void SetBaseNodeIdx(int16_t value);
     bool GetOnlySampleBaseRootMotion() const;
     void SetOnlySampleBaseRootMotion(bool value);
+    GCNmPoseNode GetParent() const;
+    void SetParent(GCNmPoseNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25752,8 +27235,8 @@ public:
 
     int32_t GetEntityIndex() const;
     void SetEntityIndex(int32_t value);
-    CUtlString GetModelName() const;
-    void SetModelName(CUtlString value);
+    std::string GetModelName() const;
+    void SetModelName(std::string value);
     std::vector<CUtlString> GetPoseParams() const;
     void SetPoseParams(std::vector<CUtlString> value);
     std::vector<CUtlString> GetDecodeOps() const;
@@ -25776,7 +27259,8 @@ public:
     GCNmFloatValueNode(std::string ptr);
     GCNmFloatValueNode(void *ptr);
 
-
+    GCNmValueNode GetParent() const;
+    void SetParent(GCNmValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25793,16 +27277,16 @@ public:
 
     GSceneViewId_t GetViewId() const;
     void SetViewId(GSceneViewId_t value);
-    CUtlString GetViewName() const;
-    void SetViewName(CUtlString value);
+    std::string GetViewName() const;
+    void SetViewName(std::string value);
     int32_t GetLayerIndex() const;
     void SetLayerIndex(int32_t value);
     uint64_t GetLayerId() const;
     void SetLayerId(uint64_t value);
-    CUtlString GetLayerName() const;
-    void SetLayerName(CUtlString value);
-    CUtlString GetDisplayText() const;
-    void SetDisplayText(CUtlString value);
+    std::string GetLayerName() const;
+    void SetLayerName(std::string value);
+    std::string GetDisplayText() const;
+    void SetDisplayText(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25821,16 +27305,18 @@ public:
     void SetMinNearby(int32_t value);
     float GetClusterEpsilon() const;
     void SetClusterEpsilon(float value);
-    CUtlString GetShouldPlayOpvar() const;
-    void SetShouldPlayOpvar(CUtlString value);
-    CUtlString GetShouldPlayClusterChild() const;
-    void SetShouldPlayClusterChild(CUtlString value);
-    CUtlString GetClusterSizeOpvar() const;
-    void SetClusterSizeOpvar(CUtlString value);
-    CUtlString GetGroupBoundingBoxMinsOpvar() const;
-    void SetGroupBoundingBoxMinsOpvar(CUtlString value);
-    CUtlString GetGroupBoundingBoxMaxsOpvar() const;
-    void SetGroupBoundingBoxMaxsOpvar(CUtlString value);
+    std::string GetShouldPlayOpvar() const;
+    void SetShouldPlayOpvar(std::string value);
+    std::string GetShouldPlayClusterChild() const;
+    void SetShouldPlayClusterChild(std::string value);
+    std::string GetClusterSizeOpvar() const;
+    void SetClusterSizeOpvar(std::string value);
+    std::string GetGroupBoundingBoxMinsOpvar() const;
+    void SetGroupBoundingBoxMinsOpvar(std::string value);
+    std::string GetGroupBoundingBoxMaxsOpvar() const;
+    void SetGroupBoundingBoxMaxsOpvar(std::string value);
+    GCSosGroupActionSchema GetParent() const;
+    void SetParent(GCSosGroupActionSchema value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25847,6 +27333,8 @@ public:
 
     float GetAxisSize() const;
     void SetAxisSize(float value);
+    GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
+    void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25861,10 +27349,10 @@ public:
     GMaterialResourceData_t(std::string ptr);
     GMaterialResourceData_t(void *ptr);
 
-    CUtlString GetMaterialName() const;
-    void SetMaterialName(CUtlString value);
-    CUtlString GetShaderName() const;
-    void SetShaderName(CUtlString value);
+    std::string GetMaterialName() const;
+    void SetMaterialName(std::string value);
+    std::string GetShaderName() const;
+    void SetShaderName(std::string value);
     std::vector<GMaterialParamInt_t> GetIntParams() const;
     void SetIntParams(std::vector<GMaterialParamInt_t> value);
     std::vector<GMaterialParamFloat_t> GetFloatParams() const;
@@ -25949,6 +27437,8 @@ public:
     void SetStopType(SosActionStopType_t value);
     SosActionSortType_t GetSortType() const;
     void SetSortType(SosActionSortType_t value);
+    GCSosGroupActionSchema GetParent() const;
+    void SetParent(GCSosGroupActionSchema value);
 
     std::string ToPtr();
     bool IsValid();
@@ -25997,6 +27487,8 @@ public:
     void SetLookTargetWorldSpace(GCAnimParamHandle value);
     bool GetNetworkLookTarget() const;
     void SetNetworkLookTarget(bool value);
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26015,6 +27507,8 @@ public:
     void SetValueSource(AnimValueSource value);
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26061,7 +27555,8 @@ public:
     GCNmVectorValueNode(std::string ptr);
     GCNmVectorValueNode(void *ptr);
 
-
+    GCNmValueNode GetParent() const;
+    void SetParent(GCNmValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26140,7 +27635,8 @@ public:
     GCParticleRemapFloatInput(std::string ptr);
     GCParticleRemapFloatInput(void *ptr);
 
-
+    GCParticleFloatInput GetParent() const;
+    void SetParent(GCParticleFloatInput value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26183,6 +27679,8 @@ public:
     void SetGameWritable(bool value);
     bool GetGraphWritable() const;
     void SetGraphWritable(bool value);
+    GCAnimParameterBase GetParent() const;
+    void SetParent(GCAnimParameterBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26235,6 +27733,8 @@ public:
 
     GRnCapsule_t GetCapsule() const;
     void SetCapsule(GRnCapsule_t value);
+    GRnShapeDesc_t GetParent() const;
+    void SetParent(GRnShapeDesc_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26249,8 +27749,8 @@ public:
     GCAnimGraphDebugReplay(std::string ptr);
     GCAnimGraphDebugReplay(void *ptr);
 
-    CUtlString GetAnimGraphFileName() const;
-    void SetAnimGraphFileName(CUtlString value);
+    std::string GetAnimGraphFileName() const;
+    void SetAnimGraphFileName(std::string value);
     int32_t GetStartIndex() const;
     void SetStartIndex(int32_t value);
     int32_t GetWriteIndex() const;
@@ -26273,6 +27773,8 @@ public:
 
     std::vector<GCVoiceContainerBase*> GetSoundsToPlay() const;
     void SetSoundsToPlay(std::vector<GCVoiceContainerBase*> value);
+    GCVoiceContainerBase GetParent() const;
+    void SetParent(GCVoiceContainerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26305,7 +27807,8 @@ public:
     GCNmBoneMaskValueNode(std::string ptr);
     GCNmBoneMaskValueNode(void *ptr);
 
-
+    GCNmValueNode GetParent() const;
+    void SetParent(GCNmValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26322,6 +27825,8 @@ public:
 
     NmTransitionRule_t GetRule() const;
     void SetRule(NmTransitionRule_t value);
+    GCNmEvent GetParent() const;
+    void SetParent(GCNmEvent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26336,7 +27841,8 @@ public:
     GCStringAnimTag(std::string ptr);
     GCStringAnimTag(void *ptr);
 
-
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26351,8 +27857,8 @@ public:
     GSkeletonAnimCapture_t__Bone_t(std::string ptr);
     GSkeletonAnimCapture_t__Bone_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     int32_t GetParent() const;
     void SetParent(int32_t value);
 
@@ -26389,8 +27895,8 @@ public:
     GParticlePreviewBodyGroup_t(std::string ptr);
     GParticlePreviewBodyGroup_t(void *ptr);
 
-    CUtlString GetBodyGroupName() const;
-    void SetBodyGroupName(CUtlString value);
+    std::string GetBodyGroupName() const;
+    void SetBodyGroupName(std::string value);
     int32_t GetValue() const;
     void SetValue(int32_t value);
 
@@ -26441,6 +27947,8 @@ public:
     void SetAnticipationHeadingParam(GCAnimParamHandle value);
     bool GetUseAcceleration() const;
     void SetUseAcceleration(bool value);
+    GCAnimMotorUpdaterBase GetParent() const;
+    void SetParent(GCAnimMotorUpdaterBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26490,8 +27998,8 @@ public:
     GCAnimFoot(std::string ptr);
     GCAnimFoot(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     Vector GetBallOffset() const;
     void SetBallOffset(Vector value);
     Vector GetHeelOffset() const;
@@ -26514,7 +28022,8 @@ public:
     GEventClientAdvanceTick_t(std::string ptr);
     GEventClientAdvanceTick_t(void *ptr);
 
-
+    GEventAdvanceTick_t GetParent() const;
+    void SetParent(GEventAdvanceTick_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26533,6 +28042,8 @@ public:
     void SetSubSceneObject(uint32_t value);
     uint32_t GetDrawCallIndex() const;
     void SetDrawCallIndex(uint32_t value);
+    GBaseSceneObjectOverride_t GetParent() const;
+    void SetParent(GBaseSceneObjectOverride_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26567,8 +28078,8 @@ public:
     void SetIkRotation_MaxQuantizationError(float value);
     float GetIkTranslation_MaxQuantizationError() const;
     void SetIkTranslation_MaxQuantizationError(float value);
-    CUtlString GetBaseSequence() const;
-    void SetBaseSequence(CUtlString value);
+    std::string GetBaseSequence() const;
+    void SetBaseSequence(std::string value);
     int32_t GetBaseSequenceFrame() const;
     void SetBaseSequenceFrame(int32_t value);
     EDemoBoneSelectionMode GetBoneSelectionMode() const;
@@ -26591,7 +28102,8 @@ public:
     GCNmIDEvent(std::string ptr);
     GCNmIDEvent(void *ptr);
 
-
+    GCNmEvent GetParent() const;
+    void SetParent(GCNmEvent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26614,6 +28126,8 @@ public:
     void SetExtrapolateMovement(bool value);
     float GetMinExtrapolationSpeed() const;
     void SetMinExtrapolationSpeed(float value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26628,8 +28142,8 @@ public:
     GMaterialParam_t(std::string ptr);
     GMaterialParam_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26646,6 +28160,8 @@ public:
 
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26676,8 +28192,10 @@ public:
     GCModelConfigElement_SetMaterialGroupOnAttachedModels(std::string ptr);
     GCModelConfigElement_SetMaterialGroupOnAttachedModels(void *ptr);
 
-    CUtlString GetMaterialGroupName() const;
-    void SetMaterialGroupName(CUtlString value);
+    std::string GetMaterialGroupName() const;
+    void SetMaterialGroupName(std::string value);
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26740,14 +28258,14 @@ public:
     void SetEnabled(bool value);
     CompositeMaterialInputContainerSourceType_t GetCompositeMaterialInputContainerSourceType() const;
     void SetCompositeMaterialInputContainerSourceType(CompositeMaterialInputContainerSourceType_t value);
-    CUtlString GetStrAttrName() const;
-    void SetStrAttrName(CUtlString value);
-    CUtlString GetStrAlias() const;
-    void SetStrAlias(CUtlString value);
+    std::string GetStrAttrName() const;
+    void SetStrAttrName(std::string value);
+    std::string GetStrAlias() const;
+    void SetStrAlias(std::string value);
     std::vector<GCompositeMaterialInputLooseVariable_t> GetLooseVariables() const;
     void SetLooseVariables(std::vector<GCompositeMaterialInputLooseVariable_t> value);
-    CUtlString GetStrAttrNameForVar() const;
-    void SetStrAttrNameForVar(CUtlString value);
+    std::string GetStrAttrNameForVar() const;
+    void SetStrAttrNameForVar(std::string value);
     bool GetExposeExternally() const;
     void SetExposeExternally(bool value);
 
@@ -26860,8 +28378,8 @@ public:
     GFeProxyVertexMap_t(std::string ptr);
     GFeProxyVertexMap_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     float GetWeight() const;
     void SetWeight(float value);
 
@@ -26884,6 +28402,8 @@ public:
     void SetResetOnFinish(bool value);
     std::vector<GCDirectPlaybackTagData> GetAllTags() const;
     void SetAllTags(std::vector<GCDirectPlaybackTagData> value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26962,6 +28482,8 @@ public:
     void SetEnableVerticalCurvedPaths(bool value);
     bool GetEnableRootHeightDamping() const;
     void SetEnableRootHeightDamping(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -26976,7 +28498,8 @@ public:
     GCParentConstraint(std::string ptr);
     GCParentConstraint(void *ptr);
 
-
+    GCBaseConstraint GetParent() const;
+    void SetParent(GCBaseConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27047,6 +28570,8 @@ public:
 
     float GetSlowDownStrength() const;
     void SetSlowDownStrength(float value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27061,8 +28586,8 @@ public:
     GCAttachment(std::string ptr);
     GCAttachment(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     std::vector<CUtlString> GetInfluenceNames() const;
     void SetInfluenceNames(std::vector<CUtlString> value);
     std::vector<Quaternion> GetInfluenceRotations() const;
@@ -27200,6 +28725,8 @@ public:
 
     GRnMesh_t GetMesh() const;
     void SetMesh(GRnMesh_t value);
+    GRnShapeDesc_t GetParent() const;
+    void SetParent(GRnShapeDesc_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27216,6 +28743,8 @@ public:
 
     bool GetNetworkingEnabled() const;
     void SetNetworkingEnabled(bool value);
+    GCAnimGraphSettingsGroup GetParent() const;
+    void SetParent(GCAnimGraphSettingsGroup value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27234,6 +28763,8 @@ public:
     void SetAimOffset(Quaternion value);
     uint32_t GetUpType() const;
     void SetUpType(uint32_t value);
+    GCBaseConstraint GetParent() const;
+    void SetParent(GCBaseConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27263,7 +28794,8 @@ public:
     GCParticleFunctionForce(std::string ptr);
     GCParticleFunctionForce(void *ptr);
 
-
+    GCParticleFunction GetParent() const;
+    void SetParent(GCParticleFunction value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27278,7 +28810,8 @@ public:
     GCSpinUpdateBase(std::string ptr);
     GCSpinUpdateBase(void *ptr);
 
-
+    GCParticleFunctionOperator GetParent() const;
+    void SetParent(GCParticleFunctionOperator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27323,6 +28856,8 @@ public:
     void SetMaxLength(float value);
     int32_t GetNumDelayVariations() const;
     void SetNumDelayVariations(int32_t value);
+    GCVoiceContainerBase GetParent() const;
+    void SetParent(GCVoiceContainerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27441,6 +28976,8 @@ public:
     void SetChoices(std::vector<CUtlString> value);
     std::vector<float32> GetChoiceWeights() const;
     void SetChoiceWeights(std::vector<float32> value);
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27485,6 +29022,8 @@ public:
     void SetRotationRandExponent(float value);
     bool GetRandomlyFlipDirection() const;
     void SetRandomlyFlipDirection(bool value);
+    GCParticleFunctionInitializer GetParent() const;
+    void SetParent(GCParticleFunctionInitializer value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27543,6 +29082,8 @@ public:
     void SetDefaultValue(Quaternion value);
     bool GetInterpolate() const;
     void SetInterpolate(bool value);
+    GCConcreteAnimParameter GetParent() const;
+    void SetParent(GCConcreteAnimParameter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27629,16 +29170,16 @@ public:
     GIKDemoCaptureSettings_t(std::string ptr);
     GIKDemoCaptureSettings_t(void *ptr);
 
-    CUtlString GetParentBoneName() const;
-    void SetParentBoneName(CUtlString value);
+    std::string GetParentBoneName() const;
+    void SetParentBoneName(std::string value);
     IKChannelMode GetMode() const;
     void SetMode(IKChannelMode value);
-    CUtlString GetIkChainName() const;
-    void SetIkChainName(CUtlString value);
-    CUtlString GetOneBoneStart() const;
-    void SetOneBoneStart(CUtlString value);
-    CUtlString GetOneBoneEnd() const;
-    void SetOneBoneEnd(CUtlString value);
+    std::string GetIkChainName() const;
+    void SetIkChainName(std::string value);
+    std::string GetOneBoneStart() const;
+    void SetOneBoneStart(std::string value);
+    std::string GetOneBoneEnd() const;
+    void SetOneBoneEnd(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27668,7 +29209,8 @@ public:
     GCVoiceContainerDefault(std::string ptr);
     GCVoiceContainerDefault(void *ptr);
 
-
+    GCVoiceContainerBase GetParent() const;
+    void SetParent(GCVoiceContainerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27698,14 +29240,16 @@ public:
     GCMorphConstraint(std::string ptr);
     GCMorphConstraint(void *ptr);
 
-    CUtlString GetTargetMorph() const;
-    void SetTargetMorph(CUtlString value);
+    std::string GetTargetMorph() const;
+    void SetTargetMorph(std::string value);
     int32_t GetSlaveChannel() const;
     void SetSlaveChannel(int32_t value);
     float GetMin() const;
     void SetMin(float value);
     float GetMax() const;
     void SetMax(float value);
+    GCBaseConstraint GetParent() const;
+    void SetParent(GCBaseConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27736,8 +29280,8 @@ public:
     GCAnimGraphModelBinding(std::string ptr);
     GCAnimGraphModelBinding(void *ptr);
 
-    CUtlString GetModelName() const;
-    void SetModelName(CUtlString value);
+    std::string GetModelName() const;
+    void SetModelName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -27782,8 +29326,8 @@ public:
     GFeMorphLayerDepr_t(std::string ptr);
     GFeMorphLayerDepr_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     uint32_t GetNameHash() const;
     void SetNameHash(uint32_t value);
     std::vector<uint16> GetNodes() const;
@@ -27894,8 +29438,8 @@ public:
     void SetOffset1(Vector value);
     uint32_t GetBoneHash() const;
     void SetBoneHash(uint32_t value);
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     float GetWeight() const;
     void SetWeight(float value);
     bool GetIsAttachment() const;
@@ -27918,32 +29462,32 @@ public:
     void SetEnabled(bool value);
     CompMatPropertyMutatorType_t GetMutatorCommandType() const;
     void SetMutatorCommandType(CompMatPropertyMutatorType_t value);
-    CUtlString GetStrInitWith_Container() const;
-    void SetStrInitWith_Container(CUtlString value);
-    CUtlString GetStrCopyProperty_InputContainerSrc() const;
-    void SetStrCopyProperty_InputContainerSrc(CUtlString value);
-    CUtlString GetStrCopyProperty_InputContainerProperty() const;
-    void SetStrCopyProperty_InputContainerProperty(CUtlString value);
-    CUtlString GetStrCopyProperty_TargetProperty() const;
-    void SetStrCopyProperty_TargetProperty(CUtlString value);
-    CUtlString GetStrRandomRollInputVars_SeedInputVar() const;
-    void SetStrRandomRollInputVars_SeedInputVar(CUtlString value);
+    std::string GetStrInitWith_Container() const;
+    void SetStrInitWith_Container(std::string value);
+    std::string GetStrCopyProperty_InputContainerSrc() const;
+    void SetStrCopyProperty_InputContainerSrc(std::string value);
+    std::string GetStrCopyProperty_InputContainerProperty() const;
+    void SetStrCopyProperty_InputContainerProperty(std::string value);
+    std::string GetStrCopyProperty_TargetProperty() const;
+    void SetStrCopyProperty_TargetProperty(std::string value);
+    std::string GetStrRandomRollInputVars_SeedInputVar() const;
+    void SetStrRandomRollInputVars_SeedInputVar(std::string value);
     std::vector<CUtlString> GetRandomRollInputVars_InputVarsToRoll() const;
     void SetRandomRollInputVars_InputVarsToRoll(std::vector<CUtlString> value);
-    CUtlString GetStrCopyMatchingKeys_InputContainerSrc() const;
-    void SetStrCopyMatchingKeys_InputContainerSrc(CUtlString value);
-    CUtlString GetStrCopyKeysWithSuffix_InputContainerSrc() const;
-    void SetStrCopyKeysWithSuffix_InputContainerSrc(CUtlString value);
-    CUtlString GetStrCopyKeysWithSuffix_FindSuffix() const;
-    void SetStrCopyKeysWithSuffix_FindSuffix(CUtlString value);
-    CUtlString GetStrCopyKeysWithSuffix_ReplaceSuffix() const;
-    void SetStrCopyKeysWithSuffix_ReplaceSuffix(CUtlString value);
+    std::string GetStrCopyMatchingKeys_InputContainerSrc() const;
+    void SetStrCopyMatchingKeys_InputContainerSrc(std::string value);
+    std::string GetStrCopyKeysWithSuffix_InputContainerSrc() const;
+    void SetStrCopyKeysWithSuffix_InputContainerSrc(std::string value);
+    std::string GetStrCopyKeysWithSuffix_FindSuffix() const;
+    void SetStrCopyKeysWithSuffix_FindSuffix(std::string value);
+    std::string GetStrCopyKeysWithSuffix_ReplaceSuffix() const;
+    void SetStrCopyKeysWithSuffix_ReplaceSuffix(std::string value);
     GCompositeMaterialInputLooseVariable_t GetSetValue_Value() const;
     void SetSetValue_Value(GCompositeMaterialInputLooseVariable_t value);
-    CUtlString GetStrGenerateTexture_TargetParam() const;
-    void SetStrGenerateTexture_TargetParam(CUtlString value);
-    CUtlString GetStrGenerateTexture_InitialContainer() const;
-    void SetStrGenerateTexture_InitialContainer(CUtlString value);
+    std::string GetStrGenerateTexture_TargetParam() const;
+    void SetStrGenerateTexture_TargetParam(std::string value);
+    std::string GetStrGenerateTexture_InitialContainer() const;
+    void SetStrGenerateTexture_InitialContainer(std::string value);
     int32_t GetResolution() const;
     void SetResolution(int32_t value);
     bool GetIsScratchTarget() const;
@@ -27956,18 +29500,18 @@ public:
     void SetTexGenInstructions(std::vector<GCompMatPropertyMutator_t> value);
     std::vector<GCompMatPropertyMutator_t> GetConditionalMutators() const;
     void SetConditionalMutators(std::vector<GCompMatPropertyMutator_t> value);
-    CUtlString GetStrPopInputQueue_Container() const;
-    void SetStrPopInputQueue_Container(CUtlString value);
-    CUtlString GetStrDrawText_InputContainerSrc() const;
-    void SetStrDrawText_InputContainerSrc(CUtlString value);
-    CUtlString GetStrDrawText_InputContainerProperty() const;
-    void SetStrDrawText_InputContainerProperty(CUtlString value);
+    std::string GetStrPopInputQueue_Container() const;
+    void SetStrPopInputQueue_Container(std::string value);
+    std::string GetStrDrawText_InputContainerSrc() const;
+    void SetStrDrawText_InputContainerSrc(std::string value);
+    std::string GetStrDrawText_InputContainerProperty() const;
+    void SetStrDrawText_InputContainerProperty(std::string value);
     Vector2D GetDrawText_Position() const;
     void SetDrawText_Position(Vector2D value);
     Color GetColDrawText_Color() const;
     void SetColDrawText_Color(Color value);
-    CUtlString GetStrDrawText_Font() const;
-    void SetStrDrawText_Font(CUtlString value);
+    std::string GetStrDrawText_Font() const;
+    void SetStrDrawText_Font(std::string value);
     std::vector<GCompMatMutatorCondition_t> GetConditions() const;
     void SetConditions(std::vector<GCompMatMutatorCondition_t> value);
 
@@ -27984,8 +29528,8 @@ public:
     GIKBoneNameAndIndex_t(std::string ptr);
     GIKBoneNameAndIndex_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28000,8 +29544,8 @@ public:
     GPermEntityLumpData_t(std::string ptr);
     GPermEntityLumpData_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28044,14 +29588,16 @@ public:
     GCBoneConstraintDotToMorph(std::string ptr);
     GCBoneConstraintDotToMorph(void *ptr);
 
-    CUtlString GetBoneName() const;
-    void SetBoneName(CUtlString value);
-    CUtlString GetTargetBoneName() const;
-    void SetTargetBoneName(CUtlString value);
-    CUtlString GetMorphChannelName() const;
-    void SetMorphChannelName(CUtlString value);
+    std::string GetBoneName() const;
+    void SetBoneName(std::string value);
+    std::string GetTargetBoneName() const;
+    void SetTargetBoneName(std::string value);
+    std::string GetMorphChannelName() const;
+    void SetMorphChannelName(std::string value);
     std::vector<float> GetRemap() const;
     void SetRemap(std::vector<float> value);
+    GCBoneConstraintBase GetParent() const;
+    void SetParent(GCBoneConstraintBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28144,6 +29690,8 @@ public:
     void SetSlopeNormal(GCAnimParamHandle value);
     GCAnimParamHandle GetSlopeNormal_WorldSpace() const;
     void SetSlopeNormal_WorldSpace(GCAnimParamHandle value);
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28220,6 +29768,8 @@ public:
 
     bool GetLockToPath() const;
     void SetLockToPath(bool value);
+    GCAnimMotorUpdaterBase GetParent() const;
+    void SetParent(GCAnimMotorUpdaterBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28287,7 +29837,8 @@ public:
     GCPathAnimMotorUpdater(std::string ptr);
     GCPathAnimMotorUpdater(void *ptr);
 
-
+    GCPathAnimMotorUpdaterBase GetParent() const;
+    void SetParent(GCPathAnimMotorUpdaterBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28312,6 +29863,8 @@ public:
     void SetPreventOvershoot(bool value);
     bool GetPreventUndershoot() const;
     void SetPreventUndershoot(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28328,6 +29881,8 @@ public:
 
     int32_t GetValue() const;
     void SetValue(int32_t value);
+    GMaterialParam_t GetParent() const;
+    void SetParent(GMaterialParam_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28358,10 +29913,10 @@ public:
     void SetEyePosition(Vector value);
     float GetMaxEyeDeflection() const;
     void SetMaxEyeDeflection(float value);
-    CUtlString GetSurfaceProperty() const;
-    void SetSurfaceProperty(CUtlString value);
-    CUtlString GetKeyValueText() const;
-    void SetKeyValueText(CUtlString value);
+    std::string GetSurfaceProperty() const;
+    void SetSurfaceProperty(std::string value);
+    std::string GetKeyValueText() const;
+    void SetKeyValueText(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28452,6 +30007,8 @@ public:
     void SetMaxValue(float value);
     int32_t GetSequenceMaxFrame() const;
     void SetSequenceMaxFrame(int32_t value);
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28468,6 +30025,8 @@ public:
 
     GCAnimParamHandle GetParam() const;
     void SetParam(GCAnimParamHandle value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28506,8 +30065,8 @@ public:
     GTestResource_t(std::string ptr);
     GTestResource_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28536,8 +30095,8 @@ public:
     void SetColorBlendType(ParticleColorBlendType_t value);
     SpriteCardShaderType_t GetShaderType() const;
     void SetShaderType(SpriteCardShaderType_t value);
-    CUtlString GetStrShaderOverride() const;
-    void SetStrShaderOverride(CUtlString value);
+    std::string GetStrShaderOverride() const;
+    void SetStrShaderOverride(std::string value);
     GCParticleCollectionRendererFloatInput GetCenterXOffset() const;
     void SetCenterXOffset(GCParticleCollectionRendererFloatInput value);
     GCParticleCollectionRendererFloatInput GetCenterYOffset() const;
@@ -28646,6 +30205,8 @@ public:
     void SetBlendFramesSeq0(bool value);
     bool GetMaxLuminanceBlendingSequence0() const;
     void SetMaxLuminanceBlendingSequence0(bool value);
+    GCParticleFunctionRenderer GetParent() const;
+    void SetParent(GCParticleFunctionRenderer value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28662,8 +30223,8 @@ public:
 
     GSceneViewId_t GetViewId() const;
     void SetViewId(GSceneViewId_t value);
-    CUtlString GetViewName() const;
-    void SetViewName(CUtlString value);
+    std::string GetViewName() const;
+    void SetViewName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28678,7 +30239,8 @@ public:
     GCZeroPoseUpdateNode(std::string ptr);
     GCZeroPoseUpdateNode(void *ptr);
 
-
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28715,6 +30277,8 @@ public:
 
     std::vector<int32> GetFootIndices() const;
     void SetFootIndices(std::vector<int32> value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28733,6 +30297,8 @@ public:
     void SetFootIndices(std::vector<int32> value);
     bool GetIgnoreSlope() const;
     void SetIgnoreSlope(bool value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28765,7 +30331,8 @@ public:
     GCPointConstraint(std::string ptr);
     GCPointConstraint(void *ptr);
 
-
+    GCBaseConstraint GetParent() const;
+    void SetParent(GCBaseConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28861,6 +30428,8 @@ public:
     void SetMinValue(int32_t value);
     int32_t GetMaxValue() const;
     void SetMaxValue(int32_t value);
+    GCConcreteAnimParameter GetParent() const;
+    void SetParent(GCConcreteAnimParameter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28875,7 +30444,8 @@ public:
     GCNmTargetValueNode(std::string ptr);
     GCNmTargetValueNode(void *ptr);
 
-
+    GCNmValueNode GetParent() const;
+    void SetParent(GCNmValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28910,7 +30480,8 @@ public:
     GEventServerAdvanceTick_t(std::string ptr);
     GEventServerAdvanceTick_t(void *ptr);
 
-
+    GEventAdvanceTick_t GetParent() const;
+    void SetParent(GEventAdvanceTick_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28971,14 +30542,16 @@ public:
     GCSosGroupActionSoundeventPrioritySchema(std::string ptr);
     GCSosGroupActionSoundeventPrioritySchema(void *ptr);
 
-    CUtlString GetPriorityValue() const;
-    void SetPriorityValue(CUtlString value);
-    CUtlString GetPriorityVolumeScalar() const;
-    void SetPriorityVolumeScalar(CUtlString value);
-    CUtlString GetPriorityContributeButDontRead() const;
-    void SetPriorityContributeButDontRead(CUtlString value);
-    CUtlString GetPriorityReadButDontContribute() const;
-    void SetPriorityReadButDontContribute(CUtlString value);
+    std::string GetPriorityValue() const;
+    void SetPriorityValue(std::string value);
+    std::string GetPriorityVolumeScalar() const;
+    void SetPriorityVolumeScalar(std::string value);
+    std::string GetPriorityContributeButDontRead() const;
+    void SetPriorityContributeButDontRead(std::string value);
+    std::string GetPriorityReadButDontContribute() const;
+    void SetPriorityReadButDontContribute(std::string value);
+    GCSosGroupActionSchema GetParent() const;
+    void SetParent(GCSosGroupActionSchema value);
 
     std::string ToPtr();
     bool IsValid();
@@ -28995,6 +30568,8 @@ public:
 
     int32_t GetBoneIndex() const;
     void SetBoneIndex(int32_t value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29039,7 +30614,8 @@ public:
     GCNmIDValueNode(std::string ptr);
     GCNmIDValueNode(void *ptr);
 
-
+    GCNmValueNode GetParent() const;
+    void SetParent(GCNmValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29082,8 +30658,8 @@ public:
     GPermModelExtPart_t(std::string ptr);
     GPermModelExtPart_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     int32_t GetParent() const;
     void SetParent(int32_t value);
 
@@ -29100,7 +30676,8 @@ public:
     GCCurrentRotationVelocityMetricEvaluator(std::string ptr);
     GCCurrentRotationVelocityMetricEvaluator(void *ptr);
 
-
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29177,6 +30754,8 @@ public:
 
     int16_t GetChildNodeIdx() const;
     void SetChildNodeIdx(int16_t value);
+    GCNmIDValueNode GetParent() const;
+    void SetParent(GCNmIDValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29231,6 +30810,8 @@ public:
     void SetPriority(int32_t value);
     uint32_t GetVertexMapHash() const;
     void SetVertexMapHash(uint32_t value);
+    GFeSphereRigid_t GetParent() const;
+    void SetParent(GFeSphereRigid_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29345,6 +30926,8 @@ public:
     void SetParameter(GCAnimParamHandle value);
     StanceOverrideMode GetMode() const;
     void SetMode(StanceOverrideMode value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29443,6 +31026,8 @@ public:
     void SetDistanceScale_MinScale(float value);
     bool GetEnableDistanceScaling() const;
     void SetEnableDistanceScaling(bool value);
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29490,8 +31075,8 @@ public:
     GParticleNamedValueSource_t(std::string ptr);
     GParticleNamedValueSource_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     bool GetIsPublic() const;
     void SetIsPublic(bool value);
     PulseValueType_t GetValueType() const;
@@ -29514,7 +31099,8 @@ public:
     GMaterialParamBuffer_t(std::string ptr);
     GMaterialParamBuffer_t(void *ptr);
 
-
+    GMaterialParam_t GetParent() const;
+    void SetParent(GMaterialParam_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29562,8 +31148,8 @@ public:
 
     GSceneViewId_t GetViewId() const;
     void SetViewId(GSceneViewId_t value);
-    CUtlString GetViewName() const;
-    void SetViewName(CUtlString value);
+    std::string GetViewName() const;
+    void SetViewName(std::string value);
     std::vector<GCSSDSMsg_ViewTarget> GetTargets() const;
     void SetTargets(std::vector<GCSSDSMsg_ViewTarget> value);
 
@@ -29642,6 +31228,8 @@ public:
 
     std::vector<CUtlString> GetChoices() const;
     void SetChoices(std::vector<CUtlString> value);
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29656,10 +31244,10 @@ public:
     GRenderSkeletonBone_t(std::string ptr);
     GRenderSkeletonBone_t(void *ptr);
 
-    CUtlString GetBoneName() const;
-    void SetBoneName(CUtlString value);
-    CUtlString GetParentName() const;
-    void SetParentName(CUtlString value);
+    std::string GetBoneName() const;
+    void SetBoneName(std::string value);
+    std::string GetParentName() const;
+    void SetParentName(std::string value);
     matrix3x4_t GetInvBindPose() const;
     void SetInvBindPose(matrix3x4_t value);
     GSkeletonBoneBounds_t GetBbox() const;
@@ -29736,7 +31324,8 @@ public:
     GCAnimCycle(std::string ptr);
     GCAnimCycle(void *ptr);
 
-
+    GCCycleBase GetParent() const;
+    void SetParent(GCCycleBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29786,6 +31375,8 @@ public:
     void SetWeightListIndex(int32_t value);
     RagdollPoseControl GetPoseControlMethod() const;
     void SetPoseControlMethod(RagdollPoseControl value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -29853,8 +31444,8 @@ public:
     GWeightList(std::string ptr);
     GWeightList(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     std::vector<float32> GetWeights() const;
     void SetWeights(std::vector<float32> value);
 
@@ -29871,8 +31462,8 @@ public:
     GRnBodyDesc_t(std::string ptr);
     GRnBodyDesc_t(void *ptr);
 
-    CUtlString GetDebugName() const;
-    void SetDebugName(CUtlString value);
+    std::string GetDebugName() const;
+    void SetDebugName(std::string value);
     Vector GetPosition() const;
     void SetPosition(Vector value);
     Vector GetLinearVelocity() const;
@@ -29953,8 +31544,8 @@ public:
     GCFeMorphLayer(std::string ptr);
     GCFeMorphLayer(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     uint32_t GetNameHash() const;
     void SetNameHash(uint32_t value);
     std::vector<uint16> GetNodes() const;
@@ -30013,7 +31604,8 @@ public:
     GEventClientPreSimulate_t(std::string ptr);
     GEventClientPreSimulate_t(void *ptr);
 
-
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30092,6 +31684,8 @@ public:
 
     float GetBlendFactor() const;
     void SetBlendFactor(float value);
+    GCVoiceContainerBase GetParent() const;
+    void SetParent(GCVoiceContainerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30108,6 +31702,8 @@ public:
 
     uint64_t GetOldPointer() const;
     void SetOldPointer(uint64_t value);
+    GRnBodyDesc_t GetParent() const;
+    void SetParent(GRnBodyDesc_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30134,6 +31730,8 @@ public:
     void SetDecayBias(float value);
     bool GetDestroy() const;
     void SetDestroy(bool value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30163,8 +31761,8 @@ public:
     GPermModelData_t(std::string ptr);
     GPermModelData_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     GPermModelInfo_t GetModelInfo() const;
     void SetModelInfo(GPermModelInfo_t value);
     std::vector<GPermModelExtPart_t> GetExtParts() const;
@@ -30285,6 +31883,8 @@ public:
     void SetLoop(bool value);
     bool GetLockWhenWaning() const;
     void SetLockWhenWaning(bool value);
+    GCAnimUpdateNodeBase GetParent() const;
+    void SetParent(GCAnimUpdateNodeBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30305,6 +31905,8 @@ public:
     void SetRadius(float value);
     Color GetColor() const;
     void SetColor(Color value);
+    GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
+    void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30321,6 +31923,8 @@ public:
 
     float GetValue() const;
     void SetValue(float value);
+    GMaterialParam_t GetParent() const;
+    void SetParent(GMaterialParam_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30335,7 +31939,8 @@ public:
     GEventServerSimulate_t(std::string ptr);
     GEventServerSimulate_t(void *ptr);
 
-
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30356,6 +31961,8 @@ public:
     void SetSamples(int32_t value);
     float GetThreshold() const;
     void SetThreshold(float value);
+    GCVoiceContainerAnalysisBase GetParent() const;
+    void SetParent(GCVoiceContainerAnalysisBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30440,7 +32047,8 @@ public:
     GCNmControlParameterFloatNode(std::string ptr);
     GCNmControlParameterFloatNode(void *ptr);
 
-
+    GCNmFloatValueNode GetParent() const;
+    void SetParent(GCNmFloatValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30489,6 +32097,8 @@ public:
 
     GAnimScriptHandle GetScript() const;
     void SetScript(GAnimScriptHandle value);
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30617,7 +32227,8 @@ public:
     GCOrientConstraint(std::string ptr);
     GCOrientConstraint(void *ptr);
 
-
+    GCBaseConstraint GetParent() const;
+    void SetParent(GCBaseConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30662,10 +32273,12 @@ public:
     void SetAttack(float value);
     float GetDecay() const;
     void SetDecay(float value);
-    CUtlString GetResultVarName() const;
-    void SetResultVarName(CUtlString value);
+    std::string GetResultVarName() const;
+    void SetResultVarName(std::string value);
     bool GetSaveToGroup() const;
     void SetSaveToGroup(bool value);
+    GCSosGroupActionSchema GetParent() const;
+    void SetParent(GCSosGroupActionSchema value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30836,10 +32449,12 @@ public:
     GCModelConfigElement_SetBodygroupOnAttachedModels(std::string ptr);
     GCModelConfigElement_SetBodygroupOnAttachedModels(void *ptr);
 
-    CUtlString GetGroupName() const;
-    void SetGroupName(CUtlString value);
+    std::string GetGroupName() const;
+    void SetGroupName(std::string value);
     int32_t GetChoice() const;
     void SetChoice(int32_t value);
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30856,6 +32471,8 @@ public:
 
     NmFootPhase_t GetPhase() const;
     void SetPhase(NmFootPhase_t value);
+    GCNmEvent GetParent() const;
+    void SetParent(GCNmEvent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30872,6 +32489,8 @@ public:
 
     bool GetIsDisableTag() const;
     void SetIsDisableTag(bool value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30916,6 +32535,8 @@ public:
     void SetLockWhenWaning(bool value);
     bool GetAnimEventsAndTagsOnMostWeightedOnly() const;
     void SetAnimEventsAndTagsOnMostWeightedOnly(bool value);
+    GCAnimUpdateNodeBase GetParent() const;
+    void SetParent(GCAnimUpdateNodeBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30966,6 +32587,8 @@ public:
     void SetTargetAxis(int32_t value);
     int32_t GetSlaveAxis() const;
     void SetSlaveAxis(int32_t value);
+    GCBaseConstraint GetParent() const;
+    void SetParent(GCBaseConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30980,7 +32603,8 @@ public:
     GMaterialParamTexture_t(std::string ptr);
     GMaterialParamTexture_t(void *ptr);
 
-
+    GMaterialParam_t GetParent() const;
+    void SetParent(GMaterialParam_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31091,10 +32715,12 @@ public:
     GCModelConfigElement_SetBodygroup(std::string ptr);
     GCModelConfigElement_SetBodygroup(void *ptr);
 
-    CUtlString GetGroupName() const;
-    void SetGroupName(CUtlString value);
+    std::string GetGroupName() const;
+    void SetGroupName(std::string value);
     int32_t GetChoice() const;
     void SetChoice(int32_t value);
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31109,18 +32735,18 @@ public:
     GCModelConfigElement_AttachedModel(std::string ptr);
     GCModelConfigElement_AttachedModel(void *ptr);
 
-    CUtlString GetInstanceName() const;
-    void SetInstanceName(CUtlString value);
-    CUtlString GetEntityClass() const;
-    void SetEntityClass(CUtlString value);
+    std::string GetInstanceName() const;
+    void SetInstanceName(std::string value);
+    std::string GetEntityClass() const;
+    void SetEntityClass(std::string value);
     Vector GetOffset() const;
     void SetOffset(Vector value);
     QAngle GetAngOffset() const;
     void SetAngOffset(QAngle value);
-    CUtlString GetAttachmentName() const;
-    void SetAttachmentName(CUtlString value);
-    CUtlString GetLocalAttachmentOffsetName() const;
-    void SetLocalAttachmentOffsetName(CUtlString value);
+    std::string GetAttachmentName() const;
+    void SetAttachmentName(std::string value);
+    std::string GetLocalAttachmentOffsetName() const;
+    void SetLocalAttachmentOffsetName(std::string value);
     ModelConfigAttachmentType_t GetAttachmentType() const;
     void SetAttachmentType(ModelConfigAttachmentType_t value);
     bool GetBoneMergeFlex() const;
@@ -31131,10 +32757,12 @@ public:
     void SetUserSpecifiedMaterialGroup(bool value);
     bool GetAcceptParentMaterialDrivenDecals() const;
     void SetAcceptParentMaterialDrivenDecals(bool value);
-    CUtlString GetBodygroupOnOtherModels() const;
-    void SetBodygroupOnOtherModels(CUtlString value);
-    CUtlString GetMaterialGroupOnOtherModels() const;
-    void SetMaterialGroupOnOtherModels(CUtlString value);
+    std::string GetBodygroupOnOtherModels() const;
+    void SetBodygroupOnOtherModels(std::string value);
+    std::string GetMaterialGroupOnOtherModels() const;
+    void SetMaterialGroupOnOtherModels(std::string value);
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31151,6 +32779,8 @@ public:
 
     GFollowAttachmentSettings_t GetOpFixedData() const;
     void SetOpFixedData(GFollowAttachmentSettings_t value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31187,7 +32817,8 @@ public:
     GCVoiceContainerNull(std::string ptr);
     GCVoiceContainerNull(void *ptr);
 
-
+    GCVoiceContainerBase GetParent() const;
+    void SetParent(GCVoiceContainerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31202,8 +32833,8 @@ public:
     GMoodAnimation_t(std::string ptr);
     GMoodAnimation_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     float GetWeight() const;
     void SetWeight(float value);
 
@@ -31236,8 +32867,12 @@ public:
     void SetDistFadeEnd(uint16_t value);
     float GetFadeScale() const;
     void SetFadeScale(float value);
+    float GetRenderFxStartTime() const;
+    void SetRenderFxStartTime(float value);
     float GetRenderFxDuration() const;
     void SetRenderFxDuration(float value);
+    GIClientAlphaProperty GetParent() const;
+    void SetParent(GIClientAlphaProperty value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31260,6 +32895,8 @@ public:
     void SetFilterByTimeRemaining(bool value);
     float GetMinTimeRemaining() const;
     void SetMinTimeRemaining(float value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31342,6 +32979,8 @@ public:
     void SetTargetHandles(std::vector<GCSolveIKTargetHandle_t> value);
     GSolveIKChainPoseOpFixedSettings_t GetOpFixedData() const;
     void SetOpFixedData(GSolveIKChainPoseOpFixedSettings_t value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31438,6 +33077,8 @@ public:
 
     GCAnimDemoCaptureSettings GetSettings() const;
     void SetSettings(GCAnimDemoCaptureSettings value);
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31472,7 +33113,8 @@ public:
     GCTaskHandshakeAnimTag(std::string ptr);
     GCTaskHandshakeAnimTag(void *ptr);
 
-
+    GCHandshakeAnimTagBase GetParent() const;
+    void SetParent(GCHandshakeAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31487,7 +33129,8 @@ public:
     GEventClientPauseSimulate_t(std::string ptr);
     GEventClientPauseSimulate_t(void *ptr);
 
-
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31508,6 +33151,8 @@ public:
     void SetScale(float value);
     int32_t GetGUID() const;
     void SetGUID(int32_t value);
+    GCGlowOverlay GetParent() const;
+    void SetParent(GCGlowOverlay value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31526,6 +33171,8 @@ public:
     void SetPriority(int32_t value);
     uint32_t GetVertexMapHash() const;
     void SetVertexMapHash(uint32_t value);
+    GFeTaperedCapsuleRigid_t GetParent() const;
+    void SetParent(GFeTaperedCapsuleRigid_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31540,8 +33187,8 @@ public:
     GCStateUpdateData(std::string ptr);
     GCStateUpdateData(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     GAnimScriptHandle GetScript() const;
     void SetScript(GAnimScriptHandle value);
     std::vector<int32> GetTransitionIndices() const;
@@ -31564,16 +33211,16 @@ public:
     GCPhysSurfaceProperties(std::string ptr);
     GCPhysSurfaceProperties(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     uint32_t GetNameHash() const;
     void SetNameHash(uint32_t value);
     uint32_t GetBaseNameHash() const;
     void SetBaseNameHash(uint32_t value);
     bool GetHidden() const;
     void SetHidden(bool value);
-    CUtlString GetDescription() const;
-    void SetDescription(CUtlString value);
+    std::string GetDescription() const;
+    void SetDescription(std::string value);
     GCPhysSurfacePropertiesPhysics GetPhysics() const;
     void SetPhysics(GCPhysSurfacePropertiesPhysics value);
     GCPhysSurfacePropertiesSoundNames GetAudioSounds() const;
@@ -31670,6 +33317,8 @@ public:
     void SetWsPositionEnd(Vector value);
     Color GetColor() const;
     void SetColor(Color value);
+    GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
+    void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31736,12 +33385,12 @@ public:
     GCHitBox(std::string ptr);
     GCHitBox(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
-    CUtlString GetSurfaceProperty() const;
-    void SetSurfaceProperty(CUtlString value);
-    CUtlString GetBoneName() const;
-    void SetBoneName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
+    std::string GetSurfaceProperty() const;
+    void SetSurfaceProperty(std::string value);
+    std::string GetBoneName() const;
+    void SetBoneName(std::string value);
     Vector GetMinBounds() const;
     void SetMinBounds(Vector value);
     Vector GetMaxBounds() const;
@@ -31860,16 +33509,18 @@ public:
     GCSosGroupMatchPattern(std::string ptr);
     GCSosGroupMatchPattern(void *ptr);
 
-    CUtlString GetMatchSoundEventName() const;
-    void SetMatchSoundEventName(CUtlString value);
-    CUtlString GetMatchSoundEventSubString() const;
-    void SetMatchSoundEventSubString(CUtlString value);
+    std::string GetMatchSoundEventName() const;
+    void SetMatchSoundEventName(std::string value);
+    std::string GetMatchSoundEventSubString() const;
+    void SetMatchSoundEventSubString(std::string value);
     float GetEntIndex() const;
     void SetEntIndex(float value);
     float GetOpvar() const;
     void SetOpvar(float value);
-    CUtlString GetOpvarString() const;
-    void SetOpvarString(CUtlString value);
+    std::string GetOpvarString() const;
+    void SetOpvarString(std::string value);
+    GCSosGroupBranchPattern GetParent() const;
+    void SetParent(GCSosGroupBranchPattern value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31886,8 +33537,8 @@ public:
 
     uint64_t GetViewId() const;
     void SetViewId(uint64_t value);
-    CUtlString GetViewName() const;
-    void SetViewName(CUtlString value);
+    std::string GetViewName() const;
+    void SetViewName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31902,7 +33553,8 @@ public:
     GCNmExternalGraphNode(std::string ptr);
     GCNmExternalGraphNode(void *ptr);
 
-
+    GCNmPoseNode GetParent() const;
+    void SetParent(GCNmPoseNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31941,6 +33593,8 @@ public:
     void SetApplyRotation(bool value);
     bool GetLimitOnly() const;
     void SetLimitOnly(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32051,6 +33705,8 @@ public:
     void SetMaxStretch(float value);
     bool GetSolidCollisionAtZeroWeight() const;
     void SetSolidCollisionAtZeroWeight(bool value);
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32069,6 +33725,8 @@ public:
     void SetBlendItems(std::vector<GMotionBlendItem> value);
     int32_t GetParamIndex() const;
     void SetParamIndex(int32_t value);
+    GCMotionNode GetParent() const;
+    void SetParent(GCMotionNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32083,7 +33741,8 @@ public:
     GCNmControlParameterVectorNode(std::string ptr);
     GCNmControlParameterVectorNode(void *ptr);
 
-
+    GCNmVectorValueNode GetParent() const;
+    void SetParent(GCNmVectorValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32102,6 +33761,8 @@ public:
     void SetStoppingRadius(float value);
     float GetStoppingSpeedScale() const;
     void SetStoppingSpeedScale(float value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32202,24 +33863,26 @@ public:
     GCParticleAnimTag(std::string ptr);
     GCParticleAnimTag(void *ptr);
 
-    CUtlString GetParticleSystemName() const;
-    void SetParticleSystemName(CUtlString value);
-    CUtlString GetConfigName() const;
-    void SetConfigName(CUtlString value);
+    std::string GetParticleSystemName() const;
+    void SetParticleSystemName(std::string value);
+    std::string GetConfigName() const;
+    void SetConfigName(std::string value);
     bool GetDetachFromOwner() const;
     void SetDetachFromOwner(bool value);
     bool GetStopWhenTagEnds() const;
     void SetStopWhenTagEnds(bool value);
     bool GetTagEndStopIsInstant() const;
     void SetTagEndStopIsInstant(bool value);
-    CUtlString GetAttachmentName() const;
-    void SetAttachmentName(CUtlString value);
+    std::string GetAttachmentName() const;
+    void SetAttachmentName(std::string value);
     ParticleAttachment_t GetAttachmentType() const;
     void SetAttachmentType(ParticleAttachment_t value);
-    CUtlString GetAttachmentCP1Name() const;
-    void SetAttachmentCP1Name(CUtlString value);
+    std::string GetAttachmentCP1Name() const;
+    void SetAttachmentCP1Name(std::string value);
     ParticleAttachment_t GetAttachmentCP1Type() const;
     void SetAttachmentCP1Type(ParticleAttachment_t value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32234,7 +33897,8 @@ public:
     GCStaticPoseCacheBuilder(std::string ptr);
     GCStaticPoseCacheBuilder(void *ptr);
 
-
+    GCStaticPoseCache GetParent() const;
+    void SetParent(GCStaticPoseCache value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32287,6 +33951,8 @@ public:
 
     int16_t GetChildNodeIdx() const;
     void SetChildNodeIdx(int16_t value);
+    GCNmBoneMaskValueNode GetParent() const;
+    void SetParent(GCNmBoneMaskValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32301,7 +33967,8 @@ public:
     GCBlockSelectionMetricEvaluator(std::string ptr);
     GCBlockSelectionMetricEvaluator(void *ptr);
 
-
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32342,8 +34009,8 @@ public:
     GCSosSoundEventGroupSchema(std::string ptr);
     GCSosSoundEventGroupSchema(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     SosGroupType_t GetType() const;
     void SetType(SosGroupType_t value);
     bool GetIsBlocking() const;
@@ -32376,8 +34043,8 @@ public:
 
     std::vector<GCFootStride> GetStrides() const;
     void SetStrides(std::vector<GCFootStride> value);
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     bool GetAdditive() const;
     void SetAdditive(bool value);
 
@@ -32522,6 +34189,8 @@ public:
     void SetMaxCount(int32_t value);
     float GetMaxDuration() const;
     void SetMaxDuration(float value);
+    GCSosGroupActionSchema GetParent() const;
+    void SetParent(GCSosGroupActionSchema value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32570,8 +34239,10 @@ public:
     GCModelConfigElement_SetMaterialGroup(std::string ptr);
     GCModelConfigElement_SetMaterialGroup(void *ptr);
 
-    CUtlString GetMaterialGroupName() const;
-    void SetMaterialGroupName(CUtlString value);
+    std::string GetMaterialGroupName() const;
+    void SetMaterialGroupName(std::string value);
+    GCModelConfigElement GetParent() const;
+    void SetParent(GCModelConfigElement value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32586,7 +34257,8 @@ public:
     GCMovementHandshakeAnimTag(std::string ptr);
     GCMovementHandshakeAnimTag(void *ptr);
 
-
+    GCHandshakeAnimTagBase GetParent() const;
+    void SetParent(GCHandshakeAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32669,10 +34341,10 @@ public:
 
     CompositeMaterialMatchFilterType_t GetCompositeMaterialMatchFilterType() const;
     void SetCompositeMaterialMatchFilterType(CompositeMaterialMatchFilterType_t value);
-    CUtlString GetStrMatchFilter() const;
-    void SetStrMatchFilter(CUtlString value);
-    CUtlString GetStrMatchValue() const;
-    void SetStrMatchValue(CUtlString value);
+    std::string GetStrMatchFilter() const;
+    void SetStrMatchFilter(std::string value);
+    std::string GetStrMatchValue() const;
+    void SetStrMatchValue(std::string value);
     bool GetPassWhenTrue() const;
     void SetPassWhenTrue(bool value);
 
@@ -32731,8 +34403,8 @@ public:
     void SetFadeEndDistance(float value);
     Vector4D GetTintColor() const;
     void SetTintColor(Vector4D value);
-    CUtlString GetSkin() const;
-    void SetSkin(CUtlString value);
+    std::string GetSkin() const;
+    void SetSkin(std::string value);
     ObjectTypeFlags_t GetObjectTypeFlags() const;
     void SetObjectTypeFlags(ObjectTypeFlags_t value);
     Vector GetLightingOrigin() const;
@@ -32759,8 +34431,8 @@ public:
     GCSSDSMsg_ViewTarget(std::string ptr);
     GCSSDSMsg_ViewTarget(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     uint64_t GetTextureId() const;
     void SetTextureId(uint64_t value);
     int32_t GetWidth() const;
@@ -32835,6 +34507,8 @@ public:
     void SetBlendWeightEasing(NmEasingOperation_t value);
     NmRootMotionBlendMode_t GetRootMotionBlend() const;
     void SetRootMotionBlend(NmRootMotionBlendMode_t value);
+    GCNmPoseNode GetParent() const;
+    void SetParent(GCNmPoseNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32869,6 +34543,8 @@ public:
     void SetComponentID(GAnimComponentID value);
     bool GetSetEnabled() const;
     void SetSetEnabled(bool value);
+    GCAnimActionUpdater GetParent() const;
+    void SetParent(GCAnimActionUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32883,7 +34559,8 @@ public:
     GCNmControlParameterIDNode(std::string ptr);
     GCNmControlParameterIDNode(void *ptr);
 
-
+    GCNmIDValueNode GetParent() const;
+    void SetParent(GCNmIDValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33008,6 +34685,8 @@ public:
 
     int16_t GetDefaultStateIndex() const;
     void SetDefaultStateIndex(int16_t value);
+    GCNmPoseNode GetParent() const;
+    void SetParent(GCNmPoseNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33022,16 +34701,18 @@ public:
     GCBoneConstraintPoseSpaceMorph(std::string ptr);
     GCBoneConstraintPoseSpaceMorph(void *ptr);
 
-    CUtlString GetBoneName() const;
-    void SetBoneName(CUtlString value);
-    CUtlString GetAttachmentName() const;
-    void SetAttachmentName(CUtlString value);
+    std::string GetBoneName() const;
+    void SetBoneName(std::string value);
+    std::string GetAttachmentName() const;
+    void SetAttachmentName(std::string value);
     std::vector<CUtlString> GetOutputMorph() const;
     void SetOutputMorph(std::vector<CUtlString> value);
     std::vector<GCBoneConstraintPoseSpaceMorph> GetInputList() const;
     void SetInputList(std::vector<GCBoneConstraintPoseSpaceMorph> value);
     bool GetClamp() const;
     void SetClamp(bool value);
+    GCBoneConstraintBase GetParent() const;
+    void SetParent(GCBoneConstraintBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33046,7 +34727,8 @@ public:
     GCSSDSMsg_PreLayer(std::string ptr);
     GCSSDSMsg_PreLayer(void *ptr);
 
-
+    GCSSDSMsg_LayerBase GetParent() const;
+    void SetParent(GCSSDSMsg_LayerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33079,6 +34761,8 @@ public:
     void SetLockWhenWaning(bool value);
     bool GetSyncCyclesOnChange() const;
     void SetSyncCyclesOnChange(bool value);
+    GCAnimUpdateNodeBase GetParent() const;
+    void SetParent(GCAnimUpdateNodeBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33109,6 +34793,8 @@ public:
     void SetParameterCameraClearanceDistance(GCAnimParamHandle value);
     GAimCameraOpFixedSettings_t GetOpFixedSettings() const;
     void SetOpFixedSettings(GAimCameraOpFixedSettings_t value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33127,6 +34813,8 @@ public:
     void SetTriggers(std::vector<GFootStepTrigger> value);
     float GetTolerance() const;
     void SetTolerance(float value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33161,6 +34849,8 @@ public:
     void SetPoseCacheHandle(GCPoseHandle value);
     float GetCycle() const;
     void SetCycle(float value);
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33201,8 +34891,8 @@ public:
     GCDirectPlaybackTagData(std::string ptr);
     GCDirectPlaybackTagData(void *ptr);
 
-    CUtlString GetSequenceName() const;
-    void SetSequenceName(CUtlString value);
+    std::string GetSequenceName() const;
+    void SetSequenceName(std::string value);
     std::vector<GTagSpan_t> GetTags() const;
     void SetTags(std::vector<GTagSpan_t> value);
 
@@ -33257,8 +34947,8 @@ public:
     void SetSceneObjectLayerIndices(std::vector<uint8> value);
     std::vector<uint8> GetOverlayLayerIndices() const;
     void SetOverlayLayerIndices(std::vector<uint8> value);
-    CUtlString GetGrassFileName() const;
-    void SetGrassFileName(CUtlString value);
+    std::string GetGrassFileName() const;
+    void SetGrassFileName(std::string value);
     GBakedLightingInfo_t GetNodeLightingInfo() const;
     void SetNodeLightingInfo(GBakedLightingInfo_t value);
 
@@ -33333,6 +35023,8 @@ public:
     void SetTotalTicksThisFrame(int32_t value);
     int32_t GetTotalTicks() const;
     void SetTotalTicks(int32_t value);
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33351,6 +35043,8 @@ public:
     void SetPriority(int32_t value);
     uint32_t GetVertexMapHash() const;
     void SetVertexMapHash(uint32_t value);
+    GFeBoxRigid_t GetParent() const;
+    void SetParent(GFeBoxRigid_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33380,7 +35074,8 @@ public:
     GEventServerPostAdvanceTick_t(std::string ptr);
     GEventServerPostAdvanceTick_t(void *ptr);
 
-
+    GEventPostAdvanceTick_t GetParent() const;
+    void SetParent(GEventPostAdvanceTick_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33461,6 +35156,8 @@ public:
 
     GRnHull_t GetHull() const;
     void SetHull(GRnHull_t value);
+    GRnShapeDesc_t GetParent() const;
+    void SetParent(GRnShapeDesc_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33475,7 +35172,8 @@ public:
     GCSymbolAnimParameter(std::string ptr);
     GCSymbolAnimParameter(void *ptr);
 
-
+    GCConcreteAnimParameter GetParent() const;
+    void SetParent(GCConcreteAnimParameter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33520,6 +35218,8 @@ public:
     void SetAdditionalMeshDrawPrimitiveFlags(MeshDrawPrimitiveFlags_t value);
     GCRenderBufferBinding GetExtraBufferBinding() const;
     void SetExtraBufferBinding(GCRenderBufferBinding value);
+    GBaseSceneObjectOverride_t GetParent() const;
+    void SetParent(GBaseSceneObjectOverride_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33534,16 +35234,16 @@ public:
     GEntityIOConnectionData_t(std::string ptr);
     GEntityIOConnectionData_t(void *ptr);
 
-    CUtlString GetOutputName() const;
-    void SetOutputName(CUtlString value);
+    std::string GetOutputName() const;
+    void SetOutputName(std::string value);
     uint32_t GetTargetType() const;
     void SetTargetType(uint32_t value);
-    CUtlString GetTargetName() const;
-    void SetTargetName(CUtlString value);
-    CUtlString GetInputName() const;
-    void SetInputName(CUtlString value);
-    CUtlString GetOverrideParam() const;
-    void SetOverrideParam(CUtlString value);
+    std::string GetTargetName() const;
+    void SetTargetName(std::string value);
+    std::string GetInputName() const;
+    void SetInputName(std::string value);
+    std::string GetOverrideParam() const;
+    void SetOverrideParam(std::string value);
     float GetDelay() const;
     void SetDelay(float value);
     int32_t GetTimesToFire() const;
@@ -33568,10 +35268,10 @@ public:
     void SetEntParent(CEntityIndex value);
     std::vector<CEntityIndex> GetImportedCollision() const;
     void SetImportedCollision(std::vector<CEntityIndex> value);
-    CUtlString GetModelName() const;
-    void SetModelName(CUtlString value);
-    CUtlString GetCaptureName() const;
-    void SetCaptureName(CUtlString value);
+    std::string GetModelName() const;
+    void SetModelName(std::string value);
+    std::string GetCaptureName() const;
+    void SetCaptureName(std::string value);
     std::vector<GSkeletonAnimCapture_t> GetModelBindPose() const;
     void SetModelBindPose(std::vector<GSkeletonAnimCapture_t> value);
     std::vector<GSkeletonAnimCapture_t> GetFeModelInitPose() const;
@@ -33686,20 +35386,20 @@ public:
     GParticlePreviewState_t(std::string ptr);
     GParticlePreviewState_t(void *ptr);
 
-    CUtlString GetPreviewModel() const;
-    void SetPreviewModel(CUtlString value);
+    std::string GetPreviewModel() const;
+    void SetPreviewModel(std::string value);
     uint32_t GetModSpecificData() const;
     void SetModSpecificData(uint32_t value);
     PetGroundType_t GetGroundType() const;
     void SetGroundType(PetGroundType_t value);
-    CUtlString GetSequenceName() const;
-    void SetSequenceName(CUtlString value);
+    std::string GetSequenceName() const;
+    void SetSequenceName(std::string value);
     int32_t GetFireParticleOnSequenceFrame() const;
     void SetFireParticleOnSequenceFrame(int32_t value);
-    CUtlString GetHitboxSetName() const;
-    void SetHitboxSetName(CUtlString value);
-    CUtlString GetMaterialGroupName() const;
-    void SetMaterialGroupName(CUtlString value);
+    std::string GetHitboxSetName() const;
+    void SetHitboxSetName(std::string value);
+    std::string GetMaterialGroupName() const;
+    void SetMaterialGroupName(std::string value);
     std::vector<GParticlePreviewBodyGroup_t> GetBodyGroups() const;
     void SetBodyGroups(std::vector<GParticlePreviewBodyGroup_t> value);
     float GetPlaybackSpeed() const;
@@ -33750,8 +35450,8 @@ public:
     GCMorphData(std::string ptr);
     GCMorphData(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     std::vector<GCMorphRectData> GetMorphRectDatas() const;
     void SetMorphRectDatas(std::vector<GCMorphRectData> value);
 
@@ -33778,6 +35478,8 @@ public:
     void SetResetChild(bool value);
     bool GetLockWhenWaning() const;
     void SetLockWhenWaning(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33806,6 +35508,8 @@ public:
     void SetLoop(bool value);
     bool GetLockBlendOnReset() const;
     void SetLockBlendOnReset(bool value);
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33860,8 +35564,8 @@ public:
     GModelBoneFlexDriver_t(std::string ptr);
     GModelBoneFlexDriver_t(void *ptr);
 
-    CUtlString GetBoneName() const;
-    void SetBoneName(CUtlString value);
+    std::string GetBoneName() const;
+    void SetBoneName(std::string value);
     uint32_t GetBoneNameToken() const;
     void SetBoneNameToken(uint32_t value);
     std::vector<GModelBoneFlexDriverControl_t> GetControls() const;
@@ -33882,6 +35586,8 @@ public:
 
     bool GetDefaultValue() const;
     void SetDefaultValue(bool value);
+    GCConcreteAnimParameter GetParent() const;
+    void SetParent(GCConcreteAnimParameter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33934,6 +35640,8 @@ public:
     void SetModulatorFrequency(float value);
     float GetModulatorAmount() const;
     void SetModulatorAmount(float value);
+    GCVoiceContainerBase GetParent() const;
+    void SetParent(GCVoiceContainerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33950,6 +35658,8 @@ public:
 
     int16_t GetChildNodeIdx() const;
     void SetChildNodeIdx(int16_t value);
+    GCNmBoolValueNode GetParent() const;
+    void SetParent(GCNmBoolValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34016,7 +35726,8 @@ public:
     GCNmControlParameterTargetNode(std::string ptr);
     GCNmControlParameterTargetNode(void *ptr);
 
-
+    GCNmTargetValueNode GetParent() const;
+    void SetParent(GCNmTargetValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34033,12 +35744,14 @@ public:
 
     FootstepLandedFootSoundType_t GetFootstepType() const;
     void SetFootstepType(FootstepLandedFootSoundType_t value);
-    CUtlString GetOverrideSoundName() const;
-    void SetOverrideSoundName(CUtlString value);
-    CUtlString GetDebugAnimSourceString() const;
-    void SetDebugAnimSourceString(CUtlString value);
-    CUtlString GetBoneName() const;
-    void SetBoneName(CUtlString value);
+    std::string GetOverrideSoundName() const;
+    void SetOverrideSoundName(std::string value);
+    std::string GetDebugAnimSourceString() const;
+    void SetDebugAnimSourceString(std::string value);
+    std::string GetBoneName() const;
+    void SetBoneName(std::string value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34059,6 +35772,8 @@ public:
     void SetEnumOptions(std::vector<CUtlString> value);
     std::vector<uint64> GetEnumReferenced() const;
     void SetEnumReferenced(std::vector<uint64> value);
+    GCConcreteAnimParameter GetParent() const;
+    void SetParent(GCConcreteAnimParameter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34081,6 +35796,8 @@ public:
     void SetWsEnd(Vector value);
     Color GetColor() const;
     void SetColor(Color value);
+    GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
+    void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34097,8 +35814,10 @@ public:
 
     int32_t GetEntIndex() const;
     void SetEntIndex(int32_t value);
-    CUtlString GetModelName() const;
-    void SetModelName(CUtlString value);
+    std::string GetModelName() const;
+    void SetModelName(std::string value);
+    GAnimationSnapshotBase_t GetParent() const;
+    void SetParent(GAnimationSnapshotBase_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34121,8 +35840,8 @@ public:
     void SetInteractWith(std::vector<uint32> value);
     std::vector<uint32> GetInteractExclude() const;
     void SetInteractExclude(std::vector<uint32> value);
-    CUtlString GetCollisionGroupString() const;
-    void SetCollisionGroupString(CUtlString value);
+    std::string GetCollisionGroupString() const;
+    void SetCollisionGroupString(std::string value);
     std::vector<CUtlString> GetInteractAsStrings() const;
     void SetInteractAsStrings(std::vector<CUtlString> value);
     std::vector<CUtlString> GetInteractWithStrings() const;
@@ -34143,7 +35862,8 @@ public:
     GCActionComponentUpdater(std::string ptr);
     GCActionComponentUpdater(void *ptr);
 
-
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34160,6 +35880,8 @@ public:
 
     int16_t GetChildNodeIdx() const;
     void SetChildNodeIdx(int16_t value);
+    GCNmVectorValueNode GetParent() const;
+    void SetParent(GCNmVectorValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34200,8 +35922,10 @@ public:
     void SetEaseIn(float value);
     float GetEaseOut() const;
     void SetEaseOut(float value);
-    CUtlString GetVertexSet() const;
-    void SetVertexSet(CUtlString value);
+    std::string GetVertexSet() const;
+    void SetVertexSet(std::string value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34216,8 +35940,8 @@ public:
     GVariableInfo_t(std::string ptr);
     GVariableInfo_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     CUtlStringToken GetNameToken() const;
     void SetNameToken(CUtlStringToken value);
     GFuseVariableIndex_t GetIndex() const;
@@ -34285,6 +36009,8 @@ public:
     void SetFrequency(float value);
     float GetDecayTime() const;
     void SetDecayTime(float value);
+    GCVoiceContainerBase GetParent() const;
+    void SetParent(GCVoiceContainerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34307,6 +36033,8 @@ public:
     void SetValueSource(AnimValueSource value);
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34335,6 +36063,8 @@ public:
     void SetEndFadeSize(GCParticleCollectionRendererFloatInput value);
     bool GetClampV() const;
     void SetClampV(bool value);
+    GCBaseRendererSource2 GetParent() const;
+    void SetParent(GCBaseRendererSource2 value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34351,6 +36081,8 @@ public:
 
     std::vector<GCBoneConstraintPoseSpaceBone> GetInputList() const;
     void SetInputList(std::vector<GCBoneConstraintPoseSpaceBone> value);
+    GCBaseConstraint GetParent() const;
+    void SetParent(GCBaseConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34365,7 +36097,8 @@ public:
     GEventServerPostSimulate_t(std::string ptr);
     GEventServerPostSimulate_t(void *ptr);
 
-
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34380,7 +36113,8 @@ public:
     GCChoreoUpdateNode(std::string ptr);
     GCChoreoUpdateNode(void *ptr);
 
-
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34525,6 +36259,8 @@ public:
     void SetTags(std::vector<GTagSpan_t> value);
     float GetPlaybackSpeed() const;
     void SetPlaybackSpeed(float value);
+    GCMotionNode GetParent() const;
+    void SetParent(GCMotionNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34603,6 +36339,8 @@ public:
 
     int32_t GetBoneIndex() const;
     void SetBoneIndex(int32_t value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34675,6 +36413,8 @@ public:
 
     FootFallTagFoot_t GetFoot() const;
     void SetFoot(FootFallTagFoot_t value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34713,8 +36453,8 @@ public:
     GMaterialVariable_t(std::string ptr);
     GMaterialVariable_t(void *ptr);
 
-    CUtlString GetStrVariable() const;
-    void SetStrVariable(CUtlString value);
+    std::string GetStrVariable() const;
+    void SetStrVariable(std::string value);
     GParticleAttributeIndex_t GetVariableField() const;
     void SetVariableField(GParticleAttributeIndex_t value);
     float GetScale() const;
@@ -34733,8 +36473,8 @@ public:
     GCFeNamedJiggleBone(std::string ptr);
     GCFeNamedJiggleBone(void *ptr);
 
-    CUtlString GetStrParentBone() const;
-    void SetStrParentBone(CUtlString value);
+    std::string GetStrParentBone() const;
+    void SetStrParentBone(std::string value);
     uint32_t GetJiggleParent() const;
     void SetJiggleParent(uint32_t value);
     GCFeJiggleBone GetJiggleBone() const;
@@ -34791,8 +36531,10 @@ public:
     GCSequenceFinishedAnimTag(std::string ptr);
     GCSequenceFinishedAnimTag(void *ptr);
 
-    CUtlString GetSequenceName() const;
-    void SetSequenceName(CUtlString value);
+    std::string GetSequenceName() const;
+    void SetSequenceName(std::string value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34811,8 +36553,10 @@ public:
     void SetWsPosition(Vector value);
     Color GetColor() const;
     void SetColor(Color value);
-    CUtlString GetText() const;
-    void SetText(CUtlString value);
+    std::string GetText() const;
+    void SetText(std::string value);
+    GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
+    void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34841,6 +36585,8 @@ public:
     void SetMinSpringTension(float value);
     float GetMaxSpringTension() const;
     void SetMaxSpringTension(float value);
+    GCPathAnimMotorUpdaterBase GetParent() const;
+    void SetParent(GCPathAnimMotorUpdaterBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34940,6 +36686,8 @@ public:
 
     int16_t GetChildGraphIdx() const;
     void SetChildGraphIdx(int16_t value);
+    GCNmPoseNode GetParent() const;
+    void SetParent(GCNmPoseNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35066,6 +36814,8 @@ public:
     void SetResetChild(bool value);
     bool GetAnimationDriven() const;
     void SetAnimationDriven(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35090,6 +36840,8 @@ public:
     void SetAllowLooping(bool value);
     int16_t GetDataSlotIdx() const;
     void SetDataSlotIdx(int16_t value);
+    GCNmPoseNode GetParent() const;
+    void SetParent(GCNmPoseNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35161,6 +36913,8 @@ public:
     void SetTargetSpeed(float value);
     VelocityMetricMode GetMode() const;
     void SetMode(VelocityMetricMode value);
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35208,8 +36962,8 @@ public:
     GFeEffectDesc_t(std::string ptr);
     GFeEffectDesc_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     uint32_t GetNameHash() const;
     void SetNameHash(uint32_t value);
     int32_t GetType() const;
@@ -35230,6 +36984,8 @@ public:
 
     int32_t GetServerLOD() const;
     void SetServerLOD(int32_t value);
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35244,7 +37000,8 @@ public:
     GCNmLegacyEvent(std::string ptr);
     GCNmLegacyEvent(void *ptr);
 
-
+    GCNmEvent GetParent() const;
+    void SetParent(GCNmEvent value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35261,6 +37018,8 @@ public:
 
     Vector4D GetValue() const;
     void SetValue(Vector4D value);
+    GMaterialParam_t GetParent() const;
+    void SetParent(GMaterialParam_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35345,7 +37104,8 @@ public:
     GCRootUpdateNode(std::string ptr);
     GCRootUpdateNode(void *ptr);
 
-
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35396,8 +37156,8 @@ public:
     void SetBoneHash(uint32_t value);
     float GetWeight() const;
     void SetWeight(float value);
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35434,8 +37194,8 @@ public:
     GPermModelDataAnimatedMaterialAttribute_t(std::string ptr);
     GPermModelDataAnimatedMaterialAttribute_t(void *ptr);
 
-    CUtlString GetAttributeName() const;
-    void SetAttributeName(CUtlString value);
+    std::string GetAttributeName() const;
+    void SetAttributeName(std::string value);
     int32_t GetNumChannels() const;
     void SetNumChannels(int32_t value);
 
@@ -35452,8 +37212,8 @@ public:
     GScriptInfo_t(std::string ptr);
     GScriptInfo_t(void *ptr);
 
-    CUtlString GetCode() const;
-    void SetCode(CUtlString value);
+    std::string GetCode() const;
+    void SetCode(std::string value);
     std::vector<GCAnimParamHandle> GetParamsModified() const;
     void SetParamsModified(std::vector<GCAnimParamHandle> value);
     std::vector<int32> GetProxyReadParams() const;
@@ -35496,6 +37256,8 @@ public:
 
     GJiggleBoneSettingsList_t GetOpFixedData() const;
     void SetOpFixedData(GJiggleBoneSettingsList_t value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35572,12 +37334,12 @@ public:
 
     SosEditItemType_t GetItemType() const;
     void SetItemType(SosEditItemType_t value);
-    CUtlString GetItemName() const;
-    void SetItemName(CUtlString value);
-    CUtlString GetItemTypeName() const;
-    void SetItemTypeName(CUtlString value);
-    CUtlString GetItemKVString() const;
-    void SetItemKVString(CUtlString value);
+    std::string GetItemName() const;
+    void SetItemName(std::string value);
+    std::string GetItemTypeName() const;
+    void SetItemTypeName(std::string value);
+    std::string GetItemKVString() const;
+    void SetItemKVString(std::string value);
     Vector2D GetItemPos() const;
     void SetItemPos(Vector2D value);
 
@@ -35614,7 +37376,8 @@ public:
     GCInputStreamUpdateNode(std::string ptr);
     GCInputStreamUpdateNode(void *ptr);
 
-
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35669,6 +37432,8 @@ public:
     void SetTagIndex(int32_t value);
     bool GetIsZeroDuration() const;
     void SetIsZeroDuration(bool value);
+    GCAnimActionUpdater GetParent() const;
+    void SetParent(GCAnimActionUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35693,6 +37458,8 @@ public:
     void SetUseModelSpace(bool value);
     bool GetApplyScale() const;
     void SetApplyScale(bool value);
+    GCBinaryUpdateNode GetParent() const;
+    void SetParent(GCBinaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35744,6 +37511,8 @@ public:
     void SetParamType(AnimParamType_t value);
     GAnimScriptHandle GetScript() const;
     void SetScript(GAnimScriptHandle value);
+    GCAnimActionUpdater GetParent() const;
+    void SetParent(GCAnimActionUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35758,7 +37527,8 @@ public:
     GEventClientPostAdvanceTick_t(std::string ptr);
     GEventClientPostAdvanceTick_t(void *ptr);
 
-
+    GEventPostAdvanceTick_t GetParent() const;
+    void SetParent(GEventPostAdvanceTick_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35773,8 +37543,8 @@ public:
     GBoneDemoCaptureSettings_t(std::string ptr);
     GBoneDemoCaptureSettings_t(void *ptr);
 
-    CUtlString GetBoneName() const;
-    void SetBoneName(CUtlString value);
+    std::string GetBoneName() const;
+    void SetBoneName(std::string value);
     float GetErrorSplineRotationMax() const;
     void SetErrorSplineRotationMax(float value);
     float GetErrorSplineTranslationMax() const;
@@ -35873,8 +37643,8 @@ public:
     GParticleControlPointConfiguration_t(std::string ptr);
     GParticleControlPointConfiguration_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     std::vector<GParticleControlPointDriver_t> GetDrivers() const;
     void SetDrivers(std::vector<GParticleControlPointDriver_t> value);
     GParticlePreviewState_t GetPreviewState() const;
@@ -35957,6 +37727,8 @@ public:
     void SetNetworkFacing(bool value);
     std::vector<GCAnimParamHandle> GetParamHandles() const;
     void SetParamHandles(std::vector<GCAnimParamHandle> value);
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36023,6 +37795,8 @@ public:
     void SetMinDelayBetweenHits(float value);
     bool GetResetChild() const;
     void SetResetChild(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36054,6 +37828,8 @@ public:
 
     int16_t GetChildNodeIdx() const;
     void SetChildNodeIdx(int16_t value);
+    GCNmFloatValueNode GetParent() const;
+    void SetParent(GCNmFloatValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36106,8 +37882,8 @@ public:
     void SetInfiniteBounds(bool value);
     bool GetEnableNamedValues() const;
     void SetEnableNamedValues(bool value);
-    CUtlString GetNamedValueDomain() const;
-    void SetNamedValueDomain(CUtlString value);
+    std::string GetNamedValueDomain() const;
+    void SetNamedValueDomain(std::string value);
     std::vector<GParticleNamedValueSource_t*> GetNamedValueLocals() const;
     void SetNamedValueLocals(std::vector<GParticleNamedValueSource_t*> value);
     Color GetConstantColor() const;
@@ -36178,8 +37954,8 @@ public:
     void SetViewModelEffect(InheritableBoolType_t value);
     bool GetScreenSpaceEffect() const;
     void SetScreenSpaceEffect(bool value);
-    CUtlSymbolLarge GetTargetLayerID() const;
-    void SetTargetLayerID(CUtlSymbolLarge value);
+    std::string GetTargetLayerID() const;
+    void SetTargetLayerID(std::string value);
     int32_t GetSkipRenderControlPoint() const;
     void SetSkipRenderControlPoint(int32_t value);
     int32_t GetAllowRenderControlPoint() const;
@@ -36206,6 +37982,8 @@ public:
     void SetMode(PlayBackMode_t value);
     bool GetRetrigger() const;
     void SetRetrigger(bool value);
+    GCVoiceContainerBase GetParent() const;
+    void SetParent(GCVoiceContainerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36240,6 +38018,8 @@ public:
 
     GCAnimParamHandle GetParam() const;
     void SetParam(GCAnimParamHandle value);
+    GCAnimActionUpdater GetParent() const;
+    void SetParent(GCAnimActionUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36272,7 +38052,8 @@ public:
     GEventClientSimulate_t(std::string ptr);
     GEventClientSimulate_t(void *ptr);
 
-
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36289,6 +38070,8 @@ public:
 
     float GetGainAmount() const;
     void SetGainAmount(float value);
+    GCVoiceContainerDecayingSineWave GetParent() const;
+    void SetParent(GCVoiceContainerDecayingSineWave value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36325,6 +38108,8 @@ public:
 
     float GetTimeDuration() const;
     void SetTimeDuration(float value);
+    GPointDefinition_t GetParent() const;
+    void SetParent(GPointDefinition_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36339,8 +38124,8 @@ public:
     GFeVertexMapBuild_t(std::string ptr);
     GFeVertexMapBuild_t(void *ptr);
 
-    CUtlString GetVertexMapName() const;
-    void SetVertexMapName(CUtlString value);
+    std::string GetVertexMapName() const;
+    void SetVertexMapName(std::string value);
     uint32_t GetNameHash() const;
     void SetNameHash(uint32_t value);
     Color GetColor() const;
@@ -36413,6 +38198,8 @@ public:
     void SetParentBindRotation(Quaternion value);
     Quaternion GetChildBindRotation() const;
     void SetChildBindRotation(Quaternion value);
+    GCBaseConstraint GetParent() const;
+    void SetParent(GCBaseConstraint value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36465,6 +38252,8 @@ public:
     void SetAggregationCenter(Vector value);
     int32_t GetRefCount() const;
     void SetRefCount(int32_t value);
+    GIParticleEffect GetParent() const;
+    void SetParent(GIParticleEffect value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36507,6 +38296,8 @@ public:
     void SetMaxValue(float value);
     bool GetInterpolate() const;
     void SetInterpolate(bool value);
+    GCConcreteAnimParameter GetParent() const;
+    void SetParent(GCConcreteAnimParameter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36551,10 +38342,12 @@ public:
     GCVirtualAnimParameter(std::string ptr);
     GCVirtualAnimParameter(void *ptr);
 
-    CUtlString GetExpressionString() const;
-    void SetExpressionString(CUtlString value);
+    std::string GetExpressionString() const;
+    void SetExpressionString(std::string value);
     AnimParamType_t GetParamType() const;
     void SetParamType(AnimParamType_t value);
+    GCAnimParameterBase GetParent() const;
+    void SetParent(GCAnimParameterBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36585,8 +38378,10 @@ public:
     GMaterialParamString_t(std::string ptr);
     GMaterialParamString_t(void *ptr);
 
-    CUtlString GetValue() const;
-    void SetValue(CUtlString value);
+    std::string GetValue() const;
+    void SetValue(std::string value);
+    GMaterialParam_t GetParent() const;
+    void SetParent(GMaterialParam_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36675,7 +38470,8 @@ public:
     GCBindPoseUpdateNode(std::string ptr);
     GCBindPoseUpdateNode(void *ptr);
 
-
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36712,7 +38508,8 @@ public:
     GCCurrentVelocityMetricEvaluator(std::string ptr);
     GCCurrentVelocityMetricEvaluator(void *ptr);
 
-
+    GCMotionMetricEvaluator GetParent() const;
+    void SetParent(GCMotionMetricEvaluator value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36829,7 +38626,8 @@ public:
     GCSSDSMsg_PostLayer(std::string ptr);
     GCSSDSMsg_PostLayer(void *ptr);
 
-
+    GCSSDSMsg_LayerBase GetParent() const;
+    void SetParent(GCSSDSMsg_LayerBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36890,7 +38688,8 @@ public:
     GCEditableMotionGraph(std::string ptr);
     GCEditableMotionGraph(void *ptr);
 
-
+    GCMotionGraph GetParent() const;
+    void SetParent(GCMotionGraph value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36971,6 +38770,8 @@ public:
     void SetDefaultValue(Vector value);
     bool GetInterpolate() const;
     void SetInterpolate(bool value);
+    GCConcreteAnimParameter GetParent() const;
+    void SetParent(GCConcreteAnimParameter value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36985,7 +38786,8 @@ public:
     GCNmControlParameterBoolNode(std::string ptr);
     GCNmControlParameterBoolNode(void *ptr);
 
-
+    GCNmBoolValueNode GetParent() const;
+    void SetParent(GCNmBoolValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37010,6 +38812,8 @@ public:
     void SetBlockWaningTags(bool value);
     bool GetLockStateWhenWaning() const;
     void SetLockStateWhenWaning(bool value);
+    GCAnimUpdateNodeBase GetParent() const;
+    void SetParent(GCAnimUpdateNodeBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37024,14 +38828,14 @@ public:
     GCHitBoxSet(std::string ptr);
     GCHitBoxSet(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     uint32_t GetNameHash() const;
     void SetNameHash(uint32_t value);
     std::vector<GCHitBox> GetHitBoxes() const;
     void SetHitBoxes(std::vector<GCHitBox> value);
-    CUtlString GetSourceFilename() const;
-    void SetSourceFilename(CUtlString value);
+    std::string GetSourceFilename() const;
+    void SetSourceFilename(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37048,6 +38852,8 @@ public:
 
     int32_t GetDerivedB() const;
     void SetDerivedB(int32_t value);
+    GCExampleSchemaVData_PolymorphicBase GetParent() const;
+    void SetParent(GCExampleSchemaVData_PolymorphicBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37126,6 +38932,8 @@ public:
     void SetLayerBoneMaskNodeIdx(int16_t value);
     bool GetIsOffState() const;
     void SetIsOffState(bool value);
+    GCNmPoseNode GetParent() const;
+    void SetParent(GCNmPoseNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37152,8 +38960,8 @@ public:
     void SetMinimumDistance(float value);
     std::vector<int32> GetChildNodeIndices() const;
     void SetChildNodeIndices(std::vector<int32> value);
-    CUtlString GetWorldNodePrefix() const;
-    void SetWorldNodePrefix(CUtlString value);
+    std::string GetWorldNodePrefix() const;
+    void SetWorldNodePrefix(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37168,7 +38976,8 @@ public:
     GCTaskStatusAnimTag(std::string ptr);
     GCTaskStatusAnimTag(void *ptr);
 
-
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37219,7 +39028,8 @@ public:
     GEventServerProcessNetworking_t(std::string ptr);
     GEventServerProcessNetworking_t(void *ptr);
 
-
+    GEventSimulate_t GetParent() const;
+    void SetParent(GEventSimulate_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37258,7 +39068,8 @@ public:
     GCMotionGraphUpdateNode(std::string ptr);
     GCMotionGraphUpdateNode(void *ptr);
 
-
+    GCLeafUpdateNode GetParent() const;
+    void SetParent(GCLeafUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37285,6 +39096,8 @@ public:
     void SetResetChild(bool value);
     bool GetLockWhenWaning() const;
     void SetLockWhenWaning(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37299,10 +39112,10 @@ public:
     GCFlexController(std::string ptr);
     GCFlexController(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
-    CUtlString GetType() const;
-    void SetType(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
+    std::string GetType() const;
+    void SetType(std::string value);
     float GetMin() const;
     void SetMin(float value);
     float GetMax() const;
@@ -37323,6 +39136,8 @@ public:
 
     int32_t GetDerivedA() const;
     void SetDerivedA(int32_t value);
+    GCExampleSchemaVData_PolymorphicBase GetParent() const;
+    void SetParent(GCExampleSchemaVData_PolymorphicBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37401,6 +39216,8 @@ public:
     void SetApplyChannelsSeparately(bool value);
     bool GetUseModelSpace() const;
     void SetUseModelSpace(bool value);
+    GCBinaryUpdateNode GetParent() const;
+    void SetParent(GCBinaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37504,6 +39321,8 @@ public:
 
     int16_t GetChildNodeIdx() const;
     void SetChildNodeIdx(int16_t value);
+    GCNmTargetValueNode GetParent() const;
+    void SetParent(GCNmTargetValueNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37518,10 +39337,10 @@ public:
     GCAudioAnimTag(std::string ptr);
     GCAudioAnimTag(void *ptr);
 
-    CUtlString GetClipName() const;
-    void SetClipName(CUtlString value);
-    CUtlString GetAttachmentName() const;
-    void SetAttachmentName(CUtlString value);
+    std::string GetClipName() const;
+    void SetClipName(std::string value);
+    std::string GetAttachmentName() const;
+    void SetAttachmentName(std::string value);
     float GetVolume() const;
     void SetVolume(float value);
     bool GetStopWhenTagEnds() const;
@@ -37532,6 +39351,8 @@ public:
     void SetPlayOnServer(bool value);
     bool GetPlayOnClient() const;
     void SetPlayOnClient(bool value);
+    GCAnimTagBase GetParent() const;
+    void SetParent(GCAnimTagBase value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37632,6 +39453,8 @@ public:
     void SetManualTurnOffset(float value);
     bool GetUseManualTurnOffset() const;
     void SetUseManualTurnOffset(bool value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37648,6 +39471,8 @@ public:
 
     float GetMaxDuration() const;
     void SetMaxDuration(float value);
+    GCSosGroupActionSchema GetParent() const;
+    void SetParent(GCSosGroupActionSchema value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37668,6 +39493,8 @@ public:
     void SetParameterPosition(GCAnimParamHandle value);
     GCAnimParamHandle GetParameterOrientation() const;
     void SetParameterOrientation(GCAnimParamHandle value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37741,8 +39568,8 @@ public:
     GCFlexDesc(std::string ptr);
     GCFlexDesc(void *ptr);
 
-    CUtlString GetFacs() const;
-    void SetFacs(CUtlString value);
+    std::string GetFacs() const;
+    void SetFacs(std::string value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37759,6 +39586,8 @@ public:
 
     GCAnimStateMachineUpdater GetStateMachine() const;
     void SetStateMachine(GCAnimStateMachineUpdater value);
+    GCAnimComponentUpdater GetParent() const;
+    void SetParent(GCAnimComponentUpdater value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37775,12 +39604,12 @@ public:
 
     CompMatPropertyMutatorConditionType_t GetMutatorCondition() const;
     void SetMutatorCondition(CompMatPropertyMutatorConditionType_t value);
-    CUtlString GetStrMutatorConditionContainerName() const;
-    void SetStrMutatorConditionContainerName(CUtlString value);
-    CUtlString GetStrMutatorConditionContainerVarName() const;
-    void SetStrMutatorConditionContainerVarName(CUtlString value);
-    CUtlString GetStrMutatorConditionContainerVarValue() const;
-    void SetStrMutatorConditionContainerVarValue(CUtlString value);
+    std::string GetStrMutatorConditionContainerName() const;
+    void SetStrMutatorConditionContainerName(std::string value);
+    std::string GetStrMutatorConditionContainerVarName() const;
+    void SetStrMutatorConditionContainerVarName(std::string value);
+    std::string GetStrMutatorConditionContainerVarValue() const;
+    void SetStrMutatorConditionContainerVarValue(std::string value);
     bool GetPassWhenTrue() const;
     void SetPassWhenTrue(bool value);
 
@@ -37832,6 +39661,8 @@ public:
 
     GTwoBoneIKSettings_t GetOpFixedData() const;
     void SetOpFixedData(GTwoBoneIKSettings_t value);
+    GCUnaryUpdateNode GetParent() const;
+    void SetParent(GCUnaryUpdateNode value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37884,8 +39715,8 @@ public:
     GFeVertexMapDesc_t(std::string ptr);
     GFeVertexMapDesc_t(void *ptr);
 
-    CUtlString GetName() const;
-    void SetName(CUtlString value);
+    std::string GetName() const;
+    void SetName(std::string value);
     uint32_t GetNameHash() const;
     void SetNameHash(uint32_t value);
     uint32_t GetColor() const;
@@ -38020,8 +39851,8 @@ public:
     GCBodyGroupSetting(std::string ptr);
     GCBodyGroupSetting(void *ptr);
 
-    CUtlString GetBodyGroupName() const;
-    void SetBodyGroupName(CUtlString value);
+    std::string GetBodyGroupName() const;
+    void SetBodyGroupName(std::string value);
     int32_t GetBodyGroupOption() const;
     void SetBodyGroupOption(int32_t value);
 
@@ -38038,7 +39869,8 @@ public:
     GRnSphereDesc_t(std::string ptr);
     GRnSphereDesc_t(void *ptr);
 
-
+    GRnShapeDesc_t GetParent() const;
+    void SetParent(GRnShapeDesc_t value);
 
     std::string ToPtr();
     bool IsValid();

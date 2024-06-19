@@ -9,10 +9,12 @@
 #include "../common.h"
 #include "../entrypoint.h"
 #include "../utils/progressbar.h"
+#include <networksystem/inetworkserializer.h>
+#include <networksystem/inetworkmessages.h>
 
 #include <vector>
 
-void Hook_SendNetMessage(INetChannel *pNetChan, INetworkSerializable *pNetMessage, void *pData, int a4);
+void Hook_SendNetMessage(INetChannel *pNetChan, INetworkMessageInternal *pNetMessage, CNetMessage *pData, int a4);
 void *Hook_HostStateRequest(void *a1, void **pRequest);
 
 struct DownloadInfo

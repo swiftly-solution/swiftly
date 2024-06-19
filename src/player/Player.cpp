@@ -488,12 +488,25 @@ void Player::SetClientConvar(std::string cmd, std::string val)
     if (!cv)
         return;
 
-    INetworkSerializable *netmsg = g_pNetworkMessages->FindNetworkMessagePartial("SetConVar");
-    CNETMsg_SetConVar *msg = new CNETMsg_SetConVar;
+    INetworkMessageInternal *netmsg = g_pNetworkMessages->FindNetworkMessagePartial("SetConVar");
+    auto msg = netmsg->AllocateMessage()->ToPB<CNETMsg_SetConVar>();
     CMsg_CVars_CVar *cvar = msg->mutable_convars()->add_cvars();
     cvar->set_name(cv->m_pszName);
     cvar->set_value(val.c_str());
 
     CSingleRecipientFilter filter(this->GetSlot().Get());
     g_pGameEventSystem->PostEventAbstract(0, false, &filter, netmsg, msg, 0);
+}
+
+std::any Player::GetInternalVar(std::string name)
+{
+    if (this->internalVars.find(name) == this->internalVars.end())
+        return nullptr;
+
+    return this->internalVars.at(name);
+}
+
+void Player::SetInternalVar(std::string name, std::any value)
+{
+    this->internalVars[name] = value;
 }
