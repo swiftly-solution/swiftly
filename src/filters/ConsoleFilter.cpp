@@ -2,6 +2,7 @@
 #include "../common.h"
 #include "../configuration/Configuration.h"
 
+#include "../resourcemonitor/ResourceMonitor.h"
 #include "../files/Files.h"
 #include "../hooks/FuncHook.h"
 
@@ -65,7 +66,7 @@ void ConFilterError(std::string text)
     if (!g_SMAPI)
         return;
 
-    PRINTF("Console Filter", "%s\n", text.c_str());
+    PLUGIN_PRINTF("Console Filter", "%s\n", text.c_str());
 }
 
 void ConsoleFilter::Toggle()
@@ -106,6 +107,7 @@ bool ConsoleFilter::NeedFiltering(std::string message)
     if (!this->Status())
         return false;
 
+    PERF_RECORD("Console Filter", "core")
     for (std::map<std::string, std::string>::iterator it = this->filter.begin(); it != this->filter.end(); ++it)
     {
         std::string key = it->first;

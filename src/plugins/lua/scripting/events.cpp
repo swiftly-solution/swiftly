@@ -5,7 +5,7 @@ int AddGlobalEvents(luabridge::LuaRef eventFunction, lua_State *L)
     if (!eventFunction.isFunction())
         return 0;
 
-    Plugin *plugin = FetchPlugin(L);
+    Plugin *plugin = FetchPluginByState(L);
     if (!plugin)
         return 0;
 
@@ -15,7 +15,7 @@ int AddGlobalEvents(luabridge::LuaRef eventFunction, lua_State *L)
 
 int RegisterEventHandlerPlugin(std::string eventName, lua_State *L)
 {
-    Plugin *plugin = FetchPlugin(L);
+    Plugin *plugin = FetchPluginByState(L);
     if (!plugin)
         return 0;
 
@@ -27,10 +27,10 @@ luabridge::LuaRef TriggerEventInternal(std::string eventName, std::string eventP
 {
     luabridge::LuaRef returnValue = luabridge::LuaRef::newTable(L);
 
-    PluginEvent *event = new PluginEvent(FetchPluginName(L), nullptr, nullptr);
+    PluginEvent event(FetchPluginName(L), nullptr, nullptr);
 
-    returnValue.append((int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, eventPayload, event));
-    returnValue.append(*event);
+    returnValue.append((int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, eventPayload, &event));
+    returnValue.append(event);
 
     return returnValue;
 }

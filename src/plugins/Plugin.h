@@ -40,6 +40,11 @@ public:
     virtual void RegisterEventHandler(void *functionPtr) = 0;
     virtual void RegisterEventHandling(std::string eventName) = 0;
 
+    virtual std::string GetAuthor() = 0;
+    virtual std::string GetWebsite() = 0;
+    virtual std::string GetVersion() = 0;
+    virtual std::string GetPlName() = 0;
+
     virtual EventResult TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event) = 0;
 };
 

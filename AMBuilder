@@ -71,6 +71,7 @@ for sdk_target in MMSPlugin.sdk_targets:
       		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'linuxsteamrt64', 'lib', 'libmysqlclient.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'dynohook', 'linuxsteamrt64', 'lib', 'libdynohook.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'zydis', 'linuxsteamrt64', 'libZydis.a'),
+      		os.path.join(builder.sourcePath, 'vendor', 'dyncall', 'linuxsteamrt64', 'lib', 'libdyncall_s.a'),
 
 			"-lz",
             "-lpthread",
@@ -119,6 +120,7 @@ for sdk_target in MMSPlugin.sdk_targets:
       		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'win64', 'lib', 'mysqlclient.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'dynohook', 'win64', 'lib', 'dynohook.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'zydis', 'win64', 'Zydis.lib'),
+      		os.path.join(builder.sourcePath, 'vendor', 'dyncall', 'win64', 'lib', 'dyncall_s.lib'),
 
 			"psapi.lib",
             "winmm.lib",
@@ -184,6 +186,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 		os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'asmjit', 'src'),
 		os.path.join(builder.sourcePath, 'vendor', 'dynohook', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
+		os.path.join(builder.sourcePath, 'vendor', 'dyncall', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
 
 		os.path.join(sdk['path']),
 		os.path.join(sdk['path'], 'public'),

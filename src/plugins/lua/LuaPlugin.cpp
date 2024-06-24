@@ -119,6 +119,7 @@ void LuaPlugin::DestroyScriptingEnvironment()
     if (this->globalEventHandler)
         delete this->globalEventHandler;
 
+    this->eventHandlers.clear();
     lua_close(this->state);
     this->state = nullptr;
 }
@@ -187,6 +188,8 @@ void LuaPlugin::ExecuteStop()
 
 void LuaPlugin::ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent)
 {
+    PERF_RECORD(string_format("command:%s", name.c_str()), this->GetName())
+
     if (functionPtr == nullptr)
         return;
 
@@ -196,7 +199,15 @@ void LuaPlugin::ExecuteCommand(void *functionPtr, std::string name, int slot, st
         return;
 
     luabridge::LuaRef command = *commandRef;
-    command(slot, args, args.size(), silent);
+    try
+    {
+        command(slot, args, args.size(), silent);
+    }
+    catch (luabridge::LuaException &e)
+    {
+        PRINTF("An error has occured while executing command '%s'.\n", name.c_str());
+        PRINTF("%s\n", e.what());
+    }
 }
 
 void LuaPlugin::RegisterEventHandler(void *functionPtr)
@@ -216,11 +227,16 @@ void LuaPlugin::RegisterEventHandling(std::string eventName)
 
 EventResult LuaPlugin::TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event)
 {
+    if (this->GetPluginState() == PluginState_t::Stopped)
+        return EventResult::Continue;
+
     if (!this->globalEventHandler)
         return EventResult::Continue;
 
     if (this->eventHandlers.find(eventName) == this->eventHandlers.end())
         return EventResult::Continue;
+
+    PERF_RECORD(string_format("event:%s:%s", invokedBy.c_str(), eventName.c_str()), this->GetName())
 
     int res = (int)EventResult::Continue;
     try
@@ -295,4 +311,40 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State *state)
         PRINTF("Invalid casting: %s\n", err.what());
         return luabridge::LuaRef(state);
     }
+}
+
+std::string LuaPlugin::GetAuthor()
+{
+    if (this->GetPluginState() == PluginState_t::Stopped)
+        return "";
+
+    auto func = luabridge::getGlobal(this->GetState(), "GetPluginAuthor");
+    return func().cast<std::string>();
+}
+
+std::string LuaPlugin::GetWebsite()
+{
+    if (this->GetPluginState() == PluginState_t::Stopped)
+        return "";
+
+    auto func = luabridge::getGlobal(this->GetState(), "GetPluginWebsite");
+    return func().cast<std::string>();
+}
+
+std::string LuaPlugin::GetVersion()
+{
+    if (this->GetPluginState() == PluginState_t::Stopped)
+        return "";
+
+    auto func = luabridge::getGlobal(this->GetState(), "GetPluginVersion");
+    return func().cast<std::string>();
+}
+
+std::string LuaPlugin::GetPlName()
+{
+    if (this->GetPluginState() == PluginState_t::Stopped)
+        return "";
+
+    auto func = luabridge::getGlobal(this->GetState(), "GetPluginName");
+    return func().cast<std::string>();
 }

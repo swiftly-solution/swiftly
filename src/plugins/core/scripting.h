@@ -2,6 +2,7 @@
 #define _core_scripting_h
 
 #include "scripting_includes.h"
+#include "../../resourcemonitor/ResourceMonitor.h"
 
 #include <dynohook/core.h>
 #include <dynohook/manager.h>
@@ -330,6 +331,7 @@ public:
     int GetSlot();
     uint64_t GetSteamID();
     std::string GetSteamID2();
+    void SwitchTeam(int team);
     void HideMenu();
     bool IsFakeClient();
     bool IsFirstSpawn();
@@ -435,6 +437,8 @@ public:
     PluginHooks(std::string plugin_name);
 
     std::string AddHook(PluginMemory mem, std::string args_list, std::string ret_type);
+
+    luabridge::LuaRef CallHookLua(std::string hookId, std::string hookPayload, lua_State *L);
 };
 
 //////////////////////////////////////////////////////////////
@@ -442,6 +446,7 @@ public:
 ////////////////////////////////////////////////////////////
 
 std::vector<GCEntityInstance *> UTIL_FindEntitiesByClassname(const char *name);
+GCEntityInstance *CreateEntityByName(const char *name);
 
 //////////////////////////////////////////////////////////////
 /////////////////             Utils            //////////////

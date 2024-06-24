@@ -3,6 +3,7 @@
 #include "CBaseEntity.h"
 #include "globaltypes.h"
 #include "../../signatures/Signatures.h"
+#include "../../precacher/precacher.h"
 
 class CBaseModelEntity;
 
@@ -19,6 +20,14 @@ public:
 
     void SetModel(const char *model)
     {
+        bool hasModel = (g_precacher->HasModelInList(model));
+        if (!hasModel)
+        {
+            g_precacher->AddModel(model);
+            PLUGIN_PRINTF("Precacher", "Model '%s' was not precached before and it was added to the list.\n", model);
+            PLUGIN_PRINTF("Precacher", "It may work on the second map change if the model is valid.\n");
+        }
+
         g_Signatures->FetchSignature<CBaseModelEntity_SetModel>("CBaseModelEntity_SetModel")(this, model);
     }
 };

@@ -26,6 +26,7 @@
 #include <entity2/entityidentity.h>
 #include <networksystem/inetworkserializer.h>
 #include <networksystem/inetworkmessages.h>
+#include <networksystem/inetworksystem.h>
 #include <engine/igameeventsystem.h>
 #include <steam/steam_api_common.h>
 #include <steam/isteamugc.h>
@@ -102,6 +103,7 @@ extern CGameEntitySystem *g_pGameEntitySystem;
 extern IGameEventManager2 *g_gameEventManager;
 extern IGameEventSystem *g_pGameEventSystem;
 extern CSteamGameServerAPIContext g_SteamAPI;
+extern INetworkSystem *g_pNetworkSystem;
 
 PLUGIN_GLOBALVARS();
 

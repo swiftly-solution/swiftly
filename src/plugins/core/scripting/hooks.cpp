@@ -4,10 +4,14 @@
 #include <dynohook/manager.h>
 #include <dynohook/conventions/x64_systemV_call.h>
 
+#include <dyncall/dyncall.h>
+
 #include <msgpack.hpp>
 #include <sstream>
 
 std::map<dyno::IHook *, std::vector<Hook>> hooksList;
+std::map<std::string, dyno::IHook *> hooksMap;
+DCCallVM *g_pCallVM = dcNewCallVM(4096);
 
 PluginHooks::PluginHooks(std::string plugin_name)
 {
@@ -23,28 +27,28 @@ std::vector<DataType_t> ParseArgsList(std::string args_list)
 
     for (size_t i = 0; i < args_list.size(); i++)
     {
-        if (args_list.at(0) == 'p')
+        if (args_list.at(i) == 'p')
             argsList.push_back(DataType_t::POINTER);
-        else if (args_list.at(0) == 'f')
+        else if (args_list.at(i) == 'f')
             argsList.push_back(DataType_t::FLOAT);
-        else if (args_list.at(0) == 'b')
+        else if (args_list.at(i) == 'b')
             argsList.push_back(DataType_t::BOOL);
-        else if (args_list.at(0) == 'd')
+        else if (args_list.at(i) == 'd')
             argsList.push_back(DataType_t::DOUBLE);
-        else if (args_list.at(0) == 'i')
+        else if (args_list.at(i) == 'i')
             argsList.push_back(DataType_t::INT);
-        else if (args_list.at(0) == 'u')
+        else if (args_list.at(i) == 'u')
             argsList.push_back(DataType_t::UINT);
-        else if (args_list.at(0) == 's')
+        else if (args_list.at(i) == 's')
             argsList.push_back(DataType_t::STRING);
-        else if (args_list.at(0) == 'I')
+        else if (args_list.at(i) == 'I')
             argsList.push_back(DataType_t::LONG_LONG);
-        else if (args_list.at(0) == 'U')
+        else if (args_list.at(i) == 'U')
             argsList.push_back(DataType_t::ULONG_LONG);
-        else if (args_list.at(0) == 'v')
+        else if (args_list.at(i) == 'v')
             argsList.push_back(DataType_t::VOID);
         else
-            PRINTF("Invalid argument in list: '%c'.\n", args_list.at(0));
+            PRINTF("Invalid argument in list: '%c'.\n", args_list.at(i));
     }
 
     return argsList;
@@ -122,7 +126,110 @@ std::string PluginHooks::AddHook(PluginMemory mem, std::string args_list, std::s
 
     hooksList[hook].push_back(hk);
 
+    if (hooksMap.find(id) == hooksMap.end())
+        hooksMap.insert({id, hook});
+    else
+        hooksMap[id] = hook;
+
     hook->addCallback(dyno::CallbackType::Pre, DynHookHandler);
     hook->addCallback(dyno::CallbackType::Post, DynHookHandler);
     return id;
+}
+
+template <class ReturnType, class Function>
+ReturnType CallHelper(Function func, DCCallVM *vm, void *addr)
+{
+    return (ReturnType)func(vm, (void *)addr);
+}
+
+void CallHelperVoid(DCCallVM *vm, void *addr) { dcCallVoid(vm, (void *)addr); }
+
+luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookPayload, lua_State *L)
+{
+    if (hooksMap.find(hookId) == hooksMap.end())
+        return LuaSerializeData(nullptr, L);
+
+    auto hook = hooksMap.at(hookId);
+    if (hooksList.find(hook) == hooksList.end())
+        return LuaSerializeData(nullptr, L);
+    if (hooksList.at(hook).size() <= 0)
+        return LuaSerializeData(nullptr, L);
+
+    auto hk = hooksList.at(hook)[0];
+
+    // Unpacking arguments
+    std::vector<msgpack::object> args;
+
+    msgpack::object_handle handle = msgpack::unpack(hookPayload.data(), hookPayload.size());
+    msgpack::object main_obj = handle.get();
+
+    if (main_obj.type == msgpack::type::ARRAY)
+    {
+        for (size_t i = 0; i < main_obj.via.array.size; i++)
+            args.push_back(main_obj.via.array.ptr[i]);
+    }
+
+    dcReset(g_pCallVM);
+    dcMode(g_pCallVM, DC_CALL_C_DEFAULT);
+
+    for (size_t i = 0; i < args.size(); i++)
+    {
+        if (hk.argsList.size() >= i)
+            break;
+
+        if (hk.argsList.at(i) == 'p')
+            dcArgPointer(g_pCallVM, (void *)(strtol(args[i].as<std::string>().c_str(), nullptr, 16)));
+        else if (hk.argsList.at(i) == 'f')
+            dcArgFloat(g_pCallVM, args[i].as<float>());
+        else if (hk.argsList.at(i) == 'b')
+            dcArgBool(g_pCallVM, args[i].as<bool>());
+        else if (hk.argsList.at(i) == 'd')
+            dcArgDouble(g_pCallVM, args[i].as<double>());
+        else if (hk.argsList.at(i) == 'i')
+            dcArgInt(g_pCallVM, args[i].as<int>());
+        else if (hk.argsList.at(i) == 'u')
+            dcArgLong(g_pCallVM, args[i].as<uint32_t>());
+        else if (hk.argsList.at(i) == 's')
+            dcArgPointer(g_pCallVM, (void *)args[i].as<std::string>().c_str());
+        else if (hk.argsList.at(i) == 'I')
+            dcArgLongLong(g_pCallVM, args[i].as<int64_t>());
+        else if (hk.argsList.at(i) == 'U')
+            dcArgLongLong(g_pCallVM, args[i].as<uint64_t>());
+        else
+        {
+            PRINTF("Invalid Data Type: '%c'.\n", hk.argsList.at(i));
+            break;
+        }
+    }
+
+    std::any retval = nullptr;
+    if (hk.retType.at(0) == 'p')
+        retval = string_format("%p", CallHelper<void *>(dcCallPointer, g_pCallVM, hk.ptr));
+    else if (hk.retType.at(0) == 'f')
+        retval = CallHelper<float>(dcCallFloat, g_pCallVM, hk.ptr);
+    else if (hk.retType.at(0) == 'b')
+        retval = CallHelper<bool>(dcCallBool, g_pCallVM, hk.ptr);
+    else if (hk.retType.at(0) == 'd')
+        retval = CallHelper<double>(dcCallDouble, g_pCallVM, hk.ptr);
+    else if (hk.retType.at(0) == 'i')
+        retval = CallHelper<int>(dcCallInt, g_pCallVM, hk.ptr);
+    else if (hk.retType.at(0) == 'u')
+        retval = CallHelper<uint32_t>(dcCallInt, g_pCallVM, hk.ptr);
+    else if (hk.retType.at(0) == 's')
+        retval = std::string(CallHelper<const char *>(dcCallPointer, g_pCallVM, hk.ptr));
+    else if (hk.retType.at(0) == 'I')
+        retval = CallHelper<int64_t>(dcCallLongLong, g_pCallVM, hk.ptr);
+    else if (hk.retType.at(0) == 'U')
+        retval = CallHelper<uint64_t>(dcCallLongLong, g_pCallVM, hk.ptr);
+    else if (hk.retType.at(0) == 'v')
+    {
+        CallHelperVoid(g_pCallVM, hk.ptr);
+        retval = nullptr;
+    }
+    else
+    {
+        PRINTF("Invalid return type: '%c'.\n", hk.retType.at(0));
+        retval = nullptr;
+    }
+    return LuaSerializeData(retval, L);
 }

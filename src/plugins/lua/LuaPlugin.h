@@ -44,6 +44,11 @@ public:
     void RegisterEventHandling(std::string eventName);
     EventResult TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event);
 
+    std::string GetAuthor();
+    std::string GetWebsite();
+    std::string GetVersion();
+    std::string GetPlName();
+
     lua_State *GetState() { return this->state; }
 };
 

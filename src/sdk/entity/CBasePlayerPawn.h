@@ -29,7 +29,7 @@ public:
 
     void CommitSuicide(bool explode, bool forced)
     {
-        static int offset = g_Offsets->GetOffset("CommitSuicide");
+        static int offset = g_Offsets->GetOffset("CBasePlayerPawn_CommitSuicide");
         CALL_VIRTUAL(void, offset, this, explode, forced);
     }
 };

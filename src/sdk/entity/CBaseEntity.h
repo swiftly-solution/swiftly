@@ -143,7 +143,7 @@ public:
 
     void Teleport(Vector *position, QAngle *angles, Vector *velocity)
     {
-        static int offset = g_Offsets->GetOffset("Teleport");
+        static int offset = g_Offsets->GetOffset("CBaseEntity_Teleport");
         CALL_VIRTUAL(void, offset, this, position, angles, velocity);
     }
 
@@ -162,9 +162,10 @@ public:
         g_Signatures->FetchSignature<UTIL_Remove>("UTIL_Remove")(this);
     }
 
-    void AcceptInput(const char *pInputName, CEntityInstance *pActivator = nullptr, CEntityInstance *pCaller = nullptr, double *value = nullptr)
+    void AcceptInput(const char *pInputName, CEntityInstance *pActivator = nullptr, CEntityInstance *pCaller = nullptr, const char *value = nullptr, int outputID = 0)
     {
-        g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this, pInputName, pActivator, pCaller, value, 0);
+        variant_t variantValue = variant_t(value);
+        g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this, pInputName, pActivator, pCaller, &variantValue, outputID);
     }
 
     CEntitySubclassVDataBase *GetVData() { return *(CEntitySubclassVDataBase **)((uint8 *)(m_nSubclassID()) + 4); }

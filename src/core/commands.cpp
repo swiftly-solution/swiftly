@@ -10,6 +10,8 @@
 #include "../filters/ConsoleFilter.h"
 #include "../addons/addons.h"
 #include "../translations/Translations.h"
+#include "../plugins/PluginManager.h"
+#include "../resourcemonitor/ResourceMonitor.h"
 
 #ifndef GITHUB_SHA
 #define GITHUB_SHA "LOCAL"
@@ -121,6 +123,8 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
     {
         PrintToClientOrConsole(slot, "Commands", " addons       - Addons Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " confilter    - Console Filtering Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " resmon       - Resource Monitor Menu\n");
         PrintToClientOrConsole(slot, "Commands", " translations - Translations Menu\n");
     }
     PrintToClientOrConsole(slot, "Commands", " version      - Display Swiftly version\n");
@@ -277,6 +281,435 @@ void SwiftlyConFilterManager(CPlayerSlot slot, CCommandContext context, const ch
 }
 
 //////////////////////////////////////////////////////////////
+/////////////////            Plugins           //////////////
+////////////////////////////////////////////////////////////
+
+void ShowSwiftlyPluginManagerHelp(CPlayerSlot slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Plugin Management Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins <command> [plugin_name]\n");
+    PrintToClientOrConsole(slot, "Commands", " info     - Shows informations about a plugin\n");
+    PrintToClientOrConsole(slot, "Commands", " list     - Shows loaded plugins\n");
+    PrintToClientOrConsole(slot, "Commands", " load     - Loads a plugin\n");
+    PrintToClientOrConsole(slot, "Commands", " reload   - Reloads a plugin if it was loaded\n");
+    PrintToClientOrConsole(slot, "Commands", " unload   - Unloads a plugin if it was loaded\n");
+    PrintToClientOrConsole(slot, "Commands", " refresh  - Refreshes the plugin list.\n");
+}
+
+void SwiftlyPluginManagerList(CPlayerSlot slot, CCommandContext context)
+{
+    uint32 loadedPlugins = 0;
+    auto plugins = g_pluginManager->GetPluginsList();
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin == nullptr)
+            continue;
+        if (plugin->GetPluginState() == PluginState_t::Stopped)
+            continue;
+
+        ++loadedPlugins;
+    }
+
+    if (loadedPlugins == 0)
+        return PrintToClientOrConsole(slot, "Plugins List", "There are no plugins loaded.\n");
+
+    PrintToClientOrConsole(slot, "Plugins List", "Showing below %02d plugins loaded:\n", loadedPlugins);
+    uint32 showingIdx = 0;
+    std::vector<std::string> errors;
+    for (uint32 i = 0; i < plugins.size(); i++)
+    {
+        Plugin *plugin = plugins[i];
+        if (plugin == nullptr)
+            continue;
+        if (plugin->GetLoadError().size() > 0)
+            errors.push_back(string_format("Plugin '%s': %s", plugin->GetName().c_str(), plugin->GetLoadError().c_str()));
+        if (plugin->GetPluginState() == PluginState_t::Stopped)
+            continue;
+
+        ++showingIdx;
+
+        auto website = plugin->GetWebsite();
+
+        PrintToClientOrConsole(slot, "Plugins List", "%02d. \"%s\" (%s) by %s%s\n",
+                               showingIdx,
+                               plugin->GetPlName().c_str(),
+                               plugin->GetVersion().c_str(),
+                               plugin->GetAuthor().c_str(),
+                               website == "" ? "" : string_format(" ( %s )", website.c_str()).c_str());
+    }
+    if (errors.size() && slot.Get() == -1)
+    {
+        PrintToClientOrConsole(slot, "Plugins List", "Plugin load errors:\n");
+        for (const std::string err : errors)
+            PrintToClientOrConsole(slot, "Plugins List", "%s\n", err.c_str());
+
+        errors.clear();
+    }
+}
+
+void SwiftlyPluginManagerInfo(CPlayerSlot slot, CCommandContext context, std::string plugin_name)
+{
+    if (plugin_name.size() == 0)
+        return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins info <plugin_name>\n");
+
+    if (!g_pluginManager->PluginExists(plugin_name))
+        return PrintToClientOrConsole(slot, "Plugin Info", "Invalid plugin name.\n");
+
+    Plugin *plugin = g_pluginManager->FetchPlugin(plugin_name);
+    if (plugin->GetPluginState() == PluginState_t::Stopped)
+        return PrintToClientOrConsole(slot, "Plugin Info", "Plugin is not loaded.\n");
+
+    std::string website = plugin->GetWebsite();
+
+    PrintToClientOrConsole(slot, "Plugin Info", "Plugin File Name: %s\n", plugin->GetName().c_str());
+    PrintToClientOrConsole(slot, "Plugin Info", "Name: %s\n", plugin->GetPlName().c_str());
+    PrintToClientOrConsole(slot, "Plugin Info", "Author: %s\n", plugin->GetAuthor().c_str());
+    PrintToClientOrConsole(slot, "Plugin Info", "Version: %s\n", plugin->GetVersion().c_str());
+    PrintToClientOrConsole(slot, "Plugin Info", "URL: %s\n", website == "" ? "Not Present" : website.c_str());
+    if (plugin->GetKind() == PluginKind_t::Lua)
+    {
+        LuaPlugin *plg = (LuaPlugin *)plugin;
+
+        auto collectgarbage = luabridge::getGlobal(plg->GetState(), "collectgarbage");
+        auto countResult = collectgarbage(std::string("count"));
+
+        PrintToClientOrConsole(slot, "Plugin Info", "Memory Usage: %.4fMB\n", countResult.cast<double>() / 1024);
+    }
+}
+
+void SwiftlyPluginManagerUnload(CPlayerSlot slot, CCommandContext context, std::string plugin_name)
+{
+    if (plugin_name.size() == 0)
+        return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins unload <plugin_name>\n");
+
+    if (!g_pluginManager->PluginExists(plugin_name))
+        return PrintToClientOrConsole(slot, "Plugin Unload", "Invalid plugin name.\n");
+
+    Plugin *plugin = g_pluginManager->FetchPlugin(plugin_name);
+    if (plugin->GetPluginState() == PluginState_t::Stopped)
+        return PrintToClientOrConsole(slot, "Plugin Unload", "Plugin is not loaded.\n");
+
+    g_pluginManager->StopPlugin(plugin_name);
+    PrintToClientOrConsole(slot, "Plugin Unload", "Plugin '%s' has been unloaded.\n", plugin_name.c_str());
+}
+
+void SwiftlyPluginManagerLoad(CPlayerSlot slot, CCommandContext context, std::string plugin_name)
+{
+    if (plugin_name.size() == 0)
+        return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins load <plugin_name>\n");
+
+    if (!g_pluginManager->PluginExists(plugin_name))
+        return PrintToClientOrConsole(slot, "Plugin Load", "Invalid plugin name.\n");
+
+    Plugin *plugin = g_pluginManager->FetchPlugin(plugin_name);
+    if (plugin->GetPluginState() == PluginState_t::Started)
+        return PrintToClientOrConsole(slot, "Plugin Load", "Plugin is already loaded.\n");
+
+    g_pluginManager->LoadPlugin(plugin_name);
+    g_pluginManager->StartPlugin(plugin_name);
+    PrintToClientOrConsole(slot, "Plugin Load", "Plugin '%s' has been loaded.\n", plugin_name.c_str());
+}
+
+void SwiftlyPluginManagerReload(CPlayerSlot slot, CCommandContext context, std::string plugin_name)
+{
+    if (plugin_name.size() == 0)
+        return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins reload <plugin_name>\n");
+
+    if (!g_pluginManager->PluginExists(plugin_name))
+        return PrintToClientOrConsole(slot, "Plugin Reload", "Invalid plugin name.\n");
+
+    Plugin *plugin = g_pluginManager->FetchPlugin(plugin_name);
+    if (plugin->GetPluginState() == PluginState_t::Stopped)
+        return PrintToClientOrConsole(slot, "Plugin Reload", "Plugin is not loaded.\n");
+
+    g_pluginManager->StopPlugin(plugin_name);
+    g_pluginManager->LoadPlugin(plugin_name);
+    g_pluginManager->StartPlugin(plugin_name);
+    PrintToClientOrConsole(slot, "Plugin Reload", "Plugin '%s' has been reloaded.\n", plugin_name.c_str());
+}
+
+void SwiftlyPluginManagerRefresh(CPlayerSlot slot, CCommandContext context)
+{
+    auto oldPluginsAmount = g_pluginManager->GetPluginsList().size();
+    g_pluginManager->LoadPlugins();
+    auto newPluginsAmount = g_pluginManager->GetPluginsList().size();
+    PrintToClientOrConsole(slot, "Plugin Refresh", "Plugins have been succesfully refreshed. (%d -> %d plugins)\n", oldPluginsAmount, newPluginsAmount);
+}
+
+void SwiftlyPluginManager(CPlayerSlot slot, CCommandContext context, const char *subcmd, const char *plugin_name)
+{
+    if (slot.Get() != -1)
+        return;
+
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        ShowSwiftlyPluginManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "list")
+        SwiftlyPluginManagerList(slot, context);
+    else if (sbcmd == "info")
+        SwiftlyPluginManagerInfo(slot, context, plugin_name);
+    else if (sbcmd == "unload")
+        SwiftlyPluginManagerUnload(slot, context, plugin_name);
+    else if (sbcmd == "load")
+        SwiftlyPluginManagerLoad(slot, context, plugin_name);
+    else if (sbcmd == "reload")
+        SwiftlyPluginManagerReload(slot, context, plugin_name);
+    else if (sbcmd == "refresh")
+        SwiftlyPluginManagerRefresh(slot, context);
+    else
+        ShowSwiftlyPluginManagerHelp(slot, context);
+}
+
+//////////////////////////////////////////////////////////////
+/////////////////            Resmon            //////////////
+////////////////////////////////////////////////////////////
+
+void SwiftlyResourceMonitorManagerHelp(CPlayerSlot slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Resource Monitor Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly resmon <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " enable          - Enabled the usage monitoring.\n");
+    PrintToClientOrConsole(slot, "Commands", " disable         - Disables the usage monitoring.\n");
+    PrintToClientOrConsole(slot, "Commands", " view            - Shows the usage monitored.\n");
+    PrintToClientOrConsole(slot, "Commands", " viewplugin <ID> - Shows the usage monitored for a specific plugin.\n");
+}
+
+void SwiftlyResourceMonitorManagerEnable(CPlayerSlot slot, CCommandContext context)
+{
+    if (g_ResourceMonitor->IsEnabled())
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is already enabled.\n");
+
+    g_ResourceMonitor->Enable();
+    PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring has been enabled.\n");
+}
+
+void SwiftlyResourceMonitorManagerDisable(CPlayerSlot slot, CCommandContext context)
+{
+    if (!g_ResourceMonitor->IsEnabled())
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is already disabled.\n");
+
+    g_ResourceMonitor->Disable();
+    PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring has been disabled.\n");
+}
+
+void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, CCommandContext context, std::string plugin_id)
+{
+    if (!g_ResourceMonitor->IsEnabled())
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is not enabled.\n");
+
+    if (!g_pluginManager->PluginExists(plugin_id) && plugin_id != "core")
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Invalid plugin ID.\n");
+
+    auto PrintTable = [](TextTable tbl) -> void
+    {
+        std::stringstream outputTable;
+        outputTable << tbl;
+        std::vector<std::string> rows = explode(outputTable.str(), "\n");
+        for (int i = 0; i < rows.size(); i++)
+            PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
+    };
+
+    PrintToClientOrConsole(slot, "Resource Monitor", "Resource Monitor View Plugin\n");
+    PrintToClientOrConsole(slot, "Resource Monitor", "ID: %s\n", plugin_id.c_str());
+    PrintToClientOrConsole(slot, "Resource Monitor", " \n", plugin_id.c_str());
+
+    PrintToClientOrConsole(slot, "Resource Monitor", "Plugin Usage View\n");
+
+    TextTable usagesTable('-', '|', '+');
+
+    usagesTable.add(" ID ");
+    usagesTable.add(" Name ");
+    usagesTable.add(" min/avg/max ");
+    usagesTable.endOfRow();
+
+    std::map<std::string, std::map<std::string, std::set<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
+    if (data.count(plugin_id) > 0)
+    {
+        std::map<std::string, std::set<float>> pluginData = data.at(plugin_id);
+        uint64_t idx = 0;
+        for (std::map<std::string, std::set<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+        {
+            ++idx;
+            usagesTable.add(string_format(" %02d. ", idx));
+            usagesTable.add(string_format(" %s ", it->first.c_str()));
+
+            if (it->second.size() == 0)
+                usagesTable.add(" 0.000ms / 0.000ms ");
+            else
+            {
+                auto it2 = it->second.end();
+                --it2;
+                float max = *(it2);
+
+                float avg = 0;
+                uint64_t avgCount = 0;
+                for (std::set<float>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii)
+                {
+                    avg += *(ii);
+                    ++avgCount;
+                }
+
+                usagesTable.add(string_format(" %.3fms / %.3fms ", (avg / avgCount), max));
+            }
+            usagesTable.endOfRow();
+        }
+    }
+
+    PrintTable(usagesTable);
+}
+
+void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context)
+{
+    if (!g_ResourceMonitor->IsEnabled())
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is not enabled.\n");
+
+    TextTable pluginsTable('-', '|', '+');
+
+    pluginsTable.add(" ID ");
+    pluginsTable.add(" Name ");
+    pluginsTable.add(" Status ");
+    pluginsTable.add(" Type ");
+    pluginsTable.add(" Memory ");
+    pluginsTable.add(" avg/max ");
+    pluginsTable.endOfRow();
+
+    auto PrintTable = [](TextTable tbl) -> void
+    {
+        std::stringstream outputTable;
+        outputTable << tbl;
+        std::vector<std::string> rows = explode(outputTable.str(), "\n");
+        for (int i = 0; i < rows.size(); i++)
+            PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
+    };
+
+    PLUGIN_PRINTF("Resource Monitor", "Plugin Resource Viewer\n");
+
+    std::map<std::string, std::map<std::string, std::set<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
+
+    pluginsTable.add(" core ");
+    pluginsTable.add(" [Swiftly] Core ");
+    pluginsTable.add(" Loaded ");
+    pluginsTable.add(" - ");
+    pluginsTable.add(" - ");
+
+    if (data.find("core") != data.end())
+    {
+        float max = 0;
+        uint64_t maxCount = 0;
+        float avg = 0;
+        uint64_t avgCount = 0;
+
+        std::map<std::string, std::set<float>> pluginData = data.at("core");
+        for (std::map<std::string, std::set<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+        {
+            if (it->second.size() == 0)
+                continue;
+
+            auto maxend = it->second.end();
+            --maxend;
+            max += *(maxend);
+            ++maxCount;
+
+            for (std::set<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+            {
+                avg += *(it2);
+                ++avgCount;
+            }
+        }
+
+        pluginsTable.add(string_format(" %.3fms / %.3fms ", (avg / avgCount), (max / maxCount)));
+    }
+    else
+        pluginsTable.add(" 0.000ms / 0.000ms ");
+
+    pluginsTable.endOfRow();
+
+    for (Plugin *plugin : g_pluginManager->GetPluginsList())
+    {
+        std::string plugin_id = plugin->GetName();
+
+        pluginsTable.add(" " + plugin_id + " ");
+        std::string plugin_name = (plugin->GetPluginState() == PluginState_t::Started ? plugin->GetPlName() : "-");
+        pluginsTable.add(string_format(" %s ", (plugin_name.size() > 24 ? (plugin_name.substr(0, 21) + "...") : plugin_name).c_str()));
+        pluginsTable.add(std::string(" ") + (plugin->GetPluginState() == PluginState_t::Started ? "Loaded" : "Unloaded") + " ");
+        pluginsTable.add(std::string(" ") + (plugin->GetKind() == PluginKind_t::Lua ? "Lua" : "None") + " ");
+        if (plugin->GetKind() == PluginKind_t::Lua && plugin->GetPluginState() == PluginState_t::Started)
+        {
+            auto collectgarbage = luabridge::getGlobal(((LuaPlugin *)plugin)->GetState(), "collectgarbage");
+            auto countResult = collectgarbage(std::string("count"));
+            pluginsTable.add(string_format(" %.4f MB ", (countResult.cast<double>() / 1024)));
+        }
+        else
+            pluginsTable.add(" - ");
+
+        if (plugin->GetPluginState() == PluginState_t::Started && data.find(plugin->GetName()) != data.end())
+        {
+
+            float max = 0;
+            uint64_t maxCount = 0;
+            float avg = 0;
+            uint64_t avgCount = 0;
+
+            std::map<std::string, std::set<float>> pluginData = data.at(plugin->GetName());
+            for (std::map<std::string, std::set<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+            {
+                if (it->second.size() == 0)
+                    continue;
+
+                auto maxend = it->second.end();
+                --maxend;
+                max += *(maxend);
+                ++maxCount;
+
+                for (std::set<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+                {
+                    avg += *(it2);
+                    ++avgCount;
+                }
+            }
+
+            pluginsTable.add(string_format(" %.3fms / %.3fms ", (avg / avgCount), (max / maxCount)));
+        }
+        else
+            pluginsTable.add(" 0.000ms / 0.000ms ");
+
+        pluginsTable.endOfRow();
+    }
+
+    PrintTable(pluginsTable);
+    PrintToClientOrConsole(slot, "Resource Monitor", "To view more detailed informations for each plugin, use: sw resmon viewplugin <ID>\n");
+}
+
+void SwiftlyResourceMonitorManager(CPlayerSlot slot, CCommandContext context, const char *subcmd, const char *subcmd2)
+{
+    if (slot.Get() != -1)
+        return;
+
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        SwiftlyResourceMonitorManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "enable")
+        SwiftlyResourceMonitorManagerEnable(slot, context);
+    else if (sbcmd == "disable")
+        SwiftlyResourceMonitorManagerDisable(slot, context);
+    else if (sbcmd == "view")
+        SwiftlyResourceMonitorManagerView(slot, context);
+    else if (sbcmd == "viewplugin")
+        SwiftlyResourceMonitorManagerViewPlugin(slot, context, (subcmd2 == nullptr ? "" : subcmd2));
+    else
+        SwiftlyResourceMonitorManagerHelp(slot, context);
+}
+
+//////////////////////////////////////////////////////////////
 /////////////////         Translations         //////////////
 ////////////////////////////////////////////////////////////
 
@@ -360,6 +793,10 @@ void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
         SwiftlyAddonsManager(slot, context, args[2]);
     else if (subcmd == "translations")
         SwiftlyTranslationManager(slot, context, args[2]);
+    else if (subcmd == "plugins")
+        SwiftlyPluginManager(slot, context, args[2], args[3]);
+    else if (subcmd == "resmon")
+        SwiftlyResourceMonitorManager(slot, context, args[2], args[3]);
     else if (subcmd == "status")
         SwiftlyStatus(slot, context);
     else

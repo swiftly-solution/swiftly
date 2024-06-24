@@ -1,5 +1,12 @@
 #include "PluginManager.h"
 
+#include "core/scripting.h"
+
+#include <vector>
+#include <msgpack.hpp>
+
+bool AllPluginsStarted = false;
+
 PluginManager::PluginManager() {}
 
 PluginManager::~PluginManager() {}
@@ -88,6 +95,16 @@ void PluginManager::StartPlugins()
     for (Plugin *plugin : pluginsList)
         if (!StartPlugin(plugin->GetName()))
             StopPlugin(plugin->GetName());
+
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    this->ExecuteEvent("core", "OnAllPluginsLoaded", ss.str(), event);
+    delete event;
+    AllPluginsStarted = true;
 }
 
 void PluginManager::StopPlugins()
@@ -110,6 +127,18 @@ bool PluginManager::StartPlugin(std::string plugin_name)
         return false;
     if (!plugin->ExecuteStart())
         return false;
+
+    if (AllPluginsStarted)
+    {
+        std::stringstream ss;
+        std::vector<msgpack::object> eventData;
+
+        msgpack::pack(ss, eventData);
+
+        PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+        this->ExecuteEvent("core", "OnAllPluginsLoaded", ss.str(), event);
+        delete event;
+    }
 
     return true;
 }
@@ -147,4 +176,9 @@ EventResult PluginManager::ExecuteEvent(std::string invokedBy, std::string event
     }
 
     return EventResult::Continue;
+}
+
+std::vector<Plugin *> PluginManager::GetPluginsList()
+{
+    return this->pluginsList;
 }

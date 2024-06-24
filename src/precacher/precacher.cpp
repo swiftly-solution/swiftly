@@ -78,5 +78,5 @@ void Precacher::CacheSounds()
 void Precacher::CacheSound(const char *model)
 {
     engine->PrecacheDecal(model, true);
-    PRINTF("Precacher", "Precached sound '%s'.\n", model);
+    PLUGIN_PRINTF("Precacher", "Precached sound '%s'.\n", model);
 }

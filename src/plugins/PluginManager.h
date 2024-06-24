@@ -38,6 +38,8 @@ public:
 
     Plugin *FetchPlugin(std::string name);
 
+    std::vector<Plugin *> GetPluginsList();
+
     EventResult ExecuteEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event);
 };
 

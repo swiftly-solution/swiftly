@@ -23,6 +23,6 @@ public:
             return;
 
         SetPawn(pawn);
-        CALL_VIRTUAL(void, g_Offsets->GetOffset("Respawn"), this);
+        CALL_VIRTUAL(void, g_Offsets->GetOffset("CCSPlayerController_Respawn"), this);
     }
 };

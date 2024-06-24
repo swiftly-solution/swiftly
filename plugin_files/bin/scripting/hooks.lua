@@ -67,3 +67,17 @@ function RemoveHookListener(hookListener)
     
     RemoveEventHandler(hookListener)
 end
+
+function CallHook(hookHandle, ...)
+    if type(hookHandle) ~= "table" then
+        print("Error: Invalid hook data passed to AddPostHookListener.")
+        return
+    end
+
+    if type(hookHandle.hookId) ~= "string" then
+        print("Error: Invalid hook data passed to AddPostHookListener.")
+        return
+    end
+
+    return hook:Call(hookHandle.hookId, msgpack.pack({...}))
+end

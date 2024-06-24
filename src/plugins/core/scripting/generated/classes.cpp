@@ -1,5 +1,8 @@
 #include "classes.h"
 
+#include "../../../../sdk/entity/CBaseEntity.h"
+#include "../../../../sdk/entity/CBaseModelEntity.h"
+
 GCGlowProperty::GCGlowProperty(std::string ptr) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
 }
@@ -521,6 +524,30 @@ GCBaseEntity::GCBaseEntity(std::string ptr) {
 
 GCBaseEntity::GCBaseEntity(void *ptr) {
     m_ptr = ptr;
+}
+
+void GCBaseEntity::Spawn() {
+    ((Z_CBaseEntity*)m_ptr)->Spawn();
+}
+
+void GCBaseEntity::Despawn() {
+    ((Z_CBaseEntity*)m_ptr)->Despawn();
+}
+
+void GCBaseEntity::AcceptInput(std::string input, GCEntityInstance activator, GCEntityInstance caller, std::string value, int outputID) {
+    ((Z_CBaseEntity*)m_ptr)->AcceptInput(input.c_str(), (CEntityInstance*)(strtoul(activator.ToPtr().c_str(), nullptr, 16)), (CEntityInstance*)(strtoul(caller.ToPtr().c_str(), nullptr, 16)), value.c_str(), outputID);
+}
+
+std::string GCBaseEntity::GetClassname() {
+    return ((Z_CBaseEntity*)m_ptr)->GetClassname();
+}
+
+GCEntitySubclassVDataBase GCBaseEntity::GetVData() {
+    return GCEntitySubclassVDataBase(((Z_CBaseEntity*)m_ptr)->GetVData());
+}
+
+void GCBaseEntity::Teleport(Vector value) {
+    ((Z_CBaseEntity*)m_ptr)->Teleport(&value, nullptr, nullptr);
 }
 
 GCBodyComponent GCBaseEntity::GetCBodyComponent() const {
@@ -1539,6 +1566,10 @@ GCBaseModelEntity::GCBaseModelEntity(std::string ptr) {
 
 GCBaseModelEntity::GCBaseModelEntity(void *ptr) {
     m_ptr = ptr;
+}
+
+void GCBaseModelEntity::SetModel(std::string model) {
+    ((CBaseModelEntity*)m_ptr)->SetModel(model.c_str());
 }
 
 GCRenderComponent GCBaseModelEntity::GetCRenderComponent() const {

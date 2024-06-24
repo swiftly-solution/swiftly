@@ -6,7 +6,7 @@
 #include "../../../types/EventResult.h"
 
 #define FetchPluginName(state) luabridge::getGlobal(state, "plugin_name").tostring()
-#define FetchPlugin(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
+#define FetchPluginByState(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
 
 void SetupLuaLogs(LuaPlugin *plugin, lua_State *state);
 void SetupLuaTypes(LuaPlugin *plugin, lua_State *state);

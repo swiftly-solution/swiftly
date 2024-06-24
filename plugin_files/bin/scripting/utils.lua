@@ -85,3 +85,24 @@ function FindPlayersByTarget(target, matchbots)
 
     return matchedPlayers
 end
+
+function ReplyToCommand(playerid, prefix, str)
+    if playerid == -1 then
+        print(str)
+    else
+        local player = GetPlayer(playerid)
+        if not player then return end
+        if player:IsFakeClient() then return end
+        player:SendMsg(MessageType.Chat, prefix.." "..str)
+    end
+end
+
+local random = math.random
+function uuid()
+    math.randomseed(os.time())
+    local template ='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+    return string.gsub(template, '[xy]', function (c)
+        local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
+        return string.format('%x', v)
+    end)
+end

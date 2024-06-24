@@ -21,6 +21,7 @@
 #include "translations/Translations.h"
 #include "filters/ConsoleFilter.h"
 #include "menus/MenuManager.h"
+#include "resourcemonitor/ResourceMonitor.h"
 #include "hooks/NativeHooks.h"
 #include "player/PlayerManager.h"
 #include "plugins/PluginManager.h"
@@ -100,6 +101,7 @@ Signatures *g_Signatures = nullptr;
 Precacher *g_precacher = nullptr;
 DatabaseManager *g_dbManager = nullptr;
 MenuManager *g_MenuManager = nullptr;
+ResourceMonitor *g_ResourceMonitor = nullptr;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -123,6 +125,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameResourceService, IGameResourceService, GAMERESOURCESERVICESERVER_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pGameEventSystem, IGameEventSystem, GAMEEVENTSYSTEM_INTERFACE_VERSION);
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pSchemaSystem2, CSchemaSystem, SCHEMASYSTEM_INTERFACE_VERSION);
+    GET_V_IFACE_CURRENT(GetEngineFactory, g_pNetworkSystem, INetworkSystem, NETWORKSYSTEM_INTERFACE_VERSION);
 
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &Swiftly::Hook_ClientActive, true);
@@ -153,6 +156,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_commandsManager = new CommandsManager();
     g_dbManager = new DatabaseManager();
     g_MenuManager = new MenuManager();
+    g_ResourceMonitor = new ResourceMonitor();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -342,6 +346,7 @@ GameFrameMsgPackCache gameFrameCache = {
 
 void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
+    PERF_RECORD("GameFrame", "core")
     static double g_flNextUpdate = 0.0;
 
     double curtime = Plat_FloatTime();
@@ -601,18 +606,59 @@ void Swiftly::NextFrame(std::function<void()> fn)
 
 void CEntityListener::OnEntitySpawned(CEntityInstance *pEntity)
 {
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    eventData.push_back(msgpack::object(string_format("%p", pEntity).c_str()));
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnEntitySpawned", ss.str(), event);
+    delete event;
 }
 
 void CEntityListener::OnEntityParentChanged(CEntityInstance *pEntity, CEntityInstance *pNewParent)
 {
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    eventData.push_back(msgpack::object(string_format("%p", pEntity).c_str()));
+    eventData.push_back(msgpack::object(string_format("%p", pNewParent).c_str()));
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnEntityParentChanged", ss.str(), event);
+    delete event;
 }
 
 void CEntityListener::OnEntityCreated(CEntityInstance *pEntity)
 {
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    eventData.push_back(msgpack::object(string_format("%p", pEntity).c_str()));
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnEntityCreated", ss.str(), event);
+    delete event;
 }
 
 void CEntityListener::OnEntityDeleted(CEntityInstance *pEntity)
 {
+    std::stringstream ss;
+    std::vector<msgpack::object> eventData;
+
+    eventData.push_back(msgpack::object(string_format("%p", pEntity).c_str()));
+
+    msgpack::pack(ss, eventData);
+
+    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnEntityDeleted", ss.str(), event);
+    delete event;
 }
 
 bool Swiftly::Pause(char *error, size_t maxlen)

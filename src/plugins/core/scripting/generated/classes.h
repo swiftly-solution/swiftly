@@ -1713,6 +1713,12 @@ public:
     GCBaseEntity(std::string ptr);
     GCBaseEntity(void *ptr);
 
+    void Spawn();
+    void Despawn();
+    void AcceptInput(std::string input, GCEntityInstance activator, GCEntityInstance caller, std::string value, int outputID);
+    std::string GetClassname();
+    GCEntitySubclassVDataBase GetVData();
+    void Teleport(Vector value);
     GCBodyComponent GetCBodyComponent() const;
     void SetCBodyComponent(GCBodyComponent* value);
     GCNetworkTransmitComponent GetNetworkTransmitComponent() const;
@@ -2013,6 +2019,7 @@ public:
     GCBaseModelEntity(std::string ptr);
     GCBaseModelEntity(void *ptr);
 
+    void SetModel(std::string model);
     GCRenderComponent GetCRenderComponent() const;
     void SetCRenderComponent(GCRenderComponent* value);
     GCHitboxComponent GetCHitboxComponent() const;

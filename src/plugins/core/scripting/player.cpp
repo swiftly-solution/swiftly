@@ -324,13 +324,6 @@ void PluginPlayer::SetModel(std::string model)
     if (!pawn)
         return;
 
-    bool hasModel = (g_precacher->HasModelInList(model));
-    if (!hasModel)
-    {
-        g_precacher->AddModel(model);
-        PRINTF("Precacher", "Model '%s' was not precached before and it was added to the list.\n", model.c_str());
-        PRINTF("Precacher", "It may work on the second map change if the model is valid.\n");
-    }
     pawn->SetModel(model.c_str());
 }
 
@@ -344,6 +337,18 @@ void PluginPlayer::ShowMenu(std::string menuid)
         return;
 
     player->ShowMenu(menuid);
+}
+
+void PluginPlayer::SwitchTeam(int team)
+{
+    if (team < 0 || team > 3)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(this->playerId);
+    if (!player)
+        return;
+
+    player->SwitchTeam(team);
 }
 
 std::any PluginPlayer::GetVarValue(std::string key)

@@ -7,7 +7,7 @@
 #include <rapidjson/stringbuffer.h>
 
 #define FetchPluginName(state) luabridge::getGlobal(state, "plugin_name").tostring()
-#define FetchPlugin(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
+#define FetchPluginByState(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
 
 struct DatabaseQueryQueue
 {
@@ -76,8 +76,9 @@ void DatabaseQueryThread()
                 luabridge::LuaRef ref = *(luabridge::LuaRef *)queue.callback;
                 try
                 {
+                    std::string error = queue.db->GetError();
                     if (ref.isFunction())
-                        ref(queue.db->GetError(), tbl);
+                        ref(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
                 }
                 catch (luabridge::LuaException &e)
                 {
@@ -115,7 +116,7 @@ void PluginDatabase::QueryLua(std::string query, luabridge::LuaRef callback, lua
         query,
         new luabridge::LuaRef(callback),
         this->db,
-        FetchPlugin(L),
+        FetchPluginByState(L),
     };
     queryQueue.push_back(queue);
 

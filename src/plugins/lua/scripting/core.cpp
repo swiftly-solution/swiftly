@@ -4,11 +4,13 @@
 
 int customPrint(lua_State *state)
 {
-    g_SMAPI->ConPrintf("[Swiftly] %s[%16s]\e[39m ", GetTerminalStringColor(luabridge::getGlobal(state, "plugin_name").tostring()).c_str(), ("plugin:" + luabridge::getGlobal(state, "plugin_name").tostring()).c_str());
+    std::string prefix = string_format("[Swiftly] %s[%16s]\e[39m ", GetTerminalStringColor(luabridge::getGlobal(state, "plugin_name").tostring()).c_str(), ("plugin:" + luabridge::getGlobal(state, "plugin_name").tostring()).c_str());
 
     int n = lua_gettop(state);
 
     lua_getglobal(state, "tostring");
+
+    std::vector<std::string> outputArr;
 
     for (int i = 1; i <= n; i++)
     {
@@ -20,17 +22,24 @@ int customPrint(lua_State *state)
         const char *s = lua_tolstring(state, -1, &l);
         if (s == nullptr)
         {
-            PRINT("An error has occured while trying to call 'print'.\nError: 'tostring' must return a string to 'print'\n");
+            outputArr.push_back("An error has occured while trying to call 'print'.\nError: 'tostring' must return a string to 'print'\n");
             break;
         }
 
         if (i > 1)
-            g_SMAPI->ConPrint("\t");
+            outputArr.push_back("\t");
 
-        g_SMAPI->ConPrint(TerminalProcessColor(s).c_str());
+        outputArr.push_back(TerminalProcessColor(s));
         lua_pop(state, 1);
     }
-    g_SMAPI->ConPrint("\e[39m\e[49m\n");
+    std::vector<std::string> processingNewLines = explode(implode(outputArr, ""), "\n");
+    for (const std::string str : processingNewLines)
+    {
+        if (str.size() == 0)
+            continue;
+        g_SMAPI->ConPrintf("%s%s\e[39m\e[49m\n", prefix.c_str(), str.c_str());
+    }
+
     return 0;
 }
 
@@ -39,7 +48,21 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     luabridge::getGlobalNamespace(state)
         .addCFunction("print", &customPrint)
         .addFunction("GetCurrentPluginName", +[](lua_State *L) -> std::string
-                     { return FetchPluginName(L); });
+                     { return FetchPluginName(L); })
+        .addFunction("CreateTextTable", +[](std::vector<std::vector<std::string>> data)
+                                        {
+            TextTable tbl('-', '|', '+');
+
+            for(auto vec : data) {
+                for(std::string str : vec)
+                    tbl.add(" " + str + " ");
+
+                tbl.endOfRow();
+            }
+
+            std::stringstream outputTable;
+            outputTable << tbl;
+            return outputTable.str(); });
 
     luabridge::setGlobal(state, plugin->GetName(), "plugin_name");
 

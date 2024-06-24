@@ -3,6 +3,8 @@
 #include <map>
 #include <string>
 
+#include <variant.h>
+
 class CBasePlayerController;
 class CCSPlayerController;
 class Z_CBaseEntity;
@@ -22,7 +24,7 @@ typedef void (*CBaseModelEntity_SetModel)(CBaseModelEntity *, const char *);
 typedef void (*CBaseEntity_DispatchSpawn)(Z_CBaseEntity *, void *);
 typedef void (*PrecacheResource)(const char *, int64_t);
 typedef void (*UTIL_Remove)(CEntityInstance *);
-typedef void (*CEntityInstance_AcceptInput)(CEntityInstance *, const char *, CEntityInstance *, CEntityInstance *, double *, int);
+typedef void (*CEntityInstance_AcceptInput)(CEntityInstance *, const char *, CEntityInstance *, CEntityInstance *, variant_t *, int);
 typedef void (*CAttributeList_SetOrAddAttributeValueByName)(void *, const char *, float);
 typedef void (*CBaseModelEntity_SetBodygroup)(void *, const char *, ...);
 typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices *, const char *, int, int, int, int);
