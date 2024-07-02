@@ -106,3 +106,11 @@ function uuid()
         return string.format('%x', v)
     end)
 end
+
+function ComputePrettyTime(seconds)
+    if seconds == 0 then return FetchTranslation("core.forever")
+    elseif seconds < 60 then return string.format(FetchTranslation("core.seconds"), seconds)
+    elseif seconds < 3600 then return string.format(FetchTranslation("core.minutes"), math.floor(seconds / 60))
+    elseif seconds < 86400 then return string.format(FetchTranslation("core.hours"), math.floor(seconds / 3600))
+    else return string.format(FetchTranslation("core.days"), math.floor(seconds / 86400)) end
+end

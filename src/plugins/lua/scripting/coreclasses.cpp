@@ -1,56 +1,5 @@
 #include "core.h"
 
-int Vector_index(lua_State *L)
-{
-    Vector *v = *static_cast<Vector **>(luaL_checkudata(L, 1, "Vector"));
-    std::string key = luaL_checkstring(L, 2);
-
-    if (key == "x")
-    {
-        lua_pushnumber(L, v->x);
-        return 1;
-    }
-    else if (key == "y")
-    {
-        lua_pushnumber(L, v->y);
-        return 1;
-    }
-    else if (key == "z")
-    {
-        lua_pushnumber(L, v->z);
-        return 1;
-    }
-
-    luaL_getmetatable(L, "Vector");
-    lua_pushstring(L, key.c_str());
-    lua_rawget(L, -2);
-    return 1;
-}
-
-int Vector_newindex(lua_State *L)
-{
-    Vector *v = *static_cast<Vector **>(luaL_checkudata(L, 1, "Vector"));
-    std::string key = luaL_checkstring(L, 2);
-
-    if (key == "x")
-    {
-        v->x = luaL_checknumber(L, 3);
-        return 0;
-    }
-    else if (key == "y")
-    {
-        v->y = luaL_checknumber(L, 3);
-        return 0;
-    }
-    else if (key == "z")
-    {
-        v->z = luaL_checknumber(L, 3);
-        return 0;
-    }
-
-    return luaL_error(L, "Cannot add new fields to Vector");
-}
-
 int Vector_unm(lua_State *L)
 {
     Vector *v = *static_cast<Vector **>(luaL_checkudata(L, 1, "Vector"));
@@ -89,57 +38,6 @@ int Vector_div(lua_State *L)
 std::string Vector_tostring(Vector *v1)
 {
     return string_format("Vector(%f,%f,%f)", v1->x, v1->y, v1->z);
-}
-
-int QAngle_index(lua_State *L)
-{
-    QAngle *v = *static_cast<QAngle **>(luaL_checkudata(L, 1, "QAngle"));
-    std::string key = luaL_checkstring(L, 2);
-
-    if (key == "x")
-    {
-        lua_pushnumber(L, v->x);
-        return 1;
-    }
-    else if (key == "y")
-    {
-        lua_pushnumber(L, v->y);
-        return 1;
-    }
-    else if (key == "z")
-    {
-        lua_pushnumber(L, v->z);
-        return 1;
-    }
-
-    luaL_getmetatable(L, "QAngle");
-    lua_pushstring(L, key.c_str());
-    lua_rawget(L, -2);
-    return 1;
-}
-
-int QAngle_newindex(lua_State *L)
-{
-    QAngle *v = *static_cast<QAngle **>(luaL_checkudata(L, 1, "QAngle"));
-    std::string key = luaL_checkstring(L, 2);
-
-    if (key == "x")
-    {
-        v->x = luaL_checknumber(L, 3);
-        return 0;
-    }
-    else if (key == "y")
-    {
-        v->y = luaL_checknumber(L, 3);
-        return 0;
-    }
-    else if (key == "z")
-    {
-        v->z = luaL_checknumber(L, 3);
-        return 0;
-    }
-
-    return luaL_error(L, "Cannot add new fields to QAngle");
 }
 
 int QAngle_unm(lua_State *L)
@@ -188,47 +86,6 @@ std::string QAngle_tostring(QAngle *v1)
     return string_format("QAngle(%f,%f,%f)", v1->x, v1->y, v1->z);
 }
 
-int Vector2D_index(lua_State *L)
-{
-    Vector2D *v = *static_cast<Vector2D **>(luaL_checkudata(L, 1, "Vector2D"));
-    std::string key = luaL_checkstring(L, 2);
-
-    if (key == "x")
-    {
-        lua_pushnumber(L, v->x);
-        return 1;
-    }
-    else if (key == "y")
-    {
-        lua_pushnumber(L, v->y);
-        return 1;
-    }
-
-    luaL_getmetatable(L, "Vector2D");
-    lua_pushstring(L, key.c_str());
-    lua_rawget(L, -2);
-    return 1;
-}
-
-int Vector2D_newindex(lua_State *L)
-{
-    Vector2D *v = *static_cast<Vector2D **>(luaL_checkudata(L, 1, "Vector2D"));
-    std::string key = luaL_checkstring(L, 2);
-
-    if (key == "x")
-    {
-        v->x = luaL_checknumber(L, 3);
-        return 0;
-    }
-    else if (key == "y")
-    {
-        v->y = luaL_checknumber(L, 3);
-        return 0;
-    }
-
-    return luaL_error(L, "Cannot add new fields to Vector2D");
-}
-
 int Vector2D_unm(lua_State *L)
 {
     Vector2D *v = *static_cast<Vector2D **>(luaL_checkudata(L, 1, "Vector2D"));
@@ -271,67 +128,6 @@ int Vector2D_div(lua_State *L)
 std::string Vector2D_tostring(Vector2D *v1)
 {
     return string_format("Vector2D(%f,%f)", v1->x, v1->y);
-}
-
-int Vector4D_index(lua_State *L)
-{
-    Vector4D *v = *static_cast<Vector4D **>(luaL_checkudata(L, 1, "Vector4D"));
-    std::string key = luaL_checkstring(L, 2);
-
-    if (key == "x")
-    {
-        lua_pushnumber(L, v->x);
-        return 1;
-    }
-    else if (key == "y")
-    {
-        lua_pushnumber(L, v->y);
-        return 1;
-    }
-    else if (key == "z")
-    {
-        lua_pushnumber(L, v->z);
-        return 1;
-    }
-    else if (key == "w")
-    {
-        lua_pushnumber(L, v->w);
-        return 1;
-    }
-
-    luaL_getmetatable(L, "Vector4D");
-    lua_pushstring(L, key.c_str());
-    lua_rawget(L, -2);
-    return 1;
-}
-
-int Vector4D_newindex(lua_State *L)
-{
-    Vector4D *v = *static_cast<Vector4D **>(luaL_checkudata(L, 1, "Vector4D"));
-    std::string key = luaL_checkstring(L, 2);
-
-    if (key == "x")
-    {
-        v->x = luaL_checknumber(L, 3);
-        return 0;
-    }
-    else if (key == "y")
-    {
-        v->y = luaL_checknumber(L, 3);
-        return 0;
-    }
-    else if (key == "z")
-    {
-        v->z = luaL_checknumber(L, 3);
-        return 0;
-    }
-    else if (key == "w")
-    {
-        v->w = luaL_checknumber(L, 3);
-        return 0;
-    }
-
-    return luaL_error(L, "Cannot add new fields to Vector4D");
 }
 
 int Vector4D_unm(lua_State *L)
@@ -448,6 +244,9 @@ void SetupLuaCoreClasses(LuaPlugin *plugin, lua_State *state)
     luabridge::getGlobalNamespace(state)
         .beginClass<Vector>("Vector")
         .addConstructor<void (*)(float, float, float)>()
+        .addProperty("x", &Vector::x, true)
+        .addProperty("y", &Vector::y, true)
+        .addProperty("z", &Vector::z, true)
         .addFunction("__add", &Vector::operator+)
         .addFunction("__eq", &Vector::operator==)
         .addFunction("__len", &Vector::Length)
@@ -455,12 +254,6 @@ void SetupLuaCoreClasses(LuaPlugin *plugin, lua_State *state)
         .endClass();
 
     luaL_newmetatable(state, "Vector");
-    lua_pushstring(state, "__index");
-    lua_pushcfunction(state, Vector_index);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__newindex");
-    lua_pushcfunction(state, Vector_newindex);
-    lua_settable(state, -3);
     lua_pushstring(state, "__unm");
     lua_pushcfunction(state, Vector_unm);
     lua_settable(state, -3);
@@ -490,6 +283,9 @@ void SetupLuaCoreClasses(LuaPlugin *plugin, lua_State *state)
     luabridge::getGlobalNamespace(state)
         .beginClass<QAngle>("QAngle")
         .addConstructor<void (*)(float, float, float)>()
+        .addProperty("x", &QAngle::x, true)
+        .addProperty("y", &QAngle::y, true)
+        .addProperty("z", &QAngle::z, true)
         .addFunction("__add", &QAngle::operator+)
         .addFunction("__eq", &QAngle::operator==)
         .addFunction("__len", &QAngle::Length)
@@ -497,12 +293,6 @@ void SetupLuaCoreClasses(LuaPlugin *plugin, lua_State *state)
         .endClass();
 
     luaL_newmetatable(state, "QAngle");
-    lua_pushstring(state, "__index");
-    lua_pushcfunction(state, QAngle_index);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__newindex");
-    lua_pushcfunction(state, QAngle_newindex);
-    lua_settable(state, -3);
     lua_pushstring(state, "__unm");
     lua_pushcfunction(state, QAngle_unm);
     lua_settable(state, -3);
@@ -517,21 +307,17 @@ void SetupLuaCoreClasses(LuaPlugin *plugin, lua_State *state)
     lua_settable(state, -3);
 
     luabridge::getGlobalNamespace(state)
-        .beginClass<Vector2D>("Vector2")
+        .beginClass<Vector2D>("Vector2D")
         .addConstructor<void (*)(float, float)>()
+        .addProperty("x", &Vector2D::x, true)
+        .addProperty("y", &Vector2D::y, true)
         .addFunction("__add", &Vector2D::operator+)
         .addFunction("__eq", &Vector2D::operator==)
         .addFunction("__len", &Vector2D::Length)
         .addFunction("__tostring", Vector2D_tostring)
         .endClass();
 
-    luaL_newmetatable(state, "Vector2");
-    lua_pushstring(state, "__index");
-    lua_pushcfunction(state, Vector2D_index);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__newindex");
-    lua_pushcfunction(state, Vector2D_newindex);
-    lua_settable(state, -3);
+    luaL_newmetatable(state, "Vector2D");
     lua_pushstring(state, "__unm");
     lua_pushcfunction(state, Vector2D_unm);
     lua_settable(state, -3);
@@ -546,21 +332,19 @@ void SetupLuaCoreClasses(LuaPlugin *plugin, lua_State *state)
     lua_settable(state, -3);
 
     luabridge::getGlobalNamespace(state)
-        .beginClass<Vector4D>("Vector4")
+        .beginClass<Vector4D>("Vector4D")
         .addConstructor<void (*)(float, float, float, float)>()
+        .addProperty("x", &Vector4D::x, true)
+        .addProperty("y", &Vector4D::y, true)
+        .addProperty("z", &Vector4D::z, true)
+        .addProperty("w", &Vector4D::w, true)
         .addFunction("__add", &Vector4D::operator+)
         .addFunction("__eq", &Vector4D::operator==)
         .addFunction("__len", &Vector4D::Length)
         .addFunction("__tostring", Vector4D_tostring)
         .endClass();
 
-    luaL_newmetatable(state, "Vector2");
-    lua_pushstring(state, "__index");
-    lua_pushcfunction(state, Vector4D_index);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__newindex");
-    lua_pushcfunction(state, Vector4D_newindex);
-    lua_settable(state, -3);
+    luaL_newmetatable(state, "Vector4D");
     lua_pushstring(state, "__unm");
     lua_pushcfunction(state, Vector4D_unm);
     lua_settable(state, -3);

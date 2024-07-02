@@ -17,7 +17,10 @@ public:
     void RegisterPlayer(Player *player);
     void UnregisterPlayer(CPlayerSlot slot);
     uint16_t GetPlayers();
-    Player *GetPlayer(uint16 slot) { return this->g_Players[slot]; }
+    Player *GetPlayer(uint16 slot)
+    {
+        return this->g_Players[slot];
+    }
     Player *GetPlayer(CPlayerSlot slot) { return this->g_Players[slot.Get()]; }
     const uint16 GetPlayerCap() { return MAX_PLAYERS; }
     CPlayerSlot GetSlotFromUserId(uint16 userid) { return CPlayerSlot(userid & 0xFF); }

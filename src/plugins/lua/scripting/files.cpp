@@ -15,6 +15,8 @@ void SetupLuaFiles(LuaPlugin *plugin, lua_State *state)
         .addFunction("IsDirectory", &PluginFiles::IsDirectory)
         .addFunction("Read", &PluginFiles::Read)
         .addFunction("Write", &PluginFiles::Write)
+        .addFunction("Compress", &PluginFiles::Compress)
+        .addFunction("Decompress", &PluginFiles::Decompress)
         .endClass();
 
     luaL_dostring(state, "files = Files(GetCurrentPluginName())");

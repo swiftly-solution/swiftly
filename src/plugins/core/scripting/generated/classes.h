@@ -1747,16 +1747,16 @@ public:
     void SetDamageAccumulator(float value);
     bool GetTakesDamage() const;
     void SetTakesDamage(bool value);
-    TakeDamageFlags_t GetTakeDamageFlags() const;
-    void SetTakeDamageFlags(TakeDamageFlags_t value);
+    uint64_t GetTakeDamageFlags() const;
+    void SetTakeDamageFlags(uint64_t value);
     bool GetIsPlatform() const;
     void SetIsPlatform(bool value);
-    MoveCollide_t GetMoveCollide() const;
-    void SetMoveCollide(MoveCollide_t value);
-    MoveType_t GetMoveType() const;
-    void SetMoveType(MoveType_t value);
-    MoveType_t GetActualMoveType() const;
-    void SetActualMoveType(MoveType_t value);
+    uint64_t GetMoveCollide() const;
+    void SetMoveCollide(uint64_t value);
+    uint64_t GetMoveType() const;
+    void SetMoveType(uint64_t value);
+    uint64_t GetActualMoveType() const;
+    void SetActualMoveType(uint64_t value);
     uint8_t GetWaterTouch() const;
     void SetWaterTouch(uint8_t value);
     uint8_t GetSlimeTouch() const;
@@ -1869,8 +1869,8 @@ public:
     void SetLocalTime(float value);
     float GetVPhysicsUpdateLocalTime() const;
     void SetVPhysicsUpdateLocalTime(float value);
-    BloodType GetBloodType() const;
-    void SetBloodType(BloodType value);
+    uint64_t GetBloodType() const;
+    void SetBloodType(uint64_t value);
     GCEntityInstance GetParent() const;
     void SetParent(GCEntityInstance value);
 
@@ -1979,12 +1979,12 @@ public:
     void SetMaxs(Vector value);
     uint8_t GetSolidFlags() const;
     void SetSolidFlags(uint8_t value);
-    SolidType_t GetSolidType() const;
-    void SetSolidType(SolidType_t value);
+    uint64_t GetSolidType() const;
+    void SetSolidType(uint64_t value);
     uint8_t GetTriggerBloat() const;
     void SetTriggerBloat(uint8_t value);
-    SurroundingBoundsType_t GetSurroundType() const;
-    void SetSurroundType(SurroundingBoundsType_t value);
+    uint64_t GetSurroundType() const;
+    void SetSurroundType(uint64_t value);
     uint8_t GetCollisionGroup() const;
     void SetCollisionGroup(uint8_t value);
     uint8_t GetEnablePhysics() const;
@@ -2028,10 +2028,10 @@ public:
     void SetDissolveStartTime(float value);
     GCEntityIOOutput GetOnIgnite() const;
     void SetOnIgnite(GCEntityIOOutput value);
-    RenderMode_t GetRenderMode() const;
-    void SetRenderMode(RenderMode_t value);
-    RenderFx_t GetRenderFX() const;
-    void SetRenderFX(RenderFx_t value);
+    uint64_t GetRenderMode() const;
+    void SetRenderMode(uint64_t value);
+    uint64_t GetRenderFX() const;
+    void SetRenderFX(uint64_t value);
     bool GetAllowFadeInView() const;
     void SetAllowFadeInView(bool value);
     Color GetRender() const;
@@ -2102,8 +2102,8 @@ public:
     GCBaseToggle(std::string ptr);
     GCBaseToggle(void *ptr);
 
-    TOGGLE_STATE GetToggle_state() const;
-    void SetToggle_state(TOGGLE_STATE value);
+    uint64_t GetToggle_state() const;
+    void SetToggle_state(uint64_t value);
     float GetMoveDistance() const;
     void SetMoveDistance(float value);
     float GetWait() const;
@@ -2833,8 +2833,8 @@ public:
     void SetOuter(GCBaseEntity* value);
     bool GetPreventLoopback() const;
     void SetPreventLoopback(bool value);
-    attributeprovidertypes_t GetProviderType() const;
-    void SetProviderType(attributeprovidertypes_t value);
+    uint64_t GetProviderType() const;
+    void SetProviderType(uint64_t value);
     std::vector<GCAttributeManager> GetCachedResults() const;
     void SetCachedResults(std::vector<GCAttributeManager> value);
 
@@ -3253,12 +3253,12 @@ public:
 
     GCPropDataComponent GetCPropDataComponent() const;
     void SetCPropDataComponent(GCPropDataComponent value);
-    Materials GetMaterial() const;
-    void SetMaterial(Materials value);
+    uint64_t GetMaterial() const;
+    void SetMaterial(uint64_t value);
     GCBaseEntity GetBreaker() const;
     void SetBreaker(GCBaseEntity* value);
-    Explosions GetExplosion() const;
-    void SetExplosion(Explosions value);
+    uint64_t GetExplosion() const;
+    void SetExplosion(uint64_t value);
     std::string GetSpawnObject() const;
     void SetSpawnObject(std::string value);
     float GetPressureDelay() const;
@@ -3269,12 +3269,12 @@ public:
     void SetPropData(std::string value);
     float GetImpactEnergyScale() const;
     void SetImpactEnergyScale(float value);
-    EOverrideBlockLOS_t GetOverrideBlockLOS() const;
-    void SetOverrideBlockLOS(EOverrideBlockLOS_t value);
+    uint64_t GetOverrideBlockLOS() const;
+    void SetOverrideBlockLOS(uint64_t value);
     GCEntityIOOutput GetOnBreak() const;
     void SetOnBreak(GCEntityIOOutput value);
-    PerformanceMode_t GetPerformanceMode() const;
-    void SetPerformanceMode(PerformanceMode_t value);
+    uint64_t GetPerformanceMode() const;
+    void SetPerformanceMode(uint64_t value);
     GCBasePlayerPawn GetPhysicsAttacker() const;
     void SetPhysicsAttacker(GCBasePlayerPawn* value);
     float GetLastPhysicsInfluenceTime() const;
@@ -3943,8 +3943,8 @@ public:
     void SetDefBurstOffset(Vector value);
     GCBaseEntity GetBreaker() const;
     void SetBreaker(GCBaseEntity* value);
-    PerformanceMode_t GetPerformanceMode() const;
-    void SetPerformanceMode(PerformanceMode_t value);
+    uint64_t GetPerformanceMode() const;
+    void SetPerformanceMode(uint64_t value);
     float GetPreventDamageBeforeTime() const;
     void SetPreventDamageBeforeTime(float value);
     bool GetHasBreakPiecesOrCommands() const;
@@ -4255,8 +4255,8 @@ public:
     void SetOnAnimReachedEnd(GCEntityIOOutput value);
     std::string GetIdleAnim() const;
     void SetIdleAnim(std::string value);
-    AnimLoopMode_t GetIdleAnimLoopMode() const;
-    void SetIdleAnimLoopMode(AnimLoopMode_t value);
+    uint64_t GetIdleAnimLoopMode() const;
+    void SetIdleAnimLoopMode(uint64_t value);
     bool GetRandomizeCycle() const;
     void SetRandomizeCycle(bool value);
     bool GetStartDisabled() const;
@@ -4515,18 +4515,18 @@ public:
     void SetFireSequenceStartTimeChange(int32_t value);
     int32_t GetFireSequenceStartTimeAck() const;
     void SetFireSequenceStartTimeAck(int32_t value);
-    PlayerAnimEvent_t GetPlayerFireEvent() const;
-    void SetPlayerFireEvent(PlayerAnimEvent_t value);
-    WeaponAttackType_t GetPlayerFireEventAttackType() const;
-    void SetPlayerFireEventAttackType(WeaponAttackType_t value);
+    uint64_t GetPlayerFireEvent() const;
+    void SetPlayerFireEvent(uint64_t value);
+    uint64_t GetPlayerFireEventAttackType() const;
+    void SetPlayerFireEventAttackType(uint64_t value);
     int32_t GetSilencerBoneIndex() const;
     void SetSilencerBoneIndex(int32_t value);
     bool GetPlayerAmmoStockOnPickup() const;
     void SetPlayerAmmoStockOnPickup(bool value);
     bool GetRequireUseToTouch() const;
     void SetRequireUseToTouch(bool value);
-    CSWeaponState_t GetState() const;
-    void SetState(CSWeaponState_t value);
+    uint64_t GetState() const;
+    void SetState(uint64_t value);
     float GetLastTimeInAir() const;
     void SetLastTimeInAir(float value);
     float GetLastDeployTime() const;
@@ -4543,8 +4543,8 @@ public:
     void SetFireOnEmpty(bool value);
     GCEntityIOOutput GetOnPlayerPickup() const;
     void SetOnPlayerPickup(GCEntityIOOutput value);
-    CSWeaponMode GetWeaponMode() const;
-    void SetWeaponMode(CSWeaponMode value);
+    uint64_t GetWeaponMode() const;
+    void SetWeaponMode(uint64_t value);
     float GetTurningInaccuracyDelta() const;
     void SetTurningInaccuracyDelta(float value);
     Vector GetTurningInaccuracyEyeDirLast() const;
@@ -4705,16 +4705,16 @@ public:
     void SetFieldOfView(float value);
     float GetImpactEnergyScale() const;
     void SetImpactEnergyScale(float value);
-    HitGroup_t GetLastHitGroup() const;
-    void SetLastHitGroup(HitGroup_t value);
+    uint64_t GetLastHitGroup() const;
+    void SetLastHitGroup(uint64_t value);
     bool GetApplyStressDamage() const;
     void SetApplyStressDamage(bool value);
     int32_t GetDamageCount() const;
     void SetDamageCount(int32_t value);
     std::string GetStrRelationships() const;
     void SetStrRelationships(std::string value);
-    Hull_t GetHull() const;
-    void SetHull(Hull_t value);
+    uint64_t GetHull() const;
+    void SetHull(uint64_t value);
     uint32_t GetNavHullIdx() const;
     void SetNavHullIdx(uint32_t value);
     GCBaseFlex GetParent() const;
@@ -4761,8 +4761,8 @@ public:
 
     bool GetIsOn() const;
     void SetIsOn(bool value);
-    navproperties_t GetNavProperty() const;
-    void SetNavProperty(navproperties_t value);
+    uint64_t GetNavProperty() const;
+    void SetNavProperty(uint64_t value);
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
@@ -4863,8 +4863,8 @@ public:
     GCFilterMultiple(std::string ptr);
     GCFilterMultiple(void *ptr);
 
-    filter_t GetFilterType() const;
-    void SetFilterType(filter_t value);
+    uint64_t GetFilterType() const;
+    void SetFilterType(uint64_t value);
     std::vector<CUtlSymbolLarge> GetFilterName() const;
     void SetFilterName(std::vector<CUtlSymbolLarge> value);
     std::vector<GCBaseEntity*> GetFilter() const;
@@ -5090,8 +5090,8 @@ public:
     void SetHardwareType(int32_t value);
     bool GetNeedsHardware() const;
     void SetNeedsHardware(bool value);
-    DoorState_t GetDoorState() const;
-    void SetDoorState(DoorState_t value);
+    uint64_t GetDoorState() const;
+    void SetDoorState(uint64_t value);
     bool GetLocked() const;
     void SetLocked(bool value);
     Vector GetClosedPosition() const;
@@ -6175,10 +6175,10 @@ public:
     void SetDisabled(bool value);
     GCBaseEntity GetMeasureTarget() const;
     void SetMeasureTarget(GCBaseEntity* value);
-    SoundTypes_t GetSoundType() const;
-    void SetSoundType(SoundTypes_t value);
-    SoundFlags_t GetSoundFlags() const;
-    void SetSoundFlags(SoundFlags_t value);
+    uint64_t GetSoundType() const;
+    void SetSoundType(uint64_t value);
+    uint64_t GetSoundFlags() const;
+    void SetSoundFlags(uint64_t value);
     float GetSensitivity() const;
     void SetSensitivity(float value);
     float GetSmoothFactor() const;
@@ -6273,8 +6273,8 @@ public:
     void SetSplitOwner(GCBasePlayerController* value);
     bool GetIsHLTV() const;
     void SetIsHLTV(bool value);
-    PlayerConnectedState GetConnected() const;
-    void SetConnected(PlayerConnectedState value);
+    uint64_t GetConnected() const;
+    void SetConnected(uint64_t value);
     std::string GetPlayerName() const;
     void SetPlayerName(std::string value);
     std::string GetNetworkIDString() const;
@@ -6295,8 +6295,8 @@ public:
     void SetLastRealCommandNumberExecuted(int32_t value);
     int32_t GetLastLateCommandExecuted() const;
     void SetLastLateCommandExecuted(int32_t value);
-    ChatIgnoreType_t GetIgnoreGlobalChat() const;
-    void SetIgnoreGlobalChat(ChatIgnoreType_t value);
+    uint64_t GetIgnoreGlobalChat() const;
+    void SetIgnoreGlobalChat(uint64_t value);
     float GetLastPlayerTalkTime() const;
     void SetLastPlayerTalkTime(float value);
     float GetLastEntitySteadyState() const;
@@ -6408,10 +6408,10 @@ public:
     void SetMoveSoundMinPitch(float value);
     float GetMoveSoundMaxPitch() const;
     void SetMoveSoundMaxPitch(float value);
-    TrainOrientationType_t GetOrientationType() const;
-    void SetOrientationType(TrainOrientationType_t value);
-    TrainVelocityType_t GetVelocityType() const;
-    void SetVelocityType(TrainVelocityType_t value);
+    uint64_t GetOrientationType() const;
+    void SetOrientationType(uint64_t value);
+    uint64_t GetVelocityType() const;
+    void SetVelocityType(uint64_t value);
     GCEntityIOOutput GetOnStart() const;
     void SetOnStart(GCEntityIOOutput value);
     GCEntityIOOutput GetOnNext() const;
@@ -6611,12 +6611,12 @@ public:
     GCGenericConstraint(std::string ptr);
     GCGenericConstraint(void *ptr);
 
-    JointMotion_t GetLinearMotionX() const;
-    void SetLinearMotionX(JointMotion_t value);
-    JointMotion_t GetLinearMotionY() const;
-    void SetLinearMotionY(JointMotion_t value);
-    JointMotion_t GetLinearMotionZ() const;
-    void SetLinearMotionZ(JointMotion_t value);
+    uint64_t GetLinearMotionX() const;
+    void SetLinearMotionX(uint64_t value);
+    uint64_t GetLinearMotionY() const;
+    void SetLinearMotionY(uint64_t value);
+    uint64_t GetLinearMotionZ() const;
+    void SetLinearMotionZ(uint64_t value);
     float GetLinearFrequencyX() const;
     void SetLinearFrequencyX(float value);
     float GetLinearFrequencyY() const;
@@ -6677,12 +6677,12 @@ public:
     void SetAxisNotifiedY(bool value);
     bool GetAxisNotifiedZ() const;
     void SetAxisNotifiedZ(bool value);
-    JointMotion_t GetAngularMotionX() const;
-    void SetAngularMotionX(JointMotion_t value);
-    JointMotion_t GetAngularMotionY() const;
-    void SetAngularMotionY(JointMotion_t value);
-    JointMotion_t GetAngularMotionZ() const;
-    void SetAngularMotionZ(JointMotion_t value);
+    uint64_t GetAngularMotionX() const;
+    void SetAngularMotionX(uint64_t value);
+    uint64_t GetAngularMotionY() const;
+    void SetAngularMotionY(uint64_t value);
+    uint64_t GetAngularMotionZ() const;
+    void SetAngularMotionZ(uint64_t value);
     float GetAngularFrequencyX() const;
     void SetAngularFrequencyX(float value);
     float GetAngularFrequencyY() const;
@@ -7419,8 +7419,8 @@ public:
     void SetActivator(GCBaseEntity* value);
     int32_t GetBusyActor() const;
     void SetBusyActor(int32_t value);
-    SceneOnPlayerDeath_t GetPlayerDeathBehavior() const;
-    void SetPlayerDeathBehavior(SceneOnPlayerDeath_t value);
+    uint64_t GetPlayerDeathBehavior() const;
+    void SetPlayerDeathBehavior(uint64_t value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
@@ -7555,8 +7555,8 @@ public:
     GCScriptItem(std::string ptr);
     GCScriptItem(void *ptr);
 
-    MoveType_t GetMoveTypeOverride() const;
-    void SetMoveTypeOverride(MoveType_t value);
+    uint64_t GetMoveTypeOverride() const;
+    void SetMoveTypeOverride(uint64_t value);
     GCItem GetParent() const;
     void SetParent(GCItem value);
 
@@ -8213,10 +8213,10 @@ public:
     void SetEntity(std::string value);
     std::string GetSyncGroup() const;
     void SetSyncGroup(std::string value);
-    ScriptedMoveTo_t GetMoveTo() const;
-    void SetMoveTo(ScriptedMoveTo_t value);
-    MovementGait_t GetMoveToGait() const;
-    void SetMoveToGait(MovementGait_t value);
+    uint64_t GetMoveTo() const;
+    void SetMoveTo(uint64_t value);
+    uint64_t GetMoveToGait() const;
+    void SetMoveToGait(uint64_t value);
     bool GetIsPlayingPreIdle() const;
     void SetIsPlayingPreIdle(bool value);
     bool GetIsPlayingEntry() const;
@@ -8313,10 +8313,10 @@ public:
     void SetPreventUpdateYawOnFinish(bool value);
     bool GetEnsureOnNavmeshOnFinish() const;
     void SetEnsureOnNavmeshOnFinish(bool value);
-    ScriptedOnDeath_t GetOnDeathBehavior() const;
-    void SetOnDeathBehavior(ScriptedOnDeath_t value);
-    ScriptedConflictResponse_t GetConflictResponse() const;
-    void SetConflictResponse(ScriptedConflictResponse_t value);
+    uint64_t GetOnDeathBehavior() const;
+    void SetOnDeathBehavior(uint64_t value);
+    uint64_t GetConflictResponse() const;
+    void SetConflictResponse(uint64_t value);
     GCEntityIOOutput GetOnBeginSequence() const;
     void SetOnBeginSequence(GCEntityIOOutput value);
     GCEntityIOOutput GetOnActionStartOrLoop() const;
@@ -8589,8 +8589,8 @@ public:
     void SetTrackBottomName(std::string value);
     std::string GetTrainName() const;
     void SetTrainName(std::string value);
-    TRAIN_CODE GetCode() const;
-    void SetCode(TRAIN_CODE value);
+    uint64_t GetCode() const;
+    void SetCode(uint64_t value);
     int32_t GetTargetState() const;
     void SetTargetState(int32_t value);
     int32_t GetUse() const;
@@ -9147,8 +9147,8 @@ public:
     void SetDisabled(bool value);
     bool GetUpdateOnClient() const;
     void SetUpdateOnClient(bool value);
-    ValueRemapperInputType_t GetInputType() const;
-    void SetInputType(ValueRemapperInputType_t value);
+    uint64_t GetInputType() const;
+    void SetInputType(uint64_t value);
     std::string GetRemapLineStartName() const;
     void SetRemapLineStartName(std::string value);
     std::string GetRemapLineEndName() const;
@@ -9165,8 +9165,8 @@ public:
     void SetEngageDistance(float value);
     bool GetRequiresUseKey() const;
     void SetRequiresUseKey(bool value);
-    ValueRemapperOutputType_t GetOutputType() const;
-    void SetOutputType(ValueRemapperOutputType_t value);
+    uint64_t GetOutputType() const;
+    void SetOutputType(uint64_t value);
     std::string GetOutputEntityName() const;
     void SetOutputEntityName(std::string value);
     std::string GetOutputEntity2Name() const;
@@ -9177,18 +9177,18 @@ public:
     void SetOutputEntity4Name(std::string value);
     std::vector<GCBaseEntity*> GetOutputEntities() const;
     void SetOutputEntities(std::vector<GCBaseEntity*> value);
-    ValueRemapperHapticsType_t GetHapticsType() const;
-    void SetHapticsType(ValueRemapperHapticsType_t value);
-    ValueRemapperMomentumType_t GetMomentumType() const;
-    void SetMomentumType(ValueRemapperMomentumType_t value);
+    uint64_t GetHapticsType() const;
+    void SetHapticsType(uint64_t value);
+    uint64_t GetMomentumType() const;
+    void SetMomentumType(uint64_t value);
     float GetMomentumModifier() const;
     void SetMomentumModifier(float value);
     float GetSnapValue() const;
     void SetSnapValue(float value);
     float GetCurrentMomentum() const;
     void SetCurrentMomentum(float value);
-    ValueRemapperRatchetType_t GetRatchetType() const;
-    void SetRatchetType(ValueRemapperRatchetType_t value);
+    uint64_t GetRatchetType() const;
+    void SetRatchetType(uint64_t value);
     float GetRatchetOffset() const;
     void SetRatchetOffset(float value);
     float GetInputOffset() const;
@@ -9479,8 +9479,8 @@ public:
     void SetObserverMode(uint8_t value);
     GCBaseEntity GetObserverTarget() const;
     void SetObserverTarget(GCBaseEntity* value);
-    ObserverMode_t GetObserverLastMode() const;
-    void SetObserverLastMode(ObserverMode_t value);
+    uint64_t GetObserverLastMode() const;
+    void SetObserverLastMode(uint64_t value);
     bool GetForcedObserverMode() const;
     void SetForcedObserverMode(bool value);
     GCPlayerPawnComponent GetParent() const;
@@ -9697,8 +9697,8 @@ public:
     GCFuncBrush(std::string ptr);
     GCFuncBrush(void *ptr);
 
-    BrushSolidities_e GetSolidity() const;
-    void SetSolidity(BrushSolidities_e value);
+    uint64_t GetSolidity() const;
+    void SetSolidity(uint64_t value);
     int32_t GetDisabled() const;
     void SetDisabled(int32_t value);
     bool GetSolidBsp() const;
@@ -9745,8 +9745,8 @@ public:
     void SetSeqStartTime(float value);
     float GetSeqFixedCycle() const;
     void SetSeqFixedCycle(float value);
-    AnimLoopMode_t GetSeqLoopMode() const;
-    void SetSeqLoopMode(AnimLoopMode_t value);
+    uint64_t GetSeqLoopMode() const;
+    void SetSeqLoopMode(uint64_t value);
     float GetPlaybackRate() const;
     void SetPlaybackRate(float value);
     float GetCyclesPerSecond() const;
@@ -10519,8 +10519,8 @@ public:
     void SetLastBulletUpdate(int32_t value);
     bool GetIsOtherEnemy() const;
     void SetIsOtherEnemy(bool value);
-    EKillTypes_t GetKillType() const;
-    void SetKillType(EKillTypes_t value);
+    uint64_t GetKillType() const;
+    void SetKillType(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -11529,8 +11529,8 @@ public:
     void SetDamage(float value);
     uint8_t GetNumBeamEnts() const;
     void SetNumBeamEnts(uint8_t value);
-    BeamType_t GetBeamType() const;
-    void SetBeamType(BeamType_t value);
+    uint64_t GetBeamType() const;
+    void SetBeamType(uint64_t value);
     uint32_t GetBeamFlags() const;
     void SetBeamFlags(uint32_t value);
     std::vector<GCBaseEntity*> GetAttachEntity() const;
@@ -11551,8 +11551,8 @@ public:
     void SetSpeed(float value);
     float GetFrame() const;
     void SetFrame(float value);
-    BeamClipStyle_t GetClipStyle() const;
-    void SetClipStyle(BeamClipStyle_t value);
+    uint64_t GetClipStyle() const;
+    void SetClipStyle(uint64_t value);
     bool GetTurnedOff() const;
     void SetTurnedOff(bool value);
     Vector GetEndPos() const;
@@ -12057,8 +12057,8 @@ public:
     void SetFadeOutLength(float value);
     float GetStartTime() const;
     void SetStartTime(float value);
-    EntityDisolveType_t GetDissolveType() const;
-    void SetDissolveType(EntityDisolveType_t value);
+    uint64_t GetDissolveType() const;
+    void SetDissolveType(uint64_t value);
     Vector GetDissolverOrigin() const;
     void SetDissolverOrigin(Vector value);
     uint32_t GetMagnitude() const;
@@ -12240,8 +12240,8 @@ public:
     void SetEndPointRelative(Vector value);
     float GetRadius() const;
     void SetRadius(float value);
-    Touch_t GetTouchType() const;
-    void SetTouchType(Touch_t value);
+    uint64_t GetTouchType() const;
+    void SetTouchType(uint64_t value);
     std::string GetFilterName() const;
     void SetFilterName(std::string value);
     GCBaseEntity GetFilter() const;
@@ -12698,8 +12698,8 @@ public:
     void SetInterval(float value);
     float GetFinalValue() const;
     void SetFinalValue(float value);
-    TimelineCompression_t GetCompressionType() const;
-    void SetCompressionType(TimelineCompression_t value);
+    uint64_t GetCompressionType() const;
+    void SetCompressionType(uint64_t value);
     bool GetStopped() const;
     void SetStopped(bool value);
     GIntervalTimer GetParent() const;
@@ -12720,8 +12720,8 @@ public:
 
     bool GetPlayingUninterruptableAct() const;
     void SetPlayingUninterruptableAct(bool value);
-    PlayerAnimEvent_t GetUninterruptableActivity() const;
-    void SetUninterruptableActivity(PlayerAnimEvent_t value);
+    uint64_t GetUninterruptableActivity() const;
+    void SetUninterruptableActivity(uint64_t value);
     bool GetRestorePrevWep() const;
     void SetRestorePrevWep(bool value);
     GCBasePlayerWeapon GetWeaponBeforePrevious() const;
@@ -13150,8 +13150,8 @@ public:
     GCFuncMoveLinear(std::string ptr);
     GCFuncMoveLinear(void *ptr);
 
-    MoveLinearAuthoredPos_t GetAuthoredPosition() const;
-    void SetAuthoredPosition(MoveLinearAuthoredPos_t value);
+    uint64_t GetAuthoredPosition() const;
+    void SetAuthoredPosition(uint64_t value);
     QAngle GetMoveEntitySpace() const;
     void SetMoveEntitySpace(QAngle value);
     Vector GetMoveDirParentSpace() const;
@@ -13384,8 +13384,8 @@ public:
     void SetFixedOrientation(bool value);
     bool GetFixedPitch() const;
     void SetFixedPitch(bool value);
-    SolidType_t GetSolidType() const;
-    void SetSolidType(SolidType_t value);
+    uint64_t GetSolidType() const;
+    void SetSolidType(uint64_t value);
     bool GetIsMoving() const;
     void SetIsMoving(bool value);
     float GetTimeToReachMaxSpeed() const;
@@ -13782,10 +13782,10 @@ public:
     void SetCustomEffectName(std::string value);
     std::string GetCustomSoundName() const;
     void SetCustomSoundName(std::string value);
-    Class_T GetClassIgnore() const;
-    void SetClassIgnore(Class_T value);
-    Class_T GetClassIgnore2() const;
-    void SetClassIgnore2(Class_T value);
+    uint64_t GetClassIgnore() const;
+    void SetClassIgnore(uint64_t value);
+    uint64_t GetClassIgnore2() const;
+    void SetClassIgnore2(uint64_t value);
     std::string GetEntityIgnoreName() const;
     void SetEntityIgnoreName(std::string value);
     GCBaseEntity GetEntityIgnore() const;
@@ -14059,10 +14059,10 @@ public:
     GCAISound(std::string ptr);
     GCAISound(void *ptr);
 
-    SoundTypes_t GetSoundType() const;
-    void SetSoundType(SoundTypes_t value);
-    SoundFlags_t GetSoundFlags() const;
-    void SetSoundFlags(SoundFlags_t value);
+    uint64_t GetSoundType() const;
+    void SetSoundType(uint64_t value);
+    uint64_t GetSoundFlags() const;
+    void SetSoundFlags(uint64_t value);
     int32_t GetVolume() const;
     void SetVolume(int32_t value);
     int32_t GetSoundIndex() const;
@@ -14097,8 +14097,8 @@ public:
     void SetRefName(std::string value);
     GCBaseEntity GetReference() const;
     void SetReference(GCBaseEntity* value);
-    EntFinderMethod_t GetFindMethod() const;
-    void SetFindMethod(EntFinderMethod_t value);
+    uint64_t GetFindMethod() const;
+    void SetFindMethod(uint64_t value);
     GCEntityIOOutput GetOnFoundEntity() const;
     void SetOnFoundEntity(GCEntityIOOutput value);
     GCBaseEntity GetParent() const;
@@ -14119,10 +14119,10 @@ public:
 
     int32_t GetModelID() const;
     void SetModelID(int32_t value);
-    ShardSolid_t GetSolid() const;
-    void SetSolid(ShardSolid_t value);
-    ShatterPanelMode GetShatterPanelMode() const;
-    void SetShatterPanelMode(ShatterPanelMode value);
+    uint64_t GetSolid() const;
+    void SetSolid(uint64_t value);
+    uint64_t GetShatterPanelMode() const;
+    void SetShatterPanelMode(uint64_t value);
     Vector2D GetPanelSize() const;
     void SetPanelSize(Vector2D value);
     Vector2D GetStressPositionA() const;
@@ -14382,10 +14382,10 @@ public:
     void SetAsynchronouslySpawnEntities(bool value);
     GCEntityIOOutput GetOutputOnSpawned() const;
     void SetOutputOnSpawned(GCEntityIOOutput value);
-    PointTemplateClientOnlyEntityBehavior_t GetClientOnlyEntityBehavior() const;
-    void SetClientOnlyEntityBehavior(PointTemplateClientOnlyEntityBehavior_t value);
-    PointTemplateOwnerSpawnGroupType_t GetOwnerSpawnGroupType() const;
-    void SetOwnerSpawnGroupType(PointTemplateOwnerSpawnGroupType_t value);
+    uint64_t GetClientOnlyEntityBehavior() const;
+    void SetClientOnlyEntityBehavior(uint64_t value);
+    uint64_t GetOwnerSpawnGroupType() const;
+    void SetOwnerSpawnGroupType(uint64_t value);
     std::vector<uint32> GetCreatedSpawnGroupHandles() const;
     void SetCreatedSpawnGroupHandles(std::vector<uint32> value);
     std::vector<GCEntityInstance*> GetSpawnedEntityHandles() const;
@@ -14893,8 +14893,8 @@ public:
     void SetSprayDir(Vector value);
     float GetAmount() const;
     void SetAmount(float value);
-    BloodType GetColor() const;
-    void SetColor(BloodType value);
+    uint64_t GetColor() const;
+    void SetColor(uint64_t value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
@@ -15509,12 +15509,12 @@ public:
     void SetDepthOffset(float value);
     Color GetColor() const;
     void SetColor(Color value);
-    PointWorldTextJustifyHorizontal_t GetJustifyHorizontal() const;
-    void SetJustifyHorizontal(PointWorldTextJustifyHorizontal_t value);
-    PointWorldTextJustifyVertical_t GetJustifyVertical() const;
-    void SetJustifyVertical(PointWorldTextJustifyVertical_t value);
-    PointWorldTextReorientMode_t GetReorientMode() const;
-    void SetReorientMode(PointWorldTextReorientMode_t value);
+    uint64_t GetJustifyHorizontal() const;
+    void SetJustifyHorizontal(uint64_t value);
+    uint64_t GetJustifyVertical() const;
+    void SetJustifyVertical(uint64_t value);
+    uint64_t GetReorientMode() const;
+    void SetReorientMode(uint64_t value);
     GCModelPointEntity GetParent() const;
     void SetParent(GCModelPointEntity value);
 
@@ -16119,12 +16119,12 @@ public:
     void SetAxis(Vector value);
     float GetDistance() const;
     void SetDistance(float value);
-    PropDoorRotatingSpawnPos_t GetSpawnPosition() const;
-    void SetSpawnPosition(PropDoorRotatingSpawnPos_t value);
-    PropDoorRotatingOpenDirection_e GetOpenDirection() const;
-    void SetOpenDirection(PropDoorRotatingOpenDirection_e value);
-    PropDoorRotatingOpenDirection_e GetCurrentOpenDirection() const;
-    void SetCurrentOpenDirection(PropDoorRotatingOpenDirection_e value);
+    uint64_t GetSpawnPosition() const;
+    void SetSpawnPosition(uint64_t value);
+    uint64_t GetOpenDirection() const;
+    void SetOpenDirection(uint64_t value);
+    uint64_t GetCurrentOpenDirection() const;
+    void SetCurrentOpenDirection(uint64_t value);
     float GetAjarAngle() const;
     void SetAjarAngle(float value);
     QAngle GetRotationAjarDeprecated() const;
@@ -16408,8 +16408,8 @@ public:
     void SetBlindUntilTime(float value);
     float GetBlindStartTime() const;
     void SetBlindStartTime(float value);
-    CSPlayerState GetPlayerState() const;
-    void SetPlayerState(CSPlayerState value);
+    uint64_t GetPlayerState() const;
+    void SetPlayerState(uint64_t value);
     bool GetRespawning() const;
     void SetRespawning(bool value);
     float GetImmuneToGunGameDamageTime() const;
@@ -16474,8 +16474,8 @@ public:
     void SetAltName(std::string value);
     int32_t GetIterVal() const;
     void SetIterVal(int32_t value);
-    TrackOrientationType_t GetOrientationType() const;
-    void SetOrientationType(TrackOrientationType_t value);
+    uint64_t GetOrientationType() const;
+    void SetOrientationType(uint64_t value);
     GCEntityIOOutput GetOnPass() const;
     void SetOnPass(GCEntityIOOutput value);
     GCPointEntity GetParent() const;
@@ -17494,8 +17494,8 @@ public:
     void SetAllowFlipping(bool value);
     std::string GetMuzzleAttachment() const;
     void SetMuzzleAttachment(std::string value);
-    ItemFlagTypes_t GetFlags() const;
-    void SetFlags(ItemFlagTypes_t value);
+    uint64_t GetFlags() const;
+    void SetFlags(uint64_t value);
     uint8_t GetPrimaryAmmoType() const;
     void SetPrimaryAmmoType(uint8_t value);
     uint8_t GetSecondaryAmmoType() const;
@@ -17514,8 +17514,8 @@ public:
     void SetAutoSwitchTo(bool value);
     bool GetAutoSwitchFrom() const;
     void SetAutoSwitchFrom(bool value);
-    RumbleEffect_t GetRumbleEffect() const;
-    void SetRumbleEffect(RumbleEffect_t value);
+    uint64_t GetRumbleEffect() const;
+    void SetRumbleEffect(uint64_t value);
     bool GetLinkedCooldowns() const;
     void SetLinkedCooldowns(bool value);
     int32_t GetSlot() const;
@@ -17630,8 +17630,8 @@ public:
     void SetRetakesMVPLastRound(bool value);
     int32_t GetRetakesMVPBoostItem() const;
     void SetRetakesMVPBoostItem(int32_t value);
-    loadout_slot_t GetRetakesMVPBoostExtraUtility() const;
-    void SetRetakesMVPBoostExtraUtility(loadout_slot_t value);
+    uint64_t GetRetakesMVPBoostExtraUtility() const;
+    void SetRetakesMVPBoostExtraUtility(uint64_t value);
     float GetHealthShotBoostExpirationTime() const;
     void SetHealthShotBoostExpirationTime(float value);
     float GetLandingTimeSeconds() const;
@@ -17724,8 +17724,8 @@ public:
     void SetIsDefusing(bool value);
     bool GetIsGrabbingHostage() const;
     void SetIsGrabbingHostage(bool value);
-    CSPlayerBlockingUseAction_t GetBlockingUseActionInProgress() const;
-    void SetBlockingUseActionInProgress(CSPlayerBlockingUseAction_t value);
+    uint64_t GetBlockingUseActionInProgress() const;
+    void SetBlockingUseActionInProgress(uint64_t value);
     float GetEmitSoundTime() const;
     void SetEmitSoundTime(float value);
     bool GetInNoDefuseArea() const;
@@ -18054,10 +18054,10 @@ public:
     void SetIsOnGround(bool value);
     Vector GetFallVelocity() const;
     void SetFallVelocity(Vector value);
-    ChickenActivity GetDesiredActivity() const;
-    void SetDesiredActivity(ChickenActivity value);
-    ChickenActivity GetCurrentActivity() const;
-    void SetCurrentActivity(ChickenActivity value);
+    uint64_t GetDesiredActivity() const;
+    void SetDesiredActivity(uint64_t value);
+    uint64_t GetCurrentActivity() const;
+    void SetCurrentActivity(uint64_t value);
     GCountdownTimer GetActivityTimer() const;
     void SetActivityTimer(GCountdownTimer value);
     float GetTurnRate() const;
@@ -18596,8 +18596,8 @@ public:
     void SetLocked(bool value);
     bool GetIgnoreDebris() const;
     void SetIgnoreDebris(bool value);
-    FuncDoorSpawnPos_t GetSpawnPosition() const;
-    void SetSpawnPosition(FuncDoorSpawnPos_t value);
+    uint64_t GetSpawnPosition() const;
+    void SetSpawnPosition(uint64_t value);
     float GetBlockDamage() const;
     void SetBlockDamage(float value);
     std::string GetNoiseMoving() const;
@@ -19853,8 +19853,8 @@ public:
     GViewAngleServerChange_t(std::string ptr);
     GViewAngleServerChange_t(void *ptr);
 
-    FixAngleSet_t GetType() const;
-    void SetType(FixAngleSet_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
     QAngle GetAngle() const;
     void SetAngle(QAngle value);
     uint32_t GetIndex() const;
@@ -19938,8 +19938,8 @@ public:
     GRelationship_t(std::string ptr);
     GRelationship_t(void *ptr);
 
-    Disposition_t GetDisposition() const;
-    void SetDisposition(Disposition_t value);
+    uint64_t GetDisposition() const;
+    void SetDisposition(uint64_t value);
     int32_t GetPriority() const;
     void SetPriority(int32_t value);
 
@@ -20340,12 +20340,12 @@ public:
     void SetTeleportOnEnd(bool value);
     bool GetIgnoreRotation() const;
     void SetIgnoreRotation(bool value);
-    ScriptedMoveType_t GetType() const;
-    void SetType(ScriptedMoveType_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
     bool GetSuccess() const;
     void SetSuccess(bool value);
-    ForcedCrouchState_t GetForcedCrouchState() const;
-    void SetForcedCrouchState(ForcedCrouchState_t value);
+    uint64_t GetForcedCrouchState() const;
+    void SetForcedCrouchState(uint64_t value);
     bool GetIgnoreCollisions() const;
     void SetIgnoreCollisions(bool value);
 
@@ -20374,12 +20374,12 @@ public:
     void SetSeqStartTime(float value);
     float GetSeqFixedCycle() const;
     void SetSeqFixedCycle(float value);
-    AnimLoopMode_t GetAnimLoopMode() const;
-    void SetAnimLoopMode(AnimLoopMode_t value);
+    uint64_t GetAnimLoopMode() const;
+    void SetAnimLoopMode(uint64_t value);
     float GetPlaybackRate() const;
     void SetPlaybackRate(float value);
-    SequenceFinishNotifyState_t GetNotifyState() const;
-    void SetNotifyState(SequenceFinishNotifyState_t value);
+    uint64_t GetNotifyState() const;
+    void SetNotifyState(uint64_t value);
     bool GetNetworkedAnimationInputsChanged() const;
     void SetNetworkedAnimationInputsChanged(bool value);
     bool GetNetworkedSequenceChanged() const;
@@ -20994,8 +20994,8 @@ public:
     void SetMaxCarry(int32_t value);
     GCRangeInt GetSplashSize() const;
     void SetSplashSize(GCRangeInt value);
-    AmmoFlags_t GetFlags() const;
-    void SetFlags(AmmoFlags_t value);
+    uint64_t GetFlags() const;
+    void SetFlags(uint64_t value);
     float GetMass() const;
     void SetMass(float value);
     GCRangeFloat GetSpeed() const;
@@ -21088,8 +21088,8 @@ public:
     void SetParentPanel(GCFuncShatterglass* value);
     uint32_t GetParentShard() const;
     void SetParentShard(uint32_t value);
-    ShatterGlassStressType GetShatterStressType() const;
-    void SetShatterStressType(ShatterGlassStressType value);
+    uint64_t GetShatterStressType() const;
+    void SetShatterStressType(uint64_t value);
     Vector GetStressVelocity() const;
     void SetStressVelocity(Vector value);
     bool GetCreatedModel() const;
@@ -21106,8 +21106,8 @@ public:
     void SetSumOfAllEdges(float value);
     float GetArea() const;
     void SetArea(float value);
-    OnFrame GetOnFrameEdge() const;
-    void SetOnFrameEdge(OnFrame value);
+    uint64_t GetOnFrameEdge() const;
+    void SetOnFrameEdge(uint64_t value);
     int32_t GetParentPanelsNthShard() const;
     void SetParentPanelsNthShard(int32_t value);
     int32_t GetSubShardGeneration() const;
@@ -21156,22 +21156,22 @@ public:
     void SetInternalId(uint32_t value);
     std::string GetShortName() const;
     void SetShortName(std::string value);
-    CommandExecMode_t GetExecMode() const;
-    void SetExecMode(CommandExecMode_t value);
+    uint64_t GetExecMode() const;
+    void SetExecMode(uint64_t value);
     std::string GetSpawnGroup() const;
     void SetSpawnGroup(std::string value);
     float GetPeriodicExecDelay() const;
     void SetPeriodicExecDelay(float value);
-    CommandEntitySpecType_t GetSpecType() const;
-    void SetSpecType(CommandEntitySpecType_t value);
+    uint64_t GetSpecType() const;
+    void SetSpecType(uint64_t value);
     std::string GetEntitySpec() const;
     void SetEntitySpec(std::string value);
     std::string GetCommands() const;
     void SetCommands(std::string value);
-    DebugOverlayBits_t GetSetDebugBits() const;
-    void SetSetDebugBits(DebugOverlayBits_t value);
-    DebugOverlayBits_t GetClearDebugBits() const;
-    void SetClearDebugBits(DebugOverlayBits_t value);
+    uint64_t GetSetDebugBits() const;
+    void SetSetDebugBits(uint64_t value);
+    uint64_t GetClearDebugBits() const;
+    void SetClearDebugBits(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -21787,8 +21787,8 @@ public:
     void SetShouldBleed(bool value);
     bool GetShouldSpark() const;
     void SetShouldSpark(bool value);
-    TakeDamageFlags_t GetDamageFlags() const;
-    void SetDamageFlags(TakeDamageFlags_t value);
+    uint64_t GetDamageFlags() const;
+    void SetDamageFlags(uint64_t value);
     int32_t GetNumObjectsPenetrated() const;
     void SetNumObjectsPenetrated(int32_t value);
     bool GetInTakeDamageFlow() const;
@@ -22006,8 +22006,8 @@ public:
 
     GCBaseEntity GetEnt() const;
     void SetEnt(GCBaseEntity* value);
-    MoveType_t GetMoveType() const;
-    void SetMoveType(MoveType_t value);
+    uint64_t GetMoveType() const;
+    void SetMoveType(uint64_t value);
     float GetStartTime() const;
     void SetStartTime(float value);
     Vector GetStartOrigin() const;
@@ -22260,16 +22260,16 @@ public:
     GCCSWeaponBaseVData(std::string ptr);
     GCCSWeaponBaseVData(void *ptr);
 
-    CSWeaponType GetWeaponType() const;
-    void SetWeaponType(CSWeaponType value);
-    CSWeaponCategory GetWeaponCategory() const;
-    void SetWeaponCategory(CSWeaponCategory value);
-    gear_slot_t GetGearSlot() const;
-    void SetGearSlot(gear_slot_t value);
+    uint64_t GetWeaponType() const;
+    void SetWeaponType(uint64_t value);
+    uint64_t GetWeaponCategory() const;
+    void SetWeaponCategory(uint64_t value);
+    uint64_t GetGearSlot() const;
+    void SetGearSlot(uint64_t value);
     int32_t GetGearSlotPosition() const;
     void SetGearSlotPosition(int32_t value);
-    loadout_slot_t GetDefaultLoadoutSlot() const;
-    void SetDefaultLoadoutSlot(loadout_slot_t value);
+    uint64_t GetDefaultLoadoutSlot() const;
+    void SetDefaultLoadoutSlot(uint64_t value);
     std::string GetWrongTeamMsg() const;
     void SetWrongTeamMsg(std::string value);
     int32_t GetPrice() const;
@@ -22290,8 +22290,8 @@ public:
     void SetCannotShootUnderwater(bool value);
     std::string GetAnimExtension() const;
     void SetAnimExtension(std::string value);
-    CSWeaponSilencerType GetSilencerType() const;
-    void SetSilencerType(CSWeaponSilencerType value);
+    uint64_t GetSilencerType() const;
+    void SetSilencerType(uint64_t value);
     int32_t GetCrosshairMinDistance() const;
     void SetCrosshairMinDistance(int32_t value);
     int32_t GetCrosshairDeltaDistance() const;
@@ -22506,8 +22506,8 @@ public:
 
     float GetInnerDistance() const;
     void SetInnerDistance(float value);
-    ParticleAttachment_t GetAttachType() const;
-    void SetAttachType(ParticleAttachment_t value);
+    uint64_t GetAttachType() const;
+    void SetAttachType(uint64_t value);
     bool GetBatchSameVolumeType() const;
     void SetBatchSameVolumeType(bool value);
     int32_t GetRTEnvCP() const;
@@ -22574,8 +22574,8 @@ public:
     void SetRadius(float value);
     float GetMaxRadius() const;
     void SetMaxRadius(float value);
-    soundlevel_t GetSoundLevel() const;
-    void SetSoundLevel(soundlevel_t value);
+    uint64_t GetSoundLevel() const;
+    void SetSoundLevel(uint64_t value);
     Gdynpitchvol_t GetDpv() const;
     void SetDpv(Gdynpitchvol_t value);
     bool GetActive() const;
@@ -22733,8 +22733,8 @@ public:
 
     GCBaseEntity GetEntity() const;
     void SetEntity(GCBaseEntity* value);
-    Class_T GetClassType() const;
-    void SetClassType(Class_T value);
+    uint64_t GetClassType() const;
+    void SetClassType(uint64_t value);
     GRelationship_t GetParent() const;
     void SetParent(GRelationship_t value);
 
@@ -22782,10 +22782,10 @@ public:
     GCParticleFloatInput(std::string ptr);
     GCParticleFloatInput(void *ptr);
 
-    ParticleFloatType_t GetType() const;
-    void SetType(ParticleFloatType_t value);
-    ParticleFloatMapType_t GetMapType() const;
-    void SetMapType(ParticleFloatMapType_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
+    uint64_t GetMapType() const;
+    void SetMapType(uint64_t value);
     float GetLiteralValue() const;
     void SetLiteralValue(float value);
     int32_t GetControlPoint() const;
@@ -22804,8 +22804,8 @@ public:
     void SetHasRandomSignFlip(bool value);
     int32_t GetRandomSeed() const;
     void SetRandomSeed(int32_t value);
-    ParticleFloatRandomMode_t GetRandomMode() const;
-    void SetRandomMode(ParticleFloatRandomMode_t value);
+    uint64_t GetRandomMode() const;
+    void SetRandomMode(uint64_t value);
     float GetLOD0() const;
     void SetLOD0(float value);
     float GetLOD1() const;
@@ -22828,12 +22828,12 @@ public:
     void SetNoiseOffset(float value);
     int32_t GetNoiseOctaves() const;
     void SetNoiseOctaves(int32_t value);
-    PFNoiseTurbulence_t GetNoiseTurbulence() const;
-    void SetNoiseTurbulence(PFNoiseTurbulence_t value);
-    PFNoiseType_t GetNoiseType() const;
-    void SetNoiseType(PFNoiseType_t value);
-    PFNoiseModifier_t GetNoiseModifier() const;
-    void SetNoiseModifier(PFNoiseModifier_t value);
+    uint64_t GetNoiseTurbulence() const;
+    void SetNoiseTurbulence(uint64_t value);
+    uint64_t GetNoiseType() const;
+    void SetNoiseType(uint64_t value);
+    uint64_t GetNoiseModifier() const;
+    void SetNoiseModifier(uint64_t value);
     float GetNoiseTurbulenceScale() const;
     void SetNoiseTurbulenceScale(float value);
     float GetNoiseTurbulenceMix() const;
@@ -22846,8 +22846,8 @@ public:
     void SetNoCameraFallback(float value);
     bool GetUseBoundsCenter() const;
     void SetUseBoundsCenter(bool value);
-    ParticleFloatInputMode_t GetInputMode() const;
-    void SetInputMode(ParticleFloatInputMode_t value);
+    uint64_t GetInputMode() const;
+    void SetInputMode(uint64_t value);
     float GetMultFactor() const;
     void SetMultFactor(float value);
     float GetInput0() const;
@@ -22866,8 +22866,8 @@ public:
     void SetNotchedOutputOutside(float value);
     float GetNotchedOutputInside() const;
     void SetNotchedOutputInside(float value);
-    ParticleFloatBiasType_t GetBiasType() const;
-    void SetBiasType(ParticleFloatBiasType_t value);
+    uint64_t GetBiasType() const;
+    void SetBiasType(uint64_t value);
     float GetBiasParameter() const;
     void SetBiasParameter(float value);
     GCParticleInput GetParent() const;
@@ -22992,8 +22992,8 @@ public:
 
     GCParticleCollectionFloatInput GetOpStrength() const;
     void SetOpStrength(GCParticleCollectionFloatInput value);
-    ParticleEndcapMode_t GetOpEndCapState() const;
-    void SetOpEndCapState(ParticleEndcapMode_t value);
+    uint64_t GetOpEndCapState() const;
+    void SetOpEndCapState(uint64_t value);
     float GetOpStartFadeInTime() const;
     void SetOpStartFadeInTime(float value);
     float GetOpEndFadeInTime() const;
@@ -23104,8 +23104,8 @@ public:
     void SetTags(std::vector<int32> value);
     int32_t GetFootIndex() const;
     void SetFootIndex(int32_t value);
-    StepPhase GetTriggerPhase() const;
-    void SetTriggerPhase(StepPhase value);
+    uint64_t GetTriggerPhase() const;
+    void SetTriggerPhase(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -23122,8 +23122,8 @@ public:
 
     int32_t GetControlPoint() const;
     void SetControlPoint(int32_t value);
-    ParticleAttachment_t GetAttachType() const;
-    void SetAttachType(ParticleAttachment_t value);
+    uint64_t GetAttachType() const;
+    void SetAttachType(uint64_t value);
     std::string GetAttachmentName() const;
     void SetAttachmentName(std::string value);
     Vector GetOffset() const;
@@ -23274,8 +23274,8 @@ public:
     GCAnimParamHandle(std::string ptr);
     GCAnimParamHandle(void *ptr);
 
-    AnimParamType_t GetType() const;
-    void SetType(AnimParamType_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
     uint8_t GetIndex() const;
     void SetIndex(uint8_t value);
 
@@ -23716,8 +23716,8 @@ public:
     GCAnimInputDamping(std::string ptr);
     GCAnimInputDamping(void *ptr);
 
-    DampingSpeedFunction GetSpeedFunction() const;
-    void SetSpeedFunction(DampingSpeedFunction value);
+    uint64_t GetSpeedFunction() const;
+    void SetSpeedFunction(uint64_t value);
     float GetSpeedScale() const;
     void SetSpeedScale(float value);
 
@@ -23786,10 +23786,10 @@ public:
 
     std::string GetName() const;
     void SetName(std::string value);
-    ActionType_t GetActionType() const;
-    void SetActionType(ActionType_t value);
-    ActionType_t GetActionInstanceType() const;
-    void SetActionInstanceType(ActionType_t value);
+    uint64_t GetActionType() const;
+    void SetActionType(uint64_t value);
+    uint64_t GetActionInstanceType() const;
+    void SetActionInstanceType(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24103,8 +24103,8 @@ public:
     GCParticleTransformInput(std::string ptr);
     GCParticleTransformInput(void *ptr);
 
-    ParticleTransformType_t GetType() const;
-    void SetType(ParticleTransformType_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
     bool GetFollowNamedValue() const;
     void SetFollowNamedValue(bool value);
     bool GetSupportsDisabled() const;
@@ -24203,8 +24203,8 @@ public:
 
     GCAnimNodePath GetNodePath() const;
     void SetNodePath(GCAnimNodePath value);
-    AnimNodeNetworkMode GetNetworkMode() const;
-    void SetNetworkMode(AnimNodeNetworkMode value);
+    uint64_t GetNetworkMode() const;
+    void SetNetworkMode(uint64_t value);
     std::string GetName() const;
     void SetName(std::string value);
 
@@ -24243,8 +24243,8 @@ public:
     GCParticleVecInput(std::string ptr);
     GCParticleVecInput(void *ptr);
 
-    ParticleVecType_t GetType() const;
-    void SetType(ParticleVecType_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
     Vector GetLiteralValue() const;
     void SetLiteralValue(Vector value);
     Color GetLiteralColor() const;
@@ -24621,8 +24621,8 @@ public:
     void SetChild1(GCAnimUpdateNodeRef value);
     GCAnimUpdateNodeRef GetChild2() const;
     void SetChild2(GCAnimUpdateNodeRef value);
-    BinaryNodeTiming GetTimingBehavior() const;
-    void SetTimingBehavior(BinaryNodeTiming value);
+    uint64_t GetTimingBehavior() const;
+    void SetTimingBehavior(uint64_t value);
     float GetTimingBlend() const;
     void SetTimingBlend(float value);
     bool GetResetChild1() const;
@@ -24851,20 +24851,20 @@ public:
     void SetRandomizeOffsets(bool value);
     bool GetClampUVs() const;
     void SetClampUVs(bool value);
-    SpriteCardPerParticleScale_t GetPerParticleBlend() const;
-    void SetPerParticleBlend(SpriteCardPerParticleScale_t value);
-    SpriteCardPerParticleScale_t GetPerParticleScale() const;
-    void SetPerParticleScale(SpriteCardPerParticleScale_t value);
-    SpriteCardPerParticleScale_t GetPerParticleOffsetU() const;
-    void SetPerParticleOffsetU(SpriteCardPerParticleScale_t value);
-    SpriteCardPerParticleScale_t GetPerParticleOffsetV() const;
-    void SetPerParticleOffsetV(SpriteCardPerParticleScale_t value);
-    SpriteCardPerParticleScale_t GetPerParticleRotation() const;
-    void SetPerParticleRotation(SpriteCardPerParticleScale_t value);
-    SpriteCardPerParticleScale_t GetPerParticleZoom() const;
-    void SetPerParticleZoom(SpriteCardPerParticleScale_t value);
-    SpriteCardPerParticleScale_t GetPerParticleDistortion() const;
-    void SetPerParticleDistortion(SpriteCardPerParticleScale_t value);
+    uint64_t GetPerParticleBlend() const;
+    void SetPerParticleBlend(uint64_t value);
+    uint64_t GetPerParticleScale() const;
+    void SetPerParticleScale(uint64_t value);
+    uint64_t GetPerParticleOffsetU() const;
+    void SetPerParticleOffsetU(uint64_t value);
+    uint64_t GetPerParticleOffsetV() const;
+    void SetPerParticleOffsetV(uint64_t value);
+    uint64_t GetPerParticleRotation() const;
+    void SetPerParticleRotation(uint64_t value);
+    uint64_t GetPerParticleZoom() const;
+    void SetPerParticleZoom(uint64_t value);
+    uint64_t GetPerParticleDistortion() const;
+    void SetPerParticleDistortion(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -24879,8 +24879,8 @@ public:
     GCParticleModelInput(std::string ptr);
     GCParticleModelInput(void *ptr);
 
-    ParticleModelType_t GetType() const;
-    void SetType(ParticleModelType_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
     int32_t GetControlPoint() const;
     void SetControlPoint(int32_t value);
     GCParticleInput GetParent() const;
@@ -25007,14 +25007,14 @@ public:
     void SetWeightListIndex(int32_t value);
     float GetRootMotionBlend() const;
     void SetRootMotionBlend(float value);
-    BoneMaskBlendSpace GetBlendSpace() const;
-    void SetBlendSpace(BoneMaskBlendSpace value);
-    BinaryNodeChildOption GetFootMotionTiming() const;
-    void SetFootMotionTiming(BinaryNodeChildOption value);
+    uint64_t GetBlendSpace() const;
+    void SetBlendSpace(uint64_t value);
+    uint64_t GetFootMotionTiming() const;
+    void SetFootMotionTiming(uint64_t value);
     bool GetUseBlendScale() const;
     void SetUseBlendScale(bool value);
-    AnimValueSource GetBlendValueSource() const;
-    void SetBlendValueSource(AnimValueSource value);
+    uint64_t GetBlendValueSource() const;
+    void SetBlendValueSource(uint64_t value);
     GCAnimParamHandle GetBlendParameter() const;
     void SetBlendParameter(GCAnimParamHandle value);
     GCBinaryUpdateNode GetParent() const;
@@ -25314,10 +25314,10 @@ public:
     GVMixFilterDesc_t(std::string ptr);
     GVMixFilterDesc_t(void *ptr);
 
-    VMixFilterType_t GetFilterType() const;
-    void SetFilterType(VMixFilterType_t value);
-    VMixFilterSlope_t GetFilterSlope() const;
-    void SetFilterSlope(VMixFilterSlope_t value);
+    uint64_t GetFilterType() const;
+    void SetFilterType(uint64_t value);
+    uint64_t GetFilterSlope() const;
+    void SetFilterSlope(uint64_t value);
     bool GetEnabled() const;
     void SetEnabled(bool value);
     float GetFldbGain() const;
@@ -25364,8 +25364,8 @@ public:
     GCParticleMassCalculationParameters(std::string ptr);
     GCParticleMassCalculationParameters(void *ptr);
 
-    ParticleMassMode_t GetMassMode() const;
-    void SetMassMode(ParticleMassMode_t value);
+    uint64_t GetMassMode() const;
+    void SetMassMode(uint64_t value);
     GCPerParticleFloatInput GetRadius() const;
     void SetRadius(GCPerParticleFloatInput value);
     GCPerParticleFloatInput GetNominalRadius() const;
@@ -25466,8 +25466,8 @@ public:
 
     GFootPinningPoseOpFixedData_t GetPoseOpFixedData() const;
     void SetPoseOpFixedData(GFootPinningPoseOpFixedData_t value);
-    FootPinningTimingSource GetTimingSource() const;
-    void SetTimingSource(FootPinningTimingSource value);
+    uint64_t GetTimingSource() const;
+    void SetTimingSource(uint64_t value);
     std::vector<GCAnimParamHandle> GetParams() const;
     void SetParams(std::vector<GCAnimParamHandle> value);
     bool GetResetChild() const;
@@ -25702,8 +25702,8 @@ public:
     void SetStrExposedVisibleWhenTrue(std::string value);
     std::string GetStrExposedHiddenWhenTrue() const;
     void SetStrExposedHiddenWhenTrue(std::string value);
-    CompositeMaterialInputLooseVariableType_t GetVariableType() const;
-    void SetVariableType(CompositeMaterialInputLooseVariableType_t value);
+    uint64_t GetVariableType() const;
+    void SetVariableType(uint64_t value);
     bool GetValueBoolean() const;
     void SetValueBoolean(bool value);
     int32_t GetValueIntX() const;
@@ -25742,14 +25742,14 @@ public:
     void SetValueFloatW_Max(float value);
     Color GetCValueColor4() const;
     void SetCValueColor4(Color value);
-    CompositeMaterialVarSystemVar_t GetValueSystemVar() const;
-    void SetValueSystemVar(CompositeMaterialVarSystemVar_t value);
+    uint64_t GetValueSystemVar() const;
+    void SetValueSystemVar(uint64_t value);
     std::string GetStrTextureContentAssetPath() const;
     void SetStrTextureContentAssetPath(std::string value);
     std::string GetStrTextureCompilationVtexTemplate() const;
     void SetStrTextureCompilationVtexTemplate(std::string value);
-    CompositeMaterialInputTextureType_t GetTextureType() const;
-    void SetTextureType(CompositeMaterialInputTextureType_t value);
+    uint64_t GetTextureType() const;
+    void SetTextureType(uint64_t value);
     std::string GetStrString() const;
     void SetStrString(std::string value);
     std::string GetStrPanoramaPanelPath() const;
@@ -25845,8 +25845,8 @@ public:
     void SetHipDampingSettings(GCAnimInputDamping value);
     int32_t GetHipBoneIndex() const;
     void SetHipBoneIndex(int32_t value);
-    IKSolverType GetIkSolverType() const;
-    void SetIkSolverType(IKSolverType value);
+    uint64_t GetIkSolverType() const;
+    void SetIkSolverType(uint64_t value);
     bool GetApplyTilt() const;
     void SetApplyTilt(bool value);
     bool GetApplyHipDrop() const;
@@ -25915,8 +25915,8 @@ public:
     void SetMaxValue(float value);
     std::string GetOpvarName() const;
     void SetOpvarName(std::string value);
-    SosActionSortType_t GetSortType() const;
-    void SetSortType(SosActionSortType_t value);
+    uint64_t GetSortType() const;
+    void SetSortType(uint64_t value);
     GCSosGroupActionSchema GetParent() const;
     void SetParent(GCSosGroupActionSchema value);
 
@@ -26256,8 +26256,8 @@ public:
     GCNmFrameSnapEvent(std::string ptr);
     GCNmFrameSnapEvent(void *ptr);
 
-    NmFrameSnapEventMode_t GetFrameSnapMode() const;
-    void SetFrameSnapMode(NmFrameSnapEventMode_t value);
+    uint64_t GetFrameSnapMode() const;
+    void SetFrameSnapMode(uint64_t value);
     GCNmEvent GetParent() const;
     void SetParent(GCNmEvent value);
 
@@ -26284,8 +26284,8 @@ public:
     void SetJumpStartCycle(float value);
     float GetJumpEndCycle() const;
     void SetJumpEndCycle(float value);
-    JumpCorrectionMethod GetCorrectionMethod() const;
-    void SetCorrectionMethod(JumpCorrectionMethod value);
+    uint64_t GetCorrectionMethod() const;
+    void SetCorrectionMethod(uint64_t value);
     std::vector<bool> GetTranslationAxis() const;
     void SetTranslationAxis(std::vector<bool> value);
     bool GetScaleSpeed() const;
@@ -26326,8 +26326,8 @@ public:
 
     std::string GetAttributeName() const;
     void SetAttributeName(std::string value);
-    MatterialAttributeTagType_t GetAttributeType() const;
-    void SetAttributeType(MatterialAttributeTagType_t value);
+    uint64_t GetAttributeType() const;
+    void SetAttributeType(uint64_t value);
     float GetValue() const;
     void SetValue(float value);
     Color GetColor() const;
@@ -26352,8 +26352,8 @@ public:
     void SetName(std::string value);
     GAnimComponentID GetId() const;
     void SetId(GAnimComponentID value);
-    AnimNodeNetworkMode GetNetworkMode() const;
-    void SetNetworkMode(AnimNodeNetworkMode value);
+    uint64_t GetNetworkMode() const;
+    void SetNetworkMode(uint64_t value);
     bool GetStartEnabled() const;
     void SetStartEnabled(bool value);
 
@@ -26370,8 +26370,8 @@ public:
     GCReplicationParameters(std::string ptr);
     GCReplicationParameters(void *ptr);
 
-    ParticleReplicationMode_t GetReplicationMode() const;
-    void SetReplicationMode(ParticleReplicationMode_t value);
+    uint64_t GetReplicationMode() const;
+    void SetReplicationMode(uint64_t value);
     bool GetScaleChildParticleRadii() const;
     void SetScaleChildParticleRadii(bool value);
     GCParticleCollectionFloatInput GetMinRandomRadiusScale() const;
@@ -26448,8 +26448,8 @@ public:
     void SetSpeedScaleBlending(float value);
     GCAnimInputDamping GetTurnDamping() const;
     void SetTurnDamping(GCAnimInputDamping value);
-    AnimValueSource GetFacingTarget() const;
-    void SetFacingTarget(AnimValueSource value);
+    uint64_t GetFacingTarget() const;
+    void SetFacingTarget(uint64_t value);
     GCAnimParamHandle GetParam() const;
     void SetParam(GCAnimParamHandle value);
     float GetTurnToFaceOffset() const;
@@ -26532,8 +26532,8 @@ public:
     GModelBoneFlexDriverControl_t(std::string ptr);
     GModelBoneFlexDriverControl_t(void *ptr);
 
-    ModelBoneFlexComponent_t GetBoneComponent() const;
-    void SetBoneComponent(ModelBoneFlexComponent_t value);
+    uint64_t GetBoneComponent() const;
+    void SetBoneComponent(uint64_t value);
     std::string GetFlexController() const;
     void SetFlexController(std::string value);
     uint32_t GetFlexControllerToken() const;
@@ -26701,8 +26701,8 @@ public:
 
     std::string GetConfigName() const;
     void SetConfigName(std::string value);
-    ParticleAttachment_t GetAttachType() const;
-    void SetAttachType(ParticleAttachment_t value);
+    uint64_t GetAttachType() const;
+    void SetAttachType(uint64_t value);
     std::string GetBoundEntityPath() const;
     void SetBoundEntityPath(std::string value);
     std::string GetStrEntityScope() const;
@@ -26747,8 +26747,8 @@ public:
     GCAnimationGraphVisualizerPrimitiveBase(std::string ptr);
     GCAnimationGraphVisualizerPrimitiveBase(void *ptr);
 
-    CAnimationGraphVisualizerPrimitiveType GetType() const;
-    void SetType(CAnimationGraphVisualizerPrimitiveType value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
     std::vector<GAnimNodeID> GetOwningAnimNodePaths() const;
     void SetOwningAnimNodePaths(std::vector<GAnimNodeID> value);
     int32_t GetOwningAnimNodePathCount() const;
@@ -26937,8 +26937,8 @@ public:
     void SetSamples(std::vector<GParamSpanSample_t> value);
     GCAnimParamHandle GetParam() const;
     void SetParam(GCAnimParamHandle value);
-    AnimParamType_t GetParamType() const;
-    void SetParamType(AnimParamType_t value);
+    uint64_t GetParamType() const;
+    void SetParamType(uint64_t value);
     float GetStartCycle() const;
     void SetStartCycle(float value);
     float GetEndCycle() const;
@@ -26983,8 +26983,8 @@ public:
     void SetOffset(int32_t value);
     int32_t GetSlot() const;
     void SetSlot(int32_t value);
-    RenderSlotType_t GetSlotType() const;
-    void SetSlotType(RenderSlotType_t value);
+    uint64_t GetSlotType() const;
+    void SetSlotType(uint64_t value);
     int32_t GetInstanceStepRate() const;
     void SetInstanceStepRate(int32_t value);
 
@@ -27154,12 +27154,12 @@ public:
     void SetWeights(std::vector<float32> value);
     std::vector<float32> GetBlendTimes() const;
     void SetBlendTimes(std::vector<float32> value);
-    ChoiceMethod GetChoiceMethod() const;
-    void SetChoiceMethod(ChoiceMethod value);
-    ChoiceChangeMethod GetChoiceChangeMethod() const;
-    void SetChoiceChangeMethod(ChoiceChangeMethod value);
-    ChoiceBlendMethod GetBlendMethod() const;
-    void SetBlendMethod(ChoiceBlendMethod value);
+    uint64_t GetChoiceMethod() const;
+    void SetChoiceMethod(uint64_t value);
+    uint64_t GetChoiceChangeMethod() const;
+    void SetChoiceChangeMethod(uint64_t value);
+    uint64_t GetBlendMethod() const;
+    void SetBlendMethod(uint64_t value);
     float GetBlendTime() const;
     void SetBlendTime(float value);
     bool GetCrossFade() const;
@@ -27184,8 +27184,8 @@ public:
     GIKSolverSettings_t(std::string ptr);
     GIKSolverSettings_t(void *ptr);
 
-    IKSolverType GetSolverType() const;
-    void SetSolverType(IKSolverType value);
+    uint64_t GetSolverType() const;
+    void SetSolverType(uint64_t value);
     int32_t GetNumIterations() const;
     void SetNumIterations(int32_t value);
 
@@ -27440,10 +27440,10 @@ public:
 
     int32_t GetMaxCount() const;
     void SetMaxCount(int32_t value);
-    SosActionStopType_t GetStopType() const;
-    void SetStopType(SosActionStopType_t value);
-    SosActionSortType_t GetSortType() const;
-    void SetSortType(SosActionSortType_t value);
+    uint64_t GetStopType() const;
+    void SetStopType(uint64_t value);
+    uint64_t GetSortType() const;
+    void SetSortType(uint64_t value);
     GCSosGroupActionSchema GetParent() const;
     void SetParent(GCSosGroupActionSchema value);
 
@@ -27510,8 +27510,8 @@ public:
     GCCycleControlUpdateNode(std::string ptr);
     GCCycleControlUpdateNode(void *ptr);
 
-    AnimValueSource GetValueSource() const;
-    void SetValueSource(AnimValueSource value);
+    uint64_t GetValueSource() const;
+    void SetValueSource(uint64_t value);
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
     GCUnaryUpdateNode GetParent() const;
@@ -27674,10 +27674,10 @@ public:
     GCConcreteAnimParameter(std::string ptr);
     GCConcreteAnimParameter(void *ptr);
 
-    AnimParamButton_t GetPreviewButton() const;
-    void SetPreviewButton(AnimParamButton_t value);
-    AnimParamNetworkSetting GetNetworkSetting() const;
-    void SetNetworkSetting(AnimParamNetworkSetting value);
+    uint64_t GetPreviewButton() const;
+    void SetPreviewButton(uint64_t value);
+    uint64_t GetNetworkSetting() const;
+    void SetNetworkSetting(uint64_t value);
     bool GetUseMostRecentValue() const;
     void SetUseMostRecentValue(bool value);
     bool GetAutoReset() const;
@@ -27830,8 +27830,8 @@ public:
     GCNmTransitionEvent(std::string ptr);
     GCNmTransitionEvent(void *ptr);
 
-    NmTransitionRule_t GetRule() const;
-    void SetRule(NmTransitionRule_t value);
+    uint64_t GetRule() const;
+    void SetRule(uint64_t value);
     GCNmEvent GetParent() const;
     void SetParent(GCNmEvent value);
 
@@ -28089,8 +28089,8 @@ public:
     void SetBaseSequence(std::string value);
     int32_t GetBaseSequenceFrame() const;
     void SetBaseSequenceFrame(int32_t value);
-    EDemoBoneSelectionMode GetBoneSelectionMode() const;
-    void SetBoneSelectionMode(EDemoBoneSelectionMode value);
+    uint64_t GetBoneSelectionMode() const;
+    void SetBoneSelectionMode(uint64_t value);
     std::vector<GBoneDemoCaptureSettings_t> GetBones() const;
     void SetBones(std::vector<GBoneDemoCaptureSettings_t> value);
     std::vector<GIKDemoCaptureSettings_t> GetIkChains() const;
@@ -28217,12 +28217,12 @@ public:
     GTwoBoneIKSettings_t(std::string ptr);
     GTwoBoneIKSettings_t(void *ptr);
 
-    IkEndEffectorType GetEndEffectorType() const;
-    void SetEndEffectorType(IkEndEffectorType value);
+    uint64_t GetEndEffectorType() const;
+    void SetEndEffectorType(uint64_t value);
     GCAnimAttachment GetEndEffectorAttachment() const;
     void SetEndEffectorAttachment(GCAnimAttachment value);
-    IkTargetType GetTargetType() const;
-    void SetTargetType(IkTargetType value);
+    uint64_t GetTargetType() const;
+    void SetTargetType(uint64_t value);
     GCAnimAttachment GetTargetAttachment() const;
     void SetTargetAttachment(GCAnimAttachment value);
     int32_t GetTargetBoneIndex() const;
@@ -28263,8 +28263,8 @@ public:
 
     bool GetEnabled() const;
     void SetEnabled(bool value);
-    CompositeMaterialInputContainerSourceType_t GetCompositeMaterialInputContainerSourceType() const;
-    void SetCompositeMaterialInputContainerSourceType(CompositeMaterialInputContainerSourceType_t value);
+    uint64_t GetCompositeMaterialInputContainerSourceType() const;
+    void SetCompositeMaterialInputContainerSourceType(uint64_t value);
     std::string GetStrAttrName() const;
     void SetStrAttrName(std::string value);
     std::string GetStrAlias() const;
@@ -29149,10 +29149,10 @@ public:
     GAggregateSceneObject_t(std::string ptr);
     GAggregateSceneObject_t(void *ptr);
 
-    ObjectTypeFlags_t GetAllFlags() const;
-    void SetAllFlags(ObjectTypeFlags_t value);
-    ObjectTypeFlags_t GetAnyFlags() const;
-    void SetAnyFlags(ObjectTypeFlags_t value);
+    uint64_t GetAllFlags() const;
+    void SetAllFlags(uint64_t value);
+    uint64_t GetAnyFlags() const;
+    void SetAnyFlags(uint64_t value);
     int16_t GetLayer() const;
     void SetLayer(int16_t value);
     std::vector<GAggregateMeshInfo_t> GetAggregateMeshes() const;
@@ -29179,8 +29179,8 @@ public:
 
     std::string GetParentBoneName() const;
     void SetParentBoneName(std::string value);
-    IKChannelMode GetMode() const;
-    void SetMode(IKChannelMode value);
+    uint64_t GetMode() const;
+    void SetMode(uint64_t value);
     std::string GetIkChainName() const;
     void SetIkChainName(std::string value);
     std::string GetOneBoneStart() const;
@@ -29467,8 +29467,8 @@ public:
 
     bool GetEnabled() const;
     void SetEnabled(bool value);
-    CompMatPropertyMutatorType_t GetMutatorCommandType() const;
-    void SetMutatorCommandType(CompMatPropertyMutatorType_t value);
+    uint64_t GetMutatorCommandType() const;
+    void SetMutatorCommandType(uint64_t value);
     std::string GetStrInitWith_Container() const;
     void SetStrInitWith_Container(std::string value);
     std::string GetStrCopyProperty_InputContainerSrc() const;
@@ -29619,8 +29619,8 @@ public:
     GPostProcessingBloomParameters_t(std::string ptr);
     GPostProcessingBloomParameters_t(void *ptr);
 
-    BloomBlendMode_t GetBlendMode() const;
-    void SetBlendMode(BloomBlendMode_t value);
+    uint64_t GetBlendMode() const;
+    void SetBlendMode(uint64_t value);
     float GetBloomStrength() const;
     void SetBloomStrength(float value);
     float GetScreenBloomStrength() const;
@@ -29806,8 +29806,8 @@ public:
     GVMixOscDesc_t(std::string ptr);
     GVMixOscDesc_t(void *ptr);
 
-    VMixLFOShape_t GetOscType() const;
-    void SetOscType(VMixLFOShape_t value);
+    uint64_t GetOscType() const;
+    void SetOscType(uint64_t value);
     float GetFreq() const;
     void SetFreq(float value);
     float GetPhase() const;
@@ -30002,8 +30002,8 @@ public:
     void SetPoses(std::vector<GCPoseHandle> value);
     GCAnimInputDamping GetDamping() const;
     void SetDamping(GCAnimInputDamping value);
-    AnimVectorSource GetBlendSource() const;
-    void SetBlendSource(AnimVectorSource value);
+    uint64_t GetBlendSource() const;
+    void SetBlendSource(uint64_t value);
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
     Vector GetVerticalAxis() const;
@@ -30048,16 +30048,16 @@ public:
     GIKTargetSettings_t(std::string ptr);
     GIKTargetSettings_t(void *ptr);
 
-    IKTargetSource GetTargetSource() const;
-    void SetTargetSource(IKTargetSource value);
+    uint64_t GetTargetSource() const;
+    void SetTargetSource(uint64_t value);
     GIKBoneNameAndIndex_t GetBone() const;
     void SetBone(GIKBoneNameAndIndex_t value);
     GAnimParamID GetAnimgraphParameterNamePosition() const;
     void SetAnimgraphParameterNamePosition(GAnimParamID value);
     GAnimParamID GetAnimgraphParameterNameOrientation() const;
     void SetAnimgraphParameterNameOrientation(GAnimParamID value);
-    IKTargetCoordinateSystem GetTargetCoordSystem() const;
-    void SetTargetCoordSystem(IKTargetCoordinateSystem value);
+    uint64_t GetTargetCoordSystem() const;
+    void SetTargetCoordSystem(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -30098,10 +30098,10 @@ public:
     void SetAlpha2Field(GParticleAttributeIndex_t value);
     GCParticleCollectionRendererVecInput GetColorScale() const;
     void SetColorScale(GCParticleCollectionRendererVecInput value);
-    ParticleColorBlendType_t GetColorBlendType() const;
-    void SetColorBlendType(ParticleColorBlendType_t value);
-    SpriteCardShaderType_t GetShaderType() const;
-    void SetShaderType(SpriteCardShaderType_t value);
+    uint64_t GetColorBlendType() const;
+    void SetColorBlendType(uint64_t value);
+    uint64_t GetShaderType() const;
+    void SetShaderType(uint64_t value);
     std::string GetStrShaderOverride() const;
     void SetStrShaderOverride(std::string value);
     GCParticleCollectionRendererFloatInput GetCenterXOffset() const;
@@ -30110,14 +30110,14 @@ public:
     void SetCenterYOffset(GCParticleCollectionRendererFloatInput value);
     float GetBumpStrength() const;
     void SetBumpStrength(float value);
-    ParticleSequenceCropOverride_t GetCropTextureOverride() const;
-    void SetCropTextureOverride(ParticleSequenceCropOverride_t value);
+    uint64_t GetCropTextureOverride() const;
+    void SetCropTextureOverride(uint64_t value);
     std::vector<GTextureGroup_t> GetTexturesInput() const;
     void SetTexturesInput(std::vector<GTextureGroup_t> value);
     float GetAnimationRate() const;
     void SetAnimationRate(float value);
-    AnimationType_t GetAnimationType() const;
-    void SetAnimationType(AnimationType_t value);
+    uint64_t GetAnimationType() const;
+    void SetAnimationType(uint64_t value);
     bool GetAnimateInFPS() const;
     void SetAnimateInFPS(bool value);
     GCParticleCollectionRendererFloatInput GetSelfIllumAmount() const;
@@ -30130,8 +30130,8 @@ public:
     void SetLightingControlPoint(int32_t value);
     GParticleAttributeIndex_t GetSelfIllumPerParticle() const;
     void SetSelfIllumPerParticle(GParticleAttributeIndex_t value);
-    ParticleOutputBlendMode_t GetOutputBlendMode() const;
-    void SetOutputBlendMode(ParticleOutputBlendMode_t value);
+    uint64_t GetOutputBlendMode() const;
+    void SetOutputBlendMode(uint64_t value);
     bool GetGammaCorrectVertexColors() const;
     void SetGammaCorrectVertexColors(bool value);
     bool GetSaturateColorPreAlphaBlend() const;
@@ -30144,20 +30144,20 @@ public:
     void SetOverbrightFactor(GCParticleCollectionRendererFloatInput value);
     int32_t GetHSVShiftControlPoint() const;
     void SetHSVShiftControlPoint(int32_t value);
-    ParticleFogType_t GetFogType() const;
-    void SetFogType(ParticleFogType_t value);
+    uint64_t GetFogType() const;
+    void SetFogType(uint64_t value);
     GCParticleCollectionRendererFloatInput GetFogAmount() const;
     void SetFogAmount(GCParticleCollectionRendererFloatInput value);
     bool GetTintByFOW() const;
     void SetTintByFOW(bool value);
     bool GetTintByGlobalLight() const;
     void SetTintByGlobalLight(bool value);
-    SpriteCardPerParticleScale_t GetPerParticleAlphaReference() const;
-    void SetPerParticleAlphaReference(SpriteCardPerParticleScale_t value);
-    SpriteCardPerParticleScale_t GetPerParticleAlphaRefWindow() const;
-    void SetPerParticleAlphaRefWindow(SpriteCardPerParticleScale_t value);
-    ParticleAlphaReferenceType_t GetAlphaReferenceType() const;
-    void SetAlphaReferenceType(ParticleAlphaReferenceType_t value);
+    uint64_t GetPerParticleAlphaReference() const;
+    void SetPerParticleAlphaReference(uint64_t value);
+    uint64_t GetPerParticleAlphaRefWindow() const;
+    void SetPerParticleAlphaRefWindow(uint64_t value);
+    uint64_t GetAlphaReferenceType() const;
+    void SetAlphaReferenceType(uint64_t value);
     GCParticleCollectionRendererFloatInput GetAlphaReferenceSoftness() const;
     void SetAlphaReferenceSoftness(GCParticleCollectionRendererFloatInput value);
     GCParticleCollectionRendererFloatInput GetSourceAlphaValueToMapToZero() const;
@@ -30172,8 +30172,8 @@ public:
     void SetRefractAmount(GCParticleCollectionRendererFloatInput value);
     int32_t GetRefractBlurRadius() const;
     void SetRefractBlurRadius(int32_t value);
-    BlurFilterType_t GetRefractBlurType() const;
-    void SetRefractBlurType(BlurFilterType_t value);
+    uint64_t GetRefractBlurType() const;
+    void SetRefractBlurType(uint64_t value);
     bool GetOnlyRenderInEffectsBloomPass() const;
     void SetOnlyRenderInEffectsBloomPass(bool value);
     bool GetOnlyRenderInEffectsWaterPass() const;
@@ -30196,8 +30196,8 @@ public:
     void SetReverseZBuffering(bool value);
     bool GetDisableZBuffering() const;
     void SetDisableZBuffering(bool value);
-    ParticleDepthFeatheringMode_t GetFeatheringMode() const;
-    void SetFeatheringMode(ParticleDepthFeatheringMode_t value);
+    uint64_t GetFeatheringMode() const;
+    void SetFeatheringMode(uint64_t value);
     GCParticleCollectionRendererFloatInput GetFeatheringMinDist() const;
     void SetFeatheringMinDist(GCParticleCollectionRendererFloatInput value);
     GCParticleCollectionRendererFloatInput GetFeatheringMaxDist() const;
@@ -30206,8 +30206,8 @@ public:
     void SetFeatheringFilter(GCParticleCollectionRendererFloatInput value);
     GCParticleCollectionRendererFloatInput GetDepthBias() const;
     void SetDepthBias(GCParticleCollectionRendererFloatInput value);
-    ParticleSortingChoiceList_t GetSortMethod() const;
-    void SetSortMethod(ParticleSortingChoiceList_t value);
+    uint64_t GetSortMethod() const;
+    void SetSortMethod(uint64_t value);
     bool GetBlendFramesSeq0() const;
     void SetBlendFramesSeq0(bool value);
     bool GetMaxLuminanceBlendingSequence0() const;
@@ -30320,8 +30320,8 @@ public:
     GCFlexOp(std::string ptr);
     GCFlexOp(void *ptr);
 
-    FlexOpCode_t GetOpCode() const;
-    void SetOpCode(FlexOpCode_t value);
+    uint64_t GetOpCode() const;
+    void SetOpCode(uint64_t value);
     int32_t GetData() const;
     void SetData(int32_t value);
 
@@ -30525,12 +30525,12 @@ public:
     void SetEnabled(bool value);
     bool GetReplaceTextureWithGradient() const;
     void SetReplaceTextureWithGradient(bool value);
-    SpriteCardTextureType_t GetTextureType() const;
-    void SetTextureType(SpriteCardTextureType_t value);
-    SpriteCardTextureChannel_t GetTextureChannels() const;
-    void SetTextureChannels(SpriteCardTextureChannel_t value);
-    ParticleTextureLayerBlendType_t GetTextureBlendMode() const;
-    void SetTextureBlendMode(ParticleTextureLayerBlendType_t value);
+    uint64_t GetTextureType() const;
+    void SetTextureType(uint64_t value);
+    uint64_t GetTextureChannels() const;
+    void SetTextureChannels(uint64_t value);
+    uint64_t GetTextureBlendMode() const;
+    void SetTextureBlendMode(uint64_t value);
     GCParticleCollectionRendererFloatInput GetTextureBlend() const;
     void SetTextureBlend(GCParticleCollectionRendererFloatInput value);
     GTextureControls_t GetTextureControls() const;
@@ -30931,8 +30931,8 @@ public:
     void SetStanceSourceNode(GCAnimUpdateNodeRef value);
     GCAnimParamHandle GetParameter() const;
     void SetParameter(GCAnimParamHandle value);
-    StanceOverrideMode GetMode() const;
-    void SetMode(StanceOverrideMode value);
+    uint64_t GetMode() const;
+    void SetMode(uint64_t value);
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
@@ -31086,8 +31086,8 @@ public:
     void SetName(std::string value);
     bool GetIsPublic() const;
     void SetIsPublic(bool value);
-    PulseValueType_t GetValueType() const;
-    void SetValueType(PulseValueType_t value);
+    uint64_t GetValueType() const;
+    void SetValueType(uint64_t value);
     GParticleNamedValueConfiguration_t GetDefaultConfig() const;
     void SetDefaultConfig(GParticleNamedValueConfiguration_t value);
     std::vector<GParticleNamedValueConfiguration_t> GetNamedConfigs() const;
@@ -31275,8 +31275,8 @@ public:
     GAnimationDecodeDebugDump_t(std::string ptr);
     GAnimationDecodeDebugDump_t(void *ptr);
 
-    AnimationProcessingType_t GetProcessingType() const;
-    void SetProcessingType(AnimationProcessingType_t value);
+    uint64_t GetProcessingType() const;
+    void SetProcessingType(uint64_t value);
     std::vector<GAnimationDecodeDebugDumpElement_t> GetElems() const;
     void SetElems(std::vector<GAnimationDecodeDebugDumpElement_t> value);
 
@@ -31380,8 +31380,8 @@ public:
 
     int32_t GetWeightListIndex() const;
     void SetWeightListIndex(int32_t value);
-    RagdollPoseControl GetPoseControlMethod() const;
-    void SetPoseControlMethod(RagdollPoseControl value);
+    uint64_t GetPoseControlMethod() const;
+    void SetPoseControlMethod(uint64_t value);
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
@@ -31629,8 +31629,8 @@ public:
 
     GAABB_t GetBounds() const;
     void SetBounds(GAABB_t value);
-    ObjectTypeFlags_t GetFlags() const;
-    void SetFlags(ObjectTypeFlags_t value);
+    uint64_t GetFlags() const;
+    void SetFlags(uint64_t value);
     int16_t GetLayer() const;
     void SetLayer(int16_t value);
     std::vector<Vector> GetInstancePositions() const;
@@ -31657,8 +31657,8 @@ public:
 
     uint16_t GetIndex() const;
     void SetIndex(uint16_t value);
-    PoseType_t GetType() const;
-    void SetType(PoseType_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -31725,8 +31725,8 @@ public:
     GCRagdollAnimTag(std::string ptr);
     GCRagdollAnimTag(void *ptr);
 
-    AnimPoseControl GetPoseControl() const;
-    void SetPoseControl(AnimPoseControl value);
+    uint64_t GetPoseControl() const;
+    void SetPoseControl(uint64_t value);
     float GetFrequency() const;
     void SetFrequency(float value);
     float GetDampingRatio() const;
@@ -31874,14 +31874,14 @@ public:
     void SetSortedOrder(std::vector<uint8> value);
     std::vector<float32> GetTargetValues() const;
     void SetTargetValues(std::vector<float32> value);
-    AnimValueSource GetBlendValueSource() const;
-    void SetBlendValueSource(AnimValueSource value);
+    uint64_t GetBlendValueSource() const;
+    void SetBlendValueSource(uint64_t value);
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
     GCAnimInputDamping GetDamping() const;
     void SetDamping(GCAnimInputDamping value);
-    BlendKeyType GetBlendKeyType() const;
-    void SetBlendKeyType(BlendKeyType value);
+    uint64_t GetBlendKeyType() const;
+    void SetBlendKeyType(uint64_t value);
     bool GetLockBlendOnReset() const;
     void SetLockBlendOnReset(bool value);
     bool GetSyncCycles() const;
@@ -31962,8 +31962,8 @@ public:
     GCVoiceContainerEnvelopeAnalyzer(std::string ptr);
     GCVoiceContainerEnvelopeAnalyzer(void *ptr);
 
-    EMode_t GetMode() const;
-    void SetMode(EMode_t value);
+    uint64_t GetMode() const;
+    void SetMode(uint64_t value);
     int32_t GetSamples() const;
     void SetSamples(int32_t value);
     float GetThreshold() const;
@@ -32018,8 +32018,8 @@ public:
     void SetBoundsMaxLS(Vector value);
     Vector GetBoundsMinLS() const;
     void SetBoundsMinLS(Vector value);
-    JiggleBoneSimSpace GetSimSpace() const;
-    void SetSimSpace(JiggleBoneSimSpace value);
+    uint64_t GetSimSpace() const;
+    void SetSimSpace(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -32476,8 +32476,8 @@ public:
     GCNmFootEvent(std::string ptr);
     GCNmFootEvent(void *ptr);
 
-    NmFootPhase_t GetPhase() const;
-    void SetPhase(NmFootPhase_t value);
+    uint64_t GetPhase() const;
+    void SetPhase(uint64_t value);
     GCNmEvent GetParent() const;
     void SetParent(GCNmEvent value);
 
@@ -32522,16 +32522,16 @@ public:
     void SetNodeItemIndices(std::vector<int32> value);
     GCAnimInputDamping GetDamping() const;
     void SetDamping(GCAnimInputDamping value);
-    AnimValueSource GetBlendSourceX() const;
-    void SetBlendSourceX(AnimValueSource value);
+    uint64_t GetBlendSourceX() const;
+    void SetBlendSourceX(uint64_t value);
     GCAnimParamHandle GetParamX() const;
     void SetParamX(GCAnimParamHandle value);
-    AnimValueSource GetBlendSourceY() const;
-    void SetBlendSourceY(AnimValueSource value);
+    uint64_t GetBlendSourceY() const;
+    void SetBlendSourceY(uint64_t value);
     GCAnimParamHandle GetParamY() const;
     void SetParamY(GCAnimParamHandle value);
-    Blend2DMode GetBlendMode() const;
-    void SetBlendMode(Blend2DMode value);
+    uint64_t GetBlendMode() const;
+    void SetBlendMode(uint64_t value);
     float GetPlaybackSpeed() const;
     void SetPlaybackSpeed(float value);
     bool GetLoop() const;
@@ -32570,8 +32570,8 @@ public:
     void SetBoneTransforms(std::vector<matrix3x4a_t> value);
     std::vector<float32> GetFlexControllers() const;
     void SetFlexControllers(std::vector<float32> value);
-    AnimationSnapshotType_t GetSnapshotType() const;
-    void SetSnapshotType(AnimationSnapshotType_t value);
+    uint64_t GetSnapshotType() const;
+    void SetSnapshotType(uint64_t value);
     bool GetHasDecodeDump() const;
     void SetHasDecodeDump(bool value);
     GAnimationDecodeDebugDumpElement_t GetDecodeDump() const;
@@ -32754,8 +32754,8 @@ public:
     void SetAttachmentName(std::string value);
     std::string GetLocalAttachmentOffsetName() const;
     void SetLocalAttachmentOffsetName(std::string value);
-    ModelConfigAttachmentType_t GetAttachmentType() const;
-    void SetAttachmentType(ModelConfigAttachmentType_t value);
+    uint64_t GetAttachmentType() const;
+    void SetAttachmentType(uint64_t value);
     bool GetBoneMergeFlex() const;
     void SetBoneMergeFlex(bool value);
     bool GetUserSpecifiedColor() const;
@@ -32808,8 +32808,8 @@ public:
     void SetEndCap(bool value);
     bool GetDisableChild() const;
     void SetDisableChild(bool value);
-    ParticleDetailLevel_t GetDetailLevel() const;
-    void SetDetailLevel(ParticleDetailLevel_t value);
+    uint64_t GetDetailLevel() const;
+    void SetDetailLevel(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33048,8 +33048,8 @@ public:
     void SetIgnoreEvents(bool value);
     bool GetIsStateMachineLayer() const;
     void SetIsStateMachineLayer(bool value);
-    NmPoseBlendMode_t GetBlendMode() const;
-    void SetBlendMode(NmPoseBlendMode_t value);
+    uint64_t GetBlendMode() const;
+    void SetBlendMode(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33578,8 +33578,8 @@ public:
 
     GCAnimInputDamping GetDamping() const;
     void SetDamping(GCAnimInputDamping value);
-    AnimValueSource GetFacingTarget() const;
-    void SetFacingTarget(AnimValueSource value);
+    uint64_t GetFacingTarget() const;
+    void SetFacingTarget(uint64_t value);
     GCAnimParamHandle GetMoveVecParam() const;
     void SetMoveVecParam(GCAnimParamHandle value);
     GCAnimParamHandle GetMoveHeadingParam() const;
@@ -33658,8 +33658,8 @@ public:
     GCMoodVData(std::string ptr);
     GCMoodVData(void *ptr);
 
-    MoodType_t GetMoodType() const;
-    void SetMoodType(MoodType_t value);
+    uint64_t GetMoodType() const;
+    void SetMoodType(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -33882,12 +33882,12 @@ public:
     void SetTagEndStopIsInstant(bool value);
     std::string GetAttachmentName() const;
     void SetAttachmentName(std::string value);
-    ParticleAttachment_t GetAttachmentType() const;
-    void SetAttachmentType(ParticleAttachment_t value);
+    uint64_t GetAttachmentType() const;
+    void SetAttachmentType(uint64_t value);
     std::string GetAttachmentCP1Name() const;
     void SetAttachmentCP1Name(std::string value);
-    ParticleAttachment_t GetAttachmentCP1Type() const;
-    void SetAttachmentCP1Type(ParticleAttachment_t value);
+    uint64_t GetAttachmentCP1Type() const;
+    void SetAttachmentCP1Type(uint64_t value);
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
@@ -34018,8 +34018,8 @@ public:
 
     std::string GetName() const;
     void SetName(std::string value);
-    SosGroupType_t GetType() const;
-    void SetType(SosGroupType_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
     bool GetIsBlocking() const;
     void SetIsBlocking(bool value);
     int32_t GetBlockMaxCount() const;
@@ -34346,8 +34346,8 @@ public:
     GCompositeMaterialMatchFilter_t(std::string ptr);
     GCompositeMaterialMatchFilter_t(void *ptr);
 
-    CompositeMaterialMatchFilterType_t GetCompositeMaterialMatchFilterType() const;
-    void SetCompositeMaterialMatchFilterType(CompositeMaterialMatchFilterType_t value);
+    uint64_t GetCompositeMaterialMatchFilterType() const;
+    void SetCompositeMaterialMatchFilterType(uint64_t value);
     std::string GetStrMatchFilter() const;
     void SetStrMatchFilter(std::string value);
     std::string GetStrMatchValue() const;
@@ -34412,8 +34412,8 @@ public:
     void SetTintColor(Vector4D value);
     std::string GetSkin() const;
     void SetSkin(std::string value);
-    ObjectTypeFlags_t GetObjectTypeFlags() const;
-    void SetObjectTypeFlags(ObjectTypeFlags_t value);
+    uint64_t GetObjectTypeFlags() const;
+    void SetObjectTypeFlags(uint64_t value);
     Vector GetLightingOrigin() const;
     void SetLightingOrigin(Vector value);
     int16_t GetOverlayRenderOrder() const;
@@ -34472,8 +34472,8 @@ public:
     GVMixSubgraphSwitchDesc_t(std::string ptr);
     GVMixSubgraphSwitchDesc_t(void *ptr);
 
-    VMixSubgraphSwitchInterpolationType_t GetInterpolationMode() const;
-    void SetInterpolationMode(VMixSubgraphSwitchInterpolationType_t value);
+    uint64_t GetInterpolationMode() const;
+    void SetInterpolationMode(uint64_t value);
     bool GetOnlyTailsOnFadeOut() const;
     void SetOnlyTailsOnFadeOut(bool value);
     float GetInterpolationTime() const;
@@ -34510,10 +34510,10 @@ public:
     void SetTransitionOptions(GCNmTransitionNode value);
     int16_t GetTargetSyncIDNodeIdx() const;
     void SetTargetSyncIDNodeIdx(int16_t value);
-    NmEasingOperation_t GetBlendWeightEasing() const;
-    void SetBlendWeightEasing(NmEasingOperation_t value);
-    NmRootMotionBlendMode_t GetRootMotionBlend() const;
-    void SetRootMotionBlend(NmRootMotionBlendMode_t value);
+    uint64_t GetBlendWeightEasing() const;
+    void SetBlendWeightEasing(uint64_t value);
+    uint64_t GetRootMotionBlend() const;
+    void SetRootMotionBlend(uint64_t value);
     GCNmPoseNode GetParent() const;
     void SetParent(GCNmPoseNode value);
 
@@ -34640,8 +34640,8 @@ public:
     void SetLFORate(float value);
     float GetPhase() const;
     void SetPhase(float value);
-    VMixLFOShape_t GetLFOShape() const;
-    void SetLFOShape(VMixLFOShape_t value);
+    uint64_t GetLFOShape() const;
+    void SetLFOShape(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -34760,8 +34760,8 @@ public:
     void SetParameter(GCAnimParamHandle value);
     int32_t GetTagIndex() const;
     void SetTagIndex(int32_t value);
-    SelectorTagBehavior_t GetTagBehavior() const;
-    void SetTagBehavior(SelectorTagBehavior_t value);
+    uint64_t GetTagBehavior() const;
+    void SetTagBehavior(uint64_t value);
     bool GetResetOnChange() const;
     void SetResetOnChange(bool value);
     bool GetLockWhenWaning() const;
@@ -34986,8 +34986,8 @@ public:
     void SetLODGroupMask(uint8_t value);
     Color GetTintColor() const;
     void SetTintColor(Color value);
-    ObjectTypeFlags_t GetObjectFlags() const;
-    void SetObjectFlags(ObjectTypeFlags_t value);
+    uint64_t GetObjectFlags() const;
+    void SetObjectFlags(uint64_t value);
     int32_t GetLightProbeVolumePrecomputedHandshake() const;
     void SetLightProbeVolumePrecomputedHandshake(int32_t value);
 
@@ -35221,8 +35221,8 @@ public:
     void SetSubSceneObject(uint32_t value);
     uint32_t GetDrawCallIndex() const;
     void SetDrawCallIndex(uint32_t value);
-    MeshDrawPrimitiveFlags_t GetAdditionalMeshDrawPrimitiveFlags() const;
-    void SetAdditionalMeshDrawPrimitiveFlags(MeshDrawPrimitiveFlags_t value);
+    uint64_t GetAdditionalMeshDrawPrimitiveFlags() const;
+    void SetAdditionalMeshDrawPrimitiveFlags(uint64_t value);
     GCRenderBufferBinding GetExtraBufferBinding() const;
     void SetExtraBufferBinding(GCRenderBufferBinding value);
     GBaseSceneObjectOverride_t GetParent() const;
@@ -35303,8 +35303,8 @@ public:
     GCStateActionUpdater(std::string ptr);
     GCStateActionUpdater(void *ptr);
 
-    StateActionBehavior GetBehavior() const;
-    void SetBehavior(StateActionBehavior value);
+    uint64_t GetBehavior() const;
+    void SetBehavior(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -35359,8 +35359,8 @@ public:
     void SetDamping(GCAnimInputDamping value);
     std::vector<GCPoseHandle> GetPoseCacheHandles() const;
     void SetPoseCacheHandles(std::vector<GCPoseHandle> value);
-    AimMatrixBlendMode GetBlendMode() const;
-    void SetBlendMode(AimMatrixBlendMode value);
+    uint64_t GetBlendMode() const;
+    void SetBlendMode(uint64_t value);
     float GetMaxYawAngle() const;
     void SetMaxYawAngle(float value);
     float GetMaxPitchAngle() const;
@@ -35397,8 +35397,8 @@ public:
     void SetPreviewModel(std::string value);
     uint32_t GetModSpecificData() const;
     void SetModSpecificData(uint32_t value);
-    PetGroundType_t GetGroundType() const;
-    void SetGroundType(PetGroundType_t value);
+    uint64_t GetGroundType() const;
+    void SetGroundType(uint64_t value);
     std::string GetSequenceName() const;
     void SetSequenceName(std::string value);
     int32_t GetFireParticleOnSequenceFrame() const;
@@ -35477,8 +35477,8 @@ public:
 
     GAimMatrixOpFixedSettings_t GetOpFixedSettings() const;
     void SetOpFixedSettings(GAimMatrixOpFixedSettings_t value);
-    AnimVectorSource GetTarget() const;
-    void SetTarget(AnimVectorSource value);
+    uint64_t GetTarget() const;
+    void SetTarget(uint64_t value);
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
     bool GetResetChild() const;
@@ -35503,8 +35503,8 @@ public:
 
     GCAnimInputDamping GetDamping() const;
     void SetDamping(GCAnimInputDamping value);
-    AnimValueSource GetBlendValueSource() const;
-    void SetBlendValueSource(AnimValueSource value);
+    uint64_t GetBlendValueSource() const;
+    void SetBlendValueSource(uint64_t value);
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
     float GetPlaybackSpeed() const;
@@ -35531,8 +35531,8 @@ public:
     GVMixPannerDesc_t(std::string ptr);
     GVMixPannerDesc_t(void *ptr);
 
-    VMixPannerType_t GetType() const;
-    void SetType(VMixPannerType_t value);
+    uint64_t GetType() const;
+    void SetType(uint64_t value);
     float GetStrength() const;
     void SetStrength(float value);
 
@@ -35749,8 +35749,8 @@ public:
     GCFootstepLandedAnimTag(std::string ptr);
     GCFootstepLandedAnimTag(void *ptr);
 
-    FootstepLandedFootSoundType_t GetFootstepType() const;
-    void SetFootstepType(FootstepLandedFootSoundType_t value);
+    uint64_t GetFootstepType() const;
+    void SetFootstepType(uint64_t value);
     std::string GetOverrideSoundName() const;
     void SetOverrideSoundName(std::string value);
     std::string GetDebugAnimSourceString() const;
@@ -35955,10 +35955,10 @@ public:
     void SetIndex(GFuseVariableIndex_t value);
     uint8_t GetNumComponents() const;
     void SetNumComponents(uint8_t value);
-    FuseVariableType_t GetVarType() const;
-    void SetVarType(FuseVariableType_t value);
-    FuseVariableAccess_t GetAccess() const;
-    void SetAccess(FuseVariableAccess_t value);
+    uint64_t GetVarType() const;
+    void SetVarType(uint64_t value);
+    uint64_t GetAccess() const;
+    void SetAccess(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -36036,8 +36036,8 @@ public:
     void SetTags(std::vector<GTagSpan_t> value);
     float GetDuration() const;
     void SetDuration(float value);
-    AnimValueSource GetValueSource() const;
-    void SetValueSource(AnimValueSource value);
+    uint64_t GetValueSource() const;
+    void SetValueSource(uint64_t value);
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
     GCLeafUpdateNode GetParent() const;
@@ -36056,8 +36056,8 @@ public:
     GCBaseTrailRenderer(std::string ptr);
     GCBaseTrailRenderer(void *ptr);
 
-    ParticleOrientationChoiceList_t GetOrientationType() const;
-    void SetOrientationType(ParticleOrientationChoiceList_t value);
+    uint64_t GetOrientationType() const;
+    void SetOrientationType(uint64_t value);
     int32_t GetOrientationControlPoint() const;
     void SetOrientationControlPoint(int32_t value);
     float GetMinSize() const;
@@ -36418,8 +36418,8 @@ public:
     GCFootFallAnimTag(std::string ptr);
     GCFootFallAnimTag(void *ptr);
 
-    FootFallTagFoot_t GetFoot() const;
-    void SetFoot(FootFallTagFoot_t value);
+    uint64_t GetFoot() const;
+    void SetFoot(uint64_t value);
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
@@ -36918,8 +36918,8 @@ public:
     void SetStoppingDistance(float value);
     float GetTargetSpeed() const;
     void SetTargetSpeed(float value);
-    VelocityMetricMode GetMode() const;
-    void SetMode(VelocityMetricMode value);
+    uint64_t GetMode() const;
+    void SetMode(uint64_t value);
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
@@ -37227,8 +37227,8 @@ public:
     void SetProxyReadParams(std::vector<int32> value);
     std::vector<int32> GetProxyWriteParams() const;
     void SetProxyWriteParams(std::vector<int32> value);
-    AnimScriptType GetScriptType() const;
-    void SetScriptType(AnimScriptType value);
+    uint64_t GetScriptType() const;
+    void SetScriptType(uint64_t value);
 
     std::string ToPtr();
     bool IsValid();
@@ -37339,8 +37339,8 @@ public:
     GSosEditItemInfo_t(std::string ptr);
     GSosEditItemInfo_t(void *ptr);
 
-    SosEditItemType_t GetItemType() const;
-    void SetItemType(SosEditItemType_t value);
+    uint64_t GetItemType() const;
+    void SetItemType(uint64_t value);
     std::string GetItemName() const;
     void SetItemName(std::string value);
     std::string GetItemTypeName() const;
@@ -37455,8 +37455,8 @@ public:
     GCAddUpdateNode(std::string ptr);
     GCAddUpdateNode(void *ptr);
 
-    BinaryNodeChildOption GetFootMotionTiming() const;
-    void SetFootMotionTiming(BinaryNodeChildOption value);
+    uint64_t GetFootMotionTiming() const;
+    void SetFootMotionTiming(uint64_t value);
     bool GetApplyToFootMotion() const;
     void SetApplyToFootMotion(bool value);
     bool GetApplyChannelsSeparately() const;
@@ -37514,8 +37514,8 @@ public:
 
     GCAnimParamHandle GetParam() const;
     void SetParam(GCAnimParamHandle value);
-    AnimParamType_t GetParamType() const;
-    void SetParamType(AnimParamType_t value);
+    uint64_t GetParamType() const;
+    void SetParamType(uint64_t value);
     GAnimScriptHandle GetScript() const;
     void SetScript(GAnimScriptHandle value);
     GCAnimActionUpdater GetParent() const;
@@ -37670,8 +37670,8 @@ public:
     GVMixUtilityDesc_t(std::string ptr);
     GVMixUtilityDesc_t(void *ptr);
 
-    VMixChannelOperation_t GetOp() const;
-    void SetOp(VMixChannelOperation_t value);
+    uint64_t GetOp() const;
+    void SetOp(uint64_t value);
     float GetInputPan() const;
     void SetInputPan(float value);
     float GetOutputBalance() const;
@@ -37957,8 +37957,8 @@ public:
     void SetShouldHitboxesFallbackToSnapshot(bool value);
     bool GetShouldHitboxesFallbackToCollisionHulls() const;
     void SetShouldHitboxesFallbackToCollisionHulls(bool value);
-    InheritableBoolType_t GetViewModelEffect() const;
-    void SetViewModelEffect(InheritableBoolType_t value);
+    uint64_t GetViewModelEffect() const;
+    void SetViewModelEffect(uint64_t value);
     bool GetScreenSpaceEffect() const;
     void SetScreenSpaceEffect(bool value);
     std::string GetTargetLayerID() const;
@@ -37985,8 +37985,8 @@ public:
     GCVoiceContainerSelector(std::string ptr);
     GCVoiceContainerSelector(void *ptr);
 
-    PlayBackMode_t GetMode() const;
-    void SetMode(PlayBackMode_t value);
+    uint64_t GetMode() const;
+    void SetMode(uint64_t value);
     bool GetRetrigger() const;
     void SetRetrigger(bool value);
     GCVoiceContainerBase GetParent() const;
@@ -38351,8 +38351,8 @@ public:
 
     std::string GetExpressionString() const;
     void SetExpressionString(std::string value);
-    AnimParamType_t GetParamType() const;
-    void SetParamType(AnimParamType_t value);
+    uint64_t GetParamType() const;
+    void SetParamType(uint64_t value);
     GCAnimParameterBase GetParent() const;
     void SetParent(GCAnimParameterBase value);
 
@@ -38593,8 +38593,8 @@ public:
     void SetSolverSettings(GIKSolverSettings_t value);
     GIKTargetSettings_t GetTargetSettings() const;
     void SetTargetSettings(GIKTargetSettings_t value);
-    SolveIKChainAnimNodeDebugSetting GetDebugSetting() const;
-    void SetDebugSetting(SolveIKChainAnimNodeDebugSetting value);
+    uint64_t GetDebugSetting() const;
+    void SetDebugSetting(uint64_t value);
     float GetDebugNormalizedValue() const;
     void SetDebugNormalizedValue(float value);
     Vector GetDebugOffset() const;
@@ -39009,8 +39009,8 @@ public:
     void SetFirstMeshlet(uint32_t value);
     uint16_t GetNumMeshlets() const;
     void SetNumMeshlets(uint16_t value);
-    RenderPrimitiveType_t GetPrimitiveType() const;
-    void SetPrimitiveType(RenderPrimitiveType_t value);
+    uint64_t GetPrimitiveType() const;
+    void SetPrimitiveType(uint64_t value);
     int32_t GetBaseVertex() const;
     void SetBaseVertex(int32_t value);
     int32_t GetVertexCount() const;
@@ -39093,8 +39093,8 @@ public:
 
     GLookAtOpFixedSettings_t GetOpFixedSettings() const;
     void SetOpFixedSettings(GLookAtOpFixedSettings_t value);
-    AnimVectorSource GetTarget() const;
-    void SetTarget(AnimVectorSource value);
+    uint64_t GetTarget() const;
+    void SetTarget(uint64_t value);
     GCAnimParamHandle GetParamIndex() const;
     void SetParamIndex(GCAnimParamHandle value);
     GCAnimParamHandle GetWeightParamIndex() const;
@@ -39215,8 +39215,8 @@ public:
     GCSubtractUpdateNode(std::string ptr);
     GCSubtractUpdateNode(void *ptr);
 
-    BinaryNodeChildOption GetFootMotionTiming() const;
-    void SetFootMotionTiming(BinaryNodeChildOption value);
+    uint64_t GetFootMotionTiming() const;
+    void SetFootMotionTiming(uint64_t value);
     bool GetApplyToFootMotion() const;
     void SetApplyToFootMotion(bool value);
     bool GetApplyChannelsSeparately() const;
@@ -39448,8 +39448,8 @@ public:
     GCTurnHelperUpdateNode(std::string ptr);
     GCTurnHelperUpdateNode(void *ptr);
 
-    AnimValueSource GetFacingTarget() const;
-    void SetFacingTarget(AnimValueSource value);
+    uint64_t GetFacingTarget() const;
+    void SetFacingTarget(uint64_t value);
     float GetTurnStartTimeOffset() const;
     void SetTurnStartTimeOffset(float value);
     float GetTurnDuration() const;
@@ -39609,8 +39609,8 @@ public:
     GCompMatMutatorCondition_t(std::string ptr);
     GCompMatMutatorCondition_t(void *ptr);
 
-    CompMatPropertyMutatorConditionType_t GetMutatorCondition() const;
-    void SetMutatorCondition(CompMatPropertyMutatorConditionType_t value);
+    uint64_t GetMutatorCondition() const;
+    void SetMutatorCondition(uint64_t value);
     std::string GetStrMutatorConditionContainerName() const;
     void SetStrMutatorConditionContainerName(std::string value);
     std::string GetStrMutatorConditionContainerVarName() const;

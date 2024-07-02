@@ -1,8 +1,3 @@
-local hookHandles = {
-    pre = {},
-    post = {}
-}
-
 function AddHook(mem, args_list, return_type)
     if type(args_list) ~= "string" then
         print("AddHook: args_list must be a string.")

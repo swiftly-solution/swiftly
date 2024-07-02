@@ -128,6 +128,21 @@ void SetupLuaTypes(LuaPlugin *plugin, lua_State *state)
 
         .endNamespace()
 
+        .beginNamespace("ListenOverride")
+        .addConstant("Listen_Default", 0)
+        .addConstant("Listen_Default", 1)
+        .addConstant("Listen_Default", 2)
+        .endNamespace()
+
+        .beginNamespace("VoiceFlagValue")
+        .addConstant("Speak_Normal", 0)
+        .addConstant("Speak_Muted", 1 << 0)
+        .addConstant("Speak_All", 1 << 1)
+        .addConstant("Speak_ListenAll", 1 << 2)
+        .addConstant("Speak_Team", 1 << 3)
+        .addConstant("Speak_ListenTeam", 1 << 4)
+        .endNamespace()
+
         .beginNamespace("LogType_t")
         .addConstant("Debug", (uint64_t)LogType_t::Debug)
         .addConstant("Warning", (uint64_t)LogType_t::Warning)

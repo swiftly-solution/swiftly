@@ -20,6 +20,25 @@
 #define HUD_PRINTTALK 3
 #define HUD_PRINTCENTER 4
 
+enum ListenOverride
+{
+    Listen_Default = 0,
+    Listen_Mute,
+    Listen_Hear
+};
+
+enum VoiceFlagValue
+{
+    Speak_Normal = 0,
+    Speak_Muted = 1 << 0,
+    Speak_All = 1 << 1,
+    Speak_ListenAll = 1 << 2,
+    Speak_Team = 1 << 3,
+    Speak_ListenTeam = 1 << 4,
+};
+
+typedef uint8_t VoiceFlag_t;
+
 class Player
 {
 public:
@@ -88,6 +107,13 @@ public:
     std::any GetInternalVar(std::string name);
     void SetInternalVar(std::string name, std::any value);
 
+    void SetListen(CPlayerSlot slot, ListenOverride listen);
+    void SetVoiceFlags(VoiceFlag_t flags);
+    VoiceFlag_t GetVoiceFlags();
+    ListenOverride GetListen(CPlayerSlot slot) const;
+
+    CPlayerBitVec m_selfMutes[64] = {};
+
 private:
     int slot;
     bool isFakeClient = false;
@@ -111,6 +137,9 @@ private:
     int selected = 0;
 
     std::map<std::string, std::any> internalVars;
+
+    ListenOverride m_listenMap[66] = {};
+    VoiceFlag_t m_voiceFlag = 0;
 };
 
 #endif

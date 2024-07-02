@@ -67,6 +67,10 @@ void SetupLuaPlayer(LuaPlugin *plugin, lua_State *state)
         .addFunction("ShowMenu", &PluginPlayer::ShowMenu)
         .addFunction("GetVar", &PluginPlayer::GetVarValueLua)
         .addFunction("SetVar", &PluginPlayer::SetVarValueLua)
+        .addFunction("SetListening", &PluginPlayer::SetListening)
+        .addFunction("GetListening", &PluginPlayer::GetListening)
+        .addFunction("SetVoiceFlags", &PluginPlayer::SetVoiceFlags)
+        .addFunction("GetVoiceFlags", &PluginPlayer::GetVoiceFlags)
         .endClass()
         .addFunction("GetPlayer", scripting_GetPlayer);
 }

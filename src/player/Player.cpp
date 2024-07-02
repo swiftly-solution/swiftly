@@ -510,3 +510,23 @@ void Player::SetInternalVar(std::string name, std::any value)
 {
     this->internalVars[name] = value;
 }
+
+void Player::SetListen(CPlayerSlot slot, ListenOverride listen)
+{
+    m_listenMap[slot.Get()] = listen;
+}
+
+void Player::SetVoiceFlags(VoiceFlag_t flags)
+{
+    m_voiceFlag = flags;
+}
+
+VoiceFlag_t Player::GetVoiceFlags()
+{
+    return m_voiceFlag;
+}
+
+ListenOverride Player::GetListen(CPlayerSlot slot) const
+{
+    return m_listenMap[slot.Get()];
+}

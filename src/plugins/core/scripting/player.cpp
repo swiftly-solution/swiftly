@@ -393,3 +393,46 @@ void PluginPlayer::SetVarValueLua(std::string key, luabridge::LuaRef value)
 
     this->SetVarValue(key, returnValue);
 }
+
+void PluginPlayer::SetListening(int playerid, int listenOverride)
+{
+    Player *player = g_playerManager->GetPlayer(playerid);
+    if (!player)
+        return;
+
+    Player *self = g_playerManager->GetPlayer(this->playerId);
+    if (!self)
+        return;
+
+    self->SetListen(playerid, (ListenOverride)listenOverride);
+}
+
+int PluginPlayer::GetListening(int playerid)
+{
+    Player *player = g_playerManager->GetPlayer(playerid);
+    if (!player)
+        return ListenOverride::Listen_Default;
+
+    Player *self = g_playerManager->GetPlayer(this->playerId);
+    if (!self)
+        return ListenOverride::Listen_Default;
+
+    return self->GetListen(playerid);
+}
+
+void PluginPlayer::SetVoiceFlags(int flags)
+{
+    Player *self = g_playerManager->GetPlayer(this->playerId);
+    if (!self)
+        return;
+
+    self->SetVoiceFlags((VoiceFlag_t)flags);
+}
+int PluginPlayer::GetVoiceFlags()
+{
+    Player *self = g_playerManager->GetPlayer(this->playerId);
+    if (!self)
+        return 0;
+
+    return self->GetVoiceFlags();
+}

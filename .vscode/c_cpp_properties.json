@@ -20,7 +20,8 @@
                 "${workspaceFolder}/vendor/mysql/win64/include/**",
                 "${workspaceFolder}/vendor/asmjit/src/**",
                 "${workspaceFolder}/vendor/dynohook/win64/include/**",
-                "${workspaceFolder}/vendor/dyncall/win64/include/**"
+                "${workspaceFolder}/vendor/dyncall/win64/include/**",
+                "${workspaceFolder}/vendor/bzip2/win64/include/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -50,7 +51,8 @@
                 "${workspaceFolder}/vendor/mysql/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/asmjit/src/**",
                 "${workspaceFolder}/vendor/dynohook/linuxsteamrt64/include/**",
-                "${workspaceFolder}/vendor/dyncall/linuxsteamrt64/include/**"
+                "${workspaceFolder}/vendor/dyncall/linuxsteamrt64/include/**",
+                "${workspaceFolder}/vendor/bzip2/linuxsteamrt64/include/**"
             ],
             "defines": [
                 "_DEBUG",

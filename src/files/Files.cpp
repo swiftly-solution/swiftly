@@ -142,3 +142,65 @@ std::vector<std::string> Files::FetchDirectories(std::string path)
 
     return directories;
 }
+
+bool Files::Compress(std::string filePath, std::string outputPath)
+{
+    std::ifstream inFile(filePath, std::ios_base::binary);
+    std::ofstream outFile(outputPath, std::ios_base::binary);
+
+    if (!inFile || !outFile)
+    {
+        PRINT("Couldn't create read and write streams.\n");
+        return false;
+    }
+
+    std::vector<char> inBuffer((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
+    inFile.close();
+
+    unsigned int outSize = inBuffer.size() * 1.01 + 600;
+    std::vector<char> outBuffer(outSize);
+
+    int result = BZ2_bzBuffToBuffCompress(outBuffer.data(), &outSize, inBuffer.data(), inBuffer.size(), 9, 0, 30);
+
+    if (result != BZ_OK)
+    {
+        PRINTF("Compression failed. Error code: %d\n", result);
+        return false;
+    }
+
+    outFile.write(outBuffer.data(), outSize);
+    outFile.close();
+
+    return true;
+}
+
+bool Files::Decompress(std::string filePath, std::string outputPath)
+{
+    std::ifstream inFile(filePath, std::ios_base::binary);
+    std::ofstream outFile(outputPath, std::ios_base::binary);
+
+    if (!inFile || !outFile)
+    {
+        PRINT("Couldn't create read and write streams.\n");
+        return false;
+    }
+
+    std::vector<char> inBuffer((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
+    inFile.close();
+
+    unsigned int outSize = inBuffer.size() * 10;
+    std::vector<char> outBuffer(outSize);
+
+    int result = BZ2_bzBuffToBuffDecompress(outBuffer.data(), &outSize, inBuffer.data(), inBuffer.size(), 0, 0);
+
+    if (result != BZ_OK)
+    {
+        PRINTF("Decompression failed. Error code: %d\n", result);
+        return false;
+    }
+
+    outFile.write(outBuffer.data(), outSize);
+    outFile.close();
+
+    return true;
+}

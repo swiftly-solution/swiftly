@@ -55,3 +55,12 @@ bool PluginFiles::CreateDirectory(std::string path)
 {
     return Files::CreateDirectory(path);
 }
+
+bool PluginFiles::Compress(std::string path, std::string output)
+{
+    return Files::Compress(path, output);
+}
+bool PluginFiles::Decompress(std::string path, std::string output)
+{
+    return Files::Decompress(path, output);
+}

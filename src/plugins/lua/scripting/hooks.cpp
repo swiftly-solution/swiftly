@@ -6,6 +6,7 @@ void SetupLuaHooks(LuaPlugin *plugin, lua_State *state)
         .beginClass<PluginHooks>("Hooks")
         .addConstructor<void (*)(std::string)>()
         .addFunction("Add", &PluginHooks::AddHook)
+        .addFunction("AddEntityOutputHook", &PluginHooks::AddEntityOutputHook)
         .addFunction("Call", &PluginHooks::CallHookLua)
         .endClass();
 

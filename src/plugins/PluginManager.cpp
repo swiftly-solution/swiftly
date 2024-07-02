@@ -136,7 +136,7 @@ bool PluginManager::StartPlugin(std::string plugin_name)
         msgpack::pack(ss, eventData);
 
         PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
-        this->ExecuteEvent("core", "OnAllPluginsLoaded", ss.str(), event);
+        plugin->TriggerEvent("core", "OnAllPluginsLoaded", ss.str(), event);
         delete event;
     }
 

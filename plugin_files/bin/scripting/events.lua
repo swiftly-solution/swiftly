@@ -11,7 +11,7 @@ AddGlobalEvents(function(event, eventSource, eventName, eventData)
 
     for idx,handle in next,eventHandlers[eventName].handlers,nil do
         if type(handle) == "function" then
-            local result = handle(event, table.unpack(data))
+            local result = (handle(event, table.unpack(data)) or EventResult.Continue)
             if result ~= EventResult.Continue then return result end
         end
     end

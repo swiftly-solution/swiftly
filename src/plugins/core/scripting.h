@@ -4,11 +4,16 @@
 #include "scripting_includes.h"
 #include "../../resourcemonitor/ResourceMonitor.h"
 
+#include "cstrike15_usermessages.pb.h"
+#include <google/protobuf/message.h>
+
 #include <dynohook/core.h>
 #include <dynohook/manager.h>
 #include <dynohook/conventions/x64_systemV_call.h>
 
 #include <any>
+
+#define INVALID_MESSAGE_ID -1
 
 class GCBaseEntity;
 class GCBasePlayerController;
@@ -18,6 +23,42 @@ class GCCSPlayerPawn;
 class GCCSPlayerPawnBase;
 class GCEntityInstance;
 class PluginMemory;
+
+//////////////////////////////////////////////////////////////
+/////////////////          Entity IO           //////////////
+////////////////////////////////////////////////////////////
+
+struct EntityIOConnectionDesc_t
+{
+    string_t m_targetDesc;
+    string_t m_targetInput;
+    string_t m_valueOverride;
+    CEntityHandle m_hTarget;
+    EntityIOTargetType_t m_nTargetType;
+    int32 m_nTimesToFire;
+    float m_flDelay;
+};
+
+struct EntityIOConnection_t : EntityIOConnectionDesc_t
+{
+    bool m_bMarkedForRemoval;
+    EntityIOConnection_t *m_pNext;
+};
+
+struct EntityIOOutputDesc_t
+{
+    const char *m_pName;
+    uint32 m_nFlags;
+    uint32 m_nOutputOffset;
+};
+
+class CEntityIOOutput
+{
+public:
+    void *vtable;
+    EntityIOConnection_t *m_pConnections;
+    EntityIOOutputDesc_t *m_pDesc;
+};
 
 //////////////////////////////////////////////////////////////
 /////////////////            Logger            //////////////
@@ -133,6 +174,119 @@ public:
     void SetHookReturn(std::any value);
     void SetHookReturnLua(luabridge::LuaRef value);
     std::any GetHookReturn();
+};
+
+//////////////////////////////////////////////////////////////
+/////////////////         User Message         //////////////
+////////////////////////////////////////////////////////////
+
+class PluginUserMessage
+{
+private:
+    int msgid = INVALID_MESSAGE_ID;
+    CNetMessagePB<google::protobuf::Message> *msgBuffer = nullptr;
+    INetworkMessageInternal *internalMsg = nullptr;
+
+public:
+    PluginUserMessage(std::string msgname);
+    ~PluginUserMessage();
+
+    bool IsValidMessage();
+    std::string GetMessageName();
+    int GetMessageID();
+
+    bool HasField(const char *pszFieldName);
+
+    int32 GetInt32(const char *pszFieldName);
+    void SetInt32(const char *pszFieldName, int32 value);
+    int32 GetRepeatedInt32(const char *pszFieldName, int index);
+    void SetRepeatedInt32(const char *pszFieldName, int index, int32 value);
+    void AddInt32(const char *pszFieldName, int32 value);
+
+    int64 GetInt64(const char *pszFieldName);
+    void SetInt64(const char *pszFieldName, int64 value);
+    int64 GetRepeatedInt64(const char *pszFieldName, int index);
+    void SetRepeatedInt64(const char *pszFieldName, int index, int64 value);
+    void AddInt64(const char *pszFieldName, int64 value);
+
+    uint32 GetUInt32(const char *pszFieldName);
+    void SetUInt32(const char *pszFieldName, uint32 value);
+    uint32 GetRepeatedUInt32(const char *pszFieldName, int index);
+    void SetRepeatedUInt32(const char *pszFieldName, int index, uint32 value);
+    void AddUInt32(const char *pszFieldName, uint32 value);
+
+    uint64 GetUInt64(const char *pszFieldName);
+    void SetUInt64(const char *pszFieldName, uint64 value);
+    uint64 GetRepeatedUInt64(const char *pszFieldName, int index);
+    void SetRepeatedUInt64(const char *pszFieldName, int index, uint64 value);
+    void AddUInt64(const char *pszFieldName, uint64 value);
+
+    int64 GetInt64OrUnsigned(const char *pszFieldName);
+    void SetInt64OrUnsigned(const char *pszFieldName, int64 value);
+    int64 GetRepeatedInt64OrUnsigned(const char *pszFieldName, int index);
+    void SetRepeatedInt64OrUnsigned(const char *pszFieldName, int index, int64 value);
+    void AddInt64OrUnsigned(const char *pszFieldName, int64 value);
+
+    bool GetBool(const char *pszFieldName);
+    void SetBool(const char *pszFieldName, bool value);
+    bool GetRepeatedBool(const char *pszFieldName, int index);
+    void SetRepeatedBool(const char *pszFieldName, int index, bool value);
+    void AddBool(const char *pszFieldName, bool value);
+
+    float GetFloat(const char *pszFieldName);
+    void SetFloat(const char *pszFieldName, float value);
+    float GetRepeatedFloat(const char *pszFieldName, int index);
+    void SetRepeatedFloat(const char *pszFieldName, int index, float value);
+    void AddFloat(const char *pszFieldName, float value);
+
+    double GetDouble(const char *pszFieldName);
+    void SetDouble(const char *pszFieldName, double value);
+    double GetRepeatedDouble(const char *pszFieldName, int index);
+    void SetRepeatedDouble(const char *pszFieldName, int index, double value);
+    void AddDouble(const char *pszFieldName, double value);
+
+    float GetFloatOrDouble(const char *pszFieldName);
+    void SetFloatOrDouble(const char *pszFieldName, float value);
+    float GetRepeatedFloatOrDouble(const char *pszFieldName, int index);
+    void SetRepeatedFloatOrDouble(const char *pszFieldName, int index, float value);
+    void AddFloatOrDouble(const char *pszFieldName, float value);
+
+    std::string GetString(const char *pszFieldName);
+    void SetString(const char *pszFieldName, const char *value);
+    std::string GetRepeatedString(const char *pszFieldName, int index);
+    void SetRepeatedString(const char *pszFieldName, int index, const char *value);
+    void AddString(const char *pszFieldName, const char *value);
+
+    Color GetColor(const char *pszFieldName);
+    void SetColor(const char *pszFieldName, const Color &value);
+    Color GetRepeatedColor(const char *pszFieldName, int index);
+    void SetRepeatedColor(const char *pszFieldName, int index, const Color &value);
+    void AddColor(const char *pszFieldName, const Color &value);
+
+    Vector2D GetVector2D(const char *pszFieldName);
+    void SetVector2D(const char *pszFieldName, Vector2D &vec);
+    Vector2D GetRepeatedVector2D(const char *pszFieldName, int index);
+    void SetRepeatedVector2D(const char *pszFieldName, int index, Vector2D &vec);
+    void AddVector2D(const char *pszFieldName, Vector2D &vec);
+
+    Vector GetVector(const char *pszFieldName);
+    void SetVector(const char *pszFieldName, Vector &vec);
+    Vector GetRepeatedVector(const char *pszFieldName, int index);
+    void SetRepeatedVector(const char *pszFieldName, int index, Vector &vec);
+    void AddVector(const char *pszFieldName, Vector &vec);
+
+    QAngle GetQAngle(const char *pszFieldName);
+    void SetQAngle(const char *pszFieldName, QAngle &vec);
+    QAngle GetRepeatedQAngle(const char *pszFieldName, int index);
+    void SetRepeatedQAngle(const char *pszFieldName, int index, QAngle &vec);
+    void AddQAngle(const char *pszFieldName, QAngle &vec);
+
+    void RemoveRepeatedFieldValue(const char *pszFieldName, int index);
+
+    int GetRepeatedFieldCount(const char *pszFieldName);
+
+    void SendToPlayer(int playerId);
+    void SendToAllPlayers();
 };
 
 //////////////////////////////////////////////////////////////
@@ -254,6 +408,9 @@ public:
     bool IsDirectory(std::string path);
     std::string Read(std::string path);
     void Write(std::string path, std::string content, bool hasdate);
+
+    bool Compress(std::string path, std::string output);
+    bool Decompress(std::string path, std::string output);
 };
 
 //////////////////////////////////////////////////////////////
@@ -346,6 +503,12 @@ public:
 
     void SetVarValue(std::string key, std::any value);
     void SetVarValueLua(std::string key, luabridge::LuaRef value);
+
+    void SetListening(int playerid, int listenOverride);
+    int GetListening(int playerid);
+
+    void SetVoiceFlags(int flags);
+    int GetVoiceFlags();
 };
 
 //////////////////////////////////////////////////////////////
@@ -375,6 +538,22 @@ public:
     void RemoveOffset(int64_t offset);
 
     void Clear();
+
+    void SetBool(bool value);
+    void SetInt(int value);
+    void SetInt64(int64_t value);
+    void SetUint(uint32_t value);
+    void SetUint64(uint64_t value);
+    void SetFloat(float value);
+    void SetDouble(double value);
+
+    bool GetBool();
+    int GetInt();
+    int64_t GetInt64();
+    uint32_t GetUint();
+    uint64_t GetUint64();
+    float GetFloat();
+    double GetDouble();
 
     void *GetRawPtr();
     std::string GetPtr();
@@ -437,6 +616,7 @@ public:
     PluginHooks(std::string plugin_name);
 
     std::string AddHook(PluginMemory mem, std::string args_list, std::string ret_type);
+    std::string AddEntityOutputHook(std::string classname, std::string output);
 
     luabridge::LuaRef CallHookLua(std::string hookId, std::string hookPayload, lua_State *L);
 };

@@ -664,11 +664,11 @@ void GCBaseEntity::SetTakesDamage(bool value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_bTakesDamage", false, value);
 }
 
-TakeDamageFlags_t GCBaseEntity::GetTakeDamageFlags() const {
-    return GetSchemaValue<TakeDamageFlags_t>(m_ptr, "CBaseEntity", "m_nTakeDamageFlags");
+uint64_t GCBaseEntity::GetTakeDamageFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseEntity", "m_nTakeDamageFlags");
 }
 
-void GCBaseEntity::SetTakeDamageFlags(TakeDamageFlags_t value) {
+void GCBaseEntity::SetTakeDamageFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_nTakeDamageFlags", false, value);
 }
 
@@ -680,27 +680,27 @@ void GCBaseEntity::SetIsPlatform(bool value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_bIsPlatform", false, value);
 }
 
-MoveCollide_t GCBaseEntity::GetMoveCollide() const {
-    return GetSchemaValue<MoveCollide_t>(m_ptr, "CBaseEntity", "m_MoveCollide");
+uint64_t GCBaseEntity::GetMoveCollide() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseEntity", "m_MoveCollide");
 }
 
-void GCBaseEntity::SetMoveCollide(MoveCollide_t value) {
+void GCBaseEntity::SetMoveCollide(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_MoveCollide", false, value);
 }
 
-MoveType_t GCBaseEntity::GetMoveType() const {
-    return GetSchemaValue<MoveType_t>(m_ptr, "CBaseEntity", "m_MoveType");
+uint64_t GCBaseEntity::GetMoveType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseEntity", "m_MoveType");
 }
 
-void GCBaseEntity::SetMoveType(MoveType_t value) {
+void GCBaseEntity::SetMoveType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_MoveType", false, value);
 }
 
-MoveType_t GCBaseEntity::GetActualMoveType() const {
-    return GetSchemaValue<MoveType_t>(m_ptr, "CBaseEntity", "m_nActualMoveType");
+uint64_t GCBaseEntity::GetActualMoveType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseEntity", "m_nActualMoveType");
 }
 
-void GCBaseEntity::SetActualMoveType(MoveType_t value) {
+void GCBaseEntity::SetActualMoveType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_nActualMoveType", false, value);
 }
 
@@ -1164,11 +1164,11 @@ void GCBaseEntity::SetVPhysicsUpdateLocalTime(float value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_flVPhysicsUpdateLocalTime", false, value);
 }
 
-BloodType GCBaseEntity::GetBloodType() const {
-    return GetSchemaValue<BloodType>(m_ptr, "CBaseEntity", "m_nBloodType");
+uint64_t GCBaseEntity::GetBloodType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseEntity", "m_nBloodType");
 }
 
-void GCBaseEntity::SetBloodType(BloodType value) {
+void GCBaseEntity::SetBloodType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_nBloodType", false, value);
 }
 
@@ -1448,11 +1448,11 @@ void GCCollisionProperty::SetSolidFlags(uint8_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_usSolidFlags", false, value);
 }
 
-SolidType_t GCCollisionProperty::GetSolidType() const {
-    return GetSchemaValue<SolidType_t>(m_ptr, "CCollisionProperty", "m_nSolidType");
+uint64_t GCCollisionProperty::GetSolidType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCollisionProperty", "m_nSolidType");
 }
 
-void GCCollisionProperty::SetSolidType(SolidType_t value) {
+void GCCollisionProperty::SetSolidType(uint64_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_nSolidType", false, value);
 }
 
@@ -1464,11 +1464,11 @@ void GCCollisionProperty::SetTriggerBloat(uint8_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_triggerBloat", false, value);
 }
 
-SurroundingBoundsType_t GCCollisionProperty::GetSurroundType() const {
-    return GetSchemaValue<SurroundingBoundsType_t>(m_ptr, "CCollisionProperty", "m_nSurroundType");
+uint64_t GCCollisionProperty::GetSurroundType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCollisionProperty", "m_nSurroundType");
 }
 
-void GCCollisionProperty::SetSurroundType(SurroundingBoundsType_t value) {
+void GCCollisionProperty::SetSurroundType(uint64_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_nSurroundType", false, value);
 }
 
@@ -1607,19 +1607,19 @@ void GCBaseModelEntity::SetOnIgnite(GCEntityIOOutput value) {
     SetSchemaValue(m_ptr, "CBaseModelEntity", "m_OnIgnite", false, value);
 }
 
-RenderMode_t GCBaseModelEntity::GetRenderMode() const {
-    return GetSchemaValue<RenderMode_t>(m_ptr, "CBaseModelEntity", "m_nRenderMode");
+uint64_t GCBaseModelEntity::GetRenderMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseModelEntity", "m_nRenderMode");
 }
 
-void GCBaseModelEntity::SetRenderMode(RenderMode_t value) {
+void GCBaseModelEntity::SetRenderMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseModelEntity", "m_nRenderMode", false, value);
 }
 
-RenderFx_t GCBaseModelEntity::GetRenderFX() const {
-    return GetSchemaValue<RenderFx_t>(m_ptr, "CBaseModelEntity", "m_nRenderFX");
+uint64_t GCBaseModelEntity::GetRenderFX() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseModelEntity", "m_nRenderFX");
 }
 
-void GCBaseModelEntity::SetRenderFX(RenderFx_t value) {
+void GCBaseModelEntity::SetRenderFX(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseModelEntity", "m_nRenderFX", false, value);
 }
 
@@ -1828,11 +1828,11 @@ GCBaseToggle::GCBaseToggle(void *ptr) {
     m_ptr = ptr;
 }
 
-TOGGLE_STATE GCBaseToggle::GetToggle_state() const {
-    return GetSchemaValue<TOGGLE_STATE>(m_ptr, "CBaseToggle", "m_toggle_state");
+uint64_t GCBaseToggle::GetToggle_state() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseToggle", "m_toggle_state");
 }
 
-void GCBaseToggle::SetToggle_state(TOGGLE_STATE value) {
+void GCBaseToggle::SetToggle_state(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseToggle", "m_toggle_state", false, value);
 }
 
@@ -3506,11 +3506,11 @@ void GCAttributeManager::SetPreventLoopback(bool value) {
     SetSchemaValue(m_ptr, "CAttributeManager", "m_bPreventLoopback", false, value);
 }
 
-attributeprovidertypes_t GCAttributeManager::GetProviderType() const {
-    return GetSchemaValue<attributeprovidertypes_t>(m_ptr, "CAttributeManager", "m_ProviderType");
+uint64_t GCAttributeManager::GetProviderType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAttributeManager", "m_ProviderType");
 }
 
-void GCAttributeManager::SetProviderType(attributeprovidertypes_t value) {
+void GCAttributeManager::SetProviderType(uint64_t value) {
     SetSchemaValue(m_ptr, "CAttributeManager", "m_ProviderType", false, value);
 }
 
@@ -4570,11 +4570,11 @@ void GCBreakable::SetCPropDataComponent(GCPropDataComponent value) {
     SetSchemaValue(m_ptr, "CBreakable", "m_CPropDataComponent", false, value);
 }
 
-Materials GCBreakable::GetMaterial() const {
-    return GetSchemaValue<Materials>(m_ptr, "CBreakable", "m_Material");
+uint64_t GCBreakable::GetMaterial() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBreakable", "m_Material");
 }
 
-void GCBreakable::SetMaterial(Materials value) {
+void GCBreakable::SetMaterial(uint64_t value) {
     SetSchemaValue(m_ptr, "CBreakable", "m_Material", false, value);
 }
 
@@ -4587,11 +4587,11 @@ void GCBreakable::SetBreaker(GCBaseEntity* value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Breaker' is not possible.\n");
 }
 
-Explosions GCBreakable::GetExplosion() const {
-    return GetSchemaValue<Explosions>(m_ptr, "CBreakable", "m_Explosion");
+uint64_t GCBreakable::GetExplosion() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBreakable", "m_Explosion");
 }
 
-void GCBreakable::SetExplosion(Explosions value) {
+void GCBreakable::SetExplosion(uint64_t value) {
     SetSchemaValue(m_ptr, "CBreakable", "m_Explosion", false, value);
 }
 
@@ -4635,11 +4635,11 @@ void GCBreakable::SetImpactEnergyScale(float value) {
     SetSchemaValue(m_ptr, "CBreakable", "m_impactEnergyScale", false, value);
 }
 
-EOverrideBlockLOS_t GCBreakable::GetOverrideBlockLOS() const {
-    return GetSchemaValue<EOverrideBlockLOS_t>(m_ptr, "CBreakable", "m_nOverrideBlockLOS");
+uint64_t GCBreakable::GetOverrideBlockLOS() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBreakable", "m_nOverrideBlockLOS");
 }
 
-void GCBreakable::SetOverrideBlockLOS(EOverrideBlockLOS_t value) {
+void GCBreakable::SetOverrideBlockLOS(uint64_t value) {
     SetSchemaValue(m_ptr, "CBreakable", "m_nOverrideBlockLOS", false, value);
 }
 
@@ -4652,11 +4652,11 @@ void GCBreakable::SetOnBreak(GCEntityIOOutput value) {
     SetSchemaValue(m_ptr, "CBreakable", "m_OnBreak", false, value);
 }
 
-PerformanceMode_t GCBreakable::GetPerformanceMode() const {
-    return GetSchemaValue<PerformanceMode_t>(m_ptr, "CBreakable", "m_PerformanceMode");
+uint64_t GCBreakable::GetPerformanceMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBreakable", "m_PerformanceMode");
 }
 
-void GCBreakable::SetPerformanceMode(PerformanceMode_t value) {
+void GCBreakable::SetPerformanceMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CBreakable", "m_PerformanceMode", false, value);
 }
 
@@ -6456,11 +6456,11 @@ void GCBreakableProp::SetBreaker(GCBaseEntity* value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Breaker' is not possible.\n");
 }
 
-PerformanceMode_t GCBreakableProp::GetPerformanceMode() const {
-    return GetSchemaValue<PerformanceMode_t>(m_ptr, "CBreakableProp", "m_PerformanceMode");
+uint64_t GCBreakableProp::GetPerformanceMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBreakableProp", "m_PerformanceMode");
 }
 
-void GCBreakableProp::SetPerformanceMode(PerformanceMode_t value) {
+void GCBreakableProp::SetPerformanceMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CBreakableProp", "m_PerformanceMode", false, value);
 }
 
@@ -7251,11 +7251,11 @@ void GCDynamicProp::SetIdleAnim(std::string value) {
     SetSchemaValue(m_ptr, "CDynamicProp", "m_iszIdleAnim", false, CUtlSymbolLarge(value.c_str()));
 }
 
-AnimLoopMode_t GCDynamicProp::GetIdleAnimLoopMode() const {
-    return GetSchemaValue<AnimLoopMode_t>(m_ptr, "CDynamicProp", "m_nIdleAnimLoopMode");
+uint64_t GCDynamicProp::GetIdleAnimLoopMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CDynamicProp", "m_nIdleAnimLoopMode");
 }
 
-void GCDynamicProp::SetIdleAnimLoopMode(AnimLoopMode_t value) {
+void GCDynamicProp::SetIdleAnimLoopMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CDynamicProp", "m_nIdleAnimLoopMode", false, value);
 }
 
@@ -8098,19 +8098,19 @@ void GCCSWeaponBase::SetFireSequenceStartTimeAck(int32_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBase", "m_nFireSequenceStartTimeAck", false, value);
 }
 
-PlayerAnimEvent_t GCCSWeaponBase::GetPlayerFireEvent() const {
-    return GetSchemaValue<PlayerAnimEvent_t>(m_ptr, "CCSWeaponBase", "m_ePlayerFireEvent");
+uint64_t GCCSWeaponBase::GetPlayerFireEvent() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBase", "m_ePlayerFireEvent");
 }
 
-void GCCSWeaponBase::SetPlayerFireEvent(PlayerAnimEvent_t value) {
+void GCCSWeaponBase::SetPlayerFireEvent(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBase", "m_ePlayerFireEvent", false, value);
 }
 
-WeaponAttackType_t GCCSWeaponBase::GetPlayerFireEventAttackType() const {
-    return GetSchemaValue<WeaponAttackType_t>(m_ptr, "CCSWeaponBase", "m_ePlayerFireEventAttackType");
+uint64_t GCCSWeaponBase::GetPlayerFireEventAttackType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBase", "m_ePlayerFireEventAttackType");
 }
 
-void GCCSWeaponBase::SetPlayerFireEventAttackType(WeaponAttackType_t value) {
+void GCCSWeaponBase::SetPlayerFireEventAttackType(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBase", "m_ePlayerFireEventAttackType", false, value);
 }
 
@@ -8138,11 +8138,11 @@ void GCCSWeaponBase::SetRequireUseToTouch(bool value) {
     SetSchemaValue(m_ptr, "CCSWeaponBase", "m_bRequireUseToTouch", false, value);
 }
 
-CSWeaponState_t GCCSWeaponBase::GetState() const {
-    return GetSchemaValue<CSWeaponState_t>(m_ptr, "CCSWeaponBase", "m_iState");
+uint64_t GCCSWeaponBase::GetState() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBase", "m_iState");
 }
 
-void GCCSWeaponBase::SetState(CSWeaponState_t value) {
+void GCCSWeaponBase::SetState(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBase", "m_iState", false, value);
 }
 
@@ -8211,11 +8211,11 @@ void GCCSWeaponBase::SetOnPlayerPickup(GCEntityIOOutput value) {
     SetSchemaValue(m_ptr, "CCSWeaponBase", "m_OnPlayerPickup", false, value);
 }
 
-CSWeaponMode GCCSWeaponBase::GetWeaponMode() const {
-    return GetSchemaValue<CSWeaponMode>(m_ptr, "CCSWeaponBase", "m_weaponMode");
+uint64_t GCCSWeaponBase::GetWeaponMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBase", "m_weaponMode");
 }
 
-void GCCSWeaponBase::SetWeaponMode(CSWeaponMode value) {
+void GCCSWeaponBase::SetWeaponMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBase", "m_weaponMode", false, value);
 }
 
@@ -8707,11 +8707,11 @@ void GCBaseCombatCharacter::SetImpactEnergyScale(float value) {
     SetSchemaValue(m_ptr, "CBaseCombatCharacter", "m_impactEnergyScale", false, value);
 }
 
-HitGroup_t GCBaseCombatCharacter::GetLastHitGroup() const {
-    return GetSchemaValue<HitGroup_t>(m_ptr, "CBaseCombatCharacter", "m_LastHitGroup");
+uint64_t GCBaseCombatCharacter::GetLastHitGroup() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseCombatCharacter", "m_LastHitGroup");
 }
 
-void GCBaseCombatCharacter::SetLastHitGroup(HitGroup_t value) {
+void GCBaseCombatCharacter::SetLastHitGroup(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseCombatCharacter", "m_LastHitGroup", false, value);
 }
 
@@ -8739,11 +8739,11 @@ void GCBaseCombatCharacter::SetStrRelationships(std::string value) {
     SetSchemaValue(m_ptr, "CBaseCombatCharacter", "m_strRelationships", false, CUtlSymbolLarge(value.c_str()));
 }
 
-Hull_t GCBaseCombatCharacter::GetHull() const {
-    return GetSchemaValue<Hull_t>(m_ptr, "CBaseCombatCharacter", "m_eHull");
+uint64_t GCBaseCombatCharacter::GetHull() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseCombatCharacter", "m_eHull");
 }
 
-void GCBaseCombatCharacter::SetHull(Hull_t value) {
+void GCBaseCombatCharacter::SetHull(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseCombatCharacter", "m_eHull", false, value);
 }
 
@@ -8854,11 +8854,11 @@ void GCLogicNavigation::SetIsOn(bool value) {
     SetSchemaValue(m_ptr, "CLogicNavigation", "m_isOn", false, value);
 }
 
-navproperties_t GCLogicNavigation::GetNavProperty() const {
-    return GetSchemaValue<navproperties_t>(m_ptr, "CLogicNavigation", "m_navProperty");
+uint64_t GCLogicNavigation::GetNavProperty() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CLogicNavigation", "m_navProperty");
 }
 
-void GCLogicNavigation::SetNavProperty(navproperties_t value) {
+void GCLogicNavigation::SetNavProperty(uint64_t value) {
     SetSchemaValue(m_ptr, "CLogicNavigation", "m_navProperty", false, value);
 }
 
@@ -9111,11 +9111,11 @@ GCFilterMultiple::GCFilterMultiple(void *ptr) {
     m_ptr = ptr;
 }
 
-filter_t GCFilterMultiple::GetFilterType() const {
-    return GetSchemaValue<filter_t>(m_ptr, "CFilterMultiple", "m_nFilterType");
+uint64_t GCFilterMultiple::GetFilterType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFilterMultiple", "m_nFilterType");
 }
 
-void GCFilterMultiple::SetFilterType(filter_t value) {
+void GCFilterMultiple::SetFilterType(uint64_t value) {
     SetSchemaValue(m_ptr, "CFilterMultiple", "m_nFilterType", false, value);
 }
 
@@ -9622,11 +9622,11 @@ void GCBasePropDoor::SetNeedsHardware(bool value) {
     SetSchemaValue(m_ptr, "CBasePropDoor", "m_bNeedsHardware", false, value);
 }
 
-DoorState_t GCBasePropDoor::GetDoorState() const {
-    return GetSchemaValue<DoorState_t>(m_ptr, "CBasePropDoor", "m_eDoorState");
+uint64_t GCBasePropDoor::GetDoorState() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBasePropDoor", "m_eDoorState");
 }
 
-void GCBasePropDoor::SetDoorState(DoorState_t value) {
+void GCBasePropDoor::SetDoorState(uint64_t value) {
     SetSchemaValue(m_ptr, "CBasePropDoor", "m_eDoorState", false, value);
 }
 
@@ -12497,19 +12497,19 @@ void GCEnvMicrophone::SetMeasureTarget(GCBaseEntity* value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'MeasureTarget' is not possible.\n");
 }
 
-SoundTypes_t GCEnvMicrophone::GetSoundType() const {
-    return GetSchemaValue<SoundTypes_t>(m_ptr, "CEnvMicrophone", "m_nSoundType");
+uint64_t GCEnvMicrophone::GetSoundType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CEnvMicrophone", "m_nSoundType");
 }
 
-void GCEnvMicrophone::SetSoundType(SoundTypes_t value) {
+void GCEnvMicrophone::SetSoundType(uint64_t value) {
     SetSchemaValue(m_ptr, "CEnvMicrophone", "m_nSoundType", false, value);
 }
 
-SoundFlags_t GCEnvMicrophone::GetSoundFlags() const {
-    return GetSchemaValue<SoundFlags_t>(m_ptr, "CEnvMicrophone", "m_nSoundFlags");
+uint64_t GCEnvMicrophone::GetSoundFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CEnvMicrophone", "m_nSoundFlags");
 }
 
-void GCEnvMicrophone::SetSoundFlags(SoundFlags_t value) {
+void GCEnvMicrophone::SetSoundFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "CEnvMicrophone", "m_nSoundFlags", false, value);
 }
 
@@ -12821,11 +12821,11 @@ void GCBasePlayerController::SetIsHLTV(bool value) {
     SetSchemaValue(m_ptr, "CBasePlayerController", "m_bIsHLTV", false, value);
 }
 
-PlayerConnectedState GCBasePlayerController::GetConnected() const {
-    return GetSchemaValue<PlayerConnectedState>(m_ptr, "CBasePlayerController", "m_iConnected");
+uint64_t GCBasePlayerController::GetConnected() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBasePlayerController", "m_iConnected");
 }
 
-void GCBasePlayerController::SetConnected(PlayerConnectedState value) {
+void GCBasePlayerController::SetConnected(uint64_t value) {
     SetSchemaValue(m_ptr, "CBasePlayerController", "m_iConnected", false, value);
 }
 
@@ -12909,11 +12909,11 @@ void GCBasePlayerController::SetLastLateCommandExecuted(int32_t value) {
     SetSchemaValue(m_ptr, "CBasePlayerController", "m_nLastLateCommandExecuted", false, value);
 }
 
-ChatIgnoreType_t GCBasePlayerController::GetIgnoreGlobalChat() const {
-    return GetSchemaValue<ChatIgnoreType_t>(m_ptr, "CBasePlayerController", "m_iIgnoreGlobalChat");
+uint64_t GCBasePlayerController::GetIgnoreGlobalChat() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBasePlayerController", "m_iIgnoreGlobalChat");
 }
 
-void GCBasePlayerController::SetIgnoreGlobalChat(ChatIgnoreType_t value) {
+void GCBasePlayerController::SetIgnoreGlobalChat(uint64_t value) {
     SetSchemaValue(m_ptr, "CBasePlayerController", "m_iIgnoreGlobalChat", false, value);
 }
 
@@ -13240,19 +13240,19 @@ void GCFuncTrackTrain::SetMoveSoundMaxPitch(float value) {
     SetSchemaValue(m_ptr, "CFuncTrackTrain", "m_flMoveSoundMaxPitch", false, value);
 }
 
-TrainOrientationType_t GCFuncTrackTrain::GetOrientationType() const {
-    return GetSchemaValue<TrainOrientationType_t>(m_ptr, "CFuncTrackTrain", "m_eOrientationType");
+uint64_t GCFuncTrackTrain::GetOrientationType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFuncTrackTrain", "m_eOrientationType");
 }
 
-void GCFuncTrackTrain::SetOrientationType(TrainOrientationType_t value) {
+void GCFuncTrackTrain::SetOrientationType(uint64_t value) {
     SetSchemaValue(m_ptr, "CFuncTrackTrain", "m_eOrientationType", false, value);
 }
 
-TrainVelocityType_t GCFuncTrackTrain::GetVelocityType() const {
-    return GetSchemaValue<TrainVelocityType_t>(m_ptr, "CFuncTrackTrain", "m_eVelocityType");
+uint64_t GCFuncTrackTrain::GetVelocityType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFuncTrackTrain", "m_eVelocityType");
 }
 
-void GCFuncTrackTrain::SetVelocityType(TrainVelocityType_t value) {
+void GCFuncTrackTrain::SetVelocityType(uint64_t value) {
     SetSchemaValue(m_ptr, "CFuncTrackTrain", "m_eVelocityType", false, value);
 }
 
@@ -13742,27 +13742,27 @@ GCGenericConstraint::GCGenericConstraint(void *ptr) {
     m_ptr = ptr;
 }
 
-JointMotion_t GCGenericConstraint::GetLinearMotionX() const {
-    return GetSchemaValue<JointMotion_t>(m_ptr, "CGenericConstraint", "m_nLinearMotionX");
+uint64_t GCGenericConstraint::GetLinearMotionX() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CGenericConstraint", "m_nLinearMotionX");
 }
 
-void GCGenericConstraint::SetLinearMotionX(JointMotion_t value) {
+void GCGenericConstraint::SetLinearMotionX(uint64_t value) {
     SetSchemaValue(m_ptr, "CGenericConstraint", "m_nLinearMotionX", false, value);
 }
 
-JointMotion_t GCGenericConstraint::GetLinearMotionY() const {
-    return GetSchemaValue<JointMotion_t>(m_ptr, "CGenericConstraint", "m_nLinearMotionY");
+uint64_t GCGenericConstraint::GetLinearMotionY() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CGenericConstraint", "m_nLinearMotionY");
 }
 
-void GCGenericConstraint::SetLinearMotionY(JointMotion_t value) {
+void GCGenericConstraint::SetLinearMotionY(uint64_t value) {
     SetSchemaValue(m_ptr, "CGenericConstraint", "m_nLinearMotionY", false, value);
 }
 
-JointMotion_t GCGenericConstraint::GetLinearMotionZ() const {
-    return GetSchemaValue<JointMotion_t>(m_ptr, "CGenericConstraint", "m_nLinearMotionZ");
+uint64_t GCGenericConstraint::GetLinearMotionZ() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CGenericConstraint", "m_nLinearMotionZ");
 }
 
-void GCGenericConstraint::SetLinearMotionZ(JointMotion_t value) {
+void GCGenericConstraint::SetLinearMotionZ(uint64_t value) {
     SetSchemaValue(m_ptr, "CGenericConstraint", "m_nLinearMotionZ", false, value);
 }
 
@@ -14006,27 +14006,27 @@ void GCGenericConstraint::SetAxisNotifiedZ(bool value) {
     SetSchemaValue(m_ptr, "CGenericConstraint", "m_bAxisNotifiedZ", false, value);
 }
 
-JointMotion_t GCGenericConstraint::GetAngularMotionX() const {
-    return GetSchemaValue<JointMotion_t>(m_ptr, "CGenericConstraint", "m_nAngularMotionX");
+uint64_t GCGenericConstraint::GetAngularMotionX() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CGenericConstraint", "m_nAngularMotionX");
 }
 
-void GCGenericConstraint::SetAngularMotionX(JointMotion_t value) {
+void GCGenericConstraint::SetAngularMotionX(uint64_t value) {
     SetSchemaValue(m_ptr, "CGenericConstraint", "m_nAngularMotionX", false, value);
 }
 
-JointMotion_t GCGenericConstraint::GetAngularMotionY() const {
-    return GetSchemaValue<JointMotion_t>(m_ptr, "CGenericConstraint", "m_nAngularMotionY");
+uint64_t GCGenericConstraint::GetAngularMotionY() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CGenericConstraint", "m_nAngularMotionY");
 }
 
-void GCGenericConstraint::SetAngularMotionY(JointMotion_t value) {
+void GCGenericConstraint::SetAngularMotionY(uint64_t value) {
     SetSchemaValue(m_ptr, "CGenericConstraint", "m_nAngularMotionY", false, value);
 }
 
-JointMotion_t GCGenericConstraint::GetAngularMotionZ() const {
-    return GetSchemaValue<JointMotion_t>(m_ptr, "CGenericConstraint", "m_nAngularMotionZ");
+uint64_t GCGenericConstraint::GetAngularMotionZ() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CGenericConstraint", "m_nAngularMotionZ");
 }
 
-void GCGenericConstraint::SetAngularMotionZ(JointMotion_t value) {
+void GCGenericConstraint::SetAngularMotionZ(uint64_t value) {
     SetSchemaValue(m_ptr, "CGenericConstraint", "m_nAngularMotionZ", false, value);
 }
 
@@ -16021,11 +16021,11 @@ void GCSceneEntity::SetBusyActor(int32_t value) {
     SetSchemaValue(m_ptr, "CSceneEntity", "m_BusyActor", false, value);
 }
 
-SceneOnPlayerDeath_t GCSceneEntity::GetPlayerDeathBehavior() const {
-    return GetSchemaValue<SceneOnPlayerDeath_t>(m_ptr, "CSceneEntity", "m_iPlayerDeathBehavior");
+uint64_t GCSceneEntity::GetPlayerDeathBehavior() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CSceneEntity", "m_iPlayerDeathBehavior");
 }
 
-void GCSceneEntity::SetPlayerDeathBehavior(SceneOnPlayerDeath_t value) {
+void GCSceneEntity::SetPlayerDeathBehavior(uint64_t value) {
     SetSchemaValue(m_ptr, "CSceneEntity", "m_iPlayerDeathBehavior", false, value);
 }
 
@@ -16369,11 +16369,11 @@ GCScriptItem::GCScriptItem(void *ptr) {
     m_ptr = ptr;
 }
 
-MoveType_t GCScriptItem::GetMoveTypeOverride() const {
-    return GetSchemaValue<MoveType_t>(m_ptr, "CScriptItem", "m_MoveTypeOverride");
+uint64_t GCScriptItem::GetMoveTypeOverride() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CScriptItem", "m_MoveTypeOverride");
 }
 
-void GCScriptItem::SetMoveTypeOverride(MoveType_t value) {
+void GCScriptItem::SetMoveTypeOverride(uint64_t value) {
     SetSchemaValue(m_ptr, "CScriptItem", "m_MoveTypeOverride", false, value);
 }
 
@@ -18157,19 +18157,19 @@ void GCScriptedSequence::SetSyncGroup(std::string value) {
     SetSchemaValue(m_ptr, "CScriptedSequence", "m_iszSyncGroup", false, CUtlSymbolLarge(value.c_str()));
 }
 
-ScriptedMoveTo_t GCScriptedSequence::GetMoveTo() const {
-    return GetSchemaValue<ScriptedMoveTo_t>(m_ptr, "CScriptedSequence", "m_nMoveTo");
+uint64_t GCScriptedSequence::GetMoveTo() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CScriptedSequence", "m_nMoveTo");
 }
 
-void GCScriptedSequence::SetMoveTo(ScriptedMoveTo_t value) {
+void GCScriptedSequence::SetMoveTo(uint64_t value) {
     SetSchemaValue(m_ptr, "CScriptedSequence", "m_nMoveTo", false, value);
 }
 
-MovementGait_t GCScriptedSequence::GetMoveToGait() const {
-    return GetSchemaValue<MovementGait_t>(m_ptr, "CScriptedSequence", "m_nMoveToGait");
+uint64_t GCScriptedSequence::GetMoveToGait() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CScriptedSequence", "m_nMoveToGait");
 }
 
-void GCScriptedSequence::SetMoveToGait(MovementGait_t value) {
+void GCScriptedSequence::SetMoveToGait(uint64_t value) {
     SetSchemaValue(m_ptr, "CScriptedSequence", "m_nMoveToGait", false, value);
 }
 
@@ -18560,19 +18560,19 @@ void GCScriptedSequence::SetEnsureOnNavmeshOnFinish(bool value) {
     SetSchemaValue(m_ptr, "CScriptedSequence", "m_bEnsureOnNavmeshOnFinish", false, value);
 }
 
-ScriptedOnDeath_t GCScriptedSequence::GetOnDeathBehavior() const {
-    return GetSchemaValue<ScriptedOnDeath_t>(m_ptr, "CScriptedSequence", "m_onDeathBehavior");
+uint64_t GCScriptedSequence::GetOnDeathBehavior() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CScriptedSequence", "m_onDeathBehavior");
 }
 
-void GCScriptedSequence::SetOnDeathBehavior(ScriptedOnDeath_t value) {
+void GCScriptedSequence::SetOnDeathBehavior(uint64_t value) {
     SetSchemaValue(m_ptr, "CScriptedSequence", "m_onDeathBehavior", false, value);
 }
 
-ScriptedConflictResponse_t GCScriptedSequence::GetConflictResponse() const {
-    return GetSchemaValue<ScriptedConflictResponse_t>(m_ptr, "CScriptedSequence", "m_ConflictResponse");
+uint64_t GCScriptedSequence::GetConflictResponse() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CScriptedSequence", "m_ConflictResponse");
 }
 
-void GCScriptedSequence::SetConflictResponse(ScriptedConflictResponse_t value) {
+void GCScriptedSequence::SetConflictResponse(uint64_t value) {
     SetSchemaValue(m_ptr, "CScriptedSequence", "m_ConflictResponse", false, value);
 }
 
@@ -19245,11 +19245,11 @@ void GCFuncTrackChange::SetTrainName(std::string value) {
     SetSchemaValue(m_ptr, "CFuncTrackChange", "m_trainName", false, CUtlSymbolLarge(value.c_str()));
 }
 
-TRAIN_CODE GCFuncTrackChange::GetCode() const {
-    return GetSchemaValue<TRAIN_CODE>(m_ptr, "CFuncTrackChange", "m_code");
+uint64_t GCFuncTrackChange::GetCode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFuncTrackChange", "m_code");
 }
 
-void GCFuncTrackChange::SetCode(TRAIN_CODE value) {
+void GCFuncTrackChange::SetCode(uint64_t value) {
     SetSchemaValue(m_ptr, "CFuncTrackChange", "m_code", false, value);
 }
 
@@ -20628,11 +20628,11 @@ void GCPointValueRemapper::SetUpdateOnClient(bool value) {
     SetSchemaValue(m_ptr, "CPointValueRemapper", "m_bUpdateOnClient", false, value);
 }
 
-ValueRemapperInputType_t GCPointValueRemapper::GetInputType() const {
-    return GetSchemaValue<ValueRemapperInputType_t>(m_ptr, "CPointValueRemapper", "m_nInputType");
+uint64_t GCPointValueRemapper::GetInputType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointValueRemapper", "m_nInputType");
 }
 
-void GCPointValueRemapper::SetInputType(ValueRemapperInputType_t value) {
+void GCPointValueRemapper::SetInputType(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointValueRemapper", "m_nInputType", false, value);
 }
 
@@ -20702,11 +20702,11 @@ void GCPointValueRemapper::SetRequiresUseKey(bool value) {
     SetSchemaValue(m_ptr, "CPointValueRemapper", "m_bRequiresUseKey", false, value);
 }
 
-ValueRemapperOutputType_t GCPointValueRemapper::GetOutputType() const {
-    return GetSchemaValue<ValueRemapperOutputType_t>(m_ptr, "CPointValueRemapper", "m_nOutputType");
+uint64_t GCPointValueRemapper::GetOutputType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointValueRemapper", "m_nOutputType");
 }
 
-void GCPointValueRemapper::SetOutputType(ValueRemapperOutputType_t value) {
+void GCPointValueRemapper::SetOutputType(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointValueRemapper", "m_nOutputType", false, value);
 }
 
@@ -20750,19 +20750,19 @@ void GCPointValueRemapper::SetOutputEntities(std::vector<GCBaseEntity*> value) {
     SetSchemaValueCUtlVector<GCBaseEntity*>(m_ptr, "CPointValueRemapper", "m_hOutputEntities", false, value);
 }
 
-ValueRemapperHapticsType_t GCPointValueRemapper::GetHapticsType() const {
-    return GetSchemaValue<ValueRemapperHapticsType_t>(m_ptr, "CPointValueRemapper", "m_nHapticsType");
+uint64_t GCPointValueRemapper::GetHapticsType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointValueRemapper", "m_nHapticsType");
 }
 
-void GCPointValueRemapper::SetHapticsType(ValueRemapperHapticsType_t value) {
+void GCPointValueRemapper::SetHapticsType(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointValueRemapper", "m_nHapticsType", false, value);
 }
 
-ValueRemapperMomentumType_t GCPointValueRemapper::GetMomentumType() const {
-    return GetSchemaValue<ValueRemapperMomentumType_t>(m_ptr, "CPointValueRemapper", "m_nMomentumType");
+uint64_t GCPointValueRemapper::GetMomentumType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointValueRemapper", "m_nMomentumType");
 }
 
-void GCPointValueRemapper::SetMomentumType(ValueRemapperMomentumType_t value) {
+void GCPointValueRemapper::SetMomentumType(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointValueRemapper", "m_nMomentumType", false, value);
 }
 
@@ -20790,11 +20790,11 @@ void GCPointValueRemapper::SetCurrentMomentum(float value) {
     SetSchemaValue(m_ptr, "CPointValueRemapper", "m_flCurrentMomentum", false, value);
 }
 
-ValueRemapperRatchetType_t GCPointValueRemapper::GetRatchetType() const {
-    return GetSchemaValue<ValueRemapperRatchetType_t>(m_ptr, "CPointValueRemapper", "m_nRatchetType");
+uint64_t GCPointValueRemapper::GetRatchetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointValueRemapper", "m_nRatchetType");
 }
 
-void GCPointValueRemapper::SetRatchetType(ValueRemapperRatchetType_t value) {
+void GCPointValueRemapper::SetRatchetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointValueRemapper", "m_nRatchetType", false, value);
 }
 
@@ -21674,11 +21674,11 @@ void GCPlayer_ObserverServices::SetObserverTarget(GCBaseEntity* value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'ObserverTarget' is not possible.\n");
 }
 
-ObserverMode_t GCPlayer_ObserverServices::GetObserverLastMode() const {
-    return GetSchemaValue<ObserverMode_t>(m_ptr, "CPlayer_ObserverServices", "m_iObserverLastMode");
+uint64_t GCPlayer_ObserverServices::GetObserverLastMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPlayer_ObserverServices", "m_iObserverLastMode");
 }
 
-void GCPlayer_ObserverServices::SetObserverLastMode(ObserverMode_t value) {
+void GCPlayer_ObserverServices::SetObserverLastMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CPlayer_ObserverServices", "m_iObserverLastMode", false, value);
 }
 
@@ -22195,11 +22195,11 @@ GCFuncBrush::GCFuncBrush(void *ptr) {
     m_ptr = ptr;
 }
 
-BrushSolidities_e GCFuncBrush::GetSolidity() const {
-    return GetSchemaValue<BrushSolidities_e>(m_ptr, "CFuncBrush", "m_iSolidity");
+uint64_t GCFuncBrush::GetSolidity() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFuncBrush", "m_iSolidity");
 }
 
-void GCFuncBrush::SetSolidity(BrushSolidities_e value) {
+void GCFuncBrush::SetSolidity(uint64_t value) {
     SetSchemaValue(m_ptr, "CFuncBrush", "m_iSolidity", false, value);
 }
 
@@ -22309,11 +22309,11 @@ void GSequenceHistory_t::SetSeqFixedCycle(float value) {
     SetSchemaValue(m_ptr, "SequenceHistory_t", "m_flSeqFixedCycle", true, value);
 }
 
-AnimLoopMode_t GSequenceHistory_t::GetSeqLoopMode() const {
-    return GetSchemaValue<AnimLoopMode_t>(m_ptr, "SequenceHistory_t", "m_nSeqLoopMode");
+uint64_t GSequenceHistory_t::GetSeqLoopMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "SequenceHistory_t", "m_nSeqLoopMode");
 }
 
-void GSequenceHistory_t::SetSeqLoopMode(AnimLoopMode_t value) {
+void GSequenceHistory_t::SetSeqLoopMode(uint64_t value) {
     SetSchemaValue(m_ptr, "SequenceHistory_t", "m_nSeqLoopMode", true, value);
 }
 
@@ -24371,11 +24371,11 @@ void GCDamageRecord::SetIsOtherEnemy(bool value) {
     SetSchemaValue(m_ptr, "CDamageRecord", "m_bIsOtherEnemy", false, value);
 }
 
-EKillTypes_t GCDamageRecord::GetKillType() const {
-    return GetSchemaValue<EKillTypes_t>(m_ptr, "CDamageRecord", "m_killType");
+uint64_t GCDamageRecord::GetKillType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CDamageRecord", "m_killType");
 }
 
-void GCDamageRecord::SetKillType(EKillTypes_t value) {
+void GCDamageRecord::SetKillType(uint64_t value) {
     SetSchemaValue(m_ptr, "CDamageRecord", "m_killType", false, value);
 }
 
@@ -27090,11 +27090,11 @@ void GCBeam::SetNumBeamEnts(uint8_t value) {
     SetSchemaValue(m_ptr, "CBeam", "m_nNumBeamEnts", false, value);
 }
 
-BeamType_t GCBeam::GetBeamType() const {
-    return GetSchemaValue<BeamType_t>(m_ptr, "CBeam", "m_nBeamType");
+uint64_t GCBeam::GetBeamType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBeam", "m_nBeamType");
 }
 
-void GCBeam::SetBeamType(BeamType_t value) {
+void GCBeam::SetBeamType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBeam", "m_nBeamType", false, value);
 }
 
@@ -27178,11 +27178,11 @@ void GCBeam::SetFrame(float value) {
     SetSchemaValue(m_ptr, "CBeam", "m_flFrame", false, value);
 }
 
-BeamClipStyle_t GCBeam::GetClipStyle() const {
-    return GetSchemaValue<BeamClipStyle_t>(m_ptr, "CBeam", "m_nClipStyle");
+uint64_t GCBeam::GetClipStyle() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBeam", "m_nClipStyle");
 }
 
-void GCBeam::SetClipStyle(BeamClipStyle_t value) {
+void GCBeam::SetClipStyle(uint64_t value) {
     SetSchemaValue(m_ptr, "CBeam", "m_nClipStyle", false, value);
 }
 
@@ -28356,11 +28356,11 @@ void GCEntityDissolve::SetStartTime(float value) {
     SetSchemaValue(m_ptr, "CEntityDissolve", "m_flStartTime", false, value);
 }
 
-EntityDisolveType_t GCEntityDissolve::GetDissolveType() const {
-    return GetSchemaValue<EntityDisolveType_t>(m_ptr, "CEntityDissolve", "m_nDissolveType");
+uint64_t GCEntityDissolve::GetDissolveType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CEntityDissolve", "m_nDissolveType");
 }
 
-void GCEntityDissolve::SetDissolveType(EntityDisolveType_t value) {
+void GCEntityDissolve::SetDissolveType(uint64_t value) {
     SetSchemaValue(m_ptr, "CEntityDissolve", "m_nDissolveType", false, value);
 }
 
@@ -28853,11 +28853,11 @@ void GCEnvBeam::SetRadius(float value) {
     SetSchemaValue(m_ptr, "CEnvBeam", "m_radius", false, value);
 }
 
-Touch_t GCEnvBeam::GetTouchType() const {
-    return GetSchemaValue<Touch_t>(m_ptr, "CEnvBeam", "m_TouchType");
+uint64_t GCEnvBeam::GetTouchType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CEnvBeam", "m_TouchType");
 }
 
-void GCEnvBeam::SetTouchType(Touch_t value) {
+void GCEnvBeam::SetTouchType(uint64_t value) {
     SetSchemaValue(m_ptr, "CEnvBeam", "m_TouchType", false, value);
 }
 
@@ -29919,11 +29919,11 @@ void GCTimeline::SetFinalValue(float value) {
     SetSchemaValue(m_ptr, "CTimeline", "m_flFinalValue", false, value);
 }
 
-TimelineCompression_t GCTimeline::GetCompressionType() const {
-    return GetSchemaValue<TimelineCompression_t>(m_ptr, "CTimeline", "m_nCompressionType");
+uint64_t GCTimeline::GetCompressionType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CTimeline", "m_nCompressionType");
 }
 
-void GCTimeline::SetCompressionType(TimelineCompression_t value) {
+void GCTimeline::SetCompressionType(uint64_t value) {
     SetSchemaValue(m_ptr, "CTimeline", "m_nCompressionType", false, value);
 }
 
@@ -29968,11 +29968,11 @@ void GCFists::SetPlayingUninterruptableAct(bool value) {
     SetSchemaValue(m_ptr, "CFists", "m_bPlayingUninterruptableAct", false, value);
 }
 
-PlayerAnimEvent_t GCFists::GetUninterruptableActivity() const {
-    return GetSchemaValue<PlayerAnimEvent_t>(m_ptr, "CFists", "m_nUninterruptableActivity");
+uint64_t GCFists::GetUninterruptableActivity() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFists", "m_nUninterruptableActivity");
 }
 
-void GCFists::SetUninterruptableActivity(PlayerAnimEvent_t value) {
+void GCFists::SetUninterruptableActivity(uint64_t value) {
     SetSchemaValue(m_ptr, "CFists", "m_nUninterruptableActivity", false, value);
 }
 
@@ -31033,11 +31033,11 @@ GCFuncMoveLinear::GCFuncMoveLinear(void *ptr) {
     m_ptr = ptr;
 }
 
-MoveLinearAuthoredPos_t GCFuncMoveLinear::GetAuthoredPosition() const {
-    return GetSchemaValue<MoveLinearAuthoredPos_t>(m_ptr, "CFuncMoveLinear", "m_authoredPosition");
+uint64_t GCFuncMoveLinear::GetAuthoredPosition() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFuncMoveLinear", "m_authoredPosition");
 }
 
-void GCFuncMoveLinear::SetAuthoredPosition(MoveLinearAuthoredPos_t value) {
+void GCFuncMoveLinear::SetAuthoredPosition(uint64_t value) {
     SetSchemaValue(m_ptr, "CFuncMoveLinear", "m_authoredPosition", false, value);
 }
 
@@ -31661,11 +31661,11 @@ void GCFuncMover::SetFixedPitch(bool value) {
     SetSchemaValue(m_ptr, "CFuncMover", "m_bFixedPitch", false, value);
 }
 
-SolidType_t GCFuncMover::GetSolidType() const {
-    return GetSchemaValue<SolidType_t>(m_ptr, "CFuncMover", "m_eSolidType");
+uint64_t GCFuncMover::GetSolidType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFuncMover", "m_eSolidType");
 }
 
-void GCFuncMover::SetSolidType(SolidType_t value) {
+void GCFuncMover::SetSolidType(uint64_t value) {
     SetSchemaValue(m_ptr, "CFuncMover", "m_eSolidType", false, value);
 }
 
@@ -32718,19 +32718,19 @@ void GCEnvExplosion::SetCustomSoundName(std::string value) {
     SetSchemaValue(m_ptr, "CEnvExplosion", "m_iszCustomSoundName", false, CUtlSymbolLarge(value.c_str()));
 }
 
-Class_T GCEnvExplosion::GetClassIgnore() const {
-    return GetSchemaValue<Class_T>(m_ptr, "CEnvExplosion", "m_iClassIgnore");
+uint64_t GCEnvExplosion::GetClassIgnore() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CEnvExplosion", "m_iClassIgnore");
 }
 
-void GCEnvExplosion::SetClassIgnore(Class_T value) {
+void GCEnvExplosion::SetClassIgnore(uint64_t value) {
     SetSchemaValue(m_ptr, "CEnvExplosion", "m_iClassIgnore", false, value);
 }
 
-Class_T GCEnvExplosion::GetClassIgnore2() const {
-    return GetSchemaValue<Class_T>(m_ptr, "CEnvExplosion", "m_iClassIgnore2");
+uint64_t GCEnvExplosion::GetClassIgnore2() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CEnvExplosion", "m_iClassIgnore2");
 }
 
-void GCEnvExplosion::SetClassIgnore2(Class_T value) {
+void GCEnvExplosion::SetClassIgnore2(uint64_t value) {
     SetSchemaValue(m_ptr, "CEnvExplosion", "m_iClassIgnore2", false, value);
 }
 
@@ -33401,19 +33401,19 @@ GCAISound::GCAISound(void *ptr) {
     m_ptr = ptr;
 }
 
-SoundTypes_t GCAISound::GetSoundType() const {
-    return GetSchemaValue<SoundTypes_t>(m_ptr, "CAISound", "m_iSoundType");
+uint64_t GCAISound::GetSoundType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAISound", "m_iSoundType");
 }
 
-void GCAISound::SetSoundType(SoundTypes_t value) {
+void GCAISound::SetSoundType(uint64_t value) {
     SetSchemaValue(m_ptr, "CAISound", "m_iSoundType", false, value);
 }
 
-SoundFlags_t GCAISound::GetSoundFlags() const {
-    return GetSchemaValue<SoundFlags_t>(m_ptr, "CAISound", "m_iSoundFlags");
+uint64_t GCAISound::GetSoundFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAISound", "m_iSoundFlags");
 }
 
-void GCAISound::SetSoundFlags(SoundFlags_t value) {
+void GCAISound::SetSoundFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "CAISound", "m_iSoundFlags", false, value);
 }
 
@@ -33517,11 +33517,11 @@ void GCPointEntityFinder::SetReference(GCBaseEntity* value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Reference' is not possible.\n");
 }
 
-EntFinderMethod_t GCPointEntityFinder::GetFindMethod() const {
-    return GetSchemaValue<EntFinderMethod_t>(m_ptr, "CPointEntityFinder", "m_FindMethod");
+uint64_t GCPointEntityFinder::GetFindMethod() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointEntityFinder", "m_FindMethod");
 }
 
-void GCPointEntityFinder::SetFindMethod(EntFinderMethod_t value) {
+void GCPointEntityFinder::SetFindMethod(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointEntityFinder", "m_FindMethod", false, value);
 }
 
@@ -33567,19 +33567,19 @@ void Gshard_model_desc_t::SetModelID(int32_t value) {
     SetSchemaValue(m_ptr, "shard_model_desc_t", "m_nModelID", true, value);
 }
 
-ShardSolid_t Gshard_model_desc_t::GetSolid() const {
-    return GetSchemaValue<ShardSolid_t>(m_ptr, "shard_model_desc_t", "m_solid");
+uint64_t Gshard_model_desc_t::GetSolid() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "shard_model_desc_t", "m_solid");
 }
 
-void Gshard_model_desc_t::SetSolid(ShardSolid_t value) {
+void Gshard_model_desc_t::SetSolid(uint64_t value) {
     SetSchemaValue(m_ptr, "shard_model_desc_t", "m_solid", true, value);
 }
 
-ShatterPanelMode Gshard_model_desc_t::GetShatterPanelMode() const {
-    return GetSchemaValue<ShatterPanelMode>(m_ptr, "shard_model_desc_t", "m_ShatterPanelMode");
+uint64_t Gshard_model_desc_t::GetShatterPanelMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "shard_model_desc_t", "m_ShatterPanelMode");
 }
 
-void Gshard_model_desc_t::SetShatterPanelMode(ShatterPanelMode value) {
+void Gshard_model_desc_t::SetShatterPanelMode(uint64_t value) {
     SetSchemaValue(m_ptr, "shard_model_desc_t", "m_ShatterPanelMode", true, value);
 }
 
@@ -34187,19 +34187,19 @@ void GCPointTemplate::SetOutputOnSpawned(GCEntityIOOutput value) {
     SetSchemaValue(m_ptr, "CPointTemplate", "m_pOutputOnSpawned", false, value);
 }
 
-PointTemplateClientOnlyEntityBehavior_t GCPointTemplate::GetClientOnlyEntityBehavior() const {
-    return GetSchemaValue<PointTemplateClientOnlyEntityBehavior_t>(m_ptr, "CPointTemplate", "m_clientOnlyEntityBehavior");
+uint64_t GCPointTemplate::GetClientOnlyEntityBehavior() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointTemplate", "m_clientOnlyEntityBehavior");
 }
 
-void GCPointTemplate::SetClientOnlyEntityBehavior(PointTemplateClientOnlyEntityBehavior_t value) {
+void GCPointTemplate::SetClientOnlyEntityBehavior(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointTemplate", "m_clientOnlyEntityBehavior", false, value);
 }
 
-PointTemplateOwnerSpawnGroupType_t GCPointTemplate::GetOwnerSpawnGroupType() const {
-    return GetSchemaValue<PointTemplateOwnerSpawnGroupType_t>(m_ptr, "CPointTemplate", "m_ownerSpawnGroupType");
+uint64_t GCPointTemplate::GetOwnerSpawnGroupType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointTemplate", "m_ownerSpawnGroupType");
 }
 
-void GCPointTemplate::SetOwnerSpawnGroupType(PointTemplateOwnerSpawnGroupType_t value) {
+void GCPointTemplate::SetOwnerSpawnGroupType(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointTemplate", "m_ownerSpawnGroupType", false, value);
 }
 
@@ -35258,11 +35258,11 @@ void GCBlood::SetAmount(float value) {
     SetSchemaValue(m_ptr, "CBlood", "m_flAmount", false, value);
 }
 
-BloodType GCBlood::GetColor() const {
-    return GetSchemaValue<BloodType>(m_ptr, "CBlood", "m_Color");
+uint64_t GCBlood::GetColor() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBlood", "m_Color");
 }
 
-void GCBlood::SetColor(BloodType value) {
+void GCBlood::SetColor(uint64_t value) {
     SetSchemaValue(m_ptr, "CBlood", "m_Color", false, value);
 }
 
@@ -36726,27 +36726,27 @@ void GCPointWorldText::SetColor(Color value) {
     SetSchemaValue(m_ptr, "CPointWorldText", "m_Color", false, value);
 }
 
-PointWorldTextJustifyHorizontal_t GCPointWorldText::GetJustifyHorizontal() const {
-    return GetSchemaValue<PointWorldTextJustifyHorizontal_t>(m_ptr, "CPointWorldText", "m_nJustifyHorizontal");
+uint64_t GCPointWorldText::GetJustifyHorizontal() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointWorldText", "m_nJustifyHorizontal");
 }
 
-void GCPointWorldText::SetJustifyHorizontal(PointWorldTextJustifyHorizontal_t value) {
+void GCPointWorldText::SetJustifyHorizontal(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointWorldText", "m_nJustifyHorizontal", false, value);
 }
 
-PointWorldTextJustifyVertical_t GCPointWorldText::GetJustifyVertical() const {
-    return GetSchemaValue<PointWorldTextJustifyVertical_t>(m_ptr, "CPointWorldText", "m_nJustifyVertical");
+uint64_t GCPointWorldText::GetJustifyVertical() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointWorldText", "m_nJustifyVertical");
 }
 
-void GCPointWorldText::SetJustifyVertical(PointWorldTextJustifyVertical_t value) {
+void GCPointWorldText::SetJustifyVertical(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointWorldText", "m_nJustifyVertical", false, value);
 }
 
-PointWorldTextReorientMode_t GCPointWorldText::GetReorientMode() const {
-    return GetSchemaValue<PointWorldTextReorientMode_t>(m_ptr, "CPointWorldText", "m_nReorientMode");
+uint64_t GCPointWorldText::GetReorientMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPointWorldText", "m_nReorientMode");
 }
 
-void GCPointWorldText::SetReorientMode(PointWorldTextReorientMode_t value) {
+void GCPointWorldText::SetReorientMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CPointWorldText", "m_nReorientMode", false, value);
 }
 
@@ -38246,27 +38246,27 @@ void GCPropDoorRotating::SetDistance(float value) {
     SetSchemaValue(m_ptr, "CPropDoorRotating", "m_flDistance", false, value);
 }
 
-PropDoorRotatingSpawnPos_t GCPropDoorRotating::GetSpawnPosition() const {
-    return GetSchemaValue<PropDoorRotatingSpawnPos_t>(m_ptr, "CPropDoorRotating", "m_eSpawnPosition");
+uint64_t GCPropDoorRotating::GetSpawnPosition() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPropDoorRotating", "m_eSpawnPosition");
 }
 
-void GCPropDoorRotating::SetSpawnPosition(PropDoorRotatingSpawnPos_t value) {
+void GCPropDoorRotating::SetSpawnPosition(uint64_t value) {
     SetSchemaValue(m_ptr, "CPropDoorRotating", "m_eSpawnPosition", false, value);
 }
 
-PropDoorRotatingOpenDirection_e GCPropDoorRotating::GetOpenDirection() const {
-    return GetSchemaValue<PropDoorRotatingOpenDirection_e>(m_ptr, "CPropDoorRotating", "m_eOpenDirection");
+uint64_t GCPropDoorRotating::GetOpenDirection() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPropDoorRotating", "m_eOpenDirection");
 }
 
-void GCPropDoorRotating::SetOpenDirection(PropDoorRotatingOpenDirection_e value) {
+void GCPropDoorRotating::SetOpenDirection(uint64_t value) {
     SetSchemaValue(m_ptr, "CPropDoorRotating", "m_eOpenDirection", false, value);
 }
 
-PropDoorRotatingOpenDirection_e GCPropDoorRotating::GetCurrentOpenDirection() const {
-    return GetSchemaValue<PropDoorRotatingOpenDirection_e>(m_ptr, "CPropDoorRotating", "m_eCurrentOpenDirection");
+uint64_t GCPropDoorRotating::GetCurrentOpenDirection() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPropDoorRotating", "m_eCurrentOpenDirection");
 }
 
-void GCPropDoorRotating::SetCurrentOpenDirection(PropDoorRotatingOpenDirection_e value) {
+void GCPropDoorRotating::SetCurrentOpenDirection(uint64_t value) {
     SetSchemaValue(m_ptr, "CPropDoorRotating", "m_eCurrentOpenDirection", false, value);
 }
 
@@ -38933,11 +38933,11 @@ void GCCSPlayerPawnBase::SetBlindStartTime(float value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawnBase", "m_blindStartTime", false, value);
 }
 
-CSPlayerState GCCSPlayerPawnBase::GetPlayerState() const {
-    return GetSchemaValue<CSPlayerState>(m_ptr, "CCSPlayerPawnBase", "m_iPlayerState");
+uint64_t GCCSPlayerPawnBase::GetPlayerState() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSPlayerPawnBase", "m_iPlayerState");
 }
 
-void GCCSPlayerPawnBase::SetPlayerState(CSPlayerState value) {
+void GCCSPlayerPawnBase::SetPlayerState(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawnBase", "m_iPlayerState", false, value);
 }
 
@@ -39162,11 +39162,11 @@ void GCPathTrack::SetIterVal(int32_t value) {
     SetSchemaValue(m_ptr, "CPathTrack", "m_nIterVal", false, value);
 }
 
-TrackOrientationType_t GCPathTrack::GetOrientationType() const {
-    return GetSchemaValue<TrackOrientationType_t>(m_ptr, "CPathTrack", "m_eOrientationType");
+uint64_t GCPathTrack::GetOrientationType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPathTrack", "m_eOrientationType");
 }
 
-void GCPathTrack::SetOrientationType(TrackOrientationType_t value) {
+void GCPathTrack::SetOrientationType(uint64_t value) {
     SetSchemaValue(m_ptr, "CPathTrack", "m_eOrientationType", false, value);
 }
 
@@ -42140,11 +42140,11 @@ void GCBasePlayerWeaponVData::SetMuzzleAttachment(std::string value) {
     SetSchemaValue(m_ptr, "CBasePlayerWeaponVData", "m_sMuzzleAttachment", false, CUtlString(value.c_str()));
 }
 
-ItemFlagTypes_t GCBasePlayerWeaponVData::GetFlags() const {
-    return GetSchemaValue<ItemFlagTypes_t>(m_ptr, "CBasePlayerWeaponVData", "m_iFlags");
+uint64_t GCBasePlayerWeaponVData::GetFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBasePlayerWeaponVData", "m_iFlags");
 }
 
-void GCBasePlayerWeaponVData::SetFlags(ItemFlagTypes_t value) {
+void GCBasePlayerWeaponVData::SetFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "CBasePlayerWeaponVData", "m_iFlags", false, value);
 }
 
@@ -42220,11 +42220,11 @@ void GCBasePlayerWeaponVData::SetAutoSwitchFrom(bool value) {
     SetSchemaValue(m_ptr, "CBasePlayerWeaponVData", "m_bAutoSwitchFrom", false, value);
 }
 
-RumbleEffect_t GCBasePlayerWeaponVData::GetRumbleEffect() const {
-    return GetSchemaValue<RumbleEffect_t>(m_ptr, "CBasePlayerWeaponVData", "m_iRumbleEffect");
+uint64_t GCBasePlayerWeaponVData::GetRumbleEffect() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBasePlayerWeaponVData", "m_iRumbleEffect");
 }
 
-void GCBasePlayerWeaponVData::SetRumbleEffect(RumbleEffect_t value) {
+void GCBasePlayerWeaponVData::SetRumbleEffect(uint64_t value) {
     SetSchemaValue(m_ptr, "CBasePlayerWeaponVData", "m_iRumbleEffect", false, value);
 }
 
@@ -42573,11 +42573,11 @@ void GCCSPlayerPawn::SetRetakesMVPBoostItem(int32_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn", "m_iRetakesMVPBoostItem", false, value);
 }
 
-loadout_slot_t GCCSPlayerPawn::GetRetakesMVPBoostExtraUtility() const {
-    return GetSchemaValue<loadout_slot_t>(m_ptr, "CCSPlayerPawn", "m_RetakesMVPBoostExtraUtility");
+uint64_t GCCSPlayerPawn::GetRetakesMVPBoostExtraUtility() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSPlayerPawn", "m_RetakesMVPBoostExtraUtility");
 }
 
-void GCCSPlayerPawn::SetRetakesMVPBoostExtraUtility(loadout_slot_t value) {
+void GCCSPlayerPawn::SetRetakesMVPBoostExtraUtility(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn", "m_RetakesMVPBoostExtraUtility", false, value);
 }
 
@@ -42951,11 +42951,11 @@ void GCCSPlayerPawn::SetIsGrabbingHostage(bool value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn", "m_bIsGrabbingHostage", false, value);
 }
 
-CSPlayerBlockingUseAction_t GCCSPlayerPawn::GetBlockingUseActionInProgress() const {
-    return GetSchemaValue<CSPlayerBlockingUseAction_t>(m_ptr, "CCSPlayerPawn", "m_iBlockingUseActionInProgress");
+uint64_t GCCSPlayerPawn::GetBlockingUseActionInProgress() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSPlayerPawn", "m_iBlockingUseActionInProgress");
 }
 
-void GCCSPlayerPawn::SetBlockingUseActionInProgress(CSPlayerBlockingUseAction_t value) {
+void GCCSPlayerPawn::SetBlockingUseActionInProgress(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn", "m_iBlockingUseActionInProgress", false, value);
 }
 
@@ -44169,19 +44169,19 @@ void GCChicken::SetFallVelocity(Vector value) {
     SetSchemaValue(m_ptr, "CChicken", "m_vFallVelocity", false, value);
 }
 
-ChickenActivity GCChicken::GetDesiredActivity() const {
-    return GetSchemaValue<ChickenActivity>(m_ptr, "CChicken", "m_desiredActivity");
+uint64_t GCChicken::GetDesiredActivity() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CChicken", "m_desiredActivity");
 }
 
-void GCChicken::SetDesiredActivity(ChickenActivity value) {
+void GCChicken::SetDesiredActivity(uint64_t value) {
     SetSchemaValue(m_ptr, "CChicken", "m_desiredActivity", false, value);
 }
 
-ChickenActivity GCChicken::GetCurrentActivity() const {
-    return GetSchemaValue<ChickenActivity>(m_ptr, "CChicken", "m_currentActivity");
+uint64_t GCChicken::GetCurrentActivity() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CChicken", "m_currentActivity");
 }
 
-void GCChicken::SetCurrentActivity(ChickenActivity value) {
+void GCChicken::SetCurrentActivity(uint64_t value) {
     SetSchemaValue(m_ptr, "CChicken", "m_currentActivity", false, value);
 }
 
@@ -45502,11 +45502,11 @@ void GCBaseDoor::SetIgnoreDebris(bool value) {
     SetSchemaValue(m_ptr, "CBaseDoor", "m_bIgnoreDebris", false, value);
 }
 
-FuncDoorSpawnPos_t GCBaseDoor::GetSpawnPosition() const {
-    return GetSchemaValue<FuncDoorSpawnPos_t>(m_ptr, "CBaseDoor", "m_eSpawnPosition");
+uint64_t GCBaseDoor::GetSpawnPosition() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseDoor", "m_eSpawnPosition");
 }
 
-void GCBaseDoor::SetSpawnPosition(FuncDoorSpawnPos_t value) {
+void GCBaseDoor::SetSpawnPosition(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseDoor", "m_eSpawnPosition", false, value);
 }
 
@@ -48996,11 +48996,11 @@ GViewAngleServerChange_t::GViewAngleServerChange_t(void *ptr) {
     m_ptr = ptr;
 }
 
-FixAngleSet_t GViewAngleServerChange_t::GetType() const {
-    return GetSchemaValue<FixAngleSet_t>(m_ptr, "ViewAngleServerChange_t", "nType");
+uint64_t GViewAngleServerChange_t::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ViewAngleServerChange_t", "nType");
 }
 
-void GViewAngleServerChange_t::SetType(FixAngleSet_t value) {
+void GViewAngleServerChange_t::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "ViewAngleServerChange_t", "nType", true, value);
 }
 
@@ -49135,11 +49135,11 @@ GRelationship_t::GRelationship_t(void *ptr) {
     m_ptr = ptr;
 }
 
-Disposition_t GRelationship_t::GetDisposition() const {
-    return GetSchemaValue<Disposition_t>(m_ptr, "Relationship_t", "disposition");
+uint64_t GRelationship_t::GetDisposition() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "Relationship_t", "disposition");
 }
 
-void GRelationship_t::SetDisposition(Disposition_t value) {
+void GRelationship_t::SetDisposition(uint64_t value) {
     SetSchemaValue(m_ptr, "Relationship_t", "disposition", true, value);
 }
 
@@ -49981,11 +49981,11 @@ void GCGameScriptedMoveData::SetIgnoreRotation(bool value) {
     SetSchemaValue(m_ptr, "CGameScriptedMoveData", "m_bIgnoreRotation", false, value);
 }
 
-ScriptedMoveType_t GCGameScriptedMoveData::GetType() const {
-    return GetSchemaValue<ScriptedMoveType_t>(m_ptr, "CGameScriptedMoveData", "m_nType");
+uint64_t GCGameScriptedMoveData::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CGameScriptedMoveData", "m_nType");
 }
 
-void GCGameScriptedMoveData::SetType(ScriptedMoveType_t value) {
+void GCGameScriptedMoveData::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CGameScriptedMoveData", "m_nType", false, value);
 }
 
@@ -49997,11 +49997,11 @@ void GCGameScriptedMoveData::SetSuccess(bool value) {
     SetSchemaValue(m_ptr, "CGameScriptedMoveData", "m_bSuccess", false, value);
 }
 
-ForcedCrouchState_t GCGameScriptedMoveData::GetForcedCrouchState() const {
-    return GetSchemaValue<ForcedCrouchState_t>(m_ptr, "CGameScriptedMoveData", "m_nForcedCrouchState");
+uint64_t GCGameScriptedMoveData::GetForcedCrouchState() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CGameScriptedMoveData", "m_nForcedCrouchState");
 }
 
-void GCGameScriptedMoveData::SetForcedCrouchState(ForcedCrouchState_t value) {
+void GCGameScriptedMoveData::SetForcedCrouchState(uint64_t value) {
     SetSchemaValue(m_ptr, "CGameScriptedMoveData", "m_nForcedCrouchState", false, value);
 }
 
@@ -50078,11 +50078,11 @@ void GCBaseAnimGraphController::SetSeqFixedCycle(float value) {
     SetSchemaValue(m_ptr, "CBaseAnimGraphController", "m_flSeqFixedCycle", false, value);
 }
 
-AnimLoopMode_t GCBaseAnimGraphController::GetAnimLoopMode() const {
-    return GetSchemaValue<AnimLoopMode_t>(m_ptr, "CBaseAnimGraphController", "m_nAnimLoopMode");
+uint64_t GCBaseAnimGraphController::GetAnimLoopMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseAnimGraphController", "m_nAnimLoopMode");
 }
 
-void GCBaseAnimGraphController::SetAnimLoopMode(AnimLoopMode_t value) {
+void GCBaseAnimGraphController::SetAnimLoopMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseAnimGraphController", "m_nAnimLoopMode", false, value);
 }
 
@@ -50094,11 +50094,11 @@ void GCBaseAnimGraphController::SetPlaybackRate(float value) {
     SetSchemaValue(m_ptr, "CBaseAnimGraphController", "m_flPlaybackRate", false, value);
 }
 
-SequenceFinishNotifyState_t GCBaseAnimGraphController::GetNotifyState() const {
-    return GetSchemaValue<SequenceFinishNotifyState_t>(m_ptr, "CBaseAnimGraphController", "m_nNotifyState");
+uint64_t GCBaseAnimGraphController::GetNotifyState() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseAnimGraphController", "m_nNotifyState");
 }
 
-void GCBaseAnimGraphController::SetNotifyState(SequenceFinishNotifyState_t value) {
+void GCBaseAnimGraphController::SetNotifyState(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseAnimGraphController", "m_nNotifyState", false, value);
 }
 
@@ -51451,11 +51451,11 @@ void GAmmoTypeInfo_t::SetSplashSize(GCRangeInt value) {
     SetSchemaValue(m_ptr, "AmmoTypeInfo_t", "m_nSplashSize", true, value);
 }
 
-AmmoFlags_t GAmmoTypeInfo_t::GetFlags() const {
-    return GetSchemaValue<AmmoFlags_t>(m_ptr, "AmmoTypeInfo_t", "m_nFlags");
+uint64_t GAmmoTypeInfo_t::GetFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "AmmoTypeInfo_t", "m_nFlags");
 }
 
-void GAmmoTypeInfo_t::SetFlags(AmmoFlags_t value) {
+void GAmmoTypeInfo_t::SetFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "AmmoTypeInfo_t", "m_nFlags", true, value);
 }
 
@@ -51677,11 +51677,11 @@ void GCShatterGlassShard::SetParentShard(uint32_t value) {
     SetSchemaValue(m_ptr, "CShatterGlassShard", "m_hParentShard", false, value);
 }
 
-ShatterGlassStressType GCShatterGlassShard::GetShatterStressType() const {
-    return GetSchemaValue<ShatterGlassStressType>(m_ptr, "CShatterGlassShard", "m_ShatterStressType");
+uint64_t GCShatterGlassShard::GetShatterStressType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CShatterGlassShard", "m_ShatterStressType");
 }
 
-void GCShatterGlassShard::SetShatterStressType(ShatterGlassStressType value) {
+void GCShatterGlassShard::SetShatterStressType(uint64_t value) {
     SetSchemaValue(m_ptr, "CShatterGlassShard", "m_ShatterStressType", false, value);
 }
 
@@ -51749,11 +51749,11 @@ void GCShatterGlassShard::SetArea(float value) {
     SetSchemaValue(m_ptr, "CShatterGlassShard", "m_flArea", false, value);
 }
 
-OnFrame GCShatterGlassShard::GetOnFrameEdge() const {
-    return GetSchemaValue<OnFrame>(m_ptr, "CShatterGlassShard", "m_nOnFrameEdge");
+uint64_t GCShatterGlassShard::GetOnFrameEdge() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CShatterGlassShard", "m_nOnFrameEdge");
 }
 
-void GCShatterGlassShard::SetOnFrameEdge(OnFrame value) {
+void GCShatterGlassShard::SetOnFrameEdge(uint64_t value) {
     SetSchemaValue(m_ptr, "CShatterGlassShard", "m_nOnFrameEdge", false, value);
 }
 
@@ -51910,11 +51910,11 @@ void GCommandToolCommand_t::SetShortName(std::string value) {
     SetSchemaValue(m_ptr, "CommandToolCommand_t", "m_ShortName", true, CUtlString(value.c_str()));
 }
 
-CommandExecMode_t GCommandToolCommand_t::GetExecMode() const {
-    return GetSchemaValue<CommandExecMode_t>(m_ptr, "CommandToolCommand_t", "m_ExecMode");
+uint64_t GCommandToolCommand_t::GetExecMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CommandToolCommand_t", "m_ExecMode");
 }
 
-void GCommandToolCommand_t::SetExecMode(CommandExecMode_t value) {
+void GCommandToolCommand_t::SetExecMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CommandToolCommand_t", "m_ExecMode", true, value);
 }
 
@@ -51934,11 +51934,11 @@ void GCommandToolCommand_t::SetPeriodicExecDelay(float value) {
     SetSchemaValue(m_ptr, "CommandToolCommand_t", "m_PeriodicExecDelay", true, value);
 }
 
-CommandEntitySpecType_t GCommandToolCommand_t::GetSpecType() const {
-    return GetSchemaValue<CommandEntitySpecType_t>(m_ptr, "CommandToolCommand_t", "m_SpecType");
+uint64_t GCommandToolCommand_t::GetSpecType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CommandToolCommand_t", "m_SpecType");
 }
 
-void GCommandToolCommand_t::SetSpecType(CommandEntitySpecType_t value) {
+void GCommandToolCommand_t::SetSpecType(uint64_t value) {
     SetSchemaValue(m_ptr, "CommandToolCommand_t", "m_SpecType", true, value);
 }
 
@@ -51958,19 +51958,19 @@ void GCommandToolCommand_t::SetCommands(std::string value) {
     SetSchemaValue(m_ptr, "CommandToolCommand_t", "m_Commands", true, CUtlString(value.c_str()));
 }
 
-DebugOverlayBits_t GCommandToolCommand_t::GetSetDebugBits() const {
-    return GetSchemaValue<DebugOverlayBits_t>(m_ptr, "CommandToolCommand_t", "m_SetDebugBits");
+uint64_t GCommandToolCommand_t::GetSetDebugBits() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CommandToolCommand_t", "m_SetDebugBits");
 }
 
-void GCommandToolCommand_t::SetSetDebugBits(DebugOverlayBits_t value) {
+void GCommandToolCommand_t::SetSetDebugBits(uint64_t value) {
     SetSchemaValue(m_ptr, "CommandToolCommand_t", "m_SetDebugBits", true, value);
 }
 
-DebugOverlayBits_t GCommandToolCommand_t::GetClearDebugBits() const {
-    return GetSchemaValue<DebugOverlayBits_t>(m_ptr, "CommandToolCommand_t", "m_ClearDebugBits");
+uint64_t GCommandToolCommand_t::GetClearDebugBits() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CommandToolCommand_t", "m_ClearDebugBits");
 }
 
-void GCommandToolCommand_t::SetClearDebugBits(DebugOverlayBits_t value) {
+void GCommandToolCommand_t::SetClearDebugBits(uint64_t value) {
     SetSchemaValue(m_ptr, "CommandToolCommand_t", "m_ClearDebugBits", true, value);
 }
 
@@ -53461,11 +53461,11 @@ void GCTakeDamageInfo::SetShouldSpark(bool value) {
     SetSchemaValue(m_ptr, "CTakeDamageInfo", "m_bShouldSpark", false, value);
 }
 
-TakeDamageFlags_t GCTakeDamageInfo::GetDamageFlags() const {
-    return GetSchemaValue<TakeDamageFlags_t>(m_ptr, "CTakeDamageInfo", "m_nDamageFlags");
+uint64_t GCTakeDamageInfo::GetDamageFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CTakeDamageInfo", "m_nDamageFlags");
 }
 
-void GCTakeDamageInfo::SetDamageFlags(TakeDamageFlags_t value) {
+void GCTakeDamageInfo::SetDamageFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "CTakeDamageInfo", "m_nDamageFlags", false, value);
 }
 
@@ -53865,11 +53865,11 @@ void Glerpdata_t::SetEnt(GCBaseEntity* value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Ent' is not possible.\n");
 }
 
-MoveType_t Glerpdata_t::GetMoveType() const {
-    return GetSchemaValue<MoveType_t>(m_ptr, "lerpdata_t", "m_MoveType");
+uint64_t Glerpdata_t::GetMoveType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "lerpdata_t", "m_MoveType");
 }
 
-void Glerpdata_t::SetMoveType(MoveType_t value) {
+void Glerpdata_t::SetMoveType(uint64_t value) {
     SetSchemaValue(m_ptr, "lerpdata_t", "m_MoveType", true, value);
 }
 
@@ -54527,27 +54527,27 @@ GCCSWeaponBaseVData::GCCSWeaponBaseVData(void *ptr) {
     m_ptr = ptr;
 }
 
-CSWeaponType GCCSWeaponBaseVData::GetWeaponType() const {
-    return GetSchemaValue<CSWeaponType>(m_ptr, "CCSWeaponBaseVData", "m_WeaponType");
+uint64_t GCCSWeaponBaseVData::GetWeaponType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBaseVData", "m_WeaponType");
 }
 
-void GCCSWeaponBaseVData::SetWeaponType(CSWeaponType value) {
+void GCCSWeaponBaseVData::SetWeaponType(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBaseVData", "m_WeaponType", false, value);
 }
 
-CSWeaponCategory GCCSWeaponBaseVData::GetWeaponCategory() const {
-    return GetSchemaValue<CSWeaponCategory>(m_ptr, "CCSWeaponBaseVData", "m_WeaponCategory");
+uint64_t GCCSWeaponBaseVData::GetWeaponCategory() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBaseVData", "m_WeaponCategory");
 }
 
-void GCCSWeaponBaseVData::SetWeaponCategory(CSWeaponCategory value) {
+void GCCSWeaponBaseVData::SetWeaponCategory(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBaseVData", "m_WeaponCategory", false, value);
 }
 
-gear_slot_t GCCSWeaponBaseVData::GetGearSlot() const {
-    return GetSchemaValue<gear_slot_t>(m_ptr, "CCSWeaponBaseVData", "m_GearSlot");
+uint64_t GCCSWeaponBaseVData::GetGearSlot() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBaseVData", "m_GearSlot");
 }
 
-void GCCSWeaponBaseVData::SetGearSlot(gear_slot_t value) {
+void GCCSWeaponBaseVData::SetGearSlot(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBaseVData", "m_GearSlot", false, value);
 }
 
@@ -54559,11 +54559,11 @@ void GCCSWeaponBaseVData::SetGearSlotPosition(int32_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBaseVData", "m_GearSlotPosition", false, value);
 }
 
-loadout_slot_t GCCSWeaponBaseVData::GetDefaultLoadoutSlot() const {
-    return GetSchemaValue<loadout_slot_t>(m_ptr, "CCSWeaponBaseVData", "m_DefaultLoadoutSlot");
+uint64_t GCCSWeaponBaseVData::GetDefaultLoadoutSlot() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBaseVData", "m_DefaultLoadoutSlot");
 }
 
-void GCCSWeaponBaseVData::SetDefaultLoadoutSlot(loadout_slot_t value) {
+void GCCSWeaponBaseVData::SetDefaultLoadoutSlot(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBaseVData", "m_DefaultLoadoutSlot", false, value);
 }
 
@@ -54647,11 +54647,11 @@ void GCCSWeaponBaseVData::SetAnimExtension(std::string value) {
     SetSchemaValue(m_ptr, "CCSWeaponBaseVData", "m_szAnimExtension", false, CUtlString(value.c_str()));
 }
 
-CSWeaponSilencerType GCCSWeaponBaseVData::GetSilencerType() const {
-    return GetSchemaValue<CSWeaponSilencerType>(m_ptr, "CCSWeaponBaseVData", "m_eSilencerType");
+uint64_t GCCSWeaponBaseVData::GetSilencerType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBaseVData", "m_eSilencerType");
 }
 
-void GCCSWeaponBaseVData::SetSilencerType(CSWeaponSilencerType value) {
+void GCCSWeaponBaseVData::SetSilencerType(uint64_t value) {
     SetSchemaValue(m_ptr, "CCSWeaponBaseVData", "m_eSilencerType", false, value);
 }
 
@@ -55370,11 +55370,11 @@ void GCPrecipitationVData::SetInnerDistance(float value) {
     SetSchemaValue(m_ptr, "CPrecipitationVData", "m_flInnerDistance", false, value);
 }
 
-ParticleAttachment_t GCPrecipitationVData::GetAttachType() const {
-    return GetSchemaValue<ParticleAttachment_t>(m_ptr, "CPrecipitationVData", "m_nAttachType");
+uint64_t GCPrecipitationVData::GetAttachType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPrecipitationVData", "m_nAttachType");
 }
 
-void GCPrecipitationVData::SetAttachType(ParticleAttachment_t value) {
+void GCPrecipitationVData::SetAttachType(uint64_t value) {
     SetSchemaValue(m_ptr, "CPrecipitationVData", "m_nAttachType", false, value);
 }
 
@@ -55524,11 +55524,11 @@ void GCAmbientGeneric::SetMaxRadius(float value) {
     SetSchemaValue(m_ptr, "CAmbientGeneric", "m_flMaxRadius", false, value);
 }
 
-soundlevel_t GCAmbientGeneric::GetSoundLevel() const {
-    return GetSchemaValue<soundlevel_t>(m_ptr, "CAmbientGeneric", "m_iSoundLevel");
+uint64_t GCAmbientGeneric::GetSoundLevel() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAmbientGeneric", "m_iSoundLevel");
 }
 
-void GCAmbientGeneric::SetSoundLevel(soundlevel_t value) {
+void GCAmbientGeneric::SetSoundLevel(uint64_t value) {
     SetSchemaValue(m_ptr, "CAmbientGeneric", "m_iSoundLevel", false, value);
 }
 
@@ -55886,11 +55886,11 @@ void GRelationshipOverride_t::SetEntity(GCBaseEntity* value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Entity' is not possible.\n");
 }
 
-Class_T GRelationshipOverride_t::GetClassType() const {
-    return GetSchemaValue<Class_T>(m_ptr, "RelationshipOverride_t", "classType");
+uint64_t GRelationshipOverride_t::GetClassType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "RelationshipOverride_t", "classType");
 }
 
-void GRelationshipOverride_t::SetClassType(Class_T value) {
+void GRelationshipOverride_t::SetClassType(uint64_t value) {
     SetSchemaValue(m_ptr, "RelationshipOverride_t", "classType", true, value);
 }
 
@@ -55959,19 +55959,19 @@ GCParticleFloatInput::GCParticleFloatInput(void *ptr) {
     m_ptr = ptr;
 }
 
-ParticleFloatType_t GCParticleFloatInput::GetType() const {
-    return GetSchemaValue<ParticleFloatType_t>(m_ptr, "CParticleFloatInput", "m_nType");
+uint64_t GCParticleFloatInput::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleFloatInput", "m_nType");
 }
 
-void GCParticleFloatInput::SetType(ParticleFloatType_t value) {
+void GCParticleFloatInput::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nType", false, value);
 }
 
-ParticleFloatMapType_t GCParticleFloatInput::GetMapType() const {
-    return GetSchemaValue<ParticleFloatMapType_t>(m_ptr, "CParticleFloatInput", "m_nMapType");
+uint64_t GCParticleFloatInput::GetMapType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleFloatInput", "m_nMapType");
 }
 
-void GCParticleFloatInput::SetMapType(ParticleFloatMapType_t value) {
+void GCParticleFloatInput::SetMapType(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nMapType", false, value);
 }
 
@@ -56049,11 +56049,11 @@ void GCParticleFloatInput::SetRandomSeed(int32_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nRandomSeed", false, value);
 }
 
-ParticleFloatRandomMode_t GCParticleFloatInput::GetRandomMode() const {
-    return GetSchemaValue<ParticleFloatRandomMode_t>(m_ptr, "CParticleFloatInput", "m_nRandomMode");
+uint64_t GCParticleFloatInput::GetRandomMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleFloatInput", "m_nRandomMode");
 }
 
-void GCParticleFloatInput::SetRandomMode(ParticleFloatRandomMode_t value) {
+void GCParticleFloatInput::SetRandomMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nRandomMode", false, value);
 }
 
@@ -56146,27 +56146,27 @@ void GCParticleFloatInput::SetNoiseOctaves(int32_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nNoiseOctaves", false, value);
 }
 
-PFNoiseTurbulence_t GCParticleFloatInput::GetNoiseTurbulence() const {
-    return GetSchemaValue<PFNoiseTurbulence_t>(m_ptr, "CParticleFloatInput", "m_nNoiseTurbulence");
+uint64_t GCParticleFloatInput::GetNoiseTurbulence() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleFloatInput", "m_nNoiseTurbulence");
 }
 
-void GCParticleFloatInput::SetNoiseTurbulence(PFNoiseTurbulence_t value) {
+void GCParticleFloatInput::SetNoiseTurbulence(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nNoiseTurbulence", false, value);
 }
 
-PFNoiseType_t GCParticleFloatInput::GetNoiseType() const {
-    return GetSchemaValue<PFNoiseType_t>(m_ptr, "CParticleFloatInput", "m_nNoiseType");
+uint64_t GCParticleFloatInput::GetNoiseType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleFloatInput", "m_nNoiseType");
 }
 
-void GCParticleFloatInput::SetNoiseType(PFNoiseType_t value) {
+void GCParticleFloatInput::SetNoiseType(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nNoiseType", false, value);
 }
 
-PFNoiseModifier_t GCParticleFloatInput::GetNoiseModifier() const {
-    return GetSchemaValue<PFNoiseModifier_t>(m_ptr, "CParticleFloatInput", "m_nNoiseModifier");
+uint64_t GCParticleFloatInput::GetNoiseModifier() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleFloatInput", "m_nNoiseModifier");
 }
 
-void GCParticleFloatInput::SetNoiseModifier(PFNoiseModifier_t value) {
+void GCParticleFloatInput::SetNoiseModifier(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nNoiseModifier", false, value);
 }
 
@@ -56218,11 +56218,11 @@ void GCParticleFloatInput::SetUseBoundsCenter(bool value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_bUseBoundsCenter", false, value);
 }
 
-ParticleFloatInputMode_t GCParticleFloatInput::GetInputMode() const {
-    return GetSchemaValue<ParticleFloatInputMode_t>(m_ptr, "CParticleFloatInput", "m_nInputMode");
+uint64_t GCParticleFloatInput::GetInputMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleFloatInput", "m_nInputMode");
 }
 
-void GCParticleFloatInput::SetInputMode(ParticleFloatInputMode_t value) {
+void GCParticleFloatInput::SetInputMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nInputMode", false, value);
 }
 
@@ -56298,11 +56298,11 @@ void GCParticleFloatInput::SetNotchedOutputInside(float value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_flNotchedOutputInside", false, value);
 }
 
-ParticleFloatBiasType_t GCParticleFloatInput::GetBiasType() const {
-    return GetSchemaValue<ParticleFloatBiasType_t>(m_ptr, "CParticleFloatInput", "m_nBiasType");
+uint64_t GCParticleFloatInput::GetBiasType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleFloatInput", "m_nBiasType");
 }
 
-void GCParticleFloatInput::SetBiasType(ParticleFloatBiasType_t value) {
+void GCParticleFloatInput::SetBiasType(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleFloatInput", "m_nBiasType", false, value);
 }
 
@@ -56525,11 +56525,11 @@ void GCParticleFunction::SetOpStrength(GCParticleCollectionFloatInput value) {
     SetSchemaValue(m_ptr, "CParticleFunction", "m_flOpStrength", false, value);
 }
 
-ParticleEndcapMode_t GCParticleFunction::GetOpEndCapState() const {
-    return GetSchemaValue<ParticleEndcapMode_t>(m_ptr, "CParticleFunction", "m_nOpEndCapState");
+uint64_t GCParticleFunction::GetOpEndCapState() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleFunction", "m_nOpEndCapState");
 }
 
-void GCParticleFunction::SetOpEndCapState(ParticleEndcapMode_t value) {
+void GCParticleFunction::SetOpEndCapState(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleFunction", "m_nOpEndCapState", false, value);
 }
 
@@ -56814,11 +56814,11 @@ void GFootStepTrigger::SetFootIndex(int32_t value) {
     SetSchemaValue(m_ptr, "FootStepTrigger", "m_nFootIndex", false, value);
 }
 
-StepPhase GFootStepTrigger::GetTriggerPhase() const {
-    return GetSchemaValue<StepPhase>(m_ptr, "FootStepTrigger", "m_triggerPhase");
+uint64_t GFootStepTrigger::GetTriggerPhase() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "FootStepTrigger", "m_triggerPhase");
 }
 
-void GFootStepTrigger::SetTriggerPhase(StepPhase value) {
+void GFootStepTrigger::SetTriggerPhase(uint64_t value) {
     SetSchemaValue(m_ptr, "FootStepTrigger", "m_triggerPhase", false, value);
 }
 
@@ -56846,11 +56846,11 @@ void GParticleControlPointDriver_t::SetControlPoint(int32_t value) {
     SetSchemaValue(m_ptr, "ParticleControlPointDriver_t", "m_iControlPoint", true, value);
 }
 
-ParticleAttachment_t GParticleControlPointDriver_t::GetAttachType() const {
-    return GetSchemaValue<ParticleAttachment_t>(m_ptr, "ParticleControlPointDriver_t", "m_iAttachType");
+uint64_t GParticleControlPointDriver_t::GetAttachType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ParticleControlPointDriver_t", "m_iAttachType");
 }
 
-void GParticleControlPointDriver_t::SetAttachType(ParticleAttachment_t value) {
+void GParticleControlPointDriver_t::SetAttachType(uint64_t value) {
     SetSchemaValue(m_ptr, "ParticleControlPointDriver_t", "m_iAttachType", true, value);
 }
 
@@ -57174,11 +57174,11 @@ GCAnimParamHandle::GCAnimParamHandle(void *ptr) {
     m_ptr = ptr;
 }
 
-AnimParamType_t GCAnimParamHandle::GetType() const {
-    return GetSchemaValue<AnimParamType_t>(m_ptr, "CAnimParamHandle", "m_type");
+uint64_t GCAnimParamHandle::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAnimParamHandle", "m_type");
 }
 
-void GCAnimParamHandle::SetType(AnimParamType_t value) {
+void GCAnimParamHandle::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CAnimParamHandle", "m_type", false, value);
 }
 
@@ -58503,11 +58503,11 @@ GCAnimInputDamping::GCAnimInputDamping(void *ptr) {
     m_ptr = ptr;
 }
 
-DampingSpeedFunction GCAnimInputDamping::GetSpeedFunction() const {
-    return GetSchemaValue<DampingSpeedFunction>(m_ptr, "CAnimInputDamping", "m_speedFunction");
+uint64_t GCAnimInputDamping::GetSpeedFunction() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAnimInputDamping", "m_speedFunction");
 }
 
-void GCAnimInputDamping::SetSpeedFunction(DampingSpeedFunction value) {
+void GCAnimInputDamping::SetSpeedFunction(uint64_t value) {
     SetSchemaValue(m_ptr, "CAnimInputDamping", "m_speedFunction", false, value);
 }
 
@@ -58625,19 +58625,19 @@ void GCSosGroupActionSchema::SetName(std::string value) {
     SetSchemaValue(m_ptr, "CSosGroupActionSchema", "m_name", false, CUtlString(value.c_str()));
 }
 
-ActionType_t GCSosGroupActionSchema::GetActionType() const {
-    return GetSchemaValue<ActionType_t>(m_ptr, "CSosGroupActionSchema", "m_actionType");
+uint64_t GCSosGroupActionSchema::GetActionType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CSosGroupActionSchema", "m_actionType");
 }
 
-void GCSosGroupActionSchema::SetActionType(ActionType_t value) {
+void GCSosGroupActionSchema::SetActionType(uint64_t value) {
     SetSchemaValue(m_ptr, "CSosGroupActionSchema", "m_actionType", false, value);
 }
 
-ActionType_t GCSosGroupActionSchema::GetActionInstanceType() const {
-    return GetSchemaValue<ActionType_t>(m_ptr, "CSosGroupActionSchema", "m_actionInstanceType");
+uint64_t GCSosGroupActionSchema::GetActionInstanceType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CSosGroupActionSchema", "m_actionInstanceType");
 }
 
-void GCSosGroupActionSchema::SetActionInstanceType(ActionType_t value) {
+void GCSosGroupActionSchema::SetActionInstanceType(uint64_t value) {
     SetSchemaValue(m_ptr, "CSosGroupActionSchema", "m_actionInstanceType", false, value);
 }
 
@@ -59215,11 +59215,11 @@ GCParticleTransformInput::GCParticleTransformInput(void *ptr) {
     m_ptr = ptr;
 }
 
-ParticleTransformType_t GCParticleTransformInput::GetType() const {
-    return GetSchemaValue<ParticleTransformType_t>(m_ptr, "CParticleTransformInput", "m_nType");
+uint64_t GCParticleTransformInput::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleTransformInput", "m_nType");
 }
 
-void GCParticleTransformInput::SetType(ParticleTransformType_t value) {
+void GCParticleTransformInput::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleTransformInput", "m_nType", false, value);
 }
 
@@ -59497,11 +59497,11 @@ void GCAnimUpdateNodeBase::SetNodePath(GCAnimNodePath value) {
     SetSchemaValue(m_ptr, "CAnimUpdateNodeBase", "m_nodePath", false, value);
 }
 
-AnimNodeNetworkMode GCAnimUpdateNodeBase::GetNetworkMode() const {
-    return GetSchemaValue<AnimNodeNetworkMode>(m_ptr, "CAnimUpdateNodeBase", "m_networkMode");
+uint64_t GCAnimUpdateNodeBase::GetNetworkMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAnimUpdateNodeBase", "m_networkMode");
 }
 
-void GCAnimUpdateNodeBase::SetNetworkMode(AnimNodeNetworkMode value) {
+void GCAnimUpdateNodeBase::SetNetworkMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CAnimUpdateNodeBase", "m_networkMode", false, value);
 }
 
@@ -59579,11 +59579,11 @@ GCParticleVecInput::GCParticleVecInput(void *ptr) {
     m_ptr = ptr;
 }
 
-ParticleVecType_t GCParticleVecInput::GetType() const {
-    return GetSchemaValue<ParticleVecType_t>(m_ptr, "CParticleVecInput", "m_nType");
+uint64_t GCParticleVecInput::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleVecInput", "m_nType");
 }
 
-void GCParticleVecInput::SetType(ParticleVecType_t value) {
+void GCParticleVecInput::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleVecInput", "m_nType", false, value);
 }
 
@@ -60622,11 +60622,11 @@ void GCBinaryUpdateNode::SetChild2(GCAnimUpdateNodeRef value) {
     SetSchemaValue(m_ptr, "CBinaryUpdateNode", "m_pChild2", false, value);
 }
 
-BinaryNodeTiming GCBinaryUpdateNode::GetTimingBehavior() const {
-    return GetSchemaValue<BinaryNodeTiming>(m_ptr, "CBinaryUpdateNode", "m_timingBehavior");
+uint64_t GCBinaryUpdateNode::GetTimingBehavior() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBinaryUpdateNode", "m_timingBehavior");
 }
 
-void GCBinaryUpdateNode::SetTimingBehavior(BinaryNodeTiming value) {
+void GCBinaryUpdateNode::SetTimingBehavior(uint64_t value) {
     SetSchemaValue(m_ptr, "CBinaryUpdateNode", "m_timingBehavior", false, value);
 }
 
@@ -61311,59 +61311,59 @@ void GTextureControls_t::SetClampUVs(bool value) {
     SetSchemaValue(m_ptr, "TextureControls_t", "m_bClampUVs", true, value);
 }
 
-SpriteCardPerParticleScale_t GTextureControls_t::GetPerParticleBlend() const {
-    return GetSchemaValue<SpriteCardPerParticleScale_t>(m_ptr, "TextureControls_t", "m_nPerParticleBlend");
+uint64_t GTextureControls_t::GetPerParticleBlend() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureControls_t", "m_nPerParticleBlend");
 }
 
-void GTextureControls_t::SetPerParticleBlend(SpriteCardPerParticleScale_t value) {
+void GTextureControls_t::SetPerParticleBlend(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureControls_t", "m_nPerParticleBlend", true, value);
 }
 
-SpriteCardPerParticleScale_t GTextureControls_t::GetPerParticleScale() const {
-    return GetSchemaValue<SpriteCardPerParticleScale_t>(m_ptr, "TextureControls_t", "m_nPerParticleScale");
+uint64_t GTextureControls_t::GetPerParticleScale() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureControls_t", "m_nPerParticleScale");
 }
 
-void GTextureControls_t::SetPerParticleScale(SpriteCardPerParticleScale_t value) {
+void GTextureControls_t::SetPerParticleScale(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureControls_t", "m_nPerParticleScale", true, value);
 }
 
-SpriteCardPerParticleScale_t GTextureControls_t::GetPerParticleOffsetU() const {
-    return GetSchemaValue<SpriteCardPerParticleScale_t>(m_ptr, "TextureControls_t", "m_nPerParticleOffsetU");
+uint64_t GTextureControls_t::GetPerParticleOffsetU() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureControls_t", "m_nPerParticleOffsetU");
 }
 
-void GTextureControls_t::SetPerParticleOffsetU(SpriteCardPerParticleScale_t value) {
+void GTextureControls_t::SetPerParticleOffsetU(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureControls_t", "m_nPerParticleOffsetU", true, value);
 }
 
-SpriteCardPerParticleScale_t GTextureControls_t::GetPerParticleOffsetV() const {
-    return GetSchemaValue<SpriteCardPerParticleScale_t>(m_ptr, "TextureControls_t", "m_nPerParticleOffsetV");
+uint64_t GTextureControls_t::GetPerParticleOffsetV() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureControls_t", "m_nPerParticleOffsetV");
 }
 
-void GTextureControls_t::SetPerParticleOffsetV(SpriteCardPerParticleScale_t value) {
+void GTextureControls_t::SetPerParticleOffsetV(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureControls_t", "m_nPerParticleOffsetV", true, value);
 }
 
-SpriteCardPerParticleScale_t GTextureControls_t::GetPerParticleRotation() const {
-    return GetSchemaValue<SpriteCardPerParticleScale_t>(m_ptr, "TextureControls_t", "m_nPerParticleRotation");
+uint64_t GTextureControls_t::GetPerParticleRotation() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureControls_t", "m_nPerParticleRotation");
 }
 
-void GTextureControls_t::SetPerParticleRotation(SpriteCardPerParticleScale_t value) {
+void GTextureControls_t::SetPerParticleRotation(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureControls_t", "m_nPerParticleRotation", true, value);
 }
 
-SpriteCardPerParticleScale_t GTextureControls_t::GetPerParticleZoom() const {
-    return GetSchemaValue<SpriteCardPerParticleScale_t>(m_ptr, "TextureControls_t", "m_nPerParticleZoom");
+uint64_t GTextureControls_t::GetPerParticleZoom() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureControls_t", "m_nPerParticleZoom");
 }
 
-void GTextureControls_t::SetPerParticleZoom(SpriteCardPerParticleScale_t value) {
+void GTextureControls_t::SetPerParticleZoom(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureControls_t", "m_nPerParticleZoom", true, value);
 }
 
-SpriteCardPerParticleScale_t GTextureControls_t::GetPerParticleDistortion() const {
-    return GetSchemaValue<SpriteCardPerParticleScale_t>(m_ptr, "TextureControls_t", "m_nPerParticleDistortion");
+uint64_t GTextureControls_t::GetPerParticleDistortion() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureControls_t", "m_nPerParticleDistortion");
 }
 
-void GTextureControls_t::SetPerParticleDistortion(SpriteCardPerParticleScale_t value) {
+void GTextureControls_t::SetPerParticleDistortion(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureControls_t", "m_nPerParticleDistortion", true, value);
 }
 
@@ -61383,11 +61383,11 @@ GCParticleModelInput::GCParticleModelInput(void *ptr) {
     m_ptr = ptr;
 }
 
-ParticleModelType_t GCParticleModelInput::GetType() const {
-    return GetSchemaValue<ParticleModelType_t>(m_ptr, "CParticleModelInput", "m_nType");
+uint64_t GCParticleModelInput::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleModelInput", "m_nType");
 }
 
-void GCParticleModelInput::SetType(ParticleModelType_t value) {
+void GCParticleModelInput::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleModelInput", "m_nType", false, value);
 }
 
@@ -61618,19 +61618,19 @@ void GCBoneMaskUpdateNode::SetRootMotionBlend(float value) {
     SetSchemaValue(m_ptr, "CBoneMaskUpdateNode", "m_flRootMotionBlend", false, value);
 }
 
-BoneMaskBlendSpace GCBoneMaskUpdateNode::GetBlendSpace() const {
-    return GetSchemaValue<BoneMaskBlendSpace>(m_ptr, "CBoneMaskUpdateNode", "m_blendSpace");
+uint64_t GCBoneMaskUpdateNode::GetBlendSpace() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBoneMaskUpdateNode", "m_blendSpace");
 }
 
-void GCBoneMaskUpdateNode::SetBlendSpace(BoneMaskBlendSpace value) {
+void GCBoneMaskUpdateNode::SetBlendSpace(uint64_t value) {
     SetSchemaValue(m_ptr, "CBoneMaskUpdateNode", "m_blendSpace", false, value);
 }
 
-BinaryNodeChildOption GCBoneMaskUpdateNode::GetFootMotionTiming() const {
-    return GetSchemaValue<BinaryNodeChildOption>(m_ptr, "CBoneMaskUpdateNode", "m_footMotionTiming");
+uint64_t GCBoneMaskUpdateNode::GetFootMotionTiming() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBoneMaskUpdateNode", "m_footMotionTiming");
 }
 
-void GCBoneMaskUpdateNode::SetFootMotionTiming(BinaryNodeChildOption value) {
+void GCBoneMaskUpdateNode::SetFootMotionTiming(uint64_t value) {
     SetSchemaValue(m_ptr, "CBoneMaskUpdateNode", "m_footMotionTiming", false, value);
 }
 
@@ -61642,11 +61642,11 @@ void GCBoneMaskUpdateNode::SetUseBlendScale(bool value) {
     SetSchemaValue(m_ptr, "CBoneMaskUpdateNode", "m_bUseBlendScale", false, value);
 }
 
-AnimValueSource GCBoneMaskUpdateNode::GetBlendValueSource() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CBoneMaskUpdateNode", "m_blendValueSource");
+uint64_t GCBoneMaskUpdateNode::GetBlendValueSource() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBoneMaskUpdateNode", "m_blendValueSource");
 }
 
-void GCBoneMaskUpdateNode::SetBlendValueSource(AnimValueSource value) {
+void GCBoneMaskUpdateNode::SetBlendValueSource(uint64_t value) {
     SetSchemaValue(m_ptr, "CBoneMaskUpdateNode", "m_blendValueSource", false, value);
 }
 
@@ -62247,19 +62247,19 @@ GVMixFilterDesc_t::GVMixFilterDesc_t(void *ptr) {
     m_ptr = ptr;
 }
 
-VMixFilterType_t GVMixFilterDesc_t::GetFilterType() const {
-    return GetSchemaValue<VMixFilterType_t>(m_ptr, "VMixFilterDesc_t", "m_nFilterType");
+uint64_t GVMixFilterDesc_t::GetFilterType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "VMixFilterDesc_t", "m_nFilterType");
 }
 
-void GVMixFilterDesc_t::SetFilterType(VMixFilterType_t value) {
+void GVMixFilterDesc_t::SetFilterType(uint64_t value) {
     SetSchemaValue(m_ptr, "VMixFilterDesc_t", "m_nFilterType", true, value);
 }
 
-VMixFilterSlope_t GVMixFilterDesc_t::GetFilterSlope() const {
-    return GetSchemaValue<VMixFilterSlope_t>(m_ptr, "VMixFilterDesc_t", "m_nFilterSlope");
+uint64_t GVMixFilterDesc_t::GetFilterSlope() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "VMixFilterDesc_t", "m_nFilterSlope");
 }
 
-void GVMixFilterDesc_t::SetFilterSlope(VMixFilterSlope_t value) {
+void GVMixFilterDesc_t::SetFilterSlope(uint64_t value) {
     SetSchemaValue(m_ptr, "VMixFilterDesc_t", "m_nFilterSlope", true, value);
 }
 
@@ -62368,11 +62368,11 @@ GCParticleMassCalculationParameters::GCParticleMassCalculationParameters(void *p
     m_ptr = ptr;
 }
 
-ParticleMassMode_t GCParticleMassCalculationParameters::GetMassMode() const {
-    return GetSchemaValue<ParticleMassMode_t>(m_ptr, "CParticleMassCalculationParameters", "m_nMassMode");
+uint64_t GCParticleMassCalculationParameters::GetMassMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleMassCalculationParameters", "m_nMassMode");
 }
 
-void GCParticleMassCalculationParameters::SetMassMode(ParticleMassMode_t value) {
+void GCParticleMassCalculationParameters::SetMassMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleMassCalculationParameters", "m_nMassMode", false, value);
 }
 
@@ -62580,11 +62580,11 @@ void GCFootPinningUpdateNode::SetPoseOpFixedData(GFootPinningPoseOpFixedData_t v
     SetSchemaValue(m_ptr, "CFootPinningUpdateNode", "m_poseOpFixedData", false, value);
 }
 
-FootPinningTimingSource GCFootPinningUpdateNode::GetTimingSource() const {
-    return GetSchemaValue<FootPinningTimingSource>(m_ptr, "CFootPinningUpdateNode", "m_eTimingSource");
+uint64_t GCFootPinningUpdateNode::GetTimingSource() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFootPinningUpdateNode", "m_eTimingSource");
 }
 
-void GCFootPinningUpdateNode::SetTimingSource(FootPinningTimingSource value) {
+void GCFootPinningUpdateNode::SetTimingSource(uint64_t value) {
     SetSchemaValue(m_ptr, "CFootPinningUpdateNode", "m_eTimingSource", false, value);
 }
 
@@ -63171,11 +63171,11 @@ void GCompositeMaterialInputLooseVariable_t::SetStrExposedHiddenWhenTrue(std::st
     SetSchemaValue(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_strExposedHiddenWhenTrue", true, CUtlString(value.c_str()));
 }
 
-CompositeMaterialInputLooseVariableType_t GCompositeMaterialInputLooseVariable_t::GetVariableType() const {
-    return GetSchemaValue<CompositeMaterialInputLooseVariableType_t>(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_nVariableType");
+uint64_t GCompositeMaterialInputLooseVariable_t::GetVariableType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_nVariableType");
 }
 
-void GCompositeMaterialInputLooseVariable_t::SetVariableType(CompositeMaterialInputLooseVariableType_t value) {
+void GCompositeMaterialInputLooseVariable_t::SetVariableType(uint64_t value) {
     SetSchemaValue(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_nVariableType", true, value);
 }
 
@@ -63331,11 +63331,11 @@ void GCompositeMaterialInputLooseVariable_t::SetCValueColor4(Color value) {
     SetSchemaValue(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_cValueColor4", true, value);
 }
 
-CompositeMaterialVarSystemVar_t GCompositeMaterialInputLooseVariable_t::GetValueSystemVar() const {
-    return GetSchemaValue<CompositeMaterialVarSystemVar_t>(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_nValueSystemVar");
+uint64_t GCompositeMaterialInputLooseVariable_t::GetValueSystemVar() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_nValueSystemVar");
 }
 
-void GCompositeMaterialInputLooseVariable_t::SetValueSystemVar(CompositeMaterialVarSystemVar_t value) {
+void GCompositeMaterialInputLooseVariable_t::SetValueSystemVar(uint64_t value) {
     SetSchemaValue(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_nValueSystemVar", true, value);
 }
 
@@ -63355,11 +63355,11 @@ void GCompositeMaterialInputLooseVariable_t::SetStrTextureCompilationVtexTemplat
     SetSchemaValue(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_strTextureCompilationVtexTemplate", true, CUtlString(value.c_str()));
 }
 
-CompositeMaterialInputTextureType_t GCompositeMaterialInputLooseVariable_t::GetTextureType() const {
-    return GetSchemaValue<CompositeMaterialInputTextureType_t>(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_nTextureType");
+uint64_t GCompositeMaterialInputLooseVariable_t::GetTextureType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_nTextureType");
 }
 
-void GCompositeMaterialInputLooseVariable_t::SetTextureType(CompositeMaterialInputTextureType_t value) {
+void GCompositeMaterialInputLooseVariable_t::SetTextureType(uint64_t value) {
     SetSchemaValue(m_ptr, "CompositeMaterialInputLooseVariable_t", "m_nTextureType", true, value);
 }
 
@@ -63540,11 +63540,11 @@ void GFootLockPoseOpFixedSettings::SetHipBoneIndex(int32_t value) {
     SetSchemaValue(m_ptr, "FootLockPoseOpFixedSettings", "m_nHipBoneIndex", false, value);
 }
 
-IKSolverType GFootLockPoseOpFixedSettings::GetIkSolverType() const {
-    return GetSchemaValue<IKSolverType>(m_ptr, "FootLockPoseOpFixedSettings", "m_ikSolverType");
+uint64_t GFootLockPoseOpFixedSettings::GetIkSolverType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "FootLockPoseOpFixedSettings", "m_ikSolverType");
 }
 
-void GFootLockPoseOpFixedSettings::SetIkSolverType(IKSolverType value) {
+void GFootLockPoseOpFixedSettings::SetIkSolverType(uint64_t value) {
     SetSchemaValue(m_ptr, "FootLockPoseOpFixedSettings", "m_ikSolverType", false, value);
 }
 
@@ -63740,11 +63740,11 @@ void GCSosGroupActionSetSoundeventParameterSchema::SetOpvarName(std::string valu
     SetSchemaValue(m_ptr, "CSosGroupActionSetSoundeventParameterSchema", "m_opvarName", false, CUtlString(value.c_str()));
 }
 
-SosActionSortType_t GCSosGroupActionSetSoundeventParameterSchema::GetSortType() const {
-    return GetSchemaValue<SosActionSortType_t>(m_ptr, "CSosGroupActionSetSoundeventParameterSchema", "m_nSortType");
+uint64_t GCSosGroupActionSetSoundeventParameterSchema::GetSortType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CSosGroupActionSetSoundeventParameterSchema", "m_nSortType");
 }
 
-void GCSosGroupActionSetSoundeventParameterSchema::SetSortType(SosActionSortType_t value) {
+void GCSosGroupActionSetSoundeventParameterSchema::SetSortType(uint64_t value) {
     SetSchemaValue(m_ptr, "CSosGroupActionSetSoundeventParameterSchema", "m_nSortType", false, value);
 }
 
@@ -64387,11 +64387,11 @@ GCNmFrameSnapEvent::GCNmFrameSnapEvent(void *ptr) {
     m_ptr = ptr;
 }
 
-NmFrameSnapEventMode_t GCNmFrameSnapEvent::GetFrameSnapMode() const {
-    return GetSchemaValue<NmFrameSnapEventMode_t>(m_ptr, "CNmFrameSnapEvent", "m_frameSnapMode");
+uint64_t GCNmFrameSnapEvent::GetFrameSnapMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CNmFrameSnapEvent", "m_frameSnapMode");
 }
 
-void GCNmFrameSnapEvent::SetFrameSnapMode(NmFrameSnapEventMode_t value) {
+void GCNmFrameSnapEvent::SetFrameSnapMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CNmFrameSnapEvent", "m_frameSnapMode", false, value);
 }
 
@@ -64461,11 +64461,11 @@ void GCJumpHelperUpdateNode::SetJumpEndCycle(float value) {
     SetSchemaValue(m_ptr, "CJumpHelperUpdateNode", "m_flJumpEndCycle", false, value);
 }
 
-JumpCorrectionMethod GCJumpHelperUpdateNode::GetCorrectionMethod() const {
-    return GetSchemaValue<JumpCorrectionMethod>(m_ptr, "CJumpHelperUpdateNode", "m_eCorrectionMethod");
+uint64_t GCJumpHelperUpdateNode::GetCorrectionMethod() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CJumpHelperUpdateNode", "m_eCorrectionMethod");
 }
 
-void GCJumpHelperUpdateNode::SetCorrectionMethod(JumpCorrectionMethod value) {
+void GCJumpHelperUpdateNode::SetCorrectionMethod(uint64_t value) {
     SetSchemaValue(m_ptr, "CJumpHelperUpdateNode", "m_eCorrectionMethod", false, value);
 }
 
@@ -64550,11 +64550,11 @@ void GCMaterialAttributeAnimTag::SetAttributeName(std::string value) {
     SetSchemaValue(m_ptr, "CMaterialAttributeAnimTag", "m_AttributeName", false, CUtlString(value.c_str()));
 }
 
-MatterialAttributeTagType_t GCMaterialAttributeAnimTag::GetAttributeType() const {
-    return GetSchemaValue<MatterialAttributeTagType_t>(m_ptr, "CMaterialAttributeAnimTag", "m_AttributeType");
+uint64_t GCMaterialAttributeAnimTag::GetAttributeType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CMaterialAttributeAnimTag", "m_AttributeType");
 }
 
-void GCMaterialAttributeAnimTag::SetAttributeType(MatterialAttributeTagType_t value) {
+void GCMaterialAttributeAnimTag::SetAttributeType(uint64_t value) {
     SetSchemaValue(m_ptr, "CMaterialAttributeAnimTag", "m_AttributeType", false, value);
 }
 
@@ -64616,11 +64616,11 @@ void GCAnimComponentUpdater::SetId(GAnimComponentID value) {
     SetSchemaValue(m_ptr, "CAnimComponentUpdater", "m_id", false, value);
 }
 
-AnimNodeNetworkMode GCAnimComponentUpdater::GetNetworkMode() const {
-    return GetSchemaValue<AnimNodeNetworkMode>(m_ptr, "CAnimComponentUpdater", "m_networkMode");
+uint64_t GCAnimComponentUpdater::GetNetworkMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAnimComponentUpdater", "m_networkMode");
 }
 
-void GCAnimComponentUpdater::SetNetworkMode(AnimNodeNetworkMode value) {
+void GCAnimComponentUpdater::SetNetworkMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CAnimComponentUpdater", "m_networkMode", false, value);
 }
 
@@ -64648,11 +64648,11 @@ GCReplicationParameters::GCReplicationParameters(void *ptr) {
     m_ptr = ptr;
 }
 
-ParticleReplicationMode_t GCReplicationParameters::GetReplicationMode() const {
-    return GetSchemaValue<ParticleReplicationMode_t>(m_ptr, "CReplicationParameters", "m_nReplicationMode");
+uint64_t GCReplicationParameters::GetReplicationMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CReplicationParameters", "m_nReplicationMode");
 }
 
-void GCReplicationParameters::SetReplicationMode(ParticleReplicationMode_t value) {
+void GCReplicationParameters::SetReplicationMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CReplicationParameters", "m_nReplicationMode", false, value);
 }
 
@@ -64845,11 +64845,11 @@ void GCFollowPathUpdateNode::SetTurnDamping(GCAnimInputDamping value) {
     SetSchemaValue(m_ptr, "CFollowPathUpdateNode", "m_turnDamping", false, value);
 }
 
-AnimValueSource GCFollowPathUpdateNode::GetFacingTarget() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CFollowPathUpdateNode", "m_facingTarget");
+uint64_t GCFollowPathUpdateNode::GetFacingTarget() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFollowPathUpdateNode", "m_facingTarget");
 }
 
-void GCFollowPathUpdateNode::SetFacingTarget(AnimValueSource value) {
+void GCFollowPathUpdateNode::SetFacingTarget(uint64_t value) {
     SetSchemaValue(m_ptr, "CFollowPathUpdateNode", "m_facingTarget", false, value);
 }
 
@@ -65024,11 +65024,11 @@ GModelBoneFlexDriverControl_t::GModelBoneFlexDriverControl_t(void *ptr) {
     m_ptr = ptr;
 }
 
-ModelBoneFlexComponent_t GModelBoneFlexDriverControl_t::GetBoneComponent() const {
-    return GetSchemaValue<ModelBoneFlexComponent_t>(m_ptr, "ModelBoneFlexDriverControl_t", "m_nBoneComponent");
+uint64_t GModelBoneFlexDriverControl_t::GetBoneComponent() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ModelBoneFlexDriverControl_t", "m_nBoneComponent");
 }
 
-void GModelBoneFlexDriverControl_t::SetBoneComponent(ModelBoneFlexComponent_t value) {
+void GModelBoneFlexDriverControl_t::SetBoneComponent(uint64_t value) {
     SetSchemaValue(m_ptr, "ModelBoneFlexDriverControl_t", "m_nBoneComponent", true, value);
 }
 
@@ -65418,11 +65418,11 @@ void GParticleNamedValueConfiguration_t::SetConfigName(std::string value) {
     SetSchemaValue(m_ptr, "ParticleNamedValueConfiguration_t", "m_ConfigName", true, CUtlString(value.c_str()));
 }
 
-ParticleAttachment_t GParticleNamedValueConfiguration_t::GetAttachType() const {
-    return GetSchemaValue<ParticleAttachment_t>(m_ptr, "ParticleNamedValueConfiguration_t", "m_iAttachType");
+uint64_t GParticleNamedValueConfiguration_t::GetAttachType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ParticleNamedValueConfiguration_t", "m_iAttachType");
 }
 
-void GParticleNamedValueConfiguration_t::SetAttachType(ParticleAttachment_t value) {
+void GParticleNamedValueConfiguration_t::SetAttachType(uint64_t value) {
     SetSchemaValue(m_ptr, "ParticleNamedValueConfiguration_t", "m_iAttachType", true, value);
 }
 
@@ -65522,11 +65522,11 @@ GCAnimationGraphVisualizerPrimitiveBase::GCAnimationGraphVisualizerPrimitiveBase
     m_ptr = ptr;
 }
 
-CAnimationGraphVisualizerPrimitiveType GCAnimationGraphVisualizerPrimitiveBase::GetType() const {
-    return GetSchemaValue<CAnimationGraphVisualizerPrimitiveType>(m_ptr, "CAnimationGraphVisualizerPrimitiveBase", "m_Type");
+uint64_t GCAnimationGraphVisualizerPrimitiveBase::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAnimationGraphVisualizerPrimitiveBase", "m_Type");
 }
 
-void GCAnimationGraphVisualizerPrimitiveBase::SetType(CAnimationGraphVisualizerPrimitiveType value) {
+void GCAnimationGraphVisualizerPrimitiveBase::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CAnimationGraphVisualizerPrimitiveBase", "m_Type", false, value);
 }
 
@@ -65965,11 +65965,11 @@ void GParamSpan_t::SetParam(GCAnimParamHandle value) {
     SetSchemaValue(m_ptr, "ParamSpan_t", "m_hParam", true, value);
 }
 
-AnimParamType_t GParamSpan_t::GetParamType() const {
-    return GetSchemaValue<AnimParamType_t>(m_ptr, "ParamSpan_t", "m_eParamType");
+uint64_t GParamSpan_t::GetParamType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ParamSpan_t", "m_eParamType");
 }
 
-void GParamSpan_t::SetParamType(AnimParamType_t value) {
+void GParamSpan_t::SetParamType(uint64_t value) {
     SetSchemaValue(m_ptr, "ParamSpan_t", "m_eParamType", true, value);
 }
 
@@ -66070,11 +66070,11 @@ void GRenderInputLayoutField_t::SetSlot(int32_t value) {
     SetSchemaValue(m_ptr, "RenderInputLayoutField_t", "m_nSlot", true, value);
 }
 
-RenderSlotType_t GRenderInputLayoutField_t::GetSlotType() const {
-    return GetSchemaValue<RenderSlotType_t>(m_ptr, "RenderInputLayoutField_t", "m_nSlotType");
+uint64_t GRenderInputLayoutField_t::GetSlotType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "RenderInputLayoutField_t", "m_nSlotType");
 }
 
-void GRenderInputLayoutField_t::SetSlotType(RenderSlotType_t value) {
+void GRenderInputLayoutField_t::SetSlotType(uint64_t value) {
     SetSchemaValue(m_ptr, "RenderInputLayoutField_t", "m_nSlotType", true, value);
 }
 
@@ -66432,27 +66432,27 @@ void GCChoiceUpdateNode::SetBlendTimes(std::vector<float32> value) {
     SetSchemaValueCUtlVector<float32>(m_ptr, "CChoiceUpdateNode", "m_blendTimes", false, value);
 }
 
-ChoiceMethod GCChoiceUpdateNode::GetChoiceMethod() const {
-    return GetSchemaValue<ChoiceMethod>(m_ptr, "CChoiceUpdateNode", "m_choiceMethod");
+uint64_t GCChoiceUpdateNode::GetChoiceMethod() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CChoiceUpdateNode", "m_choiceMethod");
 }
 
-void GCChoiceUpdateNode::SetChoiceMethod(ChoiceMethod value) {
+void GCChoiceUpdateNode::SetChoiceMethod(uint64_t value) {
     SetSchemaValue(m_ptr, "CChoiceUpdateNode", "m_choiceMethod", false, value);
 }
 
-ChoiceChangeMethod GCChoiceUpdateNode::GetChoiceChangeMethod() const {
-    return GetSchemaValue<ChoiceChangeMethod>(m_ptr, "CChoiceUpdateNode", "m_choiceChangeMethod");
+uint64_t GCChoiceUpdateNode::GetChoiceChangeMethod() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CChoiceUpdateNode", "m_choiceChangeMethod");
 }
 
-void GCChoiceUpdateNode::SetChoiceChangeMethod(ChoiceChangeMethod value) {
+void GCChoiceUpdateNode::SetChoiceChangeMethod(uint64_t value) {
     SetSchemaValue(m_ptr, "CChoiceUpdateNode", "m_choiceChangeMethod", false, value);
 }
 
-ChoiceBlendMethod GCChoiceUpdateNode::GetBlendMethod() const {
-    return GetSchemaValue<ChoiceBlendMethod>(m_ptr, "CChoiceUpdateNode", "m_blendMethod");
+uint64_t GCChoiceUpdateNode::GetBlendMethod() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CChoiceUpdateNode", "m_blendMethod");
 }
 
-void GCChoiceUpdateNode::SetBlendMethod(ChoiceBlendMethod value) {
+void GCChoiceUpdateNode::SetBlendMethod(uint64_t value) {
     SetSchemaValue(m_ptr, "CChoiceUpdateNode", "m_blendMethod", false, value);
 }
 
@@ -66513,11 +66513,11 @@ GIKSolverSettings_t::GIKSolverSettings_t(void *ptr) {
     m_ptr = ptr;
 }
 
-IKSolverType GIKSolverSettings_t::GetSolverType() const {
-    return GetSchemaValue<IKSolverType>(m_ptr, "IKSolverSettings_t", "m_SolverType");
+uint64_t GIKSolverSettings_t::GetSolverType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "IKSolverSettings_t", "m_SolverType");
 }
 
-void GIKSolverSettings_t::SetSolverType(IKSolverType value) {
+void GIKSolverSettings_t::SetSolverType(uint64_t value) {
     SetSchemaValue(m_ptr, "IKSolverSettings_t", "m_SolverType", true, value);
 }
 
@@ -67103,19 +67103,19 @@ void GCSosGroupActionLimitSchema::SetMaxCount(int32_t value) {
     SetSchemaValue(m_ptr, "CSosGroupActionLimitSchema", "m_nMaxCount", false, value);
 }
 
-SosActionStopType_t GCSosGroupActionLimitSchema::GetStopType() const {
-    return GetSchemaValue<SosActionStopType_t>(m_ptr, "CSosGroupActionLimitSchema", "m_nStopType");
+uint64_t GCSosGroupActionLimitSchema::GetStopType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CSosGroupActionLimitSchema", "m_nStopType");
 }
 
-void GCSosGroupActionLimitSchema::SetStopType(SosActionStopType_t value) {
+void GCSosGroupActionLimitSchema::SetStopType(uint64_t value) {
     SetSchemaValue(m_ptr, "CSosGroupActionLimitSchema", "m_nStopType", false, value);
 }
 
-SosActionSortType_t GCSosGroupActionLimitSchema::GetSortType() const {
-    return GetSchemaValue<SosActionSortType_t>(m_ptr, "CSosGroupActionLimitSchema", "m_nSortType");
+uint64_t GCSosGroupActionLimitSchema::GetSortType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CSosGroupActionLimitSchema", "m_nSortType");
 }
 
-void GCSosGroupActionLimitSchema::SetSortType(SosActionSortType_t value) {
+void GCSosGroupActionLimitSchema::SetSortType(uint64_t value) {
     SetSchemaValue(m_ptr, "CSosGroupActionLimitSchema", "m_nSortType", false, value);
 }
 
@@ -67272,11 +67272,11 @@ GCCycleControlUpdateNode::GCCycleControlUpdateNode(void *ptr) {
     m_ptr = ptr;
 }
 
-AnimValueSource GCCycleControlUpdateNode::GetValueSource() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CCycleControlUpdateNode", "m_valueSource");
+uint64_t GCCycleControlUpdateNode::GetValueSource() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCycleControlUpdateNode", "m_valueSource");
 }
 
-void GCCycleControlUpdateNode::SetValueSource(AnimValueSource value) {
+void GCCycleControlUpdateNode::SetValueSource(uint64_t value) {
     SetSchemaValue(m_ptr, "CCycleControlUpdateNode", "m_valueSource", false, value);
 }
 
@@ -67613,19 +67613,19 @@ GCConcreteAnimParameter::GCConcreteAnimParameter(void *ptr) {
     m_ptr = ptr;
 }
 
-AnimParamButton_t GCConcreteAnimParameter::GetPreviewButton() const {
-    return GetSchemaValue<AnimParamButton_t>(m_ptr, "CConcreteAnimParameter", "m_previewButton");
+uint64_t GCConcreteAnimParameter::GetPreviewButton() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CConcreteAnimParameter", "m_previewButton");
 }
 
-void GCConcreteAnimParameter::SetPreviewButton(AnimParamButton_t value) {
+void GCConcreteAnimParameter::SetPreviewButton(uint64_t value) {
     SetSchemaValue(m_ptr, "CConcreteAnimParameter", "m_previewButton", false, value);
 }
 
-AnimParamNetworkSetting GCConcreteAnimParameter::GetNetworkSetting() const {
-    return GetSchemaValue<AnimParamNetworkSetting>(m_ptr, "CConcreteAnimParameter", "m_eNetworkSetting");
+uint64_t GCConcreteAnimParameter::GetNetworkSetting() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CConcreteAnimParameter", "m_eNetworkSetting");
 }
 
-void GCConcreteAnimParameter::SetNetworkSetting(AnimParamNetworkSetting value) {
+void GCConcreteAnimParameter::SetNetworkSetting(uint64_t value) {
     SetSchemaValue(m_ptr, "CConcreteAnimParameter", "m_eNetworkSetting", false, value);
 }
 
@@ -67922,11 +67922,11 @@ GCNmTransitionEvent::GCNmTransitionEvent(void *ptr) {
     m_ptr = ptr;
 }
 
-NmTransitionRule_t GCNmTransitionEvent::GetRule() const {
-    return GetSchemaValue<NmTransitionRule_t>(m_ptr, "CNmTransitionEvent", "m_rule");
+uint64_t GCNmTransitionEvent::GetRule() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CNmTransitionEvent", "m_rule");
 }
 
-void GCNmTransitionEvent::SetRule(NmTransitionRule_t value) {
+void GCNmTransitionEvent::SetRule(uint64_t value) {
     SetSchemaValue(m_ptr, "CNmTransitionEvent", "m_rule", false, value);
 }
 
@@ -68481,11 +68481,11 @@ void GCAnimDemoCaptureSettings::SetBaseSequenceFrame(int32_t value) {
     SetSchemaValue(m_ptr, "CAnimDemoCaptureSettings", "m_nBaseSequenceFrame", false, value);
 }
 
-EDemoBoneSelectionMode GCAnimDemoCaptureSettings::GetBoneSelectionMode() const {
-    return GetSchemaValue<EDemoBoneSelectionMode>(m_ptr, "CAnimDemoCaptureSettings", "m_boneSelectionMode");
+uint64_t GCAnimDemoCaptureSettings::GetBoneSelectionMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAnimDemoCaptureSettings", "m_boneSelectionMode");
 }
 
-void GCAnimDemoCaptureSettings::SetBoneSelectionMode(EDemoBoneSelectionMode value) {
+void GCAnimDemoCaptureSettings::SetBoneSelectionMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CAnimDemoCaptureSettings", "m_boneSelectionMode", false, value);
 }
 
@@ -68718,11 +68718,11 @@ GTwoBoneIKSettings_t::GTwoBoneIKSettings_t(void *ptr) {
     m_ptr = ptr;
 }
 
-IkEndEffectorType GTwoBoneIKSettings_t::GetEndEffectorType() const {
-    return GetSchemaValue<IkEndEffectorType>(m_ptr, "TwoBoneIKSettings_t", "m_endEffectorType");
+uint64_t GTwoBoneIKSettings_t::GetEndEffectorType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TwoBoneIKSettings_t", "m_endEffectorType");
 }
 
-void GTwoBoneIKSettings_t::SetEndEffectorType(IkEndEffectorType value) {
+void GTwoBoneIKSettings_t::SetEndEffectorType(uint64_t value) {
     SetSchemaValue(m_ptr, "TwoBoneIKSettings_t", "m_endEffectorType", true, value);
 }
 
@@ -68735,11 +68735,11 @@ void GTwoBoneIKSettings_t::SetEndEffectorAttachment(GCAnimAttachment value) {
     SetSchemaValue(m_ptr, "TwoBoneIKSettings_t", "m_endEffectorAttachment", true, value);
 }
 
-IkTargetType GTwoBoneIKSettings_t::GetTargetType() const {
-    return GetSchemaValue<IkTargetType>(m_ptr, "TwoBoneIKSettings_t", "m_targetType");
+uint64_t GTwoBoneIKSettings_t::GetTargetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TwoBoneIKSettings_t", "m_targetType");
 }
 
-void GTwoBoneIKSettings_t::SetTargetType(IkTargetType value) {
+void GTwoBoneIKSettings_t::SetTargetType(uint64_t value) {
     SetSchemaValue(m_ptr, "TwoBoneIKSettings_t", "m_targetType", true, value);
 }
 
@@ -68866,11 +68866,11 @@ void GCompositeMaterialInputContainer_t::SetEnabled(bool value) {
     SetSchemaValue(m_ptr, "CompositeMaterialInputContainer_t", "m_bEnabled", true, value);
 }
 
-CompositeMaterialInputContainerSourceType_t GCompositeMaterialInputContainer_t::GetCompositeMaterialInputContainerSourceType() const {
-    return GetSchemaValue<CompositeMaterialInputContainerSourceType_t>(m_ptr, "CompositeMaterialInputContainer_t", "m_nCompositeMaterialInputContainerSourceType");
+uint64_t GCompositeMaterialInputContainer_t::GetCompositeMaterialInputContainerSourceType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CompositeMaterialInputContainer_t", "m_nCompositeMaterialInputContainerSourceType");
 }
 
-void GCompositeMaterialInputContainer_t::SetCompositeMaterialInputContainerSourceType(CompositeMaterialInputContainerSourceType_t value) {
+void GCompositeMaterialInputContainer_t::SetCompositeMaterialInputContainerSourceType(uint64_t value) {
     SetSchemaValue(m_ptr, "CompositeMaterialInputContainer_t", "m_nCompositeMaterialInputContainerSourceType", true, value);
 }
 
@@ -70824,19 +70824,19 @@ GAggregateSceneObject_t::GAggregateSceneObject_t(void *ptr) {
     m_ptr = ptr;
 }
 
-ObjectTypeFlags_t GAggregateSceneObject_t::GetAllFlags() const {
-    return GetSchemaValue<ObjectTypeFlags_t>(m_ptr, "AggregateSceneObject_t", "m_allFlags");
+uint64_t GAggregateSceneObject_t::GetAllFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "AggregateSceneObject_t", "m_allFlags");
 }
 
-void GAggregateSceneObject_t::SetAllFlags(ObjectTypeFlags_t value) {
+void GAggregateSceneObject_t::SetAllFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "AggregateSceneObject_t", "m_allFlags", true, value);
 }
 
-ObjectTypeFlags_t GAggregateSceneObject_t::GetAnyFlags() const {
-    return GetSchemaValue<ObjectTypeFlags_t>(m_ptr, "AggregateSceneObject_t", "m_anyFlags");
+uint64_t GAggregateSceneObject_t::GetAnyFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "AggregateSceneObject_t", "m_anyFlags");
 }
 
-void GAggregateSceneObject_t::SetAnyFlags(ObjectTypeFlags_t value) {
+void GAggregateSceneObject_t::SetAnyFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "AggregateSceneObject_t", "m_anyFlags", true, value);
 }
 
@@ -70904,11 +70904,11 @@ void GIKDemoCaptureSettings_t::SetParentBoneName(std::string value) {
     SetSchemaValue(m_ptr, "IKDemoCaptureSettings_t", "m_parentBoneName", true, CUtlString(value.c_str()));
 }
 
-IKChannelMode GIKDemoCaptureSettings_t::GetMode() const {
-    return GetSchemaValue<IKChannelMode>(m_ptr, "IKDemoCaptureSettings_t", "m_eMode");
+uint64_t GIKDemoCaptureSettings_t::GetMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "IKDemoCaptureSettings_t", "m_eMode");
 }
 
-void GIKDemoCaptureSettings_t::SetMode(IKChannelMode value) {
+void GIKDemoCaptureSettings_t::SetMode(uint64_t value) {
     SetSchemaValue(m_ptr, "IKDemoCaptureSettings_t", "m_eMode", true, value);
 }
 
@@ -71442,11 +71442,11 @@ void GCompMatPropertyMutator_t::SetEnabled(bool value) {
     SetSchemaValue(m_ptr, "CompMatPropertyMutator_t", "m_bEnabled", true, value);
 }
 
-CompMatPropertyMutatorType_t GCompMatPropertyMutator_t::GetMutatorCommandType() const {
-    return GetSchemaValue<CompMatPropertyMutatorType_t>(m_ptr, "CompMatPropertyMutator_t", "m_nMutatorCommandType");
+uint64_t GCompMatPropertyMutator_t::GetMutatorCommandType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CompMatPropertyMutator_t", "m_nMutatorCommandType");
 }
 
-void GCompMatPropertyMutator_t::SetMutatorCommandType(CompMatPropertyMutatorType_t value) {
+void GCompMatPropertyMutator_t::SetMutatorCommandType(uint64_t value) {
     SetSchemaValue(m_ptr, "CompMatPropertyMutator_t", "m_nMutatorCommandType", true, value);
 }
 
@@ -71853,11 +71853,11 @@ GPostProcessingBloomParameters_t::GPostProcessingBloomParameters_t(void *ptr) {
     m_ptr = ptr;
 }
 
-BloomBlendMode_t GPostProcessingBloomParameters_t::GetBlendMode() const {
-    return GetSchemaValue<BloomBlendMode_t>(m_ptr, "PostProcessingBloomParameters_t", "m_blendMode");
+uint64_t GPostProcessingBloomParameters_t::GetBlendMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "PostProcessingBloomParameters_t", "m_blendMode");
 }
 
-void GPostProcessingBloomParameters_t::SetBlendMode(BloomBlendMode_t value) {
+void GPostProcessingBloomParameters_t::SetBlendMode(uint64_t value) {
     SetSchemaValue(m_ptr, "PostProcessingBloomParameters_t", "m_blendMode", true, value);
 }
 
@@ -72279,11 +72279,11 @@ GVMixOscDesc_t::GVMixOscDesc_t(void *ptr) {
     m_ptr = ptr;
 }
 
-VMixLFOShape_t GVMixOscDesc_t::GetOscType() const {
-    return GetSchemaValue<VMixLFOShape_t>(m_ptr, "VMixOscDesc_t", "oscType");
+uint64_t GVMixOscDesc_t::GetOscType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "VMixOscDesc_t", "oscType");
 }
 
-void GVMixOscDesc_t::SetOscType(VMixLFOShape_t value) {
+void GVMixOscDesc_t::SetOscType(uint64_t value) {
     SetSchemaValue(m_ptr, "VMixOscDesc_t", "oscType", true, value);
 }
 
@@ -72707,11 +72707,11 @@ void GCLeanMatrixUpdateNode::SetDamping(GCAnimInputDamping value) {
     SetSchemaValue(m_ptr, "CLeanMatrixUpdateNode", "m_damping", false, value);
 }
 
-AnimVectorSource GCLeanMatrixUpdateNode::GetBlendSource() const {
-    return GetSchemaValue<AnimVectorSource>(m_ptr, "CLeanMatrixUpdateNode", "m_blendSource");
+uint64_t GCLeanMatrixUpdateNode::GetBlendSource() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CLeanMatrixUpdateNode", "m_blendSource");
 }
 
-void GCLeanMatrixUpdateNode::SetBlendSource(AnimVectorSource value) {
+void GCLeanMatrixUpdateNode::SetBlendSource(uint64_t value) {
     SetSchemaValue(m_ptr, "CLeanMatrixUpdateNode", "m_blendSource", false, value);
 }
 
@@ -72815,11 +72815,11 @@ GIKTargetSettings_t::GIKTargetSettings_t(void *ptr) {
     m_ptr = ptr;
 }
 
-IKTargetSource GIKTargetSettings_t::GetTargetSource() const {
-    return GetSchemaValue<IKTargetSource>(m_ptr, "IKTargetSettings_t", "m_TargetSource");
+uint64_t GIKTargetSettings_t::GetTargetSource() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "IKTargetSettings_t", "m_TargetSource");
 }
 
-void GIKTargetSettings_t::SetTargetSource(IKTargetSource value) {
+void GIKTargetSettings_t::SetTargetSource(uint64_t value) {
     SetSchemaValue(m_ptr, "IKTargetSettings_t", "m_TargetSource", true, value);
 }
 
@@ -72850,11 +72850,11 @@ void GIKTargetSettings_t::SetAnimgraphParameterNameOrientation(GAnimParamID valu
     SetSchemaValue(m_ptr, "IKTargetSettings_t", "m_AnimgraphParameterNameOrientation", true, value);
 }
 
-IKTargetCoordinateSystem GIKTargetSettings_t::GetTargetCoordSystem() const {
-    return GetSchemaValue<IKTargetCoordinateSystem>(m_ptr, "IKTargetSettings_t", "m_TargetCoordSystem");
+uint64_t GIKTargetSettings_t::GetTargetCoordSystem() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "IKTargetSettings_t", "m_TargetCoordSystem");
 }
 
-void GIKTargetSettings_t::SetTargetCoordSystem(IKTargetCoordinateSystem value) {
+void GIKTargetSettings_t::SetTargetCoordSystem(uint64_t value) {
     SetSchemaValue(m_ptr, "IKTargetSettings_t", "m_TargetCoordSystem", true, value);
 }
 
@@ -72943,19 +72943,19 @@ void GCBaseRendererSource2::SetColorScale(GCParticleCollectionRendererVecInput v
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_vecColorScale", false, value);
 }
 
-ParticleColorBlendType_t GCBaseRendererSource2::GetColorBlendType() const {
-    return GetSchemaValue<ParticleColorBlendType_t>(m_ptr, "CBaseRendererSource2", "m_nColorBlendType");
+uint64_t GCBaseRendererSource2::GetColorBlendType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nColorBlendType");
 }
 
-void GCBaseRendererSource2::SetColorBlendType(ParticleColorBlendType_t value) {
+void GCBaseRendererSource2::SetColorBlendType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nColorBlendType", false, value);
 }
 
-SpriteCardShaderType_t GCBaseRendererSource2::GetShaderType() const {
-    return GetSchemaValue<SpriteCardShaderType_t>(m_ptr, "CBaseRendererSource2", "m_nShaderType");
+uint64_t GCBaseRendererSource2::GetShaderType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nShaderType");
 }
 
-void GCBaseRendererSource2::SetShaderType(SpriteCardShaderType_t value) {
+void GCBaseRendererSource2::SetShaderType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nShaderType", false, value);
 }
 
@@ -72993,11 +72993,11 @@ void GCBaseRendererSource2::SetBumpStrength(float value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flBumpStrength", false, value);
 }
 
-ParticleSequenceCropOverride_t GCBaseRendererSource2::GetCropTextureOverride() const {
-    return GetSchemaValue<ParticleSequenceCropOverride_t>(m_ptr, "CBaseRendererSource2", "m_nCropTextureOverride");
+uint64_t GCBaseRendererSource2::GetCropTextureOverride() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nCropTextureOverride");
 }
 
-void GCBaseRendererSource2::SetCropTextureOverride(ParticleSequenceCropOverride_t value) {
+void GCBaseRendererSource2::SetCropTextureOverride(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nCropTextureOverride", false, value);
 }
 
@@ -73017,11 +73017,11 @@ void GCBaseRendererSource2::SetAnimationRate(float value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flAnimationRate", false, value);
 }
 
-AnimationType_t GCBaseRendererSource2::GetAnimationType() const {
-    return GetSchemaValue<AnimationType_t>(m_ptr, "CBaseRendererSource2", "m_nAnimationType");
+uint64_t GCBaseRendererSource2::GetAnimationType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nAnimationType");
 }
 
-void GCBaseRendererSource2::SetAnimationType(AnimationType_t value) {
+void GCBaseRendererSource2::SetAnimationType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nAnimationType", false, value);
 }
 
@@ -73077,11 +73077,11 @@ void GCBaseRendererSource2::SetSelfIllumPerParticle(GParticleAttributeIndex_t va
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nSelfIllumPerParticle", false, value);
 }
 
-ParticleOutputBlendMode_t GCBaseRendererSource2::GetOutputBlendMode() const {
-    return GetSchemaValue<ParticleOutputBlendMode_t>(m_ptr, "CBaseRendererSource2", "m_nOutputBlendMode");
+uint64_t GCBaseRendererSource2::GetOutputBlendMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nOutputBlendMode");
 }
 
-void GCBaseRendererSource2::SetOutputBlendMode(ParticleOutputBlendMode_t value) {
+void GCBaseRendererSource2::SetOutputBlendMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nOutputBlendMode", false, value);
 }
 
@@ -73136,11 +73136,11 @@ void GCBaseRendererSource2::SetHSVShiftControlPoint(int32_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nHSVShiftControlPoint", false, value);
 }
 
-ParticleFogType_t GCBaseRendererSource2::GetFogType() const {
-    return GetSchemaValue<ParticleFogType_t>(m_ptr, "CBaseRendererSource2", "m_nFogType");
+uint64_t GCBaseRendererSource2::GetFogType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nFogType");
 }
 
-void GCBaseRendererSource2::SetFogType(ParticleFogType_t value) {
+void GCBaseRendererSource2::SetFogType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nFogType", false, value);
 }
 
@@ -73169,27 +73169,27 @@ void GCBaseRendererSource2::SetTintByGlobalLight(bool value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_bTintByGlobalLight", false, value);
 }
 
-SpriteCardPerParticleScale_t GCBaseRendererSource2::GetPerParticleAlphaReference() const {
-    return GetSchemaValue<SpriteCardPerParticleScale_t>(m_ptr, "CBaseRendererSource2", "m_nPerParticleAlphaReference");
+uint64_t GCBaseRendererSource2::GetPerParticleAlphaReference() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nPerParticleAlphaReference");
 }
 
-void GCBaseRendererSource2::SetPerParticleAlphaReference(SpriteCardPerParticleScale_t value) {
+void GCBaseRendererSource2::SetPerParticleAlphaReference(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nPerParticleAlphaReference", false, value);
 }
 
-SpriteCardPerParticleScale_t GCBaseRendererSource2::GetPerParticleAlphaRefWindow() const {
-    return GetSchemaValue<SpriteCardPerParticleScale_t>(m_ptr, "CBaseRendererSource2", "m_nPerParticleAlphaRefWindow");
+uint64_t GCBaseRendererSource2::GetPerParticleAlphaRefWindow() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nPerParticleAlphaRefWindow");
 }
 
-void GCBaseRendererSource2::SetPerParticleAlphaRefWindow(SpriteCardPerParticleScale_t value) {
+void GCBaseRendererSource2::SetPerParticleAlphaRefWindow(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nPerParticleAlphaRefWindow", false, value);
 }
 
-ParticleAlphaReferenceType_t GCBaseRendererSource2::GetAlphaReferenceType() const {
-    return GetSchemaValue<ParticleAlphaReferenceType_t>(m_ptr, "CBaseRendererSource2", "m_nAlphaReferenceType");
+uint64_t GCBaseRendererSource2::GetAlphaReferenceType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nAlphaReferenceType");
 }
 
-void GCBaseRendererSource2::SetAlphaReferenceType(ParticleAlphaReferenceType_t value) {
+void GCBaseRendererSource2::SetAlphaReferenceType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nAlphaReferenceType", false, value);
 }
 
@@ -73253,11 +73253,11 @@ void GCBaseRendererSource2::SetRefractBlurRadius(int32_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nRefractBlurRadius", false, value);
 }
 
-BlurFilterType_t GCBaseRendererSource2::GetRefractBlurType() const {
-    return GetSchemaValue<BlurFilterType_t>(m_ptr, "CBaseRendererSource2", "m_nRefractBlurType");
+uint64_t GCBaseRendererSource2::GetRefractBlurType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nRefractBlurType");
 }
 
-void GCBaseRendererSource2::SetRefractBlurType(BlurFilterType_t value) {
+void GCBaseRendererSource2::SetRefractBlurType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nRefractBlurType", false, value);
 }
 
@@ -73349,11 +73349,11 @@ void GCBaseRendererSource2::SetDisableZBuffering(bool value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_bDisableZBuffering", false, value);
 }
 
-ParticleDepthFeatheringMode_t GCBaseRendererSource2::GetFeatheringMode() const {
-    return GetSchemaValue<ParticleDepthFeatheringMode_t>(m_ptr, "CBaseRendererSource2", "m_nFeatheringMode");
+uint64_t GCBaseRendererSource2::GetFeatheringMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nFeatheringMode");
 }
 
-void GCBaseRendererSource2::SetFeatheringMode(ParticleDepthFeatheringMode_t value) {
+void GCBaseRendererSource2::SetFeatheringMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nFeatheringMode", false, value);
 }
 
@@ -73393,11 +73393,11 @@ void GCBaseRendererSource2::SetDepthBias(GCParticleCollectionRendererFloatInput 
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flDepthBias", false, value);
 }
 
-ParticleSortingChoiceList_t GCBaseRendererSource2::GetSortMethod() const {
-    return GetSchemaValue<ParticleSortingChoiceList_t>(m_ptr, "CBaseRendererSource2", "m_nSortMethod");
+uint64_t GCBaseRendererSource2::GetSortMethod() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nSortMethod");
 }
 
-void GCBaseRendererSource2::SetSortMethod(ParticleSortingChoiceList_t value) {
+void GCBaseRendererSource2::SetSortMethod(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nSortMethod", false, value);
 }
 
@@ -73614,11 +73614,11 @@ GCFlexOp::GCFlexOp(void *ptr) {
     m_ptr = ptr;
 }
 
-FlexOpCode_t GCFlexOp::GetOpCode() const {
-    return GetSchemaValue<FlexOpCode_t>(m_ptr, "CFlexOp", "m_OpCode");
+uint64_t GCFlexOp::GetOpCode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFlexOp", "m_OpCode");
 }
 
-void GCFlexOp::SetOpCode(FlexOpCode_t value) {
+void GCFlexOp::SetOpCode(uint64_t value) {
     SetSchemaValue(m_ptr, "CFlexOp", "m_OpCode", false, value);
 }
 
@@ -73995,27 +73995,27 @@ void GTextureGroup_t::SetReplaceTextureWithGradient(bool value) {
     SetSchemaValue(m_ptr, "TextureGroup_t", "m_bReplaceTextureWithGradient", true, value);
 }
 
-SpriteCardTextureType_t GTextureGroup_t::GetTextureType() const {
-    return GetSchemaValue<SpriteCardTextureType_t>(m_ptr, "TextureGroup_t", "m_nTextureType");
+uint64_t GTextureGroup_t::GetTextureType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureGroup_t", "m_nTextureType");
 }
 
-void GTextureGroup_t::SetTextureType(SpriteCardTextureType_t value) {
+void GTextureGroup_t::SetTextureType(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureGroup_t", "m_nTextureType", true, value);
 }
 
-SpriteCardTextureChannel_t GTextureGroup_t::GetTextureChannels() const {
-    return GetSchemaValue<SpriteCardTextureChannel_t>(m_ptr, "TextureGroup_t", "m_nTextureChannels");
+uint64_t GTextureGroup_t::GetTextureChannels() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureGroup_t", "m_nTextureChannels");
 }
 
-void GTextureGroup_t::SetTextureChannels(SpriteCardTextureChannel_t value) {
+void GTextureGroup_t::SetTextureChannels(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureGroup_t", "m_nTextureChannels", true, value);
 }
 
-ParticleTextureLayerBlendType_t GTextureGroup_t::GetTextureBlendMode() const {
-    return GetSchemaValue<ParticleTextureLayerBlendType_t>(m_ptr, "TextureGroup_t", "m_nTextureBlendMode");
+uint64_t GTextureGroup_t::GetTextureBlendMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "TextureGroup_t", "m_nTextureBlendMode");
 }
 
-void GTextureGroup_t::SetTextureBlendMode(ParticleTextureLayerBlendType_t value) {
+void GTextureGroup_t::SetTextureBlendMode(uint64_t value) {
     SetSchemaValue(m_ptr, "TextureGroup_t", "m_nTextureBlendMode", true, value);
 }
 
@@ -74952,11 +74952,11 @@ void GCStanceOverrideUpdateNode::SetParameter(GCAnimParamHandle value) {
     SetSchemaValue(m_ptr, "CStanceOverrideUpdateNode", "m_hParameter", false, value);
 }
 
-StanceOverrideMode GCStanceOverrideUpdateNode::GetMode() const {
-    return GetSchemaValue<StanceOverrideMode>(m_ptr, "CStanceOverrideUpdateNode", "m_eMode");
+uint64_t GCStanceOverrideUpdateNode::GetMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CStanceOverrideUpdateNode", "m_eMode");
 }
 
-void GCStanceOverrideUpdateNode::SetMode(StanceOverrideMode value) {
+void GCStanceOverrideUpdateNode::SetMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CStanceOverrideUpdateNode", "m_eMode", false, value);
 }
 
@@ -75336,11 +75336,11 @@ void GParticleNamedValueSource_t::SetIsPublic(bool value) {
     SetSchemaValue(m_ptr, "ParticleNamedValueSource_t", "m_IsPublic", true, value);
 }
 
-PulseValueType_t GParticleNamedValueSource_t::GetValueType() const {
-    return GetSchemaValue<PulseValueType_t>(m_ptr, "ParticleNamedValueSource_t", "m_ValueType");
+uint64_t GParticleNamedValueSource_t::GetValueType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ParticleNamedValueSource_t", "m_ValueType");
 }
 
-void GParticleNamedValueSource_t::SetValueType(PulseValueType_t value) {
+void GParticleNamedValueSource_t::SetValueType(uint64_t value) {
     SetSchemaValue(m_ptr, "ParticleNamedValueSource_t", "m_ValueType", true, value);
 }
 
@@ -75693,11 +75693,11 @@ GAnimationDecodeDebugDump_t::GAnimationDecodeDebugDump_t(void *ptr) {
     m_ptr = ptr;
 }
 
-AnimationProcessingType_t GAnimationDecodeDebugDump_t::GetProcessingType() const {
-    return GetSchemaValue<AnimationProcessingType_t>(m_ptr, "AnimationDecodeDebugDump_t", "m_processingType");
+uint64_t GAnimationDecodeDebugDump_t::GetProcessingType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "AnimationDecodeDebugDump_t", "m_processingType");
 }
 
-void GAnimationDecodeDebugDump_t::SetProcessingType(AnimationProcessingType_t value) {
+void GAnimationDecodeDebugDump_t::SetProcessingType(uint64_t value) {
     SetSchemaValue(m_ptr, "AnimationDecodeDebugDump_t", "m_processingType", true, value);
 }
 
@@ -75872,11 +75872,11 @@ void GCRagdollUpdateNode::SetWeightListIndex(int32_t value) {
     SetSchemaValue(m_ptr, "CRagdollUpdateNode", "m_nWeightListIndex", false, value);
 }
 
-RagdollPoseControl GCRagdollUpdateNode::GetPoseControlMethod() const {
-    return GetSchemaValue<RagdollPoseControl>(m_ptr, "CRagdollUpdateNode", "m_poseControlMethod");
+uint64_t GCRagdollUpdateNode::GetPoseControlMethod() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CRagdollUpdateNode", "m_poseControlMethod");
 }
 
-void GCRagdollUpdateNode::SetPoseControlMethod(RagdollPoseControl value) {
+void GCRagdollUpdateNode::SetPoseControlMethod(uint64_t value) {
     SetSchemaValue(m_ptr, "CRagdollUpdateNode", "m_poseControlMethod", false, value);
 }
 
@@ -76469,11 +76469,11 @@ void GClutterSceneObject_t::SetBounds(GAABB_t value) {
     SetSchemaValue(m_ptr, "ClutterSceneObject_t", "m_Bounds", true, value);
 }
 
-ObjectTypeFlags_t GClutterSceneObject_t::GetFlags() const {
-    return GetSchemaValue<ObjectTypeFlags_t>(m_ptr, "ClutterSceneObject_t", "m_flags");
+uint64_t GClutterSceneObject_t::GetFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ClutterSceneObject_t", "m_flags");
 }
 
-void GClutterSceneObject_t::SetFlags(ObjectTypeFlags_t value) {
+void GClutterSceneObject_t::SetFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "ClutterSceneObject_t", "m_flags", true, value);
 }
 
@@ -76541,11 +76541,11 @@ void GCPoseHandle::SetIndex(uint16_t value) {
     SetSchemaValue(m_ptr, "CPoseHandle", "m_nIndex", false, value);
 }
 
-PoseType_t GCPoseHandle::GetType() const {
-    return GetSchemaValue<PoseType_t>(m_ptr, "CPoseHandle", "m_eType");
+uint64_t GCPoseHandle::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CPoseHandle", "m_eType");
 }
 
-void GCPoseHandle::SetType(PoseType_t value) {
+void GCPoseHandle::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CPoseHandle", "m_eType", false, value);
 }
 
@@ -76655,11 +76655,11 @@ GCRagdollAnimTag::GCRagdollAnimTag(void *ptr) {
     m_ptr = ptr;
 }
 
-AnimPoseControl GCRagdollAnimTag::GetPoseControl() const {
-    return GetSchemaValue<AnimPoseControl>(m_ptr, "CRagdollAnimTag", "m_nPoseControl");
+uint64_t GCRagdollAnimTag::GetPoseControl() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CRagdollAnimTag", "m_nPoseControl");
 }
 
-void GCRagdollAnimTag::SetPoseControl(AnimPoseControl value) {
+void GCRagdollAnimTag::SetPoseControl(uint64_t value) {
     SetSchemaValue(m_ptr, "CRagdollAnimTag", "m_nPoseControl", false, value);
 }
 
@@ -77054,11 +77054,11 @@ void GCBlendUpdateNode::SetTargetValues(std::vector<float32> value) {
     SetSchemaValueCUtlVector<float32>(m_ptr, "CBlendUpdateNode", "m_targetValues", false, value);
 }
 
-AnimValueSource GCBlendUpdateNode::GetBlendValueSource() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CBlendUpdateNode", "m_blendValueSource");
+uint64_t GCBlendUpdateNode::GetBlendValueSource() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBlendUpdateNode", "m_blendValueSource");
 }
 
-void GCBlendUpdateNode::SetBlendValueSource(AnimValueSource value) {
+void GCBlendUpdateNode::SetBlendValueSource(uint64_t value) {
     SetSchemaValue(m_ptr, "CBlendUpdateNode", "m_blendValueSource", false, value);
 }
 
@@ -77080,11 +77080,11 @@ void GCBlendUpdateNode::SetDamping(GCAnimInputDamping value) {
     SetSchemaValue(m_ptr, "CBlendUpdateNode", "m_damping", false, value);
 }
 
-BlendKeyType GCBlendUpdateNode::GetBlendKeyType() const {
-    return GetSchemaValue<BlendKeyType>(m_ptr, "CBlendUpdateNode", "m_blendKeyType");
+uint64_t GCBlendUpdateNode::GetBlendKeyType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBlendUpdateNode", "m_blendKeyType");
 }
 
-void GCBlendUpdateNode::SetBlendKeyType(BlendKeyType value) {
+void GCBlendUpdateNode::SetBlendKeyType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBlendUpdateNode", "m_blendKeyType", false, value);
 }
 
@@ -77252,11 +77252,11 @@ GCVoiceContainerEnvelopeAnalyzer::GCVoiceContainerEnvelopeAnalyzer(void *ptr) {
     m_ptr = ptr;
 }
 
-EMode_t GCVoiceContainerEnvelopeAnalyzer::GetMode() const {
-    return GetSchemaValue<EMode_t>(m_ptr, "CVoiceContainerEnvelopeAnalyzer", "m_mode");
+uint64_t GCVoiceContainerEnvelopeAnalyzer::GetMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CVoiceContainerEnvelopeAnalyzer", "m_mode");
 }
 
-void GCVoiceContainerEnvelopeAnalyzer::SetMode(EMode_t value) {
+void GCVoiceContainerEnvelopeAnalyzer::SetMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CVoiceContainerEnvelopeAnalyzer", "m_mode", false, value);
 }
 
@@ -77398,11 +77398,11 @@ void GJiggleBoneSettings_t::SetBoundsMinLS(Vector value) {
     SetSchemaValue(m_ptr, "JiggleBoneSettings_t", "m_vBoundsMinLS", true, value);
 }
 
-JiggleBoneSimSpace GJiggleBoneSettings_t::GetSimSpace() const {
-    return GetSchemaValue<JiggleBoneSimSpace>(m_ptr, "JiggleBoneSettings_t", "m_eSimSpace");
+uint64_t GJiggleBoneSettings_t::GetSimSpace() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "JiggleBoneSettings_t", "m_eSimSpace");
 }
 
-void GJiggleBoneSettings_t::SetSimSpace(JiggleBoneSimSpace value) {
+void GJiggleBoneSettings_t::SetSimSpace(uint64_t value) {
     SetSchemaValue(m_ptr, "JiggleBoneSettings_t", "m_eSimSpace", true, value);
 }
 
@@ -78397,11 +78397,11 @@ GCNmFootEvent::GCNmFootEvent(void *ptr) {
     m_ptr = ptr;
 }
 
-NmFootPhase_t GCNmFootEvent::GetPhase() const {
-    return GetSchemaValue<NmFootPhase_t>(m_ptr, "CNmFootEvent", "m_phase");
+uint64_t GCNmFootEvent::GetPhase() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CNmFootEvent", "m_phase");
 }
 
-void GCNmFootEvent::SetPhase(NmFootPhase_t value) {
+void GCNmFootEvent::SetPhase(uint64_t value) {
     SetSchemaValue(m_ptr, "CNmFootEvent", "m_phase", false, value);
 }
 
@@ -78505,11 +78505,11 @@ void GCBlend2DUpdateNode::SetDamping(GCAnimInputDamping value) {
     SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_damping", false, value);
 }
 
-AnimValueSource GCBlend2DUpdateNode::GetBlendSourceX() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CBlend2DUpdateNode", "m_blendSourceX");
+uint64_t GCBlend2DUpdateNode::GetBlendSourceX() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBlend2DUpdateNode", "m_blendSourceX");
 }
 
-void GCBlend2DUpdateNode::SetBlendSourceX(AnimValueSource value) {
+void GCBlend2DUpdateNode::SetBlendSourceX(uint64_t value) {
     SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_blendSourceX", false, value);
 }
 
@@ -78522,11 +78522,11 @@ void GCBlend2DUpdateNode::SetParamX(GCAnimParamHandle value) {
     SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_paramX", false, value);
 }
 
-AnimValueSource GCBlend2DUpdateNode::GetBlendSourceY() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CBlend2DUpdateNode", "m_blendSourceY");
+uint64_t GCBlend2DUpdateNode::GetBlendSourceY() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBlend2DUpdateNode", "m_blendSourceY");
 }
 
-void GCBlend2DUpdateNode::SetBlendSourceY(AnimValueSource value) {
+void GCBlend2DUpdateNode::SetBlendSourceY(uint64_t value) {
     SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_blendSourceY", false, value);
 }
 
@@ -78539,11 +78539,11 @@ void GCBlend2DUpdateNode::SetParamY(GCAnimParamHandle value) {
     SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_paramY", false, value);
 }
 
-Blend2DMode GCBlend2DUpdateNode::GetBlendMode() const {
-    return GetSchemaValue<Blend2DMode>(m_ptr, "CBlend2DUpdateNode", "m_eBlendMode");
+uint64_t GCBlend2DUpdateNode::GetBlendMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBlend2DUpdateNode", "m_eBlendMode");
 }
 
-void GCBlend2DUpdateNode::SetBlendMode(Blend2DMode value) {
+void GCBlend2DUpdateNode::SetBlendMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_eBlendMode", false, value);
 }
 
@@ -78660,11 +78660,11 @@ void GAnimationSnapshotBase_t::SetFlexControllers(std::vector<float32> value) {
     SetSchemaValueCUtlVector<float32>(m_ptr, "AnimationSnapshotBase_t", "m_flexControllers", true, value);
 }
 
-AnimationSnapshotType_t GAnimationSnapshotBase_t::GetSnapshotType() const {
-    return GetSchemaValue<AnimationSnapshotType_t>(m_ptr, "AnimationSnapshotBase_t", "m_SnapshotType");
+uint64_t GAnimationSnapshotBase_t::GetSnapshotType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "AnimationSnapshotBase_t", "m_SnapshotType");
 }
 
-void GAnimationSnapshotBase_t::SetSnapshotType(AnimationSnapshotType_t value) {
+void GAnimationSnapshotBase_t::SetSnapshotType(uint64_t value) {
     SetSchemaValue(m_ptr, "AnimationSnapshotBase_t", "m_SnapshotType", true, value);
 }
 
@@ -79200,11 +79200,11 @@ void GCModelConfigElement_AttachedModel::SetLocalAttachmentOffsetName(std::strin
     SetSchemaValue(m_ptr, "CModelConfigElement_AttachedModel", "m_LocalAttachmentOffsetName", false, CUtlString(value.c_str()));
 }
 
-ModelConfigAttachmentType_t GCModelConfigElement_AttachedModel::GetAttachmentType() const {
-    return GetSchemaValue<ModelConfigAttachmentType_t>(m_ptr, "CModelConfigElement_AttachedModel", "m_AttachmentType");
+uint64_t GCModelConfigElement_AttachedModel::GetAttachmentType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CModelConfigElement_AttachedModel", "m_AttachmentType");
 }
 
-void GCModelConfigElement_AttachedModel::SetAttachmentType(ModelConfigAttachmentType_t value) {
+void GCModelConfigElement_AttachedModel::SetAttachmentType(uint64_t value) {
     SetSchemaValue(m_ptr, "CModelConfigElement_AttachedModel", "m_AttachmentType", false, value);
 }
 
@@ -79339,11 +79339,11 @@ void GParticleChildrenInfo_t::SetDisableChild(bool value) {
     SetSchemaValue(m_ptr, "ParticleChildrenInfo_t", "m_bDisableChild", true, value);
 }
 
-ParticleDetailLevel_t GParticleChildrenInfo_t::GetDetailLevel() const {
-    return GetSchemaValue<ParticleDetailLevel_t>(m_ptr, "ParticleChildrenInfo_t", "m_nDetailLevel");
+uint64_t GParticleChildrenInfo_t::GetDetailLevel() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ParticleChildrenInfo_t", "m_nDetailLevel");
 }
 
-void GParticleChildrenInfo_t::SetDetailLevel(ParticleDetailLevel_t value) {
+void GParticleChildrenInfo_t::SetDetailLevel(uint64_t value) {
     SetSchemaValue(m_ptr, "ParticleChildrenInfo_t", "m_nDetailLevel", true, value);
 }
 
@@ -79867,11 +79867,11 @@ void GCNmLayerBlendNode__LayerDefinition_t::SetIsStateMachineLayer(bool value) {
     SetSchemaValue(m_ptr, "CNmLayerBlendNode__LayerDefinition_t", "m_bIsStateMachineLayer", true, value);
 }
 
-NmPoseBlendMode_t GCNmLayerBlendNode__LayerDefinition_t::GetBlendMode() const {
-    return GetSchemaValue<NmPoseBlendMode_t>(m_ptr, "CNmLayerBlendNode__LayerDefinition_t", "m_blendMode");
+uint64_t GCNmLayerBlendNode__LayerDefinition_t::GetBlendMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CNmLayerBlendNode__LayerDefinition_t", "m_blendMode");
 }
 
-void GCNmLayerBlendNode__LayerDefinition_t::SetBlendMode(NmPoseBlendMode_t value) {
+void GCNmLayerBlendNode__LayerDefinition_t::SetBlendMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CNmLayerBlendNode__LayerDefinition_t", "m_blendMode", true, value);
 }
 
@@ -81044,11 +81044,11 @@ void GCMoverUpdateNode::SetDamping(GCAnimInputDamping value) {
     SetSchemaValue(m_ptr, "CMoverUpdateNode", "m_damping", false, value);
 }
 
-AnimValueSource GCMoverUpdateNode::GetFacingTarget() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CMoverUpdateNode", "m_facingTarget");
+uint64_t GCMoverUpdateNode::GetFacingTarget() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CMoverUpdateNode", "m_facingTarget");
 }
 
-void GCMoverUpdateNode::SetFacingTarget(AnimValueSource value) {
+void GCMoverUpdateNode::SetFacingTarget(uint64_t value) {
     SetSchemaValue(m_ptr, "CMoverUpdateNode", "m_facingTarget", false, value);
 }
 
@@ -81290,11 +81290,11 @@ GCMoodVData::GCMoodVData(void *ptr) {
     m_ptr = ptr;
 }
 
-MoodType_t GCMoodVData::GetMoodType() const {
-    return GetSchemaValue<MoodType_t>(m_ptr, "CMoodVData", "m_nMoodType");
+uint64_t GCMoodVData::GetMoodType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CMoodVData", "m_nMoodType");
 }
 
-void GCMoodVData::SetMoodType(MoodType_t value) {
+void GCMoodVData::SetMoodType(uint64_t value) {
     SetSchemaValue(m_ptr, "CMoodVData", "m_nMoodType", false, value);
 }
 
@@ -81792,11 +81792,11 @@ void GCParticleAnimTag::SetAttachmentName(std::string value) {
     SetSchemaValue(m_ptr, "CParticleAnimTag", "m_attachmentName", false, CUtlString(value.c_str()));
 }
 
-ParticleAttachment_t GCParticleAnimTag::GetAttachmentType() const {
-    return GetSchemaValue<ParticleAttachment_t>(m_ptr, "CParticleAnimTag", "m_attachmentType");
+uint64_t GCParticleAnimTag::GetAttachmentType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleAnimTag", "m_attachmentType");
 }
 
-void GCParticleAnimTag::SetAttachmentType(ParticleAttachment_t value) {
+void GCParticleAnimTag::SetAttachmentType(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleAnimTag", "m_attachmentType", false, value);
 }
 
@@ -81808,11 +81808,11 @@ void GCParticleAnimTag::SetAttachmentCP1Name(std::string value) {
     SetSchemaValue(m_ptr, "CParticleAnimTag", "m_attachmentCP1Name", false, CUtlString(value.c_str()));
 }
 
-ParticleAttachment_t GCParticleAnimTag::GetAttachmentCP1Type() const {
-    return GetSchemaValue<ParticleAttachment_t>(m_ptr, "CParticleAnimTag", "m_attachmentCP1Type");
+uint64_t GCParticleAnimTag::GetAttachmentCP1Type() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleAnimTag", "m_attachmentCP1Type");
 }
 
-void GCParticleAnimTag::SetAttachmentCP1Type(ParticleAttachment_t value) {
+void GCParticleAnimTag::SetAttachmentCP1Type(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleAnimTag", "m_attachmentCP1Type", false, value);
 }
 
@@ -82061,11 +82061,11 @@ void GCSosSoundEventGroupSchema::SetName(std::string value) {
     SetSchemaValue(m_ptr, "CSosSoundEventGroupSchema", "m_name", false, CUtlString(value.c_str()));
 }
 
-SosGroupType_t GCSosSoundEventGroupSchema::GetType() const {
-    return GetSchemaValue<SosGroupType_t>(m_ptr, "CSosSoundEventGroupSchema", "m_nType");
+uint64_t GCSosSoundEventGroupSchema::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CSosSoundEventGroupSchema", "m_nType");
 }
 
-void GCSosSoundEventGroupSchema::SetType(SosGroupType_t value) {
+void GCSosSoundEventGroupSchema::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CSosSoundEventGroupSchema", "m_nType", false, value);
 }
 
@@ -82774,11 +82774,11 @@ GCompositeMaterialMatchFilter_t::GCompositeMaterialMatchFilter_t(void *ptr) {
     m_ptr = ptr;
 }
 
-CompositeMaterialMatchFilterType_t GCompositeMaterialMatchFilter_t::GetCompositeMaterialMatchFilterType() const {
-    return GetSchemaValue<CompositeMaterialMatchFilterType_t>(m_ptr, "CompositeMaterialMatchFilter_t", "m_nCompositeMaterialMatchFilterType");
+uint64_t GCompositeMaterialMatchFilter_t::GetCompositeMaterialMatchFilterType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CompositeMaterialMatchFilter_t", "m_nCompositeMaterialMatchFilterType");
 }
 
-void GCompositeMaterialMatchFilter_t::SetCompositeMaterialMatchFilterType(CompositeMaterialMatchFilterType_t value) {
+void GCompositeMaterialMatchFilter_t::SetCompositeMaterialMatchFilterType(uint64_t value) {
     SetSchemaValue(m_ptr, "CompositeMaterialMatchFilter_t", "m_nCompositeMaterialMatchFilterType", true, value);
 }
 
@@ -82918,11 +82918,11 @@ void GSceneObject_t::SetSkin(std::string value) {
     SetSchemaValue(m_ptr, "SceneObject_t", "m_skin", true, CUtlString(value.c_str()));
 }
 
-ObjectTypeFlags_t GSceneObject_t::GetObjectTypeFlags() const {
-    return GetSchemaValue<ObjectTypeFlags_t>(m_ptr, "SceneObject_t", "m_nObjectTypeFlags");
+uint64_t GSceneObject_t::GetObjectTypeFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "SceneObject_t", "m_nObjectTypeFlags");
 }
 
-void GSceneObject_t::SetObjectTypeFlags(ObjectTypeFlags_t value) {
+void GSceneObject_t::SetObjectTypeFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "SceneObject_t", "m_nObjectTypeFlags", true, value);
 }
 
@@ -83078,11 +83078,11 @@ GVMixSubgraphSwitchDesc_t::GVMixSubgraphSwitchDesc_t(void *ptr) {
     m_ptr = ptr;
 }
 
-VMixSubgraphSwitchInterpolationType_t GVMixSubgraphSwitchDesc_t::GetInterpolationMode() const {
-    return GetSchemaValue<VMixSubgraphSwitchInterpolationType_t>(m_ptr, "VMixSubgraphSwitchDesc_t", "m_interpolationMode");
+uint64_t GVMixSubgraphSwitchDesc_t::GetInterpolationMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "VMixSubgraphSwitchDesc_t", "m_interpolationMode");
 }
 
-void GVMixSubgraphSwitchDesc_t::SetInterpolationMode(VMixSubgraphSwitchInterpolationType_t value) {
+void GVMixSubgraphSwitchDesc_t::SetInterpolationMode(uint64_t value) {
     SetSchemaValue(m_ptr, "VMixSubgraphSwitchDesc_t", "m_interpolationMode", true, value);
 }
 
@@ -83192,19 +83192,19 @@ void GCNmTransitionNode::SetTargetSyncIDNodeIdx(int16_t value) {
     SetSchemaValue(m_ptr, "CNmTransitionNode", "m_targetSyncIDNodeIdx", false, value);
 }
 
-NmEasingOperation_t GCNmTransitionNode::GetBlendWeightEasing() const {
-    return GetSchemaValue<NmEasingOperation_t>(m_ptr, "CNmTransitionNode", "m_blendWeightEasing");
+uint64_t GCNmTransitionNode::GetBlendWeightEasing() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CNmTransitionNode", "m_blendWeightEasing");
 }
 
-void GCNmTransitionNode::SetBlendWeightEasing(NmEasingOperation_t value) {
+void GCNmTransitionNode::SetBlendWeightEasing(uint64_t value) {
     SetSchemaValue(m_ptr, "CNmTransitionNode", "m_blendWeightEasing", false, value);
 }
 
-NmRootMotionBlendMode_t GCNmTransitionNode::GetRootMotionBlend() const {
-    return GetSchemaValue<NmRootMotionBlendMode_t>(m_ptr, "CNmTransitionNode", "m_rootMotionBlend");
+uint64_t GCNmTransitionNode::GetRootMotionBlend() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CNmTransitionNode", "m_rootMotionBlend");
 }
 
-void GCNmTransitionNode::SetRootMotionBlend(NmRootMotionBlendMode_t value) {
+void GCNmTransitionNode::SetRootMotionBlend(uint64_t value) {
     SetSchemaValue(m_ptr, "CNmTransitionNode", "m_rootMotionBlend", false, value);
 }
 
@@ -83517,11 +83517,11 @@ void GVMixAutoFilterDesc_t::SetPhase(float value) {
     SetSchemaValue(m_ptr, "VMixAutoFilterDesc_t", "m_flPhase", true, value);
 }
 
-VMixLFOShape_t GVMixAutoFilterDesc_t::GetLFOShape() const {
-    return GetSchemaValue<VMixLFOShape_t>(m_ptr, "VMixAutoFilterDesc_t", "m_nLFOShape");
+uint64_t GVMixAutoFilterDesc_t::GetLFOShape() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "VMixAutoFilterDesc_t", "m_nLFOShape");
 }
 
-void GVMixAutoFilterDesc_t::SetLFOShape(VMixLFOShape_t value) {
+void GVMixAutoFilterDesc_t::SetLFOShape(uint64_t value) {
     SetSchemaValue(m_ptr, "VMixAutoFilterDesc_t", "m_nLFOShape", true, value);
 }
 
@@ -83803,11 +83803,11 @@ void GCSelectorUpdateNode::SetTagIndex(int32_t value) {
     SetSchemaValue(m_ptr, "CSelectorUpdateNode", "m_nTagIndex", false, value);
 }
 
-SelectorTagBehavior_t GCSelectorUpdateNode::GetTagBehavior() const {
-    return GetSchemaValue<SelectorTagBehavior_t>(m_ptr, "CSelectorUpdateNode", "m_eTagBehavior");
+uint64_t GCSelectorUpdateNode::GetTagBehavior() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CSelectorUpdateNode", "m_eTagBehavior");
 }
 
-void GCSelectorUpdateNode::SetTagBehavior(SelectorTagBehavior_t value) {
+void GCSelectorUpdateNode::SetTagBehavior(uint64_t value) {
     SetSchemaValue(m_ptr, "CSelectorUpdateNode", "m_eTagBehavior", false, value);
 }
 
@@ -84363,11 +84363,11 @@ void GAggregateMeshInfo_t::SetTintColor(Color value) {
     SetSchemaValue(m_ptr, "AggregateMeshInfo_t", "m_vTintColor", true, value);
 }
 
-ObjectTypeFlags_t GAggregateMeshInfo_t::GetObjectFlags() const {
-    return GetSchemaValue<ObjectTypeFlags_t>(m_ptr, "AggregateMeshInfo_t", "m_objectFlags");
+uint64_t GAggregateMeshInfo_t::GetObjectFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "AggregateMeshInfo_t", "m_objectFlags");
 }
 
-void GAggregateMeshInfo_t::SetObjectFlags(ObjectTypeFlags_t value) {
+void GAggregateMeshInfo_t::SetObjectFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "AggregateMeshInfo_t", "m_objectFlags", true, value);
 }
 
@@ -84826,11 +84826,11 @@ void GExtraVertexStreamOverride_t::SetDrawCallIndex(uint32_t value) {
     SetSchemaValue(m_ptr, "ExtraVertexStreamOverride_t", "m_nDrawCallIndex", true, value);
 }
 
-MeshDrawPrimitiveFlags_t GExtraVertexStreamOverride_t::GetAdditionalMeshDrawPrimitiveFlags() const {
-    return GetSchemaValue<MeshDrawPrimitiveFlags_t>(m_ptr, "ExtraVertexStreamOverride_t", "m_nAdditionalMeshDrawPrimitiveFlags");
+uint64_t GExtraVertexStreamOverride_t::GetAdditionalMeshDrawPrimitiveFlags() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ExtraVertexStreamOverride_t", "m_nAdditionalMeshDrawPrimitiveFlags");
 }
 
-void GExtraVertexStreamOverride_t::SetAdditionalMeshDrawPrimitiveFlags(MeshDrawPrimitiveFlags_t value) {
+void GExtraVertexStreamOverride_t::SetAdditionalMeshDrawPrimitiveFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "ExtraVertexStreamOverride_t", "m_nAdditionalMeshDrawPrimitiveFlags", true, value);
 }
 
@@ -85036,11 +85036,11 @@ GCStateActionUpdater::GCStateActionUpdater(void *ptr) {
     m_ptr = ptr;
 }
 
-StateActionBehavior GCStateActionUpdater::GetBehavior() const {
-    return GetSchemaValue<StateActionBehavior>(m_ptr, "CStateActionUpdater", "m_eBehavior");
+uint64_t GCStateActionUpdater::GetBehavior() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CStateActionUpdater", "m_eBehavior");
 }
 
-void GCStateActionUpdater::SetBehavior(StateActionBehavior value) {
+void GCStateActionUpdater::SetBehavior(uint64_t value) {
     SetSchemaValue(m_ptr, "CStateActionUpdater", "m_eBehavior", false, value);
 }
 
@@ -85185,11 +85185,11 @@ void GAimMatrixOpFixedSettings_t::SetPoseCacheHandles(std::vector<GCPoseHandle> 
     GCPoseHandle* outValue = GetSchemaValue<GCPoseHandle*>(m_ptr, "AimMatrixOpFixedSettings_t", "m_poseCacheHandles"); for(int i = 0; i < 10; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "AimMatrixOpFixedSettings_t", "m_poseCacheHandles", true, outValue);
 }
 
-AimMatrixBlendMode GAimMatrixOpFixedSettings_t::GetBlendMode() const {
-    return GetSchemaValue<AimMatrixBlendMode>(m_ptr, "AimMatrixOpFixedSettings_t", "m_eBlendMode");
+uint64_t GAimMatrixOpFixedSettings_t::GetBlendMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "AimMatrixOpFixedSettings_t", "m_eBlendMode");
 }
 
-void GAimMatrixOpFixedSettings_t::SetBlendMode(AimMatrixBlendMode value) {
+void GAimMatrixOpFixedSettings_t::SetBlendMode(uint64_t value) {
     SetSchemaValue(m_ptr, "AimMatrixOpFixedSettings_t", "m_eBlendMode", true, value);
 }
 
@@ -85298,11 +85298,11 @@ void GParticlePreviewState_t::SetModSpecificData(uint32_t value) {
     SetSchemaValue(m_ptr, "ParticlePreviewState_t", "m_nModSpecificData", true, value);
 }
 
-PetGroundType_t GParticlePreviewState_t::GetGroundType() const {
-    return GetSchemaValue<PetGroundType_t>(m_ptr, "ParticlePreviewState_t", "m_groundType");
+uint64_t GParticlePreviewState_t::GetGroundType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ParticlePreviewState_t", "m_groundType");
 }
 
-void GParticlePreviewState_t::SetGroundType(PetGroundType_t value) {
+void GParticlePreviewState_t::SetGroundType(uint64_t value) {
     SetSchemaValue(m_ptr, "ParticlePreviewState_t", "m_groundType", true, value);
 }
 
@@ -85499,11 +85499,11 @@ void GCAimMatrixUpdateNode::SetOpFixedSettings(GAimMatrixOpFixedSettings_t value
     SetSchemaValue(m_ptr, "CAimMatrixUpdateNode", "m_opFixedSettings", false, value);
 }
 
-AnimVectorSource GCAimMatrixUpdateNode::GetTarget() const {
-    return GetSchemaValue<AnimVectorSource>(m_ptr, "CAimMatrixUpdateNode", "m_target");
+uint64_t GCAimMatrixUpdateNode::GetTarget() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAimMatrixUpdateNode", "m_target");
 }
 
-void GCAimMatrixUpdateNode::SetTarget(AnimVectorSource value) {
+void GCAimMatrixUpdateNode::SetTarget(uint64_t value) {
     SetSchemaValue(m_ptr, "CAimMatrixUpdateNode", "m_target", false, value);
 }
 
@@ -85566,11 +85566,11 @@ void GCDirectionalBlendUpdateNode::SetDamping(GCAnimInputDamping value) {
     SetSchemaValue(m_ptr, "CDirectionalBlendUpdateNode", "m_damping", false, value);
 }
 
-AnimValueSource GCDirectionalBlendUpdateNode::GetBlendValueSource() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CDirectionalBlendUpdateNode", "m_blendValueSource");
+uint64_t GCDirectionalBlendUpdateNode::GetBlendValueSource() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CDirectionalBlendUpdateNode", "m_blendValueSource");
 }
 
-void GCDirectionalBlendUpdateNode::SetBlendValueSource(AnimValueSource value) {
+void GCDirectionalBlendUpdateNode::SetBlendValueSource(uint64_t value) {
     SetSchemaValue(m_ptr, "CDirectionalBlendUpdateNode", "m_blendValueSource", false, value);
 }
 
@@ -85640,11 +85640,11 @@ GVMixPannerDesc_t::GVMixPannerDesc_t(void *ptr) {
     m_ptr = ptr;
 }
 
-VMixPannerType_t GVMixPannerDesc_t::GetType() const {
-    return GetSchemaValue<VMixPannerType_t>(m_ptr, "VMixPannerDesc_t", "m_type");
+uint64_t GVMixPannerDesc_t::GetType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "VMixPannerDesc_t", "m_type");
 }
 
-void GVMixPannerDesc_t::SetType(VMixPannerType_t value) {
+void GVMixPannerDesc_t::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "VMixPannerDesc_t", "m_type", true, value);
 }
 
@@ -86036,11 +86036,11 @@ GCFootstepLandedAnimTag::GCFootstepLandedAnimTag(void *ptr) {
     m_ptr = ptr;
 }
 
-FootstepLandedFootSoundType_t GCFootstepLandedAnimTag::GetFootstepType() const {
-    return GetSchemaValue<FootstepLandedFootSoundType_t>(m_ptr, "CFootstepLandedAnimTag", "m_FootstepType");
+uint64_t GCFootstepLandedAnimTag::GetFootstepType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFootstepLandedAnimTag", "m_FootstepType");
 }
 
-void GCFootstepLandedAnimTag::SetFootstepType(FootstepLandedFootSoundType_t value) {
+void GCFootstepLandedAnimTag::SetFootstepType(uint64_t value) {
     SetSchemaValue(m_ptr, "CFootstepLandedAnimTag", "m_FootstepType", false, value);
 }
 
@@ -86508,19 +86508,19 @@ void GVariableInfo_t::SetNumComponents(uint8_t value) {
     SetSchemaValue(m_ptr, "VariableInfo_t", "m_nNumComponents", true, value);
 }
 
-FuseVariableType_t GVariableInfo_t::GetVarType() const {
-    return GetSchemaValue<FuseVariableType_t>(m_ptr, "VariableInfo_t", "m_eVarType");
+uint64_t GVariableInfo_t::GetVarType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "VariableInfo_t", "m_eVarType");
 }
 
-void GVariableInfo_t::SetVarType(FuseVariableType_t value) {
+void GVariableInfo_t::SetVarType(uint64_t value) {
     SetSchemaValue(m_ptr, "VariableInfo_t", "m_eVarType", true, value);
 }
 
-FuseVariableAccess_t GVariableInfo_t::GetAccess() const {
-    return GetSchemaValue<FuseVariableAccess_t>(m_ptr, "VariableInfo_t", "m_eAccess");
+uint64_t GVariableInfo_t::GetAccess() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "VariableInfo_t", "m_eAccess");
 }
 
-void GVariableInfo_t::SetAccess(FuseVariableAccess_t value) {
+void GVariableInfo_t::SetAccess(uint64_t value) {
     SetSchemaValue(m_ptr, "VariableInfo_t", "m_eAccess", true, value);
 }
 
@@ -86669,11 +86669,11 @@ void GCCycleControlClipUpdateNode::SetDuration(float value) {
     SetSchemaValue(m_ptr, "CCycleControlClipUpdateNode", "m_duration", false, value);
 }
 
-AnimValueSource GCCycleControlClipUpdateNode::GetValueSource() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CCycleControlClipUpdateNode", "m_valueSource");
+uint64_t GCCycleControlClipUpdateNode::GetValueSource() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CCycleControlClipUpdateNode", "m_valueSource");
 }
 
-void GCCycleControlClipUpdateNode::SetValueSource(AnimValueSource value) {
+void GCCycleControlClipUpdateNode::SetValueSource(uint64_t value) {
     SetSchemaValue(m_ptr, "CCycleControlClipUpdateNode", "m_valueSource", false, value);
 }
 
@@ -86711,11 +86711,11 @@ GCBaseTrailRenderer::GCBaseTrailRenderer(void *ptr) {
     m_ptr = ptr;
 }
 
-ParticleOrientationChoiceList_t GCBaseTrailRenderer::GetOrientationType() const {
-    return GetSchemaValue<ParticleOrientationChoiceList_t>(m_ptr, "CBaseTrailRenderer", "m_nOrientationType");
+uint64_t GCBaseTrailRenderer::GetOrientationType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CBaseTrailRenderer", "m_nOrientationType");
 }
 
-void GCBaseTrailRenderer::SetOrientationType(ParticleOrientationChoiceList_t value) {
+void GCBaseTrailRenderer::SetOrientationType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseTrailRenderer", "m_nOrientationType", false, value);
 }
 
@@ -87533,11 +87533,11 @@ GCFootFallAnimTag::GCFootFallAnimTag(void *ptr) {
     m_ptr = ptr;
 }
 
-FootFallTagFoot_t GCFootFallAnimTag::GetFoot() const {
-    return GetSchemaValue<FootFallTagFoot_t>(m_ptr, "CFootFallAnimTag", "m_foot");
+uint64_t GCFootFallAnimTag::GetFoot() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFootFallAnimTag", "m_foot");
 }
 
-void GCFootFallAnimTag::SetFoot(FootFallTagFoot_t value) {
+void GCFootFallAnimTag::SetFoot(uint64_t value) {
     SetSchemaValue(m_ptr, "CFootFallAnimTag", "m_foot", false, value);
 }
 
@@ -88625,11 +88625,11 @@ void GCFutureVelocityMetricEvaluator::SetTargetSpeed(float value) {
     SetSchemaValue(m_ptr, "CFutureVelocityMetricEvaluator", "m_flTargetSpeed", false, value);
 }
 
-VelocityMetricMode GCFutureVelocityMetricEvaluator::GetMode() const {
-    return GetSchemaValue<VelocityMetricMode>(m_ptr, "CFutureVelocityMetricEvaluator", "m_eMode");
+uint64_t GCFutureVelocityMetricEvaluator::GetMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CFutureVelocityMetricEvaluator", "m_eMode");
 }
 
-void GCFutureVelocityMetricEvaluator::SetMode(VelocityMetricMode value) {
+void GCFutureVelocityMetricEvaluator::SetMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CFutureVelocityMetricEvaluator", "m_eMode", false, value);
 }
 
@@ -89304,11 +89304,11 @@ void GScriptInfo_t::SetProxyWriteParams(std::vector<int32> value) {
     SetSchemaValueCUtlVector<int32>(m_ptr, "ScriptInfo_t", "m_proxyWriteParams", true, value);
 }
 
-AnimScriptType GScriptInfo_t::GetScriptType() const {
-    return GetSchemaValue<AnimScriptType>(m_ptr, "ScriptInfo_t", "m_eScriptType");
+uint64_t GScriptInfo_t::GetScriptType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ScriptInfo_t", "m_eScriptType");
 }
 
-void GScriptInfo_t::SetScriptType(AnimScriptType value) {
+void GScriptInfo_t::SetScriptType(uint64_t value) {
     SetSchemaValue(m_ptr, "ScriptInfo_t", "m_eScriptType", true, value);
 }
 
@@ -89514,11 +89514,11 @@ GSosEditItemInfo_t::GSosEditItemInfo_t(void *ptr) {
     m_ptr = ptr;
 }
 
-SosEditItemType_t GSosEditItemInfo_t::GetItemType() const {
-    return GetSchemaValue<SosEditItemType_t>(m_ptr, "SosEditItemInfo_t", "itemType");
+uint64_t GSosEditItemInfo_t::GetItemType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "SosEditItemInfo_t", "itemType");
 }
 
-void GSosEditItemInfo_t::SetItemType(SosEditItemType_t value) {
+void GSosEditItemInfo_t::SetItemType(uint64_t value) {
     SetSchemaValue(m_ptr, "SosEditItemInfo_t", "itemType", true, value);
 }
 
@@ -89741,11 +89741,11 @@ GCAddUpdateNode::GCAddUpdateNode(void *ptr) {
     m_ptr = ptr;
 }
 
-BinaryNodeChildOption GCAddUpdateNode::GetFootMotionTiming() const {
-    return GetSchemaValue<BinaryNodeChildOption>(m_ptr, "CAddUpdateNode", "m_footMotionTiming");
+uint64_t GCAddUpdateNode::GetFootMotionTiming() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CAddUpdateNode", "m_footMotionTiming");
 }
 
-void GCAddUpdateNode::SetFootMotionTiming(BinaryNodeChildOption value) {
+void GCAddUpdateNode::SetFootMotionTiming(uint64_t value) {
     SetSchemaValue(m_ptr, "CAddUpdateNode", "m_footMotionTiming", false, value);
 }
 
@@ -89855,11 +89855,11 @@ void GCExpressionActionUpdater::SetParam(GCAnimParamHandle value) {
     SetSchemaValue(m_ptr, "CExpressionActionUpdater", "m_hParam", false, value);
 }
 
-AnimParamType_t GCExpressionActionUpdater::GetParamType() const {
-    return GetSchemaValue<AnimParamType_t>(m_ptr, "CExpressionActionUpdater", "m_eParamType");
+uint64_t GCExpressionActionUpdater::GetParamType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CExpressionActionUpdater", "m_eParamType");
 }
 
-void GCExpressionActionUpdater::SetParamType(AnimParamType_t value) {
+void GCExpressionActionUpdater::SetParamType(uint64_t value) {
     SetSchemaValue(m_ptr, "CExpressionActionUpdater", "m_eParamType", false, value);
 }
 
@@ -90246,11 +90246,11 @@ GVMixUtilityDesc_t::GVMixUtilityDesc_t(void *ptr) {
     m_ptr = ptr;
 }
 
-VMixChannelOperation_t GVMixUtilityDesc_t::GetOp() const {
-    return GetSchemaValue<VMixChannelOperation_t>(m_ptr, "VMixUtilityDesc_t", "m_nOp");
+uint64_t GVMixUtilityDesc_t::GetOp() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "VMixUtilityDesc_t", "m_nOp");
 }
 
-void GVMixUtilityDesc_t::SetOp(VMixChannelOperation_t value) {
+void GVMixUtilityDesc_t::SetOp(uint64_t value) {
     SetSchemaValue(m_ptr, "VMixUtilityDesc_t", "m_nOp", true, value);
 }
 
@@ -91081,11 +91081,11 @@ void GCParticleSystemDefinition::SetShouldHitboxesFallbackToCollisionHulls(bool 
     SetSchemaValue(m_ptr, "CParticleSystemDefinition", "m_bShouldHitboxesFallbackToCollisionHulls", false, value);
 }
 
-InheritableBoolType_t GCParticleSystemDefinition::GetViewModelEffect() const {
-    return GetSchemaValue<InheritableBoolType_t>(m_ptr, "CParticleSystemDefinition", "m_nViewModelEffect");
+uint64_t GCParticleSystemDefinition::GetViewModelEffect() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CParticleSystemDefinition", "m_nViewModelEffect");
 }
 
-void GCParticleSystemDefinition::SetViewModelEffect(InheritableBoolType_t value) {
+void GCParticleSystemDefinition::SetViewModelEffect(uint64_t value) {
     SetSchemaValue(m_ptr, "CParticleSystemDefinition", "m_nViewModelEffect", false, value);
 }
 
@@ -91153,11 +91153,11 @@ GCVoiceContainerSelector::GCVoiceContainerSelector(void *ptr) {
     m_ptr = ptr;
 }
 
-PlayBackMode_t GCVoiceContainerSelector::GetMode() const {
-    return GetSchemaValue<PlayBackMode_t>(m_ptr, "CVoiceContainerSelector", "m_mode");
+uint64_t GCVoiceContainerSelector::GetMode() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CVoiceContainerSelector", "m_mode");
 }
 
-void GCVoiceContainerSelector::SetMode(PlayBackMode_t value) {
+void GCVoiceContainerSelector::SetMode(uint64_t value) {
     SetSchemaValue(m_ptr, "CVoiceContainerSelector", "m_mode", false, value);
 }
 
@@ -92038,11 +92038,11 @@ void GCVirtualAnimParameter::SetExpressionString(std::string value) {
     SetSchemaValue(m_ptr, "CVirtualAnimParameter", "m_expressionString", false, CUtlString(value.c_str()));
 }
 
-AnimParamType_t GCVirtualAnimParameter::GetParamType() const {
-    return GetSchemaValue<AnimParamType_t>(m_ptr, "CVirtualAnimParameter", "m_eParamType");
+uint64_t GCVirtualAnimParameter::GetParamType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CVirtualAnimParameter", "m_eParamType");
 }
 
-void GCVirtualAnimParameter::SetParamType(AnimParamType_t value) {
+void GCVirtualAnimParameter::SetParamType(uint64_t value) {
     SetSchemaValue(m_ptr, "CVirtualAnimParameter", "m_eParamType", false, value);
 }
 
@@ -92579,11 +92579,11 @@ void GChainToSolveData_t::SetTargetSettings(GIKTargetSettings_t value) {
     SetSchemaValue(m_ptr, "ChainToSolveData_t", "m_TargetSettings", true, value);
 }
 
-SolveIKChainAnimNodeDebugSetting GChainToSolveData_t::GetDebugSetting() const {
-    return GetSchemaValue<SolveIKChainAnimNodeDebugSetting>(m_ptr, "ChainToSolveData_t", "m_DebugSetting");
+uint64_t GChainToSolveData_t::GetDebugSetting() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "ChainToSolveData_t", "m_DebugSetting");
 }
 
-void GChainToSolveData_t::SetDebugSetting(SolveIKChainAnimNodeDebugSetting value) {
+void GChainToSolveData_t::SetDebugSetting(uint64_t value) {
     SetSchemaValue(m_ptr, "ChainToSolveData_t", "m_DebugSetting", true, value);
 }
 
@@ -93499,11 +93499,11 @@ void GCMaterialDrawDescriptor::SetNumMeshlets(uint16_t value) {
     SetSchemaValue(m_ptr, "CMaterialDrawDescriptor", "m_nNumMeshlets", false, value);
 }
 
-RenderPrimitiveType_t GCMaterialDrawDescriptor::GetPrimitiveType() const {
-    return GetSchemaValue<RenderPrimitiveType_t>(m_ptr, "CMaterialDrawDescriptor", "m_nPrimitiveType");
+uint64_t GCMaterialDrawDescriptor::GetPrimitiveType() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CMaterialDrawDescriptor", "m_nPrimitiveType");
 }
 
-void GCMaterialDrawDescriptor::SetPrimitiveType(RenderPrimitiveType_t value) {
+void GCMaterialDrawDescriptor::SetPrimitiveType(uint64_t value) {
     SetSchemaValue(m_ptr, "CMaterialDrawDescriptor", "m_nPrimitiveType", false, value);
 }
 
@@ -93679,11 +93679,11 @@ void GCLookAtUpdateNode::SetOpFixedSettings(GLookAtOpFixedSettings_t value) {
     SetSchemaValue(m_ptr, "CLookAtUpdateNode", "m_opFixedSettings", false, value);
 }
 
-AnimVectorSource GCLookAtUpdateNode::GetTarget() const {
-    return GetSchemaValue<AnimVectorSource>(m_ptr, "CLookAtUpdateNode", "m_target");
+uint64_t GCLookAtUpdateNode::GetTarget() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CLookAtUpdateNode", "m_target");
 }
 
-void GCLookAtUpdateNode::SetTarget(AnimVectorSource value) {
+void GCLookAtUpdateNode::SetTarget(uint64_t value) {
     SetSchemaValue(m_ptr, "CLookAtUpdateNode", "m_target", false, value);
 }
 
@@ -93934,11 +93934,11 @@ GCSubtractUpdateNode::GCSubtractUpdateNode(void *ptr) {
     m_ptr = ptr;
 }
 
-BinaryNodeChildOption GCSubtractUpdateNode::GetFootMotionTiming() const {
-    return GetSchemaValue<BinaryNodeChildOption>(m_ptr, "CSubtractUpdateNode", "m_footMotionTiming");
+uint64_t GCSubtractUpdateNode::GetFootMotionTiming() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CSubtractUpdateNode", "m_footMotionTiming");
 }
 
-void GCSubtractUpdateNode::SetFootMotionTiming(BinaryNodeChildOption value) {
+void GCSubtractUpdateNode::SetFootMotionTiming(uint64_t value) {
     SetSchemaValue(m_ptr, "CSubtractUpdateNode", "m_footMotionTiming", false, value);
 }
 
@@ -94475,11 +94475,11 @@ GCTurnHelperUpdateNode::GCTurnHelperUpdateNode(void *ptr) {
     m_ptr = ptr;
 }
 
-AnimValueSource GCTurnHelperUpdateNode::GetFacingTarget() const {
-    return GetSchemaValue<AnimValueSource>(m_ptr, "CTurnHelperUpdateNode", "m_facingTarget");
+uint64_t GCTurnHelperUpdateNode::GetFacingTarget() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CTurnHelperUpdateNode", "m_facingTarget");
 }
 
-void GCTurnHelperUpdateNode::SetFacingTarget(AnimValueSource value) {
+void GCTurnHelperUpdateNode::SetFacingTarget(uint64_t value) {
     SetSchemaValue(m_ptr, "CTurnHelperUpdateNode", "m_facingTarget", false, value);
 }
 
@@ -94805,11 +94805,11 @@ GCompMatMutatorCondition_t::GCompMatMutatorCondition_t(void *ptr) {
     m_ptr = ptr;
 }
 
-CompMatPropertyMutatorConditionType_t GCompMatMutatorCondition_t::GetMutatorCondition() const {
-    return GetSchemaValue<CompMatPropertyMutatorConditionType_t>(m_ptr, "CompMatMutatorCondition_t", "m_nMutatorCondition");
+uint64_t GCompMatMutatorCondition_t::GetMutatorCondition() const {
+    return GetSchemaValue<uint64_t>(m_ptr, "CompMatMutatorCondition_t", "m_nMutatorCondition");
 }
 
-void GCompMatMutatorCondition_t::SetMutatorCondition(CompMatPropertyMutatorConditionType_t value) {
+void GCompMatMutatorCondition_t::SetMutatorCondition(uint64_t value) {
     SetSchemaValue(m_ptr, "CompMatMutatorCondition_t", "m_nMutatorCondition", true, value);
 }
 

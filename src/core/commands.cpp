@@ -12,6 +12,7 @@
 #include "../translations/Translations.h"
 #include "../plugins/PluginManager.h"
 #include "../resourcemonitor/ResourceMonitor.h"
+#include "../commands/CommandsManager.h"
 
 #ifndef GITHUB_SHA
 #define GITHUB_SHA "LOCAL"
@@ -111,6 +112,33 @@ void SwiftlyStatus(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Status", "end of status\n");
 }
 
+void ShowSwiftlyCommands(CPlayerSlot slot, CCommandContext context, int page)
+{
+    std::map<std::string, Command *> cmds = g_commandsManager->GetCommands();
+    PrintToClientOrConsole(slot, "Commands", "There are %d commands created by plugins.\n", cmds.size());
+    PrintToClientOrConsole(slot, "Commands", "Below will be shown a list of all the commands:\n");
+
+    if (page < 1)
+        page = 1;
+    else if (static_cast<unsigned int>(page) * 10 > cmds.size())
+        page = int(floor(cmds.size() / 10));
+
+    std::map<std::string, Command *>::iterator it = cmds.begin();
+    for (int i = 0; i < (page - 1) * 10; i++)
+        ++it;
+
+    for (uint32 i = 0; i < 10; i++)
+    {
+        if (it == cmds.end())
+            break;
+        PrintToClientOrConsole(slot, "Commands", "sw_%s\n", it->first.c_str());
+        ++it;
+    }
+
+    if (static_cast<unsigned int>(page) * 10 < cmds.size())
+        PrintToClientOrConsole(slot, "Commands", "To see more please use swiftly cmds %d\n", page + 1);
+}
+
 void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Commands Menu\n");
@@ -118,6 +146,7 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", " credits      - List Swiftly credits\n");
     PrintToClientOrConsole(slot, "Commands", " help         - Show the help for Swiftly commands\n");
     PrintToClientOrConsole(slot, "Commands", " list         - Show the list of online players\n");
+    PrintToClientOrConsole(slot, "Commands", " cmds         - List all console commands created by plugins\n");
     PrintToClientOrConsole(slot, "Commands", " status       - Show the status of the players\n");
     if (slot.Get() == -1)
     {
@@ -781,6 +810,8 @@ void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
     std::string subcmd = args[1];
     if (subcmd == "credits")
         ShowSwiftlyCredits(slot, context);
+    else if (subcmd == "cmds")
+        ShowSwiftlyCommands(slot, context, args[2] == nullptr ? 1 : atoi(args[2]));
     else if (subcmd == "help")
         ShowSwiftlyCommandHelp(slot, context);
     else if (subcmd == "version")

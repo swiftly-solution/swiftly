@@ -28,6 +28,7 @@
 #include "plugins/core/scripting.h"
 #include "signatures/Signatures.h"
 #include "signatures/Offsets.h"
+#include "voicemanager/VoiceManager.h"
 
 SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t &, ISource2WorldSession *, const char *);
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
@@ -102,6 +103,7 @@ Precacher *g_precacher = nullptr;
 DatabaseManager *g_dbManager = nullptr;
 MenuManager *g_MenuManager = nullptr;
 ResourceMonitor *g_ResourceMonitor = nullptr;
+VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -130,7 +132,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &Swiftly::Hook_ClientActive, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &Swiftly::Hook_ClientDisconnect, true);
-    SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientSettingsChanged, gameclients, this, &Swiftly::Hook_ClientSettingsChanged, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, OnClientConnected, gameclients, this, &Swiftly::Hook_OnClientConnected, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &Swiftly::Hook_ClientConnect, false);
     SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &Swiftly::Hook_StartupServer, true);
@@ -193,6 +194,8 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
 
     g_addons.SetupThread();
 
+    g_voiceManager.OnAllInitialized();
+
     PRINT("Succesfully started.\n");
 
     return true;
@@ -233,11 +236,11 @@ bool Swiftly::Unload(char *error, size_t maxlen)
 
     UnloadHooks();
     UnregisterEventListeners();
+    g_voiceManager.OnShutdown();
 
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &Swiftly::Hook_ClientActive, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &Swiftly::Hook_ClientDisconnect, true);
-    SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientSettingsChanged, gameclients, this, &Swiftly::Hook_ClientSettingsChanged, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, OnClientConnected, gameclients, this, &Swiftly::Hook_OnClientConnected, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &Swiftly::Hook_ClientConnect, false);
     SH_REMOVE_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &Swiftly::Hook_StartupServer, true);
@@ -439,10 +442,6 @@ void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReaso
         g_playerManager->UnregisterPlayer(slot);
 }
 
-void Swiftly::Hook_ClientSettingsChanged(CPlayerSlot slot)
-{
-}
-
 void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer)
 {
     if (bFakePlayer)
@@ -525,6 +524,8 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
     {
         if (!OnClientCommand(slot.Get(), args.GetCommandString()))
             RETURN_META(MRES_SUPERCEDE);
+
+        g_voiceManager.OnClientCommand(slot, args);
 
         if (command == "say" || command == "say_team")
         {
@@ -609,7 +610,7 @@ void CEntityListener::OnEntitySpawned(CEntityInstance *pEntity)
     std::stringstream ss;
     std::vector<msgpack::object> eventData;
 
-    eventData.push_back(msgpack::object(string_format("%p", pEntity).c_str()));
+    eventData.push_back(msgpack::object(string_format("%p", (void *)pEntity).c_str()));
 
     msgpack::pack(ss, eventData);
 
@@ -620,17 +621,6 @@ void CEntityListener::OnEntitySpawned(CEntityInstance *pEntity)
 
 void CEntityListener::OnEntityParentChanged(CEntityInstance *pEntity, CEntityInstance *pNewParent)
 {
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    eventData.push_back(msgpack::object(string_format("%p", pEntity).c_str()));
-    eventData.push_back(msgpack::object(string_format("%p", pNewParent).c_str()));
-
-    msgpack::pack(ss, eventData);
-
-    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntityParentChanged", ss.str(), event);
-    delete event;
 }
 
 void CEntityListener::OnEntityCreated(CEntityInstance *pEntity)
@@ -638,7 +628,7 @@ void CEntityListener::OnEntityCreated(CEntityInstance *pEntity)
     std::stringstream ss;
     std::vector<msgpack::object> eventData;
 
-    eventData.push_back(msgpack::object(string_format("%p", pEntity).c_str()));
+    eventData.push_back(msgpack::object(string_format("%p", (void *)pEntity).c_str()));
 
     msgpack::pack(ss, eventData);
 
@@ -652,7 +642,7 @@ void CEntityListener::OnEntityDeleted(CEntityInstance *pEntity)
     std::stringstream ss;
     std::vector<msgpack::object> eventData;
 
-    eventData.push_back(msgpack::object(string_format("%p", pEntity).c_str()));
+    eventData.push_back(msgpack::object(string_format("%p", (void *)pEntity).c_str()));
 
     msgpack::pack(ss, eventData);
 
