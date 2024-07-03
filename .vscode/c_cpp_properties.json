@@ -15,7 +15,6 @@
                 "${workspaceFolder}/vendor/msgpack/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
                 "${workspaceFolder}/vendor/texttable/**",
-                "${workspaceFolder}/vendor/httplib/**",
                 "${workspaceFolder}/vendor/curl/win64/include/**",
                 "${workspaceFolder}/vendor/mysql/win64/include/**",
                 "${workspaceFolder}/vendor/asmjit/src/**",
@@ -26,7 +25,12 @@
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "WIN32",
+                "COMPILER_GCC",
+                "CPPHTTPLIB_OPENSSL_SUPPORT",
+                "CURL_STATICLIB",
+                "MSGPACK_NO_BOOST"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",

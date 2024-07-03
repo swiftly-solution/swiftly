@@ -16,6 +16,10 @@ extern "C"
 
 #include <deque>
 
+#ifdef GetObject
+#undef GetObject
+#endif
+
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, std::vector<std::string> *userp)
 {
     size_t totalSize = size * nmemb;
@@ -183,13 +187,13 @@ std::string PluginHTTP::PerformHTTP(std::string receivedData)
     {
         if (request["headers"].IsObject() && !request["headers"].IsArray())
         {
-            for (auto &header : request["headers"].GetObject())
+            for (auto headerIt = request["headers"].MemberBegin(); headerIt != request["headers"].MemberEnd(); ++headerIt)
             {
-                std::string headerName = header.name.GetString();
-                if (!header.value.IsString())
+                std::string headerName = headerIt->name.GetString();
+                if (!headerIt->value.IsString())
                     continue;
 
-                std::string headerValue = header.value.GetString();
+                std::string headerValue = headerIt->value.GetString();
 
                 headers.insert({headerName, headerValue});
             }
@@ -200,13 +204,13 @@ std::string PluginHTTP::PerformHTTP(std::string receivedData)
     {
         if (request["files"].IsObject() && !request["files"].IsArray())
         {
-            for (auto &file : request["files"].GetObject())
+            for (auto filesIt = request["files"].MemberBegin(); filesIt != request["files"].MemberEnd(); ++filesIt)
             {
-                std::string fileName = file.name.GetString();
-                if (!file.value.IsString())
+                std::string fileName = filesIt->name.GetString();
+                if (!filesIt->value.IsString())
                     continue;
 
-                std::string fileValue = file.value.GetString();
+                std::string fileValue = filesIt->value.GetString();
                 if (!Files::ExistsPath(fileValue))
                     continue;
 

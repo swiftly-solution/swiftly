@@ -2,6 +2,7 @@
 
 #include <cstdarg>
 #include <random>
+#include <sstream>
 
 #include "../sdk/schema.h"
 

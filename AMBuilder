@@ -173,7 +173,13 @@ for sdk_target in MMSPlugin.sdk_targets:
 		"HAVE_STRUCT_TIMESPEC",
 		"BUILDING",
 		"CURL_STATICLIB",
+		"MSGPACK_NO_BOOST",
 	]
+
+	if os.getenv('SWIFTLY_DEBUG') != None:
+		binary.compiler.defines += [
+			"SWIFTLY_DEBUG"
+		]
 
 	binary.compiler.cxxincludes += [
 		os.path.join(builder.sourcePath, 'vendor', 'lua'),

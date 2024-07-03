@@ -49,11 +49,11 @@ void PluginMemory::LoadFromSignature(std::string library, std::string signature)
 
 void PluginMemory::AddOffset(int64_t offset)
 {
-    m_ptr = m_ptr + offset;
+    m_ptr = ((char *)m_ptr) + offset;
 }
 void PluginMemory::RemoveOffset(int64_t offset)
 {
-    m_ptr = m_ptr - offset;
+    m_ptr = ((char *)m_ptr) - offset;
 }
 
 void PluginMemory::Clear()

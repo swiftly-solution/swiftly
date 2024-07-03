@@ -7,6 +7,25 @@
 #include <vector>
 #include <tier0/platform.h>
 
+//////////////////////////////////////////////////////////////
+/////////////////         Windows Stuff        //////////////
+////////////////////////////////////////////////////////////
+
+#ifdef _WIN32
+#ifdef GetTickCount
+#undef GetTickCount
+#endif
+#ifdef GetCurrentTime
+#undef GetCurrentTime
+#endif
+#ifdef VOID
+#undef VOID
+#endif
+#ifdef GetObject
+#undef GetObject
+#endif
+#endif
+
 #ifdef _WIN32
 #define WIN_LINUX(win, linux) win
 #else
@@ -34,5 +53,13 @@ void PLUGIN_PRINTF(std::string category, std::string str, ...);
     }
 #define CLIENT_PRINT(SLOT, FORMAT_STR) g_SMAPI->ClientConPrintf(SLOT, std::string(PREFIX).append(" [").append(__FUNCTION__).append("] ").append(FORMAT_STR).c_str())
 #define CLIENT_PRINTF(SLOT, FORMAT_STR, ...) g_SMAPI->ClientConPrintf(SLOT, std::string(PREFIX).append(" [").append(__FUNCTION__).append("] ").append(FORMAT_STR).c_str(), __VA_ARGS__)
+
+#ifndef SWIFTLY_DEBUG
+#define DEBUG_PRINTF(FORMAT_STR, ...)
+#define DEBUG_PRINT(FORMAT_STR)
+#else
+#define DEBUG_PRINTF(FORMAT_STR, ...) PLUGIN_PRINTF(string_format("Debug - %s", __FUNCTION__), FORMAT_STR, __VA_ARGS__)
+#define DEBUG_PRINT(FORMAT_STR) PLUGIN_PRINT(string_format("Debug - %s", __FUNCTION__), FORMAT_STR)
+#endif
 
 #endif

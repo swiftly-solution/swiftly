@@ -34,7 +34,7 @@ class TempResMon
 private:
     std::string m_plugin_id;
     std::string m_key;
-    std::chrono::_V2::system_clock::time_point startTime;
+    std::chrono::time_point<std::chrono::high_resolution_clock> startTime = std::chrono::high_resolution_clock::now();
 
 public:
     TempResMon(std::string key, std::string plugin_id)
