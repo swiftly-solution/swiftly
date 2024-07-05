@@ -4,7 +4,8 @@
 #ifdef _MSC_VER
 #pragma warning(disable : 4005)
 #pragma warning(disable : 4267)
-#pragma warning(disable : 1696)
+#pragma warning(disable : 4099)
+#pragma warning(disable : 4312)
 #else
 
 #endif

@@ -207,6 +207,8 @@ class MMSPluginConfig(object):
         cxx.linkflags += ['/NODEFAULTLIB:libcmt']
       else:
         cxx.cflags += ['/MT']
+        cxx.linkflags += ['/NODEFAULTLIB:libcmt']
+
       cxx.defines += [
         '_CRT_SECURE_NO_DEPRECATE',
         '_CRT_SECURE_NO_WARNINGS',
@@ -299,9 +301,12 @@ class MMSPluginConfig(object):
     if sdk['source2']:
       cxx.defines += ['META_IS_SOURCE2']
       binary.sources += [
-        os.path.join(sdk['path'], 'public', 'tier0', 'memoverride.cpp'),
         os.path.join(sdk['path'], 'tier1', 'convar.cpp'),
       ]
+      if cxx.target.platform == 'linux':
+        binary.sources += [
+          os.path.join(sdk['path'], 'public', 'tier0', 'memoverride.cpp'),
+        ]
 
     SdkHelpers.configureCxx(context, binary, sdk)
 
