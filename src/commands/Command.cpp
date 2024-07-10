@@ -14,7 +14,7 @@ Command::~Command()
     }
 }
 
-void Command::Execute(int slot, std::vector<std::string> args, bool silent)
+void Command::Execute(int slot, std::vector<std::string> args, bool silent, std::string prefix)
 {
     if (this->m_funcPtr == nullptr)
         return;
@@ -23,7 +23,7 @@ void Command::Execute(int slot, std::vector<std::string> args, bool silent)
     if (!plugin)
         return;
 
-    plugin->ExecuteCommand(this->m_funcPtr, this->m_commandName, slot, args, silent);
+    plugin->ExecuteCommand(this->m_funcPtr, this->m_commandName, slot, args, silent, prefix);
 }
 
 std::string Command::GetPluginName() { return this->m_pluginName; }

@@ -41,7 +41,7 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
         if (cmd == nullptr)
             return 0;
 
-        cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand);
+        cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand, std::string(1, text.at(0)));
     }
 
     if (isCommand)
@@ -122,5 +122,5 @@ static void commandsCallback(const CCommandContext &context, const CCommand &arg
     if (!command)
         return;
 
-    command->Execute(context.GetPlayerSlot().Get(), argsplit, true);
+    command->Execute(context.GetPlayerSlot().Get(), argsplit, true, "sw_");
 }

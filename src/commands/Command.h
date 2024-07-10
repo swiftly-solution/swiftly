@@ -15,7 +15,7 @@ public:
 
     ~Command();
 
-    void Execute(int slot, std::vector<std::string> args, bool silent);
+    void Execute(int slot, std::vector<std::string> args, bool silent, std::string prefix);
     std::string GetPluginName();
 
 private:

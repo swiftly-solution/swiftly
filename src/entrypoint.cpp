@@ -9,8 +9,6 @@
 
 #include <steam/steam_gameserver.h>
 
-#include "addons/addons.h"
-#include "addons/clients.h"
 #include "configuration/Configuration.h"
 #include "commands/CommandsManager.h"
 #include "crashreporter/CrashReport.h"
@@ -32,7 +30,6 @@
 
 SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t &, ISource2WorldSession *, const char *);
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
-SH_DECL_HOOK4_void(IServerGameClients, ClientActive, SH_NOATTRIB, 0, CPlayerSlot, bool, const char *, uint64);
 SH_DECL_HOOK5_void(IServerGameClients, ClientDisconnect, SH_NOATTRIB, 0, CPlayerSlot, ENetworkDisconnectionReason, const char *, uint64, const char *);
 SH_DECL_HOOK1_void(IServerGameClients, ClientSettingsChanged, SH_NOATTRIB, 0, CPlayerSlot);
 SH_DECL_HOOK6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlayerSlot, const char *, uint64, const char *, const char *, bool);
@@ -89,7 +86,6 @@ CGameEntitySystem *GameEntitySystem()
 
 CUtlVector<FuncHookBase *> g_vecHooks;
 
-Addons g_addons;
 CommandsManager *g_commandsManager = nullptr;
 Configuration *g_Config = nullptr;
 ConsoleFilter *g_conFilter = nullptr;
@@ -130,7 +126,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     GET_V_IFACE_CURRENT(GetEngineFactory, g_pNetworkSystem, INetworkSystem, NETWORKSYSTEM_INTERFACE_VERSION);
 
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
-    SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &Swiftly::Hook_ClientActive, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &Swiftly::Hook_ClientDisconnect, true);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, OnClientConnected, gameclients, this, &Swiftly::Hook_OnClientConnected, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &Swiftly::Hook_ClientConnect, false);
@@ -169,8 +164,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_Offsets->LoadOffsets();
     g_dbManager->LoadDatabases();
 
-    g_addons.LoadAddons();
-
     if (!InitializeHooks())
         PRINTRET("Hooks failed to initialize.\n", false)
     else
@@ -189,10 +182,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     if (late)
     {
         g_SteamAPI.Init();
-        m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
     }
-
-    g_addons.SetupThread();
 
     g_voiceManager.OnAllInitialized();
 
@@ -203,26 +193,12 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
 
 void Swiftly::Hook_GameServerSteamAPIActivated()
 {
-    if (!CommandLine()->HasParm("-dedicated"))
+    if (!CommandLine()->HasParm("-dedicated") || g_SteamAPI.SteamUGC())
         return;
 
     g_SteamAPI.Init();
-    m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
-
-    std::thread([&]() -> void
-                {
-                    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-
-                    if (g_addons.GetStatus())
-                        g_addons.RefreshAddons(true); })
-        .detach();
 
     RETURN_META(MRES_IGNORED);
-}
-
-void Swiftly::OnAddonDownloaded(DownloadItemResult_t *pResult)
-{
-    g_addons.OnAddonDownloaded(pResult);
 }
 
 void Swiftly::AllPluginsLoaded()
@@ -239,7 +215,6 @@ bool Swiftly::Unload(char *error, size_t maxlen)
     g_voiceManager.OnShutdown();
 
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
-    SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientActive, gameclients, this, &Swiftly::Hook_ClientActive, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &Swiftly::Hook_ClientDisconnect, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, OnClientConnected, gameclients, this, &Swiftly::Hook_OnClientConnected, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &Swiftly::Hook_ClientConnect, false);
@@ -307,11 +282,6 @@ void Swiftly::Hook_StartupServer(const GameSessionConfiguration_t &config, ISour
 
         bDone = true;
     }
-
-    g_ClientsPendingAddon.RemoveAll();
-
-    if (g_addons.GetStatus())
-        g_addons.RefreshAddons();
 }
 
 void Swiftly::UpdatePlayers()
@@ -421,10 +391,6 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     }
 }
 
-void Swiftly::Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const char *pszName, uint64 xuid)
-{
-}
-
 void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char *pszName, uint64 xuid, const char *pszNetworkID)
 {
     std::stringstream ss;
@@ -453,9 +419,6 @@ void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint
 
 bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
 {
-    if (!g_addons.OnClientConnect(xuid))
-        RETURN_META_VALUE(MRES_IGNORED, true);
-
     std::string ip_address = explode(pszNetworkID, ":")[0];
     Player *player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     g_playerManager->RegisterPlayer(player);
@@ -668,7 +631,7 @@ const char *Swiftly::GetLicense()
 
 const char *Swiftly::GetVersion()
 {
-    return "rework";
+    return "v1.0.0";
 }
 
 const char *Swiftly::GetDate()
@@ -698,5 +661,5 @@ const char *Swiftly::GetName()
 
 const char *Swiftly::GetURL()
 {
-    return "https://github.com/swiftly-solution/swiftly/tree/rework";
+    return "https://github.com/swiftly-solution/swiftly";
 }

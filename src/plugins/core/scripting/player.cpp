@@ -159,6 +159,30 @@ void PluginPlayer::SetChatColor(std::string color)
     player->chatcolor = color;
 }
 
+std::string PluginPlayer::GetChatTagColor()
+{
+    Player *player = g_playerManager->GetPlayer(this->playerId);
+    if (!player)
+        return "";
+    return player->tagcolor;
+}
+
+std::string PluginPlayer::GetNameColor()
+{
+    Player *player = g_playerManager->GetPlayer(this->playerId);
+    if (!player)
+        return "";
+    return player->namecolor;
+}
+
+std::string PluginPlayer::GetChatColor()
+{
+    Player *player = g_playerManager->GetPlayer(this->playerId);
+    if (!player)
+        return "";
+    return player->chatcolor;
+}
+
 void PluginPlayer::ExecuteCommand(std::string cmd)
 {
     Player *player = g_playerManager->GetPlayer(this->playerId);
@@ -178,7 +202,7 @@ void PluginPlayer::ExecuteCommand(std::string cmd)
 
         Command *command = g_commandsManager->FetchCommand(commandName);
         if (command)
-            command->Execute(player->GetSlot().Get(), cmdString, true);
+            command->Execute(player->GetSlot().Get(), cmdString, true, "sw_");
     }
     else
         engine->ClientCommand(player->GetSlot().Get(), cmd.c_str());
@@ -314,19 +338,6 @@ void PluginPlayer::SendMsg(int dest, std::string msg)
     player->SendMsg(dest, msg.c_str());
 }
 
-void PluginPlayer::SetModel(std::string model)
-{
-    Player *player = g_playerManager->GetPlayer(this->playerId);
-    if (!player)
-        return;
-
-    CCSPlayerPawn *pawn = player->GetPlayerPawn();
-    if (!pawn)
-        return;
-
-    pawn->SetModel(model.c_str());
-}
-
 void PluginPlayer::ShowMenu(std::string menuid)
 {
     Player *player = g_playerManager->GetPlayer(this->playerId);
@@ -435,4 +446,9 @@ int PluginPlayer::GetVoiceFlags()
         return 0;
 
     return self->GetVoiceFlags();
+}
+
+PluginWeaponManager PluginPlayer::GetWeaponManager()
+{
+    return PluginWeaponManager(playerId);
 }

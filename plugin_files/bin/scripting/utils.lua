@@ -109,8 +109,16 @@ end
 
 function ComputePrettyTime(seconds)
     if seconds == 0 then return FetchTranslation("core.forever")
-    elseif seconds < 60 then return string.format(FetchTranslation("core.seconds"), seconds)
-    elseif seconds < 3600 then return string.format(FetchTranslation("core.minutes"), math.floor(seconds / 60))
-    elseif seconds < 86400 then return string.format(FetchTranslation("core.hours"), math.floor(seconds / 3600))
-    else return string.format(FetchTranslation("core.days"), math.floor(seconds / 86400)) end
+    elseif seconds < 60 then return FetchTranslation("core.seconds"):gsub("{TIME}", seconds)
+    elseif seconds < 3600 then return FetchTranslation("core.minutes"):gsub("{TIME}", math.floor(seconds / 60))
+    elseif seconds < 86400 then return FetchTranslation("core.hours"):gsub("{TIME}", math.floor(seconds / 3600))
+    else return FetchTranslation("core.days"):gsub("{TIME}", math.floor(seconds / 86400)) end
+end
+
+string.split = function(str, split)
+    local splitted = {}
+    for split in string.gmatch(str, "[^"..split.."]+") do 
+        table.insert(splitted, split) 
+    end
+    return splitted
 end

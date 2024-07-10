@@ -119,7 +119,6 @@ void SetupLuaTypes(LuaPlugin *plugin, lua_State *state)
         .addConstant("EConVarType_Float32", (uint64_t)EConVarType::EConVarType_Float32)
         .addConstant("EConVarType_Float64", (uint64_t)EConVarType::EConVarType_Float64)
         .addConstant("EConVarType_String", (uint64_t)EConVarType::EConVarType_String)
-
         .addConstant("EConVarType_Color", (uint64_t)EConVarType::EConVarType_Color)
         .addConstant("EConVarType_Vector2", (uint64_t)EConVarType::EConVarType_Vector2)
         .addConstant("EConVarType_Vector3", (uint64_t)EConVarType::EConVarType_Vector3)
@@ -130,8 +129,8 @@ void SetupLuaTypes(LuaPlugin *plugin, lua_State *state)
 
         .beginNamespace("ListenOverride")
         .addConstant("Listen_Default", 0)
-        .addConstant("Listen_Default", 1)
-        .addConstant("Listen_Default", 2)
+        .addConstant("Listen_Mute", 1)
+        .addConstant("Listen_Hear", 2)
         .endNamespace()
 
         .beginNamespace("VoiceFlagValue")

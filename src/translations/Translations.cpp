@@ -62,9 +62,15 @@ void Translations::LoadTranslations()
         rapidjson::Document transFile;
         transFile.Parse(Files::Read(translationFilePath).c_str());
         if (transFile.HasParseError())
-            return TranslationsError(string_format("A parsing error has been detected for translation file \"%s\".\nError (offset %u): %s\n", translationFileName.c_str(), (unsigned)transFile.GetErrorOffset(), GetParseError_En(transFile.GetParseError())));
+        {
+            TranslationsError(string_format("A parsing error has been detected for translation file \"%s\".\nError (offset %u): %s\n", translationFileName.c_str(), (unsigned)transFile.GetErrorOffset(), GetParseError_En(transFile.GetParseError())));
+            continue;
+        }
         if (transFile.IsArray())
-            return TranslationsError(string_format("Translation file \"%s\" cannot be an array.", translationFileName.c_str()));
+        {
+            TranslationsError(string_format("Translation file \"%s\" cannot be an array.", translationFileName.c_str()));
+            continue;
+        }
 
         for (auto it = transFile.MemberBegin(); it != transFile.MemberEnd(); ++it)
         {

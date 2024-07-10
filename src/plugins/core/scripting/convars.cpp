@@ -84,6 +84,36 @@ std::any PluginConvars::GetConvarValue(std::string cvarname)
         memcpy(&val, &cvar->values, sizeof(val));
         return val;
     }
+    else if (cvar->m_eVarType == EConVarType_Color)
+    {
+        Color val;
+        memcpy(&val, &cvar->values, sizeof(val));
+        return val;
+    }
+    else if (cvar->m_eVarType == EConVarType_Vector2)
+    {
+        Vector2D val;
+        memcpy(&val, &cvar->values, sizeof(val));
+        return val;
+    }
+    else if (cvar->m_eVarType == EConVarType_Vector3)
+    {
+        Vector val;
+        memcpy(&val, &cvar->values, sizeof(val));
+        return val;
+    }
+    else if (cvar->m_eVarType == EConVarType_Vector4)
+    {
+        Vector4D val;
+        memcpy(&val, &cvar->values, sizeof(val));
+        return val;
+    }
+    else if (cvar->m_eVarType == EConVarType_Qangle)
+    {
+        QAngle val;
+        memcpy(&val, &cvar->values, sizeof(val));
+        return val;
+    }
 
     return 0;
 }

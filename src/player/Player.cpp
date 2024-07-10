@@ -468,7 +468,7 @@ void Player::PerformMenuAction(std::string button)
 
             Command *cmd = g_commandsManager->FetchCommand(commandName);
             if (cmd)
-                cmd->Execute(this->GetSlot().Get(), cmdString, true);
+                cmd->Execute(this->GetSlot().Get(), cmdString, true, "sw_");
         }
         else if (cmd != "")
             this->PerformCommand(cmd);

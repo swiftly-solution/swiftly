@@ -89,4 +89,5 @@ void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
     SetupLuaMemory(plugin, state);
     SetupLuaHooks(plugin, state);
     SetupLuaUserMessages(plugin, state);
+    SetupLuaWeapons(plugin, state);
 }

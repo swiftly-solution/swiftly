@@ -12,8 +12,8 @@
 
 typedef std::pair<std::string, std::string> OutputPair_t;
 std::map<OutputPair_t, std::vector<std::string>> outputHooksList;
-// void Hook_FireOutputInternal(CEntityIOOutput *const pThis, CEntityInstance *pActivator, CEntityInstance *pCaller, const CVariant *const value, float flDelay);
-// FuncHook<decltype(Hook_FireOutputInternal)> TFireOutputInternal(Hook_FireOutputInternal, "FireOutputInternal");
+void Hook_FireOutputInternal(CEntityIOOutput *const pThis, CEntityInstance *pActivator, CEntityInstance *pCaller, const CVariant *const value, float flDelay);
+FuncHook<decltype(Hook_FireOutputInternal)> TFireOutputInternal(Hook_FireOutputInternal, "FireOutputInternal");
 
 std::map<dyno::IHook *, std::vector<Hook>> hooksList;
 std::map<std::string, dyno::IHook *> hooksMap;
@@ -252,69 +252,76 @@ std::string PluginHooks::AddEntityOutputHook(std::string classname, std::string 
     return id;
 }
 
-// void Hook_FireOutputInternal(CEntityIOOutput *const pThis, CEntityInstance *pActivator, CEntityInstance *pCaller, const CVariant *const value, float flDelay)
-// {
-//     std::vector searchOutputs{OutputPair_t("*", pThis->m_pDesc->m_pName), OutputPair_t("*", "*")};
+void Hook_FireOutputInternal(CEntityIOOutput *const pThis, CEntityInstance *pActivator, CEntityInstance *pCaller, const CVariant *const value, float flDelay)
+{
+    std::vector searchOutputs{OutputPair_t("*", pThis->m_pDesc->m_pName), OutputPair_t("*", "*")};
 
-//     if (pCaller)
-//     {
-//         searchOutputs.push_back(OutputPair_t(pCaller->GetClassname(), pThis->m_pDesc->m_pName));
-//         searchOutputs.push_back(OutputPair_t(pCaller->GetClassname(), "*"));
-//     }
+    if (pCaller)
+    {
+        searchOutputs.push_back(OutputPair_t(pCaller->GetClassname(), pThis->m_pDesc->m_pName));
+        searchOutputs.push_back(OutputPair_t(pCaller->GetClassname(), "*"));
+    }
 
-//     std::vector<std::string> hookIds;
+    std::vector<std::string> hookIds;
 
-//     if (pCaller)
-//     {
-//         for (auto output : searchOutputs)
-//             if (outputHooksList.find(output) != outputHooksList.end())
-//                 for (auto hookid : outputHooksList.at(output))
-//                     hookIds.push_back(hookid);
-//     }
+    if (pCaller)
+    {
 
-//     PluginEvent *preEvent = new PluginEvent("core", nullptr, nullptr);
-//     std::stringstream preSS;
-//     std::vector<msgpack::object> preEventData;
+        for (auto output : searchOutputs)
+            if (outputHooksList.find(output) != outputHooksList.end())
+                for (auto hookid : outputHooksList.at(output))
+                    hookIds.push_back(hookid);
+    }
 
-//     preEventData.push_back(msgpack::object(string_format("%p", pThis).c_str()));
-//     preEventData.push_back(msgpack::object(pThis->m_pDesc->m_pName));
-//     preEventData.push_back(msgpack::object(string_format("%p", pActivator).c_str()));
-//     preEventData.push_back(msgpack::object(string_format("%p", pCaller).c_str()));
-//     preEventData.push_back(msgpack::object(flDelay));
+    if (hookIds.size() > 0)
+    {
+        PluginEvent *preEvent = new PluginEvent("core", nullptr, nullptr);
+        std::stringstream preSS;
+        std::vector<msgpack::object> preEventData;
 
-//     msgpack::pack(preSS, preEventData);
-//     for (auto id : hookIds)
-//     {
-//         auto result = g_pluginManager->ExecuteEvent("core", "hook:Pre:" + id, preSS.str(), preEvent);
-//         if (result != EventResult::Continue)
-//         {
-//             delete preEvent;
-//             return;
-//         }
-//     }
-//     delete preEvent;
+        preEventData.push_back(msgpack::object(pThis ? string_format("%p", pThis).c_str() : "0x00000000"));
+        preEventData.push_back(msgpack::object(pThis->m_pDesc->m_pName));
+        preEventData.push_back(msgpack::object(pActivator ? string_format("%p", pActivator).c_str() : "0x00000000"));
+        preEventData.push_back(msgpack::object(pCaller ? string_format("%p", pCaller).c_str() : "0x00000000"));
+        preEventData.push_back(msgpack::object(flDelay));
 
-//     TFireOutputInternal(pThis, pActivator, pCaller, value, flDelay);
+        msgpack::pack(preSS, preEventData);
+        for (auto id : hookIds)
+        {
+            auto result = g_pluginManager->ExecuteEvent("core", "hook:Pre:" + id, preSS.str(), preEvent);
+            if (result != EventResult::Continue)
+            {
+                delete preEvent;
+                return;
+            }
+        }
+        delete preEvent;
+    }
 
-//     PluginEvent *postEvent = new PluginEvent("core", nullptr, nullptr);
-//     std::stringstream postSS;
-//     std::vector<msgpack::object> postEventData;
+    TFireOutputInternal(pThis, pActivator, pCaller, value, flDelay);
 
-//     postEventData.push_back(msgpack::object(string_format("%p", pThis).c_str()));
-//     postEventData.push_back(msgpack::object(pThis->m_pDesc->m_pName));
-//     postEventData.push_back(msgpack::object(string_format("%p", pActivator).c_str()));
-//     postEventData.push_back(msgpack::object(string_format("%p", pCaller).c_str()));
-//     postEventData.push_back(msgpack::object(flDelay));
+    if (hookIds.size() > 0)
+    {
+        PluginEvent *postEvent = new PluginEvent("core", nullptr, nullptr);
+        std::stringstream postSS;
+        std::vector<msgpack::object> postEventData;
 
-//     msgpack::pack(postSS, postEventData);
-//     for (auto id : hookIds)
-//     {
-//         auto result = g_pluginManager->ExecuteEvent("core", "hook:Post:" + id, postSS.str(), postEvent);
-//         if (result != EventResult::Continue)
-//         {
-//             delete postEvent;
-//             return;
-//         }
-//     }
-//     delete postEvent;
-// }
+        postEventData.push_back(msgpack::object(string_format("%p", pThis).c_str()));
+        postEventData.push_back(msgpack::object(pThis->m_pDesc->m_pName));
+        postEventData.push_back(msgpack::object(string_format("%p", pActivator).c_str()));
+        postEventData.push_back(msgpack::object(string_format("%p", pCaller).c_str()));
+        postEventData.push_back(msgpack::object(flDelay));
+
+        msgpack::pack(postSS, postEventData);
+        for (auto id : hookIds)
+        {
+            auto result = g_pluginManager->ExecuteEvent("core", "hook:Post:" + id, postSS.str(), postEvent);
+            if (result != EventResult::Continue)
+            {
+                delete postEvent;
+                return;
+            }
+        }
+        delete postEvent;
+    }
+}

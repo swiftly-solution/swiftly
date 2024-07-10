@@ -38,7 +38,7 @@ public:
     bool ExecuteStart();
     void ExecuteStop();
 
-    void ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent);
+    void ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent, std::string prefix);
 
     void RegisterEventHandler(void *functionPtr);
     void RegisterEventHandling(std::string eventName);

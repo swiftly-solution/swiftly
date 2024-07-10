@@ -1,8 +1,3 @@
-local hookEntityOutputHandles = {
-    pre = {},
-    post = {}
-}
-
 function AddHookEntityOutput(classname, output)
     if type(classname) ~= "string" then
         print("AddHookEntityOutput: classname must be a string.")

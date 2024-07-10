@@ -23,6 +23,12 @@ public:
     SCHEMA_FIELD_OFFSET(bool, m_bSwitchingTeamsAtRoundReset, 0)
     SCHEMA_FIELD_OFFSET(bool, m_bGameRestart, 0)
     SCHEMA_FIELD_OFFSET(int, m_iRoundTime, 0)
+    SCHEMA_FIELD_OFFSET(int, m_nRoundsPlayedThisPhase, 0)
+    SCHEMA_FIELD_OFFSET(int, m_bWarmupPeriod, 0)
+    SCHEMA_FIELD_OFFSET(int, m_bFreezePeriod, 0)
+
+    SCHEMA_FIELD_OFFSET(bool, m_bIsQueuedMatchmaking, 0)
+    SCHEMA_FIELD_OFFSET(int32_t, m_nQueuedMatchmakingMode, 0)
 };
 
 class CCSGameRulesProxy : public Z_CBaseEntity

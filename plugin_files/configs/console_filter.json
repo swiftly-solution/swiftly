@@ -30,5 +30,7 @@
     "teamt": "Team T triggered",
     "teamtero": "Team TERRORIST",
     "teamtcounter": "Team CT",
-    "roundend": "World triggered Round_End"
+    "roundend": "World triggered Round_End",
+    "laterecv": "LATE Recv",
+    "generatesubstitute": "generating substitute"
 }

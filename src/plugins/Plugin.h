@@ -35,7 +35,7 @@ public:
     virtual bool ExecuteStart() = 0;
     virtual void ExecuteStop() = 0;
 
-    virtual void ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent) = 0;
+    virtual void ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent, std::string prefix) = 0;
 
     virtual void RegisterEventHandler(void *functionPtr) = 0;
     virtual void RegisterEventHandling(std::string eventName) = 0;

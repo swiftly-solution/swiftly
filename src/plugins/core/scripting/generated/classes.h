@@ -1527,6 +1527,7 @@ public:
     bool GetGlowing() const;
     void SetGlowing(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1542,6 +1543,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1558,6 +1560,7 @@ public:
     GCNetworkVarChainer Get__pChainEntity() const;
     void Set__pChainEntity(GCNetworkVarChainer value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1622,6 +1625,7 @@ public:
     bool GetPadding() const;
     void SetPadding(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1638,6 +1642,7 @@ public:
     uint8_t GetTransmitStateOwnedCounter() const;
     void SetTransmitStateOwnedCounter(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1658,6 +1663,7 @@ public:
     float GetZ() const;
     void SetZ(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1678,6 +1684,7 @@ public:
     float GetZ() const;
     void SetZ(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1694,12 +1701,13 @@ public:
     std::string GetPrivateVScripts() const;
     void SetPrivateVScripts(std::string value);
     GCEntityIdentity GetEntity() const;
-    void SetEntity(GCEntityIdentity* value);
+    void SetEntity(GCEntityIdentity value);
     GCScriptComponent GetCScriptComponent() const;
-    void SetCScriptComponent(GCScriptComponent* value);
+    void SetCScriptComponent(GCScriptComponent value);
     bool GetVisibleinPVS() const;
     void SetVisibleinPVS(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1720,7 +1728,7 @@ public:
     GCEntitySubclassVDataBase GetVData();
     void Teleport(Vector value);
     GCBodyComponent GetCBodyComponent() const;
-    void SetCBodyComponent(GCBodyComponent* value);
+    void SetCBodyComponent(GCBodyComponent value);
     GCNetworkTransmitComponent GetNetworkTransmitComponent() const;
     void SetNetworkTransmitComponent(GCNetworkTransmitComponent value);
     std::vector<Gthinkfunc_t> GetThinkFunctions() const;
@@ -1766,13 +1774,13 @@ public:
     std::string GetTarget() const;
     void SetTarget(std::string value);
     GCBaseFilter GetDamageFilter() const;
-    void SetDamageFilter(GCBaseFilter* value);
+    void SetDamageFilter(GCBaseFilter value);
     std::string GetDamageFilterName() const;
     void SetDamageFilterName(std::string value);
     float GetMoveDoneTime() const;
     void SetMoveDoneTime(float value);
-    CUtlStringToken GetSubclassID() const;
-    void SetSubclassID(CUtlStringToken value);
+    uint32_t GetSubclassID() const;
+    void SetSubclassID(uint32_t value);
     float GetAnimTime() const;
     void SetAnimTime(float value);
     float GetSimulationTime() const;
@@ -1814,15 +1822,15 @@ public:
     int32_t GetPushEnumCount() const;
     void SetPushEnumCount(int32_t value);
     GCCollisionProperty GetCollision() const;
-    void SetCollision(GCCollisionProperty* value);
+    void SetCollision(GCCollisionProperty value);
     GCBaseEntity GetEffectEntity() const;
-    void SetEffectEntity(GCBaseEntity* value);
+    void SetEffectEntity(GCBaseEntity value);
     GCBaseEntity GetOwnerEntity() const;
-    void SetOwnerEntity(GCBaseEntity* value);
+    void SetOwnerEntity(GCBaseEntity value);
     uint32_t GetEffects() const;
     void SetEffects(uint32_t value);
     GCBaseEntity GetGroundEntity() const;
-    void SetGroundEntity(GCBaseEntity* value);
+    void SetGroundEntity(GCBaseEntity value);
     int32_t GetGroundBodyIndex() const;
     void SetGroundBodyIndex(int32_t value);
     float GetFriction() const;
@@ -1864,7 +1872,7 @@ public:
     float GetOverriddenFriction() const;
     void SetOverriddenFriction(float value);
     GCBaseEntity GetBlocker() const;
-    void SetBlocker(GCBaseEntity* value);
+    void SetBlocker(GCBaseEntity value);
     float GetLocalTime() const;
     void SetLocalTime(float value);
     float GetVPhysicsUpdateLocalTime() const;
@@ -1874,6 +1882,7 @@ public:
     GCEntityInstance GetParent() const;
     void SetParent(GCEntityInstance value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1910,6 +1919,7 @@ public:
     GCEntityComponent GetParent() const;
     void SetParent(GCEntityComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1928,6 +1938,7 @@ public:
     GCEntityComponent GetParent() const;
     void SetParent(GCEntityComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -1958,6 +1969,7 @@ public:
     uint8_t GetCollisionFunctionMask() const;
     void SetCollisionFunctionMask(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2006,6 +2018,7 @@ public:
     float GetCapsuleRadius() const;
     void SetCapsuleRadius(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2021,7 +2034,7 @@ public:
 
     void SetModel(std::string model);
     GCRenderComponent GetCRenderComponent() const;
-    void SetCRenderComponent(GCRenderComponent* value);
+    void SetCRenderComponent(GCRenderComponent value);
     GCHitboxComponent GetCHitboxComponent() const;
     void SetCHitboxComponent(GCHitboxComponent value);
     float GetDissolveStartTime() const;
@@ -2073,6 +2086,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2089,6 +2103,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2125,7 +2140,7 @@ public:
     float GetHeight() const;
     void SetHeight(float value);
     GCBaseEntity GetActivator() const;
-    void SetActivator(GCBaseEntity* value);
+    void SetActivator(GCBaseEntity value);
     Vector GetFinalDest() const;
     void SetFinalDest(Vector value);
     QAngle GetFinalAngle() const;
@@ -2137,6 +2152,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2155,7 +2171,7 @@ public:
     std::string GetFilterName() const;
     void SetFilterName(std::string value);
     GCBaseFilter GetFilter() const;
-    void SetFilter(GCBaseFilter* value);
+    void SetFilter(GCBaseFilter value);
     GCEntityIOOutput GetOnStartTouch() const;
     void SetOnStartTouch(GCEntityIOOutput value);
     GCEntityIOOutput GetOnStartTouchAll() const;
@@ -2175,6 +2191,7 @@ public:
     GCBaseToggle GetParent() const;
     void SetParent(GCBaseToggle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2189,7 +2206,7 @@ public:
     GCTriggerProximity(void *ptr);
 
     GCBaseEntity GetMeasureTarget() const;
-    void SetMeasureTarget(GCBaseEntity* value);
+    void SetMeasureTarget(GCBaseEntity value);
     std::string GetMeasureTarget1() const;
     void SetMeasureTarget1(std::string value);
     float GetRadius() const;
@@ -2199,6 +2216,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2215,6 +2233,7 @@ public:
     GCServerOnlyEntity GetParent() const;
     void SetParent(GCServerOnlyEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2239,12 +2258,13 @@ public:
     std::string GetPathSimpleName() const;
     void SetPathSimpleName(std::string value);
     GCPathSimple GetPathSimple() const;
-    void SetPathSimple(GCPathSimple* value);
+    void SetPathSimple(GCPathSimple value);
     uint32_t GetSplinePushType() const;
     void SetSplinePushType(uint32_t value);
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2263,6 +2283,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2289,6 +2310,7 @@ public:
     GCBaseToggle GetParent() const;
     void SetParent(GCBaseToggle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2305,10 +2327,11 @@ public:
     std::string GetTonemapControllerName() const;
     void SetTonemapControllerName(std::string value);
     GCEntityInstance GetTonemapController() const;
-    void SetTonemapController(GCEntityInstance* value);
+    void SetTonemapController(GCEntityInstance value);
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2333,6 +2356,7 @@ public:
     bool GetSetBonus() const;
     void SetSetBonus(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2355,6 +2379,7 @@ public:
     float GetIronSightAmountBiased() const;
     void SetIronSightAmountBiased(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2373,6 +2398,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2395,6 +2421,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2410,6 +2437,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2426,6 +2454,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2442,6 +2471,7 @@ public:
     GCServerOnlyEntity GetParent() const;
     void SetParent(GCServerOnlyEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2458,6 +2488,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2477,9 +2508,10 @@ public:
     void SetTimestamp(float value);
     float GetTimescale() const;
     void SetTimescale(float value);
-    WorldGroupId_t GetWorldGroupId() const;
-    void SetWorldGroupId(WorldGroupId_t value);
+    uint32_t GetWorldGroupId() const;
+    void SetWorldGroupId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2496,6 +2528,7 @@ public:
     uint32_t GetValue() const;
     void SetValue(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2512,6 +2545,7 @@ public:
     float GetFluidDensity() const;
     void SetFluidDensity(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2534,10 +2568,11 @@ public:
     GCEntityIOOutput GetOnPassThrough() const;
     void SetOnPassThrough(GCEntityIOOutput value);
     GCPathMover GetMover() const;
-    void SetMover(GCPathMover* value);
+    void SetMover(GCPathMover value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2553,6 +2588,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2569,6 +2605,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2584,6 +2621,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2616,12 +2654,13 @@ public:
     std::vector<CUtlSymbolLarge> GetPositionNames() const;
     void SetPositionNames(std::vector<CUtlSymbolLarge> value);
     GCEnvSoundscape GetProxySoundscape() const;
-    void SetProxySoundscape(GCEnvSoundscape* value);
+    void SetProxySoundscape(GCEnvSoundscape value);
     bool GetDisabled() const;
     void SetDisabled(bool value);
     GCServerOnlyEntity GetParent() const;
     void SetParent(GCServerOnlyEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2636,7 +2675,7 @@ public:
     Gfogplayerparams_t(void *ptr);
 
     GCFogController GetCtrl() const;
-    void SetCtrl(GCFogController* value);
+    void SetCtrl(GCFogController value);
     float GetTransitionTime() const;
     void SetTransitionTime(float value);
     Color GetOldColor() const;
@@ -2664,6 +2703,7 @@ public:
     float GetNewFarZ() const;
     void SetNewFarZ(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2686,6 +2726,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2702,8 +2743,9 @@ public:
     std::vector<GCEconItemAttribute> GetAttributes() const;
     void SetAttributes(std::vector<GCEconItemAttribute> value);
     GCAttributeManager GetManager() const;
-    void SetManager(GCAttributeManager* value);
+    void SetManager(GCAttributeManager value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2730,6 +2772,7 @@ public:
     int8_t GetClothUpdateFlags() const;
     void SetClothUpdateFlags(int8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2746,7 +2789,7 @@ public:
     bool GetInitiallyPopulateInterpHistory() const;
     void SetInitiallyPopulateInterpHistory(bool value);
     GIChoreoServices GetChoreoServices() const;
-    void SetChoreoServices(GIChoreoServices* value);
+    void SetChoreoServices(GIChoreoServices value);
     bool GetAnimGraphUpdateEnabled() const;
     void SetAnimGraphUpdateEnabled(bool value);
     float GetMaxSlopeDistance() const;
@@ -2760,12 +2803,13 @@ public:
     int32_t GetForceBone() const;
     void SetForceBone(int32_t value);
     GPhysicsRagdollPose_t GetRagdollPose() const;
-    void SetRagdollPose(GPhysicsRagdollPose_t* value);
+    void SetRagdollPose(GPhysicsRagdollPose_t value);
     bool GetRagdollClientSide() const;
     void SetRagdollClientSide(bool value);
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2782,6 +2826,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2798,6 +2843,7 @@ public:
     std::vector<uint64_t> GetButtonStates() const;
     void SetButtonStates(std::vector<uint64_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2814,6 +2860,7 @@ public:
     GCBtNode GetParent() const;
     void SetParent(GCBtNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2830,7 +2877,7 @@ public:
     int32_t GetReapplyProvisionParity() const;
     void SetReapplyProvisionParity(int32_t value);
     GCBaseEntity GetOuter() const;
-    void SetOuter(GCBaseEntity* value);
+    void SetOuter(GCBaseEntity value);
     bool GetPreventLoopback() const;
     void SetPreventLoopback(bool value);
     uint64_t GetProviderType() const;
@@ -2838,6 +2885,7 @@ public:
     std::vector<GCAttributeManager> GetCachedResults() const;
     void SetCachedResults(std::vector<GCAttributeManager> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2860,6 +2908,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2874,9 +2923,9 @@ public:
     GCPlayerPing(void *ptr);
 
     GCCSPlayerPawn GetPlayer() const;
-    void SetPlayer(GCCSPlayerPawn* value);
+    void SetPlayer(GCCSPlayerPawn value);
     GCBaseEntity GetPingedEntity() const;
-    void SetPingedEntity(GCBaseEntity* value);
+    void SetPingedEntity(GCBaseEntity value);
     int32_t GetType() const;
     void SetType(int32_t value);
     bool GetUrgent() const;
@@ -2886,6 +2935,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2902,6 +2952,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2930,6 +2981,7 @@ public:
     float GetZ() const;
     void SetZ(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2946,6 +2998,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -2976,6 +3029,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3018,6 +3072,7 @@ public:
     GIEconItemInterface GetParent() const;
     void SetParent(GIEconItemInterface value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3047,8 +3102,6 @@ public:
     void SetPredNetFloatVariables(std::vector<float32> value);
     std::vector<Vector> GetPredNetVectorVariables() const;
     void SetPredNetVectorVariables(std::vector<Vector> value);
-    std::vector<Quaternion> GetPredNetQuaternionVariables() const;
-    void SetPredNetQuaternionVariables(std::vector<Quaternion> value);
     std::vector<uint32> GetOwnerOnlyPredNetBoolVariables() const;
     void SetOwnerOnlyPredNetBoolVariables(std::vector<uint32> value);
     std::vector<uint8> GetOwnerOnlyPredNetByteVariables() const;
@@ -3065,8 +3118,6 @@ public:
     void SetOwnerOnlyPredNetFloatVariables(std::vector<float32> value);
     std::vector<Vector> GetOwnerOnlyPredNetVectorVariables() const;
     void SetOwnerOnlyPredNetVectorVariables(std::vector<Vector> value);
-    std::vector<Quaternion> GetOwnerOnlyPredNetQuaternionVariables() const;
-    void SetOwnerOnlyPredNetQuaternionVariables(std::vector<Quaternion> value);
     int32_t GetBoolVariablesCount() const;
     void SetBoolVariablesCount(int32_t value);
     int32_t GetOwnerOnlyBoolVariablesCount() const;
@@ -3076,6 +3127,7 @@ public:
     float GetLastTeleportTime() const;
     void SetLastTeleportTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3090,12 +3142,13 @@ public:
     GCBodyComponent(void *ptr);
 
     GCGameSceneNode GetSceneNode() const;
-    void SetSceneNode(GCGameSceneNode* value);
+    void SetSceneNode(GCGameSceneNode value);
     GCNetworkVarChainer Get__pChainEntity() const;
     void Set__pChainEntity(GCNetworkVarChainer value);
     GCEntityComponent GetParent() const;
     void SetParent(GCEntityComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3128,6 +3181,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3160,6 +3214,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3178,6 +3233,7 @@ public:
     float GetAveWindSpeed() const;
     void SetAveWindSpeed(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3197,11 +3253,10 @@ public:
     void SetShapeType(int32_t value);
     bool GetConformToCollisionBounds() const;
     void SetConformToCollisionBounds(bool value);
-    matrix3x4_t GetMPreferredCatchTransform() const;
-    void SetMPreferredCatchTransform(matrix3x4_t value);
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3222,6 +3277,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3238,6 +3294,7 @@ public:
     Vector GetForce() const;
     void SetForce(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3256,7 +3313,7 @@ public:
     uint64_t GetMaterial() const;
     void SetMaterial(uint64_t value);
     GCBaseEntity GetBreaker() const;
-    void SetBreaker(GCBaseEntity* value);
+    void SetBreaker(GCBaseEntity value);
     uint64_t GetExplosion() const;
     void SetExplosion(uint64_t value);
     std::string GetSpawnObject() const;
@@ -3276,12 +3333,13 @@ public:
     uint64_t GetPerformanceMode() const;
     void SetPerformanceMode(uint64_t value);
     GCBasePlayerPawn GetPhysicsAttacker() const;
-    void SetPhysicsAttacker(GCBasePlayerPawn* value);
+    void SetPhysicsAttacker(GCBasePlayerPawn value);
     float GetLastPhysicsInfluenceTime() const;
     void SetLastPhysicsInfluenceTime(float value);
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3299,21 +3357,20 @@ public:
     void SetOrigin(Vector value);
     QAngle GetAngles() const;
     void SetAngles(QAngle value);
-    Quaternion GetAngle() const;
-    void SetAngle(Quaternion value);
     std::string GetNextKey() const;
     void SetNextKey(std::string value);
     float GetNextTime() const;
     void SetNextTime(float value);
     GCPathKeyFrame GetNextKey1() const;
-    void SetNextKey1(GCPathKeyFrame* value);
+    void SetNextKey1(GCPathKeyFrame value);
     GCPathKeyFrame GetPrevKey() const;
-    void SetPrevKey(GCPathKeyFrame* value);
+    void SetPrevKey(GCPathKeyFrame value);
     float GetMoveSpeed() const;
     void SetMoveSpeed(float value);
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3330,6 +3387,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3354,6 +3412,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3372,6 +3431,7 @@ public:
     GCAttributeManager GetParent() const;
     void SetParent(GCAttributeManager value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3388,6 +3448,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3414,6 +3475,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3438,6 +3500,7 @@ public:
     uint32_t GetSoundEventHash() const;
     void SetSoundEventHash(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3466,12 +3529,13 @@ public:
     int32_t GetFallbackStatTrak() const;
     void SetFallbackStatTrak(int32_t value);
     GCBaseEntity GetOldProvidee() const;
-    void SetOldProvidee(GCBaseEntity* value);
+    void SetOldProvidee(GCBaseEntity value);
     int32_t GetOldOwnerClass() const;
     void SetOldOwnerClass(int32_t value);
     GCBaseFlex GetParent() const;
     void SetParent(GCBaseFlex value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3488,6 +3552,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3518,6 +3583,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3540,17 +3606,17 @@ public:
     QAngle GetAngles() const;
     void SetAngles(QAngle value);
     GCEntityInstance GetEntity() const;
-    void SetEntity(GCEntityInstance* value);
+    void SetEntity(GCEntityInstance value);
     GCEntityInstance GetOtherEntity() const;
-    void SetOtherEntity(GCEntityInstance* value);
+    void SetOtherEntity(GCEntityInstance value);
     float GetScale() const;
     void SetScale(float value);
     float GetMagnitude() const;
     void SetMagnitude(float value);
     float GetRadius() const;
     void SetRadius(float value);
-    CUtlStringToken GetSurfaceProp() const;
-    void SetSurfaceProp(CUtlStringToken value);
+    uint32_t GetSurfaceProp() const;
+    void SetSurfaceProp(uint32_t value);
     uint32_t GetDamageType() const;
     void SetDamageType(uint32_t value);
     uint8_t GetPenetrate() const;
@@ -3563,13 +3629,14 @@ public:
     void SetColor(uint8_t value);
     uint8_t GetFlags() const;
     void SetFlags(uint8_t value);
-    CUtlStringToken GetAttachmentName() const;
-    void SetAttachmentName(CUtlStringToken value);
+    uint32_t GetAttachmentName() const;
+    void SetAttachmentName(uint32_t value);
     uint16_t GetEffectName() const;
     void SetEffectName(uint16_t value);
     uint8_t GetExplosionType() const;
     void SetExplosionType(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3586,6 +3653,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3612,6 +3680,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3644,6 +3713,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3662,6 +3732,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3680,6 +3751,7 @@ public:
     Vector GetHi() const;
     void SetHi(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3714,12 +3786,13 @@ public:
     std::string GetSoundName() const;
     void SetSoundName(std::string value);
     GCEntityInstance GetSource() const;
-    void SetSource(GCEntityInstance* value);
+    void SetSource(GCEntityInstance value);
     int32_t GetEntityIndexSelection() const;
     void SetEntityIndexSelection(int32_t value);
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3738,6 +3811,7 @@ public:
     GCPlayer_ViewModelServices GetParent() const;
     void SetParent(GCPlayer_ViewModelServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3770,6 +3844,7 @@ public:
     GCEconEntity GetParent() const;
     void SetParent(GCEconEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3786,6 +3861,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3864,6 +3940,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3910,6 +3987,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -3942,7 +4020,7 @@ public:
     Vector GetDefBurstOffset() const;
     void SetDefBurstOffset(Vector value);
     GCBaseEntity GetBreaker() const;
-    void SetBreaker(GCBaseEntity* value);
+    void SetBreaker(GCBaseEntity value);
     uint64_t GetPerformanceMode() const;
     void SetPerformanceMode(uint64_t value);
     float GetPreventDamageBeforeTime() const;
@@ -3964,7 +4042,7 @@ public:
     std::string GetExplosionModifier() const;
     void SetExplosionModifier(std::string value);
     GCBasePlayerPawn GetPhysicsAttacker() const;
-    void SetPhysicsAttacker(GCBasePlayerPawn* value);
+    void SetPhysicsAttacker(GCBasePlayerPawn value);
     float GetLastPhysicsInfluenceTime() const;
     void SetLastPhysicsInfluenceTime(float value);
     bool GetOriginalBlockLOS() const;
@@ -3972,9 +4050,9 @@ public:
     float GetDefaultFadeScale() const;
     void SetDefaultFadeScale(float value);
     GCBaseEntity GetLastAttacker() const;
-    void SetLastAttacker(GCBaseEntity* value);
+    void SetLastAttacker(GCBaseEntity value);
     GCBaseEntity GetFlareEnt() const;
-    void SetFlareEnt(GCBaseEntity* value);
+    void SetFlareEnt(GCBaseEntity value);
     bool GetUsePuntSound() const;
     void SetUsePuntSound(bool value);
     std::string GetPuntSound() const;
@@ -3984,6 +4062,7 @@ public:
     GCBaseProp GetParent() const;
     void SetParent(GCBaseProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4002,6 +4081,7 @@ public:
     GCEnvSoundscape GetParent() const;
     void SetParent(GCEnvSoundscape value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4020,9 +4100,9 @@ public:
     std::string GetNameAttach2() const;
     void SetNameAttach2(std::string value);
     GCBaseEntity GetAttach1() const;
-    void SetAttach1(GCBaseEntity* value);
+    void SetAttach1(GCBaseEntity value);
     GCBaseEntity GetAttach2() const;
-    void SetAttach2(GCBaseEntity* value);
+    void SetAttach2(GCBaseEntity value);
     std::string GetNameAttachment1() const;
     void SetNameAttachment1(std::string value);
     std::string GetNameAttachment2() const;
@@ -4044,6 +4124,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4060,6 +4141,7 @@ public:
     GCNetworkVarChainer Get__pChainEntity() const;
     void Set__pChainEntity(GCNetworkVarChainer value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4076,6 +4158,7 @@ public:
     GCItem GetParent() const;
     void SetParent(GCItem value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4094,6 +4177,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4110,7 +4194,7 @@ public:
     bool GetDisabled() const;
     void SetDisabled(bool value);
     GCEntityInstance GetSource() const;
-    void SetSource(GCEntityInstance* value);
+    void SetSource(GCEntityInstance value);
     std::string GetSourceEntityName() const;
     void SetSourceEntityName(std::string value);
     Vector GetLastPosition() const;
@@ -4128,6 +4212,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4150,6 +4235,7 @@ public:
     bool GetUnused() const;
     void SetUnused(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4164,12 +4250,13 @@ public:
     GCItemDogtags(void *ptr);
 
     GCCSPlayerPawn GetOwningPlayer() const;
-    void SetOwningPlayer(GCCSPlayerPawn* value);
+    void SetOwningPlayer(GCCSPlayerPawn value);
     GCCSPlayerPawn GetKillingPlayer() const;
-    void SetKillingPlayer(GCCSPlayerPawn* value);
+    void SetKillingPlayer(GCCSPlayerPawn value);
     GCItem GetParent() const;
     void SetParent(GCItem value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4184,10 +4271,11 @@ public:
     GCLightEntity(void *ptr);
 
     GCLightComponent GetCLightComponent() const;
-    void SetCLightComponent(GCLightComponent* value);
+    void SetCLightComponent(GCLightComponent value);
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4204,6 +4292,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4217,13 +4306,14 @@ public:
     GCSkyboxReference(std::string ptr);
     GCSkyboxReference(void *ptr);
 
-    WorldGroupId_t GetWorldGroupId() const;
-    void SetWorldGroupId(WorldGroupId_t value);
+    uint32_t GetWorldGroupId() const;
+    void SetWorldGroupId(uint32_t value);
     GCSkyCamera GetSkyCamera() const;
-    void SetSkyCamera(GCSkyCamera* value);
+    void SetSkyCamera(GCSkyCamera value);
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4282,6 +4372,7 @@ public:
     GCBreakableProp GetParent() const;
     void SetParent(GCBreakableProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4328,12 +4419,13 @@ public:
     bool GetEndPointValid() const;
     void SetEndPointValid(bool value);
     GCBaseEntity GetStartPoint() const;
-    void SetStartPoint(GCBaseEntity* value);
+    void SetStartPoint(GCBaseEntity value);
     GCBaseEntity GetEndPoint() const;
-    void SetEndPoint(GCBaseEntity* value);
+    void SetEndPoint(GCBaseEntity value);
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4452,6 +4544,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4474,6 +4567,7 @@ public:
     GCServerOnlyPointEntity GetParent() const;
     void SetParent(GCServerOnlyPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4494,6 +4588,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4598,7 +4693,7 @@ public:
     float GetNextPrevOwnerTouchTime() const;
     void SetNextPrevOwnerTouchTime(float value);
     GCCSPlayerPawn GetPrevOwner() const;
-    void SetPrevOwner(GCCSPlayerPawn* value);
+    void SetPrevOwner(GCCSPlayerPawn value);
     int32 GetDropTick() const;
     void SetDropTick(int32 value);
     bool GetDonated() const;
@@ -4626,6 +4721,7 @@ public:
     GCBasePlayerWeapon GetParent() const;
     void SetParent(GCBasePlayerWeapon value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4648,6 +4744,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4664,6 +4761,7 @@ public:
     GCNetworkVarChainer Get__pChainEntity() const;
     void Set__pChainEntity(GCNetworkVarChainer value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4684,6 +4782,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4720,6 +4819,7 @@ public:
     GCBaseFlex GetParent() const;
     void SetParent(GCBaseFlex value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4746,6 +4846,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4766,6 +4867,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4784,9 +4886,9 @@ public:
     Vector GetEntityMaxs() const;
     void SetEntityMaxs(Vector value);
     GCBaseEntity GetCurrentInstance() const;
-    void SetCurrentInstance(GCBaseEntity* value);
+    void SetCurrentInstance(GCBaseEntity value);
     GCBaseEntity GetCurrentBlocker() const;
-    void SetCurrentBlocker(GCBaseEntity* value);
+    void SetCurrentBlocker(GCBaseEntity value);
     Vector GetBlockerOrigin() const;
     void SetBlockerOrigin(Vector value);
     QAngle GetPostSpawnDirection() const;
@@ -4806,6 +4908,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4826,6 +4929,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4850,6 +4954,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4874,6 +4979,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4890,6 +4996,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4908,6 +5015,7 @@ public:
     GCEntityComponent GetParent() const;
     void SetParent(GCEntityComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4926,6 +5034,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4946,6 +5055,7 @@ public:
     float GetFlwaitSound() const;
     void SetFlwaitSound(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4961,6 +5071,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -4985,6 +5096,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5001,6 +5113,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5031,6 +5144,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5071,6 +5185,7 @@ public:
     int32_t GetEnemiesFlashed() const;
     void SetEnemiesFlashed(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5099,7 +5214,7 @@ public:
     QAngle GetClosedAngles() const;
     void SetClosedAngles(QAngle value);
     GCBaseEntity GetBlocker() const;
-    void SetBlocker(GCBaseEntity* value);
+    void SetBlocker(GCBaseEntity value);
     bool GetFirstBlocked() const;
     void SetFirstBlocked(bool value);
     Glocksound_t GetLs() const;
@@ -5109,7 +5224,7 @@ public:
     Vector GetLatchWorldPosition() const;
     void SetLatchWorldPosition(Vector value);
     GCBaseEntity GetActivator() const;
-    void SetActivator(GCBaseEntity* value);
+    void SetActivator(GCBaseEntity value);
     std::string GetSoundMoving() const;
     void SetSoundMoving(std::string value);
     std::string GetSoundOpen() const;
@@ -5130,12 +5245,12 @@ public:
     void SetSoundLockedAnim(std::string value);
     int32_t GetNumCloseAttempts() const;
     void SetNumCloseAttempts(int32_t value);
-    CUtlStringToken GetPhysicsMaterial() const;
-    void SetPhysicsMaterial(CUtlStringToken value);
+    uint32_t GetPhysicsMaterial() const;
+    void SetPhysicsMaterial(uint32_t value);
     std::string GetSlaveName() const;
     void SetSlaveName(std::string value);
     GCBasePropDoor GetMaster() const;
-    void SetMaster(GCBasePropDoor* value);
+    void SetMaster(GCBasePropDoor value);
     GCEntityIOOutput GetOnBlockedClosing() const;
     void SetOnBlockedClosing(GCEntityIOOutput value);
     GCEntityIOOutput GetOnBlockedOpening() const;
@@ -5159,6 +5274,7 @@ public:
     GCDynamicProp GetParent() const;
     void SetParent(GCDynamicProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5181,6 +5297,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5221,6 +5338,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5261,10 +5379,11 @@ public:
     float GetNextHoldFrac() const;
     void SetNextHoldFrac(float value);
     GCCSWeaponBase GetSwitchToWeaponAfterThrow() const;
-    void SetSwitchToWeaponAfterThrow(GCCSWeaponBase* value);
+    void SetSwitchToWeaponAfterThrow(GCCSWeaponBase value);
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5281,6 +5400,7 @@ public:
     GCPathCorner GetParent() const;
     void SetParent(GCPathCorner value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5295,12 +5415,13 @@ public:
     GCHandleTest(void *ptr);
 
     GCBaseEntity GetHandle() const;
-    void SetHandle(GCBaseEntity* value);
+    void SetHandle(GCBaseEntity value);
     bool GetSendHandle() const;
     void SetSendHandle(bool value);
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5333,6 +5454,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5351,6 +5473,7 @@ public:
     uint16_t GetCount() const;
     void SetCount(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5369,6 +5492,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5391,6 +5515,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5409,6 +5534,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5427,6 +5553,7 @@ public:
     GCBtNode GetParent() const;
     void SetParent(GCBtNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5449,11 +5576,11 @@ public:
     Gfogplayerparams_t GetPlayerFog() const;
     void SetPlayerFog(Gfogplayerparams_t value);
     GCColorCorrection GetColorCorrectionCtrl() const;
-    void SetColorCorrectionCtrl(GCColorCorrection* value);
+    void SetColorCorrectionCtrl(GCColorCorrection value);
     GCBaseEntity GetViewEntity() const;
-    void SetViewEntity(GCBaseEntity* value);
+    void SetViewEntity(GCBaseEntity value);
     GCTonemapController2 GetTonemapController() const;
-    void SetTonemapController(GCTonemapController2* value);
+    void SetTonemapController(GCTonemapController2 value);
     Gaudioparams_t GetAudio() const;
     void SetAudio(Gaudioparams_t value);
     std::vector<GCPostProcessingVolume*> GetPostProcessingVolumes() const;
@@ -5465,6 +5592,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5481,6 +5609,7 @@ public:
     GCEntityComponent GetParent() const;
     void SetParent(GCEntityComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5499,6 +5628,7 @@ public:
     std::vector<uint32_t> GetSpottedByMask() const;
     void SetSpottedByMask(std::vector<uint32_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5543,6 +5673,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5575,6 +5706,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5590,6 +5722,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5604,13 +5737,13 @@ public:
     GCGameSceneNode(void *ptr);
 
     GCEntityInstance GetOwner() const;
-    void SetOwner(GCEntityInstance* value);
+    void SetOwner(GCEntityInstance value);
     GCGameSceneNode GetParent() const;
-    void SetParent(GCGameSceneNode* value);
+    void SetParent(GCGameSceneNode value);
     GCGameSceneNode GetChild() const;
-    void SetChild(GCGameSceneNode* value);
+    void SetChild(GCGameSceneNode value);
     GCGameSceneNode GetNextSibling() const;
-    void SetNextSibling(GCGameSceneNode* value);
+    void SetNextSibling(GCGameSceneNode value);
     GCNetworkOriginCellCoordQuantizedVector GetOrigin() const;
     void SetOrigin(GCNetworkOriginCellCoordQuantizedVector value);
     QAngle GetRotation() const;
@@ -5637,10 +5770,10 @@ public:
     void SetHierarchyType(uint8_t value);
     uint8_t GetDoNotSetAnimTimeInInvalidatePhysicsCount() const;
     void SetDoNotSetAnimTimeInInvalidatePhysicsCount(uint8_t value);
-    CUtlStringToken GetName() const;
-    void SetName(CUtlStringToken value);
-    CUtlStringToken GetHierarchyAttachName() const;
-    void SetHierarchyAttachName(CUtlStringToken value);
+    uint32_t GetName() const;
+    void SetName(uint32_t value);
+    uint32_t GetHierarchyAttachName() const;
+    void SetHierarchyAttachName(uint32_t value);
     float GetZOffset() const;
     void SetZOffset(float value);
     float GetClientLocalScale() const;
@@ -5648,6 +5781,7 @@ public:
     Vector GetRenderOrigin() const;
     void SetRenderOrigin(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5686,6 +5820,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5718,6 +5853,7 @@ public:
     GCSoundOpvarSetPointBase GetParent() const;
     void SetParent(GCSoundOpvarSetPointBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5734,6 +5870,7 @@ public:
     GCLightEntity GetParent() const;
     void SetParent(GCLightEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5764,7 +5901,7 @@ public:
     GCEntityIOOutput GetOnMaxCount_3() const;
     void SetOnMaxCount_3(GCEntityIOOutput value);
     GCEntityInstance GetSource() const;
-    void SetSource(GCEntityInstance* value);
+    void SetSource(GCEntityInstance value);
     std::string GetSourceEntityName() const;
     void SetSourceEntityName(std::string value);
     float GetDistanceMax() const;
@@ -5830,6 +5967,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5846,6 +5984,7 @@ public:
     GCPlayer_UseServices GetParent() const;
     void SetParent(GCPlayer_UseServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5864,6 +6003,7 @@ public:
     GCBasePlatTrain GetParent() const;
     void SetParent(GCBasePlatTrain value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5880,6 +6020,7 @@ public:
     GCRuleEntity GetParent() const;
     void SetParent(GCRuleEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5898,6 +6039,7 @@ public:
     GCRuleEntity GetParent() const;
     void SetParent(GCRuleEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5924,6 +6066,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5940,6 +6083,7 @@ public:
     GCBaseCSGrenade GetParent() const;
     void SetParent(GCBaseCSGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5962,7 +6106,7 @@ public:
     float GetAnimationStartTime() const;
     void SetAnimationStartTime(float value);
     GCBasePlayerWeapon GetWeapon() const;
-    void SetWeapon(GCBasePlayerWeapon* value);
+    void SetWeapon(GCBasePlayerWeapon value);
     std::string GetVMName() const;
     void SetVMName(std::string value);
     std::string GetAnimationPrefix() const;
@@ -5972,10 +6116,11 @@ public:
     float GetOldLayerStartTime() const;
     void SetOldLayerStartTime(float value);
     GCBaseEntity GetControlPanel() const;
-    void SetControlPanel(GCBaseEntity* value);
+    void SetControlPanel(GCBaseEntity value);
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -5992,10 +6137,11 @@ public:
     std::vector<float> GetPlayerPingTokens() const;
     void SetPlayerPingTokens(std::vector<float> value);
     GCBaseEntity GetPlayerPing() const;
-    void SetPlayerPing(GCBaseEntity* value);
+    void SetPlayerPing(GCBaseEntity value);
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6012,6 +6158,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6028,6 +6175,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6052,6 +6200,7 @@ public:
     GCBtNode GetParent() const;
     void SetParent(GCBtNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6072,6 +6221,7 @@ public:
     GCBaseFire GetParent() const;
     void SetParent(GCBaseFire value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6106,6 +6256,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6122,6 +6273,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6138,6 +6290,7 @@ public:
     GCBaseViewModel GetParent() const;
     void SetParent(GCBaseViewModel value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6158,6 +6311,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6174,7 +6328,7 @@ public:
     bool GetDisabled() const;
     void SetDisabled(bool value);
     GCBaseEntity GetMeasureTarget() const;
-    void SetMeasureTarget(GCBaseEntity* value);
+    void SetMeasureTarget(GCBaseEntity value);
     uint64_t GetSoundType() const;
     void SetSoundType(uint64_t value);
     uint64_t GetSoundFlags() const;
@@ -6188,7 +6342,7 @@ public:
     std::string GetSpeakerName() const;
     void SetSpeakerName(std::string value);
     GCBaseEntity GetSpeaker() const;
-    void SetSpeaker(GCBaseEntity* value);
+    void SetSpeaker(GCBaseEntity value);
     bool GetAvoidFeedback() const;
     void SetAvoidFeedback(bool value);
     int32_t GetSpeakerDSPPreset() const;
@@ -6196,7 +6350,7 @@ public:
     std::string GetListenFilter() const;
     void SetListenFilter(std::string value);
     GCBaseFilter GetListenFilter1() const;
-    void SetListenFilter1(GCBaseFilter* value);
+    void SetListenFilter1(GCBaseFilter value);
     GCEntityIOOutput GetOnRoutedSound() const;
     void SetOnRoutedSound(GCEntityIOOutput value);
     GCEntityIOOutput GetOnHeardSound() const;
@@ -6208,6 +6362,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6246,6 +6401,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6264,13 +6420,13 @@ public:
     uint32_t GetTickBase() const;
     void SetTickBase(uint32_t value);
     GCBasePlayerPawn GetPawn() const;
-    void SetPawn(GCBasePlayerPawn* value);
+    void SetPawn(GCBasePlayerPawn value);
     bool GetKnownTeamMismatch() const;
     void SetKnownTeamMismatch(bool value);
     int32_t GetSplitScreenSlot() const;
     void SetSplitScreenSlot(int32_t value);
     GCBasePlayerController GetSplitOwner() const;
-    void SetSplitOwner(GCBasePlayerController* value);
+    void SetSplitOwner(GCBasePlayerController value);
     bool GetIsHLTV() const;
     void SetIsHLTV(bool value);
     uint64_t GetConnected() const;
@@ -6312,6 +6468,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6327,6 +6484,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6345,6 +6503,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6359,7 +6518,7 @@ public:
     GCFuncTrackTrain(void *ptr);
 
     GCPathTrack GetPpath() const;
-    void SetPpath(GCPathTrack* value);
+    void SetPpath(GCPathTrack value);
     float GetLength() const;
     void SetLength(float value);
     Vector GetPosPrev() const;
@@ -6435,6 +6594,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6461,6 +6621,7 @@ public:
     GCServerOnlyModelEntity GetParent() const;
     void SetParent(GCServerOnlyModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6477,6 +6638,7 @@ public:
     GSpawnPoint GetParent() const;
     void SetParent(GSpawnPoint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6491,9 +6653,9 @@ public:
     GCFire(void *ptr);
 
     GCBaseFire GetEffect() const;
-    void SetEffect(GCBaseFire* value);
+    void SetEffect(GCBaseFire value);
     GCBaseEntity GetOwner() const;
-    void SetOwner(GCBaseEntity* value);
+    void SetOwner(GCBaseEntity value);
     int32_t GetFireType() const;
     void SetFireType(int32_t value);
     float GetFuel() const;
@@ -6531,6 +6693,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6546,6 +6709,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6562,6 +6726,7 @@ public:
     GCCSPointScriptEntity GetParent() const;
     void SetParent(GCCSPointScriptEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6578,6 +6743,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6598,6 +6764,7 @@ public:
     GCFuncPlat GetParent() const;
     void SetParent(GCFuncPlat value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6710,6 +6877,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6726,6 +6894,7 @@ public:
     GCBaseCSGrenade GetParent() const;
     void SetParent(GCBaseCSGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6742,6 +6911,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6762,6 +6932,7 @@ public:
     GCItem GetParent() const;
     void SetParent(GCItem value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6784,6 +6955,7 @@ public:
     Vector GetAngularSave() const;
     void SetAngularSave(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6800,6 +6972,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6822,7 +6995,7 @@ public:
     std::vector<QAngle> GetRagAngles() const;
     void SetRagAngles(std::vector<QAngle> value);
     GCBaseEntity GetRagdollSource() const;
-    void SetRagdollSource(GCBaseEntity* value);
+    void SetRagdollSource(GCBaseEntity value);
     uint32_t GetLastUpdateTickCount() const;
     void SetLastUpdateTickCount(uint32_t value);
     bool GetAllAsleep() const;
@@ -6830,11 +7003,11 @@ public:
     bool GetFirstCollisionAfterLaunch() const;
     void SetFirstCollisionAfterLaunch(bool value);
     GCBaseEntity GetDamageEntity() const;
-    void SetDamageEntity(GCBaseEntity* value);
+    void SetDamageEntity(GCBaseEntity value);
     GCBaseEntity GetKiller() const;
-    void SetKiller(GCBaseEntity* value);
+    void SetKiller(GCBaseEntity value);
     GCBasePlayerPawn GetPhysicsAttacker() const;
-    void SetPhysicsAttacker(GCBasePlayerPawn* value);
+    void SetPhysicsAttacker(GCBasePlayerPawn value);
     float GetLastPhysicsInfluenceTime() const;
     void SetLastPhysicsInfluenceTime(float value);
     float GetFadeOutStartTime() const;
@@ -6870,6 +7043,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6886,6 +7060,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6936,6 +7111,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6951,6 +7127,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6966,6 +7143,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -6986,6 +7164,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7002,6 +7181,7 @@ public:
     GCTriggerMultiple GetParent() const;
     void SetParent(GCTriggerMultiple value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7018,6 +7198,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7054,6 +7235,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7072,10 +7254,11 @@ public:
     std::string GetHintTargetEntity() const;
     void SetHintTargetEntity(std::string value);
     GCBasePlayerPawn GetTargetPlayer() const;
-    void SetTargetPlayer(GCBasePlayerPawn* value);
+    void SetTargetPlayer(GCBasePlayerPawn value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7122,6 +7305,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7142,6 +7326,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7158,10 +7343,11 @@ public:
     std::string GetFilterName() const;
     void SetFilterName(std::string value);
     GCBaseFilter GetFilter() const;
-    void SetFilter(GCBaseFilter* value);
+    void SetFilter(GCBaseFilter value);
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7178,6 +7364,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7194,6 +7381,7 @@ public:
     GCEnvSoundscape GetParent() const;
     void SetParent(GCEnvSoundscape value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7222,6 +7410,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7238,6 +7427,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7256,6 +7446,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7282,6 +7473,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7316,21 +7508,21 @@ public:
     std::string GetTarget8() const;
     void SetTarget8(std::string value);
     GCBaseEntity GetTarget11() const;
-    void SetTarget11(GCBaseEntity* value);
+    void SetTarget11(GCBaseEntity value);
     GCBaseEntity GetTarget21() const;
-    void SetTarget21(GCBaseEntity* value);
+    void SetTarget21(GCBaseEntity value);
     GCBaseEntity GetTarget31() const;
-    void SetTarget31(GCBaseEntity* value);
+    void SetTarget31(GCBaseEntity value);
     GCBaseEntity GetTarget41() const;
-    void SetTarget41(GCBaseEntity* value);
+    void SetTarget41(GCBaseEntity value);
     GCBaseEntity GetTarget51() const;
-    void SetTarget51(GCBaseEntity* value);
+    void SetTarget51(GCBaseEntity value);
     GCBaseEntity GetTarget61() const;
-    void SetTarget61(GCBaseEntity* value);
+    void SetTarget61(GCBaseEntity value);
     GCBaseEntity GetTarget71() const;
-    void SetTarget71(GCBaseEntity* value);
+    void SetTarget71(GCBaseEntity value);
     GCBaseEntity GetTarget81() const;
-    void SetTarget81(GCBaseEntity* value);
+    void SetTarget81(GCBaseEntity value);
     std::string GetTargetAttachment() const;
     void SetTargetAttachment(std::string value);
     bool GetIsPlayingBack() const;
@@ -7360,7 +7552,7 @@ public:
     float GetAutomationTime() const;
     void SetAutomationTime(float value);
     GCBaseEntity GetWaitingForThisResumeScene() const;
-    void SetWaitingForThisResumeScene(GCBaseEntity* value);
+    void SetWaitingForThisResumeScene(GCBaseEntity value);
     bool GetWaitingForResumeScene() const;
     void SetWaitingForResumeScene(bool value);
     bool GetPausedViaInput() const;
@@ -7396,7 +7588,7 @@ public:
     std::vector<GCEntityIOOutput> GetOnTrigger() const;
     void SetOnTrigger(std::vector<GCEntityIOOutput> value);
     GCSceneEntity GetInterruptScene() const;
-    void SetInterruptScene(GCSceneEntity* value);
+    void SetInterruptScene(GCSceneEntity value);
     int32_t GetInterruptCount() const;
     void SetInterruptCount(int32_t value);
     bool GetSceneMissing() const;
@@ -7414,9 +7606,9 @@ public:
     std::string GetSequenceName() const;
     void SetSequenceName(std::string value);
     GCBaseFlex GetActor() const;
-    void SetActor(GCBaseFlex* value);
+    void SetActor(GCBaseFlex value);
     GCBaseEntity GetActivator() const;
-    void SetActivator(GCBaseEntity* value);
+    void SetActivator(GCBaseEntity value);
     int32_t GetBusyActor() const;
     void SetBusyActor(int32_t value);
     uint64_t GetPlayerDeathBehavior() const;
@@ -7424,6 +7616,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7442,6 +7635,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7500,6 +7694,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7516,6 +7711,7 @@ public:
     int8_t GetValue() const;
     void SetValue(int8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7539,9 +7735,10 @@ public:
     void SetClip3DSkyBoxNearToWorldFarOffset(float value);
     Gfogparams_t GetFog() const;
     void SetFog(Gfogparams_t value);
-    WorldGroupId_t GetWorldGroupID() const;
-    void SetWorldGroupID(WorldGroupId_t value);
+    uint32_t GetWorldGroupID() const;
+    void SetWorldGroupID(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7560,6 +7757,7 @@ public:
     GCItem GetParent() const;
     void SetParent(GCItem value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7575,9 +7773,10 @@ public:
 
     float GetTimestamp() const;
     void SetTimestamp(float value);
-    WorldGroupId_t GetWorldGroupId() const;
-    void SetWorldGroupId(WorldGroupId_t value);
+    uint32_t GetWorldGroupId() const;
+    void SetWorldGroupId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7594,6 +7793,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7658,6 +7858,7 @@ public:
     int32_t GetLfomult() const;
     void SetLfomult(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7692,6 +7893,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7708,6 +7910,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7724,6 +7927,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7740,6 +7944,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7756,6 +7961,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7772,6 +7978,7 @@ public:
     GCCSGO_TeamPreviewCharacterPosition GetParent() const;
     void SetParent(GCCSGO_TeamPreviewCharacterPosition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7798,6 +8005,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7819,13 +8027,14 @@ public:
     void SetUseParentRenderBounds(bool value);
     bool GetDisableSolidCollisionsForHierarchy() const;
     void SetDisableSolidCollisionsForHierarchy(bool value);
-    CUtlStringToken GetMaterialGroup() const;
-    void SetMaterialGroup(CUtlStringToken value);
+    uint32_t GetMaterialGroup() const;
+    void SetMaterialGroup(uint32_t value);
     uint8_t GetHitboxSet() const;
     void SetHitboxSet(uint8_t value);
     GCGameSceneNode GetParent() const;
     void SetParent(GCGameSceneNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7908,6 +8117,7 @@ public:
     GCBreakableProp GetParent() const;
     void SetParent(GCBreakableProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7926,6 +8136,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7942,6 +8153,7 @@ public:
     GCItemDefuser GetParent() const;
     void SetParent(GCItemDefuser value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -7978,14 +8190,15 @@ public:
     std::string GetExplosionSound() const;
     void SetExplosionSound(std::string value);
     GCCSPlayerPawn GetThrower() const;
-    void SetThrower(GCCSPlayerPawn* value);
+    void SetThrower(GCCSPlayerPawn value);
     float GetNextAttack() const;
     void SetNextAttack(float value);
     GCCSPlayerPawn GetOriginalThrower() const;
-    void SetOriginalThrower(GCCSPlayerPawn* value);
+    void SetOriginalThrower(GCCSPlayerPawn value);
     GCBaseFlex GetParent() const;
     void SetParent(GCBaseFlex value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8008,12 +8221,13 @@ public:
     float GetFOVRate() const;
     void SetFOVRate(float value);
     GCBaseEntity GetZoomOwner() const;
-    void SetZoomOwner(GCBaseEntity* value);
+    void SetZoomOwner(GCBaseEntity value);
     GCBaseEntity GetLastFogTrigger() const;
-    void SetLastFogTrigger(GCBaseEntity* value);
+    void SetLastFogTrigger(GCBaseEntity value);
     GCPlayer_CameraServices GetParent() const;
     void SetParent(GCPlayer_CameraServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8030,6 +8244,7 @@ public:
     GCCSGO_TeamIntroCharacterPosition GetParent() const;
     void SetParent(GCCSGO_TeamIntroCharacterPosition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8088,6 +8303,7 @@ public:
     GCSPerRoundStats_t GetParent() const;
     void SetParent(GCSPerRoundStats_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8126,6 +8342,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8168,6 +8385,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8184,6 +8402,7 @@ public:
     GCItemAssaultSuit GetParent() const;
     void SetParent(GCItemAssaultSuit value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8292,9 +8511,9 @@ public:
     bool GetPositionRelativeToOtherEntity() const;
     void SetPositionRelativeToOtherEntity(bool value);
     GCBaseEntity GetTargetEnt() const;
-    void SetTargetEnt(GCBaseEntity* value);
+    void SetTargetEnt(GCBaseEntity value);
     GCScriptedSequence GetNextCine() const;
-    void SetNextCine(GCScriptedSequence* value);
+    void SetNextCine(GCScriptedSequence value);
     bool GetThinking() const;
     void SetThinking(bool value);
     bool GetInitiatedSelfDelete() const;
@@ -8304,7 +8523,7 @@ public:
     bool GetAllowCustomInterruptConditions() const;
     void SetAllowCustomInterruptConditions(bool value);
     GCBaseAnimGraph GetForcedTarget() const;
-    void SetForcedTarget(GCBaseAnimGraph* value);
+    void SetForcedTarget(GCBaseAnimGraph value);
     bool GetDontCancelOtherSequences() const;
     void SetDontCancelOtherSequences(bool value);
     bool GetForceSynch() const;
@@ -8332,12 +8551,13 @@ public:
     std::vector<GCEntityIOOutput> GetOnScriptEvent() const;
     void SetOnScriptEvent(std::vector<GCEntityIOOutput> value);
     GCBaseEntity GetInteractionMainEntity() const;
-    void SetInteractionMainEntity(GCBaseEntity* value);
+    void SetInteractionMainEntity(GCBaseEntity value);
     int32_t GetPlayerDeathBehavior() const;
     void SetPlayerDeathBehavior(int32_t value);
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8354,6 +8574,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8370,6 +8591,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8384,7 +8606,7 @@ public:
     GCEnvProjectedTexture(void *ptr);
 
     GCBaseEntity GetTargetEntity() const;
-    void SetTargetEntity(GCBaseEntity* value);
+    void SetTargetEntity(GCBaseEntity value);
     bool GetState() const;
     void SetState(bool value);
     bool GetAlwaysUpdate() const;
@@ -8446,6 +8668,7 @@ public:
     GCModelPointEntity GetParent() const;
     void SetParent(GCModelPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8462,6 +8685,7 @@ public:
     GCDynamicProp GetParent() const;
     void SetParent(GCDynamicProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8482,6 +8706,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8500,6 +8725,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8516,6 +8742,7 @@ public:
     GCPlayer_ViewModelServices GetParent() const;
     void SetParent(GCPlayer_ViewModelServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8532,6 +8759,7 @@ public:
     GCDynamicProp GetParent() const;
     void SetParent(GCDynamicProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8548,6 +8776,7 @@ public:
     uint32_t GetValue() const;
     void SetValue(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8564,6 +8793,7 @@ public:
     GCPhysicsProp GetParent() const;
     void SetParent(GCPhysicsProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8578,11 +8808,11 @@ public:
     GCFuncTrackChange(void *ptr);
 
     GCPathTrack GetTrackTop() const;
-    void SetTrackTop(GCPathTrack* value);
+    void SetTrackTop(GCPathTrack value);
     GCPathTrack GetTrackBottom() const;
-    void SetTrackBottom(GCPathTrack* value);
+    void SetTrackBottom(GCPathTrack value);
     GCFuncTrackTrain GetTrain() const;
-    void SetTrain(GCFuncTrackTrain* value);
+    void SetTrain(GCFuncTrackTrain value);
     std::string GetTrackTopName() const;
     void SetTrackTopName(std::string value);
     std::string GetTrackBottomName() const;
@@ -8598,6 +8828,7 @@ public:
     GCFuncPlatRot GetParent() const;
     void SetParent(GCFuncPlatRot value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8616,6 +8847,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8632,6 +8864,7 @@ public:
     GSpawnPoint GetParent() const;
     void SetParent(GSpawnPoint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8652,6 +8885,7 @@ public:
     float GetIdealSampleRate() const;
     void SetIdealSampleRate(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8670,6 +8904,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8690,6 +8925,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8708,6 +8944,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8738,6 +8975,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8754,6 +8992,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8774,7 +9013,7 @@ public:
     std::string GetNameAttach() const;
     void SetNameAttach(std::string value);
     GCBaseEntity GetAttachedObject() const;
-    void SetAttachedObject(GCBaseEntity* value);
+    void SetAttachedObject(GCBaseEntity value);
     float GetAngularLimit() const;
     void SetAngularLimit(float value);
     bool GetActive() const;
@@ -8784,6 +9023,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8806,6 +9046,7 @@ public:
     GCModelPointEntity GetParent() const;
     void SetParent(GCModelPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8824,6 +9065,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8850,6 +9092,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8894,6 +9137,7 @@ public:
     GCBtNode GetParent() const;
     void SetParent(GCBtNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8926,6 +9170,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8942,6 +9187,7 @@ public:
     GCRopeKeyframe GetParent() const;
     void SetParent(GCRopeKeyframe value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8976,6 +9222,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -8992,6 +9239,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9006,10 +9254,11 @@ public:
     GCPlatTrigger(void *ptr);
 
     GCFuncPlat GetPlatform() const;
-    void SetPlatform(GCFuncPlat* value);
+    void SetPlatform(GCFuncPlat value);
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9083,9 +9332,10 @@ public:
     void SetWindAngleVariation(float value);
     float GetWindSpeedVariation() const;
     void SetWindSpeedVariation(float value);
-    CEntityIndex GetEntIndex() const;
-    void SetEntIndex(CEntityIndex value);
+    int GetEntIndex() const;
+    void SetEntIndex(int value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9102,6 +9352,7 @@ public:
     GCBaseCSGrenade GetParent() const;
     void SetParent(GCBaseCSGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9126,10 +9377,11 @@ public:
     std::string GetStrTarget() const;
     void SetStrTarget(std::string value);
     GCBaseEntity GetActivator() const;
-    void SetActivator(GCBaseEntity* value);
+    void SetActivator(GCBaseEntity value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9154,9 +9406,9 @@ public:
     std::string GetRemapLineEndName() const;
     void SetRemapLineEndName(std::string value);
     GCBaseEntity GetRemapLineStart() const;
-    void SetRemapLineStart(GCBaseEntity* value);
+    void SetRemapLineStart(GCBaseEntity value);
     GCBaseEntity GetRemapLineEnd() const;
-    void SetRemapLineEnd(GCBaseEntity* value);
+    void SetRemapLineEnd(GCBaseEntity value);
     float GetMaximumChangePerSecond() const;
     void SetMaximumChangePerSecond(float value);
     float GetDisengageDistance() const;
@@ -9204,7 +9456,7 @@ public:
     Vector GetPreviousTestPoint() const;
     void SetPreviousTestPoint(Vector value);
     GCBasePlayerPawn GetUsingPlayer() const;
-    void SetUsingPlayer(GCBasePlayerPawn* value);
+    void SetUsingPlayer(GCBasePlayerPawn value);
     float GetCustomOutputValue() const;
     void SetCustomOutputValue(float value);
     std::string GetSoundEngage() const;
@@ -9230,6 +9482,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9254,6 +9507,7 @@ public:
     GCLogicNPCCounter GetParent() const;
     void SetParent(GCLogicNPCCounter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9270,6 +9524,7 @@ public:
     GCLightEntity GetParent() const;
     void SetParent(GCLightEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9286,6 +9541,7 @@ public:
     GCEnvSoundscape GetParent() const;
     void SetParent(GCEnvSoundscape value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9332,7 +9588,7 @@ public:
     float GetDynamicMaximumOcclusion() const;
     void SetDynamicMaximumOcclusion(float value);
     GCEntityInstance GetDynamicEntity() const;
-    void SetDynamicEntity(GCEntityInstance* value);
+    void SetDynamicEntity(GCEntityInstance value);
     std::string GetDynamicEntityName() const;
     void SetDynamicEntityName(std::string value);
     float GetPathingDistanceNormFactor() const;
@@ -9348,6 +9604,7 @@ public:
     GCSoundOpvarSetPointBase GetParent() const;
     void SetParent(GCSoundOpvarSetPointBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9362,23 +9619,23 @@ public:
     GCBasePlayerPawn(void *ptr);
 
     GCPlayer_WeaponServices GetWeaponServices() const;
-    void SetWeaponServices(GCPlayer_WeaponServices* value);
+    void SetWeaponServices(GCPlayer_WeaponServices value);
     GCPlayer_ItemServices GetItemServices() const;
-    void SetItemServices(GCPlayer_ItemServices* value);
+    void SetItemServices(GCPlayer_ItemServices value);
     GCPlayer_AutoaimServices GetAutoaimServices() const;
-    void SetAutoaimServices(GCPlayer_AutoaimServices* value);
+    void SetAutoaimServices(GCPlayer_AutoaimServices value);
     GCPlayer_ObserverServices GetObserverServices() const;
-    void SetObserverServices(GCPlayer_ObserverServices* value);
+    void SetObserverServices(GCPlayer_ObserverServices value);
     GCPlayer_WaterServices GetWaterServices() const;
-    void SetWaterServices(GCPlayer_WaterServices* value);
+    void SetWaterServices(GCPlayer_WaterServices value);
     GCPlayer_UseServices GetUseServices() const;
-    void SetUseServices(GCPlayer_UseServices* value);
+    void SetUseServices(GCPlayer_UseServices value);
     GCPlayer_FlashlightServices GetFlashlightServices() const;
-    void SetFlashlightServices(GCPlayer_FlashlightServices* value);
+    void SetFlashlightServices(GCPlayer_FlashlightServices value);
     GCPlayer_CameraServices GetCameraServices() const;
-    void SetCameraServices(GCPlayer_CameraServices* value);
+    void SetCameraServices(GCPlayer_CameraServices value);
     GCPlayer_MovementServices GetMovementServices() const;
-    void SetMovementServices(GCPlayer_MovementServices* value);
+    void SetMovementServices(GCPlayer_MovementServices value);
     std::vector<GViewAngleServerChange_t> GetServerViewAngleChanges() const;
     void SetServerViewAngleChanges(std::vector<GViewAngleServerChange_t> value);
     uint32_t GetHighestGeneratedServerViewAngleChangeIndex() const;
@@ -9400,20 +9657,21 @@ public:
     bool GetInitHUD() const;
     void SetInitHUD(bool value);
     GCAI_Expresser GetExpresser() const;
-    void SetExpresser(GCAI_Expresser* value);
+    void SetExpresser(GCAI_Expresser value);
     GCBasePlayerController GetController() const;
-    void SetController(GCBasePlayerController* value);
+    void SetController(GCBasePlayerController value);
     float GetHltvReplayDelay() const;
     void SetHltvReplayDelay(float value);
     float GetHltvReplayEnd() const;
     void SetHltvReplayEnd(float value);
-    CEntityIndex GetHltvReplayEntity() const;
-    void SetHltvReplayEntity(CEntityIndex value);
+    int GetHltvReplayEntity() const;
+    void SetHltvReplayEntity(int value);
     std::vector<Gsndopvarlatchdata_t> GetSndOpvarLatchData() const;
     void SetSndOpvarLatchData(std::vector<Gsndopvarlatchdata_t> value);
     GCBaseCombatCharacter GetParent() const;
     void SetParent(GCBaseCombatCharacter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9438,6 +9696,7 @@ public:
     GCRulePointEntity GetParent() const;
     void SetParent(GCRulePointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9452,7 +9711,7 @@ public:
     GCLogicPlayerProxy(void *ptr);
 
     GCBaseEntity GetPlayer() const;
-    void SetPlayer(GCBaseEntity* value);
+    void SetPlayer(GCBaseEntity value);
     GCEntityIOOutput GetPlayerHasAmmo() const;
     void SetPlayerHasAmmo(GCEntityIOOutput value);
     GCEntityIOOutput GetPlayerHasNoAmmo() const;
@@ -9462,6 +9721,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9478,7 +9738,7 @@ public:
     uint8_t GetObserverMode() const;
     void SetObserverMode(uint8_t value);
     GCBaseEntity GetObserverTarget() const;
-    void SetObserverTarget(GCBaseEntity* value);
+    void SetObserverTarget(GCBaseEntity value);
     uint64_t GetObserverLastMode() const;
     void SetObserverLastMode(uint64_t value);
     bool GetForcedObserverMode() const;
@@ -9486,6 +9746,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9502,6 +9763,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9524,6 +9786,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9578,6 +9841,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9606,6 +9870,7 @@ public:
     GCPlayer_WaterServices GetParent() const;
     void SetParent(GCPlayer_WaterServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9622,6 +9887,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9646,6 +9912,7 @@ public:
     GCParticleSystem GetParent() const;
     void SetParent(GCParticleSystem value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9662,6 +9929,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9684,6 +9952,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9712,6 +9981,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9728,6 +9998,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9752,6 +10023,7 @@ public:
     float GetCyclesPerSecond() const;
     void SetCyclesPerSecond(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9768,6 +10040,7 @@ public:
     GCCSGameModeRules GetParent() const;
     void SetParent(GCCSGameModeRules value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9782,7 +10055,7 @@ public:
     GCPointAngularVelocitySensor(void *ptr);
 
     GCBaseEntity GetTargetEntity() const;
-    void SetTargetEntity(GCBaseEntity* value);
+    void SetTargetEntity(GCBaseEntity value);
     float GetThreshold() const;
     void SetThreshold(float value);
     int32_t GetLastCompareResult() const;
@@ -9814,6 +10087,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9862,6 +10136,7 @@ public:
     GCBaseGrenade GetParent() const;
     void SetParent(GCBaseGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9878,6 +10153,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9942,6 +10218,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9962,6 +10239,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -9982,6 +10260,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10044,10 +10323,11 @@ public:
     bool GetIsOn() const;
     void SetIsOn(bool value);
     GCPointCamera GetNext() const;
-    void SetNext(GCPointCamera* value);
+    void SetNext(GCPointCamera value);
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10066,6 +10346,7 @@ public:
     GCBodyComponent GetParent() const;
     void SetParent(GCBodyComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10082,6 +10363,7 @@ public:
     GCFuncLadder GetParent() const;
     void SetParent(GCFuncLadder value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10106,13 +10388,13 @@ public:
     float GetAverageSpeedAcrossFrame() const;
     void SetAverageSpeedAcrossFrame(float value);
     GCPathKeyFrame GetCurrentKeyFrame() const;
-    void SetCurrentKeyFrame(GCPathKeyFrame* value);
+    void SetCurrentKeyFrame(GCPathKeyFrame value);
     GCPathKeyFrame GetTargetKeyFrame() const;
-    void SetTargetKeyFrame(GCPathKeyFrame* value);
+    void SetTargetKeyFrame(GCPathKeyFrame value);
     GCPathKeyFrame GetPreKeyFrame() const;
-    void SetPreKeyFrame(GCPathKeyFrame* value);
+    void SetPreKeyFrame(GCPathKeyFrame value);
     GCPathKeyFrame GetPostKeyFrame() const;
-    void SetPostKeyFrame(GCPathKeyFrame* value);
+    void SetPostKeyFrame(GCPathKeyFrame value);
     float GetTimeIntoFrame() const;
     void SetTimeIntoFrame(float value);
     int32_t GetDirection() const;
@@ -10120,6 +10402,7 @@ public:
     GCPathKeyFrame GetParent() const;
     void SetParent(GCPathKeyFrame value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10142,6 +10425,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10158,6 +10442,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10184,6 +10469,7 @@ public:
     bool GetGamePaused() const;
     void SetGamePaused(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10200,6 +10486,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10218,6 +10505,7 @@ public:
     GCDynamicProp GetParent() const;
     void SetParent(GCDynamicProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10236,6 +10524,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10256,6 +10545,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10302,6 +10592,7 @@ public:
     GCModelPointEntity GetParent() const;
     void SetParent(GCModelPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10330,12 +10621,13 @@ public:
     std::string GetMountTarget() const;
     void SetMountTarget(std::string value);
     GCBaseEntity GetInstructorHint() const;
-    void SetInstructorHint(GCBaseEntity* value);
+    void SetInstructorHint(GCBaseEntity value);
     int32_t GetBombSiteDesignation() const;
     void SetBombSiteDesignation(int32_t value);
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10368,6 +10660,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10410,6 +10703,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10428,6 +10722,7 @@ public:
     GCCSGameModeRules GetParent() const;
     void SetParent(GCCSGameModeRules value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10446,6 +10741,7 @@ public:
     GCTriggerPush GetParent() const;
     void SetParent(GCTriggerPush value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10464,6 +10760,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10480,6 +10777,7 @@ public:
     GCFuncWall GetParent() const;
     void SetParent(GCFuncWall value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10494,13 +10792,13 @@ public:
     GCDamageRecord(void *ptr);
 
     GCCSPlayerPawn GetPlayerDamager() const;
-    void SetPlayerDamager(GCCSPlayerPawn* value);
+    void SetPlayerDamager(GCCSPlayerPawn value);
     GCCSPlayerPawn GetPlayerRecipient() const;
-    void SetPlayerRecipient(GCCSPlayerPawn* value);
+    void SetPlayerRecipient(GCCSPlayerPawn value);
     GCCSPlayerController GetPlayerControllerDamager() const;
-    void SetPlayerControllerDamager(GCCSPlayerController* value);
+    void SetPlayerControllerDamager(GCCSPlayerController value);
     GCCSPlayerController GetPlayerControllerRecipient() const;
-    void SetPlayerControllerRecipient(GCCSPlayerController* value);
+    void SetPlayerControllerRecipient(GCCSPlayerController value);
     std::string GetPlayerDamagerName() const;
     void SetPlayerDamagerName(std::string value);
     std::string GetPlayerRecipientName() const;
@@ -10522,6 +10820,7 @@ public:
     uint64_t GetKillType() const;
     void SetKillType(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10544,6 +10843,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10564,6 +10864,7 @@ public:
     GCPlayerControllerComponent GetParent() const;
     void SetParent(GCPlayerControllerComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10590,6 +10891,7 @@ public:
     GCEntityComponent GetParent() const;
     void SetParent(GCEntityComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10618,6 +10920,7 @@ public:
     GCSoundEventEntity GetParent() const;
     void SetParent(GCSoundEventEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10634,6 +10937,7 @@ public:
     GCEnvSoundscapeProxy GetParent() const;
     void SetParent(GCEnvSoundscapeProxy value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10782,6 +11086,7 @@ public:
     GCEntityComponent GetParent() const;
     void SetParent(GCEntityComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10814,6 +11119,7 @@ public:
     GCBaseCSGrenadeProjectile GetParent() const;
     void SetParent(GCBaseCSGrenadeProjectile value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10832,6 +11138,7 @@ public:
     GCTriggerMultiple GetParent() const;
     void SetParent(GCTriggerMultiple value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10856,6 +11163,7 @@ public:
     GCSoundOpvarSetPointEntity GetParent() const;
     void SetParent(GCSoundOpvarSetPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10874,6 +11182,7 @@ public:
     GCBodyComponent GetParent() const;
     void SetParent(GCBodyComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10892,6 +11201,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10906,9 +11216,9 @@ public:
     GCBot(void *ptr);
 
     GCCSPlayerController GetController() const;
-    void SetController(GCCSPlayerController* value);
+    void SetController(GCCSPlayerController value);
     GCCSPlayerPawn GetPlayer() const;
-    void SetPlayer(GCCSPlayerPawn* value);
+    void SetPlayer(GCCSPlayerPawn value);
     bool GetHasSpawned() const;
     void SetHasSpawned(bool value);
     uint32_t GetId() const;
@@ -10932,6 +11242,7 @@ public:
     int32_t GetPostureStackIndex() const;
     void SetPostureStackIndex(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10954,6 +11265,7 @@ public:
     float GetInertiaFactor() const;
     void SetInertiaFactor(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10972,6 +11284,7 @@ public:
     GCSoundAreaEntityBase GetParent() const;
     void SetParent(GCSoundAreaEntityBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -10986,7 +11299,7 @@ public:
     GCCSPlayer_UseServices(void *ptr);
 
     GCBaseEntity GetLastKnownUseEntity() const;
-    void SetLastKnownUseEntity(GCBaseEntity* value);
+    void SetLastKnownUseEntity(GCBaseEntity value);
     float GetLastUseTimeStamp() const;
     void SetLastUseTimeStamp(float value);
     float GetTimeLastUsedWindow() const;
@@ -10994,6 +11307,7 @@ public:
     GCPlayer_UseServices GetParent() const;
     void SetParent(GCPlayer_UseServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11010,6 +11324,7 @@ public:
     GCCSGO_WingmanIntroCharacterPosition GetParent() const;
     void SetParent(GCCSGO_WingmanIntroCharacterPosition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11026,6 +11341,7 @@ public:
     GCItem GetParent() const;
     void SetParent(GCItem value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11068,6 +11384,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11096,6 +11413,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11150,6 +11468,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11166,6 +11485,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11190,6 +11510,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11206,6 +11527,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11239,8 +11561,8 @@ public:
     void SetGroundNormal(Vector value);
     float GetSurfaceFriction() const;
     void SetSurfaceFriction(float value);
-    CUtlStringToken GetSurfaceProps() const;
-    void SetSurfaceProps(CUtlStringToken value);
+    uint32_t GetSurfaceProps() const;
+    void SetSurfaceProps(uint32_t value);
     int32_t GetStepside() const;
     void SetStepside(int32_t value);
     int32_t GetTargetVolume() const;
@@ -11250,6 +11572,7 @@ public:
     GCPlayer_MovementServices GetParent() const;
     void SetParent(GCPlayer_MovementServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11272,6 +11595,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11310,6 +11634,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11338,6 +11663,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11354,6 +11680,7 @@ public:
     std::vector<float> GetValue() const;
     void SetValue(std::vector<float> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11370,6 +11697,7 @@ public:
     GCEnvSoundscapeTriggerable GetParent() const;
     void SetParent(GCEnvSoundscapeTriggerable value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11398,6 +11726,7 @@ public:
     GCPlayerControllerComponent GetParent() const;
     void SetParent(GCPlayerControllerComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11412,7 +11741,7 @@ public:
     GCSprite(void *ptr);
 
     GCBaseEntity GetAttachedToEntity() const;
-    void SetAttachedToEntity(GCBaseEntity* value);
+    void SetAttachedToEntity(GCBaseEntity value);
     float GetSpriteFramerate() const;
     void SetSpriteFramerate(float value);
     float GetFrame() const;
@@ -11456,6 +11785,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11490,6 +11820,7 @@ public:
     GCSoundOpvarSetPointEntity GetParent() const;
     void SetParent(GCSoundOpvarSetPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11506,6 +11837,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11558,12 +11890,13 @@ public:
     Vector GetEndPos() const;
     void SetEndPos(Vector value);
     GCBaseEntity GetEndEntity() const;
-    void SetEndEntity(GCBaseEntity* value);
+    void SetEndEntity(GCBaseEntity value);
     int32_t GetDissolveType() const;
     void SetDissolveType(int32_t value);
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11580,6 +11913,7 @@ public:
     GCSprite GetParent() const;
     void SetParent(GCSprite value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11596,6 +11930,7 @@ public:
     GCTonemapController2 GetParent() const;
     void SetParent(GCTonemapController2 value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11620,6 +11955,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11636,6 +11972,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11652,6 +11989,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11678,6 +12016,7 @@ public:
     GCPlayerControllerComponent GetParent() const;
     void SetParent(GCPlayerControllerComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11694,6 +12033,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11710,6 +12050,7 @@ public:
     GCBaseFlex GetParent() const;
     void SetParent(GCBaseFlex value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11724,7 +12065,7 @@ public:
     GCFish(void *ptr);
 
     GCFishPool GetPool() const;
-    void SetPool(GCFishPool* value);
+    void SetPool(GCFishPool value);
     uint32_t GetId() const;
     void SetId(uint32_t value);
     float GetX() const;
@@ -11774,6 +12115,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11796,6 +12138,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11812,6 +12155,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11834,6 +12178,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11854,6 +12199,7 @@ public:
     std::vector<float> GetReversalSoundThresholds() const;
     void SetReversalSoundThresholds(std::vector<float> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11872,6 +12218,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11888,6 +12235,7 @@ public:
     GCServerOnlyEntity GetParent() const;
     void SetParent(GCServerOnlyEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11904,6 +12252,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11920,6 +12269,7 @@ public:
     GCLightEntity GetParent() const;
     void SetParent(GCLightEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11972,6 +12322,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -11996,6 +12347,7 @@ public:
     GCBaseCSGrenadeProjectile GetParent() const;
     void SetParent(GCBaseCSGrenadeProjectile value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12014,6 +12366,7 @@ public:
     GCServerOnlyModelEntity GetParent() const;
     void SetParent(GCServerOnlyModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12030,6 +12383,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12066,6 +12420,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12084,9 +12439,9 @@ public:
     std::string GetLookAtName() const;
     void SetLookAtName(std::string value);
     GCBaseEntity GetTargetEntity() const;
-    void SetTargetEntity(GCBaseEntity* value);
+    void SetTargetEntity(GCBaseEntity value);
     GCBaseEntity GetLookAtEntity() const;
-    void SetLookAtEntity(GCBaseEntity* value);
+    void SetLookAtEntity(GCBaseEntity value);
     float GetDuration() const;
     void SetDuration(float value);
     float GetDotTolerance() const;
@@ -12102,6 +12457,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12122,6 +12478,7 @@ public:
     GCSoundEventEntity GetParent() const;
     void SetParent(GCSoundEventEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12140,6 +12497,7 @@ public:
     GCBtNodeDecorator GetParent() const;
     void SetParent(GCBtNodeDecorator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12155,6 +12513,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12201,6 +12560,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12245,7 +12605,7 @@ public:
     std::string GetFilterName() const;
     void SetFilterName(std::string value);
     GCBaseEntity GetFilter() const;
-    void SetFilter(GCBaseEntity* value);
+    void SetFilter(GCBaseEntity value);
     std::string GetDecal() const;
     void SetDecal(std::string value);
     GCEntityIOOutput GetOnTouchedByEntity() const;
@@ -12253,6 +12613,7 @@ public:
     GCBeam GetParent() const;
     void SetParent(GCBeam value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12269,6 +12630,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12309,6 +12671,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12325,6 +12688,7 @@ public:
     GCSceneEntity GetParent() const;
     void SetParent(GCSceneEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12345,6 +12709,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12369,6 +12734,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12393,6 +12759,7 @@ public:
     GCFuncBrush GetParent() const;
     void SetParent(GCFuncBrush value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12409,10 +12776,11 @@ public:
     bool GetDisabled() const;
     void SetDisabled(bool value);
     GCBaseEntity GetTargetEntity() const;
-    void SetTargetEntity(GCBaseEntity* value);
+    void SetTargetEntity(GCBaseEntity value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12429,6 +12797,7 @@ public:
     std::vector<GWeaponPurchaseCount_t> GetWeaponPurchases() const;
     void SetWeaponPurchases(std::vector<GWeaponPurchaseCount_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12447,6 +12816,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12463,6 +12833,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12479,6 +12850,7 @@ public:
     GCGameRules GetParent() const;
     void SetParent(GCGameRules value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12495,6 +12867,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12515,6 +12888,7 @@ public:
     float GetTimescale() const;
     void SetTimescale(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12557,10 +12931,11 @@ public:
     GCEntityIOOutput GetOnStartTouch() const;
     void SetOnStartTouch(GCEntityIOOutput value);
     GCBasePlayerPawn GetCarryingPlayer() const;
-    void SetCarryingPlayer(GCBasePlayerPawn* value);
+    void SetCarryingPlayer(GCBasePlayerPawn value);
     GCBreakable GetParent() const;
     void SetParent(GCBreakable value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12579,10 +12954,11 @@ public:
     float GetNextDetectPlayerSound() const;
     void SetNextDetectPlayerSound(float value);
     GCBaseEntity GetDisplayGrenade() const;
-    void SetDisplayGrenade(GCBaseEntity* value);
+    void SetDisplayGrenade(GCBaseEntity value);
     GCBaseCSGrenadeProjectile GetParent() const;
     void SetParent(GCBaseCSGrenadeProjectile value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12625,6 +13001,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12641,6 +13018,7 @@ public:
     GCCSGO_TeamIntroCharacterPosition GetParent() const;
     void SetParent(GCCSGO_TeamIntroCharacterPosition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12657,6 +13035,7 @@ public:
     GCBaseCSGrenadeProjectile GetParent() const;
     void SetParent(GCBaseCSGrenadeProjectile value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12675,6 +13054,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12705,6 +13085,7 @@ public:
     GIntervalTimer GetParent() const;
     void SetParent(GIntervalTimer value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12725,9 +13106,9 @@ public:
     bool GetRestorePrevWep() const;
     void SetRestorePrevWep(bool value);
     GCBasePlayerWeapon GetWeaponBeforePrevious() const;
-    void SetWeaponBeforePrevious(GCBasePlayerWeapon* value);
+    void SetWeaponBeforePrevious(GCBasePlayerWeapon value);
     GCBasePlayerWeapon GetWeaponPrevious() const;
-    void SetWeaponPrevious(GCBasePlayerWeapon* value);
+    void SetWeaponPrevious(GCBasePlayerWeapon value);
     bool GetDelayedHardPunchIncoming() const;
     void SetDelayedHardPunchIncoming(bool value);
     bool GetDestroyAfterTaunt() const;
@@ -12735,6 +13116,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12751,6 +13133,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12785,6 +13168,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12819,6 +13203,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12845,10 +13230,11 @@ public:
     std::string GetFilterName() const;
     void SetFilterName(std::string value);
     GCBaseFilter GetFilter() const;
-    void SetFilter(GCBaseFilter* value);
+    void SetFilter(GCBaseFilter value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12871,6 +13257,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12888,8 +13275,8 @@ public:
     void SetHostageAlive(std::vector<bool> value);
     std::vector<bool> GetIsHostageFollowingSomeone() const;
     void SetIsHostageFollowingSomeone(std::vector<bool> value);
-    std::vector<CEntityIndex> GetHostageEntityIDs() const;
-    void SetHostageEntityIDs(std::vector<CEntityIndex> value);
+    std::vector<int> GetHostageEntityIDs() const;
+    void SetHostageEntityIDs(std::vector<int> value);
     Vector GetBombsiteCenterA() const;
     void SetBombsiteCenterA(Vector value);
     Vector GetBombsiteCenterB() const;
@@ -12907,6 +13294,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12923,9 +13311,9 @@ public:
     std::vector<GCBasePlayerWeapon*> GetMyWeapons() const;
     void SetMyWeapons(std::vector<GCBasePlayerWeapon*> value);
     GCBasePlayerWeapon GetActiveWeapon() const;
-    void SetActiveWeapon(GCBasePlayerWeapon* value);
+    void SetActiveWeapon(GCBasePlayerWeapon value);
     GCBasePlayerWeapon GetLastWeapon() const;
-    void SetLastWeapon(GCBasePlayerWeapon* value);
+    void SetLastWeapon(GCBasePlayerWeapon value);
     std::vector<uint16_t> GetAmmo() const;
     void SetAmmo(std::vector<uint16_t> value);
     bool GetPreventWeaponPickup() const;
@@ -12933,6 +13321,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12953,6 +13342,7 @@ public:
     float GetOut() const;
     void SetOut(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12977,6 +13367,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -12999,6 +13390,7 @@ public:
     GCCSGameModeRules GetParent() const;
     void SetParent(GCCSGameModeRules value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13017,6 +13409,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13039,6 +13432,7 @@ public:
     GCTriggerMultiple GetParent() const;
     void SetParent(GCTriggerMultiple value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13083,6 +13477,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13103,6 +13498,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13119,6 +13515,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13133,10 +13530,11 @@ public:
     GCPointGiveAmmo(void *ptr);
 
     GCBaseEntity GetActivator() const;
-    void SetActivator(GCBaseEntity* value);
+    void SetActivator(GCBaseEntity value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13177,6 +13575,7 @@ public:
     GCBaseToggle GetParent() const;
     void SetParent(GCBaseToggle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13223,6 +13622,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13251,6 +13651,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13275,6 +13676,7 @@ public:
     GCServerOnlyPointEntity GetParent() const;
     void SetParent(GCServerOnlyPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13291,6 +13693,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13313,6 +13716,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13329,6 +13733,7 @@ public:
     GCCSPlayerBase_CameraServices GetParent() const;
     void SetParent(GCCSPlayerBase_CameraServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13345,6 +13750,7 @@ public:
     GCCSGO_TeamIntroCharacterPosition GetParent() const;
     void SetParent(GCCSGO_TeamIntroCharacterPosition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13361,7 +13767,7 @@ public:
     std::string GetPathName() const;
     void SetPathName(std::string value);
     GCPathMover GetPathMover() const;
-    void SetPathMover(GCPathMover* value);
+    void SetPathMover(GCPathMover value);
     std::string GetPathNodeStart() const;
     void SetPathNodeStart(std::string value);
     GCFuncMover GetMoveType() const;
@@ -13397,7 +13803,7 @@ public:
     float GetTimeMovementStop() const;
     void SetTimeMovementStop(float value);
     GCMoverPathNode GetStopAtNode() const;
-    void SetStopAtNode(GCMoverPathNode* value);
+    void SetStopAtNode(GCMoverPathNode value);
     float GetPathLocationToBeginStop() const;
     void SetPathLocationToBeginStop(float value);
     bool GetMatchPathNodeUp() const;
@@ -13413,6 +13819,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13429,6 +13836,7 @@ public:
     GCCSPlayerBase_CameraServices GetParent() const;
     void SetParent(GCCSPlayerBase_CameraServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13445,6 +13853,7 @@ public:
     GCBaseCSGrenade GetParent() const;
     void SetParent(GCBaseCSGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13461,6 +13870,7 @@ public:
     GCRulePointEntity GetParent() const;
     void SetParent(GCRulePointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13477,6 +13887,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13499,6 +13910,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13515,6 +13927,7 @@ public:
     GCMultiplayRules GetParent() const;
     void SetParent(GCMultiplayRules value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13531,6 +13944,7 @@ public:
     GCPhysicsProp GetParent() const;
     void SetParent(GCPhysicsProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13555,6 +13969,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13591,6 +14006,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13617,6 +14033,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13633,6 +14050,7 @@ public:
     GCModelPointEntity GetParent() const;
     void SetParent(GCModelPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13681,6 +14099,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13731,15 +14150,15 @@ public:
     int32_t GetState() const;
     void SetState(int32_t value);
     GCEntityInstance GetConstraint() const;
-    void SetConstraint(GCEntityInstance* value);
+    void SetConstraint(GCEntityInstance value);
     GCEntityInstance GetConstraintParent() const;
-    void SetConstraintParent(GCEntityInstance* value);
+    void SetConstraintParent(GCEntityInstance value);
     bool GetForceNpcExclude() const;
     void SetForceNpcExclude(bool value);
     std::string GetGlowEntity() const;
     void SetGlowEntity(std::string value);
     GCBaseModelEntity GetGlowEntity1() const;
-    void SetGlowEntity1(GCBaseModelEntity* value);
+    void SetGlowEntity1(GCBaseModelEntity value);
     bool GetUsable() const;
     void SetUsable(bool value);
     std::string GetDisplayText() const;
@@ -13747,6 +14166,7 @@ public:
     GCBaseToggle GetParent() const;
     void SetParent(GCBaseToggle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13773,7 +14193,7 @@ public:
     float GetDamageForce() const;
     void SetDamageForce(float value);
     GCBaseEntity GetInflictor() const;
-    void SetInflictor(GCBaseEntity* value);
+    void SetInflictor(GCBaseEntity value);
     int32_t GetCustomDamageType() const;
     void SetCustomDamageType(int32_t value);
     std::string GetExplosionType() const;
@@ -13789,10 +14209,11 @@ public:
     std::string GetEntityIgnoreName() const;
     void SetEntityIgnoreName(std::string value);
     GCBaseEntity GetEntityIgnore() const;
-    void SetEntityIgnore(GCBaseEntity* value);
+    void SetEntityIgnore(GCBaseEntity value);
     GCModelPointEntity GetParent() const;
     void SetParent(GCModelPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13813,6 +14234,7 @@ public:
     GCSoundEventEntity GetParent() const;
     void SetParent(GCSoundEventEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13827,7 +14249,7 @@ public:
     GCTriggerLook(void *ptr);
 
     GCBaseEntity GetLookTarget() const;
-    void SetLookTarget(GCBaseEntity* value);
+    void SetLookTarget(GCBaseEntity value);
     float GetFieldOfView() const;
     void SetFieldOfView(float value);
     float GetLookTime() const;
@@ -13857,6 +14279,7 @@ public:
     GCTriggerOnce GetParent() const;
     void SetParent(GCTriggerOnce value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13872,6 +14295,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13888,6 +14312,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13950,6 +14375,7 @@ public:
     GCBaseClientUIEntity GetParent() const;
     void SetParent(GCBaseClientUIEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13968,6 +14394,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -13984,6 +14411,7 @@ public:
     GCPathParticleRope GetParent() const;
     void SetParent(GCPathParticleRope value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14004,6 +14432,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14017,11 +14446,12 @@ public:
     GCFilterAttributeInt(std::string ptr);
     GCFilterAttributeInt(void *ptr);
 
-    CUtlStringToken GetAttributeName() const;
-    void SetAttributeName(CUtlStringToken value);
+    uint32_t GetAttributeName() const;
+    void SetAttributeName(uint32_t value);
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14036,7 +14466,7 @@ public:
     GCCSPlayer_ActionTrackingServices(void *ptr);
 
     GCBasePlayerWeapon GetLastWeaponBeforeC4AutoSwitch() const;
-    void SetLastWeaponBeforeC4AutoSwitch(GCBasePlayerWeapon* value);
+    void SetLastWeaponBeforeC4AutoSwitch(GCBasePlayerWeapon value);
     bool GetIsRescuing() const;
     void SetIsRescuing(bool value);
     GWeaponPurchaseTracker_t GetWeaponPurchasesThisMatch() const;
@@ -14046,6 +14476,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14074,6 +14505,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14088,15 +14520,15 @@ public:
     GCPointEntityFinder(void *ptr);
 
     GCBaseEntity GetEntity() const;
-    void SetEntity(GCBaseEntity* value);
+    void SetEntity(GCBaseEntity value);
     std::string GetFilterName() const;
     void SetFilterName(std::string value);
     GCBaseFilter GetFilter() const;
-    void SetFilter(GCBaseFilter* value);
+    void SetFilter(GCBaseFilter value);
     std::string GetRefName() const;
     void SetRefName(std::string value);
     GCBaseEntity GetReference() const;
-    void SetReference(GCBaseEntity* value);
+    void SetReference(GCBaseEntity value);
     uint64_t GetFindMethod() const;
     void SetFindMethod(uint64_t value);
     GCEntityIOOutput GetOnFoundEntity() const;
@@ -14104,6 +14536,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14137,9 +14570,10 @@ public:
     void SetHasParent(bool value);
     bool GetParentFrozen() const;
     void SetParentFrozen(bool value);
-    CUtlStringToken GetSurfacePropStringToken() const;
-    void SetSurfacePropStringToken(CUtlStringToken value);
+    uint32_t GetSurfacePropStringToken() const;
+    void SetSurfacePropStringToken(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14166,6 +14600,7 @@ public:
     GCPhysicsProp GetParent() const;
     void SetParent(GCPhysicsProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14202,6 +14637,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14216,7 +14652,7 @@ public:
     GCPointVelocitySensor(void *ptr);
 
     GCBaseEntity GetTargetEntity() const;
-    void SetTargetEntity(GCBaseEntity* value);
+    void SetTargetEntity(GCBaseEntity value);
     Vector GetAxis() const;
     void SetAxis(Vector value);
     bool GetEnabled() const;
@@ -14228,6 +14664,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14246,6 +14683,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14264,6 +14702,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14282,6 +14721,7 @@ public:
     GCFuncTrackTrain GetParent() const;
     void SetParent(GCFuncTrackTrain value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14298,6 +14738,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14313,6 +14754,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14339,6 +14781,7 @@ public:
     GCMarkupVolume GetParent() const;
     void SetParent(GCMarkupVolume value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14357,6 +14800,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14393,6 +14837,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14409,6 +14854,7 @@ public:
     GCBaseCSGrenade GetParent() const;
     void SetParent(GCBaseCSGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14429,7 +14875,7 @@ public:
     float GetForceTime() const;
     void SetForceTime(float value);
     GCBaseEntity GetAttachedObject() const;
-    void SetAttachedObject(GCBaseEntity* value);
+    void SetAttachedObject(GCBaseEntity value);
     bool GetWasRestored() const;
     void SetWasRestored(bool value);
     GCConstantForceController GetIntegrator() const;
@@ -14437,6 +14883,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14465,6 +14912,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14487,10 +14935,11 @@ public:
     int32_t GetLightChoice() const;
     void SetLightChoice(int32_t value);
     GCBaseEntity GetLight() const;
-    void SetLight(GCBaseEntity* value);
+    void SetLight(GCBaseEntity value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14507,6 +14956,7 @@ public:
     GCSoundOpvarSetAABBEntity GetParent() const;
     void SetParent(GCSoundOpvarSetAABBEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14525,6 +14975,7 @@ public:
     float GetWindSpeedVariation() const;
     void SetWindSpeedVariation(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14540,6 +14991,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14558,6 +15010,7 @@ public:
     GCTriggerOnce GetParent() const;
     void SetParent(GCTriggerOnce value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14574,6 +15027,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14598,7 +15052,7 @@ public:
     std::string GetBrushModelName() const;
     void SetBrushModelName(std::string value);
     GCBaseEntity GetTargetCamera1() const;
-    void SetTargetCamera1(GCBaseEntity* value);
+    void SetTargetCamera1(GCBaseEntity value);
     bool GetEnabled() const;
     void SetEnabled(bool value);
     bool GetDraw3DSkybox() const;
@@ -14608,6 +15062,7 @@ public:
     GCFuncBrush GetParent() const;
     void SetParent(GCFuncBrush value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14630,6 +15085,7 @@ public:
     GCBaseCSGrenadeProjectile GetParent() const;
     void SetParent(GCBaseCSGrenadeProjectile value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14648,6 +15104,7 @@ public:
     GCPointClientUIWorldPanel GetParent() const;
     void SetParent(GCPointClientUIWorldPanel value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14664,6 +15121,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14678,12 +15136,13 @@ public:
     GCCSPlayer_HostageServices(void *ptr);
 
     GCBaseEntity GetCarriedHostage() const;
-    void SetCarriedHostage(GCBaseEntity* value);
+    void SetCarriedHostage(GCBaseEntity value);
     GCBaseEntity GetCarriedHostageProp() const;
-    void SetCarriedHostageProp(GCBaseEntity* value);
+    void SetCarriedHostageProp(GCBaseEntity value);
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14700,6 +15159,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14716,6 +15176,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14738,6 +15199,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14754,6 +15216,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14770,6 +15233,7 @@ public:
     GCSprite GetParent() const;
     void SetParent(GCSprite value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14786,6 +15250,7 @@ public:
     GCBaseButton GetParent() const;
     void SetParent(GCBaseButton value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14814,6 +15279,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14830,6 +15296,7 @@ public:
     GCLogicNPCCounterAABB GetParent() const;
     void SetParent(GCLogicNPCCounterAABB value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14852,6 +15319,7 @@ public:
     GCPredictedViewModel GetParent() const;
     void SetParent(GCPredictedViewModel value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14874,6 +15342,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14898,6 +15367,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14922,6 +15392,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14938,6 +15409,7 @@ public:
     GCDynamicProp GetParent() const;
     void SetParent(GCDynamicProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14956,6 +15428,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -14970,10 +15443,11 @@ public:
     GCHostageExpresserShim(void *ptr);
 
     GCAI_Expresser GetExpresser() const;
-    void SetExpresser(GCAI_Expresser* value);
+    void SetExpresser(GCAI_Expresser value);
     GCBaseCombatCharacter GetParent() const;
     void SetParent(GCBaseCombatCharacter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15040,6 +15514,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15064,6 +15539,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15082,6 +15558,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15126,6 +15603,7 @@ public:
     GCTeam GetParent() const;
     void SetParent(GCTeam value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15142,6 +15620,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15158,6 +15637,7 @@ public:
     GCSprite GetParent() const;
     void SetParent(GCSprite value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15174,6 +15654,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15190,6 +15671,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15210,6 +15692,7 @@ public:
     GCInfoDynamicShadowHint GetParent() const;
     void SetParent(GCInfoDynamicShadowHint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15230,6 +15713,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15246,6 +15730,7 @@ public:
     GCBaseCSGrenade GetParent() const;
     void SetParent(GCBaseCSGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15262,6 +15747,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15278,6 +15764,7 @@ public:
     GCMolotovGrenade GetParent() const;
     void SetParent(GCMolotovGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15308,6 +15795,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15324,7 +15812,7 @@ public:
     std::string GetLerpTarget() const;
     void SetLerpTarget(std::string value);
     GCBaseEntity GetLerpTarget1() const;
-    void SetLerpTarget1(GCBaseEntity* value);
+    void SetLerpTarget1(GCBaseEntity value);
     std::string GetLerpTargetAttachment() const;
     void SetLerpTargetAttachment(std::string value);
     float GetLerpDuration() const;
@@ -15342,7 +15830,7 @@ public:
     bool GetAttachTouchingObject() const;
     void SetAttachTouchingObject(bool value);
     GCBaseEntity GetEntityToWaitForDisconnect() const;
-    void SetEntityToWaitForDisconnect(GCBaseEntity* value);
+    void SetEntityToWaitForDisconnect(GCBaseEntity value);
     GCEntityIOOutput GetOnLerpStarted() const;
     void SetOnLerpStarted(GCEntityIOOutput value);
     GCEntityIOOutput GetOnLerpFinished() const;
@@ -15350,6 +15838,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15364,12 +15853,13 @@ public:
     GCTriggerSoundscape(void *ptr);
 
     GCEnvSoundscapeTriggerable GetSoundscape() const;
-    void SetSoundscape(GCEnvSoundscapeTriggerable* value);
+    void SetSoundscape(GCEnvSoundscapeTriggerable value);
     std::string GetSoundscapeName() const;
     void SetSoundscapeName(std::string value);
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15386,6 +15876,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15402,6 +15893,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15428,6 +15920,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15442,9 +15935,9 @@ public:
     GCPhysicsEntitySolver(void *ptr);
 
     GCBaseEntity GetMovingEntity() const;
-    void SetMovingEntity(GCBaseEntity* value);
+    void SetMovingEntity(GCBaseEntity value);
     GCBaseEntity GetPhysicsBlocker() const;
-    void SetPhysicsBlocker(GCBaseEntity* value);
+    void SetPhysicsBlocker(GCBaseEntity value);
     float GetSeparationDuration() const;
     void SetSeparationDuration(float value);
     float GetCancelTime() const;
@@ -15452,6 +15945,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15480,6 +15974,7 @@ public:
     float GetPrevCycleForAnimEventDetection() const;
     void SetPrevCycleForAnimEventDetection(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15518,6 +16013,7 @@ public:
     GCModelPointEntity GetParent() const;
     void SetParent(GCModelPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15538,6 +16034,7 @@ public:
     GCSoundAreaEntityBase GetParent() const;
     void SetParent(GCSoundAreaEntityBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15580,6 +16077,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15593,11 +16091,12 @@ public:
     GEntityRenderAttribute_t(std::string ptr);
     GEntityRenderAttribute_t(void *ptr);
 
-    CUtlStringToken GetID() const;
-    void SetID(CUtlStringToken value);
+    uint32_t GetID() const;
+    void SetID(uint32_t value);
     Vector4D GetValues() const;
     void SetValues(Vector4D value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15614,6 +16113,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15627,10 +16127,6 @@ public:
     GCFuncShatterglass(std::string ptr);
     GCFuncShatterglass(void *ptr);
 
-    matrix3x4_t GetMatPanelTransform() const;
-    void SetMatPanelTransform(matrix3x4_t value);
-    matrix3x4_t GetMatPanelTransformWsTemp() const;
-    void SetMatPanelTransformWsTemp(matrix3x4_t value);
     std::vector<uint32> GetShatterGlassShards() const;
     void SetShatterGlassShards(std::vector<uint32> value);
     Vector2D GetPanelSize() const;
@@ -15684,6 +16180,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15700,6 +16197,7 @@ public:
     GCBaseButton GetParent() const;
     void SetParent(GCBaseButton value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15718,6 +16216,7 @@ public:
     GCSoundEventEntity GetParent() const;
     void SetParent(GCSoundEventEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15734,6 +16233,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15784,9 +16284,9 @@ public:
     bool GetBombDefused() const;
     void SetBombDefused(bool value);
     GCCSPlayerPawn GetBombDefuser() const;
-    void SetBombDefuser(GCCSPlayerPawn* value);
+    void SetBombDefuser(GCCSPlayerPawn value);
     GCBaseEntity GetControlPanel() const;
-    void SetControlPanel(GCBaseEntity* value);
+    void SetControlPanel(GCBaseEntity value);
     int32_t GetProgressBarTime() const;
     void SetProgressBarTime(int32_t value);
     bool GetVoiceAlertFired() const;
@@ -15802,6 +16302,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15816,12 +16317,13 @@ public:
     GCPointClientUIDialog(void *ptr);
 
     GCBaseEntity GetActivator() const;
-    void SetActivator(GCBaseEntity* value);
+    void SetActivator(GCBaseEntity value);
     bool GetStartEnabled() const;
     void SetStartEnabled(bool value);
     GCBaseClientUIEntity GetParent() const;
     void SetParent(GCBaseClientUIEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15840,6 +16342,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15855,15 +16358,16 @@ public:
 
     Gsky3dparams_t GetSkyboxData() const;
     void SetSkyboxData(Gsky3dparams_t value);
-    CUtlStringToken GetSkyboxSlotToken() const;
-    void SetSkyboxSlotToken(CUtlStringToken value);
+    uint32_t GetSkyboxSlotToken() const;
+    void SetSkyboxSlotToken(uint32_t value);
     bool GetUseAngles() const;
     void SetUseAngles(bool value);
     GCSkyCamera GetNext() const;
-    void SetNext(GCSkyCamera* value);
+    void SetNext(GCSkyCamera value);
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15880,6 +16384,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15898,6 +16403,7 @@ public:
     GCPointCamera GetParent() const;
     void SetParent(GCPointCamera value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15918,6 +16424,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15934,6 +16441,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15956,6 +16464,7 @@ public:
     GCMarkupVolumeTagged GetParent() const;
     void SetParent(GCMarkupVolumeTagged value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -15984,6 +16493,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16010,6 +16520,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16026,6 +16537,7 @@ public:
     GCBreakable GetParent() const;
     void SetParent(GCBreakable value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16044,6 +16556,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16060,6 +16573,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16102,6 +16616,7 @@ public:
     GCRotButton GetParent() const;
     void SetParent(GCRotButton value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16148,10 +16663,11 @@ public:
     bool GetAjarDoorShouldntAlwaysOpen() const;
     void SetAjarDoorShouldntAlwaysOpen(bool value);
     GCEntityBlocker GetEntityBlocker() const;
-    void SetEntityBlocker(GCEntityBlocker* value);
+    void SetEntityBlocker(GCEntityBlocker value);
     GCBasePropDoor GetParent() const;
     void SetParent(GCBasePropDoor value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16178,6 +16694,7 @@ public:
     float GetY() const;
     void SetY(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16194,6 +16711,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16222,6 +16740,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16240,6 +16759,7 @@ public:
     GCMarkupVolumeWithRef GetParent() const;
     void SetParent(GCMarkupVolumeWithRef value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16258,6 +16778,7 @@ public:
     GCPhysForce GetParent() const;
     void SetParent(GCPhysForce value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16273,6 +16794,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16305,6 +16827,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16327,8 +16850,9 @@ public:
     bool GetPrevHelmet() const;
     void SetPrevHelmet(bool value);
     GCEntityInstance GetItem() const;
-    void SetItem(GCEntityInstance* value);
+    void SetItem(GCEntityInstance value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16345,6 +16869,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16367,6 +16892,7 @@ public:
     GCPhysicsProp GetParent() const;
     void SetParent(GCPhysicsProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16385,6 +16911,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16401,9 +16928,9 @@ public:
     GCTouchExpansionComponent GetCTouchExpansionComponent() const;
     void SetCTouchExpansionComponent(GCTouchExpansionComponent value);
     GCCSPlayer_PingServices GetPingServices() const;
-    void SetPingServices(GCCSPlayer_PingServices* value);
+    void SetPingServices(GCCSPlayer_PingServices value);
     GCPlayer_ViewModelServices GetViewModelServices() const;
-    void SetViewModelServices(GCPlayer_ViewModelServices* value);
+    void SetViewModelServices(GCPlayer_ViewModelServices value);
     float GetBlindUntilTime() const;
     void SetBlindUntilTime(float value);
     float GetBlindStartTime() const;
@@ -16443,10 +16970,11 @@ public:
     bool GetCommittingSuicideOnTeamChange() const;
     void SetCommittingSuicideOnTeamChange(bool value);
     GCCSPlayerController GetOriginalController() const;
-    void SetOriginalController(GCCSPlayerController* value);
+    void SetOriginalController(GCCSPlayerController value);
     GCBasePlayerPawn GetParent() const;
     void SetParent(GCBasePlayerPawn value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16461,11 +16989,11 @@ public:
     GCPathTrack(void *ptr);
 
     GCPathTrack GetPnext() const;
-    void SetPnext(GCPathTrack* value);
+    void SetPnext(GCPathTrack value);
     GCPathTrack GetPprevious() const;
-    void SetPprevious(GCPathTrack* value);
+    void SetPprevious(GCPathTrack value);
     GCPathTrack GetPaltpath() const;
-    void SetPaltpath(GCPathTrack* value);
+    void SetPaltpath(GCPathTrack value);
     float GetRadius() const;
     void SetRadius(float value);
     float GetLength() const;
@@ -16481,6 +17009,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16511,6 +17040,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16533,6 +17063,7 @@ public:
     GCBarnLight GetParent() const;
     void SetParent(GCBarnLight value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16567,6 +17098,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16589,6 +17121,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16605,6 +17138,7 @@ public:
     GCRulePointEntity GetParent() const;
     void SetParent(GCRulePointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16621,6 +17155,7 @@ public:
     GCServerOnlyPointEntity GetParent() const;
     void SetParent(GCServerOnlyPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16643,6 +17178,7 @@ public:
     GCSoundOpvarSetPointEntity GetParent() const;
     void SetParent(GCSoundOpvarSetPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16663,7 +17199,7 @@ public:
     bool GetIsHoldingLookAtWeapon() const;
     void SetIsHoldingLookAtWeapon(bool value);
     GCBasePlayerWeapon GetSavedWeapon() const;
-    void SetSavedWeapon(GCBasePlayerWeapon* value);
+    void SetSavedWeapon(GCBasePlayerWeapon value);
     int32_t GetTimeToMelee() const;
     void SetTimeToMelee(int32_t value);
     int32_t GetTimeToSecondary() const;
@@ -16689,6 +17225,7 @@ public:
     GCPlayer_WeaponServices GetParent() const;
     void SetParent(GCPlayer_WeaponServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16703,7 +17240,7 @@ public:
     GCEntityFlame(void *ptr);
 
     GCBaseEntity GetEntAttached() const;
-    void SetEntAttached(GCBaseEntity* value);
+    void SetEntAttached(GCBaseEntity value);
     bool GetCheapEffect() const;
     void SetCheapEffect(bool value);
     float GetSize() const;
@@ -16717,7 +17254,7 @@ public:
     float GetLifetime() const;
     void SetLifetime(float value);
     GCBaseEntity GetAttacker() const;
-    void SetAttacker(GCBaseEntity* value);
+    void SetAttacker(GCBaseEntity value);
     int32_t GetDangerSound() const;
     void SetDangerSound(int32_t value);
     float GetDirectDamagePerSecond() const;
@@ -16727,6 +17264,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16743,6 +17281,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -16781,7 +17320,7 @@ public:
     bool GetIsFollowing() const;
     void SetIsFollowing(bool value);
     GCCSPlayerPawn GetLeader() const;
-    void SetLeader(GCCSPlayerPawn* value);
+    void SetLeader(GCCSPlayerPawn value);
     float GetFollowTimestamp() const;
     void SetFollowTimestamp(float value);
     float GetAllowAutoFollowTime() const;
@@ -16801,13 +17340,13 @@ public:
     bool GetIsOpeningDoor() const;
     void SetIsOpeningDoor(bool value);
     GCBaseEntity GetTaskEntity() const;
-    void SetTaskEntity(GCBaseEntity* value);
+    void SetTaskEntity(GCBaseEntity value);
     Vector GetGoalPosition() const;
     void SetGoalPosition(Vector value);
     GCBaseEntity GetGoalEntity() const;
-    void SetGoalEntity(GCBaseEntity* value);
+    void SetGoalEntity(GCBaseEntity value);
     GCBaseEntity GetAvoid() const;
-    void SetAvoid(GCBaseEntity* value);
+    void SetAvoid(GCBaseEntity value);
     float GetAvoidTimestamp() const;
     void SetAvoidTimestamp(float value);
     bool GetIsStopping() const;
@@ -16865,7 +17404,7 @@ public:
     float GetNoiseTimestamp() const;
     void SetNoiseTimestamp(float value);
     GCCSPlayerPawn GetNoiseSource() const;
-    void SetNoiseSource(GCCSPlayerPawn* value);
+    void SetNoiseSource(GCCSPlayerPawn value);
     GCountdownTimer GetNoiseBendTimer() const;
     void SetNoiseBendTimer(GCountdownTimer value);
     Vector GetBentNoisePosition() const;
@@ -16939,7 +17478,7 @@ public:
     GCountdownTimer GetIgnoreEnemiesTimer() const;
     void SetIgnoreEnemiesTimer(GCountdownTimer value);
     GCCSPlayerPawn GetEnemy() const;
-    void SetEnemy(GCCSPlayerPawn* value);
+    void SetEnemy(GCCSPlayerPawn value);
     bool GetIsEnemyVisible() const;
     void SetIsEnemyVisible(bool value);
     uint8_t GetVisibleEnemyParts() const;
@@ -16961,17 +17500,17 @@ public:
     int32_t GetNearbyEnemyCount() const;
     void SetNearbyEnemyCount(int32_t value);
     GCCSPlayerPawn GetBomber() const;
-    void SetBomber(GCCSPlayerPawn* value);
+    void SetBomber(GCCSPlayerPawn value);
     int32_t GetNearbyFriendCount() const;
     void SetNearbyFriendCount(int32_t value);
     GCCSPlayerPawn GetClosestVisibleFriend() const;
-    void SetClosestVisibleFriend(GCCSPlayerPawn* value);
+    void SetClosestVisibleFriend(GCCSPlayerPawn value);
     GCCSPlayerPawn GetClosestVisibleHumanFriend() const;
-    void SetClosestVisibleHumanFriend(GCCSPlayerPawn* value);
+    void SetClosestVisibleHumanFriend(GCCSPlayerPawn value);
     GIntervalTimer GetAttentionInterval() const;
     void SetAttentionInterval(GIntervalTimer value);
     GCCSPlayerPawn GetAttacker() const;
-    void SetAttacker(GCCSPlayerPawn* value);
+    void SetAttacker(GCCSPlayerPawn value);
     float GetAttackedTimestamp() const;
     void SetAttackedTimestamp(float value);
     GIntervalTimer GetBurnedByFlamesTimer() const;
@@ -17027,7 +17566,7 @@ public:
     float GetLastRadioSentTimestamp() const;
     void SetLastRadioSentTimestamp(float value);
     GCCSPlayerPawn GetRadioSubject() const;
-    void SetRadioSubject(GCCSPlayerPawn* value);
+    void SetRadioSubject(GCCSPlayerPawn value);
     Vector GetRadioPosition() const;
     void SetRadioPosition(Vector value);
     float GetVoiceEndTimestamp() const;
@@ -17037,6 +17576,7 @@ public:
     GCBot GetParent() const;
     void SetParent(GCBot value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17058,21 +17598,22 @@ public:
     void SetDesignerName(std::string value);
     uint32_t GetFlags() const;
     void SetFlags(uint32_t value);
-    WorldGroupId_t GetWorldGroupId() const;
-    void SetWorldGroupId(WorldGroupId_t value);
+    uint32_t GetWorldGroupId() const;
+    void SetWorldGroupId(uint32_t value);
     uint32_t GetDataObjectTypes() const;
     void SetDataObjectTypes(uint32_t value);
     GChangeAccessorFieldPathIndex_t GetPathIndex() const;
     void SetPathIndex(GChangeAccessorFieldPathIndex_t value);
     GCEntityIdentity GetPrev() const;
-    void SetPrev(GCEntityIdentity* value);
+    void SetPrev(GCEntityIdentity value);
     GCEntityIdentity GetNext() const;
-    void SetNext(GCEntityIdentity* value);
+    void SetNext(GCEntityIdentity value);
     GCEntityIdentity GetPrevByClass() const;
-    void SetPrevByClass(GCEntityIdentity* value);
+    void SetPrevByClass(GCEntityIdentity value);
     GCEntityIdentity GetNextByClass() const;
-    void SetNextByClass(GCEntityIdentity* value);
+    void SetNextByClass(GCEntityIdentity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17089,12 +17630,13 @@ public:
     bool GetOn() const;
     void SetOn(bool value);
     GCBaseEntity GetTargetEnt() const;
-    void SetTargetEnt(GCBaseEntity* value);
+    void SetTargetEnt(GCBaseEntity value);
     GCEntityIOOutput GetOnDeath() const;
     void SetOnDeath(GCEntityIOOutput value);
     GCBaseToggle GetParent() const;
     void SetParent(GCBaseToggle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17115,6 +17657,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17131,6 +17674,7 @@ public:
     GCMarkupVolumeTagged GetParent() const;
     void SetParent(GCMarkupVolumeTagged value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17157,6 +17701,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17173,6 +17718,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17191,6 +17737,7 @@ public:
     GCFuncNavBlocker GetParent() const;
     void SetParent(GCFuncNavBlocker value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17209,6 +17756,7 @@ public:
     GCBaseAnimGraph GetParent() const;
     void SetParent(GCBaseAnimGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17225,6 +17773,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17241,6 +17790,7 @@ public:
     GCMarkupVolumeTagged GetParent() const;
     void SetParent(GCMarkupVolumeTagged value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17255,7 +17805,7 @@ public:
     GCInstancedSceneEntity(void *ptr);
 
     GCBaseEntity GetOwner() const;
-    void SetOwner(GCBaseEntity* value);
+    void SetOwner(GCBaseEntity value);
     bool GetHadOwner() const;
     void SetHadOwner(bool value);
     float GetPostSpeakDelay() const;
@@ -17267,10 +17817,11 @@ public:
     bool GetRemoveOnCompletion() const;
     void SetRemoveOnCompletion(bool value);
     GCBaseEntity GetTarget() const;
-    void SetTarget(GCBaseEntity* value);
+    void SetTarget(GCBaseEntity value);
     GCSceneEntity GetParent() const;
     void SetParent(GCSceneEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17287,6 +17838,7 @@ public:
     GCLightDirectionalEntity GetParent() const;
     void SetParent(GCLightDirectionalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17311,6 +17863,7 @@ public:
     GCLogicAutosave GetParent() const;
     void SetParent(GCLogicAutosave value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17331,6 +17884,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17347,6 +17901,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17363,6 +17918,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17403,9 +17959,9 @@ public:
     int32_t GetHostageState() const;
     void SetHostageState(int32_t value);
     GCBaseEntity GetLeader() const;
-    void SetLeader(GCBaseEntity* value);
+    void SetLeader(GCBaseEntity value);
     GCCSPlayerPawnBase GetLastLeader() const;
-    void SetLastLeader(GCCSPlayerPawnBase* value);
+    void SetLastLeader(GCCSPlayerPawnBase value);
     GCountdownTimer GetReuseTimer() const;
     void SetReuseTimer(GCountdownTimer value);
     bool GetHasBeenUsed() const;
@@ -17433,7 +17989,7 @@ public:
     bool GetHandsHaveBeenCut() const;
     void SetHandsHaveBeenCut(bool value);
     GCCSPlayerPawn GetHostageGrabber() const;
-    void SetHostageGrabber(GCCSPlayerPawn* value);
+    void SetHostageGrabber(GCCSPlayerPawn value);
     float GetLastGrabTime() const;
     void SetLastGrabTime(float value);
     Vector GetPositionWhenStartedDroppingToGround() const;
@@ -17457,6 +18013,7 @@ public:
     GCHostageExpresserShim GetParent() const;
     void SetParent(GCHostageExpresserShim value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17475,6 +18032,7 @@ public:
     GCTriggerHurt GetParent() const;
     void SetParent(GCTriggerHurt value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17525,6 +18083,7 @@ public:
     GCEntitySubclassVDataBase GetParent() const;
     void SetParent(GCEntitySubclassVDataBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17549,6 +18108,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17575,6 +18135,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17589,17 +18150,17 @@ public:
     GCCSPlayerPawn(void *ptr);
 
     GCCSPlayer_BulletServices GetBulletServices() const;
-    void SetBulletServices(GCCSPlayer_BulletServices* value);
+    void SetBulletServices(GCCSPlayer_BulletServices value);
     GCCSPlayer_HostageServices GetHostageServices() const;
-    void SetHostageServices(GCCSPlayer_HostageServices* value);
+    void SetHostageServices(GCCSPlayer_HostageServices value);
     GCCSPlayer_BuyServices GetBuyServices() const;
-    void SetBuyServices(GCCSPlayer_BuyServices* value);
+    void SetBuyServices(GCCSPlayer_BuyServices value);
     GCCSPlayer_ActionTrackingServices GetActionTrackingServices() const;
-    void SetActionTrackingServices(GCCSPlayer_ActionTrackingServices* value);
+    void SetActionTrackingServices(GCCSPlayer_ActionTrackingServices value);
     GCCSPlayer_RadioServices GetRadioServices() const;
-    void SetRadioServices(GCCSPlayer_RadioServices* value);
+    void SetRadioServices(GCCSPlayer_RadioServices value);
     GCCSPlayer_DamageReactServices GetDamageReactServices() const;
-    void SetDamageReactServices(GCCSPlayer_DamageReactServices* value);
+    void SetDamageReactServices(GCCSPlayer_DamageReactServices value);
     uint16_t GetCharacterDefIndex() const;
     void SetCharacterDefIndex(uint16_t value);
     bool GetHasFemaleVoice() const;
@@ -17710,8 +18271,8 @@ public:
     void SetAllowAutoFollowTime(float value);
     bool GetResetArmorNextSpawn() const;
     void SetResetArmorNextSpawn(bool value);
-    CEntityIndex GetLastKillerIndex() const;
-    void SetLastKillerIndex(CEntityIndex value);
+    int GetLastKillerIndex() const;
+    void SetLastKillerIndex(int value);
     GEntitySpottedState_t GetEntitySpottedState() const;
     void SetEntitySpottedState(GEntitySpottedState_t value);
     int32_t GetSpotRules() const;
@@ -17730,8 +18291,8 @@ public:
     void SetEmitSoundTime(float value);
     bool GetInNoDefuseArea() const;
     void SetInNoDefuseArea(bool value);
-    CEntityIndex GetBombSiteIndex() const;
-    void SetBombSiteIndex(CEntityIndex value);
+    int GetBombSiteIndex() const;
+    void SetBombSiteIndex(int value);
     int32_t GetWhichBombZone() const;
     void SetWhichBombZone(int32_t value);
     bool GetInBombZoneTrigger() const;
@@ -17761,7 +18322,7 @@ public:
     int32_t GetLastHealth() const;
     void SetLastHealth(int32_t value);
     GCCSBot GetBot() const;
-    void SetBot(GCCSBot* value);
+    void SetBot(GCCSBot value);
     bool GetBotAllowActive() const;
     void SetBotAllowActive(bool value);
     QAngle GetThirdPersonHeading() const;
@@ -17821,6 +18382,7 @@ public:
     GCCSPlayerPawnBase GetParent() const;
     void SetParent(GCCSPlayerPawnBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17837,6 +18399,7 @@ public:
     GCBaseGrenade GetParent() const;
     void SetParent(GCBaseGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -17851,13 +18414,13 @@ public:
     GCCSPlayerController(void *ptr);
 
     GCCSPlayerController_InGameMoneyServices GetInGameMoneyServices() const;
-    void SetInGameMoneyServices(GCCSPlayerController_InGameMoneyServices* value);
+    void SetInGameMoneyServices(GCCSPlayerController_InGameMoneyServices value);
     GCCSPlayerController_InventoryServices GetInventoryServices() const;
-    void SetInventoryServices(GCCSPlayerController_InventoryServices* value);
+    void SetInventoryServices(GCCSPlayerController_InventoryServices value);
     GCCSPlayerController_ActionTrackingServices GetActionTrackingServices() const;
-    void SetActionTrackingServices(GCCSPlayerController_ActionTrackingServices* value);
+    void SetActionTrackingServices(GCCSPlayerController_ActionTrackingServices value);
     GCCSPlayerController_DamageServices GetDamageServices() const;
-    void SetDamageServices(GCCSPlayerController_DamageServices* value);
+    void SetDamageServices(GCCSPlayerController_DamageServices value);
     uint32_t GetPing() const;
     void SetPing(uint32_t value);
     bool GetHasCommunicationAbuseMute() const;
@@ -17949,13 +18512,13 @@ public:
     bool GetCanControlObservedBot() const;
     void SetCanControlObservedBot(bool value);
     GCCSPlayerPawn GetPlayerPawn() const;
-    void SetPlayerPawn(GCCSPlayerPawn* value);
+    void SetPlayerPawn(GCCSPlayerPawn value);
     GCCSObserverPawn GetObserverPawn() const;
-    void SetObserverPawn(GCCSObserverPawn* value);
+    void SetObserverPawn(GCCSObserverPawn value);
     int32_t GetDesiredObserverMode() const;
     void SetDesiredObserverMode(int32_t value);
     GCEntityInstance GetDesiredObserverTarget() const;
-    void SetDesiredObserverTarget(GCEntityInstance* value);
+    void SetDesiredObserverTarget(GCEntityInstance value);
     bool GetPawnIsAlive() const;
     void SetPawnIsAlive(bool value);
     uint32_t GetPawnHealth() const;
@@ -17975,7 +18538,7 @@ public:
     int32_t GetPawnBotDifficulty() const;
     void SetPawnBotDifficulty(int32_t value);
     GCCSPlayerController GetOriginalControllerOfCurrentPawn() const;
-    void SetOriginalControllerOfCurrentPawn(GCCSPlayerController* value);
+    void SetOriginalControllerOfCurrentPawn(GCCSPlayerController value);
     int32_t GetScore() const;
     void SetScore(int32_t value);
     int32_t GetRoundScore() const;
@@ -18025,6 +18588,7 @@ public:
     GCBasePlayerController GetParent() const;
     void SetParent(GCBasePlayerController value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18040,8 +18604,8 @@ public:
 
     GCAttributeContainer GetAttributeManager() const;
     void SetAttributeManager(GCAttributeContainer value);
-    CUtlStringToken GetActivityFinishedTag() const;
-    void SetActivityFinishedTag(CUtlStringToken value);
+    uint32_t GetActivityFinishedTag() const;
+    void SetActivityFinishedTag(uint32_t value);
     GCountdownTimer GetUpdateTimer() const;
     void SetUpdateTimer(GCountdownTimer value);
     Vector GetStuckAnchor() const;
@@ -18063,7 +18627,7 @@ public:
     float GetTurnRate() const;
     void SetTurnRate(float value);
     GCBaseEntity GetFleeFrom() const;
-    void SetFleeFrom(GCBaseEntity* value);
+    void SetFleeFrom(GCBaseEntity value);
     GCountdownTimer GetMoveRateThrottleTimer() const;
     void SetMoveRateThrottleTimer(GCountdownTimer value);
     GCountdownTimer GetStartleTimer() const;
@@ -18075,7 +18639,7 @@ public:
     bool GetJumpedThisFrame() const;
     void SetJumpedThisFrame(bool value);
     GCCSPlayerPawn GetLeader() const;
-    void SetLeader(GCCSPlayerPawn* value);
+    void SetLeader(GCCSPlayerPawn value);
     GCountdownTimer GetReuseTimer() const;
     void SetReuseTimer(GCountdownTimer value);
     bool GetHasBeenUsed() const;
@@ -18107,6 +18671,7 @@ public:
     GCDynamicProp GetParent() const;
     void SetParent(GCDynamicProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18123,6 +18688,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18139,6 +18705,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18155,6 +18722,7 @@ public:
     GCCSPlayerPawnBase GetParent() const;
     void SetParent(GCCSPlayerPawnBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18201,6 +18769,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18225,6 +18794,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18245,6 +18815,7 @@ public:
     GCRuleBrushEntity GetParent() const;
     void SetParent(GCRuleBrushEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18261,6 +18832,7 @@ public:
     GCBaseCSGrenade GetParent() const;
     void SetParent(GCBaseCSGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18277,6 +18849,7 @@ public:
     GCCSGO_WingmanIntroCharacterPosition GetParent() const;
     void SetParent(GCCSGO_WingmanIntroCharacterPosition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18295,6 +18868,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18313,6 +18887,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18343,6 +18918,7 @@ public:
     bool GetPlayReversalSound() const;
     void SetPlayReversalSound(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18361,6 +18937,7 @@ public:
     GCGameRules GetParent() const;
     void SetParent(GCGameRules value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18379,6 +18956,7 @@ public:
     GCBaseFilter GetParent() const;
     void SetParent(GCBaseFilter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18399,6 +18977,7 @@ public:
     GCEconEntity GetParent() const;
     void SetParent(GCEconEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18421,6 +19000,7 @@ public:
     GCPlayer_ItemServices GetParent() const;
     void SetParent(GCPlayer_ItemServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18455,6 +19035,7 @@ public:
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18471,6 +19052,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18505,6 +19087,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18535,6 +19118,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18553,6 +19137,7 @@ public:
     GCBarnLight GetParent() const;
     void SetParent(GCBarnLight value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18569,6 +19154,7 @@ public:
     GCCSGO_TeamPreviewCharacterPosition GetParent() const;
     void SetParent(GCCSGO_TeamPreviewCharacterPosition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18639,6 +19225,7 @@ public:
     GCBaseToggle GetParent() const;
     void SetParent(GCBaseToggle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18655,12 +19242,13 @@ public:
     std::string GetSourceName() const;
     void SetSourceName(std::string value);
     GCBaseEntity GetStartEntity() const;
-    void SetStartEntity(GCBaseEntity* value);
+    void SetStartEntity(GCBaseEntity value);
     GCBaseEntity GetEndEntity() const;
-    void SetEndEntity(GCBaseEntity* value);
+    void SetEndEntity(GCBaseEntity value);
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18685,6 +19273,7 @@ public:
     int32_t GetBombSite() const;
     void SetBombSite(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18699,10 +19288,11 @@ public:
     GCCSGameRulesProxy(void *ptr);
 
     GCCSGameRules GetGameRules() const;
-    void SetGameRules(GCCSGameRules* value);
+    void SetGameRules(GCCSGameRules value);
     GCGameRulesProxy GetParent() const;
     void SetParent(GCGameRulesProxy value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18719,6 +19309,7 @@ public:
     GCEnvCubemap GetParent() const;
     void SetParent(GCEnvCubemap value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18735,6 +19326,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -18755,6 +19347,7 @@ public:
     uint16_t GetItemDefIdx() const;
     void SetItemDefIdx(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19089,9 +19682,9 @@ public:
     bool GetSwitchingTeamsAtRoundReset() const;
     void SetSwitchingTeamsAtRoundReset(bool value);
     GCCSGameModeRules GetGameModeRules() const;
-    void SetGameModeRules(GCCSGameModeRules* value);
+    void SetGameModeRules(GCCSGameModeRules value);
     GCBaseEntity GetPlayerResource() const;
-    void SetPlayerResource(GCBaseEntity* value);
+    void SetPlayerResource(GCBaseEntity value);
     GCRetakeGameRules GetRetakeRules() const;
     void SetRetakeRules(GCRetakeGameRules value);
     std::vector<bool> GetTeamLastKillUsedUniqueWeaponMatch() const;
@@ -19145,6 +19738,7 @@ public:
     GCTeamplayRules GetParent() const;
     void SetParent(GCTeamplayRules value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19195,6 +19789,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19211,6 +19806,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19227,6 +19823,7 @@ public:
     GCSoundEventEntity GetParent() const;
     void SetParent(GCSoundEventEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19242,6 +19839,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19280,6 +19878,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19296,6 +19895,7 @@ public:
     GCHostageRescueZoneShim GetParent() const;
     void SetParent(GCHostageRescueZoneShim value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19320,10 +19920,11 @@ public:
     bool GetLoadDynamic() const;
     void SetLoadDynamic(bool value);
     GCPointPrefab GetAssociatedRelayEntity() const;
-    void SetAssociatedRelayEntity(GCPointPrefab* value);
+    void SetAssociatedRelayEntity(GCPointPrefab value);
     GCServerOnlyPointEntity GetParent() const;
     void SetParent(GCServerOnlyPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19342,6 +19943,7 @@ public:
     GCBaseDoor GetParent() const;
     void SetParent(GCBaseDoor value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19356,10 +19958,11 @@ public:
     GCSkeletonAnimationController(void *ptr);
 
     GCSkeletonInstance GetSkeletonInstance() const;
-    void SetSkeletonInstance(GCSkeletonInstance* value);
+    void SetSkeletonInstance(GCSkeletonInstance value);
     GISkeletonAnimationController GetParent() const;
     void SetParent(GISkeletonAnimationController value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19376,6 +19979,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19390,9 +19994,9 @@ public:
     GCTankTrainAI(void *ptr);
 
     GCFuncTrackTrain GetTrain() const;
-    void SetTrain(GCFuncTrackTrain* value);
+    void SetTrain(GCFuncTrackTrain value);
     GCBaseEntity GetTargetEntity() const;
-    void SetTargetEntity(GCBaseEntity* value);
+    void SetTargetEntity(GCBaseEntity value);
     int32_t GetSoundPlaying() const;
     void SetSoundPlaying(int32_t value);
     std::string GetStartSoundName() const;
@@ -19406,6 +20010,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19430,6 +20035,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19444,8 +20050,9 @@ public:
     GCCSPointScript(void *ptr);
 
     GCCSPointScriptEntity GetParent() const;
-    void SetParent(GCCSPointScriptEntity* value);
+    void SetParent(GCCSPointScriptEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19462,6 +20069,7 @@ public:
     GCRagdollProp GetParent() const;
     void SetParent(GCRagdollProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19478,6 +20086,7 @@ public:
     GCSprite GetParent() const;
     void SetParent(GCSprite value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19494,6 +20103,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19510,6 +20120,7 @@ public:
     GSpawnPoint GetParent() const;
     void SetParent(GSpawnPoint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19526,6 +20137,7 @@ public:
     GCCSWeaponBaseGun GetParent() const;
     void SetParent(GCCSWeaponBaseGun value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19542,6 +20154,7 @@ public:
     GCBaseGrenade GetParent() const;
     void SetParent(GCBaseGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19558,6 +20171,7 @@ public:
     GCFuncTrackChange GetParent() const;
     void SetParent(GCFuncTrackChange value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19584,6 +20198,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19600,6 +20215,7 @@ public:
     GCPlayer_ObserverServices GetParent() const;
     void SetParent(GCPlayer_ObserverServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19616,6 +20232,7 @@ public:
     GCPlayerPawnComponent GetParent() const;
     void SetParent(GCPlayerPawnComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19630,11 +20247,11 @@ public:
     GCFuncTrain(void *ptr);
 
     GCBaseEntity GetCurrentTarget() const;
-    void SetCurrentTarget(GCBaseEntity* value);
+    void SetCurrentTarget(GCBaseEntity value);
     bool GetActivated() const;
     void SetActivated(bool value);
     GCBaseEntity GetEnemy() const;
-    void SetEnemy(GCBaseEntity* value);
+    void SetEnemy(GCBaseEntity value);
     float GetBlockDamage() const;
     void SetBlockDamage(float value);
     float GetNextBlockTime() const;
@@ -19644,6 +20261,7 @@ public:
     GCBasePlatTrain GetParent() const;
     void SetParent(GCBasePlatTrain value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19660,6 +20278,7 @@ public:
     GCHostage GetParent() const;
     void SetParent(GCHostage value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19692,7 +20311,7 @@ public:
     std::string GetStrFilterName() const;
     void SetStrFilterName(std::string value);
     GCBaseFilter GetFilter() const;
-    void SetFilter(GCBaseFilter* value);
+    void SetFilter(GCBaseFilter value);
     GCEntityIOOutput GetOnNavLinkStart() const;
     void SetOnNavLinkStart(GCEntityIOOutput value);
     GCEntityIOOutput GetOnNavLinkFinish() const;
@@ -19702,6 +20321,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19718,6 +20338,7 @@ public:
     GCFuncMoveLinear GetParent() const;
     void SetParent(GCFuncMoveLinear value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19740,6 +20361,7 @@ public:
     GCBaseEntity GetParent() const;
     void SetParent(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19772,6 +20394,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19788,6 +20411,7 @@ public:
     GCBaseTrigger GetParent() const;
     void SetParent(GCBaseTrigger value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19806,6 +20430,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19826,13 +20451,13 @@ public:
     std::string GetStrTargetReference() const;
     void SetStrTargetReference(std::string value);
     GCBaseEntity GetMeasureTarget() const;
-    void SetMeasureTarget(GCBaseEntity* value);
+    void SetMeasureTarget(GCBaseEntity value);
     GCBaseEntity GetMeasureReference() const;
-    void SetMeasureReference(GCBaseEntity* value);
+    void SetMeasureReference(GCBaseEntity value);
     GCBaseEntity GetTarget() const;
-    void SetTarget(GCBaseEntity* value);
+    void SetTarget(GCBaseEntity value);
     GCBaseEntity GetTargetReference() const;
-    void SetTargetReference(GCBaseEntity* value);
+    void SetTargetReference(GCBaseEntity value);
     float GetScale() const;
     void SetScale(float value);
     int32_t GetMeasureType() const;
@@ -19840,6 +20465,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19860,6 +20486,7 @@ public:
     uint32_t GetIndex() const;
     void SetIndex(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19876,8 +20503,9 @@ public:
     GCNetworkVarChainer Get__pChainEntity() const;
     void Set__pChainEntity(GCNetworkVarChainer value);
     GCBaseEntity GetOwner() const;
-    void SetOwner(GCBaseEntity* value);
+    void SetOwner(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19894,6 +20522,7 @@ public:
     GCBaseGrenade GetParent() const;
     void SetParent(GCBaseGrenade value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19910,6 +20539,7 @@ public:
     std::vector<float> GetValue() const;
     void SetValue(std::vector<float> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19925,6 +20555,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19943,6 +20574,7 @@ public:
     int32_t GetPriority() const;
     void SetPriority(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19959,6 +20591,7 @@ public:
     std::vector<float> GetValue() const;
     void SetValue(std::vector<float> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19974,6 +20607,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -19989,6 +20623,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20023,6 +20658,7 @@ public:
     GCPlayerControllerComponent GetParent() const;
     void SetParent(GCPlayerControllerComponent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20039,6 +20675,7 @@ public:
     std::vector<GCAI_Expresser*> GetExpresserTargets() const;
     void SetExpresserTargets(std::vector<GCAI_Expresser*> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20055,6 +20692,7 @@ public:
     int32_t GetInitialSeed() const;
     void SetInitialSeed(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20071,6 +20709,7 @@ public:
     int32_t GetValue() const;
     void SetValue(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20123,6 +20762,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20138,9 +20778,10 @@ public:
 
     float GetNext() const;
     void SetNext(float value);
-    WorldGroupId_t GetWorldGroupId() const;
-    void SetWorldGroupId(WorldGroupId_t value);
+    uint32_t GetWorldGroupId() const;
+    void SetWorldGroupId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20161,6 +20802,7 @@ public:
     float GetPhysicsForceDamage() const;
     void SetPhysicsForceDamage(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20177,6 +20819,7 @@ public:
     GCAnimEventListenerBase GetParent() const;
     void SetParent(GCAnimEventListenerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20193,7 +20836,7 @@ public:
     std::string GetLaserTarget() const;
     void SetLaserTarget(std::string value);
     GCSprite GetSprite() const;
-    void SetSprite(GCSprite* value);
+    void SetSprite(GCSprite value);
     std::string GetSpriteName() const;
     void SetSpriteName(std::string value);
     Vector GetFirePosition() const;
@@ -20203,6 +20846,7 @@ public:
     GCBeam GetParent() const;
     void SetParent(GCBeam value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20219,6 +20863,7 @@ public:
     std::vector<float> GetValues() const;
     void SetValues(std::vector<float> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20233,10 +20878,11 @@ public:
     GCRopeOverlapHit(void *ptr);
 
     GCBaseEntity GetEntity() const;
-    void SetEntity(GCBaseEntity* value);
+    void SetEntity(GCBaseEntity value);
     std::vector<int32> GetOverlappingLinks() const;
     void SetOverlappingLinks(std::vector<int32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20257,6 +20903,7 @@ public:
     float GetExpirationTime() const;
     void SetExpirationTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20272,6 +20919,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20288,6 +20936,7 @@ public:
     GCPlayer_MovementServices GetParent() const;
     void SetParent(GCPlayer_MovementServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20303,6 +20952,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20349,6 +20999,7 @@ public:
     bool GetIgnoreCollisions() const;
     void SetIgnoreCollisions(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20391,6 +21042,7 @@ public:
     GCSkeletonAnimationController GetParent() const;
     void SetParent(GCSkeletonAnimationController value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20411,6 +21063,7 @@ public:
     GCNavVolume GetParent() const;
     void SetParent(GCNavVolume value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20429,6 +21082,7 @@ public:
     bool GetOverrideOnAppend() const;
     void SetOverrideOnAppend(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20461,8 +21115,9 @@ public:
     int32_t GetLastSpokenPriority() const;
     void SetLastSpokenPriority(int32_t value);
     GCBaseFlex GetOuter() const;
-    void SetOuter(GCBaseFlex* value);
+    void SetOuter(GCBaseFlex value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20478,6 +21133,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20496,6 +21152,7 @@ public:
     GCSimpleSimTimer GetParent() const;
     void SetParent(GCSimpleSimTimer value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20514,8 +21171,9 @@ public:
     int16_t GetFlags() const;
     void SetFlags(int16_t value);
     GResponseFollowup GetFollowup() const;
-    void SetFollowup(GResponseFollowup* value);
+    void SetFollowup(GResponseFollowup value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20532,6 +21190,7 @@ public:
     GCWeaponBaseItem GetParent() const;
     void SetParent(GCWeaponBaseItem value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20548,6 +21207,7 @@ public:
     GCPhysHinge GetParent() const;
     void SetParent(GCPhysHinge value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20570,6 +21230,7 @@ public:
     float GetFarBlurryDistance() const;
     void SetFarBlurryDistance(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20592,6 +21253,7 @@ public:
     bool GetForceupdate() const;
     void SetForceupdate(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20608,6 +21270,7 @@ public:
     Gdynpitchvol_base_t GetParent() const;
     void SetParent(Gdynpitchvol_base_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20626,6 +21289,7 @@ public:
     GCStopwatchBase GetParent() const;
     void SetParent(GCStopwatchBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20644,6 +21308,7 @@ public:
     GCNavVolume GetParent() const;
     void SetParent(GCNavVolume value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20662,6 +21327,7 @@ public:
     bool GetDefault() const;
     void SetDefault(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20698,6 +21364,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20734,6 +21401,7 @@ public:
     GCPhysConstraint GetParent() const;
     void SetParent(GCPhysConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20748,9 +21416,9 @@ public:
     GCSound(void *ptr);
 
     GCBaseEntity GetOwner() const;
-    void SetOwner(GCBaseEntity* value);
+    void SetOwner(GCBaseEntity value);
     GCBaseEntity GetTarget() const;
-    void SetTarget(GCBaseEntity* value);
+    void SetTarget(GCBaseEntity value);
     int32_t GetVolume() const;
     void SetVolume(int32_t value);
     float GetOcclusionScale() const;
@@ -20770,6 +21438,7 @@ public:
     bool GetHasOwner() const;
     void SetHasOwner(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20784,7 +21453,7 @@ public:
     GCTakeDamageResult(void *ptr);
 
     GCTakeDamageInfo GetOriginatingInfo() const;
-    void SetOriginatingInfo(GCTakeDamageInfo* value);
+    void SetOriginatingInfo(GCTakeDamageInfo value);
     int32_t GetHealthLost() const;
     void SetHealthLost(int32_t value);
     int32_t GetDamageTaken() const;
@@ -20794,6 +21463,7 @@ public:
     int32_t GetTotalledDamageTaken() const;
     void SetTotalledDamageTaken(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20818,6 +21488,7 @@ public:
     GCBaseCSGrenadeProjectile GetParent() const;
     void SetParent(GCBaseCSGrenadeProjectile value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20844,6 +21515,7 @@ public:
     bool GetIsFirstSpawnGroupToLoad() const;
     void SetIsFirstSpawnGroupToLoad(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20874,6 +21546,7 @@ public:
     bool GetFired() const;
     void SetFired(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20890,6 +21563,7 @@ public:
     std::vector<int32_t> GetValue() const;
     void SetValue(std::vector<int32_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20906,6 +21580,7 @@ public:
     uint32_t GetAlignmentDegrees() const;
     void SetAlignmentDegrees(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20922,6 +21597,7 @@ public:
     GCCSGO_TeamSelectCharacterPosition GetParent() const;
     void SetParent(GCCSGO_TeamSelectCharacterPosition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20942,6 +21618,7 @@ public:
     std::vector<GCNavLinkAnimgraphVar> GetAnimgraphVars() const;
     void SetAnimgraphVars(std::vector<GCNavLinkAnimgraphVar> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20957,6 +21634,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -20977,6 +21655,7 @@ public:
     bool GetForceCurrentWorldTransform() const;
     void SetForceCurrentWorldTransform(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21001,6 +21680,7 @@ public:
     GCRangeFloat GetSpeed() const;
     void SetSpeed(GCRangeFloat value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21021,6 +21701,7 @@ public:
     GCStopwatchBase GetParent() const;
     void SetParent(GCStopwatchBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21035,9 +21716,9 @@ public:
     GCGameChoreoServices(void *ptr);
 
     GCBaseAnimGraph GetOwner() const;
-    void SetOwner(GCBaseAnimGraph* value);
+    void SetOwner(GCBaseAnimGraph value);
     GCScriptedSequence GetScriptedSequence() const;
-    void SetScriptedSequence(GCScriptedSequence* value);
+    void SetScriptedSequence(GCScriptedSequence value);
     GIChoreoServices GetScriptState() const;
     void SetScriptState(GIChoreoServices value);
     GIChoreoServices GetChoreoState() const;
@@ -21047,6 +21728,7 @@ public:
     GIChoreoServices GetParent() const;
     void SetParent(GIChoreoServices value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21063,6 +21745,7 @@ public:
     GCStopwatchBase GetParent() const;
     void SetParent(GCStopwatchBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21083,9 +21766,9 @@ public:
     Vector2D GetLocalPanelSpaceOrigin() const;
     void SetLocalPanelSpaceOrigin(Vector2D value);
     GCShatterGlassShardPhysics GetPhysicsEntity() const;
-    void SetPhysicsEntity(GCShatterGlassShardPhysics* value);
+    void SetPhysicsEntity(GCShatterGlassShardPhysics value);
     GCFuncShatterglass GetParentPanel() const;
-    void SetParentPanel(GCFuncShatterglass* value);
+    void SetParentPanel(GCFuncShatterglass value);
     uint32_t GetParentShard() const;
     void SetParentShard(uint32_t value);
     uint64_t GetShatterStressType() const;
@@ -21131,10 +21814,11 @@ public:
     bool GetShatterRateLimited() const;
     void SetShatterRateLimited(bool value);
     GCBaseEntity GetEntityHittingMe() const;
-    void SetEntityHittingMe(GCBaseEntity* value);
+    void SetEntityHittingMe(GCBaseEntity value);
     std::vector<uint32> GetNeighbors() const;
     void SetNeighbors(std::vector<uint32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21173,6 +21857,7 @@ public:
     uint64_t GetClearDebugBits() const;
     void SetClearDebugBits(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21193,6 +21878,7 @@ public:
     float GetRadius() const;
     void SetRadius(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21209,6 +21895,7 @@ public:
     GCBodyComponentSkeletonInstance GetParent() const;
     void SetParent(GCBodyComponentSkeletonInstance value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21229,6 +21916,7 @@ public:
     float GetZ() const;
     void SetZ(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21243,8 +21931,9 @@ public:
     Gmagnetted_objects_t(void *ptr);
 
     GCBaseEntity GetEntity() const;
-    void SetEntity(GCBaseEntity* value);
+    void SetEntity(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21261,8 +21950,9 @@ public:
     float GetTmMessageEnd() const;
     void SetTmMessageEnd(float value);
     GCBasePlayerController GetPlayerController() const;
-    void SetPlayerController(GCBasePlayerController* value);
+    void SetPlayerController(GCBasePlayerController value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21279,6 +21969,7 @@ public:
     std::vector<int32_t> GetValue() const;
     void SetValue(std::vector<int32_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21292,13 +21983,14 @@ public:
     Gthinkfunc_t(std::string ptr);
     Gthinkfunc_t(void *ptr);
 
-    CUtlStringToken GetContext() const;
-    void SetContext(CUtlStringToken value);
+    uint32_t GetContext() const;
+    void SetContext(uint32_t value);
     int32 GetNextThinkTick() const;
     void SetNextThinkTick(int32 value);
     int32 GetLastThinkTick() const;
     void SetLastThinkTick(int32 value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21315,6 +22007,7 @@ public:
     std::vector<CUtlString> GetNavHulls() const;
     void SetNavHulls(std::vector<CUtlString> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21357,6 +22050,7 @@ public:
     GCEntitySubclassVDataBase GetParent() const;
     void SetParent(GCEntitySubclassVDataBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21387,7 +22081,7 @@ public:
     bool GetShouldRemove() const;
     void SetShouldRemove(bool value);
     GCBaseEntity GetTarget() const;
-    void SetTarget(GCBaseEntity* value);
+    void SetTarget(GCBaseEntity value);
     GSceneEventId_t GetSceneEventId() const;
     void SetSceneEventId(GSceneEventId_t value);
     bool GetClientSide() const;
@@ -21395,6 +22089,7 @@ public:
     bool GetStarted() const;
     void SetStarted(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21413,6 +22108,7 @@ public:
     std::vector<int32_t> GetRecipients() const;
     void SetRecipients(std::vector<int32_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21437,6 +22133,7 @@ public:
     GCPropDoorRotating GetParent() const;
     void SetParent(GCPropDoorRotating value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21477,6 +22174,7 @@ public:
     GCBtNode GetParent() const;
     void SetParent(GCBtNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21493,6 +22191,7 @@ public:
     std::vector<int32_t> GetValues() const;
     void SetValues(std::vector<int32_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21517,9 +22216,9 @@ public:
     std::string GetSoundScriptName() const;
     void SetSoundScriptName(std::string value);
     GCBaseEntity GetEnt() const;
-    void SetEnt(GCBaseEntity* value);
-    CEntityIndex GetSoundEntityIndex() const;
-    void SetSoundEntityIndex(CEntityIndex value);
+    void SetEnt(GCBaseEntity value);
+    int GetSoundEntityIndex() const;
+    void SetSoundEntityIndex(int value);
     Vector GetSoundOrigin() const;
     void SetSoundOrigin(Vector value);
     int32_t GetIsPlaying() const;
@@ -21533,6 +22232,7 @@ public:
     std::string GetClassName() const;
     void SetClassName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21557,6 +22257,7 @@ public:
     int32_t GetSmoothDir() const;
     void SetSmoothDir(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21572,6 +22273,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21600,6 +22302,7 @@ public:
     GCRagdollProp GetParent() const;
     void SetParent(GCRagdollProp value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21634,6 +22337,7 @@ public:
     bool GetHull_Small() const;
     void SetHull_Small(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21652,6 +22356,7 @@ public:
     GCBodyComponentSkeletonInstance GetParent() const;
     void SetParent(GCBodyComponentSkeletonInstance value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21672,6 +22377,7 @@ public:
     GAmmoTypeInfo_t GetParent() const;
     void SetParent(GAmmoTypeInfo_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21688,7 +22394,7 @@ public:
     std::string GetNameAttach() const;
     void SetNameAttach(std::string value);
     GCBaseEntity GetAttachedObject() const;
-    void SetAttachedObject(GCBaseEntity* value);
+    void SetAttachedObject(GCBaseEntity value);
     float GetSpinUp() const;
     void SetSpinUp(float value);
     float GetAdditionalAcceleration() const;
@@ -21702,6 +22408,7 @@ public:
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21720,6 +22427,7 @@ public:
     GCSimpleSimTimer GetParent() const;
     void SetParent(GCSimpleSimTimer value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21744,6 +22452,7 @@ public:
     int32_t GetNumPotentialVotes() const;
     void SetNumPotentialVotes(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21766,11 +22475,11 @@ public:
     Vector GetDamageDirection() const;
     void SetDamageDirection(Vector value);
     GCBaseEntity GetInflictor() const;
-    void SetInflictor(GCBaseEntity* value);
+    void SetInflictor(GCBaseEntity value);
     GCBaseEntity GetAttacker() const;
-    void SetAttacker(GCBaseEntity* value);
+    void SetAttacker(GCBaseEntity value);
     GCBaseEntity GetAbility() const;
-    void SetAbility(GCBaseEntity* value);
+    void SetAbility(GCBaseEntity value);
     float GetDamage() const;
     void SetDamage(float value);
     float GetTotalledDamage() const;
@@ -21794,6 +22503,7 @@ public:
     bool GetInTakeDamageFlow() const;
     void SetInTakeDamageFlow(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21810,6 +22520,7 @@ public:
     float GetTimeSpoken() const;
     void SetTimeSpoken(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21828,6 +22539,7 @@ public:
     GCPhysForce GetParent() const;
     void SetParent(GCPhysForce value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21848,8 +22560,9 @@ public:
     GCTakeDamageResult GetResult() const;
     void SetResult(GCTakeDamageResult value);
     GCBaseEntity GetTarget() const;
-    void SetTarget(GCBaseEntity* value);
+    void SetTarget(GCBaseEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21870,6 +22583,7 @@ public:
     GCSimpleSimTimer GetParent() const;
     void SetParent(GCSimpleSimTimer value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21886,6 +22600,7 @@ public:
     GCBtNode GetParent() const;
     void SetParent(GCBtNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21902,6 +22617,7 @@ public:
     GCInferno GetParent() const;
     void SetParent(GCInferno value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21926,6 +22642,7 @@ public:
     Vector GetPos() const;
     void SetPos(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21942,6 +22659,7 @@ public:
     GCCSGO_TeamSelectCharacterPosition GetParent() const;
     void SetParent(GCCSGO_TeamSelectCharacterPosition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21956,10 +22674,11 @@ public:
     GCAI_ExpresserWithFollowup(void *ptr);
 
     GResponseFollowup GetPostponedFollowup() const;
-    void SetPostponedFollowup(GResponseFollowup* value);
+    void SetPostponedFollowup(GResponseFollowup value);
     GCAI_Expresser GetParent() const;
     void SetParent(GCAI_Expresser value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21976,6 +22695,7 @@ public:
     GCNavVolume GetParent() const;
     void SetParent(GCNavVolume value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -21991,6 +22711,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22005,18 +22726,17 @@ public:
     Glerpdata_t(void *ptr);
 
     GCBaseEntity GetEnt() const;
-    void SetEnt(GCBaseEntity* value);
+    void SetEnt(GCBaseEntity value);
     uint64_t GetMoveType() const;
     void SetMoveType(uint64_t value);
     float GetStartTime() const;
     void SetStartTime(float value);
     Vector GetStartOrigin() const;
     void SetStartOrigin(Vector value);
-    Quaternion GetStartRot() const;
-    void SetStartRot(Quaternion value);
     GParticleIndex_t GetFXIndex() const;
     void SetFXIndex(GParticleIndex_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22035,6 +22755,7 @@ public:
     GCAI_ExpresserWithFollowup GetParent() const;
     void SetParent(GCAI_ExpresserWithFollowup value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22051,6 +22772,7 @@ public:
     std::vector<GSummaryTakeDamageInfo_t*> GetSummaries() const;
     void SetSummaries(std::vector<GSummaryTakeDamageInfo_t*> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22067,6 +22789,7 @@ public:
     GCCSWeaponBase GetParent() const;
     void SetParent(GCCSWeaponBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22159,6 +22882,7 @@ public:
     GCPlayer_MovementServices_Humanoid GetParent() const;
     void SetParent(GCPlayer_MovementServices_Humanoid value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22195,6 +22919,7 @@ public:
     int32_t GetAgentBorderErosion() const;
     void SetAgentBorderErosion(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22215,6 +22940,7 @@ public:
     float GetDistSqrToCenter() const;
     void SetDistSqrToCenter(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22231,6 +22957,7 @@ public:
     GCAnimEventListenerBase GetParent() const;
     void SetParent(GCAnimEventListenerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22247,6 +22974,7 @@ public:
     GCNavVolume GetParent() const;
     void SetParent(GCNavVolume value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22421,6 +23149,7 @@ public:
     GCBasePlayerWeaponVData GetParent() const;
     void SetParent(GCBasePlayerWeaponVData value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22443,6 +23172,7 @@ public:
     GCBtNodeCondition GetParent() const;
     void SetParent(GCBtNodeCondition value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22469,6 +23199,7 @@ public:
     int32_t GetDinks() const;
     void SetDinks(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22491,6 +23222,7 @@ public:
     std::vector<CUtlSymbolLarge> GetAssociatedEntityNames() const;
     void SetAssociatedEntityNames(std::vector<CUtlSymbolLarge> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22519,6 +23251,7 @@ public:
     GCEntitySubclassVDataBase GetParent() const;
     void SetParent(GCEntitySubclassVDataBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22537,6 +23270,7 @@ public:
     int32_t GetStageCount() const;
     void SetStageCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22557,6 +23291,7 @@ public:
     GCNavVolumeCalculatedVector GetParent() const;
     void SetParent(GCNavVolumeCalculatedVector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22587,12 +23322,13 @@ public:
     std::string GetSourceEntName() const;
     void SetSourceEntName(std::string value);
     GCBaseEntity GetSoundSource() const;
-    void SetSoundSource(GCBaseEntity* value);
-    CEntityIndex GetSoundSourceEntIndex() const;
-    void SetSoundSourceEntIndex(CEntityIndex value);
+    void SetSoundSource(GCBaseEntity value);
+    int GetSoundSourceEntIndex() const;
+    void SetSoundSourceEntIndex(int value);
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22633,6 +23369,7 @@ public:
     GCSAdditionalPerRoundStats_t GetParent() const;
     void SetParent(GCSAdditionalPerRoundStats_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22648,6 +23385,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22668,6 +23406,7 @@ public:
     GCRulePointEntity GetParent() const;
     void SetParent(GCRulePointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22684,6 +23423,7 @@ public:
     GCPointEntity GetParent() const;
     void SetParent(GCPointEntity value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22700,6 +23440,7 @@ public:
     GCNavVolumeVector GetParent() const;
     void SetParent(GCNavVolumeVector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22718,6 +23459,7 @@ public:
     GCNavVolumeSphere GetParent() const;
     void SetParent(GCNavVolumeSphere value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22732,12 +23474,13 @@ public:
     GRelationshipOverride_t(void *ptr);
 
     GCBaseEntity GetEntity() const;
-    void SetEntity(GCBaseEntity* value);
+    void SetEntity(GCBaseEntity value);
     uint64_t GetClassType() const;
     void SetClassType(uint64_t value);
     GRelationship_t GetParent() const;
     void SetParent(GRelationship_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22754,6 +23497,7 @@ public:
     int32_t GetValue() const;
     void SetValue(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22769,6 +23513,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22873,6 +23618,7 @@ public:
     GCParticleInput GetParent() const;
     void SetParent(GCParticleInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22891,6 +23637,7 @@ public:
     uint32_t GetElementCount() const;
     void SetElementCount(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22911,6 +23658,7 @@ public:
     std::vector<float32> GetSwitchDistances() const;
     void SetSwitchDistances(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22929,6 +23677,7 @@ public:
     int32_t GetDimensions() const;
     void SetDimensions(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22945,6 +23694,7 @@ public:
     int32_t GetNodeIndex() const;
     void SetNodeIndex(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22961,6 +23711,7 @@ public:
     int16_t GetNodeIdx() const;
     void SetNodeIdx(int16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -22977,6 +23728,7 @@ public:
     GCParticleFloatInput GetParent() const;
     void SetParent(GCParticleFloatInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23023,6 +23775,7 @@ public:
     std::string GetNotes() const;
     void SetNotes(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23039,6 +23792,7 @@ public:
     GCParticleFunction GetParent() const;
     void SetParent(GCParticleFunction value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23055,6 +23809,7 @@ public:
     int32_t GetUnused() const;
     void SetUnused(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23087,6 +23842,7 @@ public:
     bool GetPeakMode() const;
     void SetPeakMode(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23107,6 +23863,7 @@ public:
     uint64_t GetTriggerPhase() const;
     void SetTriggerPhase(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23133,6 +23890,7 @@ public:
     std::string GetEntityName() const;
     void SetEntityName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23157,6 +23915,7 @@ public:
     uint16_t GetFlags() const;
     void SetFlags(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23179,6 +23938,7 @@ public:
     int32_t GetDimensionStartIndex() const;
     void SetDimensionStartIndex(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23199,6 +23959,7 @@ public:
     int8_t GetConeCutoff() const;
     void SetConeCutoff(int8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23212,11 +23973,10 @@ public:
     GCAnimUserDifference(std::string ptr);
     GCAnimUserDifference(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     int32_t GetType() const;
     void SetType(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23243,6 +24003,7 @@ public:
     bool Get2D_TRI() const;
     void Set2D_TRI(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23261,6 +24022,7 @@ public:
     float GetDuration() const;
     void SetDuration(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23279,6 +24041,7 @@ public:
     uint8_t GetIndex() const;
     void SetIndex(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23299,6 +24062,7 @@ public:
     std::vector<GFunctionInfo_t> GetFunctions() const;
     void SetFunctions(std::vector<GFunctionInfo_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23315,6 +24079,7 @@ public:
     std::string GetStrBitmapName() const;
     void SetStrBitmapName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23333,6 +24098,7 @@ public:
     uint64_t GetFrameCount() const;
     void SetFrameCount(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23547,6 +24313,7 @@ public:
     uint16_t GetQuadVelocitySmoothIterations() const;
     void SetQuadVelocitySmoothIterations(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23563,6 +24330,7 @@ public:
     float GetCycle() const;
     void SetCycle(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23599,6 +24367,7 @@ public:
     std::string GetSkidStop() const;
     void SetSkidStop(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23621,6 +24390,7 @@ public:
     bool GetComputeDynamicMeshTensionAfterAnimation() const;
     void SetComputeDynamicMeshTensionAfterAnimation(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23651,6 +24421,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23685,6 +24456,7 @@ public:
     bool GetSolo() const;
     void SetSolo(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23703,6 +24475,7 @@ public:
     float GetRadius() const;
     void SetRadius(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23721,6 +24494,7 @@ public:
     float GetSpeedScale() const;
     void SetSpeedScale(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23737,6 +24511,7 @@ public:
     uint32_t GetId() const;
     void SetId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23755,6 +24530,7 @@ public:
     GCParticleFunctionOperator GetParent() const;
     void SetParent(GCParticleFunctionOperator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23771,6 +24547,7 @@ public:
     GCParticleFloatInput GetParent() const;
     void SetParent(GCParticleFloatInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23791,6 +24568,7 @@ public:
     uint64_t GetActionInstanceType() const;
     void SetActionInstanceType(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23811,6 +24589,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23829,6 +24608,7 @@ public:
     float GetFadeOutTime() const;
     void SetFadeOutTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23847,6 +24627,7 @@ public:
     int32_t GetCount() const;
     void SetCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23863,6 +24644,7 @@ public:
     std::vector<GParamSpan_t> GetSpans() const;
     void SetSpans(std::vector<GParamSpan_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23879,6 +24661,7 @@ public:
     uint32_t GetId() const;
     void SetId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23897,6 +24680,7 @@ public:
     GCParticleFunction GetParent() const;
     void SetParent(GCParticleFunction value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23913,6 +24697,7 @@ public:
     uint8_t GetEdge() const;
     void SetEdge(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23935,6 +24720,7 @@ public:
     int32_t GetRenderHeight() const;
     void SetRenderHeight(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23951,6 +24737,7 @@ public:
     GCNmGraphNode GetParent() const;
     void SetParent(GCNmGraphNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23967,6 +24754,7 @@ public:
     GCParticleFunction GetParent() const;
     void SetParent(GCParticleFunction value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -23989,6 +24777,7 @@ public:
     bool GetCanBeForced() const;
     void SetCanBeForced(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24002,8 +24791,6 @@ public:
     GCAnimAttachment(std::string ptr);
     GCAnimAttachment(void *ptr);
 
-    std::vector<Quaternion> GetInfluenceRotations() const;
-    void SetInfluenceRotations(std::vector<Quaternion> value);
     std::vector<Vector> GetInfluenceOffsets() const;
     void SetInfluenceOffsets(std::vector<Vector> value);
     std::vector<int32_t> GetInfluenceIndices() const;
@@ -24013,6 +24800,7 @@ public:
     uint8_t GetNumInfluences() const;
     void SetNumInfluences(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24033,6 +24821,7 @@ public:
     bool GetLastTick() const;
     void SetLastTick(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24049,6 +24838,7 @@ public:
     GCParticleCollectionFloatInput GetParent() const;
     void SetParent(GCParticleCollectionFloatInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24075,6 +24865,7 @@ public:
     std::vector<float32> GetBoneScaleParent() const;
     void SetBoneScaleParent(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24090,6 +24881,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24120,6 +24912,7 @@ public:
     GCParticleInput GetParent() const;
     void SetParent(GCParticleInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24172,6 +24965,7 @@ public:
     bool GetRightEye() const;
     void SetRightEye(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24188,6 +24982,7 @@ public:
     std::string GetName() const;
     void SetName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24208,6 +25003,7 @@ public:
     std::string GetName() const;
     void SetName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24230,6 +25026,7 @@ public:
     GCParticleFunction GetParent() const;
     void SetParent(GCParticleFunction value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24288,6 +25085,7 @@ public:
     GCParticleInput GetParent() const;
     void SetParent(GCParticleInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24390,6 +25188,7 @@ public:
     float GetProjectionAngularTolerance() const;
     void SetProjectionAngularTolerance(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24414,6 +25213,7 @@ public:
     std::vector<GCMorphBundleData> GetBundleDatas() const;
     void SetBundleDatas(std::vector<GCMorphBundleData> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24430,6 +25230,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24448,6 +25249,7 @@ public:
     std::vector<GCDSPMixgroupModifier> GetModifiers() const;
     void SetModifiers(std::vector<GCDSPMixgroupModifier> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24468,6 +25270,7 @@ public:
     float GetRecordingTime() const;
     void SetRecordingTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24502,6 +25305,7 @@ public:
     bool GetEnableSimulation() const;
     void SetEnableSimulation(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24520,6 +25324,7 @@ public:
     GCAnimUpdateNodeBase GetParent() const;
     void SetParent(GCAnimUpdateNodeBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24538,6 +25343,7 @@ public:
     float GetControlPoint2() const;
     void SetControlPoint2(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24554,6 +25360,7 @@ public:
     int16_t GetValue() const;
     void SetValue(int16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24576,6 +25383,7 @@ public:
     uint16_t GetReserved() const;
     void SetReserved(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24604,6 +25412,7 @@ public:
     std::vector<GCFlexRule> GetFlexRules() const;
     void SetFlexRules(std::vector<GCFlexRule> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24632,6 +25441,7 @@ public:
     GCAnimUpdateNodeBase GetParent() const;
     void SetParent(GCAnimUpdateNodeBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24654,6 +25464,7 @@ public:
     float GetMotorMaxTorque() const;
     void SetMotorMaxTorque(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24670,6 +25481,7 @@ public:
     uint16_t GetValue() const;
     void SetValue(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24692,6 +25504,7 @@ public:
     GCParticleFunctionOperator GetParent() const;
     void SetParent(GCParticleFunctionOperator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24776,6 +25589,7 @@ public:
     uint16_t GetCollisionMask() const;
     void SetCollisionMask(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24820,6 +25634,7 @@ public:
     int32_t GetQueryHandle() const;
     void SetQueryHandle(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24866,6 +25681,7 @@ public:
     uint64_t GetPerParticleDistortion() const;
     void SetPerParticleDistortion(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24886,6 +25702,7 @@ public:
     GCParticleInput GetParent() const;
     void SetParent(GCParticleInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24904,6 +25721,7 @@ public:
     GCNmPoseNode GetParent() const;
     void SetParent(GCNmPoseNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24917,13 +25735,12 @@ public:
     GCAnimDecoder(std::string ptr);
     GCAnimDecoder(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     int32_t GetVersion() const;
     void SetVersion(int32_t value);
     int32_t GetType() const;
     void SetType(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24940,6 +25757,7 @@ public:
     float GetValue() const;
     void SetValue(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24956,6 +25774,7 @@ public:
     int32_t GetSplitScreenSlot() const;
     void SetSplitScreenSlot(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24974,6 +25793,7 @@ public:
     std::vector<GCVoiceContainerAnalysisBase*> GetAnalysisContainers() const;
     void SetAnalysisContainers(std::vector<GCVoiceContainerAnalysisBase*> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -24990,6 +25810,7 @@ public:
     GCParticleVecInput GetParent() const;
     void SetParent(GCParticleVecInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25020,6 +25841,7 @@ public:
     GCBinaryUpdateNode GetParent() const;
     void SetParent(GCBinaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25038,6 +25860,7 @@ public:
     uint16_t GetConfig() const;
     void SetConfig(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25060,6 +25883,7 @@ public:
     float Get4RelaxationFactor() const;
     void Set4RelaxationFactor(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25076,6 +25900,7 @@ public:
     std::vector<GCSSDSEndFrameViewInfo> GetViews() const;
     void SetViews(std::vector<GCSSDSEndFrameViewInfo> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25094,6 +25919,7 @@ public:
     Vector GetSize() const;
     void SetSize(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25120,6 +25946,7 @@ public:
     float GetListenerReverbModifierWhenSourceReverbIsActive() const;
     void SetListenerReverbModifierWhenSourceReverbIsActive(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25135,6 +25962,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25159,6 +25987,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25177,6 +26006,7 @@ public:
     uint16_t GetMotion() const;
     void SetMotion(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25190,10 +26020,6 @@ public:
     GCAnimBoneDifference(std::string ptr);
     GCAnimBoneDifference(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
-    CBufferString GetParent() const;
-    void SetParent(CBufferString value);
     Vector GetPosError() const;
     void SetPosError(Vector value);
     bool GetHasRotation() const;
@@ -25201,6 +26027,7 @@ public:
     bool GetHasMovement() const;
     void SetHasMovement(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25233,6 +26060,7 @@ public:
     float GetTraceRadius() const;
     void SetTraceRadius(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25249,6 +26077,7 @@ public:
     GCCycleBase GetParent() const;
     void SetParent(GCCycleBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25267,6 +26096,7 @@ public:
     int32_t GetDimensionCount() const;
     void SetDimensionCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25283,6 +26113,7 @@ public:
     std::vector<GCPhysSurfaceProperties*> GetSurfacePropertiesList() const;
     void SetSurfacePropertiesList(std::vector<GCPhysSurfaceProperties*> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25301,6 +26132,7 @@ public:
     GCParticleFunction GetParent() const;
     void SetParent(GCParticleFunction value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25327,6 +26159,7 @@ public:
     float GetQ() const;
     void SetQ(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25351,6 +26184,7 @@ public:
     GCBoneConstraintBase GetParent() const;
     void SetParent(GCBoneConstraintBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25373,6 +26207,7 @@ public:
     GCPerParticleFloatInput GetScale() const;
     void SetScale(GCPerParticleFloatInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25389,6 +26224,7 @@ public:
     uint32_t GetId() const;
     void SetId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25407,6 +26243,7 @@ public:
     uint8_t GetDestStateIndex() const;
     void SetDestStateIndex(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25423,6 +26260,7 @@ public:
     std::string GetName() const;
     void SetName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25451,6 +26289,7 @@ public:
     bool GetApplyFootRotationLimits() const;
     void SetApplyFootRotationLimits(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25475,6 +26314,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25491,6 +26331,7 @@ public:
     GCAnimUpdateNodeBase GetParent() const;
     void SetParent(GCAnimUpdateNodeBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25509,6 +26350,7 @@ public:
     bool GetDefault() const;
     void SetDefault(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25541,6 +26383,7 @@ public:
     uint32_t GetDebugFlags() const;
     void SetDebugFlags(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25559,6 +26402,7 @@ public:
     std::vector<GCModelConfigElement*> GetNestedElements() const;
     void SetNestedElements(std::vector<GCModelConfigElement*> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25584,8 +26428,6 @@ public:
     void SetIndexNames(std::vector<uint16> value);
     std::vector<uint16> GetIndexHash() const;
     void SetIndexHash(std::vector<uint16> value);
-    std::vector<matrix3x4a_t> GetBindPose() const;
-    void SetBindPose(std::vector<matrix3x4a_t> value);
     std::vector<GVPhysXBodyPart_t> GetParts() const;
     void SetParts(std::vector<GVPhysXBodyPart_t> value);
     std::vector<GVPhysXConstraint2_t> GetConstraints2() const;
@@ -25593,7 +26435,7 @@ public:
     std::vector<GVPhysXJoint_t> GetJoints() const;
     void SetJoints(std::vector<GVPhysXJoint_t> value);
     GPhysFeModelDesc_t GetFeModel() const;
-    void SetFeModel(GPhysFeModelDesc_t* value);
+    void SetFeModel(GPhysFeModelDesc_t value);
     std::vector<uint16> GetBoneParents() const;
     void SetBoneParents(std::vector<uint16> value);
     std::vector<uint32> GetSurfacePropertyHashes() const;
@@ -25605,6 +26447,7 @@ public:
     std::string GetEmbeddedKeyvalues() const;
     void SetEmbeddedKeyvalues(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25631,6 +26474,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25649,6 +26493,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25675,6 +26520,7 @@ public:
     bool GetIsReferenced() const;
     void SetIsReferenced(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25757,6 +26603,7 @@ public:
     int32_t GetPanoramaRenderRes() const;
     void SetPanoramaRenderRes(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25773,6 +26620,7 @@ public:
     std::string GetStrVariable() const;
     void SetStrVariable(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25791,6 +26639,7 @@ public:
     float GetCycle() const;
     void SetCycle(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25806,6 +26655,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25826,6 +26676,7 @@ public:
     bool GetTopLevel() const;
     void SetTopLevel(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25876,6 +26727,7 @@ public:
     float GetStretchExtensionScale() const;
     void SetStretchExtensionScale(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25894,6 +26746,7 @@ public:
     std::vector<GCFlexOp> GetFlexOps() const;
     void SetFlexOps(std::vector<GCFlexOp> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25920,6 +26773,7 @@ public:
     GCSosGroupActionSchema GetParent() const;
     void SetParent(GCSosGroupActionSchema value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25940,6 +26794,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25958,6 +26813,7 @@ public:
     float GetRangeLength() const;
     void SetRangeLength(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25974,6 +26830,7 @@ public:
     std::vector<GCAnimParamHandle> GetIndexToHandle() const;
     void SetIndexToHandle(std::vector<GCAnimParamHandle> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -25990,6 +26847,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26008,6 +26866,7 @@ public:
     GAnimNodeID GetId() const;
     void SetId(GAnimNodeID value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26028,6 +26887,7 @@ public:
     bool GetIsReferenced() const;
     void SetIsReferenced(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26044,6 +26904,7 @@ public:
     uint32_t GetId() const;
     void SetId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26057,10 +26918,6 @@ public:
     GCAnimLocalHierarchy(std::string ptr);
     GCAnimLocalHierarchy(void *ptr);
 
-    CBufferString GetBone() const;
-    void SetBone(CBufferString value);
-    CBufferString GetNewParent() const;
-    void SetNewParent(CBufferString value);
     int32_t GetStartFrame() const;
     void SetStartFrame(int32_t value);
     int32_t GetPeakFrame() const;
@@ -26070,6 +26927,7 @@ public:
     int32_t GetEndFrame() const;
     void SetEndFrame(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26090,6 +26948,7 @@ public:
     std::string GetUserFriendlyName() const;
     void SetUserFriendlyName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26106,6 +26965,7 @@ public:
     Vector GetInputValue() const;
     void SetInputValue(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26124,6 +26984,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26148,6 +27009,7 @@ public:
     std::vector<CUtlString> GetParticleBoneName() const;
     void SetParticleBoneName(std::vector<CUtlString> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26163,6 +27025,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26185,6 +27048,7 @@ public:
     float GetAlpha() const;
     void SetAlpha(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26207,6 +27071,7 @@ public:
     std::vector<float32> GetRanges() const;
     void SetRanges(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26225,6 +27090,7 @@ public:
     std::vector<float32> GetWeights() const;
     void SetWeights(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26243,6 +27109,7 @@ public:
     float GetValue() const;
     void SetValue(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26261,6 +27128,7 @@ public:
     GCNmEvent GetParent() const;
     void SetParent(GCNmEvent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26293,6 +27161,7 @@ public:
     GCSequenceUpdateNode GetParent() const;
     void SetParent(GCSequenceUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26311,6 +27180,7 @@ public:
     bool GetMatchTargetOrientation() const;
     void SetMatchTargetOrientation(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26335,6 +27205,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26357,6 +27228,7 @@ public:
     bool GetStartEnabled() const;
     void SetStartEnabled(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26381,6 +27253,7 @@ public:
     GCParticleCollectionFloatInput GetModellingScale() const;
     void SetModellingScale(GCParticleCollectionFloatInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26401,6 +27274,7 @@ public:
     float GetReleaseTimeMS() const;
     void SetReleaseTimeMS(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26417,6 +27291,7 @@ public:
     GCNmGraphNode GetParent() const;
     void SetParent(GCNmGraphNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26459,6 +27334,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26475,6 +27351,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26493,6 +27370,7 @@ public:
     Vector GetMaxBounds() const;
     void SetMaxBounds(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26519,6 +27397,7 @@ public:
     uint16_t GetNodeY1() const;
     void SetNodeY1(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26543,6 +27422,7 @@ public:
     float GetMax() const;
     void SetMax(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26569,6 +27449,7 @@ public:
     Vector GetColorTint() const;
     void SetColorTint(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26584,11 +27465,12 @@ public:
 
     std::string GetName() const;
     void SetName(std::string value);
-    CUtlStringToken GetNameToken() const;
-    void SetNameToken(CUtlStringToken value);
+    uint32_t GetNameToken() const;
+    void SetNameToken(uint32_t value);
     float GetValue() const;
     void SetValue(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26605,6 +27487,7 @@ public:
     uint16_t GetValue() const;
     void SetValue(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26620,6 +27503,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26646,6 +27530,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26659,12 +27544,8 @@ public:
     GCSequenceGroupData(std::string ptr);
     GCSequenceGroupData(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     uint32_t GetFlags() const;
     void SetFlags(uint32_t value);
-    std::vector<CBufferString> GetLocalSequenceNameArray() const;
-    void SetLocalSequenceNameArray(std::vector<CBufferString> value);
     std::vector<GCSeqS1SeqDesc> GetLocalS1SeqDescArray() const;
     void SetLocalS1SeqDescArray(std::vector<GCSeqS1SeqDesc> value);
     std::vector<GCSeqS1SeqDesc> GetLocalMultiSeqDescArray() const;
@@ -26677,15 +27558,12 @@ public:
     void SetLocalBoneMaskArray(std::vector<GCSeqBoneMaskList> value);
     std::vector<GCSeqScaleSet> GetLocalScaleSetArray() const;
     void SetLocalScaleSetArray(std::vector<GCSeqScaleSet> value);
-    std::vector<CBufferString> GetLocalBoneNameArray() const;
-    void SetLocalBoneNameArray(std::vector<CBufferString> value);
-    CBufferString GetLocalNodeName() const;
-    void SetLocalNodeName(CBufferString value);
     std::vector<GCSeqPoseParamDesc> GetLocalPoseParamArray() const;
     void SetLocalPoseParamArray(std::vector<GCSeqPoseParamDesc> value);
     std::vector<GCSeqIKLock> GetLocalIKAutoplayLockArray() const;
     void SetLocalIKAutoplayLockArray(std::vector<GCSeqIKLock> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26710,6 +27588,7 @@ public:
     std::string GetStrAttachmentName() const;
     void SetStrAttachmentName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26734,6 +27613,7 @@ public:
     std::vector<int32> GetLodBoneCounts() const;
     void SetLodBoneCounts(std::vector<int32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26754,6 +27634,7 @@ public:
     int32_t GetOwningAnimNodePathCount() const;
     void SetOwningAnimNodePathCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26774,6 +27655,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26798,6 +27680,7 @@ public:
     std::vector<uint16_t> GetNode() const;
     void SetNode(std::vector<uint16_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26814,6 +27697,7 @@ public:
     float GetCycle() const;
     void SetCycle(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26829,8 +27713,8 @@ public:
 
     std::string GetName() const;
     void SetName(std::string value);
-    CUtlStringToken GetNameToken() const;
-    void SetNameToken(CUtlStringToken value);
+    uint32_t GetNameToken() const;
+    void SetNameToken(uint32_t value);
     int32_t GetParamCount() const;
     void SetParamCount(int32_t value);
     GFuseFunctionIndex_t GetIndex() const;
@@ -26838,6 +27722,7 @@ public:
     bool GetIsPure() const;
     void SetIsPure(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26860,6 +27745,7 @@ public:
     float GetW() const;
     void SetW(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26890,6 +27776,7 @@ public:
     int32_t GetTickCount() const;
     void SetTickCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26920,6 +27807,7 @@ public:
     bool GetSubtract() const;
     void SetSubtract(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26944,6 +27832,7 @@ public:
     float GetEndCycle() const;
     void SetEndCycle(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26960,6 +27849,7 @@ public:
     GCNmValueNode GetParent() const;
     void SetParent(GCNmValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -26988,6 +27878,7 @@ public:
     int32_t GetInstanceStepRate() const;
     void SetInstanceStepRate(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27004,6 +27895,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27022,6 +27914,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27035,12 +27928,6 @@ public:
     GCSeqPoseSetting(std::string ptr);
     GCSeqPoseSetting(void *ptr);
 
-    CBufferString GetPoseParameter() const;
-    void SetPoseParameter(CBufferString value);
-    CBufferString GetAttachment() const;
-    void SetAttachment(CBufferString value);
-    CBufferString GetReferenceSequence() const;
-    void SetReferenceSequence(CBufferString value);
     float GetValue() const;
     void SetValue(float value);
     bool GetX() const;
@@ -27052,6 +27939,7 @@ public:
     int32_t GetType() const;
     void SetType(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27078,6 +27966,7 @@ public:
     uint32_t GetPackedSurfaceTangentOs() const;
     void SetPackedSurfaceTangentOs(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27096,6 +27985,7 @@ public:
     int32_t GetExample2() const;
     void SetExample2(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27111,6 +28001,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27135,6 +28026,7 @@ public:
     uint16_t GetFlags() const;
     void SetFlags(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27171,6 +28063,7 @@ public:
     GCAnimUpdateNodeBase GetParent() const;
     void SetParent(GCAnimUpdateNodeBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27189,6 +28082,7 @@ public:
     int32_t GetNumIterations() const;
     void SetNumIterations(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27209,6 +28103,7 @@ public:
     GCNmPoseNode GetParent() const;
     void SetParent(GCNmPoseNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27227,6 +28122,7 @@ public:
     int32_t GetSeed() const;
     void SetSeed(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27253,6 +28149,7 @@ public:
     std::vector<CUtlString> GetDecodedAnims() const;
     void SetDecodedAnims(std::vector<CUtlString> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27269,6 +28166,7 @@ public:
     GCNmValueNode GetParent() const;
     void SetParent(GCNmValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27295,6 +28193,7 @@ public:
     std::string GetDisplayText() const;
     void SetDisplayText(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27325,6 +28224,7 @@ public:
     GCSosGroupActionSchema GetParent() const;
     void SetParent(GCSosGroupActionSchema value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27343,6 +28243,7 @@ public:
     GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
     void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27385,6 +28286,7 @@ public:
     std::vector<CUtlString> GetRenderAttributesUsed() const;
     void SetRenderAttributesUsed(std::vector<CUtlString> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27409,6 +28311,7 @@ public:
     bool GetUseCustomDuration() const;
     void SetUseCustomDuration(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27425,6 +28328,7 @@ public:
     bool GetRegenerateCurveOnCompile() const;
     void SetRegenerateCurveOnCompile(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27447,6 +28351,7 @@ public:
     GCSosGroupActionSchema GetParent() const;
     void SetParent(GCSosGroupActionSchema value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27465,6 +28370,7 @@ public:
     uint16_t GetWeight() const;
     void SetWeight(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27497,6 +28403,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27517,6 +28424,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27533,6 +28441,7 @@ public:
     GChangeAccessorFieldPathIndex_t GetPathIndex() const;
     void SetPathIndex(GChangeAccessorFieldPathIndex_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27549,6 +28458,7 @@ public:
     std::vector<int32_t> GetIndex() const;
     void SetIndex(std::vector<int32_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27565,6 +28475,7 @@ public:
     GCNmValueNode GetParent() const;
     void SetParent(GCNmValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27601,6 +28512,7 @@ public:
     bool GetModelDoc() const;
     void SetModelDoc(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27629,6 +28541,7 @@ public:
     std::vector<int32> GetPropJoints() const;
     void SetPropJoints(std::vector<int32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27645,6 +28558,7 @@ public:
     GCParticleFloatInput GetParent() const;
     void SetParent(GCParticleFloatInput value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27661,6 +28575,7 @@ public:
     uint32_t GetSceneObjectIndex() const;
     void SetSceneObjectIndex(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27689,6 +28604,7 @@ public:
     GCAnimParameterBase GetParent() const;
     void SetParent(GCAnimParameterBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27709,6 +28625,7 @@ public:
     float GetRelaxationFactor() const;
     void SetRelaxationFactor(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27725,6 +28642,7 @@ public:
     float GetRelativeProbabilityOfSpawn() const;
     void SetRelativeProbabilityOfSpawn(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27743,6 +28661,7 @@ public:
     GRnShapeDesc_t GetParent() const;
     void SetParent(GRnShapeDesc_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27765,6 +28684,7 @@ public:
     int32_t GetFrameCount() const;
     void SetFrameCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27783,6 +28703,7 @@ public:
     GCVoiceContainerBase GetParent() const;
     void SetParent(GCVoiceContainerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27801,6 +28722,7 @@ public:
     float GetWeight() const;
     void SetWeight(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27817,6 +28739,7 @@ public:
     GCNmValueNode GetParent() const;
     void SetParent(GCNmValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27835,6 +28758,7 @@ public:
     GCNmEvent GetParent() const;
     void SetParent(GCNmEvent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27851,6 +28775,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27869,6 +28794,7 @@ public:
     int32_t GetParent() const;
     void SetParent(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27889,6 +28815,7 @@ public:
     int32_t GetMorphCount() const;
     void SetMorphCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27907,6 +28834,7 @@ public:
     int32_t GetValue() const;
     void SetValue(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27929,6 +28857,7 @@ public:
     uint16_t GetListEnd() const;
     void SetListEnd(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27957,6 +28886,7 @@ public:
     GCAnimMotorUpdaterBase GetParent() const;
     void SetParent(GCAnimMotorUpdaterBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27972,6 +28902,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -27992,6 +28923,7 @@ public:
     std::vector<uint16_t> GetNode() const;
     void SetNode(std::vector<uint16_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28016,6 +28948,7 @@ public:
     int32_t GetToeBoneIndex() const;
     void SetToeBoneIndex(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28032,6 +28965,7 @@ public:
     GEventAdvanceTick_t GetParent() const;
     void SetParent(GEventAdvanceTick_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28052,6 +28986,7 @@ public:
     GBaseSceneObjectOverride_t GetParent() const;
     void SetParent(GBaseSceneObjectOverride_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28096,6 +29031,7 @@ public:
     std::vector<GIKDemoCaptureSettings_t> GetIkChains() const;
     void SetIkChains(std::vector<GIKDemoCaptureSettings_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28112,6 +29048,7 @@ public:
     GCNmEvent GetParent() const;
     void SetParent(GCNmEvent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28136,6 +29073,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28152,6 +29090,7 @@ public:
     std::string GetName() const;
     void SetName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28170,6 +29109,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28186,6 +29126,7 @@ public:
     std::vector<GVMixFilterDesc_t> GetStages() const;
     void SetStages(std::vector<GVMixFilterDesc_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28204,6 +29145,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28248,6 +29190,7 @@ public:
     float GetMaxTwist() const;
     void SetMaxTwist(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28276,6 +29219,7 @@ public:
     bool GetExposeExternally() const;
     void SetExposeExternally(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28292,6 +29236,7 @@ public:
     GCAnimUpdateNodeRef GetChild() const;
     void SetChild(GCAnimUpdateNodeRef value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28314,6 +29259,7 @@ public:
     float GetSwingRelax() const;
     void SetSwingRelax(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28350,6 +29296,7 @@ public:
     float GetMaxRotationRight() const;
     void SetMaxRotationRight(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28372,6 +29319,7 @@ public:
     float GetOutputGain() const;
     void SetOutputGain(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28390,6 +29338,7 @@ public:
     float GetWeight() const;
     void SetWeight(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28412,6 +29361,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28436,6 +29386,7 @@ public:
     float GetLocalContrastVignetteBlur() const;
     void SetLocalContrastVignetteBlur(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28492,6 +29443,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28508,6 +29460,7 @@ public:
     GCBaseConstraint GetParent() const;
     void SetParent(GCBaseConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28532,6 +29485,7 @@ public:
     std::vector<float32> GetFlexControllerWeights() const;
     void SetFlexControllerWeights(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28562,6 +29516,7 @@ public:
     Vector GetEndOffset() const;
     void SetEndOffset(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28580,6 +29535,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28597,8 +29553,6 @@ public:
     void SetName(std::string value);
     std::vector<CUtlString> GetInfluenceNames() const;
     void SetInfluenceNames(std::vector<CUtlString> value);
-    std::vector<Quaternion> GetInfluenceRotations() const;
-    void SetInfluenceRotations(std::vector<Quaternion> value);
     std::vector<Vector> GetInfluenceOffsets() const;
     void SetInfluenceOffsets(std::vector<Vector> value);
     std::vector<float> GetInfluenceWeights() const;
@@ -28610,6 +29564,7 @@ public:
     bool GetIgnoreRotation() const;
     void SetIgnoreRotation(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28625,6 +29580,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28643,6 +29599,7 @@ public:
     std::vector<GCompositeMaterialEditorPoint_t> GetPoints() const;
     void SetPoints(std::vector<GCompositeMaterialEditorPoint_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28671,6 +29628,7 @@ public:
     float GetWheelDrag() const;
     void SetWheelDrag(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28695,6 +29653,7 @@ public:
     bool GetRenderOnly() const;
     void SetRenderOnly(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28717,6 +29676,7 @@ public:
     float GetGravity() const;
     void SetGravity(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28735,6 +29695,7 @@ public:
     GRnShapeDesc_t GetParent() const;
     void SetParent(GRnShapeDesc_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28753,6 +29714,7 @@ public:
     GCAnimGraphSettingsGroup GetParent() const;
     void SetParent(GCAnimGraphSettingsGroup value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28766,13 +29728,12 @@ public:
     GCAimConstraint(std::string ptr);
     GCAimConstraint(void *ptr);
 
-    Quaternion GetAimOffset() const;
-    void SetAimOffset(Quaternion value);
     uint32_t GetUpType() const;
     void SetUpType(uint32_t value);
     GCBaseConstraint GetParent() const;
     void SetParent(GCBaseConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28788,6 +29749,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28804,6 +29766,7 @@ public:
     GCParticleFunction GetParent() const;
     void SetParent(GCParticleFunction value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28820,6 +29783,7 @@ public:
     GCParticleFunctionOperator GetParent() const;
     void SetParent(GCParticleFunctionOperator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28840,6 +29804,7 @@ public:
     bool GetOffsetInLocalSpace() const;
     void SetOffsetInLocalSpace(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28866,6 +29831,7 @@ public:
     GCVoiceContainerBase GetParent() const;
     void SetParent(GCVoiceContainerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28886,6 +29852,7 @@ public:
     float GetWeight() const;
     void SetWeight(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28908,6 +29875,7 @@ public:
     float GetYZ() const;
     void SetYZ(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28924,6 +29892,7 @@ public:
     uint32_t GetId() const;
     void SetId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28946,6 +29915,7 @@ public:
     int32_t GetInstancesAtMaxVolume() const;
     void SetInstancesAtMaxVolume(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28966,6 +29936,7 @@ public:
     std::vector<uint16_t> GetParticle() const;
     void SetParticle(std::vector<uint16_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -28986,6 +29957,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29004,6 +29976,7 @@ public:
     GNmPercent_t GetPercentageThrough() const;
     void SetPercentageThrough(GNmPercent_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29032,6 +30005,7 @@ public:
     GCParticleFunctionInitializer GetParent() const;
     void SetParent(GCParticleFunctionInitializer value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29050,6 +30024,7 @@ public:
     float GetOffset() const;
     void SetOffset(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29072,6 +30047,7 @@ public:
     uint16_t GetNodeY1() const;
     void SetNodeY1(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29085,13 +30061,12 @@ public:
     GCQuaternionAnimParameter(std::string ptr);
     GCQuaternionAnimParameter(void *ptr);
 
-    Quaternion GetDefaultValue() const;
-    void SetDefaultValue(Quaternion value);
     bool GetInterpolate() const;
     void SetInterpolate(bool value);
     GCConcreteAnimParameter GetParent() const;
     void SetParent(GCConcreteAnimParameter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29108,6 +30083,7 @@ public:
     float GetTime() const;
     void SetTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29136,6 +30112,7 @@ public:
     std::vector<uint8> GetHasUserBitArray() const;
     void SetHasUserBitArray(std::vector<uint8> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29161,9 +30138,8 @@ public:
     void SetLodSetups(std::vector<GAggregateLODSetup_t> value);
     std::vector<uint16> GetVisClusterMembership() const;
     void SetVisClusterMembership(std::vector<uint16> value);
-    std::vector<matrix3x4_t> GetFragmentTransforms() const;
-    void SetFragmentTransforms(std::vector<matrix3x4_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29188,6 +30164,7 @@ public:
     std::string GetOneBoneEnd() const;
     void SetOneBoneEnd(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29203,6 +30180,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29219,6 +30197,7 @@ public:
     GCVoiceContainerBase GetParent() const;
     void SetParent(GCVoiceContainerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29234,6 +30213,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29258,6 +30238,7 @@ public:
     GCBaseConstraint GetParent() const;
     void SetParent(GCBaseConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29274,6 +30255,7 @@ public:
     std::vector<float> GetSupport() const;
     void SetSupport(std::vector<float> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29290,6 +30272,7 @@ public:
     std::string GetModelName() const;
     void SetModelName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29305,6 +30288,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29320,6 +30304,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29350,6 +30335,7 @@ public:
     uint32_t GetFlags() const;
     void SetFlags(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29370,6 +30356,7 @@ public:
     float GetYZ() const;
     void SetYZ(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29392,6 +30379,7 @@ public:
     uint16_t GetBeginDynamic() const;
     void SetBeginDynamic(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29408,6 +30396,7 @@ public:
     uint8_t GetEdge() const;
     void SetEdge(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29426,6 +30415,7 @@ public:
     float GetTraceRadius() const;
     void SetTraceRadius(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29439,10 +30429,8 @@ public:
     GCConstraintTarget(std::string ptr);
     GCConstraintTarget(void *ptr);
 
-    Quaternion GetOffset() const;
-    void SetOffset(Quaternion value);
-    Vector GetOffset1() const;
-    void SetOffset1(Vector value);
+    Vector GetOffset() const;
+    void SetOffset(Vector value);
     uint32_t GetBoneHash() const;
     void SetBoneHash(uint32_t value);
     std::string GetName() const;
@@ -29452,6 +30440,7 @@ public:
     bool GetIsAttachment() const;
     void SetIsAttachment(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29522,6 +30511,7 @@ public:
     std::vector<GCompMatMutatorCondition_t> GetConditions() const;
     void SetConditions(std::vector<GCompMatMutatorCondition_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29538,6 +30528,7 @@ public:
     std::string GetName() const;
     void SetName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29554,6 +30545,7 @@ public:
     std::string GetName() const;
     void SetName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29582,6 +30574,7 @@ public:
     float GetWidth() const;
     void SetWidth(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29606,6 +30599,7 @@ public:
     GCBoneConstraintBase GetParent() const;
     void SetParent(GCBoneConstraintBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29640,6 +30634,7 @@ public:
     std::vector<Vector> GetBlurTint() const;
     void SetBlurTint(std::vector<Vector> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29655,6 +30650,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29670,6 +30666,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29700,6 +30697,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29722,6 +30720,7 @@ public:
     uint32_t GetTriangleOffset() const;
     void SetTriangleOffset(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29735,8 +30734,6 @@ public:
     GCSeqCmdSeqDesc(std::string ptr);
     GCSeqCmdSeqDesc(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     GCSeqSeqDescFlag GetFlags() const;
     void SetFlags(GCSeqSeqDescFlag value);
     GCSeqTransition GetTransition() const;
@@ -29760,6 +30757,7 @@ public:
     std::vector<GCSeqPoseSetting> GetPoseSettingArray() const;
     void SetPoseSettingArray(std::vector<GCSeqPoseSetting> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29778,6 +30776,7 @@ public:
     GCAnimMotorUpdaterBase GetParent() const;
     void SetParent(GCAnimMotorUpdaterBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29793,6 +30792,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29813,6 +30813,7 @@ public:
     float GetPhase() const;
     void SetPhase(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29831,6 +30832,7 @@ public:
     std::vector<uint16_t> GetVirtElem() const;
     void SetVirtElem(std::vector<uint16_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29847,6 +30849,7 @@ public:
     GCPathAnimMotorUpdaterBase GetParent() const;
     void SetParent(GCPathAnimMotorUpdaterBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29873,6 +30876,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29891,6 +30895,7 @@ public:
     GMaterialParam_t GetParent() const;
     void SetParent(GMaterialParam_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29925,6 +30930,7 @@ public:
     std::string GetKeyValueText() const;
     void SetKeyValueText(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29941,6 +30947,7 @@ public:
     uint32_t GetId() const;
     void SetId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29961,6 +30968,7 @@ public:
     uint16_t GetCtrlChild() const;
     void SetCtrlChild(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -29985,6 +30993,7 @@ public:
     Vector2D Get2() const;
     void Set2(Vector2D value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30017,6 +31026,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30035,6 +31045,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30059,6 +31070,7 @@ public:
     uint64_t GetTargetCoordSystem() const;
     void SetTargetCoordSystem(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30075,6 +31087,7 @@ public:
     std::string GetName() const;
     void SetName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30215,6 +31228,7 @@ public:
     GCParticleFunctionRenderer GetParent() const;
     void SetParent(GCParticleFunctionRenderer value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30233,6 +31247,7 @@ public:
     std::string GetViewName() const;
     void SetViewName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30249,6 +31264,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30269,6 +31285,7 @@ public:
     uint16_t GetDummy() const;
     void SetDummy(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30287,6 +31304,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30307,6 +31325,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30325,6 +31344,7 @@ public:
     int32_t GetData() const;
     void SetData(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30341,6 +31361,7 @@ public:
     GCBaseConstraint GetParent() const;
     void SetParent(GCBaseConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30357,6 +31378,7 @@ public:
     float GetKeyValue() const;
     void SetKeyValue(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30377,6 +31399,7 @@ public:
     int32_t GetDimensions() const;
     void SetDimensions(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30392,6 +31415,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30416,6 +31440,7 @@ public:
     uint16_t GetFlags() const;
     void SetFlags(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30438,6 +31463,7 @@ public:
     GCConcreteAnimParameter GetParent() const;
     void SetParent(GCConcreteAnimParameter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30454,6 +31480,7 @@ public:
     GCNmValueNode GetParent() const;
     void SetParent(GCNmValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30474,6 +31501,7 @@ public:
     float GetFrameTime() const;
     void SetFrameTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30490,6 +31518,7 @@ public:
     GEventAdvanceTick_t GetParent() const;
     void SetParent(GEventAdvanceTick_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30508,6 +31537,7 @@ public:
     float GetNextEvent() const;
     void SetNextEvent(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30536,6 +31566,7 @@ public:
     GTextureControls_t GetTextureControls() const;
     void SetTextureControls(GTextureControls_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30560,6 +31591,7 @@ public:
     GCSosGroupActionSchema GetParent() const;
     void SetParent(GCSosGroupActionSchema value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30578,6 +31610,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30608,6 +31641,7 @@ public:
     float GetOcclusionFactor() const;
     void SetOcclusionFactor(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30624,6 +31658,7 @@ public:
     GCNmValueNode GetParent() const;
     void SetParent(GCNmValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30649,9 +31684,8 @@ public:
     void SetNodeY1(std::vector<uint16_t> value);
     std::vector<uint16_t> GetDummy() const;
     void SetDummy(std::vector<uint16_t> value);
-    GFourQuaternions GetAdjust() const;
-    void SetAdjust(GFourQuaternions value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30670,6 +31704,7 @@ public:
     int32_t GetParent() const;
     void SetParent(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30686,6 +31721,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30707,9 +31743,8 @@ public:
     void SetCycle(float value);
     float GetDuration() const;
     void SetDuration(float value);
-    CBufferString GetLegacyOptions() const;
-    void SetLegacyOptions(CBufferString value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30726,6 +31761,7 @@ public:
     uint8_t GetValue() const;
     void SetValue(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30746,6 +31782,7 @@ public:
     std::vector<int32> GetSegmentIndexArray() const;
     void SetSegmentIndexArray(std::vector<int32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30764,6 +31801,7 @@ public:
     GCNmIDValueNode GetParent() const;
     void SetParent(GCNmIDValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30783,8 +31821,6 @@ public:
     void SetMuzzleFlashEnabled(bool value);
     float GetMuzzleFlashBrightness() const;
     void SetMuzzleFlashBrightness(float value);
-    Quaternion GetQuatMuzzleFlashOrientation() const;
-    void SetQuatMuzzleFlashOrientation(Quaternion value);
     Vector GetMuzzleFlashOrigin() const;
     void SetMuzzleFlashOrigin(Vector value);
     float GetFov() const;
@@ -30800,6 +31836,7 @@ public:
     std::string GetTextureName() const;
     void SetTextureName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30820,6 +31857,7 @@ public:
     GFeSphereRigid_t GetParent() const;
     void SetParent(GFeSphereRigid_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30833,8 +31871,6 @@ public:
     GCAnimEncodedFrames(std::string ptr);
     GCAnimEncodedFrames(void *ptr);
 
-    CBufferString GetFileName() const;
-    void SetFileName(CBufferString value);
     int32_t GetFrames() const;
     void SetFrames(int32_t value);
     int32_t GetFramesPerBlock() const;
@@ -30844,6 +31880,7 @@ public:
     GCAnimEncodeDifference GetUsageDifferences() const;
     void SetUsageDifferences(GCAnimEncodeDifference value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30874,6 +31911,7 @@ public:
     double GetTickRemainder() const;
     void SetTickRemainder(double value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30912,6 +31950,7 @@ public:
     std::vector<uint16_t> GetNode() const;
     void SetNode(std::vector<uint16_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30936,6 +31975,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30960,6 +32000,7 @@ public:
     bool GetIsActive() const;
     void SetIsActive(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -30976,6 +32017,7 @@ public:
     GCBlendCurve GetCurve() const;
     void SetCurve(GCBlendCurve value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31036,6 +32078,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31054,6 +32097,7 @@ public:
     GNmPercent_t GetDuration() const;
     void SetDuration(GNmPercent_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31069,6 +32113,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31093,6 +32138,7 @@ public:
     std::vector<GParticleNamedValueConfiguration_t> GetNamedConfigs() const;
     void SetNamedConfigs(std::vector<GParticleNamedValueConfiguration_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31109,6 +32155,7 @@ public:
     GMaterialParam_t GetParent() const;
     void SetParent(GMaterialParam_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31125,6 +32172,7 @@ public:
     int32_t GetCount() const;
     void SetCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31140,6 +32188,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31160,6 +32209,7 @@ public:
     std::vector<GCSSDSMsg_ViewTarget> GetTargets() const;
     void SetTargets(std::vector<GCSSDSMsg_ViewTarget> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31178,6 +32228,7 @@ public:
     float GetRelaxationFactor() const;
     void SetRelaxationFactor(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31191,11 +32242,10 @@ public:
     GCAnimUser(std::string ptr);
     GCAnimUser(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     int32_t GetType() const;
     void SetType(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31220,6 +32270,7 @@ public:
     float GetNodeWeight0() const;
     void SetNodeWeight0(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31238,6 +32289,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31255,13 +32307,12 @@ public:
     void SetBoneName(std::string value);
     std::string GetParentName() const;
     void SetParentName(std::string value);
-    matrix3x4_t GetInvBindPose() const;
-    void SetInvBindPose(matrix3x4_t value);
     GSkeletonBoneBounds_t GetBbox() const;
     void SetBbox(GSkeletonBoneBounds_t value);
     float GetSphereRadius() const;
     void SetSphereRadius(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31280,6 +32331,7 @@ public:
     std::vector<GAnimationDecodeDebugDumpElement_t> GetElems() const;
     void SetElems(std::vector<GAnimationDecodeDebugDumpElement_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31296,6 +32348,7 @@ public:
     int32_t GetUnused() const;
     void SetUnused(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31318,6 +32371,7 @@ public:
     float GetStrength() const;
     void SetStrength(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31334,6 +32388,7 @@ public:
     GCCycleBase GetParent() const;
     void SetParent(GCCycleBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31350,6 +32405,7 @@ public:
     GNmPercent_t GetStartTime() const;
     void SetStartTime(GNmPercent_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31365,6 +32421,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31385,6 +32442,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31401,12 +32459,13 @@ public:
     uint32_t GetFlags() const;
     void SetFlags(uint32_t value);
     GEntComponentInfo_t GetInfo() const;
-    void SetInfo(GEntComponentInfo_t* value);
+    void SetInfo(GEntComponentInfo_t value);
     int32_t GetPriority() const;
     void SetPriority(int32_t value);
     GCEntityComponentHelper GetNext() const;
-    void SetNext(GCEntityComponentHelper* value);
+    void SetNext(GCEntityComponentHelper value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31423,6 +32482,7 @@ public:
     std::vector<GGeneratedTextureHandle_t> GetGeneratedTextures() const;
     void SetGeneratedTextures(std::vector<GGeneratedTextureHandle_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31438,6 +32498,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31456,6 +32517,7 @@ public:
     std::vector<float32> GetWeights() const;
     void SetWeights(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31538,6 +32600,7 @@ public:
     bool GetHasShadowController() const;
     void SetHasShadowController(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31566,6 +32629,7 @@ public:
     std::vector<float32> GetGoalDamping() const;
     void SetGoalDamping(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31582,6 +32646,7 @@ public:
     uint32_t GetId() const;
     void SetId(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31598,6 +32663,7 @@ public:
     bool GetThreadsActive() const;
     void SetThreadsActive(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31614,6 +32680,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31642,6 +32709,7 @@ public:
     std::vector<GClutterTile_t> GetTiles() const;
     void SetTiles(std::vector<GClutterTile_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31660,6 +32728,7 @@ public:
     uint64_t GetType() const;
     void SetType(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31676,6 +32745,7 @@ public:
     bool GetIsValid() const;
     void SetIsValid(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31694,6 +32764,7 @@ public:
     GCVoiceContainerBase GetParent() const;
     void SetParent(GCVoiceContainerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31712,6 +32783,7 @@ public:
     GRnBodyDesc_t GetParent() const;
     void SetParent(GRnBodyDesc_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31740,6 +32812,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31755,6 +32828,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31797,12 +32871,13 @@ public:
     std::vector<GModelBoneFlexDriver_t> GetBoneFlexDrivers() const;
     void SetBoneFlexDrivers(std::vector<GModelBoneFlexDriver_t> value);
     GCModelConfigList GetModelConfigList() const;
-    void SetModelConfigList(GCModelConfigList* value);
+    void SetModelConfigList(GCModelConfigList value);
     std::vector<CUtlString> GetBodyGroupsHiddenInTools() const;
     void SetBodyGroupsHiddenInTools(std::vector<CUtlString> value);
     std::vector<GPermModelDataAnimatedMaterialAttribute_t> GetAnimatedMaterialAttributes() const;
     void SetAnimatedMaterialAttributes(std::vector<GPermModelDataAnimatedMaterialAttribute_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31837,6 +32912,7 @@ public:
     int32_t GetFootIndex() const;
     void SetFootIndex(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31855,6 +32931,7 @@ public:
     GCAnimParamHandle GetOrientationHandle() const;
     void SetOrientationHandle(GCAnimParamHandle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31893,6 +32970,7 @@ public:
     GCAnimUpdateNodeBase GetParent() const;
     void SetParent(GCAnimUpdateNodeBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31915,6 +32993,7 @@ public:
     GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
     void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31933,6 +33012,7 @@ public:
     GMaterialParam_t GetParent() const;
     void SetParent(GMaterialParam_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31949,6 +33029,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31971,6 +33052,7 @@ public:
     GCVoiceContainerAnalysisBase GetParent() const;
     void SetParent(GCVoiceContainerAnalysisBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -31993,6 +33075,7 @@ public:
     bool GetMatchRotation() const;
     void SetMatchRotation(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32021,6 +33104,7 @@ public:
     uint64_t GetSimSpace() const;
     void SetSimSpace(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32041,6 +33125,7 @@ public:
     int32_t GetStartStateIndex() const;
     void SetStartStateIndex(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32057,6 +33142,7 @@ public:
     GCNmFloatValueNode GetParent() const;
     void SetParent(GCNmFloatValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32089,6 +33175,7 @@ public:
     int16_t GetLineNumber() const;
     void SetLineNumber(int16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32107,6 +33194,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32129,6 +33217,7 @@ public:
     uint16_t GetCollisionPlaneIndex() const;
     void SetCollisionPlaneIndex(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32157,6 +33246,7 @@ public:
     float GetEnd() const;
     void SetEnd(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32187,6 +33277,7 @@ public:
     uint8_t GetVradQuality() const;
     void SetVradQuality(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32203,6 +33294,7 @@ public:
     int32_t GetBase() const;
     void SetBase(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32221,6 +33313,7 @@ public:
     float GetY() const;
     void SetY(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32237,6 +33330,7 @@ public:
     GCBaseConstraint GetParent() const;
     void SetParent(GCBaseConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32255,6 +33349,7 @@ public:
     float GetRelativeWeight() const;
     void SetRelativeWeight(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32287,6 +33382,7 @@ public:
     GCSosGroupActionSchema GetParent() const;
     void SetParent(GCSosGroupActionSchema value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32311,6 +33407,7 @@ public:
     float GetRelaxationFactor() const;
     void SetRelaxationFactor(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32335,6 +33432,7 @@ public:
     bool GetMatchTargetOrientation() const;
     void SetMatchTargetOrientation(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32355,6 +33453,7 @@ public:
     int32_t GetBoneWeightCount() const;
     void SetBoneWeightCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32385,6 +33484,7 @@ public:
     float GetHighCutoffFreq() const;
     void SetHighCutoffFreq(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32409,6 +33509,7 @@ public:
     bool GetMatchString() const;
     void SetMatchString(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32425,6 +33526,7 @@ public:
     int16_t GetNodeIdx() const;
     void SetNodeIdx(int16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32443,6 +33545,7 @@ public:
     int16_t GetEntryConditionNodeIdx() const;
     void SetEntryConditionNodeIdx(int16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32463,6 +33566,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32481,6 +33585,7 @@ public:
     GCNmEvent GetParent() const;
     void SetParent(GCNmEvent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32499,6 +33604,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32545,6 +33651,7 @@ public:
     GCAnimUpdateNodeBase GetParent() const;
     void SetParent(GCAnimUpdateNodeBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32560,14 +33667,10 @@ public:
 
     float GetRealTime() const;
     void SetRealTime(float value);
-    matrix3x4a_t GetRootToWorld() const;
-    void SetRootToWorld(matrix3x4a_t value);
     bool GetBonesInWorldSpace() const;
     void SetBonesInWorldSpace(bool value);
     std::vector<uint32> GetBoneSetupMask() const;
     void SetBoneSetupMask(std::vector<uint32> value);
-    std::vector<matrix3x4a_t> GetBoneTransforms() const;
-    void SetBoneTransforms(std::vector<matrix3x4a_t> value);
     std::vector<float32> GetFlexControllers() const;
     void SetFlexControllers(std::vector<float32> value);
     uint64_t GetSnapshotType() const;
@@ -32577,6 +33680,7 @@ public:
     GAnimationDecodeDebugDumpElement_t GetDecodeDump() const;
     void SetDecodeDump(GAnimationDecodeDebugDumpElement_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32597,6 +33701,7 @@ public:
     GCBaseConstraint GetParent() const;
     void SetParent(GCBaseConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32613,6 +33718,7 @@ public:
     GMaterialParam_t GetParent() const;
     void SetParent(GMaterialParam_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32709,6 +33815,7 @@ public:
     Vector2D GetFogOffsetLayer1() const;
     void SetFogOffsetLayer1(Vector2D value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32729,6 +33836,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32771,6 +33879,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32789,6 +33898,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32811,6 +33921,7 @@ public:
     uint64_t GetDetailLevel() const;
     void SetDetailLevel(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32827,6 +33938,7 @@ public:
     GCVoiceContainerBase GetParent() const;
     void SetParent(GCVoiceContainerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32845,6 +33957,7 @@ public:
     float GetWeight() const;
     void SetWeight(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32881,6 +33994,7 @@ public:
     GIClientAlphaProperty GetParent() const;
     void SetParent(GIClientAlphaProperty value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32905,6 +34019,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32923,6 +34038,7 @@ public:
     GNmSyncTrackTime_t GetEndTime() const;
     void SetEndTime(GNmSyncTrackTime_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32936,8 +34052,6 @@ public:
     GCAnimActivity(std::string ptr);
     GCAnimActivity(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     int32_t GetActivity() const;
     void SetActivity(int32_t value);
     int32_t GetFlags() const;
@@ -32945,6 +34059,7 @@ public:
     int32_t GetWeight() const;
     void SetWeight(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32969,6 +34084,7 @@ public:
     std::vector<GCNmGraphDefinition> GetExternalGraphSlots() const;
     void SetExternalGraphSlots(std::vector<GCNmGraphDefinition> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -32989,6 +34105,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33005,6 +34122,7 @@ public:
     int32_t GetTickCount() const;
     void SetTickCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33021,6 +34139,7 @@ public:
     GCDrawCullingData GetCullingData() const;
     void SetCullingData(GCDrawCullingData value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33051,6 +34170,7 @@ public:
     uint64_t GetBlendMode() const;
     void SetBlendMode(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33069,6 +34189,7 @@ public:
     float GetFadeOutTime() const;
     void SetFadeOutTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33087,6 +34208,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33107,6 +34229,7 @@ public:
     std::vector<GCompMatPropertyMutator_t> GetPropertyMutators() const;
     void SetPropertyMutators(std::vector<GCompMatPropertyMutator_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33123,6 +34246,7 @@ public:
     GCHandshakeAnimTagBase GetParent() const;
     void SetParent(GCHandshakeAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33139,6 +34263,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33161,6 +34286,7 @@ public:
     GCGlowOverlay GetParent() const;
     void SetParent(GCGlowOverlay value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33181,6 +34307,7 @@ public:
     GFeTaperedCapsuleRigid_t GetParent() const;
     void SetParent(GFeTaperedCapsuleRigid_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33205,6 +34332,7 @@ public:
     GAnimStateID GetStateID() const;
     void SetStateID(GAnimStateID value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33235,6 +34363,7 @@ public:
     GCPhysSurfacePropertiesAudio GetAudioParams() const;
     void SetAudioParams(GCPhysSurfacePropertiesAudio value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33255,6 +34384,7 @@ public:
     std::vector<int32> GetSelectableSamples() const;
     void SetSelectableSamples(std::vector<int32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33289,6 +34419,7 @@ public:
     bool GetPeakMode() const;
     void SetPeakMode(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33305,6 +34436,7 @@ public:
     std::vector<GScriptInfo_t> GetScriptInfo() const;
     void SetScriptInfo(std::vector<GScriptInfo_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33327,6 +34459,7 @@ public:
     GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
     void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33347,6 +34480,7 @@ public:
     float GetProgression() const;
     void SetProgression(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33379,6 +34513,7 @@ public:
     bool GetApplyAntialiasing() const;
     void SetApplyAntialiasing(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33419,6 +34554,7 @@ public:
     uint16_t GetHitBoxIndex() const;
     void SetHitBoxIndex(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33437,6 +34573,7 @@ public:
     int32_t GetCursorValueB() const;
     void SetCursorValueB(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33461,6 +34598,7 @@ public:
     float GetEaseOut() const;
     void SetEaseOut(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33483,6 +34621,7 @@ public:
     bool GetBonesOrientedAlongPositiveX() const;
     void SetBonesOrientedAlongPositiveX(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33503,6 +34642,7 @@ public:
     std::vector<Vector4D> GetShape() const;
     void SetShape(std::vector<Vector4D> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33529,6 +34669,7 @@ public:
     GCSosGroupBranchPattern GetParent() const;
     void SetParent(GCSosGroupBranchPattern value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33547,6 +34688,7 @@ public:
     std::string GetViewName() const;
     void SetViewName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33563,6 +34705,7 @@ public:
     GCNmPoseNode GetParent() const;
     void SetParent(GCNmPoseNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33603,6 +34746,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33624,8 +34768,6 @@ public:
     void SetBounds(GAABB_t value);
     Vector GetOrthographicAreas() const;
     void SetOrthographicAreas(Vector value);
-    matrix3x4_t GetMassProperties() const;
-    void SetMassProperties(matrix3x4_t value);
     float GetVolume() const;
     void SetVolume(float value);
     float GetSurfaceArea() const;
@@ -33643,8 +34785,9 @@ public:
     uint32_t GetFlags() const;
     void SetFlags(uint32_t value);
     GCRegionSVM GetRegionSVM() const;
-    void SetRegionSVM(GCRegionSVM* value);
+    void SetRegionSVM(GCRegionSVM value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33661,6 +34804,7 @@ public:
     uint64_t GetMoodType() const;
     void SetMoodType(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33683,6 +34827,7 @@ public:
     double GetWhenScheduleSendTickPacket() const;
     void SetWhenScheduleSendTickPacket(double value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33715,6 +34860,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33735,6 +34881,7 @@ public:
     GCMotionNode GetParent() const;
     void SetParent(GCMotionNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33751,6 +34898,7 @@ public:
     GCNmVectorValueNode GetParent() const;
     void SetParent(GCNmVectorValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33771,6 +34919,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33784,8 +34933,6 @@ public:
     GCSeqPoseParamDesc(std::string ptr);
     GCSeqPoseParamDesc(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     float GetStart() const;
     void SetStart(float value);
     float GetEnd() const;
@@ -33795,6 +34942,7 @@ public:
     bool GetLooping() const;
     void SetLooping(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33817,6 +34965,7 @@ public:
     int32_t GetProcType() const;
     void SetProcType(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33839,6 +34988,7 @@ public:
     GCAudioMorphData GetMorphData() const;
     void SetMorphData(GCAudioMorphData value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33857,6 +35007,7 @@ public:
     uint32_t GetBindOffsetBytes() const;
     void SetBindOffsetBytes(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33891,6 +35042,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33907,6 +35059,7 @@ public:
     GCStaticPoseCache GetParent() const;
     void SetParent(GCStaticPoseCache value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33927,6 +35080,7 @@ public:
     float GetAverageAngularVelocityRadians() const;
     void SetAverageAngularVelocityRadians(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33943,6 +35097,7 @@ public:
     float GetTimeStamp() const;
     void SetTimeStamp(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33961,6 +35116,7 @@ public:
     GCNmBoneMaskValueNode GetParent() const;
     void SetParent(GCNmBoneMaskValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -33977,6 +35133,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34003,6 +35160,7 @@ public:
     bool GetLoop() const;
     void SetLoop(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34035,6 +35193,7 @@ public:
     std::vector<GCSosGroupActionSchema*> GetActions() const;
     void SetActions(std::vector<GCSosGroupActionSchema*> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34055,6 +35214,7 @@ public:
     bool GetAdditive() const;
     void SetAdditive(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34075,6 +35235,7 @@ public:
     GCAnimParamHandle GetParamOut() const;
     void SetParamOut(GCAnimParamHandle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34097,6 +35258,7 @@ public:
     uint8_t GetFace() const;
     void SetFace(uint8_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34110,25 +35272,16 @@ public:
     GCAnimDataChannelDesc(std::string ptr);
     GCAnimDataChannelDesc(void *ptr);
 
-    CBufferString GetChannelClass() const;
-    void SetChannelClass(CBufferString value);
-    CBufferString GetVariableName() const;
-    void SetVariableName(CBufferString value);
     int32_t GetFlags() const;
     void SetFlags(int32_t value);
     int32_t GetType() const;
     void SetType(int32_t value);
-    CBufferString GetGrouping() const;
-    void SetGrouping(CBufferString value);
-    CBufferString GetDescription() const;
-    void SetDescription(CBufferString value);
-    std::vector<CBufferString> GetElementNameArray() const;
-    void SetElementNameArray(std::vector<CBufferString> value);
     std::vector<int32> GetElementIndexArray() const;
     void SetElementIndexArray(std::vector<int32> value);
     std::vector<uint32> GetElementMaskArray() const;
     void SetElementMaskArray(std::vector<uint32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34144,6 +35297,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34164,6 +35318,7 @@ public:
     std::vector<GCModelConfig*> GetConfigs() const;
     void SetConfigs(std::vector<GCModelConfig*> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34179,6 +35334,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34199,6 +35355,7 @@ public:
     GCSosGroupActionSchema GetParent() const;
     void SetParent(GCSosGroupActionSchema value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34233,6 +35390,7 @@ public:
     std::vector<GVMixDynamicsBand_t> GetBandDesc() const;
     void SetBandDesc(std::vector<GVMixDynamicsBand_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34251,6 +35409,7 @@ public:
     GCModelConfigElement GetParent() const;
     void SetParent(GCModelConfigElement value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34267,6 +35426,7 @@ public:
     GCHandshakeAnimTagBase GetParent() const;
     void SetParent(GCHandshakeAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34280,8 +35440,6 @@ public:
     GCSeqScaleSet(std::string ptr);
     GCSeqScaleSet(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     bool GetRootOffset() const;
     void SetRootOffset(bool value);
     Vector GetRootOffset1() const;
@@ -34291,6 +35449,7 @@ public:
     std::vector<float32> GetBoneScaleArray() const;
     void SetBoneScaleArray(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34311,6 +35470,7 @@ public:
     float GetFrameTime() const;
     void SetFrameTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34333,6 +35493,7 @@ public:
     int32_t GetD3DSemanticIndex() const;
     void SetD3DSemanticIndex(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34355,6 +35516,7 @@ public:
     bool GetPassWhenTrue() const;
     void SetPassWhenTrue(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34371,6 +35533,7 @@ public:
     Vector GetPosition() const;
     void SetPosition(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34387,6 +35550,7 @@ public:
     std::vector<GCFootTrajectory> GetTrajectories() const;
     void SetTrajectories(std::vector<GCFootTrajectory> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34425,6 +35589,7 @@ public:
     int32_t GetLightProbeVolumePrecomputedHandshake() const;
     void SetLightProbeVolumePrecomputedHandshake(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34459,6 +35624,7 @@ public:
     int32_t GetFormat() const;
     void SetFormat(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34479,6 +35645,7 @@ public:
     float GetInterpolationTime() const;
     void SetInterpolationTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34517,6 +35684,7 @@ public:
     GCNmPoseNode GetParent() const;
     void SetParent(GCNmPoseNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34533,6 +35701,7 @@ public:
     uint32_t GetIndex() const;
     void SetIndex(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34553,6 +35722,7 @@ public:
     GCAnimActionUpdater GetParent() const;
     void SetParent(GCAnimActionUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34569,6 +35739,7 @@ public:
     GCNmIDValueNode GetParent() const;
     void SetParent(GCNmIDValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34613,6 +35784,7 @@ public:
     float GetMaxHighlightLum() const;
     void SetMaxHighlightLum(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34643,6 +35815,7 @@ public:
     uint64_t GetLFOShape() const;
     void SetLFOShape(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34677,6 +35850,7 @@ public:
     std::vector<float> GetFixedBlendWeightVals() const;
     void SetFixedBlendWeightVals(std::vector<float> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34695,6 +35869,7 @@ public:
     GCNmPoseNode GetParent() const;
     void SetParent(GCNmPoseNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34721,6 +35896,7 @@ public:
     GCBoneConstraintBase GetParent() const;
     void SetParent(GCBoneConstraintBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34737,6 +35913,7 @@ public:
     GCSSDSMsg_LayerBase GetParent() const;
     void SetParent(GCSSDSMsg_LayerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34771,6 +35948,7 @@ public:
     GCAnimUpdateNodeBase GetParent() const;
     void SetParent(GCAnimUpdateNodeBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34803,6 +35981,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34823,6 +36002,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34839,6 +36019,7 @@ public:
     float GetMassInv() const;
     void SetMassInv(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34859,6 +36040,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34872,8 +36054,6 @@ public:
     GCSeqSynthAnimDesc(std::string ptr);
     GCSeqSynthAnimDesc(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     GCSeqSeqDescFlag GetFlags() const;
     void SetFlags(GCSeqSeqDescFlag value);
     GCSeqTransition GetTransition() const;
@@ -34885,6 +36065,7 @@ public:
     std::vector<GCAnimActivity> GetActivityArray() const;
     void SetActivityArray(std::vector<GCAnimActivity> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34903,6 +36084,7 @@ public:
     std::vector<GTagSpan_t> GetTags() const;
     void SetTags(std::vector<GTagSpan_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34919,6 +36101,7 @@ public:
     float GetFrameTime() const;
     void SetFrameTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34959,6 +36142,7 @@ public:
     GBakedLightingInfo_t GetNodeLightingInfo() const;
     void SetNodeLightingInfo(GBakedLightingInfo_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -34991,6 +36175,7 @@ public:
     int32_t GetLightProbeVolumePrecomputedHandshake() const;
     void SetLightProbeVolumePrecomputedHandshake(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35009,6 +36194,7 @@ public:
     float Get4RelaxationFactor() const;
     void Set4RelaxationFactor(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35033,6 +36219,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35053,6 +36240,7 @@ public:
     GFeBoxRigid_t GetParent() const;
     void SetParent(GFeBoxRigid_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35068,6 +36256,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35084,6 +36273,7 @@ public:
     GEventPostAdvanceTick_t GetParent() const;
     void SetParent(GEventPostAdvanceTick_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35110,6 +36300,7 @@ public:
     bool GetRenderOnly() const;
     void SetRenderOnly(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35128,6 +36319,7 @@ public:
     float GetLength() const;
     void SetLength(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35148,6 +36340,7 @@ public:
     uint16_t GetTargetNode() const;
     void SetTargetNode(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35166,6 +36359,7 @@ public:
     GRnShapeDesc_t GetParent() const;
     void SetParent(GRnShapeDesc_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35182,6 +36376,7 @@ public:
     GCConcreteAnimParameter GetParent() const;
     void SetParent(GCConcreteAnimParameter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35204,6 +36399,7 @@ public:
     std::vector<uint16_t> GetNode() const;
     void SetNode(std::vector<uint16_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35228,6 +36424,7 @@ public:
     GBaseSceneObjectOverride_t GetParent() const;
     void SetParent(GBaseSceneObjectOverride_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35256,6 +36453,7 @@ public:
     int32_t GetTimesToFire() const;
     void SetTimesToFire(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35269,12 +36467,12 @@ public:
     GSkeletonAnimCapture_t(std::string ptr);
     GSkeletonAnimCapture_t(void *ptr);
 
-    CEntityIndex GetEntIndex() const;
-    void SetEntIndex(CEntityIndex value);
-    CEntityIndex GetEntParent() const;
-    void SetEntParent(CEntityIndex value);
-    std::vector<CEntityIndex> GetImportedCollision() const;
-    void SetImportedCollision(std::vector<CEntityIndex> value);
+    int GetEntIndex() const;
+    void SetEntIndex(int value);
+    int GetEntParent() const;
+    void SetEntParent(int value);
+    std::vector<int> GetImportedCollision() const;
+    void SetImportedCollision(std::vector<int> value);
     std::string GetModelName() const;
     void SetModelName(std::string value);
     std::string GetCaptureName() const;
@@ -35290,6 +36488,7 @@ public:
     std::vector<GSkeletonAnimCapture_t> GetFrames() const;
     void SetFrames(std::vector<GSkeletonAnimCapture_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35306,6 +36505,7 @@ public:
     uint64_t GetBehavior() const;
     void SetBehavior(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35319,8 +36519,6 @@ public:
     GCSeqS1SeqDesc(std::string ptr);
     GCSeqS1SeqDesc(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     GCSeqSeqDescFlag GetFlags() const;
     void SetFlags(GCSeqSeqDescFlag value);
     GCSeqMultiFetch GetFetch() const;
@@ -35333,13 +36531,12 @@ public:
     void SetIKLockArray(std::vector<GCSeqIKLock> value);
     GCSeqTransition GetTransition() const;
     void SetTransition(GCSeqTransition value);
-    CBufferString GetLegacyKeyValueText() const;
-    void SetLegacyKeyValueText(CBufferString value);
     std::vector<GCAnimActivity> GetActivityArray() const;
     void SetActivityArray(std::vector<GCAnimActivity> value);
     std::vector<GCFootMotion> GetFootMotion() const;
     void SetFootMotion(std::vector<GCFootMotion> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35380,6 +36577,7 @@ public:
     GCBlendCurve GetBiasAndClampBlendCurve() const;
     void SetBiasAndClampBlendCurve(GCBlendCurve value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35426,6 +36624,7 @@ public:
     Vector GetPreviewGravity() const;
     void SetPreviewGravity(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35444,6 +36643,7 @@ public:
     uint16_t GetCtrlChild() const;
     void SetCtrlChild(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35462,6 +36662,7 @@ public:
     std::vector<GCMorphRectData> GetMorphRectDatas() const;
     void SetMorphRectDatas(std::vector<GCMorphRectData> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35488,6 +36689,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35518,6 +36720,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35536,6 +36739,7 @@ public:
     float GetStrength() const;
     void SetStrength(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35558,6 +36762,7 @@ public:
     float GetNodeWeight0() const;
     void SetNodeWeight0(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35578,6 +36783,7 @@ public:
     std::vector<GModelBoneFlexDriverControl_t> GetControls() const;
     void SetControls(std::vector<GModelBoneFlexDriverControl_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35596,6 +36802,7 @@ public:
     GCConcreteAnimParameter GetParent() const;
     void SetParent(GCConcreteAnimParameter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35612,6 +36819,7 @@ public:
     int32_t GetDummy0() const;
     void SetDummy0(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35628,6 +36836,7 @@ public:
     uint64_t GetValue() const;
     void SetValue(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35650,6 +36859,7 @@ public:
     GCVoiceContainerBase GetParent() const;
     void SetParent(GCVoiceContainerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35668,6 +36878,7 @@ public:
     GCNmBoolValueNode GetParent() const;
     void SetParent(GCNmBoolValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35684,6 +36895,7 @@ public:
     int32_t GetStartEventOffset() const;
     void SetStartEventOffset(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35704,6 +36916,7 @@ public:
     float GetEndCycle() const;
     void SetEndCycle(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35720,6 +36933,7 @@ public:
     float GetTimeValue() const;
     void SetTimeValue(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35736,6 +36950,7 @@ public:
     GCNmTargetValueNode GetParent() const;
     void SetParent(GCNmTargetValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35760,6 +36975,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35782,6 +36998,7 @@ public:
     GCConcreteAnimParameter GetParent() const;
     void SetParent(GCConcreteAnimParameter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35806,6 +37023,7 @@ public:
     GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
     void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35826,6 +37044,7 @@ public:
     GAnimationSnapshotBase_t GetParent() const;
     void SetParent(GAnimationSnapshotBase_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35856,6 +37075,7 @@ public:
     std::vector<CUtlString> GetInteractExcludeStrings() const;
     void SetInteractExcludeStrings(std::vector<CUtlString> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35872,6 +37092,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35890,6 +37111,7 @@ public:
     GCNmVectorValueNode GetParent() const;
     void SetParent(GCNmVectorValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35910,6 +37132,7 @@ public:
     int32_t GetLocalChannel() const;
     void SetLocalChannel(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35934,6 +37157,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35949,8 +37173,8 @@ public:
 
     std::string GetName() const;
     void SetName(std::string value);
-    CUtlStringToken GetNameToken() const;
-    void SetNameToken(CUtlStringToken value);
+    uint32_t GetNameToken() const;
+    void SetNameToken(uint32_t value);
     GFuseVariableIndex_t GetIndex() const;
     void SetIndex(GFuseVariableIndex_t value);
     uint8_t GetNumComponents() const;
@@ -35960,6 +37184,7 @@ public:
     uint64_t GetAccess() const;
     void SetAccess(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35984,6 +37209,7 @@ public:
     int32_t GetOversampleFactor() const;
     void SetOversampleFactor(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -35999,6 +37225,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36019,6 +37246,7 @@ public:
     GCVoiceContainerBase GetParent() const;
     void SetParent(GCVoiceContainerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36043,6 +37271,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36073,6 +37302,7 @@ public:
     GCBaseRendererSource2 GetParent() const;
     void SetParent(GCBaseRendererSource2 value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36091,6 +37321,7 @@ public:
     GCBaseConstraint GetParent() const;
     void SetParent(GCBaseConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36107,6 +37338,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36123,6 +37355,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36141,6 +37374,7 @@ public:
     int32_t GetNumBonesToSampleAtLowLOD() const;
     void SetNumBonesToSampleAtLowLOD(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36189,6 +37423,7 @@ public:
     float GetTaps() const;
     void SetTaps(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36205,6 +37440,7 @@ public:
     std::vector<uint16_t> GetChild() const;
     void SetChild(std::vector<uint16_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36231,6 +37467,7 @@ public:
     Vector4D GetTintColor() const;
     void SetTintColor(Vector4D value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36249,6 +37486,7 @@ public:
     float GetDirection() const;
     void SetDirection(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36269,6 +37507,7 @@ public:
     GCMotionNode GetParent() const;
     void SetParent(GCMotionNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36301,6 +37540,7 @@ public:
     GCFootCycle GetFootLandCycle() const;
     void SetFootLandCycle(GCFootCycle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36331,6 +37571,7 @@ public:
     bool GetAnimGraphAdditive() const;
     void SetAnimGraphAdditive(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36349,6 +37590,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36371,6 +37613,7 @@ public:
     int32_t GetMaxTempVarsUsed() const;
     void SetMaxTempVarsUsed(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36387,6 +37630,7 @@ public:
     std::vector<GFeVertexMapBuild_t*> GetArray() const;
     void SetArray(std::vector<GFeVertexMapBuild_t*> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36405,6 +37649,7 @@ public:
     float GetAlpha() const;
     void SetAlpha(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36423,6 +37668,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36447,6 +37693,7 @@ public:
     bool GetRenderOnly() const;
     void SetRenderOnly(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36467,6 +37714,7 @@ public:
     float GetScale() const;
     void SetScale(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36487,6 +37735,7 @@ public:
     GCFeJiggleBone GetJiggleBone() const;
     void SetJiggleBone(GCFeJiggleBone value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36509,6 +37758,7 @@ public:
     double GetTickStartTime() const;
     void SetTickStartTime(double value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36525,6 +37775,7 @@ public:
     std::vector<GJiggleBoneSettings_t> GetBoneSettings() const;
     void SetBoneSettings(std::vector<GJiggleBoneSettings_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36543,6 +37794,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36565,6 +37817,7 @@ public:
     GCAnimationGraphVisualizerPrimitiveBase GetParent() const;
     void SetParent(GCAnimationGraphVisualizerPrimitiveBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36595,6 +37848,7 @@ public:
     GCPathAnimMotorUpdaterBase GetParent() const;
     void SetParent(GCPathAnimMotorUpdaterBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36631,6 +37885,7 @@ public:
     bool GetUseHysteresis() const;
     void SetUseHysteresis(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36646,6 +37901,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36662,6 +37918,7 @@ public:
     std::vector<GCDspPresetModifierList> GetTable() const;
     void SetTable(std::vector<GCDspPresetModifierList> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36678,6 +37935,7 @@ public:
     std::vector<int32_t> GetIndex() const;
     void SetIndex(std::vector<int32_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36696,6 +37954,7 @@ public:
     GCNmPoseNode GetParent() const;
     void SetParent(GCNmPoseNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36724,6 +37983,7 @@ public:
     float GetFeedbackDiffusion2() const;
     void SetFeedbackDiffusion2(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36744,6 +38004,7 @@ public:
     std::vector<GMotionDBIndex> GetCodeIndices() const;
     void SetCodeIndices(std::vector<GMotionDBIndex> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36768,6 +38029,7 @@ public:
     std::vector<uint16> GetCollisionAttributeIndices() const;
     void SetCollisionAttributeIndices(std::vector<uint16> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36792,6 +38054,7 @@ public:
     uint64_t GetCompileFingerprint() const;
     void SetCompileFingerprint(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36824,6 +38087,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36850,6 +38114,7 @@ public:
     GCNmPoseNode GetParent() const;
     void SetParent(GCNmPoseNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36863,9 +38128,9 @@ public:
     GCAnimMorphDifference(std::string ptr);
     GCAnimMorphDifference(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
 
+
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36881,6 +38146,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36899,6 +38165,7 @@ public:
     int16_t GetDataSlotIdx() const;
     void SetDataSlotIdx(int16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36923,6 +38190,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36938,6 +38206,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36956,6 +38225,7 @@ public:
     Vector GetNormal() const;
     void SetNormal(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36976,6 +38246,7 @@ public:
     int32_t GetType() const;
     void SetType(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -36994,6 +38265,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37010,6 +38282,7 @@ public:
     GCNmEvent GetParent() const;
     void SetParent(GCNmEvent value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37028,6 +38301,7 @@ public:
     GMaterialParam_t GetParent() const;
     void SetParent(GMaterialParam_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37050,6 +38324,7 @@ public:
     GAnimScriptHandle GetIsActiveScript() const;
     void SetIsActiveScript(GAnimScriptHandle value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37098,6 +38373,7 @@ public:
     float GetHipDipDelay() const;
     void SetHipDipDelay(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37114,6 +38390,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37142,6 +38419,7 @@ public:
     Vector GetPosition() const;
     void SetPosition(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37155,8 +38433,6 @@ public:
     GCConstraintSlave(std::string ptr);
     GCConstraintSlave(void *ptr);
 
-    Quaternion GetBaseOrientation() const;
-    void SetBaseOrientation(Quaternion value);
     Vector GetBasePosition() const;
     void SetBasePosition(Vector value);
     uint32_t GetBoneHash() const;
@@ -37166,6 +38442,7 @@ public:
     std::string GetName() const;
     void SetName(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37179,8 +38456,6 @@ public:
     GCSeqBoneMaskList(std::string ptr);
     GCSeqBoneMaskList(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     std::vector<int16> GetLocalBoneArray() const;
     void SetLocalBoneArray(std::vector<int16> value);
     std::vector<float32> GetBoneWeightArray() const;
@@ -37188,6 +38463,7 @@ public:
     float GetDefaultMorphCtrlWeight() const;
     void SetDefaultMorphCtrlWeight(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37206,6 +38482,7 @@ public:
     int32_t GetNumChannels() const;
     void SetNumChannels(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37230,6 +38507,7 @@ public:
     uint64_t GetScriptType() const;
     void SetScriptType(uint64_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37248,6 +38526,7 @@ public:
     float GetMax() const;
     void SetMax(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37266,6 +38545,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37282,6 +38562,7 @@ public:
     int32_t GetCollisionGroupNumber() const;
     void SetCollisionGroupNumber(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37302,6 +38583,7 @@ public:
     int32_t GetPhonemeCode() const;
     void SetPhonemeCode(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37315,8 +38597,6 @@ public:
     GCAnimData(std::string ptr);
     GCAnimData(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     std::vector<GCAnimDesc> GetAnimArray() const;
     void SetAnimArray(std::vector<GCAnimDesc> value);
     std::vector<GCAnimDecoder> GetDecoderArray() const;
@@ -37326,6 +38606,7 @@ public:
     std::vector<GCAnimFrameSegment> GetSegmentArray() const;
     void SetSegmentArray(std::vector<GCAnimFrameSegment> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37350,6 +38631,7 @@ public:
     Vector2D GetItemPos() const;
     void SetItemPos(Vector2D value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37370,6 +38652,7 @@ public:
     uint32_t GetMatrixNode() const;
     void SetMatrixNode(uint32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37386,6 +38669,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37404,6 +38688,7 @@ public:
     float GetRealTime() const;
     void SetRealTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37422,6 +38707,7 @@ public:
     std::vector<float> Get4Weights() const;
     void Set4Weights(std::vector<float> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37442,6 +38728,7 @@ public:
     GCAnimActionUpdater GetParent() const;
     void SetParent(GCAnimActionUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37468,6 +38755,7 @@ public:
     GCBinaryUpdateNode GetParent() const;
     void SetParent(GCBinaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37483,6 +38771,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37499,6 +38788,7 @@ public:
     std::vector<uint8_t> GetSubCode() const;
     void SetSubCode(std::vector<uint8_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37521,6 +38811,7 @@ public:
     GCAnimActionUpdater GetParent() const;
     void SetParent(GCAnimActionUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37537,6 +38828,7 @@ public:
     GEventPostAdvanceTick_t GetParent() const;
     void SetParent(GEventPostAdvanceTick_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37565,6 +38857,7 @@ public:
     float GetErrorQuantizationScaleMax() const;
     void SetErrorQuantizationScaleMax(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37599,6 +38892,7 @@ public:
     Vector GetMassCenterOverride() const;
     void SetMassCenterOverride(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37631,12 +38925,13 @@ public:
     float GetBoundingRadiusSqr() const;
     void SetBoundingRadiusSqr(float value);
     GCDecalInfo GetNext() const;
-    void SetNext(GCDecalInfo* value);
+    void SetNext(GCDecalInfo value);
     GCDecalInfo GetPrev() const;
-    void SetPrev(GCDecalInfo* value);
+    void SetPrev(GCDecalInfo value);
     int32_t GetDecalMaterialIndex() const;
     void SetDecalMaterialIndex(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37657,6 +38952,7 @@ public:
     GParticlePreviewState_t GetPreviewState() const;
     void SetPreviewState(GParticlePreviewState_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37683,6 +38979,7 @@ public:
     float GetBassFreq() const;
     void SetBassFreq(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37707,6 +39004,7 @@ public:
     int32_t GetSampleCount() const;
     void SetSampleCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37737,6 +39035,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37757,6 +39056,7 @@ public:
     Vector GetOffset() const;
     void SetOffset(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37773,6 +39073,7 @@ public:
     float GetCrossfadeTime() const;
     void SetCrossfadeTime(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37805,6 +39106,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37820,6 +39122,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37838,6 +39141,7 @@ public:
     GCNmFloatValueNode GetParent() const;
     void SetParent(GCNmFloatValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37972,6 +39276,7 @@ public:
     std::vector<GParticleControlPointConfiguration_t> GetControlPointConfigurations() const;
     void SetControlPointConfigurations(std::vector<GParticleControlPointConfiguration_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -37992,6 +39297,7 @@ public:
     GCVoiceContainerBase GetParent() const;
     void SetParent(GCVoiceContainerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38010,6 +39316,7 @@ public:
     std::vector<uint32> GetNodes() const;
     void SetNodes(std::vector<uint32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38028,6 +39335,7 @@ public:
     GCAnimActionUpdater GetParent() const;
     void SetParent(GCAnimActionUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38046,6 +39354,7 @@ public:
     GCAnimNodePath GetRootNodePath() const;
     void SetRootNodePath(GCAnimNodePath value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38062,6 +39371,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38080,6 +39390,7 @@ public:
     GCVoiceContainerDecayingSineWave GetParent() const;
     void SetParent(GCVoiceContainerDecayingSineWave value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38100,6 +39411,7 @@ public:
     GAABB_t GetBoundsWs() const;
     void SetBoundsWs(GAABB_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38118,6 +39430,7 @@ public:
     GPointDefinition_t GetParent() const;
     void SetParent(GPointDefinition_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38144,6 +39457,7 @@ public:
     std::vector<float32> GetWeights() const;
     void SetWeights(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38157,8 +39471,6 @@ public:
     GCAnimDesc(std::string ptr);
     GCAnimDesc(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     GCAnimDesc_Flag GetFlags() const;
     void SetFlags(GCAnimDesc_Flag value);
     float GetFps() const;
@@ -38186,6 +39498,7 @@ public:
     GCAnimSequenceParams GetSequenceParams() const;
     void SetSequenceParams(GCAnimSequenceParams value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38201,13 +39514,10 @@ public:
 
     bool GetInverse() const;
     void SetInverse(bool value);
-    Quaternion GetParentBindRotation() const;
-    void SetParentBindRotation(Quaternion value);
-    Quaternion GetChildBindRotation() const;
-    void SetChildBindRotation(Quaternion value);
     GCBaseConstraint GetParent() const;
     void SetParent(GCBaseConstraint value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38222,11 +39532,11 @@ public:
     GCNewParticleEffect(void *ptr);
 
     GCNewParticleEffect GetNext() const;
-    void SetNext(GCNewParticleEffect* value);
+    void SetNext(GCNewParticleEffect value);
     GCNewParticleEffect GetPrev() const;
-    void SetPrev(GCNewParticleEffect* value);
+    void SetPrev(GCNewParticleEffect value);
     GIParticleCollection GetParticles() const;
-    void SetParticles(GIParticleCollection* value);
+    void SetParticles(GIParticleCollection value);
     std::string GetDebugName() const;
     void SetDebugName(std::string value);
     Vector GetSortOrigin() const;
@@ -38234,9 +39544,9 @@ public:
     float GetScale() const;
     void SetScale(float value);
     GPARTICLE_EHANDLE__ GetOwner() const;
-    void SetOwner(GPARTICLE_EHANDLE__* value);
+    void SetOwner(GPARTICLE_EHANDLE__ value);
     GCParticleProperty GetOwningParticleProperty() const;
-    void SetOwningParticleProperty(GCParticleProperty* value);
+    void SetOwningParticleProperty(GCParticleProperty value);
     float GetFreezeTransitionStart() const;
     void SetFreezeTransitionStart(float value);
     float GetFreezeTransitionDuration() const;
@@ -38262,6 +39572,7 @@ public:
     GIParticleEffect GetParent() const;
     void SetParent(GIParticleEffect value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38282,6 +39593,7 @@ public:
     GCFeJiggleBone GetJiggleBone() const;
     void SetJiggleBone(GCFeJiggleBone value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38306,6 +39618,7 @@ public:
     GCConcreteAnimParameter GetParent() const;
     void SetParent(GCConcreteAnimParameter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38336,6 +39649,7 @@ public:
     uint16_t GetTargetIndex() const;
     void SetTargetIndex(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38356,6 +39670,7 @@ public:
     GCAnimParameterBase GetParent() const;
     void SetParent(GCAnimParameterBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38372,6 +39687,7 @@ public:
     std::vector<GCHitBoxSet> GetHitBoxSets() const;
     void SetHitBoxSets(std::vector<GCHitBoxSet> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38390,6 +39706,7 @@ public:
     GMaterialParam_t GetParent() const;
     void SetParent(GMaterialParam_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38406,6 +39723,7 @@ public:
     std::vector<GVsInputSignatureElement_t> GetElems() const;
     void SetElems(std::vector<GVsInputSignatureElement_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38419,8 +39737,6 @@ public:
     GInfoOverlayData_t(std::string ptr);
     GInfoOverlayData_t(void *ptr);
 
-    matrix3x4_t GetTransform() const;
-    void SetTransform(matrix3x4_t value);
     float GetWidth() const;
     void SetWidth(float value);
     float GetHeight() const;
@@ -38438,6 +39754,7 @@ public:
     int32_t GetSequenceOverride() const;
     void SetSequenceOverride(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38462,8 +39779,9 @@ public:
     float GetScale() const;
     void SetScale(float value);
     GRnHull_t GetHull() const;
-    void SetHull(GRnHull_t* value);
+    void SetHull(GRnHull_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38480,6 +39798,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38502,6 +39821,7 @@ public:
     float GetLateReflections() const;
     void SetLateReflections(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38518,6 +39838,7 @@ public:
     GCMotionMetricEvaluator GetParent() const;
     void SetParent(GCMotionMetricEvaluator value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38558,6 +39879,7 @@ public:
     GVoxelVisBlockOffset_t GetVisBlocks() const;
     void SetVisBlocks(GVoxelVisBlockOffset_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38574,6 +39896,7 @@ public:
     std::vector<GSosEditItemInfo_t> GetEditItems() const;
     void SetEditItems(std::vector<GSosEditItemInfo_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38600,6 +39923,7 @@ public:
     Vector GetDebugOffset() const;
     void SetDebugOffset(Vector value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38620,6 +39944,7 @@ public:
     float GetVertSize() const;
     void SetVertSize(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38636,6 +39961,7 @@ public:
     GCSSDSMsg_LayerBase GetParent() const;
     void SetParent(GCSSDSMsg_LayerBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38649,8 +39975,6 @@ public:
     GCAnimBone(std::string ptr);
     GCAnimBone(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     int32_t GetParent() const;
     void SetParent(int32_t value);
     Vector GetPos() const;
@@ -38660,6 +39984,7 @@ public:
     int32_t GetFlags() const;
     void SetFlags(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38682,6 +40007,7 @@ public:
     GVPhysXConstraintParams_t GetParams() const;
     void SetParams(GVPhysXConstraintParams_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38698,6 +40024,7 @@ public:
     GCMotionGraph GetParent() const;
     void SetParent(GCMotionGraph value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38711,19 +40038,16 @@ public:
     GCAnimKeyData(std::string ptr);
     GCAnimKeyData(void *ptr);
 
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     std::vector<GCAnimBone> GetBoneArray() const;
     void SetBoneArray(std::vector<GCAnimBone> value);
     std::vector<GCAnimUser> GetUserArray() const;
     void SetUserArray(std::vector<GCAnimUser> value);
-    std::vector<CBufferString> GetMorphArray() const;
-    void SetMorphArray(std::vector<CBufferString> value);
     int32_t GetChannelElements() const;
     void SetChannelElements(int32_t value);
     std::vector<GCAnimDataChannelDesc> GetDataChannelArray() const;
     void SetDataChannelArray(std::vector<GCAnimDataChannelDesc> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38740,6 +40064,7 @@ public:
     int32_t GetCount() const;
     void SetCount(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38760,6 +40085,7 @@ public:
     GBakedLightingInfo_t GetWorldLightingInfo() const;
     void SetWorldLightingInfo(GBakedLightingInfo_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38780,6 +40106,7 @@ public:
     GCConcreteAnimParameter GetParent() const;
     void SetParent(GCConcreteAnimParameter value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38796,6 +40123,7 @@ public:
     GCNmBoolValueNode GetParent() const;
     void SetParent(GCNmBoolValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38822,6 +40150,7 @@ public:
     GCAnimUpdateNodeBase GetParent() const;
     void SetParent(GCAnimUpdateNodeBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38844,6 +40173,7 @@ public:
     std::string GetSourceFilename() const;
     void SetSourceFilename(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38862,6 +40192,7 @@ public:
     GCExampleSchemaVData_PolymorphicBase GetParent() const;
     void SetParent(GCExampleSchemaVData_PolymorphicBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38882,6 +40213,7 @@ public:
     float Get1x() const;
     void Set1x(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38916,6 +40248,7 @@ public:
     bool GetHasColorCorrection() const;
     void SetHasColorCorrection(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38942,6 +40275,7 @@ public:
     GCNmPoseNode GetParent() const;
     void SetParent(GCNmPoseNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38970,6 +40304,7 @@ public:
     std::string GetWorldNodePrefix() const;
     void SetWorldNodePrefix(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -38986,6 +40321,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39022,6 +40358,7 @@ public:
     GCRenderBufferBinding GetIndexBuffer() const;
     void SetIndexBuffer(GCRenderBufferBinding value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39038,6 +40375,7 @@ public:
     GEventSimulate_t GetParent() const;
     void SetParent(GEventSimulate_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39062,6 +40400,7 @@ public:
     int32_t GetInterpType() const;
     void SetInterpType(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39078,6 +40417,7 @@ public:
     GCLeafUpdateNode GetParent() const;
     void SetParent(GCLeafUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39106,6 +40446,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39128,6 +40469,7 @@ public:
     float GetMax() const;
     void SetMax(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39146,6 +40488,7 @@ public:
     GCExampleSchemaVData_PolymorphicBase GetParent() const;
     void SetParent(GCExampleSchemaVData_PolymorphicBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39162,6 +40505,7 @@ public:
     std::vector<GEntityIOConnectionData_t> GetConnections() const;
     void SetConnections(std::vector<GEntityIOConnectionData_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39180,6 +40524,7 @@ public:
     GCFootTrajectories GetTrajectories() const;
     void SetTrajectories(GCFootTrajectories value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39195,13 +40540,10 @@ public:
 
     uint32_t GetFlags() const;
     void SetFlags(uint32_t value);
-    CBufferString GetName() const;
-    void SetName(CBufferString value);
     GCAnimKeyData GetDecodeKey() const;
     void SetDecodeKey(GCAnimKeyData value);
-    std::vector<CBufferString> GetScripts() const;
-    void SetScripts(std::vector<CBufferString> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39226,6 +40568,7 @@ public:
     GCBinaryUpdateNode GetParent() const;
     void SetParent(GCBinaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39248,6 +40591,7 @@ public:
     std::vector<float> GetRadius() const;
     void SetRadius(std::vector<float> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39270,6 +40614,7 @@ public:
     std::vector<uint8> GetData() const;
     void SetData(std::vector<uint8> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39296,8 +40641,9 @@ public:
     uint32_t GetFlags() const;
     void SetFlags(uint32_t value);
     GCEntityComponentHelper GetBaseClassComponentHelper() const;
-    void SetBaseClassComponentHelper(GCEntityComponentHelper* value);
+    void SetBaseClassComponentHelper(GCEntityComponentHelper value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39313,6 +40659,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39331,6 +40678,7 @@ public:
     GCNmTargetValueNode GetParent() const;
     void SetParent(GCNmTargetValueNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39361,6 +40709,7 @@ public:
     GCAnimTagBase GetParent() const;
     void SetParent(GCAnimTagBase value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39381,8 +40730,9 @@ public:
     GDynamicMeshDeformParams_t GetMeshDeformParams() const;
     void SetMeshDeformParams(GDynamicMeshDeformParams_t value);
     GCRenderGroom GetGroomData() const;
-    void SetGroomData(GCRenderGroom* value);
+    void SetGroomData(GCRenderGroom value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39405,6 +40755,7 @@ public:
     Gconstraint_breakableparams_t GetConstraint() const;
     void SetConstraint(Gconstraint_breakableparams_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39426,8 +40777,6 @@ public:
     void SetTranslationRangeZ(GNmCompressionSettings_t value);
     GNmCompressionSettings_t GetScaleRange() const;
     void SetScaleRange(GNmCompressionSettings_t value);
-    Quaternion GetConstantRotation() const;
-    void SetConstantRotation(Quaternion value);
     bool GetIsRotationStatic() const;
     void SetIsRotationStatic(bool value);
     bool GetIsTranslationStatic() const;
@@ -39435,6 +40784,7 @@ public:
     bool GetIsScaleStatic() const;
     void SetIsScaleStatic(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39463,6 +40813,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39481,6 +40832,7 @@ public:
     GCSosGroupActionSchema GetParent() const;
     void SetParent(GCSosGroupActionSchema value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39503,6 +40855,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39518,6 +40871,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39534,6 +40888,7 @@ public:
     std::vector<GCSosSoundEventGroupSchema> GetGroupList() const;
     void SetGroupList(std::vector<GCSosSoundEventGroupSchema> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39562,6 +40917,7 @@ public:
     bool GetIsAdditive() const;
     void SetIsAdditive(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39578,6 +40934,7 @@ public:
     std::string GetFacs() const;
     void SetFacs(std::string value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39596,6 +40953,7 @@ public:
     GCAnimComponentUpdater GetParent() const;
     void SetParent(GCAnimComponentUpdater value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39620,6 +40978,7 @@ public:
     bool GetPassWhenTrue() const;
     void SetPassWhenTrue(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39635,6 +40994,7 @@ public:
 
 
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39653,6 +41013,7 @@ public:
     std::vector<float32> GetOutputWeightList() const;
     void SetOutputWeightList(std::vector<float32> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39671,6 +41032,7 @@ public:
     GCUnaryUpdateNode GetParent() const;
     void SetParent(GCUnaryUpdateNode value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39709,6 +41071,7 @@ public:
     bool GetPeakMode() const;
     void SetPeakMode(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39747,6 +41110,7 @@ public:
     uint16_t GetNodeListCount() const;
     void SetNodeListCount(uint16_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39763,6 +41127,7 @@ public:
     std::vector<uint16_t> GetNode() const;
     void SetNode(std::vector<uint16_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39787,6 +41152,7 @@ public:
     std::vector<GCompositeMaterial_t> GetCompositeMaterials() const;
     void SetCompositeMaterials(std::vector<GCompositeMaterial_t> value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39845,6 +41211,7 @@ public:
     float GetFriction() const;
     void SetFriction(float value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39863,6 +41230,7 @@ public:
     int32_t GetBodyGroupOption() const;
     void SetBodyGroupOption(int32_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39879,6 +41247,7 @@ public:
     GRnShapeDesc_t GetParent() const;
     void SetParent(GRnShapeDesc_t value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
@@ -39901,6 +41270,7 @@ public:
     bool GetIsSet() const;
     void SetIsSet(bool value);
 
+    void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };

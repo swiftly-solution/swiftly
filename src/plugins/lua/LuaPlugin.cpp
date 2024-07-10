@@ -182,11 +182,11 @@ void LuaPlugin::ExecuteStop()
     msgpack::pack(ss, eventData);
 
     PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnPluginStop", ss.str(), event);
+    this->TriggerEvent("core", "OnPluginStop", ss.str(), event);
     delete event;
 }
 
-void LuaPlugin::ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent)
+void LuaPlugin::ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent, std::string prefix)
 {
     PERF_RECORD(string_format("command:%s", name.c_str()), this->GetName())
 
@@ -201,7 +201,7 @@ void LuaPlugin::ExecuteCommand(void *functionPtr, std::string name, int slot, st
     luabridge::LuaRef command = *commandRef;
     try
     {
-        command(slot, args, args.size(), silent);
+        command(slot, args, args.size(), silent, prefix);
     }
     catch (luabridge::LuaException &e)
     {
@@ -298,6 +298,16 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State *state)
             return luabridge::LuaRef(state, std::any_cast<float>(value));
         else if (value.type() == typeid(double))
             return luabridge::LuaRef(state, std::any_cast<double>(value));
+        else if (value.type() == typeid(Color))
+            return luabridge::LuaRef(state, std::any_cast<Color>(value));
+        else if (value.type() == typeid(Vector2D))
+            return luabridge::LuaRef(state, std::any_cast<Vector2D>(value));
+        else if (value.type() == typeid(Vector))
+            return luabridge::LuaRef(state, std::any_cast<Vector>(value));
+        else if (value.type() == typeid(Vector4D))
+            return luabridge::LuaRef(state, std::any_cast<Vector4D>(value));
+        else if (value.type() == typeid(QAngle))
+            return luabridge::LuaRef(state, std::any_cast<QAngle>(value));
         else if (value.type() == typeid(std::nullptr_t))
             return luabridge::LuaRef(state);
         else

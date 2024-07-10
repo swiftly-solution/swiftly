@@ -3,6 +3,7 @@
 
 #include "scripting_includes.h"
 #include "../../resourcemonitor/ResourceMonitor.h"
+#include "../../sdk/entity/CCSWeaponBase.h"
 
 #include "cstrike15_usermessages.pb.h"
 #include <google/protobuf/message.h>
@@ -23,6 +24,10 @@ class GCCSPlayerPawn;
 class GCCSPlayerPawnBase;
 class GCEntityInstance;
 class PluginMemory;
+class GCBasePlayerWeapon;
+class GCCSWeaponBase;
+class GCBasePlayerWeaponVData;
+class GCCSWeaponBaseVData;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Entity IO           //////////////
@@ -454,6 +459,46 @@ public:
 };
 
 //////////////////////////////////////////////////////////////
+/////////////////            Weapon            //////////////
+////////////////////////////////////////////////////////////
+
+class PluginWeapon
+{
+private:
+    int m_playerId;
+    CBasePlayerWeapon *m_ptr;
+
+public:
+    PluginWeapon(int playerId, CBasePlayerWeapon *ptr);
+
+    GCBasePlayerWeapon GetCBasePlayerWeapon();
+    GCCSWeaponBase GetCCSWeaponBase();
+    GCBasePlayerWeaponVData GetCBasePlayerWeaponVData();
+    GCCSWeaponBaseVData GetCCSWeaponBaseVData();
+
+    void Drop();
+    void Remove();
+};
+
+//////////////////////////////////////////////////////////////
+/////////////////        Weapon Manager        //////////////
+////////////////////////////////////////////////////////////
+
+class PluginWeaponManager
+{
+private:
+    int m_playerId;
+
+public:
+    PluginWeaponManager(int playerId);
+
+    void GiveWeapon(std::string weapon_name);
+    void RemoveWeapons();
+    void DropWeapons();
+    std::vector<PluginWeapon> GetWeapons();
+};
+
+//////////////////////////////////////////////////////////////
 /////////////////            Player            //////////////
 ////////////////////////////////////////////////////////////
 
@@ -476,11 +521,21 @@ public:
     GCCSPlayerPawn *GetCCSPlayerPawn();
     GCCSPlayerPawnBase *GetCCSPlayerPawnBase();
     void Drop(int reason);
+
+    PluginWeaponManager GetWeaponManager();
+
     std::string GetChatTag();
     void SetChatTag(std::string tag);
+
+    std::string GetChatTagColor();
     void SetChatTagColor(std::string color);
+
+    std::string GetNameColor();
     void SetNameColor(std::string color);
+
+    std::string GetChatColor();
     void SetChatColor(std::string color);
+
     void ExecuteCommand(std::string cmd);
     std::string GetConvarValue(std::string name);
     void SetConvar(std::string name, std::string value);
@@ -495,7 +550,6 @@ public:
     void Kill();
     void Respawn();
     void SendMsg(int dest, std::string msg);
-    void SetModel(std::string model);
     void ShowMenu(std::string menuid);
 
     std::any GetVarValue(std::string key);

@@ -3,6 +3,7 @@
 #include "../hooks/FuncHook.h"
 #include "../plugins/core/scripting.h"
 #include "../plugins/PluginManager.h"
+#include "../player/PlayerManager.h"
 
 #include <vector>
 #include <msgpack.hpp>
@@ -92,6 +93,12 @@ bool EventManager::OnFireEvent(IGameEvent *pEvent, bool bDontBroadcast)
         PluginEvent *event = new PluginEvent("core", pEvent, nullptr);
         EventResult result = g_pluginManager->ExecuteEvent("core", prettyEventName, emptyEventData, event);
         delete event;
+        if (prettyEventName == "OnPlayerSpawn")
+        {
+            auto slot = pEvent->GetPlayerSlot("userid");
+            Player* player = g_playerManager->GetPlayer(slot);
+            if(player) player->SetFirstSpawn(false);
+        }
         if (result != EventResult::Continue)
         {
             g_gameEventManager->FreeEvent(pEvent);

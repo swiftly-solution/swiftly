@@ -67,7 +67,7 @@ std::string BacktraceRaw(int skip = 1)
             if (info.dli_sname[0] == '_')
                 demangled = abi::__cxa_demangle(info.dli_sname, NULL, 0, &status);
             snprintf(buf, sizeof(buf), "%02d. %p %s + %zd\n",
-                     i, int(2 + sizeof(void *) * 2), callstack[i],
+                     i - 1, callstack[i],
                      status == 0 ? demangled : info.dli_sname == 0 ? symbols[i]
                                                                    : info.dli_sname,
                      (char *)callstack[i] - (char *)info.dli_saddr);
@@ -76,7 +76,7 @@ std::string BacktraceRaw(int skip = 1)
         else
         {
             snprintf(buf, sizeof(buf), "%02d. %p %s\n",
-                     i, callstack[i], symbols[i]);
+                     i - 1, callstack[i], symbols[i]);
         }
         trace_buf << buf;
     }
@@ -105,7 +105,7 @@ TextTable GetBacktrace()
 
     for (int i = 2; i < nFrames; i++)
     {
-        backtraceTable.add(string_format(" %02d. ", i));
+        backtraceTable.add(string_format(" %02d. ", i - 1));
 
         std::vector<std::string> symbolExploded = explode(symbols[i], "/");
         backtraceTable.add(string_format(" %s ", explode(symbolExploded[symbolExploded.size() - 1], "(")[0].c_str()));
