@@ -36,7 +36,7 @@
 ---
 ### Building Commands
 
-#### Close Repository
+#### Clone Repository
 
 ```
 git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
