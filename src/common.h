@@ -1,129 +1,91 @@
 #ifndef _common_h
 #define _common_h
 
-#ifdef _MSC_VER
-#pragma warning(disable : 4005)
-#pragma warning(disable : 4267)
+#include <memory>
+#include <string>
+#include <stdexcept>
+#include <vector>
+#include <tier0/platform.h>
+
+#ifdef _WIN32
+#define __FUNCTION_NAME__ __FUNCTION__
+#else
+#define __FUNCTION_NAME__ __FUNCTION__
 #endif
 
-#define META_IS_SOURCE2 1
-#define MAX_PLAYERS 64
+//////////////////////////////////////////////////////////////
+/////////////////         Windows Stuff        //////////////
+////////////////////////////////////////////////////////////
 
-#define SITE_A 0
-#define SITE_B 1
-#define SITE_UNKNOWN 2
+#ifdef _WIN32
+#ifdef GetTickCount
+#undef GetTickCount
+#endif
+#ifdef GetCurrentTime
+#undef GetCurrentTime
+#endif
+#ifdef VOID
+#undef VOID
+#endif
+#ifdef GetObject
+#undef GetObject
+#endif
+#endif
 
-#include <public/playerslot.h>
-#include <public/inetchannelinfo.h>
-#include <ISmmPlugin.h>
-#include <iplayerinfo.h>
-#include <sh_vector.h>
-#include <igameevents.h>
-#include "iserver.h"
-#include "KeyValues.h"
-#include <entity2/entitysystem.h>
-#include <entity2/entityidentity.h>
-#include "utils.h"
-#include <networksystem/inetworkserializer.h>
-#include <networksystem/inetworkmessages.h>
-#include <engine/igameeventsystem.h>
-#include <steam/steam_api_common.h>
-#include <steam/isteamugc.h>
-#include <public/filesystem.h>
+#ifdef _WIN32
+#define WIN_LINUX(win, linux) win
+#else
+#define WIN_LINUX(win, linux) linux
+#endif
 
-#include <deque>
-#include <functional>
+#define PREFIX "[Swiftly]"
 
-class CCSGameRules;
-class PluginsComponent;
+#define GCC_COMPILER (defined(__GNUC__) && !defined(__clang__))
 
-class GameSessionConfiguration_t
+void PLUGIN_PRINT(std::string category, std::string str);
+void PLUGIN_PRINTF(std::string category, std::string str, ...);
+
+#define PRINT(str) PLUGIN_PRINT(__FUNCTION_NAME__, str)
+#define PRINTF(str, ...) PLUGIN_PRINTF(__FUNCTION_NAME__, str, __VA_ARGS__)
+#define PRINTRET(FORMAT_STR, RET) \
+    {                             \
+        PRINT(FORMAT_STR);        \
+        return RET;               \
+    }
+#define PRINTFRET(FORMAT_STR, RET, ...)  \
+    {                                    \
+        PRINTF(FORMAT_STR, __VA_ARGS__); \
+        return RET;                      \
+    }
+#define CLIENT_PRINT(SLOT, FORMAT_STR) g_SMAPI->ClientConPrintf(SLOT, std::string(PREFIX).append(" [").append(__FUNCTION_NAME__).append("] ").append(FORMAT_STR).c_str())
+#define CLIENT_PRINTF(SLOT, FORMAT_STR, ...) g_SMAPI->ClientConPrintf(SLOT, std::string(PREFIX).append(" [").append(__FUNCTION_NAME__).append("] ").append(FORMAT_STR).c_str(), __VA_ARGS__)
+
+#ifndef SWIFTLY_DEBUG
+#define DEBUG_PRINTF(FORMAT_STR, ...)
+#define DEBUG_PRINT(FORMAT_STR)
+#define DEBUG_CONTEXT()
+#else
+class DebugContext
 {
-};
-
-class SwiftlyPlugin : public ISmmPlugin, public IMetamodListener
-{
-public:
-    bool Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool late);
-    bool Unload(char *error, size_t maxlen);
-    bool Pause(char *error, size_t maxlen);
-    bool Unpause(char *error, size_t maxlen);
-    void AllPluginsLoaded();
-    void OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background);
-    void OnLevelShutdown();
-    void NextFrame(std::function<void()> fn);
-
-    std::string GetMap();
-
-public:
-    void Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *);
-    void Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick);
-    void Hook_ClientActive(CPlayerSlot slot, bool bLoadGame, const char *pszName, uint64 xuid);
-    void Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char *pszName, uint64 xuid, const char *pszNetworkID);
-    void Hook_ClientSettingsChanged(CPlayerSlot slot);
-    void Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer);
-    bool Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason);
-    void Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext &ctx, const CCommand &args);
-    void Hook_GameServerSteamAPIActivated();
+private:
+    std::string str;
 
 public:
-    const char *GetAuthor();
-    const char *GetName();
-    const char *GetDescription();
-    const char *GetURL();
-    const char *GetLicense();
-    const char *GetVersion();
-    const char *GetDate();
-    const char *GetLogTag();
+    DebugContext(std::string tmp)
+    {
+        this->str = tmp;
+        PRINTF("%s begins\n", this->str.c_str());
+    }
 
-public:
-    std::deque<std::function<void()>> m_nextFrame;
-    bool m_allpluginsloaded = false;
-
-    STEAM_GAMESERVER_CALLBACK_MANUAL(SwiftlyPlugin, OnAddonDownloaded, DownloadItemResult_t, m_CallbackDownloadItemResult);
+    ~DebugContext()
+    {
+        PRINTF("%s ends\n", this->str.c_str());
+    }
 };
 
-class CEntityListener : public IEntityListener
-{
-    void OnEntityCreated(CEntityInstance *pEntity) override;
-    void OnEntitySpawned(CEntityInstance *pEntity) override;
-    void OnEntityDeleted(CEntityInstance *pEntity) override;
-    void OnEntityParentChanged(CEntityInstance *pEntity, CEntityInstance *pNewParent) override;
-};
-
-extern SwiftlyPlugin g_Plugin;
-extern IVEngineServer2 *engine;
-extern IServerGameClients *g_clientsManager;
-extern CEntitySystem *g_pEntitySystem;
-extern IServerGameDLL *server;
-extern ICvar *g_pcVar;
-extern CCSGameRules *g_pGameRules;
-extern INetworkMessages *g_pNetworkMessages;
-extern IGameEventSystem *g_pGameEventSystem;
-extern CSteamGameServerAPIContext g_SteamAPI;
-
-PLUGIN_GLOBALVARS();
-
-template <typename... T>
-void PrintToClientOrConsole(CPlayerSlot *slot, std::string category, std::string message, T... args)
-{
-    if (slot->Get() == -1)
-        PRINTF(category, message, args...);
-    else
-        CLIENT_PRINTF(*slot, category, message, args...);
-}
-
-bool ends_with(std::string value, std::string ending);
-bool starts_with(std::string value, std::string starting);
-std::string str_tolower(std::string s);
-std::string replace(std::string str, const std::string from, const std::string to);
-uint64_t GetTime();
-CGlobalVars *GetGameGlobals();
-
-enum PluginType_t : uint16_t
-{
-    PLUGIN_CPP = 1,
-    PLUGIN_LUA = 2,
-};
+#define DEBUG_PRINTF(FORMAT_STR, ...) PLUGIN_PRINTF(string_format("Debug - %s", __FUNCTION_NAME__), FORMAT_STR, __VA_ARGS__)
+#define DEBUG_PRINT(FORMAT_STR) PLUGIN_PRINT(string_format("Debug - %s", __FUNCTION_NAME__), FORMAT_STR)
+#define DEBUG_CONTEXT() DebugContext IDJHFBGIUSEFHWESOIGWSEHOIFSJIERGKSKEF(__FUNCTION_NAME__);
+#endif
 
 #endif

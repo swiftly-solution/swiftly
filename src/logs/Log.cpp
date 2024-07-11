@@ -17,17 +17,17 @@ std::string Log::GenerateLogName()
         return string_format("%s.log", this->m_path.c_str());
 }
 
-void Log::WriteLog(ELogType logType, std::string str)
+void Log::WriteLog(LogType_t logType, std::string str)
 {
     auto GetLogPrefix = [logType]()
     {
-        if (logType == LOGLEVEL_DEBUG)
+        if (logType == LogType_t::Debug)
             return "Debug";
-        else if (logType == LOGLEVEL_ERROR)
+        else if (logType == LogType_t::Error)
             return "Error";
-        else if (logType == LOGLEVEL_WARNING)
+        else if (logType == LogType_t::Warning)
             return "Warning";
-        else if (logType == LOGLEVEL_COMMON)
+        else if (logType == LogType_t::Common)
             return "Common";
         else
             return "Unknown";

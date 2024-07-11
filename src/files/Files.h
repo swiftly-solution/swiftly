@@ -2,10 +2,13 @@
 #define _files_h
 
 #include "../common.h"
+#include "../utils/utils.h"
+
 #include <filesystem>
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <bzlib.h>
 
 namespace Files
 {
@@ -19,6 +22,8 @@ namespace Files
     std::vector<std::string> FetchFileNames(std::string path);
     std::vector<std::string> FetchDirectories(std::string path);
     bool CreateDirectory(std::string path);
+    bool Compress(std::string filePath, std::string outputPath);
+    bool Decompress(std::string filePath, std::string outputPath);
 };
 
 #endif

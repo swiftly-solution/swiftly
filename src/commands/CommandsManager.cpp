@@ -1,23 +1,22 @@
 #include "CommandsManager.h"
-#include "../player/PlayerManager.h"
+
 #include "../configuration/Configuration.h"
 
-std::map<std::string, bool> existed;
+CommandsManager::CommandsManager() {}
+CommandsManager::~CommandsManager() {}
+
+static void commandsCallback(const CCommandContext &context, const CCommand &args);
+std::map<std::string, bool> conCommandCreated;
 
 // @returns 1 - command is not silent
 // @returns 2 - command is silent
 // @returns -1 - invalid controller
 // @returns 0 - is not command
-int CommandsManager::HandleCommands(CBasePlayerController *controller, std::string text)
+int CommandsManager::HandleCommand(Player *player, std::string text)
 {
     if (text == "" || text.size() == 0)
         return -1;
 
-    CPlayerSlot sl = g_playerManager->GetSlotFromUserId(controller->GetRefEHandle().GetEntryIndex() - 1);
-    CPlayerSlot *slot = &sl;
-    if (slot == nullptr)
-        return -1;
-    Player *player = g_playerManager->GetPlayer(slot);
     if (player == nullptr)
         return -1;
 
@@ -25,6 +24,7 @@ int CommandsManager::HandleCommands(CBasePlayerController *controller, std::stri
     std::vector<std::string> silentCommandPrefixes = explode(g_Config->FetchValue<std::string>("core.silentCommandPrefixes"), " ");
     bool isCommand = (std::find(commandPrefixes.begin(), commandPrefixes.end(), std::string(1, text.at(0))) != commandPrefixes.end());
     bool isSilentCommand = (std::find(silentCommandPrefixes.begin(), silentCommandPrefixes.end(), std::string(1, text.at(0))) != silentCommandPrefixes.end());
+
     if (isCommand || isSilentCommand)
     {
         CCommand tokenizedArgs;
@@ -41,7 +41,7 @@ int CommandsManager::HandleCommands(CBasePlayerController *controller, std::stri
         if (cmd == nullptr)
             return 0;
 
-        cmd->Exec(player->GetSlot()->Get(), cmdString, isSilentCommand);
+        cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand, std::string(1, text.at(0)));
     }
 
     if (isCommand)
@@ -60,33 +60,48 @@ Command *CommandsManager::FetchCommand(std::string cmd)
     return this->commands.at(cmd);
 }
 
-static void commandsCallback(const CCommandContext &context, const CCommand &args);
-
-bool CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, Command *command)
+void CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, Command *command)
 {
-    if (this->FetchCommand(cmd) != nullptr)
-        return false;
+    if (this->commands.find(cmd) != this->commands.end())
+        return;
 
-    this->commands.insert(std::make_pair(cmd, command));
+    this->commands.insert({cmd, command});
+    this->commandAliases.insert({cmd, {}});
 
     if (this->commandsByPlugin.find(plugin_name) == this->commandsByPlugin.end())
-    {
-        std::vector<std::string> cmds;
-        cmds.push_back(cmd);
-        this->commandsByPlugin.insert(std::make_pair(plugin_name, cmds));
-    }
-    else
-        this->commandsByPlugin[plugin_name].push_back(cmd);
+        this->commandsByPlugin.insert({plugin_name, {}});
 
-    if (existed.find(cmd) == existed.end())
+    this->commandsByPlugin[plugin_name].push_back(cmd);
+
+    if (conCommandCreated.find(cmd) == conCommandCreated.end())
     {
+        conCommandCreated.insert({cmd, true});
+
         ConCommandRefAbstract commandRef;
-        auto conCommand = new ConCommand(&commandRef, ("sw_" + cmd).c_str(), commandsCallback, "The main command for Swiftly.", (1 << 25) | (1 << 0) | (1 << 24));
-
-        existed.insert(std::make_pair(cmd, true));
+        new ConCommand(&commandRef, ("sw_" + cmd).c_str(), commandsCallback, "Swiftly Command", (1 << 25) | (1 << 0) | (1 << 24));
     }
+}
 
-    return true;
+void CommandsManager::UnregisterCommand(std::string cmd)
+{
+    if (this->commands.find(cmd) == this->commands.end())
+        return;
+
+    Command *command = FetchCommand(cmd);
+    std::string plugin = command->GetPluginName();
+
+    delete command;
+    this->commands.erase(cmd);
+
+    std::vector<std::string> aliases = this->commandAliases.at(cmd);
+    for (std::string alias : aliases)
+        UnregisterCommand(alias);
+
+    this->commandAliases.erase(cmd);
+
+    auto cmdIterator = std::find(this->commandsByPlugin[plugin].begin(), this->commandsByPlugin[plugin].end(), cmd);
+    if (cmdIterator != this->commandsByPlugin[plugin].end())
+        this->commandsByPlugin[plugin].erase(cmdIterator);
 }
 
 static void commandsCallback(const CCommandContext &context, const CCommand &args)
@@ -94,31 +109,18 @@ static void commandsCallback(const CCommandContext &context, const CCommand &arg
     CCommand tokenizedArgs;
     tokenizedArgs.Tokenize(args.GetCommandString());
 
-    std::string cmdName = (tokenizedArgs[0] + 3);
+    std::string commandName = (tokenizedArgs[0] + 3);
+
     std::vector<std::string> argsplit;
     for (int i = 1; i < tokenizedArgs.ArgC(); i++)
         argsplit.push_back(tokenizedArgs[i]);
 
-    if (g_commandsManager->FetchCommand(cmdName) == nullptr)
+    if (g_commandsManager->FetchCommand(commandName) == nullptr)
         return;
 
-    Command *cmd = g_commandsManager->FetchCommand(cmdName);
-    if (cmd == nullptr)
+    Command *command = g_commandsManager->FetchCommand(commandName);
+    if (!command)
         return;
 
-    cmd->Exec(context.GetPlayerSlot().Get(), argsplit, true);
-}
-
-bool CommandsManager::UnregisterCommand(std::string cmd)
-{
-    Command *command = this->FetchCommand(cmd);
-    if (command == nullptr)
-        return false;
-
-    this->commandsByPlugin[command->GetPluginName()].erase(std::find(this->commandsByPlugin[command->GetPluginName()].begin(), this->commandsByPlugin[command->GetPluginName()].end(), cmd));
-    delete command;
-    this->commands.erase(cmd);
-    if (this->commandsLuaReference.find(cmd) != this->commandsLuaReference.end())
-        this->commandsLuaReference.erase(cmd);
-    return true;
+    command->Execute(context.GetPlayerSlot().Get(), argsplit, true, "sw_");
 }

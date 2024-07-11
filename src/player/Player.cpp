@@ -1,17 +1,15 @@
 #include "Player.h"
-#include "../sig/Signatures.h"
-#include <metamod_util.h>
-#include <algorithm>
-#include "../events/gameevents.h"
-#include "../hooks/Hooks.h"
-#include "../menus/Menus.h"
+
+#include "../entrypoint.h"
+#include "../common.h"
+#include "../utils/utils.h"
+#include "../menus/MenuManager.h"
+#include "../commands/CommandsManager.h"
+
 #include "networkbasetypes.pb.h"
-#include <thread>
 #include "../sdk/entity/CRecipientFilters.h"
 
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
-
-typedef void (*CCSPlayerController_SwitchTeam)(CCSPlayerController *pController, unsigned int team);
 
 std::map<std::string, std::string> colors = {
     {"{DEFAULT}", "\x01"},
@@ -38,13 +36,6 @@ std::map<std::string, std::string> colors = {
     {"{ORANGE}", "\x10"},
 };
 
-std::string str_tolower(std::string s)
-{
-    std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c)
-                   { return std::tolower(c); });
-    return s;
-}
-
 std::string ProcessColor(std::string str, int team = CS_TEAM_CT)
 {
     str = replace(str, "{TEAMCOLOR}", team == CS_TEAM_CT ? "{LIGHTBLUE}" : "{GOLD}");
@@ -55,6 +46,22 @@ std::string ProcessColor(std::string str, int team = CS_TEAM_CT)
         str = replace(str, str_tolower(it->first), it->second);
     }
     return str;
+}
+
+Player::Player(bool m_isFakeClient, int m_slot, const char *m_name, uint64 m_xuid, std::string ip_address)
+{
+    this->slot = m_slot;
+    this->isFakeClient = m_isFakeClient;
+    this->connectTime = std::time(0);
+    this->name = m_name;
+    this->xuid = m_xuid;
+    this->ip_address = ip_address;
+}
+
+Player::~Player()
+{
+    this->isFakeClient = true;
+    this->isAuthenticated = false;
 }
 
 CBasePlayerController *Player::GetController()
@@ -92,32 +99,6 @@ CCSPlayerPawnBase *Player::GetPlayerBasePawn()
         return nullptr;
 
     return (CCSPlayerPawnBase *)pawn;
-}
-
-void Player::SwitchTeam(int team)
-{
-    CCSPlayerController *playerController = this->GetPlayerController();
-    if (!playerController)
-        return;
-
-    if (team == CS_TEAM_SPECTATOR)
-        CALL_VIRTUAL(void, g_Offsets->GetOffset("ChangeTeam"), playerController, team);
-    else
-        g_Signatures->FetchSignature<CCSPlayerController_SwitchTeam>("CCSPlayerController_SwitchTeam")(playerController, team);
-}
-
-void Player::Authenticate()
-{
-    this->isAuthenticated = true;
-}
-
-const char *Player::GetName()
-{
-    CBasePlayerController *controller = this->GetController();
-    if (!controller)
-        return this->name;
-
-    return reinterpret_cast<char *>(controller->m_iszPlayerName());
 }
 
 uint64 Player::GetSteamID()
@@ -158,6 +139,7 @@ void Player::SendMsg(int dest, const char *msg, ...)
             if (ends_with(message, "\n"))
                 message.pop_back();
             message += "\x01";
+
             bool startsWithColor = (message.at(0) == '{');
 
             message = ProcessColor(message, controller->m_iTeamNum());
@@ -198,25 +180,23 @@ void Player::SendMsg(int dest, const char *msg, ...)
                 message = replace(message, it->first, "");
                 message = replace(message, str_tolower(it->first), "");
             }
-            engine->ClientPrintf(*this->GetSlot(), message.c_str());
+            engine->ClientPrintf(this->GetSlot(), message.c_str());
         }
     }
 }
 
-std::any Player::GetInternalVar(std::string name)
+const char *Player::GetName()
 {
-    if (this->internalVars.find(name) == this->internalVars.end())
-        return 0;
+    CBasePlayerController *controller = this->GetController();
+    if (!controller)
+        return this->name;
 
-    return this->internalVars.at(name);
+    return reinterpret_cast<char *>(controller->m_iszPlayerName());
 }
 
-void Player::SetInternalVar(std::string name, std::any value)
+void Player::Authenticate()
 {
-    if (this->internalVars.find(name) == this->internalVars.end())
-        this->internalVars.insert(std::make_pair(name, value));
-    else
-        this->internalVars[name] = value;
+    this->isAuthenticated = true;
 }
 
 Vector Player::GetCoords()
@@ -240,74 +220,55 @@ void Player::SetCoords(float x, float y, float z)
     pawn->Teleport(&vec, nullptr, nullptr);
 }
 
-CBasePlayerWeapon *Player::GetPlayerWeaponFromID(uint32 weaponid)
+void Player::SwitchTeam(int team)
 {
-    CCSPlayerPawn *pawn = this->GetPlayerPawn();
-    if (!pawn)
-        return nullptr;
+    CCSPlayerController *playerController = this->GetPlayerController();
+    if (!playerController)
+        return;
 
-    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
-    if (!weaponServices)
-        return nullptr;
-
-    CUtlVector<CHandle<CBasePlayerWeapon>> *weapons = weaponServices->m_hMyWeapons();
-    if (!weapons)
-        return nullptr;
-
-    FOR_EACH_VEC(*weapons, i)
-    {
-        CHandle<CBasePlayerWeapon> &weaponHandle = (*weapons)[i];
-        if (!weaponHandle.IsValid())
-            continue;
-
-        CBasePlayerWeapon *weapon = weaponHandle.Get();
-        if (!weapon)
-            continue;
-
-        if (weapon->m_AttributeManager().m_Item().m_iItemDefinitionIndex() == weaponid)
-            return weapon;
-    }
-
-    return nullptr;
+    if (team == CS_TEAM_SPECTATOR)
+        CALL_VIRTUAL(void, g_Offsets->GetOffset("CCSPlayerController_ChangeTeam"), playerController, team);
+    else
+        g_Signatures->FetchSignature<CCSPlayerController_SwitchTeam>("CCSPlayerController_SwitchTeam")(playerController, team);
 }
 
-CBasePlayerWeapon *Player::GetPlayerWeaponFromSlot(gear_slot_t slot)
+void Player::RenderCenterText()
 {
-    CCSPlayerPawn *pawn = this->GetPlayerPawn();
-    if (!pawn)
-        return nullptr;
-
-    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
-    if (!weaponServices)
-        return nullptr;
-
-    if (slot == GEAR_SLOT_CURRENT_WEAPON)
-        return weaponServices->m_hActiveWeapon();
-
-    CUtlVector<CHandle<CBasePlayerWeapon>> *weapons = weaponServices->m_hMyWeapons();
-    if (!weapons)
-        return nullptr;
-
-    FOR_EACH_VEC(*weapons, i)
+    if (this->centerMessageEndTime != 0)
     {
-        CHandle<CBasePlayerWeapon> &weaponHandle = (*weapons)[i];
-        if (!weaponHandle.IsValid())
-            continue;
+        if (this->centerMessageEndTime >= GetTime())
+        {
+            IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+            if (pEvent)
+            {
+                pEvent->SetString("loc_token", this->centerMessageText.c_str());
+                pEvent->SetUint64("duration", 1);
+                pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
 
-        CBasePlayerWeapon *weapon = weaponHandle.Get();
-        if (!weapon)
-            continue;
+                IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
 
-        CCSWeaponBaseVData *vData = weapon->GetWeaponVData();
-        if (!vData)
-            continue;
-
-        if (vData->m_GearSlot() == slot)
-            return weapon;
+                playerListener->FireGameEvent(pEvent);
+                g_gameEventManager->FreeEvent(pEvent);
+            }
+        }
+        else
+            this->centerMessageEndTime = 0;
     }
-
-    return nullptr;
 }
+
+bool Player::HasCenterText() { return (this->centerMessageEndTime != 0); }
+
+bool Player::IsFirstSpawn() { return this->firstSpawn; }
+void Player::SetFirstSpawn(bool value) { this->firstSpawn = value; }
+
+bool Player::IsFakeClient() { return this->isFakeClient; }
+bool Player::IsAuthenticated() { return this->isAuthenticated; }
+CPlayerSlot Player::GetSlot() { return CPlayerSlot(this->slot); }
+uint32 Player::GetConnectedTime() { return (std::time(0) - this->connectTime); }
+std::string Player::GetIPAddress() { return this->ip_address; }
+
+void Player::SetConnected(bool connected) { this->isConnected = connected; }
+bool Player::IsConnected() { return this->isConnected; }
 
 const std::vector<std::string> key_buttons = {
     "mouse1",
@@ -344,14 +305,16 @@ const std::vector<std::string> key_buttons = {
     "tab",
 };
 
+void OnClientKeyStateChange(int playerid, std::string key, bool pressed);
+
 void Player::SetButtons(uint64_t new_buttons)
 {
     for (uint16_t i = 0; i < key_buttons.size(); i++)
     {
         if (this->IsButtonPressed((1 << i)) && (new_buttons & (1 << i)) == 0)
-            hooks::emit(OnClientKeyStateChange(this->GetSlot(), key_buttons[i].c_str(), false));
+            OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], false);
         else if (!this->IsButtonPressed((1 << i)) && (new_buttons & (1 << i)) != 0)
-            hooks::emit(OnClientKeyStateChange(this->GetSlot(), key_buttons[i].c_str(), true));
+            OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], true);
     }
 
     this->buttons = new_buttons;
@@ -367,12 +330,36 @@ bool Player::IsButtonPressed(uint64_t but)
     return ((this->buttons & but) != 0);
 }
 
+bool Player::HasMenuShown() { return (this->menu != nullptr); }
+Menu *Player::GetMenu() { return this->menu; }
+
+int Player::GetPage() { return this->page; }
+void Player::SetPage(int pg)
+{
+    this->page = pg;
+    this->selected = 0;
+    this->menu->RegeneratePage(this->page, this->selected);
+}
+int Player::GetSelection() { return this->selected; }
+void Player::MoveSelection()
+{
+    if (this->page == 0)
+        return;
+
+    int itemsPerPage = this->menu->GetItemsOnPage(this->page);
+    ++this->selected;
+    if (itemsPerPage == this->selected)
+        this->selected = 0;
+
+    this->menu->RegeneratePage(this->page, this->selected);
+}
+
 void Player::ShowMenu(std::string menuid)
 {
     if (this->menu != nullptr)
         return;
 
-    Menu *m = g_menus->FetchMenu(menuid);
+    Menu *m = g_MenuManager->FetchMenu(menuid);
     if (m == nullptr)
         return;
 
@@ -380,31 +367,8 @@ void Player::ShowMenu(std::string menuid)
     this->page = 1;
     this->selected = 0;
 
+    this->menu->RegeneratePage(this->page, this->selected);
     this->RenderMenu();
-}
-
-void Player::RenderCenterText()
-{
-    if (this->centerMessageEndTime != 0)
-    {
-        if (this->centerMessageEndTime >= GetTime())
-        {
-            IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
-            if (pEvent)
-            {
-                pEvent->SetString("loc_token", this->centerMessageText.c_str());
-                pEvent->SetUint64("duration", 1);
-                pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
-
-                IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
-
-                playerListener->FireGameEvent(pEvent);
-                g_gameEventManager->FreeEvent(pEvent);
-            }
-        }
-        else
-            this->centerMessageEndTime = 0;
-    }
 }
 
 void Player::RenderMenu()
@@ -418,11 +382,11 @@ void Player::RenderMenu()
     IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
     if (pEvent)
     {
-        pEvent->SetString("loc_token", this->menu->GenerateItems(this->page, this->selected).c_str());
+        pEvent->SetString("loc_token", this->menu->GeneratedItems(this->page).c_str());
         pEvent->SetUint64("duration", 10);
         pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
 
-        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
+        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
 
         playerListener->FireGameEvent(pEvent);
         g_gameEventManager->FreeEvent(pEvent);
@@ -436,6 +400,11 @@ void Player::HideMenu()
 
     this->page = 0;
     this->selected = 0;
+    if (this->menu->IsTemporary())
+    {
+        std::string menuID = this->menu->GetID();
+        g_MenuManager->UnregisterMenu(menuID);
+    }
     this->menu = nullptr;
 
     IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
@@ -445,14 +414,73 @@ void Player::HideMenu()
         pEvent->SetUint64("duration", 1);
         pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
 
-        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(*this->GetSlot());
+        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
 
         playerListener->FireGameEvent(pEvent);
         g_gameEventManager->FreeEvent(pEvent);
     }
 }
 
-ConVar *FetchCVar(const char *name);
+void Player::PerformMenuAction(std::string button)
+{
+    if (!this->HasMenuShown())
+        return;
+
+    if (button == "shift")
+    {
+        this->PerformCommand("play sounds/ui/csgo_ui_contract_type2.vsnd_c");
+        this->MoveSelection();
+        this->RenderMenu();
+    }
+    else if (button == "e")
+    {
+        this->PerformCommand("play sounds/ui/csgo_ui_contract_type2.vsnd_c");
+        std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
+        if (cmd == "menunext")
+        {
+            this->SetPage(this->GetPage() + 1);
+            this->RenderMenu();
+        }
+        else if (cmd == "menuback")
+        {
+            this->SetPage(this->GetPage() - 1);
+            this->RenderMenu();
+        }
+        else if (cmd == "menuexit")
+        {
+            this->HideMenu();
+        }
+        else if (g_MenuManager->FetchMenu(cmd))
+        {
+            this->HideMenu();
+            this->ShowMenu(cmd);
+        }
+        else if (starts_with(cmd, "sw_"))
+        {
+            CCommand tokenizedArgs;
+            tokenizedArgs.Tokenize(cmd.c_str());
+
+            std::vector<std::string> cmdString;
+            for (int i = 1; i < tokenizedArgs.ArgC(); i++)
+                cmdString.push_back(tokenizedArgs[i]);
+
+            std::string commandName = replace(tokenizedArgs[0], "sw_", "");
+
+            Command *cmd = g_commandsManager->FetchCommand(commandName);
+            if (cmd)
+                cmd->Execute(this->GetSlot().Get(), cmdString, true, "sw_");
+        }
+        else if (cmd != "")
+            this->PerformCommand(cmd);
+    }
+}
+
+void Player::PerformCommand(std::string command)
+{
+    engine->ClientCommand(this->GetSlot(), command.c_str());
+}
+
+ConVar *FetchCVar(std::string cvarname);
 
 void Player::SetClientConvar(std::string cmd, std::string val)
 {
@@ -460,12 +488,45 @@ void Player::SetClientConvar(std::string cmd, std::string val)
     if (!cv)
         return;
 
-    INetworkSerializable *netmsg = g_pNetworkMessages->FindNetworkMessagePartial("SetConVar");
-    CNETMsg_SetConVar *msg = new CNETMsg_SetConVar;
+    INetworkMessageInternal *netmsg = g_pNetworkMessages->FindNetworkMessagePartial("SetConVar");
+    auto msg = netmsg->AllocateMessage()->ToPB<CNETMsg_SetConVar>();
     CMsg_CVars_CVar *cvar = msg->mutable_convars()->add_cvars();
     cvar->set_name(cv->m_pszName);
     cvar->set_value(val.c_str());
 
-    CSingleRecipientFilter filter(this->GetSlot()->Get());
+    CSingleRecipientFilter filter(this->GetSlot().Get());
     g_pGameEventSystem->PostEventAbstract(0, false, &filter, netmsg, msg, 0);
+}
+
+std::any Player::GetInternalVar(std::string name)
+{
+    if (this->internalVars.find(name) == this->internalVars.end())
+        return nullptr;
+
+    return this->internalVars.at(name);
+}
+
+void Player::SetInternalVar(std::string name, std::any value)
+{
+    this->internalVars[name] = value;
+}
+
+void Player::SetListen(CPlayerSlot slot, ListenOverride listen)
+{
+    m_listenMap[slot.Get()] = listen;
+}
+
+void Player::SetVoiceFlags(VoiceFlag_t flags)
+{
+    m_voiceFlag = flags;
+}
+
+VoiceFlag_t Player::GetVoiceFlags()
+{
+    return m_voiceFlag;
+}
+
+ListenOverride Player::GetListen(CPlayerSlot slot) const
+{
+    return m_listenMap[slot.Get()];
 }

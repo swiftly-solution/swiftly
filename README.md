@@ -16,12 +16,11 @@
 </div>
 
 ---
-
 ### Build Requirements
 -   [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Downloads automatically with the git cloning using Recurse Submodules)
--   [metamod-source](https://github.com/alliedmodders/metamod-source)
+-   [metamod-source](https://github.com/alliedmodders/metamod-source) (Downloads automatically with the git cloning using Recurse Submodules)
 -   [python3](https://www.python.org/)
--   [XMake](https://xmake.io/) (MAKE SURE `xmake` COMMAND IS AVAILABLE VIA `PATH` FOR WINDOWS)
+-   [AMBuild](https://github.com/alliedmodders/ambuild) (MAKE SURE `ambuild` COMMAND IS AVAILABLE VIA `PATH` FOR WINDOWS)
 ---
 ### Downloads
 - [Public Releases (recomended)](https://github.com/swiftly-solution/swiftly/releases)
@@ -32,13 +31,12 @@
 - [GitHub Topic](https://github.com/topics/swiftly-solution)
 ---
 ### For Developers
-- [My First Plugin](https://docs.swiftlycs2.net/category/my-first-plugin)
-- [Swiftly C++ Docs](https://docs.swiftlycs2.net/category/c-1)
-- [Swiftly LUA Docs](https://docs.swiftlycs2.net/category/lua-1)
+- [My First Lua Plugin](https://swiftlycs2.net/docs/my-first-plugin/lua.html)
+- [Documentation](https://swiftlycs2.net)
 ---
 ### Building Commands
 
-#### Close Repository
+#### Clone Repository
 
 ```
 git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
@@ -61,9 +59,11 @@ Swiftly is licensed under the MIT License. You can view the license in the LICEN
 
 ### Credits
 
-I've used the Schema System and the base SDK classes fields provided by [CS2Fixes](https://github.com/Source2ZE/CS2Fixes). 
+The Schema System and the base SDK classes fields provided by [CS2Fixes](https://github.com/Source2ZE/CS2Fixes). 
+
 The rest of SDK fields were provided by [Source2SDK](https://github.com/neverlosecc/source2sdk/tree/cs2/sdk).
-Thanks to the [Source2ZE](https://github.com/Source2ZE) team for providing the code for Addons Manager in Swiftly.
+
+Thanks to GAMMACASE, Poggu, and all the people which are constantly working for the Counter Strike 2 Server Community to become better.
 
 ---
 

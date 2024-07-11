@@ -1,6 +1,8 @@
-#pragma once
+#ifndef _cschemasystem_h
+#define _cschemasystem_h
+
 #include "../../utils/virtual.h"
-#include <platform.h>
+#include <tier0/platform.h>
 
 struct CSchemaNetworkValue
 {
@@ -38,3 +40,5 @@ public:
         return CALL_VIRTUAL(CSchemaSystemTypeScope *, 13, this, module, nullptr);
     }
 };
+
+#endif

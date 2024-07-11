@@ -1,7 +1,7 @@
 #include "Configuration.h"
 #include "../files/Files.h"
 
-#include "../utils.h"
+#include "../utils/utils.h"
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
@@ -30,7 +30,7 @@ bool ConfigurationError(std::string configuration_file, std::string error)
     if (!g_SMAPI)
         return false;
 
-    PRINTF("Configurations", "Error: %s: %s\n", configuration_file.c_str(), error.c_str());
+    PLUGIN_PRINTF("Configurations", "Error: %s: %s\n", configuration_file.c_str(), error.c_str());
     return false;
 }
 

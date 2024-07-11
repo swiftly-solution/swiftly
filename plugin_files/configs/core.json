@@ -3,12 +3,15 @@
         "enabled": true,
         "mode": "daily"
     },
-    "commandPrefixes": ["!"],
-    "commandSilentPrefixes": ["/"],
+    "commandPrefixes": [
+        "!"
+    ],
+    "commandSilentPrefixes": [
+        "/"
+    ],
     "console_filtering": true,
     "language": "en",
     "patches_to_perform": [],
-
-    "CS2ServerGuidelines": "https://blog.counter-strike.net/index.php/server_guidelines/", 
+    "CS2ServerGuidelines": "https://blog.counter-strike.net/index.php/server_guidelines/",
     "FollowCS2ServerGuidelines": true
 }

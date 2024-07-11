@@ -49,7 +49,7 @@ std::any ParseFieldType(enum_field_types type, const char *value)
         return (short)strtol(value, nullptr, 10);
     else
     {
-        PRINTF("Database - ParseFieldType", "Invalid field type: %d.\n", type);
+        PLUGIN_PRINTF("Database - ParseFieldType", "Invalid field type: %d.\n", type);
         return 0;
     }
 }
@@ -125,6 +125,9 @@ void Database::Close(bool containsError)
 
 std::string Database::GetError()
 {
+    if (!this->error)
+        return "";
+
     std::string err(this->error);
     this->error = nullptr;
     return err;

@@ -4,16 +4,22 @@
 #include <functional>
 #include <tier1/utlvector.h>
 #include <funchook.h>
-#include "../sig/Signatures.h"
+#include "../signatures/Signatures.h"
 #include "../common.h"
-#include "../utils.h"
+#include "../entrypoint.h"
+#include "../utils/utils.h"
 
 class FuncHookBase
 {
 public:
     virtual const char *GetName() = 0;
     virtual void Free() = 0;
+    virtual bool Create() = 0;
+    virtual void Enable() = 0;
+    virtual void Disable() = 0;
 };
+
+extern CUtlVector<FuncHookBase *> g_vecHooks;
 
 template <typename T>
 class FuncHook : FuncHookBase
@@ -30,15 +36,17 @@ public:
     {
         this->m_fn = fn;
         this->m_name = name;
+
+        g_vecHooks.AddToTail(this);
     }
     ~FuncHook()
     {
         this->Free();
     }
 
-    bool Create();
-    void Enable();
-    void Disable();
+    bool Create() override;
+    void Enable() override;
+    void Disable() override;
     void Free() override;
     const char *GetName() override { return this->m_name; }
     T *GetFn() { return this->m_fn; }
@@ -57,14 +65,14 @@ bool FuncHook<T>::Create()
 {
     if (!g_Signatures->Exists(this->m_name))
     {
-        PRINTF("FuncHook", "Failed create for %s.\nError Message: Signature was not found.\n", this->GetName());
+        PLUGIN_PRINTF("FuncHook", "Failed create for %s.\nError Message: Signature was not found.\n", this->GetName());
         return false;
     }
 
     void *ptr = g_Signatures->FetchRawSignature(this->m_name);
     if (ptr == nullptr)
     {
-        PRINTF("FuncHook", "Failed create for %s.\nError Message: Invalid signature pointer.\n", this->GetName());
+        PLUGIN_PRINTF("FuncHook", "Failed create for %s.\nError Message: Invalid signature pointer.\n", this->GetName());
         return false;
     }
 
@@ -89,7 +97,7 @@ void FuncHook<T>::Enable()
     if (!err)
         this->m_installed = true;
     else
-        PRINTF("FuncHook", "Failed enable for %s.\nError Code: %d\nError Message: %s\n", this->GetName(), err, funchook_error_message(this->m_hook));
+        PLUGIN_PRINTF("FuncHook", "Failed enable for %s.\nError Code: %d\nError Message: %s\n", this->GetName(), err, funchook_error_message(this->m_hook));
 }
 
 template <typename T>
@@ -103,7 +111,7 @@ void FuncHook<T>::Disable()
     if (!err)
         this->m_installed = false;
     else
-        PRINTF("FuncHook", "Failed disable for %s.\nError Code: %d\nError Message: %s\n", this->GetName(), err, funchook_error_message(this->m_hook));
+        PLUGIN_PRINTF("FuncHook", "Failed disable for %s.\nError Code: %d\nError Message: %s\n", this->GetName(), err, funchook_error_message(this->m_hook));
 }
 
 template <typename T>
@@ -118,7 +126,7 @@ void FuncHook<T>::Free()
     int err = funchook_destroy(this->m_hook);
 
     if (err != 0)
-        PRINTF("FuncHook", "Failed destruction for %s.\nError Code: %d\nError Message: %s\n", this->GetName(), err, funchook_error_message(this->m_hook));
+        PLUGIN_PRINTF("FuncHook", "Failed destruction for %s.\nError Code: %d\nError Message: %s\n", this->GetName(), err, funchook_error_message(this->m_hook));
 }
 
 #endif

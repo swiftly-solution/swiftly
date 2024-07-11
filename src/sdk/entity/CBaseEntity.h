@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../schema.h"
-#include "../../sig/Offsets.h"
+#include "../../signatures/Offsets.h"
 #include "../../common.h"
 #include "globaltypes.h"
 #include "CCollisionProperty.h"
@@ -36,7 +36,7 @@ public:
 class CModelState
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CModelState, true)
+    DECLARE_SCHEMA_CLASS_BASE(CModelState, false)
 
     SCHEMA_FIELD_OFFSET(uint64_t, m_MeshGroupMask, 0)
 };
@@ -46,7 +46,7 @@ class CSkeletonInstance
 public:
     DECLARE_SCHEMA_CLASS_BASE(CSkeletonInstance, false)
 
-    SCHEMA_FIELD_POINTER_OFFSET(CModelState, m_modelState, 0)
+    SCHEMA_FIELD_OFFSET(CModelState, m_modelState, 0)
 };
 
 class CGameSceneNode
@@ -129,7 +129,6 @@ public:
     SCHEMA_FIELD_OFFSET(int, m_iMaxHealth, 0)
     SCHEMA_FIELD_OFFSET(int, m_iTeamNum, 0)
     SCHEMA_FIELD_OFFSET(MoveType_t, m_MoveType, 0)
-    SCHEMA_FIELD_OFFSET(MoveType_t, m_nActualMoveType, 0)
     SCHEMA_FIELD_OFFSET(uint32, m_spawnflags, 0)
     SCHEMA_FIELD_OFFSET(uint32, m_fFlags, 0)
     SCHEMA_FIELD_OFFSET(LifeState_t, m_lifeState, 0)
@@ -141,11 +140,10 @@ public:
     SCHEMA_FIELD_OFFSET(float, m_flGravityScale, 0)
 
     int EntityIndex() { return this->m_pEntity->GetRefEHandle().GetEntryIndex(); }
-    bool IsAlive() { return m_lifeState == LifeState_t::LIFE_ALIVE; }
 
     void Teleport(Vector *position, QAngle *angles, Vector *velocity)
     {
-        static int offset = g_Offsets->GetOffset("Teleport");
+        static int offset = g_Offsets->GetOffset("CBaseEntity_Teleport");
         CALL_VIRTUAL(void, offset, this, position, angles, velocity);
     }
 
@@ -164,15 +162,10 @@ public:
         g_Signatures->FetchSignature<UTIL_Remove>("UTIL_Remove")(this);
     }
 
-    void AcceptInput(const char *pInputName, CEntityInstance *pActivator = nullptr, CEntityInstance *pCaller = nullptr, double *value = nullptr)
+    void AcceptInput(const char *pInputName, CEntityInstance *pActivator = nullptr, CEntityInstance *pCaller = nullptr, const char *value = nullptr, int outputID = 0)
     {
-        g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this, pInputName, pActivator, pCaller, value, 0);
-    }
-
-    void OnCollisionRulesUpdate()
-    {
-        static int offset = g_Offsets->GetOffset("CollisionRulesChanged");
-        CALL_VIRTUAL(void, offset, this);
+        variant_t variantValue = variant_t(value);
+        g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this, pInputName, pActivator, pCaller, &variantValue, outputID);
     }
 
     CEntitySubclassVDataBase *GetVData() { return *(CEntitySubclassVDataBase **)((uint8 *)(m_nSubclassID()) + 4); }

@@ -1,11 +1,56 @@
 #include "Menu.h"
 
+#include "../utils/utils.h"
+
+Menu::Menu(std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool tmp)
+{
+    this->id = id;
+    this->color = color;
+    this->options = options;
+    this->title = title;
+    this->temporary = tmp;
+
+    ProcessOptions();
+}
+
+Menu::~Menu()
+{
+    this->id.clear();
+    this->color.clear();
+    this->title.clear();
+    this->options.clear();
+    this->processedOptions.clear();
+}
+
+std::string Menu::GetID()
+{
+    return this->id;
+}
+
+std::string Menu::GetCommandFromOption(int page, int selected)
+{
+    if (page < 1)
+        return "";
+
+    return processedOptions[page - 1][selected].second;
+}
+
+size_t Menu::GetItemsOnPage(int page)
+{
+    if (page < 1)
+        return 0;
+
+    return processedOptions[page - 1].size();
+}
+
+// TODO: Translation for Next, Back, Exit (Maybe a file called Generic for generic translations?)
 void Menu::ProcessOptions()
 {
     int pages = 0;
     int processedItems = 0;
     int totalProcessedItems = 0;
     std::vector<std::pair<std::string, std::string>> tempmap;
+
     for (const std::pair<std::string, std::string> entry : this->options)
     {
         ++processedItems;
@@ -14,11 +59,11 @@ void Menu::ProcessOptions()
         if (processedItems == (pages == 0 ? 4 : 3))
         {
             if (options.size() - totalProcessedItems > 0)
-                tempmap.push_back({"Next", "menunext"});
+                tempmap.push_back({g_translations->FetchTranslation("core.menu.next"), "menunext"});
             if (pages != 0)
-                tempmap.push_back({"Back", "menuback"});
+                tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
 
-            tempmap.push_back({"Exit", "menuexit"});
+            tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
 
             processedItems = 0;
             pages++;
@@ -26,40 +71,42 @@ void Menu::ProcessOptions()
             tempmap.clear();
         }
     }
+
     if (tempmap.size() > 0)
     {
         if (this->processedOptions.size() != 0)
-            tempmap.push_back({"Back", "menuback"});
+            tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
 
-        tempmap.push_back({"Exit", "menuexit"});
+        tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
 
         processedItems = 0;
         this->processedOptions.push_back(tempmap);
         tempmap.clear();
     }
-
-    /*
-    @note Debug Function
-
-    PRINTF("ProcessOption", "Menu %s\n", this->id.c_str());
-    for (uint32_t i = 0; i < this->processedOptions.size(); i++)
-    {
-        PRINTF("ProcessOption", "Page %d.\n", i + 1);
-        for (uint32_t j = 0; j < this->processedOptions[i].size(); j++)
-        {
-            PRINTF("ProcessOption", "%d. Option: %s | Command: %s\n", j + 1, this->processedOptions[i][j].first.c_str(), this->processedOptions[i][j].second.c_str());
-        }
-    }
-    */
 }
 
-std::string Menu::GenerateItems(int page, int selected)
+std::string Menu::GeneratedItems(int page)
 {
-    std::string retval = "";
-    retval += string_format("&nbsp;&nbsp;<div><font color=\"#%s\">%s</font></div><br/>", this->color.c_str(), this->title.c_str());
-    for (uint32_t i = 0; i < processedOptions[page - 1].size(); i++)
-        retval += string_format("<div style=\"width: 768px;\"><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? ">" : "&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
+    return this->generatedPages[page - 1];
+}
 
-    retval += "<div>SHIFT - Cycle | E - Select</div>";
-    return retval;
+void Menu::RegeneratePage(int page, int selected)
+{
+    while (this->generatedPages.size() < page)
+    {
+        this->generatedPages.push_back("");
+    }
+
+    std::string stringPage = string_format("<div><font color=\"#%s\">&nbsp;&nbsp;&nbsp;%s</font></div><br/>", this->color.c_str(), this->title.c_str());
+    for (int i = 0; i < processedOptions[page - 1].size(); i++)
+        stringPage += string_format("<div><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? "➤&nbsp;" : "&nbsp;&nbsp;&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
+
+    stringPage += replace(replace(g_translations->FetchTranslation("core.menu.footer"), "{PAGE}", std::to_string(page)), "{MAXPAGES}", std::to_string(processedOptions.size()));
+
+    this->generatedPages[page - 1] = stringPage;
+}
+
+bool Menu::IsTemporary()
+{
+    return this->temporary;
 }

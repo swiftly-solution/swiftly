@@ -26,8 +26,8 @@
     },
     "ServerMovementUnlock": {
         "lib": "server",
-        "windows": "76 2A F2 0F 10 57 2A F3 0F 10 2A 2A 0F 28 CA F3 0F 59 C0",
-        "linux": "0F 87 2A 2A 2A 2A 49 8B 7D 30 E8 2A 2A 2A 2A 66 0F EF ED 66 0F D6 85 2A 2A 2A 2A"
+        "windows": "76 ? F2 0F 10 57 ? 0F 28 ? F3 0F ? ? 0F 28 ?",
+        "linux": "0F 87 ? ? ? ? 49 8B 7C 24 ? E8 ? ? ? ? 66 0F EF ED"
     },
     "VScriptEnable": {
         "lib": "server",
@@ -66,8 +66,8 @@
     },
     "UTIL_Remove": {
         "lib": "server",
-        "windows": "48 85 C9 74 2A 48 8B D1 48 8B 0D 2A 2A 2A 2A",
-        "linux": "55 48 89 E5 41 57 41 56 41 89 D6 41 55 4D 89 C5"
+        "windows": "48 85 C9 74 ? 48 8B D1 48 8B 0D ? ? ? ?",
+        "linux": "48 89 FE 48 85 FF 74 ? 48 8D 05 ? ? ? ? 48"
     },
     "LegacyGameEventListener": {
         "lib": "server",
@@ -92,7 +92,12 @@
     "GiveNamedItem": {
         "lib": "server",
         "windows": "48 89 5C 24 2A 48 89 74 24 2A 55 57 41 2A 41 2A 41 2A 48 2A 2A 2A 2A 48 2A 2A 2A 2A 2A 2A 4D 2A 2A 48",
-        "linux": "55 48 89 E5 41 57 41 56 49 89 D6 41 55 49 89 CD 41 54 49 89 F4 53 48 89 FB 48 8D 3D D3 CC 7B 00"
+        "linux": "55 48 89 E5 41 57 41 56 49 89 D6 41 55 49 89 CD 41 54 49 89 F4 53 48 89 FB 48 8D 3D"
+    },
+    "FireOutputInternal": {
+        "lib": "server",
+        "windows": "4C 89 4C 24 20 53 55 57 41 54 41 56 48 81 EC",
+        "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 49 89 D4 53 48 89 F3 48 83 EC 58"
     },
     "CBasePlayerController_SetPawn": {
         "lib": "server",
@@ -124,34 +129,39 @@
         "windows": "48 89 5C 24 ? 56 48 83 EC 40 48 8B F2 48 8B D9 BA ? ? ? ? E8 ? ? ? ? 48 8B 4B 30",
         "linux": "55 48 89 E5 41 56 41 55 41 54 49 89 F4 BE ? ? ? ? 53 48 89 FB 48 83 EC 30 E8 ? ? ? ? 48 8B 7B 30"
     },
+    "CCSPlayer_WeaponServices_CanUse": {
+        "lib": "server",
+        "windows": "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 30 80 B9 A0 00 00 00 00",
+        "linux": "48 85 F6 0F 84 2A 2A 2A 2A 55 31 C9 48 89 E5 41 55 49 89 FD"
+    },
     "LoggingSystem_Log": {
         "lib": "tier0",
-        "windows": "_LoggingSystem_Log",
-        "linux": "_LoggingSystem_Log"
+        "windows": "@LoggingSystem_Log",
+        "linux": "@LoggingSystem_Log"
     },
     "LoggingSystem_LogDirect": {
         "lib": "tier0",
-        "windows": "_LoggingSystem_LogDirect",
-        "linux": "_LoggingSystem_LogDirect"
+        "windows": "@LoggingSystem_LogDirect",
+        "linux": "@LoggingSystem_LogDirect"
     },
     "LoggingSystem_LogAssert": {
         "lib": "tier0",
-        "windows": "_LoggingSystem_LogAssert",
-        "linux": "_LoggingSystem_LogAssert"
+        "windows": "@LoggingSystem_LogAssert",
+        "linux": "@LoggingSystem_LogAssert"
     },
     "Msg": {
         "lib": "tier0",
-        "windows": "_Msg",
-        "linux": "_Msg"
+        "windows": "@Msg",
+        "linux": "@Msg"
     },
     "Warning": {
         "lib": "tier0",
-        "windows": "_Warning",
-        "linux": "_Warning"
+        "windows": "@Warning",
+        "linux": "@Warning"
     },
     "ConDMsg": {
         "lib": "tier0",
-        "windows": "_ConDMsg",
-        "linux": "_ConDMsg"
+        "windows": "@ConDMsg",
+        "linux": "@ConDMsg"
     }
 }

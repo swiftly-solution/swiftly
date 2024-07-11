@@ -1,29 +1,31 @@
-#ifndef _commandsmanager_h
-#define _commandsmanager_h
+#pragma once
 
 #include <map>
 #include <string>
-#include "Command.h"
-#include <luacpp/luacpp.h>
+#include <vector>
+#include <algorithm>
 
-class CBasePlayerController;
+#include "Command.h"
+#include "../entrypoint.h"
+#include "../player/Player.h"
 
 class CommandsManager
 {
 private:
     std::map<std::string, Command *> commands;
+    std::map<std::string, std::vector<std::string>> commandAliases;
     std::map<std::string, std::vector<std::string>> commandsByPlugin;
 
 public:
-    std::map<std::string, luacpp::LuaFunction> commandsLuaReference;
+    CommandsManager();
+    ~CommandsManager();
 
-    CommandsManager() {}
-    ~CommandsManager() {}
+    int HandleCommand(Player *player, std::string text);
 
-    int HandleCommands(CBasePlayerController *controller, std::string text);
     Command *FetchCommand(std::string cmd);
-    bool RegisterCommand(std::string plugin_name, std::string cmd, Command *command);
-    bool UnregisterCommand(std::string cmd);
+    void RegisterCommand(std::string plugin_name, std::string cmd, Command *command);
+    void UnregisterCommand(std::string cmd);
+
     std::vector<std::string> FetchCommandsByPlugin(std::string plugin_name)
     {
         if (this->commandsByPlugin.find(plugin_name) == this->commandsByPlugin.end())
@@ -38,5 +40,3 @@ public:
 };
 
 extern CommandsManager *g_commandsManager;
-
-#endif

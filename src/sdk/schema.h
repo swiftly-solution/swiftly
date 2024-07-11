@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#include "../sig/Signatures.h"
+#include "../signatures/Signatures.h"
 #include "interfaces/cschemasystem.h"
 
 struct SchemaKey

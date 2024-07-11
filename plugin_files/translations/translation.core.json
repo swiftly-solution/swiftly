@@ -1,0 +1,48 @@
+{
+    "seconds": {
+        "en": "{TIME} second(s)",
+        "ro": "{TIME} secunde",
+        "es": "{TIME} segundo(s)"
+    },
+    "minutes": {
+        "en": "{TIME} minute(s)",
+        "ro": "{TIME} minut(e)",
+        "es": "{TIME} minuto(s)"
+    },
+    "hours": {
+        "en": "{TIME} hour(s)",
+        "ro": "{TIME} ore",
+        "es": "{TIME} hora(s)"
+    },
+    "days": {
+        "en": "{TIME} day(s)",
+        "ro": "{TIME} zi(le)",
+        "es": "{TIME} día(s)"
+    },
+    "forever": {
+        "en": "Forever",
+        "ro": "Pentru totdeauna",
+        "es": "Para siempre"
+    },
+    "never": {
+        "en": "Never",
+        "ro": "Niciodată",
+        "es": "Nunca"
+    },
+    "menu.next": {
+        "en": "Next",
+        "ro": "Următorul"
+    },
+    "menu.back": {
+        "en": "Back",
+        "ro": "Înapoi"
+    },
+    "menu.exit": {
+        "en": "Exit",
+        "ro": "Ieșire"
+    },
+    "menu.footer": {
+        "en": "SHIFT - Cycle | E - Select | Page {PAGE}/{MAXPAGES}",
+        "ro": "SHIFT - Schimbă | E - Selectează | Pagina {PAGE}/{MAXPAGES}"
+    }
+}

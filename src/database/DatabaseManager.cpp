@@ -47,7 +47,7 @@ void DatabasesError(std::string error)
     if (!g_SMAPI)
         return;
 
-    PRINTF("Databases", "Error: %s\n", error.c_str());
+    PLUGIN_PRINTF("Databases", "Error: %s\n", error.c_str());
 }
 
 void DatabaseManager::LoadDatabases()
@@ -85,7 +85,7 @@ void DatabaseManager::LoadDatabases()
         this->databases.insert(std::make_pair(connectionName, db));
     }
 
-    PRINT("Database", "All database configuration has been succesfully loaded.\n");
+    PLUGIN_PRINTF("Database", "%d databases have been succesfully loaded.\n", this->databases.size());
 }
 
 Database *DatabaseManager::GetDatabase(std::string name)

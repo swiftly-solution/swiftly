@@ -1,4 +1,5 @@
 build/
+prototemp/
+.xmake/
 custom_builder.sh
-.xmake
-prototemp
+swiftly.so

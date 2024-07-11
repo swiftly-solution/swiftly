@@ -1,22 +1,32 @@
-[submodule "metamod"]
-	path = metamod
-	url = https://github.com/alliedmodders/metamod-source
-[submodule "hl2sdk"]
-	path = hl2sdk
+[submodule "alliedmodders/hl2sdk"]
+	path = alliedmodders/hl2sdk
 	url = https://github.com/alliedmodders/hl2sdk
 	branch = cs2
-[submodule "vendor/rapidjson"]
-	path = vendor/rapidjson
+[submodule "alliedmodders/metamod"]
+	path = alliedmodders/metamod
+	url = https://github.com/alliedmodders/metamod-source
+[submodule "vendor/LuaBridge"]
+	path = vendor/LuaBridge
+	url = https://github.com/vinniefalco/LuaBridge
+[submodule "vendor/dynlib"]
+	path = vendor/dynlib
+	url = https://github.com/komashchenko/DynLibUtils
+[submodule "vendor/json"]
+	path = vendor/json
 	url = https://github.com/Tencent/rapidjson
-[submodule "vendor/luacpp"]
-	path = vendor/luacpp
-	url = https://github.com/ouonline/luacpp
-[submodule "vendor/lua-rapidjson"]
-	path = vendor/lua-rapidjson
-	url = https://github.com/xpol/lua-rapidjson
 [submodule "hl2sdk-manifests"]
 	path = hl2sdk-manifests
 	url = https://github.com/alliedmodders/hl2sdk-manifests
-[submodule "vendor/dynlibutils"]
-	path = vendor/dynlibutils
-	url = https://github.com/komashchenko/DynLibUtils
+[submodule "vendor/msgpack"]
+	path = vendor/msgpack
+	url = https://github.com/msgpack/msgpack-c
+	branch = cpp_master
+[submodule "vendor/json-lua"]
+	path = vendor/json-lua
+	url = https://github.com/xpol/lua-rapidjson
+[submodule "vendor/asmjit"]
+	path = vendor/asmjit
+	url = https://github.com/asmjit/asmjit
+[submodule "vendor/asmtk"]
+	path = vendor/asmtk
+	url = https://github.com/asmjit/asmtk

@@ -34,15 +34,18 @@ void TranslationsError(std::string text)
     if (!g_SMAPI)
         return;
 
-    PRINTF("Translations", "%s\n", text.c_str());
+    PLUGIN_PRINTF("Translations", "%s\n", text.c_str());
 }
 
 void Translations::LoadTranslations()
 {
-    for(auto it = this->m_translations.begin(); it != this->m_translations.end(); ++it)
+    for (auto it = this->m_translations.begin(); it != this->m_translations.end(); ++it)
         delete it->second;
 
     this->m_translations.clear();
+
+    if (!Files::ExistsPath("addons/swiftly/translations"))
+        Files::CreateDirectory("addons/swiftly/translations");
 
     std::vector<std::string> translationFiles = Files::FetchFileNames("addons/swiftly/translations");
 
@@ -59,23 +62,29 @@ void Translations::LoadTranslations()
         rapidjson::Document transFile;
         transFile.Parse(Files::Read(translationFilePath).c_str());
         if (transFile.HasParseError())
-            return TranslationsError(string_format("A parsing error has been detected for translation file \"%s\".\nError (offset %u): %s\n", translationFileName.c_str(), (unsigned)transFile.GetErrorOffset(), GetParseError_En(transFile.GetParseError())));
+        {
+            TranslationsError(string_format("A parsing error has been detected for translation file \"%s\".\nError (offset %u): %s\n", translationFileName.c_str(), (unsigned)transFile.GetErrorOffset(), GetParseError_En(transFile.GetParseError())));
+            continue;
+        }
         if (transFile.IsArray())
-            return TranslationsError(string_format("Translation file \"%s\" cannot be an array.", translationFileName.c_str()));
+        {
+            TranslationsError(string_format("Translation file \"%s\" cannot be an array.", translationFileName.c_str()));
+            continue;
+        }
 
         for (auto it = transFile.MemberBegin(); it != transFile.MemberEnd(); ++it)
         {
             std::string key = it->name.GetString();
 
-            IS_OBJECT(transFile, key.c_str(), string_format("%s.%s", mainTranslationKey, key))
-            HAS_MEMBER(it->value, "en", string_format("%s.%s", mainTranslationKey, key))
+            IS_OBJECT(transFile, key.c_str(), string_format("%s.%s", mainTranslationKey, key).c_str())
+            HAS_MEMBER(it->value, "en", string_format("%s.%s", mainTranslationKey, key).c_str())
 
             Translation *translation = new Translation();
             for (auto it2 = it->value.MemberBegin(); it2 != it->value.MemberEnd(); ++it2)
             {
                 std::string transKey = it2->name.GetString();
 
-                IS_STRING(it->value, transKey.c_str(), string_format("%s.%s.%s", mainTranslationKey, key, transKey))
+                IS_STRING(it->value, transKey.c_str(), string_format("%s.%s.%s", mainTranslationKey.c_str(), key.c_str(), transKey.c_str()).c_str())
 
                 std::string transVal = it2->value.GetString();
                 translation->RegisterLanguage(transKey, transVal);

@@ -33,15 +33,7 @@ public:
     SCHEMA_FIELD_OFFSET(CSMatchStats_t, m_matchStats, 0)
 };
 
-class CPlayerPawnComponent
-{
-public:
-    DECLARE_SCHEMA_CLASS_BASE(CPlayerPawnComponent, false)
-
-    SCHEMA_FIELD_OFFSET(CCSPlayerPawn *, __m_pChainEntity, 0)
-};
-
-class CPlayer_MovementServices : public CPlayerPawnComponent
+class CPlayer_MovementServices
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CPlayer_MovementServices, false)
@@ -146,6 +138,14 @@ public:
     SCHEMA_FIELD_OFFSET(WeaponPurchaseTracker_t, m_weaponPurchasesThisRound, 0)
 };
 
+class CPlayerPawnComponent
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CPlayerPawnComponent, false)
+
+    SCHEMA_FIELD_OFFSET(CCSPlayerPawn *, __m_pChainEntity, 0)
+};
+
 class CPlayer_WeaponServices : public CPlayerPawnComponent
 {
 public:
@@ -160,20 +160,10 @@ public:
     }
 };
 
-enum MedalRank_t : uint32_t
-{
-    MEDAL_RANK_NONE = 0x0,
-    MEDAL_RANK_BRONZE = 0x1,
-    MEDAL_RANK_SILVER = 0x2,
-    MEDAL_RANK_GOLD = 0x3,
-    MEDAL_RANK_COUNT = 0x4,
-};
-
 class CCSPlayerController_InventoryServices
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_InventoryServices, false)
 
     SCHEMA_FIELD_OFFSET(uint16_t, m_unMusicID, 0)
-    SCHEMA_FIELD_POINTER_OFFSET(MedalRank_t, m_rank, 0)
 };

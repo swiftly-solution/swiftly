@@ -3,6 +3,10 @@
 #include "../utils/plat.h"
 #include "entity/CBaseEntity.h"
 
+#include "../entrypoint.h"
+#include "../common.h"
+#include "../utils/utils.h"
+
 #include <tier1/utlmap.h>
 
 extern CSchemaSystem *g_pSchemaSystem2;
