@@ -60,7 +60,9 @@ Swiftly is licensed under the MIT License. You can view the license in the LICEN
 ### Credits
 
 The Schema System and the base SDK classes fields provided by [CS2Fixes](https://github.com/Source2ZE/CS2Fixes). 
+
 The rest of SDK fields were provided by [Source2SDK](https://github.com/neverlosecc/source2sdk/tree/cs2/sdk).
+
 Thanks to GAMMACASE, Poggu, and all the people which are constantly working for the Counter Strike 2 Server Community to become better.
 
 ---

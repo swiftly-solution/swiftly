@@ -66,8 +66,8 @@
     },
     "UTIL_Remove": {
         "lib": "server",
-        "windows": "48 85 C9 74 2A 48 8B D1 48 8B 0D 2A 2A 2A 2A",
-        "linux": "55 48 89 E5 41 57 41 56 41 89 D6 41 55 4D 89 C5"
+        "windows": "48 85 C9 74 ? 48 8B D1 48 8B 0D ? ? ? ?",
+        "linux": "48 89 FE 48 85 FF 74 ? 48 8D 05 ? ? ? ? 48"
     },
     "LegacyGameEventListener": {
         "lib": "server",
