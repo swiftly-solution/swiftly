@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include "../translations/Translations.h"
 
 class Menu
 {

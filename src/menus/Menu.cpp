@@ -59,11 +59,11 @@ void Menu::ProcessOptions()
         if (processedItems == (pages == 0 ? 4 : 3))
         {
             if (options.size() - totalProcessedItems > 0)
-                tempmap.push_back({"Next", "menunext"});
+                tempmap.push_back({g_translations->FetchTranslation("core.menu.next"), "menunext"});
             if (pages != 0)
-                tempmap.push_back({"Back", "menuback"});
+                tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
 
-            tempmap.push_back({"Exit", "menuexit"});
+            tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
 
             processedItems = 0;
             pages++;
@@ -75,9 +75,9 @@ void Menu::ProcessOptions()
     if (tempmap.size() > 0)
     {
         if (this->processedOptions.size() != 0)
-            tempmap.push_back({"Back", "menuback"});
+            tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
 
-        tempmap.push_back({"Exit", "menuexit"});
+        tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
 
         processedItems = 0;
         this->processedOptions.push_back(tempmap);
@@ -101,7 +101,7 @@ void Menu::RegeneratePage(int page, int selected)
     for (int i = 0; i < processedOptions[page - 1].size(); i++)
         stringPage += string_format("<div><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? "➤&nbsp;" : "&nbsp;&nbsp;&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
 
-    stringPage += string_format("<div><font class='fontSize-s'>SHIFT - Cycle | E - Select | Page %d/%d</font></div>", page, processedOptions.size());
+    stringPage += replace(replace(g_translations->FetchTranslation("core.menu.footer"), "{PAGE}", std::to_string(page)), "{MAXPAGES}", std::to_string(processedOptions.size()));
 
     this->generatedPages[page - 1] = stringPage;
 }
