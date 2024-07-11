@@ -1,0 +1,19 @@
+name: Clean Artifacts
+
+on:
+    schedule:
+        - cron: "0 0 * * *"
+    workflow_dispatch:
+
+jobs:
+    clean:
+        permissions:
+            actions: write
+        runs-on: self-hosted
+        steps:
+            - name: Cleanup
+              uses: c-hive/gha-remove-artifacts@v1
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  age: "1 minute"
+                  skip-recent: 20

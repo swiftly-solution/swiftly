@@ -1,0 +1,68 @@
+name: "Swiftly Compiler"
+
+on:
+    push:
+        branches:
+            - '**'
+    pull_request:
+
+jobs:
+    build:
+        name: Build
+        runs-on: ${{ matrix.os }}
+        env:
+            MMSOURCE20: ${{ github.workspace }}/swiftly/alliedmodders/metamod
+            HL2SDKCS2: ${{ github.workspace }}/swiftly/alliedmodders/hl2sdk
+        container: ${{ matrix.container }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [Linux, windows-latest]
+                include:
+                    - os: Linux
+                      container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  path: swiftly
+                  submodules: recursive
+
+            - name: Checkout AMBuild
+              uses: actions/checkout@v4
+              with:
+                  repository: alliedmodders/ambuild
+                  path: ambuild
+
+            - name: Install AMBuild
+              run: |
+                  cd ambuild; python setup.py install; cd ..
+
+            - name: Build - Linux
+              if: matrix.os == 'Linux'
+              working-directory: swiftly
+              shell: bash
+              run: |
+                  sudo apt update
+                  sudo apt install -y libreadline-dev libboost-all-dev fdupes unzip
+                  bash ./setup.sh
+
+            - name: Prepare Build - Windows
+              if: matrix.os == 'windows-latest'
+              working-directory: swiftly
+              run: |
+                  ./setup.ps1
+
+            - name: Upload Artifacts Linux
+              if: matrix.os == 'Linux'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Swiftly Plugin Linux
+                  path: ${{ github.workspace }}/swiftly/build/package
+                  
+            - name: Upload Artifacts Windows
+              if: matrix.os == 'windows-latest'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Swiftly Plugin Windows
+                  path: ${{ github.workspace }}/swiftly/build/package
