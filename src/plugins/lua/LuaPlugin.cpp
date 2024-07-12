@@ -227,7 +227,7 @@ void LuaPlugin::RegisterEventHandling(std::string eventName)
 
 EventResult LuaPlugin::TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event)
 {
-    if (this->GetPluginState() == PluginState_t::Stopped)
+    if (this->GetPluginState() == PluginState_t::Stopped && eventName != "OnPluginStart" && eventName != "OnAllPluginsLoaded")
         return EventResult::Continue;
 
     if (!this->globalEventHandler)
