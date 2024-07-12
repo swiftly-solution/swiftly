@@ -96,8 +96,9 @@ bool EventManager::OnFireEvent(IGameEvent *pEvent, bool bDontBroadcast)
         if (prettyEventName == "OnPlayerSpawn")
         {
             auto slot = pEvent->GetPlayerSlot("userid");
-            Player* player = g_playerManager->GetPlayer(slot);
-            if(player) player->SetFirstSpawn(false);
+            Player *player = g_playerManager->GetPlayer(slot);
+            if (player)
+                player->SetFirstSpawn(false);
         }
         if (result != EventResult::Continue)
         {
