@@ -37,13 +37,21 @@ bool Database::Connect()
     return true;
 }
 
+static constexpr int MYSQL_JSON =
+#ifdef _WIN32
+    245
+#else
+    enum_field_types::MYSQL_TYPE_JSON
+#endif
+    ;
+
 std::any ParseFieldType(enum_field_types type, const char *value)
 {
     if (type == enum_field_types::MYSQL_TYPE_FLOAT || type == enum_field_types::MYSQL_TYPE_DOUBLE || type == enum_field_types::MYSQL_TYPE_DECIMAL)
         return atof(value);
     else if (type == enum_field_types::MYSQL_TYPE_INT24 || type == enum_field_types::MYSQL_TYPE_LONG || type == enum_field_types::MYSQL_TYPE_LONGLONG)
         return atoi(value);
-    else if (type == enum_field_types::MYSQL_TYPE_VARCHAR || type == enum_field_types::MYSQL_TYPE_VAR_STRING || type == enum_field_types::MYSQL_TYPE_BLOB || type == enum_field_types::MYSQL_TYPE_JSON || type == enum_field_types::MYSQL_TYPE_TIMESTAMP)
+    else if (type == enum_field_types::MYSQL_TYPE_VARCHAR || type == enum_field_types::MYSQL_TYPE_VAR_STRING || type == enum_field_types::MYSQL_TYPE_BLOB || type == MYSQL_JSON || type == enum_field_types::MYSQL_TYPE_TIMESTAMP)
         return std::string(value);
     else if (type == enum_field_types::MYSQL_TYPE_SHORT || type == enum_field_types::MYSQL_TYPE_TINY)
         return (short)strtol(value, nullptr, 10);

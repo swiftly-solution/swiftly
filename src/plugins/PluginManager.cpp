@@ -122,11 +122,11 @@ bool PluginManager::StartPlugin(std::string plugin_name)
     if (plugin->GetPluginState() == PluginState_t::Started)
         return true;
 
-    plugin->SetPluginState(PluginState_t::Started);
     if (!plugin->LoadScriptingEnvironment())
         return false;
     if (!plugin->ExecuteStart())
         return false;
+    plugin->SetPluginState(PluginState_t::Started);
 
     if (AllPluginsStarted)
     {
