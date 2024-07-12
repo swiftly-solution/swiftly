@@ -97,7 +97,10 @@ PluginDatabase::PluginDatabase(std::string m_connection_name)
 {
     this->connection_name = m_connection_name;
     this->db = g_dbManager->GetDatabase(this->connection_name);
-    this->dbConnected = this->db->Connect();
+    if (!this->db)
+        this->dbConnected = false;
+    else
+        this->dbConnected = this->db->Connect();
 }
 
 bool PluginDatabase::IsConnected()

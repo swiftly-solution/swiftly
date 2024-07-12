@@ -119,7 +119,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
 		    os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'curl', 'win64', 'lib', 'libcurl_a.lib'),
-      		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'win64', 'lib', 'mariadbclient.lib'),
+      		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'win64', 'lib', 'mysqlclient.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'dynohook', 'win64', 'lib', 'dynohook.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'zydis', 'win64', 'Zydis.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'dyncall', 'win64', 'lib', 'dyncall_s.lib'),
