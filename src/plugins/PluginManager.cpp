@@ -1,6 +1,7 @@
 #include "PluginManager.h"
 
 #include "core/scripting.h"
+#include "../menus/MenuManager.h"
 
 #include <vector>
 #include <msgpack.hpp>
@@ -156,6 +157,7 @@ void PluginManager::StopPlugin(std::string plugin_name)
 
     plugin->ExecuteStop();
     plugin->DestroyScriptingEnvironment();
+    g_MenuManager->UnregisterPluginMenus(plugin_name);
 }
 
 Plugin *PluginManager::FetchPlugin(std::string name)
