@@ -47,7 +47,7 @@
     "UTIL_CreateEntityByName": {
         "lib": "server",
         "windows": "48 83 EC 48 C6 44 24 30 00",
-        "linux": "48 8B 05 ? ? ? ? 48 85 C0 74 ? 85 FF"
+        "linux": "48 8D 05 ? ? ? ? 55 48 89 FA"
     },
     "CBaseModelEntity_SetModel": {
         "lib": "server",

@@ -6,11 +6,13 @@
 #undef GetMessage
 #endif
 
-#define GETCHECK_FIELD(return_value)                                                                                  \
-    const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName); \
-    if (!field)                                                                                                       \
-    {                                                                                                                 \
-        return return_value;                                                                                          \
+#define GETCHECK_FIELD(return_value)                                                                                          \
+    if (!this->msgBuffer)                                                                                                     \
+        return return_value;                                                                                                  \
+    const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName.c_str()); \
+    if (!field)                                                                                                               \
+    {                                                                                                                         \
+        return return_value;                                                                                                  \
     }
 
 #define CHECK_FIELD_NOT_REPEATED(return_value)                               \
@@ -112,7 +114,7 @@ int PluginUserMessage::GetMessageID()
 {
     return this->msgid;
 }
-bool PluginUserMessage::HasField(const char *pszFieldName)
+bool PluginUserMessage::HasField(std::string pszFieldName)
 {
     if (!this->msgBuffer)
         return false;
@@ -121,7 +123,7 @@ bool PluginUserMessage::HasField(const char *pszFieldName)
     CHECK_FIELD_NOT_REPEATED(false)
     return this->msgBuffer->GetReflection()->HasField(*this->msgBuffer, field);
 }
-int32 PluginUserMessage::GetInt32(const char *pszFieldName)
+int32 PluginUserMessage::GetInt32(std::string pszFieldName)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(INT32, 0);
@@ -129,7 +131,7 @@ int32 PluginUserMessage::GetInt32(const char *pszFieldName)
 
     return this->msgBuffer->GetReflection()->GetInt32(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetInt32(const char *pszFieldName, int32 value)
+void PluginUserMessage::SetInt32(std::string pszFieldName, int32 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(INT32);
@@ -137,7 +139,7 @@ void PluginUserMessage::SetInt32(const char *pszFieldName, int32 value)
 
     this->msgBuffer->GetReflection()->SetInt32(this->msgBuffer, field, value);
 }
-int32 PluginUserMessage::GetRepeatedInt32(const char *pszFieldName, int index)
+int32 PluginUserMessage::GetRepeatedInt32(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(INT32, 0);
@@ -147,7 +149,7 @@ int32 PluginUserMessage::GetRepeatedInt32(const char *pszFieldName, int index)
     return this->msgBuffer->GetReflection()->GetRepeatedInt32(*this->msgBuffer, field, index);
 }
 
-void PluginUserMessage::SetRepeatedInt32(const char *pszFieldName, int index, int32 value)
+void PluginUserMessage::SetRepeatedInt32(std::string pszFieldName, int index, int32 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(INT32);
@@ -156,7 +158,7 @@ void PluginUserMessage::SetRepeatedInt32(const char *pszFieldName, int index, in
 
     this->msgBuffer->GetReflection()->SetRepeatedInt32(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddInt32(const char *pszFieldName, int32 value)
+void PluginUserMessage::AddInt32(std::string pszFieldName, int32 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(INT32);
@@ -164,7 +166,7 @@ void PluginUserMessage::AddInt32(const char *pszFieldName, int32 value)
 
     this->msgBuffer->GetReflection()->AddInt32(this->msgBuffer, field, value);
 }
-int64 PluginUserMessage::GetInt64(const char *pszFieldName)
+int64 PluginUserMessage::GetInt64(std::string pszFieldName)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(INT64, 0);
@@ -172,7 +174,7 @@ int64 PluginUserMessage::GetInt64(const char *pszFieldName)
 
     return this->msgBuffer->GetReflection()->GetInt64(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetInt64(const char *pszFieldName, int64 value)
+void PluginUserMessage::SetInt64(std::string pszFieldName, int64 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(INT64);
@@ -180,7 +182,7 @@ void PluginUserMessage::SetInt64(const char *pszFieldName, int64 value)
 
     this->msgBuffer->GetReflection()->SetInt64(this->msgBuffer, field, value);
 }
-int64 PluginUserMessage::GetRepeatedInt64(const char *pszFieldName, int index)
+int64 PluginUserMessage::GetRepeatedInt64(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(INT64, 0);
@@ -189,7 +191,7 @@ int64 PluginUserMessage::GetRepeatedInt64(const char *pszFieldName, int index)
 
     return this->msgBuffer->GetReflection()->GetRepeatedInt64(*this->msgBuffer, field, index);
 }
-void PluginUserMessage::SetRepeatedInt64(const char *pszFieldName, int index, int64 value)
+void PluginUserMessage::SetRepeatedInt64(std::string pszFieldName, int index, int64 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(INT64);
@@ -198,7 +200,7 @@ void PluginUserMessage::SetRepeatedInt64(const char *pszFieldName, int index, in
 
     this->msgBuffer->GetReflection()->SetRepeatedInt64(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddInt64(const char *pszFieldName, int64 value)
+void PluginUserMessage::AddInt64(std::string pszFieldName, int64 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(INT64);
@@ -206,7 +208,7 @@ void PluginUserMessage::AddInt64(const char *pszFieldName, int64 value)
 
     this->msgBuffer->GetReflection()->AddInt64(this->msgBuffer, field, value);
 }
-uint32 PluginUserMessage::GetUInt32(const char *pszFieldName)
+uint32 PluginUserMessage::GetUInt32(std::string pszFieldName)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(UINT32, 0);
@@ -214,7 +216,7 @@ uint32 PluginUserMessage::GetUInt32(const char *pszFieldName)
 
     return this->msgBuffer->GetReflection()->GetUInt32(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetUInt32(const char *pszFieldName, uint32 value)
+void PluginUserMessage::SetUInt32(std::string pszFieldName, uint32 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(UINT32);
@@ -222,7 +224,7 @@ void PluginUserMessage::SetUInt32(const char *pszFieldName, uint32 value)
 
     this->msgBuffer->GetReflection()->SetUInt32(this->msgBuffer, field, value);
 }
-uint32 PluginUserMessage::GetRepeatedUInt32(const char *pszFieldName, int index)
+uint32 PluginUserMessage::GetRepeatedUInt32(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(UINT32, 0);
@@ -231,7 +233,7 @@ uint32 PluginUserMessage::GetRepeatedUInt32(const char *pszFieldName, int index)
 
     return this->msgBuffer->GetReflection()->GetRepeatedUInt32(*this->msgBuffer, field, index);
 }
-void PluginUserMessage::SetRepeatedUInt32(const char *pszFieldName, int index, uint32 value)
+void PluginUserMessage::SetRepeatedUInt32(std::string pszFieldName, int index, uint32 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(UINT32);
@@ -240,7 +242,7 @@ void PluginUserMessage::SetRepeatedUInt32(const char *pszFieldName, int index, u
 
     this->msgBuffer->GetReflection()->SetRepeatedUInt32(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddUInt32(const char *pszFieldName, uint32 value)
+void PluginUserMessage::AddUInt32(std::string pszFieldName, uint32 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(UINT32);
@@ -248,7 +250,7 @@ void PluginUserMessage::AddUInt32(const char *pszFieldName, uint32 value)
 
     this->msgBuffer->GetReflection()->AddUInt32(this->msgBuffer, field, value);
 }
-uint64 PluginUserMessage::GetUInt64(const char *pszFieldName)
+uint64 PluginUserMessage::GetUInt64(std::string pszFieldName)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(UINT64, 0);
@@ -256,7 +258,7 @@ uint64 PluginUserMessage::GetUInt64(const char *pszFieldName)
 
     return this->msgBuffer->GetReflection()->GetUInt64(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetUInt64(const char *pszFieldName, uint64 value)
+void PluginUserMessage::SetUInt64(std::string pszFieldName, uint64 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(UINT64);
@@ -264,7 +266,7 @@ void PluginUserMessage::SetUInt64(const char *pszFieldName, uint64 value)
 
     this->msgBuffer->GetReflection()->SetUInt64(this->msgBuffer, field, value);
 }
-uint64 PluginUserMessage::GetRepeatedUInt64(const char *pszFieldName, int index)
+uint64 PluginUserMessage::GetRepeatedUInt64(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(UINT64, 0);
@@ -273,7 +275,7 @@ uint64 PluginUserMessage::GetRepeatedUInt64(const char *pszFieldName, int index)
 
     return this->msgBuffer->GetReflection()->GetRepeatedUInt64(*this->msgBuffer, field, index);
 }
-void PluginUserMessage::SetRepeatedUInt64(const char *pszFieldName, int index, uint64 value)
+void PluginUserMessage::SetRepeatedUInt64(std::string pszFieldName, int index, uint64 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(UINT64);
@@ -282,7 +284,7 @@ void PluginUserMessage::SetRepeatedUInt64(const char *pszFieldName, int index, u
 
     this->msgBuffer->GetReflection()->SetRepeatedUInt64(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddUInt64(const char *pszFieldName, uint64 value)
+void PluginUserMessage::AddUInt64(std::string pszFieldName, uint64 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(UINT64);
@@ -290,7 +292,7 @@ void PluginUserMessage::AddUInt64(const char *pszFieldName, uint64 value)
 
     this->msgBuffer->GetReflection()->AddUInt64(this->msgBuffer, field, value);
 }
-int64 PluginUserMessage::GetInt64OrUnsigned(const char *pszFieldName)
+int64 PluginUserMessage::GetInt64OrUnsigned(std::string pszFieldName)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE2(INT64, UINT64, 0);
@@ -301,7 +303,7 @@ int64 PluginUserMessage::GetInt64OrUnsigned(const char *pszFieldName)
     else
         return this->msgBuffer->GetReflection()->GetInt64(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetInt64OrUnsigned(const char *pszFieldName, int64 value)
+void PluginUserMessage::SetInt64OrUnsigned(std::string pszFieldName, int64 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE2_VOID(INT64, UINT64);
@@ -316,7 +318,7 @@ void PluginUserMessage::SetInt64OrUnsigned(const char *pszFieldName, int64 value
         this->msgBuffer->GetReflection()->SetInt64(this->msgBuffer, field, value);
     }
 }
-int64 PluginUserMessage::GetRepeatedInt64OrUnsigned(const char *pszFieldName, int index)
+int64 PluginUserMessage::GetRepeatedInt64OrUnsigned(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE2(INT64, UINT64, 0);
@@ -328,7 +330,7 @@ int64 PluginUserMessage::GetRepeatedInt64OrUnsigned(const char *pszFieldName, in
     else
         return this->msgBuffer->GetReflection()->GetRepeatedInt64(*this->msgBuffer, field, index);
 }
-void PluginUserMessage::SetRepeatedInt64OrUnsigned(const char *pszFieldName, int index, int64 value)
+void PluginUserMessage::SetRepeatedInt64OrUnsigned(std::string pszFieldName, int index, int64 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE2_VOID(INT64, UINT64);
@@ -344,7 +346,7 @@ void PluginUserMessage::SetRepeatedInt64OrUnsigned(const char *pszFieldName, int
         this->msgBuffer->GetReflection()->SetRepeatedInt64(this->msgBuffer, field, index, value);
     }
 }
-void PluginUserMessage::AddInt64OrUnsigned(const char *pszFieldName, int64 value)
+void PluginUserMessage::AddInt64OrUnsigned(std::string pszFieldName, int64 value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE2_VOID(INT64, UINT64);
@@ -359,7 +361,7 @@ void PluginUserMessage::AddInt64OrUnsigned(const char *pszFieldName, int64 value
         this->msgBuffer->GetReflection()->AddInt64(this->msgBuffer, field, value);
     }
 }
-bool PluginUserMessage::GetBool(const char *pszFieldName)
+bool PluginUserMessage::GetBool(std::string pszFieldName)
 {
     GETCHECK_FIELD(false);
     CHECK_FIELD_TYPE(BOOL, false);
@@ -367,7 +369,7 @@ bool PluginUserMessage::GetBool(const char *pszFieldName)
 
     return this->msgBuffer->GetReflection()->GetBool(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetBool(const char *pszFieldName, bool value)
+void PluginUserMessage::SetBool(std::string pszFieldName, bool value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(BOOL);
@@ -375,7 +377,7 @@ void PluginUserMessage::SetBool(const char *pszFieldName, bool value)
 
     this->msgBuffer->GetReflection()->SetBool(this->msgBuffer, field, value);
 }
-bool PluginUserMessage::GetRepeatedBool(const char *pszFieldName, int index)
+bool PluginUserMessage::GetRepeatedBool(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(false);
     CHECK_FIELD_TYPE(BOOL, false);
@@ -384,7 +386,7 @@ bool PluginUserMessage::GetRepeatedBool(const char *pszFieldName, int index)
 
     return this->msgBuffer->GetReflection()->GetRepeatedBool(*this->msgBuffer, field, index);
 }
-void PluginUserMessage::SetRepeatedBool(const char *pszFieldName, int index, bool value)
+void PluginUserMessage::SetRepeatedBool(std::string pszFieldName, int index, bool value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(BOOL);
@@ -393,7 +395,7 @@ void PluginUserMessage::SetRepeatedBool(const char *pszFieldName, int index, boo
 
     this->msgBuffer->GetReflection()->SetRepeatedBool(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddBool(const char *pszFieldName, bool value)
+void PluginUserMessage::AddBool(std::string pszFieldName, bool value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(BOOL);
@@ -401,7 +403,7 @@ void PluginUserMessage::AddBool(const char *pszFieldName, bool value)
 
     this->msgBuffer->GetReflection()->AddBool(this->msgBuffer, field, value);
 }
-float PluginUserMessage::GetFloat(const char *pszFieldName)
+float PluginUserMessage::GetFloat(std::string pszFieldName)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(FLOAT, 0);
@@ -409,7 +411,7 @@ float PluginUserMessage::GetFloat(const char *pszFieldName)
 
     return this->msgBuffer->GetReflection()->GetFloat(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetFloat(const char *pszFieldName, float value)
+void PluginUserMessage::SetFloat(std::string pszFieldName, float value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(FLOAT);
@@ -417,7 +419,7 @@ void PluginUserMessage::SetFloat(const char *pszFieldName, float value)
 
     this->msgBuffer->GetReflection()->SetFloat(this->msgBuffer, field, value);
 }
-float PluginUserMessage::GetRepeatedFloat(const char *pszFieldName, int index)
+float PluginUserMessage::GetRepeatedFloat(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(FLOAT, 0);
@@ -426,7 +428,7 @@ float PluginUserMessage::GetRepeatedFloat(const char *pszFieldName, int index)
 
     return this->msgBuffer->GetReflection()->GetRepeatedFloat(*this->msgBuffer, field, index);
 }
-void PluginUserMessage::SetRepeatedFloat(const char *pszFieldName, int index, float value)
+void PluginUserMessage::SetRepeatedFloat(std::string pszFieldName, int index, float value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(FLOAT);
@@ -435,7 +437,7 @@ void PluginUserMessage::SetRepeatedFloat(const char *pszFieldName, int index, fl
 
     this->msgBuffer->GetReflection()->SetRepeatedFloat(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddFloat(const char *pszFieldName, float value)
+void PluginUserMessage::AddFloat(std::string pszFieldName, float value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(FLOAT);
@@ -443,7 +445,7 @@ void PluginUserMessage::AddFloat(const char *pszFieldName, float value)
 
     this->msgBuffer->GetReflection()->AddFloat(this->msgBuffer, field, value);
 }
-double PluginUserMessage::GetDouble(const char *pszFieldName)
+double PluginUserMessage::GetDouble(std::string pszFieldName)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(DOUBLE, 0);
@@ -451,7 +453,7 @@ double PluginUserMessage::GetDouble(const char *pszFieldName)
 
     return this->msgBuffer->GetReflection()->GetDouble(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetDouble(const char *pszFieldName, double value)
+void PluginUserMessage::SetDouble(std::string pszFieldName, double value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(DOUBLE);
@@ -459,7 +461,7 @@ void PluginUserMessage::SetDouble(const char *pszFieldName, double value)
 
     this->msgBuffer->GetReflection()->SetDouble(this->msgBuffer, field, value);
 }
-double PluginUserMessage::GetRepeatedDouble(const char *pszFieldName, int index)
+double PluginUserMessage::GetRepeatedDouble(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE(DOUBLE, 0);
@@ -468,7 +470,7 @@ double PluginUserMessage::GetRepeatedDouble(const char *pszFieldName, int index)
 
     return this->msgBuffer->GetReflection()->GetRepeatedDouble(*this->msgBuffer, field, index);
 }
-void PluginUserMessage::SetRepeatedDouble(const char *pszFieldName, int index, double value)
+void PluginUserMessage::SetRepeatedDouble(std::string pszFieldName, int index, double value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(DOUBLE);
@@ -477,7 +479,7 @@ void PluginUserMessage::SetRepeatedDouble(const char *pszFieldName, int index, d
 
     this->msgBuffer->GetReflection()->SetRepeatedDouble(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddDouble(const char *pszFieldName, double value)
+void PluginUserMessage::AddDouble(std::string pszFieldName, double value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(DOUBLE);
@@ -485,7 +487,7 @@ void PluginUserMessage::AddDouble(const char *pszFieldName, double value)
 
     this->msgBuffer->GetReflection()->AddDouble(this->msgBuffer, field, value);
 }
-float PluginUserMessage::GetFloatOrDouble(const char *pszFieldName)
+float PluginUserMessage::GetFloatOrDouble(std::string pszFieldName)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE2(FLOAT, DOUBLE, 0);
@@ -496,7 +498,7 @@ float PluginUserMessage::GetFloatOrDouble(const char *pszFieldName)
     else
         return this->msgBuffer->GetReflection()->GetFloat(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetFloatOrDouble(const char *pszFieldName, float value)
+void PluginUserMessage::SetFloatOrDouble(std::string pszFieldName, float value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE2_VOID(FLOAT, DOUBLE);
@@ -507,7 +509,7 @@ void PluginUserMessage::SetFloatOrDouble(const char *pszFieldName, float value)
     else
         this->msgBuffer->GetReflection()->SetFloat(this->msgBuffer, field, value);
 }
-float PluginUserMessage::GetRepeatedFloatOrDouble(const char *pszFieldName, int index)
+float PluginUserMessage::GetRepeatedFloatOrDouble(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(0);
     CHECK_FIELD_TYPE2(FLOAT, DOUBLE, 0);
@@ -519,7 +521,7 @@ float PluginUserMessage::GetRepeatedFloatOrDouble(const char *pszFieldName, int 
     else
         return this->msgBuffer->GetReflection()->GetRepeatedFloat(*this->msgBuffer, field, index);
 }
-void PluginUserMessage::SetRepeatedFloatOrDouble(const char *pszFieldName, int index, float value)
+void PluginUserMessage::SetRepeatedFloatOrDouble(std::string pszFieldName, int index, float value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE2_VOID(FLOAT, DOUBLE);
@@ -531,7 +533,7 @@ void PluginUserMessage::SetRepeatedFloatOrDouble(const char *pszFieldName, int i
     else
         this->msgBuffer->GetReflection()->SetRepeatedFloat(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddFloatOrDouble(const char *pszFieldName, float value)
+void PluginUserMessage::AddFloatOrDouble(std::string pszFieldName, float value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE2_VOID(FLOAT, DOUBLE);
@@ -542,7 +544,7 @@ void PluginUserMessage::AddFloatOrDouble(const char *pszFieldName, float value)
     else
         this->msgBuffer->GetReflection()->AddFloat(this->msgBuffer, field, value);
 }
-std::string PluginUserMessage::GetString(const char *pszFieldName)
+std::string PluginUserMessage::GetString(std::string pszFieldName)
 {
     GETCHECK_FIELD("");
     CHECK_FIELD_TYPE(STRING, "");
@@ -550,7 +552,7 @@ std::string PluginUserMessage::GetString(const char *pszFieldName)
 
     return this->msgBuffer->GetReflection()->GetString(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetString(const char *pszFieldName, const char *value)
+void PluginUserMessage::SetString(std::string pszFieldName, const char *value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(STRING);
@@ -558,7 +560,7 @@ void PluginUserMessage::SetString(const char *pszFieldName, const char *value)
 
     this->msgBuffer->GetReflection()->SetString(this->msgBuffer, field, value);
 }
-std::string PluginUserMessage::GetRepeatedString(const char *pszFieldName, int index)
+std::string PluginUserMessage::GetRepeatedString(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD("");
     CHECK_FIELD_TYPE(STRING, "");
@@ -568,7 +570,7 @@ std::string PluginUserMessage::GetRepeatedString(const char *pszFieldName, int i
     std::string scratch;
     return this->msgBuffer->GetReflection()->GetRepeatedStringReference(*this->msgBuffer, field, index, &scratch);
 }
-void PluginUserMessage::SetRepeatedString(const char *pszFieldName, int index, const char *value)
+void PluginUserMessage::SetRepeatedString(std::string pszFieldName, int index, const char *value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(STRING);
@@ -577,7 +579,7 @@ void PluginUserMessage::SetRepeatedString(const char *pszFieldName, int index, c
 
     this->msgBuffer->GetReflection()->SetRepeatedString(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddString(const char *pszFieldName, const char *value)
+void PluginUserMessage::AddString(std::string pszFieldName, const char *value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(STRING);
@@ -585,7 +587,7 @@ void PluginUserMessage::AddString(const char *pszFieldName, const char *value)
 
     this->msgBuffer->GetReflection()->AddString(this->msgBuffer, field, value);
 }
-Color PluginUserMessage::GetColor(const char *pszFieldName)
+Color PluginUserMessage::GetColor(std::string pszFieldName)
 {
     GETCHECK_FIELD(Color(0, 0, 0, 0));
     CHECK_FIELD_TYPE(MESSAGE, Color(0, 0, 0, 0));
@@ -595,7 +597,7 @@ Color PluginUserMessage::GetColor(const char *pszFieldName)
 
     return Color(msgRGBA->r(), msgRGBA->g(), msgRGBA->b(), msgRGBA->a());
 }
-void PluginUserMessage::SetColor(const char *pszFieldName, const Color &value)
+void PluginUserMessage::SetColor(std::string pszFieldName, const Color &value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -607,7 +609,7 @@ void PluginUserMessage::SetColor(const char *pszFieldName, const Color &value)
     msgRGBA->set_b(value.b());
     msgRGBA->set_a(value.a());
 }
-Color PluginUserMessage::GetRepeatedColor(const char *pszFieldName, int index)
+Color PluginUserMessage::GetRepeatedColor(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(Color(0, 0, 0, 0));
     CHECK_FIELD_TYPE(MESSAGE, Color(0, 0, 0, 0));
@@ -617,7 +619,7 @@ Color PluginUserMessage::GetRepeatedColor(const char *pszFieldName, int index)
     const CMsgRGBA &msgRGBA = (const CMsgRGBA &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
     return Color(msgRGBA.r(), msgRGBA.g(), msgRGBA.b(), msgRGBA.a());
 }
-void PluginUserMessage::SetRepeatedColor(const char *pszFieldName, int index, const Color &value)
+void PluginUserMessage::SetRepeatedColor(std::string pszFieldName, int index, const Color &value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -630,7 +632,7 @@ void PluginUserMessage::SetRepeatedColor(const char *pszFieldName, int index, co
     msgRGBA->set_b(value.b());
     msgRGBA->set_a(value.a());
 }
-void PluginUserMessage::AddColor(const char *pszFieldName, const Color &value)
+void PluginUserMessage::AddColor(std::string pszFieldName, const Color &value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -642,7 +644,7 @@ void PluginUserMessage::AddColor(const char *pszFieldName, const Color &value)
     msgRGBA->set_b(value.b());
     msgRGBA->set_a(value.a());
 }
-Vector2D PluginUserMessage::GetVector2D(const char *pszFieldName)
+Vector2D PluginUserMessage::GetVector2D(std::string pszFieldName)
 {
     GETCHECK_FIELD(Vector2D(0, 0));
     CHECK_FIELD_TYPE(MESSAGE, Vector2D(0, 0));
@@ -651,7 +653,7 @@ Vector2D PluginUserMessage::GetVector2D(const char *pszFieldName)
     const CMsgVector2D *msgVec2d = (const CMsgVector2D *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     return Vector2D(msgVec2d->x(), msgVec2d->y());
 }
-void PluginUserMessage::SetVector2D(const char *pszFieldName, Vector2D &vec)
+void PluginUserMessage::SetVector2D(std::string pszFieldName, Vector2D &vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -661,7 +663,7 @@ void PluginUserMessage::SetVector2D(const char *pszFieldName, Vector2D &vec)
     msgVec2d->set_x(vec.x);
     msgVec2d->set_y(vec.y);
 }
-Vector2D PluginUserMessage::GetRepeatedVector2D(const char *pszFieldName, int index)
+Vector2D PluginUserMessage::GetRepeatedVector2D(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(Vector2D(0, 0));
     CHECK_FIELD_TYPE(MESSAGE, Vector2D(0, 0));
@@ -671,7 +673,7 @@ Vector2D PluginUserMessage::GetRepeatedVector2D(const char *pszFieldName, int in
     const CMsgVector2D &msgVec2d = (const CMsgVector2D &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
     return Vector2D(msgVec2d.x(), msgVec2d.y());
 }
-void PluginUserMessage::SetRepeatedVector2D(const char *pszFieldName, int index, Vector2D &vec)
+void PluginUserMessage::SetRepeatedVector2D(std::string pszFieldName, int index, Vector2D &vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -682,7 +684,7 @@ void PluginUserMessage::SetRepeatedVector2D(const char *pszFieldName, int index,
     msgVec2d->set_x(vec.x);
     msgVec2d->set_y(vec.y);
 }
-void PluginUserMessage::AddVector2D(const char *pszFieldName, Vector2D &vec)
+void PluginUserMessage::AddVector2D(std::string pszFieldName, Vector2D &vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -692,7 +694,7 @@ void PluginUserMessage::AddVector2D(const char *pszFieldName, Vector2D &vec)
     msgVec2d->set_x(vec.x);
     msgVec2d->set_y(vec.y);
 }
-Vector PluginUserMessage::GetVector(const char *pszFieldName)
+Vector PluginUserMessage::GetVector(std::string pszFieldName)
 {
     GETCHECK_FIELD(Vector(0, 0, 0));
     CHECK_FIELD_TYPE(MESSAGE, Vector(0, 0, 0));
@@ -701,7 +703,7 @@ Vector PluginUserMessage::GetVector(const char *pszFieldName)
     const CMsgVector *msgVec = (const CMsgVector *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     return Vector(msgVec->x(), msgVec->y(), msgVec->z());
 }
-void PluginUserMessage::SetVector(const char *pszFieldName, Vector &vec)
+void PluginUserMessage::SetVector(std::string pszFieldName, Vector &vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -712,7 +714,7 @@ void PluginUserMessage::SetVector(const char *pszFieldName, Vector &vec)
     msgVec->set_y(vec.y);
     msgVec->set_z(vec.z);
 }
-Vector PluginUserMessage::GetRepeatedVector(const char *pszFieldName, int index)
+Vector PluginUserMessage::GetRepeatedVector(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(Vector(0, 0, 0));
     CHECK_FIELD_TYPE(MESSAGE, Vector(0, 0, 0));
@@ -722,7 +724,7 @@ Vector PluginUserMessage::GetRepeatedVector(const char *pszFieldName, int index)
     const CMsgVector &msgVec = (const CMsgVector &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
     return Vector(msgVec.x(), msgVec.y(), msgVec.z());
 }
-void PluginUserMessage::SetRepeatedVector(const char *pszFieldName, int index, Vector &vec)
+void PluginUserMessage::SetRepeatedVector(std::string pszFieldName, int index, Vector &vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -734,7 +736,7 @@ void PluginUserMessage::SetRepeatedVector(const char *pszFieldName, int index, V
     msgVec->set_y(vec.y);
     msgVec->set_z(vec.z);
 }
-void PluginUserMessage::AddVector(const char *pszFieldName, Vector &vec)
+void PluginUserMessage::AddVector(std::string pszFieldName, Vector &vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -745,7 +747,7 @@ void PluginUserMessage::AddVector(const char *pszFieldName, Vector &vec)
     msgVec->set_y(vec.y);
     msgVec->set_z(vec.z);
 }
-QAngle PluginUserMessage::GetQAngle(const char *pszFieldName)
+QAngle PluginUserMessage::GetQAngle(std::string pszFieldName)
 {
     GETCHECK_FIELD(QAngle(0, 0, 0));
     CHECK_FIELD_TYPE(MESSAGE, QAngle(0, 0, 0));
@@ -754,7 +756,7 @@ QAngle PluginUserMessage::GetQAngle(const char *pszFieldName)
     const CMsgQAngle *msgAng = (const CMsgQAngle *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     return QAngle(msgAng->x(), msgAng->y(), msgAng->z());
 }
-void PluginUserMessage::SetQAngle(const char *pszFieldName, QAngle &vec)
+void PluginUserMessage::SetQAngle(std::string pszFieldName, QAngle &vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -765,7 +767,7 @@ void PluginUserMessage::SetQAngle(const char *pszFieldName, QAngle &vec)
     msgAng->set_y(vec.y);
     msgAng->set_z(vec.z);
 }
-QAngle PluginUserMessage::GetRepeatedQAngle(const char *pszFieldName, int index)
+QAngle PluginUserMessage::GetRepeatedQAngle(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD(QAngle(0, 0, 0));
     CHECK_FIELD_TYPE(MESSAGE, QAngle(0, 0, 0));
@@ -775,7 +777,7 @@ QAngle PluginUserMessage::GetRepeatedQAngle(const char *pszFieldName, int index)
     const CMsgQAngle &msgAng = (const CMsgQAngle &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
     return QAngle(msgAng.x(), msgAng.y(), msgAng.z());
 }
-void PluginUserMessage::SetRepeatedQAngle(const char *pszFieldName, int index, QAngle &vec)
+void PluginUserMessage::SetRepeatedQAngle(std::string pszFieldName, int index, QAngle &vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -787,7 +789,7 @@ void PluginUserMessage::SetRepeatedQAngle(const char *pszFieldName, int index, Q
     msgAng->set_y(vec.y);
     msgAng->set_z(vec.z);
 }
-void PluginUserMessage::AddQAngle(const char *pszFieldName, QAngle &vec)
+void PluginUserMessage::AddQAngle(std::string pszFieldName, QAngle &vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
@@ -798,7 +800,7 @@ void PluginUserMessage::AddQAngle(const char *pszFieldName, QAngle &vec)
     msgAng->set_y(vec.y);
     msgAng->set_z(vec.z);
 }
-void PluginUserMessage::RemoveRepeatedFieldValue(const char *pszFieldName, int index)
+void PluginUserMessage::RemoveRepeatedFieldValue(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_REPEATED();
@@ -810,9 +812,9 @@ void PluginUserMessage::RemoveRepeatedFieldValue(const char *pszFieldName, int i
 
     pReflection->RemoveLast(this->msgBuffer, field);
 }
-int PluginUserMessage::GetRepeatedFieldCount(const char *pszFieldName)
+int PluginUserMessage::GetRepeatedFieldCount(std::string pszFieldName)
 {
-    const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName);
+    const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName.c_str());
     if (!field)
         return -1;
 

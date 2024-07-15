@@ -66,7 +66,7 @@ GAnimScriptHandle GCStateUpdateData::GetScript() const {
     return value;
 }
 void GCStateUpdateData::SetScript(GAnimScriptHandle value) {
-    SetSchemaValue(m_ptr, "CStateUpdateData", "m_hScript", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Script' is not possible.\n");
 }
 std::vector<int32> GCStateUpdateData::GetTransitionIndices() const {
     CUtlVector<int32>* vec = GetSchemaValue<CUtlVector<int32>*>(m_ptr, "CStateUpdateData", "m_transitionIndices"); std::vector<int32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -85,7 +85,7 @@ GAnimStateID GCStateUpdateData::GetStateID() const {
     return value;
 }
 void GCStateUpdateData::SetStateID(GAnimStateID value) {
-    SetSchemaValue(m_ptr, "CStateUpdateData", "m_stateID", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StateID' is not possible.\n");
 }
 void* GCStateUpdateData::GetPtr() {
     return m_ptr;
@@ -151,21 +151,21 @@ GCPhysSurfacePropertiesPhysics GCPhysSurfaceProperties::GetPhysics() const {
     return value;
 }
 void GCPhysSurfaceProperties::SetPhysics(GCPhysSurfacePropertiesPhysics value) {
-    SetSchemaValue(m_ptr, "CPhysSurfaceProperties", "m_physics", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Physics' is not possible.\n");
 }
 GCPhysSurfacePropertiesSoundNames GCPhysSurfaceProperties::GetAudioSounds() const {
     GCPhysSurfacePropertiesSoundNames value(GetSchemaPtr(m_ptr, "CPhysSurfaceProperties", "m_audioSounds"));
     return value;
 }
 void GCPhysSurfaceProperties::SetAudioSounds(GCPhysSurfacePropertiesSoundNames value) {
-    SetSchemaValue(m_ptr, "CPhysSurfaceProperties", "m_audioSounds", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AudioSounds' is not possible.\n");
 }
 GCPhysSurfacePropertiesAudio GCPhysSurfaceProperties::GetAudioParams() const {
     GCPhysSurfacePropertiesAudio value(GetSchemaPtr(m_ptr, "CPhysSurfaceProperties", "m_audioParams"));
     return value;
 }
 void GCPhysSurfaceProperties::SetAudioParams(GCPhysSurfacePropertiesAudio value) {
-    SetSchemaValue(m_ptr, "CPhysSurfaceProperties", "m_audioParams", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AudioParams' is not possible.\n");
 }
 void* GCPhysSurfaceProperties::GetPtr() {
     return m_ptr;
@@ -210,7 +210,7 @@ GCVectorQuantizer GCMotionSearchNode::GetQuantizer() const {
     return value;
 }
 void GCMotionSearchNode::SetQuantizer(GCVectorQuantizer value) {
-    SetSchemaValue(m_ptr, "CMotionSearchNode", "m_quantizer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Quantizer' is not possible.\n");
 }
 std::vector<int32> GCMotionSearchNode::GetSelectableSamples() const {
     CUtlVector<int32>* vec = GetSchemaValue<CUtlVector<int32>*>(m_ptr, "CMotionSearchNode", "m_selectableSamples"); std::vector<int32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -473,7 +473,7 @@ GVMixFilterDesc_t GVMixModDelayDesc_t::GetFeedbackFilter() const {
     return value;
 }
 void GVMixModDelayDesc_t::SetFeedbackFilter(GVMixFilterDesc_t value) {
-    SetSchemaValue(m_ptr, "VMixModDelayDesc_t", "m_feedbackFilter", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FeedbackFilter' is not possible.\n");
 }
 bool GVMixModDelayDesc_t::GetPhaseInvert() const {
     return GetSchemaValue<bool>(m_ptr, "VMixModDelayDesc_t", "m_bPhaseInvert");
@@ -1007,7 +1007,7 @@ GCAnimInputDamping GCMoverUpdateNode::GetDamping() const {
     return value;
 }
 void GCMoverUpdateNode::SetDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CMoverUpdateNode", "m_damping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Damping' is not possible.\n");
 }
 uint64_t GCMoverUpdateNode::GetFacingTarget() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CMoverUpdateNode", "m_facingTarget");
@@ -1020,21 +1020,21 @@ GCAnimParamHandle GCMoverUpdateNode::GetMoveVecParam() const {
     return value;
 }
 void GCMoverUpdateNode::SetMoveVecParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CMoverUpdateNode", "m_hMoveVecParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MoveVecParam' is not possible.\n");
 }
 GCAnimParamHandle GCMoverUpdateNode::GetMoveHeadingParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CMoverUpdateNode", "m_hMoveHeadingParam"));
     return value;
 }
 void GCMoverUpdateNode::SetMoveHeadingParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CMoverUpdateNode", "m_hMoveHeadingParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MoveHeadingParam' is not possible.\n");
 }
 GCAnimParamHandle GCMoverUpdateNode::GetTurnToFaceParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CMoverUpdateNode", "m_hTurnToFaceParam"));
     return value;
 }
 void GCMoverUpdateNode::SetTurnToFaceParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CMoverUpdateNode", "m_hTurnToFaceParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TurnToFaceParam' is not possible.\n");
 }
 float GCMoverUpdateNode::GetTurnToFaceOffset() const {
     return GetSchemaValue<float>(m_ptr, "CMoverUpdateNode", "m_flTurnToFaceOffset");
@@ -1139,7 +1139,7 @@ GAABB_t GRnHull_t::GetBounds() const {
     return value;
 }
 void GRnHull_t::SetBounds(GAABB_t value) {
-    SetSchemaValue(m_ptr, "RnHull_t", "m_Bounds", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Bounds' is not possible.\n");
 }
 Vector GRnHull_t::GetOrthographicAreas() const {
     return GetSchemaValue<Vector>(m_ptr, "RnHull_t", "m_vOrthographicAreas");
@@ -1275,7 +1275,7 @@ GEngineLoopState_t GEventClientFrameSimulate_t::GetLoopState() const {
     return value;
 }
 void GEventClientFrameSimulate_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventClientFrameSimulate_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 float GEventClientFrameSimulate_t::GetRealTime() const {
     return GetSchemaValue<float>(m_ptr, "EventClientFrameSimulate_t", "m_flRealTime");
@@ -1662,7 +1662,7 @@ GCAudioMorphData GCAudioSentence::GetMorphData() const {
     return value;
 }
 void GCAudioSentence::SetMorphData(GCAudioMorphData value) {
-    SetSchemaValue(m_ptr, "CAudioSentence", "m_morphData", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MorphData' is not possible.\n");
 }
 void* GCAudioSentence::GetPtr() {
     return m_ptr;
@@ -2009,7 +2009,7 @@ GCParamSpanUpdater GCMotionGraph::GetParamSpans() const {
     return value;
 }
 void GCMotionGraph::SetParamSpans(GCParamSpanUpdater value) {
-    SetSchemaValue(m_ptr, "CMotionGraph", "m_paramSpans", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamSpans' is not possible.\n");
 }
 std::vector<GTagSpan_t> GCMotionGraph::GetTags() const {
     CUtlVector<GTagSpan_t>* vec = GetSchemaValue<CUtlVector<GTagSpan_t>*>(m_ptr, "CMotionGraph", "m_tags"); std::vector<GTagSpan_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -2106,14 +2106,14 @@ GCSosGroupMatchPattern GCSosSoundEventGroupSchema::GetMatchPattern() const {
     return value;
 }
 void GCSosSoundEventGroupSchema::SetMatchPattern(GCSosGroupMatchPattern value) {
-    SetSchemaValue(m_ptr, "CSosSoundEventGroupSchema", "m_matchPattern", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MatchPattern' is not possible.\n");
 }
 GCSosGroupBranchPattern GCSosSoundEventGroupSchema::GetBranchPattern() const {
     GCSosGroupBranchPattern value(GetSchemaPtr(m_ptr, "CSosSoundEventGroupSchema", "m_branchPattern"));
     return value;
 }
 void GCSosSoundEventGroupSchema::SetBranchPattern(GCSosGroupBranchPattern value) {
-    SetSchemaValue(m_ptr, "CSosSoundEventGroupSchema", "m_branchPattern", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BranchPattern' is not possible.\n");
 }
 float GCSosSoundEventGroupSchema::GetLifeSpanTime() const {
     return GetSchemaValue<float>(m_ptr, "CSosSoundEventGroupSchema", "m_flLifeSpanTime");
@@ -2210,21 +2210,21 @@ GCAnimInputDamping GCDampedValueUpdateItem::GetDamping() const {
     return value;
 }
 void GCDampedValueUpdateItem::SetDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CDampedValueUpdateItem", "m_damping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Damping' is not possible.\n");
 }
 GCAnimParamHandle GCDampedValueUpdateItem::GetParamIn() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CDampedValueUpdateItem", "m_hParamIn"));
     return value;
 }
 void GCDampedValueUpdateItem::SetParamIn(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CDampedValueUpdateItem", "m_hParamIn", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamIn' is not possible.\n");
 }
 GCAnimParamHandle GCDampedValueUpdateItem::GetParamOut() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CDampedValueUpdateItem", "m_hParamOut"));
     return value;
 }
 void GCDampedValueUpdateItem::SetParamOut(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CDampedValueUpdateItem", "m_hParamOut", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamOut' is not possible.\n");
 }
 void* GCDampedValueUpdateItem::GetPtr() {
     return m_ptr;
@@ -2718,7 +2718,7 @@ GEngineLoopState_t GEventClientProcessGameInput_t::GetLoopState() const {
     return value;
 }
 void GEventClientProcessGameInput_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventClientProcessGameInput_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 float GEventClientProcessGameInput_t::GetRealTime() const {
     return GetSchemaValue<float>(m_ptr, "EventClientProcessGameInput_t", "m_flRealTime");
@@ -3207,7 +3207,7 @@ GNmPercent_t GCNmTransitionNode::GetBoneMaskBlendInTimePercentage() const {
     return value;
 }
 void GCNmTransitionNode::SetBoneMaskBlendInTimePercentage(GNmPercent_t value) {
-    SetSchemaValue(m_ptr, "CNmTransitionNode", "m_boneMaskBlendInTimePercentage", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BoneMaskBlendInTimePercentage' is not possible.\n");
 }
 float GCNmTransitionNode::GetSyncEventOffset() const {
     return GetSchemaValue<float>(m_ptr, "CNmTransitionNode", "m_syncEventOffset");
@@ -3220,7 +3220,7 @@ GCNmTransitionNode GCNmTransitionNode::GetTransitionOptions() const {
     return value;
 }
 void GCNmTransitionNode::SetTransitionOptions(GCNmTransitionNode value) {
-    SetSchemaValue(m_ptr, "CNmTransitionNode", "m_transitionOptions", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TransitionOptions' is not possible.\n");
 }
 int16_t GCNmTransitionNode::GetTargetSyncIDNodeIdx() const {
     return GetSchemaValue<int16_t>(m_ptr, "CNmTransitionNode", "m_targetSyncIDNodeIdx");
@@ -3319,7 +3319,7 @@ GAnimComponentID GCToggleComponentActionUpdater::GetComponentID() const {
     return value;
 }
 void GCToggleComponentActionUpdater::SetComponentID(GAnimComponentID value) {
-    SetSchemaValue(m_ptr, "CToggleComponentActionUpdater", "m_componentID", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ComponentID' is not possible.\n");
 }
 bool GCToggleComponentActionUpdater::GetSetEnabled() const {
     return GetSchemaValue<bool>(m_ptr, "CToggleComponentActionUpdater", "m_bSetEnabled");
@@ -3545,7 +3545,7 @@ GVMixFilterDesc_t GVMixAutoFilterDesc_t::GetFilter() const {
     return value;
 }
 void GVMixAutoFilterDesc_t::SetFilter(GVMixFilterDesc_t value) {
-    SetSchemaValue(m_ptr, "VMixAutoFilterDesc_t", "m_filter", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Filter' is not possible.\n");
 }
 float GVMixAutoFilterDesc_t::GetLFOAmount() const {
     return GetSchemaValue<float>(m_ptr, "VMixAutoFilterDesc_t", "m_flLFOAmount");
@@ -3608,7 +3608,7 @@ GCSeqMultiFetchFlag GCSeqMultiFetch::GetFlags() const {
     return value;
 }
 void GCSeqMultiFetch::SetFlags(GCSeqMultiFetchFlag value) {
-    SetSchemaValue(m_ptr, "CSeqMultiFetch", "m_flags", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Flags' is not possible.\n");
 }
 std::vector<int16> GCSeqMultiFetch::GetLocalReferenceArray() const {
     CUtlVector<int16>* vec = GetSchemaValue<CUtlVector<int16>*>(m_ptr, "CSeqMultiFetch", "m_localReferenceArray"); std::vector<int16> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -3853,14 +3853,14 @@ GCBlendCurve GCSelectorUpdateNode::GetBlendCurve() const {
     return value;
 }
 void GCSelectorUpdateNode::SetBlendCurve(GCBlendCurve value) {
-    SetSchemaValue(m_ptr, "CSelectorUpdateNode", "m_blendCurve", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BlendCurve' is not possible.\n");
 }
 GCAnimParamHandle GCSelectorUpdateNode::GetParameter() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CSelectorUpdateNode", "m_hParameter"));
     return value;
 }
 void GCSelectorUpdateNode::SetParameter(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSelectorUpdateNode", "m_hParameter", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parameter' is not possible.\n");
 }
 int32_t GCSelectorUpdateNode::GetTagIndex() const {
     return GetSchemaValue<int32_t>(m_ptr, "CSelectorUpdateNode", "m_nTagIndex");
@@ -3938,56 +3938,56 @@ GCAnimParamHandle GCAimCameraUpdateNode::GetParameterPosition() const {
     return value;
 }
 void GCAimCameraUpdateNode::SetParameterPosition(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CAimCameraUpdateNode", "m_hParameterPosition", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParameterPosition' is not possible.\n");
 }
 GCAnimParamHandle GCAimCameraUpdateNode::GetParameterOrientation() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CAimCameraUpdateNode", "m_hParameterOrientation"));
     return value;
 }
 void GCAimCameraUpdateNode::SetParameterOrientation(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CAimCameraUpdateNode", "m_hParameterOrientation", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParameterOrientation' is not possible.\n");
 }
 GCAnimParamHandle GCAimCameraUpdateNode::GetParameterSpineRotationWeight() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CAimCameraUpdateNode", "m_hParameterSpineRotationWeight"));
     return value;
 }
 void GCAimCameraUpdateNode::SetParameterSpineRotationWeight(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CAimCameraUpdateNode", "m_hParameterSpineRotationWeight", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParameterSpineRotationWeight' is not possible.\n");
 }
 GCAnimParamHandle GCAimCameraUpdateNode::GetParameterPelvisOffset() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CAimCameraUpdateNode", "m_hParameterPelvisOffset"));
     return value;
 }
 void GCAimCameraUpdateNode::SetParameterPelvisOffset(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CAimCameraUpdateNode", "m_hParameterPelvisOffset", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParameterPelvisOffset' is not possible.\n");
 }
 GCAnimParamHandle GCAimCameraUpdateNode::GetParameterUseIK() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CAimCameraUpdateNode", "m_hParameterUseIK"));
     return value;
 }
 void GCAimCameraUpdateNode::SetParameterUseIK(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CAimCameraUpdateNode", "m_hParameterUseIK", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParameterUseIK' is not possible.\n");
 }
 GCAnimParamHandle GCAimCameraUpdateNode::GetParameterWeaponDepenetrationDistance() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CAimCameraUpdateNode", "m_hParameterWeaponDepenetrationDistance"));
     return value;
 }
 void GCAimCameraUpdateNode::SetParameterWeaponDepenetrationDistance(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CAimCameraUpdateNode", "m_hParameterWeaponDepenetrationDistance", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParameterWeaponDepenetrationDistance' is not possible.\n");
 }
 GCAnimParamHandle GCAimCameraUpdateNode::GetParameterCameraClearanceDistance() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CAimCameraUpdateNode", "m_hParameterCameraClearanceDistance"));
     return value;
 }
 void GCAimCameraUpdateNode::SetParameterCameraClearanceDistance(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CAimCameraUpdateNode", "m_hParameterCameraClearanceDistance", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParameterCameraClearanceDistance' is not possible.\n");
 }
 GAimCameraOpFixedSettings_t GCAimCameraUpdateNode::GetOpFixedSettings() const {
     GAimCameraOpFixedSettings_t value(GetSchemaPtr(m_ptr, "CAimCameraUpdateNode", "m_opFixedSettings"));
     return value;
 }
 void GCAimCameraUpdateNode::SetOpFixedSettings(GAimCameraOpFixedSettings_t value) {
-    SetSchemaValue(m_ptr, "CAimCameraUpdateNode", "m_opFixedSettings", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedSettings' is not possible.\n");
 }
 void* GCAimCameraUpdateNode::GetPtr() {
     return m_ptr;
@@ -4111,7 +4111,7 @@ GCPoseHandle GCSingleFrameUpdateNode::GetPoseCacheHandle() const {
     return value;
 }
 void GCSingleFrameUpdateNode::SetPoseCacheHandle(GCPoseHandle value) {
-    SetSchemaValue(m_ptr, "CSingleFrameUpdateNode", "m_hPoseCacheHandle", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PoseCacheHandle' is not possible.\n");
 }
 float GCSingleFrameUpdateNode::GetCycle() const {
     return GetSchemaValue<float>(m_ptr, "CSingleFrameUpdateNode", "m_flCycle");
@@ -4158,14 +4158,14 @@ GCSeqSeqDescFlag GCSeqSynthAnimDesc::GetFlags() const {
     return value;
 }
 void GCSeqSynthAnimDesc::SetFlags(GCSeqSeqDescFlag value) {
-    SetSchemaValue(m_ptr, "CSeqSynthAnimDesc", "m_flags", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Flags' is not possible.\n");
 }
 GCSeqTransition GCSeqSynthAnimDesc::GetTransition() const {
     GCSeqTransition value(GetSchemaPtr(m_ptr, "CSeqSynthAnimDesc", "m_transition"));
     return value;
 }
 void GCSeqSynthAnimDesc::SetTransition(GCSeqTransition value) {
-    SetSchemaValue(m_ptr, "CSeqSynthAnimDesc", "m_transition", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Transition' is not possible.\n");
 }
 int16_t GCSeqSynthAnimDesc::GetLocalBaseReference() const {
     return GetSchemaValue<int16_t>(m_ptr, "CSeqSynthAnimDesc", "m_nLocalBaseReference");
@@ -4360,7 +4360,7 @@ GBakedLightingInfo_t GWorldNode_t::GetNodeLightingInfo() const {
     return value;
 }
 void GWorldNode_t::SetNodeLightingInfo(GBakedLightingInfo_t value) {
-    SetSchemaValue(m_ptr, "WorldNode_t", "m_nodeLightingInfo", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NodeLightingInfo' is not possible.\n");
 }
 void* GWorldNode_t::GetPtr() {
     return m_ptr;
@@ -4691,7 +4691,7 @@ GEngineLoopState_t GEventClientPreOutput_t::GetLoopState() const {
     return value;
 }
 void GEventClientPreOutput_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventClientPreOutput_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 double GEventClientPreOutput_t::GetRenderTime() const {
     return GetSchemaValue<double>(m_ptr, "EventClientPreOutput_t", "m_flRenderTime");
@@ -4841,7 +4841,7 @@ GRnHull_t GRnHullDesc_t::GetHull() const {
     return value;
 }
 void GRnHullDesc_t::SetHull(GRnHull_t value) {
-    SetSchemaValue(m_ptr, "RnHullDesc_t", "m_Hull", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Hull' is not possible.\n");
 }
 void* GRnHullDesc_t::GetPtr() {
     return m_ptr;
@@ -4983,7 +4983,7 @@ GCRenderBufferBinding GExtraVertexStreamOverride_t::GetExtraBufferBinding() cons
     return value;
 }
 void GExtraVertexStreamOverride_t::SetExtraBufferBinding(GCRenderBufferBinding value) {
-    SetSchemaValue(m_ptr, "ExtraVertexStreamOverride_t", "m_extraBufferBinding", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ExtraBufferBinding' is not possible.\n");
 }
 void* GExtraVertexStreamOverride_t::GetPtr() {
     return m_ptr;
@@ -5224,14 +5224,14 @@ GCSeqSeqDescFlag GCSeqS1SeqDesc::GetFlags() const {
     return value;
 }
 void GCSeqS1SeqDesc::SetFlags(GCSeqSeqDescFlag value) {
-    SetSchemaValue(m_ptr, "CSeqS1SeqDesc", "m_flags", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Flags' is not possible.\n");
 }
 GCSeqMultiFetch GCSeqS1SeqDesc::GetFetch() const {
     GCSeqMultiFetch value(GetSchemaPtr(m_ptr, "CSeqS1SeqDesc", "m_fetch"));
     return value;
 }
 void GCSeqS1SeqDesc::SetFetch(GCSeqMultiFetch value) {
-    SetSchemaValue(m_ptr, "CSeqS1SeqDesc", "m_fetch", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Fetch' is not possible.\n");
 }
 int32_t GCSeqS1SeqDesc::GetLocalWeightlist() const {
     return GetSchemaValue<int32_t>(m_ptr, "CSeqS1SeqDesc", "m_nLocalWeightlist");
@@ -5256,7 +5256,7 @@ GCSeqTransition GCSeqS1SeqDesc::GetTransition() const {
     return value;
 }
 void GCSeqS1SeqDesc::SetTransition(GCSeqTransition value) {
-    SetSchemaValue(m_ptr, "CSeqS1SeqDesc", "m_transition", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Transition' is not possible.\n");
 }
 std::vector<GCAnimActivity> GCSeqS1SeqDesc::GetActivityArray() const {
     CUtlVector<GCAnimActivity>* vec = GetSchemaValue<CUtlVector<GCAnimActivity>*>(m_ptr, "CSeqS1SeqDesc", "m_activityArray"); std::vector<GCAnimActivity> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -5307,14 +5307,14 @@ GCAnimAttachment GAimMatrixOpFixedSettings_t::GetAttachment() const {
     return value;
 }
 void GAimMatrixOpFixedSettings_t::SetAttachment(GCAnimAttachment value) {
-    SetSchemaValue(m_ptr, "AimMatrixOpFixedSettings_t", "m_attachment", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Attachment' is not possible.\n");
 }
 GCAnimInputDamping GAimMatrixOpFixedSettings_t::GetDamping() const {
     GCAnimInputDamping value(GetSchemaPtr(m_ptr, "AimMatrixOpFixedSettings_t", "m_damping"));
     return value;
 }
 void GAimMatrixOpFixedSettings_t::SetDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "AimMatrixOpFixedSettings_t", "m_damping", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Damping' is not possible.\n");
 }
 std::vector<GCPoseHandle> GAimMatrixOpFixedSettings_t::GetPoseCacheHandles() const {
     GCPoseHandle* outValue = GetSchemaValue<GCPoseHandle*>(m_ptr, "AimMatrixOpFixedSettings_t", "m_poseCacheHandles"); std::vector<GCPoseHandle> ret; for(int i = 0; i < 10; i++) { ret.push_back(outValue[i]); } return ret;
@@ -5381,7 +5381,7 @@ GCBlendCurve GAimMatrixOpFixedSettings_t::GetBiasAndClampBlendCurve() const {
     return value;
 }
 void GAimMatrixOpFixedSettings_t::SetBiasAndClampBlendCurve(GCBlendCurve value) {
-    SetSchemaValue(m_ptr, "AimMatrixOpFixedSettings_t", "m_biasAndClampBlendCurve", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BiasAndClampBlendCurve' is not possible.\n");
 }
 void* GAimMatrixOpFixedSettings_t::GetPtr() {
     return m_ptr;
@@ -5637,7 +5637,7 @@ GAimMatrixOpFixedSettings_t GCAimMatrixUpdateNode::GetOpFixedSettings() const {
     return value;
 }
 void GCAimMatrixUpdateNode::SetOpFixedSettings(GAimMatrixOpFixedSettings_t value) {
-    SetSchemaValue(m_ptr, "CAimMatrixUpdateNode", "m_opFixedSettings", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedSettings' is not possible.\n");
 }
 uint64_t GCAimMatrixUpdateNode::GetTarget() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CAimMatrixUpdateNode", "m_target");
@@ -5650,7 +5650,7 @@ GCAnimParamHandle GCAimMatrixUpdateNode::GetParamIndex() const {
     return value;
 }
 void GCAimMatrixUpdateNode::SetParamIndex(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CAimMatrixUpdateNode", "m_paramIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamIndex' is not possible.\n");
 }
 bool GCAimMatrixUpdateNode::GetResetChild() const {
     return GetSchemaValue<bool>(m_ptr, "CAimMatrixUpdateNode", "m_bResetChild");
@@ -5706,7 +5706,7 @@ GCAnimInputDamping GCDirectionalBlendUpdateNode::GetDamping() const {
     return value;
 }
 void GCDirectionalBlendUpdateNode::SetDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CDirectionalBlendUpdateNode", "m_damping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Damping' is not possible.\n");
 }
 uint64_t GCDirectionalBlendUpdateNode::GetBlendValueSource() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CDirectionalBlendUpdateNode", "m_blendValueSource");
@@ -5719,7 +5719,7 @@ GCAnimParamHandle GCDirectionalBlendUpdateNode::GetParamIndex() const {
     return value;
 }
 void GCDirectionalBlendUpdateNode::SetParamIndex(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CDirectionalBlendUpdateNode", "m_paramIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamIndex' is not possible.\n");
 }
 float GCDirectionalBlendUpdateNode::GetPlaybackSpeed() const {
     return GetSchemaValue<float>(m_ptr, "CDirectionalBlendUpdateNode", "m_playbackSpeed");
@@ -6743,7 +6743,7 @@ GFuseVariableIndex_t GVariableInfo_t::GetIndex() const {
     return value;
 }
 void GVariableInfo_t::SetIndex(GFuseVariableIndex_t value) {
-    SetSchemaValue(m_ptr, "VariableInfo_t", "m_nIndex", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Index' is not possible.\n");
 }
 uint8_t GVariableInfo_t::GetNumComponents() const {
     return GetSchemaValue<uint8_t>(m_ptr, "VariableInfo_t", "m_nNumComponents");
@@ -6945,7 +6945,7 @@ GCAnimParamHandle GCCycleControlClipUpdateNode::GetParamIndex() const {
     return value;
 }
 void GCCycleControlClipUpdateNode::SetParamIndex(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CCycleControlClipUpdateNode", "m_paramIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamIndex' is not possible.\n");
 }
 void* GCCycleControlClipUpdateNode::GetPtr() {
     return m_ptr;
@@ -7012,14 +7012,14 @@ GCParticleCollectionRendererFloatInput GCBaseTrailRenderer::GetStartFadeSize() c
     return value;
 }
 void GCBaseTrailRenderer::SetStartFadeSize(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseTrailRenderer", "m_flStartFadeSize", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StartFadeSize' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseTrailRenderer::GetEndFadeSize() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseTrailRenderer", "m_flEndFadeSize"));
     return value;
 }
 void GCBaseTrailRenderer::SetEndFadeSize(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseTrailRenderer", "m_flEndFadeSize", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EndFadeSize' is not possible.\n");
 }
 bool GCBaseTrailRenderer::GetClampV() const {
     return GetSchemaValue<bool>(m_ptr, "CBaseTrailRenderer", "m_bClampV");
@@ -7254,7 +7254,7 @@ GVMixFilterDesc_t GVMixBoxverbDesc_t::GetFilterType() const {
     return value;
 }
 void GVMixBoxverbDesc_t::SetFilterType(GVMixFilterDesc_t value) {
-    SetSchemaValue(m_ptr, "VMixBoxverbDesc_t", "m_filterType", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FilterType' is not possible.\n");
 }
 float GVMixBoxverbDesc_t::GetWidth() const {
     return GetSchemaValue<float>(m_ptr, "VMixBoxverbDesc_t", "m_flWidth");
@@ -7561,35 +7561,35 @@ GCAnimCycle GCFootCycleDefinition::GetStanceCycle() const {
     return value;
 }
 void GCFootCycleDefinition::SetStanceCycle(GCAnimCycle value) {
-    SetSchemaValue(m_ptr, "CFootCycleDefinition", "m_stanceCycle", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StanceCycle' is not possible.\n");
 }
 GCFootCycle GCFootCycleDefinition::GetFootLiftCycle() const {
     GCFootCycle value(GetSchemaPtr(m_ptr, "CFootCycleDefinition", "m_footLiftCycle"));
     return value;
 }
 void GCFootCycleDefinition::SetFootLiftCycle(GCFootCycle value) {
-    SetSchemaValue(m_ptr, "CFootCycleDefinition", "m_footLiftCycle", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FootLiftCycle' is not possible.\n");
 }
 GCFootCycle GCFootCycleDefinition::GetFootOffCycle() const {
     GCFootCycle value(GetSchemaPtr(m_ptr, "CFootCycleDefinition", "m_footOffCycle"));
     return value;
 }
 void GCFootCycleDefinition::SetFootOffCycle(GCFootCycle value) {
-    SetSchemaValue(m_ptr, "CFootCycleDefinition", "m_footOffCycle", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FootOffCycle' is not possible.\n");
 }
 GCFootCycle GCFootCycleDefinition::GetFootStrikeCycle() const {
     GCFootCycle value(GetSchemaPtr(m_ptr, "CFootCycleDefinition", "m_footStrikeCycle"));
     return value;
 }
 void GCFootCycleDefinition::SetFootStrikeCycle(GCFootCycle value) {
-    SetSchemaValue(m_ptr, "CFootCycleDefinition", "m_footStrikeCycle", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FootStrikeCycle' is not possible.\n");
 }
 GCFootCycle GCFootCycleDefinition::GetFootLandCycle() const {
     GCFootCycle value(GetSchemaPtr(m_ptr, "CFootCycleDefinition", "m_footLandCycle"));
     return value;
 }
 void GCFootCycleDefinition::SetFootLandCycle(GCFootCycle value) {
-    SetSchemaValue(m_ptr, "CFootCycleDefinition", "m_footLandCycle", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FootLandCycle' is not possible.\n");
 }
 void* GCFootCycleDefinition::GetPtr() {
     return m_ptr;
@@ -7908,7 +7908,7 @@ GEngineLoopState_t GEventClientOutput_t::GetLoopState() const {
     return value;
 }
 void GEventClientOutput_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventClientOutput_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 float GEventClientOutput_t::GetRenderTime() const {
     return GetSchemaValue<float>(m_ptr, "EventClientOutput_t", "m_flRenderTime");
@@ -7974,7 +7974,7 @@ GParticleAttributeIndex_t GMaterialVariable_t::GetVariableField() const {
     return value;
 }
 void GMaterialVariable_t::SetVariableField(GParticleAttributeIndex_t value) {
-    SetSchemaValue(m_ptr, "MaterialVariable_t", "m_nVariableField", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VariableField' is not possible.\n");
 }
 float GMaterialVariable_t::GetScale() const {
     return GetSchemaValue<float>(m_ptr, "MaterialVariable_t", "m_flScale");
@@ -8026,7 +8026,7 @@ GCFeJiggleBone GCFeNamedJiggleBone::GetJiggleBone() const {
     return value;
 }
 void GCFeNamedJiggleBone::SetJiggleBone(GCFeJiggleBone value) {
-    SetSchemaValue(m_ptr, "CFeNamedJiggleBone", "m_jiggleBone", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'JiggleBone' is not possible.\n");
 }
 void* GCFeNamedJiggleBone::GetPtr() {
     return m_ptr;
@@ -8060,7 +8060,7 @@ GEngineLoopState_t GEventClientProcessInput_t::GetLoopState() const {
     return value;
 }
 void GEventClientProcessInput_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventClientProcessInput_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 float GEventClientProcessInput_t::GetRealTime() const {
     return GetSchemaValue<float>(m_ptr, "EventClientProcessInput_t", "m_flRealTime");
@@ -8248,14 +8248,14 @@ GCAnimParamHandle GCDampedPathAnimMotorUpdater::GetAnticipationPosParam() const 
     return value;
 }
 void GCDampedPathAnimMotorUpdater::SetAnticipationPosParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CDampedPathAnimMotorUpdater", "m_hAnticipationPosParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AnticipationPosParam' is not possible.\n");
 }
 GCAnimParamHandle GCDampedPathAnimMotorUpdater::GetAnticipationHeadingParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CDampedPathAnimMotorUpdater", "m_hAnticipationHeadingParam"));
     return value;
 }
 void GCDampedPathAnimMotorUpdater::SetAnticipationHeadingParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CDampedPathAnimMotorUpdater", "m_hAnticipationHeadingParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AnticipationHeadingParam' is not possible.\n");
 }
 float GCDampedPathAnimMotorUpdater::GetSpringConstant() const {
     return GetSchemaValue<float>(m_ptr, "CDampedPathAnimMotorUpdater", "m_flSpringConstant");
@@ -8319,14 +8319,14 @@ GCAnimAttachment GLookAtOpFixedSettings_t::GetAttachment() const {
     return value;
 }
 void GLookAtOpFixedSettings_t::SetAttachment(GCAnimAttachment value) {
-    SetSchemaValue(m_ptr, "LookAtOpFixedSettings_t", "m_attachment", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Attachment' is not possible.\n");
 }
 GCAnimInputDamping GLookAtOpFixedSettings_t::GetDamping() const {
     GCAnimInputDamping value(GetSchemaPtr(m_ptr, "LookAtOpFixedSettings_t", "m_damping"));
     return value;
 }
 void GLookAtOpFixedSettings_t::SetDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "LookAtOpFixedSettings_t", "m_damping", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Damping' is not possible.\n");
 }
 std::vector<GLookAtBone_t> GLookAtOpFixedSettings_t::GetBones() const {
     CUtlVector<GLookAtBone_t>* vec = GetSchemaValue<CUtlVector<GLookAtBone_t>*>(m_ptr, "LookAtOpFixedSettings_t", "m_bones"); std::vector<GLookAtBone_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -8620,14 +8620,14 @@ GCMotionSearchNode GCMotionSearchDB::GetRootNode() const {
     return value;
 }
 void GCMotionSearchDB::SetRootNode(GCMotionSearchNode value) {
-    SetSchemaValue(m_ptr, "CMotionSearchDB", "m_rootNode", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RootNode' is not possible.\n");
 }
 GCProductQuantizer GCMotionSearchDB::GetResidualQuantizer() const {
     GCProductQuantizer value(GetSchemaPtr(m_ptr, "CMotionSearchDB", "m_residualQuantizer"));
     return value;
 }
 void GCMotionSearchDB::SetResidualQuantizer(GCProductQuantizer value) {
-    SetSchemaValue(m_ptr, "CMotionSearchDB", "m_residualQuantizer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ResidualQuantizer' is not possible.\n");
 }
 std::vector<GMotionDBIndex> GCMotionSearchDB::GetCodeIndices() const {
     CUtlVector<GMotionDBIndex>* vec = GetSchemaValue<CUtlVector<GMotionDBIndex>*>(m_ptr, "CMotionSearchDB", "m_codeIndices"); std::vector<GMotionDBIndex> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -8738,7 +8738,7 @@ GBakedLightingInfo_t GWorldBuilderParams_t::GetBakedLightingInfo() const {
     return value;
 }
 void GWorldBuilderParams_t::SetBakedLightingInfo(GBakedLightingInfo_t value) {
-    SetSchemaValue(m_ptr, "WorldBuilderParams_t", "m_bakedLightingInfo", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BakedLightingInfo' is not possible.\n");
 }
 uint64_t GWorldBuilderParams_t::GetCompileTimestamp() const {
     return GetSchemaValue<uint64_t>(m_ptr, "WorldBuilderParams_t", "m_nCompileTimestamp");
@@ -8786,14 +8786,14 @@ GCPoseHandle GCFootAdjustmentUpdateNode::GetBasePoseCacheHandle() const {
     return value;
 }
 void GCFootAdjustmentUpdateNode::SetBasePoseCacheHandle(GCPoseHandle value) {
-    SetSchemaValue(m_ptr, "CFootAdjustmentUpdateNode", "m_hBasePoseCacheHandle", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BasePoseCacheHandle' is not possible.\n");
 }
 GCAnimParamHandle GCFootAdjustmentUpdateNode::GetFacingTarget() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CFootAdjustmentUpdateNode", "m_facingTarget"));
     return value;
 }
 void GCFootAdjustmentUpdateNode::SetFacingTarget(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CFootAdjustmentUpdateNode", "m_facingTarget", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FacingTarget' is not possible.\n");
 }
 float GCFootAdjustmentUpdateNode::GetTurnTimeMin() const {
     return GetSchemaValue<float>(m_ptr, "CFootAdjustmentUpdateNode", "m_flTurnTimeMin");
@@ -9306,7 +9306,7 @@ GCMotionSearchDB GCMotionGraphGroup::GetSearchDB() const {
     return value;
 }
 void GCMotionGraphGroup::SetSearchDB(GCMotionSearchDB value) {
-    SetSchemaValue(m_ptr, "CMotionGraphGroup", "m_searchDB", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SearchDB' is not possible.\n");
 }
 std::vector<GCMotionGraphConfig> GCMotionGraphGroup::GetMotionGraphConfigs() const {
     CUtlVector<GCMotionGraphConfig>* vec = GetSchemaValue<CUtlVector<GCMotionGraphConfig>*>(m_ptr, "CMotionGraphGroup", "m_motionGraphConfigs"); std::vector<GCMotionGraphConfig> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -9325,7 +9325,7 @@ GAnimScriptHandle GCMotionGraphGroup::GetIsActiveScript() const {
     return value;
 }
 void GCMotionGraphGroup::SetIsActiveScript(GAnimScriptHandle value) {
-    SetSchemaValue(m_ptr, "CMotionGraphGroup", "m_hIsActiveScript", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'IsActiveScript' is not possible.\n");
 }
 void* GCMotionGraphGroup::GetPtr() {
     return m_ptr;
@@ -9840,7 +9840,7 @@ GJiggleBoneSettingsList_t GCJiggleBoneUpdateNode::GetOpFixedData() const {
     return value;
 }
 void GCJiggleBoneUpdateNode::SetOpFixedData(GJiggleBoneSettingsList_t value) {
-    SetSchemaValue(m_ptr, "CJiggleBoneUpdateNode", "m_opFixedData", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedData' is not possible.\n");
 }
 void* GCJiggleBoneUpdateNode::GetPtr() {
     return m_ptr;
@@ -10144,7 +10144,7 @@ GEngineLoopState_t GEventClientPollInput_t::GetLoopState() const {
     return value;
 }
 void GEventClientPollInput_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventClientPollInput_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 float GEventClientPollInput_t::GetRealTime() const {
     return GetSchemaValue<float>(m_ptr, "EventClientPollInput_t", "m_flRealTime");
@@ -10389,7 +10389,7 @@ GCAnimParamHandle GCExpressionActionUpdater::GetParam() const {
     return value;
 }
 void GCExpressionActionUpdater::SetParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CExpressionActionUpdater", "m_hParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Param' is not possible.\n");
 }
 uint64_t GCExpressionActionUpdater::GetParamType() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CExpressionActionUpdater", "m_eParamType");
@@ -10402,7 +10402,7 @@ GAnimScriptHandle GCExpressionActionUpdater::GetScript() const {
     return value;
 }
 void GCExpressionActionUpdater::SetScript(GAnimScriptHandle value) {
-    SetSchemaValue(m_ptr, "CExpressionActionUpdater", "m_hScript", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Script' is not possible.\n");
 }
 void* GCExpressionActionUpdater::GetPtr() {
     return m_ptr;
@@ -10561,7 +10561,7 @@ GVPhysics2ShapeDef_t GVPhysXBodyPart_t::GetRnShape() const {
     return value;
 }
 void GVPhysXBodyPart_t::SetRnShape(GVPhysics2ShapeDef_t value) {
-    SetSchemaValue(m_ptr, "VPhysXBodyPart_t", "m_rnShape", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RnShape' is not possible.\n");
 }
 uint16_t GVPhysXBodyPart_t::GetCollisionAttributeIndex() const {
     return GetSchemaValue<uint16_t>(m_ptr, "VPhysXBodyPart_t", "m_nCollisionAttributeIndex");
@@ -10766,7 +10766,7 @@ GParticlePreviewState_t GParticleControlPointConfiguration_t::GetPreviewState() 
     return value;
 }
 void GParticleControlPointConfiguration_t::SetPreviewState(GParticlePreviewState_t value) {
-    SetSchemaValue(m_ptr, "ParticleControlPointConfiguration_t", "m_previewState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PreviewState' is not possible.\n");
 }
 void* GParticleControlPointConfiguration_t::GetPtr() {
     return m_ptr;
@@ -10878,7 +10878,7 @@ GMotionIndex GCMotionGraphConfig::GetMotionIndex() const {
     return value;
 }
 void GCMotionGraphConfig::SetMotionIndex(GMotionIndex value) {
-    SetSchemaValue(m_ptr, "CMotionGraphConfig", "m_nMotionIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MotionIndex' is not possible.\n");
 }
 int32_t GCMotionGraphConfig::GetSampleStart() const {
     return GetSchemaValue<int32_t>(m_ptr, "CMotionGraphConfig", "m_nSampleStart");
@@ -10926,7 +10926,7 @@ GCAnimInputDamping GCMovementComponentUpdater::GetFacingDamping() const {
     return value;
 }
 void GCMovementComponentUpdater::SetFacingDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CMovementComponentUpdater", "m_facingDamping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FacingDamping' is not possible.\n");
 }
 int32_t GCMovementComponentUpdater::GetDefaultMotorIndex() const {
     return GetSchemaValue<int32_t>(m_ptr, "CMovementComponentUpdater", "m_nDefaultMotorIndex");
@@ -11084,42 +11084,42 @@ GHitReactFixedSettings_t GCHitReactUpdateNode::GetOpFixedSettings() const {
     return value;
 }
 void GCHitReactUpdateNode::SetOpFixedSettings(GHitReactFixedSettings_t value) {
-    SetSchemaValue(m_ptr, "CHitReactUpdateNode", "m_opFixedSettings", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedSettings' is not possible.\n");
 }
 GCAnimParamHandle GCHitReactUpdateNode::GetTriggerParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CHitReactUpdateNode", "m_triggerParam"));
     return value;
 }
 void GCHitReactUpdateNode::SetTriggerParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CHitReactUpdateNode", "m_triggerParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TriggerParam' is not possible.\n");
 }
 GCAnimParamHandle GCHitReactUpdateNode::GetHitBoneParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CHitReactUpdateNode", "m_hitBoneParam"));
     return value;
 }
 void GCHitReactUpdateNode::SetHitBoneParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CHitReactUpdateNode", "m_hitBoneParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HitBoneParam' is not possible.\n");
 }
 GCAnimParamHandle GCHitReactUpdateNode::GetHitOffsetParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CHitReactUpdateNode", "m_hitOffsetParam"));
     return value;
 }
 void GCHitReactUpdateNode::SetHitOffsetParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CHitReactUpdateNode", "m_hitOffsetParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HitOffsetParam' is not possible.\n");
 }
 GCAnimParamHandle GCHitReactUpdateNode::GetHitDirectionParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CHitReactUpdateNode", "m_hitDirectionParam"));
     return value;
 }
 void GCHitReactUpdateNode::SetHitDirectionParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CHitReactUpdateNode", "m_hitDirectionParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HitDirectionParam' is not possible.\n");
 }
 GCAnimParamHandle GCHitReactUpdateNode::GetHitStrengthParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CHitReactUpdateNode", "m_hitStrengthParam"));
     return value;
 }
 void GCHitReactUpdateNode::SetHitStrengthParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CHitReactUpdateNode", "m_hitStrengthParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HitStrengthParam' is not possible.\n");
 }
 float GCHitReactUpdateNode::GetMinDelayBetweenHits() const {
     return GetSchemaValue<float>(m_ptr, "CHitReactUpdateNode", "m_flMinDelayBetweenHits");
@@ -11769,7 +11769,7 @@ GCAnimParamHandle GCSetParameterActionUpdater::GetParam() const {
     return value;
 }
 void GCSetParameterActionUpdater::SetParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSetParameterActionUpdater", "m_hParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Param' is not possible.\n");
 }
 void* GCSetParameterActionUpdater::GetPtr() {
     return m_ptr;
@@ -11809,14 +11809,14 @@ GCAnimGraphSettingsManager GCAnimUpdateSharedData::GetSettings() const {
     return value;
 }
 void GCAnimUpdateSharedData::SetSettings(GCAnimGraphSettingsManager value) {
-    SetSchemaValue(m_ptr, "CAnimUpdateSharedData", "m_settings", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Settings' is not possible.\n");
 }
 GCAnimNodePath GCAnimUpdateSharedData::GetRootNodePath() const {
     GCAnimNodePath value(GetSchemaPtr(m_ptr, "CAnimUpdateSharedData", "m_rootNodePath"));
     return value;
 }
 void GCAnimUpdateSharedData::SetRootNodePath(GCAnimNodePath value) {
-    SetSchemaValue(m_ptr, "CAnimUpdateSharedData", "m_rootNodePath", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RootNodePath' is not possible.\n");
 }
 void* GCAnimUpdateSharedData::GetPtr() {
     return m_ptr;
@@ -11932,7 +11932,7 @@ GAABB_t GClutterTile_t::GetBoundsWs() const {
     return value;
 }
 void GClutterTile_t::SetBoundsWs(GAABB_t value) {
-    SetSchemaValue(m_ptr, "ClutterTile_t", "m_BoundsWs", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BoundsWs' is not possible.\n");
 }
 void* GClutterTile_t::GetPtr() {
     return m_ptr;
@@ -12071,7 +12071,7 @@ GCAnimDesc_Flag GCAnimDesc::GetFlags() const {
     return value;
 }
 void GCAnimDesc::SetFlags(GCAnimDesc_Flag value) {
-    SetSchemaValue(m_ptr, "CAnimDesc", "m_flags", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Flags' is not possible.\n");
 }
 float GCAnimDesc::GetFps() const {
     return GetSchemaValue<float>(m_ptr, "CAnimDesc", "fps");
@@ -12084,7 +12084,7 @@ GCAnimEncodedFrames GCAnimDesc::GetData() const {
     return value;
 }
 void GCAnimDesc::SetData(GCAnimEncodedFrames value) {
-    SetSchemaValue(m_ptr, "CAnimDesc", "m_Data", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Data' is not possible.\n");
 }
 std::vector<GCAnimMovement> GCAnimDesc::GetMovementArray() const {
     CUtlVector<GCAnimMovement>* vec = GetSchemaValue<CUtlVector<GCAnimMovement>*>(m_ptr, "CAnimDesc", "m_movementArray"); std::vector<GCAnimMovement> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -12145,7 +12145,7 @@ GCAnimSequenceParams GCAnimDesc::GetSequenceParams() const {
     return value;
 }
 void GCAnimDesc::SetSequenceParams(GCAnimSequenceParams value) {
-    SetSchemaValue(m_ptr, "CAnimDesc", "m_sequenceParams", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SequenceParams' is not possible.\n");
 }
 void* GCAnimDesc::GetPtr() {
     return m_ptr;
@@ -12410,7 +12410,7 @@ GCFeJiggleBone GCFeIndexedJiggleBone::GetJiggleBone() const {
     return value;
 }
 void GCFeIndexedJiggleBone::SetJiggleBone(GCFeJiggleBone value) {
-    SetSchemaValue(m_ptr, "CFeIndexedJiggleBone", "m_jiggleBone", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'JiggleBone' is not possible.\n");
 }
 void* GCFeIndexedJiggleBone::GetPtr() {
     return m_ptr;
@@ -13036,42 +13036,42 @@ GVoxelVisBlockOffset_t GCVoxelVisibility::GetNodeBlock() const {
     return value;
 }
 void GCVoxelVisibility::SetNodeBlock(GVoxelVisBlockOffset_t value) {
-    SetSchemaValue(m_ptr, "CVoxelVisibility", "m_NodeBlock", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NodeBlock' is not possible.\n");
 }
 GVoxelVisBlockOffset_t GCVoxelVisibility::GetRegionBlock() const {
     GVoxelVisBlockOffset_t value(GetSchemaPtr(m_ptr, "CVoxelVisibility", "m_RegionBlock"));
     return value;
 }
 void GCVoxelVisibility::SetRegionBlock(GVoxelVisBlockOffset_t value) {
-    SetSchemaValue(m_ptr, "CVoxelVisibility", "m_RegionBlock", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RegionBlock' is not possible.\n");
 }
 GVoxelVisBlockOffset_t GCVoxelVisibility::GetEnclosedClusterListBlock() const {
     GVoxelVisBlockOffset_t value(GetSchemaPtr(m_ptr, "CVoxelVisibility", "m_EnclosedClusterListBlock"));
     return value;
 }
 void GCVoxelVisibility::SetEnclosedClusterListBlock(GVoxelVisBlockOffset_t value) {
-    SetSchemaValue(m_ptr, "CVoxelVisibility", "m_EnclosedClusterListBlock", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EnclosedClusterListBlock' is not possible.\n");
 }
 GVoxelVisBlockOffset_t GCVoxelVisibility::GetEnclosedClustersBlock() const {
     GVoxelVisBlockOffset_t value(GetSchemaPtr(m_ptr, "CVoxelVisibility", "m_EnclosedClustersBlock"));
     return value;
 }
 void GCVoxelVisibility::SetEnclosedClustersBlock(GVoxelVisBlockOffset_t value) {
-    SetSchemaValue(m_ptr, "CVoxelVisibility", "m_EnclosedClustersBlock", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EnclosedClustersBlock' is not possible.\n");
 }
 GVoxelVisBlockOffset_t GCVoxelVisibility::GetMasksBlock() const {
     GVoxelVisBlockOffset_t value(GetSchemaPtr(m_ptr, "CVoxelVisibility", "m_MasksBlock"));
     return value;
 }
 void GCVoxelVisibility::SetMasksBlock(GVoxelVisBlockOffset_t value) {
-    SetSchemaValue(m_ptr, "CVoxelVisibility", "m_MasksBlock", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MasksBlock' is not possible.\n");
 }
 GVoxelVisBlockOffset_t GCVoxelVisibility::GetVisBlocks() const {
     GVoxelVisBlockOffset_t value(GetSchemaPtr(m_ptr, "CVoxelVisibility", "m_nVisBlocks"));
     return value;
 }
 void GCVoxelVisibility::SetVisBlocks(GVoxelVisBlockOffset_t value) {
-    SetSchemaValue(m_ptr, "CVoxelVisibility", "m_nVisBlocks", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VisBlocks' is not possible.\n");
 }
 void* GCVoxelVisibility::GetPtr() {
     return m_ptr;
@@ -13152,14 +13152,14 @@ GIKSolverSettings_t GChainToSolveData_t::GetSolverSettings() const {
     return value;
 }
 void GChainToSolveData_t::SetSolverSettings(GIKSolverSettings_t value) {
-    SetSchemaValue(m_ptr, "ChainToSolveData_t", "m_SolverSettings", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SolverSettings' is not possible.\n");
 }
 GIKTargetSettings_t GChainToSolveData_t::GetTargetSettings() const {
     GIKTargetSettings_t value(GetSchemaPtr(m_ptr, "ChainToSolveData_t", "m_TargetSettings"));
     return value;
 }
 void GChainToSolveData_t::SetTargetSettings(GIKTargetSettings_t value) {
-    SetSchemaValue(m_ptr, "ChainToSolveData_t", "m_TargetSettings", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TargetSettings' is not possible.\n");
 }
 uint64_t GChainToSolveData_t::GetDebugSetting() const {
     return GetSchemaValue<uint64_t>(m_ptr, "ChainToSolveData_t", "m_DebugSetting");
@@ -13361,7 +13361,7 @@ GVPhysXConstraintParams_t GVPhysXConstraint2_t::GetParams() const {
     return value;
 }
 void GVPhysXConstraint2_t::SetParams(GVPhysXConstraintParams_t value) {
-    SetSchemaValue(m_ptr, "VPhysXConstraint2_t", "m_params", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Params' is not possible.\n");
 }
 void* GVPhysXConstraint2_t::GetPtr() {
     return m_ptr;
@@ -13511,7 +13511,7 @@ GWorldBuilderParams_t GWorld_t::GetBuilderParams() const {
     return value;
 }
 void GWorld_t::SetBuilderParams(GWorldBuilderParams_t value) {
-    SetSchemaValue(m_ptr, "World_t", "m_builderParams", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BuilderParams' is not possible.\n");
 }
 std::vector<GNodeData_t> GWorld_t::GetWorldNodes() const {
     CUtlVector<GNodeData_t>* vec = GetSchemaValue<CUtlVector<GNodeData_t>*>(m_ptr, "World_t", "m_worldNodes"); std::vector<GNodeData_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -13524,7 +13524,7 @@ GBakedLightingInfo_t GWorld_t::GetWorldLightingInfo() const {
     return value;
 }
 void GWorld_t::SetWorldLightingInfo(GBakedLightingInfo_t value) {
-    SetSchemaValue(m_ptr, "World_t", "m_worldLightingInfo", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'WorldLightingInfo' is not possible.\n");
 }
 void* GWorld_t::GetPtr() {
     return m_ptr;
@@ -13636,7 +13636,7 @@ GCAnimStateMachineUpdater GCStateMachineUpdateNode::GetStateMachine() const {
     return value;
 }
 void GCStateMachineUpdateNode::SetStateMachine(GCAnimStateMachineUpdater value) {
-    SetSchemaValue(m_ptr, "CStateMachineUpdateNode", "m_stateMachine", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StateMachine' is not possible.\n");
 }
 std::vector<GCStateNodeStateData> GCStateMachineUpdateNode::GetStateData() const {
     CUtlVector<GCStateNodeStateData>* vec = GetSchemaValue<CUtlVector<GCStateNodeStateData>*>(m_ptr, "CStateMachineUpdateNode", "m_stateData"); std::vector<GCStateNodeStateData> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -13846,7 +13846,7 @@ GPostProcessingTonemapParameters_t GPostProcessingResource_t::GetToneMapParams()
     return value;
 }
 void GPostProcessingResource_t::SetToneMapParams(GPostProcessingTonemapParameters_t value) {
-    SetSchemaValue(m_ptr, "PostProcessingResource_t", "m_toneMapParams", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ToneMapParams' is not possible.\n");
 }
 bool GPostProcessingResource_t::GetHasBloomParams() const {
     return GetSchemaValue<bool>(m_ptr, "PostProcessingResource_t", "m_bHasBloomParams");
@@ -13859,7 +13859,7 @@ GPostProcessingBloomParameters_t GPostProcessingResource_t::GetBloomParams() con
     return value;
 }
 void GPostProcessingResource_t::SetBloomParams(GPostProcessingBloomParameters_t value) {
-    SetSchemaValue(m_ptr, "PostProcessingResource_t", "m_bloomParams", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BloomParams' is not possible.\n");
 }
 bool GPostProcessingResource_t::GetHasVignetteParams() const {
     return GetSchemaValue<bool>(m_ptr, "PostProcessingResource_t", "m_bHasVignetteParams");
@@ -13872,7 +13872,7 @@ GPostProcessingVignetteParameters_t GPostProcessingResource_t::GetVignetteParams
     return value;
 }
 void GPostProcessingResource_t::SetVignetteParams(GPostProcessingVignetteParameters_t value) {
-    SetSchemaValue(m_ptr, "PostProcessingResource_t", "m_vignetteParams", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VignetteParams' is not possible.\n");
 }
 bool GPostProcessingResource_t::GetHasLocalContrastParams() const {
     return GetSchemaValue<bool>(m_ptr, "PostProcessingResource_t", "m_bHasLocalContrastParams");
@@ -13885,7 +13885,7 @@ GPostProcessingLocalContrastParameters_t GPostProcessingResource_t::GetLocalCons
     return value;
 }
 void GPostProcessingResource_t::SetLocalConstrastParams(GPostProcessingLocalContrastParameters_t value) {
-    SetSchemaValue(m_ptr, "PostProcessingResource_t", "m_localConstrastParams", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LocalConstrastParams' is not possible.\n");
 }
 int32_t GPostProcessingResource_t::GetColorCorrectionVolumeDim() const {
     return GetSchemaValue<int32_t>(m_ptr, "PostProcessingResource_t", "m_nColorCorrectionVolumeDim");
@@ -14170,7 +14170,7 @@ GCRenderBufferBinding GCMaterialDrawDescriptor::GetIndexBuffer() const {
     return value;
 }
 void GCMaterialDrawDescriptor::SetIndexBuffer(GCRenderBufferBinding value) {
-    SetSchemaValue(m_ptr, "CMaterialDrawDescriptor", "m_indexBuffer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'IndexBuffer' is not possible.\n");
 }
 void* GCMaterialDrawDescriptor::GetPtr() {
     return m_ptr;
@@ -14335,7 +14335,7 @@ GLookAtOpFixedSettings_t GCLookAtUpdateNode::GetOpFixedSettings() const {
     return value;
 }
 void GCLookAtUpdateNode::SetOpFixedSettings(GLookAtOpFixedSettings_t value) {
-    SetSchemaValue(m_ptr, "CLookAtUpdateNode", "m_opFixedSettings", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedSettings' is not possible.\n");
 }
 uint64_t GCLookAtUpdateNode::GetTarget() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CLookAtUpdateNode", "m_target");
@@ -14348,14 +14348,14 @@ GCAnimParamHandle GCLookAtUpdateNode::GetParamIndex() const {
     return value;
 }
 void GCLookAtUpdateNode::SetParamIndex(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLookAtUpdateNode", "m_paramIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamIndex' is not possible.\n");
 }
 GCAnimParamHandle GCLookAtUpdateNode::GetWeightParamIndex() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CLookAtUpdateNode", "m_weightParamIndex"));
     return value;
 }
 void GCLookAtUpdateNode::SetWeightParamIndex(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLookAtUpdateNode", "m_weightParamIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'WeightParamIndex' is not possible.\n");
 }
 bool GCLookAtUpdateNode::GetResetChild() const {
     return GetSchemaValue<bool>(m_ptr, "CLookAtUpdateNode", "m_bResetChild");
@@ -14534,14 +14534,14 @@ GCFootCycleDefinition GCFootStride::GetDefinition() const {
     return value;
 }
 void GCFootStride::SetDefinition(GCFootCycleDefinition value) {
-    SetSchemaValue(m_ptr, "CFootStride", "m_definition", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Definition' is not possible.\n");
 }
 GCFootTrajectories GCFootStride::GetTrajectories() const {
     GCFootTrajectories value(GetSchemaPtr(m_ptr, "CFootStride", "m_trajectories"));
     return value;
 }
 void GCFootStride::SetTrajectories(GCFootTrajectories value) {
-    SetSchemaValue(m_ptr, "CFootStride", "m_trajectories", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Trajectories' is not possible.\n");
 }
 void* GCFootStride::GetPtr() {
     return m_ptr;
@@ -14580,7 +14580,7 @@ GCAnimKeyData GCAnimationGroup::GetDecodeKey() const {
     return value;
 }
 void GCAnimationGroup::SetDecodeKey(GCAnimKeyData value) {
-    SetSchemaValue(m_ptr, "CAnimationGroup", "m_decodeKey", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DecodeKey' is not possible.\n");
 }
 void* GCAnimationGroup::GetPtr() {
     return m_ptr;
@@ -15001,14 +15001,14 @@ GCRenderSkeleton GCRenderMesh::GetSkeleton() const {
     return value;
 }
 void GCRenderMesh::SetSkeleton(GCRenderSkeleton value) {
-    SetSchemaValue(m_ptr, "CRenderMesh", "m_skeleton", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Skeleton' is not possible.\n");
 }
 GDynamicMeshDeformParams_t GCRenderMesh::GetMeshDeformParams() const {
     GDynamicMeshDeformParams_t value(GetSchemaPtr(m_ptr, "CRenderMesh", "m_meshDeformParams"));
     return value;
 }
 void GCRenderMesh::SetMeshDeformParams(GDynamicMeshDeformParams_t value) {
-    SetSchemaValue(m_ptr, "CRenderMesh", "m_meshDeformParams", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MeshDeformParams' is not possible.\n");
 }
 GCRenderGroom GCRenderMesh::GetGroomData() const {
     GCRenderGroom value(*GetSchemaValuePtr<void*>(m_ptr, "CRenderMesh", "m_pGroomData"));
@@ -15062,14 +15062,14 @@ Gconstraint_axislimit_t Gconstraint_hingeparams_t::GetHingeAxis() const {
     return value;
 }
 void Gconstraint_hingeparams_t::SetHingeAxis(Gconstraint_axislimit_t value) {
-    SetSchemaValue(m_ptr, "constraint_hingeparams_t", "hingeAxis", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HingeAxis' is not possible.\n");
 }
 Gconstraint_breakableparams_t Gconstraint_hingeparams_t::GetConstraint() const {
     Gconstraint_breakableparams_t value(GetSchemaPtr(m_ptr, "constraint_hingeparams_t", "constraint"));
     return value;
 }
 void Gconstraint_hingeparams_t::SetConstraint(Gconstraint_breakableparams_t value) {
-    SetSchemaValue(m_ptr, "constraint_hingeparams_t", "constraint", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Constraint' is not possible.\n");
 }
 void* Gconstraint_hingeparams_t::GetPtr() {
     return m_ptr;
@@ -15104,28 +15104,28 @@ GNmCompressionSettings_t GNmCompressionSettings_t::GetTranslationRangeX() const 
     return value;
 }
 void GNmCompressionSettings_t::SetTranslationRangeX(GNmCompressionSettings_t value) {
-    SetSchemaValue(m_ptr, "NmCompressionSettings_t", "m_translationRangeX", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TranslationRangeX' is not possible.\n");
 }
 GNmCompressionSettings_t GNmCompressionSettings_t::GetTranslationRangeY() const {
     GNmCompressionSettings_t value(GetSchemaPtr(m_ptr, "NmCompressionSettings_t", "m_translationRangeY"));
     return value;
 }
 void GNmCompressionSettings_t::SetTranslationRangeY(GNmCompressionSettings_t value) {
-    SetSchemaValue(m_ptr, "NmCompressionSettings_t", "m_translationRangeY", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TranslationRangeY' is not possible.\n");
 }
 GNmCompressionSettings_t GNmCompressionSettings_t::GetTranslationRangeZ() const {
     GNmCompressionSettings_t value(GetSchemaPtr(m_ptr, "NmCompressionSettings_t", "m_translationRangeZ"));
     return value;
 }
 void GNmCompressionSettings_t::SetTranslationRangeZ(GNmCompressionSettings_t value) {
-    SetSchemaValue(m_ptr, "NmCompressionSettings_t", "m_translationRangeZ", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TranslationRangeZ' is not possible.\n");
 }
 GNmCompressionSettings_t GNmCompressionSettings_t::GetScaleRange() const {
     GNmCompressionSettings_t value(GetSchemaPtr(m_ptr, "NmCompressionSettings_t", "m_scaleRange"));
     return value;
 }
 void GNmCompressionSettings_t::SetScaleRange(GNmCompressionSettings_t value) {
-    SetSchemaValue(m_ptr, "NmCompressionSettings_t", "m_scaleRange", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ScaleRange' is not possible.\n");
 }
 bool GNmCompressionSettings_t::GetIsRotationStatic() const {
     return GetSchemaValue<bool>(m_ptr, "NmCompressionSettings_t", "m_bIsRotationStatic");
@@ -15294,21 +15294,21 @@ GFollowTargetOpFixedSettings_t GCFollowTargetUpdateNode::GetOpFixedData() const 
     return value;
 }
 void GCFollowTargetUpdateNode::SetOpFixedData(GFollowTargetOpFixedSettings_t value) {
-    SetSchemaValue(m_ptr, "CFollowTargetUpdateNode", "m_opFixedData", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedData' is not possible.\n");
 }
 GCAnimParamHandle GCFollowTargetUpdateNode::GetParameterPosition() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CFollowTargetUpdateNode", "m_hParameterPosition"));
     return value;
 }
 void GCFollowTargetUpdateNode::SetParameterPosition(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CFollowTargetUpdateNode", "m_hParameterPosition", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParameterPosition' is not possible.\n");
 }
 GCAnimParamHandle GCFollowTargetUpdateNode::GetParameterOrientation() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CFollowTargetUpdateNode", "m_hParameterOrientation"));
     return value;
 }
 void GCFollowTargetUpdateNode::SetParameterOrientation(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CFollowTargetUpdateNode", "m_hParameterOrientation", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParameterOrientation' is not possible.\n");
 }
 void* GCFollowTargetUpdateNode::GetPtr() {
     return m_ptr;
@@ -15429,14 +15429,14 @@ GCNmSyncTrack GCNmClip::GetSyncTrack() const {
     return value;
 }
 void GCNmClip::SetSyncTrack(GCNmSyncTrack value) {
-    SetSchemaValue(m_ptr, "CNmClip", "m_syncTrack", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SyncTrack' is not possible.\n");
 }
 GCNmRootMotionData GCNmClip::GetRootMotion() const {
     GCNmRootMotionData value(GetSchemaPtr(m_ptr, "CNmClip", "m_rootMotion"));
     return value;
 }
 void GCNmClip::SetRootMotion(GCNmRootMotionData value) {
-    SetSchemaValue(m_ptr, "CNmClip", "m_rootMotion", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RootMotion' is not possible.\n");
 }
 bool GCNmClip::GetIsAdditive() const {
     return GetSchemaValue<bool>(m_ptr, "CNmClip", "m_bIsAdditive");
@@ -15511,7 +15511,7 @@ GCAnimStateMachineUpdater GCStateMachineComponentUpdater::GetStateMachine() cons
     return value;
 }
 void GCStateMachineComponentUpdater::SetStateMachine(GCAnimStateMachineUpdater value) {
-    SetSchemaValue(m_ptr, "CStateMachineComponentUpdater", "m_stateMachine", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StateMachine' is not possible.\n");
 }
 void* GCStateMachineComponentUpdater::GetPtr() {
     return m_ptr;
@@ -15672,7 +15672,7 @@ GTwoBoneIKSettings_t GCTwoBoneIKUpdateNode::GetOpFixedData() const {
     return value;
 }
 void GCTwoBoneIKUpdateNode::SetOpFixedData(GTwoBoneIKSettings_t value) {
-    SetSchemaValue(m_ptr, "CTwoBoneIKUpdateNode", "m_opFixedData", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedData' is not possible.\n");
 }
 void* GCTwoBoneIKUpdateNode::GetPtr() {
     return m_ptr;
@@ -16054,7 +16054,7 @@ GVPhysXRange_t GVPhysXJoint_t::GetLinearLimit() const {
     return value;
 }
 void GVPhysXJoint_t::SetLinearLimit(GVPhysXRange_t value) {
-    SetSchemaValue(m_ptr, "VPhysXJoint_t", "m_LinearLimit", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LinearLimit' is not possible.\n");
 }
 bool GVPhysXJoint_t::GetEnableLinearMotor() const {
     return GetSchemaValue<bool>(m_ptr, "VPhysXJoint_t", "m_bEnableLinearMotor");
@@ -16085,7 +16085,7 @@ GVPhysXRange_t GVPhysXJoint_t::GetSwingLimit() const {
     return value;
 }
 void GVPhysXJoint_t::SetSwingLimit(GVPhysXRange_t value) {
-    SetSchemaValue(m_ptr, "VPhysXJoint_t", "m_SwingLimit", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SwingLimit' is not possible.\n");
 }
 bool GVPhysXJoint_t::GetEnableTwistLimit() const {
     return GetSchemaValue<bool>(m_ptr, "VPhysXJoint_t", "m_bEnableTwistLimit");
@@ -16098,7 +16098,7 @@ GVPhysXRange_t GVPhysXJoint_t::GetTwistLimit() const {
     return value;
 }
 void GVPhysXJoint_t::SetTwistLimit(GVPhysXRange_t value) {
-    SetSchemaValue(m_ptr, "VPhysXJoint_t", "m_TwistLimit", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TwistLimit' is not possible.\n");
 }
 bool GVPhysXJoint_t::GetEnableAngularMotor() const {
     return GetSchemaValue<bool>(m_ptr, "VPhysXJoint_t", "m_bEnableAngularMotor");

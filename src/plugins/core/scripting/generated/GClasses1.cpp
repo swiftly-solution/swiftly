@@ -139,7 +139,7 @@ GCNetworkVarChainer GCPlayerPawnComponent::Get__pChainEntity() const {
     return value;
 }
 void GCPlayerPawnComponent::Set__pChainEntity(GCNetworkVarChainer value) {
-    SetSchemaValue(m_ptr, "CPlayerPawnComponent", "__m_pChainEntity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for '__pChainEntity' is not possible.\n");
 }
 void* GCPlayerPawnComponent::GetPtr() {
     return m_ptr;
@@ -570,7 +570,7 @@ GCNetworkTransmitComponent GCBaseEntity::GetNetworkTransmitComponent() const {
     return value;
 }
 void GCBaseEntity::SetNetworkTransmitComponent(GCNetworkTransmitComponent value) {
-    SetSchemaValue(m_ptr, "CBaseEntity", "m_NetworkTransmitComponent", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NetworkTransmitComponent' is not possible.\n");
 }
 std::vector<Gthinkfunc_t> GCBaseEntity::GetThinkFunctions() const {
     CUtlVector<Gthinkfunc_t>* vec = GetSchemaValue<CUtlVector<Gthinkfunc_t>*>(m_ptr, "CBaseEntity", "m_aThinkFunctions"); std::vector<Gthinkfunc_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -812,7 +812,7 @@ GCEntityIOOutput GCBaseEntity::GetOnKilled() const {
     return value;
 }
 void GCBaseEntity::SetOnKilled(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseEntity", "m_OnKilled", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnKilled' is not possible.\n");
 }
 uint32_t GCBaseEntity::GetFlags() const {
     return GetSchemaValue<uint32_t>(m_ptr, "CBaseEntity", "m_fFlags");
@@ -831,7 +831,7 @@ GCNetworkVelocityVector GCBaseEntity::GetVelocity() const {
     return value;
 }
 void GCBaseEntity::SetVelocity(GCNetworkVelocityVector value) {
-    SetSchemaValue(m_ptr, "CBaseEntity", "m_vecVelocity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Velocity' is not possible.\n");
 }
 Vector GCBaseEntity::GetBaseVelocity() const {
     return GetSchemaValue<Vector>(m_ptr, "CBaseEntity", "m_vecBaseVelocity");
@@ -944,28 +944,28 @@ GCEntityIOOutput GCBaseEntity::GetOnUser1() const {
     return value;
 }
 void GCBaseEntity::SetOnUser1(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseEntity", "m_OnUser1", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnUser1' is not possible.\n");
 }
 GCEntityIOOutput GCBaseEntity::GetOnUser2() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseEntity", "m_OnUser2"));
     return value;
 }
 void GCBaseEntity::SetOnUser2(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseEntity", "m_OnUser2", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnUser2' is not possible.\n");
 }
 GCEntityIOOutput GCBaseEntity::GetOnUser3() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseEntity", "m_OnUser3"));
     return value;
 }
 void GCBaseEntity::SetOnUser3(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseEntity", "m_OnUser3", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnUser3' is not possible.\n");
 }
 GCEntityIOOutput GCBaseEntity::GetOnUser4() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseEntity", "m_OnUser4"));
     return value;
 }
 void GCBaseEntity::SetOnUser4(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseEntity", "m_OnUser4", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnUser4' is not possible.\n");
 }
 int32_t GCBaseEntity::GetInitialTeamNum() const {
     return GetSchemaValue<int32_t>(m_ptr, "CBaseEntity", "m_iInitialTeamNum");
@@ -1368,7 +1368,7 @@ GVPhysicsCollisionAttribute_t GCCollisionProperty::GetCollisionAttribute() const
     return value;
 }
 void GCCollisionProperty::SetCollisionAttribute(GVPhysicsCollisionAttribute_t value) {
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_collisionAttribute", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CollisionAttribute' is not possible.\n");
 }
 Vector GCCollisionProperty::GetMins() const {
     return GetSchemaValue<Vector>(m_ptr, "CCollisionProperty", "m_vecMins");
@@ -1522,7 +1522,7 @@ GCHitboxComponent GCBaseModelEntity::GetCHitboxComponent() const {
     return value;
 }
 void GCBaseModelEntity::SetCHitboxComponent(GCHitboxComponent value) {
-    SetSchemaValue(m_ptr, "CBaseModelEntity", "m_CHitboxComponent", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CHitboxComponent' is not possible.\n");
 }
 float GCBaseModelEntity::GetDissolveStartTime() const {
     return GetSchemaValue<float>(m_ptr, "CBaseModelEntity", "m_flDissolveStartTime");
@@ -1535,7 +1535,7 @@ GCEntityIOOutput GCBaseModelEntity::GetOnIgnite() const {
     return value;
 }
 void GCBaseModelEntity::SetOnIgnite(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseModelEntity", "m_OnIgnite", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnIgnite' is not possible.\n");
 }
 uint64_t GCBaseModelEntity::GetRenderMode() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBaseModelEntity", "m_nRenderMode");
@@ -1578,14 +1578,14 @@ GCCollisionProperty GCBaseModelEntity::GetCollision() const {
     return value;
 }
 void GCBaseModelEntity::SetCollision(GCCollisionProperty value) {
-    SetSchemaValue(m_ptr, "CBaseModelEntity", "m_Collision", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Collision' is not possible.\n");
 }
 GCGlowProperty GCBaseModelEntity::GetGlow() const {
     GCGlowProperty value(GetSchemaPtr(m_ptr, "CBaseModelEntity", "m_Glow"));
     return value;
 }
 void GCBaseModelEntity::SetGlow(GCGlowProperty value) {
-    SetSchemaValue(m_ptr, "CBaseModelEntity", "m_Glow", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Glow' is not possible.\n");
 }
 float GCBaseModelEntity::GetGlowBackfaceMult() const {
     return GetSchemaValue<float>(m_ptr, "CBaseModelEntity", "m_flGlowBackfaceMult");
@@ -1664,7 +1664,7 @@ GCNetworkViewOffsetVector GCBaseModelEntity::GetViewOffset() const {
     return value;
 }
 void GCBaseModelEntity::SetViewOffset(GCNetworkViewOffsetVector value) {
-    SetSchemaValue(m_ptr, "CBaseModelEntity", "m_vecViewOffset", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ViewOffset' is not possible.\n");
 }
 void* GCBaseModelEntity::GetPtr() {
     return m_ptr;
@@ -1925,49 +1925,49 @@ GCEntityIOOutput GCBaseTrigger::GetOnStartTouch() const {
     return value;
 }
 void GCBaseTrigger::SetOnStartTouch(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseTrigger", "m_OnStartTouch", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnStartTouch' is not possible.\n");
 }
 GCEntityIOOutput GCBaseTrigger::GetOnStartTouchAll() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseTrigger", "m_OnStartTouchAll"));
     return value;
 }
 void GCBaseTrigger::SetOnStartTouchAll(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseTrigger", "m_OnStartTouchAll", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnStartTouchAll' is not possible.\n");
 }
 GCEntityIOOutput GCBaseTrigger::GetOnEndTouch() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseTrigger", "m_OnEndTouch"));
     return value;
 }
 void GCBaseTrigger::SetOnEndTouch(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseTrigger", "m_OnEndTouch", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnEndTouch' is not possible.\n");
 }
 GCEntityIOOutput GCBaseTrigger::GetOnEndTouchAll() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseTrigger", "m_OnEndTouchAll"));
     return value;
 }
 void GCBaseTrigger::SetOnEndTouchAll(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseTrigger", "m_OnEndTouchAll", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnEndTouchAll' is not possible.\n");
 }
 GCEntityIOOutput GCBaseTrigger::GetOnTouching() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseTrigger", "m_OnTouching"));
     return value;
 }
 void GCBaseTrigger::SetOnTouching(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseTrigger", "m_OnTouching", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTouching' is not possible.\n");
 }
 GCEntityIOOutput GCBaseTrigger::GetOnTouchingEachEntity() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseTrigger", "m_OnTouchingEachEntity"));
     return value;
 }
 void GCBaseTrigger::SetOnTouchingEachEntity(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseTrigger", "m_OnTouchingEachEntity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTouchingEachEntity' is not possible.\n");
 }
 GCEntityIOOutput GCBaseTrigger::GetOnNotTouching() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseTrigger", "m_OnNotTouching"));
     return value;
 }
 void GCBaseTrigger::SetOnNotTouching(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseTrigger", "m_OnNotTouching", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnNotTouching' is not possible.\n");
 }
 bool GCBaseTrigger::GetClientSidePredicted() const {
     return GetSchemaValue<bool>(m_ptr, "CBaseTrigger", "m_bClientSidePredicted");
@@ -2198,7 +2198,7 @@ GCEntityIOOutput GCTriggerMultiple::GetOnTrigger() const {
     return value;
 }
 void GCTriggerMultiple::SetOnTrigger(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CTriggerMultiple", "m_OnTrigger", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTrigger' is not possible.\n");
 }
 void* GCTriggerMultiple::GetPtr() {
     return m_ptr;
@@ -2463,7 +2463,7 @@ Gfogparams_t GCFogTrigger::GetFog() const {
     return value;
 }
 void GCFogTrigger::SetFog(Gfogparams_t value) {
-    SetSchemaValue(m_ptr, "CFogTrigger", "m_fog", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Fog' is not possible.\n");
 }
 void* GCFogTrigger::GetPtr() {
     return m_ptr;
@@ -2509,14 +2509,14 @@ GCEntityIOOutput GCBaseFilter::GetOnPass() const {
     return value;
 }
 void GCBaseFilter::SetOnPass(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseFilter", "m_OnPass", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPass' is not possible.\n");
 }
 GCEntityIOOutput GCBaseFilter::GetOnFail() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseFilter", "m_OnFail"));
     return value;
 }
 void GCBaseFilter::SetOnFail(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseFilter", "m_OnFail", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnFail' is not possible.\n");
 }
 void* GCBaseFilter::GetPtr() {
     return m_ptr;
@@ -2810,7 +2810,7 @@ GCEntityIOOutput GCMoverPathNode::GetOnPassThrough() const {
     return value;
 }
 void GCMoverPathNode::SetOnPassThrough(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CMoverPathNode", "m_OnPassThrough", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPassThrough' is not possible.\n");
 }
 GCPathMover GCMoverPathNode::GetMover() const {
     GCPathMover value(*GetSchemaValuePtr<void*>(m_ptr, "CMoverPathNode", "m_hMover"));
@@ -2941,7 +2941,7 @@ GCEntityIOOutput GCEnvSoundscape::GetOnPlay() const {
     return value;
 }
 void GCEnvSoundscape::SetOnPlay(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvSoundscape", "m_OnPlay", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlay' is not possible.\n");
 }
 float GCEnvSoundscape::GetRadius() const {
     return GetSchemaValue<float>(m_ptr, "CEnvSoundscape", "m_flRadius");
@@ -3175,7 +3175,7 @@ Gfogparams_t GCFogController::GetFog() const {
     return value;
 }
 void GCFogController::SetFog(Gfogparams_t value) {
-    SetSchemaValue(m_ptr, "CFogController", "m_fog", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Fog' is not possible.\n");
 }
 bool GCFogController::GetUseAngles() const {
     return GetSchemaValue<bool>(m_ptr, "CFogController", "m_bUseAngles");
@@ -3882,7 +3882,7 @@ GSceneEventId_t GCBaseFlex::GetNextSceneEventId() const {
     return value;
 }
 void GCBaseFlex::SetNextSceneEventId(GSceneEventId_t value) {
-    SetSchemaValue(m_ptr, "CBaseFlex", "m_nNextSceneEventId", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NextSceneEventId' is not possible.\n");
 }
 bool GCBaseFlex::GetUpdateLayerPriorities() const {
     return GetSchemaValue<bool>(m_ptr, "CBaseFlex", "m_bUpdateLayerPriorities");
@@ -3988,14 +3988,14 @@ GCAttributeList GCEconItemView::GetAttributeList() const {
     return value;
 }
 void GCEconItemView::SetAttributeList(GCAttributeList value) {
-    SetSchemaValue(m_ptr, "CEconItemView", "m_AttributeList", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AttributeList' is not possible.\n");
 }
 GCAttributeList GCEconItemView::GetNetworkedDynamicAttributes() const {
     GCAttributeList value(GetSchemaPtr(m_ptr, "CEconItemView", "m_NetworkedDynamicAttributes"));
     return value;
 }
 void GCEconItemView::SetNetworkedDynamicAttributes(GCAttributeList value) {
-    SetSchemaValue(m_ptr, "CEconItemView", "m_NetworkedDynamicAttributes", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NetworkedDynamicAttributes' is not possible.\n");
 }
 std::string GCEconItemView::GetCustomName() const {
     return GetSchemaValuePtr<char>(m_ptr, "CEconItemView", "m_szCustomName");
@@ -4230,7 +4230,7 @@ GCNetworkVarChainer GCBodyComponent::Get__pChainEntity() const {
     return value;
 }
 void GCBodyComponent::Set__pChainEntity(GCNetworkVarChainer value) {
-    SetSchemaValue(m_ptr, "CBodyComponent", "__m_pChainEntity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for '__pChainEntity' is not possible.\n");
 }
 void* GCBodyComponent::GetPtr() {
     return m_ptr;
@@ -4307,14 +4307,14 @@ GCEntityIOOutput GCEnvFireSensor::GetOnHeatLevelStart() const {
     return value;
 }
 void GCEnvFireSensor::SetOnHeatLevelStart(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvFireSensor", "m_OnHeatLevelStart", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnHeatLevelStart' is not possible.\n");
 }
 GCEntityIOOutput GCEnvFireSensor::GetOnHeatLevelEnd() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CEnvFireSensor", "m_OnHeatLevelEnd"));
     return value;
 }
 void GCEnvFireSensor::SetOnHeatLevelEnd(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvFireSensor", "m_OnHeatLevelEnd", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnHeatLevelEnd' is not possible.\n");
 }
 void* GCEnvFireSensor::GetPtr() {
     return m_ptr;
@@ -4391,21 +4391,21 @@ GCEconItemView GCCSGO_TeamPreviewCharacterPosition::GetAgentItem() const {
     return value;
 }
 void GCCSGO_TeamPreviewCharacterPosition::SetAgentItem(GCEconItemView value) {
-    SetSchemaValue(m_ptr, "CCSGO_TeamPreviewCharacterPosition", "m_agentItem", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AgentItem' is not possible.\n");
 }
 GCEconItemView GCCSGO_TeamPreviewCharacterPosition::GetGlovesItem() const {
     GCEconItemView value(GetSchemaPtr(m_ptr, "CCSGO_TeamPreviewCharacterPosition", "m_glovesItem"));
     return value;
 }
 void GCCSGO_TeamPreviewCharacterPosition::SetGlovesItem(GCEconItemView value) {
-    SetSchemaValue(m_ptr, "CCSGO_TeamPreviewCharacterPosition", "m_glovesItem", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'GlovesItem' is not possible.\n");
 }
 GCEconItemView GCCSGO_TeamPreviewCharacterPosition::GetWeaponItem() const {
     GCEconItemView value(GetSchemaPtr(m_ptr, "CCSGO_TeamPreviewCharacterPosition", "m_weaponItem"));
     return value;
 }
 void GCCSGO_TeamPreviewCharacterPosition::SetWeaponItem(GCEconItemView value) {
-    SetSchemaValue(m_ptr, "CCSGO_TeamPreviewCharacterPosition", "m_weaponItem", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'WeaponItem' is not possible.\n");
 }
 void* GCCSGO_TeamPreviewCharacterPosition::GetPtr() {
     return m_ptr;
@@ -4620,7 +4620,7 @@ GCPropDataComponent GCBreakable::GetCPropDataComponent() const {
     return value;
 }
 void GCBreakable::SetCPropDataComponent(GCPropDataComponent value) {
-    SetSchemaValue(m_ptr, "CBreakable", "m_CPropDataComponent", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CPropDataComponent' is not possible.\n");
 }
 uint64_t GCBreakable::GetMaterial() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBreakable", "m_Material");
@@ -4682,7 +4682,7 @@ GCEntityIOOutput GCBreakable::GetOnBreak() const {
     return value;
 }
 void GCBreakable::SetOnBreak(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBreakable", "m_OnBreak", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBreak' is not possible.\n");
 }
 uint64_t GCBreakable::GetPerformanceMode() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBreakable", "m_PerformanceMode");
@@ -4929,7 +4929,7 @@ GCEconItemView GCAttributeContainer::GetItem() const {
     return value;
 }
 void GCAttributeContainer::SetItem(GCEconItemView value) {
-    SetSchemaValue(m_ptr, "CAttributeContainer", "m_Item", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Item' is not possible.\n");
 }
 void* GCAttributeContainer::GetPtr() {
     return m_ptr;
@@ -5007,28 +5007,28 @@ GCLogicBranchList GCLogicBranchList::GetLastState() const {
     return value;
 }
 void GCLogicBranchList::SetLastState(GCLogicBranchList value) {
-    SetSchemaValue(m_ptr, "CLogicBranchList", "m_eLastState", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LastState' is not possible.\n");
 }
 GCEntityIOOutput GCLogicBranchList::GetOnAllTrue() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicBranchList", "m_OnAllTrue"));
     return value;
 }
 void GCLogicBranchList::SetOnAllTrue(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicBranchList", "m_OnAllTrue", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnAllTrue' is not possible.\n");
 }
 GCEntityIOOutput GCLogicBranchList::GetOnAllFalse() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicBranchList", "m_OnAllFalse"));
     return value;
 }
 void GCLogicBranchList::SetOnAllFalse(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicBranchList", "m_OnAllFalse", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnAllFalse' is not possible.\n");
 }
 GCEntityIOOutput GCLogicBranchList::GetOnMixed() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicBranchList", "m_OnMixed"));
     return value;
 }
 void GCLogicBranchList::SetOnMixed(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicBranchList", "m_OnMixed", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMixed' is not possible.\n");
 }
 void* GCLogicBranchList::GetPtr() {
     return m_ptr;
@@ -5131,7 +5131,7 @@ GCAttributeContainer GCEconEntity::GetAttributeManager() const {
     return value;
 }
 void GCEconEntity::SetAttributeManager(GCAttributeContainer value) {
-    SetSchemaValue(m_ptr, "CEconEntity", "m_AttributeManager", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AttributeManager' is not possible.\n");
 }
 uint32_t GCEconEntity::GetOriginalOwnerXuidLow() const {
     return GetSchemaValue<uint32_t>(m_ptr, "CEconEntity", "m_OriginalOwnerXuidLow");
@@ -5599,14 +5599,14 @@ GCEntityIOOutput GCItem::GetOnPlayerTouch() const {
     return value;
 }
 void GCItem::SetOnPlayerTouch(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CItem", "m_OnPlayerTouch", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerTouch' is not possible.\n");
 }
 GCEntityIOOutput GCItem::GetOnPlayerPickup() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CItem", "m_OnPlayerPickup"));
     return value;
 }
 void GCItem::SetOnPlayerPickup(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CItem", "m_OnPlayerPickup", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerPickup' is not possible.\n");
 }
 bool GCItem::GetActivateWhenAtRest() const {
     return GetSchemaValue<bool>(m_ptr, "CItem", "m_bActivateWhenAtRest");
@@ -5619,14 +5619,14 @@ GCEntityIOOutput GCItem::GetOnCacheInteraction() const {
     return value;
 }
 void GCItem::SetOnCacheInteraction(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CItem", "m_OnCacheInteraction", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnCacheInteraction' is not possible.\n");
 }
 GCEntityIOOutput GCItem::GetOnGlovePulled() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CItem", "m_OnGlovePulled"));
     return value;
 }
 void GCItem::SetOnGlovePulled(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CItem", "m_OnGlovePulled", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnGlovePulled' is not possible.\n");
 }
 Vector GCItem::GetOriginalSpawnOrigin() const {
     return GetSchemaValue<Vector>(m_ptr, "CItem", "m_vOriginalSpawnOrigin");
@@ -5816,7 +5816,7 @@ GCEntityIOOutput GCSoundEventEntity::GetOnSoundFinished() const {
     return value;
 }
 void GCSoundEventEntity::SetOnSoundFinished(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CSoundEventEntity", "m_onSoundFinished", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnSoundFinished' is not possible.\n");
 }
 std::string GCSoundEventEntity::GetSoundName() const {
     return GetSchemaValue<CUtlSymbolLarge>(m_ptr, "CSoundEventEntity", "m_iszSoundName").String();
@@ -5967,7 +5967,7 @@ GCEntityIOOutput GCBasePlayerWeapon::GetOnPlayerUse() const {
     return value;
 }
 void GCBasePlayerWeapon::SetOnPlayerUse(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePlayerWeapon", "m_OnPlayerUse", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerUse' is not possible.\n");
 }
 void* GCBasePlayerWeapon::GetPtr() {
     return m_ptr;
@@ -6301,7 +6301,7 @@ GCInButtonState GCPlayer_MovementServices::GetButtons() const {
     return value;
 }
 void GCPlayer_MovementServices::SetButtons(GCInButtonState value) {
-    SetSchemaValue(m_ptr, "CPlayer_MovementServices", "m_nButtons", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Buttons' is not possible.\n");
 }
 uint64_t GCPlayer_MovementServices::GetQueuedButtonDownMask() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CPlayer_MovementServices", "m_nQueuedButtonDownMask");
@@ -6433,21 +6433,21 @@ GCPropDataComponent GCBreakableProp::GetCPropDataComponent() const {
     return value;
 }
 void GCBreakableProp::SetCPropDataComponent(GCPropDataComponent value) {
-    SetSchemaValue(m_ptr, "CBreakableProp", "m_CPropDataComponent", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CPropDataComponent' is not possible.\n");
 }
 GCEntityIOOutput GCBreakableProp::GetOnBreak() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBreakableProp", "m_OnBreak"));
     return value;
 }
 void GCBreakableProp::SetOnBreak(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBreakableProp", "m_OnBreak", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBreak' is not possible.\n");
 }
 GCEntityIOOutput GCBreakableProp::GetOnTakeDamage() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBreakableProp", "m_OnTakeDamage"));
     return value;
 }
 void GCBreakableProp::SetOnTakeDamage(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBreakableProp", "m_OnTakeDamage", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTakeDamage' is not possible.\n");
 }
 float GCBreakableProp::GetImpactEnergyScale() const {
     return GetSchemaValue<float>(m_ptr, "CBreakableProp", "m_impactEnergyScale");
@@ -6788,7 +6788,7 @@ GCEntityIOOutput GCPhysConstraint::GetOnBreak() const {
     return value;
 }
 void GCPhysConstraint::SetOnBreak(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysConstraint", "m_OnBreak", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBreak' is not possible.\n");
 }
 void* GCPhysConstraint::GetPtr() {
     return m_ptr;
@@ -6840,7 +6840,7 @@ GCNetworkVarChainer GCCSGameModeRules::Get__pChainEntity() const {
     return value;
 }
 void GCCSGameModeRules::Set__pChainEntity(GCNetworkVarChainer value) {
-    SetSchemaValue(m_ptr, "CCSGameModeRules", "__m_pChainEntity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for '__pChainEntity' is not possible.\n");
 }
 void* GCCSGameModeRules::GetPtr() {
     return m_ptr;
@@ -7276,35 +7276,35 @@ GCEntityIOOutput GCDynamicProp::GetOutputAnimBegun() const {
     return value;
 }
 void GCDynamicProp::SetOutputAnimBegun(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CDynamicProp", "m_pOutputAnimBegun", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OutputAnimBegun' is not possible.\n");
 }
 GCEntityIOOutput GCDynamicProp::GetOutputAnimOver() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CDynamicProp", "m_pOutputAnimOver"));
     return value;
 }
 void GCDynamicProp::SetOutputAnimOver(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CDynamicProp", "m_pOutputAnimOver", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OutputAnimOver' is not possible.\n");
 }
 GCEntityIOOutput GCDynamicProp::GetOutputAnimLoopCycleOver() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CDynamicProp", "m_pOutputAnimLoopCycleOver"));
     return value;
 }
 void GCDynamicProp::SetOutputAnimLoopCycleOver(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CDynamicProp", "m_pOutputAnimLoopCycleOver", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OutputAnimLoopCycleOver' is not possible.\n");
 }
 GCEntityIOOutput GCDynamicProp::GetOnAnimReachedStart() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CDynamicProp", "m_OnAnimReachedStart"));
     return value;
 }
 void GCDynamicProp::SetOnAnimReachedStart(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CDynamicProp", "m_OnAnimReachedStart", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnAnimReachedStart' is not possible.\n");
 }
 GCEntityIOOutput GCDynamicProp::GetOnAnimReachedEnd() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CDynamicProp", "m_OnAnimReachedEnd"));
     return value;
 }
 void GCDynamicProp::SetOnAnimReachedEnd(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CDynamicProp", "m_OnAnimReachedEnd", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnAnimReachedEnd' is not possible.\n");
 }
 std::string GCDynamicProp::GetIdleAnim() const {
     return GetSchemaValue<CUtlSymbolLarge>(m_ptr, "CDynamicProp", "m_iszIdleAnim").String();
@@ -8192,7 +8192,7 @@ GCEntityIOOutput GCCSWeaponBase::GetOnPlayerPickup() const {
     return value;
 }
 void GCCSWeaponBase::SetOnPlayerPickup(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CCSWeaponBase", "m_OnPlayerPickup", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerPickup' is not possible.\n");
 }
 uint64_t GCCSWeaponBase::GetWeaponMode() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CCSWeaponBase", "m_weaponMode");
@@ -8410,7 +8410,7 @@ GCIronSightController GCCSWeaponBase::GetIronSightController() const {
     return value;
 }
 void GCCSWeaponBase::SetIronSightController(GCIronSightController value) {
-    SetSchemaValue(m_ptr, "CCSWeaponBase", "m_IronSightController", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'IronSightController' is not possible.\n");
 }
 int32_t GCCSWeaponBase::GetIronSightMode() const {
     return GetSchemaValue<int32_t>(m_ptr, "CCSWeaponBase", "m_iIronSightMode");
@@ -8543,7 +8543,7 @@ GCEntityIOOutput GCPathCorner::GetOnPass() const {
     return value;
 }
 void GCPathCorner::SetOnPass(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPathCorner", "m_OnPass", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPass' is not possible.\n");
 }
 void* GCPathCorner::GetPtr() {
     return m_ptr;
@@ -8585,7 +8585,7 @@ GCNetworkVarChainer GCPlayerControllerComponent::Get__pChainEntity() const {
     return value;
 }
 void GCPlayerControllerComponent::Set__pChainEntity(GCNetworkVarChainer value) {
-    SetSchemaValue(m_ptr, "CPlayerControllerComponent", "__m_pChainEntity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for '__pChainEntity' is not possible.\n");
 }
 void* GCPlayerControllerComponent::GetPtr() {
     return m_ptr;
@@ -8617,7 +8617,7 @@ GCountdownTimer GCWeaponBaseItem::GetSequenceCompleteTimer() const {
     return value;
 }
 void GCWeaponBaseItem::SetSequenceCompleteTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CWeaponBaseItem", "m_SequenceCompleteTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SequenceCompleteTimer' is not possible.\n");
 }
 bool GCWeaponBaseItem::GetRedraw() const {
     return GetSchemaValue<bool>(m_ptr, "CWeaponBaseItem", "m_bRedraw");
@@ -8778,7 +8778,7 @@ GCEntityIOOutput GCMultiSource::GetOnTrigger() const {
     return value;
 }
 void GCMultiSource::SetOnTrigger(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CMultiSource", "m_OnTrigger", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTrigger' is not possible.\n");
 }
 int32_t GCMultiSource::GetTotal() const {
     return GetSchemaValue<int32_t>(m_ptr, "CMultiSource", "m_iTotal");
@@ -8942,14 +8942,14 @@ GCEntityIOOutput GCEnvEntityMaker::GetOutputOnSpawned() const {
     return value;
 }
 void GCEnvEntityMaker::SetOutputOnSpawned(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvEntityMaker", "m_pOutputOnSpawned", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OutputOnSpawned' is not possible.\n");
 }
 GCEntityIOOutput GCEnvEntityMaker::GetOutputOnFailedSpawn() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CEnvEntityMaker", "m_pOutputOnFailedSpawn"));
     return value;
 }
 void GCEnvEntityMaker::SetOutputOnFailedSpawn(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvEntityMaker", "m_pOutputOnFailedSpawn", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OutputOnFailedSpawn' is not possible.\n");
 }
 void* GCEnvEntityMaker::GetPtr() {
     return m_ptr;
@@ -9064,7 +9064,7 @@ GCEntityIOOutput GCLogicEventListener::GetOnEventFired() const {
     return value;
 }
 void GCLogicEventListener::SetOnEventFired(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicEventListener", "m_OnEventFired", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnEventFired' is not possible.\n");
 }
 void* GCLogicEventListener::GetPtr() {
     return m_ptr;
@@ -9689,7 +9689,7 @@ Glocksound_t GCBasePropDoor::GetLs() const {
     return value;
 }
 void GCBasePropDoor::SetLs(Glocksound_t value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_ls", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Ls' is not possible.\n");
 }
 bool GCBasePropDoor::GetForceClosed() const {
     return GetSchemaValue<bool>(m_ptr, "CBasePropDoor", "m_bForceClosed");
@@ -9794,70 +9794,70 @@ GCEntityIOOutput GCBasePropDoor::GetOnBlockedClosing() const {
     return value;
 }
 void GCBasePropDoor::SetOnBlockedClosing(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnBlockedClosing", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBlockedClosing' is not possible.\n");
 }
 GCEntityIOOutput GCBasePropDoor::GetOnBlockedOpening() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBasePropDoor", "m_OnBlockedOpening"));
     return value;
 }
 void GCBasePropDoor::SetOnBlockedOpening(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnBlockedOpening", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBlockedOpening' is not possible.\n");
 }
 GCEntityIOOutput GCBasePropDoor::GetOnUnblockedClosing() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBasePropDoor", "m_OnUnblockedClosing"));
     return value;
 }
 void GCBasePropDoor::SetOnUnblockedClosing(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnUnblockedClosing", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnUnblockedClosing' is not possible.\n");
 }
 GCEntityIOOutput GCBasePropDoor::GetOnUnblockedOpening() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBasePropDoor", "m_OnUnblockedOpening"));
     return value;
 }
 void GCBasePropDoor::SetOnUnblockedOpening(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnUnblockedOpening", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnUnblockedOpening' is not possible.\n");
 }
 GCEntityIOOutput GCBasePropDoor::GetOnFullyClosed() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBasePropDoor", "m_OnFullyClosed"));
     return value;
 }
 void GCBasePropDoor::SetOnFullyClosed(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnFullyClosed", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnFullyClosed' is not possible.\n");
 }
 GCEntityIOOutput GCBasePropDoor::GetOnFullyOpen() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBasePropDoor", "m_OnFullyOpen"));
     return value;
 }
 void GCBasePropDoor::SetOnFullyOpen(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnFullyOpen", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnFullyOpen' is not possible.\n");
 }
 GCEntityIOOutput GCBasePropDoor::GetOnClose() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBasePropDoor", "m_OnClose"));
     return value;
 }
 void GCBasePropDoor::SetOnClose(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnClose", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnClose' is not possible.\n");
 }
 GCEntityIOOutput GCBasePropDoor::GetOnOpen() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBasePropDoor", "m_OnOpen"));
     return value;
 }
 void GCBasePropDoor::SetOnOpen(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnOpen", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnOpen' is not possible.\n");
 }
 GCEntityIOOutput GCBasePropDoor::GetOnLockedUse() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBasePropDoor", "m_OnLockedUse"));
     return value;
 }
 void GCBasePropDoor::SetOnLockedUse(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnLockedUse", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnLockedUse' is not possible.\n");
 }
 GCEntityIOOutput GCBasePropDoor::GetOnAjarOpen() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBasePropDoor", "m_OnAjarOpen"));
     return value;
 }
 void GCBasePropDoor::SetOnAjarOpen(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBasePropDoor", "m_OnAjarOpen", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnAjarOpen' is not possible.\n");
 }
 void* GCBasePropDoor::GetPtr() {
     return m_ptr;
@@ -10051,7 +10051,7 @@ GCountdownTimer GCTriggerFan::GetRampTimer() const {
     return value;
 }
 void GCTriggerFan::SetRampTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CTriggerFan", "m_RampTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RampTimer' is not possible.\n");
 }
 void* GCTriggerFan::GetPtr() {
     return m_ptr;
@@ -10489,7 +10489,7 @@ GCEntityIOOutput GCLogicAchievement::GetOnFired() const {
     return value;
 }
 void GCLogicAchievement::SetOnFired(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAchievement", "m_OnFired", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnFired' is not possible.\n");
 }
 void* GCLogicAchievement::GetPtr() {
     return m_ptr;
@@ -10570,7 +10570,7 @@ GCountdownTimer GCBtActionParachutePositioning::GetActionTimer() const {
     return value;
 }
 void GCBtActionParachutePositioning::SetActionTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CBtActionParachutePositioning", "m_ActionTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ActionTimer' is not possible.\n");
 }
 void* GCBtActionParachutePositioning::GetPtr() {
     return m_ptr;
@@ -10628,7 +10628,7 @@ Gfogplayerparams_t GCPlayer_CameraServices::GetPlayerFog() const {
     return value;
 }
 void GCPlayer_CameraServices::SetPlayerFog(Gfogplayerparams_t value) {
-    SetSchemaValue(m_ptr, "CPlayer_CameraServices", "m_PlayerFog", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PlayerFog' is not possible.\n");
 }
 GCColorCorrection GCPlayer_CameraServices::GetColorCorrectionCtrl() const {
     GCColorCorrection value(*GetSchemaValuePtr<void*>(m_ptr, "CPlayer_CameraServices", "m_hColorCorrectionCtrl"));
@@ -10656,7 +10656,7 @@ Gaudioparams_t GCPlayer_CameraServices::GetAudio() const {
     return value;
 }
 void GCPlayer_CameraServices::SetAudio(Gaudioparams_t value) {
-    SetSchemaValue(m_ptr, "CPlayer_CameraServices", "m_audio", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Audio' is not possible.\n");
 }
 std::vector<GCPostProcessingVolume*> GCPlayer_CameraServices::GetPostProcessingVolumes() const {
     CUtlVector<GCPostProcessingVolume*>* vec = GetSchemaValue<CUtlVector<GCPostProcessingVolume*>*>(m_ptr, "CPlayer_CameraServices", "m_PostProcessingVolumes"); std::vector<GCPostProcessingVolume*> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -10818,70 +10818,70 @@ GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput0() const {
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput0(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput0", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput0' is not possible.\n");
 }
 GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput1() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseClientUIEntity", "m_CustomOutput1"));
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput1(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput1", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput1' is not possible.\n");
 }
 GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput2() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseClientUIEntity", "m_CustomOutput2"));
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput2(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput2", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput2' is not possible.\n");
 }
 GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput3() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseClientUIEntity", "m_CustomOutput3"));
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput3(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput3", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput3' is not possible.\n");
 }
 GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput4() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseClientUIEntity", "m_CustomOutput4"));
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput4(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput4", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput4' is not possible.\n");
 }
 GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput5() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseClientUIEntity", "m_CustomOutput5"));
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput5(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput5", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput5' is not possible.\n");
 }
 GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput6() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseClientUIEntity", "m_CustomOutput6"));
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput6(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput6", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput6' is not possible.\n");
 }
 GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput7() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseClientUIEntity", "m_CustomOutput7"));
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput7(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput7", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput7' is not possible.\n");
 }
 GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput8() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseClientUIEntity", "m_CustomOutput8"));
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput8(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput8", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput8' is not possible.\n");
 }
 GCEntityIOOutput GCBaseClientUIEntity::GetCustomOutput9() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseClientUIEntity", "m_CustomOutput9"));
     return value;
 }
 void GCBaseClientUIEntity::SetCustomOutput9(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseClientUIEntity", "m_CustomOutput9", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CustomOutput9' is not possible.\n");
 }
 void* GCBaseClientUIEntity::GetPtr() {
     return m_ptr;
@@ -11074,7 +11074,7 @@ GCNetworkOriginCellCoordQuantizedVector GCGameSceneNode::GetOrigin() const {
     return value;
 }
 void GCGameSceneNode::SetOrigin(GCNetworkOriginCellCoordQuantizedVector value) {
-    SetSchemaValue(m_ptr, "CGameSceneNode", "m_vecOrigin", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Origin' is not possible.\n");
 }
 QAngle GCGameSceneNode::GetRotation() const {
     return GetSchemaValue<QAngle>(m_ptr, "CGameSceneNode", "m_angRotation");
@@ -11229,70 +11229,70 @@ GCEntityIOOutput GCLogicAuto::GetOnMapSpawn() const {
     return value;
 }
 void GCLogicAuto::SetOnMapSpawn(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnMapSpawn", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMapSpawn' is not possible.\n");
 }
 GCEntityIOOutput GCLogicAuto::GetOnDemoMapSpawn() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicAuto", "m_OnDemoMapSpawn"));
     return value;
 }
 void GCLogicAuto::SetOnDemoMapSpawn(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnDemoMapSpawn", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnDemoMapSpawn' is not possible.\n");
 }
 GCEntityIOOutput GCLogicAuto::GetOnNewGame() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicAuto", "m_OnNewGame"));
     return value;
 }
 void GCLogicAuto::SetOnNewGame(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnNewGame", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnNewGame' is not possible.\n");
 }
 GCEntityIOOutput GCLogicAuto::GetOnLoadGame() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicAuto", "m_OnLoadGame"));
     return value;
 }
 void GCLogicAuto::SetOnLoadGame(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnLoadGame", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnLoadGame' is not possible.\n");
 }
 GCEntityIOOutput GCLogicAuto::GetOnMapTransition() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicAuto", "m_OnMapTransition"));
     return value;
 }
 void GCLogicAuto::SetOnMapTransition(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnMapTransition", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMapTransition' is not possible.\n");
 }
 GCEntityIOOutput GCLogicAuto::GetOnBackgroundMap() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicAuto", "m_OnBackgroundMap"));
     return value;
 }
 void GCLogicAuto::SetOnBackgroundMap(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnBackgroundMap", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBackgroundMap' is not possible.\n");
 }
 GCEntityIOOutput GCLogicAuto::GetOnMultiNewMap() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicAuto", "m_OnMultiNewMap"));
     return value;
 }
 void GCLogicAuto::SetOnMultiNewMap(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnMultiNewMap", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMultiNewMap' is not possible.\n");
 }
 GCEntityIOOutput GCLogicAuto::GetOnMultiNewRound() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicAuto", "m_OnMultiNewRound"));
     return value;
 }
 void GCLogicAuto::SetOnMultiNewRound(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnMultiNewRound", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMultiNewRound' is not possible.\n");
 }
 GCEntityIOOutput GCLogicAuto::GetOnVREnabled() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicAuto", "m_OnVREnabled"));
     return value;
 }
 void GCLogicAuto::SetOnVREnabled(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnVREnabled", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnVREnabled' is not possible.\n");
 }
 GCEntityIOOutput GCLogicAuto::GetOnVRNotEnabled() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicAuto", "m_OnVRNotEnabled"));
     return value;
 }
 void GCLogicAuto::SetOnVRNotEnabled(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicAuto", "m_OnVRNotEnabled", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnVRNotEnabled' is not possible.\n");
 }
 std::string GCLogicAuto::GetGlobalstate() const {
     return GetSchemaValue<CUtlSymbolLarge>(m_ptr, "CLogicAuto", "m_globalstate").String();
@@ -11468,56 +11468,56 @@ GCEntityIOOutput GCLogicNPCCounter::GetOnMinCountAll() const {
     return value;
 }
 void GCLogicNPCCounter::SetOnMinCountAll(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicNPCCounter", "m_OnMinCountAll", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMinCountAll' is not possible.\n");
 }
 GCEntityIOOutput GCLogicNPCCounter::GetOnMaxCountAll() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicNPCCounter", "m_OnMaxCountAll"));
     return value;
 }
 void GCLogicNPCCounter::SetOnMaxCountAll(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicNPCCounter", "m_OnMaxCountAll", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMaxCountAll' is not possible.\n");
 }
 GCEntityIOOutput GCLogicNPCCounter::GetOnMinCount_1() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicNPCCounter", "m_OnMinCount_1"));
     return value;
 }
 void GCLogicNPCCounter::SetOnMinCount_1(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicNPCCounter", "m_OnMinCount_1", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMinCount_1' is not possible.\n");
 }
 GCEntityIOOutput GCLogicNPCCounter::GetOnMaxCount_1() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicNPCCounter", "m_OnMaxCount_1"));
     return value;
 }
 void GCLogicNPCCounter::SetOnMaxCount_1(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicNPCCounter", "m_OnMaxCount_1", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMaxCount_1' is not possible.\n");
 }
 GCEntityIOOutput GCLogicNPCCounter::GetOnMinCount_2() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicNPCCounter", "m_OnMinCount_2"));
     return value;
 }
 void GCLogicNPCCounter::SetOnMinCount_2(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicNPCCounter", "m_OnMinCount_2", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMinCount_2' is not possible.\n");
 }
 GCEntityIOOutput GCLogicNPCCounter::GetOnMaxCount_2() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicNPCCounter", "m_OnMaxCount_2"));
     return value;
 }
 void GCLogicNPCCounter::SetOnMaxCount_2(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicNPCCounter", "m_OnMaxCount_2", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMaxCount_2' is not possible.\n");
 }
 GCEntityIOOutput GCLogicNPCCounter::GetOnMinCount_3() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicNPCCounter", "m_OnMinCount_3"));
     return value;
 }
 void GCLogicNPCCounter::SetOnMinCount_3(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicNPCCounter", "m_OnMinCount_3", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMinCount_3' is not possible.\n");
 }
 GCEntityIOOutput GCLogicNPCCounter::GetOnMaxCount_3() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicNPCCounter", "m_OnMaxCount_3"));
     return value;
 }
 void GCLogicNPCCounter::SetOnMaxCount_3(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicNPCCounter", "m_OnMaxCount_3", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMaxCount_3' is not possible.\n");
 }
 GCEntityInstance GCLogicNPCCounter::GetSource() const {
     GCEntityInstance value(*GetSchemaValuePtr<void*>(m_ptr, "CLogicNPCCounter", "m_hSource"));
@@ -12257,7 +12257,7 @@ GCountdownTimer GCBtActionCombatPositioning::GetActionTimer() const {
     return value;
 }
 void GCBtActionCombatPositioning::SetActionTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CBtActionCombatPositioning", "m_ActionTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ActionTimer' is not possible.\n");
 }
 bool GCBtActionCombatPositioning::GetCrouching() const {
     return GetSchemaValue<bool>(m_ptr, "CBtActionCombatPositioning", "m_bCrouching");
@@ -12511,7 +12511,7 @@ GCEntityIOOutput GCTriggerActiveWeaponDetect::GetOnTouchedActiveWeapon() const {
     return value;
 }
 void GCTriggerActiveWeaponDetect::SetOnTouchedActiveWeapon(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CTriggerActiveWeaponDetect", "m_OnTouchedActiveWeapon", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTouchedActiveWeapon' is not possible.\n");
 }
 std::string GCTriggerActiveWeaponDetect::GetWeaponClassName() const {
     return GetSchemaValue<CUtlSymbolLarge>(m_ptr, "CTriggerActiveWeaponDetect", "m_iszWeaponClassName").String();
@@ -12639,14 +12639,14 @@ GCEntityIOOutput GCEnvMicrophone::GetOnRoutedSound() const {
     return value;
 }
 void GCEnvMicrophone::SetOnRoutedSound(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvMicrophone", "m_OnRoutedSound", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnRoutedSound' is not possible.\n");
 }
 GCEntityIOOutput GCEnvMicrophone::GetOnHeardSound() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CEnvMicrophone", "m_OnHeardSound"));
     return value;
 }
 void GCEnvMicrophone::SetOnHeardSound(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvMicrophone", "m_OnHeardSound", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnHeardSound' is not possible.\n");
 }
 std::string GCEnvMicrophone::GetLastSound() const {
     return GetSchemaValuePtr<char>(m_ptr, "CEnvMicrophone", "m_szLastSound");
@@ -12714,28 +12714,28 @@ GCEntityIOOutput GCInfoSpawnGroupLoadUnload::GetOnSpawnGroupLoadStarted() const 
     return value;
 }
 void GCInfoSpawnGroupLoadUnload::SetOnSpawnGroupLoadStarted(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CInfoSpawnGroupLoadUnload", "m_OnSpawnGroupLoadStarted", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnSpawnGroupLoadStarted' is not possible.\n");
 }
 GCEntityIOOutput GCInfoSpawnGroupLoadUnload::GetOnSpawnGroupLoadFinished() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CInfoSpawnGroupLoadUnload", "m_OnSpawnGroupLoadFinished"));
     return value;
 }
 void GCInfoSpawnGroupLoadUnload::SetOnSpawnGroupLoadFinished(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CInfoSpawnGroupLoadUnload", "m_OnSpawnGroupLoadFinished", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnSpawnGroupLoadFinished' is not possible.\n");
 }
 GCEntityIOOutput GCInfoSpawnGroupLoadUnload::GetOnSpawnGroupUnloadStarted() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CInfoSpawnGroupLoadUnload", "m_OnSpawnGroupUnloadStarted"));
     return value;
 }
 void GCInfoSpawnGroupLoadUnload::SetOnSpawnGroupUnloadStarted(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CInfoSpawnGroupLoadUnload", "m_OnSpawnGroupUnloadStarted", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnSpawnGroupUnloadStarted' is not possible.\n");
 }
 GCEntityIOOutput GCInfoSpawnGroupLoadUnload::GetOnSpawnGroupUnloadFinished() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CInfoSpawnGroupLoadUnload", "m_OnSpawnGroupUnloadFinished"));
     return value;
 }
 void GCInfoSpawnGroupLoadUnload::SetOnSpawnGroupUnloadFinished(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CInfoSpawnGroupLoadUnload", "m_OnSpawnGroupUnloadFinished", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnSpawnGroupUnloadFinished' is not possible.\n");
 }
 std::string GCInfoSpawnGroupLoadUnload::GetSpawnGroupName() const {
     return GetSchemaValue<CUtlSymbolLarge>(m_ptr, "CInfoSpawnGroupLoadUnload", "m_iszSpawnGroupName").String();
@@ -13262,21 +13262,21 @@ GCEntityIOOutput GCFuncTrackTrain::GetOnStart() const {
     return value;
 }
 void GCFuncTrackTrain::SetOnStart(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFuncTrackTrain", "m_OnStart", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnStart' is not possible.\n");
 }
 GCEntityIOOutput GCFuncTrackTrain::GetOnNext() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CFuncTrackTrain", "m_OnNext"));
     return value;
 }
 void GCFuncTrackTrain::SetOnNext(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFuncTrackTrain", "m_OnNext", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnNext' is not possible.\n");
 }
 GCEntityIOOutput GCFuncTrackTrain::GetOnArrivedAtDestinationNode() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CFuncTrackTrain", "m_OnArrivedAtDestinationNode"));
     return value;
 }
 void GCFuncTrackTrain::SetOnArrivedAtDestinationNode(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFuncTrackTrain", "m_OnArrivedAtDestinationNode", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnArrivedAtDestinationNode' is not possible.\n");
 }
 bool GCFuncTrackTrain::GetManualSpeedChanges() const {
     return GetSchemaValue<bool>(m_ptr, "CFuncTrackTrain", "m_bManualSpeedChanges");
@@ -13597,14 +13597,14 @@ GCEntityIOOutput GCFire::GetOnIgnited() const {
     return value;
 }
 void GCFire::SetOnIgnited(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFire", "m_OnIgnited", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnIgnited' is not possible.\n");
 }
 GCEntityIOOutput GCFire::GetOnExtinguished() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CFire", "m_OnExtinguished"));
     return value;
 }
 void GCFire::SetOnExtinguished(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFire", "m_OnExtinguished", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnExtinguished' is not possible.\n");
 }
 void* GCFire::GetPtr() {
     return m_ptr;
@@ -14066,21 +14066,21 @@ GCEntityIOOutput GCGenericConstraint::GetNotifyForceReachedX() const {
     return value;
 }
 void GCGenericConstraint::SetNotifyForceReachedX(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CGenericConstraint", "m_NotifyForceReachedX", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NotifyForceReachedX' is not possible.\n");
 }
 GCEntityIOOutput GCGenericConstraint::GetNotifyForceReachedY() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CGenericConstraint", "m_NotifyForceReachedY"));
     return value;
 }
 void GCGenericConstraint::SetNotifyForceReachedY(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CGenericConstraint", "m_NotifyForceReachedY", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NotifyForceReachedY' is not possible.\n");
 }
 GCEntityIOOutput GCGenericConstraint::GetNotifyForceReachedZ() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CGenericConstraint", "m_NotifyForceReachedZ"));
     return value;
 }
 void GCGenericConstraint::SetNotifyForceReachedZ(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CGenericConstraint", "m_NotifyForceReachedZ", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NotifyForceReachedZ' is not possible.\n");
 }
 void* GCGenericConstraint::GetPtr() {
     return m_ptr;
@@ -14231,7 +14231,7 @@ GEntitySpottedState_t GCItemDefuser::GetEntitySpottedState() const {
     return value;
 }
 void GCItemDefuser::SetEntitySpottedState(GEntitySpottedState_t value) {
-    SetSchemaValue(m_ptr, "CItemDefuser", "m_entitySpottedState", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EntitySpottedState' is not possible.\n");
 }
 int32_t GCItemDefuser::GetSpotRules() const {
     return GetSchemaValue<int32_t>(m_ptr, "CItemDefuser", "m_nSpotRules");
@@ -14362,7 +14362,7 @@ Gragdoll_t GCRagdollProp::GetRagdoll() const {
     return value;
 }
 void GCRagdollProp::SetRagdoll(Gragdoll_t value) {
-    SetSchemaValue(m_ptr, "CRagdollProp", "m_ragdoll", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Ragdoll' is not possible.\n");
 }
 bool GCRagdollProp::GetStartDisabled() const {
     return GetSchemaValue<bool>(m_ptr, "CRagdollProp", "m_bStartDisabled");
@@ -14965,28 +14965,28 @@ GCEntityIOOutput GCMathRemap::GetOnRoseAboveMin() const {
     return value;
 }
 void GCMathRemap::SetOnRoseAboveMin(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CMathRemap", "m_OnRoseAboveMin", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnRoseAboveMin' is not possible.\n");
 }
 GCEntityIOOutput GCMathRemap::GetOnRoseAboveMax() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CMathRemap", "m_OnRoseAboveMax"));
     return value;
 }
 void GCMathRemap::SetOnRoseAboveMax(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CMathRemap", "m_OnRoseAboveMax", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnRoseAboveMax' is not possible.\n");
 }
 GCEntityIOOutput GCMathRemap::GetOnFellBelowMin() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CMathRemap", "m_OnFellBelowMin"));
     return value;
 }
 void GCMathRemap::SetOnFellBelowMin(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CMathRemap", "m_OnFellBelowMin", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnFellBelowMin' is not possible.\n");
 }
 GCEntityIOOutput GCMathRemap::GetOnFellBelowMax() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CMathRemap", "m_OnFellBelowMax"));
     return value;
 }
 void GCMathRemap::SetOnFellBelowMax(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CMathRemap", "m_OnFellBelowMax", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnFellBelowMax' is not possible.\n");
 }
 void* GCMathRemap::GetPtr() {
     return m_ptr;
@@ -15413,7 +15413,7 @@ GCountdownTimer GCFishPool::GetVisTimer() const {
     return value;
 }
 void GCFishPool::SetVisTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CFishPool", "m_visTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VisTimer' is not possible.\n");
 }
 void* GCFishPool::GetPtr() {
     return m_ptr;
@@ -15869,35 +15869,35 @@ GCEntityIOOutput GCSceneEntity::GetOnStart() const {
     return value;
 }
 void GCSceneEntity::SetOnStart(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CSceneEntity", "m_OnStart", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnStart' is not possible.\n");
 }
 GCEntityIOOutput GCSceneEntity::GetOnCompletion() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CSceneEntity", "m_OnCompletion"));
     return value;
 }
 void GCSceneEntity::SetOnCompletion(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CSceneEntity", "m_OnCompletion", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnCompletion' is not possible.\n");
 }
 GCEntityIOOutput GCSceneEntity::GetOnCanceled() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CSceneEntity", "m_OnCanceled"));
     return value;
 }
 void GCSceneEntity::SetOnCanceled(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CSceneEntity", "m_OnCanceled", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnCanceled' is not possible.\n");
 }
 GCEntityIOOutput GCSceneEntity::GetOnPaused() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CSceneEntity", "m_OnPaused"));
     return value;
 }
 void GCSceneEntity::SetOnPaused(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CSceneEntity", "m_OnPaused", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPaused' is not possible.\n");
 }
 GCEntityIOOutput GCSceneEntity::GetOnResumed() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CSceneEntity", "m_OnResumed"));
     return value;
 }
 void GCSceneEntity::SetOnResumed(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CSceneEntity", "m_OnResumed", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnResumed' is not possible.\n");
 }
 std::vector<GCEntityIOOutput> GCSceneEntity::GetOnTrigger() const {
     GCEntityIOOutput* outValue = GetSchemaValue<GCEntityIOOutput*>(m_ptr, "CSceneEntity", "m_OnTrigger"); std::vector<GCEntityIOOutput> ret; for(int i = 0; i < 16; i++) { ret.push_back(outValue[i]); } return ret;
@@ -16359,7 +16359,7 @@ Gfogparams_t Gsky3dparams_t::GetFog() const {
     return value;
 }
 void Gsky3dparams_t::SetFog(Gfogparams_t value) {
-    SetSchemaValue(m_ptr, "sky3dparams_t", "fog", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Fog' is not possible.\n");
 }
 uint32_t Gsky3dparams_t::GetWorldGroupID() const {
     return GetSchemaValue<CUtlStringToken>(m_ptr, "sky3dparams_t", "m_nWorldGroupID").m_nHashCode;
@@ -17032,7 +17032,7 @@ GCModelState GCSkeletonInstance::GetModelState() const {
     return value;
 }
 void GCSkeletonInstance::SetModelState(GCModelState value) {
-    SetSchemaValue(m_ptr, "CSkeletonInstance", "m_modelState", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ModelState' is not possible.\n");
 }
 bool GCSkeletonInstance::GetIsAnimationEnabled() const {
     return GetSchemaValue<bool>(m_ptr, "CSkeletonInstance", "m_bIsAnimationEnabled");
@@ -17107,49 +17107,49 @@ GCEntityIOOutput GCPhysicsProp::GetMotionEnabled() const {
     return value;
 }
 void GCPhysicsProp::SetMotionEnabled(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysicsProp", "m_MotionEnabled", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MotionEnabled' is not possible.\n");
 }
 GCEntityIOOutput GCPhysicsProp::GetOnAwakened() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysicsProp", "m_OnAwakened"));
     return value;
 }
 void GCPhysicsProp::SetOnAwakened(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysicsProp", "m_OnAwakened", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnAwakened' is not possible.\n");
 }
 GCEntityIOOutput GCPhysicsProp::GetOnAwake() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysicsProp", "m_OnAwake"));
     return value;
 }
 void GCPhysicsProp::SetOnAwake(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysicsProp", "m_OnAwake", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnAwake' is not possible.\n");
 }
 GCEntityIOOutput GCPhysicsProp::GetOnAsleep() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysicsProp", "m_OnAsleep"));
     return value;
 }
 void GCPhysicsProp::SetOnAsleep(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysicsProp", "m_OnAsleep", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnAsleep' is not possible.\n");
 }
 GCEntityIOOutput GCPhysicsProp::GetOnPlayerUse() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysicsProp", "m_OnPlayerUse"));
     return value;
 }
 void GCPhysicsProp::SetOnPlayerUse(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysicsProp", "m_OnPlayerUse", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerUse' is not possible.\n");
 }
 GCEntityIOOutput GCPhysicsProp::GetOnOutOfWorld() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysicsProp", "m_OnOutOfWorld"));
     return value;
 }
 void GCPhysicsProp::SetOnOutOfWorld(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysicsProp", "m_OnOutOfWorld", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnOutOfWorld' is not possible.\n");
 }
 GCEntityIOOutput GCPhysicsProp::GetOnPlayerPickup() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysicsProp", "m_OnPlayerPickup"));
     return value;
 }
 void GCPhysicsProp::SetOnPlayerPickup(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysicsProp", "m_OnPlayerPickup", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerPickup' is not possible.\n");
 }
 bool GCPhysicsProp::GetForceNavIgnore() const {
     return GetSchemaValue<bool>(m_ptr, "CPhysicsProp", "m_bForceNavIgnore");
@@ -17448,14 +17448,14 @@ GCEntityIOOutput GCBaseGrenade::GetOnPlayerPickup() const {
     return value;
 }
 void GCBaseGrenade::SetOnPlayerPickup(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseGrenade", "m_OnPlayerPickup", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerPickup' is not possible.\n");
 }
 GCEntityIOOutput GCBaseGrenade::GetOnExplode() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBaseGrenade", "m_OnExplode"));
     return value;
 }
 void GCBaseGrenade::SetOnExplode(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBaseGrenade", "m_OnExplode", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnExplode' is not possible.\n");
 }
 bool GCBaseGrenade::GetHasWarnedAI() const {
     return GetSchemaValue<bool>(m_ptr, "CBaseGrenade", "m_bHasWarnedAI");
@@ -17923,14 +17923,14 @@ GCEntityIOOutput GCFuncLadder::GetOnPlayerGotOnLadder() const {
     return value;
 }
 void GCFuncLadder::SetOnPlayerGotOnLadder(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFuncLadder", "m_OnPlayerGotOnLadder", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerGotOnLadder' is not possible.\n");
 }
 GCEntityIOOutput GCFuncLadder::GetOnPlayerGotOffLadder() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CFuncLadder", "m_OnPlayerGotOffLadder"));
     return value;
 }
 void GCFuncLadder::SetOnPlayerGotOffLadder(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFuncLadder", "m_OnPlayerGotOffLadder", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerGotOffLadder' is not possible.\n");
 }
 void* GCFuncLadder::GetPtr() {
     return m_ptr;
@@ -18498,42 +18498,42 @@ GCEntityIOOutput GCScriptedSequence::GetOnBeginSequence() const {
     return value;
 }
 void GCScriptedSequence::SetOnBeginSequence(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CScriptedSequence", "m_OnBeginSequence", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBeginSequence' is not possible.\n");
 }
 GCEntityIOOutput GCScriptedSequence::GetOnActionStartOrLoop() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CScriptedSequence", "m_OnActionStartOrLoop"));
     return value;
 }
 void GCScriptedSequence::SetOnActionStartOrLoop(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CScriptedSequence", "m_OnActionStartOrLoop", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnActionStartOrLoop' is not possible.\n");
 }
 GCEntityIOOutput GCScriptedSequence::GetOnEndSequence() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CScriptedSequence", "m_OnEndSequence"));
     return value;
 }
 void GCScriptedSequence::SetOnEndSequence(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CScriptedSequence", "m_OnEndSequence", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnEndSequence' is not possible.\n");
 }
 GCEntityIOOutput GCScriptedSequence::GetOnPostIdleEndSequence() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CScriptedSequence", "m_OnPostIdleEndSequence"));
     return value;
 }
 void GCScriptedSequence::SetOnPostIdleEndSequence(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CScriptedSequence", "m_OnPostIdleEndSequence", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPostIdleEndSequence' is not possible.\n");
 }
 GCEntityIOOutput GCScriptedSequence::GetOnCancelSequence() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CScriptedSequence", "m_OnCancelSequence"));
     return value;
 }
 void GCScriptedSequence::SetOnCancelSequence(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CScriptedSequence", "m_OnCancelSequence", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnCancelSequence' is not possible.\n");
 }
 GCEntityIOOutput GCScriptedSequence::GetOnCancelFailedSequence() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CScriptedSequence", "m_OnCancelFailedSequence"));
     return value;
 }
 void GCScriptedSequence::SetOnCancelFailedSequence(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CScriptedSequence", "m_OnCancelFailedSequence", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnCancelFailedSequence' is not possible.\n");
 }
 std::vector<GCEntityIOOutput> GCScriptedSequence::GetOnScriptEvent() const {
     GCEntityIOOutput* outValue = GetSchemaValue<GCEntityIOOutput*>(m_ptr, "CScriptedSequence", "m_OnScriptEvent"); std::vector<GCEntityIOOutput> ret; for(int i = 0; i < 8; i++) { ret.push_back(outValue[i]); } return ret;
@@ -19549,14 +19549,14 @@ GCEntityIOOutput GCLogicRelay::GetOnTrigger() const {
     return value;
 }
 void GCLogicRelay::SetOnTrigger(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicRelay", "m_OnTrigger", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTrigger' is not possible.\n");
 }
 GCEntityIOOutput GCLogicRelay::GetOnSpawn() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicRelay", "m_OnSpawn"));
     return value;
 }
 void GCLogicRelay::SetOnSpawn(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicRelay", "m_OnSpawn", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnSpawn' is not possible.\n");
 }
 bool GCLogicRelay::GetDisabled() const {
     return GetSchemaValue<bool>(m_ptr, "CLogicRelay", "m_bDisabled");
@@ -19799,7 +19799,7 @@ GCBuoyancyHelper GCFuncWater::GetBuoyancyHelper() const {
     return value;
 }
 void GCFuncWater::SetBuoyancyHelper(GCBuoyancyHelper value) {
-    SetSchemaValue(m_ptr, "CFuncWater", "m_BuoyancyHelper", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BuoyancyHelper' is not possible.\n");
 }
 void* GCFuncWater::GetPtr() {
     return m_ptr;
@@ -19948,21 +19948,21 @@ GCountdownTimer GCBtActionMoveTo::GetCheckApproximateCornersTimer() const {
     return value;
 }
 void GCBtActionMoveTo::SetCheckApproximateCornersTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CBtActionMoveTo", "m_CheckApproximateCornersTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CheckApproximateCornersTimer' is not possible.\n");
 }
 GCountdownTimer GCBtActionMoveTo::GetCheckHighPriorityItem() const {
     GCountdownTimer value(GetSchemaPtr(m_ptr, "CBtActionMoveTo", "m_CheckHighPriorityItem"));
     return value;
 }
 void GCBtActionMoveTo::SetCheckHighPriorityItem(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CBtActionMoveTo", "m_CheckHighPriorityItem", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CheckHighPriorityItem' is not possible.\n");
 }
 GCountdownTimer GCBtActionMoveTo::GetRepathTimer() const {
     GCountdownTimer value(GetSchemaPtr(m_ptr, "CBtActionMoveTo", "m_RepathTimer"));
     return value;
 }
 void GCBtActionMoveTo::SetRepathTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CBtActionMoveTo", "m_RepathTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RepathTimer' is not possible.\n");
 }
 float GCBtActionMoveTo::GetArrivalEpsilon() const {
     return GetSchemaValue<float>(m_ptr, "CBtActionMoveTo", "m_flArrivalEpsilon");
@@ -20446,14 +20446,14 @@ GCEntityIOOutput GCEnvWindShared::GetOnGustStart() const {
     return value;
 }
 void GCEnvWindShared::SetOnGustStart(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvWindShared", "m_OnGustStart", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnGustStart' is not possible.\n");
 }
 GCEntityIOOutput GCEnvWindShared::GetOnGustEnd() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CEnvWindShared", "m_OnGustEnd"));
     return value;
 }
 void GCEnvWindShared::SetOnGustEnd(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvWindShared", "m_OnGustEnd", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnGustEnd' is not possible.\n");
 }
 float GCEnvWindShared::GetVariationTime() const {
     return GetSchemaValue<float>(m_ptr, "CEnvWindShared", "m_flVariationTime");
@@ -20901,35 +20901,35 @@ GCEntityIOOutput GCPointValueRemapper::GetOnReachedValueZero() const {
     return value;
 }
 void GCPointValueRemapper::SetOnReachedValueZero(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointValueRemapper", "m_OnReachedValueZero", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnReachedValueZero' is not possible.\n");
 }
 GCEntityIOOutput GCPointValueRemapper::GetOnReachedValueOne() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPointValueRemapper", "m_OnReachedValueOne"));
     return value;
 }
 void GCPointValueRemapper::SetOnReachedValueOne(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointValueRemapper", "m_OnReachedValueOne", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnReachedValueOne' is not possible.\n");
 }
 GCEntityIOOutput GCPointValueRemapper::GetOnReachedValueCustom() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPointValueRemapper", "m_OnReachedValueCustom"));
     return value;
 }
 void GCPointValueRemapper::SetOnReachedValueCustom(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointValueRemapper", "m_OnReachedValueCustom", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnReachedValueCustom' is not possible.\n");
 }
 GCEntityIOOutput GCPointValueRemapper::GetOnEngage() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPointValueRemapper", "m_OnEngage"));
     return value;
 }
 void GCPointValueRemapper::SetOnEngage(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointValueRemapper", "m_OnEngage", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnEngage' is not possible.\n");
 }
 GCEntityIOOutput GCPointValueRemapper::GetOnDisengage() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPointValueRemapper", "m_OnDisengage"));
     return value;
 }
 void GCPointValueRemapper::SetOnDisengage(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointValueRemapper", "m_OnDisengage", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnDisengage' is not possible.\n");
 }
 void* GCPointValueRemapper::GetPtr() {
     return m_ptr;
@@ -21134,14 +21134,14 @@ GCEntityIOOutput GCSoundOpvarSetPointEntity::GetOnEnter() const {
     return value;
 }
 void GCSoundOpvarSetPointEntity::SetOnEnter(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CSoundOpvarSetPointEntity", "m_OnEnter", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnEnter' is not possible.\n");
 }
 GCEntityIOOutput GCSoundOpvarSetPointEntity::GetOnExit() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CSoundOpvarSetPointEntity", "m_OnExit"));
     return value;
 }
 void GCSoundOpvarSetPointEntity::SetOnExit(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CSoundOpvarSetPointEntity", "m_OnExit", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnExit' is not possible.\n");
 }
 bool GCSoundOpvarSetPointEntity::GetAutoDisable() const {
     return GetSchemaValue<bool>(m_ptr, "CSoundOpvarSetPointEntity", "m_bAutoDisable");
@@ -21423,7 +21423,7 @@ Gsky3dparams_t GCBasePlayerPawn::GetSkybox3d() const {
     return value;
 }
 void GCBasePlayerPawn::SetSkybox3d(Gsky3dparams_t value) {
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_skybox3d", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Skybox3d' is not possible.\n");
 }
 float GCBasePlayerPawn::GetTimeLastHurt() const {
     return GetSchemaValue<float>(m_ptr, "CBasePlayerPawn", "m_fTimeLastHurt");
@@ -21549,14 +21549,14 @@ GCEntityIOOutput GCGameMoney::GetOnMoneySpent() const {
     return value;
 }
 void GCGameMoney::SetOnMoneySpent(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CGameMoney", "m_OnMoneySpent", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMoneySpent' is not possible.\n");
 }
 GCEntityIOOutput GCGameMoney::GetOnMoneySpentFail() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CGameMoney", "m_OnMoneySpentFail"));
     return value;
 }
 void GCGameMoney::SetOnMoneySpentFail(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CGameMoney", "m_OnMoneySpentFail", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMoneySpentFail' is not possible.\n");
 }
 int32_t GCGameMoney::GetMoney() const {
     return GetSchemaValue<int32_t>(m_ptr, "CGameMoney", "m_nMoney");
@@ -21618,21 +21618,21 @@ GCEntityIOOutput GCLogicPlayerProxy::GetPlayerHasAmmo() const {
     return value;
 }
 void GCLogicPlayerProxy::SetPlayerHasAmmo(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicPlayerProxy", "m_PlayerHasAmmo", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PlayerHasAmmo' is not possible.\n");
 }
 GCEntityIOOutput GCLogicPlayerProxy::GetPlayerHasNoAmmo() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicPlayerProxy", "m_PlayerHasNoAmmo"));
     return value;
 }
 void GCLogicPlayerProxy::SetPlayerHasNoAmmo(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicPlayerProxy", "m_PlayerHasNoAmmo", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PlayerHasNoAmmo' is not possible.\n");
 }
 GCEntityIOOutput GCLogicPlayerProxy::GetPlayerDied() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CLogicPlayerProxy", "m_PlayerDied"));
     return value;
 }
 void GCLogicPlayerProxy::SetPlayerDied(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CLogicPlayerProxy", "m_PlayerDied", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PlayerDied' is not possible.\n");
 }
 void* GCLogicPlayerProxy::GetPtr() {
     return m_ptr;
@@ -22495,35 +22495,35 @@ GCEntityIOOutput GCPointAngularVelocitySensor::GetOnLessThan() const {
     return value;
 }
 void GCPointAngularVelocitySensor::SetOnLessThan(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointAngularVelocitySensor", "m_OnLessThan", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnLessThan' is not possible.\n");
 }
 GCEntityIOOutput GCPointAngularVelocitySensor::GetOnLessThanOrEqualTo() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPointAngularVelocitySensor", "m_OnLessThanOrEqualTo"));
     return value;
 }
 void GCPointAngularVelocitySensor::SetOnLessThanOrEqualTo(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointAngularVelocitySensor", "m_OnLessThanOrEqualTo", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnLessThanOrEqualTo' is not possible.\n");
 }
 GCEntityIOOutput GCPointAngularVelocitySensor::GetOnGreaterThan() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPointAngularVelocitySensor", "m_OnGreaterThan"));
     return value;
 }
 void GCPointAngularVelocitySensor::SetOnGreaterThan(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointAngularVelocitySensor", "m_OnGreaterThan", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnGreaterThan' is not possible.\n");
 }
 GCEntityIOOutput GCPointAngularVelocitySensor::GetOnGreaterThanOrEqualTo() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPointAngularVelocitySensor", "m_OnGreaterThanOrEqualTo"));
     return value;
 }
 void GCPointAngularVelocitySensor::SetOnGreaterThanOrEqualTo(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointAngularVelocitySensor", "m_OnGreaterThanOrEqualTo", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnGreaterThanOrEqualTo' is not possible.\n");
 }
 GCEntityIOOutput GCPointAngularVelocitySensor::GetOnEqualTo() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPointAngularVelocitySensor", "m_OnEqualTo"));
     return value;
 }
 void GCPointAngularVelocitySensor::SetOnEqualTo(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointAngularVelocitySensor", "m_OnEqualTo", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnEqualTo' is not possible.\n");
 }
 void* GCPointAngularVelocitySensor::GetPtr() {
     return m_ptr;
@@ -23253,7 +23253,7 @@ GCSkeletonInstance GCBodyComponentSkeletonInstance::GetSkeletonInstance() const 
     return value;
 }
 void GCBodyComponentSkeletonInstance::SetSkeletonInstance(GCSkeletonInstance value) {
-    SetSchemaValue(m_ptr, "CBodyComponentSkeletonInstance", "m_skeletonInstance", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SkeletonInstance' is not possible.\n");
 }
 void* GCBodyComponentSkeletonInstance::GetPtr() {
     return m_ptr;
@@ -23523,7 +23523,7 @@ GCNetworkVarChainer GCGameRules::Get__pChainEntity() const {
     return value;
 }
 void GCGameRules::Set__pChainEntity(GCNetworkVarChainer value) {
-    SetSchemaValue(m_ptr, "CGameRules", "__m_pChainEntity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for '__pChainEntity' is not possible.\n");
 }
 std::string GCGameRules::GetQuestName() const {
     return GetSchemaValuePtr<char>(m_ptr, "CGameRules", "m_szQuestName");
@@ -23883,21 +23883,21 @@ GCEntityIOOutput GCBombTarget::GetOnBombExplode() const {
     return value;
 }
 void GCBombTarget::SetOnBombExplode(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBombTarget", "m_OnBombExplode", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBombExplode' is not possible.\n");
 }
 GCEntityIOOutput GCBombTarget::GetOnBombPlanted() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBombTarget", "m_OnBombPlanted"));
     return value;
 }
 void GCBombTarget::SetOnBombPlanted(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBombTarget", "m_OnBombPlanted", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBombPlanted' is not possible.\n");
 }
 GCEntityIOOutput GCBombTarget::GetOnBombDefused() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CBombTarget", "m_OnBombDefused"));
     return value;
 }
 void GCBombTarget::SetOnBombDefused(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CBombTarget", "m_OnBombDefused", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBombDefused' is not possible.\n");
 }
 bool GCBombTarget::GetIsBombSiteB() const {
     return GetSchemaValue<bool>(m_ptr, "CBombTarget", "m_bIsBombSiteB");
@@ -24567,7 +24567,7 @@ GCNetworkVarChainer GCRenderComponent::Get__pChainEntity() const {
     return value;
 }
 void GCRenderComponent::Set__pChainEntity(GCNetworkVarChainer value) {
-    SetSchemaValue(m_ptr, "CRenderComponent", "__m_pChainEntity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for '__pChainEntity' is not possible.\n");
 }
 bool GCRenderComponent::GetIsRenderingWithViewModels() const {
     return GetSchemaValue<bool>(m_ptr, "CRenderComponent", "m_bIsRenderingWithViewModels");
@@ -24741,7 +24741,7 @@ GCNetworkVarChainer GCLightComponent::Get__pChainEntity() const {
     return value;
 }
 void GCLightComponent::Set__pChainEntity(GCNetworkVarChainer value) {
-    SetSchemaValue(m_ptr, "CLightComponent", "__m_pChainEntity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for '__pChainEntity' is not possible.\n");
 }
 Color GCLightComponent::GetColor() const {
     return GetSchemaValue<Color>(m_ptr, "CLightComponent", "m_Color");
@@ -25423,7 +25423,7 @@ GCGameSceneNode GCBodyComponentPoint::GetSceneNode() const {
     return value;
 }
 void GCBodyComponentPoint::SetSceneNode(GCGameSceneNode value) {
-    SetSchemaValue(m_ptr, "CBodyComponentPoint", "m_sceneNode", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SceneNode' is not possible.\n");
 }
 void* GCBodyComponentPoint::GetPtr() {
     return m_ptr;
@@ -25894,14 +25894,14 @@ GCEntityIOOutput GCTriggerHurt::GetOnHurt() const {
     return value;
 }
 void GCTriggerHurt::SetOnHurt(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CTriggerHurt", "m_OnHurt", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnHurt' is not possible.\n");
 }
 GCEntityIOOutput GCTriggerHurt::GetOnHurtPlayer() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CTriggerHurt", "m_OnHurtPlayer"));
     return value;
 }
 void GCTriggerHurt::SetOnHurtPlayer(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CTriggerHurt", "m_OnHurtPlayer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnHurtPlayer' is not possible.\n");
 }
 void* GCTriggerHurt::GetPtr() {
     return m_ptr;
@@ -27500,7 +27500,7 @@ GCSMatchStats_t GCCSPlayerController_ActionTrackingServices::GetMatchStats() con
     return value;
 }
 void GCCSPlayerController_ActionTrackingServices::SetMatchStats(GCSMatchStats_t value) {
-    SetSchemaValue(m_ptr, "CCSPlayerController_ActionTrackingServices", "m_matchStats", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MatchStats' is not possible.\n");
 }
 int32_t GCCSPlayerController_ActionTrackingServices::GetNumRoundKills() const {
     return GetSchemaValue<int32_t>(m_ptr, "CCSPlayerController_ActionTrackingServices", "m_iNumRoundKills");
@@ -27723,7 +27723,7 @@ GCountdownTimer GCFish::GetTurnTimer() const {
     return value;
 }
 void GCFish::SetTurnTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CFish", "m_turnTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TurnTimer' is not possible.\n");
 }
 bool GCFish::GetTurnClockwise() const {
     return GetSchemaValue<bool>(m_ptr, "CFish", "m_turnClockwise");
@@ -27736,35 +27736,35 @@ GCountdownTimer GCFish::GetGoTimer() const {
     return value;
 }
 void GCFish::SetGoTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CFish", "m_goTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'GoTimer' is not possible.\n");
 }
 GCountdownTimer GCFish::GetMoveTimer() const {
     GCountdownTimer value(GetSchemaPtr(m_ptr, "CFish", "m_moveTimer"));
     return value;
 }
 void GCFish::SetMoveTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CFish", "m_moveTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MoveTimer' is not possible.\n");
 }
 GCountdownTimer GCFish::GetPanicTimer() const {
     GCountdownTimer value(GetSchemaPtr(m_ptr, "CFish", "m_panicTimer"));
     return value;
 }
 void GCFish::SetPanicTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CFish", "m_panicTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PanicTimer' is not possible.\n");
 }
 GCountdownTimer GCFish::GetDisperseTimer() const {
     GCountdownTimer value(GetSchemaPtr(m_ptr, "CFish", "m_disperseTimer"));
     return value;
 }
 void GCFish::SetDisperseTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CFish", "m_disperseTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DisperseTimer' is not possible.\n");
 }
 GCountdownTimer GCFish::GetProximityTimer() const {
     GCountdownTimer value(GetSchemaPtr(m_ptr, "CFish", "m_proximityTimer"));
     return value;
 }
 void GCFish::SetProximityTimer(GCountdownTimer value) {
-    SetSchemaValue(m_ptr, "CFish", "m_proximityTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ProximityTimer' is not possible.\n");
 }
 std::vector<GCFish*> GCFish::GetVisible() const {
     CUtlVector<GCFish*>* vec = GetSchemaValue<CUtlVector<GCFish*>*>(m_ptr, "CFish", "m_visible"); std::vector<GCFish*> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -27971,7 +27971,7 @@ GSimpleConstraintSoundProfile GSimpleConstraintSoundProfile::GetKeypoints() cons
     return value;
 }
 void GSimpleConstraintSoundProfile::SetKeypoints(GSimpleConstraintSoundProfile value) {
-    SetSchemaValue(m_ptr, "SimpleConstraintSoundProfile", "eKeypoints", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Keypoints' is not possible.\n");
 }
 std::vector<float> GSimpleConstraintSoundProfile::GetKeyPoints() const {
     float* outValue = GetSchemaValue<float*>(m_ptr, "SimpleConstraintSoundProfile", "m_keyPoints"); std::vector<float> ret; for(int i = 0; i < 2; i++) { ret.push_back(outValue[i]); } return ret;
@@ -28152,21 +28152,21 @@ GCEntityIOOutput GCFuncRotating::GetOnStopped() const {
     return value;
 }
 void GCFuncRotating::SetOnStopped(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFuncRotating", "m_OnStopped", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnStopped' is not possible.\n");
 }
 GCEntityIOOutput GCFuncRotating::GetOnStarted() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CFuncRotating", "m_OnStarted"));
     return value;
 }
 void GCFuncRotating::SetOnStarted(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFuncRotating", "m_OnStarted", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnStarted' is not possible.\n");
 }
 GCEntityIOOutput GCFuncRotating::GetOnReachedStart() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CFuncRotating", "m_OnReachedStart"));
     return value;
 }
 void GCFuncRotating::SetOnReachedStart(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CFuncRotating", "m_OnReachedStart", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnReachedStart' is not possible.\n");
 }
 Vector GCFuncRotating::GetLocalRotationVector() const {
     return GetSchemaValue<Vector>(m_ptr, "CFuncRotating", "m_localRotationVector");
@@ -28596,14 +28596,14 @@ GCEntityIOOutput GCPointAngleSensor::GetOnFacingLookat() const {
     return value;
 }
 void GCPointAngleSensor::SetOnFacingLookat(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointAngleSensor", "m_OnFacingLookat", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnFacingLookat' is not possible.\n");
 }
 GCEntityIOOutput GCPointAngleSensor::GetOnNotFacingLookat() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPointAngleSensor", "m_OnNotFacingLookat"));
     return value;
 }
 void GCPointAngleSensor::SetOnNotFacingLookat(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPointAngleSensor", "m_OnNotFacingLookat", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnNotFacingLookat' is not possible.\n");
 }
 void* GCPointAngleSensor::GetPtr() {
     return m_ptr;
@@ -29001,7 +29001,7 @@ GCEntityIOOutput GCEnvBeam::GetOnTouchedByEntity() const {
     return value;
 }
 void GCEnvBeam::SetOnTouchedByEntity(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CEnvBeam", "m_OnTouchedByEntity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTouchedByEntity' is not possible.\n");
 }
 void* GCEnvBeam::GetPtr() {
     return m_ptr;
@@ -29090,14 +29090,14 @@ GCEntityIOOutput GCPhysMagnet::GetOnMagnetAttach() const {
     return value;
 }
 void GCPhysMagnet::SetOnMagnetAttach(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysMagnet", "m_OnMagnetAttach", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMagnetAttach' is not possible.\n");
 }
 GCEntityIOOutput GCPhysMagnet::GetOnMagnetDetach() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysMagnet", "m_OnMagnetDetach"));
     return value;
 }
 void GCPhysMagnet::SetOnMagnetDetach(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysMagnet", "m_OnMagnetDetach", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMagnetDetach' is not possible.\n");
 }
 float GCPhysMagnet::GetMassScale() const {
     return GetSchemaValue<float>(m_ptr, "CPhysMagnet", "m_massScale");
@@ -29718,35 +29718,35 @@ GCEntityIOOutput GCPhysBox::GetOnDamaged() const {
     return value;
 }
 void GCPhysBox::SetOnDamaged(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysBox", "m_OnDamaged", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnDamaged' is not possible.\n");
 }
 GCEntityIOOutput GCPhysBox::GetOnAwakened() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysBox", "m_OnAwakened"));
     return value;
 }
 void GCPhysBox::SetOnAwakened(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysBox", "m_OnAwakened", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnAwakened' is not possible.\n");
 }
 GCEntityIOOutput GCPhysBox::GetOnMotionEnabled() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysBox", "m_OnMotionEnabled"));
     return value;
 }
 void GCPhysBox::SetOnMotionEnabled(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysBox", "m_OnMotionEnabled", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnMotionEnabled' is not possible.\n");
 }
 GCEntityIOOutput GCPhysBox::GetOnPlayerUse() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysBox", "m_OnPlayerUse"));
     return value;
 }
 void GCPhysBox::SetOnPlayerUse(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysBox", "m_OnPlayerUse", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPlayerUse' is not possible.\n");
 }
 GCEntityIOOutput GCPhysBox::GetOnStartTouch() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CPhysBox", "m_OnStartTouch"));
     return value;
 }
 void GCPhysBox::SetOnStartTouch(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysBox", "m_OnStartTouch", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnStartTouch' is not possible.\n");
 }
 GCBasePlayerPawn GCPhysBox::GetCarryingPlayer() const {
     GCBasePlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CPhysBox", "m_hCarryingPlayer"));
@@ -29861,21 +29861,21 @@ GCEntityIOOutput GCTimerEntity::GetOnTimer() const {
     return value;
 }
 void GCTimerEntity::SetOnTimer(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CTimerEntity", "m_OnTimer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTimer' is not possible.\n");
 }
 GCEntityIOOutput GCTimerEntity::GetOnTimerHigh() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CTimerEntity", "m_OnTimerHigh"));
     return value;
 }
 void GCTimerEntity::SetOnTimerHigh(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CTimerEntity", "m_OnTimerHigh", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTimerHigh' is not possible.\n");
 }
 GCEntityIOOutput GCTimerEntity::GetOnTimerLow() const {
     GCEntityIOOutput value(GetSchemaPtr(m_ptr, "CTimerEntity", "m_OnTimerLow"));
     return value;
 }
 void GCTimerEntity::SetOnTimerLow(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CTimerEntity", "m_OnTimerLow", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnTimerLow' is not possible.\n");
 }
 int32_t GCTimerEntity::GetDisabled() const {
     return GetSchemaValue<int32_t>(m_ptr, "CTimerEntity", "m_iDisabled");
@@ -30051,7 +30051,7 @@ GCEnvWindShared GCEnvWind::GetEnvWindShared() const {
     return value;
 }
 void GCEnvWind::SetEnvWindShared(GCEnvWindShared value) {
-    SetSchemaValue(m_ptr, "CEnvWind", "m_EnvWindShared", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EnvWindShared' is not possible.\n");
 }
 void* GCEnvWind::GetPtr() {
     return m_ptr;
@@ -30430,7 +30430,7 @@ GCEntityIOOutput GCPhysExplosion::GetOnPushedPlayer() const {
     return value;
 }
 void GCPhysExplosion::SetOnPushedPlayer(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CPhysExplosion", "m_OnPushedPlayer", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnPushedPlayer' is not possible.\n");
 }
 void* GCPhysExplosion::GetPtr() {
     return m_ptr;
@@ -30560,7 +30560,7 @@ GCEntityIOOutput GCCredits::GetOnCreditsDone() const {
     return value;
 }
 void GCCredits::SetOnCreditsDone(GCEntityIOOutput value) {
-    SetSchemaValue(m_ptr, "CCredits", "m_OnCreditsDone", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnCreditsDone' is not possible.\n");
 }
 bool GCCredits::GetRolledOutroCredits() const {
     return GetSchemaValue<bool>(m_ptr, "CCredits", "m_bRolledOutroCredits");

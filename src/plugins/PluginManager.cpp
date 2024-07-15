@@ -1,6 +1,7 @@
 #include "PluginManager.h"
 
 #include "core/scripting.h"
+#include "../menus/MenuManager.h"
 
 #include <vector>
 #include <msgpack.hpp>
@@ -122,11 +123,11 @@ bool PluginManager::StartPlugin(std::string plugin_name)
     if (plugin->GetPluginState() == PluginState_t::Started)
         return true;
 
-    plugin->SetPluginState(PluginState_t::Started);
     if (!plugin->LoadScriptingEnvironment())
         return false;
     if (!plugin->ExecuteStart())
         return false;
+    plugin->SetPluginState(PluginState_t::Started);
 
     if (AllPluginsStarted)
     {
@@ -156,6 +157,7 @@ void PluginManager::StopPlugin(std::string plugin_name)
 
     plugin->ExecuteStop();
     plugin->DestroyScriptingEnvironment();
+    g_MenuManager->UnregisterPluginMenus(plugin_name);
 }
 
 Plugin *PluginManager::FetchPlugin(std::string name)

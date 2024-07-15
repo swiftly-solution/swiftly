@@ -265,7 +265,7 @@ GEngineLoopState_t GEventSimulate_t::GetLoopState() const {
     return value;
 }
 void GEventSimulate_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventSimulate_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 bool GEventSimulate_t::GetFirstTick() const {
     return GetSchemaValue<bool>(m_ptr, "EventSimulate_t", "m_bFirstTick");
@@ -702,7 +702,7 @@ GCAnimNodePath GCAnimUpdateNodeBase::GetNodePath() const {
     return value;
 }
 void GCAnimUpdateNodeBase::SetNodePath(GCAnimNodePath value) {
-    SetSchemaValue(m_ptr, "CAnimUpdateNodeBase", "m_nodePath", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NodePath' is not possible.\n");
 }
 uint64_t GCAnimUpdateNodeBase::GetNetworkMode() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CAnimUpdateNodeBase", "m_networkMode");
@@ -748,7 +748,7 @@ GCParticleVisibilityInputs GCParticleFunctionRenderer::GetVisibilityInputs() con
     return value;
 }
 void GCParticleFunctionRenderer::SetVisibilityInputs(GCParticleVisibilityInputs value) {
-    SetSchemaValue(m_ptr, "CParticleFunctionRenderer", "VisibilityInputs", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VisibilityInputs' is not possible.\n");
 }
 bool GCParticleFunctionRenderer::GetCannotBeRefracted() const {
     return GetSchemaValue<bool>(m_ptr, "CParticleFunctionRenderer", "m_bCannotBeRefracted");
@@ -826,7 +826,7 @@ GParticleAttributeIndex_t GCParticleVecInput::GetVectorAttribute() const {
     return value;
 }
 void GCParticleVecInput::SetVectorAttribute(GParticleAttributeIndex_t value) {
-    SetSchemaValue(m_ptr, "CParticleVecInput", "m_nVectorAttribute", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VectorAttribute' is not possible.\n");
 }
 Vector GCParticleVecInput::GetVectorAttributeScale() const {
     return GetSchemaValue<Vector>(m_ptr, "CParticleVecInput", "m_vVectorAttributeScale");
@@ -869,28 +869,28 @@ GCParticleFloatInput GCParticleVecInput::GetFloatComponentX() const {
     return value;
 }
 void GCParticleVecInput::SetFloatComponentX(GCParticleFloatInput value) {
-    SetSchemaValue(m_ptr, "CParticleVecInput", "m_FloatComponentX", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FloatComponentX' is not possible.\n");
 }
 GCParticleFloatInput GCParticleVecInput::GetFloatComponentY() const {
     GCParticleFloatInput value(GetSchemaPtr(m_ptr, "CParticleVecInput", "m_FloatComponentY"));
     return value;
 }
 void GCParticleVecInput::SetFloatComponentY(GCParticleFloatInput value) {
-    SetSchemaValue(m_ptr, "CParticleVecInput", "m_FloatComponentY", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FloatComponentY' is not possible.\n");
 }
 GCParticleFloatInput GCParticleVecInput::GetFloatComponentZ() const {
     GCParticleFloatInput value(GetSchemaPtr(m_ptr, "CParticleVecInput", "m_FloatComponentZ"));
     return value;
 }
 void GCParticleVecInput::SetFloatComponentZ(GCParticleFloatInput value) {
-    SetSchemaValue(m_ptr, "CParticleVecInput", "m_FloatComponentZ", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FloatComponentZ' is not possible.\n");
 }
 GCParticleFloatInput GCParticleVecInput::GetFloatInterp() const {
     GCParticleFloatInput value(GetSchemaPtr(m_ptr, "CParticleVecInput", "m_FloatInterp"));
     return value;
 }
 void GCParticleVecInput::SetFloatInterp(GCParticleFloatInput value) {
-    SetSchemaValue(m_ptr, "CParticleVecInput", "m_FloatInterp", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FloatInterp' is not possible.\n");
 }
 float GCParticleVecInput::GetInterpInput0() const {
     return GetSchemaValue<float>(m_ptr, "CParticleVecInput", "m_flInterpInput0");
@@ -1586,7 +1586,7 @@ GCAnimUpdateNodeRef GCUnaryUpdateNode::GetChildNode() const {
     return value;
 }
 void GCUnaryUpdateNode::SetChildNode(GCAnimUpdateNodeRef value) {
-    SetSchemaValue(m_ptr, "CUnaryUpdateNode", "m_pChildNode", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ChildNode' is not possible.\n");
 }
 void* GCUnaryUpdateNode::GetPtr() {
     return m_ptr;
@@ -1820,14 +1820,14 @@ GCAnimUpdateNodeRef GCBinaryUpdateNode::GetChild1() const {
     return value;
 }
 void GCBinaryUpdateNode::SetChild1(GCAnimUpdateNodeRef value) {
-    SetSchemaValue(m_ptr, "CBinaryUpdateNode", "m_pChild1", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Child1' is not possible.\n");
 }
 GCAnimUpdateNodeRef GCBinaryUpdateNode::GetChild2() const {
     GCAnimUpdateNodeRef value(GetSchemaPtr(m_ptr, "CBinaryUpdateNode", "m_pChild2"));
     return value;
 }
 void GCBinaryUpdateNode::SetChild2(GCAnimUpdateNodeRef value) {
-    SetSchemaValue(m_ptr, "CBinaryUpdateNode", "m_pChild2", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Child2' is not possible.\n");
 }
 uint64_t GCBinaryUpdateNode::GetTimingBehavior() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBinaryUpdateNode", "m_timingBehavior");
@@ -2430,49 +2430,49 @@ GCParticleCollectionRendererFloatInput GTextureControls_t::GetFinalTextureScaleU
     return value;
 }
 void GTextureControls_t::SetFinalTextureScaleU(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "TextureControls_t", "m_flFinalTextureScaleU", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FinalTextureScaleU' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GTextureControls_t::GetFinalTextureScaleV() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "TextureControls_t", "m_flFinalTextureScaleV"));
     return value;
 }
 void GTextureControls_t::SetFinalTextureScaleV(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "TextureControls_t", "m_flFinalTextureScaleV", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FinalTextureScaleV' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GTextureControls_t::GetFinalTextureOffsetU() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "TextureControls_t", "m_flFinalTextureOffsetU"));
     return value;
 }
 void GTextureControls_t::SetFinalTextureOffsetU(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "TextureControls_t", "m_flFinalTextureOffsetU", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FinalTextureOffsetU' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GTextureControls_t::GetFinalTextureOffsetV() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "TextureControls_t", "m_flFinalTextureOffsetV"));
     return value;
 }
 void GTextureControls_t::SetFinalTextureOffsetV(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "TextureControls_t", "m_flFinalTextureOffsetV", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FinalTextureOffsetV' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GTextureControls_t::GetFinalTextureUVRotation() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "TextureControls_t", "m_flFinalTextureUVRotation"));
     return value;
 }
 void GTextureControls_t::SetFinalTextureUVRotation(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "TextureControls_t", "m_flFinalTextureUVRotation", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FinalTextureUVRotation' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GTextureControls_t::GetZoomScale() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "TextureControls_t", "m_flZoomScale"));
     return value;
 }
 void GTextureControls_t::SetZoomScale(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "TextureControls_t", "m_flZoomScale", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ZoomScale' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GTextureControls_t::GetDistortion() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "TextureControls_t", "m_flDistortion"));
     return value;
 }
 void GTextureControls_t::SetDistortion(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "TextureControls_t", "m_flDistortion", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Distortion' is not possible.\n");
 }
 bool GTextureControls_t::GetRandomizeOffsets() const {
     return GetSchemaValue<bool>(m_ptr, "TextureControls_t", "m_bRandomizeOffsets");
@@ -2864,7 +2864,7 @@ GCAnimParamHandle GCBoneMaskUpdateNode::GetBlendParameter() const {
     return value;
 }
 void GCBoneMaskUpdateNode::SetBlendParameter(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CBoneMaskUpdateNode", "m_hBlendParameter", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BlendParameter' is not possible.\n");
 }
 void* GCBoneMaskUpdateNode::GetPtr() {
     return m_ptr;
@@ -3661,21 +3661,21 @@ GCPerParticleFloatInput GCParticleMassCalculationParameters::GetRadius() const {
     return value;
 }
 void GCParticleMassCalculationParameters::SetRadius(GCPerParticleFloatInput value) {
-    SetSchemaValue(m_ptr, "CParticleMassCalculationParameters", "m_flRadius", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Radius' is not possible.\n");
 }
 GCPerParticleFloatInput GCParticleMassCalculationParameters::GetNominalRadius() const {
     GCPerParticleFloatInput value(GetSchemaPtr(m_ptr, "CParticleMassCalculationParameters", "m_flNominalRadius"));
     return value;
 }
 void GCParticleMassCalculationParameters::SetNominalRadius(GCPerParticleFloatInput value) {
-    SetSchemaValue(m_ptr, "CParticleMassCalculationParameters", "m_flNominalRadius", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NominalRadius' is not possible.\n");
 }
 GCPerParticleFloatInput GCParticleMassCalculationParameters::GetScale() const {
     GCPerParticleFloatInput value(GetSchemaPtr(m_ptr, "CParticleMassCalculationParameters", "m_flScale"));
     return value;
 }
 void GCParticleMassCalculationParameters::SetScale(GCPerParticleFloatInput value) {
-    SetSchemaValue(m_ptr, "CParticleMassCalculationParameters", "m_flScale", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Scale' is not possible.\n");
 }
 void* GCParticleMassCalculationParameters::GetPtr() {
     return m_ptr;
@@ -3883,7 +3883,7 @@ GFootPinningPoseOpFixedData_t GCFootPinningUpdateNode::GetPoseOpFixedData() cons
     return value;
 }
 void GCFootPinningUpdateNode::SetPoseOpFixedData(GFootPinningPoseOpFixedData_t value) {
-    SetSchemaValue(m_ptr, "CFootPinningUpdateNode", "m_poseOpFixedData", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PoseOpFixedData' is not possible.\n");
 }
 uint64_t GCFootPinningUpdateNode::GetTimingSource() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CFootPinningUpdateNode", "m_eTimingSource");
@@ -4269,7 +4269,7 @@ GCParamSpanUpdater GCSequenceUpdateNode::GetParamSpans() const {
     return value;
 }
 void GCSequenceUpdateNode::SetParamSpans(GCParamSpanUpdater value) {
-    SetSchemaValue(m_ptr, "CSequenceUpdateNode", "m_paramSpans", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamSpans' is not possible.\n");
 }
 std::vector<GTagSpan_t> GCSequenceUpdateNode::GetTags() const {
     CUtlVector<GTagSpan_t>* vec = GetSchemaValue<CUtlVector<GTagSpan_t>*>(m_ptr, "CSequenceUpdateNode", "m_tags"); std::vector<GTagSpan_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -4388,7 +4388,7 @@ GAnimParamID GCAnimParameterBase::GetId() const {
     return value;
 }
 void GCAnimParameterBase::SetId(GAnimParamID value) {
-    SetSchemaValue(m_ptr, "CAnimParameterBase", "m_id", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Id' is not possible.\n");
 }
 std::string GCAnimParameterBase::GetComponentName() const {
     return GetSchemaValue<CUtlString>(m_ptr, "CAnimParameterBase", "m_componentName").Get();
@@ -4849,7 +4849,7 @@ GCAnimInputDamping GFootLockPoseOpFixedSettings::GetHipDampingSettings() const {
     return value;
 }
 void GFootLockPoseOpFixedSettings::SetHipDampingSettings(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "FootLockPoseOpFixedSettings", "m_hipDampingSettings", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HipDampingSettings' is not possible.\n");
 }
 int32_t GFootLockPoseOpFixedSettings::GetHipBoneIndex() const {
     return GetSchemaValue<int32_t>(m_ptr, "FootLockPoseOpFixedSettings", "m_nHipBoneIndex");
@@ -5252,7 +5252,7 @@ GAnimNodeID GCMotionNode::GetId() const {
     return value;
 }
 void GCMotionNode::SetId(GAnimNodeID value) {
-    SetSchemaValue(m_ptr, "CMotionNode", "m_id", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Id' is not possible.\n");
 }
 void* GCMotionNode::GetPtr() {
     return m_ptr;
@@ -5291,7 +5291,7 @@ GAnimTagID GCAnimTagBase::GetTagID() const {
     return value;
 }
 void GCAnimTagBase::SetTagID(GAnimTagID value) {
-    SetSchemaValue(m_ptr, "CAnimTagBase", "m_tagID", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TagID' is not possible.\n");
 }
 bool GCAnimTagBase::GetIsReferenced() const {
     return GetSchemaValue<bool>(m_ptr, "CAnimTagBase", "m_bIsReferenced");
@@ -5716,7 +5716,7 @@ GCNmBoneMask GCNmBoneMask::GetWeightInfo() const {
     return value;
 }
 void GCNmBoneMask::SetWeightInfo(GCNmBoneMask value) {
-    SetSchemaValue(m_ptr, "CNmBoneMask", "m_weightInfo", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'WeightInfo' is not possible.\n");
 }
 std::vector<float32> GCNmBoneMask::GetWeights() const {
     CUtlVector<float32>* vec = GetSchemaValue<CUtlVector<float32>*>(m_ptr, "CNmBoneMask", "m_weights"); std::vector<float32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -5832,7 +5832,7 @@ GCAnimParamHandle GCJumpHelperUpdateNode::GetTargetParam() const {
     return value;
 }
 void GCJumpHelperUpdateNode::SetTargetParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CJumpHelperUpdateNode", "m_hTargetParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TargetParam' is not possible.\n");
 }
 Vector GCJumpHelperUpdateNode::GetOriginalJumpMovement() const {
     return GetSchemaValue<Vector>(m_ptr, "CJumpHelperUpdateNode", "m_flOriginalJumpMovement");
@@ -6025,7 +6025,7 @@ GAnimComponentID GCAnimComponentUpdater::GetId() const {
     return value;
 }
 void GCAnimComponentUpdater::SetId(GAnimComponentID value) {
-    SetSchemaValue(m_ptr, "CAnimComponentUpdater", "m_id", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Id' is not possible.\n");
 }
 uint64_t GCAnimComponentUpdater::GetNetworkMode() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CAnimComponentUpdater", "m_networkMode");
@@ -6084,21 +6084,21 @@ GCParticleCollectionFloatInput GCReplicationParameters::GetMinRandomRadiusScale(
     return value;
 }
 void GCReplicationParameters::SetMinRandomRadiusScale(GCParticleCollectionFloatInput value) {
-    SetSchemaValue(m_ptr, "CReplicationParameters", "m_flMinRandomRadiusScale", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MinRandomRadiusScale' is not possible.\n");
 }
 GCParticleCollectionFloatInput GCReplicationParameters::GetMaxRandomRadiusScale() const {
     GCParticleCollectionFloatInput value(GetSchemaPtr(m_ptr, "CReplicationParameters", "m_flMaxRandomRadiusScale"));
     return value;
 }
 void GCReplicationParameters::SetMaxRandomRadiusScale(GCParticleCollectionFloatInput value) {
-    SetSchemaValue(m_ptr, "CReplicationParameters", "m_flMaxRandomRadiusScale", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MaxRandomRadiusScale' is not possible.\n");
 }
 GCParticleCollectionFloatInput GCReplicationParameters::GetModellingScale() const {
     GCParticleCollectionFloatInput value(GetSchemaPtr(m_ptr, "CReplicationParameters", "m_flModellingScale"));
     return value;
 }
 void GCReplicationParameters::SetModellingScale(GCParticleCollectionFloatInput value) {
-    SetSchemaValue(m_ptr, "CReplicationParameters", "m_flModellingScale", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ModellingScale' is not possible.\n");
 }
 void* GCReplicationParameters::GetPtr() {
     return m_ptr;
@@ -6259,7 +6259,7 @@ GCAnimInputDamping GCFollowPathUpdateNode::GetTurnDamping() const {
     return value;
 }
 void GCFollowPathUpdateNode::SetTurnDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CFollowPathUpdateNode", "m_turnDamping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TurnDamping' is not possible.\n");
 }
 uint64_t GCFollowPathUpdateNode::GetFacingTarget() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CFollowPathUpdateNode", "m_facingTarget");
@@ -6272,7 +6272,7 @@ GCAnimParamHandle GCFollowPathUpdateNode::GetParam() const {
     return value;
 }
 void GCFollowPathUpdateNode::SetParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CFollowPathUpdateNode", "m_hParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Param' is not possible.\n");
 }
 float GCFollowPathUpdateNode::GetTurnToFaceOffset() const {
     return GetSchemaValue<float>(m_ptr, "CFollowPathUpdateNode", "m_flTurnToFaceOffset");
@@ -6721,7 +6721,7 @@ GCAnimInputDamping GCStopAtGoalUpdateNode::GetDamping() const {
     return value;
 }
 void GCStopAtGoalUpdateNode::SetDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CStopAtGoalUpdateNode", "m_damping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Damping' is not possible.\n");
 }
 void* GCStopAtGoalUpdateNode::GetPtr() {
     return m_ptr;
@@ -7169,7 +7169,7 @@ GFuseFunctionIndex_t GFunctionInfo_t::GetIndex() const {
     return value;
 }
 void GFunctionInfo_t::SetIndex(GFuseFunctionIndex_t value) {
-    SetSchemaValue(m_ptr, "FunctionInfo_t", "m_nIndex", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Index' is not possible.\n");
 }
 bool GFunctionInfo_t::GetIsPure() const {
     return GetSchemaValue<bool>(m_ptr, "FunctionInfo_t", "m_bIsPure");
@@ -7429,7 +7429,7 @@ GCAnimParamHandle GParamSpan_t::GetParam() const {
     return value;
 }
 void GParamSpan_t::SetParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "ParamSpan_t", "m_hParam", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Param' is not possible.\n");
 }
 uint64_t GParamSpan_t::GetParamType() const {
     return GetSchemaValue<uint64_t>(m_ptr, "ParamSpan_t", "m_eParamType");
@@ -8227,7 +8227,7 @@ GSceneViewId_t GCSSDSMsg_LayerBase::GetViewId() const {
     return value;
 }
 void GCSSDSMsg_LayerBase::SetViewId(GSceneViewId_t value) {
-    SetSchemaValue(m_ptr, "CSSDSMsg_LayerBase", "m_viewId", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ViewId' is not possible.\n");
 }
 std::string GCSSDSMsg_LayerBase::GetViewName() const {
     return GetSchemaValue<CUtlString>(m_ptr, "CSSDSMsg_LayerBase", "m_ViewName").Get();
@@ -8542,7 +8542,7 @@ GCAnimUpdateNodeRef GBlendItem_t::GetChild() const {
     return value;
 }
 void GBlendItem_t::SetChild(GCAnimUpdateNodeRef value) {
-    SetSchemaValue(m_ptr, "BlendItem_t", "m_pChild", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Child' is not possible.\n");
 }
 Vector2D GBlendItem_t::GetPos() const {
     return GetSchemaValue<Vector2D>(m_ptr, "BlendItem_t", "m_vPos");
@@ -8718,49 +8718,49 @@ GCAnimParamHandle GCLookComponentUpdater::GetLookHeading() const {
     return value;
 }
 void GCLookComponentUpdater::SetLookHeading(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLookComponentUpdater", "m_hLookHeading", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LookHeading' is not possible.\n");
 }
 GCAnimParamHandle GCLookComponentUpdater::GetLookHeadingVelocity() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CLookComponentUpdater", "m_hLookHeadingVelocity"));
     return value;
 }
 void GCLookComponentUpdater::SetLookHeadingVelocity(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLookComponentUpdater", "m_hLookHeadingVelocity", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LookHeadingVelocity' is not possible.\n");
 }
 GCAnimParamHandle GCLookComponentUpdater::GetLookPitch() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CLookComponentUpdater", "m_hLookPitch"));
     return value;
 }
 void GCLookComponentUpdater::SetLookPitch(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLookComponentUpdater", "m_hLookPitch", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LookPitch' is not possible.\n");
 }
 GCAnimParamHandle GCLookComponentUpdater::GetLookDistance() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CLookComponentUpdater", "m_hLookDistance"));
     return value;
 }
 void GCLookComponentUpdater::SetLookDistance(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLookComponentUpdater", "m_hLookDistance", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LookDistance' is not possible.\n");
 }
 GCAnimParamHandle GCLookComponentUpdater::GetLookDirection() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CLookComponentUpdater", "m_hLookDirection"));
     return value;
 }
 void GCLookComponentUpdater::SetLookDirection(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLookComponentUpdater", "m_hLookDirection", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LookDirection' is not possible.\n");
 }
 GCAnimParamHandle GCLookComponentUpdater::GetLookTarget() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CLookComponentUpdater", "m_hLookTarget"));
     return value;
 }
 void GCLookComponentUpdater::SetLookTarget(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLookComponentUpdater", "m_hLookTarget", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LookTarget' is not possible.\n");
 }
 GCAnimParamHandle GCLookComponentUpdater::GetLookTargetWorldSpace() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CLookComponentUpdater", "m_hLookTargetWorldSpace"));
     return value;
 }
 void GCLookComponentUpdater::SetLookTargetWorldSpace(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLookComponentUpdater", "m_hLookTargetWorldSpace", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LookTargetWorldSpace' is not possible.\n");
 }
 bool GCLookComponentUpdater::GetNetworkLookTarget() const {
     return GetSchemaValue<bool>(m_ptr, "CLookComponentUpdater", "m_bNetworkLookTarget");
@@ -8819,7 +8819,7 @@ GCAnimParamHandle GCCycleControlUpdateNode::GetParamIndex() const {
     return value;
 }
 void GCCycleControlUpdateNode::SetParamIndex(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CCycleControlUpdateNode", "m_paramIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamIndex' is not possible.\n");
 }
 void* GCCycleControlUpdateNode::GetPtr() {
     return m_ptr;
@@ -8860,7 +8860,7 @@ GChangeAccessorFieldPathIndex_t GCNetworkVarChainer::GetPathIndex() const {
     return value;
 }
 void GCNetworkVarChainer::SetPathIndex(GChangeAccessorFieldPathIndex_t value) {
-    SetSchemaValue(m_ptr, "CNetworkVarChainer", "m_PathIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PathIndex' is not possible.\n");
 }
 void* GCNetworkVarChainer::GetPtr() {
     return m_ptr;
@@ -9342,7 +9342,7 @@ GRnCapsule_t GRnCapsuleDesc_t::GetCapsule() const {
     return value;
 }
 void GRnCapsuleDesc_t::SetCapsule(GRnCapsule_t value) {
-    SetSchemaValue(m_ptr, "RnCapsuleDesc_t", "m_Capsule", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Capsule' is not possible.\n");
 }
 void* GRnCapsuleDesc_t::GetPtr() {
     return m_ptr;
@@ -9805,14 +9805,14 @@ GCAnimParamHandle GCPlayerInputAnimMotorUpdater::GetAnticipationPosParam() const
     return value;
 }
 void GCPlayerInputAnimMotorUpdater::SetAnticipationPosParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CPlayerInputAnimMotorUpdater", "m_hAnticipationPosParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AnticipationPosParam' is not possible.\n");
 }
 GCAnimParamHandle GCPlayerInputAnimMotorUpdater::GetAnticipationHeadingParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CPlayerInputAnimMotorUpdater", "m_hAnticipationHeadingParam"));
     return value;
 }
 void GCPlayerInputAnimMotorUpdater::SetAnticipationHeadingParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CPlayerInputAnimMotorUpdater", "m_hAnticipationHeadingParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AnticipationHeadingParam' is not possible.\n");
 }
 bool GCPlayerInputAnimMotorUpdater::GetUseAcceleration() const {
     return GetSchemaValue<bool>(m_ptr, "CPlayerInputAnimMotorUpdater", "m_bUseAcceleration");
@@ -10321,7 +10321,7 @@ GCAnimParamHandle GCSpeedScaleUpdateNode::GetParamIndex() const {
     return value;
 }
 void GCSpeedScaleUpdateNode::SetParamIndex(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSpeedScaleUpdateNode", "m_paramIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamIndex' is not possible.\n");
 }
 void* GCSpeedScaleUpdateNode::GetPtr() {
     return m_ptr;
@@ -10437,7 +10437,7 @@ GCAnimAttachment GTwoBoneIKSettings_t::GetEndEffectorAttachment() const {
     return value;
 }
 void GTwoBoneIKSettings_t::SetEndEffectorAttachment(GCAnimAttachment value) {
-    SetSchemaValue(m_ptr, "TwoBoneIKSettings_t", "m_endEffectorAttachment", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EndEffectorAttachment' is not possible.\n");
 }
 uint64_t GTwoBoneIKSettings_t::GetTargetType() const {
     return GetSchemaValue<uint64_t>(m_ptr, "TwoBoneIKSettings_t", "m_targetType");
@@ -10450,7 +10450,7 @@ GCAnimAttachment GTwoBoneIKSettings_t::GetTargetAttachment() const {
     return value;
 }
 void GTwoBoneIKSettings_t::SetTargetAttachment(GCAnimAttachment value) {
-    SetSchemaValue(m_ptr, "TwoBoneIKSettings_t", "m_targetAttachment", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TargetAttachment' is not possible.\n");
 }
 int32_t GTwoBoneIKSettings_t::GetTargetBoneIndex() const {
     return GetSchemaValue<int32_t>(m_ptr, "TwoBoneIKSettings_t", "m_targetBoneIndex");
@@ -10463,14 +10463,14 @@ GCAnimParamHandle GTwoBoneIKSettings_t::GetPositionParam() const {
     return value;
 }
 void GTwoBoneIKSettings_t::SetPositionParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "TwoBoneIKSettings_t", "m_hPositionParam", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PositionParam' is not possible.\n");
 }
 GCAnimParamHandle GTwoBoneIKSettings_t::GetRotationParam() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "TwoBoneIKSettings_t", "m_hRotationParam"));
     return value;
 }
 void GTwoBoneIKSettings_t::SetRotationParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "TwoBoneIKSettings_t", "m_hRotationParam", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RotationParam' is not possible.\n");
 }
 bool GTwoBoneIKSettings_t::GetAlwaysUseFallbackHinge() const {
     return GetSchemaValue<bool>(m_ptr, "TwoBoneIKSettings_t", "m_bAlwaysUseFallbackHinge");
@@ -10637,7 +10637,7 @@ GCAnimUpdateNodeRef GCStateNodeStateData::GetChild() const {
     return value;
 }
 void GCStateNodeStateData::SetChild(GCAnimUpdateNodeRef value) {
-    SetSchemaValue(m_ptr, "CStateNodeStateData", "m_pChild", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Child' is not possible.\n");
 }
 void* GCStateNodeStateData::GetPtr() {
     return m_ptr;
@@ -11024,7 +11024,7 @@ GFootLockPoseOpFixedSettings GCFootLockUpdateNode::GetOpFixedSettings() const {
     return value;
 }
 void GCFootLockUpdateNode::SetOpFixedSettings(GFootLockPoseOpFixedSettings value) {
-    SetSchemaValue(m_ptr, "CFootLockUpdateNode", "m_opFixedSettings", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedSettings' is not possible.\n");
 }
 std::vector<GFootFixedSettings> GCFootLockUpdateNode::GetFootSettings() const {
     CUtlVector<GFootFixedSettings>* vec = GetSchemaValue<CUtlVector<GFootFixedSettings>*>(m_ptr, "CFootLockUpdateNode", "m_footSettings"); std::vector<GFootFixedSettings> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -11037,14 +11037,14 @@ GCAnimInputDamping GCFootLockUpdateNode::GetHipShiftDamping() const {
     return value;
 }
 void GCFootLockUpdateNode::SetHipShiftDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CFootLockUpdateNode", "m_hipShiftDamping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HipShiftDamping' is not possible.\n");
 }
 GCAnimInputDamping GCFootLockUpdateNode::GetRootHeightDamping() const {
     GCAnimInputDamping value(GetSchemaPtr(m_ptr, "CFootLockUpdateNode", "m_rootHeightDamping"));
     return value;
 }
 void GCFootLockUpdateNode::SetRootHeightDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CFootLockUpdateNode", "m_rootHeightDamping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RootHeightDamping' is not possible.\n");
 }
 float GCFootLockUpdateNode::GetStrideCurveScale() const {
     return GetSchemaValue<float>(m_ptr, "CFootLockUpdateNode", "m_flStrideCurveScale");
@@ -11237,7 +11237,7 @@ GSkeletonAnimCapture_t GSkeletonAnimCapture_t__Frame_t::GetStamp() const {
     return value;
 }
 void GSkeletonAnimCapture_t__Frame_t::SetStamp(GSkeletonAnimCapture_t value) {
-    SetSchemaValue(m_ptr, "SkeletonAnimCapture_t__Frame_t", "m_Stamp", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Stamp' is not possible.\n");
 }
 bool GSkeletonAnimCapture_t__Frame_t::GetTeleport() const {
     return GetSchemaValue<bool>(m_ptr, "SkeletonAnimCapture_t__Frame_t", "m_bTeleport");
@@ -11618,7 +11618,7 @@ GEngineLoopState_t GEventClientPostOutput_t::GetLoopState() const {
     return value;
 }
 void GEventClientPostOutput_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventClientPostOutput_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 double GEventClientPostOutput_t::GetRenderTime() const {
     return GetSchemaValue<double>(m_ptr, "EventClientPostOutput_t", "m_flRenderTime");
@@ -11730,7 +11730,7 @@ GRnMesh_t GRnMeshDesc_t::GetMesh() const {
     return value;
 }
 void GRnMeshDesc_t::SetMesh(GRnMesh_t value) {
-    SetSchemaValue(m_ptr, "RnMeshDesc_t", "m_Mesh", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Mesh' is not possible.\n");
 }
 void* GRnMeshDesc_t::GetPtr() {
     return m_ptr;
@@ -12325,7 +12325,7 @@ GNmPercent_t GNmSyncTrackTime_t::GetPercentageThrough() const {
     return value;
 }
 void GNmSyncTrackTime_t::SetPercentageThrough(GNmPercent_t value) {
-    SetSchemaValue(m_ptr, "NmSyncTrackTime_t", "m_percentageThrough", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PercentageThrough' is not possible.\n");
 }
 void* GNmSyncTrackTime_t::GetPtr() {
     return m_ptr;
@@ -12358,7 +12358,7 @@ GParticleAttributeIndex_t GCGeneralRandomRotation::GetFieldOutput() const {
     return value;
 }
 void GCGeneralRandomRotation::SetFieldOutput(GParticleAttributeIndex_t value) {
-    SetSchemaValue(m_ptr, "CGeneralRandomRotation", "m_nFieldOutput", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FieldOutput' is not possible.\n");
 }
 float GCGeneralRandomRotation::GetDegrees() const {
     return GetSchemaValue<float>(m_ptr, "CGeneralRandomRotation", "m_flDegrees");
@@ -13418,7 +13418,7 @@ GCompositeMaterialInputLooseVariable_t GCompMatPropertyMutator_t::GetSetValue_Va
     return value;
 }
 void GCompMatPropertyMutator_t::SetSetValue_Value(GCompositeMaterialInputLooseVariable_t value) {
-    SetSchemaValue(m_ptr, "CompMatPropertyMutator_t", "m_nSetValue_Value", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SetValue_Value' is not possible.\n");
 }
 std::string GCompMatPropertyMutator_t::GetStrGenerateTexture_TargetParam() const {
     return GetSchemaValue<CUtlString>(m_ptr, "CompMatPropertyMutator_t", "m_strGenerateTexture_TargetParam").Get();
@@ -13629,7 +13629,7 @@ GVMixFilterDesc_t GVMixDelayDesc_t::GetFeedbackFilter() const {
     return value;
 }
 void GVMixDelayDesc_t::SetFeedbackFilter(GVMixFilterDesc_t value) {
-    SetSchemaValue(m_ptr, "VMixDelayDesc_t", "m_feedbackFilter", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FeedbackFilter' is not possible.\n");
 }
 bool GVMixDelayDesc_t::GetEnableFilter() const {
     return GetSchemaValue<bool>(m_ptr, "VMixDelayDesc_t", "m_bEnableFilter");
@@ -13911,42 +13911,42 @@ GCAnimParamHandle GCSlopeComponentUpdater::GetSlopeAngle() const {
     return value;
 }
 void GCSlopeComponentUpdater::SetSlopeAngle(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSlopeComponentUpdater", "m_hSlopeAngle", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SlopeAngle' is not possible.\n");
 }
 GCAnimParamHandle GCSlopeComponentUpdater::GetSlopeAngleFront() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CSlopeComponentUpdater", "m_hSlopeAngleFront"));
     return value;
 }
 void GCSlopeComponentUpdater::SetSlopeAngleFront(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSlopeComponentUpdater", "m_hSlopeAngleFront", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SlopeAngleFront' is not possible.\n");
 }
 GCAnimParamHandle GCSlopeComponentUpdater::GetSlopeAngleSide() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CSlopeComponentUpdater", "m_hSlopeAngleSide"));
     return value;
 }
 void GCSlopeComponentUpdater::SetSlopeAngleSide(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSlopeComponentUpdater", "m_hSlopeAngleSide", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SlopeAngleSide' is not possible.\n");
 }
 GCAnimParamHandle GCSlopeComponentUpdater::GetSlopeHeading() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CSlopeComponentUpdater", "m_hSlopeHeading"));
     return value;
 }
 void GCSlopeComponentUpdater::SetSlopeHeading(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSlopeComponentUpdater", "m_hSlopeHeading", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SlopeHeading' is not possible.\n");
 }
 GCAnimParamHandle GCSlopeComponentUpdater::GetSlopeNormal() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CSlopeComponentUpdater", "m_hSlopeNormal"));
     return value;
 }
 void GCSlopeComponentUpdater::SetSlopeNormal(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSlopeComponentUpdater", "m_hSlopeNormal", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SlopeNormal' is not possible.\n");
 }
 GCAnimParamHandle GCSlopeComponentUpdater::GetSlopeNormal_WorldSpace() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CSlopeComponentUpdater", "m_hSlopeNormal_WorldSpace"));
     return value;
 }
 void GCSlopeComponentUpdater::SetSlopeNormal_WorldSpace(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSlopeComponentUpdater", "m_hSlopeNormal_WorldSpace", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SlopeNormal_WorldSpace' is not possible.\n");
 }
 void* GCSlopeComponentUpdater::GetPtr() {
     return m_ptr;
@@ -14044,14 +14044,14 @@ GCSeqSeqDescFlag GCSeqCmdSeqDesc::GetFlags() const {
     return value;
 }
 void GCSeqCmdSeqDesc::SetFlags(GCSeqSeqDescFlag value) {
-    SetSchemaValue(m_ptr, "CSeqCmdSeqDesc", "m_flags", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Flags' is not possible.\n");
 }
 GCSeqTransition GCSeqCmdSeqDesc::GetTransition() const {
     GCSeqTransition value(GetSchemaPtr(m_ptr, "CSeqCmdSeqDesc", "m_transition"));
     return value;
 }
 void GCSeqCmdSeqDesc::SetTransition(GCSeqTransition value) {
-    SetSchemaValue(m_ptr, "CSeqCmdSeqDesc", "m_transition", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Transition' is not possible.\n");
 }
 int16_t GCSeqCmdSeqDesc::GetFrameRangeSequence() const {
     return GetSchemaValue<int16_t>(m_ptr, "CSeqCmdSeqDesc", "m_nFrameRangeSequence");
@@ -14666,7 +14666,7 @@ GCAnimInputDamping GCLeanMatrixUpdateNode::GetDamping() const {
     return value;
 }
 void GCLeanMatrixUpdateNode::SetDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CLeanMatrixUpdateNode", "m_damping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Damping' is not possible.\n");
 }
 uint64_t GCLeanMatrixUpdateNode::GetBlendSource() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CLeanMatrixUpdateNode", "m_blendSource");
@@ -14679,7 +14679,7 @@ GCAnimParamHandle GCLeanMatrixUpdateNode::GetParamIndex() const {
     return value;
 }
 void GCLeanMatrixUpdateNode::SetParamIndex(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CLeanMatrixUpdateNode", "m_paramIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamIndex' is not possible.\n");
 }
 Vector GCLeanMatrixUpdateNode::GetVerticalAxis() const {
     return GetSchemaValue<Vector>(m_ptr, "CLeanMatrixUpdateNode", "m_verticalAxis");
@@ -14750,7 +14750,7 @@ GCAnimParamHandle GCStanceScaleUpdateNode::GetParam() const {
     return value;
 }
 void GCStanceScaleUpdateNode::SetParam(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CStanceScaleUpdateNode", "m_hParam", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Param' is not possible.\n");
 }
 void* GCStanceScaleUpdateNode::GetPtr() {
     return m_ptr;
@@ -14796,21 +14796,21 @@ GIKBoneNameAndIndex_t GIKTargetSettings_t::GetBone() const {
     return value;
 }
 void GIKTargetSettings_t::SetBone(GIKBoneNameAndIndex_t value) {
-    SetSchemaValue(m_ptr, "IKTargetSettings_t", "m_Bone", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Bone' is not possible.\n");
 }
 GAnimParamID GIKTargetSettings_t::GetAnimgraphParameterNamePosition() const {
     GAnimParamID value(GetSchemaPtr(m_ptr, "IKTargetSettings_t", "m_AnimgraphParameterNamePosition"));
     return value;
 }
 void GIKTargetSettings_t::SetAnimgraphParameterNamePosition(GAnimParamID value) {
-    SetSchemaValue(m_ptr, "IKTargetSettings_t", "m_AnimgraphParameterNamePosition", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AnimgraphParameterNamePosition' is not possible.\n");
 }
 GAnimParamID GIKTargetSettings_t::GetAnimgraphParameterNameOrientation() const {
     GAnimParamID value(GetSchemaPtr(m_ptr, "IKTargetSettings_t", "m_AnimgraphParameterNameOrientation"));
     return value;
 }
 void GIKTargetSettings_t::SetAnimgraphParameterNameOrientation(GAnimParamID value) {
-    SetSchemaValue(m_ptr, "IKTargetSettings_t", "m_AnimgraphParameterNameOrientation", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AnimgraphParameterNameOrientation' is not possible.\n");
 }
 uint64_t GIKTargetSettings_t::GetTargetCoordSystem() const {
     return GetSchemaValue<uint64_t>(m_ptr, "IKTargetSettings_t", "m_TargetCoordSystem");
@@ -14883,35 +14883,35 @@ GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetRadiusScale() c
     return value;
 }
 void GCBaseRendererSource2::SetRadiusScale(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flRadiusScale", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RadiusScale' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetAlphaScale() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flAlphaScale"));
     return value;
 }
 void GCBaseRendererSource2::SetAlphaScale(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flAlphaScale", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AlphaScale' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetRollScale() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flRollScale"));
     return value;
 }
 void GCBaseRendererSource2::SetRollScale(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flRollScale", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RollScale' is not possible.\n");
 }
 GParticleAttributeIndex_t GCBaseRendererSource2::GetAlpha2Field() const {
     GParticleAttributeIndex_t value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_nAlpha2Field"));
     return value;
 }
 void GCBaseRendererSource2::SetAlpha2Field(GParticleAttributeIndex_t value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nAlpha2Field", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Alpha2Field' is not possible.\n");
 }
 GCParticleCollectionRendererVecInput GCBaseRendererSource2::GetColorScale() const {
     GCParticleCollectionRendererVecInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_vecColorScale"));
     return value;
 }
 void GCBaseRendererSource2::SetColorScale(GCParticleCollectionRendererVecInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_vecColorScale", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ColorScale' is not possible.\n");
 }
 uint64_t GCBaseRendererSource2::GetColorBlendType() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nColorBlendType");
@@ -14936,14 +14936,14 @@ GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetCenterXOffset()
     return value;
 }
 void GCBaseRendererSource2::SetCenterXOffset(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flCenterXOffset", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CenterXOffset' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetCenterYOffset() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flCenterYOffset"));
     return value;
 }
 void GCBaseRendererSource2::SetCenterYOffset(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flCenterYOffset", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CenterYOffset' is not possible.\n");
 }
 float GCBaseRendererSource2::GetBumpStrength() const {
     return GetSchemaValue<float>(m_ptr, "CBaseRendererSource2", "m_flBumpStrength");
@@ -14986,21 +14986,21 @@ GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetSelfIllumAmount
     return value;
 }
 void GCBaseRendererSource2::SetSelfIllumAmount(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flSelfIllumAmount", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SelfIllumAmount' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetDiffuseAmount() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flDiffuseAmount"));
     return value;
 }
 void GCBaseRendererSource2::SetDiffuseAmount(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flDiffuseAmount", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DiffuseAmount' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetDiffuseClamp() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flDiffuseClamp"));
     return value;
 }
 void GCBaseRendererSource2::SetDiffuseClamp(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flDiffuseClamp", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DiffuseClamp' is not possible.\n");
 }
 int32_t GCBaseRendererSource2::GetLightingControlPoint() const {
     return GetSchemaValue<int32_t>(m_ptr, "CBaseRendererSource2", "m_nLightingControlPoint");
@@ -15013,7 +15013,7 @@ GParticleAttributeIndex_t GCBaseRendererSource2::GetSelfIllumPerParticle() const
     return value;
 }
 void GCBaseRendererSource2::SetSelfIllumPerParticle(GParticleAttributeIndex_t value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_nSelfIllumPerParticle", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SelfIllumPerParticle' is not possible.\n");
 }
 uint64_t GCBaseRendererSource2::GetOutputBlendMode() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nOutputBlendMode");
@@ -15038,21 +15038,21 @@ GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetAddSelfAmount()
     return value;
 }
 void GCBaseRendererSource2::SetAddSelfAmount(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flAddSelfAmount", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AddSelfAmount' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetDesaturation() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flDesaturation"));
     return value;
 }
 void GCBaseRendererSource2::SetDesaturation(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flDesaturation", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Desaturation' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetOverbrightFactor() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flOverbrightFactor"));
     return value;
 }
 void GCBaseRendererSource2::SetOverbrightFactor(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flOverbrightFactor", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OverbrightFactor' is not possible.\n");
 }
 int32_t GCBaseRendererSource2::GetHSVShiftControlPoint() const {
     return GetSchemaValue<int32_t>(m_ptr, "CBaseRendererSource2", "m_nHSVShiftControlPoint");
@@ -15071,7 +15071,7 @@ GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetFogAmount() con
     return value;
 }
 void GCBaseRendererSource2::SetFogAmount(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flFogAmount", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FogAmount' is not possible.\n");
 }
 bool GCBaseRendererSource2::GetTintByFOW() const {
     return GetSchemaValue<bool>(m_ptr, "CBaseRendererSource2", "m_bTintByFOW");
@@ -15108,21 +15108,21 @@ GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetAlphaReferenceS
     return value;
 }
 void GCBaseRendererSource2::SetAlphaReferenceSoftness(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flAlphaReferenceSoftness", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AlphaReferenceSoftness' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetSourceAlphaValueToMapToZero() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flSourceAlphaValueToMapToZero"));
     return value;
 }
 void GCBaseRendererSource2::SetSourceAlphaValueToMapToZero(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flSourceAlphaValueToMapToZero", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SourceAlphaValueToMapToZero' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetSourceAlphaValueToMapToOne() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flSourceAlphaValueToMapToOne"));
     return value;
 }
 void GCBaseRendererSource2::SetSourceAlphaValueToMapToOne(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flSourceAlphaValueToMapToOne", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SourceAlphaValueToMapToOne' is not possible.\n");
 }
 bool GCBaseRendererSource2::GetRefract() const {
     return GetSchemaValue<bool>(m_ptr, "CBaseRendererSource2", "m_bRefract");
@@ -15141,7 +15141,7 @@ GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetRefractAmount()
     return value;
 }
 void GCBaseRendererSource2::SetRefractAmount(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flRefractAmount", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RefractAmount' is not possible.\n");
 }
 int32_t GCBaseRendererSource2::GetRefractBlurRadius() const {
     return GetSchemaValue<int32_t>(m_ptr, "CBaseRendererSource2", "m_nRefractBlurRadius");
@@ -15232,28 +15232,28 @@ GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetFeatheringMinDi
     return value;
 }
 void GCBaseRendererSource2::SetFeatheringMinDist(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flFeatheringMinDist", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FeatheringMinDist' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetFeatheringMaxDist() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flFeatheringMaxDist"));
     return value;
 }
 void GCBaseRendererSource2::SetFeatheringMaxDist(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flFeatheringMaxDist", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FeatheringMaxDist' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetFeatheringFilter() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flFeatheringFilter"));
     return value;
 }
 void GCBaseRendererSource2::SetFeatheringFilter(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flFeatheringFilter", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FeatheringFilter' is not possible.\n");
 }
 GCParticleCollectionRendererFloatInput GCBaseRendererSource2::GetDepthBias() const {
     GCParticleCollectionRendererFloatInput value(GetSchemaPtr(m_ptr, "CBaseRendererSource2", "m_flDepthBias"));
     return value;
 }
 void GCBaseRendererSource2::SetDepthBias(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "CBaseRendererSource2", "m_flDepthBias", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DepthBias' is not possible.\n");
 }
 uint64_t GCBaseRendererSource2::GetSortMethod() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBaseRendererSource2", "m_nSortMethod");
@@ -15372,7 +15372,7 @@ GSceneViewId_t GCSSDSMsg_ViewRender::GetViewId() const {
     return value;
 }
 void GCSSDSMsg_ViewRender::SetViewId(GSceneViewId_t value) {
-    SetSchemaValue(m_ptr, "CSSDSMsg_ViewRender", "m_viewId", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ViewId' is not possible.\n");
 }
 std::string GCSSDSMsg_ViewRender::GetViewName() const {
     return GetSchemaValue<CUtlString>(m_ptr, "CSSDSMsg_ViewRender", "m_ViewName").Get();
@@ -15887,7 +15887,7 @@ GEngineLoopState_t GEventSimpleLoopFrameUpdate_t::GetLoopState() const {
     return value;
 }
 void GEventSimpleLoopFrameUpdate_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventSimpleLoopFrameUpdate_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 float GEventSimpleLoopFrameUpdate_t::GetRealTime() const {
     return GetSchemaValue<float>(m_ptr, "EventSimpleLoopFrameUpdate_t", "m_flRealTime");
@@ -16033,14 +16033,14 @@ GCParticleCollectionRendererFloatInput GTextureGroup_t::GetTextureBlend() const 
     return value;
 }
 void GTextureGroup_t::SetTextureBlend(GCParticleCollectionRendererFloatInput value) {
-    SetSchemaValue(m_ptr, "TextureGroup_t", "m_flTextureBlend", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TextureBlend' is not possible.\n");
 }
 GTextureControls_t GTextureGroup_t::GetTextureControls() const {
     GTextureControls_t value(GetSchemaPtr(m_ptr, "TextureGroup_t", "m_TextureControls"));
     return value;
 }
 void GTextureGroup_t::SetTextureControls(GTextureControls_t value) {
-    SetSchemaValue(m_ptr, "TextureGroup_t", "m_TextureControls", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TextureControls' is not possible.\n");
 }
 void* GTextureGroup_t::GetPtr() {
     return m_ptr;
@@ -16750,7 +16750,7 @@ GCAnimEncodeDifference GCAnimEncodedFrames::GetUsageDifferences() const {
     return value;
 }
 void GCAnimEncodedFrames::SetUsageDifferences(GCAnimEncodeDifference value) {
-    SetSchemaValue(m_ptr, "CAnimEncodedFrames", "m_usageDifferences", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'UsageDifferences' is not possible.\n");
 }
 void* GCAnimEncodedFrames::GetPtr() {
     return m_ptr;
@@ -16785,7 +16785,7 @@ GEngineLoopState_t GEventSetTime_t::GetLoopState() const {
     return value;
 }
 void GEventSetTime_t::SetLoopState(GEngineLoopState_t value) {
-    SetSchemaValue(m_ptr, "EventSetTime_t", "m_LoopState", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LoopState' is not possible.\n");
 }
 int32_t GEventSetTime_t::GetClientOutputFrames() const {
     return GetSchemaValue<int32_t>(m_ptr, "EventSetTime_t", "m_nClientOutputFrames");
@@ -16980,14 +16980,14 @@ GCAnimUpdateNodeRef GCStanceOverrideUpdateNode::GetStanceSourceNode() const {
     return value;
 }
 void GCStanceOverrideUpdateNode::SetStanceSourceNode(GCAnimUpdateNodeRef value) {
-    SetSchemaValue(m_ptr, "CStanceOverrideUpdateNode", "m_pStanceSourceNode", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StanceSourceNode' is not possible.\n");
 }
 GCAnimParamHandle GCStanceOverrideUpdateNode::GetParameter() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CStanceOverrideUpdateNode", "m_hParameter"));
     return value;
 }
 void GCStanceOverrideUpdateNode::SetParameter(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CStanceOverrideUpdateNode", "m_hParameter", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parameter' is not possible.\n");
 }
 uint64_t GCStanceOverrideUpdateNode::GetMode() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CStanceOverrideUpdateNode", "m_eMode");
@@ -17095,7 +17095,7 @@ GCBlendCurve GCStateNodeTransitionData::GetCurve() const {
     return value;
 }
 void GCStateNodeTransitionData::SetCurve(GCBlendCurve value) {
-    SetSchemaValue(m_ptr, "CStateNodeTransitionData", "m_curve", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Curve' is not possible.\n");
 }
 void* GCStateNodeTransitionData::GetPtr() {
     return m_ptr;
@@ -17127,7 +17127,7 @@ GCMotionDataSet GCMotionMatchingUpdateNode::GetDataSet() const {
     return value;
 }
 void GCMotionMatchingUpdateNode::SetDataSet(GCMotionDataSet value) {
-    SetSchemaValue(m_ptr, "CMotionMatchingUpdateNode", "m_dataSet", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DataSet' is not possible.\n");
 }
 std::vector<float32> GCMotionMatchingUpdateNode::GetWeights() const {
     CUtlVector<float32>* vec = GetSchemaValue<CUtlVector<float32>*>(m_ptr, "CMotionMatchingUpdateNode", "m_weights"); std::vector<float32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -17164,7 +17164,7 @@ GCBlendCurve GCMotionMatchingUpdateNode::GetBlendCurve() const {
     return value;
 }
 void GCMotionMatchingUpdateNode::SetBlendCurve(GCBlendCurve value) {
-    SetSchemaValue(m_ptr, "CMotionMatchingUpdateNode", "m_blendCurve", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BlendCurve' is not possible.\n");
 }
 float GCMotionMatchingUpdateNode::GetSampleRate() const {
     return GetSchemaValue<float>(m_ptr, "CMotionMatchingUpdateNode", "m_flSampleRate");
@@ -17225,7 +17225,7 @@ GCAnimInputDamping GCMotionMatchingUpdateNode::GetDistanceScale_Damping() const 
     return value;
 }
 void GCMotionMatchingUpdateNode::SetDistanceScale_Damping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CMotionMatchingUpdateNode", "m_distanceScale_Damping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DistanceScale_Damping' is not possible.\n");
 }
 float GCMotionMatchingUpdateNode::GetDistanceScale_OuterRadius() const {
     return GetSchemaValue<float>(m_ptr, "CMotionMatchingUpdateNode", "m_flDistanceScale_OuterRadius");
@@ -17316,14 +17316,14 @@ GNmPercent_t GCNmSyncTrack__Event_t::GetStartTime() const {
     return value;
 }
 void GCNmSyncTrack__Event_t::SetStartTime(GNmPercent_t value) {
-    SetSchemaValue(m_ptr, "CNmSyncTrack__Event_t", "m_startTime", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StartTime' is not possible.\n");
 }
 GNmPercent_t GCNmSyncTrack__Event_t::GetDuration() const {
     GNmPercent_t value(GetSchemaPtr(m_ptr, "CNmSyncTrack__Event_t", "m_duration"));
     return value;
 }
 void GCNmSyncTrack__Event_t::SetDuration(GNmPercent_t value) {
-    SetSchemaValue(m_ptr, "CNmSyncTrack__Event_t", "m_duration", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Duration' is not possible.\n");
 }
 void* GCNmSyncTrack__Event_t::GetPtr() {
     return m_ptr;
@@ -17398,7 +17398,7 @@ GParticleNamedValueConfiguration_t GParticleNamedValueSource_t::GetDefaultConfig
     return value;
 }
 void GParticleNamedValueSource_t::SetDefaultConfig(GParticleNamedValueConfiguration_t value) {
-    SetSchemaValue(m_ptr, "ParticleNamedValueSource_t", "m_DefaultConfig", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DefaultConfig' is not possible.\n");
 }
 std::vector<GParticleNamedValueConfiguration_t> GParticleNamedValueSource_t::GetNamedConfigs() const {
     CUtlVector<GParticleNamedValueConfiguration_t>* vec = GetSchemaValue<CUtlVector<GParticleNamedValueConfiguration_t>*>(m_ptr, "ParticleNamedValueSource_t", "m_NamedConfigs"); std::vector<GParticleNamedValueConfiguration_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -17527,7 +17527,7 @@ GSceneViewId_t GCSSDSMsg_ViewTargetList::GetViewId() const {
     return value;
 }
 void GCSSDSMsg_ViewTargetList::SetViewId(GSceneViewId_t value) {
-    SetSchemaValue(m_ptr, "CSSDSMsg_ViewTargetList", "m_viewId", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ViewId' is not possible.\n");
 }
 std::string GCSSDSMsg_ViewTargetList::GetViewName() const {
     return GetSchemaValue<CUtlString>(m_ptr, "CSSDSMsg_ViewTargetList", "m_ViewName").Get();
@@ -17752,7 +17752,7 @@ GSkeletonBoneBounds_t GRenderSkeletonBone_t::GetBbox() const {
     return value;
 }
 void GRenderSkeletonBone_t::SetBbox(GSkeletonBoneBounds_t value) {
-    SetSchemaValue(m_ptr, "RenderSkeletonBone_t", "m_bbox", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Bbox' is not possible.\n");
 }
 float GRenderSkeletonBone_t::GetSphereRadius() const {
     return GetSchemaValue<float>(m_ptr, "RenderSkeletonBone_t", "m_flSphereRadius");
@@ -17874,7 +17874,7 @@ GRnPlane_t GFeCollisionPlane_t::GetPlane() const {
     return value;
 }
 void GFeCollisionPlane_t::SetPlane(GRnPlane_t value) {
-    SetSchemaValue(m_ptr, "FeCollisionPlane_t", "m_Plane", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Plane' is not possible.\n");
 }
 float GFeCollisionPlane_t::GetStrength() const {
     return GetSchemaValue<float>(m_ptr, "FeCollisionPlane_t", "flStrength");
@@ -17947,7 +17947,7 @@ GNmPercent_t GCNmSyncTrack__EventMarker_t::GetStartTime() const {
     return value;
 }
 void GCNmSyncTrack__EventMarker_t::SetStartTime(GNmPercent_t value) {
-    SetSchemaValue(m_ptr, "CNmSyncTrack__EventMarker_t", "m_startTime", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StartTime' is not possible.\n");
 }
 void* GCNmSyncTrack__EventMarker_t::GetPtr() {
     return m_ptr;
@@ -18625,7 +18625,7 @@ GAABB_t GClutterSceneObject_t::GetBounds() const {
     return value;
 }
 void GClutterSceneObject_t::SetBounds(GAABB_t value) {
-    SetSchemaValue(m_ptr, "ClutterSceneObject_t", "m_Bounds", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Bounds' is not possible.\n");
 }
 uint64_t GClutterSceneObject_t::GetFlags() const {
     return GetSchemaValue<uint64_t>(m_ptr, "ClutterSceneObject_t", "m_flags");
@@ -18950,7 +18950,7 @@ GPermModelInfo_t GPermModelData_t::GetModelInfo() const {
     return value;
 }
 void GPermModelData_t::SetModelInfo(GPermModelInfo_t value) {
-    SetSchemaValue(m_ptr, "PermModelData_t", "m_modelInfo", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ModelInfo' is not possible.\n");
 }
 std::vector<GPermModelExtPart_t> GPermModelData_t::GetExtParts() const {
     CUtlVector<GPermModelExtPart_t>* vec = GetSchemaValue<CUtlVector<GPermModelExtPart_t>*>(m_ptr, "PermModelData_t", "m_ExtParts"); std::vector<GPermModelExtPart_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -19005,7 +19005,7 @@ GModelSkeletonData_t GPermModelData_t::GetModelSkeleton() const {
     return value;
 }
 void GPermModelData_t::SetModelSkeleton(GModelSkeletonData_t value) {
-    SetSchemaValue(m_ptr, "PermModelData_t", "m_modelSkeleton", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ModelSkeleton' is not possible.\n");
 }
 std::vector<int16> GPermModelData_t::GetRemappingTable() const {
     CUtlVector<int16>* vec = GetSchemaValue<CUtlVector<int16>*>(m_ptr, "PermModelData_t", "m_remappingTable"); std::vector<int16> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -19090,7 +19090,7 @@ GTraceSettings_t GFootFixedSettings::GetTraceSettings() const {
     return value;
 }
 void GFootFixedSettings::SetTraceSettings(GTraceSettings_t value) {
-    SetSchemaValue(m_ptr, "FootFixedSettings", "m_traceSettings", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TraceSettings' is not possible.\n");
 }
 Vector GFootFixedSettings::GetFootBaseBindPosePositionMS() const {
     return GetSchemaValue<Vector>(m_ptr, "FootFixedSettings", "m_vFootBaseBindPosePositionMS");
@@ -19185,14 +19185,14 @@ GCAnimParamHandle GCSolveIKTargetHandle_t::GetPositionHandle() const {
     return value;
 }
 void GCSolveIKTargetHandle_t::SetPositionHandle(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSolveIKTargetHandle_t", "m_positionHandle", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PositionHandle' is not possible.\n");
 }
 GCAnimParamHandle GCSolveIKTargetHandle_t::GetOrientationHandle() const {
     GCAnimParamHandle value(GetSchemaPtr(m_ptr, "CSolveIKTargetHandle_t", "m_orientationHandle"));
     return value;
 }
 void GCSolveIKTargetHandle_t::SetOrientationHandle(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CSolveIKTargetHandle_t", "m_orientationHandle", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OrientationHandle' is not possible.\n");
 }
 void* GCSolveIKTargetHandle_t::GetPtr() {
     return m_ptr;
@@ -19249,14 +19249,14 @@ GCAnimParamHandle GCBlendUpdateNode::GetParamIndex() const {
     return value;
 }
 void GCBlendUpdateNode::SetParamIndex(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CBlendUpdateNode", "m_paramIndex", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamIndex' is not possible.\n");
 }
 GCAnimInputDamping GCBlendUpdateNode::GetDamping() const {
     GCAnimInputDamping value(GetSchemaPtr(m_ptr, "CBlendUpdateNode", "m_damping"));
     return value;
 }
 void GCBlendUpdateNode::SetDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CBlendUpdateNode", "m_damping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Damping' is not possible.\n");
 }
 uint64_t GCBlendUpdateNode::GetBlendKeyType() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBlendUpdateNode", "m_blendKeyType");
@@ -19513,7 +19513,7 @@ GCAnimAttachment GFollowAttachmentSettings_t::GetAttachment() const {
     return value;
 }
 void GFollowAttachmentSettings_t::SetAttachment(GCAnimAttachment value) {
-    SetSchemaValue(m_ptr, "FollowAttachmentSettings_t", "m_attachment", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Attachment' is not possible.\n");
 }
 int32_t GFollowAttachmentSettings_t::GetBoneIndex() const {
     return GetSchemaValue<int32_t>(m_ptr, "FollowAttachmentSettings_t", "m_boneIndex");
@@ -19803,7 +19803,7 @@ GAnimScriptHandle GCAnimScriptComponentUpdater::GetScript() const {
     return value;
 }
 void GCAnimScriptComponentUpdater::SetScript(GAnimScriptHandle value) {
-    SetSchemaValue(m_ptr, "CAnimScriptComponentUpdater", "m_hScript", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Script' is not possible.\n");
 }
 void* GCAnimScriptComponentUpdater::GetPtr() {
     return m_ptr;
@@ -19907,7 +19907,7 @@ GCSeqAutoLayerFlag GCSeqAutoLayer::GetFlags() const {
     return value;
 }
 void GCSeqAutoLayer::SetFlags(GCSeqAutoLayerFlag value) {
-    SetSchemaValue(m_ptr, "CSeqAutoLayer", "m_flags", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Flags' is not possible.\n");
 }
 float GCSeqAutoLayer::GetStart() const {
     return GetSchemaValue<float>(m_ptr, "CSeqAutoLayer", "m_start");
@@ -20783,7 +20783,7 @@ GCParamSpanUpdater GCBlend2DUpdateNode::GetParamSpans() const {
     return value;
 }
 void GCBlend2DUpdateNode::SetParamSpans(GCParamSpanUpdater value) {
-    SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_paramSpans", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamSpans' is not possible.\n");
 }
 std::vector<int32> GCBlend2DUpdateNode::GetNodeItemIndices() const {
     CUtlVector<int32>* vec = GetSchemaValue<CUtlVector<int32>*>(m_ptr, "CBlend2DUpdateNode", "m_nodeItemIndices"); std::vector<int32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -20796,7 +20796,7 @@ GCAnimInputDamping GCBlend2DUpdateNode::GetDamping() const {
     return value;
 }
 void GCBlend2DUpdateNode::SetDamping(GCAnimInputDamping value) {
-    SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_damping", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Damping' is not possible.\n");
 }
 uint64_t GCBlend2DUpdateNode::GetBlendSourceX() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBlend2DUpdateNode", "m_blendSourceX");
@@ -20809,7 +20809,7 @@ GCAnimParamHandle GCBlend2DUpdateNode::GetParamX() const {
     return value;
 }
 void GCBlend2DUpdateNode::SetParamX(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_paramX", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamX' is not possible.\n");
 }
 uint64_t GCBlend2DUpdateNode::GetBlendSourceY() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBlend2DUpdateNode", "m_blendSourceY");
@@ -20822,7 +20822,7 @@ GCAnimParamHandle GCBlend2DUpdateNode::GetParamY() const {
     return value;
 }
 void GCBlend2DUpdateNode::SetParamY(GCAnimParamHandle value) {
-    SetSchemaValue(m_ptr, "CBlend2DUpdateNode", "m_paramY", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamY' is not possible.\n");
 }
 uint64_t GCBlend2DUpdateNode::GetBlendMode() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBlend2DUpdateNode", "m_eBlendMode");
@@ -20948,7 +20948,7 @@ GAnimationDecodeDebugDumpElement_t GAnimationSnapshotBase_t::GetDecodeDump() con
     return value;
 }
 void GAnimationSnapshotBase_t::SetDecodeDump(GAnimationDecodeDebugDumpElement_t value) {
-    SetSchemaValue(m_ptr, "AnimationSnapshotBase_t", "m_DecodeDump", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DecodeDump' is not possible.\n");
 }
 void* GAnimationSnapshotBase_t::GetPtr() {
     return m_ptr;
@@ -21544,7 +21544,7 @@ GFollowAttachmentSettings_t GCFollowAttachmentUpdateNode::GetOpFixedData() const
     return value;
 }
 void GCFollowAttachmentUpdateNode::SetOpFixedData(GFollowAttachmentSettings_t value) {
-    SetSchemaValue(m_ptr, "CFollowAttachmentUpdateNode", "m_opFixedData", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedData' is not possible.\n");
 }
 void* GCFollowAttachmentUpdateNode::GetPtr() {
     return m_ptr;
@@ -21868,14 +21868,14 @@ GNmSyncTrackTime_t GNmSyncTrackTimeRange_t::GetStartTime() const {
     return value;
 }
 void GNmSyncTrackTimeRange_t::SetStartTime(GNmSyncTrackTime_t value) {
-    SetSchemaValue(m_ptr, "NmSyncTrackTimeRange_t", "m_startTime", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StartTime' is not possible.\n");
 }
 GNmSyncTrackTime_t GNmSyncTrackTimeRange_t::GetEndTime() const {
     GNmSyncTrackTime_t value(GetSchemaPtr(m_ptr, "NmSyncTrackTimeRange_t", "m_endTime"));
     return value;
 }
 void GNmSyncTrackTimeRange_t::SetEndTime(GNmSyncTrackTime_t value) {
-    SetSchemaValue(m_ptr, "NmSyncTrackTimeRange_t", "m_endTime", true, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EndTime' is not possible.\n");
 }
 void* GNmSyncTrackTimeRange_t::GetPtr() {
     return m_ptr;
@@ -22018,7 +22018,7 @@ GSolveIKChainPoseOpFixedSettings_t GCSolveIKChainUpdateNode::GetOpFixedData() co
     return value;
 }
 void GCSolveIKChainUpdateNode::SetOpFixedData(GSolveIKChainPoseOpFixedSettings_t value) {
-    SetSchemaValue(m_ptr, "CSolveIKChainUpdateNode", "m_opFixedData", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OpFixedData' is not possible.\n");
 }
 void* GCSolveIKChainUpdateNode::GetPtr() {
     return m_ptr;
@@ -22090,7 +22090,7 @@ GCDrawCullingData GCMeshletDescriptor::GetCullingData() const {
     return value;
 }
 void GCMeshletDescriptor::SetCullingData(GCDrawCullingData value) {
-    SetSchemaValue(m_ptr, "CMeshletDescriptor", "m_CullingData", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'CullingData' is not possible.\n");
 }
 void* GCMeshletDescriptor::GetPtr() {
     return m_ptr;
@@ -22240,7 +22240,7 @@ GCAnimDemoCaptureSettings GCDemoSettingsComponentUpdater::GetSettings() const {
     return value;
 }
 void GCDemoSettingsComponentUpdater::SetSettings(GCAnimDemoCaptureSettings value) {
-    SetSchemaValue(m_ptr, "CDemoSettingsComponentUpdater", "m_settings", false, value);
+    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Settings' is not possible.\n");
 }
 void* GCDemoSettingsComponentUpdater::GetPtr() {
     return m_ptr;

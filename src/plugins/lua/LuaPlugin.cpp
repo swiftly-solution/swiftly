@@ -32,6 +32,21 @@ static const luaL_Reg lualibs[] = {
 
 void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state);
 
+static int LuaPanicFunction(lua_State *state)
+{
+    std::string m_what = "Missing Error";
+    if (lua_gettop(state) > 0)
+    {
+        char const *s = lua_tostring(state, -1);
+        m_what = s ? s : "";
+    }
+
+    PLUGIN_PRINT("Runtime", "A Lua runtime panic has been triggered.\n");
+    PLUGIN_PRINTF("Runtime", "Plugin: %s\n", luabridge::getGlobal(state, "plugin_name").tostring().c_str());
+    PLUGIN_PRINTF("Runtime", "Error: %s\n", m_what.c_str());
+    return 0;
+}
+
 bool LuaPlugin::LoadScriptingEnvironment()
 {
     this->SetLoadError("");
@@ -106,6 +121,8 @@ bool LuaPlugin::LoadScriptingEnvironment()
             }
         }
     }
+
+    lua_atpanic(this->state, LuaPanicFunction);
 
     return true;
 }
@@ -227,7 +244,7 @@ void LuaPlugin::RegisterEventHandling(std::string eventName)
 
 EventResult LuaPlugin::TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event)
 {
-    if (this->GetPluginState() == PluginState_t::Stopped)
+    if (this->GetPluginState() == PluginState_t::Stopped && eventName != "OnPluginStart" && eventName != "OnAllPluginsLoaded")
         return EventResult::Continue;
 
     if (!this->globalEventHandler)

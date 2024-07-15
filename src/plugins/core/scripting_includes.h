@@ -20,25 +20,28 @@ extern std::map<std::string, bool> BlockedCS2GuidelinesFields;
 template <typename T>
 T GetSchemaValue(void *ptr, const char *className, const char *fieldName)
 {
-    if (BlockedCS2GuidelinesFields.find(fieldName) != BlockedCS2GuidelinesFields.end() && g_Config->FetchValue<bool>("core.FollowCS2ServerGuidelines"))
+    if (fieldName)
     {
-        PRINTF("Getting or setting %s::%s is not permitted due to CS2 Server Guidelines violation.\n", className, fieldName);
-        PRINT("To get or set this value, switch to false the \"core.FollowCS2ServerGuidelines\" field.\n");
-        PRINT("Note: Using non-compliant field values can result in a GSLT ban.\n");
-        PRINT("Note: We are not providing any kind of support for people which are using these fields.\n");
+        if (BlockedCS2GuidelinesFields.find(fieldName) != BlockedCS2GuidelinesFields.end() && g_Config->FetchValue<bool>("core.FollowCS2ServerGuidelines"))
+        {
+            PRINTF("Getting or setting %s::%s is not permitted due to CS2 Server Guidelines violation.\n", className, fieldName);
+            PRINT("To get or set this value, switch to false the \"core.FollowCS2ServerGuidelines\" field.\n");
+            PRINT("Note: Using non-compliant field values can result in a GSLT ban.\n");
+            PRINT("Note: We are not providing any kind of support for people which are using these fields.\n");
 
-        if constexpr (std::is_same<T, Vector>::value)
-            return Vector(0, 0, 0);
-        else if constexpr (std::is_same<T, QAngle>::value)
-            return QAngle(0, 0, 0);
-        else if constexpr (std::is_same<T, Vector2D>::value)
-            return Vector2D(0, 0);
-        else if constexpr (std::is_same<T, Vector4D>::value)
-            return Vector4D(0, 0, 0, 0);
-        else if constexpr (std::is_same<T, Color>::value)
-            return Color(0, 0, 0, 0);
-        else
-            return (T)0;
+            if constexpr (std::is_same<T, Vector>::value)
+                return Vector(0, 0, 0);
+            else if constexpr (std::is_same<T, QAngle>::value)
+                return QAngle(0, 0, 0);
+            else if constexpr (std::is_same<T, Vector2D>::value)
+                return Vector2D(0, 0);
+            else if constexpr (std::is_same<T, Vector4D>::value)
+                return Vector4D(0, 0, 0, 0);
+            else if constexpr (std::is_same<T, Color>::value)
+                return Color(0, 0, 0, 0);
+            else
+                return (T)0;
+        }
     }
 
     auto datatable_hash = hash_32_fnv1a_const(className);

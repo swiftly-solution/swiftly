@@ -200,95 +200,95 @@ public:
     std::string GetMessageName();
     int GetMessageID();
 
-    bool HasField(const char *pszFieldName);
+    bool HasField(std::string pszFieldName);
 
-    int32 GetInt32(const char *pszFieldName);
-    void SetInt32(const char *pszFieldName, int32 value);
-    int32 GetRepeatedInt32(const char *pszFieldName, int index);
-    void SetRepeatedInt32(const char *pszFieldName, int index, int32 value);
-    void AddInt32(const char *pszFieldName, int32 value);
+    int32 GetInt32(std::string pszFieldName);
+    void SetInt32(std::string pszFieldName, int32 value);
+    int32 GetRepeatedInt32(std::string pszFieldName, int index);
+    void SetRepeatedInt32(std::string pszFieldName, int index, int32 value);
+    void AddInt32(std::string pszFieldName, int32 value);
 
-    int64 GetInt64(const char *pszFieldName);
-    void SetInt64(const char *pszFieldName, int64 value);
-    int64 GetRepeatedInt64(const char *pszFieldName, int index);
-    void SetRepeatedInt64(const char *pszFieldName, int index, int64 value);
-    void AddInt64(const char *pszFieldName, int64 value);
+    int64 GetInt64(std::string pszFieldName);
+    void SetInt64(std::string pszFieldName, int64 value);
+    int64 GetRepeatedInt64(std::string pszFieldName, int index);
+    void SetRepeatedInt64(std::string pszFieldName, int index, int64 value);
+    void AddInt64(std::string pszFieldName, int64 value);
 
-    uint32 GetUInt32(const char *pszFieldName);
-    void SetUInt32(const char *pszFieldName, uint32 value);
-    uint32 GetRepeatedUInt32(const char *pszFieldName, int index);
-    void SetRepeatedUInt32(const char *pszFieldName, int index, uint32 value);
-    void AddUInt32(const char *pszFieldName, uint32 value);
+    uint32 GetUInt32(std::string pszFieldName);
+    void SetUInt32(std::string pszFieldName, uint32 value);
+    uint32 GetRepeatedUInt32(std::string pszFieldName, int index);
+    void SetRepeatedUInt32(std::string pszFieldName, int index, uint32 value);
+    void AddUInt32(std::string pszFieldName, uint32 value);
 
-    uint64 GetUInt64(const char *pszFieldName);
-    void SetUInt64(const char *pszFieldName, uint64 value);
-    uint64 GetRepeatedUInt64(const char *pszFieldName, int index);
-    void SetRepeatedUInt64(const char *pszFieldName, int index, uint64 value);
-    void AddUInt64(const char *pszFieldName, uint64 value);
+    uint64 GetUInt64(std::string pszFieldName);
+    void SetUInt64(std::string pszFieldName, uint64 value);
+    uint64 GetRepeatedUInt64(std::string pszFieldName, int index);
+    void SetRepeatedUInt64(std::string pszFieldName, int index, uint64 value);
+    void AddUInt64(std::string pszFieldName, uint64 value);
 
-    int64 GetInt64OrUnsigned(const char *pszFieldName);
-    void SetInt64OrUnsigned(const char *pszFieldName, int64 value);
-    int64 GetRepeatedInt64OrUnsigned(const char *pszFieldName, int index);
-    void SetRepeatedInt64OrUnsigned(const char *pszFieldName, int index, int64 value);
-    void AddInt64OrUnsigned(const char *pszFieldName, int64 value);
+    int64 GetInt64OrUnsigned(std::string pszFieldName);
+    void SetInt64OrUnsigned(std::string pszFieldName, int64 value);
+    int64 GetRepeatedInt64OrUnsigned(std::string pszFieldName, int index);
+    void SetRepeatedInt64OrUnsigned(std::string pszFieldName, int index, int64 value);
+    void AddInt64OrUnsigned(std::string pszFieldName, int64 value);
 
-    bool GetBool(const char *pszFieldName);
-    void SetBool(const char *pszFieldName, bool value);
-    bool GetRepeatedBool(const char *pszFieldName, int index);
-    void SetRepeatedBool(const char *pszFieldName, int index, bool value);
-    void AddBool(const char *pszFieldName, bool value);
+    bool GetBool(std::string pszFieldName);
+    void SetBool(std::string pszFieldName, bool value);
+    bool GetRepeatedBool(std::string pszFieldName, int index);
+    void SetRepeatedBool(std::string pszFieldName, int index, bool value);
+    void AddBool(std::string pszFieldName, bool value);
 
-    float GetFloat(const char *pszFieldName);
-    void SetFloat(const char *pszFieldName, float value);
-    float GetRepeatedFloat(const char *pszFieldName, int index);
-    void SetRepeatedFloat(const char *pszFieldName, int index, float value);
-    void AddFloat(const char *pszFieldName, float value);
+    float GetFloat(std::string pszFieldName);
+    void SetFloat(std::string pszFieldName, float value);
+    float GetRepeatedFloat(std::string pszFieldName, int index);
+    void SetRepeatedFloat(std::string pszFieldName, int index, float value);
+    void AddFloat(std::string pszFieldName, float value);
 
-    double GetDouble(const char *pszFieldName);
-    void SetDouble(const char *pszFieldName, double value);
-    double GetRepeatedDouble(const char *pszFieldName, int index);
-    void SetRepeatedDouble(const char *pszFieldName, int index, double value);
-    void AddDouble(const char *pszFieldName, double value);
+    double GetDouble(std::string pszFieldName);
+    void SetDouble(std::string pszFieldName, double value);
+    double GetRepeatedDouble(std::string pszFieldName, int index);
+    void SetRepeatedDouble(std::string pszFieldName, int index, double value);
+    void AddDouble(std::string pszFieldName, double value);
 
-    float GetFloatOrDouble(const char *pszFieldName);
-    void SetFloatOrDouble(const char *pszFieldName, float value);
-    float GetRepeatedFloatOrDouble(const char *pszFieldName, int index);
-    void SetRepeatedFloatOrDouble(const char *pszFieldName, int index, float value);
-    void AddFloatOrDouble(const char *pszFieldName, float value);
+    float GetFloatOrDouble(std::string pszFieldName);
+    void SetFloatOrDouble(std::string pszFieldName, float value);
+    float GetRepeatedFloatOrDouble(std::string pszFieldName, int index);
+    void SetRepeatedFloatOrDouble(std::string pszFieldName, int index, float value);
+    void AddFloatOrDouble(std::string pszFieldName, float value);
 
-    std::string GetString(const char *pszFieldName);
-    void SetString(const char *pszFieldName, const char *value);
-    std::string GetRepeatedString(const char *pszFieldName, int index);
-    void SetRepeatedString(const char *pszFieldName, int index, const char *value);
-    void AddString(const char *pszFieldName, const char *value);
+    std::string GetString(std::string pszFieldName);
+    void SetString(std::string pszFieldName, const char *value);
+    std::string GetRepeatedString(std::string pszFieldName, int index);
+    void SetRepeatedString(std::string pszFieldName, int index, const char *value);
+    void AddString(std::string pszFieldName, const char *value);
 
-    Color GetColor(const char *pszFieldName);
-    void SetColor(const char *pszFieldName, const Color &value);
-    Color GetRepeatedColor(const char *pszFieldName, int index);
-    void SetRepeatedColor(const char *pszFieldName, int index, const Color &value);
-    void AddColor(const char *pszFieldName, const Color &value);
+    Color GetColor(std::string pszFieldName);
+    void SetColor(std::string pszFieldName, const Color &value);
+    Color GetRepeatedColor(std::string pszFieldName, int index);
+    void SetRepeatedColor(std::string pszFieldName, int index, const Color &value);
+    void AddColor(std::string pszFieldName, const Color &value);
 
-    Vector2D GetVector2D(const char *pszFieldName);
-    void SetVector2D(const char *pszFieldName, Vector2D &vec);
-    Vector2D GetRepeatedVector2D(const char *pszFieldName, int index);
-    void SetRepeatedVector2D(const char *pszFieldName, int index, Vector2D &vec);
-    void AddVector2D(const char *pszFieldName, Vector2D &vec);
+    Vector2D GetVector2D(std::string pszFieldName);
+    void SetVector2D(std::string pszFieldName, Vector2D &vec);
+    Vector2D GetRepeatedVector2D(std::string pszFieldName, int index);
+    void SetRepeatedVector2D(std::string pszFieldName, int index, Vector2D &vec);
+    void AddVector2D(std::string pszFieldName, Vector2D &vec);
 
-    Vector GetVector(const char *pszFieldName);
-    void SetVector(const char *pszFieldName, Vector &vec);
-    Vector GetRepeatedVector(const char *pszFieldName, int index);
-    void SetRepeatedVector(const char *pszFieldName, int index, Vector &vec);
-    void AddVector(const char *pszFieldName, Vector &vec);
+    Vector GetVector(std::string pszFieldName);
+    void SetVector(std::string pszFieldName, Vector &vec);
+    Vector GetRepeatedVector(std::string pszFieldName, int index);
+    void SetRepeatedVector(std::string pszFieldName, int index, Vector &vec);
+    void AddVector(std::string pszFieldName, Vector &vec);
 
-    QAngle GetQAngle(const char *pszFieldName);
-    void SetQAngle(const char *pszFieldName, QAngle &vec);
-    QAngle GetRepeatedQAngle(const char *pszFieldName, int index);
-    void SetRepeatedQAngle(const char *pszFieldName, int index, QAngle &vec);
-    void AddQAngle(const char *pszFieldName, QAngle &vec);
+    QAngle GetQAngle(std::string pszFieldName);
+    void SetQAngle(std::string pszFieldName, QAngle &vec);
+    QAngle GetRepeatedQAngle(std::string pszFieldName, int index);
+    void SetRepeatedQAngle(std::string pszFieldName, int index, QAngle &vec);
+    void AddQAngle(std::string pszFieldName, QAngle &vec);
 
-    void RemoveRepeatedFieldValue(const char *pszFieldName, int index);
+    void RemoveRepeatedFieldValue(std::string pszFieldName, int index);
 
-    int GetRepeatedFieldCount(const char *pszFieldName);
+    int GetRepeatedFieldCount(std::string pszFieldName);
 
     void SendToPlayer(int playerId);
     void SendToAllPlayers();
