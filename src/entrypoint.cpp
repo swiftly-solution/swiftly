@@ -631,7 +631,7 @@ const char *Swiftly::GetLicense()
 
 const char *Swiftly::GetVersion()
 {
-    return "v1.0.0";
+    return "v1.0.1";
 }
 
 const char *Swiftly::GetDate()
