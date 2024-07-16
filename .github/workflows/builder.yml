@@ -66,3 +66,22 @@ jobs:
               with:
                   name: Swiftly Plugin Windows
                   path: ${{ github.workspace }}/swiftly/build/package
+
+            - name: Creating Swiftly Depot - Linux
+              if: matrix.os == 'Linux'
+              working-directory: swiftly
+              run: |
+                  cd build
+                  curl https://api.github.com/repos/swiftly-solution/swiftly/releases/latest | grep "Swiftly.Plugin.Linux.zip" | cut -d : -f 2,3 | tr -d \" | tail -1 | wget -qi -
+                  unzip Swiftly.Plugin.Linux.zip
+                  mkdir release
+                  mv addons release
+                  fdupes -r --delete --noprompt package release
+                  find package -empty -type d -delete
+
+            - name: Upload Swiftly Depot - Linux
+              if: matrix.os == 'Linux'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Swiftly Plugin Depot Linux
+                  path: ${{ github.workspace }}/swiftly/build/package
