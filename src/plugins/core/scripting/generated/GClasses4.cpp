@@ -1196,7 +1196,7 @@ void GRnHull_t::SetFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "RnHull_t", "m_nFlags", true, value);
 }
 GCRegionSVM GRnHull_t::GetRegionSVM() const {
-    GCRegionSVM value(*GetSchemaValuePtr<void*>(m_ptr, "RnHull_t", "m_pRegionSVM"));
+    GCRegionSVM value(GetSchemaPtr(m_ptr, "RnHull_t", "m_pRegionSVM"));
     return value;
 }
 void GRnHull_t::SetRegionSVM(GCRegionSVM value) {
@@ -10694,14 +10694,14 @@ void GCDecalInfo::SetBoundingRadiusSqr(float value) {
     SetSchemaValue(m_ptr, "CDecalInfo", "m_flBoundingRadiusSqr", false, value);
 }
 GCDecalInfo GCDecalInfo::GetNext() const {
-    GCDecalInfo value(*GetSchemaValuePtr<void*>(m_ptr, "CDecalInfo", "m_pNext"));
+    GCDecalInfo value(GetSchemaPtr(m_ptr, "CDecalInfo", "m_pNext"));
     return value;
 }
 void GCDecalInfo::SetNext(GCDecalInfo value) {
     SetSchemaValue(m_ptr, "CDecalInfo","m_pNext", false, (char*)value.GetPtr());
 }
 GCDecalInfo GCDecalInfo::GetPrev() const {
-    GCDecalInfo value(*GetSchemaValuePtr<void*>(m_ptr, "CDecalInfo", "m_pPrev"));
+    GCDecalInfo value(GetSchemaPtr(m_ptr, "CDecalInfo", "m_pPrev"));
     return value;
 }
 void GCDecalInfo::SetPrev(GCDecalInfo value) {
@@ -12224,21 +12224,21 @@ GCNewParticleEffect::GCNewParticleEffect(void *ptr) {
     m_ptr = ptr;
 }
 GCNewParticleEffect GCNewParticleEffect::GetNext() const {
-    GCNewParticleEffect value(*GetSchemaValuePtr<void*>(m_ptr, "CNewParticleEffect", "m_pNext"));
+    GCNewParticleEffect value(GetSchemaPtr(m_ptr, "CNewParticleEffect", "m_pNext"));
     return value;
 }
 void GCNewParticleEffect::SetNext(GCNewParticleEffect value) {
     SetSchemaValue(m_ptr, "CNewParticleEffect","m_pNext", false, (char*)value.GetPtr());
 }
 GCNewParticleEffect GCNewParticleEffect::GetPrev() const {
-    GCNewParticleEffect value(*GetSchemaValuePtr<void*>(m_ptr, "CNewParticleEffect", "m_pPrev"));
+    GCNewParticleEffect value(GetSchemaPtr(m_ptr, "CNewParticleEffect", "m_pPrev"));
     return value;
 }
 void GCNewParticleEffect::SetPrev(GCNewParticleEffect value) {
     SetSchemaValue(m_ptr, "CNewParticleEffect","m_pPrev", false, (char*)value.GetPtr());
 }
 GIParticleCollection GCNewParticleEffect::GetParticles() const {
-    GIParticleCollection value(*GetSchemaValuePtr<void*>(m_ptr, "CNewParticleEffect", "m_pParticles"));
+    GIParticleCollection value(GetSchemaPtr(m_ptr, "CNewParticleEffect", "m_pParticles"));
     return value;
 }
 void GCNewParticleEffect::SetParticles(GIParticleCollection value) {
@@ -12263,14 +12263,14 @@ void GCNewParticleEffect::SetScale(float value) {
     SetSchemaValue(m_ptr, "CNewParticleEffect", "m_flScale", false, value);
 }
 GPARTICLE_EHANDLE__ GCNewParticleEffect::GetOwner() const {
-    GPARTICLE_EHANDLE__ value(*GetSchemaValuePtr<void*>(m_ptr, "CNewParticleEffect", "m_hOwner"));
+    GPARTICLE_EHANDLE__ value(GetSchemaPtr(m_ptr, "CNewParticleEffect", "m_hOwner"));
     return value;
 }
 void GCNewParticleEffect::SetOwner(GPARTICLE_EHANDLE__ value) {
     SetSchemaValue(m_ptr, "CNewParticleEffect","m_hOwner", false, (char*)value.GetPtr());
 }
 GCParticleProperty GCNewParticleEffect::GetOwningParticleProperty() const {
-    GCParticleProperty value(*GetSchemaValuePtr<void*>(m_ptr, "CNewParticleEffect", "m_pOwningParticleProperty"));
+    GCParticleProperty value(GetSchemaPtr(m_ptr, "CNewParticleEffect", "m_pOwningParticleProperty"));
     return value;
 }
 void GCNewParticleEffect::SetOwningParticleProperty(GCParticleProperty value) {
@@ -12837,7 +12837,7 @@ void GCastSphereSATParams_t::SetScale(float value) {
     SetSchemaValue(m_ptr, "CastSphereSATParams_t", "m_flScale", true, value);
 }
 GRnHull_t GCastSphereSATParams_t::GetHull() const {
-    GRnHull_t value(*GetSchemaValuePtr<void*>(m_ptr, "CastSphereSATParams_t", "m_pHull"));
+    GRnHull_t value(GetSchemaPtr(m_ptr, "CastSphereSATParams_t", "m_pHull"));
     return value;
 }
 void GCastSphereSATParams_t::SetHull(GRnHull_t value) {
@@ -14809,7 +14809,7 @@ void GEntComponentInfo_t::SetFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "EntComponentInfo_t", "m_nFlags", true, value);
 }
 GCEntityComponentHelper GEntComponentInfo_t::GetBaseClassComponentHelper() const {
-    GCEntityComponentHelper value(*GetSchemaValuePtr<void*>(m_ptr, "EntComponentInfo_t", "m_pBaseClassComponentHelper"));
+    GCEntityComponentHelper value(GetSchemaPtr(m_ptr, "EntComponentInfo_t", "m_pBaseClassComponentHelper"));
     return value;
 }
 void GEntComponentInfo_t::SetBaseClassComponentHelper(GCEntityComponentHelper value) {
@@ -15011,7 +15011,7 @@ void GCRenderMesh::SetMeshDeformParams(GDynamicMeshDeformParams_t value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'MeshDeformParams' is not possible.\n");
 }
 GCRenderGroom GCRenderMesh::GetGroomData() const {
-    GCRenderGroom value(*GetSchemaValuePtr<void*>(m_ptr, "CRenderMesh", "m_pGroomData"));
+    GCRenderGroom value(GetSchemaPtr(m_ptr, "CRenderMesh", "m_pGroomData"));
     return value;
 }
 void GCRenderMesh::SetGroomData(GCRenderGroom value) {
