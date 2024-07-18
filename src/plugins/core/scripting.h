@@ -28,6 +28,7 @@ class GCBasePlayerWeapon;
 class GCCSWeaponBase;
 class GCBasePlayerWeaponVData;
 class GCCSWeaponBaseVData;
+class GCCSGameRules;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Entity IO           //////////////
@@ -689,5 +690,6 @@ GCEntityInstance *CreateEntityByName(const char *name);
 bool scripting_IsWindows();
 bool scripting_IsLinux();
 std::string scripting_GetOS();
+GCCSGameRules *scripting_GetCCSGameRules();
 
 #endif

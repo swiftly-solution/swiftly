@@ -311,7 +311,7 @@ GCPointGiveAmmo::GCPointGiveAmmo(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCPointGiveAmmo::GetActivator() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPointGiveAmmo", "m_pActivator"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPointGiveAmmo", "m_pActivator"));
     return value;
 }
 void GCPointGiveAmmo::SetActivator(GCBaseEntity value) {
@@ -895,7 +895,7 @@ void GCFuncMover::SetPathName(std::string value) {
     SetSchemaValue(m_ptr, "CFuncMover", "m_iszPathName", false, CUtlSymbolLarge(value.c_str()));
 }
 GCPathMover GCFuncMover::GetPathMover() const {
-    GCPathMover value(*GetSchemaValuePtr<void*>(m_ptr, "CFuncMover", "m_hPathMover"));
+    GCPathMover value(GetSchemaPtr(m_ptr, "CFuncMover", "m_hPathMover"));
     return value;
 }
 void GCFuncMover::SetPathMover(GCPathMover value) {
@@ -1005,7 +1005,7 @@ void GCFuncMover::SetTimeMovementStop(float value) {
     SetSchemaValue(m_ptr, "CFuncMover", "m_flTimeMovementStop", false, value);
 }
 GCMoverPathNode GCFuncMover::GetStopAtNode() const {
-    GCMoverPathNode value(*GetSchemaValuePtr<void*>(m_ptr, "CFuncMover", "m_hStopAtNode"));
+    GCMoverPathNode value(GetSchemaPtr(m_ptr, "CFuncMover", "m_hStopAtNode"));
     return value;
 }
 void GCFuncMover::SetStopAtNode(GCMoverPathNode value) {
@@ -1870,14 +1870,14 @@ void GCBaseButton::SetState(int32_t value) {
     SetSchemaValue(m_ptr, "CBaseButton", "m_nState", false, value);
 }
 GCEntityInstance GCBaseButton::GetConstraint() const {
-    GCEntityInstance value(*GetSchemaValuePtr<void*>(m_ptr, "CBaseButton", "m_hConstraint"));
+    GCEntityInstance value(GetSchemaPtr(m_ptr, "CBaseButton", "m_hConstraint"));
     return value;
 }
 void GCBaseButton::SetConstraint(GCEntityInstance value) {
     SetSchemaValue(m_ptr, "CBaseButton","m_hConstraint", false, (char*)value.GetPtr());
 }
 GCEntityInstance GCBaseButton::GetConstraintParent() const {
-    GCEntityInstance value(*GetSchemaValuePtr<void*>(m_ptr, "CBaseButton", "m_hConstraintParent"));
+    GCEntityInstance value(GetSchemaPtr(m_ptr, "CBaseButton", "m_hConstraintParent"));
     return value;
 }
 void GCBaseButton::SetConstraintParent(GCEntityInstance value) {
@@ -1896,7 +1896,7 @@ void GCBaseButton::SetGlowEntity(std::string value) {
     SetSchemaValue(m_ptr, "CBaseButton", "m_sGlowEntity", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseModelEntity GCBaseButton::GetGlowEntity1() const {
-    GCBaseModelEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CBaseButton", "m_glowEntity"));
+    GCBaseModelEntity value(GetSchemaPtr(m_ptr, "CBaseButton", "m_glowEntity"));
     return value;
 }
 void GCBaseButton::SetGlowEntity1(GCBaseModelEntity value) {
@@ -2008,7 +2008,7 @@ void GCEnvExplosion::SetDamageForce(float value) {
     SetSchemaValue(m_ptr, "CEnvExplosion", "m_flDamageForce", false, value);
 }
 GCBaseEntity GCEnvExplosion::GetInflictor() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CEnvExplosion", "m_hInflictor"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CEnvExplosion", "m_hInflictor"));
     return value;
 }
 void GCEnvExplosion::SetInflictor(GCBaseEntity value) {
@@ -2057,7 +2057,7 @@ void GCEnvExplosion::SetEntityIgnoreName(std::string value) {
     SetSchemaValue(m_ptr, "CEnvExplosion", "m_iszEntityIgnoreName", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseEntity GCEnvExplosion::GetEntityIgnore() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CEnvExplosion", "m_hEntityIgnore"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CEnvExplosion", "m_hEntityIgnore"));
     return value;
 }
 void GCEnvExplosion::SetEntityIgnore(GCBaseEntity value) {
@@ -2157,7 +2157,7 @@ GCTriggerLook::GCTriggerLook(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCTriggerLook::GetLookTarget() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CTriggerLook", "m_hLookTarget"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CTriggerLook", "m_hLookTarget"));
     return value;
 }
 void GCTriggerLook::SetLookTarget(GCBaseEntity value) {
@@ -2697,7 +2697,7 @@ GCCSPlayer_ActionTrackingServices::GCCSPlayer_ActionTrackingServices(void *ptr) 
     m_ptr = ptr;
 }
 GCBasePlayerWeapon GCCSPlayer_ActionTrackingServices::GetLastWeaponBeforeC4AutoSwitch() const {
-    GCBasePlayerWeapon value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayer_ActionTrackingServices", "m_hLastWeaponBeforeC4AutoSwitch"));
+    GCBasePlayerWeapon value(GetSchemaPtr(m_ptr, "CCSPlayer_ActionTrackingServices", "m_hLastWeaponBeforeC4AutoSwitch"));
     return value;
 }
 void GCCSPlayer_ActionTrackingServices::SetLastWeaponBeforeC4AutoSwitch(GCBasePlayerWeapon value) {
@@ -2834,7 +2834,7 @@ GCPointEntityFinder::GCPointEntityFinder(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCPointEntityFinder::GetEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPointEntityFinder", "m_hEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPointEntityFinder", "m_hEntity"));
     return value;
 }
 void GCPointEntityFinder::SetEntity(GCBaseEntity value) {
@@ -2847,7 +2847,7 @@ void GCPointEntityFinder::SetFilterName(std::string value) {
     SetSchemaValue(m_ptr, "CPointEntityFinder", "m_iFilterName", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseFilter GCPointEntityFinder::GetFilter() const {
-    GCBaseFilter value(*GetSchemaValuePtr<void*>(m_ptr, "CPointEntityFinder", "m_hFilter"));
+    GCBaseFilter value(GetSchemaPtr(m_ptr, "CPointEntityFinder", "m_hFilter"));
     return value;
 }
 void GCPointEntityFinder::SetFilter(GCBaseFilter value) {
@@ -2860,7 +2860,7 @@ void GCPointEntityFinder::SetRefName(std::string value) {
     SetSchemaValue(m_ptr, "CPointEntityFinder", "m_iRefName", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseEntity GCPointEntityFinder::GetReference() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPointEntityFinder", "m_hReference"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPointEntityFinder", "m_hReference"));
     return value;
 }
 void GCPointEntityFinder::SetReference(GCBaseEntity value) {
@@ -3189,7 +3189,7 @@ GCPointVelocitySensor::GCPointVelocitySensor(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCPointVelocitySensor::GetTargetEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPointVelocitySensor", "m_hTargetEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPointVelocitySensor", "m_hTargetEntity"));
     return value;
 }
 void GCPointVelocitySensor::SetTargetEntity(GCBaseEntity value) {
@@ -3690,7 +3690,7 @@ void GCPhysForce::SetForceTime(float value) {
     SetSchemaValue(m_ptr, "CPhysForce", "m_forceTime", false, value);
 }
 GCBaseEntity GCPhysForce::GetAttachedObject() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPhysForce", "m_attachedObject"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPhysForce", "m_attachedObject"));
     return value;
 }
 void GCPhysForce::SetAttachedObject(GCBaseEntity value) {
@@ -3846,7 +3846,7 @@ void GCInfoDynamicShadowHint::SetLightChoice(int32_t value) {
     SetSchemaValue(m_ptr, "CInfoDynamicShadowHint", "m_nLightChoice", false, value);
 }
 GCBaseEntity GCInfoDynamicShadowHint::GetLight() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CInfoDynamicShadowHint", "m_hLight"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CInfoDynamicShadowHint", "m_hLight"));
     return value;
 }
 void GCInfoDynamicShadowHint::SetLight(GCBaseEntity value) {
@@ -4085,7 +4085,7 @@ void GCFuncMonitor::SetBrushModelName(std::string value) {
     SetSchemaValue(m_ptr, "CFuncMonitor", "m_brushModelName", false, CUtlString(value.c_str()));
 }
 GCBaseEntity GCFuncMonitor::GetTargetCamera1() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CFuncMonitor", "m_hTargetCamera"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CFuncMonitor", "m_hTargetCamera"));
     return value;
 }
 void GCFuncMonitor::SetTargetCamera1(GCBaseEntity value) {
@@ -4275,14 +4275,14 @@ GCCSPlayer_HostageServices::GCCSPlayer_HostageServices(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCCSPlayer_HostageServices::GetCarriedHostage() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayer_HostageServices", "m_hCarriedHostage"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CCSPlayer_HostageServices", "m_hCarriedHostage"));
     return value;
 }
 void GCCSPlayer_HostageServices::SetCarriedHostage(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CCSPlayer_HostageServices","m_hCarriedHostage", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCCSPlayer_HostageServices::GetCarriedHostageProp() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayer_HostageServices", "m_hCarriedHostageProp"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CCSPlayer_HostageServices", "m_hCarriedHostageProp"));
     return value;
 }
 void GCCSPlayer_HostageServices::SetCarriedHostageProp(GCBaseEntity value) {
@@ -4942,7 +4942,7 @@ GCHostageExpresserShim::GCHostageExpresserShim(void *ptr) {
     m_ptr = ptr;
 }
 GCAI_Expresser GCHostageExpresserShim::GetExpresser() const {
-    GCAI_Expresser value(*GetSchemaValuePtr<void*>(m_ptr, "CHostageExpresserShim", "m_pExpresser"));
+    GCAI_Expresser value(GetSchemaPtr(m_ptr, "CHostageExpresserShim", "m_pExpresser"));
     return value;
 }
 void GCHostageExpresserShim::SetExpresser(GCAI_Expresser value) {
@@ -5828,7 +5828,7 @@ void GCTriggerLerpObject::SetLerpTarget(std::string value) {
     SetSchemaValue(m_ptr, "CTriggerLerpObject", "m_iszLerpTarget", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseEntity GCTriggerLerpObject::GetLerpTarget1() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CTriggerLerpObject", "m_hLerpTarget"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CTriggerLerpObject", "m_hLerpTarget"));
     return value;
 }
 void GCTriggerLerpObject::SetLerpTarget1(GCBaseEntity value) {
@@ -5883,7 +5883,7 @@ void GCTriggerLerpObject::SetAttachTouchingObject(bool value) {
     SetSchemaValue(m_ptr, "CTriggerLerpObject", "m_bAttachTouchingObject", false, value);
 }
 GCBaseEntity GCTriggerLerpObject::GetEntityToWaitForDisconnect() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CTriggerLerpObject", "m_hEntityToWaitForDisconnect"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CTriggerLerpObject", "m_hEntityToWaitForDisconnect"));
     return value;
 }
 void GCTriggerLerpObject::SetEntityToWaitForDisconnect(GCBaseEntity value) {
@@ -5949,7 +5949,7 @@ GCTriggerSoundscape::GCTriggerSoundscape(void *ptr) {
     m_ptr = ptr;
 }
 GCEnvSoundscapeTriggerable GCTriggerSoundscape::GetSoundscape() const {
-    GCEnvSoundscapeTriggerable value(*GetSchemaValuePtr<void*>(m_ptr, "CTriggerSoundscape", "m_hSoundscape"));
+    GCEnvSoundscapeTriggerable value(GetSchemaPtr(m_ptr, "CTriggerSoundscape", "m_hSoundscape"));
     return value;
 }
 void GCTriggerSoundscape::SetSoundscape(GCEnvSoundscapeTriggerable value) {
@@ -6130,14 +6130,14 @@ GCPhysicsEntitySolver::GCPhysicsEntitySolver(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCPhysicsEntitySolver::GetMovingEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPhysicsEntitySolver", "m_hMovingEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPhysicsEntitySolver", "m_hMovingEntity"));
     return value;
 }
 void GCPhysicsEntitySolver::SetMovingEntity(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CPhysicsEntitySolver","m_hMovingEntity", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCPhysicsEntitySolver::GetPhysicsBlocker() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPhysicsEntitySolver", "m_hPhysicsBlocker"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPhysicsEntitySolver", "m_hPhysicsBlocker"));
     return value;
 }
 void GCPhysicsEntitySolver::SetPhysicsBlocker(GCBaseEntity value) {
@@ -7036,14 +7036,14 @@ void GCPlantedC4::SetBombDefused(bool value) {
     SetSchemaValue(m_ptr, "CPlantedC4", "m_bBombDefused", false, value);
 }
 GCCSPlayerPawn GCPlantedC4::GetBombDefuser() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CPlantedC4", "m_hBombDefuser"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CPlantedC4", "m_hBombDefuser"));
     return value;
 }
 void GCPlantedC4::SetBombDefuser(GCCSPlayerPawn value) {
     SetSchemaValue(m_ptr, "CPlantedC4","m_hBombDefuser", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCPlantedC4::GetControlPanel() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPlantedC4", "m_hControlPanel"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPlantedC4", "m_hControlPanel"));
     return value;
 }
 void GCPlantedC4::SetControlPanel(GCBaseEntity value) {
@@ -7144,7 +7144,7 @@ GCPointClientUIDialog::GCPointClientUIDialog(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCPointClientUIDialog::GetActivator() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPointClientUIDialog", "m_hActivator"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPointClientUIDialog", "m_hActivator"));
     return value;
 }
 void GCPointClientUIDialog::SetActivator(GCBaseEntity value) {
@@ -7249,7 +7249,7 @@ void GCSkyCamera::SetUseAngles(bool value) {
     SetSchemaValue(m_ptr, "CSkyCamera", "m_bUseAngles", false, value);
 }
 GCSkyCamera GCSkyCamera::GetNext() const {
-    GCSkyCamera value(*GetSchemaValuePtr<void*>(m_ptr, "CSkyCamera", "m_pNext"));
+    GCSkyCamera value(GetSchemaPtr(m_ptr, "CSkyCamera", "m_pNext"));
     return value;
 }
 void GCSkyCamera::SetNext(GCSkyCamera value) {
@@ -7964,7 +7964,7 @@ void GCPropDoorRotating::SetAjarDoorShouldntAlwaysOpen(bool value) {
     SetSchemaValue(m_ptr, "CPropDoorRotating", "m_bAjarDoorShouldntAlwaysOpen", false, value);
 }
 GCEntityBlocker GCPropDoorRotating::GetEntityBlocker() const {
-    GCEntityBlocker value(*GetSchemaValuePtr<void*>(m_ptr, "CPropDoorRotating", "m_hEntityBlocker"));
+    GCEntityBlocker value(GetSchemaPtr(m_ptr, "CPropDoorRotating", "m_hEntityBlocker"));
     return value;
 }
 void GCPropDoorRotating::SetEntityBlocker(GCEntityBlocker value) {
@@ -8406,7 +8406,7 @@ void GSellbackPurchaseEntry_t::SetPrevHelmet(bool value) {
     SetSchemaValue(m_ptr, "SellbackPurchaseEntry_t", "m_bPrevHelmet", true, value);
 }
 GCEntityInstance GSellbackPurchaseEntry_t::GetItem() const {
-    GCEntityInstance value(*GetSchemaValuePtr<void*>(m_ptr, "SellbackPurchaseEntry_t", "m_hItem"));
+    GCEntityInstance value(GetSchemaPtr(m_ptr, "SellbackPurchaseEntry_t", "m_hItem"));
     return value;
 }
 void GSellbackPurchaseEntry_t::SetItem(GCEntityInstance value) {
@@ -8574,14 +8574,14 @@ void GCCSPlayerPawnBase::SetCTouchExpansionComponent(GCTouchExpansionComponent v
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'CTouchExpansionComponent' is not possible.\n");
 }
 GCCSPlayer_PingServices GCCSPlayerPawnBase::GetPingServices() const {
-    GCCSPlayer_PingServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawnBase", "m_pPingServices"));
+    GCCSPlayer_PingServices value(GetSchemaPtr(m_ptr, "CCSPlayerPawnBase", "m_pPingServices"));
     return value;
 }
 void GCCSPlayerPawnBase::SetPingServices(GCCSPlayer_PingServices value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawnBase","m_pPingServices", false, (char*)value.GetPtr());
 }
 GCPlayer_ViewModelServices GCCSPlayerPawnBase::GetViewModelServices() const {
-    GCPlayer_ViewModelServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawnBase", "m_pViewModelServices"));
+    GCPlayer_ViewModelServices value(GetSchemaPtr(m_ptr, "CCSPlayerPawnBase", "m_pViewModelServices"));
     return value;
 }
 void GCCSPlayerPawnBase::SetViewModelServices(GCPlayer_ViewModelServices value) {
@@ -8702,7 +8702,7 @@ void GCCSPlayerPawnBase::SetCommittingSuicideOnTeamChange(bool value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawnBase", "m_bCommittingSuicideOnTeamChange", false, value);
 }
 GCCSPlayerController GCCSPlayerPawnBase::GetOriginalController() const {
-    GCCSPlayerController value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawnBase", "m_hOriginalController"));
+    GCCSPlayerController value(GetSchemaPtr(m_ptr, "CCSPlayerPawnBase", "m_hOriginalController"));
     return value;
 }
 void GCCSPlayerPawnBase::SetOriginalController(GCCSPlayerController value) {
@@ -8764,21 +8764,21 @@ GCPathTrack::GCPathTrack(void *ptr) {
     m_ptr = ptr;
 }
 GCPathTrack GCPathTrack::GetPnext() const {
-    GCPathTrack value(*GetSchemaValuePtr<void*>(m_ptr, "CPathTrack", "m_pnext"));
+    GCPathTrack value(GetSchemaPtr(m_ptr, "CPathTrack", "m_pnext"));
     return value;
 }
 void GCPathTrack::SetPnext(GCPathTrack value) {
     SetSchemaValue(m_ptr, "CPathTrack","m_pnext", false, (char*)value.GetPtr());
 }
 GCPathTrack GCPathTrack::GetPprevious() const {
-    GCPathTrack value(*GetSchemaValuePtr<void*>(m_ptr, "CPathTrack", "m_pprevious"));
+    GCPathTrack value(GetSchemaPtr(m_ptr, "CPathTrack", "m_pprevious"));
     return value;
 }
 void GCPathTrack::SetPprevious(GCPathTrack value) {
     SetSchemaValue(m_ptr, "CPathTrack","m_pprevious", false, (char*)value.GetPtr());
 }
 GCPathTrack GCPathTrack::GetPaltpath() const {
-    GCPathTrack value(*GetSchemaValuePtr<void*>(m_ptr, "CPathTrack", "m_paltpath"));
+    GCPathTrack value(GetSchemaPtr(m_ptr, "CPathTrack", "m_paltpath"));
     return value;
 }
 void GCPathTrack::SetPaltpath(GCPathTrack value) {
@@ -9283,7 +9283,7 @@ void GCCSPlayer_WeaponServices::SetIsHoldingLookAtWeapon(bool value) {
     SetSchemaValue(m_ptr, "CCSPlayer_WeaponServices", "m_bIsHoldingLookAtWeapon", false, value);
 }
 GCBasePlayerWeapon GCCSPlayer_WeaponServices::GetSavedWeapon() const {
-    GCBasePlayerWeapon value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayer_WeaponServices", "m_hSavedWeapon"));
+    GCBasePlayerWeapon value(GetSchemaPtr(m_ptr, "CCSPlayer_WeaponServices", "m_hSavedWeapon"));
     return value;
 }
 void GCCSPlayer_WeaponServices::SetSavedWeapon(GCBasePlayerWeapon value) {
@@ -9403,7 +9403,7 @@ GCEntityFlame::GCEntityFlame(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCEntityFlame::GetEntAttached() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CEntityFlame", "m_hEntAttached"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CEntityFlame", "m_hEntAttached"));
     return value;
 }
 void GCEntityFlame::SetEntAttached(GCBaseEntity value) {
@@ -9446,7 +9446,7 @@ void GCEntityFlame::SetLifetime(float value) {
     SetSchemaValue(m_ptr, "CEntityFlame", "m_flLifetime", false, value);
 }
 GCBaseEntity GCEntityFlame::GetAttacker() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CEntityFlame", "m_hAttacker"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CEntityFlame", "m_hAttacker"));
     return value;
 }
 void GCEntityFlame::SetAttacker(GCBaseEntity value) {
@@ -9620,7 +9620,7 @@ void GCCSBot::SetIsFollowing(bool value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_isFollowing", false, value);
 }
 GCCSPlayerPawn GCCSBot::GetLeader() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_leader"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CCSBot", "m_leader"));
     return value;
 }
 void GCCSBot::SetLeader(GCCSPlayerPawn value) {
@@ -9685,7 +9685,7 @@ void GCCSBot::SetIsOpeningDoor(bool value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_isOpeningDoor", false, value);
 }
 GCBaseEntity GCCSBot::GetTaskEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_taskEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CCSBot", "m_taskEntity"));
     return value;
 }
 void GCCSBot::SetTaskEntity(GCBaseEntity value) {
@@ -9698,14 +9698,14 @@ void GCCSBot::SetGoalPosition(Vector value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_goalPosition", false, value);
 }
 GCBaseEntity GCCSBot::GetGoalEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_goalEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CCSBot", "m_goalEntity"));
     return value;
 }
 void GCCSBot::SetGoalEntity(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CCSBot","m_goalEntity", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCCSBot::GetAvoid() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_avoid"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CCSBot", "m_avoid"));
     return value;
 }
 void GCCSBot::SetAvoid(GCBaseEntity value) {
@@ -9889,7 +9889,7 @@ void GCCSBot::SetNoiseTimestamp(float value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_noiseTimestamp", false, value);
 }
 GCCSPlayerPawn GCCSBot::GetNoiseSource() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_noiseSource"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CCSBot", "m_noiseSource"));
     return value;
 }
 void GCCSBot::SetNoiseSource(GCCSPlayerPawn value) {
@@ -10117,7 +10117,7 @@ void GCCSBot::SetIgnoreEnemiesTimer(GCountdownTimer value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'IgnoreEnemiesTimer' is not possible.\n");
 }
 GCCSPlayerPawn GCCSBot::GetEnemy() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_enemy"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CCSBot", "m_enemy"));
     return value;
 }
 void GCCSBot::SetEnemy(GCCSPlayerPawn value) {
@@ -10184,7 +10184,7 @@ void GCCSBot::SetNearbyEnemyCount(int32_t value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_nearbyEnemyCount", false, value);
 }
 GCCSPlayerPawn GCCSBot::GetBomber() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_bomber"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CCSBot", "m_bomber"));
     return value;
 }
 void GCCSBot::SetBomber(GCCSPlayerPawn value) {
@@ -10197,14 +10197,14 @@ void GCCSBot::SetNearbyFriendCount(int32_t value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_nearbyFriendCount", false, value);
 }
 GCCSPlayerPawn GCCSBot::GetClosestVisibleFriend() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_closestVisibleFriend"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CCSBot", "m_closestVisibleFriend"));
     return value;
 }
 void GCCSBot::SetClosestVisibleFriend(GCCSPlayerPawn value) {
     SetSchemaValue(m_ptr, "CCSBot","m_closestVisibleFriend", false, (char*)value.GetPtr());
 }
 GCCSPlayerPawn GCCSBot::GetClosestVisibleHumanFriend() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_closestVisibleHumanFriend"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CCSBot", "m_closestVisibleHumanFriend"));
     return value;
 }
 void GCCSBot::SetClosestVisibleHumanFriend(GCCSPlayerPawn value) {
@@ -10218,7 +10218,7 @@ void GCCSBot::SetAttentionInterval(GIntervalTimer value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'AttentionInterval' is not possible.\n");
 }
 GCCSPlayerPawn GCCSBot::GetAttacker() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_attacker"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CCSBot", "m_attacker"));
     return value;
 }
 void GCCSBot::SetAttacker(GCCSPlayerPawn value) {
@@ -10394,7 +10394,7 @@ void GCCSBot::SetLastRadioSentTimestamp(float value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_lastRadioSentTimestamp", false, value);
 }
 GCCSPlayerPawn GCCSBot::GetRadioSubject() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSBot", "m_radioSubject"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CCSBot", "m_radioSubject"));
     return value;
 }
 void GCCSBot::SetRadioSubject(GCCSPlayerPawn value) {
@@ -10633,28 +10633,28 @@ void GCEntityIdentity::SetPathIndex(GChangeAccessorFieldPathIndex_t value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'PathIndex' is not possible.\n");
 }
 GCEntityIdentity GCEntityIdentity::GetPrev() const {
-    GCEntityIdentity value(*GetSchemaValuePtr<void*>(m_ptr, "CEntityIdentity", "m_pPrev"));
+    GCEntityIdentity value(GetSchemaPtr(m_ptr, "CEntityIdentity", "m_pPrev"));
     return value;
 }
 void GCEntityIdentity::SetPrev(GCEntityIdentity value) {
     SetSchemaValue(m_ptr, "CEntityIdentity","m_pPrev", false, (char*)value.GetPtr());
 }
 GCEntityIdentity GCEntityIdentity::GetNext() const {
-    GCEntityIdentity value(*GetSchemaValuePtr<void*>(m_ptr, "CEntityIdentity", "m_pNext"));
+    GCEntityIdentity value(GetSchemaPtr(m_ptr, "CEntityIdentity", "m_pNext"));
     return value;
 }
 void GCEntityIdentity::SetNext(GCEntityIdentity value) {
     SetSchemaValue(m_ptr, "CEntityIdentity","m_pNext", false, (char*)value.GetPtr());
 }
 GCEntityIdentity GCEntityIdentity::GetPrevByClass() const {
-    GCEntityIdentity value(*GetSchemaValuePtr<void*>(m_ptr, "CEntityIdentity", "m_pPrevByClass"));
+    GCEntityIdentity value(GetSchemaPtr(m_ptr, "CEntityIdentity", "m_pPrevByClass"));
     return value;
 }
 void GCEntityIdentity::SetPrevByClass(GCEntityIdentity value) {
     SetSchemaValue(m_ptr, "CEntityIdentity","m_pPrevByClass", false, (char*)value.GetPtr());
 }
 GCEntityIdentity GCEntityIdentity::GetNextByClass() const {
-    GCEntityIdentity value(*GetSchemaValuePtr<void*>(m_ptr, "CEntityIdentity", "m_pNextByClass"));
+    GCEntityIdentity value(GetSchemaPtr(m_ptr, "CEntityIdentity", "m_pNextByClass"));
     return value;
 }
 void GCEntityIdentity::SetNextByClass(GCEntityIdentity value) {
@@ -10702,7 +10702,7 @@ void GCGunTarget::SetOn(bool value) {
     SetSchemaValue(m_ptr, "CGunTarget", "m_on", false, value);
 }
 GCBaseEntity GCGunTarget::GetTargetEnt() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CGunTarget", "m_hTargetEnt"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CGunTarget", "m_hTargetEnt"));
     return value;
 }
 void GCGunTarget::SetTargetEnt(GCBaseEntity value) {
@@ -11070,7 +11070,7 @@ GCInstancedSceneEntity::GCInstancedSceneEntity(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCInstancedSceneEntity::GetOwner() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CInstancedSceneEntity", "m_hOwner"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CInstancedSceneEntity", "m_hOwner"));
     return value;
 }
 void GCInstancedSceneEntity::SetOwner(GCBaseEntity value) {
@@ -11107,7 +11107,7 @@ void GCInstancedSceneEntity::SetRemoveOnCompletion(bool value) {
     SetSchemaValue(m_ptr, "CInstancedSceneEntity", "m_bRemoveOnCompletion", false, value);
 }
 GCBaseEntity GCInstancedSceneEntity::GetTarget() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CInstancedSceneEntity", "m_hTarget"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CInstancedSceneEntity", "m_hTarget"));
     return value;
 }
 void GCInstancedSceneEntity::SetTarget(GCBaseEntity value) {
@@ -11438,14 +11438,14 @@ void GCHostage::SetHostageState(int32_t value) {
     SetSchemaValue(m_ptr, "CHostage", "m_nHostageState", false, value);
 }
 GCBaseEntity GCHostage::GetLeader() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CHostage", "m_leader"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CHostage", "m_leader"));
     return value;
 }
 void GCHostage::SetLeader(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CHostage","m_leader", false, (char*)value.GetPtr());
 }
 GCCSPlayerPawnBase GCHostage::GetLastLeader() const {
-    GCCSPlayerPawnBase value(*GetSchemaValuePtr<void*>(m_ptr, "CHostage", "m_lastLeader"));
+    GCCSPlayerPawnBase value(GetSchemaPtr(m_ptr, "CHostage", "m_lastLeader"));
     return value;
 }
 void GCHostage::SetLastLeader(GCCSPlayerPawnBase value) {
@@ -11536,7 +11536,7 @@ void GCHostage::SetHandsHaveBeenCut(bool value) {
     SetSchemaValue(m_ptr, "CHostage", "m_bHandsHaveBeenCut", false, value);
 }
 GCCSPlayerPawn GCHostage::GetHostageGrabber() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CHostage", "m_hHostageGrabber"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CHostage", "m_hHostageGrabber"));
     return value;
 }
 void GCHostage::SetHostageGrabber(GCCSPlayerPawn value) {
@@ -11991,42 +11991,42 @@ GCCSPlayerPawn::GCCSPlayerPawn(void *ptr) {
     m_ptr = ptr;
 }
 GCCSPlayer_BulletServices GCCSPlayerPawn::GetBulletServices() const {
-    GCCSPlayer_BulletServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawn", "m_pBulletServices"));
+    GCCSPlayer_BulletServices value(GetSchemaPtr(m_ptr, "CCSPlayerPawn", "m_pBulletServices"));
     return value;
 }
 void GCCSPlayerPawn::SetBulletServices(GCCSPlayer_BulletServices value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn","m_pBulletServices", false, (char*)value.GetPtr());
 }
 GCCSPlayer_HostageServices GCCSPlayerPawn::GetHostageServices() const {
-    GCCSPlayer_HostageServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawn", "m_pHostageServices"));
+    GCCSPlayer_HostageServices value(GetSchemaPtr(m_ptr, "CCSPlayerPawn", "m_pHostageServices"));
     return value;
 }
 void GCCSPlayerPawn::SetHostageServices(GCCSPlayer_HostageServices value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn","m_pHostageServices", false, (char*)value.GetPtr());
 }
 GCCSPlayer_BuyServices GCCSPlayerPawn::GetBuyServices() const {
-    GCCSPlayer_BuyServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawn", "m_pBuyServices"));
+    GCCSPlayer_BuyServices value(GetSchemaPtr(m_ptr, "CCSPlayerPawn", "m_pBuyServices"));
     return value;
 }
 void GCCSPlayerPawn::SetBuyServices(GCCSPlayer_BuyServices value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn","m_pBuyServices", false, (char*)value.GetPtr());
 }
 GCCSPlayer_ActionTrackingServices GCCSPlayerPawn::GetActionTrackingServices() const {
-    GCCSPlayer_ActionTrackingServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawn", "m_pActionTrackingServices"));
+    GCCSPlayer_ActionTrackingServices value(GetSchemaPtr(m_ptr, "CCSPlayerPawn", "m_pActionTrackingServices"));
     return value;
 }
 void GCCSPlayerPawn::SetActionTrackingServices(GCCSPlayer_ActionTrackingServices value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn","m_pActionTrackingServices", false, (char*)value.GetPtr());
 }
 GCCSPlayer_RadioServices GCCSPlayerPawn::GetRadioServices() const {
-    GCCSPlayer_RadioServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawn", "m_pRadioServices"));
+    GCCSPlayer_RadioServices value(GetSchemaPtr(m_ptr, "CCSPlayerPawn", "m_pRadioServices"));
     return value;
 }
 void GCCSPlayerPawn::SetRadioServices(GCCSPlayer_RadioServices value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn","m_pRadioServices", false, (char*)value.GetPtr());
 }
 GCCSPlayer_DamageReactServices GCCSPlayerPawn::GetDamageReactServices() const {
-    GCCSPlayer_DamageReactServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawn", "m_pDamageReactServices"));
+    GCCSPlayer_DamageReactServices value(GetSchemaPtr(m_ptr, "CCSPlayerPawn", "m_pDamageReactServices"));
     return value;
 }
 void GCCSPlayerPawn::SetDamageReactServices(GCCSPlayer_DamageReactServices value) {
@@ -12515,7 +12515,7 @@ void GCCSPlayerPawn::SetLastHealth(int32_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn", "m_LastHealth", false, value);
 }
 GCCSBot GCCSPlayerPawn::GetBot() const {
-    GCCSBot value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerPawn", "m_pBot"));
+    GCCSBot value(GetSchemaPtr(m_ptr, "CCSPlayerPawn", "m_pBot"));
     return value;
 }
 void GCCSPlayerPawn::SetBot(GCCSBot value) {
@@ -12869,28 +12869,28 @@ GCCSPlayerController::GCCSPlayerController(void *ptr) {
     m_ptr = ptr;
 }
 GCCSPlayerController_InGameMoneyServices GCCSPlayerController::GetInGameMoneyServices() const {
-    GCCSPlayerController_InGameMoneyServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerController", "m_pInGameMoneyServices"));
+    GCCSPlayerController_InGameMoneyServices value(GetSchemaPtr(m_ptr, "CCSPlayerController", "m_pInGameMoneyServices"));
     return value;
 }
 void GCCSPlayerController::SetInGameMoneyServices(GCCSPlayerController_InGameMoneyServices value) {
     SetSchemaValue(m_ptr, "CCSPlayerController","m_pInGameMoneyServices", false, (char*)value.GetPtr());
 }
 GCCSPlayerController_InventoryServices GCCSPlayerController::GetInventoryServices() const {
-    GCCSPlayerController_InventoryServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerController", "m_pInventoryServices"));
+    GCCSPlayerController_InventoryServices value(GetSchemaPtr(m_ptr, "CCSPlayerController", "m_pInventoryServices"));
     return value;
 }
 void GCCSPlayerController::SetInventoryServices(GCCSPlayerController_InventoryServices value) {
     SetSchemaValue(m_ptr, "CCSPlayerController","m_pInventoryServices", false, (char*)value.GetPtr());
 }
 GCCSPlayerController_ActionTrackingServices GCCSPlayerController::GetActionTrackingServices() const {
-    GCCSPlayerController_ActionTrackingServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerController", "m_pActionTrackingServices"));
+    GCCSPlayerController_ActionTrackingServices value(GetSchemaPtr(m_ptr, "CCSPlayerController", "m_pActionTrackingServices"));
     return value;
 }
 void GCCSPlayerController::SetActionTrackingServices(GCCSPlayerController_ActionTrackingServices value) {
     SetSchemaValue(m_ptr, "CCSPlayerController","m_pActionTrackingServices", false, (char*)value.GetPtr());
 }
 GCCSPlayerController_DamageServices GCCSPlayerController::GetDamageServices() const {
-    GCCSPlayerController_DamageServices value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerController", "m_pDamageServices"));
+    GCCSPlayerController_DamageServices value(GetSchemaPtr(m_ptr, "CCSPlayerController", "m_pDamageServices"));
     return value;
 }
 void GCCSPlayerController::SetDamageServices(GCCSPlayerController_DamageServices value) {
@@ -13168,14 +13168,14 @@ void GCCSPlayerController::SetCanControlObservedBot(bool value) {
     SetSchemaValue(m_ptr, "CCSPlayerController", "m_bCanControlObservedBot", false, value);
 }
 GCCSPlayerPawn GCCSPlayerController::GetPlayerPawn() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerController", "m_hPlayerPawn"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CCSPlayerController", "m_hPlayerPawn"));
     return value;
 }
 void GCCSPlayerController::SetPlayerPawn(GCCSPlayerPawn value) {
     SetSchemaValue(m_ptr, "CCSPlayerController","m_hPlayerPawn", false, (char*)value.GetPtr());
 }
 GCCSObserverPawn GCCSPlayerController::GetObserverPawn() const {
-    GCCSObserverPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerController", "m_hObserverPawn"));
+    GCCSObserverPawn value(GetSchemaPtr(m_ptr, "CCSPlayerController", "m_hObserverPawn"));
     return value;
 }
 void GCCSPlayerController::SetObserverPawn(GCCSObserverPawn value) {
@@ -13188,7 +13188,7 @@ void GCCSPlayerController::SetDesiredObserverMode(int32_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerController", "m_DesiredObserverMode", false, value);
 }
 GCEntityInstance GCCSPlayerController::GetDesiredObserverTarget() const {
-    GCEntityInstance value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerController", "m_hDesiredObserverTarget"));
+    GCEntityInstance value(GetSchemaPtr(m_ptr, "CCSPlayerController", "m_hDesiredObserverTarget"));
     return value;
 }
 void GCCSPlayerController::SetDesiredObserverTarget(GCEntityInstance value) {
@@ -13249,7 +13249,7 @@ void GCCSPlayerController::SetPawnBotDifficulty(int32_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerController", "m_iPawnBotDifficulty", false, value);
 }
 GCCSPlayerController GCCSPlayerController::GetOriginalControllerOfCurrentPawn() const {
-    GCCSPlayerController value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPlayerController", "m_hOriginalControllerOfCurrentPawn"));
+    GCCSPlayerController value(GetSchemaPtr(m_ptr, "CCSPlayerController", "m_hOriginalControllerOfCurrentPawn"));
     return value;
 }
 void GCCSPlayerController::SetOriginalControllerOfCurrentPawn(GCCSPlayerController value) {
@@ -13590,7 +13590,7 @@ void GCChicken::SetTurnRate(float value) {
     SetSchemaValue(m_ptr, "CChicken", "m_turnRate", false, value);
 }
 GCBaseEntity GCChicken::GetFleeFrom() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CChicken", "m_fleeFrom"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CChicken", "m_fleeFrom"));
     return value;
 }
 void GCChicken::SetFleeFrom(GCBaseEntity value) {
@@ -13630,7 +13630,7 @@ void GCChicken::SetJumpedThisFrame(bool value) {
     SetSchemaValue(m_ptr, "CChicken", "m_jumpedThisFrame", false, value);
 }
 GCCSPlayerPawn GCChicken::GetLeader() const {
-    GCCSPlayerPawn value(*GetSchemaValuePtr<void*>(m_ptr, "CChicken", "m_leader"));
+    GCCSPlayerPawn value(GetSchemaPtr(m_ptr, "CChicken", "m_leader"));
     return value;
 }
 void GCChicken::SetLeader(GCCSPlayerPawn value) {
@@ -15152,14 +15152,14 @@ void GCLogicLineToEntity::SetSourceName(std::string value) {
     SetSchemaValue(m_ptr, "CLogicLineToEntity", "m_SourceName", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseEntity GCLogicLineToEntity::GetStartEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CLogicLineToEntity", "m_StartEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CLogicLineToEntity", "m_StartEntity"));
     return value;
 }
 void GCLogicLineToEntity::SetStartEntity(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CLogicLineToEntity","m_StartEntity", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCLogicLineToEntity::GetEndEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CLogicLineToEntity", "m_EndEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CLogicLineToEntity", "m_EndEntity"));
     return value;
 }
 void GCLogicLineToEntity::SetEndEntity(GCBaseEntity value) {
@@ -15260,7 +15260,7 @@ GCCSGameRulesProxy::GCCSGameRulesProxy(void *ptr) {
     m_ptr = ptr;
 }
 GCCSGameRules GCCSGameRulesProxy::GetGameRules() const {
-    GCCSGameRules value(*GetSchemaValuePtr<void*>(m_ptr, "CCSGameRulesProxy", "m_pGameRules"));
+    GCCSGameRules value(GetSchemaPtr(m_ptr, "CCSGameRulesProxy", "m_pGameRules"));
     return value;
 }
 void GCCSGameRulesProxy::SetGameRules(GCCSGameRules value) {
@@ -16369,14 +16369,14 @@ void GCCSGameRules::SetSwitchingTeamsAtRoundReset(bool value) {
     SetSchemaValue(m_ptr, "CCSGameRules", "m_bSwitchingTeamsAtRoundReset", false, value);
 }
 GCCSGameModeRules GCCSGameRules::GetGameModeRules() const {
-    GCCSGameModeRules value(*GetSchemaValuePtr<void*>(m_ptr, "CCSGameRules", "m_pGameModeRules"));
+    GCCSGameModeRules value(GetSchemaPtr(m_ptr, "CCSGameRules", "m_pGameModeRules"));
     return value;
 }
 void GCCSGameRules::SetGameModeRules(GCCSGameModeRules value) {
     SetSchemaValue(m_ptr, "CCSGameRules","m_pGameModeRules", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCCSGameRules::GetPlayerResource() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CCSGameRules", "m_hPlayerResource"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CCSGameRules", "m_hPlayerResource"));
     return value;
 }
 void GCCSGameRules::SetPlayerResource(GCBaseEntity value) {
@@ -17164,7 +17164,7 @@ void GCPointPrefab::SetLoadDynamic(bool value) {
     SetSchemaValue(m_ptr, "CPointPrefab", "m_bLoadDynamic", false, value);
 }
 GCPointPrefab GCPointPrefab::GetAssociatedRelayEntity() const {
-    GCPointPrefab value(*GetSchemaValuePtr<void*>(m_ptr, "CPointPrefab", "m_associatedRelayEntity"));
+    GCPointPrefab value(GetSchemaPtr(m_ptr, "CPointPrefab", "m_associatedRelayEntity"));
     return value;
 }
 void GCPointPrefab::SetAssociatedRelayEntity(GCPointPrefab value) {
@@ -17248,7 +17248,7 @@ GCSkeletonAnimationController::GCSkeletonAnimationController(void *ptr) {
     m_ptr = ptr;
 }
 GCSkeletonInstance GCSkeletonAnimationController::GetSkeletonInstance() const {
-    GCSkeletonInstance value(*GetSchemaValuePtr<void*>(m_ptr, "CSkeletonAnimationController", "m_pSkeletonInstance"));
+    GCSkeletonInstance value(GetSchemaPtr(m_ptr, "CSkeletonAnimationController", "m_pSkeletonInstance"));
     return value;
 }
 void GCSkeletonAnimationController::SetSkeletonInstance(GCSkeletonInstance value) {
@@ -17320,14 +17320,14 @@ GCTankTrainAI::GCTankTrainAI(void *ptr) {
     m_ptr = ptr;
 }
 GCFuncTrackTrain GCTankTrainAI::GetTrain() const {
-    GCFuncTrackTrain value(*GetSchemaValuePtr<void*>(m_ptr, "CTankTrainAI", "m_hTrain"));
+    GCFuncTrackTrain value(GetSchemaPtr(m_ptr, "CTankTrainAI", "m_hTrain"));
     return value;
 }
 void GCTankTrainAI::SetTrain(GCFuncTrackTrain value) {
     SetSchemaValue(m_ptr, "CTankTrainAI","m_hTrain", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCTankTrainAI::GetTargetEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CTankTrainAI", "m_hTargetEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CTankTrainAI", "m_hTargetEntity"));
     return value;
 }
 void GCTankTrainAI::SetTargetEntity(GCBaseEntity value) {
@@ -17463,7 +17463,7 @@ GCCSPointScript::GCCSPointScript(void *ptr) {
     m_ptr = ptr;
 }
 GCCSPointScriptEntity GCCSPointScript::GetParent() const {
-    GCCSPointScriptEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CCSPointScript", "m_pParent"));
+    GCCSPointScriptEntity value(GetSchemaPtr(m_ptr, "CCSPointScript", "m_pParent"));
     return value;
 }
 void GCCSPointScript::SetParent(GCCSPointScriptEntity value) {
@@ -17851,7 +17851,7 @@ GCFuncTrain::GCFuncTrain(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCFuncTrain::GetCurrentTarget() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CFuncTrain", "m_hCurrentTarget"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CFuncTrain", "m_hCurrentTarget"));
     return value;
 }
 void GCFuncTrain::SetCurrentTarget(GCBaseEntity value) {
@@ -17864,7 +17864,7 @@ void GCFuncTrain::SetActivated(bool value) {
     SetSchemaValue(m_ptr, "CFuncTrain", "m_activated", false, value);
 }
 GCBaseEntity GCFuncTrain::GetEnemy() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CFuncTrain", "m_hEnemy"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CFuncTrain", "m_hEnemy"));
     return value;
 }
 void GCFuncTrain::SetEnemy(GCBaseEntity value) {
@@ -18013,7 +18013,7 @@ void GCNavLinkAreaEntity::SetStrFilterName(std::string value) {
     SetSchemaValue(m_ptr, "CNavLinkAreaEntity", "m_strFilterName", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseFilter GCNavLinkAreaEntity::GetFilter() const {
-    GCBaseFilter value(*GetSchemaValuePtr<void*>(m_ptr, "CNavLinkAreaEntity", "m_hFilter"));
+    GCBaseFilter value(GetSchemaPtr(m_ptr, "CNavLinkAreaEntity", "m_hFilter"));
     return value;
 }
 void GCNavLinkAreaEntity::SetFilter(GCBaseFilter value) {
@@ -18350,28 +18350,28 @@ void GCLogicMeasureMovement::SetStrTargetReference(std::string value) {
     SetSchemaValue(m_ptr, "CLogicMeasureMovement", "m_strTargetReference", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseEntity GCLogicMeasureMovement::GetMeasureTarget() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CLogicMeasureMovement", "m_hMeasureTarget"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CLogicMeasureMovement", "m_hMeasureTarget"));
     return value;
 }
 void GCLogicMeasureMovement::SetMeasureTarget(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CLogicMeasureMovement","m_hMeasureTarget", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCLogicMeasureMovement::GetMeasureReference() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CLogicMeasureMovement", "m_hMeasureReference"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CLogicMeasureMovement", "m_hMeasureReference"));
     return value;
 }
 void GCLogicMeasureMovement::SetMeasureReference(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CLogicMeasureMovement","m_hMeasureReference", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCLogicMeasureMovement::GetTarget() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CLogicMeasureMovement", "m_hTarget"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CLogicMeasureMovement", "m_hTarget"));
     return value;
 }
 void GCLogicMeasureMovement::SetTarget(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CLogicMeasureMovement","m_hTarget", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCLogicMeasureMovement::GetTargetReference() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CLogicMeasureMovement", "m_hTargetReference"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CLogicMeasureMovement", "m_hTargetReference"));
     return value;
 }
 void GCLogicMeasureMovement::SetTargetReference(GCBaseEntity value) {
@@ -18483,7 +18483,7 @@ void GPhysicsRagdollPose_t::Set__pChainEntity(GCNetworkVarChainer value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for '__pChainEntity' is not possible.\n");
 }
 GCBaseEntity GPhysicsRagdollPose_t::GetOwner() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "PhysicsRagdollPose_t", "m_hOwner"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "PhysicsRagdollPose_t", "m_hOwner"));
     return value;
 }
 void GPhysicsRagdollPose_t::SetOwner(GCBaseEntity value) {
@@ -19194,7 +19194,7 @@ void GCEnvLaser::SetLaserTarget(std::string value) {
     SetSchemaValue(m_ptr, "CEnvLaser", "m_iszLaserTarget", false, CUtlSymbolLarge(value.c_str()));
 }
 GCSprite GCEnvLaser::GetSprite() const {
-    GCSprite value(*GetSchemaValuePtr<void*>(m_ptr, "CEnvLaser", "m_pSprite"));
+    GCSprite value(GetSchemaPtr(m_ptr, "CEnvLaser", "m_pSprite"));
     return value;
 }
 void GCEnvLaser::SetSprite(GCSprite value) {
@@ -19287,7 +19287,7 @@ GCRopeOverlapHit::GCRopeOverlapHit(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCRopeOverlapHit::GetEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CRopeOverlapHit", "m_hEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CRopeOverlapHit", "m_hEntity"));
     return value;
 }
 void GCRopeOverlapHit::SetEntity(GCBaseEntity value) {
@@ -19849,7 +19849,7 @@ void GCAI_Expresser::SetLastSpokenPriority(int32_t value) {
     SetSchemaValue(m_ptr, "CAI_Expresser", "m_nLastSpokenPriority", false, value);
 }
 GCBaseFlex GCAI_Expresser::GetOuter() const {
-    GCBaseFlex value(*GetSchemaValuePtr<void*>(m_ptr, "CAI_Expresser", "m_pOuter"));
+    GCBaseFlex value(GetSchemaPtr(m_ptr, "CAI_Expresser", "m_pOuter"));
     return value;
 }
 void GCAI_Expresser::SetOuter(GCBaseFlex value) {
@@ -19965,7 +19965,7 @@ void GResponseParams::SetFlags(int16_t value) {
     SetSchemaValue(m_ptr, "ResponseParams", "flags", false, value);
 }
 GResponseFollowup GResponseParams::GetFollowup() const {
-    GResponseFollowup value(*GetSchemaValuePtr<void*>(m_ptr, "ResponseParams", "m_pFollowup"));
+    GResponseFollowup value(GetSchemaPtr(m_ptr, "ResponseParams", "m_pFollowup"));
     return value;
 }
 void GResponseParams::SetFollowup(GResponseFollowup value) {
@@ -20521,14 +20521,14 @@ GCSound::GCSound(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCSound::GetOwner() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CSound", "m_hOwner"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CSound", "m_hOwner"));
     return value;
 }
 void GCSound::SetOwner(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CSound","m_hOwner", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCSound::GetTarget() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CSound", "m_hTarget"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CSound", "m_hTarget"));
     return value;
 }
 void GCSound::SetTarget(GCBaseEntity value) {
@@ -20624,7 +20624,7 @@ GCTakeDamageResult::GCTakeDamageResult(void *ptr) {
     m_ptr = ptr;
 }
 GCTakeDamageInfo GCTakeDamageResult::GetOriginatingInfo() const {
-    GCTakeDamageInfo value(*GetSchemaValuePtr<void*>(m_ptr, "CTakeDamageResult", "m_pOriginatingInfo"));
+    GCTakeDamageInfo value(GetSchemaPtr(m_ptr, "CTakeDamageResult", "m_pOriginatingInfo"));
     return value;
 }
 void GCTakeDamageResult::SetOriginatingInfo(GCTakeDamageInfo value) {
@@ -21206,14 +21206,14 @@ GCGameChoreoServices::GCGameChoreoServices(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseAnimGraph GCGameChoreoServices::GetOwner() const {
-    GCBaseAnimGraph value(*GetSchemaValuePtr<void*>(m_ptr, "CGameChoreoServices", "m_hOwner"));
+    GCBaseAnimGraph value(GetSchemaPtr(m_ptr, "CGameChoreoServices", "m_hOwner"));
     return value;
 }
 void GCGameChoreoServices::SetOwner(GCBaseAnimGraph value) {
     SetSchemaValue(m_ptr, "CGameChoreoServices","m_hOwner", false, (char*)value.GetPtr());
 }
 GCScriptedSequence GCGameChoreoServices::GetScriptedSequence() const {
-    GCScriptedSequence value(*GetSchemaValuePtr<void*>(m_ptr, "CGameChoreoServices", "m_hScriptedSequence"));
+    GCScriptedSequence value(GetSchemaPtr(m_ptr, "CGameChoreoServices", "m_hScriptedSequence"));
     return value;
 }
 void GCGameChoreoServices::SetScriptedSequence(GCScriptedSequence value) {
@@ -21327,14 +21327,14 @@ void GCShatterGlassShard::SetLocalPanelSpaceOrigin(Vector2D value) {
     SetSchemaValue(m_ptr, "CShatterGlassShard", "m_vLocalPanelSpaceOrigin", false, value);
 }
 GCShatterGlassShardPhysics GCShatterGlassShard::GetPhysicsEntity() const {
-    GCShatterGlassShardPhysics value(*GetSchemaValuePtr<void*>(m_ptr, "CShatterGlassShard", "m_hPhysicsEntity"));
+    GCShatterGlassShardPhysics value(GetSchemaPtr(m_ptr, "CShatterGlassShard", "m_hPhysicsEntity"));
     return value;
 }
 void GCShatterGlassShard::SetPhysicsEntity(GCShatterGlassShardPhysics value) {
     SetSchemaValue(m_ptr, "CShatterGlassShard","m_hPhysicsEntity", false, (char*)value.GetPtr());
 }
 GCFuncShatterglass GCShatterGlassShard::GetParentPanel() const {
-    GCFuncShatterglass value(*GetSchemaValuePtr<void*>(m_ptr, "CShatterGlassShard", "m_hParentPanel"));
+    GCFuncShatterglass value(GetSchemaPtr(m_ptr, "CShatterGlassShard", "m_hParentPanel"));
     return value;
 }
 void GCShatterGlassShard::SetParentPanel(GCFuncShatterglass value) {
@@ -21473,7 +21473,7 @@ void GCShatterGlassShard::SetShatterRateLimited(bool value) {
     SetSchemaValue(m_ptr, "CShatterGlassShard", "m_bShatterRateLimited", false, value);
 }
 GCBaseEntity GCShatterGlassShard::GetEntityHittingMe() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CShatterGlassShard", "m_hEntityHittingMe"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CShatterGlassShard", "m_hEntityHittingMe"));
     return value;
 }
 void GCShatterGlassShard::SetEntityHittingMe(GCBaseEntity value) {
@@ -21769,7 +21769,7 @@ Gmagnetted_objects_t::Gmagnetted_objects_t(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity Gmagnetted_objects_t::GetEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "magnetted_objects_t", "hEntity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "magnetted_objects_t", "hEntity"));
     return value;
 }
 void Gmagnetted_objects_t::SetEntity(GCBaseEntity value) {
@@ -21807,7 +21807,7 @@ void GCHintMessageQueue::SetTmMessageEnd(float value) {
     SetSchemaValue(m_ptr, "CHintMessageQueue", "m_tmMessageEnd", false, value);
 }
 GCBasePlayerController GCHintMessageQueue::GetPlayerController() const {
-    GCBasePlayerController value(*GetSchemaValuePtr<void*>(m_ptr, "CHintMessageQueue", "m_pPlayerController"));
+    GCBasePlayerController value(GetSchemaPtr(m_ptr, "CHintMessageQueue", "m_pPlayerController"));
     return value;
 }
 void GCHintMessageQueue::SetPlayerController(GCBasePlayerController value) {
@@ -22123,7 +22123,7 @@ void GCSceneEventInfo::SetShouldRemove(bool value) {
     SetSchemaValue(m_ptr, "CSceneEventInfo", "m_bShouldRemove", false, value);
 }
 GCBaseEntity GCSceneEventInfo::GetTarget() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CSceneEventInfo", "m_hTarget"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CSceneEventInfo", "m_hTarget"));
     return value;
 }
 void GCSceneEventInfo::SetTarget(GCBaseEntity value) {
@@ -22465,7 +22465,7 @@ void GCSoundPatch::SetSoundScriptName(std::string value) {
     SetSchemaValue(m_ptr, "CSoundPatch", "m_iszSoundScriptName", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseEntity GCSoundPatch::GetEnt() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CSoundPatch", "m_hEnt"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CSoundPatch", "m_hEnt"));
     return value;
 }
 void GCSoundPatch::SetEnt(GCBaseEntity value) {
@@ -22895,7 +22895,7 @@ void GCPhysMotor::SetNameAttach(std::string value) {
     SetSchemaValue(m_ptr, "CPhysMotor", "m_nameAttach", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseEntity GCPhysMotor::GetAttachedObject() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CPhysMotor", "m_hAttachedObject"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CPhysMotor", "m_hAttachedObject"));
     return value;
 }
 void GCPhysMotor::SetAttachedObject(GCBaseEntity value) {
@@ -23094,21 +23094,21 @@ void GCTakeDamageInfo::SetDamageDirection(Vector value) {
     SetSchemaValue(m_ptr, "CTakeDamageInfo", "m_vecDamageDirection", false, value);
 }
 GCBaseEntity GCTakeDamageInfo::GetInflictor() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CTakeDamageInfo", "m_hInflictor"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CTakeDamageInfo", "m_hInflictor"));
     return value;
 }
 void GCTakeDamageInfo::SetInflictor(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CTakeDamageInfo","m_hInflictor", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCTakeDamageInfo::GetAttacker() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CTakeDamageInfo", "m_hAttacker"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CTakeDamageInfo", "m_hAttacker"));
     return value;
 }
 void GCTakeDamageInfo::SetAttacker(GCBaseEntity value) {
     SetSchemaValue(m_ptr, "CTakeDamageInfo","m_hAttacker", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCTakeDamageInfo::GetAbility() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CTakeDamageInfo", "m_hAbility"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CTakeDamageInfo", "m_hAbility"));
     return value;
 }
 void GCTakeDamageInfo::SetAbility(GCBaseEntity value) {
@@ -23313,7 +23313,7 @@ void GSummaryTakeDamageInfo_t::SetResult(GCTakeDamageResult value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Result' is not possible.\n");
 }
 GCBaseEntity GSummaryTakeDamageInfo_t::GetTarget() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "SummaryTakeDamageInfo_t", "hTarget"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "SummaryTakeDamageInfo_t", "hTarget"));
     return value;
 }
 void GSummaryTakeDamageInfo_t::SetTarget(GCBaseEntity value) {
@@ -23549,7 +23549,7 @@ GCAI_ExpresserWithFollowup::GCAI_ExpresserWithFollowup(void *ptr) {
     m_ptr = ptr;
 }
 GResponseFollowup GCAI_ExpresserWithFollowup::GetPostponedFollowup() const {
-    GResponseFollowup value(*GetSchemaValuePtr<void*>(m_ptr, "CAI_ExpresserWithFollowup", "m_pPostponedFollowup"));
+    GResponseFollowup value(GetSchemaPtr(m_ptr, "CAI_ExpresserWithFollowup", "m_pPostponedFollowup"));
     return value;
 }
 void GCAI_ExpresserWithFollowup::SetPostponedFollowup(GResponseFollowup value) {
@@ -23645,7 +23645,7 @@ Glerpdata_t::Glerpdata_t(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity Glerpdata_t::GetEnt() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "lerpdata_t", "m_hEnt"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "lerpdata_t", "m_hEnt"));
     return value;
 }
 void Glerpdata_t::SetEnt(GCBaseEntity value) {
@@ -25296,7 +25296,7 @@ void GCAmbientGeneric::SetSourceEntName(std::string value) {
     SetSchemaValue(m_ptr, "CAmbientGeneric", "m_sSourceEntName", false, CUtlSymbolLarge(value.c_str()));
 }
 GCBaseEntity GCAmbientGeneric::GetSoundSource() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "CAmbientGeneric", "m_hSoundSource"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "CAmbientGeneric", "m_hSoundSource"));
     return value;
 }
 void GCAmbientGeneric::SetSoundSource(GCBaseEntity value) {
@@ -25641,7 +25641,7 @@ GRelationshipOverride_t::GRelationshipOverride_t(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GRelationshipOverride_t::GetEntity() const {
-    GCBaseEntity value(*GetSchemaValuePtr<void*>(m_ptr, "RelationshipOverride_t", "entity"));
+    GCBaseEntity value(GetSchemaPtr(m_ptr, "RelationshipOverride_t", "entity"));
     return value;
 }
 void GRelationshipOverride_t::SetEntity(GCBaseEntity value) {

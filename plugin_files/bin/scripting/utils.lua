@@ -122,10 +122,3 @@ string.split = function(str, split)
     end
     return splitted
 end
-
-function CCSGameRules()
-    local entities = FindEntitiesByClassname("cs_gamerules")
-    if #entities <= 0 then return nil end
-    local rulesProxy = entities[1]
-    return CCSGameRulesProxy(rulesProxy:ToPtr()).GameRules
-end

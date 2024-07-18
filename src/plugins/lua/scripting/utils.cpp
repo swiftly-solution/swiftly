@@ -13,5 +13,6 @@ void SetupLuaUtils(LuaPlugin *plugin, lua_State *state)
             Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
             if(!plugin) return (int)PluginState_t::Stopped;
 
-            return (int)plugin->GetPluginState(); });
+            return (int)plugin->GetPluginState(); })
+        .addFunction("GetCCSGameRules", scripting_GetCCSGameRules);
 }
