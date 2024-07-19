@@ -184,7 +184,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 
 	if os.getenv("SWIFTLY_VERSION") != None:
 		binary.compiler.defines += [
-			"SWIFTLY_VERSION=" + os.getenv("SWIFTLY_VERSION")
+			"SWIFTLY_VERSION=\"" + os.getenv("SWIFTLY_VERSION") + "\""
 		]
 
 	binary.compiler.cxxincludes += [
