@@ -11,20 +11,21 @@ jobs:
         permissions:
             contents: write
         runs-on: Linux
+        container:
+            image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+            options: --user root
         outputs:
             version: ${{ steps.version.outputs.revision }}
         steps:
             - name: Checkout
               uses: actions/checkout@v4
               with:
-                  path: swiftly-versioning
                   fetch-depth: 0
 
             - name: Generate Version
               if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
               id: version
               uses: juliansangillo/tag-version@v1
-              working-directory: swiftly-versioning
               with:
                   production-branch: master
                   test-branch: rewrite
