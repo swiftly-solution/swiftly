@@ -20,8 +20,8 @@ jobs:
               uses: juliansangillo/tag-version@v1
               with:
                   production-branch: master
+                  test-branch: rewrite
                   dev-branch: rewrite
-                  token: ${{secrets.github_token}}
 
     build:
         name: Build
