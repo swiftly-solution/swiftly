@@ -85,14 +85,14 @@ jobs:
               if: matrix.os == 'Linux'
               uses: actions/upload-artifact@v4
               with:
-                  name: Swiftly Plugin Linux
+                  name: Swiftly.Plugin.Linux
                   path: ${{ github.workspace }}/swiftly/build/package
                   
             - name: Upload Artifacts Windows
               if: matrix.os == 'windows-latest'
               uses: actions/upload-artifact@v4
               with:
-                  name: Swiftly Plugin Windows
+                  name: Swiftly.Plugin.Windows
                   path: ${{ github.workspace }}/swiftly/build/package
 
             - name: Creating Swiftly Depot - Linux
@@ -111,7 +111,7 @@ jobs:
               if: matrix.os == 'Linux'
               uses: actions/upload-artifact@v4
               with:
-                  name: Swiftly Plugin Depot Linux
+                  name: Swiftly.Plugin.Depot.Linux
                   path: ${{ github.workspace }}/swiftly/build/package
 
     release:
