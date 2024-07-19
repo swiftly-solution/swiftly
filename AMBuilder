@@ -182,6 +182,11 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"SWIFTLY_DEBUG"
 		]
 
+	if os.getenv("SWIFTLY_VERSION") != None:
+		binary.compiler.defines += [
+			"SWIFTLY_VERSION=" + os.getenv("SWIFTLY_VERSION")
+		]
+
 	binary.compiler.cxxincludes += [
 		os.path.join(builder.sourcePath, 'vendor', 'lua'),
 		os.path.join(builder.sourcePath, 'vendor', 'httplib'),

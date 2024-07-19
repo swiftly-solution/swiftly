@@ -631,7 +631,11 @@ const char *Swiftly::GetLicense()
 
 const char *Swiftly::GetVersion()
 {
-    return "v1.0.1";
+#ifndef SWIFTLY_VERSION
+    return "Local";
+#else
+    return (std::string("v") + std::string(SWIFTLY_VERSION)).c_str();
+#endif
 }
 
 const char *Swiftly::GetDate()

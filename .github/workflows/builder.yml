@@ -7,8 +7,25 @@ on:
     pull_request:
 
 jobs:
+    versioning:
+        permissions:
+            contents: write
+        runs-on: Linux
+        outputs:
+            version: ${{ steps.version.outputs.revision }}
+        steps:
+            - name: Generate Version
+              if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+              id: version
+              uses: juliansangillo/tag-version@v1
+              with:
+                  production-branch: master
+                  dev-branch: rewrite
+                  token: ${{secrets.github_token}}
+
     build:
         name: Build
+        needs: versioning
         runs-on: ${{ matrix.os }}
         env:
             MMSOURCE20: ${{ github.workspace }}/swiftly/alliedmodders/metamod
@@ -37,6 +54,11 @@ jobs:
             - name: Install AMBuild
               run: |
                   cd ambuild; python setup.py install; cd ..
+
+            - name: Setup Version
+              if: ${{ github.ref == 'refs/heads/master' }}
+              shell: bash
+              run: echo "SWIFTLY_VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
 
             - name: Build - Linux
               if: matrix.os == 'Linux'
@@ -85,3 +107,35 @@ jobs:
               with:
                   name: Swiftly Plugin Depot Linux
                   path: ${{ github.workspace }}/swiftly/build/package
+
+    release:
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        permissions:
+            contents: write
+        needs: ["versioning", "build"]
+        runs-on: Linux
+        steps:
+            - uses: actions/download-artifact@v3
+              with:
+                  name: Swiftly Plugin Depot Linux
+                  path: build/Swiftly.Plugin.Depot.Linux.zip
+
+            - uses: actions/download-artifact@v3
+              with:
+                  name: Swiftly Plugin Windows
+                  path: build/Swiftly.Plugin.Windows.zip
+
+            - uses: actions/download-artifact@v3
+              with:
+                  name: Swiftly Plugin Linux
+                  path: build/Swiftly.Plugin.Linux.zip
+
+            - name: Release
+              id: release
+              uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: v${{ needs.versioning.outputs.version }}
+                  files: |
+                      build/Swiftly.Plugin.Linux.zip
+                      build/Swiftly.Plugin.Windows.zip
+                      build/Swiftly.Plugin.Depot.Linux.zip
