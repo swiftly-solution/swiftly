@@ -13,23 +13,23 @@ jobs:
         runs-on: Linux
         container:
             image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
-            options: --user root
         outputs:
-            version: ${{ steps.version.outputs.revision }}
+            version: ${{ steps.version.outputs.v-version }}
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-
-            - name: Generate Version
-              if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+            - name: Packages
+              if: matrix.os == 'Linux'
+              working-directory: swiftly
+              shell: bash
+              run: |
+                  sudo apt update
+                  sudo apt install -y curl jq
+                                             
+            - name: Generate version
+              uses: reecetech/version-increment@2023.10.1
               id: version
-              uses: juliansangillo/tag-version@v1
               with:
-                  production-branch: master
-                  test-branch: rewrite
-                  dev-branch: rewrite
+                release_branch: master
+                use_api: true
 
     build:
         name: Build
