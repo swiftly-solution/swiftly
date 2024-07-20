@@ -22,6 +22,7 @@ public:
 
     void FireGameEvent(IGameEvent *pEvent) override;
     bool OnFireEvent(IGameEvent *pEvent, bool bDontBroadcast);
+    bool OnPostFireEvent(IGameEvent *pEvent, bool bDontBroadcast);
 };
 
 #endif

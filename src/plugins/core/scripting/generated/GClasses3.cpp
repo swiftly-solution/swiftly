@@ -4189,7 +4189,7 @@ void GVPhysXAggregateData_t::SetJoints(std::vector<GVPhysXJoint_t> value) {
     SetSchemaValueCUtlVector<GVPhysXJoint_t>(m_ptr, "VPhysXAggregateData_t", "m_joints", true, value);
 }
 GPhysFeModelDesc_t GVPhysXAggregateData_t::GetFeModel() const {
-    GPhysFeModelDesc_t value(GetSchemaPtr(m_ptr, "VPhysXAggregateData_t", "m_pFeModel"));
+    GPhysFeModelDesc_t value(*(void**)GetSchemaPtr(m_ptr, "VPhysXAggregateData_t", "m_pFeModel"));
     return value;
 }
 void GVPhysXAggregateData_t::SetFeModel(GPhysFeModelDesc_t value) {
@@ -18051,7 +18051,7 @@ void GCEntityComponentHelper::SetFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "CEntityComponentHelper", "m_flags", false, value);
 }
 GEntComponentInfo_t GCEntityComponentHelper::GetInfo() const {
-    GEntComponentInfo_t value(GetSchemaPtr(m_ptr, "CEntityComponentHelper", "m_pInfo"));
+    GEntComponentInfo_t value(*(void**)GetSchemaPtr(m_ptr, "CEntityComponentHelper", "m_pInfo"));
     return value;
 }
 void GCEntityComponentHelper::SetInfo(GEntComponentInfo_t value) {
@@ -18064,7 +18064,7 @@ void GCEntityComponentHelper::SetPriority(int32_t value) {
     SetSchemaValue(m_ptr, "CEntityComponentHelper", "m_nPriority", false, value);
 }
 GCEntityComponentHelper GCEntityComponentHelper::GetNext() const {
-    GCEntityComponentHelper value(GetSchemaPtr(m_ptr, "CEntityComponentHelper", "m_pNext"));
+    GCEntityComponentHelper value(*(void**)GetSchemaPtr(m_ptr, "CEntityComponentHelper", "m_pNext"));
     return value;
 }
 void GCEntityComponentHelper::SetNext(GCEntityComponentHelper value) {
@@ -19026,7 +19026,7 @@ void GPermModelData_t::SetBoneFlexDrivers(std::vector<GModelBoneFlexDriver_t> va
     SetSchemaValueCUtlVector<GModelBoneFlexDriver_t>(m_ptr, "PermModelData_t", "m_boneFlexDrivers", true, value);
 }
 GCModelConfigList GPermModelData_t::GetModelConfigList() const {
-    GCModelConfigList value(GetSchemaPtr(m_ptr, "PermModelData_t", "m_pModelConfigList"));
+    GCModelConfigList value(*(void**)GetSchemaPtr(m_ptr, "PermModelData_t", "m_pModelConfigList"));
     return value;
 }
 void GPermModelData_t::SetModelConfigList(GCModelConfigList value) {

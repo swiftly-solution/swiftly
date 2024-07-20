@@ -130,9 +130,9 @@ jobs:
 
             - name: Prepare ZIP Files
               run: |
-                (cd build; zip -qq -r ../../Swiftly.Plugin.Linux.zip build/Swiftly.Plugin.Linux/*)
-                (cd build; zip -qq -r ../../Swiftly.Plugin.Windows.zip build/Swiftly.Plugin.Windows/*)
-                (cd build; zip -qq -r ../../Swiftly.Plugin.Depot.Linux.zip build/Swiftly.Plugin.Depot.Linux/*)
+                (cd build; zip -qq -r ../../Swiftly.Plugin.Linux.zip . -i build/Swiftly.Plugin.Linux/*)
+                (cd build; zip -qq -r ../../Swiftly.Plugin.Windows.zip . -i build/Swiftly.Plugin.Windows/*)
+                (cd build; zip -qq -r ../../Swiftly.Plugin.Depot.Linux.zip . -i build/Swiftly.Plugin.Depot.Linux/*)
 
             - name: Release
               id: release

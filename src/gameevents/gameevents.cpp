@@ -8,11 +8,14 @@
 #include <vector>
 #include <msgpack.hpp>
 #include <sstream>
+#include <map>
+#include <stack>
 
 SH_DECL_HOOK2(IGameEventManager2, FireEvent, SH_NOATTRIB, 0, bool, IGameEvent *, bool);
 FuncHook<decltype(Hook_CGameEventManager_Init)> TCGameEventManager_Init(Hook_CGameEventManager_Init, "CGameEventManager_Init");
 
 EventManager *eventManager = nullptr;
+std::stack<IGameEvent*> dupEvents;
 
 void Hook_CGameEventManager_Init(IGameEventManager2 *pGameEventManager)
 {
@@ -46,6 +49,7 @@ void UnregisterEventListeners()
 void EventManager::Initialize()
 {
     SH_ADD_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnFireEvent), false);
+    SH_ADD_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnPostFireEvent), true);
 
     for (auto it = gameEventsRegister.begin(); it != gameEventsRegister.end(); ++it)
     {
@@ -57,6 +61,7 @@ void EventManager::Initialize()
 void EventManager::Shutdown()
 {
     SH_REMOVE_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnFireEvent), false);
+    SH_REMOVE_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnPostFireEvent), true);
 
     g_gameEventManager->RemoveListener(this);
 }
@@ -102,10 +107,54 @@ bool EventManager::OnFireEvent(IGameEvent *pEvent, bool bDontBroadcast)
         }
         if (result != EventResult::Continue)
         {
+            dupEvents.push(g_gameEventManager->DuplicateEvent(pEvent));
             g_gameEventManager->FreeEvent(pEvent);
             RETURN_META_VALUE(MRES_SUPERCEDE, false);
         }
     }
 
+    dupEvents.push(g_gameEventManager->DuplicateEvent(pEvent));
+    RETURN_META_VALUE(MRES_IGNORED, true);
+}
+
+bool EventManager::OnPostFireEvent(IGameEvent *pEvent, bool bDontBroadcast)
+{
+    if (!pEvent)
+    {
+        RETURN_META_VALUE(MRES_IGNORED, false);
+    }
+
+    IGameEvent* realGameEvent = dupEvents.top();
+
+    std::string eventName = realGameEvent->GetName();
+
+    if (gameEventsRegister.find(eventName) != gameEventsRegister.end())
+    {
+        std::string prettyEventName = gameEventsRegister.at(eventName);
+
+        if (!setEmptyEventdata)
+        {
+            setEmptyEventdata = true;
+
+            std::stringstream ss;
+            std::vector<msgpack::object> eventData;
+
+            msgpack::pack(ss, eventData);
+            emptyEventData = ss.str();
+        }
+
+        PluginEvent *event = new PluginEvent("core", realGameEvent, nullptr);
+        EventResult result = g_pluginManager->ExecuteEvent("core", string_format("OnPost%s", prettyEventName.substr(2).c_str()), emptyEventData, event);
+        delete event;
+
+        if (result != EventResult::Continue) {
+            g_gameEventManager->FreeEvent(realGameEvent);
+            dupEvents.pop();
+            RETURN_META_VALUE(MRES_SUPERCEDE, false);
+        }
+    }
+
+    g_gameEventManager->FreeEvent(realGameEvent);
+    dupEvents.pop();
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
