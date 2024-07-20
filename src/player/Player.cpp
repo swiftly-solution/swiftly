@@ -343,12 +343,16 @@ void OnClientKeyStateChange(int playerid, std::string key, bool pressed);
 
 void Player::SetButtons(uint64_t new_buttons)
 {
+    /*
+    DEBUG: Button Presses
+    
     for(uint64_t i = 0; i < 64; i++) {
         if((new_buttons & (1ULL << i)) != 0) {
             PRINTF("%s: %d\n", key_buttons[i].c_str(), i);
         }
     }
     PRINTF("Buttons: %s | %llu\n", std::bitset<64>(new_buttons).to_string().c_str(), new_buttons);
+    */
 
     for (uint16_t i = 0; i < key_buttons.size(); i++)
     {
