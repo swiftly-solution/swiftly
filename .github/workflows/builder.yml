@@ -120,10 +120,11 @@ jobs:
             contents: write
         needs: ["versioning", "build"]
         runs-on: Linux
+        container:
+            image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
         steps:
             - uses: actions/download-artifact@v4
               with:
-                  path: build
 
             - name: Release
               id: release
@@ -132,6 +133,6 @@ jobs:
                   tag_name: v${{ needs.versioning.outputs.version }}
                   make_latest: "true"
                   files: |
-                      build/Swiftly.Plugin.Linux.zip
-                      build/Swiftly.Plugin.Windows.zip
-                      build/Swiftly.Plugin.Depot.Linux.zip
+                      Swiftly.Plugin.Linux.zip
+                      Swiftly.Plugin.Windows.zip
+                      Swiftly.Plugin.Depot.Linux.zip
