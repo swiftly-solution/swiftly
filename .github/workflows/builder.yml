@@ -124,7 +124,6 @@ jobs:
             image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
         steps:
             - uses: actions/download-artifact@v4
-              with:
 
             - name: Release
               id: release
