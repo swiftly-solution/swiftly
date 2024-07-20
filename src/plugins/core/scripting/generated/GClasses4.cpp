@@ -604,10 +604,10 @@ int32_t GCHitBox::GetGroupId() const {
 void GCHitBox::SetGroupId(int32_t value) {
     SetSchemaValue(m_ptr, "CHitBox", "m_nGroupId", false, value);
 }
-uint8_t GCHitBox::GetShapeType() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CHitBox", "m_nShapeType");
+uint32_t GCHitBox::GetShapeType() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CHitBox", "m_nShapeType");
 }
-void GCHitBox::SetShapeType(uint8_t value) {
+void GCHitBox::SetShapeType(uint32_t value) {
     SetSchemaValue(m_ptr, "CHitBox", "m_nShapeType", false, value);
 }
 bool GCHitBox::GetTranslationOnly() const {
@@ -2253,28 +2253,28 @@ GRnHalfEdge_t::GRnHalfEdge_t(std::string ptr) {
 GRnHalfEdge_t::GRnHalfEdge_t(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GRnHalfEdge_t::GetNext() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "RnHalfEdge_t", "m_nNext");
+uint32_t GRnHalfEdge_t::GetNext() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "RnHalfEdge_t", "m_nNext");
 }
-void GRnHalfEdge_t::SetNext(uint8_t value) {
+void GRnHalfEdge_t::SetNext(uint32_t value) {
     SetSchemaValue(m_ptr, "RnHalfEdge_t", "m_nNext", true, value);
 }
-uint8_t GRnHalfEdge_t::GetTwin() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "RnHalfEdge_t", "m_nTwin");
+uint32_t GRnHalfEdge_t::GetTwin() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "RnHalfEdge_t", "m_nTwin");
 }
-void GRnHalfEdge_t::SetTwin(uint8_t value) {
+void GRnHalfEdge_t::SetTwin(uint32_t value) {
     SetSchemaValue(m_ptr, "RnHalfEdge_t", "m_nTwin", true, value);
 }
-uint8_t GRnHalfEdge_t::GetOrigin() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "RnHalfEdge_t", "m_nOrigin");
+uint32_t GRnHalfEdge_t::GetOrigin() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "RnHalfEdge_t", "m_nOrigin");
 }
-void GRnHalfEdge_t::SetOrigin(uint8_t value) {
+void GRnHalfEdge_t::SetOrigin(uint32_t value) {
     SetSchemaValue(m_ptr, "RnHalfEdge_t", "m_nOrigin", true, value);
 }
-uint8_t GRnHalfEdge_t::GetFace() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "RnHalfEdge_t", "m_nFace");
+uint32_t GRnHalfEdge_t::GetFace() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "RnHalfEdge_t", "m_nFace");
 }
-void GRnHalfEdge_t::SetFace(uint8_t value) {
+void GRnHalfEdge_t::SetFace(uint32_t value) {
     SetSchemaValue(m_ptr, "RnHalfEdge_t", "m_nFace", true, value);
 }
 void* GRnHalfEdge_t::GetPtr() {
@@ -4405,10 +4405,10 @@ uint32_t GAggregateMeshInfo_t::GetVisClusterMemberOffset() const {
 void GAggregateMeshInfo_t::SetVisClusterMemberOffset(uint32_t value) {
     SetSchemaValue(m_ptr, "AggregateMeshInfo_t", "m_nVisClusterMemberOffset", true, value);
 }
-uint8_t GAggregateMeshInfo_t::GetVisClusterMemberCount() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "AggregateMeshInfo_t", "m_nVisClusterMemberCount");
+uint32_t GAggregateMeshInfo_t::GetVisClusterMemberCount() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "AggregateMeshInfo_t", "m_nVisClusterMemberCount");
 }
-void GAggregateMeshInfo_t::SetVisClusterMemberCount(uint8_t value) {
+void GAggregateMeshInfo_t::SetVisClusterMemberCount(uint32_t value) {
     SetSchemaValue(m_ptr, "AggregateMeshInfo_t", "m_nVisClusterMemberCount", true, value);
 }
 bool GAggregateMeshInfo_t::GetHasTransform() const {
@@ -4429,10 +4429,10 @@ int16_t GAggregateMeshInfo_t::GetLODSetupIndex() const {
 void GAggregateMeshInfo_t::SetLODSetupIndex(int16_t value) {
     SetSchemaValue(m_ptr, "AggregateMeshInfo_t", "m_nLODSetupIndex", true, value);
 }
-uint8_t GAggregateMeshInfo_t::GetLODGroupMask() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "AggregateMeshInfo_t", "m_nLODGroupMask");
+uint32_t GAggregateMeshInfo_t::GetLODGroupMask() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "AggregateMeshInfo_t", "m_nLODGroupMask");
 }
-void GAggregateMeshInfo_t::SetLODGroupMask(uint8_t value) {
+void GAggregateMeshInfo_t::SetLODGroupMask(uint32_t value) {
     SetSchemaValue(m_ptr, "AggregateMeshInfo_t", "m_nLODGroupMask", true, value);
 }
 Color GAggregateMeshInfo_t::GetTintColor() const {
@@ -6311,10 +6311,10 @@ GCEnumAnimParameter::GCEnumAnimParameter(std::string ptr) {
 GCEnumAnimParameter::GCEnumAnimParameter(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GCEnumAnimParameter::GetDefaultValue() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CEnumAnimParameter", "m_defaultValue");
+uint32_t GCEnumAnimParameter::GetDefaultValue() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CEnumAnimParameter", "m_defaultValue");
 }
-void GCEnumAnimParameter::SetDefaultValue(uint8_t value) {
+void GCEnumAnimParameter::SetDefaultValue(uint32_t value) {
     SetSchemaValue(m_ptr, "CEnumAnimParameter", "m_defaultValue", false, value);
 }
 std::vector<CUtlString> GCEnumAnimParameter::GetEnumOptions() const {
@@ -6745,10 +6745,10 @@ GFuseVariableIndex_t GVariableInfo_t::GetIndex() const {
 void GVariableInfo_t::SetIndex(GFuseVariableIndex_t value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Index' is not possible.\n");
 }
-uint8_t GVariableInfo_t::GetNumComponents() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "VariableInfo_t", "m_nNumComponents");
+uint32_t GVariableInfo_t::GetNumComponents() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "VariableInfo_t", "m_nNumComponents");
 }
-void GVariableInfo_t::SetNumComponents(uint8_t value) {
+void GVariableInfo_t::SetNumComponents(uint32_t value) {
     SetSchemaValue(m_ptr, "VariableInfo_t", "m_nNumComponents", true, value);
 }
 uint64_t GVariableInfo_t::GetVarType() const {
@@ -10353,11 +10353,11 @@ GSampleCode::GSampleCode(std::string ptr) {
 GSampleCode::GSampleCode(void *ptr) {
     m_ptr = ptr;
 }
-std::vector<uint8_t> GSampleCode::GetSubCode() const {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "SampleCode", "m_subCode"); std::vector<uint8_t> ret; for(int i = 0; i < 8; i++) { ret.push_back(outValue[i]); } return ret;
+std::vector<uint32_t> GSampleCode::GetSubCode() const {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "SampleCode", "m_subCode"); std::vector<uint32_t> ret; for(int i = 0; i < 8; i++) { ret.push_back(outValue[i]); } return ret;
 }
-void GSampleCode::SetSubCode(std::vector<uint8_t> value) {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "SampleCode", "m_subCode"); for(int i = 0; i < 8; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "SampleCode", "m_subCode", false, outValue);
+void GSampleCode::SetSubCode(std::vector<uint32_t> value) {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "SampleCode", "m_subCode"); for(int i = 0; i < 8; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "SampleCode", "m_subCode", false, outValue);
 }
 void* GSampleCode::GetPtr() {
     return m_ptr;

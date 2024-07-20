@@ -522,7 +522,7 @@ public:
     GCCSPlayerPawn *GetCCSPlayerPawn();
     GCCSPlayerPawnBase *GetCCSPlayerPawnBase();
     void Drop(int reason);
-
+    uint32_t GetConnectedTime();
     PluginWeaponManager GetWeaponManager();
 
     std::string GetChatTag();

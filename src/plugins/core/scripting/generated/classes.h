@@ -1639,8 +1639,8 @@ public:
     GCNetworkTransmitComponent(std::string ptr);
     GCNetworkTransmitComponent(void *ptr);
 
-    uint8_t GetTransmitStateOwnedCounter() const;
-    void SetTransmitStateOwnedCounter(uint8_t value);
+    uint32_t GetTransmitStateOwnedCounter() const;
+    void SetTransmitStateOwnedCounter(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -1749,8 +1749,8 @@ public:
     void SetHealth(int32_t value);
     int32_t GetMaxHealth() const;
     void SetMaxHealth(int32_t value);
-    uint8_t GetLifeState() const;
-    void SetLifeState(uint8_t value);
+    uint32_t GetLifeState() const;
+    void SetLifeState(uint32_t value);
     float GetDamageAccumulator() const;
     void SetDamageAccumulator(float value);
     bool GetTakesDamage() const;
@@ -1765,10 +1765,10 @@ public:
     void SetMoveType(uint64_t value);
     uint64_t GetActualMoveType() const;
     void SetActualMoveType(uint64_t value);
-    uint8_t GetWaterTouch() const;
-    void SetWaterTouch(uint8_t value);
-    uint8_t GetSlimeTouch() const;
-    void SetSlimeTouch(uint8_t value);
+    uint32_t GetWaterTouch() const;
+    void SetWaterTouch(uint32_t value);
+    uint32_t GetSlimeTouch() const;
+    void SetSlimeTouch(uint32_t value);
     bool GetRestoreInHierarchy() const;
     void SetRestoreInHierarchy(bool value);
     std::string GetTarget() const;
@@ -1789,12 +1789,12 @@ public:
     void SetCreateTime(float value);
     bool GetClientSideRagdoll() const;
     void SetClientSideRagdoll(bool value);
-    uint8_t GetInterpolationFrame() const;
-    void SetInterpolationFrame(uint8_t value);
+    uint32_t GetInterpolationFrame() const;
+    void SetInterpolationFrame(uint32_t value);
     Vector GetPrevVPhysicsUpdatePos() const;
     void SetPrevVPhysicsUpdatePos(Vector value);
-    uint8_t GetTeamNum() const;
-    void SetTeamNum(uint8_t value);
+    uint32_t GetTeamNum() const;
+    void SetTeamNum(uint32_t value);
     std::string GetGlobalname() const;
     void SetGlobalname(std::string value);
     int32_t GetSentToClients() const;
@@ -1847,8 +1847,8 @@ public:
     void SetAnimatedEveryTick(bool value);
     bool GetDisableLowViolence() const;
     void SetDisableLowViolence(bool value);
-    uint8_t GetWaterType() const;
-    void SetWaterType(uint8_t value);
+    uint32_t GetWaterType() const;
+    void SetWaterType(uint32_t value);
     int32_t GetEFlags() const;
     void SetEFlags(int32_t value);
     GCEntityIOOutput GetOnUser1() const;
@@ -1964,10 +1964,10 @@ public:
     void SetOwnerId(uint32_t value);
     uint16_t GetHierarchyId() const;
     void SetHierarchyId(uint16_t value);
-    uint8_t GetCollisionGroup() const;
-    void SetCollisionGroup(uint8_t value);
-    uint8_t GetCollisionFunctionMask() const;
-    void SetCollisionFunctionMask(uint8_t value);
+    uint32_t GetCollisionGroup() const;
+    void SetCollisionGroup(uint32_t value);
+    uint32_t GetCollisionFunctionMask() const;
+    void SetCollisionFunctionMask(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -1989,18 +1989,18 @@ public:
     void SetMins(Vector value);
     Vector GetMaxs() const;
     void SetMaxs(Vector value);
-    uint8_t GetSolidFlags() const;
-    void SetSolidFlags(uint8_t value);
+    uint32_t GetSolidFlags() const;
+    void SetSolidFlags(uint32_t value);
     uint64_t GetSolidType() const;
     void SetSolidType(uint64_t value);
-    uint8_t GetTriggerBloat() const;
-    void SetTriggerBloat(uint8_t value);
+    uint32_t GetTriggerBloat() const;
+    void SetTriggerBloat(uint32_t value);
     uint64_t GetSurroundType() const;
     void SetSurroundType(uint64_t value);
-    uint8_t GetCollisionGroup() const;
-    void SetCollisionGroup(uint8_t value);
-    uint8_t GetEnablePhysics() const;
-    void SetEnablePhysics(uint8_t value);
+    uint32_t GetCollisionGroup() const;
+    void SetCollisionGroup(uint32_t value);
+    uint32_t GetEnablePhysics() const;
+    void SetEnablePhysics(uint32_t value);
     float GetBoundingRadius() const;
     void SetBoundingRadius(float value);
     Vector GetSpecifiedSurroundingMins() const;
@@ -2067,8 +2067,8 @@ public:
     void SetFadeScale(float value);
     float GetShadowStrength() const;
     void SetShadowStrength(float value);
-    uint8_t GetObjectCulling() const;
-    void SetObjectCulling(uint8_t value);
+    uint32_t GetObjectCulling() const;
+    void SetObjectCulling(uint32_t value);
     int32_t GetAddDecal() const;
     void SetAddDecal(int32_t value);
     Vector GetDecalPosition() const;
@@ -2765,12 +2765,12 @@ public:
     void SetClientClothCreationSuppressed(bool value);
     uint64_t GetMeshGroupMask() const;
     void SetMeshGroupMask(uint64_t value);
-    int8_t GetIdealMotionType() const;
-    void SetIdealMotionType(int8_t value);
-    int8_t GetForceLOD() const;
-    void SetForceLOD(int8_t value);
-    int8_t GetClothUpdateFlags() const;
-    void SetClothUpdateFlags(int8_t value);
+    int32_t GetIdealMotionType() const;
+    void SetIdealMotionType(int32_t value);
+    int32_t GetForceLOD() const;
+    void SetForceLOD(int32_t value);
+    int32_t GetClothUpdateFlags() const;
+    void SetClothUpdateFlags(int32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -3493,8 +3493,8 @@ public:
     void SetLocalSound(std::vector<Vector> value);
     int32_t GetSoundscapeIndex() const;
     void SetSoundscapeIndex(int32_t value);
-    uint8_t GetLocalBits() const;
-    void SetLocalBits(uint8_t value);
+    uint32_t GetLocalBits() const;
+    void SetLocalBits(uint32_t value);
     int32_t GetSoundscapeEntityListIndex() const;
     void SetSoundscapeEntityListIndex(int32_t value);
     uint32_t GetSoundEventHash() const;
@@ -3619,22 +3619,22 @@ public:
     void SetSurfaceProp(uint32_t value);
     uint32_t GetDamageType() const;
     void SetDamageType(uint32_t value);
-    uint8_t GetPenetrate() const;
-    void SetPenetrate(uint8_t value);
+    uint32_t GetPenetrate() const;
+    void SetPenetrate(uint32_t value);
     uint16_t GetMaterial() const;
     void SetMaterial(uint16_t value);
     uint16_t GetHitBox() const;
     void SetHitBox(uint16_t value);
-    uint8_t GetColor() const;
-    void SetColor(uint8_t value);
-    uint8_t GetFlags() const;
-    void SetFlags(uint8_t value);
+    uint32_t GetColor() const;
+    void SetColor(uint32_t value);
+    uint32_t GetFlags() const;
+    void SetFlags(uint32_t value);
     uint32_t GetAttachmentName() const;
     void SetAttachmentName(uint32_t value);
     uint16_t GetEffectName() const;
     void SetEffectName(uint16_t value);
-    uint8_t GetExplosionType() const;
-    void SetExplosionType(uint8_t value);
+    uint32_t GetExplosionType() const;
+    void SetExplosionType(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -3673,8 +3673,8 @@ public:
     void SetShuffleCases(int32_t value);
     int32_t GetLastShuffleCase() const;
     void SetLastShuffleCase(int32_t value);
-    std::vector<uint8_t> GetUchShuffleCaseMap() const;
-    void SetUchShuffleCaseMap(std::vector<uint8_t> value);
+    std::vector<uint32_t> GetUchShuffleCaseMap() const;
+    void SetUchShuffleCaseMap(std::vector<uint32_t> value);
     std::vector<GCEntityIOOutput> GetOnCase() const;
     void SetOnCase(std::vector<GCEntityIOOutput> value);
     GCLogicalEntity GetParent() const;
@@ -4396,20 +4396,20 @@ public:
     void SetWidth(float value);
     float GetTextureScale() const;
     void SetTextureScale(float value);
-    uint8_t GetSegments() const;
-    void SetSegments(uint8_t value);
+    uint32_t GetSegments() const;
+    void SetSegments(uint32_t value);
     bool GetConstrainBetweenEndpoints() const;
     void SetConstrainBetweenEndpoints(bool value);
     std::string GetStrRopeMaterialModel() const;
     void SetStrRopeMaterialModel(std::string value);
-    uint8_t GetSubdiv() const;
-    void SetSubdiv(uint8_t value);
-    uint8_t GetChangeCount() const;
-    void SetChangeCount(uint8_t value);
+    uint32_t GetSubdiv() const;
+    void SetSubdiv(uint32_t value);
+    uint32_t GetChangeCount() const;
+    void SetChangeCount(uint32_t value);
     int16_t GetRopeLength() const;
     void SetRopeLength(int16_t value);
-    uint8_t GetLockedPoints() const;
-    void SetLockedPoints(uint8_t value);
+    uint32_t GetLockedPoints() const;
+    void SetLockedPoints(uint32_t value);
     bool GetCreatedFromMapFile() const;
     void SetCreatedFromMapFile(bool value);
     float GetScrollSpeed() const;
@@ -5288,8 +5288,8 @@ public:
     GCRagdollManager(std::string ptr);
     GCRagdollManager(void *ptr);
 
-    int8_t GetCurrentMaxRagdollCount() const;
-    void SetCurrentMaxRagdollCount(int8_t value);
+    int32_t GetCurrentMaxRagdollCount() const;
+    void SetCurrentMaxRagdollCount(int32_t value);
     int32_t GetMaxRagdollCount() const;
     void SetMaxRagdollCount(int32_t value);
     bool GetSaveImportant() const;
@@ -5764,12 +5764,12 @@ public:
     void SetDormant(bool value);
     bool GetForceParentToBeNetworked() const;
     void SetForceParentToBeNetworked(bool value);
-    uint8_t GetHierarchicalDepth() const;
-    void SetHierarchicalDepth(uint8_t value);
-    uint8_t GetHierarchyType() const;
-    void SetHierarchyType(uint8_t value);
-    uint8_t GetDoNotSetAnimTimeInInvalidatePhysicsCount() const;
-    void SetDoNotSetAnimTimeInInvalidatePhysicsCount(uint8_t value);
+    uint32_t GetHierarchicalDepth() const;
+    void SetHierarchicalDepth(uint32_t value);
+    uint32_t GetHierarchyType() const;
+    void SetHierarchyType(uint32_t value);
+    uint32_t GetDoNotSetAnimTimeInInvalidatePhysicsCount() const;
+    void SetDoNotSetAnimTimeInInvalidatePhysicsCount(uint32_t value);
     uint32_t GetName() const;
     void SetName(uint32_t value);
     uint32_t GetHierarchyAttachName() const;
@@ -7667,8 +7667,8 @@ public:
     void SetPreSimTime(float value);
     std::vector<Vector> GetServerControlPoints() const;
     void SetServerControlPoints(std::vector<Vector> value);
-    std::vector<uint8_t> GetServerControlPointAssignments() const;
-    void SetServerControlPointAssignments(std::vector<uint8_t> value);
+    std::vector<uint32_t> GetServerControlPointAssignments() const;
+    void SetServerControlPointAssignments(std::vector<uint32_t> value);
     std::vector<GCBaseEntity*> GetControlPointEnts() const;
     void SetControlPointEnts(std::vector<GCBaseEntity*> value);
     bool GetNoSave() const;
@@ -7708,8 +7708,8 @@ public:
     GAmmoIndex_t(std::string ptr);
     GAmmoIndex_t(void *ptr);
 
-    int8_t GetValue() const;
-    void SetValue(int8_t value);
+    int32_t GetValue() const;
+    void SetValue(int32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -7872,12 +7872,12 @@ public:
     GCDynamicLight(std::string ptr);
     GCDynamicLight(void *ptr);
 
-    uint8_t GetActualFlags() const;
-    void SetActualFlags(uint8_t value);
-    uint8_t GetFlags() const;
-    void SetFlags(uint8_t value);
-    uint8_t GetLightStyle() const;
-    void SetLightStyle(uint8_t value);
+    uint32_t GetActualFlags() const;
+    void SetActualFlags(uint32_t value);
+    uint32_t GetFlags() const;
+    void SetFlags(uint32_t value);
+    uint32_t GetLightStyle() const;
+    void SetLightStyle(uint32_t value);
     bool GetOn() const;
     void SetOn(bool value);
     float GetRadius() const;
@@ -8029,8 +8029,8 @@ public:
     void SetDisableSolidCollisionsForHierarchy(bool value);
     uint32_t GetMaterialGroup() const;
     void SetMaterialGroup(uint32_t value);
-    uint8_t GetHitboxSet() const;
-    void SetHitboxSet(uint8_t value);
+    uint32_t GetHitboxSet() const;
+    void SetHitboxSet(uint32_t value);
     GCGameSceneNode GetParent() const;
     void SetParent(GCGameSceneNode value);
 
@@ -9735,8 +9735,8 @@ public:
     GCPlayer_ObserverServices(std::string ptr);
     GCPlayer_ObserverServices(void *ptr);
 
-    uint8_t GetObserverMode() const;
-    void SetObserverMode(uint8_t value);
+    uint32_t GetObserverMode() const;
+    void SetObserverMode(uint32_t value);
     GCBaseEntity GetObserverTarget() const;
     void SetObserverTarget(GCBaseEntity value);
     uint64_t GetObserverLastMode() const;
@@ -10113,8 +10113,8 @@ public:
     void SetExplodeEffectOrigin(Vector value);
     float GetSpawnTime() const;
     void SetSpawnTime(float value);
-    uint8_t GetOGSExtraFlags() const;
-    void SetOGSExtraFlags(uint8_t value);
+    uint32_t GetOGSExtraFlags() const;
+    void SetOGSExtraFlags(uint32_t value);
     bool GetDetonationRecorded() const;
     void SetDetonationRecorded(bool value);
     uint16_t GetItemIndex() const;
@@ -10191,12 +10191,12 @@ public:
     void SetIconOffset(float value);
     float GetRange() const;
     void SetRange(float value);
-    uint8_t GetPulseOption() const;
-    void SetPulseOption(uint8_t value);
-    uint8_t GetAlphaOption() const;
-    void SetAlphaOption(uint8_t value);
-    uint8_t GetShakeOption() const;
-    void SetShakeOption(uint8_t value);
+    uint32_t GetPulseOption() const;
+    void SetPulseOption(uint32_t value);
+    uint32_t GetAlphaOption() const;
+    void SetAlphaOption(uint32_t value);
+    uint32_t GetShakeOption() const;
+    void SetShakeOption(uint32_t value);
     bool GetStatic() const;
     void SetStatic(bool value);
     bool GetNoOffscreen() const;
@@ -10585,10 +10585,10 @@ public:
     void SetCreationTime(float value);
     int32_t GetTintID() const;
     void SetTintID(int32_t value);
-    uint8_t GetVersion() const;
-    void SetVersion(uint8_t value);
-    std::vector<uint8_t> GetSignature() const;
-    void SetSignature(std::vector<uint8_t> value);
+    uint32_t GetVersion() const;
+    void SetVersion(uint32_t value);
+    std::vector<uint32_t> GetSignature() const;
+    void SetSignature(std::vector<uint32_t> value);
     GCModelPointEntity GetParent() const;
     void SetParent(GCModelPointEntity value);
 
@@ -11859,8 +11859,8 @@ public:
     void SetFireTime(float value);
     float GetDamage() const;
     void SetDamage(float value);
-    uint8_t GetNumBeamEnts() const;
-    void SetNumBeamEnts(uint8_t value);
+    uint32_t GetNumBeamEnts() const;
+    void SetNumBeamEnts(uint32_t value);
     uint64_t GetBeamType() const;
     void SetBeamType(uint64_t value);
     uint32_t GetBeamFlags() const;
@@ -15078,10 +15078,10 @@ public:
 
     float GetTimeToDetonate() const;
     void SetTimeToDetonate(float value);
-    uint8_t GetNumOpponentsHit() const;
-    void SetNumOpponentsHit(uint8_t value);
-    uint8_t GetNumTeammatesHit() const;
-    void SetNumTeammatesHit(uint8_t value);
+    uint32_t GetNumOpponentsHit() const;
+    void SetNumOpponentsHit(uint32_t value);
+    uint32_t GetNumTeammatesHit() const;
+    void SetNumTeammatesHit(uint32_t value);
     GCBaseCSGrenadeProjectile GetParent() const;
     void SetParent(GCBaseCSGrenadeProjectile value);
 
@@ -16159,8 +16159,8 @@ public:
     void SetGlassInFrame(bool value);
     bool GetStartBroken() const;
     void SetStartBroken(bool value);
-    uint8_t GetInitialDamageType() const;
-    void SetInitialDamageType(uint8_t value);
+    uint32_t GetInitialDamageType() const;
+    void SetInitialDamageType(uint32_t value);
     std::string GetDamagePositioningEntityName01() const;
     void SetDamagePositioningEntityName01(std::string value);
     std::string GetDamagePositioningEntityName02() const;
@@ -16175,8 +16175,8 @@ public:
     void SetExtraDamagePositions(std::vector<Vector> value);
     GCEntityIOOutput GetOnBroken() const;
     void SetOnBroken(GCEntityIOOutput value);
-    uint8_t GetSurfaceType() const;
-    void SetSurfaceType(uint8_t value);
+    uint32_t GetSurfaceType() const;
+    void SetSurfaceType(uint32_t value);
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
 
@@ -16685,10 +16685,10 @@ public:
     void SetColor1(Color value);
     Color GetColor2() const;
     void SetColor2(Color value);
-    uint8_t GetEffect() const;
-    void SetEffect(uint8_t value);
-    uint8_t GetChannel() const;
-    void SetChannel(uint8_t value);
+    uint32_t GetEffect() const;
+    void SetEffect(uint32_t value);
+    uint32_t GetChannel() const;
+    void SetChannel(uint32_t value);
     float GetX() const;
     void SetX(float value);
     float GetY() const;
@@ -17381,10 +17381,10 @@ public:
     void SetUpdateTravelDistanceTimer(GCountdownTimer value);
     std::vector<float> GetPlayerTravelDistance() const;
     void SetPlayerTravelDistance(std::vector<float> value);
-    uint8_t GetTravelDistancePhase() const;
-    void SetTravelDistancePhase(uint8_t value);
-    uint8_t GetHostageEscortCount() const;
-    void SetHostageEscortCount(uint8_t value);
+    uint32_t GetTravelDistancePhase() const;
+    void SetTravelDistancePhase(uint32_t value);
+    uint32_t GetHostageEscortCount() const;
+    void SetHostageEscortCount(uint32_t value);
     float GetHostageEscortCountTimestamp() const;
     void SetHostageEscortCountTimestamp(float value);
     int32_t GetDesiredTeam() const;
@@ -17435,8 +17435,8 @@ public:
     void SetLookAtDesc(std::string value);
     float GetPeripheralTimestamp() const;
     void SetPeripheralTimestamp(float value);
-    uint8_t GetApproachPointCount() const;
-    void SetApproachPointCount(uint8_t value);
+    uint32_t GetApproachPointCount() const;
+    void SetApproachPointCount(uint32_t value);
     Vector GetApproachPointViewPosition() const;
     void SetApproachPointViewPosition(Vector value);
     GIntervalTimer GetViewSteadyTimer() const;
@@ -17481,8 +17481,8 @@ public:
     void SetEnemy(GCCSPlayerPawn value);
     bool GetIsEnemyVisible() const;
     void SetIsEnemyVisible(bool value);
-    uint8_t GetVisibleEnemyParts() const;
-    void SetVisibleEnemyParts(uint8_t value);
+    uint32_t GetVisibleEnemyParts() const;
+    void SetVisibleEnemyParts(uint32_t value);
     Vector GetLastEnemyPosition() const;
     void SetLastEnemyPosition(Vector value);
     float GetLastSawEnemyTimestamp() const;
@@ -17535,12 +17535,12 @@ public:
     void SetIsEnemySniperVisible(bool value);
     GCountdownTimer GetSawEnemySniperTimer() const;
     void SetSawEnemySniperTimer(GCountdownTimer value);
-    uint8_t GetEnemyQueueIndex() const;
-    void SetEnemyQueueIndex(uint8_t value);
-    uint8_t GetEnemyQueueCount() const;
-    void SetEnemyQueueCount(uint8_t value);
-    uint8_t GetEnemyQueueAttendIndex() const;
-    void SetEnemyQueueAttendIndex(uint8_t value);
+    uint32_t GetEnemyQueueIndex() const;
+    void SetEnemyQueueIndex(uint32_t value);
+    uint32_t GetEnemyQueueCount() const;
+    void SetEnemyQueueCount(uint32_t value);
+    uint32_t GetEnemyQueueAttendIndex() const;
+    void SetEnemyQueueAttendIndex(uint32_t value);
     bool GetIsStuck() const;
     void SetIsStuck(bool value);
     float GetStuckTimestamp() const;
@@ -18054,10 +18054,10 @@ public:
     void SetMuzzleAttachment(std::string value);
     uint64_t GetFlags() const;
     void SetFlags(uint64_t value);
-    uint8_t GetPrimaryAmmoType() const;
-    void SetPrimaryAmmoType(uint8_t value);
-    uint8_t GetSecondaryAmmoType() const;
-    void SetSecondaryAmmoType(uint8_t value);
+    uint32_t GetPrimaryAmmoType() const;
+    void SetPrimaryAmmoType(uint32_t value);
+    uint32_t GetSecondaryAmmoType() const;
+    void SetSecondaryAmmoType(uint32_t value);
     int32_t GetMaxClip1() const;
     void SetMaxClip1(int32_t value);
     int32_t GetMaxClip2() const;
@@ -18237,8 +18237,8 @@ public:
     void SetRagdollServerOrigin(Vector value);
     GCEconItemView GetEconGloves() const;
     void SetEconGloves(GCEconItemView value);
-    uint8_t GetEconGlovesChanged() const;
-    void SetEconGlovesChanged(uint8_t value);
+    uint32_t GetEconGlovesChanged() const;
+    void SetEconGlovesChanged(uint32_t value);
     QAngle GetDeathEyeAngles() const;
     void SetDeathEyeAngles(QAngle value);
     bool GetSkipOneHeadConstraintUpdate() const;
@@ -18427,8 +18427,8 @@ public:
     void SetHasCommunicationAbuseMute(bool value);
     std::string GetCrosshairCodes() const;
     void SetCrosshairCodes(std::string value);
-    uint8_t GetPendingTeamNum() const;
-    void SetPendingTeamNum(uint8_t value);
+    uint32_t GetPendingTeamNum() const;
+    void SetPendingTeamNum(uint32_t value);
     float GetForceTeamTime() const;
     void SetForceTeamTime(float value);
     int32_t GetCompTeammateColor() const;
@@ -18465,8 +18465,8 @@ public:
     void SetCompetitiveRanking(int32_t value);
     int32_t GetCompetitiveWins() const;
     void SetCompetitiveWins(int32_t value);
-    int8_t GetCompetitiveRankType() const;
-    void SetCompetitiveRankType(int8_t value);
+    int32_t GetCompetitiveRankType() const;
+    void SetCompetitiveRankType(int32_t value);
     int32_t GetCompetitiveRankingPredicted_Win() const;
     void SetCompetitiveRankingPredicted_Win(int32_t value);
     int32_t GetCompetitiveRankingPredicted_Loss() const;
@@ -19689,8 +19689,8 @@ public:
     void SetRetakeRules(GCRetakeGameRules value);
     std::vector<bool> GetTeamLastKillUsedUniqueWeaponMatch() const;
     void SetTeamLastKillUsedUniqueWeaponMatch(std::vector<bool> value);
-    uint8_t GetMatchEndCount() const;
-    void SetMatchEndCount(uint8_t value);
+    uint32_t GetMatchEndCount() const;
+    void SetMatchEndCount(uint32_t value);
     int32_t GetTTeamIntroVariant() const;
     void SetTTeamIntroVariant(int32_t value);
     int32_t GetCTTeamIntroVariant() const;
@@ -19727,12 +19727,12 @@ public:
     void SetRoundEndNoMusic(bool value);
     int32_t GetRoundEndLegacy() const;
     void SetRoundEndLegacy(int32_t value);
-    uint8_t GetRoundEndCount() const;
-    void SetRoundEndCount(uint8_t value);
+    uint32_t GetRoundEndCount() const;
+    void SetRoundEndCount(uint32_t value);
     int32_t GetRoundStartRoundNumber() const;
     void SetRoundStartRoundNumber(int32_t value);
-    uint8_t GetRoundStartCount() const;
-    void SetRoundStartCount(uint8_t value);
+    uint32_t GetRoundStartCount() const;
+    void SetRoundStartCount(uint32_t value);
     double GetLastPerfSampleTime() const;
     void SetLastPerfSampleTime(double value);
     GCTeamplayRules GetParent() const;
@@ -22488,8 +22488,8 @@ public:
     void SetBitsDamageType(int32_t value);
     int32_t GetDamageCustom() const;
     void SetDamageCustom(int32_t value);
-    uint8_t GetAmmoType() const;
-    void SetAmmoType(uint8_t value);
+    uint32_t GetAmmoType() const;
+    void SetAmmoType(uint32_t value);
     float GetOriginalDamage() const;
     void SetOriginalDamage(float value);
     bool GetShouldBleed() const;
@@ -23954,10 +23954,10 @@ public:
 
     Vector GetConeApex() const;
     void SetConeApex(Vector value);
-    std::vector<int8_t> GetConeAxis() const;
-    void SetConeAxis(std::vector<int8_t> value);
-    int8_t GetConeCutoff() const;
-    void SetConeCutoff(int8_t value);
+    std::vector<int32_t> GetConeAxis() const;
+    void SetConeAxis(std::vector<int32_t> value);
+    int32_t GetConeCutoff() const;
+    void SetConeCutoff(int32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -24038,8 +24038,8 @@ public:
 
     uint64_t GetType() const;
     void SetType(uint64_t value);
-    uint8_t GetIndex() const;
-    void SetIndex(uint8_t value);
+    uint32_t GetIndex() const;
+    void SetIndex(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -24242,14 +24242,14 @@ public:
     void SetTriCount1(uint16_t value);
     uint16_t GetTriCount2() const;
     void SetTriCount2(uint16_t value);
-    uint8_t GetReservedUint8() const;
-    void SetReservedUint8(uint8_t value);
-    uint8_t GetExtraPressureIterations() const;
-    void SetExtraPressureIterations(uint8_t value);
-    uint8_t GetExtraGoalIterations() const;
-    void SetExtraGoalIterations(uint8_t value);
-    uint8_t GetExtraIterations() const;
-    void SetExtraIterations(uint8_t value);
+    uint32_t GetReservedUint8() const;
+    void SetReservedUint8(uint32_t value);
+    uint32_t GetExtraPressureIterations() const;
+    void SetExtraPressureIterations(uint32_t value);
+    uint32_t GetExtraGoalIterations() const;
+    void SetExtraGoalIterations(uint32_t value);
+    uint32_t GetExtraIterations() const;
+    void SetExtraIterations(uint32_t value);
     std::vector<GFeBoxRigid_t> GetBoxRigids() const;
     void SetBoxRigids(std::vector<GFeBoxRigid_t> value);
     std::vector<uint8> GetDynNodeVertexSet() const;
@@ -24694,8 +24694,8 @@ public:
     GRnFace_t(std::string ptr);
     GRnFace_t(void *ptr);
 
-    uint8_t GetEdge() const;
-    void SetEdge(uint8_t value);
+    uint32_t GetEdge() const;
+    void SetEdge(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -24797,8 +24797,8 @@ public:
     void SetInfluenceIndices(std::vector<int32_t> value);
     std::vector<float> GetInfluenceWeights() const;
     void SetInfluenceWeights(std::vector<float> value);
-    uint8_t GetNumInfluences() const;
-    void SetNumInfluences(uint8_t value);
+    uint32_t GetNumInfluences() const;
+    void SetNumInfluences(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -25099,14 +25099,14 @@ public:
     GVPhysXConstraintParams_t(std::string ptr);
     GVPhysXConstraintParams_t(void *ptr);
 
-    int8_t GetType() const;
-    void SetType(int8_t value);
-    int8_t GetTranslateMotion() const;
-    void SetTranslateMotion(int8_t value);
-    int8_t GetRotateMotion() const;
-    void SetRotateMotion(int8_t value);
-    int8_t GetFlags() const;
-    void SetFlags(int8_t value);
+    int32_t GetType() const;
+    void SetType(int32_t value);
+    int32_t GetTranslateMotion() const;
+    void SetTranslateMotion(int32_t value);
+    int32_t GetRotateMotion() const;
+    void SetRotateMotion(int32_t value);
+    int32_t GetFlags() const;
+    void SetFlags(int32_t value);
     std::vector<Vector> GetAnchor() const;
     void SetAnchor(std::vector<Vector> value);
     float GetMaxForce() const;
@@ -26238,10 +26238,10 @@ public:
     GCTransitionUpdateData(std::string ptr);
     GCTransitionUpdateData(void *ptr);
 
-    uint8_t GetSrcStateIndex() const;
-    void SetSrcStateIndex(uint8_t value);
-    uint8_t GetDestStateIndex() const;
-    void SetDestStateIndex(uint8_t value);
+    uint32_t GetSrcStateIndex() const;
+    void SetSrcStateIndex(uint32_t value);
+    uint32_t GetDestStateIndex() const;
+    void SetDestStateIndex(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -27863,8 +27863,8 @@ public:
     GRenderInputLayoutField_t(std::string ptr);
     GRenderInputLayoutField_t(void *ptr);
 
-    std::vector<uint8_t> GetSemanticName() const;
-    void SetSemanticName(std::vector<uint8_t> value);
+    std::vector<uint32_t> GetSemanticName() const;
+    void SetSemanticName(std::vector<uint32_t> value);
     int32_t GetSemanticIndex() const;
     void SetSemanticIndex(int32_t value);
     uint32_t GetFormat() const;
@@ -29559,8 +29559,8 @@ public:
     void SetInfluenceWeights(std::vector<float> value);
     std::vector<bool> GetInfluenceRootTransform() const;
     void SetInfluenceRootTransform(std::vector<bool> value);
-    uint8_t GetInfluences() const;
-    void SetInfluences(uint8_t value);
+    uint32_t GetInfluences() const;
+    void SetInfluences(uint32_t value);
     bool GetIgnoreRotation() const;
     void SetIgnoreRotation(bool value);
 
@@ -30393,8 +30393,8 @@ public:
     GRnVertex_t(std::string ptr);
     GRnVertex_t(void *ptr);
 
-    uint8_t GetEdge() const;
-    void SetEdge(uint8_t value);
+    uint32_t GetEdge() const;
+    void SetEdge(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -31758,8 +31758,8 @@ public:
     GCAnimEnum(std::string ptr);
     GCAnimEnum(void *ptr);
 
-    uint8_t GetValue() const;
-    void SetValue(uint8_t value);
+    uint32_t GetValue() const;
+    void SetValue(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -32577,12 +32577,12 @@ public:
     void SetGameIndex(uint32_t value);
     uint32_t GetGameFlags() const;
     void SetGameFlags(uint32_t value);
-    int8_t GetMinVelocityIterations() const;
-    void SetMinVelocityIterations(int8_t value);
-    int8_t GetMinPositionIterations() const;
-    void SetMinPositionIterations(int8_t value);
-    int8_t GetMassPriority() const;
-    void SetMassPriority(int8_t value);
+    int32_t GetMinVelocityIterations() const;
+    void SetMinVelocityIterations(int32_t value);
+    int32_t GetMinPositionIterations() const;
+    void SetMinPositionIterations(int32_t value);
+    int32_t GetMassPriority() const;
+    void SetMassPriority(int32_t value);
     bool GetEnabled() const;
     void SetEnabled(bool value);
     bool GetSleeping() const;
@@ -33272,10 +33272,10 @@ public:
     void SetBakedShadowsGamma20(bool value);
     bool GetCompressionEnabled() const;
     void SetCompressionEnabled(bool value);
-    uint8_t GetChartPackIterations() const;
-    void SetChartPackIterations(uint8_t value);
-    uint8_t GetVradQuality() const;
-    void SetVradQuality(uint8_t value);
+    uint32_t GetChartPackIterations() const;
+    void SetChartPackIterations(uint32_t value);
+    uint32_t GetVradQuality() const;
+    void SetVradQuality(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -33971,12 +33971,12 @@ public:
     GCClientAlphaProperty(std::string ptr);
     GCClientAlphaProperty(void *ptr);
 
-    uint8_t GetRenderFX() const;
-    void SetRenderFX(uint8_t value);
-    uint8_t GetRenderMode() const;
-    void SetRenderMode(uint8_t value);
-    uint8_t GetAlpha() const;
-    void SetAlpha(uint8_t value);
+    uint32_t GetRenderFX() const;
+    void SetRenderFX(uint32_t value);
+    uint32_t GetRenderMode() const;
+    void SetRenderMode(uint32_t value);
+    uint32_t GetAlpha() const;
+    void SetAlpha(uint32_t value);
     uint16_t GetDesyncOffset() const;
     void SetDesyncOffset(uint16_t value);
     uint16_t GetReserved2() const;
@@ -34543,8 +34543,8 @@ public:
     void SetBoneNameHash(uint32_t value);
     int32_t GetGroupId() const;
     void SetGroupId(int32_t value);
-    uint8_t GetShapeType() const;
-    void SetShapeType(uint8_t value);
+    uint32_t GetShapeType() const;
+    void SetShapeType(uint32_t value);
     bool GetTranslationOnly() const;
     void SetTranslationOnly(bool value);
     uint32_t GetCRC() const;
@@ -35249,14 +35249,14 @@ public:
     GRnHalfEdge_t(std::string ptr);
     GRnHalfEdge_t(void *ptr);
 
-    uint8_t GetNext() const;
-    void SetNext(uint8_t value);
-    uint8_t GetTwin() const;
-    void SetTwin(uint8_t value);
-    uint8_t GetOrigin() const;
-    void SetOrigin(uint8_t value);
-    uint8_t GetFace() const;
-    void SetFace(uint8_t value);
+    uint32_t GetNext() const;
+    void SetNext(uint32_t value);
+    uint32_t GetTwin() const;
+    void SetTwin(uint32_t value);
+    uint32_t GetOrigin() const;
+    void SetOrigin(uint32_t value);
+    uint32_t GetFace() const;
+    void SetFace(uint32_t value);
 
     void* GetPtr();
     std::string ToPtr();
@@ -36158,16 +36158,16 @@ public:
 
     uint32_t GetVisClusterMemberOffset() const;
     void SetVisClusterMemberOffset(uint32_t value);
-    uint8_t GetVisClusterMemberCount() const;
-    void SetVisClusterMemberCount(uint8_t value);
+    uint32_t GetVisClusterMemberCount() const;
+    void SetVisClusterMemberCount(uint32_t value);
     bool GetHasTransform() const;
     void SetHasTransform(bool value);
     int16_t GetDrawCallIndex() const;
     void SetDrawCallIndex(int16_t value);
     int16_t GetLODSetupIndex() const;
     void SetLODSetupIndex(int16_t value);
-    uint8_t GetLODGroupMask() const;
-    void SetLODGroupMask(uint8_t value);
+    uint32_t GetLODGroupMask() const;
+    void SetLODGroupMask(uint32_t value);
     Color GetTintColor() const;
     void SetTintColor(Color value);
     uint64_t GetObjectFlags() const;
@@ -36989,8 +36989,8 @@ public:
     GCEnumAnimParameter(std::string ptr);
     GCEnumAnimParameter(void *ptr);
 
-    uint8_t GetDefaultValue() const;
-    void SetDefaultValue(uint8_t value);
+    uint32_t GetDefaultValue() const;
+    void SetDefaultValue(uint32_t value);
     std::vector<CUtlString> GetEnumOptions() const;
     void SetEnumOptions(std::vector<CUtlString> value);
     std::vector<uint64> GetEnumReferenced() const;
@@ -37177,8 +37177,8 @@ public:
     void SetNameToken(uint32_t value);
     GFuseVariableIndex_t GetIndex() const;
     void SetIndex(GFuseVariableIndex_t value);
-    uint8_t GetNumComponents() const;
-    void SetNumComponents(uint8_t value);
+    uint32_t GetNumComponents() const;
+    void SetNumComponents(uint32_t value);
     uint64_t GetVarType() const;
     void SetVarType(uint64_t value);
     uint64_t GetAccess() const;
@@ -38785,8 +38785,8 @@ public:
     GSampleCode(std::string ptr);
     GSampleCode(void *ptr);
 
-    std::vector<uint8_t> GetSubCode() const;
-    void SetSubCode(std::vector<uint8_t> value);
+    std::vector<uint32_t> GetSubCode() const;
+    void SetSubCode(std::vector<uint32_t> value);
 
     void* GetPtr();
     std::string ToPtr();

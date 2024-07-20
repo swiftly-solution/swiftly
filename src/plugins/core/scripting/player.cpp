@@ -448,6 +448,15 @@ int PluginPlayer::GetVoiceFlags()
     return self->GetVoiceFlags();
 }
 
+uint32_t PluginPlayer::GetConnectedTime()
+{
+    Player *self = g_playerManager->GetPlayer(this->playerId);
+    if (!self)
+        return 0;
+
+    return self->GetConnectedTime();
+}
+
 PluginWeaponManager PluginPlayer::GetWeaponManager()
 {
     return PluginWeaponManager(playerId);

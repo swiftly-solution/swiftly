@@ -9,6 +9,8 @@
 #include "networkbasetypes.pb.h"
 #include "../sdk/entity/CRecipientFilters.h"
 
+#include <bitset>
+
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
 
 std::map<std::string, std::string> colors = {
@@ -302,18 +304,57 @@ const std::vector<std::string> key_buttons = {
     "unknown_key_28",
     "unknown_key_29",
     "unknown_key_30",
+    "unknown_key_31",
+    "unknown_key_32",
     "tab",
+    "unknown_key_34",
+    "f",
+    "unknown_key_36",
+    "unknown_key_37",
+    "unknown_key_38",
+    "unknown_key_39",
+    "unknown_key_40",
+    "unknown_key_41",
+    "unknown_key_42",
+    "unknown_key_43",
+    "unknown_key_44",
+    "unknown_key_45",
+    "unknown_key_46",
+    "unknown_key_47",
+    "unknown_key_48",
+    "unknown_key_49",
+    "unknown_key_50",
+    "unknown_key_51",
+    "unknown_key_52",
+    "unknown_key_53",
+    "unknown_key_54",
+    "unknown_key_55",
+    "unknown_key_56",
+    "unknown_key_57",
+    "unknown_key_58",
+    "unknown_key_59",
+    "unknown_key_60",
+    "unknown_key_61",
+    "unknown_key_62",
+    "unknown_key_63",
 };
 
 void OnClientKeyStateChange(int playerid, std::string key, bool pressed);
 
 void Player::SetButtons(uint64_t new_buttons)
 {
+    for(uint64_t i = 0; i < 64; i++) {
+        if((new_buttons & (1ULL << i)) != 0) {
+            PRINTF("%s: %d\n", key_buttons[i].c_str(), i);
+        }
+    }
+    PRINTF("Buttons: %s | %llu\n", std::bitset<64>(new_buttons).to_string().c_str(), new_buttons);
+
     for (uint16_t i = 0; i < key_buttons.size(); i++)
     {
-        if (this->IsButtonPressed((1 << i)) && (new_buttons & (1 << i)) == 0)
+        if (this->IsButtonPressed((1ULL << i)) && (new_buttons & (1ULL << i)) == 0)
             OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], false);
-        else if (!this->IsButtonPressed((1 << i)) && (new_buttons & (1 << i)) != 0)
+        else if (!this->IsButtonPressed((1ULL << i)) && (new_buttons & (1ULL << i)) != 0)
             OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], true);
     }
 

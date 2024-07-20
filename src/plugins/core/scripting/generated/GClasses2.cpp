@@ -4156,16 +4156,16 @@ float GCFlashbangProjectile::GetTimeToDetonate() const {
 void GCFlashbangProjectile::SetTimeToDetonate(float value) {
     SetSchemaValue(m_ptr, "CFlashbangProjectile", "m_flTimeToDetonate", false, value);
 }
-uint8_t GCFlashbangProjectile::GetNumOpponentsHit() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CFlashbangProjectile", "m_numOpponentsHit");
+uint32_t GCFlashbangProjectile::GetNumOpponentsHit() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CFlashbangProjectile", "m_numOpponentsHit");
 }
-void GCFlashbangProjectile::SetNumOpponentsHit(uint8_t value) {
+void GCFlashbangProjectile::SetNumOpponentsHit(uint32_t value) {
     SetSchemaValue(m_ptr, "CFlashbangProjectile", "m_numOpponentsHit", false, value);
 }
-uint8_t GCFlashbangProjectile::GetNumTeammatesHit() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CFlashbangProjectile", "m_numTeammatesHit");
+uint32_t GCFlashbangProjectile::GetNumTeammatesHit() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CFlashbangProjectile", "m_numTeammatesHit");
 }
-void GCFlashbangProjectile::SetNumTeammatesHit(uint8_t value) {
+void GCFlashbangProjectile::SetNumTeammatesHit(uint32_t value) {
     SetSchemaValue(m_ptr, "CFlashbangProjectile", "m_numTeammatesHit", false, value);
 }
 void* GCFlashbangProjectile::GetPtr() {
@@ -6708,10 +6708,10 @@ bool GCFuncShatterglass::GetStartBroken() const {
 void GCFuncShatterglass::SetStartBroken(bool value) {
     SetSchemaValue(m_ptr, "CFuncShatterglass", "m_bStartBroken", false, value);
 }
-uint8_t GCFuncShatterglass::GetInitialDamageType() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CFuncShatterglass", "m_iInitialDamageType");
+uint32_t GCFuncShatterglass::GetInitialDamageType() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CFuncShatterglass", "m_iInitialDamageType");
 }
-void GCFuncShatterglass::SetInitialDamageType(uint8_t value) {
+void GCFuncShatterglass::SetInitialDamageType(uint32_t value) {
     SetSchemaValue(m_ptr, "CFuncShatterglass", "m_iInitialDamageType", false, value);
 }
 std::string GCFuncShatterglass::GetDamagePositioningEntityName01() const {
@@ -6757,10 +6757,10 @@ GCEntityIOOutput GCFuncShatterglass::GetOnBroken() const {
 void GCFuncShatterglass::SetOnBroken(GCEntityIOOutput value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'OnBroken' is not possible.\n");
 }
-uint8_t GCFuncShatterglass::GetSurfaceType() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CFuncShatterglass", "m_iSurfaceType");
+uint32_t GCFuncShatterglass::GetSurfaceType() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CFuncShatterglass", "m_iSurfaceType");
 }
-void GCFuncShatterglass::SetSurfaceType(uint8_t value) {
+void GCFuncShatterglass::SetSurfaceType(uint32_t value) {
     SetSchemaValue(m_ptr, "CFuncShatterglass", "m_iSurfaceType", false, value);
 }
 void* GCFuncShatterglass::GetPtr() {
@@ -8031,16 +8031,16 @@ Color Ghudtextparms_t::GetColor2() const {
 void Ghudtextparms_t::SetColor2(Color value) {
     SetSchemaValue(m_ptr, "hudtextparms_t", "color2", true, value);
 }
-uint8_t Ghudtextparms_t::GetEffect() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "hudtextparms_t", "effect");
+uint32_t Ghudtextparms_t::GetEffect() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "hudtextparms_t", "effect");
 }
-void Ghudtextparms_t::SetEffect(uint8_t value) {
+void Ghudtextparms_t::SetEffect(uint32_t value) {
     SetSchemaValue(m_ptr, "hudtextparms_t", "effect", true, value);
 }
-uint8_t Ghudtextparms_t::GetChannel() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "hudtextparms_t", "channel");
+uint32_t Ghudtextparms_t::GetChannel() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "hudtextparms_t", "channel");
 }
-void Ghudtextparms_t::SetChannel(uint8_t value) {
+void Ghudtextparms_t::SetChannel(uint32_t value) {
     SetSchemaValue(m_ptr, "hudtextparms_t", "channel", true, value);
 }
 float Ghudtextparms_t::GetX() const {
@@ -9820,16 +9820,16 @@ std::vector<float> GCCSBot::GetPlayerTravelDistance() const {
 void GCCSBot::SetPlayerTravelDistance(std::vector<float> value) {
     float* outValue = GetSchemaValue<float*>(m_ptr, "CCSBot", "m_playerTravelDistance"); for(int i = 0; i < 64; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CCSBot", "m_playerTravelDistance", false, outValue);
 }
-uint8_t GCCSBot::GetTravelDistancePhase() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSBot", "m_travelDistancePhase");
+uint32_t GCCSBot::GetTravelDistancePhase() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSBot", "m_travelDistancePhase");
 }
-void GCCSBot::SetTravelDistancePhase(uint8_t value) {
+void GCCSBot::SetTravelDistancePhase(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_travelDistancePhase", false, value);
 }
-uint8_t GCCSBot::GetHostageEscortCount() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSBot", "m_hostageEscortCount");
+uint32_t GCCSBot::GetHostageEscortCount() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSBot", "m_hostageEscortCount");
 }
-void GCCSBot::SetHostageEscortCount(uint8_t value) {
+void GCCSBot::SetHostageEscortCount(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_hostageEscortCount", false, value);
 }
 float GCCSBot::GetHostageEscortCountTimestamp() const {
@@ -9986,10 +9986,10 @@ float GCCSBot::GetPeripheralTimestamp() const {
 void GCCSBot::SetPeripheralTimestamp(float value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_peripheralTimestamp", false, value);
 }
-uint8_t GCCSBot::GetApproachPointCount() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSBot", "m_approachPointCount");
+uint32_t GCCSBot::GetApproachPointCount() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSBot", "m_approachPointCount");
 }
-void GCCSBot::SetApproachPointCount(uint8_t value) {
+void GCCSBot::SetApproachPointCount(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_approachPointCount", false, value);
 }
 Vector GCCSBot::GetApproachPointViewPosition() const {
@@ -10129,10 +10129,10 @@ bool GCCSBot::GetIsEnemyVisible() const {
 void GCCSBot::SetIsEnemyVisible(bool value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_isEnemyVisible", false, value);
 }
-uint8_t GCCSBot::GetVisibleEnemyParts() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSBot", "m_visibleEnemyParts");
+uint32_t GCCSBot::GetVisibleEnemyParts() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSBot", "m_visibleEnemyParts");
 }
-void GCCSBot::SetVisibleEnemyParts(uint8_t value) {
+void GCCSBot::SetVisibleEnemyParts(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_visibleEnemyParts", false, value);
 }
 Vector GCCSBot::GetLastEnemyPosition() const {
@@ -10301,22 +10301,22 @@ GCountdownTimer GCCSBot::GetSawEnemySniperTimer() const {
 void GCCSBot::SetSawEnemySniperTimer(GCountdownTimer value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'SawEnemySniperTimer' is not possible.\n");
 }
-uint8_t GCCSBot::GetEnemyQueueIndex() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSBot", "m_enemyQueueIndex");
+uint32_t GCCSBot::GetEnemyQueueIndex() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSBot", "m_enemyQueueIndex");
 }
-void GCCSBot::SetEnemyQueueIndex(uint8_t value) {
+void GCCSBot::SetEnemyQueueIndex(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_enemyQueueIndex", false, value);
 }
-uint8_t GCCSBot::GetEnemyQueueCount() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSBot", "m_enemyQueueCount");
+uint32_t GCCSBot::GetEnemyQueueCount() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSBot", "m_enemyQueueCount");
 }
-void GCCSBot::SetEnemyQueueCount(uint8_t value) {
+void GCCSBot::SetEnemyQueueCount(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_enemyQueueCount", false, value);
 }
-uint8_t GCCSBot::GetEnemyQueueAttendIndex() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSBot", "m_enemyQueueAttendIndex");
+uint32_t GCCSBot::GetEnemyQueueAttendIndex() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSBot", "m_enemyQueueAttendIndex");
 }
-void GCCSBot::SetEnemyQueueAttendIndex(uint8_t value) {
+void GCCSBot::SetEnemyQueueAttendIndex(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSBot", "m_enemyQueueAttendIndex", false, value);
 }
 bool GCCSBot::GetIsStuck() const {
@@ -11736,16 +11736,16 @@ uint64_t GCBasePlayerWeaponVData::GetFlags() const {
 void GCBasePlayerWeaponVData::SetFlags(uint64_t value) {
     SetSchemaValue(m_ptr, "CBasePlayerWeaponVData", "m_iFlags", false, value);
 }
-uint8_t GCBasePlayerWeaponVData::GetPrimaryAmmoType() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBasePlayerWeaponVData", "m_nPrimaryAmmoType");
+uint32_t GCBasePlayerWeaponVData::GetPrimaryAmmoType() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBasePlayerWeaponVData", "m_nPrimaryAmmoType");
 }
-void GCBasePlayerWeaponVData::SetPrimaryAmmoType(uint8_t value) {
+void GCBasePlayerWeaponVData::SetPrimaryAmmoType(uint32_t value) {
     SetSchemaValue(m_ptr, "CBasePlayerWeaponVData", "m_nPrimaryAmmoType", false, value);
 }
-uint8_t GCBasePlayerWeaponVData::GetSecondaryAmmoType() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBasePlayerWeaponVData", "m_nSecondaryAmmoType");
+uint32_t GCBasePlayerWeaponVData::GetSecondaryAmmoType() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBasePlayerWeaponVData", "m_nSecondaryAmmoType");
 }
-void GCBasePlayerWeaponVData::SetSecondaryAmmoType(uint8_t value) {
+void GCBasePlayerWeaponVData::SetSecondaryAmmoType(uint32_t value) {
     SetSchemaValue(m_ptr, "CBasePlayerWeaponVData", "m_nSecondaryAmmoType", false, value);
 }
 int32_t GCBasePlayerWeaponVData::GetMaxClip1() const {
@@ -12261,10 +12261,10 @@ GCEconItemView GCCSPlayerPawn::GetEconGloves() const {
 void GCCSPlayerPawn::SetEconGloves(GCEconItemView value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'EconGloves' is not possible.\n");
 }
-uint8_t GCCSPlayerPawn::GetEconGlovesChanged() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSPlayerPawn", "m_nEconGlovesChanged");
+uint32_t GCCSPlayerPawn::GetEconGlovesChanged() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSPlayerPawn", "m_nEconGlovesChanged");
 }
-void GCCSPlayerPawn::SetEconGlovesChanged(uint8_t value) {
+void GCCSPlayerPawn::SetEconGlovesChanged(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerPawn", "m_nEconGlovesChanged", false, value);
 }
 QAngle GCCSPlayerPawn::GetDeathEyeAngles() const {
@@ -12914,10 +12914,10 @@ std::string GCCSPlayerController::GetCrosshairCodes() const {
 void GCCSPlayerController::SetCrosshairCodes(std::string value) {
     SetSchemaValue(m_ptr, "CCSPlayerController", "m_szCrosshairCodes", false, CUtlSymbolLarge(value.c_str()));
 }
-uint8_t GCCSPlayerController::GetPendingTeamNum() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSPlayerController", "m_iPendingTeamNum");
+uint32_t GCCSPlayerController::GetPendingTeamNum() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSPlayerController", "m_iPendingTeamNum");
 }
-void GCCSPlayerController::SetPendingTeamNum(uint8_t value) {
+void GCCSPlayerController::SetPendingTeamNum(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerController", "m_iPendingTeamNum", false, value);
 }
 float GCCSPlayerController::GetForceTeamTime() const {
@@ -13028,10 +13028,10 @@ int32_t GCCSPlayerController::GetCompetitiveWins() const {
 void GCCSPlayerController::SetCompetitiveWins(int32_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerController", "m_iCompetitiveWins", false, value);
 }
-int8_t GCCSPlayerController::GetCompetitiveRankType() const {
-    return GetSchemaValue<int8_t>(m_ptr, "CCSPlayerController", "m_iCompetitiveRankType");
+int32_t GCCSPlayerController::GetCompetitiveRankType() const {
+    return GetSchemaValue<int32_t>(m_ptr, "CCSPlayerController", "m_iCompetitiveRankType");
 }
-void GCCSPlayerController::SetCompetitiveRankType(int8_t value) {
+void GCCSPlayerController::SetCompetitiveRankType(int32_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerController", "m_iCompetitiveRankType", false, value);
 }
 int32_t GCCSPlayerController::GetCompetitiveRankingPredicted_Win() const {
@@ -16395,10 +16395,10 @@ std::vector<bool> GCCSGameRules::GetTeamLastKillUsedUniqueWeaponMatch() const {
 void GCCSGameRules::SetTeamLastKillUsedUniqueWeaponMatch(std::vector<bool> value) {
     bool* outValue = GetSchemaValue<bool*>(m_ptr, "CCSGameRules", "m_bTeamLastKillUsedUniqueWeaponMatch"); for(int i = 0; i < 4; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CCSGameRules", "m_bTeamLastKillUsedUniqueWeaponMatch", false, outValue);
 }
-uint8_t GCCSGameRules::GetMatchEndCount() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSGameRules", "m_nMatchEndCount");
+uint32_t GCCSGameRules::GetMatchEndCount() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSGameRules", "m_nMatchEndCount");
 }
-void GCCSGameRules::SetMatchEndCount(uint8_t value) {
+void GCCSGameRules::SetMatchEndCount(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSGameRules", "m_nMatchEndCount", false, value);
 }
 int32_t GCCSGameRules::GetTTeamIntroVariant() const {
@@ -16509,10 +16509,10 @@ int32_t GCCSGameRules::GetRoundEndLegacy() const {
 void GCCSGameRules::SetRoundEndLegacy(int32_t value) {
     SetSchemaValue(m_ptr, "CCSGameRules", "m_iRoundEndLegacy", false, value);
 }
-uint8_t GCCSGameRules::GetRoundEndCount() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSGameRules", "m_nRoundEndCount");
+uint32_t GCCSGameRules::GetRoundEndCount() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSGameRules", "m_nRoundEndCount");
 }
-void GCCSGameRules::SetRoundEndCount(uint8_t value) {
+void GCCSGameRules::SetRoundEndCount(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSGameRules", "m_nRoundEndCount", false, value);
 }
 int32_t GCCSGameRules::GetRoundStartRoundNumber() const {
@@ -16521,10 +16521,10 @@ int32_t GCCSGameRules::GetRoundStartRoundNumber() const {
 void GCCSGameRules::SetRoundStartRoundNumber(int32_t value) {
     SetSchemaValue(m_ptr, "CCSGameRules", "m_iRoundStartRoundNumber", false, value);
 }
-uint8_t GCCSGameRules::GetRoundStartCount() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCSGameRules", "m_nRoundStartCount");
+uint32_t GCCSGameRules::GetRoundStartCount() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCSGameRules", "m_nRoundStartCount");
 }
-void GCCSGameRules::SetRoundStartCount(uint8_t value) {
+void GCCSGameRules::SetRoundStartCount(uint32_t value) {
     SetSchemaValue(m_ptr, "CCSGameRules", "m_nRoundStartCount", false, value);
 }
 double GCCSGameRules::GetLastPerfSampleTime() const {
@@ -23138,10 +23138,10 @@ int32_t GCTakeDamageInfo::GetDamageCustom() const {
 void GCTakeDamageInfo::SetDamageCustom(int32_t value) {
     SetSchemaValue(m_ptr, "CTakeDamageInfo", "m_iDamageCustom", false, value);
 }
-uint8_t GCTakeDamageInfo::GetAmmoType() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CTakeDamageInfo", "m_iAmmoType");
+uint32_t GCTakeDamageInfo::GetAmmoType() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CTakeDamageInfo", "m_iAmmoType");
 }
-void GCTakeDamageInfo::SetAmmoType(uint8_t value) {
+void GCTakeDamageInfo::SetAmmoType(uint32_t value) {
     SetSchemaValue(m_ptr, "CTakeDamageInfo", "m_iAmmoType", false, value);
 }
 float GCTakeDamageInfo::GetOriginalDamage() const {
@@ -26815,16 +26815,16 @@ Vector GCDrawCullingData::GetConeApex() const {
 void GCDrawCullingData::SetConeApex(Vector value) {
     SetSchemaValue(m_ptr, "CDrawCullingData", "m_vConeApex", false, value);
 }
-std::vector<int8_t> GCDrawCullingData::GetConeAxis() const {
-    int8_t* outValue = GetSchemaValue<int8_t*>(m_ptr, "CDrawCullingData", "m_ConeAxis"); std::vector<int8_t> ret; for(int i = 0; i < 3; i++) { ret.push_back(outValue[i]); } return ret;
+std::vector<int32_t> GCDrawCullingData::GetConeAxis() const {
+    int32_t* outValue = GetSchemaValue<int32_t*>(m_ptr, "CDrawCullingData", "m_ConeAxis"); std::vector<int32_t> ret; for(int i = 0; i < 3; i++) { ret.push_back(outValue[i]); } return ret;
 }
-void GCDrawCullingData::SetConeAxis(std::vector<int8_t> value) {
-    int8_t* outValue = GetSchemaValue<int8_t*>(m_ptr, "CDrawCullingData", "m_ConeAxis"); for(int i = 0; i < 3; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CDrawCullingData", "m_ConeAxis", false, outValue);
+void GCDrawCullingData::SetConeAxis(std::vector<int32_t> value) {
+    int32_t* outValue = GetSchemaValue<int32_t*>(m_ptr, "CDrawCullingData", "m_ConeAxis"); for(int i = 0; i < 3; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CDrawCullingData", "m_ConeAxis", false, outValue);
 }
-int8_t GCDrawCullingData::GetConeCutoff() const {
-    return GetSchemaValue<int8_t>(m_ptr, "CDrawCullingData", "m_ConeCutoff");
+int32_t GCDrawCullingData::GetConeCutoff() const {
+    return GetSchemaValue<int32_t>(m_ptr, "CDrawCullingData", "m_ConeCutoff");
 }
-void GCDrawCullingData::SetConeCutoff(int8_t value) {
+void GCDrawCullingData::SetConeCutoff(int32_t value) {
     SetSchemaValue(m_ptr, "CDrawCullingData", "m_ConeCutoff", false, value);
 }
 void* GCDrawCullingData::GetPtr() {
@@ -26995,10 +26995,10 @@ uint64_t GCAnimParamHandle::GetType() const {
 void GCAnimParamHandle::SetType(uint64_t value) {
     SetSchemaValue(m_ptr, "CAnimParamHandle", "m_type", false, value);
 }
-uint8_t GCAnimParamHandle::GetIndex() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CAnimParamHandle", "m_index");
+uint32_t GCAnimParamHandle::GetIndex() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CAnimParamHandle", "m_index");
 }
-void GCAnimParamHandle::SetIndex(uint8_t value) {
+void GCAnimParamHandle::SetIndex(uint32_t value) {
     SetSchemaValue(m_ptr, "CAnimParamHandle", "m_index", false, value);
 }
 void* GCAnimParamHandle::GetPtr() {
@@ -27531,28 +27531,28 @@ uint16_t GPhysFeModelDesc_t::GetTriCount2() const {
 void GPhysFeModelDesc_t::SetTriCount2(uint16_t value) {
     SetSchemaValue(m_ptr, "PhysFeModelDesc_t", "m_nTriCount2", true, value);
 }
-uint8_t GPhysFeModelDesc_t::GetReservedUint8() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "PhysFeModelDesc_t", "m_nReservedUint8");
+uint32_t GPhysFeModelDesc_t::GetReservedUint8() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "PhysFeModelDesc_t", "m_nReservedUint8");
 }
-void GPhysFeModelDesc_t::SetReservedUint8(uint8_t value) {
+void GPhysFeModelDesc_t::SetReservedUint8(uint32_t value) {
     SetSchemaValue(m_ptr, "PhysFeModelDesc_t", "m_nReservedUint8", true, value);
 }
-uint8_t GPhysFeModelDesc_t::GetExtraPressureIterations() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "PhysFeModelDesc_t", "m_nExtraPressureIterations");
+uint32_t GPhysFeModelDesc_t::GetExtraPressureIterations() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "PhysFeModelDesc_t", "m_nExtraPressureIterations");
 }
-void GPhysFeModelDesc_t::SetExtraPressureIterations(uint8_t value) {
+void GPhysFeModelDesc_t::SetExtraPressureIterations(uint32_t value) {
     SetSchemaValue(m_ptr, "PhysFeModelDesc_t", "m_nExtraPressureIterations", true, value);
 }
-uint8_t GPhysFeModelDesc_t::GetExtraGoalIterations() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "PhysFeModelDesc_t", "m_nExtraGoalIterations");
+uint32_t GPhysFeModelDesc_t::GetExtraGoalIterations() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "PhysFeModelDesc_t", "m_nExtraGoalIterations");
 }
-void GPhysFeModelDesc_t::SetExtraGoalIterations(uint8_t value) {
+void GPhysFeModelDesc_t::SetExtraGoalIterations(uint32_t value) {
     SetSchemaValue(m_ptr, "PhysFeModelDesc_t", "m_nExtraGoalIterations", true, value);
 }
-uint8_t GPhysFeModelDesc_t::GetExtraIterations() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "PhysFeModelDesc_t", "m_nExtraIterations");
+uint32_t GPhysFeModelDesc_t::GetExtraIterations() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "PhysFeModelDesc_t", "m_nExtraIterations");
 }
-void GPhysFeModelDesc_t::SetExtraIterations(uint8_t value) {
+void GPhysFeModelDesc_t::SetExtraIterations(uint32_t value) {
     SetSchemaValue(m_ptr, "PhysFeModelDesc_t", "m_nExtraIterations", true, value);
 }
 std::vector<GFeBoxRigid_t> GPhysFeModelDesc_t::GetBoxRigids() const {

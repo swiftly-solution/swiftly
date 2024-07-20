@@ -365,10 +365,10 @@ GCNetworkTransmitComponent::GCNetworkTransmitComponent(std::string ptr) {
 GCNetworkTransmitComponent::GCNetworkTransmitComponent(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GCNetworkTransmitComponent::GetTransmitStateOwnedCounter() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CNetworkTransmitComponent", "m_nTransmitStateOwnedCounter");
+uint32_t GCNetworkTransmitComponent::GetTransmitStateOwnedCounter() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CNetworkTransmitComponent", "m_nTransmitStateOwnedCounter");
 }
-void GCNetworkTransmitComponent::SetTransmitStateOwnedCounter(uint8_t value) {
+void GCNetworkTransmitComponent::SetTransmitStateOwnedCounter(uint32_t value) {
     SetSchemaValue(m_ptr, "CNetworkTransmitComponent", "m_nTransmitStateOwnedCounter", false, value);
 }
 void* GCNetworkTransmitComponent::GetPtr() {
@@ -626,10 +626,10 @@ int32_t GCBaseEntity::GetMaxHealth() const {
 void GCBaseEntity::SetMaxHealth(int32_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_iMaxHealth", false, value);
 }
-uint8_t GCBaseEntity::GetLifeState() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBaseEntity", "m_lifeState");
+uint32_t GCBaseEntity::GetLifeState() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBaseEntity", "m_lifeState");
 }
-void GCBaseEntity::SetLifeState(uint8_t value) {
+void GCBaseEntity::SetLifeState(uint32_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_lifeState", false, value);
 }
 float GCBaseEntity::GetDamageAccumulator() const {
@@ -674,16 +674,16 @@ uint64_t GCBaseEntity::GetActualMoveType() const {
 void GCBaseEntity::SetActualMoveType(uint64_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_nActualMoveType", false, value);
 }
-uint8_t GCBaseEntity::GetWaterTouch() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBaseEntity", "m_nWaterTouch");
+uint32_t GCBaseEntity::GetWaterTouch() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBaseEntity", "m_nWaterTouch");
 }
-void GCBaseEntity::SetWaterTouch(uint8_t value) {
+void GCBaseEntity::SetWaterTouch(uint32_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_nWaterTouch", false, value);
 }
-uint8_t GCBaseEntity::GetSlimeTouch() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBaseEntity", "m_nSlimeTouch");
+uint32_t GCBaseEntity::GetSlimeTouch() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBaseEntity", "m_nSlimeTouch");
 }
-void GCBaseEntity::SetSlimeTouch(uint8_t value) {
+void GCBaseEntity::SetSlimeTouch(uint32_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_nSlimeTouch", false, value);
 }
 bool GCBaseEntity::GetRestoreInHierarchy() const {
@@ -747,10 +747,10 @@ bool GCBaseEntity::GetClientSideRagdoll() const {
 void GCBaseEntity::SetClientSideRagdoll(bool value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_bClientSideRagdoll", false, value);
 }
-uint8_t GCBaseEntity::GetInterpolationFrame() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBaseEntity", "m_ubInterpolationFrame");
+uint32_t GCBaseEntity::GetInterpolationFrame() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBaseEntity", "m_ubInterpolationFrame");
 }
-void GCBaseEntity::SetInterpolationFrame(uint8_t value) {
+void GCBaseEntity::SetInterpolationFrame(uint32_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_ubInterpolationFrame", false, value);
 }
 Vector GCBaseEntity::GetPrevVPhysicsUpdatePos() const {
@@ -759,10 +759,10 @@ Vector GCBaseEntity::GetPrevVPhysicsUpdatePos() const {
 void GCBaseEntity::SetPrevVPhysicsUpdatePos(Vector value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_vPrevVPhysicsUpdatePos", false, value);
 }
-uint8_t GCBaseEntity::GetTeamNum() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBaseEntity", "m_iTeamNum");
+uint32_t GCBaseEntity::GetTeamNum() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBaseEntity", "m_iTeamNum");
 }
-void GCBaseEntity::SetTeamNum(uint8_t value) {
+void GCBaseEntity::SetTeamNum(uint32_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_iTeamNum", false, value);
 }
 std::string GCBaseEntity::GetGlobalname() const {
@@ -927,10 +927,10 @@ bool GCBaseEntity::GetDisableLowViolence() const {
 void GCBaseEntity::SetDisableLowViolence(bool value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_bDisableLowViolence", false, value);
 }
-uint8_t GCBaseEntity::GetWaterType() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBaseEntity", "m_nWaterType");
+uint32_t GCBaseEntity::GetWaterType() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBaseEntity", "m_nWaterType");
 }
-void GCBaseEntity::SetWaterType(uint8_t value) {
+void GCBaseEntity::SetWaterType(uint32_t value) {
     SetSchemaValue(m_ptr, "CBaseEntity", "m_nWaterType", false, value);
 }
 int32_t GCBaseEntity::GetEFlags() const {
@@ -1319,16 +1319,16 @@ uint16_t GVPhysicsCollisionAttribute_t::GetHierarchyId() const {
 void GVPhysicsCollisionAttribute_t::SetHierarchyId(uint16_t value) {
     SetSchemaValue(m_ptr, "VPhysicsCollisionAttribute_t", "m_nHierarchyId", true, value);
 }
-uint8_t GVPhysicsCollisionAttribute_t::GetCollisionGroup() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "VPhysicsCollisionAttribute_t", "m_nCollisionGroup");
+uint32_t GVPhysicsCollisionAttribute_t::GetCollisionGroup() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "VPhysicsCollisionAttribute_t", "m_nCollisionGroup");
 }
-void GVPhysicsCollisionAttribute_t::SetCollisionGroup(uint8_t value) {
+void GVPhysicsCollisionAttribute_t::SetCollisionGroup(uint32_t value) {
     SetSchemaValue(m_ptr, "VPhysicsCollisionAttribute_t", "m_nCollisionGroup", true, value);
 }
-uint8_t GVPhysicsCollisionAttribute_t::GetCollisionFunctionMask() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "VPhysicsCollisionAttribute_t", "m_nCollisionFunctionMask");
+uint32_t GVPhysicsCollisionAttribute_t::GetCollisionFunctionMask() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "VPhysicsCollisionAttribute_t", "m_nCollisionFunctionMask");
 }
-void GVPhysicsCollisionAttribute_t::SetCollisionFunctionMask(uint8_t value) {
+void GVPhysicsCollisionAttribute_t::SetCollisionFunctionMask(uint32_t value) {
     SetSchemaValue(m_ptr, "VPhysicsCollisionAttribute_t", "m_nCollisionFunctionMask", true, value);
 }
 void* GVPhysicsCollisionAttribute_t::GetPtr() {
@@ -1382,10 +1382,10 @@ Vector GCCollisionProperty::GetMaxs() const {
 void GCCollisionProperty::SetMaxs(Vector value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecMaxs", false, value);
 }
-uint8_t GCCollisionProperty::GetSolidFlags() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCollisionProperty", "m_usSolidFlags");
+uint32_t GCCollisionProperty::GetSolidFlags() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCollisionProperty", "m_usSolidFlags");
 }
-void GCCollisionProperty::SetSolidFlags(uint8_t value) {
+void GCCollisionProperty::SetSolidFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_usSolidFlags", false, value);
 }
 uint64_t GCCollisionProperty::GetSolidType() const {
@@ -1394,10 +1394,10 @@ uint64_t GCCollisionProperty::GetSolidType() const {
 void GCCollisionProperty::SetSolidType(uint64_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_nSolidType", false, value);
 }
-uint8_t GCCollisionProperty::GetTriggerBloat() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCollisionProperty", "m_triggerBloat");
+uint32_t GCCollisionProperty::GetTriggerBloat() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCollisionProperty", "m_triggerBloat");
 }
-void GCCollisionProperty::SetTriggerBloat(uint8_t value) {
+void GCCollisionProperty::SetTriggerBloat(uint32_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_triggerBloat", false, value);
 }
 uint64_t GCCollisionProperty::GetSurroundType() const {
@@ -1406,16 +1406,16 @@ uint64_t GCCollisionProperty::GetSurroundType() const {
 void GCCollisionProperty::SetSurroundType(uint64_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_nSurroundType", false, value);
 }
-uint8_t GCCollisionProperty::GetCollisionGroup() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCollisionProperty", "m_CollisionGroup");
+uint32_t GCCollisionProperty::GetCollisionGroup() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCollisionProperty", "m_CollisionGroup");
 }
-void GCCollisionProperty::SetCollisionGroup(uint8_t value) {
+void GCCollisionProperty::SetCollisionGroup(uint32_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_CollisionGroup", false, value);
 }
-uint8_t GCCollisionProperty::GetEnablePhysics() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CCollisionProperty", "m_nEnablePhysics");
+uint32_t GCCollisionProperty::GetEnablePhysics() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CCollisionProperty", "m_nEnablePhysics");
 }
-void GCCollisionProperty::SetEnablePhysics(uint8_t value) {
+void GCCollisionProperty::SetEnablePhysics(uint32_t value) {
     SetSchemaValue(m_ptr, "CCollisionProperty", "m_nEnablePhysics", false, value);
 }
 float GCCollisionProperty::GetBoundingRadius() const {
@@ -1617,10 +1617,10 @@ float GCBaseModelEntity::GetShadowStrength() const {
 void GCBaseModelEntity::SetShadowStrength(float value) {
     SetSchemaValue(m_ptr, "CBaseModelEntity", "m_flShadowStrength", false, value);
 }
-uint8_t GCBaseModelEntity::GetObjectCulling() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBaseModelEntity", "m_nObjectCulling");
+uint32_t GCBaseModelEntity::GetObjectCulling() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBaseModelEntity", "m_nObjectCulling");
 }
-void GCBaseModelEntity::SetObjectCulling(uint8_t value) {
+void GCBaseModelEntity::SetObjectCulling(uint32_t value) {
     SetSchemaValue(m_ptr, "CBaseModelEntity", "m_nObjectCulling", false, value);
 }
 int32_t GCBaseModelEntity::GetAddDecal() const {
@@ -3281,22 +3281,22 @@ uint64_t GCModelState::GetMeshGroupMask() const {
 void GCModelState::SetMeshGroupMask(uint64_t value) {
     SetSchemaValue(m_ptr, "CModelState", "m_MeshGroupMask", false, value);
 }
-int8_t GCModelState::GetIdealMotionType() const {
-    return GetSchemaValue<int8_t>(m_ptr, "CModelState", "m_nIdealMotionType");
+int32_t GCModelState::GetIdealMotionType() const {
+    return GetSchemaValue<int32_t>(m_ptr, "CModelState", "m_nIdealMotionType");
 }
-void GCModelState::SetIdealMotionType(int8_t value) {
+void GCModelState::SetIdealMotionType(int32_t value) {
     SetSchemaValue(m_ptr, "CModelState", "m_nIdealMotionType", false, value);
 }
-int8_t GCModelState::GetForceLOD() const {
-    return GetSchemaValue<int8_t>(m_ptr, "CModelState", "m_nForceLOD");
+int32_t GCModelState::GetForceLOD() const {
+    return GetSchemaValue<int32_t>(m_ptr, "CModelState", "m_nForceLOD");
 }
-void GCModelState::SetForceLOD(int8_t value) {
+void GCModelState::SetForceLOD(int32_t value) {
     SetSchemaValue(m_ptr, "CModelState", "m_nForceLOD", false, value);
 }
-int8_t GCModelState::GetClothUpdateFlags() const {
-    return GetSchemaValue<int8_t>(m_ptr, "CModelState", "m_nClothUpdateFlags");
+int32_t GCModelState::GetClothUpdateFlags() const {
+    return GetSchemaValue<int32_t>(m_ptr, "CModelState", "m_nClothUpdateFlags");
 }
-void GCModelState::SetClothUpdateFlags(int8_t value) {
+void GCModelState::SetClothUpdateFlags(int32_t value) {
     SetSchemaValue(m_ptr, "CModelState", "m_nClothUpdateFlags", false, value);
 }
 void* GCModelState::GetPtr() {
@@ -5079,10 +5079,10 @@ int32_t Gaudioparams_t::GetSoundscapeIndex() const {
 void Gaudioparams_t::SetSoundscapeIndex(int32_t value) {
     SetSchemaValue(m_ptr, "audioparams_t", "soundscapeIndex", true, value);
 }
-uint8_t Gaudioparams_t::GetLocalBits() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "audioparams_t", "localBits");
+uint32_t Gaudioparams_t::GetLocalBits() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "audioparams_t", "localBits");
 }
-void Gaudioparams_t::SetLocalBits(uint8_t value) {
+void Gaudioparams_t::SetLocalBits(uint32_t value) {
     SetSchemaValue(m_ptr, "audioparams_t", "localBits", true, value);
 }
 int32_t Gaudioparams_t::GetSoundscapeEntityListIndex() const {
@@ -5404,10 +5404,10 @@ uint32_t GCEffectData::GetDamageType() const {
 void GCEffectData::SetDamageType(uint32_t value) {
     SetSchemaValue(m_ptr, "CEffectData", "m_nDamageType", false, value);
 }
-uint8_t GCEffectData::GetPenetrate() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CEffectData", "m_nPenetrate");
+uint32_t GCEffectData::GetPenetrate() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CEffectData", "m_nPenetrate");
 }
-void GCEffectData::SetPenetrate(uint8_t value) {
+void GCEffectData::SetPenetrate(uint32_t value) {
     SetSchemaValue(m_ptr, "CEffectData", "m_nPenetrate", false, value);
 }
 uint16_t GCEffectData::GetMaterial() const {
@@ -5422,16 +5422,16 @@ uint16_t GCEffectData::GetHitBox() const {
 void GCEffectData::SetHitBox(uint16_t value) {
     SetSchemaValue(m_ptr, "CEffectData", "m_nHitBox", false, value);
 }
-uint8_t GCEffectData::GetColor() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CEffectData", "m_nColor");
+uint32_t GCEffectData::GetColor() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CEffectData", "m_nColor");
 }
-void GCEffectData::SetColor(uint8_t value) {
+void GCEffectData::SetColor(uint32_t value) {
     SetSchemaValue(m_ptr, "CEffectData", "m_nColor", false, value);
 }
-uint8_t GCEffectData::GetFlags() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CEffectData", "m_fFlags");
+uint32_t GCEffectData::GetFlags() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CEffectData", "m_fFlags");
 }
-void GCEffectData::SetFlags(uint8_t value) {
+void GCEffectData::SetFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "CEffectData", "m_fFlags", false, value);
 }
 uint32_t GCEffectData::GetAttachmentName() const {
@@ -5446,10 +5446,10 @@ uint16_t GCEffectData::GetEffectName() const {
 void GCEffectData::SetEffectName(uint16_t value) {
     SetSchemaValue(m_ptr, "CEffectData", "m_iEffectName", false, value);
 }
-uint8_t GCEffectData::GetExplosionType() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CEffectData", "m_nExplosionType");
+uint32_t GCEffectData::GetExplosionType() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CEffectData", "m_nExplosionType");
 }
-void GCEffectData::SetExplosionType(uint8_t value) {
+void GCEffectData::SetExplosionType(uint32_t value) {
     SetSchemaValue(m_ptr, "CEffectData", "m_nExplosionType", false, value);
 }
 void* GCEffectData::GetPtr() {
@@ -5545,11 +5545,11 @@ int32_t GCLogicCase::GetLastShuffleCase() const {
 void GCLogicCase::SetLastShuffleCase(int32_t value) {
     SetSchemaValue(m_ptr, "CLogicCase", "m_nLastShuffleCase", false, value);
 }
-std::vector<uint8_t> GCLogicCase::GetUchShuffleCaseMap() const {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "CLogicCase", "m_uchShuffleCaseMap"); std::vector<uint8_t> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
+std::vector<uint32_t> GCLogicCase::GetUchShuffleCaseMap() const {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "CLogicCase", "m_uchShuffleCaseMap"); std::vector<uint32_t> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
 }
-void GCLogicCase::SetUchShuffleCaseMap(std::vector<uint8_t> value) {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "CLogicCase", "m_uchShuffleCaseMap"); for(int i = 0; i < 32; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CLogicCase", "m_uchShuffleCaseMap", false, outValue);
+void GCLogicCase::SetUchShuffleCaseMap(std::vector<uint32_t> value) {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "CLogicCase", "m_uchShuffleCaseMap"); for(int i = 0; i < 32; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CLogicCase", "m_uchShuffleCaseMap", false, outValue);
 }
 std::vector<GCEntityIOOutput> GCLogicCase::GetOnCase() const {
     GCEntityIOOutput* outValue = GetSchemaValue<GCEntityIOOutput*>(m_ptr, "CLogicCase", "m_OnCase"); std::vector<GCEntityIOOutput> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
@@ -7467,10 +7467,10 @@ float GCRopeKeyframe::GetTextureScale() const {
 void GCRopeKeyframe::SetTextureScale(float value) {
     SetSchemaValue(m_ptr, "CRopeKeyframe", "m_TextureScale", false, value);
 }
-uint8_t GCRopeKeyframe::GetSegments() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CRopeKeyframe", "m_nSegments");
+uint32_t GCRopeKeyframe::GetSegments() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CRopeKeyframe", "m_nSegments");
 }
-void GCRopeKeyframe::SetSegments(uint8_t value) {
+void GCRopeKeyframe::SetSegments(uint32_t value) {
     SetSchemaValue(m_ptr, "CRopeKeyframe", "m_nSegments", false, value);
 }
 bool GCRopeKeyframe::GetConstrainBetweenEndpoints() const {
@@ -7485,16 +7485,16 @@ std::string GCRopeKeyframe::GetStrRopeMaterialModel() const {
 void GCRopeKeyframe::SetStrRopeMaterialModel(std::string value) {
     SetSchemaValue(m_ptr, "CRopeKeyframe", "m_strRopeMaterialModel", false, CUtlSymbolLarge(value.c_str()));
 }
-uint8_t GCRopeKeyframe::GetSubdiv() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CRopeKeyframe", "m_Subdiv");
+uint32_t GCRopeKeyframe::GetSubdiv() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CRopeKeyframe", "m_Subdiv");
 }
-void GCRopeKeyframe::SetSubdiv(uint8_t value) {
+void GCRopeKeyframe::SetSubdiv(uint32_t value) {
     SetSchemaValue(m_ptr, "CRopeKeyframe", "m_Subdiv", false, value);
 }
-uint8_t GCRopeKeyframe::GetChangeCount() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CRopeKeyframe", "m_nChangeCount");
+uint32_t GCRopeKeyframe::GetChangeCount() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CRopeKeyframe", "m_nChangeCount");
 }
-void GCRopeKeyframe::SetChangeCount(uint8_t value) {
+void GCRopeKeyframe::SetChangeCount(uint32_t value) {
     SetSchemaValue(m_ptr, "CRopeKeyframe", "m_nChangeCount", false, value);
 }
 int16_t GCRopeKeyframe::GetRopeLength() const {
@@ -7503,10 +7503,10 @@ int16_t GCRopeKeyframe::GetRopeLength() const {
 void GCRopeKeyframe::SetRopeLength(int16_t value) {
     SetSchemaValue(m_ptr, "CRopeKeyframe", "m_RopeLength", false, value);
 }
-uint8_t GCRopeKeyframe::GetLockedPoints() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CRopeKeyframe", "m_fLockedPoints");
+uint32_t GCRopeKeyframe::GetLockedPoints() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CRopeKeyframe", "m_fLockedPoints");
 }
-void GCRopeKeyframe::SetLockedPoints(uint8_t value) {
+void GCRopeKeyframe::SetLockedPoints(uint32_t value) {
     SetSchemaValue(m_ptr, "CRopeKeyframe", "m_fLockedPoints", false, value);
 }
 bool GCRopeKeyframe::GetCreatedFromMapFile() const {
@@ -9927,10 +9927,10 @@ GCRagdollManager::GCRagdollManager(std::string ptr) {
 GCRagdollManager::GCRagdollManager(void *ptr) {
     m_ptr = ptr;
 }
-int8_t GCRagdollManager::GetCurrentMaxRagdollCount() const {
-    return GetSchemaValue<int8_t>(m_ptr, "CRagdollManager", "m_iCurrentMaxRagdollCount");
+int32_t GCRagdollManager::GetCurrentMaxRagdollCount() const {
+    return GetSchemaValue<int32_t>(m_ptr, "CRagdollManager", "m_iCurrentMaxRagdollCount");
 }
-void GCRagdollManager::SetCurrentMaxRagdollCount(int8_t value) {
+void GCRagdollManager::SetCurrentMaxRagdollCount(int32_t value) {
     SetSchemaValue(m_ptr, "CRagdollManager", "m_iCurrentMaxRagdollCount", false, value);
 }
 int32_t GCRagdollManager::GetMaxRagdollCount() const {
@@ -11130,22 +11130,22 @@ bool GCGameSceneNode::GetForceParentToBeNetworked() const {
 void GCGameSceneNode::SetForceParentToBeNetworked(bool value) {
     SetSchemaValue(m_ptr, "CGameSceneNode", "m_bForceParentToBeNetworked", false, value);
 }
-uint8_t GCGameSceneNode::GetHierarchicalDepth() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CGameSceneNode", "m_nHierarchicalDepth");
+uint32_t GCGameSceneNode::GetHierarchicalDepth() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CGameSceneNode", "m_nHierarchicalDepth");
 }
-void GCGameSceneNode::SetHierarchicalDepth(uint8_t value) {
+void GCGameSceneNode::SetHierarchicalDepth(uint32_t value) {
     SetSchemaValue(m_ptr, "CGameSceneNode", "m_nHierarchicalDepth", false, value);
 }
-uint8_t GCGameSceneNode::GetHierarchyType() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CGameSceneNode", "m_nHierarchyType");
+uint32_t GCGameSceneNode::GetHierarchyType() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CGameSceneNode", "m_nHierarchyType");
 }
-void GCGameSceneNode::SetHierarchyType(uint8_t value) {
+void GCGameSceneNode::SetHierarchyType(uint32_t value) {
     SetSchemaValue(m_ptr, "CGameSceneNode", "m_nHierarchyType", false, value);
 }
-uint8_t GCGameSceneNode::GetDoNotSetAnimTimeInInvalidatePhysicsCount() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CGameSceneNode", "m_nDoNotSetAnimTimeInInvalidatePhysicsCount");
+uint32_t GCGameSceneNode::GetDoNotSetAnimTimeInInvalidatePhysicsCount() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CGameSceneNode", "m_nDoNotSetAnimTimeInInvalidatePhysicsCount");
 }
-void GCGameSceneNode::SetDoNotSetAnimTimeInInvalidatePhysicsCount(uint8_t value) {
+void GCGameSceneNode::SetDoNotSetAnimTimeInInvalidatePhysicsCount(uint32_t value) {
     SetSchemaValue(m_ptr, "CGameSceneNode", "m_nDoNotSetAnimTimeInInvalidatePhysicsCount", false, value);
 }
 uint32_t GCGameSceneNode::GetName() const {
@@ -16174,11 +16174,11 @@ std::vector<Vector> GCParticleSystem::GetServerControlPoints() const {
 void GCParticleSystem::SetServerControlPoints(std::vector<Vector> value) {
     Vector* outValue = GetSchemaValue<Vector*>(m_ptr, "CParticleSystem", "m_vServerControlPoints"); for(int i = 0; i < 4; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CParticleSystem", "m_vServerControlPoints", false, outValue);
 }
-std::vector<uint8_t> GCParticleSystem::GetServerControlPointAssignments() const {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments"); std::vector<uint8_t> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
+std::vector<uint32_t> GCParticleSystem::GetServerControlPointAssignments() const {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments"); std::vector<uint32_t> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
 }
-void GCParticleSystem::SetServerControlPointAssignments(std::vector<uint8_t> value) {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments"); for(int i = 0; i < 4; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments", false, outValue);
+void GCParticleSystem::SetServerControlPointAssignments(std::vector<uint32_t> value) {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments"); for(int i = 0; i < 4; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments", false, outValue);
 }
 std::vector<GCBaseEntity*> GCParticleSystem::GetControlPointEnts() const {
     GCBaseEntity** outValue = GetSchemaValue<GCBaseEntity**>(m_ptr, "CParticleSystem", "m_hControlPointEnts"); std::vector<GCBaseEntity*> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
@@ -16299,10 +16299,10 @@ GAmmoIndex_t::GAmmoIndex_t(std::string ptr) {
 GAmmoIndex_t::GAmmoIndex_t(void *ptr) {
     m_ptr = ptr;
 }
-int8_t GAmmoIndex_t::GetValue() const {
-    return GetSchemaValue<int8_t>(m_ptr, "AmmoIndex_t", "m_Value");
+int32_t GAmmoIndex_t::GetValue() const {
+    return GetSchemaValue<int32_t>(m_ptr, "AmmoIndex_t", "m_Value");
 }
-void GAmmoIndex_t::SetValue(int8_t value) {
+void GAmmoIndex_t::SetValue(int32_t value) {
     SetSchemaValue(m_ptr, "AmmoIndex_t", "m_Value", true, value);
 }
 void* GAmmoIndex_t::GetPtr() {
@@ -16705,22 +16705,22 @@ GCDynamicLight::GCDynamicLight(std::string ptr) {
 GCDynamicLight::GCDynamicLight(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GCDynamicLight::GetActualFlags() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CDynamicLight", "m_ActualFlags");
+uint32_t GCDynamicLight::GetActualFlags() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CDynamicLight", "m_ActualFlags");
 }
-void GCDynamicLight::SetActualFlags(uint8_t value) {
+void GCDynamicLight::SetActualFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "CDynamicLight", "m_ActualFlags", false, value);
 }
-uint8_t GCDynamicLight::GetFlags() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CDynamicLight", "m_Flags");
+uint32_t GCDynamicLight::GetFlags() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CDynamicLight", "m_Flags");
 }
-void GCDynamicLight::SetFlags(uint8_t value) {
+void GCDynamicLight::SetFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "CDynamicLight", "m_Flags", false, value);
 }
-uint8_t GCDynamicLight::GetLightStyle() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CDynamicLight", "m_LightStyle");
+uint32_t GCDynamicLight::GetLightStyle() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CDynamicLight", "m_LightStyle");
 }
-void GCDynamicLight::SetLightStyle(uint8_t value) {
+void GCDynamicLight::SetLightStyle(uint32_t value) {
     SetSchemaValue(m_ptr, "CDynamicLight", "m_LightStyle", false, value);
 }
 bool GCDynamicLight::GetOn() const {
@@ -17058,10 +17058,10 @@ uint32_t GCSkeletonInstance::GetMaterialGroup() const {
 void GCSkeletonInstance::SetMaterialGroup(uint32_t value) {
     SetSchemaValue(m_ptr, "CSkeletonInstance", "m_materialGroup", false, CUtlStringToken(value));
 }
-uint8_t GCSkeletonInstance::GetHitboxSet() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CSkeletonInstance", "m_nHitboxSet");
+uint32_t GCSkeletonInstance::GetHitboxSet() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CSkeletonInstance", "m_nHitboxSet");
 }
-void GCSkeletonInstance::SetHitboxSet(uint8_t value) {
+void GCSkeletonInstance::SetHitboxSet(uint32_t value) {
     SetSchemaValue(m_ptr, "CSkeletonInstance", "m_nHitboxSet", false, value);
 }
 void* GCSkeletonInstance::GetPtr() {
@@ -21670,10 +21670,10 @@ GCPlayer_ObserverServices::GCPlayer_ObserverServices(std::string ptr) {
 GCPlayer_ObserverServices::GCPlayer_ObserverServices(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GCPlayer_ObserverServices::GetObserverMode() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CPlayer_ObserverServices", "m_iObserverMode");
+uint32_t GCPlayer_ObserverServices::GetObserverMode() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CPlayer_ObserverServices", "m_iObserverMode");
 }
-void GCPlayer_ObserverServices::SetObserverMode(uint8_t value) {
+void GCPlayer_ObserverServices::SetObserverMode(uint32_t value) {
     SetSchemaValue(m_ptr, "CPlayer_ObserverServices", "m_iObserverMode", false, value);
 }
 GCBaseEntity GCPlayer_ObserverServices::GetObserverTarget() const {
@@ -22608,10 +22608,10 @@ float GCBaseCSGrenadeProjectile::GetSpawnTime() const {
 void GCBaseCSGrenadeProjectile::SetSpawnTime(float value) {
     SetSchemaValue(m_ptr, "CBaseCSGrenadeProjectile", "m_flSpawnTime", false, value);
 }
-uint8_t GCBaseCSGrenadeProjectile::GetOGSExtraFlags() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBaseCSGrenadeProjectile", "m_unOGSExtraFlags");
+uint32_t GCBaseCSGrenadeProjectile::GetOGSExtraFlags() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBaseCSGrenadeProjectile", "m_unOGSExtraFlags");
 }
-void GCBaseCSGrenadeProjectile::SetOGSExtraFlags(uint8_t value) {
+void GCBaseCSGrenadeProjectile::SetOGSExtraFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "CBaseCSGrenadeProjectile", "m_unOGSExtraFlags", false, value);
 }
 bool GCBaseCSGrenadeProjectile::GetDetonationRecorded() const {
@@ -22820,22 +22820,22 @@ float GCEnvInstructorHint::GetRange() const {
 void GCEnvInstructorHint::SetRange(float value) {
     SetSchemaValue(m_ptr, "CEnvInstructorHint", "m_fRange", false, value);
 }
-uint8_t GCEnvInstructorHint::GetPulseOption() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CEnvInstructorHint", "m_iPulseOption");
+uint32_t GCEnvInstructorHint::GetPulseOption() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CEnvInstructorHint", "m_iPulseOption");
 }
-void GCEnvInstructorHint::SetPulseOption(uint8_t value) {
+void GCEnvInstructorHint::SetPulseOption(uint32_t value) {
     SetSchemaValue(m_ptr, "CEnvInstructorHint", "m_iPulseOption", false, value);
 }
-uint8_t GCEnvInstructorHint::GetAlphaOption() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CEnvInstructorHint", "m_iAlphaOption");
+uint32_t GCEnvInstructorHint::GetAlphaOption() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CEnvInstructorHint", "m_iAlphaOption");
 }
-void GCEnvInstructorHint::SetAlphaOption(uint8_t value) {
+void GCEnvInstructorHint::SetAlphaOption(uint32_t value) {
     SetSchemaValue(m_ptr, "CEnvInstructorHint", "m_iAlphaOption", false, value);
 }
-uint8_t GCEnvInstructorHint::GetShakeOption() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CEnvInstructorHint", "m_iShakeOption");
+uint32_t GCEnvInstructorHint::GetShakeOption() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CEnvInstructorHint", "m_iShakeOption");
 }
-void GCEnvInstructorHint::SetShakeOption(uint8_t value) {
+void GCEnvInstructorHint::SetShakeOption(uint32_t value) {
     SetSchemaValue(m_ptr, "CEnvInstructorHint", "m_iShakeOption", false, value);
 }
 bool GCEnvInstructorHint::GetStatic() const {
@@ -23819,17 +23819,17 @@ int32_t GCPlayerSprayDecal::GetTintID() const {
 void GCPlayerSprayDecal::SetTintID(int32_t value) {
     SetSchemaValue(m_ptr, "CPlayerSprayDecal", "m_nTintID", false, value);
 }
-uint8_t GCPlayerSprayDecal::GetVersion() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CPlayerSprayDecal", "m_nVersion");
+uint32_t GCPlayerSprayDecal::GetVersion() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CPlayerSprayDecal", "m_nVersion");
 }
-void GCPlayerSprayDecal::SetVersion(uint8_t value) {
+void GCPlayerSprayDecal::SetVersion(uint32_t value) {
     SetSchemaValue(m_ptr, "CPlayerSprayDecal", "m_nVersion", false, value);
 }
-std::vector<uint8_t> GCPlayerSprayDecal::GetSignature() const {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "CPlayerSprayDecal", "m_ubSignature"); std::vector<uint8_t> ret; for(int i = 0; i < 128; i++) { ret.push_back(outValue[i]); } return ret;
+std::vector<uint32_t> GCPlayerSprayDecal::GetSignature() const {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "CPlayerSprayDecal", "m_ubSignature"); std::vector<uint32_t> ret; for(int i = 0; i < 128; i++) { ret.push_back(outValue[i]); } return ret;
 }
-void GCPlayerSprayDecal::SetSignature(std::vector<uint8_t> value) {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "CPlayerSprayDecal", "m_ubSignature"); for(int i = 0; i < 128; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CPlayerSprayDecal", "m_ubSignature", false, outValue);
+void GCPlayerSprayDecal::SetSignature(std::vector<uint32_t> value) {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "CPlayerSprayDecal", "m_ubSignature"); for(int i = 0; i < 128; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CPlayerSprayDecal", "m_ubSignature", false, outValue);
 }
 void* GCPlayerSprayDecal::GetPtr() {
     return m_ptr;
@@ -27145,10 +27145,10 @@ float GCBeam::GetDamage() const {
 void GCBeam::SetDamage(float value) {
     SetSchemaValue(m_ptr, "CBeam", "m_flDamage", false, value);
 }
-uint8_t GCBeam::GetNumBeamEnts() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CBeam", "m_nNumBeamEnts");
+uint32_t GCBeam::GetNumBeamEnts() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CBeam", "m_nNumBeamEnts");
 }
-void GCBeam::SetNumBeamEnts(uint8_t value) {
+void GCBeam::SetNumBeamEnts(uint32_t value) {
     SetSchemaValue(m_ptr, "CBeam", "m_nNumBeamEnts", false, value);
 }
 uint64_t GCBeam::GetBeamType() const {

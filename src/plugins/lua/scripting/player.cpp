@@ -1,6 +1,7 @@
 #include "core.h"
 #include "../../../player/PlayerManager.h"
 
+
 std::map<int, std::pair<uint64_t, PluginPlayer *>> playerObjectCache;
 
 PluginPlayer *scripting_GetPlayer(int playerid, lua_State *state)
@@ -72,6 +73,7 @@ void SetupLuaPlayer(LuaPlugin *plugin, lua_State *state)
         .addFunction("SetListening", &PluginPlayer::SetListening)
         .addFunction("GetVoiceFlags", &PluginPlayer::GetVoiceFlags)
         .addFunction("SetVoiceFlags", &PluginPlayer::SetVoiceFlags)
+        .addFunction("GetConnectedTime", &PluginPlayer::GetConnectedTime)
         .addFunction("GetWeaponManager", &PluginPlayer::GetWeaponManager)
         .endClass()
         .addFunction("GetPlayer", scripting_GetPlayer);

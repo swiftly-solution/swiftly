@@ -9,10 +9,10 @@ GRnFace_t::GRnFace_t(std::string ptr) {
 GRnFace_t::GRnFace_t(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GRnFace_t::GetEdge() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "RnFace_t", "m_nEdge");
+uint32_t GRnFace_t::GetEdge() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "RnFace_t", "m_nEdge");
 }
-void GRnFace_t::SetEdge(uint8_t value) {
+void GRnFace_t::SetEdge(uint32_t value) {
     SetSchemaValue(m_ptr, "RnFace_t", "m_nEdge", true, value);
 }
 void* GRnFace_t::GetPtr() {
@@ -226,10 +226,10 @@ std::vector<float> GCAnimAttachment::GetInfluenceWeights() const {
 void GCAnimAttachment::SetInfluenceWeights(std::vector<float> value) {
     float* outValue = GetSchemaValue<float*>(m_ptr, "CAnimAttachment", "m_influenceWeights"); for(int i = 0; i < 3; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CAnimAttachment", "m_influenceWeights", false, outValue);
 }
-uint8_t GCAnimAttachment::GetNumInfluences() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CAnimAttachment", "m_numInfluences");
+uint32_t GCAnimAttachment::GetNumInfluences() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CAnimAttachment", "m_numInfluences");
 }
-void GCAnimAttachment::SetNumInfluences(uint8_t value) {
+void GCAnimAttachment::SetNumInfluences(uint32_t value) {
     SetSchemaValue(m_ptr, "CAnimAttachment", "m_numInfluences", false, value);
 }
 void* GCAnimAttachment::GetPtr() {
@@ -981,28 +981,28 @@ GVPhysXConstraintParams_t::GVPhysXConstraintParams_t(std::string ptr) {
 GVPhysXConstraintParams_t::GVPhysXConstraintParams_t(void *ptr) {
     m_ptr = ptr;
 }
-int8_t GVPhysXConstraintParams_t::GetType() const {
-    return GetSchemaValue<int8_t>(m_ptr, "VPhysXConstraintParams_t", "m_nType");
+int32_t GVPhysXConstraintParams_t::GetType() const {
+    return GetSchemaValue<int32_t>(m_ptr, "VPhysXConstraintParams_t", "m_nType");
 }
-void GVPhysXConstraintParams_t::SetType(int8_t value) {
+void GVPhysXConstraintParams_t::SetType(int32_t value) {
     SetSchemaValue(m_ptr, "VPhysXConstraintParams_t", "m_nType", true, value);
 }
-int8_t GVPhysXConstraintParams_t::GetTranslateMotion() const {
-    return GetSchemaValue<int8_t>(m_ptr, "VPhysXConstraintParams_t", "m_nTranslateMotion");
+int32_t GVPhysXConstraintParams_t::GetTranslateMotion() const {
+    return GetSchemaValue<int32_t>(m_ptr, "VPhysXConstraintParams_t", "m_nTranslateMotion");
 }
-void GVPhysXConstraintParams_t::SetTranslateMotion(int8_t value) {
+void GVPhysXConstraintParams_t::SetTranslateMotion(int32_t value) {
     SetSchemaValue(m_ptr, "VPhysXConstraintParams_t", "m_nTranslateMotion", true, value);
 }
-int8_t GVPhysXConstraintParams_t::GetRotateMotion() const {
-    return GetSchemaValue<int8_t>(m_ptr, "VPhysXConstraintParams_t", "m_nRotateMotion");
+int32_t GVPhysXConstraintParams_t::GetRotateMotion() const {
+    return GetSchemaValue<int32_t>(m_ptr, "VPhysXConstraintParams_t", "m_nRotateMotion");
 }
-void GVPhysXConstraintParams_t::SetRotateMotion(int8_t value) {
+void GVPhysXConstraintParams_t::SetRotateMotion(int32_t value) {
     SetSchemaValue(m_ptr, "VPhysXConstraintParams_t", "m_nRotateMotion", true, value);
 }
-int8_t GVPhysXConstraintParams_t::GetFlags() const {
-    return GetSchemaValue<int8_t>(m_ptr, "VPhysXConstraintParams_t", "m_nFlags");
+int32_t GVPhysXConstraintParams_t::GetFlags() const {
+    return GetSchemaValue<int32_t>(m_ptr, "VPhysXConstraintParams_t", "m_nFlags");
 }
-void GVPhysXConstraintParams_t::SetFlags(int8_t value) {
+void GVPhysXConstraintParams_t::SetFlags(int32_t value) {
     SetSchemaValue(m_ptr, "VPhysXConstraintParams_t", "m_nFlags", true, value);
 }
 std::vector<Vector> GVPhysXConstraintParams_t::GetAnchor() const {
@@ -3736,16 +3736,16 @@ GCTransitionUpdateData::GCTransitionUpdateData(std::string ptr) {
 GCTransitionUpdateData::GCTransitionUpdateData(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GCTransitionUpdateData::GetSrcStateIndex() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CTransitionUpdateData", "m_srcStateIndex");
+uint32_t GCTransitionUpdateData::GetSrcStateIndex() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CTransitionUpdateData", "m_srcStateIndex");
 }
-void GCTransitionUpdateData::SetSrcStateIndex(uint8_t value) {
+void GCTransitionUpdateData::SetSrcStateIndex(uint32_t value) {
     SetSchemaValue(m_ptr, "CTransitionUpdateData", "m_srcStateIndex", false, value);
 }
-uint8_t GCTransitionUpdateData::GetDestStateIndex() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CTransitionUpdateData", "m_destStateIndex");
+uint32_t GCTransitionUpdateData::GetDestStateIndex() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CTransitionUpdateData", "m_destStateIndex");
 }
-void GCTransitionUpdateData::SetDestStateIndex(uint8_t value) {
+void GCTransitionUpdateData::SetDestStateIndex(uint32_t value) {
     SetSchemaValue(m_ptr, "CTransitionUpdateData", "m_destStateIndex", false, value);
 }
 void* GCTransitionUpdateData::GetPtr() {
@@ -7510,11 +7510,11 @@ GRenderInputLayoutField_t::GRenderInputLayoutField_t(std::string ptr) {
 GRenderInputLayoutField_t::GRenderInputLayoutField_t(void *ptr) {
     m_ptr = ptr;
 }
-std::vector<uint8_t> GRenderInputLayoutField_t::GetSemanticName() const {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "RenderInputLayoutField_t", "m_pSemanticName"); std::vector<uint8_t> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
+std::vector<uint32_t> GRenderInputLayoutField_t::GetSemanticName() const {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "RenderInputLayoutField_t", "m_pSemanticName"); std::vector<uint32_t> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
 }
-void GRenderInputLayoutField_t::SetSemanticName(std::vector<uint8_t> value) {
-    uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, "RenderInputLayoutField_t", "m_pSemanticName"); for(int i = 0; i < 32; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "RenderInputLayoutField_t", "m_pSemanticName", true, outValue);
+void GRenderInputLayoutField_t::SetSemanticName(std::vector<uint32_t> value) {
+    uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, "RenderInputLayoutField_t", "m_pSemanticName"); for(int i = 0; i < 32; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "RenderInputLayoutField_t", "m_pSemanticName", true, outValue);
 }
 int32_t GRenderInputLayoutField_t::GetSemanticIndex() const {
     return GetSchemaValue<int32_t>(m_ptr, "RenderInputLayoutField_t", "m_nSemanticIndex");
@@ -11435,10 +11435,10 @@ std::vector<bool> GCAttachment::GetInfluenceRootTransform() const {
 void GCAttachment::SetInfluenceRootTransform(std::vector<bool> value) {
     bool* outValue = GetSchemaValue<bool*>(m_ptr, "CAttachment", "m_bInfluenceRootTransform"); for(int i = 0; i < 3; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CAttachment", "m_bInfluenceRootTransform", false, outValue);
 }
-uint8_t GCAttachment::GetInfluences() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CAttachment", "m_nInfluences");
+uint32_t GCAttachment::GetInfluences() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CAttachment", "m_nInfluences");
 }
-void GCAttachment::SetInfluences(uint8_t value) {
+void GCAttachment::SetInfluences(uint32_t value) {
     SetSchemaValue(m_ptr, "CAttachment", "m_nInfluences", false, value);
 }
 bool GCAttachment::GetIgnoreRotation() const {
@@ -13213,10 +13213,10 @@ GRnVertex_t::GRnVertex_t(std::string ptr) {
 GRnVertex_t::GRnVertex_t(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GRnVertex_t::GetEdge() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "RnVertex_t", "m_nEdge");
+uint32_t GRnVertex_t::GetEdge() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "RnVertex_t", "m_nEdge");
 }
-void GRnVertex_t::SetEdge(uint8_t value) {
+void GRnVertex_t::SetEdge(uint32_t value) {
     SetSchemaValue(m_ptr, "RnVertex_t", "m_nEdge", true, value);
 }
 void* GRnVertex_t::GetPtr() {
@@ -16472,10 +16472,10 @@ GCAnimEnum::GCAnimEnum(std::string ptr) {
 GCAnimEnum::GCAnimEnum(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GCAnimEnum::GetValue() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CAnimEnum", "m_value");
+uint32_t GCAnimEnum::GetValue() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CAnimEnum", "m_value");
 }
-void GCAnimEnum::SetValue(uint8_t value) {
+void GCAnimEnum::SetValue(uint32_t value) {
     SetSchemaValue(m_ptr, "CAnimEnum", "m_value", false, value);
 }
 void* GCAnimEnum::GetPtr() {
@@ -18329,22 +18329,22 @@ uint32_t GRnBodyDesc_t::GetGameFlags() const {
 void GRnBodyDesc_t::SetGameFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "RnBodyDesc_t", "m_nGameFlags", true, value);
 }
-int8_t GRnBodyDesc_t::GetMinVelocityIterations() const {
-    return GetSchemaValue<int8_t>(m_ptr, "RnBodyDesc_t", "m_nMinVelocityIterations");
+int32_t GRnBodyDesc_t::GetMinVelocityIterations() const {
+    return GetSchemaValue<int32_t>(m_ptr, "RnBodyDesc_t", "m_nMinVelocityIterations");
 }
-void GRnBodyDesc_t::SetMinVelocityIterations(int8_t value) {
+void GRnBodyDesc_t::SetMinVelocityIterations(int32_t value) {
     SetSchemaValue(m_ptr, "RnBodyDesc_t", "m_nMinVelocityIterations", true, value);
 }
-int8_t GRnBodyDesc_t::GetMinPositionIterations() const {
-    return GetSchemaValue<int8_t>(m_ptr, "RnBodyDesc_t", "m_nMinPositionIterations");
+int32_t GRnBodyDesc_t::GetMinPositionIterations() const {
+    return GetSchemaValue<int32_t>(m_ptr, "RnBodyDesc_t", "m_nMinPositionIterations");
 }
-void GRnBodyDesc_t::SetMinPositionIterations(int8_t value) {
+void GRnBodyDesc_t::SetMinPositionIterations(int32_t value) {
     SetSchemaValue(m_ptr, "RnBodyDesc_t", "m_nMinPositionIterations", true, value);
 }
-int8_t GRnBodyDesc_t::GetMassPriority() const {
-    return GetSchemaValue<int8_t>(m_ptr, "RnBodyDesc_t", "m_nMassPriority");
+int32_t GRnBodyDesc_t::GetMassPriority() const {
+    return GetSchemaValue<int32_t>(m_ptr, "RnBodyDesc_t", "m_nMassPriority");
 }
-void GRnBodyDesc_t::SetMassPriority(int8_t value) {
+void GRnBodyDesc_t::SetMassPriority(int32_t value) {
     SetSchemaValue(m_ptr, "RnBodyDesc_t", "m_nMassPriority", true, value);
 }
 bool GRnBodyDesc_t::GetEnabled() const {
@@ -20000,16 +20000,16 @@ bool GBakedLightingInfo_t::GetCompressionEnabled() const {
 void GBakedLightingInfo_t::SetCompressionEnabled(bool value) {
     SetSchemaValue(m_ptr, "BakedLightingInfo_t", "m_bCompressionEnabled", true, value);
 }
-uint8_t GBakedLightingInfo_t::GetChartPackIterations() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "BakedLightingInfo_t", "m_nChartPackIterations");
+uint32_t GBakedLightingInfo_t::GetChartPackIterations() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "BakedLightingInfo_t", "m_nChartPackIterations");
 }
-void GBakedLightingInfo_t::SetChartPackIterations(uint8_t value) {
+void GBakedLightingInfo_t::SetChartPackIterations(uint32_t value) {
     SetSchemaValue(m_ptr, "BakedLightingInfo_t", "m_nChartPackIterations", true, value);
 }
-uint8_t GBakedLightingInfo_t::GetVradQuality() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "BakedLightingInfo_t", "m_nVradQuality");
+uint32_t GBakedLightingInfo_t::GetVradQuality() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "BakedLightingInfo_t", "m_nVradQuality");
 }
-void GBakedLightingInfo_t::SetVradQuality(uint8_t value) {
+void GBakedLightingInfo_t::SetVradQuality(uint32_t value) {
     SetSchemaValue(m_ptr, "BakedLightingInfo_t", "m_nVradQuality", true, value);
 }
 void* GBakedLightingInfo_t::GetPtr() {
@@ -21701,22 +21701,22 @@ GCClientAlphaProperty::GCClientAlphaProperty(std::string ptr) {
 GCClientAlphaProperty::GCClientAlphaProperty(void *ptr) {
     m_ptr = ptr;
 }
-uint8_t GCClientAlphaProperty::GetRenderFX() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CClientAlphaProperty", "m_nRenderFX");
+uint32_t GCClientAlphaProperty::GetRenderFX() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CClientAlphaProperty", "m_nRenderFX");
 }
-void GCClientAlphaProperty::SetRenderFX(uint8_t value) {
+void GCClientAlphaProperty::SetRenderFX(uint32_t value) {
     SetSchemaValue(m_ptr, "CClientAlphaProperty", "m_nRenderFX", false, value);
 }
-uint8_t GCClientAlphaProperty::GetRenderMode() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CClientAlphaProperty", "m_nRenderMode");
+uint32_t GCClientAlphaProperty::GetRenderMode() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CClientAlphaProperty", "m_nRenderMode");
 }
-void GCClientAlphaProperty::SetRenderMode(uint8_t value) {
+void GCClientAlphaProperty::SetRenderMode(uint32_t value) {
     SetSchemaValue(m_ptr, "CClientAlphaProperty", "m_nRenderMode", false, value);
 }
-uint8_t GCClientAlphaProperty::GetAlpha() const {
-    return GetSchemaValue<uint8_t>(m_ptr, "CClientAlphaProperty", "m_nAlpha");
+uint32_t GCClientAlphaProperty::GetAlpha() const {
+    return GetSchemaValue<uint32_t>(m_ptr, "CClientAlphaProperty", "m_nAlpha");
 }
-void GCClientAlphaProperty::SetAlpha(uint8_t value) {
+void GCClientAlphaProperty::SetAlpha(uint32_t value) {
     SetSchemaValue(m_ptr, "CClientAlphaProperty", "m_nAlpha", false, value);
 }
 uint16_t GCClientAlphaProperty::GetDesyncOffset() const {
