@@ -124,8 +124,7 @@ jobs:
             image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
         steps:
             - uses: actions/download-artifact@v4
-              with:
-                  path: ../..
+              id: download-artifacts
 
             - name: Release
               id: release
@@ -134,6 +133,6 @@ jobs:
                   tag_name: v${{ needs.versioning.outputs.version }}
                   make_latest: "true"
                   files: |
-                      Swiftly.Plugin.Linux.zip
-                      Swiftly.Plugin.Windows.zip
-                      Swiftly.Plugin.Depot.Linux.zip
+                      Swiftly.Plugin.Linux
+                      Swiftly.Plugin.Windows
+                      Swiftly.Plugin.Depot.Linux
