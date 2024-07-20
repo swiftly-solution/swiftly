@@ -121,20 +121,9 @@ jobs:
         needs: ["versioning", "build"]
         runs-on: Linux
         steps:
-            - uses: actions/download-artifact@v3
+            - uses: actions/download-artifact@v4
               with:
-                  name: Swiftly.Plugin.Depot.Linux
-                  path: build/Swiftly.Plugin.Depot.Linux.zip
-
-            - uses: actions/download-artifact@v3
-              with:
-                  name: Swiftly.Plugin.Windows
-                  path: build/Swiftly.Plugin.Windows.zip
-
-            - uses: actions/download-artifact@v3
-              with:
-                  name: Swiftly.Plugin.Linux
-                  path: build/Swiftly.Plugin.Linux.zip
+                  path: build
 
             - name: Release
               id: release
