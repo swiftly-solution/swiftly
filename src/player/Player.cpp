@@ -228,7 +228,7 @@ void Player::SwitchTeam(int team)
     if (!playerController)
         return;
 
-    if (team == CS_TEAM_SPECTATOR)
+    if (team == CS_TEAM_SPECTATOR || team == CS_TEAM_NONE)
         CALL_VIRTUAL(void, g_Offsets->GetOffset("CCSPlayerController_ChangeTeam"), playerController, team);
     else
         g_Signatures->FetchSignature<CCSPlayerController_SwitchTeam>("CCSPlayerController_SwitchTeam")(playerController, team);
