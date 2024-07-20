@@ -123,24 +123,25 @@ jobs:
         steps:
             - uses: actions/download-artifact@v3
               with:
-                  name: Swiftly Plugin Depot Linux
+                  name: Swiftly.Plugin.Depot.Linux
                   path: build/Swiftly.Plugin.Depot.Linux.zip
 
             - uses: actions/download-artifact@v3
               with:
-                  name: Swiftly Plugin Windows
+                  name: Swiftly.Plugin.Windows
                   path: build/Swiftly.Plugin.Windows.zip
 
             - uses: actions/download-artifact@v3
               with:
-                  name: Swiftly Plugin Linux
+                  name: Swiftly.Plugin.Linux
                   path: build/Swiftly.Plugin.Linux.zip
 
             - name: Release
               id: release
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@v2
               with:
                   tag_name: v${{ needs.versioning.outputs.version }}
+                  make_latest: "true"
                   files: |
                       build/Swiftly.Plugin.Linux.zip
                       build/Swiftly.Plugin.Windows.zip
