@@ -19,6 +19,8 @@ public:
     uint16_t GetPlayers();
     Player *GetPlayer(uint16 slot)
     {
+        if(slot < 0 || slot > MAX_PLAYERS) return nullptr;
+
         return this->g_Players[slot];
     }
     Player *GetPlayer(CPlayerSlot slot) { return this->g_Players[slot.Get()]; }
