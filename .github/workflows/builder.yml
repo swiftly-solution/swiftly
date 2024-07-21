@@ -133,6 +133,7 @@ jobs:
                 (cd build; zip -qq -r ../../Swiftly.Plugin.Linux.zip . -i build/Swiftly.Plugin.Linux/*)
                 (cd build; zip -qq -r ../../Swiftly.Plugin.Windows.zip . -i build/Swiftly.Plugin.Windows/*)
                 (cd build; zip -qq -r ../../Swiftly.Plugin.Depot.Linux.zip . -i build/Swiftly.Plugin.Depot.Linux/*)
+                echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
 
             - name: Release
               id: release
@@ -141,6 +142,6 @@ jobs:
                   tag_name: v${{ needs.versioning.outputs.version }}
                   make_latest: "true"
                   files: |
-                      Swiftly.Plugin.Linux.zip
-                      Swiftly.Plugin.Windows.zip
-                      Swiftly.Plugin.Depot.Linux.zip
+                      ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
+                      ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip
+                      ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Depot.Linux.zip
