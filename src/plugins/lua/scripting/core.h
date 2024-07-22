@@ -32,3 +32,4 @@ void SetupLuaMemory(LuaPlugin *plugin, lua_State *state);
 void SetupLuaHooks(LuaPlugin *plugin, lua_State *state);
 void SetupLuaUserMessages(LuaPlugin *plugin, lua_State *state);
 void SetupLuaWeapons(LuaPlugin *plugin, lua_State *state);
+void SetupLuaCHandle(LuaPlugin* plugin, lua_State* state);
