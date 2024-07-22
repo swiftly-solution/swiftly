@@ -34,8 +34,9 @@ void MenuManager::UnregisterMenu(std::string id)
         if (!player->HasMenuShown())
             continue;
 
-        if (player->GetMenu()->GetID() == id)
-            player->HideMenu();
+        if(player->GetMenu())
+            if (player->GetMenu()->GetID() == id)
+                player->HideMenu();
     }
 
     Menu *menu = this->menu_ids.at(id);

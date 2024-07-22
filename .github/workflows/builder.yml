@@ -130,9 +130,10 @@ jobs:
 
             - name: Prepare ZIP Files
               run: |
-                (cd build; zip -qq -r ../../Swiftly.Plugin.Linux.zip . -i build/Swiftly.Plugin.Linux/*)
-                (cd build; zip -qq -r ../../Swiftly.Plugin.Windows.zip . -i build/Swiftly.Plugin.Windows/*)
-                (cd build; zip -qq -r ../../Swiftly.Plugin.Depot.Linux.zip . -i build/Swiftly.Plugin.Depot.Linux/*)
+                sudo apt install p7zip-full -y;
+                (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
+                (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
+                (cd build/Swiftly.Plugin.Depot.Linux; 7z a -tzip ../../../Swiftly.Plugin.Depot.Linux.zip *)
                 echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
 
             - name: Release
