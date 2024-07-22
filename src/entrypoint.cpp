@@ -535,7 +535,7 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
                 if (player->tag.length() > 0)
                     msg.push_back(ProcessColor(string_format("%s%s{default}", player->tagcolor.empty() ? "{default}" : player->tagcolor.c_str(), player->tag.c_str()), controller->m_iTeamNum()));
                 msg.push_back(string_format("%s%s%s:", ProcessColor(player->namecolor, controller->m_iTeamNum()).c_str(), player->GetName(), ProcessColor("{default}", CS_TEAM_CT).c_str()));
-                msg.push_back(string_format("%s%s", ProcessColor(player->chatcolor, controller->m_iTeamNum()).c_str(), text.c_str()));
+                msg.push_back(string_format("%s%s", ProcessColor(player->chatcolor, controller->m_iTeamNum()).c_str(), replace(text, "\n", "\u2029").c_str()));
 
                 std::string formatted_msg = (" " + implode(msg, " "));
 
