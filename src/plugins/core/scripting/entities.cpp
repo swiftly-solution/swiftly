@@ -15,7 +15,7 @@ std::vector<GCEntityInstance *> UTIL_FindEntitiesByClassname(const char *name)
         if (!strcmp(pEntity->m_designerName.String(), name))
         {
             if (entityInstanceMapping.find(pEntity) == entityInstanceMapping.end())
-                entityInstanceMapping.insert({pEntity, new GCEntityInstance((void *)pEntity)});
+                entityInstanceMapping.insert({pEntity, new GCEntityInstance((void *)(pEntity->m_pInstance))});
 
             entities.push_back(entityInstanceMapping.at(pEntity));
         }
