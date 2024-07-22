@@ -1727,6 +1727,7 @@ public:
     std::string GetClassname();
     GCEntitySubclassVDataBase GetVData();
     void Teleport(Vector value);
+    GCBaseEntity EHandle();
     GCBodyComponent GetCBodyComponent() const;
     void SetCBodyComponent(GCBodyComponent value);
     GCNetworkTransmitComponent GetNetworkTransmitComponent() const;

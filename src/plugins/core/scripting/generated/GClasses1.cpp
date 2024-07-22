@@ -540,6 +540,10 @@ GCBaseEntity::GCBaseEntity(std::string ptr) {
 GCBaseEntity::GCBaseEntity(void *ptr) {
     m_ptr = ptr;
 }
+GCBaseEntity GCBaseEntity::EHandle() {
+    GCBaseEntity value((void*)(((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.Get()));
+    return value;
+}
 void GCBaseEntity::Spawn() {
     ((Z_CBaseEntity*)m_ptr)->Spawn();
 }
@@ -1132,6 +1136,7 @@ void SetupLuaClassCBaseEntity(LuaPlugin *plugin, lua_State *state)
         .addFunction("GetClassname", &GCBaseEntity::GetClassname)
         .addFunction("GetVData", &GCBaseEntity::GetVData)
         .addFunction("Teleport", &GCBaseEntity::Teleport)
+        .addFunction("EHandle", &GCBaseEntity::EHandle)
         .addFunction("ToPtr", &GCBaseEntity::ToPtr)
         .addFunction("IsValid", &GCBaseEntity::IsValid)
         .endClass();
