@@ -117,6 +117,11 @@ std::vector<std::string> Files::FetchFileNames(std::string path)
     ChangePath();
 
     std::vector<std::string> files;
+    if (!ExistsPath(path))
+        return files;
+    if (!IsDirectory(path))
+        return files;
+
     for (const auto &entry : std::filesystem::directory_iterator(path))
     {
         if (entry.is_directory())
@@ -136,6 +141,11 @@ std::vector<std::string> Files::FetchDirectories(std::string path)
     ChangePath();
 
     std::vector<std::string> directories;
+    if (!ExistsPath(path))
+        return directories;
+    if (!IsDirectory(path))
+        return directories;
+
     for (const auto &entry : std::filesystem::directory_iterator(path))
         if (entry.is_directory())
             directories.push_back(entry.path().string());
