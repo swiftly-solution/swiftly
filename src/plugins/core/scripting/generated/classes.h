@@ -1727,6 +1727,7 @@ public:
     std::string GetClassname();
     GCEntitySubclassVDataBase GetVData();
     void Teleport(Vector value);
+    void EmitSound(std::string sound_name, int pitch, float volume, float delay);
     GCBaseEntity EHandle();
     GCBodyComponent GetCBodyComponent() const;
     void SetCBodyComponent(GCBodyComponent value);

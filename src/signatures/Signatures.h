@@ -31,6 +31,7 @@ typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices *, const char *, int, int
 typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController *, CCSPlayerPawn *, bool, bool);
 typedef void (*CCSPlayerPawnBase_PostThink)(CCSPlayerPawnBase *);
 typedef void (*CBaseEntity_TakeDamageOld)(Z_CBaseEntity *, CTakeDamageInfo *);
+typedef void (*CBaseEntity_EmitSoundParams)(Z_CBaseEntity*, const char*, int, float, float);
 
 class Signatures
 {

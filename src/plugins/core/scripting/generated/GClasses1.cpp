@@ -562,6 +562,9 @@ GCEntitySubclassVDataBase GCBaseEntity::GetVData() {
 void GCBaseEntity::Teleport(Vector value) {
     ((Z_CBaseEntity*)m_ptr)->Teleport(&value, nullptr, nullptr);
 }
+void GCBaseEntity::EmitSound(std::string sound_name, int pitch, float volume, float delay) {
+    ((Z_CBaseEntity*)m_ptr)->EmitSound(sound_name, pitch, volume, delay);
+}
 GCBodyComponent GCBaseEntity::GetCBodyComponent() const {
     GCBodyComponent value(*(void**)GetSchemaPtr(m_ptr, "CBaseEntity", "m_CBodyComponent"));
     return value;
@@ -1137,6 +1140,7 @@ void SetupLuaClassCBaseEntity(LuaPlugin *plugin, lua_State *state)
         .addFunction("GetVData", &GCBaseEntity::GetVData)
         .addFunction("Teleport", &GCBaseEntity::Teleport)
         .addFunction("EHandle", &GCBaseEntity::EHandle)
+        .addFunction("EmitSound", &GCBaseEntity::EmitSound)
         .addFunction("ToPtr", &GCBaseEntity::ToPtr)
         .addFunction("IsValid", &GCBaseEntity::IsValid)
         .endClass();
