@@ -502,8 +502,8 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
             std::vector<std::string> textSplitted = explode(args.GetCommandString(), " ");
             textSplitted.erase(textSplitted.begin());
             std::string text = implode(textSplitted, " ");
-            text.erase(text.begin());
-            text.pop_back();
+            if(text.front() == '\'' || text.front() == '"') text.erase(text.begin());
+            if(text.back() == '\'' || text.back() == '"') text.pop_back();
 
             if (strim(text).length() == 0)
                 RETURN_META(MRES_SUPERCEDE);
