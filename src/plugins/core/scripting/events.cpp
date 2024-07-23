@@ -49,6 +49,16 @@ void PluginEvent::SetReturnLua(luabridge::LuaRef value)
         returnValue = value.cast<int64_t>();
     else if (value.isString())
         returnValue = value.cast<std::string>();
+    else if (value.isTable())
+    {
+        luabridge::LuaRef serpentDump = luabridge::getGlobal(value.state(), "serpent")["dump"];
+        luabridge::LuaRef serpentDumpReturnValue = serpentDump(value);
+
+        std::vector<std::string> tmptbl;
+        tmptbl.push_back(serpentDumpReturnValue.cast<std::string>());
+
+        returnValue = tmptbl;
+    }
     else
         returnValue = nullptr;
 

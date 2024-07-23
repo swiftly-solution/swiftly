@@ -327,6 +327,30 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State *state)
             return luabridge::LuaRef(state, std::any_cast<QAngle>(value));
         else if (value.type() == typeid(std::nullptr_t))
             return luabridge::LuaRef(state);
+        else if (value.type() == typeid(std::vector<std::string>))
+        {
+            std::vector<std::string> tmpval = std::any_cast<std::vector<std::string>>(value);
+            std::string tbl = tmpval[0];
+
+            luabridge::LuaRef load = luabridge::getGlobal(state, "load");
+            try
+            {
+                luabridge::LuaRef loadReturnValue = load(tbl);
+                if (!loadReturnValue.isFunction())
+                    return luabridge::newTable(state);
+
+                luabridge::LuaRef loadFuncRetVal = loadReturnValue();
+                if (!loadFuncRetVal.isTable())
+                    return luabridge::newTable(state);
+
+                return loadFuncRetVal;
+            }
+            catch (luabridge::LuaException &e)
+            {
+                PRINTF("Lua Exception: %s\n", e.what());
+                return luabridge::newTable(state);
+            }
+        }
         else
         {
             PRINTF("Unknown Data Type: %s\n", value.type().name());
