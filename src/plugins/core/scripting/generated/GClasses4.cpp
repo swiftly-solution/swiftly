@@ -1,6 +1,7 @@
 #include "classes.h"
 
 #include "../../../../sdk/entity/CBaseEntity.h"
+#include "../../../../sdk/entity/CBasePlayerController.h"
 #include "../../../../sdk/entity/CBaseModelEntity.h"
 
 GFeBuildTaperedCapsuleRigid_t::GFeBuildTaperedCapsuleRigid_t(std::string ptr) {

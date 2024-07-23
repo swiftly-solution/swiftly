@@ -1,6 +1,7 @@
 #include "classes.h"
 
 #include "../../../../sdk/entity/CBaseEntity.h"
+#include "../../../../sdk/entity/CBasePlayerController.h"
 #include "../../../../sdk/entity/CBaseModelEntity.h"
 
 GRnFace_t::GRnFace_t(std::string ptr) {

@@ -6417,6 +6417,7 @@ public:
     GCBasePlayerController(std::string ptr);
     GCBasePlayerController(void *ptr);
 
+    int EntityIndex();
     uint64_t GetInButtonsWhichAreToggles() const;
     void SetInButtonsWhichAreToggles(uint64_t value);
     uint32_t GetTickBase() const;

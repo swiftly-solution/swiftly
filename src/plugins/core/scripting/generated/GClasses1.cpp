@@ -1,6 +1,7 @@
 #include "classes.h"
 
 #include "../../../../sdk/entity/CBaseEntity.h"
+#include "../../../../sdk/entity/CBasePlayerController.h"
 #include "../../../../sdk/entity/CBaseModelEntity.h"
 
 GCGlowProperty::GCGlowProperty(std::string ptr) {
@@ -12831,6 +12832,9 @@ GCBasePlayerController::GCBasePlayerController(std::string ptr) {
 GCBasePlayerController::GCBasePlayerController(void *ptr) {
     m_ptr = ptr;
 }
+int GCBasePlayerController::EntityIndex() {
+    return ((CBasePlayerController*)m_ptr)->GetEntityIndex().Get();
+}
 uint64_t GCBasePlayerController::GetInButtonsWhichAreToggles() const {
     return GetSchemaValue<uint64_t>(m_ptr, "CBasePlayerController", "m_nInButtonsWhichAreToggles");
 }
@@ -13030,6 +13034,7 @@ void SetupLuaClassCBasePlayerController(LuaPlugin *plugin, lua_State *state)
         .addProperty("SteamID", &GCBasePlayerController::GetSteamID, &GCBasePlayerController::SetSteamID)
         .addProperty("DesiredFOV", &GCBasePlayerController::GetDesiredFOV, &GCBasePlayerController::SetDesiredFOV)
         .addProperty("Parent", &GCBasePlayerController::GetParent, &GCBasePlayerController::SetParent)
+        .addFunction("EntityIndex", &GCBasePlayerController::EntityIndex)
         .addFunction("ToPtr", &GCBasePlayerController::ToPtr)
         .addFunction("IsValid", &GCBasePlayerController::IsValid)
         .endClass();

@@ -1,6 +1,7 @@
 #include "classes.h"
 
 #include "../../../../sdk/entity/CBaseEntity.h"
+#include "../../../../sdk/entity/CBasePlayerController.h"
 #include "../../../../sdk/entity/CBaseModelEntity.h"
 
 GCFuncNavObstruction::GCFuncNavObstruction(std::string ptr) {
