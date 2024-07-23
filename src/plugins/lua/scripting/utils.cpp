@@ -3,6 +3,7 @@
 void SetupLuaUtils(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
+        .addFunction("GetPluginPath", scripting_GetPluginPath)
         .addFunction("GetTime", GetTime)
         .addFunction("IsWindows", scripting_IsWindows)
         .addFunction("IsLinux", scripting_IsLinux)

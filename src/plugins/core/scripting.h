@@ -709,5 +709,6 @@ bool scripting_IsWindows();
 bool scripting_IsLinux();
 std::string scripting_GetOS();
 GCCSGameRules *scripting_GetCCSGameRules();
+std::string scripting_GetPluginPath(std::string plugin_name);
 
 #endif

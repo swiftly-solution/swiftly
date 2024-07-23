@@ -2,6 +2,7 @@
 #include "../../../sdk/entity/CGameRules.h"
 #include "../../../hooks/FuncHook.h"
 #include "generated/classes.h"
+#include "../../PluginManager.h"
 
 void Hook_CGameRules_Constructor(CGameRules *pThis);
 CCSGameRules *gameRules = nullptr;
@@ -41,4 +42,12 @@ GCCSGameRules *scripting_GetCCSGameRules()
     }
 
     return gameRulesPtr;
+}
+
+std::string scripting_GetPluginPath(std::string plugin_name)
+{
+    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
+    if(!plugin) return "";
+
+    return string_format("addons/swiftly/plugins/%s", plugin->GetName().c_str());
 }
