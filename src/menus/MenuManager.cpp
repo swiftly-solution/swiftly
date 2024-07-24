@@ -2,6 +2,8 @@
 
 #include "../player/PlayerManager.h"
 
+std::map<std::string, bool> scheduledForDelete;
+
 MenuManager::MenuManager()
 {
 }
@@ -23,7 +25,10 @@ void MenuManager::UnregisterMenu(std::string id)
 {
     if (this->menu_ids.find(id) == this->menu_ids.end())
         return;
+    if (scheduledForDelete.find(id) != scheduledForDelete.end())
+        return;
 
+    scheduledForDelete.insert({id, true});
     for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
         Player *player = g_playerManager->GetPlayer(i);
@@ -34,14 +39,14 @@ void MenuManager::UnregisterMenu(std::string id)
         if (!player->HasMenuShown())
             continue;
 
-        if(player->GetMenu())
-            if (player->GetMenu()->GetID() == id)
-                player->HideMenu();
+        if (player->GetMenu()->GetID() == id)
+            player->HideMenu();
     }
 
     Menu *menu = this->menu_ids.at(id);
     delete menu;
     this->menu_ids.erase(id);
+    scheduledForDelete.erase(id);
 }
 
 Menu *MenuManager::FetchMenu(std::string menu_id)
