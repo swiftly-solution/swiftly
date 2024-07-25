@@ -23,7 +23,8 @@ std::string GCFuncNavObstruction::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncNavObstruction::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCFuncNavObstruction::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -74,7 +75,8 @@ std::string GCTriggerImpact::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerImpact::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCTriggerMultiple GCTriggerImpact::GetParent() const {
     GCTriggerMultiple value(m_ptr);
@@ -193,7 +195,8 @@ std::string GCSun::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSun::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCSun::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -252,7 +255,8 @@ std::string GCTriggerDetectBulletFire::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerDetectBulletFire::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerDetectBulletFire::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -286,7 +290,8 @@ std::string GCWorld::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWorld::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCWorld::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -325,7 +330,8 @@ std::string GCPointGiveAmmo::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointGiveAmmo::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCPointGiveAmmo::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -432,7 +438,8 @@ std::string GCFuncMoveLinear::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncMoveLinear::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseToggle GCFuncMoveLinear::GetParent() const {
     GCBaseToggle value(m_ptr);
@@ -566,7 +573,8 @@ std::string GCPathParticleRope::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPathParticleRope::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCPathParticleRope::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -649,7 +657,8 @@ std::string GCPlayerVisibility::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPlayerVisibility::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCPlayerVisibility::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -711,7 +720,8 @@ std::string GCPointTeleport::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointTeleport::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCServerOnlyPointEntity GCPointTeleport::GetParent() const {
     GCServerOnlyPointEntity value(m_ptr);
@@ -747,7 +757,8 @@ std::string GCAK47::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAK47::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCAK47::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -797,7 +808,8 @@ std::string GCTriggerTeleport::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerTeleport::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerTeleport::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -832,7 +844,8 @@ std::string GCCSObserver_CameraServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSObserver_CameraServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSPlayerBase_CameraServices GCCSObserver_CameraServices::GetParent() const {
     GCCSPlayerBase_CameraServices value(m_ptr);
@@ -864,7 +877,8 @@ std::string GCCSGO_TeamIntroTerroristPosition::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSGO_TeamIntroTerroristPosition::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSGO_TeamIntroCharacterPosition GCCSGO_TeamIntroTerroristPosition::GetParent() const {
     GCCSGO_TeamIntroCharacterPosition value(m_ptr);
@@ -1055,7 +1069,8 @@ std::string GCFuncMover::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncMover::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCFuncMover::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -1113,7 +1128,8 @@ std::string GCCSPlayer_CameraServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayer_CameraServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSPlayerBase_CameraServices GCCSPlayer_CameraServices::GetParent() const {
     GCCSPlayerBase_CameraServices value(m_ptr);
@@ -1145,7 +1161,8 @@ std::string GCHEGrenade::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHEGrenade::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseCSGrenade GCHEGrenade::GetParent() const {
     GCBaseCSGrenade value(m_ptr);
@@ -1177,7 +1194,8 @@ std::string GCGameEnd::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCGameEnd::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCRulePointEntity GCGameEnd::GetParent() const {
     GCRulePointEntity value(m_ptr);
@@ -1209,7 +1227,8 @@ std::string GCTriggerCallback::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerCallback::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerCallback::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -1259,7 +1278,8 @@ std::string GCBubbling::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBubbling::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCBubbling::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -1294,7 +1314,8 @@ std::string GCTeamplayRules::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTeamplayRules::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMultiplayRules GCTeamplayRules::GetParent() const {
     GCMultiplayRules value(m_ptr);
@@ -1326,7 +1347,8 @@ std::string GCPhysicsPropOverride::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysicsPropOverride::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPhysicsProp GCPhysicsPropOverride::GetParent() const {
     GCPhysicsProp value(m_ptr);
@@ -1382,7 +1404,8 @@ std::string GCAI_ChangeHintGroup::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAI_ChangeHintGroup::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCAI_ChangeHintGroup::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -1478,7 +1501,8 @@ std::string GCColorCorrectionVolume::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCColorCorrectionVolume::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCColorCorrectionVolume::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -1550,7 +1574,8 @@ std::string GCFilterEnemy::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFilterEnemy::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseFilter GCFilterEnemy::GetParent() const {
     GCBaseFilter value(m_ptr);
@@ -1587,7 +1612,8 @@ std::string GCShower::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCShower::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCModelPointEntity GCShower::GetParent() const {
     GCModelPointEntity value(m_ptr);
@@ -1715,7 +1741,8 @@ std::string GCEnvCubemapFog::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvCubemapFog::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCEnvCubemapFog::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -1922,7 +1949,8 @@ std::string GCBaseButton::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBaseButton::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseToggle GCBaseButton::GetParent() const {
     GCBaseToggle value(m_ptr);
@@ -2071,7 +2099,8 @@ std::string GCEnvExplosion::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvExplosion::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCModelPointEntity GCEnvExplosion::GetParent() const {
     GCModelPointEntity value(m_ptr);
@@ -2130,7 +2159,8 @@ std::string GCSoundEventAABBEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundEventAABBEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSoundEventEntity GCSoundEventAABBEntity::GetParent() const {
     GCSoundEventEntity value(m_ptr);
@@ -2252,7 +2282,8 @@ std::string GCTriggerLook::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerLook::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCTriggerOnce GCTriggerLook::GetParent() const {
     GCTriggerOnce value(m_ptr);
@@ -2298,7 +2329,8 @@ std::string GCEntitySubclassVDataBase::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEntitySubclassVDataBase::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCEntitySubclassVDataBase(LuaPlugin *plugin, lua_State *state)
 {
@@ -2322,7 +2354,8 @@ std::string GCLogicProximity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicProximity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCLogicProximity::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -2492,7 +2525,8 @@ std::string GCPointClientUIWorldPanel::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointClientUIWorldPanel::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseClientUIEntity GCPointClientUIWorldPanel::GetParent() const {
     GCBaseClientUIEntity value(m_ptr);
@@ -2553,7 +2587,8 @@ std::string GCFilterContext::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFilterContext::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseFilter GCFilterContext::GetParent() const {
     GCBaseFilter value(m_ptr);
@@ -2586,7 +2621,8 @@ std::string GCPathParticleRopeAlias_path_particle_rope_clientside::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPathParticleRopeAlias_path_particle_rope_clientside::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPathParticleRope GCPathParticleRopeAlias_path_particle_rope_clientside::GetParent() const {
     GCPathParticleRope value(m_ptr);
@@ -2631,7 +2667,8 @@ std::string GCTriggerBuoyancy::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerBuoyancy::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerBuoyancy::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -2671,7 +2708,8 @@ std::string GCFilterAttributeInt::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFilterAttributeInt::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseFilter GCFilterAttributeInt::GetParent() const {
     GCBaseFilter value(m_ptr);
@@ -2731,7 +2769,8 @@ std::string GCCSPlayer_ActionTrackingServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayer_ActionTrackingServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayerPawnComponent GCCSPlayer_ActionTrackingServices::GetParent() const {
     GCPlayerPawnComponent value(m_ptr);
@@ -2803,7 +2842,8 @@ std::string GCAISound::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAISound::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCAISound::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -2887,7 +2927,8 @@ std::string GCPointEntityFinder::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointEntityFinder::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCPointEntityFinder::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -2992,7 +3033,8 @@ std::string Gshard_model_desc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool Gshard_model_desc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassshard_model_desc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -3057,7 +3099,8 @@ std::string GCPhysicsPropRespawnable::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysicsPropRespawnable::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPhysicsProp GCPhysicsPropRespawnable::GetParent() const {
     GCPhysicsProp value(m_ptr);
@@ -3154,7 +3197,8 @@ std::string GCEnvSky::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvSky::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCEnvSky::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -3227,7 +3271,8 @@ std::string GCPointVelocitySensor::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointVelocitySensor::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCPointVelocitySensor::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -3270,7 +3315,8 @@ std::string GCFilterMassGreater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFilterMassGreater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseFilter GCFilterMassGreater::GetParent() const {
     GCBaseFilter value(m_ptr);
@@ -3309,7 +3355,8 @@ std::string GFilterTeam::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFilterTeam::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseFilter GFilterTeam::GetParent() const {
     GCBaseFilter value(m_ptr);
@@ -3349,7 +3396,8 @@ std::string GCFuncTankTrain::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncTankTrain::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCFuncTrackTrain GCFuncTankTrain::GetParent() const {
     GCFuncTrackTrain value(m_ptr);
@@ -3382,7 +3430,8 @@ std::string GCNullEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNullEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCNullEntity::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -3414,7 +3463,8 @@ std::string GCCSPointScriptExtensions_observer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPointScriptExtensions_observer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCCSPointScriptExtensions_observer(LuaPlugin *plugin, lua_State *state)
 {
@@ -3468,7 +3518,8 @@ std::string GCMarkupVolumeTagged::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMarkupVolumeTagged::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMarkupVolume GCMarkupVolumeTagged::GetParent() const {
     GCMarkupVolume value(m_ptr);
@@ -3511,7 +3562,8 @@ std::string GCBuyZone::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBuyZone::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCBuyZone::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -3605,7 +3657,8 @@ std::string GCPointTemplate::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointTemplate::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCPointTemplate::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -3647,7 +3700,8 @@ std::string GCTripWireFire::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTripWireFire::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseCSGrenade GCTripWireFire::GetParent() const {
     GCBaseCSGrenade value(m_ptr);
@@ -3717,7 +3771,8 @@ std::string GCPhysForce::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysForce::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCPhysForce::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -3791,7 +3846,8 @@ std::string GCLogicDistanceAutosave::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicDistanceAutosave::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCLogicDistanceAutosave::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -3860,7 +3916,8 @@ std::string GCInfoDynamicShadowHint::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoDynamicShadowHint::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCInfoDynamicShadowHint::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -3897,7 +3954,8 @@ std::string GCSoundOpvarSetOBBEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundOpvarSetOBBEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSoundOpvarSetAABBEntity GCSoundOpvarSetOBBEntity::GetParent() const {
     GCSoundOpvarSetAABBEntity value(m_ptr);
@@ -3941,7 +3999,8 @@ std::string GCEnvWindShared__WindVariationEvent_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvWindShared__WindVariationEvent_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCEnvWindShared__WindVariationEvent_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -3967,7 +4026,8 @@ std::string GCTakeDamageInfoAPI::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTakeDamageInfoAPI::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCTakeDamageInfoAPI(LuaPlugin *plugin, lua_State *state)
 {
@@ -3997,7 +4057,8 @@ std::string GCScriptTriggerOnce::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCScriptTriggerOnce::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCTriggerOnce GCScriptTriggerOnce::GetParent() const {
     GCTriggerOnce value(m_ptr);
@@ -4030,7 +4091,8 @@ std::string GCNavWalkable::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavWalkable::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCNavWalkable::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -4117,7 +4179,8 @@ std::string GCFuncMonitor::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncMonitor::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCFuncBrush GCFuncMonitor::GetParent() const {
     GCFuncBrush value(m_ptr);
@@ -4176,7 +4239,8 @@ std::string GCFlashbangProjectile::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFlashbangProjectile::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseCSGrenadeProjectile GCFlashbangProjectile::GetParent() const {
     GCBaseCSGrenadeProjectile value(m_ptr);
@@ -4217,7 +4281,8 @@ std::string GCPointClientUIWorldTextPanel::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointClientUIWorldTextPanel::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointClientUIWorldPanel GCPointClientUIWorldTextPanel::GetParent() const {
     GCPointClientUIWorldPanel value(m_ptr);
@@ -4250,7 +4315,8 @@ std::string GCInfoInstructorHintTarget::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoInstructorHintTarget::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCInfoInstructorHintTarget::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -4296,7 +4362,8 @@ std::string GCCSPlayer_HostageServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayer_HostageServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayerPawnComponent GCCSPlayer_HostageServices::GetParent() const {
     GCPlayerPawnComponent value(m_ptr);
@@ -4330,7 +4397,8 @@ std::string GCWeaponSSG08::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponSSG08::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponSSG08::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -4362,7 +4430,8 @@ std::string GCBreachCharge::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBreachCharge::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBase GCBreachCharge::GetParent() const {
     GCCSWeaponBase value(m_ptr);
@@ -4414,7 +4483,8 @@ std::string GCLogicBranch::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicBranch::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCLogicBranch::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -4449,7 +4519,8 @@ std::string GCWeaponUMP45::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponUMP45::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponUMP45::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -4481,7 +4552,8 @@ std::string GCSpriteAlias_env_glow::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSpriteAlias_env_glow::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSprite GCSpriteAlias_env_glow::GetParent() const {
     GCSprite value(m_ptr);
@@ -4513,7 +4585,8 @@ std::string GCPhysicalButton::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysicalButton::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseButton GCPhysicalButton::GetParent() const {
     GCBaseButton value(m_ptr);
@@ -4581,7 +4654,8 @@ std::string GCPhysLength::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysLength::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPhysConstraint GCPhysLength::GetParent() const {
     GCPhysConstraint value(m_ptr);
@@ -4619,7 +4693,8 @@ std::string GCLogicNPCCounterOBB::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicNPCCounterOBB::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicNPCCounterAABB GCLogicNPCCounterOBB::GetParent() const {
     GCLogicNPCCounterAABB value(m_ptr);
@@ -4669,7 +4744,8 @@ std::string GCCSGOViewModel::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSGOViewModel::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPredictedViewModel GCCSGOViewModel::GetParent() const {
     GCPredictedViewModel value(m_ptr);
@@ -4722,7 +4798,8 @@ std::string GCWeaponShield::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponShield::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponShield::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -4781,7 +4858,8 @@ std::string GCBlood::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBlood::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCBlood::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -4842,7 +4920,8 @@ std::string GCEnvFade::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvFade::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCEnvFade::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -4878,7 +4957,8 @@ std::string GCDynamicPropAlias_cable_dynamic::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCDynamicPropAlias_cable_dynamic::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCDynamicProp GCDynamicPropAlias_cable_dynamic::GetParent() const {
     GCDynamicProp value(m_ptr);
@@ -4916,7 +4996,8 @@ std::string GCCSPlayer_BuyServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayer_BuyServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayerPawnComponent GCCSPlayer_BuyServices::GetParent() const {
     GCPlayerPawnComponent value(m_ptr);
@@ -4956,7 +5037,8 @@ std::string GCHostageExpresserShim::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHostageExpresserShim::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseCombatCharacter GCHostageExpresserShim::GetParent() const {
     GCBaseCombatCharacter value(m_ptr);
@@ -5145,7 +5227,8 @@ std::string GCInferno::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInferno::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCInferno::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -5226,7 +5309,8 @@ std::string GCEnvGlobal::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvGlobal::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCEnvGlobal::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -5268,7 +5352,8 @@ std::string GCFilterName::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFilterName::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseFilter GCFilterName::GetParent() const {
     GCBaseFilter value(m_ptr);
@@ -5385,7 +5470,8 @@ std::string GCCSTeam::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSTeam::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCTeam GCCSTeam::GetParent() const {
     GCTeam value(m_ptr);
@@ -5431,7 +5517,8 @@ std::string GCWeaponUSPSilencer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponUSPSilencer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponUSPSilencer::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -5463,7 +5550,8 @@ std::string GCSpriteOriented::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSpriteOriented::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSprite GCSpriteOriented::GetParent() const {
     GCSprite value(m_ptr);
@@ -5495,7 +5583,8 @@ std::string GCTriggerGravity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerGravity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerGravity::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -5527,7 +5616,8 @@ std::string GCServerRagdollTrigger::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCServerRagdollTrigger::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCServerRagdollTrigger::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -5571,7 +5661,8 @@ std::string GCInfoDynamicShadowHintBox::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoDynamicShadowHintBox::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCInfoDynamicShadowHint GCInfoDynamicShadowHintBox::GetParent() const {
     GCInfoDynamicShadowHint value(m_ptr);
@@ -5617,7 +5708,8 @@ std::string GCPathMover::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPathMover::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCPathMover::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -5651,7 +5743,8 @@ std::string GCFlashbang::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFlashbang::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseCSGrenade GCFlashbang::GetParent() const {
     GCBaseCSGrenade value(m_ptr);
@@ -5683,7 +5776,8 @@ std::string GCWeaponAug::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponAug::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponAug::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -5715,7 +5809,8 @@ std::string GCIncendiaryGrenade::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCIncendiaryGrenade::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMolotovGrenade GCIncendiaryGrenade::GetParent() const {
     GCMolotovGrenade value(m_ptr);
@@ -5790,7 +5885,8 @@ std::string GCChangeLevel::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCChangeLevel::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCChangeLevel::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -5911,7 +6007,8 @@ std::string GCTriggerLerpObject::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerLerpObject::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerLerpObject::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -5969,7 +6066,8 @@ std::string GCTriggerSoundscape::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerSoundscape::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerSoundscape::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -6003,7 +6101,8 @@ std::string GCLogicScript::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicScript::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCLogicScript::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -6035,7 +6134,8 @@ std::string GCWeaponFiveSeven::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponFiveSeven::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponFiveSeven::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -6100,7 +6200,8 @@ std::string GCTriggerBrush::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerBrush::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCTriggerBrush::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -6163,7 +6264,8 @@ std::string GCPhysicsEntitySolver::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysicsEntitySolver::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCPhysicsEntitySolver::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -6241,7 +6343,8 @@ std::string GCNetworkedSequenceOperation::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNetworkedSequenceOperation::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNetworkedSequenceOperation(LuaPlugin *plugin, lua_State *state)
 {
@@ -6338,7 +6441,8 @@ std::string GCPointWorldText::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointWorldText::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCModelPointEntity GCPointWorldText::GetParent() const {
     GCModelPointEntity value(m_ptr);
@@ -6393,7 +6497,8 @@ std::string GCSoundAreaEntityOrientedBox::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundAreaEntityOrientedBox::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSoundAreaEntityBase GCSoundAreaEntityOrientedBox::GetParent() const {
     GCSoundAreaEntityBase value(m_ptr);
@@ -6505,7 +6610,8 @@ std::string GCTriggerPhysics::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerPhysics::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerPhysics::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -6562,7 +6668,8 @@ std::string GEntityRenderAttribute_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEntityRenderAttribute_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEntityRenderAttribute_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -6588,7 +6695,8 @@ std::string GCPointBroadcastClientCommand::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointBroadcastClientCommand::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCPointBroadcastClientCommand::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -6771,7 +6879,8 @@ std::string GCFuncShatterglass::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncShatterglass::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCFuncShatterglass::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -6828,7 +6937,8 @@ std::string GCRotButton::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRotButton::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseButton GCRotButton::GetParent() const {
     GCBaseButton value(m_ptr);
@@ -6866,7 +6976,8 @@ std::string GCSoundEventSphereEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundEventSphereEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSoundEventEntity GCSoundEventSphereEntity::GetParent() const {
     GCSoundEventEntity value(m_ptr);
@@ -6899,7 +7010,8 @@ std::string GCWeaponHKP2000::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponHKP2000::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponHKP2000::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -7093,7 +7205,8 @@ std::string GCPlantedC4::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPlantedC4::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseAnimGraph GCPlantedC4::GetParent() const {
     GCBaseAnimGraph value(m_ptr);
@@ -7164,7 +7277,8 @@ std::string GCPointClientUIDialog::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointClientUIDialog::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseClientUIEntity GCPointClientUIDialog::GetParent() const {
     GCBaseClientUIEntity value(m_ptr);
@@ -7204,7 +7318,8 @@ std::string GCEnvSplash::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvSplash::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCEnvSplash::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -7263,7 +7378,8 @@ std::string GCSkyCamera::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSkyCamera::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCSkyCamera::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -7299,7 +7415,8 @@ std::string GCWeaponNOVA::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponNOVA::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBase GCWeaponNOVA::GetParent() const {
     GCCSWeaponBase value(m_ptr);
@@ -7337,7 +7454,8 @@ std::string GCPointCameraVFOV::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointCameraVFOV::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointCamera GCPointCameraVFOV::GetParent() const {
     GCPointCamera value(m_ptr);
@@ -7382,7 +7500,8 @@ std::string GCWeaponTaser::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponTaser::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponTaser::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -7416,7 +7535,8 @@ std::string GCWaterBullet::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWaterBullet::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseAnimGraph GCWaterBullet::GetParent() const {
     GCBaseAnimGraph value(m_ptr);
@@ -7466,7 +7586,8 @@ std::string GCMarkupVolumeWithRef::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMarkupVolumeWithRef::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMarkupVolumeTagged GCMarkupVolumeWithRef::GetParent() const {
     GCMarkupVolumeTagged value(m_ptr);
@@ -7538,7 +7659,8 @@ std::string GCMessage::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMessage::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCMessage::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -7607,7 +7729,8 @@ std::string GCLogicGameEventListener::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicGameEventListener::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCLogicGameEventListener::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -7644,7 +7767,8 @@ std::string GCPushable::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPushable::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBreakable GCPushable::GetParent() const {
     GCBreakable value(m_ptr);
@@ -7683,7 +7807,8 @@ std::string GCTriggerRemove::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerRemove::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerRemove::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -7716,7 +7841,8 @@ std::string GCInfoTarget::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoTarget::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCInfoTarget::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -7830,7 +7956,8 @@ std::string GCMomentaryRotButton::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMomentaryRotButton::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCRotButton GCMomentaryRotButton::GetParent() const {
     GCRotButton value(m_ptr);
@@ -7978,7 +8105,8 @@ std::string GCPropDoorRotating::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPropDoorRotating::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBasePropDoor GCPropDoorRotating::GetParent() const {
     GCBasePropDoor value(m_ptr);
@@ -8063,7 +8191,8 @@ std::string Ghudtextparms_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool Ghudtextparms_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClasshudtextparms_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8093,7 +8222,8 @@ std::string GCWeaponMP5SD::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponMP5SD::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponMP5SD::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -8161,7 +8291,8 @@ std::string GCTextureBasedAnimatable::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTextureBasedAnimatable::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCTextureBasedAnimatable::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -8205,7 +8336,8 @@ std::string GCMarkupVolumeTagged_NavGame::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMarkupVolumeTagged_NavGame::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMarkupVolumeWithRef GCMarkupVolumeTagged_NavGame::GetParent() const {
     GCMarkupVolumeWithRef value(m_ptr);
@@ -8244,7 +8376,8 @@ std::string GCPhysThruster::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysThruster::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPhysForce GCPhysThruster::GetParent() const {
     GCPhysForce value(m_ptr);
@@ -8277,7 +8410,8 @@ std::string GCCSPointScriptExtensions_player::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPointScriptExtensions_player::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCCSPointScriptExtensions_player(LuaPlugin *plugin, lua_State *state)
 {
@@ -8349,7 +8483,8 @@ std::string GCCitadelSoundOpvarSetOBB::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCitadelSoundOpvarSetOBB::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCCitadelSoundOpvarSetOBB::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -8420,7 +8555,8 @@ std::string GSellbackPurchaseEntry_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GSellbackPurchaseEntry_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassSellbackPurchaseEntry_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8449,7 +8585,8 @@ std::string GCWeaponFamas::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponFamas::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponFamas::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -8500,7 +8637,8 @@ std::string GCShatterGlassShardPhysics::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCShatterGlassShardPhysics::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPhysicsProp GCShatterGlassShardPhysics::GetParent() const {
     GCPhysicsProp value(m_ptr);
@@ -8541,7 +8679,8 @@ std::string GCFilterModel::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFilterModel::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseFilter GCFilterModel::GetParent() const {
     GCBaseFilter value(m_ptr);
@@ -8716,7 +8855,8 @@ std::string GCCSPlayerPawnBase::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayerPawnBase::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBasePlayerPawn GCCSPlayerPawnBase::GetParent() const {
     GCBasePlayerPawn value(m_ptr);
@@ -8829,7 +8969,8 @@ std::string GCPathTrack::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPathTrack::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCPathTrack::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -8915,7 +9056,8 @@ std::string GCLogicDistanceCheck::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicDistanceCheck::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCLogicDistanceCheck::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -8972,7 +9114,8 @@ std::string GCOmniLight::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCOmniLight::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBarnLight GCOmniLight::GetParent() const {
     GCBarnLight value(m_ptr);
@@ -9061,7 +9204,8 @@ std::string GCInfoOffscreenPanoramaTexture::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoOffscreenPanoramaTexture::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCInfoOffscreenPanoramaTexture::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -9120,7 +9264,8 @@ std::string GCInfoVisibilityBox::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoVisibilityBox::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCInfoVisibilityBox::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -9155,7 +9300,8 @@ std::string GCGamePlayerEquip::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCGamePlayerEquip::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCRulePointEntity GCGamePlayerEquip::GetParent() const {
     GCRulePointEntity value(m_ptr);
@@ -9187,7 +9333,8 @@ std::string GCInfoTargetServerOnly::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoTargetServerOnly::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCServerOnlyPointEntity GCInfoTargetServerOnly::GetParent() const {
     GCServerOnlyPointEntity value(m_ptr);
@@ -9237,7 +9384,8 @@ std::string GCSoundOpvarSetPathCornerEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundOpvarSetPathCornerEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSoundOpvarSetPointEntity GCSoundOpvarSetPathCornerEntity::GetParent() const {
     GCSoundOpvarSetPointEntity value(m_ptr);
@@ -9363,7 +9511,8 @@ std::string GCCSPlayer_WeaponServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayer_WeaponServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayer_WeaponServices GCCSPlayer_WeaponServices::GetParent() const {
     GCPlayer_WeaponServices value(m_ptr);
@@ -9478,7 +9627,8 @@ std::string GCEntityFlame::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEntityFlame::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCEntityFlame::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -9521,7 +9671,8 @@ std::string GCWeaponMP9::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponMP9::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponMP9::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -10426,7 +10577,8 @@ std::string GCCSBot::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSBot::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBot GCCSBot::GetParent() const {
     GCBot value(m_ptr);
@@ -10668,7 +10820,8 @@ std::string GCEntityIdentity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEntityIdentity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCEntityIdentity(LuaPlugin *plugin, lua_State *state)
 {
@@ -10723,7 +10876,8 @@ std::string GCGunTarget::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCGunTarget::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseToggle GCGunTarget::GetParent() const {
     GCBaseToggle value(m_ptr);
@@ -10770,7 +10924,8 @@ std::string GCSoundEventParameter::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundEventParameter::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCSoundEventParameter::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -10804,7 +10959,8 @@ std::string GCSimpleMarkupVolumeTagged::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSimpleMarkupVolumeTagged::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMarkupVolumeTagged GCSimpleMarkupVolumeTagged::GetParent() const {
     GCMarkupVolumeTagged value(m_ptr);
@@ -10866,7 +11022,8 @@ std::string GCTestEffect::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTestEffect::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCTestEffect::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -10903,7 +11060,8 @@ std::string GCWeaponM4A1Silencer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponM4A1Silencer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponM4A1Silencer::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -10941,7 +11099,8 @@ std::string GCScriptNavBlocker::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCScriptNavBlocker::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCFuncNavBlocker GCScriptNavBlocker::GetParent() const {
     GCFuncNavBlocker value(m_ptr);
@@ -10980,7 +11139,8 @@ std::string GCConstraintAnchor::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCConstraintAnchor::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseAnimGraph GCConstraintAnchor::GetParent() const {
     GCBaseAnimGraph value(m_ptr);
@@ -11013,7 +11173,8 @@ std::string GCWeaponTec9::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponTec9::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponTec9::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -11045,7 +11206,8 @@ std::string GCMarkupVolumeTagged_Nav::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMarkupVolumeTagged_Nav::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMarkupVolumeTagged GCMarkupVolumeTagged_Nav::GetParent() const {
     GCMarkupVolumeTagged value(m_ptr);
@@ -11121,7 +11283,8 @@ std::string GCInstancedSceneEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInstancedSceneEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSceneEntity GCInstancedSceneEntity::GetParent() const {
     GCSceneEntity value(m_ptr);
@@ -11160,7 +11323,8 @@ std::string GCLightEnvironmentEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLightEnvironmentEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLightDirectionalEntity GCLightEnvironmentEntity::GetParent() const {
     GCLightDirectionalEntity value(m_ptr);
@@ -11216,7 +11380,8 @@ std::string GCLogicActiveAutosave::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicActiveAutosave::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicAutosave GCLogicActiveAutosave::GetParent() const {
     GCLogicAutosave value(m_ptr);
@@ -11264,7 +11429,8 @@ std::string GCEnvBeverage::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvBeverage::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCEnvBeverage::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -11298,7 +11464,8 @@ std::string GCWeaponCZ75a::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponCZ75a::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponCZ75a::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -11330,7 +11497,8 @@ std::string GCWeaponP250::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponP250::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponP250::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -11610,7 +11778,8 @@ std::string GCHostage::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHostage::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCHostageExpresserShim GCHostage::GetParent() const {
     GCHostageExpresserShim value(m_ptr);
@@ -11687,7 +11856,8 @@ std::string GCScriptTriggerHurt::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCScriptTriggerHurt::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCTriggerHurt GCScriptTriggerHurt::GetParent() const {
     GCTriggerHurt value(m_ptr);
@@ -11822,7 +11992,8 @@ std::string GCBasePlayerWeaponVData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBasePlayerWeaponVData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCEntitySubclassVDataBase GCBasePlayerWeaponVData::GetParent() const {
     GCEntitySubclassVDataBase value(m_ptr);
@@ -11895,7 +12066,8 @@ std::string GCMathColorBlend::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMathColorBlend::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCMathColorBlend::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -11961,7 +12133,8 @@ std::string GCEnvScreenOverlay::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvScreenOverlay::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCEnvScreenOverlay::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -12697,7 +12870,8 @@ std::string GCCSPlayerPawn::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayerPawn::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSPlayerPawnBase GCCSPlayerPawn::GetParent() const {
     GCCSPlayerPawnBase value(m_ptr);
@@ -12844,7 +13018,8 @@ std::string GCBumpMineProjectile::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBumpMineProjectile::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseGrenade GCBumpMineProjectile::GetParent() const {
     GCBaseGrenade value(m_ptr);
@@ -13402,7 +13577,8 @@ std::string GCCSPlayerController::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayerController::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBasePlayerController GCCSPlayerController::GetParent() const {
     GCBasePlayerController value(m_ptr);
@@ -13735,7 +13911,8 @@ std::string GCChicken::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCChicken::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCDynamicProp GCChicken::GetParent() const {
     GCDynamicProp value(m_ptr);
@@ -13800,7 +13977,8 @@ std::string GCInfoInstructorHintBombTargetA::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoInstructorHintBombTargetA::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCInfoInstructorHintBombTargetA::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -13832,7 +14010,8 @@ std::string GCWeaponAWP::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponAWP::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponAWP::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -13864,7 +14043,8 @@ std::string GCCSObserverPawn::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSObserverPawn::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSPlayerPawnBase GCCSObserverPawn::GetParent() const {
     GCCSPlayerPawnBase value(m_ptr);
@@ -13986,7 +14166,8 @@ std::string GCPostProcessingVolume::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPostProcessingVolume::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCPostProcessingVolume::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -14057,7 +14238,8 @@ std::string GCSpotlightEnd::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSpotlightEnd::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCSpotlightEnd::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -14107,7 +14289,8 @@ std::string GCGamePlayerZone::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCGamePlayerZone::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCRuleBrushEntity GCGamePlayerZone::GetParent() const {
     GCRuleBrushEntity value(m_ptr);
@@ -14141,7 +14324,8 @@ std::string GCSensorGrenade::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSensorGrenade::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseCSGrenade GCSensorGrenade::GetParent() const {
     GCBaseCSGrenade value(m_ptr);
@@ -14173,7 +14357,8 @@ std::string GCCSGO_WingmanIntroTerroristPosition::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSGO_WingmanIntroTerroristPosition::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSGO_WingmanIntroCharacterPosition GCCSGO_WingmanIntroTerroristPosition::GetParent() const {
     GCCSGO_WingmanIntroCharacterPosition value(m_ptr);
@@ -14212,7 +14397,8 @@ std::string GCTriggerDetectExplosion::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerDetectExplosion::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerDetectExplosion::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -14251,7 +14437,8 @@ std::string GCSoundStackSave::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundStackSave::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCSoundStackSave::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -14334,7 +14521,8 @@ std::string GConstraintSoundInfo::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GConstraintSoundInfo::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassConstraintSoundInfo(LuaPlugin *plugin, lua_State *state)
 {
@@ -14372,7 +14560,8 @@ std::string GCSingleplayRules::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSingleplayRules::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCGameRules GCSingleplayRules::GetParent() const {
     GCGameRules value(m_ptr);
@@ -14411,7 +14600,8 @@ std::string GCFilterProximity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFilterProximity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseFilter GCFilterProximity::GetParent() const {
     GCBaseFilter value(m_ptr);
@@ -14456,7 +14646,8 @@ std::string GCEconWearable::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEconWearable::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCEconEntity GCEconWearable::GetParent() const {
     GCEconEntity value(m_ptr);
@@ -14508,7 +14699,8 @@ std::string GCCSPlayer_ItemServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayer_ItemServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayer_ItemServices GCCSPlayer_ItemServices::GetParent() const {
     GCPlayer_ItemServices value(m_ptr);
@@ -14597,7 +14789,8 @@ std::string GCFuncConveyor::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncConveyor::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseModelEntity GCFuncConveyor::GetParent() const {
     GCBaseModelEntity value(m_ptr);
@@ -14638,7 +14831,8 @@ std::string GCWeaponMag7::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponMag7::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponMag7::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -14728,7 +14922,8 @@ std::string GCMathCounter::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMathCounter::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCMathCounter::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -14812,7 +15007,8 @@ std::string GCInfoWorldLayer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoWorldLayer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCInfoWorldLayer::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -14857,7 +15053,8 @@ std::string GCRectLight::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRectLight::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBarnLight GCRectLight::GetParent() const {
     GCBarnLight value(m_ptr);
@@ -14890,7 +15087,8 @@ std::string GCCSGO_TeamSelectCharacterPosition::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSGO_TeamSelectCharacterPosition::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSGO_TeamPreviewCharacterPosition GCCSGO_TeamSelectCharacterPosition::GetParent() const {
     GCCSGO_TeamPreviewCharacterPosition value(m_ptr);
@@ -15094,7 +15292,8 @@ std::string GCBaseDoor::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBaseDoor::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseToggle GCBaseDoor::GetParent() const {
     GCBaseToggle value(m_ptr);
@@ -15173,7 +15372,8 @@ std::string GCLogicLineToEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicLineToEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCLogicLineToEntity::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -15238,7 +15438,8 @@ std::string GCRetakeGameRules::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRetakeGameRules::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCRetakeGameRules(LuaPlugin *plugin, lua_State *state)
 {
@@ -15274,7 +15475,8 @@ std::string GCCSGameRulesProxy::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSGameRulesProxy::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCGameRulesProxy GCCSGameRulesProxy::GetParent() const {
     GCGameRulesProxy value(m_ptr);
@@ -15307,7 +15509,8 @@ std::string GCEnvCubemapBox::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvCubemapBox::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCEnvCubemap GCEnvCubemapBox::GetParent() const {
     GCEnvCubemap value(m_ptr);
@@ -15339,7 +15542,8 @@ std::string GCCSPlayer_DamageReactServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayer_DamageReactServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayerPawnComponent GCCSPlayer_DamageReactServices::GetParent() const {
     GCPlayerPawnComponent value(m_ptr);
@@ -15389,7 +15593,8 @@ std::string GServerAuthoritativeWeaponSlot_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GServerAuthoritativeWeaponSlot_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassServerAuthoritativeWeaponSlot_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -16541,7 +16746,8 @@ std::string GCCSGameRules::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSGameRules::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCTeamplayRules GCCSGameRules::GetParent() const {
     GCTeamplayRules value(m_ptr);
@@ -16862,7 +17068,8 @@ std::string GCColorCorrection::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCColorCorrection::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCColorCorrection::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -16911,7 +17118,8 @@ std::string GCWeaponElite::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponElite::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponElite::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -16943,7 +17151,8 @@ std::string GCSoundEventEntityAlias_snd_event_point::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundEventEntityAlias_snd_event_point::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSoundEventEntity GCSoundEventEntityAlias_snd_event_point::GetParent() const {
     GCSoundEventEntity value(m_ptr);
@@ -16975,7 +17184,8 @@ std::string GCBaseEntityAPI::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBaseEntityAPI::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCBaseEntityAPI(LuaPlugin *plugin, lua_State *state)
 {
@@ -17066,7 +17276,8 @@ std::string GCC4::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCC4::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBase GCC4::GetParent() const {
     GCCSWeaponBase value(m_ptr);
@@ -17109,7 +17320,8 @@ std::string GCHostageRescueZone::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHostageRescueZone::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCHostageRescueZoneShim GCHostageRescueZone::GetParent() const {
     GCHostageRescueZoneShim value(m_ptr);
@@ -17178,7 +17390,8 @@ std::string GCPointPrefab::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPointPrefab::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCServerOnlyPointEntity GCPointPrefab::GetParent() const {
     GCServerOnlyPointEntity value(m_ptr);
@@ -17222,7 +17435,8 @@ std::string GCRotDoor::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRotDoor::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseDoor GCRotDoor::GetParent() const {
     GCBaseDoor value(m_ptr);
@@ -17262,7 +17476,8 @@ std::string GCSkeletonAnimationController::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSkeletonAnimationController::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GISkeletonAnimationController GCSkeletonAnimationController::GetParent() const {
     GISkeletonAnimationController value(m_ptr);
@@ -17295,7 +17510,8 @@ std::string GCTablet::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTablet::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBase GCTablet::GetParent() const {
     GCCSWeaponBase value(m_ptr);
@@ -17371,7 +17587,8 @@ std::string GCTankTrainAI::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTankTrainAI::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCTankTrainAI::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -17434,7 +17651,8 @@ std::string GCGameGibManager::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCGameGibManager::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCGameGibManager::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -17477,7 +17695,8 @@ std::string GCCSPointScript::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPointScript::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCCSPointScript(LuaPlugin *plugin, lua_State *state)
 {
@@ -17502,7 +17721,8 @@ std::string GCRagdollPropAlias_physics_prop_ragdoll::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRagdollPropAlias_physics_prop_ragdoll::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCRagdollProp GCRagdollPropAlias_physics_prop_ragdoll::GetParent() const {
     GCRagdollProp value(m_ptr);
@@ -17534,7 +17754,8 @@ std::string GCCSSprite::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSSprite::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSprite GCCSSprite::GetParent() const {
     GCSprite value(m_ptr);
@@ -17566,7 +17787,8 @@ std::string GCFuncPropRespawnZone::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncPropRespawnZone::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCFuncPropRespawnZone::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -17598,7 +17820,8 @@ std::string GCInfoDeathmatchSpawn::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoDeathmatchSpawn::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GSpawnPoint GCInfoDeathmatchSpawn::GetParent() const {
     GSpawnPoint value(m_ptr);
@@ -17630,7 +17853,8 @@ std::string GCWeaponSCAR20::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponSCAR20::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBaseGun GCWeaponSCAR20::GetParent() const {
     GCCSWeaponBaseGun value(m_ptr);
@@ -17662,7 +17886,8 @@ std::string GCTripWireFireProjectile::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTripWireFireProjectile::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseGrenade GCTripWireFireProjectile::GetParent() const {
     GCBaseGrenade value(m_ptr);
@@ -17694,7 +17919,8 @@ std::string GCFuncTrackAuto::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncTrackAuto::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCFuncTrackChange GCFuncTrackAuto::GetParent() const {
     GCFuncTrackChange value(m_ptr);
@@ -17757,7 +17983,8 @@ std::string GCEnvSpark::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvSpark::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCEnvSpark::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -17794,7 +18021,8 @@ std::string GCCSObserver_ObserverServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSObserver_ObserverServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayer_ObserverServices GCCSObserver_ObserverServices::GetParent() const {
     GCPlayer_ObserverServices value(m_ptr);
@@ -17826,7 +18054,8 @@ std::string GCPlayer_AutoaimServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPlayer_AutoaimServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayerPawnComponent GCPlayer_AutoaimServices::GetParent() const {
     GCPlayerPawnComponent value(m_ptr);
@@ -17896,7 +18125,8 @@ std::string GCFuncTrain::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncTrain::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBasePlatTrain GCFuncTrain::GetParent() const {
     GCBasePlatTrain value(m_ptr);
@@ -17934,7 +18164,8 @@ std::string GCHostageAlias_info_hostage_spawn::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHostageAlias_info_hostage_spawn::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCHostage GCHostageAlias_info_hostage_spawn::GetParent() const {
     GCHostage value(m_ptr);
@@ -18047,7 +18278,8 @@ std::string GCNavLinkAreaEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavLinkAreaEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCNavLinkAreaEntity::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -18092,7 +18324,8 @@ std::string GCFuncMoveLinearAlias_momentary_door::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuncMoveLinearAlias_momentary_door::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCFuncMoveLinear GCFuncMoveLinearAlias_momentary_door::GetParent() const {
     GCFuncMoveLinear value(m_ptr);
@@ -18145,7 +18378,8 @@ std::string GCCommentaryAuto::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCommentaryAuto::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseEntity GCCommentaryAuto::GetParent() const {
     GCBaseEntity value(m_ptr);
@@ -18228,7 +18462,8 @@ std::string GCMapInfo::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMapInfo::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCMapInfo::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -18268,7 +18503,8 @@ std::string GCTriggerBombReset::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTriggerBombReset::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseTrigger GCTriggerBombReset::GetParent() const {
     GCBaseTrigger value(m_ptr);
@@ -18306,7 +18542,8 @@ std::string GCBaseDMStart::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBaseDMStart::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCBaseDMStart::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -18397,7 +18634,8 @@ std::string GCLogicMeasureMovement::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLogicMeasureMovement::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCLogicMeasureMovement::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -18456,7 +18694,8 @@ std::string GViewAngleServerChange_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GViewAngleServerChange_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassViewAngleServerChange_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -18497,7 +18736,8 @@ std::string GPhysicsRagdollPose_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GPhysicsRagdollPose_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassPhysicsRagdollPose_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -18523,7 +18763,8 @@ std::string GCBreachChargeProjectile::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBreachChargeProjectile::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseGrenade GCBreachChargeProjectile::GetParent() const {
     GCBaseGrenade value(m_ptr);
@@ -18561,7 +18802,8 @@ std::string GCRangeFloat::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRangeFloat::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCRangeFloat(LuaPlugin *plugin, lua_State *state)
 {
@@ -18586,7 +18828,8 @@ std::string GCAnimEventListenerBase::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimEventListenerBase::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimEventListenerBase(LuaPlugin *plugin, lua_State *state)
 {
@@ -18622,7 +18865,8 @@ std::string GRelationship_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRelationship_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassRelationship_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -18654,7 +18898,8 @@ std::string GCRemapFloat::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRemapFloat::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCRemapFloat(LuaPlugin *plugin, lua_State *state)
 {
@@ -18679,7 +18924,8 @@ std::string GIGapHost_GameEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GIGapHost_GameEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassIGapHost_GameEntity(LuaPlugin *plugin, lua_State *state)
 {
@@ -18703,7 +18949,8 @@ std::string GCFootstepTableHandle::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootstepTableHandle::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFootstepTableHandle(LuaPlugin *plugin, lua_State *state)
 {
@@ -18781,7 +19028,8 @@ std::string GCCSPlayerController_InventoryServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayerController_InventoryServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayerControllerComponent GCCSPlayerController_InventoryServices::GetParent() const {
     GCPlayerControllerComponent value(m_ptr);
@@ -18828,7 +19076,8 @@ std::string GCResponseQueue::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCResponseQueue::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCResponseQueue(LuaPlugin *plugin, lua_State *state)
 {
@@ -18859,7 +19108,8 @@ std::string GCScriptUniformRandomStream::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCScriptUniformRandomStream::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCScriptUniformRandomStream(LuaPlugin *plugin, lua_State *state)
 {
@@ -18890,7 +19140,8 @@ std::string GParticleIndex_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GParticleIndex_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassParticleIndex_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -19029,7 +19280,8 @@ std::string GCPhysHinge::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysHinge::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPhysConstraint GCPhysHinge::GetParent() const {
     GCPhysConstraint value(m_ptr);
@@ -19091,7 +19343,8 @@ std::string GCSimpleSimTimer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSimpleSimTimer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSimpleSimTimer(LuaPlugin *plugin, lua_State *state)
 {
@@ -19136,7 +19389,8 @@ std::string GCSkillDamage::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSkillDamage::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSkillDamage(LuaPlugin *plugin, lua_State *state)
 {
@@ -19163,7 +19417,8 @@ std::string GCAnimEventQueueListener::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimEventQueueListener::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimEventListenerBase GCAnimEventQueueListener::GetParent() const {
     GCAnimEventListenerBase value(m_ptr);
@@ -19226,7 +19481,8 @@ std::string GCEnvLaser::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvLaser::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBeam GCEnvLaser::GetParent() const {
     GCBeam value(m_ptr);
@@ -19269,7 +19525,8 @@ std::string GCFiringModeFloat::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFiringModeFloat::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFiringModeFloat(LuaPlugin *plugin, lua_State *state)
 {
@@ -19307,7 +19564,8 @@ std::string GCRopeOverlapHit::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRopeOverlapHit::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCRopeOverlapHit(LuaPlugin *plugin, lua_State *state)
 {
@@ -19351,7 +19609,8 @@ std::string GResponseContext_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GResponseContext_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassResponseContext_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -19378,7 +19637,8 @@ std::string GCNavVolume::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavVolume::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNavVolume(LuaPlugin *plugin, lua_State *state)
 {
@@ -19402,7 +19662,8 @@ std::string GCCSObserver_MovementServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSObserver_MovementServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayer_MovementServices GCCSObserver_MovementServices::GetParent() const {
     GCPlayer_MovementServices value(m_ptr);
@@ -19434,7 +19695,8 @@ std::string GCCSGOPlayerAnimGraphState::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSGOPlayerAnimGraphState::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCCSGOPlayerAnimGraphState(LuaPlugin *plugin, lua_State *state)
 {
@@ -19554,7 +19816,8 @@ std::string GCGameScriptedMoveData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCGameScriptedMoveData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCGameScriptedMoveData(LuaPlugin *plugin, lua_State *state)
 {
@@ -19673,7 +19936,8 @@ std::string GCBaseAnimGraphController::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBaseAnimGraphController::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSkeletonAnimationController GCBaseAnimGraphController::GetParent() const {
     GCSkeletonAnimationController value(m_ptr);
@@ -19730,7 +19994,8 @@ std::string GCNavVolumeSphere::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavVolumeSphere::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNavVolume GCNavVolumeSphere::GetParent() const {
     GCNavVolume value(m_ptr);
@@ -19776,7 +20041,8 @@ std::string GCResponseCriteriaSet::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCResponseCriteriaSet::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCResponseCriteriaSet(LuaPlugin *plugin, lua_State *state)
 {
@@ -19863,7 +20129,8 @@ std::string GCAI_Expresser::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAI_Expresser::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAI_Expresser(LuaPlugin *plugin, lua_State *state)
 {
@@ -19897,7 +20164,8 @@ std::string GIChoreoServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GIChoreoServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassIChoreoServices(LuaPlugin *plugin, lua_State *state)
 {
@@ -19927,7 +20195,8 @@ std::string GCStopwatchBase::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCStopwatchBase::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSimpleSimTimer GCStopwatchBase::GetParent() const {
     GCSimpleSimTimer value(m_ptr);
@@ -19979,7 +20248,8 @@ std::string GResponseParams::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GResponseParams::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassResponseParams(LuaPlugin *plugin, lua_State *state)
 {
@@ -20006,7 +20276,8 @@ std::string GCItem_Healthshot::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCItem_Healthshot::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCWeaponBaseItem GCItem_Healthshot::GetParent() const {
     GCWeaponBaseItem value(m_ptr);
@@ -20038,7 +20309,8 @@ std::string GCPhysHingeAlias_phys_hinge_local::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysHingeAlias_phys_hinge_local::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPhysHinge GCPhysHingeAlias_phys_hinge_local::GetParent() const {
     GCPhysHinge value(m_ptr);
@@ -20094,7 +20366,8 @@ std::string GPointCameraSettings_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GPointCameraSettings_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassPointCameraSettings_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -20146,7 +20419,8 @@ std::string GCSoundEnvelope::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundEnvelope::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSoundEnvelope(LuaPlugin *plugin, lua_State *state)
 {
@@ -20174,7 +20448,8 @@ std::string Gdynpitchvol_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool Gdynpitchvol_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 Gdynpitchvol_base_t Gdynpitchvol_t::GetParent() const {
     Gdynpitchvol_base_t value(m_ptr);
@@ -20212,7 +20487,8 @@ std::string GCStopwatch::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCStopwatch::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCStopwatchBase GCStopwatch::GetParent() const {
     GCStopwatchBase value(m_ptr);
@@ -20251,7 +20527,8 @@ std::string GCNavVolumeVector::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavVolumeVector::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNavVolume GCNavVolumeVector::GetParent() const {
     GCNavVolume value(m_ptr);
@@ -20296,7 +20573,8 @@ std::string GNavGravity_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GNavGravity_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassNavGravity_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -20383,7 +20661,8 @@ std::string GCEnvShake::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnvShake::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCEnvShake::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -20486,7 +20765,8 @@ std::string GCPhysSlideConstraint::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysSlideConstraint::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPhysConstraint GCPhysSlideConstraint::GetParent() const {
     GCPhysConstraint value(m_ptr);
@@ -20596,7 +20876,8 @@ std::string GCSound::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSound::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSound(LuaPlugin *plugin, lua_State *state)
 {
@@ -20662,7 +20943,8 @@ std::string GCTakeDamageResult::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTakeDamageResult::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCTakeDamageResult(LuaPlugin *plugin, lua_State *state)
 {
@@ -20716,7 +20998,8 @@ std::string GCMolotovProjectile::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMolotovProjectile::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseCSGrenadeProjectile GCMolotovProjectile::GetParent() const {
     GCBaseCSGrenadeProjectile value(m_ptr);
@@ -20788,7 +21071,8 @@ std::string GCCommentarySystem::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCommentarySystem::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCCommentarySystem(LuaPlugin *plugin, lua_State *state)
 {
@@ -20866,7 +21150,8 @@ std::string GResponseFollowup::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GResponseFollowup::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassResponseFollowup(LuaPlugin *plugin, lua_State *state)
 {
@@ -20904,7 +21189,8 @@ std::string GCRangeInt::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRangeInt::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCRangeInt(LuaPlugin *plugin, lua_State *state)
 {
@@ -20935,7 +21221,8 @@ std::string GCNavLinkAnimgraphVar::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavLinkAnimgraphVar::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNavLinkAnimgraphVar(LuaPlugin *plugin, lua_State *state)
 {
@@ -20960,7 +21247,8 @@ std::string GCCSGO_TeamSelectCounterTerroristPosition::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSGO_TeamSelectCounterTerroristPosition::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSGO_TeamSelectCharacterPosition GCCSGO_TeamSelectCounterTerroristPosition::GetParent() const {
     GCCSGO_TeamSelectCharacterPosition value(m_ptr);
@@ -21010,7 +21298,8 @@ std::string GCNavLinkMovementVData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavLinkMovementVData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNavLinkMovementVData(LuaPlugin *plugin, lua_State *state)
 {
@@ -21037,7 +21326,8 @@ std::string GCAnimGraphControllerBase::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimGraphControllerBase::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimGraphControllerBase(LuaPlugin *plugin, lua_State *state)
 {
@@ -21079,7 +21369,8 @@ std::string GRagdollCreationParams_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRagdollCreationParams_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassRagdollCreationParams_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -21138,7 +21429,8 @@ std::string GAmmoTypeInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GAmmoTypeInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassAmmoTypeInfo_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -21179,7 +21471,8 @@ std::string GCRandStopwatch::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRandStopwatch::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCStopwatchBase GCRandStopwatch::GetParent() const {
     GCStopwatchBase value(m_ptr);
@@ -21247,7 +21540,8 @@ std::string GCGameChoreoServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCGameChoreoServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GIChoreoServices GCGameChoreoServices::GetParent() const {
     GIChoreoServices value(m_ptr);
@@ -21284,7 +21578,8 @@ std::string GCSimpleStopwatch::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSimpleStopwatch::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCStopwatchBase GCSimpleStopwatch::GetParent() const {
     GCStopwatchBase value(m_ptr);
@@ -21493,7 +21788,8 @@ std::string GCShatterGlassShard::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCShatterGlassShard::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCShatterGlassShard(LuaPlugin *plugin, lua_State *state)
 {
@@ -21618,7 +21914,8 @@ std::string GCommandToolCommand_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCommandToolCommand_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCommandToolCommand_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -21672,7 +21969,8 @@ std::string Gragdollelement_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool Gragdollelement_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassragdollelement_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -21699,7 +21997,8 @@ std::string GCBodyComponentBaseModelEntity::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBodyComponentBaseModelEntity::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBodyComponentSkeletonInstance GCBodyComponentBaseModelEntity::GetParent() const {
     GCBodyComponentSkeletonInstance value(m_ptr);
@@ -21749,7 +22048,8 @@ std::string GCNetworkOriginQuantizedVector::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNetworkOriginQuantizedVector::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNetworkOriginQuantizedVector(LuaPlugin *plugin, lua_State *state)
 {
@@ -21783,7 +22083,8 @@ std::string Gmagnetted_objects_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool Gmagnetted_objects_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassmagnetted_objects_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -21821,7 +22122,8 @@ std::string GCHintMessageQueue::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHintMessageQueue::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCHintMessageQueue(LuaPlugin *plugin, lua_State *state)
 {
@@ -21853,7 +22155,8 @@ std::string GCSkillInt::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSkillInt::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSkillInt(LuaPlugin *plugin, lua_State *state)
 {
@@ -21896,7 +22199,8 @@ std::string Gthinkfunc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool Gthinkfunc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassthinkfunc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -21929,7 +22233,8 @@ std::string GCNavHullPresetVData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavHullPresetVData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNavHullPresetVData(LuaPlugin *plugin, lua_State *state)
 {
@@ -22037,7 +22342,8 @@ std::string GCBasePlayerVData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBasePlayerVData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCEntitySubclassVDataBase GCBasePlayerVData::GetParent() const {
     GCEntitySubclassVDataBase value(m_ptr);
@@ -22156,7 +22462,8 @@ std::string GCSceneEventInfo::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSceneEventInfo::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSceneEventInfo(LuaPlugin *plugin, lua_State *state)
 {
@@ -22204,7 +22511,8 @@ std::string GCCopyRecipientFilter::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCopyRecipientFilter::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCCopyRecipientFilter(LuaPlugin *plugin, lua_State *state)
 {
@@ -22254,7 +22562,8 @@ std::string GCPropDoorRotatingBreakable::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPropDoorRotatingBreakable::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPropDoorRotating GCPropDoorRotatingBreakable::GetParent() const {
     GCPropDoorRotating value(m_ptr);
@@ -22365,7 +22674,8 @@ std::string GCBtActionAim::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBtActionAim::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBtNode GCBtActionAim::GetParent() const {
     GCBtNode value(m_ptr);
@@ -22415,7 +22725,8 @@ std::string GCFiringModeInt::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFiringModeInt::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFiringModeInt(LuaPlugin *plugin, lua_State *state)
 {
@@ -22522,7 +22833,8 @@ std::string GCSoundPatch::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundPatch::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSoundPatch(LuaPlugin *plugin, lua_State *state)
 {
@@ -22589,7 +22901,8 @@ std::string GCSmoothFunc::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSmoothFunc::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSmoothFunc(LuaPlugin *plugin, lua_State *state)
 {
@@ -22618,7 +22931,8 @@ std::string GIHasAttributes::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GIHasAttributes::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassIHasAttributes(LuaPlugin *plugin, lua_State *state)
 {
@@ -22678,7 +22992,8 @@ std::string GCRagdollPropAttached::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRagdollPropAttached::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCRagdollProp GCRagdollPropAttached::GetParent() const {
     GCRagdollProp value(m_ptr);
@@ -22776,7 +23091,8 @@ std::string GHullFlags_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GHullFlags_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassHullFlags_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -22817,7 +23133,8 @@ std::string GCBodyComponentBaseAnimGraph::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBodyComponentBaseAnimGraph::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBodyComponentSkeletonInstance GCBodyComponentBaseAnimGraph::GetParent() const {
     GCBodyComponentSkeletonInstance value(m_ptr);
@@ -22862,7 +23179,8 @@ std::string GGameAmmoTypeInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GGameAmmoTypeInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GAmmoTypeInfo_t GGameAmmoTypeInfo_t::GetParent() const {
     GAmmoTypeInfo_t value(m_ptr);
@@ -22940,7 +23258,8 @@ std::string GCPhysMotor::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysMotor::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLogicalEntity GCPhysMotor::GetParent() const {
     GCLogicalEntity value(m_ptr);
@@ -22985,7 +23304,8 @@ std::string GCSimTimer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSimTimer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSimpleSimTimer GCSimTimer::GetParent() const {
     GCSimpleSimTimer value(m_ptr);
@@ -23048,7 +23368,8 @@ std::string GCBaseIssue::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBaseIssue::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCBaseIssue(LuaPlugin *plugin, lua_State *state)
 {
@@ -23188,7 +23509,8 @@ std::string GCTakeDamageInfo::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTakeDamageInfo::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCTakeDamageInfo(LuaPlugin *plugin, lua_State *state)
 {
@@ -23236,7 +23558,8 @@ std::string GConceptHistory_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GConceptHistory_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassConceptHistory_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -23267,7 +23590,8 @@ std::string GCPhysTorque::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysTorque::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPhysForce GCPhysTorque::GetParent() const {
     GCPhysForce value(m_ptr);
@@ -23327,7 +23651,8 @@ std::string GSummaryTakeDamageInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GSummaryTakeDamageInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassSummaryTakeDamageInfo_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -23367,7 +23692,8 @@ std::string GCRandSimTimer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRandSimTimer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSimpleSimTimer GCRandSimTimer::GetParent() const {
     GCSimpleSimTimer value(m_ptr);
@@ -23401,7 +23727,8 @@ std::string GCBtNodeComposite::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBtNodeComposite::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBtNode GCBtNodeComposite::GetParent() const {
     GCBtNode value(m_ptr);
@@ -23433,7 +23760,8 @@ std::string GCFireCrackerBlast::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFireCrackerBlast::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCInferno GCFireCrackerBlast::GetParent() const {
     GCInferno value(m_ptr);
@@ -23495,7 +23823,8 @@ std::string Gsndopvarlatchdata_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool Gsndopvarlatchdata_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClasssndopvarlatchdata_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -23524,7 +23853,8 @@ std::string GCCSGO_TeamSelectTerroristPosition::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSGO_TeamSelectTerroristPosition::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSGO_TeamSelectCharacterPosition GCCSGO_TeamSelectTerroristPosition::GetParent() const {
     GCCSGO_TeamSelectCharacterPosition value(m_ptr);
@@ -23563,7 +23893,8 @@ std::string GCAI_ExpresserWithFollowup::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAI_ExpresserWithFollowup::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAI_Expresser GCAI_ExpresserWithFollowup::GetParent() const {
     GCAI_Expresser value(m_ptr);
@@ -23596,7 +23927,8 @@ std::string GCNavVolumeMarkupVolume::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavVolumeMarkupVolume::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNavVolume GCNavVolumeMarkupVolume::GetParent() const {
     GCNavVolume value(m_ptr);
@@ -23628,7 +23960,8 @@ std::string GQuestProgress::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GQuestProgress::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassQuestProgress(LuaPlugin *plugin, lua_State *state)
 {
@@ -23684,7 +24017,8 @@ std::string Glerpdata_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool Glerpdata_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClasslerpdata_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -23719,7 +24053,8 @@ std::string GCMultiplayer_Expresser::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMultiplayer_Expresser::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAI_ExpresserWithFollowup GCMultiplayer_Expresser::GetParent() const {
     GCAI_ExpresserWithFollowup value(m_ptr);
@@ -23758,7 +24093,8 @@ std::string GCTakeDamageSummaryScopeGuard::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTakeDamageSummaryScopeGuard::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCTakeDamageSummaryScopeGuard(LuaPlugin *plugin, lua_State *state)
 {
@@ -23783,7 +24119,8 @@ std::string GCWeaponSawedoff::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCWeaponSawedoff::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCCSWeaponBase GCWeaponSawedoff::GetParent() const {
     GCCSWeaponBase value(m_ptr);
@@ -24043,7 +24380,8 @@ std::string GCCSPlayer_MovementServices::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSPlayer_MovementServices::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPlayer_MovementServices_Humanoid GCCSPlayer_MovementServices::GetParent() const {
     GCPlayer_MovementServices_Humanoid value(m_ptr);
@@ -24179,7 +24517,8 @@ std::string GCNavHullVData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavHullVData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNavHullVData(LuaPlugin *plugin, lua_State *state)
 {
@@ -24232,7 +24571,8 @@ std::string GSoundOpvarTraceResult_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GSoundOpvarTraceResult_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassSoundOpvarTraceResult_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -24259,7 +24599,8 @@ std::string GCAnimEventListener::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimEventListener::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimEventListenerBase GCAnimEventListener::GetParent() const {
     GCAnimEventListenerBase value(m_ptr);
@@ -24291,7 +24632,8 @@ std::string GCNavVolumeCalculatedVector::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavVolumeCalculatedVector::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNavVolume GCNavVolumeCalculatedVector::GetParent() const {
     GCNavVolume value(m_ptr);
@@ -24812,7 +25154,8 @@ std::string GCCSWeaponBaseVData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCSWeaponBaseVData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBasePlayerWeaponVData GCCSWeaponBaseVData::GetParent() const {
     GCBasePlayerWeaponVData value(m_ptr);
@@ -24942,7 +25285,8 @@ std::string GCBtNodeConditionInactive::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBtNodeConditionInactive::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBtNodeCondition GCBtNodeConditionInactive::GetParent() const {
     GCBtNodeCondition value(m_ptr);
@@ -25013,7 +25357,8 @@ std::string GCSAdditionalPerRoundStats_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSAdditionalPerRoundStats_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSAdditionalPerRoundStats_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -25068,7 +25413,8 @@ std::string GActiveModelConfig_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GActiveModelConfig_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassActiveModelConfig_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -25132,7 +25478,8 @@ std::string GCPrecipitationVData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPrecipitationVData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCEntitySubclassVDataBase GCPrecipitationVData::GetParent() const {
     GCEntitySubclassVDataBase value(m_ptr);
@@ -25182,7 +25529,8 @@ std::string GCBreakableStageHelper::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBreakableStageHelper::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCBreakableStageHelper(LuaPlugin *plugin, lua_State *state)
 {
@@ -25220,7 +25568,8 @@ std::string GCNavVolumeBreadthFirstSearch::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavVolumeBreadthFirstSearch::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNavVolumeCalculatedVector GCNavVolumeBreadthFirstSearch::GetParent() const {
     GCNavVolumeCalculatedVector value(m_ptr);
@@ -25316,7 +25665,8 @@ std::string GCAmbientGeneric::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAmbientGeneric::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCAmbientGeneric::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -25430,7 +25780,8 @@ std::string GCSAdditionalMatchStats_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSAdditionalMatchStats_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSAdditionalPerRoundStats_t GCSAdditionalMatchStats_t::GetParent() const {
     GCSAdditionalPerRoundStats_t value(m_ptr);
@@ -25474,7 +25825,8 @@ std::string GIRagdoll::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GIRagdoll::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassIRagdoll(LuaPlugin *plugin, lua_State *state)
 {
@@ -25511,7 +25863,8 @@ std::string GCGameText::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCGameText::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCRulePointEntity GCGameText::GetParent() const {
     GCRulePointEntity value(m_ptr);
@@ -25545,7 +25898,8 @@ std::string GCInfoInstructorHintBombTargetB::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInfoInstructorHintBombTargetB::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPointEntity GCInfoInstructorHintBombTargetB::GetParent() const {
     GCPointEntity value(m_ptr);
@@ -25577,7 +25931,8 @@ std::string GCNavVolumeAll::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavVolumeAll::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNavVolumeVector GCNavVolumeAll::GetParent() const {
     GCNavVolumeVector value(m_ptr);
@@ -25615,7 +25970,8 @@ std::string GCNavVolumeSphericalShell::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNavVolumeSphericalShell::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNavVolumeSphere GCNavVolumeSphericalShell::GetParent() const {
     GCNavVolumeSphere value(m_ptr);
@@ -25661,7 +26017,8 @@ std::string GRelationshipOverride_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRelationshipOverride_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GRelationship_t GRelationshipOverride_t::GetParent() const {
     GRelationship_t value(m_ptr);
@@ -25701,7 +26058,8 @@ std::string GParticleAttributeIndex_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GParticleAttributeIndex_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassParticleAttributeIndex_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -25726,7 +26084,8 @@ std::string GCParticleInput::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleInput::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCParticleInput(LuaPlugin *plugin, lua_State *state)
 {
@@ -26017,7 +26376,8 @@ std::string GCParticleFloatInput::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleFloatInput::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCParticleInput GCParticleFloatInput::GetParent() const {
     GCParticleInput value(m_ptr);
@@ -26105,7 +26465,8 @@ std::string GVoxelVisBlockOffset_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVoxelVisBlockOffset_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVoxelVisBlockOffset_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -26149,7 +26510,8 @@ std::string GAggregateLODSetup_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GAggregateLODSetup_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassAggregateLODSetup_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -26188,7 +26550,8 @@ std::string GCProductQuantizer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCProductQuantizer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCProductQuantizer(LuaPlugin *plugin, lua_State *state)
 {
@@ -26220,7 +26583,8 @@ std::string GCAnimUpdateNodeRef::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimUpdateNodeRef::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimUpdateNodeRef(LuaPlugin *plugin, lua_State *state)
 {
@@ -26251,7 +26615,8 @@ std::string GCNmGraphNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmGraphNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmGraphNode(LuaPlugin *plugin, lua_State *state)
 {
@@ -26276,7 +26641,8 @@ std::string GCParticleCollectionFloatInput::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleCollectionFloatInput::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCParticleFloatInput GCParticleCollectionFloatInput::GetParent() const {
     GCParticleFloatInput value(m_ptr);
@@ -26405,7 +26771,8 @@ std::string GCParticleFunction::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleFunction::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCParticleFunction(LuaPlugin *plugin, lua_State *state)
 {
@@ -26445,7 +26812,8 @@ std::string GCParticleFunctionOperator::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleFunctionOperator::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCParticleFunction GCParticleFunctionOperator::GetParent() const {
     GCParticleFunction value(m_ptr);
@@ -26483,7 +26851,8 @@ std::string GPARTICLE_WORLD_HANDLE__::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GPARTICLE_WORLD_HANDLE__::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassPARTICLE_WORLD_HANDLE__(LuaPlugin *plugin, lua_State *state)
 {
@@ -26562,7 +26931,8 @@ std::string GVMixDynamicsCompressorDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixDynamicsCompressorDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixDynamicsCompressorDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -26613,7 +26983,8 @@ std::string GFootStepTrigger::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFootStepTrigger::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFootStepTrigger(LuaPlugin *plugin, lua_State *state)
 {
@@ -26676,7 +27047,8 @@ std::string GParticleControlPointDriver_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GParticleControlPointDriver_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassParticleControlPointDriver_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -26736,7 +27108,8 @@ std::string GFeSphereRigid_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeSphereRigid_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeSphereRigid_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -26789,7 +27162,8 @@ std::string GCMotionMetricEvaluator::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMotionMetricEvaluator::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCMotionMetricEvaluator(LuaPlugin *plugin, lua_State *state)
 {
@@ -26835,7 +27209,8 @@ std::string GCDrawCullingData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCDrawCullingData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCDrawCullingData(LuaPlugin *plugin, lua_State *state)
 {
@@ -26868,7 +27243,8 @@ std::string GCAnimUserDifference::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimUserDifference::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimUserDifference(LuaPlugin *plugin, lua_State *state)
 {
@@ -26929,7 +27305,8 @@ std::string GCSeqMultiFetchFlag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSeqMultiFetchFlag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSeqMultiFetchFlag(LuaPlugin *plugin, lua_State *state)
 {
@@ -26971,7 +27348,8 @@ std::string GCNmEvent::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmEvent::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmEvent(LuaPlugin *plugin, lua_State *state)
 {
@@ -27009,7 +27387,8 @@ std::string GCAnimParamHandle::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimParamHandle::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimParamHandle(LuaPlugin *plugin, lua_State *state)
 {
@@ -27053,7 +27432,8 @@ std::string GCFuseSymbolTable::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuseSymbolTable::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFuseSymbolTable(LuaPlugin *plugin, lua_State *state)
 {
@@ -27086,7 +27466,8 @@ std::string GGeneratedTextureHandle_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GGeneratedTextureHandle_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassGeneratedTextureHandle_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -27123,7 +27504,8 @@ std::string GSceneViewId_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GSceneViewId_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassSceneViewId_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -27749,7 +28131,8 @@ std::string GPhysFeModelDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GPhysFeModelDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassPhysFeModelDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -27879,7 +28262,8 @@ std::string GCCycleBase::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCycleBase::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCCycleBase(LuaPlugin *plugin, lua_State *state)
 {
@@ -27970,7 +28354,8 @@ std::string GCPhysSurfacePropertiesSoundNames::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysSurfacePropertiesSoundNames::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCPhysSurfacePropertiesSoundNames(LuaPlugin *plugin, lua_State *state)
 {
@@ -28029,7 +28414,8 @@ std::string GDynamicMeshDeformParams_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GDynamicMeshDeformParams_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassDynamicMeshDeformParams_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -28099,7 +28485,8 @@ std::string GCDistanceRemainingMetricEvaluator::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCDistanceRemainingMetricEvaluator::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMotionMetricEvaluator GCDistanceRemainingMetricEvaluator::GetParent() const {
     GCMotionMetricEvaluator value(m_ptr);
@@ -28198,7 +28585,8 @@ std::string GVMixDynamicsBand_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixDynamicsBand_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixDynamicsBand_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -28244,7 +28632,8 @@ std::string GRnCapsule_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRnCapsule_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassRnCapsule_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -28282,7 +28671,8 @@ std::string GCAnimInputDamping::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimInputDamping::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimInputDamping(LuaPlugin *plugin, lua_State *state)
 {
@@ -28314,7 +28704,8 @@ std::string GAnimTagID::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GAnimTagID::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassAnimTagID(LuaPlugin *plugin, lua_State *state)
 {
@@ -28345,7 +28736,8 @@ std::string GCParticleFunctionPreEmission::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleFunctionPreEmission::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCParticleFunctionOperator GCParticleFunctionPreEmission::GetParent() const {
     GCParticleFunctionOperator value(m_ptr);
@@ -28378,7 +28770,8 @@ std::string GCPerParticleFloatInput::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPerParticleFloatInput::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCParticleFloatInput GCPerParticleFloatInput::GetParent() const {
     GCParticleFloatInput value(m_ptr);
@@ -28428,7 +28821,8 @@ std::string GCSosGroupActionSchema::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSosGroupActionSchema::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSosGroupActionSchema(LuaPlugin *plugin, lua_State *state)
 {
@@ -28467,7 +28861,8 @@ std::string GCFutureFacingMetricEvaluator::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFutureFacingMetricEvaluator::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMotionMetricEvaluator GCFutureFacingMetricEvaluator::GetParent() const {
     GCMotionMetricEvaluator value(m_ptr);
@@ -28513,7 +28908,8 @@ std::string GCSeqTransition::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSeqTransition::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSeqTransition(LuaPlugin *plugin, lua_State *state)
 {
@@ -28551,7 +28947,8 @@ std::string GCAnimNodePath::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimNodePath::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimNodePath(LuaPlugin *plugin, lua_State *state)
 {
@@ -28583,7 +28980,8 @@ std::string GCParamSpanUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParamSpanUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCParamSpanUpdater(LuaPlugin *plugin, lua_State *state)
 {
@@ -28614,7 +29012,8 @@ std::string GAnimNodeID::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GAnimNodeID::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassAnimNodeID(LuaPlugin *plugin, lua_State *state)
 {
@@ -28645,7 +29044,8 @@ std::string GCParticleFunctionInitializer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleFunctionInitializer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCParticleFunction GCParticleFunctionInitializer::GetParent() const {
     GCParticleFunction value(m_ptr);

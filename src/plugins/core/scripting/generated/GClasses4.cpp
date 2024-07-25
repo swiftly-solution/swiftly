@@ -29,7 +29,8 @@ std::string GFeBuildTaperedCapsuleRigid_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeBuildTaperedCapsuleRigid_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GFeTaperedCapsuleRigid_t GFeBuildTaperedCapsuleRigid_t::GetParent() const {
     GFeTaperedCapsuleRigid_t value(m_ptr);
@@ -95,7 +96,8 @@ std::string GCStateUpdateData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCStateUpdateData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCStateUpdateData(LuaPlugin *plugin, lua_State *state)
 {
@@ -175,7 +177,8 @@ std::string GCPhysSurfaceProperties::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPhysSurfaceProperties::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCPhysSurfaceProperties(LuaPlugin *plugin, lua_State *state)
 {
@@ -226,7 +229,8 @@ std::string GCMotionSearchNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMotionSearchNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCMotionSearchNode(LuaPlugin *plugin, lua_State *state)
 {
@@ -313,7 +317,8 @@ std::string GVMixVocoderDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixVocoderDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixVocoderDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -353,7 +358,8 @@ std::string GCAnimScriptManager::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimScriptManager::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimScriptManager(LuaPlugin *plugin, lua_State *state)
 {
@@ -396,7 +402,8 @@ std::string GCAnimationGraphVisualizerLine::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimationGraphVisualizerLine::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimationGraphVisualizerPrimitiveBase GCAnimationGraphVisualizerLine::GetParent() const {
     GCAnimationGraphVisualizerPrimitiveBase value(m_ptr);
@@ -449,7 +456,8 @@ std::string GCFootTrajectory::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootTrajectory::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFootTrajectory(LuaPlugin *plugin, lua_State *state)
 {
@@ -531,7 +539,8 @@ std::string GVMixModDelayDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixModDelayDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixModDelayDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -642,7 +651,8 @@ std::string GCHitBox::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHitBox::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCHitBox(LuaPlugin *plugin, lua_State *state)
 {
@@ -691,7 +701,8 @@ std::string GCTestDomainDerived_Cursor::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTestDomainDerived_Cursor::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCTestDomainDerived_Cursor(LuaPlugin *plugin, lua_State *state)
 {
@@ -747,7 +758,8 @@ std::string GCAudioMorphData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAudioMorphData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAudioMorphData(LuaPlugin *plugin, lua_State *state)
 {
@@ -800,7 +812,8 @@ std::string GCSeqIKLock::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSeqIKLock::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSeqIKLock(LuaPlugin *plugin, lua_State *state)
 {
@@ -846,7 +859,8 @@ std::string GFeQuad_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeQuad_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeQuad_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -903,7 +917,8 @@ std::string GCSosGroupMatchPattern::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSosGroupMatchPattern::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSosGroupBranchPattern GCSosGroupMatchPattern::GetParent() const {
     GCSosGroupBranchPattern value(m_ptr);
@@ -952,7 +967,8 @@ std::string GCSSDSEndFrameViewInfo::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSSDSEndFrameViewInfo::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSSDSEndFrameViewInfo(LuaPlugin *plugin, lua_State *state)
 {
@@ -978,7 +994,8 @@ std::string GCNmExternalGraphNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmExternalGraphNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmPoseNode GCNmExternalGraphNode::GetParent() const {
     GCNmPoseNode value(m_ptr);
@@ -1086,7 +1103,8 @@ std::string GCMoverUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMoverUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCMoverUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -1210,7 +1228,8 @@ std::string GRnHull_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRnHull_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassRnHull_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -1253,7 +1272,8 @@ std::string GCMoodVData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMoodVData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCMoodVData(LuaPlugin *plugin, lua_State *state)
 {
@@ -1303,7 +1323,8 @@ std::string GEventClientFrameSimulate_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientFrameSimulate_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventClientFrameSimulate_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -1379,7 +1400,8 @@ std::string GCRagdollComponentUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRagdollComponentUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimComponentUpdater GCRagdollComponentUpdater::GetParent() const {
     GCAnimComponentUpdater value(m_ptr);
@@ -1431,7 +1453,8 @@ std::string GCMotionNodeBlend1D::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMotionNodeBlend1D::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMotionNode GCMotionNodeBlend1D::GetParent() const {
     GCMotionNode value(m_ptr);
@@ -1465,7 +1488,8 @@ std::string GCNmControlParameterVectorNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmControlParameterVectorNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmVectorValueNode GCNmControlParameterVectorNode::GetParent() const {
     GCNmVectorValueNode value(m_ptr);
@@ -1509,7 +1533,8 @@ std::string GCPathHelperUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCPathHelperUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCPathHelperUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -1567,7 +1592,8 @@ std::string GCSeqPoseParamDesc::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSeqPoseParamDesc::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSeqPoseParamDesc(LuaPlugin *plugin, lua_State *state)
 {
@@ -1619,7 +1645,8 @@ std::string GVMixPitchShiftDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixPitchShiftDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixPitchShiftDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -1672,7 +1699,8 @@ std::string GCAudioSentence::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAudioSentence::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAudioSentence(LuaPlugin *plugin, lua_State *state)
 {
@@ -1712,7 +1740,8 @@ std::string GCRenderBufferBinding::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRenderBufferBinding::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCRenderBufferBinding(LuaPlugin *plugin, lua_State *state)
 {
@@ -1792,7 +1821,8 @@ std::string GCParticleAnimTag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleAnimTag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimTagBase GCParticleAnimTag::GetParent() const {
     GCAnimTagBase value(m_ptr);
@@ -1833,7 +1863,8 @@ std::string GCStaticPoseCacheBuilder::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCStaticPoseCacheBuilder::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCStaticPoseCache GCStaticPoseCacheBuilder::GetParent() const {
     GCStaticPoseCache value(m_ptr);
@@ -1883,7 +1914,8 @@ std::string GCNmRootMotionData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmRootMotionData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmRootMotionData(LuaPlugin *plugin, lua_State *state)
 {
@@ -1916,7 +1948,8 @@ std::string GCAnimReplayFrame::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimReplayFrame::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimReplayFrame(LuaPlugin *plugin, lua_State *state)
 {
@@ -1947,7 +1980,8 @@ std::string GCNmVirtualParameterBoneMaskNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmVirtualParameterBoneMaskNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmBoneMaskValueNode GCNmVirtualParameterBoneMaskNode::GetParent() const {
     GCNmBoneMaskValueNode value(m_ptr);
@@ -1980,7 +2014,8 @@ std::string GCBlockSelectionMetricEvaluator::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBlockSelectionMetricEvaluator::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMotionMetricEvaluator GCBlockSelectionMetricEvaluator::GetParent() const {
     GCMotionMetricEvaluator value(m_ptr);
@@ -2049,7 +2084,8 @@ std::string GCMotionGraph::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMotionGraph::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCMotionGraph(LuaPlugin *plugin, lua_State *state)
 {
@@ -2135,7 +2171,8 @@ std::string GCSosSoundEventGroupSchema::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSosSoundEventGroupSchema::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSosSoundEventGroupSchema(LuaPlugin *plugin, lua_State *state)
 {
@@ -2186,7 +2223,8 @@ std::string GCFootMotion::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootMotion::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFootMotion(LuaPlugin *plugin, lua_State *state)
 {
@@ -2234,7 +2272,8 @@ std::string GCDampedValueUpdateItem::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCDampedValueUpdateItem::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCDampedValueUpdateItem(LuaPlugin *plugin, lua_State *state)
 {
@@ -2285,7 +2324,8 @@ std::string GRnHalfEdge_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRnHalfEdge_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassRnHalfEdge_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -2337,7 +2377,8 @@ std::string GCAnimDataChannelDesc::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimDataChannelDesc::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimDataChannelDesc(LuaPlugin *plugin, lua_State *state)
 {
@@ -2365,7 +2406,8 @@ std::string GEventClientProcessNetworking_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientProcessNetworking_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventClientProcessNetworking_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -2407,7 +2449,8 @@ std::string GCModelConfigList::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCModelConfigList::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCModelConfigList(LuaPlugin *plugin, lua_State *state)
 {
@@ -2434,7 +2477,8 @@ std::string GCNmGraphVariation::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmGraphVariation::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmGraphVariation(LuaPlugin *plugin, lua_State *state)
 {
@@ -2470,7 +2514,8 @@ std::string GCSosGroupActionTimeBlockLimitSchema::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSosGroupActionTimeBlockLimitSchema::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSosGroupActionSchema GCSosGroupActionTimeBlockLimitSchema::GetParent() const {
     GCSosGroupActionSchema value(m_ptr);
@@ -2564,7 +2609,8 @@ std::string GVMixDynamics3BandDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixDynamics3BandDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixDynamics3BandDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -2604,7 +2650,8 @@ std::string GCModelConfigElement_SetMaterialGroup::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCModelConfigElement_SetMaterialGroup::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCModelConfigElement GCModelConfigElement_SetMaterialGroup::GetParent() const {
     GCModelConfigElement value(m_ptr);
@@ -2637,7 +2684,8 @@ std::string GCMovementHandshakeAnimTag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMovementHandshakeAnimTag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCHandshakeAnimTagBase GCMovementHandshakeAnimTag::GetParent() const {
     GCHandshakeAnimTagBase value(m_ptr);
@@ -2693,7 +2741,8 @@ std::string GCSeqScaleSet::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSeqScaleSet::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSeqScaleSet(LuaPlugin *plugin, lua_State *state)
 {
@@ -2740,7 +2789,8 @@ std::string GEventClientProcessGameInput_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientProcessGameInput_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventClientProcessGameInput_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -2791,7 +2841,8 @@ std::string GVsInputSignatureElement_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVsInputSignatureElement_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVsInputSignatureElement_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -2843,7 +2894,8 @@ std::string GCompositeMaterialMatchFilter_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCompositeMaterialMatchFilter_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCompositeMaterialMatchFilter_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -2877,7 +2929,8 @@ std::string GVertexPositionColor_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVertexPositionColor_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVertexPositionColor_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -2908,7 +2961,8 @@ std::string GCFootTrajectories::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootTrajectories::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFootTrajectories(LuaPlugin *plugin, lua_State *state)
 {
@@ -3005,7 +3059,8 @@ std::string GSceneObject_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GSceneObject_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassSceneObject_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -3101,7 +3156,8 @@ std::string GCSSDSMsg_ViewTarget::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSSDSMsg_ViewTarget::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSSDSMsg_ViewTarget(LuaPlugin *plugin, lua_State *state)
 {
@@ -3153,7 +3209,8 @@ std::string GVMixSubgraphSwitchDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixSubgraphSwitchDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixSubgraphSwitchDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -3248,7 +3305,8 @@ std::string GCNmTransitionNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmTransitionNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmPoseNode GCNmTransitionNode::GetParent() const {
     GCNmPoseNode value(m_ptr);
@@ -3297,7 +3355,8 @@ std::string GMotionDBIndex::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GMotionDBIndex::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassMotionDBIndex(LuaPlugin *plugin, lua_State *state)
 {
@@ -3335,7 +3394,8 @@ std::string GCToggleComponentActionUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCToggleComponentActionUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimActionUpdater GCToggleComponentActionUpdater::GetParent() const {
     GCAnimActionUpdater value(m_ptr);
@@ -3369,7 +3429,8 @@ std::string GCNmControlParameterIDNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmControlParameterIDNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmIDValueNode GCNmControlParameterIDNode::GetParent() const {
     GCNmIDValueNode value(m_ptr);
@@ -3491,7 +3552,8 @@ std::string GPostProcessingTonemapParameters_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GPostProcessingTonemapParameters_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassPostProcessingTonemapParameters_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -3579,7 +3641,8 @@ std::string GVMixAutoFilterDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixAutoFilterDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixAutoFilterDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -3672,7 +3735,8 @@ std::string GCSeqMultiFetch::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSeqMultiFetch::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSeqMultiFetch(LuaPlugin *plugin, lua_State *state)
 {
@@ -3712,7 +3776,8 @@ std::string GCNmStateMachineNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmStateMachineNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmPoseNode GCNmStateMachineNode::GetParent() const {
     GCNmPoseNode value(m_ptr);
@@ -3775,7 +3840,8 @@ std::string GCBoneConstraintPoseSpaceMorph::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBoneConstraintPoseSpaceMorph::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBoneConstraintBase GCBoneConstraintPoseSpaceMorph::GetParent() const {
     GCBoneConstraintBase value(m_ptr);
@@ -3812,7 +3878,8 @@ std::string GCSSDSMsg_PreLayer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSSDSMsg_PreLayer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSSDSMsg_LayerBase GCSSDSMsg_PreLayer::GetParent() const {
     GCSSDSMsg_LayerBase value(m_ptr);
@@ -3900,7 +3967,8 @@ std::string GCSelectorUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSelectorUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimUpdateNodeBase GCSelectorUpdateNode::GetParent() const {
     GCAnimUpdateNodeBase value(m_ptr);
@@ -3997,7 +4065,8 @@ std::string GCAimCameraUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAimCameraUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCAimCameraUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -4049,7 +4118,8 @@ std::string GCFootStepTriggerUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootStepTriggerUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCFootStepTriggerUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -4089,7 +4159,8 @@ std::string GRnSoftbodyParticle_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRnSoftbodyParticle_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassRnSoftbodyParticle_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -4127,7 +4198,8 @@ std::string GCSingleFrameUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSingleFrameUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLeafUpdateNode GCSingleFrameUpdateNode::GetParent() const {
     GCLeafUpdateNode value(m_ptr);
@@ -4193,7 +4265,8 @@ std::string GCSeqSynthAnimDesc::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSeqSynthAnimDesc::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSeqSynthAnimDesc(LuaPlugin *plugin, lua_State *state)
 {
@@ -4234,7 +4307,8 @@ std::string GCDirectPlaybackTagData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCDirectPlaybackTagData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCDirectPlaybackTagData(LuaPlugin *plugin, lua_State *state)
 {
@@ -4266,7 +4340,8 @@ std::string GEventFrameBoundary_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventFrameBoundary_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventFrameBoundary_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -4370,7 +4445,8 @@ std::string GWorldNode_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GWorldNode_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassWorldNode_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -4461,7 +4537,8 @@ std::string GAggregateMeshInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GAggregateMeshInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassAggregateMeshInfo_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -4506,7 +4583,8 @@ std::string GFeSimdRodConstraintAnim_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeSimdRodConstraintAnim_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeSimdRodConstraintAnim_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -4556,7 +4634,8 @@ std::string GEventPostAdvanceTick_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventPostAdvanceTick_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GEventSimulate_t GEventPostAdvanceTick_t::GetParent() const {
     GEventSimulate_t value(m_ptr);
@@ -4604,7 +4683,8 @@ std::string GFeBuildBoxRigid_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeBuildBoxRigid_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GFeBoxRigid_t GFeBuildBoxRigid_t::GetParent() const {
     GFeBoxRigid_t value(m_ptr);
@@ -4638,7 +4718,8 @@ std::string GIPhysicsPlayerController::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GIPhysicsPlayerController::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassIPhysicsPlayerController(LuaPlugin *plugin, lua_State *state)
 {
@@ -4662,7 +4743,8 @@ std::string GEventServerPostAdvanceTick_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventServerPostAdvanceTick_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GEventPostAdvanceTick_t GEventServerPostAdvanceTick_t::GetParent() const {
     GEventPostAdvanceTick_t value(m_ptr);
@@ -4731,7 +4813,8 @@ std::string GEventClientPreOutput_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientPreOutput_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventClientPreOutput_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -4773,7 +4856,8 @@ std::string GRnSoftbodySpring_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRnSoftbodySpring_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassRnSoftbodySpring_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -4817,7 +4901,8 @@ std::string GFeNodeReverseOffset_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeNodeReverseOffset_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeNodeReverseOffset_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -4851,7 +4936,8 @@ std::string GRnHullDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRnHullDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GRnShapeDesc_t GRnHullDesc_t::GetParent() const {
     GRnShapeDesc_t value(m_ptr);
@@ -4884,7 +4970,8 @@ std::string GCSymbolAnimParameter::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSymbolAnimParameter::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCConcreteAnimParameter GCSymbolAnimParameter::GetParent() const {
     GCConcreteAnimParameter value(m_ptr);
@@ -4940,7 +5027,8 @@ std::string GFeStiffHingeBuild_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeStiffHingeBuild_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeStiffHingeBuild_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -4993,7 +5081,8 @@ std::string GExtraVertexStreamOverride_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GExtraVertexStreamOverride_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GBaseSceneObjectOverride_t GExtraVertexStreamOverride_t::GetParent() const {
     GBaseSceneObjectOverride_t value(m_ptr);
@@ -5071,7 +5160,8 @@ std::string GEntityIOConnectionData_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEntityIOConnectionData_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEntityIOConnectionData_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -5162,7 +5252,8 @@ std::string GSkeletonAnimCapture_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GSkeletonAnimCapture_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassSkeletonAnimCapture_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -5202,7 +5293,8 @@ std::string GCStateActionUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCStateActionUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCStateActionUpdater(LuaPlugin *plugin, lua_State *state)
 {
@@ -5278,7 +5370,8 @@ std::string GCSeqS1SeqDesc::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSeqS1SeqDesc::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSeqS1SeqDesc(LuaPlugin *plugin, lua_State *state)
 {
@@ -5391,7 +5484,8 @@ std::string GAimMatrixOpFixedSettings_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GAimMatrixOpFixedSettings_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassAimMatrixOpFixedSettings_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -5524,7 +5618,8 @@ std::string GParticlePreviewState_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GParticlePreviewState_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassParticlePreviewState_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -5576,7 +5671,8 @@ std::string GFeCtrlOsOffset_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeCtrlOsOffset_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeCtrlOsOffset_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -5614,7 +5710,8 @@ std::string GCMorphData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMorphData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCMorphData(LuaPlugin *plugin, lua_State *state)
 {
@@ -5672,7 +5769,8 @@ std::string GCAimMatrixUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAimMatrixUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCAimMatrixUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -5753,7 +5851,8 @@ std::string GCDirectionalBlendUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCDirectionalBlendUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLeafUpdateNode GCDirectionalBlendUpdateNode::GetParent() const {
     GCLeafUpdateNode value(m_ptr);
@@ -5804,7 +5903,8 @@ std::string GVMixPannerDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixPannerDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixPannerDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -5854,7 +5954,8 @@ std::string GFeSimdSpringIntegrator_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeSimdSpringIntegrator_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeSimdSpringIntegrator_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -5900,7 +6001,8 @@ std::string GModelBoneFlexDriver_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GModelBoneFlexDriver_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassModelBoneFlexDriver_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -5933,7 +6035,8 @@ std::string GCBoolAnimParameter::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBoolAnimParameter::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCConcreteAnimParameter GCBoolAnimParameter::GetParent() const {
     GCConcreteAnimParameter value(m_ptr);
@@ -5972,7 +6075,8 @@ std::string GEventAppShutdown_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventAppShutdown_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventAppShutdown_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -6003,7 +6107,8 @@ std::string GResourceId_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GResourceId_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassResourceId_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -6046,7 +6151,8 @@ std::string GCVoiceContainerRealtimeFMSineWave::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCVoiceContainerRealtimeFMSineWave::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCVoiceContainerBase GCVoiceContainerRealtimeFMSineWave::GetParent() const {
     GCVoiceContainerBase value(m_ptr);
@@ -6087,7 +6193,8 @@ std::string GCNmVirtualParameterBoolNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmVirtualParameterBoolNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmBoolValueNode GCNmVirtualParameterBoolNode::GetParent() const {
     GCNmBoolValueNode value(m_ptr);
@@ -6126,7 +6233,8 @@ std::string GCNmSyncTrack::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmSyncTrack::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmSyncTrack(LuaPlugin *plugin, lua_State *state)
 {
@@ -6169,7 +6277,8 @@ std::string GTagSpan_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GTagSpan_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassTagSpan_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -6202,7 +6311,8 @@ std::string GCNmStateNode__TimedEvent_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmStateNode__TimedEvent_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmStateNode__TimedEvent_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -6227,7 +6337,8 @@ std::string GCNmControlParameterTargetNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmControlParameterTargetNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmTargetValueNode GCNmControlParameterTargetNode::GetParent() const {
     GCNmTargetValueNode value(m_ptr);
@@ -6283,7 +6394,8 @@ std::string GCFootstepLandedAnimTag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootstepLandedAnimTag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimTagBase GCFootstepLandedAnimTag::GetParent() const {
     GCAnimTagBase value(m_ptr);
@@ -6337,7 +6449,8 @@ std::string GCEnumAnimParameter::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEnumAnimParameter::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCConcreteAnimParameter GCEnumAnimParameter::GetParent() const {
     GCConcreteAnimParameter value(m_ptr);
@@ -6396,7 +6509,8 @@ std::string GCAnimationGraphVisualizerPie::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimationGraphVisualizerPie::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimationGraphVisualizerPrimitiveBase GCAnimationGraphVisualizerPie::GetParent() const {
     GCAnimationGraphVisualizerPrimitiveBase value(m_ptr);
@@ -6444,7 +6558,8 @@ std::string GAnimationSnapshot_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GAnimationSnapshot_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GAnimationSnapshotBase_t GAnimationSnapshot_t::GetParent() const {
     GAnimationSnapshotBase_t value(m_ptr);
@@ -6526,7 +6641,8 @@ std::string GVPhysXCollisionAttributes_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVPhysXCollisionAttributes_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVPhysXCollisionAttributes_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -6558,7 +6674,8 @@ std::string GCActionComponentUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCActionComponentUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimComponentUpdater GCActionComponentUpdater::GetParent() const {
     GCAnimComponentUpdater value(m_ptr);
@@ -6596,7 +6713,8 @@ std::string GCNmVirtualParameterVectorNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmVirtualParameterVectorNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmVectorValueNode GCNmVirtualParameterVectorNode::GetParent() const {
     GCNmVectorValueNode value(m_ptr);
@@ -6647,7 +6765,8 @@ std::string GCAnimFrameSegment::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimFrameSegment::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimFrameSegment(LuaPlugin *plugin, lua_State *state)
 {
@@ -6698,7 +6817,8 @@ std::string GCClothSettingsAnimTag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCClothSettingsAnimTag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimTagBase GCClothSettingsAnimTag::GetParent() const {
     GCAnimTagBase value(m_ptr);
@@ -6771,7 +6891,8 @@ std::string GVariableInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVariableInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVariableInfo_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -6831,7 +6952,8 @@ std::string GVMixShaperDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixShaperDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixShaperDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -6860,7 +6982,8 @@ std::string GCSoundInfoHeader::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSoundInfoHeader::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSoundInfoHeader(LuaPlugin *plugin, lua_State *state)
 {
@@ -6896,7 +7019,8 @@ std::string GCVoiceContainerDecayingSineWave::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCVoiceContainerDecayingSineWave::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCVoiceContainerBase GCVoiceContainerDecayingSineWave::GetParent() const {
     GCVoiceContainerBase value(m_ptr);
@@ -6955,7 +7079,8 @@ std::string GCCycleControlClipUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCycleControlClipUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLeafUpdateNode GCCycleControlClipUpdateNode::GetParent() const {
     GCLeafUpdateNode value(m_ptr);
@@ -7035,7 +7160,8 @@ std::string GCBaseTrailRenderer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBaseTrailRenderer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseRendererSource2 GCBaseTrailRenderer::GetParent() const {
     GCBaseRendererSource2 value(m_ptr);
@@ -7080,7 +7206,8 @@ std::string GCBoneConstraintPoseSpaceBone::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBoneConstraintPoseSpaceBone::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseConstraint GCBoneConstraintPoseSpaceBone::GetParent() const {
     GCBaseConstraint value(m_ptr);
@@ -7113,7 +7240,8 @@ std::string GEventServerPostSimulate_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventServerPostSimulate_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GEventSimulate_t GEventServerPostSimulate_t::GetParent() const {
     GEventSimulate_t value(m_ptr);
@@ -7145,7 +7273,8 @@ std::string GCChoreoUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCChoreoUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCChoreoUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -7189,7 +7318,8 @@ std::string GCNmSkeleton::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmSkeleton::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmSkeleton(LuaPlugin *plugin, lua_State *state)
 {
@@ -7318,7 +7448,8 @@ std::string GVMixBoxverbDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixBoxverbDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixBoxverbDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -7365,7 +7496,8 @@ std::string GFeTreeChildren_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeTreeChildren_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeTreeChildren_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -7426,7 +7558,8 @@ std::string GCSceneObjectData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSceneObjectData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSceneObjectData(LuaPlugin *plugin, lua_State *state)
 {
@@ -7468,7 +7601,8 @@ std::string GStanceInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GStanceInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassStanceInfo_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -7506,7 +7640,8 @@ std::string GCMotionNodeSequence::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMotionNodeSequence::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMotionNode GCMotionNodeSequence::GetParent() const {
     GCMotionNode value(m_ptr);
@@ -7599,7 +7734,8 @@ std::string GCFootCycleDefinition::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootCycleDefinition::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFootCycleDefinition(LuaPlugin *plugin, lua_State *state)
 {
@@ -7680,7 +7816,8 @@ std::string GCAnimDesc_Flag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimDesc_Flag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimDesc_Flag(LuaPlugin *plugin, lua_State *state)
 {
@@ -7718,7 +7855,8 @@ std::string GCBoneVelocityMetricEvaluator::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBoneVelocityMetricEvaluator::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMotionMetricEvaluator GCBoneVelocityMetricEvaluator::GetParent() const {
     GCMotionMetricEvaluator value(m_ptr);
@@ -7775,7 +7913,8 @@ std::string GCFuseProgram::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFuseProgram::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFuseProgram(LuaPlugin *plugin, lua_State *state)
 {
@@ -7809,7 +7948,8 @@ std::string GCFeVertexMapBuildArray::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFeVertexMapBuildArray::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFeVertexMapBuildArray(LuaPlugin *plugin, lua_State *state)
 {
@@ -7846,7 +7986,8 @@ std::string GFeSoftParent_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeSoftParent_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeSoftParent_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -7878,7 +8019,8 @@ std::string GCFootFallAnimTag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootFallAnimTag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimTagBase GCFootFallAnimTag::GetParent() const {
     GCAnimTagBase value(m_ptr);
@@ -7942,7 +8084,8 @@ std::string GEventClientOutput_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientOutput_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventClientOutput_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -7990,7 +8133,8 @@ std::string GMaterialVariable_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GMaterialVariable_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassMaterialVariable_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8036,7 +8180,8 @@ std::string GCFeNamedJiggleBone::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFeNamedJiggleBone::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFeNamedJiggleBone(LuaPlugin *plugin, lua_State *state)
 {
@@ -8088,7 +8233,8 @@ std::string GEventClientProcessInput_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientProcessInput_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventClientProcessInput_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8122,7 +8268,8 @@ std::string GJiggleBoneSettingsList_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GJiggleBoneSettingsList_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassJiggleBoneSettingsList_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8153,7 +8300,8 @@ std::string GCSequenceFinishedAnimTag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSequenceFinishedAnimTag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimTagBase GCSequenceFinishedAnimTag::GetParent() const {
     GCAnimTagBase value(m_ptr);
@@ -8204,7 +8352,8 @@ std::string GCAnimationGraphVisualizerText::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimationGraphVisualizerText::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimationGraphVisualizerPrimitiveBase GCAnimationGraphVisualizerText::GetParent() const {
     GCAnimationGraphVisualizerPrimitiveBase value(m_ptr);
@@ -8283,7 +8432,8 @@ std::string GCDampedPathAnimMotorUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCDampedPathAnimMotorUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCPathAnimMotorUpdaterBase GCDampedPathAnimMotorUpdater::GetParent() const {
     GCPathAnimMotorUpdaterBase value(m_ptr);
@@ -8390,7 +8540,8 @@ std::string GLookAtOpFixedSettings_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GLookAtOpFixedSettings_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassLookAtOpFixedSettings_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8425,7 +8576,8 @@ std::string GCEntityIOOutput::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEntityIOOutput::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCEntityIOOutput(LuaPlugin *plugin, lua_State *state)
 {
@@ -8455,7 +8607,8 @@ std::string GCDSPPresetMixgroupModifierTable::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCDSPPresetMixgroupModifierTable::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCDSPPresetMixgroupModifierTable(LuaPlugin *plugin, lua_State *state)
 {
@@ -8486,7 +8639,8 @@ std::string GRnWing_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRnWing_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassRnWing_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8517,7 +8671,8 @@ std::string GCNmChildGraphNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmChildGraphNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmPoseNode GCNmChildGraphNode::GetParent() const {
     GCNmPoseNode value(m_ptr);
@@ -8592,7 +8747,8 @@ std::string GVMixPlateverbDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixPlateverbDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixPlateverbDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8643,7 +8799,8 @@ std::string GCMotionSearchDB::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMotionSearchDB::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCMotionSearchDB(LuaPlugin *plugin, lua_State *state)
 {
@@ -8700,7 +8857,8 @@ std::string GVPhysics2ShapeDef_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVPhysics2ShapeDef_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVPhysics2ShapeDef_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8760,7 +8918,8 @@ std::string GWorldBuilderParams_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GWorldBuilderParams_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassWorldBuilderParams_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -8839,7 +8998,8 @@ std::string GCFootAdjustmentUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootAdjustmentUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCFootAdjustmentUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -8909,7 +9069,8 @@ std::string GCNmClipNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmClipNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmPoseNode GCNmClipNode::GetParent() const {
     GCNmPoseNode value(m_ptr);
@@ -8946,7 +9107,8 @@ std::string GCAnimMorphDifference::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimMorphDifference::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimMorphDifference(LuaPlugin *plugin, lua_State *state)
 {
@@ -8970,7 +9132,8 @@ std::string GIParticleCollection::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GIParticleCollection::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassIParticleCollection(LuaPlugin *plugin, lua_State *state)
 {
@@ -9006,7 +9169,8 @@ std::string GCNmGraphDefinition__ChildGraphSlot_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmGraphDefinition__ChildGraphSlot_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmGraphDefinition__ChildGraphSlot_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -9056,7 +9220,8 @@ std::string GCFutureVelocityMetricEvaluator::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFutureVelocityMetricEvaluator::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMotionMetricEvaluator GCFutureVelocityMetricEvaluator::GetParent() const {
     GCMotionMetricEvaluator value(m_ptr);
@@ -9092,7 +9257,8 @@ std::string GCParticleProperty::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleProperty::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCParticleProperty(LuaPlugin *plugin, lua_State *state)
 {
@@ -9128,7 +9294,8 @@ std::string GVertexPositionNormal_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVertexPositionNormal_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVertexPositionNormal_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -9172,7 +9339,8 @@ std::string GFeEffectDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeEffectDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeEffectDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -9205,7 +9373,8 @@ std::string GCLODComponentUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLODComponentUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimComponentUpdater GCLODComponentUpdater::GetParent() const {
     GCAnimComponentUpdater value(m_ptr);
@@ -9238,7 +9407,8 @@ std::string GCNmLegacyEvent::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmLegacyEvent::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmEvent GCNmLegacyEvent::GetParent() const {
     GCNmEvent value(m_ptr);
@@ -9276,7 +9446,8 @@ std::string GMaterialParamVector_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GMaterialParamVector_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GMaterialParam_t GMaterialParamVector_t::GetParent() const {
     GMaterialParam_t value(m_ptr);
@@ -9335,7 +9506,8 @@ std::string GCMotionGraphGroup::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMotionGraphGroup::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCMotionGraphGroup(LuaPlugin *plugin, lua_State *state)
 {
@@ -9465,7 +9637,8 @@ std::string GHitReactFixedSettings_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GHitReactFixedSettings_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassHitReactFixedSettings_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -9506,7 +9679,8 @@ std::string GCRootUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRootUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCRootUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -9580,7 +9754,8 @@ std::string GCAnimMovement::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimMovement::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimMovement(LuaPlugin *plugin, lua_State *state)
 {
@@ -9635,7 +9810,8 @@ std::string GCConstraintSlave::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCConstraintSlave::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCConstraintSlave(LuaPlugin *plugin, lua_State *state)
 {
@@ -9681,7 +9857,8 @@ std::string GCSeqBoneMaskList::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSeqBoneMaskList::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSeqBoneMaskList(LuaPlugin *plugin, lua_State *state)
 {
@@ -9720,7 +9897,8 @@ std::string GPermModelDataAnimatedMaterialAttribute_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GPermModelDataAnimatedMaterialAttribute_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassPermModelDataAnimatedMaterialAttribute_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -9776,7 +9954,8 @@ std::string GScriptInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GScriptInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassScriptInfo_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -9817,7 +9996,8 @@ std::string GVPhysXRange_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVPhysXRange_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVPhysXRange_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -9850,7 +10030,8 @@ std::string GCJiggleBoneUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCJiggleBoneUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCJiggleBoneUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -9889,7 +10070,8 @@ std::string GCollisionGroupContext_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCollisionGroupContext_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCollisionGroupContext_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -9932,7 +10114,8 @@ std::string GCAudioPhonemeTag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAudioPhonemeTag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAudioPhonemeTag(LuaPlugin *plugin, lua_State *state)
 {
@@ -9983,7 +10166,8 @@ std::string GCAnimData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimData(LuaPlugin *plugin, lua_State *state)
 {
@@ -10041,7 +10225,8 @@ std::string GSosEditItemInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GSosEditItemInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassSosEditItemInfo_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -10088,7 +10273,8 @@ std::string GFeFitInfluence_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeFitInfluence_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeFitInfluence_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -10115,7 +10301,8 @@ std::string GCInputStreamUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInputStreamUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLeafUpdateNode GCInputStreamUpdateNode::GetParent() const {
     GCLeafUpdateNode value(m_ptr);
@@ -10160,7 +10347,8 @@ std::string GEventClientPollInput_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientPollInput_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventClientPollInput_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -10198,7 +10386,8 @@ std::string GFeSimdQuad_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeSimdQuad_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeSimdQuad_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -10236,7 +10425,8 @@ std::string GCEmitTagActionUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEmitTagActionUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimActionUpdater GCEmitTagActionUpdater::GetParent() const {
     GCAnimActionUpdater value(m_ptr);
@@ -10300,7 +10490,8 @@ std::string GCAddUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAddUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBinaryUpdateNode GCAddUpdateNode::GetParent() const {
     GCBinaryUpdateNode value(m_ptr);
@@ -10337,7 +10528,8 @@ std::string GCAnimTagManagerUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimTagManagerUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimTagManagerUpdater(LuaPlugin *plugin, lua_State *state)
 {
@@ -10367,7 +10559,8 @@ std::string GSampleCode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GSampleCode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassSampleCode(LuaPlugin *plugin, lua_State *state)
 {
@@ -10412,7 +10605,8 @@ std::string GCExpressionActionUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCExpressionActionUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimActionUpdater GCExpressionActionUpdater::GetParent() const {
     GCAnimActionUpdater value(m_ptr);
@@ -10447,7 +10641,8 @@ std::string GEventClientPostAdvanceTick_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientPostAdvanceTick_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GEventPostAdvanceTick_t GEventClientPostAdvanceTick_t::GetParent() const {
     GEventPostAdvanceTick_t value(m_ptr);
@@ -10521,7 +10716,8 @@ std::string GBoneDemoCaptureSettings_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GBoneDemoCaptureSettings_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassBoneDemoCaptureSettings_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -10613,7 +10809,8 @@ std::string GVPhysXBodyPart_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVPhysXBodyPart_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVPhysXBodyPart_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -10721,7 +10918,8 @@ std::string GCDecalInfo::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCDecalInfo::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCDecalInfo(LuaPlugin *plugin, lua_State *state)
 {
@@ -10776,7 +10974,8 @@ std::string GParticleControlPointConfiguration_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GParticleControlPointConfiguration_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassParticleControlPointConfiguration_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -10839,7 +11038,8 @@ std::string GVMixUtilityDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixUtilityDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixUtilityDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -10900,7 +11100,8 @@ std::string GCMotionGraphConfig::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMotionGraphConfig::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCMotionGraphConfig(LuaPlugin *plugin, lua_State *state)
 {
@@ -10972,7 +11173,8 @@ std::string GCMovementComponentUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMovementComponentUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimComponentUpdater GCMovementComponentUpdater::GetParent() const {
     GCAnimComponentUpdater value(m_ptr);
@@ -11029,7 +11231,8 @@ std::string GPointDefinition_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GPointDefinition_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassPointDefinition_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -11062,7 +11265,8 @@ std::string GVMixEffectChainDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixEffectChainDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixEffectChainDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -11141,7 +11345,8 @@ std::string GCHitReactUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHitReactUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCHitReactUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -11181,7 +11386,8 @@ std::string GEntInput_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEntInput_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEntInput_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -11211,7 +11417,8 @@ std::string GCNmVirtualParameterFloatNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmVirtualParameterFloatNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmFloatValueNode GCNmVirtualParameterFloatNode::GetParent() const {
     GCNmFloatValueNode value(m_ptr);
@@ -11604,7 +11811,8 @@ std::string GCParticleSystemDefinition::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCParticleSystemDefinition::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCParticleSystemDefinition(LuaPlugin *plugin, lua_State *state)
 {
@@ -11700,7 +11908,8 @@ std::string GCVoiceContainerSelector::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCVoiceContainerSelector::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCVoiceContainerBase GCVoiceContainerSelector::GetParent() const {
     GCVoiceContainerBase value(m_ptr);
@@ -11746,7 +11955,8 @@ std::string GCRegionSVM::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRegionSVM::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCRegionSVM(LuaPlugin *plugin, lua_State *state)
 {
@@ -11779,7 +11989,8 @@ std::string GCSetParameterActionUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSetParameterActionUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimActionUpdater GCSetParameterActionUpdater::GetParent() const {
     GCAnimActionUpdater value(m_ptr);
@@ -11826,7 +12037,8 @@ std::string GCAnimUpdateSharedData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimUpdateSharedData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimUpdateSharedData(LuaPlugin *plugin, lua_State *state)
 {
@@ -11852,7 +12064,8 @@ std::string GEventClientSimulate_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientSimulate_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GEventSimulate_t GEventClientSimulate_t::GetParent() const {
     GEventSimulate_t value(m_ptr);
@@ -11890,7 +12103,8 @@ std::string GCVoiceContainerAmpedDecayingSineWave::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCVoiceContainerAmpedDecayingSineWave::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCVoiceContainerDecayingSineWave GCVoiceContainerAmpedDecayingSineWave::GetParent() const {
     GCVoiceContainerDecayingSineWave value(m_ptr);
@@ -11942,7 +12156,8 @@ std::string GClutterTile_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GClutterTile_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassClutterTile_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -11975,7 +12190,8 @@ std::string GPointDefinitionWithTimeValues_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GPointDefinitionWithTimeValues_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GPointDefinition_t GPointDefinitionWithTimeValues_t::GetParent() const {
     GPointDefinition_t value(m_ptr);
@@ -12044,7 +12260,8 @@ std::string GFeVertexMapBuild_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeVertexMapBuild_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeVertexMapBuild_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -12155,7 +12372,8 @@ std::string GCAnimDesc::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimDesc::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimDesc(LuaPlugin *plugin, lua_State *state)
 {
@@ -12198,7 +12416,8 @@ std::string GCTwistConstraint::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTwistConstraint::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBaseConstraint GCTwistConstraint::GetParent() const {
     GCBaseConstraint value(m_ptr);
@@ -12350,7 +12569,8 @@ std::string GCNewParticleEffect::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNewParticleEffect::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GIParticleEffect GCNewParticleEffect::GetParent() const {
     GIParticleEffect value(m_ptr);
@@ -12420,7 +12640,8 @@ std::string GCFeIndexedJiggleBone::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFeIndexedJiggleBone::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFeIndexedJiggleBone(LuaPlugin *plugin, lua_State *state)
 {
@@ -12471,7 +12692,8 @@ std::string GCFloatAnimParameter::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFloatAnimParameter::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCConcreteAnimParameter GCFloatAnimParameter::GetParent() const {
     GCConcreteAnimParameter value(m_ptr);
@@ -12555,7 +12777,8 @@ std::string GRnBlendVertex_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRnBlendVertex_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassRnBlendVertex_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -12599,7 +12822,8 @@ std::string GCVirtualAnimParameter::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCVirtualAnimParameter::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimParameterBase GCVirtualAnimParameter::GetParent() const {
     GCAnimParameterBase value(m_ptr);
@@ -12639,7 +12863,8 @@ std::string GCHitBoxSetList::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHitBoxSetList::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCHitBoxSetList(LuaPlugin *plugin, lua_State *state)
 {
@@ -12670,7 +12895,8 @@ std::string GMaterialParamString_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GMaterialParamString_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GMaterialParam_t GMaterialParamString_t::GetParent() const {
     GMaterialParam_t value(m_ptr);
@@ -12709,7 +12935,8 @@ std::string GVsInputSignature_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVsInputSignature_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVsInputSignature_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -12782,7 +13009,8 @@ std::string GInfoOverlayData_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GInfoOverlayData_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassInfoOverlayData_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -12851,7 +13079,8 @@ std::string GCastSphereSATParams_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCastSphereSATParams_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCastSphereSATParams_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -12881,7 +13110,8 @@ std::string GCBindPoseUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBindPoseUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLeafUpdateNode GCBindPoseUpdateNode::GetParent() const {
     GCLeafUpdateNode value(m_ptr);
@@ -12937,7 +13167,8 @@ std::string GVMixFreeverbDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixFreeverbDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixFreeverbDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -12965,7 +13196,8 @@ std::string GCCurrentVelocityMetricEvaluator::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCCurrentVelocityMetricEvaluator::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMotionMetricEvaluator GCCurrentVelocityMetricEvaluator::GetParent() const {
     GCMotionMetricEvaluator value(m_ptr);
@@ -13081,7 +13313,8 @@ std::string GCVoxelVisibility::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCVoxelVisibility::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCVoxelVisibility(LuaPlugin *plugin, lua_State *state)
 {
@@ -13124,7 +13357,8 @@ std::string GSelectedEditItemInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GSelectedEditItemInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassSelectedEditItemInfo_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -13187,7 +13421,8 @@ std::string GChainToSolveData_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GChainToSolveData_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassChainToSolveData_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -13235,7 +13470,8 @@ std::string GCGlowSprite::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCGlowSprite::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCGlowSprite(LuaPlugin *plugin, lua_State *state)
 {
@@ -13262,7 +13498,8 @@ std::string GCSSDSMsg_PostLayer::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSSDSMsg_PostLayer::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSSDSMsg_LayerBase GCSSDSMsg_PostLayer::GetParent() const {
     GCSSDSMsg_LayerBase value(m_ptr);
@@ -13318,7 +13555,8 @@ std::string GCAnimBone::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimBone::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimBone(LuaPlugin *plugin, lua_State *state)
 {
@@ -13371,7 +13609,8 @@ std::string GVPhysXConstraint2_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVPhysXConstraint2_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVPhysXConstraint2_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -13399,7 +13638,8 @@ std::string GCEditableMotionGraph::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCEditableMotionGraph::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCMotionGraph GCEditableMotionGraph::GetParent() const {
     GCMotionGraph value(m_ptr);
@@ -13455,7 +13695,8 @@ std::string GCAnimKeyData::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimKeyData::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimKeyData(LuaPlugin *plugin, lua_State *state)
 {
@@ -13489,7 +13730,8 @@ std::string GEventPreDataUpdate_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventPreDataUpdate_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventPreDataUpdate_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -13534,7 +13776,8 @@ std::string GWorld_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GWorld_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassWorld_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -13573,7 +13816,8 @@ std::string GCVectorAnimParameter::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCVectorAnimParameter::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCConcreteAnimParameter GCVectorAnimParameter::GetParent() const {
     GCConcreteAnimParameter value(m_ptr);
@@ -13607,7 +13851,8 @@ std::string GCNmControlParameterBoolNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmControlParameterBoolNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmBoolValueNode GCNmControlParameterBoolNode::GetParent() const {
     GCNmBoolValueNode value(m_ptr);
@@ -13670,7 +13915,8 @@ std::string GCStateMachineUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCStateMachineUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimUpdateNodeBase GCStateMachineUpdateNode::GetParent() const {
     GCAnimUpdateNodeBase value(m_ptr);
@@ -13731,7 +13977,8 @@ std::string GCHitBoxSet::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCHitBoxSet::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCHitBoxSet(LuaPlugin *plugin, lua_State *state)
 {
@@ -13765,7 +14012,8 @@ std::string GCExampleSchemaVData_PolymorphicDerivedB::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCExampleSchemaVData_PolymorphicDerivedB::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCExampleSchemaVData_PolymorphicBase GCExampleSchemaVData_PolymorphicDerivedB::GetParent() const {
     GCExampleSchemaVData_PolymorphicBase value(m_ptr);
@@ -13816,7 +14064,8 @@ std::string GFeSimdTri_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeSimdTri_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeSimdTri_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -13907,7 +14156,8 @@ std::string GPostProcessingResource_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GPostProcessingResource_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassPostProcessingResource_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -13971,7 +14221,8 @@ std::string GCNmStateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmStateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmPoseNode GCNmStateNode::GetParent() const {
     GCNmPoseNode value(m_ptr);
@@ -14050,7 +14301,8 @@ std::string GNodeData_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GNodeData_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassNodeData_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -14081,7 +14333,8 @@ std::string GCTaskStatusAnimTag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTaskStatusAnimTag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimTagBase GCTaskStatusAnimTag::GetParent() const {
     GCAnimTagBase value(m_ptr);
@@ -14180,7 +14433,8 @@ std::string GCMaterialDrawDescriptor::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMaterialDrawDescriptor::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCMaterialDrawDescriptor(LuaPlugin *plugin, lua_State *state)
 {
@@ -14215,7 +14469,8 @@ std::string GEventServerProcessNetworking_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventServerProcessNetworking_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GEventSimulate_t GEventServerProcessNetworking_t::GetParent() const {
     GEventSimulate_t value(m_ptr);
@@ -14277,7 +14532,8 @@ std::string GCInterpolatedValue::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCInterpolatedValue::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCInterpolatedValue(LuaPlugin *plugin, lua_State *state)
 {
@@ -14306,7 +14562,8 @@ std::string GCMotionGraphUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCMotionGraphUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCLeafUpdateNode GCMotionGraphUpdateNode::GetParent() const {
     GCLeafUpdateNode value(m_ptr);
@@ -14377,7 +14634,8 @@ std::string GCLookAtUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCLookAtUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCLookAtUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -14439,7 +14697,8 @@ std::string GCFlexController::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFlexController::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFlexController(LuaPlugin *plugin, lua_State *state)
 {
@@ -14473,7 +14732,8 @@ std::string GCExampleSchemaVData_PolymorphicDerivedA::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCExampleSchemaVData_PolymorphicDerivedA::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCExampleSchemaVData_PolymorphicBase GCExampleSchemaVData_PolymorphicDerivedA::GetParent() const {
     GCExampleSchemaVData_PolymorphicBase value(m_ptr);
@@ -14512,7 +14772,8 @@ std::string GEntityKeyValueData_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEntityKeyValueData_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEntityKeyValueData_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -14551,7 +14812,8 @@ std::string GCFootStride::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFootStride::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFootStride(LuaPlugin *plugin, lua_State *state)
 {
@@ -14590,7 +14852,8 @@ std::string GCAnimationGroup::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAnimationGroup::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCAnimationGroup(LuaPlugin *plugin, lua_State *state)
 {
@@ -14640,7 +14903,8 @@ std::string GCSubtractUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSubtractUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCBinaryUpdateNode GCSubtractUpdateNode::GetParent() const {
     GCBinaryUpdateNode value(m_ptr);
@@ -14700,7 +14964,8 @@ std::string GFeTaperedCapsuleStretch_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeTaperedCapsuleStretch_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeTaperedCapsuleStretch_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -14752,7 +15017,8 @@ std::string GWorldNodeOnDiskBufferData_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GWorldNodeOnDiskBufferData_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassWorldNodeOnDiskBufferData_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -14823,7 +15089,8 @@ std::string GEntComponentInfo_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEntComponentInfo_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEntComponentInfo_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -14854,7 +15121,8 @@ std::string GCClientGapTypeQueryRegistration::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCClientGapTypeQueryRegistration::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCClientGapTypeQueryRegistration(LuaPlugin *plugin, lua_State *state)
 {
@@ -14884,7 +15152,8 @@ std::string GCNmVirtualParameterTargetNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmVirtualParameterTargetNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCNmTargetValueNode GCNmVirtualParameterTargetNode::GetParent() const {
     GCNmTargetValueNode value(m_ptr);
@@ -14959,7 +15228,8 @@ std::string GCAudioAnimTag::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCAudioAnimTag::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimTagBase GCAudioAnimTag::GetParent() const {
     GCAnimTagBase value(m_ptr);
@@ -15025,7 +15295,8 @@ std::string GCRenderMesh::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCRenderMesh::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCRenderMesh(LuaPlugin *plugin, lua_State *state)
 {
@@ -15079,7 +15350,8 @@ std::string Gconstraint_hingeparams_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool Gconstraint_hingeparams_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassconstraint_hingeparams_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -15153,7 +15425,8 @@ std::string GNmCompressionSettings_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GNmCompressionSettings_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassNmCompressionSettings_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -15220,7 +15493,8 @@ std::string GCTurnHelperUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTurnHelperUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCTurnHelperUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -15264,7 +15538,8 @@ std::string GCSosGroupActionTimeLimitSchema::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSosGroupActionTimeLimitSchema::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCSosGroupActionSchema GCSosGroupActionTimeLimitSchema::GetParent() const {
     GCSosGroupActionSchema value(m_ptr);
@@ -15318,7 +15593,8 @@ std::string GCFollowTargetUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFollowTargetUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCFollowTargetUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -15353,7 +15629,8 @@ std::string GEventClientAdvanceNonRenderedFrame_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GEventClientAdvanceNonRenderedFrame_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassEventClientAdvanceNonRenderedFrame_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -15383,7 +15660,8 @@ std::string GCSosSoundEventGroupListSchema::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCSosSoundEventGroupListSchema::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCSosSoundEventGroupListSchema(LuaPlugin *plugin, lua_State *state)
 {
@@ -15452,7 +15730,8 @@ std::string GCNmClip::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmClip::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmClip(LuaPlugin *plugin, lua_State *state)
 {
@@ -15489,7 +15768,8 @@ std::string GCFlexDesc::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCFlexDesc::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCFlexDesc(LuaPlugin *plugin, lua_State *state)
 {
@@ -15521,7 +15801,8 @@ std::string GCStateMachineComponentUpdater::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCStateMachineComponentUpdater::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCAnimComponentUpdater GCStateMachineComponentUpdater::GetParent() const {
     GCAnimComponentUpdater value(m_ptr);
@@ -15584,7 +15865,8 @@ std::string GCompMatMutatorCondition_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCompMatMutatorCondition_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCompMatMutatorCondition_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -15613,7 +15895,8 @@ std::string GFakeEntity_tAPI::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFakeEntity_tAPI::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFakeEntity_tAPI(LuaPlugin *plugin, lua_State *state)
 {
@@ -15649,7 +15932,8 @@ std::string GCBoneConstraintPoseSpaceMorph__Input_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBoneConstraintPoseSpaceMorph__Input_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCBoneConstraintPoseSpaceMorph__Input_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -15682,7 +15966,8 @@ std::string GCTwoBoneIKUpdateNode::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCTwoBoneIKUpdateNode::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GCUnaryUpdateNode GCTwoBoneIKUpdateNode::GetParent() const {
     GCUnaryUpdateNode value(m_ptr);
@@ -15787,7 +16072,8 @@ std::string GVMixDynamicsDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVMixDynamicsDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVMixDynamicsDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -15895,7 +16181,8 @@ std::string GFeVertexMapDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeVertexMapDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeVertexMapDesc_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -15937,7 +16224,8 @@ std::string GFeSourceEdge_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GFeSourceEdge_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassFeSourceEdge_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -15992,7 +16280,8 @@ std::string GCompositeMaterialEditorPoint_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCompositeMaterialEditorPoint_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCompositeMaterialEditorPoint_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -16156,7 +16445,8 @@ std::string GVPhysXJoint_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GVPhysXJoint_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassVPhysXJoint_t(LuaPlugin *plugin, lua_State *state)
 {
@@ -16214,7 +16504,8 @@ std::string GCBodyGroupSetting::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCBodyGroupSetting::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCBodyGroupSetting(LuaPlugin *plugin, lua_State *state)
 {
@@ -16240,7 +16531,8 @@ std::string GRnSphereDesc_t::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GRnSphereDesc_t::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 GRnShapeDesc_t GRnSphereDesc_t::GetParent() const {
     GRnShapeDesc_t value(m_ptr);
@@ -16296,7 +16588,8 @@ std::string GCNmTarget::ToPtr() {
     return string_format("%p", m_ptr);
 }
 bool GCNmTarget::IsValid() {
-    return (m_ptr != nullptr);
+    if (m_ptr == nullptr) return false;
+    return (((Z_CBaseEntity*)m_ptr)->m_pEntity->m_EHandle.IsValid());
 }
 void SetupLuaClassCNmTarget(LuaPlugin *plugin, lua_State *state)
 {
