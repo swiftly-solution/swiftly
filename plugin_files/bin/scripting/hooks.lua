@@ -55,7 +55,7 @@ function RemoveHookListener(hookListener)
         return
     end
 
-    if not eventData.key or not eventData.name then
+    if not hookListener.key or not hookListener.name then
         print("Error: Invalid hook data passed to RemoveHookListener.")
         return
     end
