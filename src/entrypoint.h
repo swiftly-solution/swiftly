@@ -76,6 +76,9 @@ public:
 
 public:
     std::deque<std::function<void()>> m_nextFrame;
+
+public:
+    STEAM_GAMESERVER_CALLBACK_MANUAL(Swiftly, OnAddonDownloaded, DownloadItemResult_t, m_CallbackDownloadItemResult);
 };
 
 class CEntityListener : public IEntityListener
