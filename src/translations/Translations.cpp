@@ -76,8 +76,8 @@ void Translations::LoadTranslations()
         {
             std::string key = it->name.GetString();
 
-            IS_OBJECT(transFile, key.c_str(), string_format("%s.%s", mainTranslationKey, key).c_str())
-            HAS_MEMBER(it->value, "en", string_format("%s.%s", mainTranslationKey, key).c_str())
+            IS_OBJECT(transFile, key.c_str(), string_format("%s.%s", mainTranslationKey.c_str(), key.c_str()).c_str())
+            HAS_MEMBER(it->value, "en", string_format("%s.%s.en", mainTranslationKey.c_str(), key.c_str()).c_str())
 
             Translation *translation = new Translation();
             for (auto it2 = it->value.MemberBegin(); it2 != it->value.MemberEnd(); ++it2)
