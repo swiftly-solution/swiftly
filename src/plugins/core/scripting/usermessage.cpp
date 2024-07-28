@@ -1,6 +1,7 @@
 #include "../scripting.h"
 
 #include "../../../sdk/entity/CRecipientFilters.h"
+#include "../../../player/PlayerManager.h"
 
 #ifdef GetMessage
 #undef GetMessage
@@ -832,8 +833,10 @@ void PluginUserMessage::SendToPlayer(int playerId)
     if (!this->msgBuffer)
         return;
 
-    CSingleRecipientFilter filter(playerId);
-    g_pGameEventSystem->PostEventAbstract(0, false, &filter, this->internalMsg, this->msgBuffer, 0);
+    auto pNetChan = reinterpret_cast<INetChannel *>(engine->GetPlayerNetInfo(playerId));
+
+    if (pNetChan)
+        pNetChan->SendNetMessage(this->internalMsg, this->msgBuffer, BUF_DEFAULT);
 }
 void PluginUserMessage::SendToAllPlayers()
 {
@@ -843,7 +846,17 @@ void PluginUserMessage::SendToAllPlayers()
     if (!this->msgBuffer)
         return;
 
-    CBroadcastRecipientFilter *filter = new CBroadcastRecipientFilter;
-    g_pGameEventSystem->PostEventAbstract(0, false, filter, this->internalMsg, this->msgBuffer, 0);
-    delete filter;
+    for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
+    {
+        Player *player = g_playerManager->GetPlayer(i);
+        if (!player)
+            continue;
+        if (player->IsFakeClient())
+            continue;
+
+        auto pNetChan = reinterpret_cast<INetChannel *>(engine->GetPlayerNetInfo(i));
+
+        if (pNetChan)
+            pNetChan->SendNetMessage(this->internalMsg, this->msgBuffer, BUF_DEFAULT);
+    }
 }
