@@ -101,7 +101,7 @@ void Menu::RegeneratePage(int page, int selected)
     for (int i = 0; i < processedOptions[page - 1].size(); i++)
         stringPage += string_format("<div><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? "➤&nbsp;" : "&nbsp;&nbsp;&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
 
-    stringPage += replace(replace(g_translations->FetchTranslation("core.menu.footer"), "{PAGE}", std::to_string(page)), "{MAXPAGES}", std::to_string(processedOptions.size()));
+    stringPage += string_format("<font class='fontSize-s'>%s</font>", replace(replace(g_translations->FetchTranslation("core.menu.footer"), "{PAGE}", std::to_string(page)), "{MAXPAGES}", std::to_string(processedOptions.size())).c_str());
 
     this->generatedPages[page - 1] = stringPage;
 }
