@@ -214,3 +214,72 @@ void PluginWeapon::Remove()
     weaponServices->RemoveWeapon(this->m_ptr);
     this->m_ptr->Despawn();
 }
+
+std::vector<uint16_t> paintkitsFallbackCheck = {1171, 1170, 1169, 1164, 1162, 1161, 1159, 1175, 1174, 1167, 1165, 1168, 1163, 1160, 1166, 1173};
+
+void PluginWeapon::SetDefaultAttributes()
+{
+    if (!this->m_ptr)
+        return;
+
+    Player *player = g_playerManager->GetPlayer(m_playerId);
+    if (!player)
+        return;
+
+    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    if (!pawn)
+        return;
+
+    this->m_ptr->m_AttributeManager().m_Item().m_iItemIDHigh = -1;
+
+    if (this->m_ptr->GetWeaponVData()->m_GearSlot == cgear_slot_t::GEAR_SLOT_KNIFE)
+    {
+        this->m_ptr->m_AttributeManager().m_Item().m_iEntityQuality = 3;
+    }
+
+    int paintkit = this->m_ptr->m_nFallbackPaintKit();
+    bool legacy = (std::find(paintkitsFallbackCheck.begin(), paintkitsFallbackCheck.end(), paintkit) == paintkitsFallbackCheck.end());
+
+    if (this->m_ptr->m_CBodyComponent() && this->m_ptr->m_CBodyComponent()->m_pSceneNode())
+    {
+        CSkeletonInstance *skeleton = this->m_ptr->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
+        if (skeleton)
+        {
+            if (skeleton->m_modelState().m_MeshGroupMask() != (legacy == true ? 2 : 1))
+            {
+                skeleton->m_modelState().m_MeshGroupMask = (legacy == true ? 2 : 1);
+            }
+        }
+    }
+
+    CCSPlayer_ViewModelServices *viewmodelServices = pawn->m_pViewModelServices();
+    if (!viewmodelServices)
+        return;
+
+    CHandle<CBaseViewModel> *viewmodelHandles = viewmodelServices->m_hViewModel();
+    if (!viewmodelHandles)
+        return;
+    if (!viewmodelHandles[0])
+        return;
+    if (!viewmodelHandles[0].IsValid())
+        return;
+
+    CBaseViewModel *viewmodel = viewmodelHandles[0].Get();
+
+    if (!viewmodel)
+        return;
+
+    if (viewmodel->m_CBodyComponent() && viewmodel->m_CBodyComponent()->m_pSceneNode())
+    {
+        CSkeletonInstance *viewmodelskeleton = viewmodel->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
+        if (viewmodelskeleton)
+        {
+            if (viewmodelskeleton->m_modelState().m_MeshGroupMask() != (legacy == true ? 2 : 1))
+            {
+                viewmodelskeleton->m_modelState().m_MeshGroupMask = (legacy == true ? 2 : 1);
+            }
+        }
+    }
+
+    viewmodel->m_CBodyComponent.StateUpdate();
+}

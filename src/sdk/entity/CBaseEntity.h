@@ -36,7 +36,7 @@ public:
 class CModelState
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CModelState, false)
+    DECLARE_SCHEMA_CLASS_BASE(CModelState, true)
 
     SCHEMA_FIELD_OFFSET(uint64_t, m_MeshGroupMask, 0)
 };

@@ -343,10 +343,11 @@ public:
 class PluginCHandle
 {
 private:
-  CHandle<CEntityInstance> *m_Handle;
+    CHandle<CEntityInstance> *m_Handle;
+
 public:
     PluginCHandle(std::string ptr);
-    PluginCHandle(void* ptr);
+    PluginCHandle(void *ptr);
 
     std::string GetPtr();
     void SetPtr(std::string ptr);
@@ -497,6 +498,7 @@ public:
 
     void Drop();
     void Remove();
+    void SetDefaultAttributes();
 };
 
 //////////////////////////////////////////////////////////////
