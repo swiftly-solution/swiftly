@@ -77,6 +77,15 @@ void DatabaseQueryThread()
                 try
                 {
                     std::string error = queue.db->GetError();
+                    if (error == "MySQL server has gone away")
+                        if (queue.db->Connect())
+                        {
+                            delete ((luabridge::LuaRef *)queue.callback);
+                            continue;
+                        }
+                        else
+                            error = queue.db->GetError();
+
                     if (ref.isFunction())
                         ref(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
                 }
