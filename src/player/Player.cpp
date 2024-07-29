@@ -345,7 +345,7 @@ void Player::SetButtons(uint64_t new_buttons)
 {
     /*
     DEBUG: Button Presses
-    
+
     for(uint64_t i = 0; i < 64; i++) {
         if((new_buttons & (1ULL << i)) != 0) {
             PRINTF("%s: %d\n", key_buttons[i].c_str(), i);
@@ -383,7 +383,7 @@ void Player::SetPage(int pg)
 {
     this->page = pg;
     this->selected = 0;
-    this->menu->RegeneratePage(this->page, this->selected);
+    this->menu->RegeneratePage(this->GetSlot().Get(), this->page, this->selected);
 }
 int Player::GetSelection() { return this->selected; }
 void Player::MoveSelection()
@@ -396,7 +396,7 @@ void Player::MoveSelection()
     if (itemsPerPage == this->selected)
         this->selected = 0;
 
-    this->menu->RegeneratePage(this->page, this->selected);
+    this->menu->RegeneratePage(this->GetSlot().Get(), this->page, this->selected);
 }
 
 void Player::ShowMenu(std::string menuid)
@@ -412,7 +412,7 @@ void Player::ShowMenu(std::string menuid)
     this->page = 1;
     this->selected = 0;
 
-    this->menu->RegeneratePage(this->page, this->selected);
+    this->menu->RegeneratePage(this->GetSlot().Get(), this->page, this->selected);
     this->RenderMenu();
 }
 
@@ -427,7 +427,7 @@ void Player::RenderMenu()
     IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
     if (pEvent)
     {
-        pEvent->SetString("loc_token", this->menu->GeneratedItems(this->page).c_str());
+        pEvent->SetString("loc_token", this->menu->GeneratedItems(this->GetSlot().Get(), this->page).c_str());
         pEvent->SetUint64("duration", 10);
         pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
 

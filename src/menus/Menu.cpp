@@ -85,16 +85,19 @@ void Menu::ProcessOptions()
     }
 }
 
-std::string Menu::GeneratedItems(int page)
+std::string Menu::GeneratedItems(int playerid, int page)
 {
-    return this->generatedPages[page - 1];
+    return this->generatedPages[playerid][page - 1];
 }
 
-void Menu::RegeneratePage(int page, int selected)
+void Menu::RegeneratePage(int playerid, int page, int selected)
 {
-    while (this->generatedPages.size() < page)
+    if (this->generatedPages.find(playerid) == this->generatedPages.end())
+        this->generatedPages.insert({playerid, {}});
+
+    while (this->generatedPages[playerid].size() < page)
     {
-        this->generatedPages.push_back("");
+        this->generatedPages[playerid].push_back("");
     }
 
     std::string stringPage = string_format("<div><font color=\"#%s\">&nbsp;&nbsp;&nbsp;%s</font></div><br/>", this->color.c_str(), this->title.c_str());
@@ -103,7 +106,7 @@ void Menu::RegeneratePage(int page, int selected)
 
     stringPage += string_format("<font class='fontSize-s'>%s</font>", replace(replace(g_translations->FetchTranslation("core.menu.footer"), "{PAGE}", std::to_string(page)), "{MAXPAGES}", std::to_string(processedOptions.size())).c_str());
 
-    this->generatedPages[page - 1] = stringPage;
+    this->generatedPages[playerid][page - 1] = stringPage;
 }
 
 bool Menu::IsTemporary()
