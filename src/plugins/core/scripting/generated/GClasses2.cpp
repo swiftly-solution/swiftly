@@ -18973,11 +18973,11 @@ uint16_t GCCSPlayerController_InventoryServices::GetMusicID() const {
 void GCCSPlayerController_InventoryServices::SetMusicID(uint16_t value) {
     SetSchemaValue(m_ptr, "CCSPlayerController_InventoryServices", "m_unMusicID", false, value);
 }
-std::vector<MedalRank_t> GCCSPlayerController_InventoryServices::GetRank() const {
-    MedalRank_t* outValue = GetSchemaValue<MedalRank_t*>(m_ptr, "CCSPlayerController_InventoryServices", "m_rank"); std::vector<MedalRank_t> ret; for(int i = 0; i < 6; i++) { ret.push_back(outValue[i]); } return ret;
+std::vector<uint64_t> GCCSPlayerController_InventoryServices::GetRank() const {
+    uint64_t* outValue = GetSchemaValue<uint64_t*>(m_ptr, "CCSPlayerController_InventoryServices", "m_rank"); std::vector<uint64_t> ret; for(int i = 0; i < 6; i++) { ret.push_back(outValue[i]); } return ret;
 }
-void GCCSPlayerController_InventoryServices::SetRank(std::vector<MedalRank_t> value) {
-    MedalRank_t* outValue = GetSchemaValue<MedalRank_t*>(m_ptr, "CCSPlayerController_InventoryServices", "m_rank"); for(int i = 0; i < 6; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CCSPlayerController_InventoryServices", "m_rank", false, outValue);
+void GCCSPlayerController_InventoryServices::SetRank(std::vector<uint64_t> value) {
+    uint64_t* outValue = GetSchemaValue<uint64_t*>(m_ptr, "CCSPlayerController_InventoryServices", "m_rank"); for(int i = 0; i < 6; i++) { outValue[i] = value[i]; } SetSchemaValue(m_ptr, "CCSPlayerController_InventoryServices", "m_rank", false, outValue);
 }
 int32_t GCCSPlayerController_InventoryServices::GetPersonaDataPublicLevel() const {
     return GetSchemaValue<int32_t>(m_ptr, "CCSPlayerController_InventoryServices", "m_nPersonaDataPublicLevel");
