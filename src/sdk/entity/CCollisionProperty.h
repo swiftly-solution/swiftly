@@ -4,7 +4,7 @@
 
 struct VPhysicsCollisionAttribute_t
 {
-    DECLARE_SCHEMA_CLASS_BASE(VPhysicsCollisionAttribute_t, false)
+    DECLARE_SCHEMA_CLASS_BASE(VPhysicsCollisionAttribute_t, true)
 
     SCHEMA_FIELD_OFFSET(uint8, m_nCollisionGroup, 0)
     SCHEMA_FIELD_OFFSET(uint64_t, m_nInteractsAs, 0)
@@ -15,7 +15,7 @@ struct VPhysicsCollisionAttribute_t
 class CCollisionProperty
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCollisionProperty, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCollisionProperty, true)
 
     SCHEMA_FIELD_OFFSET(uint8, m_usSolidFlags, 0)
     SCHEMA_FIELD_OFFSET(uint8, m_CollisionGroup, 0)
