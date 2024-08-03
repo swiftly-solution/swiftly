@@ -20642,8 +20642,8 @@ public:
 
     uint16_t GetMusicID() const;
     void SetMusicID(uint16_t value);
-    std::vector<MedalRank_t> GetRank() const;
-    void SetRank(std::vector<MedalRank_t> value);
+    std::vector<uint64_t> GetRank() const;
+    void SetRank(std::vector<uint64_t> value);
     int32_t GetPersonaDataPublicLevel() const;
     void SetPersonaDataPublicLevel(int32_t value);
     int32_t GetPersonaDataPublicCommendsLeader() const;
