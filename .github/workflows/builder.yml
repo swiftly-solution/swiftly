@@ -21,6 +21,7 @@ jobs:
               run: |
                   sudo apt update
                   sudo apt install -y curl jq
+                  git config --global --add safe.directory /__w/swiftly/swiftly
                                              
             - name: Generate version
               uses: reecetech/version-increment@2024.4.4
