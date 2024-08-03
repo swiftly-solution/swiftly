@@ -27,6 +27,7 @@ jobs:
               id: version
               with:
                 release_branch: master
+                scheme: conventional_commits
                 use_api: true
 
     build:
