@@ -553,7 +553,8 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, CCommandContext c
 
     usagesTable.add(" ID ");
     usagesTable.add(" Name ");
-    usagesTable.add(" min/avg/max ");
+    usagesTable.add(" Calls ");
+    usagesTable.add(" avg/max ");
     usagesTable.endOfRow();
 
     std::map<std::string, std::map<std::string, std::set<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
@@ -566,6 +567,7 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, CCommandContext c
             ++idx;
             usagesTable.add(string_format(" %02d. ", idx));
             usagesTable.add(string_format(" %s ", it->first.c_str()));
+            usagesTable.add(string_format(" %llu ", it->second.size()));
 
             if (it->second.size() == 0)
                 usagesTable.add(" 0.000ms / 0.000ms ");
