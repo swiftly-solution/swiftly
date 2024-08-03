@@ -334,6 +334,7 @@ public:
     std::string EscapeString(std::string str);
 
     void QueryLua(std::string query, luabridge::LuaRef callback, lua_State *L);
+    void QueryParamsLua(std::string query, std::map<luabridge::LuaRef, luabridge::LuaRef> params, luabridge::LuaRef callback, lua_State *L);
 };
 
 //////////////////////////////////////////////////////////////

@@ -138,3 +138,27 @@ void PluginDatabase::QueryLua(std::string query, luabridge::LuaRef callback, lua
         std::thread(DatabaseQueryThread).detach();
     }
 }
+
+void PluginDatabase::QueryParamsLua(std::string query, std::map<luabridge::LuaRef, luabridge::LuaRef> params, luabridge::LuaRef callback, lua_State *L)
+{
+    bool has_ats = (query.find_first_of("@") != std::string::npos);
+    bool has_brace = (query.find_first_of("{") != std::string::npos);
+    bool has_bracket = (query.find_first_of("[") != std::string::npos);
+
+    for (auto it = params.begin(); it != params.end(); ++it)
+    {
+        std::string key = it->first.tostring();
+        std::string value = EscapeString(it->second.tostring());
+
+        if (has_ats)
+            query = replace(query, "@" + key, value);
+
+        if (has_brace)
+            query = replace(query, "{" + key + "}", value);
+
+        if (has_bracket)
+            query = replace(query, "[" + key + "]", value);
+    }
+
+    return QueryLua(query, callback, L);
+}

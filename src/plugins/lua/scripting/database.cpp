@@ -8,6 +8,7 @@ void SetupLuaDatabase(LuaPlugin *plugin, lua_State *state)
         .addFunction("IsConnected", &PluginDatabase::IsConnected)
         .addFunction("EscapeString", &PluginDatabase::EscapeString)
         .addFunction("Query", &PluginDatabase::QueryLua)
+        .addFunction("QueryParams", &PluginDatabase::QueryParamsLua)
         .endClass();
 
     luabridge::setGlobal(state, luabridge::LuaRef(state), "db");
