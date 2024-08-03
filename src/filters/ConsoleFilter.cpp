@@ -97,7 +97,18 @@ void ConsoleFilter::LoadFilters()
             continue;
         }
 
-        this->filter.insert(std::make_pair(key, it->value.GetString()));
+        try
+        {
+            std::regex tmp(it->value.GetString(), std::regex_constants::ECMAScript);
+        }
+        catch (const std::regex_error &err)
+        {
+            ConFilterError(string_format("The regex for \"%s\" is not valid.", key.c_str()));
+            ConFilterError(string_format("Error: %s", err.what()));
+            continue;
+        }
+
+        this->filter.insert({key, std::regex(it->value.GetString(), std::regex_constants::ECMAScript)});
         this->counter.insert(std::make_pair(key, 0));
     }
 }
@@ -108,12 +119,12 @@ bool ConsoleFilter::NeedFiltering(std::string message)
         return false;
 
     PERF_RECORD("Console Filter", "core")
-    for (std::map<std::string, std::string>::iterator it = this->filter.begin(); it != this->filter.end(); ++it)
+    for (auto it = this->filter.begin(); it != this->filter.end(); ++it)
     {
         std::string key = it->first;
-        std::string val = it->second;
+        std::regex val = it->second;
 
-        if (message.find(val) != std::string::npos)
+        if (std::regex_search(message, val))
         {
             if (this->counter.find(key) != this->counter.end())
                 this->counter[key]++;

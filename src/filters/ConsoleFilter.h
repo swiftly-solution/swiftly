@@ -3,6 +3,7 @@
 
 #include <map>
 #include <string>
+#include <regex>
 #include "../entrypoint.h"
 #include "../common.h"
 
@@ -16,7 +17,7 @@ class ConsoleFilter
 {
 private:
     bool m_status = false;
-    std::map<std::string, std::string> filter;
+    std::map<std::string, std::regex> filter;
     std::map<std::string, uint64> counter;
 
 public:
