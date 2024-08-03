@@ -1,5 +1,6 @@
 #include "ResourceMonitor.h"
 #include <thread>
+#include "../common.h"
 
 void ResourceMonitor::Enable()
 {
@@ -26,5 +27,5 @@ void ResourceMonitor::RecordTime(std::string plugin_id, std::string key, float v
     if (this->resmonTimesTable[plugin_id].find(key) == this->resmonTimesTable[plugin_id].end())
         this->resmonTimesTable[plugin_id].insert({key, {}});
 
-    this->resmonTimesTable[plugin_id][key].insert(value);
+    this->resmonTimesTable[plugin_id][key].push_back(value);
 }

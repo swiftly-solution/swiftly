@@ -557,12 +557,12 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, CCommandContext c
     usagesTable.add(" avg/max ");
     usagesTable.endOfRow();
 
-    std::map<std::string, std::map<std::string, std::set<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
+    std::map<std::string, std::map<std::string, std::list<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
     if (data.count(plugin_id) > 0)
     {
-        std::map<std::string, std::set<float>> pluginData = data.at(plugin_id);
+        std::map<std::string, std::list<float>> pluginData = data.at(plugin_id);
         uint64_t idx = 0;
-        for (std::map<std::string, std::set<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+        for (std::map<std::string, std::list<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
         {
             ++idx;
             usagesTable.add(string_format(" %02d. ", idx));
@@ -579,7 +579,7 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, CCommandContext c
 
                 float avg = 0;
                 uint64_t avgCount = 0;
-                for (std::set<float>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii)
+                for (std::list<float>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii)
                 {
                     avg += *(ii);
                     ++avgCount;
@@ -620,7 +620,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
 
     PLUGIN_PRINTF("Resource Monitor", "Plugin Resource Viewer\n");
 
-    std::map<std::string, std::map<std::string, std::set<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
+    std::map<std::string, std::map<std::string, std::list<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
 
     pluginsTable.add(" core ");
     pluginsTable.add(" [Swiftly] Core ");
@@ -635,8 +635,8 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
         float avg = 0;
         uint64_t avgCount = 0;
 
-        std::map<std::string, std::set<float>> pluginData = data.at("core");
-        for (std::map<std::string, std::set<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+        std::map<std::string, std::list<float>> pluginData = data.at("core");
+        for (std::map<std::string, std::list<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
         {
             if (it->second.size() == 0)
                 continue;
@@ -646,7 +646,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
             max += *(maxend);
             ++maxCount;
 
-            for (std::set<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+            for (std::list<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
             {
                 avg += *(it2);
                 ++avgCount;
@@ -686,8 +686,8 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
             float avg = 0;
             uint64_t avgCount = 0;
 
-            std::map<std::string, std::set<float>> pluginData = data.at(plugin->GetName());
-            for (std::map<std::string, std::set<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+            std::map<std::string, std::list<float>> pluginData = data.at(plugin->GetName());
+            for (std::map<std::string, std::list<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
             {
                 if (it->second.size() == 0)
                     continue;
@@ -697,7 +697,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
                 max += *(maxend);
                 ++maxCount;
 
-                for (std::set<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+                for (std::list<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
                 {
                     avg += *(it2);
                     ++avgCount;
