@@ -103,14 +103,13 @@ jobs:
 
                   Set-Location build/package/addons/swiftly
 
-                  $client = new-object System.Net.WebClient
-                  $client.DownloadFile("https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip","Swiftly.Plugin.Admins.zip")
+                  Invoke-WebRequest https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip -OutFile Swiftly.Plugin.Admins.zip
                   Expand-Archive Swiftly.Plugin.Admins.zip -DestinationPath .
-                  $client.DownloadFile("https://github.com/swiftly-solution/admins_basecomms/releases/latest/download/Swiftly.Plugin.Admins.BaseComms.zip","Swiftly.Plugin.Admins.BaseComms.zip")
+                  Invoke-WebRequest https://github.com/swiftly-solution/admins_basecomms/releases/latest/download/Swiftly.Plugin.Admins.BaseComms.zip -OutFile Swiftly.Plugin.Admins.BaseComms.zip
                   Expand-Archive Swiftly.Plugin.Admins.BaseComms.zip -DestinationPath .
-                  $client.DownloadFile("https://github.com/swiftly-solution/admins_basebans/releases/latest/download/Swiftly.Plugin.Admins.BaseBans.zip","Swiftly.Plugin.Admins.BaseBans.zip")
+                  Invoke-WebRequest https://github.com/swiftly-solution/admins_basebans/releases/latest/download/Swiftly.Plugin.Admins.BaseBans.zip -OutFile Swiftly.Plugin.Admins.BaseBans.zip
                   Expand-Archive Swiftly.Plugin.Admins.BaseBans.zip -DestinationPath .
-                  $client.DownloadFile("https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip","Swiftly.Plugin.Admins.BaseCommands.zip")
+                  Invoke-WebRequest https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip -OutFile Swiftly.Plugin.Admins.BaseCommands.zip
                   Expand-Archive Swiftly.Plugin.Admins.BaseCommands.zip -DestinationPath .
 
                   Remove-Item -Force Swiftly.Plugin.Admins.zip
