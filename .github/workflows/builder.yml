@@ -95,6 +95,20 @@ jobs:
               run: |
                   ./setup.ps1
 
+                  cd build/package/addons/swiftly
+
+                  $client = new-object System.Net.WebClient
+                  $client.DownloadFile("https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip","Swiftly.Plugin.Admins.zip")
+                  Expand-Archive Swiftly.Plugin.Admins.zip -DestinationPath .
+                  $client.DownloadFile("https://github.com/swiftly-solution/admins_basecomms/releases/latest/download/Swiftly.Plugin.Admins.BaseComms.zip","Swiftly.Plugin.Admins.BaseComms.zip")
+                  Expand-Archive Swiftly.Plugin.Admins.BaseComms.zip -DestinationPath .
+                  $client.DownloadFile("https://github.com/swiftly-solution/admins_basebans/releases/latest/download/Swiftly.Plugin.Admins.BaseBans.zip","Swiftly.Plugin.Admins.BaseBans.zip")
+                  Expand-Archive Swiftly.Plugin.Admins.BaseBans.zip -DestinationPath .
+                  $client.DownloadFile("https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip","Swiftly.Plugin.Admins.BaseCommands.zip")
+                  Expand-Archive Swiftly.Plugin.Admins.BaseCommands.zip -DestinationPath .
+
+                  cd ../../../..
+
             - name: Upload Artifacts Linux
               if: matrix.os == 'Linux'
               uses: actions/upload-artifact@v4
