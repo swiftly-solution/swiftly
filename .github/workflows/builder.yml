@@ -86,6 +86,12 @@ jobs:
                   unzip Swiftly.Plugin.Admins.BaseBans.zip
                   wget https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip
                   unzip Swiftly.Plugin.Admins.BaseCommands.zip
+
+                  rm -rf Swiftly.Plugin.Admins.zip
+                  rm -rf Swiftly.Plugin.Admins.BaseComms.zip
+                  rm -rf Swiftly.Plugin.Admins.BaseBans.zip
+                  rm -rf Swiftly.Plugin.Admins.BaseCommands.zip
+
                   cd ../../../..
                   echo "[Builder] Finished setting up default plugins"
 
@@ -95,7 +101,7 @@ jobs:
               run: |
                   ./setup.ps1
 
-                  cd build/package/addons/swiftly
+                  Set-Location build/package/addons/swiftly
 
                   $client = new-object System.Net.WebClient
                   $client.DownloadFile("https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip","Swiftly.Plugin.Admins.zip")
@@ -107,7 +113,12 @@ jobs:
                   $client.DownloadFile("https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip","Swiftly.Plugin.Admins.BaseCommands.zip")
                   Expand-Archive Swiftly.Plugin.Admins.BaseCommands.zip -DestinationPath .
 
-                  cd ../../../..
+                  Remove-Item -Force Swiftly.Plugin.Admins.zip
+                  Remove-Item -Force Swiftly.Plugin.Admins.BaseComms.zip
+                  Remove-Item -Force Swiftly.Plugin.Admins.BaseBans.zip
+                  Remove-Item -Force Swiftly.Plugin.Admins.BaseCommands.zip
+
+                  Set-Location ../../../..
 
             - name: Upload Artifacts Linux
               if: matrix.os == 'Linux'
