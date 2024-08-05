@@ -76,6 +76,19 @@ jobs:
                   sudo apt install -y libreadline-dev libboost-all-dev fdupes unzip
                   bash ./setup.sh
 
+                  echo "[Builder] Setting up default plugins"
+                  cd build/package/addons/swiftly
+                  wget https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip
+                  unzip Swiftly.Plugin.Admins.zip
+                  wget https://github.com/swiftly-solution/admins_basecomms/releases/latest/download/Swiftly.Plugin.Admins.BaseComms.zip
+                  unzip Swiftly.Plugin.Admins.BaseComms.zip
+                  wget https://github.com/swiftly-solution/admins_basebans/releases/latest/download/Swiftly.Plugin.Admins.BaseBans.zip
+                  unzip Swiftly.Plugin.Admins.BaseBans.zip
+                  wget https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip
+                  unzip Swiftly.Plugin.Admins.BaseCommands.zip
+                  cd ../../../..
+                  echo "[Builder] Finished setting up default plugins"
+
             - name: Prepare Build - Windows
               if: matrix.os == 'windows-latest'
               working-directory: swiftly
