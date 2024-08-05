@@ -27,6 +27,7 @@
 #include "plugins/PluginManager.h"
 #include "plugins/core/scripting.h"
 #include "signatures/Signatures.h"
+#include "signatures/Patches.h"
 #include "signatures/Offsets.h"
 #include "voicemanager/VoiceManager.h"
 
@@ -102,6 +103,7 @@ Precacher *g_precacher = nullptr;
 DatabaseManager *g_dbManager = nullptr;
 MenuManager *g_MenuManager = nullptr;
 ResourceMonitor *g_ResourceMonitor = nullptr;
+Patches *g_Patches = nullptr;
 VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
@@ -148,6 +150,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_conFilter = new ConsoleFilter();
     g_Signatures = new Signatures();
     g_Offsets = new Offsets();
+    g_Patches = new Patches();
     g_playerManager = new PlayerManager();
     g_Logger = new Logger();
     g_translations = new Translations();
@@ -165,6 +168,9 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_Config->LoadPluginConfigurations();
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
+    g_Patches->LoadPatches();
+    g_Patches->PerformPatches();
+
     g_dbManager->LoadDatabases();
 
     g_addons.LoadAddons();
