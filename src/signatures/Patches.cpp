@@ -70,7 +70,7 @@ void Patches::PerformPatch(std::string patch_name)
 {
     if (this->patches.find(patch_name) == this->patches.end())
     {
-        PRINTF("Patch", "Invalid patch name: \"%s\".\n", patch_name.c_str());
+        PLUGIN_PRINTF("Patch", "Invalid patch name: \"%s\".\n", patch_name.c_str());
         return;
     }
 
@@ -80,14 +80,14 @@ void Patches::PerformPatch(std::string patch_name)
     byte *patch = HexToByte(this->patches.at(patch_name).c_str(), iLength);
 
     Plat_WriteMemory(patchAddress, (byte *)patch, iLength);
-    PRINTF("Patch", "Patched \"%s\" using signature \"%s\".\n", patch_name.c_str(), this->signatures.at(patch_name).c_str());
+    PLUGIN_PRINTF("Patch", "Patched \"%s\" using signature \"%s\".\n", patch_name.c_str(), this->signatures.at(patch_name).c_str());
 }
 
 void Patches::PerformPatches()
 {
-    if (g_Config->HasKey("core.patchesToPerform"))
+    if (g_Config->HasKey("core.patches_to_perform"))
     {
-        std::vector<std::string> patchesToPerform = explode(g_Config->FetchValue<std::string>("core.patchesToPerform"), " ");
+        std::vector<std::string> patchesToPerform = explode(g_Config->FetchValue<std::string>("core.patches_to_perform"), " ");
 
         uint32_t patchesPerformed = 0;
         for (std::string &patchName : patchesToPerform)
@@ -99,7 +99,7 @@ void Patches::PerformPatches()
             ++patchesPerformed;
         }
 
-        PRINTF("Patch", "Patches performed: %02d.\n", patchesPerformed);
+        PLUGIN_PRINTF("Patch", "Patches performed: %02d.\n", patchesPerformed);
         patchesToPerform.clear();
     }
 }

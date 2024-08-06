@@ -34,6 +34,396 @@ bool ConfigurationError(std::string configuration_file, std::string error)
     return false;
 }
 
+rapidjson::Value &GetJSONDoc(rapidjson::Document &doc, std::string key, rapidjson::Value &defaultValue, bool &wasCreated)
+{
+    rapidjson::Value *currentDoc = &doc;
+    auto keys = explode(key, ".");
+
+    while (keys.size() > 1)
+    {
+        std::string key = keys[0];
+        keys.erase(keys.begin());
+
+        if (!currentDoc->HasMember(key.c_str()))
+            currentDoc->AddMember(rapidjson::Value().SetString(key.c_str(), doc.GetAllocator()), rapidjson::Value(rapidjson::kObjectType), doc.GetAllocator());
+        else if (!currentDoc->operator[](key.c_str()).IsObject())
+            currentDoc->operator[](key.c_str()).SetObject();
+
+        currentDoc = &currentDoc->operator[](key.c_str());
+    }
+
+    if (!currentDoc->HasMember(keys[0].c_str()))
+    {
+        currentDoc->AddMember(rapidjson::Value().SetString(keys[0].c_str(), doc.GetAllocator()), defaultValue, doc.GetAllocator());
+        wasCreated = true;
+    }
+
+    return currentDoc->operator[](keys[0].c_str());
+}
+
+template <class T>
+void RegisterConfiguration(bool &wasCreated, rapidjson::Document &document, std::string configFilePath, std::string config_prefix, std::string key, T default_value)
+{
+    rapidjson::Value defaultValue;
+
+    if constexpr (std::is_same<T, std::string>::value)
+        defaultValue.SetString(default_value.c_str(), document.GetAllocator());
+    else if constexpr (std::is_same<T, const char *>::value)
+        defaultValue.SetString(default_value, document.GetAllocator());
+    else if constexpr (std::is_same<T, bool>::value)
+        defaultValue.SetBool(default_value);
+    else if constexpr (std::is_same<T, uint64_t>::value)
+        defaultValue.SetUint64(default_value);
+    else if constexpr (std::is_same<T, uint32_t>::value)
+        defaultValue.SetUint(default_value);
+    else if constexpr (std::is_same<T, uint16_t>::value)
+        defaultValue.SetUint(default_value);
+    else if constexpr (std::is_same<T, uint8_t>::value)
+        defaultValue.SetUint(default_value);
+    else if constexpr (std::is_same<T, int64_t>::value)
+        defaultValue.SetInt64(default_value);
+    else if constexpr (std::is_same<T, int32_t>::value)
+        defaultValue.SetInt(default_value);
+    else if constexpr (std::is_same<T, int16_t>::value)
+        defaultValue.SetInt(default_value);
+    else if constexpr (std::is_same<T, int8_t>::value)
+        defaultValue.SetInt(default_value);
+    else if constexpr (std::is_same<T, float>::value)
+        defaultValue.SetFloat(default_value);
+    else if constexpr (std::is_same<T, double>::value)
+        defaultValue.SetDouble(default_value);
+
+    rapidjson::Value &jsonDoc = GetJSONDoc(document, key, defaultValue, wasCreated);
+
+    if constexpr (std::is_same<T, std::string>::value)
+    {
+        if (!jsonDoc.IsString())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, std::string(jsonDoc.GetString()));
+    }
+    else if constexpr (std::is_same<T, const char *>::value)
+    {
+        if (!jsonDoc.IsString())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, std::string(jsonDoc.GetString()));
+    }
+    else if constexpr (std::is_same<T, bool>::value)
+    {
+        if (!jsonDoc.IsBool())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetBool());
+    }
+    else if constexpr (std::is_same<T, uint64_t>::value)
+    {
+        if (!jsonDoc.IsUint64())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetUint64());
+    }
+    else if constexpr (std::is_same<T, uint32_t>::value)
+    {
+        if (!jsonDoc.IsUint())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetUint());
+    }
+    else if constexpr (std::is_same<T, uint16_t>::value)
+    {
+        if (!jsonDoc.IsUint())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetUint());
+    }
+    else if constexpr (std::is_same<T, uint8_t>::value)
+    {
+        if (!jsonDoc.IsUint())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetUint());
+    }
+    else if constexpr (std::is_same<T, int64_t>::value)
+    {
+        if (!jsonDoc.IsInt64())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetInt64());
+    }
+    else if constexpr (std::is_same<T, int32_t>::value)
+    {
+        if (!jsonDoc.IsInt())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetInt());
+    }
+    else if constexpr (std::is_same<T, int16_t>::value)
+    {
+        if (!jsonDoc.IsInt())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetInt());
+    }
+    else if constexpr (std::is_same<T, int8_t>::value)
+    {
+        if (!jsonDoc.IsInt())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetInt());
+    }
+    else if constexpr (std::is_same<T, float>::value)
+    {
+        if (!jsonDoc.IsFloat())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetFloat());
+    }
+    else if constexpr (std::is_same<T, double>::value)
+    {
+        if (!jsonDoc.IsDouble())
+        {
+            jsonDoc = defaultValue;
+            wasCreated = true;
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, jsonDoc.GetDouble());
+    }
+}
+
+template <class T>
+void RegisterConfigurationVector(bool &wasCreated, rapidjson::Document &document, std::string configFilePath, std::string config_prefix, std::string key, std::vector<T> default_value, bool shouldImplode, std::string delimiter)
+{
+    rapidjson::Value defaultValue(rapidjson::kArrayType);
+
+    for (const T &val : default_value)
+    {
+        rapidjson::Value defVal;
+
+        if constexpr (std::is_same<T, std::string>::value)
+            defVal.SetString(val.c_str(), document.GetAllocator());
+        else if constexpr (std::is_same<T, const char *>::value)
+            defVal.SetString(val, document.GetAllocator());
+        else if constexpr (std::is_same<T, bool>::value)
+            defVal.SetBool(val);
+        else if constexpr (std::is_same<T, uint64_t>::value)
+            defVal.SetUint64(val);
+        else if constexpr (std::is_same<T, uint32_t>::value)
+            defVal.SetUint(val);
+        else if constexpr (std::is_same<T, uint16_t>::value)
+            defVal.SetUint(val);
+        else if constexpr (std::is_same<T, uint8_t>::value)
+            defVal.SetUint(val);
+        else if constexpr (std::is_same<T, int64_t>::value)
+            defVal.SetInt64(val);
+        else if constexpr (std::is_same<T, int32_t>::value)
+            defVal.SetInt(val);
+        else if constexpr (std::is_same<T, int16_t>::value)
+            defVal.SetInt(val);
+        else if constexpr (std::is_same<T, int8_t>::value)
+            defVal.SetInt(val);
+        else if constexpr (std::is_same<T, float>::value)
+            defVal.SetFloat(val);
+        else if constexpr (std::is_same<T, double>::value)
+            defVal.SetDouble(val);
+
+        defaultValue.PushBack(defVal, document.GetAllocator());
+    }
+
+    rapidjson::Value &jsonDoc = GetJSONDoc(document, key, defaultValue, wasCreated);
+
+    if (!jsonDoc.IsArray())
+    {
+        jsonDoc = defaultValue;
+        wasCreated = true;
+    }
+
+    std::vector<T> result;
+
+    auto arr = jsonDoc.GetArray();
+
+    for (rapidjson::SizeType i = 0; i < arr.Size(); i++)
+    {
+        if constexpr (std::is_same<T, std::string>::value)
+        {
+            if (!arr[i].IsString())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not a string.\n", key.c_str(), i));
+                continue;
+            }
+
+            result.push_back(std::string(arr[i].GetString()));
+        }
+        else if constexpr (std::is_same<T, const char *>::value)
+        {
+            if (!arr[i].IsString())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not a string.\n", key.c_str(), i));
+                continue;
+            }
+
+            result.push_back(arr[i].GetString());
+        }
+        else if constexpr (std::is_same<T, bool>::value)
+        {
+            if (!arr[i].IsBool())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not a boolean.\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back(arr[i].GetBool());
+        }
+        else if constexpr (std::is_same<T, uint64_t>::value)
+        {
+            if (!arr[i].IsInt64())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not an unsigned integer (64-bit).\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back(arr[i].GetUint64());
+        }
+        else if constexpr (std::is_same<T, uint32_t>::value)
+        {
+            if (!arr[i].IsInt())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not an unsigned integer (32-bit).\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back(arr[i].GetUint());
+        }
+        else if constexpr (std::is_same<T, uint16_t>::value)
+        {
+            if (!arr[i].IsInt())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not an unsigned integer (16-bit).\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back((uint16_t)arr[i].GetUint());
+        }
+        else if constexpr (std::is_same<T, uint8_t>::value)
+        {
+            if (!arr[i].IsInt())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not an unsigned integer (8-bit).\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back((uint8_t)arr[i].GetUint());
+        }
+        else if constexpr (std::is_same<T, int64_t>::value)
+        {
+            if (!arr[i].IsInt64())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not an integer (64-bit).\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back(arr[i].GetInt64());
+        }
+        else if constexpr (std::is_same<T, int32_t>::value)
+        {
+            if (!arr[i].IsInt())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not an integer (32-bit).\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back(arr[i].GetInt());
+        }
+        else if constexpr (std::is_same<T, int16_t>::value)
+        {
+            if (!arr[i].IsInt())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not an integer (16-bit).\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back((int16_t)arr[i].GetInt());
+        }
+        else if constexpr (std::is_same<T, int8_t>::value)
+        {
+            if (!arr[i].IsInt())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not an integer (8-bit).\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back((int8_t)arr[i].GetInt());
+        }
+        else if constexpr (std::is_same<T, float>::value)
+        {
+            if (!arr[i].IsFloat())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not a float.\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back(arr[i].GetFloat());
+        }
+        else if constexpr (std::is_same<T, double>::value)
+        {
+            if (!arr[i].IsFloat())
+            {
+                ConfigurationError(configFilePath + ".json", string_format("The field \"%s[%d]\" is not a double.\n", key.c_str(), i));
+                continue;
+            }
+            result.push_back(arr[i].GetDouble());
+        }
+        else
+        {
+            ConfigurationError(configFilePath + ".json", string_format("Invalid data type: %s.\n", typeid(T).name()));
+            return;
+        }
+    }
+
+    if (shouldImplode)
+    {
+        std::vector<std::string> implodeArr;
+        for (const T &val : result)
+        {
+            if constexpr (std::is_same<T, std::string>::value)
+                implodeArr.push_back(val);
+            else if constexpr (std::is_same<T, const char *>::value)
+                implodeArr.push_back(std::string(val));
+            else
+                implodeArr.push_back(std::to_string(val));
+        }
+
+        g_Config->SetValue(config_prefix + "." + key, implode(implodeArr, delimiter));
+    }
+    else
+        g_Config->SetValue(config_prefix + "." + key, result);
+}
+
 bool Configuration::LoadConfiguration()
 {
     rapidjson::Document coreConfigFile;
@@ -44,46 +434,28 @@ bool Configuration::LoadConfiguration()
     if (coreConfigFile.IsArray())
         return ConfigurationError("core.json", "Core configuration file cannot be an array.");
 
-    HAS_MEMBER("core.json", coreConfigFile, "logging", "logging");
-    IS_OBJECT("core.json", coreConfigFile, "logging", "logging");
-    HAS_MEMBER("core.json", coreConfigFile["logging"], "enabled", "logging.enabled");
-    IS_BOOL("core.json", coreConfigFile["logging"], "enabled", "logging.enabled");
-    HAS_MEMBER("core.json", coreConfigFile["logging"], "mode", "logging.mode");
-    IS_STRING("core.json", coreConfigFile["logging"], "mode", "logging.mode");
+    bool wasEdited = false;
+
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "logging.enabled", true);
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "logging.mode", std::string("daily"));
 
     std::string loggingMode = std::string(coreConfigFile["logging"]["mode"].GetString());
     if (loggingMode != "daily" && loggingMode != "map" && loggingMode != "permanent")
         return ConfigurationError("core.json", "The field \"logging.mode\" needs to be: \"daily\" or \"map\".");
 
-    HAS_MEMBER("core.json", coreConfigFile, "commandPrefixes", "commandPrefixes");
-    IS_ARRAY("core.json", coreConfigFile, "commandPrefixes", "commandPrefixes");
-    for (unsigned int i = 0; i < coreConfigFile["commandPrefixes"].Size(); i++)
-        IS_STRING("core.json", coreConfigFile["commandPrefixes"], i, string_format("commandPrefixes[%d]", i).c_str());
+    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "commandPrefixes", {"!"}, true, " ");
+    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "commandSilentPrefixes", {"/"}, true, " ");
+    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "patches_to_perform", {}, true, " ");
 
-    HAS_MEMBER("core.json", coreConfigFile, "commandSilentPrefixes", "commandSilentPrefixes");
-    IS_ARRAY("core.json", coreConfigFile, "commandSilentPrefixes", "commandSilentPrefixes");
-    for (unsigned int i = 0; i < coreConfigFile["commandSilentPrefixes"].Size(); i++)
-        IS_STRING("core.json", coreConfigFile["commandSilentPrefixes"], i, string_format("commandSilentPrefixes[%d]", i).c_str());
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "CS2ServerGuidelines", "https://blog.counter-strike.net/index.php/server_guidelines/");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "FollowCS2ServerGuidelines", true);
 
-    if (coreConfigFile.HasMember("patches_to_perform"))
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "console_filtering", true);
+
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "language", "en");
+
+    if (wasEdited)
     {
-        IS_ARRAY("core.json", coreConfigFile, "patches_to_perform", "patches_to_perform");
-        for (unsigned int i = 0; i < coreConfigFile["patches_to_perform"].Size(); i++)
-            IS_STRING("core.json", coreConfigFile["patches_to_perform"], i, string_format("patches_to_perform[%d]", i).c_str());
-
-        std::vector<std::string> patchesToPerform;
-
-        for (uint32 i = 0; i < coreConfigFile["patches_to_perform"].Size(); i++)
-            patchesToPerform.push_back(std::string(coreConfigFile["patches_to_perform"][i].GetString()));
-
-        this->SetValue("core.patchesToPerform", implode(patchesToPerform, " "));
-    }
-
-    if (!coreConfigFile.HasMember("FollowCS2ServerGuidelines"))
-    {
-        coreConfigFile.AddMember(rapidjson::Value().SetString("CS2ServerGuidelines", coreConfigFile.GetAllocator()), rapidjson::Value().SetString("https://blog.counter-strike.net/index.php/server_guidelines/", coreConfigFile.GetAllocator()), coreConfigFile.GetAllocator());
-        coreConfigFile.AddMember(rapidjson::Value().SetString("FollowCS2ServerGuidelines", coreConfigFile.GetAllocator()), rapidjson::Value().SetBool(true), coreConfigFile.GetAllocator());
-
         rapidjson::StringBuffer buffer;
         rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
 
@@ -91,37 +463,7 @@ bool Configuration::LoadConfiguration()
         std::string content = buffer.GetString();
 
         Files::Write("addons/swiftly/configs/core.json", content, false);
-
-        this->SetValue("core.FollowCS2ServerGuidelines", true);
     }
-    else
-    {
-        IS_BOOL("core.json", coreConfigFile, "FollowCS2ServerGuidelines", "FollowCS2ServerGuidelines");
-        this->SetValue("core.FollowCS2ServerGuidelines", coreConfigFile["FollowCS2ServerGuidelines"].GetBool());
-    }
-
-    HAS_MEMBER("core.json", coreConfigFile, "console_filtering", "console_filtering");
-    IS_BOOL("core.json", coreConfigFile, "console_filtering", "console_filtering");
-
-    HAS_MEMBER("core.json", coreConfigFile, "language", "language");
-    IS_STRING("core.json", coreConfigFile, "language", "language");
-
-    this->SetValue("core.logging.enabled", coreConfigFile["logging"]["enabled"].GetBool());
-    this->SetValue("core.logging.mode", std::string(coreConfigFile["logging"]["mode"].GetString()));
-
-    std::vector<std::string> commandPrefixes;
-    std::vector<std::string> silentCommandPrefixes;
-
-    for (uint32 i = 0; i < coreConfigFile["commandPrefixes"].Size(); i++)
-        commandPrefixes.push_back(std::string(coreConfigFile["commandPrefixes"][i].GetString()));
-    for (uint32 i = 0; i < coreConfigFile["commandSilentPrefixes"].Size(); i++)
-        silentCommandPrefixes.push_back(std::string(coreConfigFile["commandSilentPrefixes"][i].GetString()));
-
-    this->SetValue("core.commandPrefixes", implode(commandPrefixes, " "));
-    this->SetValue("core.silentCommandPrefixes", implode(silentCommandPrefixes, " "));
-
-    this->SetValue("core.console_filtering", coreConfigFile["console_filtering"].GetBool());
-    this->SetValue("core.language", std::string(coreConfigFile["language"].GetString()));
 
     this->loaded = true;
 

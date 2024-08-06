@@ -21,7 +21,7 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
         return -1;
 
     std::vector<std::string> commandPrefixes = explode(g_Config->FetchValue<std::string>("core.commandPrefixes"), " ");
-    std::vector<std::string> silentCommandPrefixes = explode(g_Config->FetchValue<std::string>("core.silentCommandPrefixes"), " ");
+    std::vector<std::string> silentCommandPrefixes = explode(g_Config->FetchValue<std::string>("core.commandSilentPrefixes"), " ");
     bool isCommand = (std::find(commandPrefixes.begin(), commandPrefixes.end(), std::string(1, text.at(0))) != commandPrefixes.end());
     bool isSilentCommand = (std::find(silentCommandPrefixes.begin(), silentCommandPrefixes.end(), std::string(1, text.at(0))) != silentCommandPrefixes.end());
 
