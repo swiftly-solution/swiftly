@@ -19,6 +19,7 @@ bool BeginCrashListener() { return true; }
 #include <sstream>
 
 #include <random>
+#include <atomic>
 
 #include "../files/Files.h"
 #include "../common.h"
@@ -27,6 +28,8 @@ bool BeginCrashListener() { return true; }
 std::string startup_cmd = "None";
 
 const char *ws = " \t\n\r\f\v";
+
+std::atomic<bool> exitProgram(false);
 
 // trim from end of string (right)
 inline std::string &rtrim(std::string &s, const char *t = ws)
@@ -161,7 +164,7 @@ void signal_handler(int signumber)
         PLUGIN_PRINTF("Crash Reporter", "Error crash handling: %s\n", e.what());
     }
 
-    exit(EXIT_FAILURE);
+    exitProgram = true;
 }
 
 bool BeginCrashListener()
@@ -176,11 +179,12 @@ bool BeginCrashListener()
     }
 
     ::signal(SIGSEGV, &signal_handler);
+    ::signal(SIGABRT, &signal_handler);
 
     startup_cmd = CommandLine()->GetCmdLine();
     std::vector<std::string> exp = explode(startup_cmd, " ");
     std::vector<std::string> exp2;
-    for (int i = 1; i < exp.size(); i++)
+    for (std::size_t i = 1; i < exp.size(); i++)
     {
         std::string str = trim(exp[i]);
         if (str.length() == 0)
@@ -194,6 +198,12 @@ bool BeginCrashListener()
     startup_cmd = implode(exp2, " ");
 
     return true;
+}
+
+void CrashReporterListener()
+{
+    if (exitProgram.load())
+        exit(EXIT_FAILURE);
 }
 
 #endif
