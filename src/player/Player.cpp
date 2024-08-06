@@ -5,6 +5,7 @@
 #include "../utils/utils.h"
 #include "../menus/MenuManager.h"
 #include "../commands/CommandsManager.h"
+#include "../configuration/Configuration.h"
 
 #include "networkbasetypes.pb.h"
 #include "../sdk/entity/CRecipientFilters.h"
@@ -471,15 +472,25 @@ void Player::PerformMenuAction(std::string button)
     if (!this->HasMenuShown())
         return;
 
-    if (button == "shift")
+    if (button == g_Config->FetchValue<std::string>("core.menu.buttons.scroll"))
     {
-        this->PerformCommand("play sounds/ui/csgo_ui_contract_type2.vsnd_c");
+        CCSPlayerController *controller = this->GetPlayerController();
+        if (controller)
+            controller->EmitSound(g_Config->FetchValue<std::string>("core.menu.sound.name"), 100, g_Config->FetchValue<double>("core.menu.sound.volume"), 0);
+
         this->MoveSelection();
         this->RenderMenu();
     }
-    else if (button == "e")
+    else if (!g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && button == g_Config->FetchValue<std::string>("core.menu.buttons.exit.button"))
     {
-        this->PerformCommand("play sounds/ui/csgo_ui_contract_type2.vsnd_c");
+        this->HideMenu();
+    }
+    else if (button == g_Config->FetchValue<std::string>("core.menu.buttons.use"))
+    {
+        CCSPlayerController *controller = this->GetPlayerController();
+        if (controller)
+            controller->EmitSound(g_Config->FetchValue<std::string>("core.menu.sound.name"), 100, g_Config->FetchValue<double>("core.menu.sound.volume"), 0);
+
         std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
         if (cmd == "menunext")
         {
@@ -491,7 +502,7 @@ void Player::PerformMenuAction(std::string button)
             this->SetPage(this->GetPage() - 1);
             this->RenderMenu();
         }
-        else if (cmd == "menuexit")
+        else if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && cmd == "menuexit")
         {
             this->HideMenu();
         }

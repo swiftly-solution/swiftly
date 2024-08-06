@@ -42,7 +42,11 @@
         "ro": "Ieșire"
     },
     "menu.footer": {
-        "en": "SHIFT - Cycle | E - Select | Page {PAGE}/{MAXPAGES}",
-        "ro": "SHIFT - Schimbă | E - Selectează | Pagina {PAGE}/{MAXPAGES}"
+        "en": "{CYCLE_BUTTON} - Cycle | {USE_BUTTON} - Select | Page {PAGE}/{MAXPAGES}",
+        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează | Pagina {PAGE}/{MAXPAGES}"
+    },
+    "menu.footer.nooption": {
+        "en": "{CYCLE_BUTTON} - Cycle | {USE_BUTTON} - Select | {EXIT_BUTTON} - Exit | Page {PAGE}/{MAXPAGES}",
+        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează | {EXIT_BUTTON} - Ieșire | Pagina {PAGE}/{MAXPAGES}"
     }
 }

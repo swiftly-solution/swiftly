@@ -1,6 +1,7 @@
 #include "Menu.h"
 
 #include "../utils/utils.h"
+#include "../configuration/Configuration.h"
 
 Menu::Menu(std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool tmp)
 {
@@ -43,7 +44,6 @@ size_t Menu::GetItemsOnPage(int page)
     return processedOptions[page - 1].size();
 }
 
-// TODO: Translation for Next, Back, Exit (Maybe a file called Generic for generic translations?)
 void Menu::ProcessOptions()
 {
     int pages = 0;
@@ -51,19 +51,21 @@ void Menu::ProcessOptions()
     int totalProcessedItems = 0;
     std::vector<std::pair<std::string, std::string>> tempmap;
 
+    int maxProcessedItems = (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? (pages == 0 ? 4 : 3) : (pages == 0 ? 5 : 4));
     for (const std::pair<std::string, std::string> entry : this->options)
     {
         ++processedItems;
         ++totalProcessedItems;
         tempmap.push_back({entry.first, entry.second});
-        if (processedItems == (pages == 0 ? 4 : 3))
+        if (processedItems == maxProcessedItems)
         {
             if (options.size() - totalProcessedItems > 0)
                 tempmap.push_back({g_translations->FetchTranslation("core.menu.next"), "menunext"});
             if (pages != 0)
                 tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
 
-            tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
+            if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option"))
+                tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
 
             processedItems = 0;
             pages++;
@@ -77,7 +79,8 @@ void Menu::ProcessOptions()
         if (this->processedOptions.size() != 0)
             tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
 
-        tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
+        if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option"))
+            tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
 
         processedItems = 0;
         this->processedOptions.push_back(tempmap);
@@ -104,7 +107,13 @@ void Menu::RegeneratePage(int playerid, int page, int selected)
     for (int i = 0; i < processedOptions[page - 1].size(); i++)
         stringPage += string_format("<div><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? "➤&nbsp;" : "&nbsp;&nbsp;&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
 
-    stringPage += string_format("<font class='fontSize-s'>%s</font>", replace(replace(g_translations->FetchTranslation("core.menu.footer"), "{PAGE}", std::to_string(page)), "{MAXPAGES}", std::to_string(processedOptions.size())).c_str());
+    std::string footer = replace(g_translations->FetchTranslation(g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.footer" : "core.menu.footer.nooption"), "{PAGE}", std::to_string(page));
+    footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
+    footer = replace(footer, "{CYCLE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.scroll")));
+    footer = replace(footer, "{USE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.use")));
+    footer = replace(footer, "{EXIT_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.exit.button")));
+
+    stringPage += string_format("<font class='fontSize-s'>%s</font>", footer.c_str());
 
     this->generatedPages[playerid][page - 1] = stringPage;
 }

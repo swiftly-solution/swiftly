@@ -13,5 +13,19 @@
     "language": "en",
     "patches_to_perform": [],
     "CS2ServerGuidelines": "https://blog.counter-strike.net/index.php/server_guidelines/",
-    "FollowCS2ServerGuidelines": true
+    "FollowCS2ServerGuidelines": true,
+    "menu": {
+        "sound": {
+            "name": "UI.ContractType",
+            "volume": 0.75
+        },
+        "buttons": {
+            "use": "e",
+            "scroll": "shift",
+            "exit": {
+                "option": false,
+                "button": "tab"
+            }
+        }
+    }
 }

@@ -454,6 +454,14 @@ bool Configuration::LoadConfiguration()
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "language", "en");
 
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.name", "UI.ContractType");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.volume", 0.75);
+
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.buttons.use", "e");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.buttons.scroll", "shift");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.buttons.exit.option", false);
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.buttons.exit.button", "tab");
+
     if (wasEdited)
     {
         rapidjson::StringBuffer buffer;
