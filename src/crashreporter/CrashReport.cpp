@@ -2,6 +2,7 @@
 
 #ifdef _WIN32
 bool BeginCrashListener() { return true; }
+void CrashReporterListener() {}
 #else
 
 #include <rapidjson/document.h>
