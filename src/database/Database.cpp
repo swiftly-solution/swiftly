@@ -58,7 +58,7 @@ std::any ParseFieldType(enum_field_types type, const char *value)
     else
     {
         PLUGIN_PRINTF("Database - ParseFieldType", "Invalid field type: %d.\n", type);
-        return 0;
+        return std::string("NULL");
     }
 }
 
