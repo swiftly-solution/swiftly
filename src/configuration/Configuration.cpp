@@ -3,28 +3,6 @@
 
 #include "../utils/utils.h"
 
-#include <rapidjson/document.h>
-#include <rapidjson/error/en.h>
-#include <rapidjson/prettywriter.h>
-#include <rapidjson/stringbuffer.h>
-
-#define HAS_MEMBER(FILE, DOCUMENT, MEMBER_NAME, MEMBER_PATH) \
-    if (!DOCUMENT.HasMember(MEMBER_NAME))                    \
-    return ConfigurationError(FILE, string_format("The field \"%s\" doesn't exists.", MEMBER_PATH))
-
-#define IS_OBJECT(FILE, DOCUMENT, MEMBER_NAME, MEMBER_PATH) \
-    if (!DOCUMENT[MEMBER_NAME].IsObject())                  \
-    return ConfigurationError(FILE, string_format("The field \"%s\" is not an object.", MEMBER_PATH))
-#define IS_ARRAY(FILE, DOCUMENT, MEMBER_NAME, MEMBER_PATH) \
-    if (!DOCUMENT[MEMBER_NAME].IsArray())                  \
-    return ConfigurationError(FILE, string_format("The field \"%s\" is not an array.", MEMBER_PATH))
-#define IS_STRING(FILE, DOCUMENT, MEMBER_NAME, MEMBER_PATH) \
-    if (!DOCUMENT[MEMBER_NAME].IsString())                  \
-    return ConfigurationError(FILE, string_format("The field \"%s\" is not a string.", MEMBER_PATH))
-#define IS_BOOL(FILE, DOCUMENT, MEMBER_NAME, MEMBER_PATH) \
-    if (!DOCUMENT[MEMBER_NAME].IsBool())                  \
-    return ConfigurationError(FILE, string_format("The field \"%s\" is not a boolean.", MEMBER_PATH))
-
 bool ConfigurationError(std::string configuration_file, std::string error)
 {
     if (!g_SMAPI)
@@ -32,6 +10,17 @@ bool ConfigurationError(std::string configuration_file, std::string error)
 
     PLUGIN_PRINTF("Configurations", "Error: %s: %s\n", configuration_file.c_str(), error.c_str());
     return false;
+}
+
+void WritePluginFile(std::string path, rapidjson::Value &val)
+{
+    rapidjson::StringBuffer buffer;
+    rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
+
+    val.Accept(writer);
+    std::string content = buffer.GetString();
+
+    Files::Write(path, content, false);
 }
 
 rapidjson::Value &GetJSONDoc(rapidjson::Document &doc, std::string key, rapidjson::Value &defaultValue, bool &wasCreated)
@@ -464,13 +453,7 @@ bool Configuration::LoadConfiguration()
 
     if (wasEdited)
     {
-        rapidjson::StringBuffer buffer;
-        rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
-
-        coreConfigFile.Accept(writer);
-        std::string content = buffer.GetString();
-
-        Files::Write("addons/swiftly/configs/core.json", content, false);
+        WritePluginFile("addons/swiftly/configs/core.json", coreConfigFile);
     }
 
     this->loaded = true;
@@ -554,8 +537,11 @@ void Configuration::LoadPluginConfigurations()
             continue;
         }
 
+        std::string main_key = explode(configFileName, ".json")[0];
         rapidjson::Value &root = configurationFile;
-        LoadConfigPart(explode(configFileName, ".json")[0], root);
+
+        g_Config->SetValue(main_key, true);
+        LoadConfigPart(main_key, root);
     }
 }
 
@@ -566,10 +552,14 @@ void Configuration::LoadPluginConfig(std::string key)
     if (Files::Read(configFilePath).size() == 0)
         return;
 
+    key = replace(key, "/", ".");
+    key = replace(key, "\\", ".");
+
     std::vector<std::string> toRemoveKeys;
     for (std::map<std::string, std::any>::iterator it = this->config.begin(); it != this->config.end(); ++it)
-        if (starts_with(it->first, key = "."))
+        if (starts_with(it->first, key + "."))
             toRemoveKeys.push_back(it->first);
+    toRemoveKeys.push_back(key);
 
     for (std::string k : toRemoveKeys)
         this->config.erase(k);
@@ -588,8 +578,14 @@ void Configuration::LoadPluginConfig(std::string key)
         return;
     }
 
+    configFileName = replace(configFileName, "/", ".");
+    configFileName = replace(configFileName, "\\", ".");
+    std::string main_key = explode(configFileName, ".json")[0];
+
     rapidjson::Value &root = configurationFile;
-    LoadConfigPart(explode(configFileName, ".json")[0], root);
+
+    g_Config->SetValue(main_key, true);
+    LoadConfigPart(main_key, root);
 }
 
 template <typename T>

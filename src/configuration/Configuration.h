@@ -5,6 +5,11 @@
 #include <map>
 #include <any>
 
+#include <rapidjson/document.h>
+#include <rapidjson/error/en.h>
+#include <rapidjson/prettywriter.h>
+#include <rapidjson/stringbuffer.h>
+
 class Configuration
 {
 private:
@@ -43,5 +48,7 @@ T Configuration::FetchValue(std::string key)
 
     return std::any_cast<T>(this->config.at(key));
 }
+
+void WritePluginFile(std::string path, rapidjson::Value &val);
 
 #endif

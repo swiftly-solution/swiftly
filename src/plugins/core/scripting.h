@@ -374,6 +374,8 @@ public:
     std::any Fetch(std::string key);
 
     luabridge::LuaRef FetchLua(std::string key, lua_State *L);
+
+    void CreateLua(std::string configurationKey, luabridge::LuaRef table, lua_State *L);
 };
 
 //////////////////////////////////////////////////////////////

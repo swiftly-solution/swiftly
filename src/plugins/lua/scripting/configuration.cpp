@@ -9,6 +9,7 @@ void SetupLuaConfiguration(LuaPlugin *plugin, lua_State *state)
         .addFunction("Reload", &PluginConfiguration::Reload)
         .addFunction("FetchArraySize", &PluginConfiguration::FetchArraySize)
         .addFunction("Fetch", &PluginConfiguration::FetchLua)
+        .addFunction("Create", &PluginConfiguration::CreateLua)
         .endClass();
 
     luaL_dostring(state, "config = Configuration(GetCurrentPluginName())");
