@@ -74,5 +74,5 @@ function CallHook(hookHandle, ...)
         return
     end
 
-    return hook:Call(hookHandle.hookId, msgpack.pack({...}))
+    return hooks:Call(hookHandle.hookId, msgpack.pack({...}))
 end
