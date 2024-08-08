@@ -17,7 +17,6 @@ FuncHook<decltype(Hook_FireOutputInternal)> TFireOutputInternal(Hook_FireOutputI
 
 std::map<dyno::IHook *, std::vector<Hook>> hooksList;
 std::map<std::string, dyno::IHook *> hooksMap;
-DCCallVM *g_pCallVM = dcNewCallVM(4096);
 
 PluginHooks::PluginHooks(std::string plugin_name)
 {
@@ -142,14 +141,6 @@ std::string PluginHooks::AddHook(PluginMemory mem, std::string args_list, std::s
     return id;
 }
 
-template <class ReturnType, class Function>
-ReturnType CallHelper(Function func, DCCallVM *vm, void *addr)
-{
-    return (ReturnType)func(vm, (void *)addr);
-}
-
-void CallHelperVoid(DCCallVM *vm, void *addr) { dcCallVoid(vm, (void *)addr); }
-
 luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookPayload, lua_State *L)
 {
     if (hooksMap.find(hookId) == hooksMap.end())
@@ -175,32 +166,34 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
             args.push_back(main_obj.via.array.ptr[i]);
     }
 
-    dcReset(g_pCallVM);
-    dcMode(g_pCallVM, DC_CALL_C_DEFAULT);
+    DCCallVM *pCallVM = dcNewCallVM(4096);
+
+    dcReset(pCallVM);
+    dcMode(pCallVM, DC_CALL_C_DEFAULT);
 
     for (size_t i = 0; i < args.size(); i++)
     {
-        if (hk.argsList.size() >= i)
+        if (hk.argsList.size() <= i)
             break;
 
         if (hk.argsList.at(i) == 'p')
-            dcArgPointer(g_pCallVM, (void *)(strtol(args[i].as<std::string>().c_str(), nullptr, 16)));
+            dcArgPointer(pCallVM, (void *)(strtol(args[i].as<std::string>().c_str(), nullptr, 16)));
         else if (hk.argsList.at(i) == 'f')
-            dcArgFloat(g_pCallVM, args[i].as<float>());
+            dcArgFloat(pCallVM, args[i].as<float>());
         else if (hk.argsList.at(i) == 'b')
-            dcArgBool(g_pCallVM, args[i].as<bool>());
+            dcArgBool(pCallVM, args[i].as<bool>());
         else if (hk.argsList.at(i) == 'd')
-            dcArgDouble(g_pCallVM, args[i].as<double>());
+            dcArgDouble(pCallVM, args[i].as<double>());
         else if (hk.argsList.at(i) == 'i')
-            dcArgInt(g_pCallVM, args[i].as<int>());
+            dcArgInt(pCallVM, args[i].as<int>());
         else if (hk.argsList.at(i) == 'u')
-            dcArgLong(g_pCallVM, args[i].as<uint32_t>());
+            dcArgLong(pCallVM, args[i].as<uint32_t>());
         else if (hk.argsList.at(i) == 's')
-            dcArgPointer(g_pCallVM, (void *)args[i].as<std::string>().c_str());
+            dcArgPointer(pCallVM, (void *)args[i].as<std::string>().c_str());
         else if (hk.argsList.at(i) == 'I')
-            dcArgLongLong(g_pCallVM, args[i].as<int64_t>());
+            dcArgLongLong(pCallVM, args[i].as<int64_t>());
         else if (hk.argsList.at(i) == 'U')
-            dcArgLongLong(g_pCallVM, args[i].as<uint64_t>());
+            dcArgLongLong(pCallVM, args[i].as<uint64_t>());
         else
         {
             PRINTF("Invalid Data Type: '%c'.\n", hk.argsList.at(i));
@@ -210,26 +203,26 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
 
     std::any retval = nullptr;
     if (hk.retType.at(0) == 'p')
-        retval = string_format("%p", CallHelper<void *>(dcCallPointer, g_pCallVM, hk.ptr));
+        retval = string_format("%p", (void *)dcCallPointer(pCallVM, hk.ptr));
     else if (hk.retType.at(0) == 'f')
-        retval = CallHelper<float>(dcCallFloat, g_pCallVM, hk.ptr);
+        retval = (float)dcCallFloat(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 'b')
-        retval = CallHelper<bool>(dcCallBool, g_pCallVM, hk.ptr);
+        retval = (bool)dcCallBool(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 'd')
-        retval = CallHelper<double>(dcCallDouble, g_pCallVM, hk.ptr);
+        retval = (double)dcCallDouble(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 'i')
-        retval = CallHelper<int>(dcCallInt, g_pCallVM, hk.ptr);
+        retval = (int)dcCallInt(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 'u')
-        retval = CallHelper<uint32_t>(dcCallInt, g_pCallVM, hk.ptr);
+        retval = (uint32_t)dcCallInt(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 's')
-        retval = std::string(CallHelper<const char *>(dcCallPointer, g_pCallVM, hk.ptr));
+        retval = std::string((const char *)dcCallPointer(pCallVM, hk.ptr));
     else if (hk.retType.at(0) == 'I')
-        retval = CallHelper<int64_t>(dcCallLongLong, g_pCallVM, hk.ptr);
+        retval = (int64_t)dcCallLongLong(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 'U')
-        retval = CallHelper<uint64_t>(dcCallLongLong, g_pCallVM, hk.ptr);
+        retval = (uint64_t)dcCallLongLong(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 'v')
     {
-        CallHelperVoid(g_pCallVM, hk.ptr);
+        dcCallVoid(pCallVM, hk.ptr);
         retval = nullptr;
     }
     else
@@ -237,6 +230,9 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
         PRINTF("Invalid return type: '%c'.\n", hk.retType.at(0));
         retval = nullptr;
     }
+
+    dcFree(pCallVM);
+
     return LuaSerializeData(retval, L);
 }
 
