@@ -2,7 +2,6 @@
 
 #ifdef _WIN32
 bool BeginCrashListener() { return true; }
-void CrashReporterListener() {}
 #else
 
 #include <rapidjson/document.h>
@@ -20,7 +19,6 @@ void CrashReporterListener() {}
 #include <sstream>
 
 #include <random>
-#include <atomic>
 
 #include "../files/Files.h"
 #include "../common.h"
@@ -29,8 +27,6 @@ void CrashReporterListener() {}
 std::string startup_cmd = "None";
 
 const char *ws = " \t\n\r\f\v";
-
-std::atomic<bool> exitProgram(false);
 
 // trim from end of string (right)
 inline std::string &rtrim(std::string &s, const char *t = ws)
@@ -165,7 +161,7 @@ void signal_handler(int signumber)
         PLUGIN_PRINTF("Crash Reporter", "Error crash handling: %s\n", e.what());
     }
 
-    exitProgram = true;
+    exit(EXIT_FAILURE);
 }
 
 bool BeginCrashListener()
@@ -198,12 +194,6 @@ bool BeginCrashListener()
     startup_cmd = implode(exp2, " ");
 
     return true;
-}
-
-void CrashReporterListener()
-{
-    if (exitProgram.load())
-        exit(EXIT_FAILURE);
 }
 
 #endif

@@ -350,8 +350,6 @@ GameFrameMsgPackCache gameFrameCache = {
     false,
 };
 
-void CrashReporterListener();
-
 void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     PERF_RECORD("GameFrame", "core")
@@ -369,12 +367,6 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 
         g_flNextUpdate = curtime + 5.0;
     }
-
-    //////////////////////////////////////////////////////////////
-    /////////////////        Crash Reporter        //////////////
-    ////////////////////////////////////////////////////////////
-
-    CrashReporterListener();
 
     //////////////////////////////////////////////////////////////
     /////////////////         Game Event           //////////////
