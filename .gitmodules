@@ -27,4 +27,4 @@
 [submodule "vendor/asmjit"]
 	path = vendor/asmjit
 	url = https://github.com/asmjit/asmjit
-	branch = 0dd16b0a98ae1da48563c9cc62f757a9e6bbe9b6
+	branch = 51b10b19b6631434d3f9ad536a6fb140944a36d2

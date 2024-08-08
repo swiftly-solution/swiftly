@@ -30,11 +30,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 			if fnmatch.fnmatch(_file, '*.cpp'):
 				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
-	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, "vendor", "asmtk", "src", "asmtk")):
-		for _file in files:
-			if fnmatch.fnmatch(_file, '*.cpp'):
-				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
-
 	binary.sources.append("vendor/dynlib/module.cpp")
 	binary.sources.append("vendor/msgpack-lua/msgpack.cpp")
 
