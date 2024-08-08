@@ -180,7 +180,6 @@ bool BeginCrashListener()
     }
 
     ::signal(SIGSEGV, &signal_handler);
-    ::signal(SIGABRT, &signal_handler);
 
     startup_cmd = CommandLine()->GetCmdLine();
     std::vector<std::string> exp = explode(startup_cmd, " ");
