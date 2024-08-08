@@ -23,7 +23,7 @@ public:
     int HandleCommand(Player *player, std::string text);
 
     Command *FetchCommand(std::string cmd);
-    void RegisterCommand(std::string plugin_name, std::string cmd, Command *command);
+    void RegisterCommand(std::string plugin_name, std::string cmd, Command *command, bool registerRaw = false);
     void UnregisterCommand(std::string cmd);
 
     std::vector<std::string> FetchCommandsByPlugin(std::string plugin_name)

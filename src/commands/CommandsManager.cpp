@@ -60,25 +60,32 @@ Command *CommandsManager::FetchCommand(std::string cmd)
     return this->commands.at(cmd);
 }
 
-void CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, Command *command)
+void CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, Command *command, bool registerRaw)
 {
-    if (this->commands.find(cmd) != this->commands.end())
-        return;
 
-    this->commands.insert({cmd, command});
-    this->commandAliases.insert({cmd, {}});
+    if (!registerRaw)
+    {
+        if (this->commands.find(cmd) != this->commands.end())
+            return;
 
-    if (this->commandsByPlugin.find(plugin_name) == this->commandsByPlugin.end())
-        this->commandsByPlugin.insert({plugin_name, {}});
+        this->commands.insert({cmd, command});
+        this->commandAliases.insert({cmd, {}});
 
-    this->commandsByPlugin[plugin_name].push_back(cmd);
+        if (this->commandsByPlugin.find(plugin_name) == this->commandsByPlugin.end())
+            this->commandsByPlugin.insert({plugin_name, {}});
+
+        this->commandsByPlugin[plugin_name].push_back(cmd);
+    }
+
+    if (!registerRaw)
+        cmd = "sw_" + cmd;
 
     if (conCommandCreated.find(cmd) == conCommandCreated.end())
     {
         conCommandCreated.insert({cmd, true});
 
         ConCommandRefAbstract commandRef;
-        new ConCommand(&commandRef, ("sw_" + cmd).c_str(), commandsCallback, "Swiftly Command", (1 << 25) | (1 << 0) | (1 << 24));
+        new ConCommand(&commandRef, cmd.c_str(), commandsCallback, "Swiftly Command", (1 << 25) | (1 << 0) | (1 << 24));
     }
 }
 
@@ -109,7 +116,7 @@ static void commandsCallback(const CCommandContext &context, const CCommand &arg
     CCommand tokenizedArgs;
     tokenizedArgs.Tokenize(args.GetCommandString());
 
-    std::string commandName = (tokenizedArgs[0] + 3);
+    std::string commandName = (starts_with(tokenizedArgs[0], "sw_") ? (tokenizedArgs[0] + 3) : tokenizedArgs[0]);
 
     std::vector<std::string> argsplit;
     for (int i = 1; i < tokenizedArgs.ArgC(); i++)

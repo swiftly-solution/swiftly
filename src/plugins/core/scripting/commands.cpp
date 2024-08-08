@@ -29,6 +29,15 @@ void PluginCommands::RegisterAlias(std::string commandName, std::string aliasNam
     g_commandsManager->RegisterCommand(command->GetPluginName(), aliasName, command);
 }
 
+void PluginCommands::RegisterRawAlias(std::string commandName, std::string aliasName)
+{
+    Command *command = g_commandsManager->FetchCommand(commandName);
+    if (!command)
+        return;
+
+    g_commandsManager->RegisterCommand(command->GetPluginName(), aliasName, command, true);
+}
+
 void PluginCommands::UnregisterAlias(std::string aliasName)
 {
     UnregisterCommand(aliasName);

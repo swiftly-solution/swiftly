@@ -7,6 +7,7 @@ void SetupLuaCommands(LuaPlugin *plugin, lua_State *state)
         .addConstructor<void (*)(std::string)>()
         .addFunction("Register", &PluginCommands::RegisterCommandLua)
         .addFunction("Unregister", &PluginCommands::UnregisterCommand)
+        .addFunction("RegisterRawAlias", &PluginCommands::RegisterRawAlias)
         .addFunction("RegisterAlias", &PluginCommands::RegisterAlias)
         .addFunction("UnregisterAlias", &PluginCommands::UnregisterAlias)
         .endClass();

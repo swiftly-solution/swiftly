@@ -310,6 +310,7 @@ public:
     void RegisterCommand(std::string commandName, void *callback);
     void UnregisterCommand(std::string commandName);
 
+    void RegisterRawAlias(std::string commandName, std::string aliasName);
     void RegisterAlias(std::string commandName, std::string aliasName);
     void UnregisterAlias(std::string aliasName);
 
