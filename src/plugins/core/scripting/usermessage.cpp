@@ -81,18 +81,14 @@ PluginUserMessage::PluginUserMessage(std::string msgname)
         return;
 
     this->msgid = msginfo->m_MessageId;
-    this->msgBuffer = msg->AllocateMessage()->ToPB<google::protobuf::Message>();
+    auto cnetmsg = msg->AllocateMessage();
+    this->msgBuffer = cnetmsg->ToPB<google::protobuf::Message>();
+    delete cnetmsg;
     this->internalMsg = msg;
 }
 
 PluginUserMessage::~PluginUserMessage()
 {
-    if (!this->internalMsg)
-        return;
-    if (!this->msgBuffer)
-        return;
-
-    this->internalMsg->DeallocateMessage(this->msgBuffer);
 }
 
 bool PluginUserMessage::IsValidMessage()
