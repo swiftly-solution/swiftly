@@ -173,5 +173,15 @@ public:
         g_Signatures->FetchSignature<CBaseEntity_EmitSoundParams>("CBaseEntity_EmitSoundParams")(this, sound_name.c_str(), pitch, volume, delay);
     }
 
+    void EmitSoundFilter(IRecipientFilter &filter, std::string sound_name, int pitch, float volume)
+    {
+        EmitSound_t params;
+        params.m_pSoundName = sound_name.c_str();
+        params.m_flVolume = volume;
+        params.m_nPitch = pitch;
+
+        g_Signatures->FetchSignature<CBaseEntity_EmitSoundFilter>("CBaseEntity_EmitSoundFilter")(filter, m_pEntity->m_EHandle.GetEntryIndex(), params);
+    }
+
     CEntitySubclassVDataBase *GetVData() { return *(CEntitySubclassVDataBase **)((uint8 *)(m_nSubclassID()) + 4); }
 };

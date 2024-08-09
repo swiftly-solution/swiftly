@@ -475,8 +475,9 @@ void Player::PerformMenuAction(std::string button)
     if (button == g_Config->FetchValue<std::string>("core.menu.buttons.scroll"))
     {
         CCSPlayerController *controller = this->GetPlayerController();
+        CSingleRecipientFilter filter(this->GetSlot().Get());
         if (controller)
-            controller->EmitSound(g_Config->FetchValue<std::string>("core.menu.sound.name"), 100, g_Config->FetchValue<double>("core.menu.sound.volume"), 0);
+            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.volume"));
 
         this->MoveSelection();
         this->RenderMenu();
@@ -488,8 +489,9 @@ void Player::PerformMenuAction(std::string button)
     else if (button == g_Config->FetchValue<std::string>("core.menu.buttons.use"))
     {
         CCSPlayerController *controller = this->GetPlayerController();
+        CSingleRecipientFilter filter(this->GetSlot().Get());
         if (controller)
-            controller->EmitSound(g_Config->FetchValue<std::string>("core.menu.sound.name"), 100, g_Config->FetchValue<double>("core.menu.sound.volume"), 0);
+            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.volume"));
 
         std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
         if (cmd == "menunext")

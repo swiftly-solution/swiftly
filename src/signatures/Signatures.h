@@ -14,6 +14,11 @@ class CCSPlayer_ItemServices;
 class CCSPlayerPawn;
 class CCSPlayerPawnBase;
 class CTakeDamageInfo;
+class IRecipientFilter;
+class CEntityIndex;
+
+struct EmitSound_t;
+struct SndOpEventGuid_t;
 
 typedef void (*ClientPrint)(CBasePlayerController *, int, const char *, const char *, const char *, const char *, const char *);
 typedef void (*NetworkSTChange)(uintptr_t, int, int);
@@ -31,7 +36,8 @@ typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices *, const char *, int, int
 typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController *, CCSPlayerPawn *, bool, bool);
 typedef void (*CCSPlayerPawnBase_PostThink)(CCSPlayerPawnBase *);
 typedef void (*CBaseEntity_TakeDamageOld)(Z_CBaseEntity *, CTakeDamageInfo *);
-typedef void (*CBaseEntity_EmitSoundParams)(Z_CBaseEntity*, const char*, int, float, float);
+typedef void (*CBaseEntity_EmitSoundParams)(Z_CBaseEntity *, const char *, int, float, float);
+typedef SndOpEventGuid_t (*CBaseEntity_EmitSoundFilter)(IRecipientFilter &filter, CEntityIndex ent, const EmitSound_t &params);
 
 class Signatures
 {
