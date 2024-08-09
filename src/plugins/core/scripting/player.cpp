@@ -461,3 +461,22 @@ PluginWeaponManager PluginPlayer::GetWeaponManager()
 {
     return PluginWeaponManager(playerId);
 }
+
+void PluginPlayer::SetBunnyhop(bool state)
+{
+    Player *self = g_playerManager->GetPlayer(this->playerId);
+    if (!self)
+        return;
+
+    self->SetClientConvar("sv_autobunnyhopping", state ? "true" : "false");
+    self->bunnyhopState = state;
+}
+
+bool PluginPlayer::GetBunnyhop()
+{
+    Player *self = g_playerManager->GetPlayer(this->playerId);
+    if (!self)
+        return false;
+
+    return self->bunnyhopState;
+}

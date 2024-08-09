@@ -593,6 +593,9 @@ public:
 
     void SetVoiceFlags(int flags);
     int GetVoiceFlags();
+
+    void SetBunnyhop(bool state);
+    bool GetBunnyhop();
 };
 
 //////////////////////////////////////////////////////////////

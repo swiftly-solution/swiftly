@@ -7,6 +7,18 @@
 
 class CBaseEntity;
 class CCSPlayerPawn;
+class CBasePlayerPawn;
+
+class CPlayerPawnComponent
+{
+public:
+    virtual ~CPlayerPawnComponent() = 0;
+
+private:
+    [[maybe_unused]] uint8_t __pad0008[0x28]; // 0x8
+public:
+    CBasePlayerPawn *m_pPawn; // 0x30
+};
 
 struct CSPerRoundStats_t
 {
@@ -33,7 +45,7 @@ public:
     SCHEMA_FIELD_OFFSET(CSMatchStats_t, m_matchStats, 0)
 };
 
-class CPlayer_MovementServices
+class CPlayer_MovementServices : public CPlayerPawnComponent
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CPlayer_MovementServices, false)
@@ -109,7 +121,7 @@ public:
 class WeaponPurchaseCount_t
 {
 private:
-    virtual void unk01(){};
+    virtual void unk01() {};
     uint64_t unk1 = 0;  // 0x8
     uint64_t unk2 = 0;  // 0x10
     uint64_t unk3 = 0;  // 0x18
@@ -136,14 +148,6 @@ public:
     DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_ActionTrackingServices, false)
 
     SCHEMA_FIELD_OFFSET(WeaponPurchaseTracker_t, m_weaponPurchasesThisRound, 0)
-};
-
-class CPlayerPawnComponent
-{
-public:
-    DECLARE_SCHEMA_CLASS_BASE(CPlayerPawnComponent, false)
-
-    SCHEMA_FIELD_OFFSET(CCSPlayerPawn *, __m_pChainEntity, 0)
 };
 
 class CPlayer_WeaponServices : public CPlayerPawnComponent

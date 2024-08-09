@@ -1,4 +1,9 @@
 #include "PlayerManager.h"
+#include "../hooks/FuncHook.h"
+
+void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices *services, void *movementData);
+
+FuncHook<decltype(Hook_CCSPlayer_MovementServices_CheckJumpPre)> TCCSPlayer_MovementServices_CheckJumpPre(Hook_CCSPlayer_MovementServices_CheckJumpPre, "CCSPlayer_MovementServices_CheckJumpPre");
 
 PlayerManager::PlayerManager() {}
 PlayerManager::~PlayerManager() {}
@@ -62,4 +67,34 @@ Player *PlayerManager::FindPlayerBySteamID(uint64 steamid)
             return player;
     }
     return nullptr;
+}
+
+ConVar *FetchCVar(std::string cvarname);
+ConVar *autobunnyhoppingcvar = nullptr;
+
+void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices *services, void *movementData)
+{
+    if (autobunnyhoppingcvar == nullptr)
+        autobunnyhoppingcvar = FetchCVar("sv_autobunnyhopping");
+
+    bool &autobunnyhopping = *reinterpret_cast<bool *>(&autobunnyhoppingcvar->values);
+
+    if (!autobunnyhopping)
+    {
+        Player *player = g_playerManager->GetPlayer(((CPlayer_MovementServices *)services)->m_pPawn->m_hController().GetEntryIndex() - 1);
+        if (player)
+        {
+            if (player->bunnyhopState)
+            {
+                autobunnyhopping = true;
+
+                TCCSPlayer_MovementServices_CheckJumpPre(services, movementData);
+
+                autobunnyhopping = false;
+                return;
+            }
+        }
+    }
+
+    TCCSPlayer_MovementServices_CheckJumpPre(services, movementData);
 }

@@ -114,6 +114,8 @@ public:
 
     CPlayerBitVec m_selfMutes[64] = {};
 
+    bool bunnyhopState = false;
+
 private:
     int slot;
     bool isFakeClient = false;

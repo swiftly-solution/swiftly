@@ -16,6 +16,7 @@ class CCSPlayerPawnBase;
 class CTakeDamageInfo;
 class IRecipientFilter;
 class CEntityIndex;
+class CCSPlayer_MovementServices;
 
 struct EmitSound_t;
 struct SndOpEventGuid_t;
@@ -37,6 +38,7 @@ typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController *, CCSPlayer
 typedef void (*CCSPlayerPawnBase_PostThink)(CCSPlayerPawnBase *);
 typedef void (*CBaseEntity_TakeDamageOld)(Z_CBaseEntity *, CTakeDamageInfo *);
 typedef void (*CBaseEntity_EmitSoundParams)(Z_CBaseEntity *, const char *, int, float, float);
+typedef void (*CCSPlayer_MovementServices_CheckJumpPre)(CCSPlayer_MovementServices *, void *);
 typedef SndOpEventGuid_t (*CBaseEntity_EmitSoundFilter)(IRecipientFilter &filter, CEntityIndex ent, const EmitSound_t &params);
 
 class Signatures
