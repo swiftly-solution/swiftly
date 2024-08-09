@@ -5,5 +5,12 @@
         "password": "",
         "database": "testdb",
         "port": 3306
+    },
+    "swiftly_admins": {
+        "hostname": "127.0.0.1",
+        "username": "root",
+        "password": "",
+        "database": "testdb",
+        "port": 3306
     }
 }
