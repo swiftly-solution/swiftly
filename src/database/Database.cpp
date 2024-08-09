@@ -37,13 +37,7 @@ bool Database::Connect()
     return true;
 }
 
-static constexpr int MYSQL_JSON =
-#ifdef _WIN32
-    245
-#else
-    enum_field_types::MYSQL_TYPE_JSON
-#endif
-    ;
+static constexpr int MYSQL_JSON = 245;
 
 std::any ParseFieldType(enum_field_types type, const char *value)
 {
