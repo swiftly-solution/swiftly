@@ -8,9 +8,14 @@
 #include "cstrike15_usermessages.pb.h"
 #include <google/protobuf/message.h>
 
+#include <dynohook/platform.h>
 #include <dynohook/core.h>
 #include <dynohook/manager.h>
-#include <dynohook/conventions/x64_systemV_call.h>
+#ifdef _WIN32
+#include <dynohook/conventions/x64/x64MsFastcall.h>
+#else
+#include <dynohook/conventions/x64/x64SystemVcall.h>
+#endif
 
 #include <any>
 
@@ -122,12 +127,12 @@ class PluginEvent
 private:
     std::string plugin_name;
     IGameEvent *gameEvent;
-    dyno::IHook *hookPtr;
+    dyno::Hook *hookPtr;
 
     std::any returnValue;
 
 public:
-    PluginEvent(std::string m_plugin_name, IGameEvent *m_gameEvent, dyno::IHook *m_hookPtr);
+    PluginEvent(std::string m_plugin_name, IGameEvent *m_gameEvent, dyno::Hook *m_hookPtr);
     ~PluginEvent();
 
     std::string GetInvokingPlugin();

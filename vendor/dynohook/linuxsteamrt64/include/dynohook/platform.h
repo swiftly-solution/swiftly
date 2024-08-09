@@ -155,9 +155,6 @@
 #define DYNO_PLATFORM_AVX2 1
 #endif
 #endif
-#if defined(__AVX512F__)
-#define DYNO_PLATFORM_AVX512 1
-#endif
 
 // define macros for architecture type
 #if DYNO_PLATFORM_X86
@@ -173,34 +170,31 @@
 // function attributes
 #if !defined(DYNO_BUILD_DEBUG) && defined(__GNUC__)
 #define DYNO_FORCE_INLINE inline __attribute__((__always_inline__))
-#elif !defined(DYNO_BUILD_DEBUG) && DYNO_PLATFORM_MSVC
+#elif !defined(DYNO_BUILD_DEBUG) && defined(_MSC_VER)
 #define DYNO_FORCE_INLINE __forceinline
 #else
 #define DYNO_FORCE_INLINE inline
 #endif
 
-#if DYNO_PLATFORM_GCC
+#if defined(__GNUC__)
 #define DYNO_NOINLINE __attribute__((__noinline__))
 #define DYNO_NORETURN __attribute__((__noreturn__))
-#define DYNO_NAKED	__attribute__((naked))
-#elif DYNO_PLATFORM_MSVC
+#elif defined(_MSC_VER)
 #define DYNO_NOINLINE __declspec(noinline)
 #define DYNO_NORETURN __declspec(noreturn)
-#define DYNO_NAKED	__declspec(naked)
 #else
 #define DYNO_NOINLINE
 #define DYNO_NORETURN
-#define DYNO_NAKED
 #endif
 
 // calling conventions
-#if DYNO_ARCH_X86 == 32 && DYNO_PLATFORM_GCC
+#if DYNO_ARCH_X86 == 32 && defined(__GNUC__)
 #define DYNO_CDECL __attribute__((__cdecl__))
 #define DYNO_STDCALL __attribute__((__stdcall__))
 #define DYNO_FASTCALL __attribute__((__fastcall__))
 #define DYNO_THISCALL __attribute__((__thiscall__))
 #define DYNO_REGPARM(N) __attribute__((__regparm__(N)))
-#elif DYNO_ARCH_X86 == 32 && DYNO_PLATFORM_MSVC
+#elif DYNO_ARCH_X86 == 32 && defined(_MSC_VER)
 #define DYNO_CDECL __cdecl
 #define DYNO_STDCALL __stdcall
 #define DYNO_FASTCALL __fastcall
@@ -214,24 +208,10 @@
 #define DYNO_REGPARM(N)
 #endif
 
-#if DYNO_ARCH_X86 && DYNO_PLATFORM_WINDOWS && DYNO_PLATFORM_MSVC
+#if DYNO_ARCH_X86 && defined(_WIN32) && defined(_MSC_VER)
 #define DYNO_VECTORCALL __vectorcall
-#elif DYNO_ARCH_X86 && DYNO_PLATFORM_WINDOWS
+#elif DYNO_ARCH_X86 && defined(_WIN32)
 #define DYNO_VECTORCALL __attribute__((__vectorcall__))
 #else
 #define DYNO_VECTORCALL
 #endif
-
-// optimization
-#if DYNO_PLATFORM_GCC_COMPATIBLE && !(defined(DYNO_PLATFORM_CLANG) && DYNO_PLATFORM_CLANG)
-#define DYNO_OPTS_OFF _Pragma("GCC push_options") _Pragma("GCC optimize (\"O0\")")
-#define DYNO_OPTS_ON _Pragma("GCC pop_options")
-#elif DYNO_PLATFORM_MSVC
-#define DYNO_OPTS_OFF __pragma(optimize("", off))
-#define DYNO_OPTS_ON __pragma(optimize("", on))
-#else
-#define DYNO_OPTS_OFF
-#define DYNO_OPTS_ON
-#endif
-
-#define DYNO_UNUSED(a) (void)a

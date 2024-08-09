@@ -3,7 +3,12 @@
 
 #include <dynohook/core.h>
 #include <dynohook/manager.h>
-#include <dynohook/conventions/x64_systemV_call.h>
+
+#ifdef _WIN32
+#include <dynohook/conventions/x64/x64MsFastcall.h>
+#else
+#include <dynohook/conventions/x64/x64SystemVcall.h>
+#endif
 
 #include <dyncall/dyncall.h>
 
@@ -15,8 +20,10 @@ std::map<OutputPair_t, std::vector<std::string>> outputHooksList;
 void Hook_FireOutputInternal(CEntityIOOutput *const pThis, CEntityInstance *pActivator, CEntityInstance *pCaller, const CVariant *const value, float flDelay);
 FuncHook<decltype(Hook_FireOutputInternal)> TFireOutputInternal(Hook_FireOutputInternal, "FireOutputInternal");
 
-std::map<dyno::IHook *, std::vector<Hook>> hooksList;
-std::map<std::string, dyno::IHook *> hooksMap;
+DCCallVM *pCallVM = dcNewCallVM(4096);
+
+std::map<dyno::Hook *, std::vector<Hook>> hooksList;
+std::map<std::string, dyno::Hook *> hooksMap;
 
 PluginHooks::PluginHooks(std::string plugin_name)
 {
@@ -69,10 +76,10 @@ std::vector<dyno::DataObject> ConvertDT(const std::vector<DataType_t> dataTypes)
     return converted;
 }
 
-dyno::ReturnAction DynHookHandler(dyno::CallbackType hookType, dyno::IHook &hook)
+dyno::ReturnAction DynHookHandler(dyno::HookType hookType, dyno::Hook &hook)
 {
-    dyno::IHook *hookPtr = &hook;
-    std::string callbackType = (hookType == dyno::CallbackType::Pre ? "Pre" : "Post");
+    dyno::Hook *hookPtr = &hook;
+    std::string callbackType = (hookType == dyno::HookType::Pre ? "Pre" : "Post");
     if (hooksList.find(hookPtr) == hooksList.end())
         return dyno::ReturnAction::Ignored;
 
@@ -121,10 +128,15 @@ std::string PluginHooks::AddHook(PluginMemory mem, std::string args_list, std::s
 
     std::vector<DataType_t> argTypes = ParseArgsList(args_list);
 
-    dyno::IHookManager &manager = dyno::HookManager::Get();
-    dyno::IHook *hook = manager.hookDetour(funcPtr, [argTypes, ret_type]
-                                           { return new dyno::x64SystemVcall(ConvertDT(argTypes), static_cast<dyno::DataType>(ParseArgsList(ret_type)[0])); })
-                            .get();
+    dyno::HookManager &manager = dyno::HookManager::Get();
+    dyno::Hook *hook = manager.hook(funcPtr, [argTypes, ret_type]
+                                    {
+#ifdef _WIN32
+                                        return new dyno::x64MsFastcall(ConvertDT(argTypes), static_cast<dyno::DataType>(ParseArgsList(ret_type)[0]));
+#else
+                                        return new dyno::x64SystemVcall(ConvertDT(argTypes), static_cast<dyno::DataType>(ParseArgsList(ret_type)[0]));
+#endif
+                                    });
 
     if (hooksList.find(hook) == hooksList.end())
         hooksList.insert({hook, {}});
@@ -136,8 +148,8 @@ std::string PluginHooks::AddHook(PluginMemory mem, std::string args_list, std::s
     else
         hooksMap[id] = hook;
 
-    hook->addCallback(dyno::CallbackType::Pre, DynHookHandler);
-    hook->addCallback(dyno::CallbackType::Post, DynHookHandler);
+    hook->addCallback(dyno::HookType::Pre, (dyno::HookHandler *)&DynHookHandler);
+    hook->addCallback(dyno::HookType::Post, (dyno::HookHandler *)&DynHookHandler);
     return id;
 }
 
@@ -166,8 +178,6 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
             args.push_back(main_obj.via.array.ptr[i]);
     }
 
-    DCCallVM *pCallVM = dcNewCallVM(4096);
-
     dcReset(pCallVM);
     dcMode(pCallVM, DC_CALL_C_DEFAULT);
 
@@ -177,7 +187,7 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
             break;
 
         if (hk.argsList.at(i) == 'p')
-            dcArgPointer(pCallVM, (void *)(strtol(args[i].as<std::string>().c_str(), nullptr, 16)));
+            dcArgPointer(pCallVM, (void *)strtol(args[i].as<std::string>().c_str(), nullptr, 16));
         else if (hk.argsList.at(i) == 'f')
             dcArgFloat(pCallVM, args[i].as<float>());
         else if (hk.argsList.at(i) == 'b')
@@ -230,8 +240,6 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
         PRINTF("Invalid return type: '%c'.\n", hk.retType.at(0));
         retval = nullptr;
     }
-
-    dcFree(pCallVM);
 
     return LuaSerializeData(retval, L);
 }

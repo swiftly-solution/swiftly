@@ -4,9 +4,9 @@
 
 typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
 
-extern std::map<dyno::IHook *, std::vector<Hook>> hooksList;
+extern std::map<dyno::Hook *, std::vector<Hook>> hooksList;
 
-PluginEvent::PluginEvent(std::string m_plugin_name, IGameEvent *m_gameEvent, dyno::IHook *m_hookPtr)
+PluginEvent::PluginEvent(std::string m_plugin_name, IGameEvent *m_gameEvent, dyno::Hook *m_hookPtr)
 {
     this->plugin_name = m_plugin_name;
     this->gameEvent = m_gameEvent;
@@ -324,39 +324,39 @@ void PluginEvent::SetHookReturn(std::any value)
     try
     {
         if (value.type() == typeid(const char *))
-            return this->hookPtr->setReturn(std::any_cast<const char *>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<const char *>(value));
         else if (value.type() == typeid(std::string))
-            return this->hookPtr->setReturn(std::any_cast<std::string>(value).c_str());
+            return this->hookPtr->setReturnValue(std::any_cast<std::string>(value).c_str());
         else if (value.type() == typeid(uint64))
-            return this->hookPtr->setReturn(std::any_cast<uint64>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<uint64>(value));
         else if (value.type() == typeid(uint32))
-            return this->hookPtr->setReturn(std::any_cast<uint32>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<uint32>(value));
         else if (value.type() == typeid(unsigned long))
-            return this->hookPtr->setReturn(std::any_cast<unsigned long>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<unsigned long>(value));
         else if (value.type() == typeid(uint16))
-            return this->hookPtr->setReturn(std::any_cast<uint16>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<uint16>(value));
         else if (value.type() == typeid(uint8))
-            return this->hookPtr->setReturn(std::any_cast<uint8>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<uint8>(value));
         else if (value.type() == typeid(int64))
-            return this->hookPtr->setReturn(std::any_cast<int64>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<int64>(value));
         else if (value.type() == typeid(int32))
-            return this->hookPtr->setReturn(std::any_cast<int32>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<int32>(value));
         else if (value.type() == typeid(long))
-            return this->hookPtr->setReturn(std::any_cast<long>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<long>(value));
         else if (value.type() == typeid(int16))
-            return this->hookPtr->setReturn(std::any_cast<int16>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<int16>(value));
         else if (value.type() == typeid(int8))
-            return this->hookPtr->setReturn(std::any_cast<int8>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<int8>(value));
         else if (value.type() == typeid(bool))
-            return this->hookPtr->setReturn(std::any_cast<bool>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<bool>(value));
         else if (value.type() == typeid(float))
-            return this->hookPtr->setReturn(std::any_cast<float>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<float>(value));
         else if (value.type() == typeid(void *))
-            return this->hookPtr->setReturn(std::any_cast<void *>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<void *>(value));
         else if (value.type() == typeid(double))
-            return this->hookPtr->setReturn(std::any_cast<double>(value));
+            return this->hookPtr->setReturnValue(std::any_cast<double>(value));
         else if (value.type() == typeid(std::nullptr_t))
-            return this->hookPtr->setReturn(0);
+            return this->hookPtr->setReturnValue(0);
         else
             PRINTF("Unknown Data Type: %s\n", value.type().name());
     }
@@ -409,25 +409,25 @@ std::any PluginEvent::GetHookReturn()
     if (hk.retType.at(0) == 'p')
     {
         PluginMemory mem;
-        mem.LoadFromPtr(this->hookPtr->getReturn<void *>());
+        mem.LoadFromPtr(this->hookPtr->getReturnValue<void *>());
         return mem.GetPtr();
     }
     else if (hk.retType.at(0) == 'f')
-        return this->hookPtr->getReturn<float>();
+        return this->hookPtr->getReturnValue<float>();
     else if (hk.retType.at(0) == 'b')
-        return this->hookPtr->getReturn<bool>();
+        return this->hookPtr->getReturnValue<bool>();
     else if (hk.retType.at(0) == 'd')
-        return this->hookPtr->getReturn<double>();
+        return this->hookPtr->getReturnValue<double>();
     else if (hk.retType.at(0) == 'i')
-        return this->hookPtr->getReturn<int32_t>();
+        return this->hookPtr->getReturnValue<int32_t>();
     else if (hk.retType.at(0) == 'u')
-        return this->hookPtr->getReturn<uint32_t>();
+        return this->hookPtr->getReturnValue<uint32_t>();
     else if (hk.retType.at(0) == 's')
-        return this->hookPtr->getReturn<const char *>();
+        return this->hookPtr->getReturnValue<const char *>();
     else if (hk.retType.at(0) == 'I')
-        return this->hookPtr->getReturn<int64_t>();
+        return this->hookPtr->getReturnValue<int64_t>();
     else if (hk.retType.at(0) == 'U')
-        return this->hookPtr->getReturn<uint64_t>();
+        return this->hookPtr->getReturnValue<uint64_t>();
     else
     {
         PRINTF("Invalid argument in return value: '%c'.\n", hk.retType.at(0));
