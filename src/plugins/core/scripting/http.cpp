@@ -20,14 +20,14 @@ extern "C"
 #undef GetObject
 #endif
 
-static size_t WriteCallback(void *contents, size_t size, size_t nmemb, std::vector<std::string> *userp)
+static size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::vector<std::string>* userp)
 {
     size_t totalSize = size * nmemb;
-    userp->emplace_back((char *)contents, totalSize);
+    userp->emplace_back((char*)contents, totalSize);
     return totalSize;
 }
 
-static size_t HeaderCallback(char *buffer, size_t size, size_t nitems, std::vector<std::string> *headers)
+static size_t HeaderCallback(char* buffer, size_t size, size_t nitems, std::vector<std::string>* headers)
 {
     size_t totalSize = size * nitems;
     headers->emplace_back(buffer, totalSize);
@@ -50,8 +50,8 @@ void RunCurlRequest(std::string url, std::string data, std::map<std::string, std
 {
     std::vector<std::string> responseBody;
     std::vector<std::string> responseHeaders;
-    curl_mime *mime = nullptr;
-    CURL *curlRequest = curl_easy_init();
+    curl_mime* mime = nullptr;
+    CURL* curlRequest = curl_easy_init();
     if (!curlRequest)
         return;
 
@@ -64,7 +64,7 @@ void RunCurlRequest(std::string url, std::string data, std::map<std::string, std
     if (headers.find("User-Agent") != headers.end())
         curl_easy_setopt(curlRequest, CURLOPT_USERAGENT, headers.at("User-Agent").c_str());
 
-    struct curl_slist *headersList = nullptr;
+    struct curl_slist* headersList = nullptr;
     for (auto it = headers.begin(); it != headers.end(); ++it)
         headersList = curl_slist_append(headersList, (string_format("%s: %s", it->first.c_str(), it->second.c_str()) + "\0").c_str());
 
@@ -72,9 +72,9 @@ void RunCurlRequest(std::string url, std::string data, std::map<std::string, std
     {
         mime = curl_mime_init(curlRequest);
 
-        for (auto &file : files)
+        for (auto& file : files)
         {
-            curl_mimepart *part = curl_mime_addpart(mime);
+            curl_mimepart* part = curl_mime_addpart(mime);
             curl_mime_name(part, file.first.c_str());
             curl_mime_filedata(part, file.second.c_str());
         }
@@ -132,10 +132,14 @@ void RunCurlRequest(std::string url, std::string data, std::map<std::string, std
 
     msgpack::pack(ss, eventData);
 
-    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnHTTPActionPerformed", ss.str(), event);
+    std::string eventPayload = ss.str();
 
-    delete event;
+    g_Plugin.NextFrame([&]() -> void {
+        PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
+        g_pluginManager->ExecuteEvent("core", "OnHTTPActionPerformed", eventPayload, event);
+        delete event;
+        });
+
 
     if (headersList)
         curl_slist_free_all(headersList);
@@ -195,7 +199,7 @@ std::string PluginHTTP::PerformHTTP(std::string receivedData)
 
                 std::string headerValue = headerIt->value.GetString();
 
-                headers.insert({headerName, headerValue});
+                headers.insert({ headerName, headerValue });
             }
         }
     }
@@ -214,14 +218,14 @@ std::string PluginHTTP::PerformHTTP(std::string receivedData)
                 if (!Files::ExistsPath(fileValue))
                     continue;
 
-                files.insert({fileName, fileValue});
+                files.insert({ fileName, fileValue });
             }
         }
     }
 
     std::string requestUUID = get_uuid();
 
-    Request req = {url, data, headers, files, method, requestUUID};
+    Request req = { url, data, headers, files, method, requestUUID };
     requestsQueue.push_back(req);
 
     if (!httpThread)
