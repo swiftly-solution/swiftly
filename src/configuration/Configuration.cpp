@@ -12,7 +12,7 @@ bool ConfigurationError(std::string configuration_file, std::string error)
     return false;
 }
 
-void WritePluginFile(std::string path, rapidjson::Value &val)
+void WritePluginFile(std::string path, rapidjson::Value& val)
 {
     rapidjson::StringBuffer buffer;
     rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
@@ -23,9 +23,18 @@ void WritePluginFile(std::string path, rapidjson::Value &val)
     Files::Write(path, content, false);
 }
 
-rapidjson::Value &GetJSONDoc(rapidjson::Document &doc, std::string key, rapidjson::Value &defaultValue, bool &wasCreated)
+std::string JSONToString(rapidjson::Value& val)
 {
-    rapidjson::Value *currentDoc = &doc;
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+
+    val.Accept(writer);
+    return buffer.GetString();
+}
+
+rapidjson::Value& GetJSONDoc(rapidjson::Document& doc, std::string key, rapidjson::Value& defaultValue, bool& wasCreated)
+{
+    rapidjson::Value* currentDoc = &doc;
     auto keys = explode(key, ".");
 
     while (keys.size() > 1)
@@ -51,13 +60,13 @@ rapidjson::Value &GetJSONDoc(rapidjson::Document &doc, std::string key, rapidjso
 }
 
 template <class T>
-void RegisterConfiguration(bool &wasCreated, rapidjson::Document &document, std::string configFilePath, std::string config_prefix, std::string key, T default_value)
+void RegisterConfiguration(bool& wasCreated, rapidjson::Document& document, std::string configFilePath, std::string config_prefix, std::string key, T default_value)
 {
     rapidjson::Value defaultValue;
 
     if constexpr (std::is_same<T, std::string>::value)
         defaultValue.SetString(default_value.c_str(), document.GetAllocator());
-    else if constexpr (std::is_same<T, const char *>::value)
+    else if constexpr (std::is_same<T, const char*>::value)
         defaultValue.SetString(default_value, document.GetAllocator());
     else if constexpr (std::is_same<T, bool>::value)
         defaultValue.SetBool(default_value);
@@ -82,7 +91,7 @@ void RegisterConfiguration(bool &wasCreated, rapidjson::Document &document, std:
     else if constexpr (std::is_same<T, double>::value)
         defaultValue.SetDouble(default_value);
 
-    rapidjson::Value &jsonDoc = GetJSONDoc(document, key, defaultValue, wasCreated);
+    rapidjson::Value& jsonDoc = GetJSONDoc(document, key, defaultValue, wasCreated);
 
     if constexpr (std::is_same<T, std::string>::value)
     {
@@ -94,7 +103,7 @@ void RegisterConfiguration(bool &wasCreated, rapidjson::Document &document, std:
 
         g_Config->SetValue(config_prefix + "." + key, std::string(jsonDoc.GetString()));
     }
-    else if constexpr (std::is_same<T, const char *>::value)
+    else if constexpr (std::is_same<T, const char*>::value)
     {
         if (!jsonDoc.IsString())
         {
@@ -216,17 +225,17 @@ void RegisterConfiguration(bool &wasCreated, rapidjson::Document &document, std:
 }
 
 template <class T>
-void RegisterConfigurationVector(bool &wasCreated, rapidjson::Document &document, std::string configFilePath, std::string config_prefix, std::string key, std::vector<T> default_value, bool shouldImplode, std::string delimiter)
+void RegisterConfigurationVector(bool& wasCreated, rapidjson::Document& document, std::string configFilePath, std::string config_prefix, std::string key, std::vector<T> default_value, bool shouldImplode, std::string delimiter)
 {
     rapidjson::Value defaultValue(rapidjson::kArrayType);
 
-    for (const T &val : default_value)
+    for (const T& val : default_value)
     {
         rapidjson::Value defVal;
 
         if constexpr (std::is_same<T, std::string>::value)
             defVal.SetString(val.c_str(), document.GetAllocator());
-        else if constexpr (std::is_same<T, const char *>::value)
+        else if constexpr (std::is_same<T, const char*>::value)
             defVal.SetString(val, document.GetAllocator());
         else if constexpr (std::is_same<T, bool>::value)
             defVal.SetBool(val);
@@ -254,7 +263,7 @@ void RegisterConfigurationVector(bool &wasCreated, rapidjson::Document &document
         defaultValue.PushBack(defVal, document.GetAllocator());
     }
 
-    rapidjson::Value &jsonDoc = GetJSONDoc(document, key, defaultValue, wasCreated);
+    rapidjson::Value& jsonDoc = GetJSONDoc(document, key, defaultValue, wasCreated);
 
     if (!jsonDoc.IsArray())
     {
@@ -278,7 +287,7 @@ void RegisterConfigurationVector(bool &wasCreated, rapidjson::Document &document
 
             result.push_back(std::string(arr[i].GetString()));
         }
-        else if constexpr (std::is_same<T, const char *>::value)
+        else if constexpr (std::is_same<T, const char*>::value)
         {
             if (!arr[i].IsString())
             {
@@ -397,11 +406,11 @@ void RegisterConfigurationVector(bool &wasCreated, rapidjson::Document &document
     if (shouldImplode)
     {
         std::vector<std::string> implodeArr;
-        for (const T &val : result)
+        for (const T& val : result)
         {
             if constexpr (std::is_same<T, std::string>::value)
                 implodeArr.push_back(val);
-            else if constexpr (std::is_same<T, const char *>::value)
+            else if constexpr (std::is_same<T, const char*>::value)
                 implodeArr.push_back(std::string(val));
             else
                 implodeArr.push_back(std::to_string(val));
@@ -432,8 +441,8 @@ bool Configuration::LoadConfiguration()
     if (loggingMode != "daily" && loggingMode != "map" && loggingMode != "permanent")
         return ConfigurationError("core.json", "The field \"logging.mode\" needs to be: \"daily\" or \"map\".");
 
-    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "commandPrefixes", {"!"}, true, " ");
-    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "commandSilentPrefixes", {"/"}, true, " ");
+    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "commandPrefixes", { "!" }, true, " ");
+    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "commandSilentPrefixes", { "/" }, true, " ");
     RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "patches_to_perform", {}, true, " ");
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "CS2ServerGuidelines", "https://blog.counter-strike.net/index.php/server_guidelines/");
@@ -461,9 +470,9 @@ bool Configuration::LoadConfiguration()
     return true;
 }
 
-void LoadConfigPart(std::string key, rapidjson::Value &document);
+void LoadConfigPart(std::string key, rapidjson::Value& document);
 
-void LoadValue(const char *key, const char *keyname, rapidjson::Value &value, std::string separator = ".")
+void LoadValue(const char* key, const char* keyname, rapidjson::Value& value, std::string separator = ".")
 {
     std::string k = key + separator + keyname;
     if (value.IsBool())
@@ -484,10 +493,13 @@ void LoadValue(const char *key, const char *keyname, rapidjson::Value &value, st
         g_Config->SetValue(k, value.GetUint());
     else if (value.IsNull())
         g_Config->SetValue(k, nullptr);
-    else if (value.IsObject())
+    else if (value.IsObject()) {
+        g_Config->SetValue(k, string_format("<%s>", JSONToString(value).c_str()));
         LoadConfigPart(k, value);
+    }
     else if (value.IsArray())
     {
+        g_Config->SetValue(k, string_format("JSON<%s>", JSONToString(value).c_str()));
         g_Config->SetArraySize(k, value.Size());
         for (size_t i = 0; i < value.Size(); i++)
         {
@@ -497,7 +509,7 @@ void LoadValue(const char *key, const char *keyname, rapidjson::Value &value, st
     }
 };
 
-void LoadConfigPart(std::string key, rapidjson::Value &document)
+void LoadConfigPart(std::string key, rapidjson::Value& document)
 {
     for (auto it = document.MemberBegin(); it != document.MemberEnd(); ++it)
     {
@@ -538,9 +550,9 @@ void Configuration::LoadPluginConfigurations()
         }
 
         std::string main_key = explode(configFileName, ".json")[0];
-        rapidjson::Value &root = configurationFile;
+        rapidjson::Value& root = configurationFile;
 
-        g_Config->SetValue(main_key, true);
+        g_Config->SetValue(main_key, JSONToString(root));
         LoadConfigPart(main_key, root);
     }
 }
@@ -582,9 +594,9 @@ void Configuration::LoadPluginConfig(std::string key)
     configFileName = replace(configFileName, "\\", ".");
     std::string main_key = explode(configFileName, ".json")[0];
 
-    rapidjson::Value &root = configurationFile;
+    rapidjson::Value& root = configurationFile;
 
-    g_Config->SetValue(main_key, true);
+    g_Config->SetValue(main_key, JSONToString(root));
     LoadConfigPart(main_key, root);
 }
 
