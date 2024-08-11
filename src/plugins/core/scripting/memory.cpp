@@ -16,6 +16,8 @@ void PluginMemory::LoadFromPtr(void* ptr)
 }
 void PluginMemory::LoadFromAddress(std::string addr)
 {
+    if (!starts_with(addr, "0x")) return;
+
     m_ptr = (void*)(strtol(addr.c_str(), nullptr, 16));
 }
 
