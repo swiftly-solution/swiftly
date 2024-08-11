@@ -8,7 +8,9 @@ PluginLogger::PluginLogger(std::string m_plugin_name)
 
 void PluginLogger::Write(int level, std::string message)
 {
-    Log *logger = g_Logger->FetchLogger(this->plugin_name);
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginLogger::Write(level=%d)", level));
+
+    Log* logger = g_Logger->FetchLogger(this->plugin_name);
     if (!logger)
         return;
 

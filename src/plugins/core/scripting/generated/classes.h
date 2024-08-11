@@ -1499,9 +1499,10 @@ class GCGlowProperty
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGlowProperty(std::string ptr);
+    GCGlowProperty(std::string ptr, lua_State* state);
     GCGlowProperty(void *ptr);
 
     Vector GetGlowColor() const;
@@ -1536,9 +1537,10 @@ class GCEntityComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEntityComponent(std::string ptr);
+    GCEntityComponent(std::string ptr, lua_State* state);
     GCEntityComponent(void *ptr);
 
 
@@ -1552,9 +1554,10 @@ class GCPlayerPawnComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayerPawnComponent(std::string ptr);
+    GCPlayerPawnComponent(std::string ptr, lua_State* state);
     GCPlayerPawnComponent(void *ptr);
 
     GCNetworkVarChainer Get__pChainEntity() const;
@@ -1569,9 +1572,10 @@ class Gfogparams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gfogparams_t(std::string ptr);
+    Gfogparams_t(std::string ptr, lua_State* state);
     Gfogparams_t(void *ptr);
 
     Vector GetDirPrimary() const;
@@ -1634,9 +1638,10 @@ class GCNetworkTransmitComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNetworkTransmitComponent(std::string ptr);
+    GCNetworkTransmitComponent(std::string ptr, lua_State* state);
     GCNetworkTransmitComponent(void *ptr);
 
     uint32_t GetTransmitStateOwnedCounter() const;
@@ -1651,9 +1656,10 @@ class GCNetworkViewOffsetVector
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNetworkViewOffsetVector(std::string ptr);
+    GCNetworkViewOffsetVector(std::string ptr, lua_State* state);
     GCNetworkViewOffsetVector(void *ptr);
 
     float GetX() const;
@@ -1672,9 +1678,10 @@ class GCNetworkVelocityVector
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNetworkVelocityVector(std::string ptr);
+    GCNetworkVelocityVector(std::string ptr, lua_State* state);
     GCNetworkVelocityVector(void *ptr);
 
     float GetX() const;
@@ -1693,9 +1700,10 @@ class GCEntityInstance
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEntityInstance(std::string ptr);
+    GCEntityInstance(std::string ptr, lua_State* state);
     GCEntityInstance(void *ptr);
 
     std::string GetPrivateVScripts() const;
@@ -1716,9 +1724,10 @@ class GCBaseEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseEntity(std::string ptr);
+    GCBaseEntity(std::string ptr, lua_State* state);
     GCBaseEntity(void *ptr);
 
     void Spawn();
@@ -1893,9 +1902,10 @@ class GCPropDataComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPropDataComponent(std::string ptr);
+    GCPropDataComponent(std::string ptr, lua_State* state);
     GCPropDataComponent(void *ptr);
 
     float GetDmgModBullet() const;
@@ -1930,9 +1940,10 @@ class GCHitboxComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHitboxComponent(std::string ptr);
+    GCHitboxComponent(std::string ptr, lua_State* state);
     GCHitboxComponent(void *ptr);
 
     std::vector<uint32_t> GetDisabledHitGroups() const;
@@ -1949,9 +1960,10 @@ class GVPhysicsCollisionAttribute_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVPhysicsCollisionAttribute_t(std::string ptr);
+    GVPhysicsCollisionAttribute_t(std::string ptr, lua_State* state);
     GVPhysicsCollisionAttribute_t(void *ptr);
 
     uint64_t GetInteractsAs() const;
@@ -1980,9 +1992,10 @@ class GCCollisionProperty
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCollisionProperty(std::string ptr);
+    GCCollisionProperty(std::string ptr, lua_State* state);
     GCCollisionProperty(void *ptr);
 
     GVPhysicsCollisionAttribute_t GetCollisionAttribute() const;
@@ -2029,9 +2042,10 @@ class GCBaseModelEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseModelEntity(std::string ptr);
+    GCBaseModelEntity(std::string ptr, lua_State* state);
     GCBaseModelEntity(void *ptr);
 
     void SetModel(std::string model);
@@ -2097,9 +2111,10 @@ class GCServerOnlyEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCServerOnlyEntity(std::string ptr);
+    GCServerOnlyEntity(std::string ptr, lua_State* state);
     GCServerOnlyEntity(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -2114,9 +2129,10 @@ class GCBaseToggle
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseToggle(std::string ptr);
+    GCBaseToggle(std::string ptr, lua_State* state);
     GCBaseToggle(void *ptr);
 
     uint64_t GetToggle_state() const;
@@ -2163,9 +2179,10 @@ class GCBaseTrigger
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseTrigger(std::string ptr);
+    GCBaseTrigger(std::string ptr, lua_State* state);
     GCBaseTrigger(void *ptr);
 
     bool GetDisabled() const;
@@ -2202,9 +2219,10 @@ class GCTriggerProximity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerProximity(std::string ptr);
+    GCTriggerProximity(std::string ptr, lua_State* state);
     GCTriggerProximity(void *ptr);
 
     GCBaseEntity GetMeasureTarget() const;
@@ -2227,9 +2245,10 @@ class GCLogicalEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicalEntity(std::string ptr);
+    GCLogicalEntity(std::string ptr, lua_State* state);
     GCLogicalEntity(void *ptr);
 
     GCServerOnlyEntity GetParent() const;
@@ -2244,9 +2263,10 @@ class GCTriggerPush
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerPush(std::string ptr);
+    GCTriggerPush(std::string ptr, lua_State* state);
     GCTriggerPush(void *ptr);
 
     QAngle GetPushEntitySpace() const;
@@ -2275,9 +2295,10 @@ class GCTriggerMultiple
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerMultiple(std::string ptr);
+    GCTriggerMultiple(std::string ptr, lua_State* state);
     GCTriggerMultiple(void *ptr);
 
     GCEntityIOOutput GetOnTrigger() const;
@@ -2294,9 +2315,10 @@ class GCBasePlatTrain
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBasePlatTrain(std::string ptr);
+    GCBasePlatTrain(std::string ptr, lua_State* state);
     GCBasePlatTrain(void *ptr);
 
     std::string GetNoiseMoving() const;
@@ -2321,9 +2343,10 @@ class GCTonemapTrigger
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTonemapTrigger(std::string ptr);
+    GCTonemapTrigger(std::string ptr, lua_State* state);
     GCTonemapTrigger(void *ptr);
 
     std::string GetTonemapControllerName() const;
@@ -2342,9 +2365,10 @@ class GCEconItemAttribute
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEconItemAttribute(std::string ptr);
+    GCEconItemAttribute(std::string ptr, lua_State* state);
     GCEconItemAttribute(void *ptr);
 
     uint16_t GetAttributeDefinitionIndex() const;
@@ -2367,9 +2391,10 @@ class GCIronSightController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCIronSightController(std::string ptr);
+    GCIronSightController(std::string ptr, lua_State* state);
     GCIronSightController(void *ptr);
 
     bool GetIronSightAvailable() const;
@@ -2390,9 +2415,10 @@ class GCFogTrigger
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFogTrigger(std::string ptr);
+    GCFogTrigger(std::string ptr, lua_State* state);
     GCFogTrigger(void *ptr);
 
     Gfogparams_t GetFog() const;
@@ -2409,9 +2435,10 @@ class GCBaseFilter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseFilter(std::string ptr);
+    GCBaseFilter(std::string ptr, lua_State* state);
     GCBaseFilter(void *ptr);
 
     bool GetNegated() const;
@@ -2432,9 +2459,10 @@ class GCCSPointScriptExtensions_weapon_cs_base
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPointScriptExtensions_weapon_cs_base(std::string ptr);
+    GCCSPointScriptExtensions_weapon_cs_base(std::string ptr, lua_State* state);
     GCCSPointScriptExtensions_weapon_cs_base(void *ptr);
 
 
@@ -2448,9 +2476,10 @@ class GCTriggerHostageReset
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerHostageReset(std::string ptr);
+    GCTriggerHostageReset(std::string ptr, lua_State* state);
     GCTriggerHostageReset(void *ptr);
 
     GCBaseTrigger GetParent() const;
@@ -2465,9 +2494,10 @@ class GCServerOnlyPointEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCServerOnlyPointEntity(std::string ptr);
+    GCServerOnlyPointEntity(std::string ptr, lua_State* state);
     GCServerOnlyPointEntity(void *ptr);
 
     GCServerOnlyEntity GetParent() const;
@@ -2482,9 +2512,10 @@ class GCPointEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointEntity(std::string ptr);
+    GCPointEntity(std::string ptr, lua_State* state);
     GCPointEntity(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -2499,9 +2530,10 @@ class GCountdownTimer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCountdownTimer(std::string ptr);
+    GCountdownTimer(std::string ptr, lua_State* state);
     GCountdownTimer(void *ptr);
 
     float GetDuration() const;
@@ -2522,9 +2554,10 @@ class GSceneEventId_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSceneEventId_t(std::string ptr);
+    GSceneEventId_t(std::string ptr, lua_State* state);
     GSceneEventId_t(void *ptr);
 
     uint32_t GetValue() const;
@@ -2539,9 +2572,10 @@ class GCBuoyancyHelper
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBuoyancyHelper(std::string ptr);
+    GCBuoyancyHelper(std::string ptr, lua_State* state);
     GCBuoyancyHelper(void *ptr);
 
     float GetFluidDensity() const;
@@ -2556,9 +2590,10 @@ class GCMoverPathNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMoverPathNode(std::string ptr);
+    GCMoverPathNode(std::string ptr, lua_State* state);
     GCMoverPathNode(void *ptr);
 
     Vector GetInTangentLocal() const;
@@ -2583,9 +2618,10 @@ class GCBtNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBtNode(std::string ptr);
+    GCBtNode(std::string ptr, lua_State* state);
     GCBtNode(void *ptr);
 
 
@@ -2599,9 +2635,10 @@ class GCPlayer_ViewModelServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_ViewModelServices(std::string ptr);
+    GCPlayer_ViewModelServices(std::string ptr, lua_State* state);
     GCPlayer_ViewModelServices(void *ptr);
 
     GCPlayerPawnComponent GetParent() const;
@@ -2616,9 +2653,10 @@ class GIEconItemInterface
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIEconItemInterface(std::string ptr);
+    GIEconItemInterface(std::string ptr, lua_State* state);
     GIEconItemInterface(void *ptr);
 
 
@@ -2632,9 +2670,10 @@ class GCEnvSoundscape
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvSoundscape(std::string ptr);
+    GCEnvSoundscape(std::string ptr, lua_State* state);
     GCEnvSoundscape(void *ptr);
 
     GCEntityIOOutput GetOnPlay() const;
@@ -2671,9 +2710,10 @@ class Gfogplayerparams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gfogplayerparams_t(std::string ptr);
+    Gfogplayerparams_t(std::string ptr, lua_State* state);
     Gfogplayerparams_t(void *ptr);
 
     GCFogController GetCtrl() const;
@@ -2714,9 +2754,10 @@ class GCFogController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFogController(std::string ptr);
+    GCFogController(std::string ptr, lua_State* state);
     GCFogController(void *ptr);
 
     Gfogparams_t GetFog() const;
@@ -2737,9 +2778,10 @@ class GCAttributeList
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAttributeList(std::string ptr);
+    GCAttributeList(std::string ptr, lua_State* state);
     GCAttributeList(void *ptr);
 
     std::vector<GCEconItemAttribute> GetAttributes() const;
@@ -2756,9 +2798,10 @@ class GCModelState
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelState(std::string ptr);
+    GCModelState(std::string ptr, lua_State* state);
     GCModelState(void *ptr);
 
     std::string GetModelName() const;
@@ -2783,9 +2826,10 @@ class GCBaseAnimGraph
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseAnimGraph(std::string ptr);
+    GCBaseAnimGraph(std::string ptr, lua_State* state);
     GCBaseAnimGraph(void *ptr);
 
     bool GetInitiallyPopulateInterpHistory() const;
@@ -2820,9 +2864,10 @@ class GCEnableMotionFixup
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnableMotionFixup(std::string ptr);
+    GCEnableMotionFixup(std::string ptr, lua_State* state);
     GCEnableMotionFixup(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -2837,9 +2882,10 @@ class GCInButtonState
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInButtonState(std::string ptr);
+    GCInButtonState(std::string ptr, lua_State* state);
     GCInButtonState(void *ptr);
 
     std::vector<uint64_t> GetButtonStates() const;
@@ -2854,9 +2900,10 @@ class GCBtNodeDecorator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBtNodeDecorator(std::string ptr);
+    GCBtNodeDecorator(std::string ptr, lua_State* state);
     GCBtNodeDecorator(void *ptr);
 
     GCBtNode GetParent() const;
@@ -2871,9 +2918,10 @@ class GCAttributeManager
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAttributeManager(std::string ptr);
+    GCAttributeManager(std::string ptr, lua_State* state);
     GCAttributeManager(void *ptr);
 
     int32_t GetReapplyProvisionParity() const;
@@ -2896,9 +2944,10 @@ class GFilterHealth
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFilterHealth(std::string ptr);
+    GFilterHealth(std::string ptr, lua_State* state);
     GFilterHealth(void *ptr);
 
     bool GetAdrenalineActive() const;
@@ -2919,9 +2968,10 @@ class GCPlayerPing
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayerPing(std::string ptr);
+    GCPlayerPing(std::string ptr, lua_State* state);
     GCPlayerPing(void *ptr);
 
     GCCSPlayerPawn GetPlayer() const;
@@ -2946,9 +2996,10 @@ class GCCSPointScriptEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPointScriptEntity(std::string ptr);
+    GCCSPointScriptEntity(std::string ptr, lua_State* state);
     GCCSPointScriptEntity(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -2963,9 +3014,10 @@ class GCNetworkOriginCellCoordQuantizedVector
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNetworkOriginCellCoordQuantizedVector(std::string ptr);
+    GCNetworkOriginCellCoordQuantizedVector(std::string ptr, lua_State* state);
     GCNetworkOriginCellCoordQuantizedVector(void *ptr);
 
     uint16_t GetCellX() const;
@@ -2992,9 +3044,10 @@ class GCInfoLandmark
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoLandmark(std::string ptr);
+    GCInfoLandmark(std::string ptr, lua_State* state);
     GCInfoLandmark(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -3009,9 +3062,10 @@ class GCBaseFlex
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseFlex(std::string ptr);
+    GCBaseFlex(std::string ptr, lua_State* state);
     GCBaseFlex(void *ptr);
 
     std::vector<float32> GetFlexWeight() const;
@@ -3040,9 +3094,10 @@ class GCEconItemView
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEconItemView(std::string ptr);
+    GCEconItemView(std::string ptr, lua_State* state);
     GCEconItemView(void *ptr);
 
     uint16_t GetItemDefinitionIndex() const;
@@ -3083,9 +3138,10 @@ class GCAnimGraphNetworkedVariables
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimGraphNetworkedVariables(std::string ptr);
+    GCAnimGraphNetworkedVariables(std::string ptr, lua_State* state);
     GCAnimGraphNetworkedVariables(void *ptr);
 
     std::vector<uint32> GetPredNetBoolVariables() const;
@@ -3138,9 +3194,10 @@ class GCBodyComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBodyComponent(std::string ptr);
+    GCBodyComponent(std::string ptr, lua_State* state);
     GCBodyComponent(void *ptr);
 
     GCGameSceneNode GetSceneNode() const;
@@ -3159,9 +3216,10 @@ class GCEnvFireSensor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvFireSensor(std::string ptr);
+    GCEnvFireSensor(std::string ptr, lua_State* state);
     GCEnvFireSensor(void *ptr);
 
     bool GetEnabled() const;
@@ -3192,9 +3250,10 @@ class GCCSGO_TeamPreviewCharacterPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_TeamPreviewCharacterPosition(std::string ptr);
+    GCCSGO_TeamPreviewCharacterPosition(std::string ptr, lua_State* state);
     GCCSGO_TeamPreviewCharacterPosition(void *ptr);
 
     int32_t GetVariant() const;
@@ -3225,9 +3284,10 @@ class GCEnvWindShared__WindAveEvent_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvWindShared__WindAveEvent_t(std::string ptr);
+    GCEnvWindShared__WindAveEvent_t(std::string ptr, lua_State* state);
     GCEnvWindShared__WindAveEvent_t(void *ptr);
 
     float GetStartWindSpeed() const;
@@ -3244,9 +3304,10 @@ class GCBaseProp
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseProp(std::string ptr);
+    GCBaseProp(std::string ptr, lua_State* state);
     GCBaseProp(void *ptr);
 
     bool GetModelOverrodeBlockLOS() const;
@@ -3267,9 +3328,10 @@ class GCPointGamestatsCounter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointGamestatsCounter(std::string ptr);
+    GCPointGamestatsCounter(std::string ptr, lua_State* state);
     GCPointGamestatsCounter(void *ptr);
 
     std::string GetStrStatisticName() const;
@@ -3288,9 +3350,10 @@ class GCPhysicsShake
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysicsShake(std::string ptr);
+    GCPhysicsShake(std::string ptr, lua_State* state);
     GCPhysicsShake(void *ptr);
 
     Vector GetForce() const;
@@ -3305,9 +3368,10 @@ class GCBreakable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBreakable(std::string ptr);
+    GCBreakable(std::string ptr, lua_State* state);
     GCBreakable(void *ptr);
 
     GCPropDataComponent GetCPropDataComponent() const;
@@ -3350,9 +3414,10 @@ class GCPathKeyFrame
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathKeyFrame(std::string ptr);
+    GCPathKeyFrame(std::string ptr, lua_State* state);
     GCPathKeyFrame(void *ptr);
 
     Vector GetOrigin() const;
@@ -3381,9 +3446,10 @@ class GCTriggerTripWire
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerTripWire(std::string ptr);
+    GCTriggerTripWire(std::string ptr, lua_State* state);
     GCTriggerTripWire(void *ptr);
 
     GCBaseTrigger GetParent() const;
@@ -3398,9 +3464,10 @@ class GCEnvTilt
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvTilt(std::string ptr);
+    GCEnvTilt(std::string ptr, lua_State* state);
     GCEnvTilt(void *ptr);
 
     float GetDuration() const;
@@ -3423,9 +3490,10 @@ class GCAttributeContainer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAttributeContainer(std::string ptr);
+    GCAttributeContainer(std::string ptr, lua_State* state);
     GCAttributeContainer(void *ptr);
 
     GCEconItemView GetItem() const;
@@ -3442,9 +3510,10 @@ class GCItemGenericTriggerHelper
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItemGenericTriggerHelper(std::string ptr);
+    GCItemGenericTriggerHelper(std::string ptr, lua_State* state);
     GCItemGenericTriggerHelper(void *ptr);
 
     GCBaseModelEntity GetParent() const;
@@ -3459,9 +3528,10 @@ class GCLogicBranchList
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicBranchList(std::string ptr);
+    GCLogicBranchList(std::string ptr, lua_State* state);
     GCLogicBranchList(void *ptr);
 
     std::vector<CUtlSymbolLarge> GetLogicBranchNames() const;
@@ -3486,9 +3556,10 @@ class Gaudioparams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gaudioparams_t(std::string ptr);
+    Gaudioparams_t(std::string ptr, lua_State* state);
     Gaudioparams_t(void *ptr);
 
     std::vector<Vector> GetLocalSound() const;
@@ -3511,9 +3582,10 @@ class GCEconEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEconEntity(std::string ptr);
+    GCEconEntity(std::string ptr, lua_State* state);
     GCEconEntity(void *ptr);
 
     GCAttributeContainer GetAttributeManager() const;
@@ -3546,9 +3618,10 @@ class GCModelPointEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelPointEntity(std::string ptr);
+    GCModelPointEntity(std::string ptr, lua_State* state);
     GCModelPointEntity(void *ptr);
 
     GCBaseModelEntity GetParent() const;
@@ -3563,9 +3636,10 @@ class GCMultiLightProxy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMultiLightProxy(std::string ptr);
+    GCMultiLightProxy(std::string ptr, lua_State* state);
     GCMultiLightProxy(void *ptr);
 
     std::string GetLightNameFilter() const;
@@ -3594,9 +3668,10 @@ class GCEffectData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEffectData(std::string ptr);
+    GCEffectData(std::string ptr, lua_State* state);
     GCEffectData(void *ptr);
 
     Vector GetOrigin() const;
@@ -3647,9 +3722,10 @@ class GCEntityBlocker
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEntityBlocker(std::string ptr);
+    GCEntityBlocker(std::string ptr, lua_State* state);
     GCEntityBlocker(void *ptr);
 
     GCBaseModelEntity GetParent() const;
@@ -3664,9 +3740,10 @@ class GCLogicCase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicCase(std::string ptr);
+    GCLogicCase(std::string ptr, lua_State* state);
     GCLogicCase(void *ptr);
 
     std::vector<CUtlSymbolLarge> GetCase() const;
@@ -3691,9 +3768,10 @@ class GCItem
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItem(std::string ptr);
+    GCItem(std::string ptr, lua_State* state);
     GCItem(void *ptr);
 
     GCEntityIOOutput GetOnPlayerTouch() const;
@@ -3724,9 +3802,10 @@ class GCRuleEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRuleEntity(std::string ptr);
+    GCRuleEntity(std::string ptr, lua_State* state);
     GCRuleEntity(void *ptr);
 
     std::string GetMaster() const;
@@ -3743,9 +3822,10 @@ class GExtent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GExtent(std::string ptr);
+    GExtent(std::string ptr, lua_State* state);
     GExtent(void *ptr);
 
     Vector GetLo() const;
@@ -3762,9 +3842,10 @@ class GCSoundEventEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEventEntity(std::string ptr);
+    GCSoundEventEntity(std::string ptr, lua_State* state);
     GCSoundEventEntity(void *ptr);
 
     bool GetStartOnSpawn() const;
@@ -3803,9 +3884,10 @@ class GCCSPlayer_ViewModelServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_ViewModelServices(std::string ptr);
+    GCCSPlayer_ViewModelServices(std::string ptr, lua_State* state);
     GCCSPlayer_ViewModelServices(void *ptr);
 
     std::vector<GCBaseViewModel> GetViewModel() const;
@@ -3822,9 +3904,10 @@ class GCBasePlayerWeapon
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBasePlayerWeapon(std::string ptr);
+    GCBasePlayerWeapon(std::string ptr, lua_State* state);
     GCBasePlayerWeapon(void *ptr);
 
     int32 GetNextPrimaryAttackTick() const;
@@ -3855,9 +3938,10 @@ class GCInfoParticleTarget
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoParticleTarget(std::string ptr);
+    GCInfoParticleTarget(std::string ptr, lua_State* state);
     GCInfoParticleTarget(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -3872,9 +3956,10 @@ class GCEnvVolumetricFogController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvVolumetricFogController(std::string ptr);
+    GCEnvVolumetricFogController(std::string ptr, lua_State* state);
     GCEnvVolumetricFogController(void *ptr);
 
     float GetScattering() const;
@@ -3951,9 +4036,10 @@ class GCPlayer_MovementServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_MovementServices(std::string ptr);
+    GCPlayer_MovementServices(std::string ptr, lua_State* state);
     GCPlayer_MovementServices(void *ptr);
 
     int32_t GetImpulse() const;
@@ -3998,9 +4084,10 @@ class GCBreakableProp
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBreakableProp(std::string ptr);
+    GCBreakableProp(std::string ptr, lua_State* state);
     GCBreakableProp(void *ptr);
 
     GCPropDataComponent GetCPropDataComponent() const;
@@ -4073,9 +4160,10 @@ class GCEnvSoundscapeProxy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvSoundscapeProxy(std::string ptr);
+    GCEnvSoundscapeProxy(std::string ptr, lua_State* state);
     GCEnvSoundscapeProxy(void *ptr);
 
     std::string GetMainSoundscapeName() const;
@@ -4092,9 +4180,10 @@ class GCPhysConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysConstraint(std::string ptr);
+    GCPhysConstraint(std::string ptr, lua_State* state);
     GCPhysConstraint(void *ptr);
 
     std::string GetNameAttach1() const;
@@ -4135,9 +4224,10 @@ class GCCSGameModeRules
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGameModeRules(std::string ptr);
+    GCCSGameModeRules(std::string ptr, lua_State* state);
     GCCSGameModeRules(void *ptr);
 
     GCNetworkVarChainer Get__pChainEntity() const;
@@ -4152,9 +4242,10 @@ class GCItemAssaultSuit
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItemAssaultSuit(std::string ptr);
+    GCItemAssaultSuit(std::string ptr, lua_State* state);
     GCItemAssaultSuit(void *ptr);
 
     GCItem GetParent() const;
@@ -4169,9 +4260,10 @@ class GCInfoPlayerStart
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoPlayerStart(std::string ptr);
+    GCInfoPlayerStart(std::string ptr, lua_State* state);
     GCInfoPlayerStart(void *ptr);
 
     bool GetDisabled() const;
@@ -4188,9 +4280,10 @@ class GCSoundOpvarSetPointBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundOpvarSetPointBase(std::string ptr);
+    GCSoundOpvarSetPointBase(std::string ptr, lua_State* state);
     GCSoundOpvarSetPointBase(void *ptr);
 
     bool GetDisabled() const;
@@ -4223,9 +4316,10 @@ class Gragdoll_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gragdoll_t(std::string ptr);
+    Gragdoll_t(std::string ptr, lua_State* state);
     Gragdoll_t(void *ptr);
 
     std::vector<Gragdollelement_t> GetList() const;
@@ -4246,9 +4340,10 @@ class GCItemDogtags
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItemDogtags(std::string ptr);
+    GCItemDogtags(std::string ptr, lua_State* state);
     GCItemDogtags(void *ptr);
 
     GCCSPlayerPawn GetOwningPlayer() const;
@@ -4267,9 +4362,10 @@ class GCLightEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLightEntity(std::string ptr);
+    GCLightEntity(std::string ptr, lua_State* state);
     GCLightEntity(void *ptr);
 
     GCLightComponent GetCLightComponent() const;
@@ -4286,9 +4382,10 @@ class GCPlayer_WaterServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_WaterServices(std::string ptr);
+    GCPlayer_WaterServices(std::string ptr, lua_State* state);
     GCPlayer_WaterServices(void *ptr);
 
     GCPlayerPawnComponent GetParent() const;
@@ -4303,9 +4400,10 @@ class GCSkyboxReference
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSkyboxReference(std::string ptr);
+    GCSkyboxReference(std::string ptr, lua_State* state);
     GCSkyboxReference(void *ptr);
 
     uint32_t GetWorldGroupId() const;
@@ -4324,9 +4422,10 @@ class GCDynamicProp
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDynamicProp(std::string ptr);
+    GCDynamicProp(std::string ptr, lua_State* state);
     GCDynamicProp(void *ptr);
 
     bool GetCreateNavObstacle() const;
@@ -4383,9 +4482,10 @@ class GCRopeKeyframe
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRopeKeyframe(std::string ptr);
+    GCRopeKeyframe(std::string ptr, lua_State* state);
     GCRopeKeyframe(void *ptr);
 
     uint16_t GetRopeFlags() const;
@@ -4436,9 +4536,10 @@ class GCBarnLight
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBarnLight(std::string ptr);
+    GCBarnLight(std::string ptr, lua_State* state);
     GCBarnLight(void *ptr);
 
     bool GetEnabled() const;
@@ -4555,9 +4656,10 @@ class GSpawnPoint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSpawnPoint(std::string ptr);
+    GSpawnPoint(std::string ptr, lua_State* state);
     GSpawnPoint(void *ptr);
 
     int32_t GetPriority() const;
@@ -4578,9 +4680,10 @@ class GCEnvViewPunch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvViewPunch(std::string ptr);
+    GCEnvViewPunch(std::string ptr, lua_State* state);
     GCEnvViewPunch(void *ptr);
 
     float GetRadius() const;
@@ -4599,9 +4702,10 @@ class GCCSWeaponBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSWeaponBase(std::string ptr);
+    GCCSWeaponBase(std::string ptr, lua_State* state);
     GCCSWeaponBase(void *ptr);
 
     bool GetRemoveable() const;
@@ -4732,9 +4836,10 @@ class GCPathCorner
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathCorner(std::string ptr);
+    GCPathCorner(std::string ptr, lua_State* state);
     GCPathCorner(void *ptr);
 
     float GetWait() const;
@@ -4755,9 +4860,10 @@ class GCPlayerControllerComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayerControllerComponent(std::string ptr);
+    GCPlayerControllerComponent(std::string ptr, lua_State* state);
     GCPlayerControllerComponent(void *ptr);
 
     GCNetworkVarChainer Get__pChainEntity() const;
@@ -4772,9 +4878,10 @@ class GCWeaponBaseItem
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponBaseItem(std::string ptr);
+    GCWeaponBaseItem(std::string ptr, lua_State* state);
     GCWeaponBaseItem(void *ptr);
 
     GCountdownTimer GetSequenceCompleteTimer() const;
@@ -4793,9 +4900,10 @@ class GCBaseCombatCharacter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseCombatCharacter(std::string ptr);
+    GCBaseCombatCharacter(std::string ptr, lua_State* state);
     GCBaseCombatCharacter(void *ptr);
 
     bool GetForceServerRagdoll() const;
@@ -4830,9 +4938,10 @@ class GCMultiSource
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMultiSource(std::string ptr);
+    GCMultiSource(std::string ptr, lua_State* state);
     GCMultiSource(void *ptr);
 
     std::vector<GCBaseEntity> GetRgEntities() const;
@@ -4857,9 +4966,10 @@ class GCLogicNavigation
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicNavigation(std::string ptr);
+    GCLogicNavigation(std::string ptr, lua_State* state);
     GCLogicNavigation(void *ptr);
 
     bool GetIsOn() const;
@@ -4878,9 +4988,10 @@ class GCEnvEntityMaker
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvEntityMaker(std::string ptr);
+    GCEnvEntityMaker(std::string ptr, lua_State* state);
     GCEnvEntityMaker(void *ptr);
 
     Vector GetEntityMins() const;
@@ -4919,9 +5030,10 @@ class GCProjectedDecal
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCProjectedDecal(std::string ptr);
+    GCProjectedDecal(std::string ptr, lua_State* state);
     GCProjectedDecal(void *ptr);
 
     int32_t GetTexture() const;
@@ -4940,9 +5052,10 @@ class GCLogicEventListener
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicEventListener(std::string ptr);
+    GCLogicEventListener(std::string ptr, lua_State* state);
     GCLogicEventListener(void *ptr);
 
     std::string GetStrEventName() const;
@@ -4965,9 +5078,10 @@ class GCFilterMultiple
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterMultiple(std::string ptr);
+    GCFilterMultiple(std::string ptr, lua_State* state);
     GCFilterMultiple(void *ptr);
 
     uint64_t GetFilterType() const;
@@ -4990,9 +5104,10 @@ class GCPlayer_UseServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_UseServices(std::string ptr);
+    GCPlayer_UseServices(std::string ptr, lua_State* state);
     GCPlayer_UseServices(void *ptr);
 
     GCPlayerPawnComponent GetParent() const;
@@ -5007,9 +5122,10 @@ class GCScriptComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCScriptComponent(std::string ptr);
+    GCScriptComponent(std::string ptr, lua_State* state);
     GCScriptComponent(void *ptr);
 
     std::string GetScriptClassName() const;
@@ -5026,9 +5142,10 @@ class GCPhysicsWire
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysicsWire(std::string ptr);
+    GCPhysicsWire(std::string ptr, lua_State* state);
     GCPhysicsWire(void *ptr);
 
     int32_t GetDensity() const;
@@ -5045,9 +5162,10 @@ class Glocksound_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Glocksound_t(std::string ptr);
+    Glocksound_t(std::string ptr, lua_State* state);
     Glocksound_t(void *ptr);
 
     std::string GetLockedSound() const;
@@ -5066,9 +5184,10 @@ class GCCSPointScriptExtensions_player_controller
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPointScriptExtensions_player_controller(std::string ptr);
+    GCCSPointScriptExtensions_player_controller(std::string ptr, lua_State* state);
     GCCSPointScriptExtensions_player_controller(void *ptr);
 
 
@@ -5082,9 +5201,10 @@ class GCBaseFire
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseFire(std::string ptr);
+    GCBaseFire(std::string ptr, lua_State* state);
     GCBaseFire(void *ptr);
 
     float GetScale() const;
@@ -5107,9 +5227,10 @@ class GCBumpMine
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBumpMine(std::string ptr);
+    GCBumpMine(std::string ptr, lua_State* state);
     GCBumpMine(void *ptr);
 
     GCCSWeaponBase GetParent() const;
@@ -5124,9 +5245,10 @@ class GCLightGlow
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLightGlow(std::string ptr);
+    GCLightGlow(std::string ptr, lua_State* state);
     GCLightGlow(void *ptr);
 
     uint32_t GetHorizontalSize() const;
@@ -5155,9 +5277,10 @@ class GCSPerRoundStats_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSPerRoundStats_t(std::string ptr);
+    GCSPerRoundStats_t(std::string ptr, lua_State* state);
     GCSPerRoundStats_t(void *ptr);
 
     int32_t GetKills() const;
@@ -5196,9 +5319,10 @@ class GCBasePropDoor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBasePropDoor(std::string ptr);
+    GCBasePropDoor(std::string ptr, lua_State* state);
     GCBasePropDoor(void *ptr);
 
     float GetAutoReturnDelay() const;
@@ -5285,9 +5409,10 @@ class GCRagdollManager
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRagdollManager(std::string ptr);
+    GCRagdollManager(std::string ptr, lua_State* state);
     GCRagdollManager(void *ptr);
 
     int32_t GetCurrentMaxRagdollCount() const;
@@ -5308,9 +5433,10 @@ class GCTriggerFan
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerFan(std::string ptr);
+    GCTriggerFan(std::string ptr, lua_State* state);
     GCTriggerFan(void *ptr);
 
     Vector GetFanOrigin() const;
@@ -5349,9 +5475,10 @@ class GCBaseCSGrenade
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseCSGrenade(std::string ptr);
+    GCBaseCSGrenade(std::string ptr, lua_State* state);
     GCBaseCSGrenade(void *ptr);
 
     bool GetRedraw() const;
@@ -5394,9 +5521,10 @@ class GCPathCornerCrash
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathCornerCrash(std::string ptr);
+    GCPathCornerCrash(std::string ptr, lua_State* state);
     GCPathCornerCrash(void *ptr);
 
     GCPathCorner GetParent() const;
@@ -5411,9 +5539,10 @@ class GCHandleTest
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHandleTest(std::string ptr);
+    GCHandleTest(std::string ptr, lua_State* state);
     GCHandleTest(void *ptr);
 
     GCBaseEntity GetHandle() const;
@@ -5432,9 +5561,10 @@ class GCSoundOpvarSetEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundOpvarSetEntity(std::string ptr);
+    GCSoundOpvarSetEntity(std::string ptr, lua_State* state);
     GCSoundOpvarSetEntity(void *ptr);
 
     std::string GetStackName() const;
@@ -5465,9 +5595,10 @@ class GWeaponPurchaseCount_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GWeaponPurchaseCount_t(std::string ptr);
+    GWeaponPurchaseCount_t(std::string ptr, lua_State* state);
     GWeaponPurchaseCount_t(void *ptr);
 
     uint16_t GetItemDefIndex() const;
@@ -5484,9 +5615,10 @@ class GCNavSpaceInfo
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavSpaceInfo(std::string ptr);
+    GCNavSpaceInfo(std::string ptr, lua_State* state);
     GCNavSpaceInfo(void *ptr);
 
     bool GetCreateFlightSpace() const;
@@ -5503,9 +5635,10 @@ class GCLogicAchievement
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicAchievement(std::string ptr);
+    GCLogicAchievement(std::string ptr, lua_State* state);
     GCLogicAchievement(void *ptr);
 
     bool GetDisabled() const;
@@ -5526,9 +5659,10 @@ class GCPathSimple
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathSimple(std::string ptr);
+    GCPathSimple(std::string ptr, lua_State* state);
     GCPathSimple(void *ptr);
 
     std::string GetPathString() const;
@@ -5545,9 +5679,10 @@ class GCBtActionParachutePositioning
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBtActionParachutePositioning(std::string ptr);
+    GCBtActionParachutePositioning(std::string ptr, lua_State* state);
     GCBtActionParachutePositioning(void *ptr);
 
     GCountdownTimer GetActionTimer() const;
@@ -5564,9 +5699,10 @@ class GCPlayer_CameraServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_CameraServices(std::string ptr);
+    GCPlayer_CameraServices(std::string ptr, lua_State* state);
     GCPlayer_CameraServices(void *ptr);
 
     QAngle GetCsViewPunchAngle() const;
@@ -5603,9 +5739,10 @@ class GCTouchExpansionComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTouchExpansionComponent(std::string ptr);
+    GCTouchExpansionComponent(std::string ptr, lua_State* state);
     GCTouchExpansionComponent(void *ptr);
 
     GCEntityComponent GetParent() const;
@@ -5620,9 +5757,10 @@ class GEntitySpottedState_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEntitySpottedState_t(std::string ptr);
+    GEntitySpottedState_t(std::string ptr, lua_State* state);
     GEntitySpottedState_t(void *ptr);
 
     bool GetSpotted() const;
@@ -5639,9 +5777,10 @@ class GCBaseClientUIEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseClientUIEntity(std::string ptr);
+    GCBaseClientUIEntity(std::string ptr, lua_State* state);
     GCBaseClientUIEntity(void *ptr);
 
     bool GetEnabled() const;
@@ -5684,9 +5823,10 @@ class GCEnvDecal
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvDecal(std::string ptr);
+    GCEnvDecal(std::string ptr, lua_State* state);
     GCEnvDecal(void *ptr);
 
     float GetWidth() const;
@@ -5717,9 +5857,10 @@ class GCCSPointScriptExtensions_entity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPointScriptExtensions_entity(std::string ptr);
+    GCCSPointScriptExtensions_entity(std::string ptr, lua_State* state);
     GCCSPointScriptExtensions_entity(void *ptr);
 
 
@@ -5733,9 +5874,10 @@ class GCGameSceneNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGameSceneNode(std::string ptr);
+    GCGameSceneNode(std::string ptr, lua_State* state);
     GCGameSceneNode(void *ptr);
 
     GCEntityInstance GetOwner() const;
@@ -5792,9 +5934,10 @@ class GCLogicAuto
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicAuto(std::string ptr);
+    GCLogicAuto(std::string ptr, lua_State* state);
     GCLogicAuto(void *ptr);
 
     GCEntityIOOutput GetOnMapSpawn() const;
@@ -5831,9 +5974,10 @@ class GCSoundOpvarSetOBBWindEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundOpvarSetOBBWindEntity(std::string ptr);
+    GCSoundOpvarSetOBBWindEntity(std::string ptr, lua_State* state);
     GCSoundOpvarSetOBBWindEntity(void *ptr);
 
     Vector GetMins() const;
@@ -5864,9 +6008,10 @@ class GCLightDirectionalEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLightDirectionalEntity(std::string ptr);
+    GCLightDirectionalEntity(std::string ptr, lua_State* state);
     GCLightDirectionalEntity(void *ptr);
 
     GCLightEntity GetParent() const;
@@ -5881,9 +6026,10 @@ class GCLogicNPCCounter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicNPCCounter(std::string ptr);
+    GCLogicNPCCounter(std::string ptr, lua_State* state);
     GCLogicNPCCounter(void *ptr);
 
     GCEntityIOOutput GetOnMinCountAll() const;
@@ -5978,9 +6124,10 @@ class GCCSObserver_UseServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSObserver_UseServices(std::string ptr);
+    GCCSObserver_UseServices(std::string ptr, lua_State* state);
     GCCSObserver_UseServices(void *ptr);
 
     GCPlayer_UseServices GetParent() const;
@@ -5995,9 +6142,10 @@ class GCFuncPlat
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncPlat(std::string ptr);
+    GCFuncPlat(std::string ptr, lua_State* state);
     GCFuncPlat(void *ptr);
 
     std::string GetNoise() const;
@@ -6014,9 +6162,10 @@ class GCRuleBrushEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRuleBrushEntity(std::string ptr);
+    GCRuleBrushEntity(std::string ptr, lua_State* state);
     GCRuleBrushEntity(void *ptr);
 
     GCRuleEntity GetParent() const;
@@ -6031,9 +6180,10 @@ class GCRulePointEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRulePointEntity(std::string ptr);
+    GCRulePointEntity(std::string ptr, lua_State* state);
     GCRulePointEntity(void *ptr);
 
     int32_t GetScore() const;
@@ -6050,9 +6200,10 @@ class GCMessageEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMessageEntity(std::string ptr);
+    GCMessageEntity(std::string ptr, lua_State* state);
     GCMessageEntity(void *ptr);
 
     int32_t GetRadius() const;
@@ -6077,9 +6228,10 @@ class GCSmokeGrenade
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSmokeGrenade(std::string ptr);
+    GCSmokeGrenade(std::string ptr, lua_State* state);
     GCSmokeGrenade(void *ptr);
 
     GCBaseCSGrenade GetParent() const;
@@ -6094,9 +6246,10 @@ class GCBaseViewModel
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseViewModel(std::string ptr);
+    GCBaseViewModel(std::string ptr, lua_State* state);
     GCBaseViewModel(void *ptr);
 
     Vector GetLastFacing() const;
@@ -6131,9 +6284,10 @@ class GCCSPlayer_PingServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_PingServices(std::string ptr);
+    GCCSPlayer_PingServices(std::string ptr, lua_State* state);
     GCCSPlayer_PingServices(void *ptr);
 
     std::vector<float> GetPlayerPingTokens() const;
@@ -6152,9 +6306,10 @@ class GCPlayer_FlashlightServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_FlashlightServices(std::string ptr);
+    GCPlayer_FlashlightServices(std::string ptr, lua_State* state);
     GCPlayer_FlashlightServices(void *ptr);
 
     GCPlayerPawnComponent GetParent() const;
@@ -6169,9 +6324,10 @@ class GCServerOnlyModelEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCServerOnlyModelEntity(std::string ptr);
+    GCServerOnlyModelEntity(std::string ptr, lua_State* state);
     GCServerOnlyModelEntity(void *ptr);
 
     GCBaseModelEntity GetParent() const;
@@ -6186,9 +6342,10 @@ class GCBtActionCombatPositioning
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBtActionCombatPositioning(std::string ptr);
+    GCBtActionCombatPositioning(std::string ptr, lua_State* state);
     GCBtActionCombatPositioning(void *ptr);
 
     std::string GetSensorInputKey() const;
@@ -6211,9 +6368,10 @@ class GCFireSmoke
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFireSmoke(std::string ptr);
+    GCFireSmoke(std::string ptr, lua_State* state);
     GCFireSmoke(void *ptr);
 
     int32_t GetFlameModelIndex() const;
@@ -6232,9 +6390,10 @@ class GCCSWeaponBaseGun
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSWeaponBaseGun(std::string ptr);
+    GCCSWeaponBaseGun(std::string ptr, lua_State* state);
     GCCSWeaponBaseGun(void *ptr);
 
     int32_t GetZoomLevel() const;
@@ -6267,9 +6426,10 @@ class GCWeaponGlock
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponGlock(std::string ptr);
+    GCWeaponGlock(std::string ptr, lua_State* state);
     GCWeaponGlock(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -6284,9 +6444,10 @@ class GCPredictedViewModel
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPredictedViewModel(std::string ptr);
+    GCPredictedViewModel(std::string ptr, lua_State* state);
     GCPredictedViewModel(void *ptr);
 
     GCBaseViewModel GetParent() const;
@@ -6301,9 +6462,10 @@ class GCTriggerActiveWeaponDetect
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerActiveWeaponDetect(std::string ptr);
+    GCTriggerActiveWeaponDetect(std::string ptr, lua_State* state);
     GCTriggerActiveWeaponDetect(void *ptr);
 
     GCEntityIOOutput GetOnTouchedActiveWeapon() const;
@@ -6322,9 +6484,10 @@ class GCEnvMicrophone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvMicrophone(std::string ptr);
+    GCEnvMicrophone(std::string ptr, lua_State* state);
     GCEnvMicrophone(void *ptr);
 
     bool GetDisabled() const;
@@ -6373,9 +6536,10 @@ class GCInfoSpawnGroupLoadUnload
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoSpawnGroupLoadUnload(std::string ptr);
+    GCInfoSpawnGroupLoadUnload(std::string ptr, lua_State* state);
     GCInfoSpawnGroupLoadUnload(void *ptr);
 
     GCEntityIOOutput GetOnSpawnGroupLoadStarted() const;
@@ -6412,9 +6576,10 @@ class GCBasePlayerController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBasePlayerController(std::string ptr);
+    GCBasePlayerController(std::string ptr, lua_State* state);
     GCBasePlayerController(void *ptr);
 
     int EntityIndex();
@@ -6480,9 +6645,10 @@ class GCPointTemplateAPI
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointTemplateAPI(std::string ptr);
+    GCPointTemplateAPI(std::string ptr, lua_State* state);
     GCPointTemplateAPI(void *ptr);
 
 
@@ -6496,9 +6662,10 @@ class GCKnife
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCKnife(std::string ptr);
+    GCKnife(std::string ptr, lua_State* state);
     GCKnife(void *ptr);
 
     bool GetFirstAttack() const;
@@ -6515,9 +6682,10 @@ class GCFuncTrackTrain
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncTrackTrain(std::string ptr);
+    GCFuncTrackTrain(std::string ptr, lua_State* state);
     GCFuncTrackTrain(void *ptr);
 
     GCPathTrack GetPpath() const;
@@ -6606,9 +6774,10 @@ class GCFogVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFogVolume(std::string ptr);
+    GCFogVolume(std::string ptr, lua_State* state);
     GCFogVolume(void *ptr);
 
     std::string GetFogName() const;
@@ -6633,9 +6802,10 @@ class GCInfoPlayerCounterterrorist
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoPlayerCounterterrorist(std::string ptr);
+    GCInfoPlayerCounterterrorist(std::string ptr, lua_State* state);
     GCInfoPlayerCounterterrorist(void *ptr);
 
     GSpawnPoint GetParent() const;
@@ -6650,9 +6820,10 @@ class GCFire
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFire(std::string ptr);
+    GCFire(std::string ptr, lua_State* state);
     GCFire(void *ptr);
 
     GCBaseFire GetEffect() const;
@@ -6705,9 +6876,10 @@ class GISkeletonAnimationController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GISkeletonAnimationController(std::string ptr);
+    GISkeletonAnimationController(std::string ptr, lua_State* state);
     GISkeletonAnimationController(void *ptr);
 
 
@@ -6721,9 +6893,10 @@ class GCCSServerPointScriptEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSServerPointScriptEntity(std::string ptr);
+    GCCSServerPointScriptEntity(std::string ptr, lua_State* state);
     GCCSServerPointScriptEntity(void *ptr);
 
     GCCSPointScriptEntity GetParent() const;
@@ -6738,9 +6911,10 @@ class GCWeaponBizon
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponBizon(std::string ptr);
+    GCWeaponBizon(std::string ptr, lua_State* state);
     GCWeaponBizon(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -6755,9 +6929,10 @@ class GCFuncPlatRot
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncPlatRot(std::string ptr);
+    GCFuncPlatRot(std::string ptr, lua_State* state);
     GCFuncPlatRot(void *ptr);
 
     QAngle GetEnd() const;
@@ -6776,9 +6951,10 @@ class GCGenericConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGenericConstraint(std::string ptr);
+    GCGenericConstraint(std::string ptr, lua_State* state);
     GCGenericConstraint(void *ptr);
 
     uint64_t GetLinearMotionX() const;
@@ -6889,9 +7065,10 @@ class GCDecoyGrenade
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDecoyGrenade(std::string ptr);
+    GCDecoyGrenade(std::string ptr, lua_State* state);
     GCDecoyGrenade(void *ptr);
 
     GCBaseCSGrenade GetParent() const;
@@ -6906,9 +7083,10 @@ class GCWeaponG3SG1
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponG3SG1(std::string ptr);
+    GCWeaponG3SG1(std::string ptr, lua_State* state);
     GCWeaponG3SG1(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -6923,9 +7101,10 @@ class GCItemDefuser
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItemDefuser(std::string ptr);
+    GCItemDefuser(std::string ptr, lua_State* state);
     GCItemDefuser(void *ptr);
 
     GEntitySpottedState_t GetEntitySpottedState() const;
@@ -6944,9 +7123,10 @@ class GCConstantForceController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCConstantForceController(std::string ptr);
+    GCConstantForceController(std::string ptr, lua_State* state);
     GCConstantForceController(void *ptr);
 
     Vector GetLinear() const;
@@ -6967,9 +7147,10 @@ class GCDEagle
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDEagle(std::string ptr);
+    GCDEagle(std::string ptr, lua_State* state);
     GCDEagle(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -6984,9 +7165,10 @@ class GCRagdollProp
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRagdollProp(std::string ptr);
+    GCRagdollProp(std::string ptr, lua_State* state);
     GCRagdollProp(void *ptr);
 
     Gragdoll_t GetRagdoll() const;
@@ -7055,9 +7237,10 @@ class GCItemSoda
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItemSoda(std::string ptr);
+    GCItemSoda(std::string ptr, lua_State* state);
     GCItemSoda(void *ptr);
 
     GCBaseAnimGraph GetParent() const;
@@ -7072,9 +7255,10 @@ class GCEnvCubemap
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvCubemap(std::string ptr);
+    GCEnvCubemap(std::string ptr, lua_State* state);
     GCEnvCubemap(void *ptr);
 
     bool GetEntity_bCustomCubemapTexture() const;
@@ -7123,9 +7307,10 @@ class GCBasePlayerControllerAPI
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBasePlayerControllerAPI(std::string ptr);
+    GCBasePlayerControllerAPI(std::string ptr, lua_State* state);
     GCBasePlayerControllerAPI(void *ptr);
 
 
@@ -7139,9 +7324,10 @@ class GCCSPointScriptExtensions_CCSWeaponBaseVData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPointScriptExtensions_CCSWeaponBaseVData(std::string ptr);
+    GCCSPointScriptExtensions_CCSWeaponBaseVData(std::string ptr, lua_State* state);
     GCCSPointScriptExtensions_CCSWeaponBaseVData(void *ptr);
 
 
@@ -7155,9 +7341,10 @@ class GCEnvDetailController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvDetailController(std::string ptr);
+    GCEnvDetailController(std::string ptr, lua_State* state);
     GCEnvDetailController(void *ptr);
 
     float GetFadeStartDist() const;
@@ -7176,9 +7363,10 @@ class GCTriggerOnce
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerOnce(std::string ptr);
+    GCTriggerOnce(std::string ptr, lua_State* state);
     GCTriggerOnce(void *ptr);
 
     GCTriggerMultiple GetParent() const;
@@ -7193,9 +7381,10 @@ class GCInfoTeleportDestination
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoTeleportDestination(std::string ptr);
+    GCInfoTeleportDestination(std::string ptr, lua_State* state);
     GCInfoTeleportDestination(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -7210,9 +7399,10 @@ class GCMathRemap
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMathRemap(std::string ptr);
+    GCMathRemap(std::string ptr, lua_State* state);
     GCMathRemap(void *ptr);
 
     float GetInMin() const;
@@ -7247,9 +7437,10 @@ class GCInstructorEventEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInstructorEventEntity(std::string ptr);
+    GCInstructorEventEntity(std::string ptr, lua_State* state);
     GCInstructorEventEntity(void *ptr);
 
     std::string GetName() const;
@@ -7270,9 +7461,10 @@ class GCGradientFog
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGradientFog(std::string ptr);
+    GCGradientFog(std::string ptr, lua_State* state);
     GCGradientFog(void *ptr);
 
     float GetFogStartDistance() const;
@@ -7317,9 +7509,10 @@ class GCFootstepControl
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootstepControl(std::string ptr);
+    GCFootstepControl(std::string ptr, lua_State* state);
     GCFootstepControl(void *ptr);
 
     std::string GetSource() const;
@@ -7338,9 +7531,10 @@ class GCTriggerVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerVolume(std::string ptr);
+    GCTriggerVolume(std::string ptr, lua_State* state);
     GCTriggerVolume(void *ptr);
 
     std::string GetFilterName() const;
@@ -7359,9 +7553,10 @@ class GCInfoInstructorHintHostageRescueZone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoInstructorHintHostageRescueZone(std::string ptr);
+    GCInfoInstructorHintHostageRescueZone(std::string ptr, lua_State* state);
     GCInfoInstructorHintHostageRescueZone(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -7376,9 +7571,10 @@ class GCEnvSoundscapeAlias_snd_soundscape
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvSoundscapeAlias_snd_soundscape(std::string ptr);
+    GCEnvSoundscapeAlias_snd_soundscape(std::string ptr, lua_State* state);
     GCEnvSoundscapeAlias_snd_soundscape(void *ptr);
 
     GCEnvSoundscape GetParent() const;
@@ -7393,9 +7589,10 @@ class GCFishPool
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFishPool(std::string ptr);
+    GCFishPool(std::string ptr, lua_State* state);
     GCFishPool(void *ptr);
 
     int32_t GetFishCount() const;
@@ -7422,9 +7619,10 @@ class GCPointClientCommand
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointClientCommand(std::string ptr);
+    GCPointClientCommand(std::string ptr, lua_State* state);
     GCPointClientCommand(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -7439,9 +7637,10 @@ class GCFuncVPhysicsClip
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncVPhysicsClip(std::string ptr);
+    GCFuncVPhysicsClip(std::string ptr, lua_State* state);
     GCFuncVPhysicsClip(void *ptr);
 
     bool GetDisabled() const;
@@ -7458,9 +7657,10 @@ class GCCSPlayer_RadioServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_RadioServices(std::string ptr);
+    GCCSPlayer_RadioServices(std::string ptr, lua_State* state);
     GCCSPlayer_RadioServices(void *ptr);
 
     float GetGotHostageTalkTimer() const;
@@ -7485,9 +7685,10 @@ class GCSceneEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSceneEntity(std::string ptr);
+    GCSceneEntity(std::string ptr, lua_State* state);
     GCSceneEntity(void *ptr);
 
     std::string GetSceneFile() const;
@@ -7628,9 +7829,10 @@ class GCEnvHudHint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvHudHint(std::string ptr);
+    GCEnvHudHint(std::string ptr, lua_State* state);
     GCEnvHudHint(void *ptr);
 
     std::string GetMessage() const;
@@ -7647,9 +7849,10 @@ class GCParticleSystem
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleSystem(std::string ptr);
+    GCParticleSystem(std::string ptr, lua_State* state);
     GCParticleSystem(void *ptr);
 
     std::string GetSnapshotFileName() const;
@@ -7706,9 +7909,10 @@ class GAmmoIndex_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAmmoIndex_t(std::string ptr);
+    GAmmoIndex_t(std::string ptr, lua_State* state);
     GAmmoIndex_t(void *ptr);
 
     int32_t GetValue() const;
@@ -7723,9 +7927,10 @@ class Gsky3dparams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gsky3dparams_t(std::string ptr);
+    Gsky3dparams_t(std::string ptr, lua_State* state);
     Gsky3dparams_t(void *ptr);
 
     int16_t GetScale() const;
@@ -7750,9 +7955,10 @@ class GCScriptItem
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCScriptItem(std::string ptr);
+    GCScriptItem(std::string ptr, lua_State* state);
     GCScriptItem(void *ptr);
 
     uint64_t GetMoveTypeOverride() const;
@@ -7769,9 +7975,10 @@ class GIntervalTimer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIntervalTimer(std::string ptr);
+    GIntervalTimer(std::string ptr, lua_State* state);
     GIntervalTimer(void *ptr);
 
     float GetTimestamp() const;
@@ -7788,9 +7995,10 @@ class GCWeaponSG556
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponSG556(std::string ptr);
+    GCWeaponSG556(std::string ptr, lua_State* state);
     GCWeaponSG556(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -7805,9 +8013,10 @@ class Gdynpitchvol_base_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gdynpitchvol_base_t(std::string ptr);
+    Gdynpitchvol_base_t(std::string ptr, lua_State* state);
     Gdynpitchvol_base_t(void *ptr);
 
     int32_t GetPreset() const;
@@ -7870,9 +8079,10 @@ class GCDynamicLight
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDynamicLight(std::string ptr);
+    GCDynamicLight(std::string ptr, lua_State* state);
     GCDynamicLight(void *ptr);
 
     uint32_t GetActualFlags() const;
@@ -7905,9 +8115,10 @@ class GCWeaponP90
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponP90(std::string ptr);
+    GCWeaponP90(std::string ptr, lua_State* state);
     GCWeaponP90(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -7922,9 +8133,10 @@ class GCTriggerToggleSave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerToggleSave(std::string ptr);
+    GCTriggerToggleSave(std::string ptr, lua_State* state);
     GCTriggerToggleSave(void *ptr);
 
     GCBaseTrigger GetParent() const;
@@ -7939,9 +8151,10 @@ class GCPrecipitation
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPrecipitation(std::string ptr);
+    GCPrecipitation(std::string ptr, lua_State* state);
     GCPrecipitation(void *ptr);
 
     GCBaseTrigger GetParent() const;
@@ -7956,9 +8169,10 @@ class GCPointServerCommand
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointServerCommand(std::string ptr);
+    GCPointServerCommand(std::string ptr, lua_State* state);
     GCPointServerCommand(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -7973,9 +8187,10 @@ class GCCSGO_TeamIntroCharacterPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_TeamIntroCharacterPosition(std::string ptr);
+    GCCSGO_TeamIntroCharacterPosition(std::string ptr, lua_State* state);
     GCCSGO_TeamIntroCharacterPosition(void *ptr);
 
     GCCSGO_TeamPreviewCharacterPosition GetParent() const;
@@ -7990,9 +8205,10 @@ class GCLogicCollisionPair
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicCollisionPair(std::string ptr);
+    GCLogicCollisionPair(std::string ptr, lua_State* state);
     GCLogicCollisionPair(void *ptr);
 
     std::string GetNameAttach1() const;
@@ -8017,9 +8233,10 @@ class GCSkeletonInstance
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSkeletonInstance(std::string ptr);
+    GCSkeletonInstance(std::string ptr, lua_State* state);
     GCSkeletonInstance(void *ptr);
 
     GCModelState GetModelState() const;
@@ -8046,9 +8263,10 @@ class GCPhysicsProp
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysicsProp(std::string ptr);
+    GCPhysicsProp(std::string ptr, lua_State* state);
     GCPhysicsProp(void *ptr);
 
     GCEntityIOOutput GetMotionEnabled() const;
@@ -8129,9 +8347,10 @@ class GCFuncWall
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncWall(std::string ptr);
+    GCFuncWall(std::string ptr, lua_State* state);
     GCFuncWall(void *ptr);
 
     int32_t GetState() const;
@@ -8148,9 +8367,10 @@ class GCItemDefuserAlias_item_defuser
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItemDefuserAlias_item_defuser(std::string ptr);
+    GCItemDefuserAlias_item_defuser(std::string ptr, lua_State* state);
     GCItemDefuserAlias_item_defuser(void *ptr);
 
     GCItemDefuser GetParent() const;
@@ -8165,9 +8385,10 @@ class GCBaseGrenade
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseGrenade(std::string ptr);
+    GCBaseGrenade(std::string ptr, lua_State* state);
     GCBaseGrenade(void *ptr);
 
     GCEntityIOOutput GetOnPlayerPickup() const;
@@ -8210,9 +8431,10 @@ class GCCSPlayerBase_CameraServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayerBase_CameraServices(std::string ptr);
+    GCCSPlayerBase_CameraServices(std::string ptr, lua_State* state);
     GCCSPlayerBase_CameraServices(void *ptr);
 
     uint32_t GetFOV() const;
@@ -8239,9 +8461,10 @@ class GCCSGO_WingmanIntroCharacterPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_WingmanIntroCharacterPosition(std::string ptr);
+    GCCSGO_WingmanIntroCharacterPosition(std::string ptr, lua_State* state);
     GCCSGO_WingmanIntroCharacterPosition(void *ptr);
 
     GCCSGO_TeamIntroCharacterPosition GetParent() const;
@@ -8256,9 +8479,10 @@ class GCSMatchStats_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSMatchStats_t(std::string ptr);
+    GCSMatchStats_t(std::string ptr, lua_State* state);
     GCSMatchStats_t(void *ptr);
 
     int32_t GetEnemy5Ks() const;
@@ -8315,9 +8539,10 @@ class GCFuncLadder
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncLadder(std::string ptr);
+    GCFuncLadder(std::string ptr, lua_State* state);
     GCFuncLadder(void *ptr);
 
     Vector GetLadderDir() const;
@@ -8354,9 +8579,10 @@ class GCTriggerSndSosOpvar
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerSndSosOpvar(std::string ptr);
+    GCTriggerSndSosOpvar(std::string ptr, lua_State* state);
     GCTriggerSndSosOpvar(void *ptr);
 
     Vector GetPosition() const;
@@ -8397,9 +8623,10 @@ class GCItemHeavyAssaultSuit
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItemHeavyAssaultSuit(std::string ptr);
+    GCItemHeavyAssaultSuit(std::string ptr, lua_State* state);
     GCItemHeavyAssaultSuit(void *ptr);
 
     GCItemAssaultSuit GetParent() const;
@@ -8414,9 +8641,10 @@ class GCScriptedSequence
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCScriptedSequence(std::string ptr);
+    GCScriptedSequence(std::string ptr, lua_State* state);
     GCScriptedSequence(void *ptr);
 
     std::string GetEntry() const;
@@ -8569,9 +8797,10 @@ class GCWeaponNegev
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponNegev(std::string ptr);
+    GCWeaponNegev(std::string ptr, lua_State* state);
     GCWeaponNegev(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -8586,9 +8815,10 @@ class GCWeaponGalilAR
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponGalilAR(std::string ptr);
+    GCWeaponGalilAR(std::string ptr, lua_State* state);
     GCWeaponGalilAR(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -8603,9 +8833,10 @@ class GCEnvProjectedTexture
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvProjectedTexture(std::string ptr);
+    GCEnvProjectedTexture(std::string ptr, lua_State* state);
     GCEnvProjectedTexture(void *ptr);
 
     GCBaseEntity GetTargetEntity() const;
@@ -8680,9 +8911,10 @@ class GCDynamicPropAlias_prop_dynamic_override
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDynamicPropAlias_prop_dynamic_override(std::string ptr);
+    GCDynamicPropAlias_prop_dynamic_override(std::string ptr, lua_State* state);
     GCDynamicPropAlias_prop_dynamic_override(void *ptr);
 
     GCDynamicProp GetParent() const;
@@ -8697,9 +8929,10 @@ class GCSceneListManager
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSceneListManager(std::string ptr);
+    GCSceneListManager(std::string ptr, lua_State* state);
     GCSceneListManager(void *ptr);
 
     std::vector<CUtlSymbolLarge> GetScenes() const;
@@ -8718,9 +8951,10 @@ class GCSplineConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSplineConstraint(std::string ptr);
+    GCSplineConstraint(std::string ptr, lua_State* state);
     GCSplineConstraint(void *ptr);
 
     Vector GetAnchorOffsetRestore() const;
@@ -8737,9 +8971,10 @@ class GCCSObserver_ViewModelServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSObserver_ViewModelServices(std::string ptr);
+    GCCSObserver_ViewModelServices(std::string ptr, lua_State* state);
     GCCSObserver_ViewModelServices(void *ptr);
 
     GCPlayer_ViewModelServices GetParent() const;
@@ -8754,9 +8989,10 @@ class GCDynamicPropAlias_dynamic_prop
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDynamicPropAlias_dynamic_prop(std::string ptr);
+    GCDynamicPropAlias_dynamic_prop(std::string ptr, lua_State* state);
     GCDynamicPropAlias_dynamic_prop(void *ptr);
 
     GCDynamicProp GetParent() const;
@@ -8771,9 +9007,10 @@ class GModelConfigHandle_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GModelConfigHandle_t(std::string ptr);
+    GModelConfigHandle_t(std::string ptr, lua_State* state);
     GModelConfigHandle_t(void *ptr);
 
     uint32_t GetValue() const;
@@ -8788,9 +9025,10 @@ class GCPhysicsPropMultiplayer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysicsPropMultiplayer(std::string ptr);
+    GCPhysicsPropMultiplayer(std::string ptr, lua_State* state);
     GCPhysicsPropMultiplayer(void *ptr);
 
     GCPhysicsProp GetParent() const;
@@ -8805,9 +9043,10 @@ class GCFuncTrackChange
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncTrackChange(std::string ptr);
+    GCFuncTrackChange(std::string ptr, lua_State* state);
     GCFuncTrackChange(void *ptr);
 
     GCPathTrack GetTrackTop() const;
@@ -8840,9 +9079,10 @@ class GCMarkupVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMarkupVolume(std::string ptr);
+    GCMarkupVolume(std::string ptr, lua_State* state);
     GCMarkupVolume(void *ptr);
 
     bool GetDisabled() const;
@@ -8859,9 +9099,10 @@ class GCInfoPlayerTerrorist
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoPlayerTerrorist(std::string ptr);
+    GCInfoPlayerTerrorist(std::string ptr, lua_State* state);
     GCInfoPlayerTerrorist(void *ptr);
 
     GSpawnPoint GetParent() const;
@@ -8876,9 +9117,10 @@ class GVelocitySampler
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVelocitySampler(std::string ptr);
+    GVelocitySampler(std::string ptr, lua_State* state);
     GVelocitySampler(void *ptr);
 
     Vector GetPrevSample() const;
@@ -8897,9 +9139,10 @@ class GCTankTargetChange
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTankTargetChange(std::string ptr);
+    GCTankTargetChange(std::string ptr, lua_State* state);
     GCTankTargetChange(void *ptr);
 
     std::string GetNewTargetName() const;
@@ -8916,9 +9159,10 @@ class GCLogicCompare
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicCompare(std::string ptr);
+    GCLogicCompare(std::string ptr, lua_State* state);
     GCLogicCompare(void *ptr);
 
     float GetInValue() const;
@@ -8937,9 +9181,10 @@ class GCCSPlayer_BulletServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_BulletServices(std::string ptr);
+    GCCSPlayer_BulletServices(std::string ptr, lua_State* state);
     GCCSPlayer_BulletServices(void *ptr);
 
     int32_t GetTotalHitsOnServer() const;
@@ -8956,9 +9201,10 @@ class GCLogicRelay
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicRelay(std::string ptr);
+    GCLogicRelay(std::string ptr, lua_State* state);
     GCLogicRelay(void *ptr);
 
     GCEntityIOOutput GetOnTrigger() const;
@@ -8987,9 +9233,10 @@ class GCPlayer_ItemServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_ItemServices(std::string ptr);
+    GCPlayer_ItemServices(std::string ptr, lua_State* state);
     GCPlayer_ItemServices(void *ptr);
 
     GCPlayerPawnComponent GetParent() const;
@@ -9004,9 +9251,10 @@ class GCKeepUpright
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCKeepUpright(std::string ptr);
+    GCKeepUpright(std::string ptr, lua_State* state);
     GCKeepUpright(void *ptr);
 
     Vector GetWorldGoalAxis() const;
@@ -9035,9 +9283,10 @@ class GCRevertSaved
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRevertSaved(std::string ptr);
+    GCRevertSaved(std::string ptr, lua_State* state);
     GCRevertSaved(void *ptr);
 
     float GetLoadTime() const;
@@ -9058,9 +9307,10 @@ class GCFuncWater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncWater(std::string ptr);
+    GCFuncWater(std::string ptr, lua_State* state);
     GCFuncWater(void *ptr);
 
     GCBuoyancyHelper GetBuoyancyHelper() const;
@@ -9077,9 +9327,10 @@ class GCFuncTimescale
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncTimescale(std::string ptr);
+    GCFuncTimescale(std::string ptr, lua_State* state);
     GCFuncTimescale(void *ptr);
 
     float GetDesiredTimescale() const;
@@ -9104,9 +9355,10 @@ class GCBtActionMoveTo
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBtActionMoveTo(std::string ptr);
+    GCBtActionMoveTo(std::string ptr, lua_State* state);
     GCBtActionMoveTo(void *ptr);
 
     std::string GetDestinationInputKey() const;
@@ -9149,9 +9401,10 @@ class GCTonemapController2
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTonemapController2(std::string ptr);
+    GCTonemapController2(std::string ptr, lua_State* state);
     GCTonemapController2(void *ptr);
 
     float GetAutoExposureMin() const;
@@ -9182,9 +9435,10 @@ class GCRopeKeyframeAlias_move_rope
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRopeKeyframeAlias_move_rope(std::string ptr);
+    GCRopeKeyframeAlias_move_rope(std::string ptr, lua_State* state);
     GCRopeKeyframeAlias_move_rope(void *ptr);
 
     GCRopeKeyframe GetParent() const;
@@ -9199,9 +9453,10 @@ class GCEnvInstructorVRHint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvInstructorVRHint(std::string ptr);
+    GCEnvInstructorVRHint(std::string ptr, lua_State* state);
     GCEnvInstructorVRHint(void *ptr);
 
     std::string GetName() const;
@@ -9234,9 +9489,10 @@ class GCWeaponXM1014
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponXM1014(std::string ptr);
+    GCWeaponXM1014(std::string ptr, lua_State* state);
     GCWeaponXM1014(void *ptr);
 
     GCCSWeaponBase GetParent() const;
@@ -9251,9 +9507,10 @@ class GCPlatTrigger
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlatTrigger(std::string ptr);
+    GCPlatTrigger(std::string ptr, lua_State* state);
     GCPlatTrigger(void *ptr);
 
     GCFuncPlat GetPlatform() const;
@@ -9270,9 +9527,10 @@ class GCEnvWindShared
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvWindShared(std::string ptr);
+    GCEnvWindShared(std::string ptr, lua_State* state);
     GCEnvWindShared(void *ptr);
 
     float GetStartTime() const;
@@ -9347,9 +9605,10 @@ class GCMolotovGrenade
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMolotovGrenade(std::string ptr);
+    GCMolotovGrenade(std::string ptr, lua_State* state);
     GCMolotovGrenade(void *ptr);
 
     GCBaseCSGrenade GetParent() const;
@@ -9364,9 +9623,10 @@ class GCPointHurt
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointHurt(std::string ptr);
+    GCPointHurt(std::string ptr, lua_State* state);
     GCPointHurt(void *ptr);
 
     int32_t GetDamage() const;
@@ -9393,9 +9653,10 @@ class GCPointValueRemapper
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointValueRemapper(std::string ptr);
+    GCPointValueRemapper(std::string ptr, lua_State* state);
     GCPointValueRemapper(void *ptr);
 
     bool GetDisabled() const;
@@ -9494,9 +9755,10 @@ class GCLogicNPCCounterAABB
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicNPCCounterAABB(std::string ptr);
+    GCLogicNPCCounterAABB(std::string ptr, lua_State* state);
     GCLogicNPCCounterAABB(void *ptr);
 
     Vector GetDistanceOuterMins() const;
@@ -9519,9 +9781,10 @@ class GCLightOrthoEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLightOrthoEntity(std::string ptr);
+    GCLightOrthoEntity(std::string ptr, lua_State* state);
     GCLightOrthoEntity(void *ptr);
 
     GCLightEntity GetParent() const;
@@ -9536,9 +9799,10 @@ class GCEnvSoundscapeTriggerable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvSoundscapeTriggerable(std::string ptr);
+    GCEnvSoundscapeTriggerable(std::string ptr, lua_State* state);
     GCEnvSoundscapeTriggerable(void *ptr);
 
     GCEnvSoundscape GetParent() const;
@@ -9553,9 +9817,10 @@ class GCSoundOpvarSetPointEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundOpvarSetPointEntity(std::string ptr);
+    GCSoundOpvarSetPointEntity(std::string ptr, lua_State* state);
     GCSoundOpvarSetPointEntity(void *ptr);
 
     GCEntityIOOutput GetOnEnter() const;
@@ -9616,9 +9881,10 @@ class GCBasePlayerPawn
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBasePlayerPawn(std::string ptr);
+    GCBasePlayerPawn(std::string ptr, lua_State* state);
     GCBasePlayerPawn(void *ptr);
 
     GCPlayer_WeaponServices GetWeaponServices() const;
@@ -9683,9 +9949,10 @@ class GCGameMoney
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGameMoney(std::string ptr);
+    GCGameMoney(std::string ptr, lua_State* state);
     GCGameMoney(void *ptr);
 
     GCEntityIOOutput GetOnMoneySpent() const;
@@ -9708,9 +9975,10 @@ class GCLogicPlayerProxy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicPlayerProxy(std::string ptr);
+    GCLogicPlayerProxy(std::string ptr, lua_State* state);
     GCLogicPlayerProxy(void *ptr);
 
     GCBaseEntity GetPlayer() const;
@@ -9733,9 +10001,10 @@ class GCPlayer_ObserverServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_ObserverServices(std::string ptr);
+    GCPlayer_ObserverServices(std::string ptr, lua_State* state);
     GCPlayer_ObserverServices(void *ptr);
 
     uint32_t GetObserverMode() const;
@@ -9758,9 +10027,10 @@ class GCWeaponZoneRepulsor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponZoneRepulsor(std::string ptr);
+    GCWeaponZoneRepulsor(std::string ptr, lua_State* state);
     GCWeaponZoneRepulsor(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -9775,9 +10045,10 @@ class GCPhysImpact
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysImpact(std::string ptr);
+    GCPhysImpact(std::string ptr, lua_State* state);
     GCPhysImpact(void *ptr);
 
     float GetDamage() const;
@@ -9798,9 +10069,10 @@ class GCEnvCombinedLightProbeVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvCombinedLightProbeVolume(std::string ptr);
+    GCEnvCombinedLightProbeVolume(std::string ptr, lua_State* state);
     GCEnvCombinedLightProbeVolume(void *ptr);
 
     Color GetEntity_Color() const;
@@ -9853,9 +10125,10 @@ class GCCSPlayer_WaterServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_WaterServices(std::string ptr);
+    GCCSPlayer_WaterServices(std::string ptr, lua_State* state);
     GCCSPlayer_WaterServices(void *ptr);
 
     float GetNextDrownDamageTime() const;
@@ -9882,9 +10155,10 @@ class GCWeaponM249
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponM249(std::string ptr);
+    GCWeaponM249(std::string ptr, lua_State* state);
     GCWeaponM249(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -9899,9 +10173,10 @@ class GCEnvParticleGlow
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvParticleGlow(std::string ptr);
+    GCEnvParticleGlow(std::string ptr, lua_State* state);
     GCEnvParticleGlow(void *ptr);
 
     float GetAlphaScale() const;
@@ -9924,9 +10199,10 @@ class GCFuncVehicleClip
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncVehicleClip(std::string ptr);
+    GCFuncVehicleClip(std::string ptr, lua_State* state);
     GCFuncVehicleClip(void *ptr);
 
     GCBaseModelEntity GetParent() const;
@@ -9941,9 +10217,10 @@ class GCSoundAreaEntityBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundAreaEntityBase(std::string ptr);
+    GCSoundAreaEntityBase(std::string ptr, lua_State* state);
     GCSoundAreaEntityBase(void *ptr);
 
     bool GetDisabled() const;
@@ -9964,9 +10241,10 @@ class GCFuncBrush
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncBrush(std::string ptr);
+    GCFuncBrush(std::string ptr, lua_State* state);
     GCFuncBrush(void *ptr);
 
     uint64_t GetSolidity() const;
@@ -9993,9 +10271,10 @@ class GCEnvFunnel
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvFunnel(std::string ptr);
+    GCEnvFunnel(std::string ptr, lua_State* state);
     GCEnvFunnel(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -10010,9 +10289,10 @@ class GSequenceHistory_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSequenceHistory_t(std::string ptr);
+    GSequenceHistory_t(std::string ptr, lua_State* state);
     GSequenceHistory_t(void *ptr);
 
     float GetSeqStartTime() const;
@@ -10035,9 +10315,10 @@ class GCCSGameModeRules_Noop
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGameModeRules_Noop(std::string ptr);
+    GCCSGameModeRules_Noop(std::string ptr, lua_State* state);
     GCCSGameModeRules_Noop(void *ptr);
 
     GCCSGameModeRules GetParent() const;
@@ -10052,9 +10333,10 @@ class GCPointAngularVelocitySensor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointAngularVelocitySensor(std::string ptr);
+    GCPointAngularVelocitySensor(std::string ptr, lua_State* state);
     GCPointAngularVelocitySensor(void *ptr);
 
     GCBaseEntity GetTargetEntity() const;
@@ -10099,9 +10381,10 @@ class GCBaseCSGrenadeProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseCSGrenadeProjectile(std::string ptr);
+    GCBaseCSGrenadeProjectile(std::string ptr, lua_State* state);
     GCBaseCSGrenadeProjectile(void *ptr);
 
     Vector GetInitialPosition() const;
@@ -10148,9 +10431,10 @@ class GCHostageRescueZoneShim
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHostageRescueZoneShim(std::string ptr);
+    GCHostageRescueZoneShim(std::string ptr, lua_State* state);
     GCHostageRescueZoneShim(void *ptr);
 
     GCBaseTrigger GetParent() const;
@@ -10165,9 +10449,10 @@ class GCEnvInstructorHint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvInstructorHint(std::string ptr);
+    GCEnvInstructorHint(std::string ptr, lua_State* state);
     GCEnvInstructorHint(void *ptr);
 
     std::string GetName() const;
@@ -10230,9 +10515,10 @@ class GCEnvTracer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvTracer(std::string ptr);
+    GCEnvTracer(std::string ptr, lua_State* state);
     GCEnvTracer(void *ptr);
 
     Vector GetEnd() const;
@@ -10251,9 +10537,10 @@ class GCInfoGameEventProxy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoGameEventProxy(std::string ptr);
+    GCInfoGameEventProxy(std::string ptr, lua_State* state);
     GCInfoGameEventProxy(void *ptr);
 
     std::string GetEventName() const;
@@ -10272,9 +10559,10 @@ class GCPointCamera
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointCamera(std::string ptr);
+    GCPointCamera(std::string ptr, lua_State* state);
     GCPointCamera(void *ptr);
 
     float GetFOV() const;
@@ -10339,9 +10627,10 @@ class GCBodyComponentSkeletonInstance
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBodyComponentSkeletonInstance(std::string ptr);
+    GCBodyComponentSkeletonInstance(std::string ptr, lua_State* state);
     GCBodyComponentSkeletonInstance(void *ptr);
 
     GCSkeletonInstance GetSkeletonInstance() const;
@@ -10358,9 +10647,10 @@ class GCFuncLadderAlias_func_useableladder
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncLadderAlias_func_useableladder(std::string ptr);
+    GCFuncLadderAlias_func_useableladder(std::string ptr, lua_State* state);
     GCFuncLadderAlias_func_useableladder(void *ptr);
 
     GCFuncLadder GetParent() const;
@@ -10375,9 +10665,10 @@ class GCBaseMoveBehavior
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseMoveBehavior(std::string ptr);
+    GCBaseMoveBehavior(std::string ptr, lua_State* state);
     GCBaseMoveBehavior(void *ptr);
 
     int32_t GetPositionInterpolator() const;
@@ -10414,9 +10705,10 @@ class GCFuncInteractionLayerClip
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncInteractionLayerClip(std::string ptr);
+    GCFuncInteractionLayerClip(std::string ptr, lua_State* state);
     GCFuncInteractionLayerClip(void *ptr);
 
     bool GetDisabled() const;
@@ -10437,9 +10729,10 @@ class GCWeaponMAC10
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponMAC10(std::string ptr);
+    GCWeaponMAC10(std::string ptr, lua_State* state);
     GCWeaponMAC10(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -10454,9 +10747,10 @@ class GCGameRules
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGameRules(std::string ptr);
+    GCGameRules(std::string ptr, lua_State* state);
     GCGameRules(void *ptr);
 
     GCNetworkVarChainer Get__pChainEntity() const;
@@ -10481,9 +10775,10 @@ class GCWeaponRevolver
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponRevolver(std::string ptr);
+    GCWeaponRevolver(std::string ptr, lua_State* state);
     GCWeaponRevolver(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -10498,9 +10793,10 @@ class GCOrnamentProp
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCOrnamentProp(std::string ptr);
+    GCOrnamentProp(std::string ptr, lua_State* state);
     GCOrnamentProp(void *ptr);
 
     std::string GetInitialOwner() const;
@@ -10517,9 +10813,10 @@ class GCLogicGameEvent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicGameEvent(std::string ptr);
+    GCLogicGameEvent(std::string ptr, lua_State* state);
     GCLogicGameEvent(void *ptr);
 
     std::string GetEventName() const;
@@ -10536,9 +10833,10 @@ class GCEnvMuzzleFlash
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvMuzzleFlash(std::string ptr);
+    GCEnvMuzzleFlash(std::string ptr, lua_State* state);
     GCEnvMuzzleFlash(void *ptr);
 
     float GetScale() const;
@@ -10557,9 +10855,10 @@ class GCPlayerSprayDecal
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayerSprayDecal(std::string ptr);
+    GCPlayerSprayDecal(std::string ptr, lua_State* state);
     GCPlayerSprayDecal(void *ptr);
 
     int32_t GetUniqueID() const;
@@ -10604,9 +10903,10 @@ class GCBombTarget
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBombTarget(std::string ptr);
+    GCBombTarget(std::string ptr, lua_State* state);
     GCBombTarget(void *ptr);
 
     GCEntityIOOutput GetOnBombExplode() const;
@@ -10639,9 +10939,10 @@ class GCPhysicsSpring
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysicsSpring(std::string ptr);
+    GCPhysicsSpring(std::string ptr, lua_State* state);
     GCPhysicsSpring(void *ptr);
 
     float GetFrequency() const;
@@ -10672,9 +10973,10 @@ class GCEnvLightProbeVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvLightProbeVolume(std::string ptr);
+    GCEnvLightProbeVolume(std::string ptr, lua_State* state);
     GCEnvLightProbeVolume(void *ptr);
 
     Vector GetEntity_vBoxMins() const;
@@ -10715,9 +11017,10 @@ class GCCSGameModeRules_ArmsRace
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGameModeRules_ArmsRace(std::string ptr);
+    GCCSGameModeRules_ArmsRace(std::string ptr, lua_State* state);
     GCCSGameModeRules_ArmsRace(void *ptr);
 
     std::vector<CUtlString> GetWeaponSequence() const;
@@ -10734,9 +11037,10 @@ class GCScriptTriggerPush
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCScriptTriggerPush(std::string ptr);
+    GCScriptTriggerPush(std::string ptr, lua_State* state);
     GCScriptTriggerPush(void *ptr);
 
     Vector GetExtent() const;
@@ -10753,9 +11057,10 @@ class GCEnvEntityIgniter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvEntityIgniter(std::string ptr);
+    GCEnvEntityIgniter(std::string ptr, lua_State* state);
     GCEnvEntityIgniter(void *ptr);
 
     float GetLifetime() const;
@@ -10772,9 +11077,10 @@ class GCFuncWallToggle
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncWallToggle(std::string ptr);
+    GCFuncWallToggle(std::string ptr, lua_State* state);
     GCFuncWallToggle(void *ptr);
 
     GCFuncWall GetParent() const;
@@ -10789,9 +11095,10 @@ class GCDamageRecord
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDamageRecord(std::string ptr);
+    GCDamageRecord(std::string ptr, lua_State* state);
     GCDamageRecord(void *ptr);
 
     GCCSPlayerPawn GetPlayerDamager() const;
@@ -10832,9 +11139,10 @@ class GCLogicAutosave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicAutosave(std::string ptr);
+    GCLogicAutosave(std::string ptr, lua_State* state);
     GCLogicAutosave(void *ptr);
 
     bool GetForceNewLevelUnit() const;
@@ -10855,9 +11163,10 @@ class GCCSPlayerController_DamageServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayerController_DamageServices(std::string ptr);
+    GCCSPlayerController_DamageServices(std::string ptr, lua_State* state);
     GCCSPlayerController_DamageServices(void *ptr);
 
     int32_t GetSendUpdate() const;
@@ -10876,9 +11185,10 @@ class GCRenderComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRenderComponent(std::string ptr);
+    GCRenderComponent(std::string ptr, lua_State* state);
     GCRenderComponent(void *ptr);
 
     GCNetworkVarChainer Get__pChainEntity() const;
@@ -10903,9 +11213,10 @@ class GCSoundEventPathCornerEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEventPathCornerEntity(std::string ptr);
+    GCSoundEventPathCornerEntity(std::string ptr, lua_State* state);
     GCSoundEventPathCornerEntity(void *ptr);
 
     std::string GetPathCorner() const;
@@ -10932,9 +11243,10 @@ class GCEnvSoundscapeProxyAlias_snd_soundscape_proxy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvSoundscapeProxyAlias_snd_soundscape_proxy(std::string ptr);
+    GCEnvSoundscapeProxyAlias_snd_soundscape_proxy(std::string ptr, lua_State* state);
     GCEnvSoundscapeProxyAlias_snd_soundscape_proxy(void *ptr);
 
     GCEnvSoundscapeProxy GetParent() const;
@@ -10949,9 +11261,10 @@ class GCLightComponent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLightComponent(std::string ptr);
+    GCLightComponent(std::string ptr, lua_State* state);
     GCLightComponent(void *ptr);
 
     GCNetworkVarChainer Get__pChainEntity() const;
@@ -11098,9 +11411,10 @@ class GCSmokeGrenadeProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSmokeGrenadeProjectile(std::string ptr);
+    GCSmokeGrenadeProjectile(std::string ptr, lua_State* state);
     GCSmokeGrenadeProjectile(void *ptr);
 
     int32_t GetSmokeEffectTickBegin() const;
@@ -11131,9 +11445,10 @@ class GCScriptTriggerMultiple
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCScriptTriggerMultiple(std::string ptr);
+    GCScriptTriggerMultiple(std::string ptr, lua_State* state);
     GCScriptTriggerMultiple(void *ptr);
 
     Vector GetExtent() const;
@@ -11150,9 +11465,10 @@ class GCSoundOpvarSetAutoRoomEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundOpvarSetAutoRoomEntity(std::string ptr);
+    GCSoundOpvarSetAutoRoomEntity(std::string ptr, lua_State* state);
     GCSoundOpvarSetAutoRoomEntity(void *ptr);
 
     std::vector<GSoundOpvarTraceResult_t> GetTraceResults() const;
@@ -11175,9 +11491,10 @@ class GCBodyComponentPoint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBodyComponentPoint(std::string ptr);
+    GCBodyComponentPoint(std::string ptr, lua_State* state);
     GCBodyComponentPoint(void *ptr);
 
     GCGameSceneNode GetSceneNode() const;
@@ -11194,9 +11511,10 @@ class GFilterDamageType
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFilterDamageType(std::string ptr);
+    GFilterDamageType(std::string ptr, lua_State* state);
     GFilterDamageType(void *ptr);
 
     int32_t GetDamageType() const;
@@ -11213,9 +11531,10 @@ class GCBot
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBot(std::string ptr);
+    GCBot(std::string ptr, lua_State* state);
     GCBot(void *ptr);
 
     GCCSPlayerController GetController() const;
@@ -11254,9 +11573,10 @@ class GCMotorController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotorController(std::string ptr);
+    GCMotorController(std::string ptr, lua_State* state);
     GCMotorController(void *ptr);
 
     float GetSpeed() const;
@@ -11277,9 +11597,10 @@ class GCSoundAreaEntitySphere
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundAreaEntitySphere(std::string ptr);
+    GCSoundAreaEntitySphere(std::string ptr, lua_State* state);
     GCSoundAreaEntitySphere(void *ptr);
 
     float GetRadius() const;
@@ -11296,9 +11617,10 @@ class GCCSPlayer_UseServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_UseServices(std::string ptr);
+    GCCSPlayer_UseServices(std::string ptr, lua_State* state);
     GCCSPlayer_UseServices(void *ptr);
 
     GCBaseEntity GetLastKnownUseEntity() const;
@@ -11319,9 +11641,10 @@ class GCCSGO_WingmanIntroCounterTerroristPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_WingmanIntroCounterTerroristPosition(std::string ptr);
+    GCCSGO_WingmanIntroCounterTerroristPosition(std::string ptr, lua_State* state);
     GCCSGO_WingmanIntroCounterTerroristPosition(void *ptr);
 
     GCCSGO_WingmanIntroCharacterPosition GetParent() const;
@@ -11336,9 +11659,10 @@ class GCItemKevlar
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItemKevlar(std::string ptr);
+    GCItemKevlar(std::string ptr, lua_State* state);
     GCItemKevlar(void *ptr);
 
     GCItem GetParent() const;
@@ -11353,9 +11677,10 @@ class GCTriggerHurt
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerHurt(std::string ptr);
+    GCTriggerHurt(std::string ptr, lua_State* state);
     GCTriggerHurt(void *ptr);
 
     float GetOriginalDamage() const;
@@ -11396,9 +11721,10 @@ class GCPhysBallSocket
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysBallSocket(std::string ptr);
+    GCPhysBallSocket(std::string ptr, lua_State* state);
     GCPhysBallSocket(void *ptr);
 
     float GetJointFriction() const;
@@ -11425,9 +11751,10 @@ class GCMapVetoPickController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMapVetoPickController(std::string ptr);
+    GCMapVetoPickController(std::string ptr, lua_State* state);
     GCMapVetoPickController(void *ptr);
 
     bool GetPlayedIntroVcd() const;
@@ -11480,9 +11807,10 @@ class GCCSMinimapBoundary
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSMinimapBoundary(std::string ptr);
+    GCCSMinimapBoundary(std::string ptr, lua_State* state);
     GCCSMinimapBoundary(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -11497,9 +11825,10 @@ class GCSoundEnt
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEnt(std::string ptr);
+    GCSoundEnt(std::string ptr, lua_State* state);
     GCSoundEnt(void *ptr);
 
     int32_t GetFreeSound() const;
@@ -11522,9 +11851,10 @@ class GCInfoSpawnGroupLandmark
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoSpawnGroupLandmark(std::string ptr);
+    GCInfoSpawnGroupLandmark(std::string ptr, lua_State* state);
     GCInfoSpawnGroupLandmark(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -11539,9 +11869,10 @@ class GCPlayer_MovementServices_Humanoid
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_MovementServices_Humanoid(std::string ptr);
+    GCPlayer_MovementServices_Humanoid(std::string ptr, lua_State* state);
     GCPlayer_MovementServices_Humanoid(void *ptr);
 
     float GetStepSoundTime() const;
@@ -11584,9 +11915,10 @@ class GCTriggerSave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerSave(std::string ptr);
+    GCTriggerSave(std::string ptr, lua_State* state);
     GCTriggerSave(void *ptr);
 
     bool GetForceNewLevelUnit() const;
@@ -11607,9 +11939,10 @@ class GCPhysWheelConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysWheelConstraint(std::string ptr);
+    GCPhysWheelConstraint(std::string ptr, lua_State* state);
     GCPhysWheelConstraint(void *ptr);
 
     float GetSuspensionFrequency() const;
@@ -11646,9 +11979,10 @@ class GCPhysFixed
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysFixed(std::string ptr);
+    GCPhysFixed(std::string ptr, lua_State* state);
     GCPhysFixed(void *ptr);
 
     float GetLinearFrequency() const;
@@ -11675,9 +12009,10 @@ class GCSkillFloat
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSkillFloat(std::string ptr);
+    GCSkillFloat(std::string ptr, lua_State* state);
     GCSkillFloat(void *ptr);
 
     std::vector<float> GetValue() const;
@@ -11692,9 +12027,10 @@ class GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(std::string ptr);
+    GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(std::string ptr, lua_State* state);
     GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(void *ptr);
 
     GCEnvSoundscapeTriggerable GetParent() const;
@@ -11709,9 +12045,10 @@ class GCCSPlayerController_InGameMoneyServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayerController_InGameMoneyServices(std::string ptr);
+    GCCSPlayerController_InGameMoneyServices(std::string ptr, lua_State* state);
     GCCSPlayerController_InGameMoneyServices(void *ptr);
 
     bool GetReceivesMoneyNextRound() const;
@@ -11738,9 +12075,10 @@ class GCSprite
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSprite(std::string ptr);
+    GCSprite(std::string ptr, lua_State* state);
     GCSprite(void *ptr);
 
     GCBaseEntity GetAttachedToEntity() const;
@@ -11797,9 +12135,10 @@ class GCSoundOpvarSetAABBEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundOpvarSetAABBEntity(std::string ptr);
+    GCSoundOpvarSetAABBEntity(std::string ptr, lua_State* state);
     GCSoundOpvarSetAABBEntity(void *ptr);
 
     Vector GetDistanceInnerMins() const;
@@ -11832,9 +12171,10 @@ class GCWeaponM4A1
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponM4A1(std::string ptr);
+    GCWeaponM4A1(std::string ptr, lua_State* state);
     GCWeaponM4A1(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -11849,9 +12189,10 @@ class GCBeam
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBeam(std::string ptr);
+    GCBeam(std::string ptr, lua_State* state);
     GCBeam(void *ptr);
 
     float GetFrameRate() const;
@@ -11908,9 +12249,10 @@ class GCCommentaryViewPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCommentaryViewPosition(std::string ptr);
+    GCCommentaryViewPosition(std::string ptr, lua_State* state);
     GCCommentaryViewPosition(void *ptr);
 
     GCSprite GetParent() const;
@@ -11925,9 +12267,10 @@ class GCTonemapController2Alias_env_tonemap_controller2
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTonemapController2Alias_env_tonemap_controller2(std::string ptr);
+    GCTonemapController2Alias_env_tonemap_controller2(std::string ptr, lua_State* state);
     GCTonemapController2Alias_env_tonemap_controller2(void *ptr);
 
     GCTonemapController2 GetParent() const;
@@ -11942,9 +12285,10 @@ class GCPhysPulley
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysPulley(std::string ptr);
+    GCPhysPulley(std::string ptr, lua_State* state);
     GCPhysPulley(void *ptr);
 
     Vector GetPosition2() const;
@@ -11967,9 +12311,10 @@ class GCGameRulesProxy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGameRulesProxy(std::string ptr);
+    GCGameRulesProxy(std::string ptr, lua_State* state);
     GCGameRulesProxy(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -11984,9 +12329,10 @@ class GCWeaponMP7
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponMP7(std::string ptr);
+    GCWeaponMP7(std::string ptr, lua_State* state);
     GCWeaponMP7(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -12001,9 +12347,10 @@ class GCCSPlayerController_ActionTrackingServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayerController_ActionTrackingServices(std::string ptr);
+    GCCSPlayerController_ActionTrackingServices(std::string ptr, lua_State* state);
     GCCSPlayerController_ActionTrackingServices(void *ptr);
 
     std::vector<GCSPerRoundStats_t> GetPerRoundStats() const;
@@ -12028,9 +12375,10 @@ class GCPrecipitationBlocker
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPrecipitationBlocker(std::string ptr);
+    GCPrecipitationBlocker(std::string ptr, lua_State* state);
     GCPrecipitationBlocker(void *ptr);
 
     GCBaseModelEntity GetParent() const;
@@ -12045,9 +12393,10 @@ class GCBaseFlexAlias_funCBaseFlex
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseFlexAlias_funCBaseFlex(std::string ptr);
+    GCBaseFlexAlias_funCBaseFlex(std::string ptr, lua_State* state);
     GCBaseFlexAlias_funCBaseFlex(void *ptr);
 
     GCBaseFlex GetParent() const;
@@ -12062,9 +12411,10 @@ class GCFish
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFish(std::string ptr);
+    GCFish(std::string ptr, lua_State* state);
     GCFish(void *ptr);
 
     GCFishPool GetPool() const;
@@ -12127,9 +12477,10 @@ class GCEnvFireSource
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvFireSource(std::string ptr);
+    GCEnvFireSource(std::string ptr, lua_State* state);
     GCEnvFireSource(void *ptr);
 
     bool GetEnabled() const;
@@ -12150,9 +12501,10 @@ class GCInfoLadderDismount
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoLadderDismount(std::string ptr);
+    GCInfoLadderDismount(std::string ptr, lua_State* state);
     GCInfoLadderDismount(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -12167,9 +12519,10 @@ class GCTriggerGameEvent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerGameEvent(std::string ptr);
+    GCTriggerGameEvent(std::string ptr, lua_State* state);
     GCTriggerGameEvent(void *ptr);
 
     std::string GetStrStartTouchEventName() const;
@@ -12190,9 +12543,10 @@ class GSimpleConstraintSoundProfile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSimpleConstraintSoundProfile(std::string ptr);
+    GSimpleConstraintSoundProfile(std::string ptr, lua_State* state);
     GSimpleConstraintSoundProfile(void *ptr);
 
     GSimpleConstraintSoundProfile GetKeypoints() const;
@@ -12211,9 +12565,10 @@ class GCDebugHistory
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDebugHistory(std::string ptr);
+    GCDebugHistory(std::string ptr, lua_State* state);
     GCDebugHistory(void *ptr);
 
     int32_t GetNpcEvents() const;
@@ -12230,9 +12585,10 @@ class GCInfoData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoData(std::string ptr);
+    GCInfoData(std::string ptr, lua_State* state);
     GCInfoData(void *ptr);
 
     GCServerOnlyEntity GetParent() const;
@@ -12247,9 +12603,10 @@ class GCHostageCarriableProp
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHostageCarriableProp(std::string ptr);
+    GCHostageCarriableProp(std::string ptr, lua_State* state);
     GCHostageCarriableProp(void *ptr);
 
     GCBaseAnimGraph GetParent() const;
@@ -12264,9 +12621,10 @@ class GCLightSpotEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLightSpotEntity(std::string ptr);
+    GCLightSpotEntity(std::string ptr, lua_State* state);
     GCLightSpotEntity(void *ptr);
 
     GCLightEntity GetParent() const;
@@ -12281,9 +12639,10 @@ class GCFuncRotating
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncRotating(std::string ptr);
+    GCFuncRotating(std::string ptr, lua_State* state);
     GCFuncRotating(void *ptr);
 
     GCEntityIOOutput GetOnStopped() const;
@@ -12334,9 +12693,10 @@ class GCDecoyProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDecoyProjectile(std::string ptr);
+    GCDecoyProjectile(std::string ptr, lua_State* state);
     GCDecoyProjectile(void *ptr);
 
     int32_t GetDecoyShotTick() const;
@@ -12359,9 +12719,10 @@ class GCCSPlace
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlace(std::string ptr);
+    GCCSPlace(std::string ptr, lua_State* state);
     GCCSPlace(void *ptr);
 
     std::string GetName() const;
@@ -12378,9 +12739,10 @@ class GCFuncTrainControls
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncTrainControls(std::string ptr);
+    GCFuncTrainControls(std::string ptr, lua_State* state);
     GCFuncTrainControls(void *ptr);
 
     GCBaseModelEntity GetParent() const;
@@ -12395,9 +12757,10 @@ class GCEntityDissolve
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEntityDissolve(std::string ptr);
+    GCEntityDissolve(std::string ptr, lua_State* state);
     GCEntityDissolve(void *ptr);
 
     float GetFadeInStart() const;
@@ -12432,9 +12795,10 @@ class GCPointAngleSensor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointAngleSensor(std::string ptr);
+    GCPointAngleSensor(std::string ptr, lua_State* state);
     GCPointAngleSensor(void *ptr);
 
     bool GetDisabled() const;
@@ -12469,9 +12833,10 @@ class GCSoundEventOBBEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEventOBBEntity(std::string ptr);
+    GCSoundEventOBBEntity(std::string ptr, lua_State* state);
     GCSoundEventOBBEntity(void *ptr);
 
     Vector GetMins() const;
@@ -12490,9 +12855,10 @@ class GCBtNodeCondition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBtNodeCondition(std::string ptr);
+    GCBtNodeCondition(std::string ptr, lua_State* state);
     GCBtNodeCondition(void *ptr);
 
     bool GetNegated() const;
@@ -12509,9 +12875,10 @@ class GCSharedGapTypeQueryRegistration
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSharedGapTypeQueryRegistration(std::string ptr);
+    GCSharedGapTypeQueryRegistration(std::string ptr, lua_State* state);
     GCSharedGapTypeQueryRegistration(void *ptr);
 
 
@@ -12525,9 +12892,10 @@ class GCEnvVolumetricFogVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvVolumetricFogVolume(std::string ptr);
+    GCEnvVolumetricFogVolume(std::string ptr, lua_State* state);
     GCEnvVolumetricFogVolume(void *ptr);
 
     bool GetActive() const;
@@ -12572,9 +12940,10 @@ class GCEnvBeam
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvBeam(std::string ptr);
+    GCEnvBeam(std::string ptr, lua_State* state);
     GCEnvBeam(void *ptr);
 
     int32_t GetActive() const;
@@ -12625,9 +12994,10 @@ class GCFuncIllusionary
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncIllusionary(std::string ptr);
+    GCFuncIllusionary(std::string ptr, lua_State* state);
     GCFuncIllusionary(void *ptr);
 
     GCBaseModelEntity GetParent() const;
@@ -12642,9 +13012,10 @@ class GCPhysMagnet
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysMagnet(std::string ptr);
+    GCPhysMagnet(std::string ptr, lua_State* state);
     GCPhysMagnet(void *ptr);
 
     GCEntityIOOutput GetOnMagnetAttach() const;
@@ -12683,9 +13054,10 @@ class GCSceneEntityAlias_logic_choreographed_scene
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSceneEntityAlias_logic_choreographed_scene(std::string ptr);
+    GCSceneEntityAlias_logic_choreographed_scene(std::string ptr, lua_State* state);
     GCSceneEntityAlias_logic_choreographed_scene(void *ptr);
 
     GCSceneEntity GetParent() const;
@@ -12700,9 +13072,10 @@ class GCFuncNavBlocker
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncNavBlocker(std::string ptr);
+    GCFuncNavBlocker(std::string ptr, lua_State* state);
     GCFuncNavBlocker(void *ptr);
 
     bool GetDisabled() const;
@@ -12721,9 +13094,10 @@ class GCRagdollMagnet
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRagdollMagnet(std::string ptr);
+    GCRagdollMagnet(std::string ptr, lua_State* state);
     GCRagdollMagnet(void *ptr);
 
     bool GetDisabled() const;
@@ -12746,9 +13120,10 @@ class GCFuncElectrifiedVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncElectrifiedVolume(std::string ptr);
+    GCFuncElectrifiedVolume(std::string ptr, lua_State* state);
     GCFuncElectrifiedVolume(void *ptr);
 
     std::string GetEffectName() const;
@@ -12771,9 +13146,10 @@ class GCPointProximitySensor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointProximitySensor(std::string ptr);
+    GCPointProximitySensor(std::string ptr, lua_State* state);
     GCPointProximitySensor(void *ptr);
 
     bool GetDisabled() const;
@@ -12792,9 +13168,10 @@ class GWeaponPurchaseTracker_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GWeaponPurchaseTracker_t(std::string ptr);
+    GWeaponPurchaseTracker_t(std::string ptr, lua_State* state);
     GWeaponPurchaseTracker_t(void *ptr);
 
     std::vector<GWeaponPurchaseCount_t> GetWeaponPurchases() const;
@@ -12809,9 +13186,10 @@ class GCFilterClass
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterClass(std::string ptr);
+    GCFilterClass(std::string ptr, lua_State* state);
     GCFilterClass(void *ptr);
 
     std::string GetFilterClass() const;
@@ -12828,9 +13206,10 @@ class GCMelee
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMelee(std::string ptr);
+    GCMelee(std::string ptr, lua_State* state);
     GCMelee(void *ptr);
 
     GCCSWeaponBase GetParent() const;
@@ -12845,9 +13224,10 @@ class GCMultiplayRules
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMultiplayRules(std::string ptr);
+    GCMultiplayRules(std::string ptr, lua_State* state);
     GCMultiplayRules(void *ptr);
 
     GCGameRules GetParent() const;
@@ -12862,9 +13242,10 @@ class GCFilterLOS
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterLOS(std::string ptr);
+    GCFilterLOS(std::string ptr, lua_State* state);
     GCFilterLOS(void *ptr);
 
     GCBaseFilter GetParent() const;
@@ -12879,9 +13260,10 @@ class GEngineCountdownTimer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEngineCountdownTimer(std::string ptr);
+    GEngineCountdownTimer(std::string ptr, lua_State* state);
     GEngineCountdownTimer(void *ptr);
 
     float GetDuration() const;
@@ -12900,9 +13282,10 @@ class GCPhysBox
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysBox(std::string ptr);
+    GCPhysBox(std::string ptr, lua_State* state);
     GCPhysBox(void *ptr);
 
     int32_t GetDamageType() const;
@@ -12947,9 +13330,10 @@ class GCSensorGrenadeProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSensorGrenadeProjectile(std::string ptr);
+    GCSensorGrenadeProjectile(std::string ptr, lua_State* state);
     GCSensorGrenadeProjectile(void *ptr);
 
     float GetExpireTime() const;
@@ -12970,9 +13354,10 @@ class GCTimerEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTimerEntity(std::string ptr);
+    GCTimerEntity(std::string ptr, lua_State* state);
     GCTimerEntity(void *ptr);
 
     GCEntityIOOutput GetOnTimer() const;
@@ -13013,9 +13398,10 @@ class GCCSGO_TeamIntroCounterTerroristPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_TeamIntroCounterTerroristPosition(std::string ptr);
+    GCCSGO_TeamIntroCounterTerroristPosition(std::string ptr, lua_State* state);
     GCCSGO_TeamIntroCounterTerroristPosition(void *ptr);
 
     GCCSGO_TeamIntroCharacterPosition GetParent() const;
@@ -13030,9 +13416,10 @@ class GCHEGrenadeProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHEGrenadeProjectile(std::string ptr);
+    GCHEGrenadeProjectile(std::string ptr, lua_State* state);
     GCHEGrenadeProjectile(void *ptr);
 
     GCBaseCSGrenadeProjectile GetParent() const;
@@ -13047,9 +13434,10 @@ class GCEnvWind
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvWind(std::string ptr);
+    GCEnvWind(std::string ptr, lua_State* state);
     GCEnvWind(void *ptr);
 
     GCEnvWindShared GetEnvWindShared() const;
@@ -13066,9 +13454,10 @@ class GCTimeline
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTimeline(std::string ptr);
+    GCTimeline(std::string ptr, lua_State* state);
     GCTimeline(void *ptr);
 
     std::vector<float> GetValues() const;
@@ -13097,9 +13486,10 @@ class GCFists
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFists(std::string ptr);
+    GCFists(std::string ptr, lua_State* state);
     GCFists(void *ptr);
 
     bool GetPlayingUninterruptableAct() const;
@@ -13128,9 +13518,10 @@ class GCHandleDummy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHandleDummy(std::string ptr);
+    GCHandleDummy(std::string ptr, lua_State* state);
     GCHandleDummy(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -13145,9 +13536,10 @@ class GCRagdollConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRagdollConstraint(std::string ptr);
+    GCRagdollConstraint(std::string ptr, lua_State* state);
     GCRagdollConstraint(void *ptr);
 
     float GetXmin() const;
@@ -13180,9 +13572,10 @@ class GCPhysExplosion
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysExplosion(std::string ptr);
+    GCPhysExplosion(std::string ptr, lua_State* state);
     GCPhysExplosion(void *ptr);
 
     bool GetExplodeOnSpawn() const;
@@ -13215,9 +13608,10 @@ class GCPointPush
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointPush(std::string ptr);
+    GCPointPush(std::string ptr, lua_State* state);
     GCPointPush(void *ptr);
 
     bool GetEnabled() const;
@@ -13246,9 +13640,10 @@ class GCCredits
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCredits(std::string ptr);
+    GCCredits(std::string ptr, lua_State* state);
     GCCredits(void *ptr);
 
     GCEntityIOOutput GetOnCreditsDone() const;
@@ -13269,9 +13664,10 @@ class GCCSPlayerResource
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayerResource(std::string ptr);
+    GCCSPlayerResource(std::string ptr, lua_State* state);
     GCCSPlayerResource(void *ptr);
 
     std::vector<bool> GetHostageAlive() const;
@@ -13306,9 +13702,10 @@ class GCPlayer_WeaponServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_WeaponServices(std::string ptr);
+    GCPlayer_WeaponServices(std::string ptr, lua_State* state);
     GCPlayer_WeaponServices(void *ptr);
 
     std::vector<GCBasePlayerWeapon> GetMyWeapons() const;
@@ -13333,9 +13730,10 @@ class GCAttributeManager__cached_attribute_float_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAttributeManager__cached_attribute_float_t(std::string ptr);
+    GCAttributeManager__cached_attribute_float_t(std::string ptr, lua_State* state);
     GCAttributeManager__cached_attribute_float_t(void *ptr);
 
     float GetIn() const;
@@ -13354,9 +13752,10 @@ class GCTeam
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTeam(std::string ptr);
+    GCTeam(std::string ptr, lua_State* state);
     GCTeam(void *ptr);
 
     std::vector<GCBasePlayerController> GetPlayerControllers() const;
@@ -13379,9 +13778,10 @@ class GCCSGameModeRules_Deathmatch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGameModeRules_Deathmatch(std::string ptr);
+    GCCSGameModeRules_Deathmatch(std::string ptr, lua_State* state);
     GCCSGameModeRules_Deathmatch(void *ptr);
 
     float GetDMBonusStartTime() const;
@@ -13402,9 +13802,10 @@ class GCFuncNavObstruction
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncNavObstruction(std::string ptr);
+    GCFuncNavObstruction(std::string ptr, lua_State* state);
     GCFuncNavObstruction(void *ptr);
 
     bool GetDisabled() const;
@@ -13421,9 +13822,10 @@ class GCTriggerImpact
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerImpact(std::string ptr);
+    GCTriggerImpact(std::string ptr, lua_State* state);
     GCTriggerImpact(void *ptr);
 
     float GetMagnitude() const;
@@ -13444,9 +13846,10 @@ class GCSun
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSun(std::string ptr);
+    GCSun(std::string ptr, lua_State* state);
     GCSun(void *ptr);
 
     Vector GetDirection() const;
@@ -13489,9 +13892,10 @@ class GCTriggerDetectBulletFire
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerDetectBulletFire(std::string ptr);
+    GCTriggerDetectBulletFire(std::string ptr, lua_State* state);
     GCTriggerDetectBulletFire(void *ptr);
 
     bool GetPlayerFireOnly() const;
@@ -13510,9 +13914,10 @@ class GCWorld
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWorld(std::string ptr);
+    GCWorld(std::string ptr, lua_State* state);
     GCWorld(void *ptr);
 
     GCBaseModelEntity GetParent() const;
@@ -13527,9 +13932,10 @@ class GCPointGiveAmmo
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointGiveAmmo(std::string ptr);
+    GCPointGiveAmmo(std::string ptr, lua_State* state);
     GCPointGiveAmmo(void *ptr);
 
     GCBaseEntity GetActivator() const;
@@ -13546,9 +13952,10 @@ class GCFuncMoveLinear
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncMoveLinear(std::string ptr);
+    GCFuncMoveLinear(std::string ptr, lua_State* state);
     GCFuncMoveLinear(void *ptr);
 
     uint64_t GetAuthoredPosition() const;
@@ -13587,9 +13994,10 @@ class GCPathParticleRope
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathParticleRope(std::string ptr);
+    GCPathParticleRope(std::string ptr, lua_State* state);
     GCPathParticleRope(void *ptr);
 
     bool GetStartActive() const;
@@ -13634,9 +14042,10 @@ class GCPlayerVisibility
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayerVisibility(std::string ptr);
+    GCPlayerVisibility(std::string ptr, lua_State* state);
     GCPlayerVisibility(void *ptr);
 
     float GetVisibilityStrength() const;
@@ -13663,9 +14072,10 @@ class GCPointTeleport
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointTeleport(std::string ptr);
+    GCPointTeleport(std::string ptr, lua_State* state);
     GCPointTeleport(void *ptr);
 
     Vector GetSaveOrigin() const;
@@ -13688,9 +14098,10 @@ class GCAK47
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAK47(std::string ptr);
+    GCAK47(std::string ptr, lua_State* state);
     GCAK47(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -13705,9 +14116,10 @@ class GCTriggerTeleport
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerTeleport(std::string ptr);
+    GCTriggerTeleport(std::string ptr, lua_State* state);
     GCTriggerTeleport(void *ptr);
 
     std::string GetLandmark() const;
@@ -13728,9 +14140,10 @@ class GCCSObserver_CameraServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSObserver_CameraServices(std::string ptr);
+    GCCSObserver_CameraServices(std::string ptr, lua_State* state);
     GCCSObserver_CameraServices(void *ptr);
 
     GCCSPlayerBase_CameraServices GetParent() const;
@@ -13745,9 +14158,10 @@ class GCCSGO_TeamIntroTerroristPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_TeamIntroTerroristPosition(std::string ptr);
+    GCCSGO_TeamIntroTerroristPosition(std::string ptr, lua_State* state);
     GCCSGO_TeamIntroTerroristPosition(void *ptr);
 
     GCCSGO_TeamIntroCharacterPosition GetParent() const;
@@ -13762,9 +14176,10 @@ class GCFuncMover
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncMover(std::string ptr);
+    GCFuncMover(std::string ptr, lua_State* state);
     GCFuncMover(void *ptr);
 
     std::string GetPathName() const;
@@ -13831,9 +14246,10 @@ class GCCSPlayer_CameraServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_CameraServices(std::string ptr);
+    GCCSPlayer_CameraServices(std::string ptr, lua_State* state);
     GCCSPlayer_CameraServices(void *ptr);
 
     GCCSPlayerBase_CameraServices GetParent() const;
@@ -13848,9 +14264,10 @@ class GCHEGrenade
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHEGrenade(std::string ptr);
+    GCHEGrenade(std::string ptr, lua_State* state);
     GCHEGrenade(void *ptr);
 
     GCBaseCSGrenade GetParent() const;
@@ -13865,9 +14282,10 @@ class GCGameEnd
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGameEnd(std::string ptr);
+    GCGameEnd(std::string ptr, lua_State* state);
     GCGameEnd(void *ptr);
 
     GCRulePointEntity GetParent() const;
@@ -13882,9 +14300,10 @@ class GCTriggerCallback
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerCallback(std::string ptr);
+    GCTriggerCallback(std::string ptr, lua_State* state);
     GCTriggerCallback(void *ptr);
 
     GCBaseTrigger GetParent() const;
@@ -13899,9 +14318,10 @@ class GCBubbling
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBubbling(std::string ptr);
+    GCBubbling(std::string ptr, lua_State* state);
     GCBubbling(void *ptr);
 
     int32_t GetDensity() const;
@@ -13922,9 +14342,10 @@ class GCTeamplayRules
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTeamplayRules(std::string ptr);
+    GCTeamplayRules(std::string ptr, lua_State* state);
     GCTeamplayRules(void *ptr);
 
     GCMultiplayRules GetParent() const;
@@ -13939,9 +14360,10 @@ class GCPhysicsPropOverride
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysicsPropOverride(std::string ptr);
+    GCPhysicsPropOverride(std::string ptr, lua_State* state);
     GCPhysicsPropOverride(void *ptr);
 
     GCPhysicsProp GetParent() const;
@@ -13956,9 +14378,10 @@ class GCAI_ChangeHintGroup
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAI_ChangeHintGroup(std::string ptr);
+    GCAI_ChangeHintGroup(std::string ptr, lua_State* state);
     GCAI_ChangeHintGroup(void *ptr);
 
     int32_t GetSearchType() const;
@@ -13981,9 +14404,10 @@ class GCColorCorrectionVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCColorCorrectionVolume(std::string ptr);
+    GCColorCorrectionVolume(std::string ptr, lua_State* state);
     GCColorCorrectionVolume(void *ptr);
 
     bool GetEnabled() const;
@@ -14018,9 +14442,10 @@ class GCFilterEnemy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterEnemy(std::string ptr);
+    GCFilterEnemy(std::string ptr, lua_State* state);
     GCFilterEnemy(void *ptr);
 
     std::string GetEnemyName() const;
@@ -14045,9 +14470,10 @@ class GCShower
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCShower(std::string ptr);
+    GCShower(std::string ptr, lua_State* state);
     GCShower(void *ptr);
 
     GCModelPointEntity GetParent() const;
@@ -14062,9 +14488,10 @@ class GCEnvCubemapFog
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvCubemapFog(std::string ptr);
+    GCEnvCubemapFog(std::string ptr, lua_State* state);
     GCEnvCubemapFog(void *ptr);
 
     float GetEndDistance() const;
@@ -14111,9 +14538,10 @@ class GCBaseButton
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseButton(std::string ptr);
+    GCBaseButton(std::string ptr, lua_State* state);
     GCBaseButton(void *ptr);
 
     QAngle GetMoveEntitySpace() const;
@@ -14178,9 +14606,10 @@ class GCEnvExplosion
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvExplosion(std::string ptr);
+    GCEnvExplosion(std::string ptr, lua_State* state);
     GCEnvExplosion(void *ptr);
 
     int32_t GetMagnitude() const;
@@ -14225,9 +14654,10 @@ class GCSoundEventAABBEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEventAABBEntity(std::string ptr);
+    GCSoundEventAABBEntity(std::string ptr, lua_State* state);
     GCSoundEventAABBEntity(void *ptr);
 
     Vector GetMins() const;
@@ -14246,9 +14676,10 @@ class GCTriggerLook
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerLook(std::string ptr);
+    GCTriggerLook(std::string ptr, lua_State* state);
     GCTriggerLook(void *ptr);
 
     GCBaseEntity GetLookTarget() const;
@@ -14291,9 +14722,10 @@ class GCEntitySubclassVDataBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEntitySubclassVDataBase(std::string ptr);
+    GCEntitySubclassVDataBase(std::string ptr, lua_State* state);
     GCEntitySubclassVDataBase(void *ptr);
 
 
@@ -14307,9 +14739,10 @@ class GCLogicProximity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicProximity(std::string ptr);
+    GCLogicProximity(std::string ptr, lua_State* state);
     GCLogicProximity(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -14324,9 +14757,10 @@ class GCPointClientUIWorldPanel
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointClientUIWorldPanel(std::string ptr);
+    GCPointClientUIWorldPanel(std::string ptr, lua_State* state);
     GCPointClientUIWorldPanel(void *ptr);
 
     bool GetIgnoreInput() const;
@@ -14387,9 +14821,10 @@ class GCFilterContext
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterContext(std::string ptr);
+    GCFilterContext(std::string ptr, lua_State* state);
     GCFilterContext(void *ptr);
 
     std::string GetFilterContext() const;
@@ -14406,9 +14841,10 @@ class GCPathParticleRopeAlias_path_particle_rope_clientside
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathParticleRopeAlias_path_particle_rope_clientside(std::string ptr);
+    GCPathParticleRopeAlias_path_particle_rope_clientside(std::string ptr, lua_State* state);
     GCPathParticleRopeAlias_path_particle_rope_clientside(void *ptr);
 
     GCPathParticleRope GetParent() const;
@@ -14423,9 +14859,10 @@ class GCTriggerBuoyancy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerBuoyancy(std::string ptr);
+    GCTriggerBuoyancy(std::string ptr, lua_State* state);
     GCTriggerBuoyancy(void *ptr);
 
     GCBuoyancyHelper GetBuoyancyHelper() const;
@@ -14444,9 +14881,10 @@ class GCFilterAttributeInt
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterAttributeInt(std::string ptr);
+    GCFilterAttributeInt(std::string ptr, lua_State* state);
     GCFilterAttributeInt(void *ptr);
 
     uint32_t GetAttributeName() const;
@@ -14463,9 +14901,10 @@ class GCCSPlayer_ActionTrackingServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_ActionTrackingServices(std::string ptr);
+    GCCSPlayer_ActionTrackingServices(std::string ptr, lua_State* state);
     GCCSPlayer_ActionTrackingServices(void *ptr);
 
     GCBasePlayerWeapon GetLastWeaponBeforeC4AutoSwitch() const;
@@ -14488,9 +14927,10 @@ class GCAISound
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAISound(std::string ptr);
+    GCAISound(std::string ptr, lua_State* state);
     GCAISound(void *ptr);
 
     uint64_t GetSoundType() const;
@@ -14517,9 +14957,10 @@ class GCPointEntityFinder
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointEntityFinder(std::string ptr);
+    GCPointEntityFinder(std::string ptr, lua_State* state);
     GCPointEntityFinder(void *ptr);
 
     GCBaseEntity GetEntity() const;
@@ -14548,9 +14989,10 @@ class Gshard_model_desc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gshard_model_desc_t(std::string ptr);
+    Gshard_model_desc_t(std::string ptr, lua_State* state);
     Gshard_model_desc_t(void *ptr);
 
     int32_t GetModelID() const;
@@ -14585,9 +15027,10 @@ class GCPhysicsPropRespawnable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysicsPropRespawnable(std::string ptr);
+    GCPhysicsPropRespawnable(std::string ptr, lua_State* state);
     GCPhysicsPropRespawnable(void *ptr);
 
     Vector GetOriginalSpawnOrigin() const;
@@ -14612,9 +15055,10 @@ class GCEnvSky
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvSky(std::string ptr);
+    GCEnvSky(std::string ptr, lua_State* state);
     GCEnvSky(void *ptr);
 
     bool GetStartDisabled() const;
@@ -14649,9 +15093,10 @@ class GCPointVelocitySensor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointVelocitySensor(std::string ptr);
+    GCPointVelocitySensor(std::string ptr, lua_State* state);
     GCPointVelocitySensor(void *ptr);
 
     GCBaseEntity GetTargetEntity() const;
@@ -14676,9 +15121,10 @@ class GCFilterMassGreater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterMassGreater(std::string ptr);
+    GCFilterMassGreater(std::string ptr, lua_State* state);
     GCFilterMassGreater(void *ptr);
 
     float GetFilterMass() const;
@@ -14695,9 +15141,10 @@ class GFilterTeam
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFilterTeam(std::string ptr);
+    GFilterTeam(std::string ptr, lua_State* state);
     GFilterTeam(void *ptr);
 
     int32_t GetFilterTeam() const;
@@ -14714,9 +15161,10 @@ class GCFuncTankTrain
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncTankTrain(std::string ptr);
+    GCFuncTankTrain(std::string ptr, lua_State* state);
     GCFuncTankTrain(void *ptr);
 
     GCEntityIOOutput GetOnDeath() const;
@@ -14733,9 +15181,10 @@ class GCNullEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNullEntity(std::string ptr);
+    GCNullEntity(std::string ptr, lua_State* state);
     GCNullEntity(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -14750,9 +15199,10 @@ class GCCSPointScriptExtensions_observer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPointScriptExtensions_observer(std::string ptr);
+    GCCSPointScriptExtensions_observer(std::string ptr, lua_State* state);
     GCCSPointScriptExtensions_observer(void *ptr);
 
 
@@ -14766,9 +15216,10 @@ class GCMarkupVolumeTagged
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMarkupVolumeTagged(std::string ptr);
+    GCMarkupVolumeTagged(std::string ptr, lua_State* state);
     GCMarkupVolumeTagged(void *ptr);
 
     bool GetIsGroup() const;
@@ -14793,9 +15244,10 @@ class GCBuyZone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBuyZone(std::string ptr);
+    GCBuyZone(std::string ptr, lua_State* state);
     GCBuyZone(void *ptr);
 
     int32_t GetLegacyTeamNum() const;
@@ -14812,9 +15264,10 @@ class GCPointTemplate
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointTemplate(std::string ptr);
+    GCPointTemplate(std::string ptr, lua_State* state);
     GCPointTemplate(void *ptr);
 
     std::string GetWorldName() const;
@@ -14849,9 +15302,10 @@ class GCTripWireFire
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTripWireFire(std::string ptr);
+    GCTripWireFire(std::string ptr, lua_State* state);
     GCTripWireFire(void *ptr);
 
     GCBaseCSGrenade GetParent() const;
@@ -14866,9 +15320,10 @@ class GCPhysForce
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysForce(std::string ptr);
+    GCPhysForce(std::string ptr, lua_State* state);
     GCPhysForce(void *ptr);
 
     std::string GetNameAttach() const;
@@ -14895,9 +15350,10 @@ class GCLogicDistanceAutosave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicDistanceAutosave(std::string ptr);
+    GCLogicDistanceAutosave(std::string ptr, lua_State* state);
     GCLogicDistanceAutosave(void *ptr);
 
     std::string GetTargetEntity() const;
@@ -14924,9 +15380,10 @@ class GCInfoDynamicShadowHint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoDynamicShadowHint(std::string ptr);
+    GCInfoDynamicShadowHint(std::string ptr, lua_State* state);
     GCInfoDynamicShadowHint(void *ptr);
 
     bool GetDisabled() const;
@@ -14951,9 +15408,10 @@ class GCSoundOpvarSetOBBEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundOpvarSetOBBEntity(std::string ptr);
+    GCSoundOpvarSetOBBEntity(std::string ptr, lua_State* state);
     GCSoundOpvarSetOBBEntity(void *ptr);
 
     GCSoundOpvarSetAABBEntity GetParent() const;
@@ -14968,9 +15426,10 @@ class GCEnvWindShared__WindVariationEvent_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvWindShared__WindVariationEvent_t(std::string ptr);
+    GCEnvWindShared__WindVariationEvent_t(std::string ptr, lua_State* state);
     GCEnvWindShared__WindVariationEvent_t(void *ptr);
 
     float GetWindAngleVariation() const;
@@ -14987,9 +15446,10 @@ class GCTakeDamageInfoAPI
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTakeDamageInfoAPI(std::string ptr);
+    GCTakeDamageInfoAPI(std::string ptr, lua_State* state);
     GCTakeDamageInfoAPI(void *ptr);
 
 
@@ -15003,9 +15463,10 @@ class GCScriptTriggerOnce
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCScriptTriggerOnce(std::string ptr);
+    GCScriptTriggerOnce(std::string ptr, lua_State* state);
     GCScriptTriggerOnce(void *ptr);
 
     Vector GetExtent() const;
@@ -15022,9 +15483,10 @@ class GCNavWalkable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavWalkable(std::string ptr);
+    GCNavWalkable(std::string ptr, lua_State* state);
     GCNavWalkable(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -15039,9 +15501,10 @@ class GCFuncMonitor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncMonitor(std::string ptr);
+    GCFuncMonitor(std::string ptr, lua_State* state);
     GCFuncMonitor(void *ptr);
 
     std::string GetTargetCamera() const;
@@ -15074,9 +15537,10 @@ class GCFlashbangProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFlashbangProjectile(std::string ptr);
+    GCFlashbangProjectile(std::string ptr, lua_State* state);
     GCFlashbangProjectile(void *ptr);
 
     float GetTimeToDetonate() const;
@@ -15097,9 +15561,10 @@ class GCPointClientUIWorldTextPanel
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointClientUIWorldTextPanel(std::string ptr);
+    GCPointClientUIWorldTextPanel(std::string ptr, lua_State* state);
     GCPointClientUIWorldTextPanel(void *ptr);
 
     std::string GetMessageText() const;
@@ -15116,9 +15581,10 @@ class GCInfoInstructorHintTarget
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoInstructorHintTarget(std::string ptr);
+    GCInfoInstructorHintTarget(std::string ptr, lua_State* state);
     GCInfoInstructorHintTarget(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -15133,9 +15599,10 @@ class GCCSPlayer_HostageServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_HostageServices(std::string ptr);
+    GCCSPlayer_HostageServices(std::string ptr, lua_State* state);
     GCCSPlayer_HostageServices(void *ptr);
 
     GCBaseEntity GetCarriedHostage() const;
@@ -15154,9 +15621,10 @@ class GCWeaponSSG08
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponSSG08(std::string ptr);
+    GCWeaponSSG08(std::string ptr, lua_State* state);
     GCWeaponSSG08(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -15171,9 +15639,10 @@ class GCBreachCharge
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBreachCharge(std::string ptr);
+    GCBreachCharge(std::string ptr, lua_State* state);
     GCBreachCharge(void *ptr);
 
     GCCSWeaponBase GetParent() const;
@@ -15188,9 +15657,10 @@ class GCLogicBranch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicBranch(std::string ptr);
+    GCLogicBranch(std::string ptr, lua_State* state);
     GCLogicBranch(void *ptr);
 
     bool GetInValue() const;
@@ -15211,9 +15681,10 @@ class GCWeaponUMP45
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponUMP45(std::string ptr);
+    GCWeaponUMP45(std::string ptr, lua_State* state);
     GCWeaponUMP45(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -15228,9 +15699,10 @@ class GCSpriteAlias_env_glow
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSpriteAlias_env_glow(std::string ptr);
+    GCSpriteAlias_env_glow(std::string ptr, lua_State* state);
     GCSpriteAlias_env_glow(void *ptr);
 
     GCSprite GetParent() const;
@@ -15245,9 +15717,10 @@ class GCPhysicalButton
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysicalButton(std::string ptr);
+    GCPhysicalButton(std::string ptr, lua_State* state);
     GCPhysicalButton(void *ptr);
 
     GCBaseButton GetParent() const;
@@ -15262,9 +15735,10 @@ class GCPhysLength
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysLength(std::string ptr);
+    GCPhysLength(std::string ptr, lua_State* state);
     GCPhysLength(void *ptr);
 
     std::vector<Vector> GetOffset() const;
@@ -15291,9 +15765,10 @@ class GCLogicNPCCounterOBB
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicNPCCounterOBB(std::string ptr);
+    GCLogicNPCCounterOBB(std::string ptr, lua_State* state);
     GCLogicNPCCounterOBB(void *ptr);
 
     GCLogicNPCCounterAABB GetParent() const;
@@ -15308,9 +15783,10 @@ class GCCSGOViewModel
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGOViewModel(std::string ptr);
+    GCCSGOViewModel(std::string ptr, lua_State* state);
     GCCSGOViewModel(void *ptr);
 
     bool GetShouldIgnoreOffsetAndAccuracy() const;
@@ -15331,9 +15807,10 @@ class GCWeaponShield
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponShield(std::string ptr);
+    GCWeaponShield(std::string ptr, lua_State* state);
     GCWeaponShield(void *ptr);
 
     float GetBulletDamageAbsorbed() const;
@@ -15354,9 +15831,10 @@ class GCBlood
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBlood(std::string ptr);
+    GCBlood(std::string ptr, lua_State* state);
     GCBlood(void *ptr);
 
     QAngle GetSprayAngles() const;
@@ -15379,9 +15857,10 @@ class GCEnvFade
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvFade(std::string ptr);
+    GCEnvFade(std::string ptr, lua_State* state);
     GCEnvFade(void *ptr);
 
     Color GetFadeColor() const;
@@ -15404,9 +15883,10 @@ class GCDynamicPropAlias_cable_dynamic
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDynamicPropAlias_cable_dynamic(std::string ptr);
+    GCDynamicPropAlias_cable_dynamic(std::string ptr, lua_State* state);
     GCDynamicPropAlias_cable_dynamic(void *ptr);
 
     GCDynamicProp GetParent() const;
@@ -15421,9 +15901,10 @@ class GCCSPlayer_BuyServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_BuyServices(std::string ptr);
+    GCCSPlayer_BuyServices(std::string ptr, lua_State* state);
     GCCSPlayer_BuyServices(void *ptr);
 
     std::vector<GSellbackPurchaseEntry_t> GetSellbackPurchaseEntries() const;
@@ -15440,9 +15921,10 @@ class GCHostageExpresserShim
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHostageExpresserShim(std::string ptr);
+    GCHostageExpresserShim(std::string ptr, lua_State* state);
     GCHostageExpresserShim(void *ptr);
 
     GCAI_Expresser GetExpresser() const;
@@ -15459,9 +15941,10 @@ class GCInferno
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInferno(std::string ptr);
+    GCInferno(std::string ptr, lua_State* state);
     GCInferno(void *ptr);
 
     std::vector<Vector> GetFirePositions() const;
@@ -15526,9 +16009,10 @@ class GCEnvGlobal
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvGlobal(std::string ptr);
+    GCEnvGlobal(std::string ptr, lua_State* state);
     GCEnvGlobal(void *ptr);
 
     std::string GetGlobalstate() const;
@@ -15551,9 +16035,10 @@ class GCFilterName
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterName(std::string ptr);
+    GCFilterName(std::string ptr, lua_State* state);
     GCFilterName(void *ptr);
 
     std::string GetFilterName() const;
@@ -15570,9 +16055,10 @@ class GCCSTeam
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSTeam(std::string ptr);
+    GCCSTeam(std::string ptr, lua_State* state);
     GCCSTeam(void *ptr);
 
     int32_t GetLastRecievedShorthandedRoundBonus() const;
@@ -15615,9 +16101,10 @@ class GCWeaponUSPSilencer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponUSPSilencer(std::string ptr);
+    GCWeaponUSPSilencer(std::string ptr, lua_State* state);
     GCWeaponUSPSilencer(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -15632,9 +16119,10 @@ class GCSpriteOriented
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSpriteOriented(std::string ptr);
+    GCSpriteOriented(std::string ptr, lua_State* state);
     GCSpriteOriented(void *ptr);
 
     GCSprite GetParent() const;
@@ -15649,9 +16137,10 @@ class GCTriggerGravity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerGravity(std::string ptr);
+    GCTriggerGravity(std::string ptr, lua_State* state);
     GCTriggerGravity(void *ptr);
 
     GCBaseTrigger GetParent() const;
@@ -15666,9 +16155,10 @@ class GCServerRagdollTrigger
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCServerRagdollTrigger(std::string ptr);
+    GCServerRagdollTrigger(std::string ptr, lua_State* state);
     GCServerRagdollTrigger(void *ptr);
 
     GCBaseTrigger GetParent() const;
@@ -15683,9 +16173,10 @@ class GCInfoDynamicShadowHintBox
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoDynamicShadowHintBox(std::string ptr);
+    GCInfoDynamicShadowHintBox(std::string ptr, lua_State* state);
     GCInfoDynamicShadowHintBox(void *ptr);
 
     Vector GetBoxMins() const;
@@ -15704,9 +16195,10 @@ class GCPathMover
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathMover(std::string ptr);
+    GCPathMover(std::string ptr, lua_State* state);
     GCPathMover(void *ptr);
 
     float GetPathLength() const;
@@ -15725,9 +16217,10 @@ class GCFlashbang
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFlashbang(std::string ptr);
+    GCFlashbang(std::string ptr, lua_State* state);
     GCFlashbang(void *ptr);
 
     GCBaseCSGrenade GetParent() const;
@@ -15742,9 +16235,10 @@ class GCWeaponAug
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponAug(std::string ptr);
+    GCWeaponAug(std::string ptr, lua_State* state);
     GCWeaponAug(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -15759,9 +16253,10 @@ class GCIncendiaryGrenade
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCIncendiaryGrenade(std::string ptr);
+    GCIncendiaryGrenade(std::string ptr, lua_State* state);
     GCIncendiaryGrenade(void *ptr);
 
     GCMolotovGrenade GetParent() const;
@@ -15776,9 +16271,10 @@ class GCChangeLevel
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCChangeLevel(std::string ptr);
+    GCChangeLevel(std::string ptr, lua_State* state);
     GCChangeLevel(void *ptr);
 
     std::string GetMapName() const;
@@ -15807,9 +16303,10 @@ class GCTriggerLerpObject
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerLerpObject(std::string ptr);
+    GCTriggerLerpObject(std::string ptr, lua_State* state);
     GCTriggerLerpObject(void *ptr);
 
     std::string GetLerpTarget() const;
@@ -15850,9 +16347,10 @@ class GCTriggerSoundscape
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerSoundscape(std::string ptr);
+    GCTriggerSoundscape(std::string ptr, lua_State* state);
     GCTriggerSoundscape(void *ptr);
 
     GCEnvSoundscapeTriggerable GetSoundscape() const;
@@ -15871,9 +16369,10 @@ class GCLogicScript
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicScript(std::string ptr);
+    GCLogicScript(std::string ptr, lua_State* state);
     GCLogicScript(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -15888,9 +16387,10 @@ class GCWeaponFiveSeven
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponFiveSeven(std::string ptr);
+    GCWeaponFiveSeven(std::string ptr, lua_State* state);
     GCWeaponFiveSeven(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -15905,9 +16405,10 @@ class GCTriggerBrush
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerBrush(std::string ptr);
+    GCTriggerBrush(std::string ptr, lua_State* state);
     GCTriggerBrush(void *ptr);
 
     GCEntityIOOutput GetOnStartTouch() const;
@@ -15932,9 +16433,10 @@ class GCPhysicsEntitySolver
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysicsEntitySolver(std::string ptr);
+    GCPhysicsEntitySolver(std::string ptr, lua_State* state);
     GCPhysicsEntitySolver(void *ptr);
 
     GCBaseEntity GetMovingEntity() const;
@@ -15957,9 +16459,10 @@ class GCNetworkedSequenceOperation
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNetworkedSequenceOperation(std::string ptr);
+    GCNetworkedSequenceOperation(std::string ptr, lua_State* state);
     GCNetworkedSequenceOperation(void *ptr);
 
     float GetPrevCycle() const;
@@ -15986,9 +16489,10 @@ class GCPointWorldText
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointWorldText(std::string ptr);
+    GCPointWorldText(std::string ptr, lua_State* state);
     GCPointWorldText(void *ptr);
 
     std::string GetMessageText() const;
@@ -16025,9 +16529,10 @@ class GCSoundAreaEntityOrientedBox
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundAreaEntityOrientedBox(std::string ptr);
+    GCSoundAreaEntityOrientedBox(std::string ptr, lua_State* state);
     GCSoundAreaEntityOrientedBox(void *ptr);
 
     Vector GetMin() const;
@@ -16046,9 +16551,10 @@ class GCTriggerPhysics
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerPhysics(std::string ptr);
+    GCTriggerPhysics(std::string ptr, lua_State* state);
     GCTriggerPhysics(void *ptr);
 
     float GetGravityScale() const;
@@ -16089,9 +16595,10 @@ class GEntityRenderAttribute_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEntityRenderAttribute_t(std::string ptr);
+    GEntityRenderAttribute_t(std::string ptr, lua_State* state);
     GEntityRenderAttribute_t(void *ptr);
 
     uint32_t GetID() const;
@@ -16108,9 +16615,10 @@ class GCPointBroadcastClientCommand
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointBroadcastClientCommand(std::string ptr);
+    GCPointBroadcastClientCommand(std::string ptr, lua_State* state);
     GCPointBroadcastClientCommand(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -16125,9 +16633,10 @@ class GCFuncShatterglass
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncShatterglass(std::string ptr);
+    GCFuncShatterglass(std::string ptr, lua_State* state);
     GCFuncShatterglass(void *ptr);
 
     std::vector<uint32> GetShatterGlassShards() const;
@@ -16192,9 +16701,10 @@ class GCRotButton
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRotButton(std::string ptr);
+    GCRotButton(std::string ptr, lua_State* state);
     GCRotButton(void *ptr);
 
     GCBaseButton GetParent() const;
@@ -16209,9 +16719,10 @@ class GCSoundEventSphereEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEventSphereEntity(std::string ptr);
+    GCSoundEventSphereEntity(std::string ptr, lua_State* state);
     GCSoundEventSphereEntity(void *ptr);
 
     float GetRadius() const;
@@ -16228,9 +16739,10 @@ class GCWeaponHKP2000
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponHKP2000(std::string ptr);
+    GCWeaponHKP2000(std::string ptr, lua_State* state);
     GCWeaponHKP2000(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -16245,9 +16757,10 @@ class GCPlantedC4
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlantedC4(std::string ptr);
+    GCPlantedC4(std::string ptr, lua_State* state);
     GCPlantedC4(void *ptr);
 
     bool GetBombTicking() const;
@@ -16314,9 +16827,10 @@ class GCPointClientUIDialog
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointClientUIDialog(std::string ptr);
+    GCPointClientUIDialog(std::string ptr, lua_State* state);
     GCPointClientUIDialog(void *ptr);
 
     GCBaseEntity GetActivator() const;
@@ -16335,9 +16849,10 @@ class GCEnvSplash
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvSplash(std::string ptr);
+    GCEnvSplash(std::string ptr, lua_State* state);
     GCEnvSplash(void *ptr);
 
     float GetScale() const;
@@ -16354,9 +16869,10 @@ class GCSkyCamera
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSkyCamera(std::string ptr);
+    GCSkyCamera(std::string ptr, lua_State* state);
     GCSkyCamera(void *ptr);
 
     Gsky3dparams_t GetSkyboxData() const;
@@ -16379,9 +16895,10 @@ class GCWeaponNOVA
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponNOVA(std::string ptr);
+    GCWeaponNOVA(std::string ptr, lua_State* state);
     GCWeaponNOVA(void *ptr);
 
     GCCSWeaponBase GetParent() const;
@@ -16396,9 +16913,10 @@ class GCPointCameraVFOV
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointCameraVFOV(std::string ptr);
+    GCPointCameraVFOV(std::string ptr, lua_State* state);
     GCPointCameraVFOV(void *ptr);
 
     float GetVerticalFOV() const;
@@ -16415,9 +16933,10 @@ class GCWeaponTaser
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponTaser(std::string ptr);
+    GCWeaponTaser(std::string ptr, lua_State* state);
     GCWeaponTaser(void *ptr);
 
     float GetFireTime() const;
@@ -16436,9 +16955,10 @@ class GCWaterBullet
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWaterBullet(std::string ptr);
+    GCWaterBullet(std::string ptr, lua_State* state);
     GCWaterBullet(void *ptr);
 
     GCBaseAnimGraph GetParent() const;
@@ -16453,9 +16973,10 @@ class GCMarkupVolumeWithRef
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMarkupVolumeWithRef(std::string ptr);
+    GCMarkupVolumeWithRef(std::string ptr, lua_State* state);
     GCMarkupVolumeWithRef(void *ptr);
 
     bool GetUseRef() const;
@@ -16476,9 +16997,10 @@ class GCMessage
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMessage(std::string ptr);
+    GCMessage(std::string ptr, lua_State* state);
     GCMessage(void *ptr);
 
     std::string GetMessage() const;
@@ -16505,9 +17027,10 @@ class GCLogicGameEventListener
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicGameEventListener(std::string ptr);
+    GCLogicGameEventListener(std::string ptr, lua_State* state);
     GCLogicGameEventListener(void *ptr);
 
     GCEntityIOOutput GetOnEventFired() const;
@@ -16532,9 +17055,10 @@ class GCPushable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPushable(std::string ptr);
+    GCPushable(std::string ptr, lua_State* state);
     GCPushable(void *ptr);
 
     GCBreakable GetParent() const;
@@ -16549,9 +17073,10 @@ class GCTriggerRemove
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerRemove(std::string ptr);
+    GCTriggerRemove(std::string ptr, lua_State* state);
     GCTriggerRemove(void *ptr);
 
     GCEntityIOOutput GetOnRemove() const;
@@ -16568,9 +17093,10 @@ class GCInfoTarget
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoTarget(std::string ptr);
+    GCInfoTarget(std::string ptr, lua_State* state);
     GCInfoTarget(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -16585,9 +17111,10 @@ class GCMomentaryRotButton
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMomentaryRotButton(std::string ptr);
+    GCMomentaryRotButton(std::string ptr, lua_State* state);
     GCMomentaryRotButton(void *ptr);
 
     GCEntityIOOutput GetOnUnpressed() const;
@@ -16628,9 +17155,10 @@ class GCPropDoorRotating
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPropDoorRotating(std::string ptr);
+    GCPropDoorRotating(std::string ptr, lua_State* state);
     GCPropDoorRotating(void *ptr);
 
     Vector GetAxis() const;
@@ -16679,9 +17207,10 @@ class Ghudtextparms_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Ghudtextparms_t(std::string ptr);
+    Ghudtextparms_t(std::string ptr, lua_State* state);
     Ghudtextparms_t(void *ptr);
 
     Color GetColor1() const;
@@ -16706,9 +17235,10 @@ class GCWeaponMP5SD
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponMP5SD(std::string ptr);
+    GCWeaponMP5SD(std::string ptr, lua_State* state);
     GCWeaponMP5SD(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -16723,9 +17253,10 @@ class GCTextureBasedAnimatable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTextureBasedAnimatable(std::string ptr);
+    GCTextureBasedAnimatable(std::string ptr, lua_State* state);
     GCTextureBasedAnimatable(void *ptr);
 
     bool GetLoop() const;
@@ -16752,9 +17283,10 @@ class GCMarkupVolumeTagged_NavGame
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMarkupVolumeTagged_NavGame(std::string ptr);
+    GCMarkupVolumeTagged_NavGame(std::string ptr, lua_State* state);
     GCMarkupVolumeTagged_NavGame(void *ptr);
 
     bool GetFloodFillAttribute() const;
@@ -16771,9 +17303,10 @@ class GCPhysThruster
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysThruster(std::string ptr);
+    GCPhysThruster(std::string ptr, lua_State* state);
     GCPhysThruster(void *ptr);
 
     Vector GetLocalOrigin() const;
@@ -16790,9 +17323,10 @@ class GCCSPointScriptExtensions_player
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPointScriptExtensions_player(std::string ptr);
+    GCCSPointScriptExtensions_player(std::string ptr, lua_State* state);
     GCCSPointScriptExtensions_player(void *ptr);
 
 
@@ -16806,9 +17340,10 @@ class GCCitadelSoundOpvarSetOBB
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCitadelSoundOpvarSetOBB(std::string ptr);
+    GCCitadelSoundOpvarSetOBB(std::string ptr, lua_State* state);
     GCCitadelSoundOpvarSetOBB(void *ptr);
 
     std::string GetStackName() const;
@@ -16839,9 +17374,10 @@ class GSellbackPurchaseEntry_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSellbackPurchaseEntry_t(std::string ptr);
+    GSellbackPurchaseEntry_t(std::string ptr, lua_State* state);
     GSellbackPurchaseEntry_t(void *ptr);
 
     uint16_t GetDefIdx() const;
@@ -16864,9 +17400,10 @@ class GCWeaponFamas
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponFamas(std::string ptr);
+    GCWeaponFamas(std::string ptr, lua_State* state);
     GCWeaponFamas(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -16881,9 +17418,10 @@ class GCShatterGlassShardPhysics
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCShatterGlassShardPhysics(std::string ptr);
+    GCShatterGlassShardPhysics(std::string ptr, lua_State* state);
     GCShatterGlassShardPhysics(void *ptr);
 
     bool GetDebris() const;
@@ -16904,9 +17442,10 @@ class GCFilterModel
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterModel(std::string ptr);
+    GCFilterModel(std::string ptr, lua_State* state);
     GCFilterModel(void *ptr);
 
     std::string GetFilterModel() const;
@@ -16923,9 +17462,10 @@ class GCCSPlayerPawnBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayerPawnBase(std::string ptr);
+    GCCSPlayerPawnBase(std::string ptr, lua_State* state);
     GCCSPlayerPawnBase(void *ptr);
 
     GCTouchExpansionComponent GetCTouchExpansionComponent() const;
@@ -16986,9 +17526,10 @@ class GCPathTrack
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathTrack(std::string ptr);
+    GCPathTrack(std::string ptr, lua_State* state);
     GCPathTrack(void *ptr);
 
     GCPathTrack GetPnext() const;
@@ -17021,9 +17562,10 @@ class GCLogicDistanceCheck
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicDistanceCheck(std::string ptr);
+    GCLogicDistanceCheck(std::string ptr, lua_State* state);
     GCLogicDistanceCheck(void *ptr);
 
     std::string GetEntityA() const;
@@ -17052,9 +17594,10 @@ class GCOmniLight
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCOmniLight(std::string ptr);
+    GCOmniLight(std::string ptr, lua_State* state);
     GCOmniLight(void *ptr);
 
     float GetInnerAngle() const;
@@ -17075,9 +17618,10 @@ class GCInfoOffscreenPanoramaTexture
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoOffscreenPanoramaTexture(std::string ptr);
+    GCInfoOffscreenPanoramaTexture(std::string ptr, lua_State* state);
     GCInfoOffscreenPanoramaTexture(void *ptr);
 
     bool GetDisabled() const;
@@ -17110,9 +17654,10 @@ class GCInfoVisibilityBox
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoVisibilityBox(std::string ptr);
+    GCInfoVisibilityBox(std::string ptr, lua_State* state);
     GCInfoVisibilityBox(void *ptr);
 
     int32_t GetMode() const;
@@ -17133,9 +17678,10 @@ class GCGamePlayerEquip
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGamePlayerEquip(std::string ptr);
+    GCGamePlayerEquip(std::string ptr, lua_State* state);
     GCGamePlayerEquip(void *ptr);
 
     GCRulePointEntity GetParent() const;
@@ -17150,9 +17696,10 @@ class GCInfoTargetServerOnly
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoTargetServerOnly(std::string ptr);
+    GCInfoTargetServerOnly(std::string ptr, lua_State* state);
     GCInfoTargetServerOnly(void *ptr);
 
     GCServerOnlyPointEntity GetParent() const;
@@ -17167,9 +17714,10 @@ class GCSoundOpvarSetPathCornerEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundOpvarSetPathCornerEntity(std::string ptr);
+    GCSoundOpvarSetPathCornerEntity(std::string ptr, lua_State* state);
     GCSoundOpvarSetPathCornerEntity(void *ptr);
 
     float GetDistMinSqr() const;
@@ -17190,9 +17738,10 @@ class GCCSPlayer_WeaponServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_WeaponServices(std::string ptr);
+    GCCSPlayer_WeaponServices(std::string ptr, lua_State* state);
     GCCSPlayer_WeaponServices(void *ptr);
 
     float GetNextAttack() const;
@@ -17237,9 +17786,10 @@ class GCEntityFlame
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEntityFlame(std::string ptr);
+    GCEntityFlame(std::string ptr, lua_State* state);
     GCEntityFlame(void *ptr);
 
     GCBaseEntity GetEntAttached() const;
@@ -17276,9 +17826,10 @@ class GCWeaponMP9
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponMP9(std::string ptr);
+    GCWeaponMP9(std::string ptr, lua_State* state);
     GCWeaponMP9(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -17293,9 +17844,10 @@ class GCCSBot
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSBot(std::string ptr);
+    GCCSBot(std::string ptr, lua_State* state);
     GCCSBot(void *ptr);
 
     Vector GetEyePosition() const;
@@ -17588,9 +18140,10 @@ class GCEntityIdentity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEntityIdentity(std::string ptr);
+    GCEntityIdentity(std::string ptr, lua_State* state);
     GCEntityIdentity(void *ptr);
 
     int32_t GetNameStringableIndex() const;
@@ -17625,9 +18178,10 @@ class GCGunTarget
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGunTarget(std::string ptr);
+    GCGunTarget(std::string ptr, lua_State* state);
     GCGunTarget(void *ptr);
 
     bool GetOn() const;
@@ -17648,9 +18202,10 @@ class GCSoundEventParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEventParameter(std::string ptr);
+    GCSoundEventParameter(std::string ptr, lua_State* state);
     GCSoundEventParameter(void *ptr);
 
     std::string GetParamName() const;
@@ -17669,9 +18224,10 @@ class GCSimpleMarkupVolumeTagged
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSimpleMarkupVolumeTagged(std::string ptr);
+    GCSimpleMarkupVolumeTagged(std::string ptr, lua_State* state);
     GCSimpleMarkupVolumeTagged(void *ptr);
 
     GCMarkupVolumeTagged GetParent() const;
@@ -17686,9 +18242,10 @@ class GCTestEffect
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTestEffect(std::string ptr);
+    GCTestEffect(std::string ptr, lua_State* state);
     GCTestEffect(void *ptr);
 
     int32_t GetLoop() const;
@@ -17713,9 +18270,10 @@ class GCWeaponM4A1Silencer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponM4A1Silencer(std::string ptr);
+    GCWeaponM4A1Silencer(std::string ptr, lua_State* state);
     GCWeaponM4A1Silencer(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -17730,9 +18288,10 @@ class GCScriptNavBlocker
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCScriptNavBlocker(std::string ptr);
+    GCScriptNavBlocker(std::string ptr, lua_State* state);
     GCScriptNavBlocker(void *ptr);
 
     Vector GetExtent() const;
@@ -17749,9 +18308,10 @@ class GCConstraintAnchor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCConstraintAnchor(std::string ptr);
+    GCConstraintAnchor(std::string ptr, lua_State* state);
     GCConstraintAnchor(void *ptr);
 
     float GetMassScale() const;
@@ -17768,9 +18328,10 @@ class GCWeaponTec9
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponTec9(std::string ptr);
+    GCWeaponTec9(std::string ptr, lua_State* state);
     GCWeaponTec9(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -17785,9 +18346,10 @@ class GCMarkupVolumeTagged_Nav
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMarkupVolumeTagged_Nav(std::string ptr);
+    GCMarkupVolumeTagged_Nav(std::string ptr, lua_State* state);
     GCMarkupVolumeTagged_Nav(void *ptr);
 
     GCMarkupVolumeTagged GetParent() const;
@@ -17802,9 +18364,10 @@ class GCInstancedSceneEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInstancedSceneEntity(std::string ptr);
+    GCInstancedSceneEntity(std::string ptr, lua_State* state);
     GCInstancedSceneEntity(void *ptr);
 
     GCBaseEntity GetOwner() const;
@@ -17833,9 +18396,10 @@ class GCLightEnvironmentEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLightEnvironmentEntity(std::string ptr);
+    GCLightEnvironmentEntity(std::string ptr, lua_State* state);
     GCLightEnvironmentEntity(void *ptr);
 
     GCLightDirectionalEntity GetParent() const;
@@ -17850,9 +18414,10 @@ class GCLogicActiveAutosave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicActiveAutosave(std::string ptr);
+    GCLogicActiveAutosave(std::string ptr, lua_State* state);
     GCLogicActiveAutosave(void *ptr);
 
     int32_t GetTriggerHitPoints() const;
@@ -17875,9 +18440,10 @@ class GCEnvBeverage
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvBeverage(std::string ptr);
+    GCEnvBeverage(std::string ptr, lua_State* state);
     GCEnvBeverage(void *ptr);
 
     bool GetCanInDispenser() const;
@@ -17896,9 +18462,10 @@ class GCWeaponCZ75a
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponCZ75a(std::string ptr);
+    GCWeaponCZ75a(std::string ptr, lua_State* state);
     GCWeaponCZ75a(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -17913,9 +18480,10 @@ class GCWeaponP250
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponP250(std::string ptr);
+    GCWeaponP250(std::string ptr, lua_State* state);
     GCWeaponP250(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -17930,9 +18498,10 @@ class GCHostage
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHostage(std::string ptr);
+    GCHostage(std::string ptr, lua_State* state);
     GCHostage(void *ptr);
 
     GCEntityIOOutput GetOnHostageBeginGrab() const;
@@ -18025,9 +18594,10 @@ class GCScriptTriggerHurt
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCScriptTriggerHurt(std::string ptr);
+    GCScriptTriggerHurt(std::string ptr, lua_State* state);
     GCScriptTriggerHurt(void *ptr);
 
     Vector GetExtent() const;
@@ -18044,9 +18614,10 @@ class GCBasePlayerWeaponVData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBasePlayerWeaponVData(std::string ptr);
+    GCBasePlayerWeaponVData(std::string ptr, lua_State* state);
     GCBasePlayerWeaponVData(void *ptr);
 
     bool GetBuiltRightHanded() const;
@@ -18095,9 +18666,10 @@ class GCMathColorBlend
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMathColorBlend(std::string ptr);
+    GCMathColorBlend(std::string ptr, lua_State* state);
     GCMathColorBlend(void *ptr);
 
     float GetInMin() const;
@@ -18120,9 +18692,10 @@ class GCEnvScreenOverlay
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvScreenOverlay(std::string ptr);
+    GCEnvScreenOverlay(std::string ptr, lua_State* state);
     GCEnvScreenOverlay(void *ptr);
 
     std::vector<CUtlSymbolLarge> GetOverlayNames() const;
@@ -18147,9 +18720,10 @@ class GCCSPlayerPawn
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayerPawn(std::string ptr);
+    GCCSPlayerPawn(std::string ptr, lua_State* state);
     GCCSPlayerPawn(void *ptr);
 
     GCCSPlayer_BulletServices GetBulletServices() const;
@@ -18394,9 +18968,10 @@ class GCBumpMineProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBumpMineProjectile(std::string ptr);
+    GCBumpMineProjectile(std::string ptr, lua_State* state);
     GCBumpMineProjectile(void *ptr);
 
     GCBaseGrenade GetParent() const;
@@ -18411,9 +18986,10 @@ class GCCSPlayerController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayerController(std::string ptr);
+    GCCSPlayerController(std::string ptr, lua_State* state);
     GCCSPlayerController(void *ptr);
 
     GCCSPlayerController_InGameMoneyServices GetInGameMoneyServices() const;
@@ -18600,9 +19176,10 @@ class GCChicken
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCChicken(std::string ptr);
+    GCChicken(std::string ptr, lua_State* state);
     GCChicken(void *ptr);
 
     GCAttributeContainer GetAttributeManager() const;
@@ -18683,9 +19260,10 @@ class GCInfoInstructorHintBombTargetA
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoInstructorHintBombTargetA(std::string ptr);
+    GCInfoInstructorHintBombTargetA(std::string ptr, lua_State* state);
     GCInfoInstructorHintBombTargetA(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -18700,9 +19278,10 @@ class GCWeaponAWP
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponAWP(std::string ptr);
+    GCWeaponAWP(std::string ptr, lua_State* state);
     GCWeaponAWP(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -18717,9 +19296,10 @@ class GCCSObserverPawn
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSObserverPawn(std::string ptr);
+    GCCSObserverPawn(std::string ptr, lua_State* state);
     GCCSObserverPawn(void *ptr);
 
     GCCSPlayerPawnBase GetParent() const;
@@ -18734,9 +19314,10 @@ class GCPostProcessingVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPostProcessingVolume(std::string ptr);
+    GCPostProcessingVolume(std::string ptr, lua_State* state);
     GCPostProcessingVolume(void *ptr);
 
     float GetFadeDuration() const;
@@ -18781,9 +19362,10 @@ class GCSpotlightEnd
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSpotlightEnd(std::string ptr);
+    GCSpotlightEnd(std::string ptr, lua_State* state);
     GCSpotlightEnd(void *ptr);
 
     float GetLightScale() const;
@@ -18806,9 +19388,10 @@ class GCGamePlayerZone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGamePlayerZone(std::string ptr);
+    GCGamePlayerZone(std::string ptr, lua_State* state);
     GCGamePlayerZone(void *ptr);
 
     GCEntityIOOutput GetOnPlayerInZone() const;
@@ -18827,9 +19410,10 @@ class GCSensorGrenade
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSensorGrenade(std::string ptr);
+    GCSensorGrenade(std::string ptr, lua_State* state);
     GCSensorGrenade(void *ptr);
 
     GCBaseCSGrenade GetParent() const;
@@ -18844,9 +19428,10 @@ class GCCSGO_WingmanIntroTerroristPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_WingmanIntroTerroristPosition(std::string ptr);
+    GCCSGO_WingmanIntroTerroristPosition(std::string ptr, lua_State* state);
     GCCSGO_WingmanIntroTerroristPosition(void *ptr);
 
     GCCSGO_WingmanIntroCharacterPosition GetParent() const;
@@ -18861,9 +19446,10 @@ class GCTriggerDetectExplosion
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerDetectExplosion(std::string ptr);
+    GCTriggerDetectExplosion(std::string ptr, lua_State* state);
     GCTriggerDetectExplosion(void *ptr);
 
     GCEntityIOOutput GetOnDetectedExplosion() const;
@@ -18880,9 +19466,10 @@ class GCSoundStackSave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundStackSave(std::string ptr);
+    GCSoundStackSave(std::string ptr, lua_State* state);
     GCSoundStackSave(void *ptr);
 
     std::string GetStackName() const;
@@ -18899,9 +19486,10 @@ class GConstraintSoundInfo
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GConstraintSoundInfo(std::string ptr);
+    GConstraintSoundInfo(std::string ptr, lua_State* state);
     GConstraintSoundInfo(void *ptr);
 
     GVelocitySampler GetSampler() const;
@@ -18930,9 +19518,10 @@ class GCSingleplayRules
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSingleplayRules(std::string ptr);
+    GCSingleplayRules(std::string ptr, lua_State* state);
     GCSingleplayRules(void *ptr);
 
     bool GetSinglePlayerGameEnding() const;
@@ -18949,9 +19538,10 @@ class GCFilterProximity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFilterProximity(std::string ptr);
+    GCFilterProximity(std::string ptr, lua_State* state);
     GCFilterProximity(void *ptr);
 
     float GetRadius() const;
@@ -18968,9 +19558,10 @@ class GCEconWearable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEconWearable(std::string ptr);
+    GCEconWearable(std::string ptr, lua_State* state);
     GCEconWearable(void *ptr);
 
     int32_t GetForceSkin() const;
@@ -18989,9 +19580,10 @@ class GCCSPlayer_ItemServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_ItemServices(std::string ptr);
+    GCCSPlayer_ItemServices(std::string ptr, lua_State* state);
     GCCSPlayer_ItemServices(void *ptr);
 
     bool GetHasDefuser() const;
@@ -19012,9 +19604,10 @@ class GCFuncConveyor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncConveyor(std::string ptr);
+    GCFuncConveyor(std::string ptr, lua_State* state);
     GCFuncConveyor(void *ptr);
 
     std::string GetConveyorModels() const;
@@ -19047,9 +19640,10 @@ class GCWeaponMag7
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponMag7(std::string ptr);
+    GCWeaponMag7(std::string ptr, lua_State* state);
     GCWeaponMag7(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -19064,9 +19658,10 @@ class GCMathCounter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMathCounter(std::string ptr);
+    GCMathCounter(std::string ptr, lua_State* state);
     GCMathCounter(void *ptr);
 
     float GetMin() const;
@@ -19099,9 +19694,10 @@ class GCInfoWorldLayer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoWorldLayer(std::string ptr);
+    GCInfoWorldLayer(std::string ptr, lua_State* state);
     GCInfoWorldLayer(void *ptr);
 
     GCEntityIOOutput GetOutputOnEntitiesSpawned() const;
@@ -19130,9 +19726,10 @@ class GCRectLight
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRectLight(std::string ptr);
+    GCRectLight(std::string ptr, lua_State* state);
     GCRectLight(void *ptr);
 
     bool GetShowLight() const;
@@ -19149,9 +19746,10 @@ class GCCSGO_TeamSelectCharacterPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_TeamSelectCharacterPosition(std::string ptr);
+    GCCSGO_TeamSelectCharacterPosition(std::string ptr, lua_State* state);
     GCCSGO_TeamSelectCharacterPosition(void *ptr);
 
     GCCSGO_TeamPreviewCharacterPosition GetParent() const;
@@ -19166,9 +19764,10 @@ class GCBaseDoor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseDoor(std::string ptr);
+    GCBaseDoor(std::string ptr, lua_State* state);
     GCBaseDoor(void *ptr);
 
     QAngle GetMoveEntitySpace() const;
@@ -19237,9 +19836,10 @@ class GCLogicLineToEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicLineToEntity(std::string ptr);
+    GCLogicLineToEntity(std::string ptr, lua_State* state);
     GCLogicLineToEntity(void *ptr);
 
     std::string GetSourceName() const;
@@ -19260,9 +19860,10 @@ class GCRetakeGameRules
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRetakeGameRules(std::string ptr);
+    GCRetakeGameRules(std::string ptr, lua_State* state);
     GCRetakeGameRules(void *ptr);
 
     int32_t GetMatchSeed() const;
@@ -19285,9 +19886,10 @@ class GCCSGameRulesProxy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGameRulesProxy(std::string ptr);
+    GCCSGameRulesProxy(std::string ptr, lua_State* state);
     GCCSGameRulesProxy(void *ptr);
 
     GCCSGameRules GetGameRules() const;
@@ -19304,9 +19906,10 @@ class GCEnvCubemapBox
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvCubemapBox(std::string ptr);
+    GCEnvCubemapBox(std::string ptr, lua_State* state);
     GCEnvCubemapBox(void *ptr);
 
     GCEnvCubemap GetParent() const;
@@ -19321,9 +19924,10 @@ class GCCSPlayer_DamageReactServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_DamageReactServices(std::string ptr);
+    GCCSPlayer_DamageReactServices(std::string ptr, lua_State* state);
     GCCSPlayer_DamageReactServices(void *ptr);
 
     GCPlayerPawnComponent GetParent() const;
@@ -19338,9 +19942,10 @@ class GServerAuthoritativeWeaponSlot_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GServerAuthoritativeWeaponSlot_t(std::string ptr);
+    GServerAuthoritativeWeaponSlot_t(std::string ptr, lua_State* state);
     GServerAuthoritativeWeaponSlot_t(void *ptr);
 
     uint16_t GetClass() const;
@@ -19359,9 +19964,10 @@ class GCCSGameRules
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGameRules(std::string ptr);
+    GCCSGameRules(std::string ptr, lua_State* state);
     GCCSGameRules(void *ptr);
 
     bool GetFreezePeriod() const;
@@ -19750,9 +20356,10 @@ class GCColorCorrection
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCColorCorrection(std::string ptr);
+    GCColorCorrection(std::string ptr, lua_State* state);
     GCColorCorrection(void *ptr);
 
     float GetFadeInDuration() const;
@@ -19801,9 +20408,10 @@ class GCWeaponElite
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponElite(std::string ptr);
+    GCWeaponElite(std::string ptr, lua_State* state);
     GCWeaponElite(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -19818,9 +20426,10 @@ class GCSoundEventEntityAlias_snd_event_point
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEventEntityAlias_snd_event_point(std::string ptr);
+    GCSoundEventEntityAlias_snd_event_point(std::string ptr, lua_State* state);
     GCSoundEventEntityAlias_snd_event_point(void *ptr);
 
     GCSoundEventEntity GetParent() const;
@@ -19835,9 +20444,10 @@ class GCBaseEntityAPI
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseEntityAPI(std::string ptr);
+    GCBaseEntityAPI(std::string ptr, lua_State* state);
     GCBaseEntityAPI(void *ptr);
 
 
@@ -19851,9 +20461,10 @@ class GCC4
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCC4(std::string ptr);
+    GCC4(std::string ptr, lua_State* state);
     GCC4(void *ptr);
 
     Vector GetLastValidPlayerHeldPosition() const;
@@ -19890,9 +20501,10 @@ class GCHostageRescueZone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHostageRescueZone(std::string ptr);
+    GCHostageRescueZone(std::string ptr, lua_State* state);
     GCHostageRescueZone(void *ptr);
 
     GCHostageRescueZoneShim GetParent() const;
@@ -19907,9 +20519,10 @@ class GCPointPrefab
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointPrefab(std::string ptr);
+    GCPointPrefab(std::string ptr, lua_State* state);
     GCPointPrefab(void *ptr);
 
     std::string GetTargetMapName() const;
@@ -19936,9 +20549,10 @@ class GCRotDoor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRotDoor(std::string ptr);
+    GCRotDoor(std::string ptr, lua_State* state);
     GCRotDoor(void *ptr);
 
     bool GetSolidBsp() const;
@@ -19955,9 +20569,10 @@ class GCSkeletonAnimationController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSkeletonAnimationController(std::string ptr);
+    GCSkeletonAnimationController(std::string ptr, lua_State* state);
     GCSkeletonAnimationController(void *ptr);
 
     GCSkeletonInstance GetSkeletonInstance() const;
@@ -19974,9 +20589,10 @@ class GCTablet
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTablet(std::string ptr);
+    GCTablet(std::string ptr, lua_State* state);
     GCTablet(void *ptr);
 
     GCCSWeaponBase GetParent() const;
@@ -19991,9 +20607,10 @@ class GCTankTrainAI
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTankTrainAI(std::string ptr);
+    GCTankTrainAI(std::string ptr, lua_State* state);
     GCTankTrainAI(void *ptr);
 
     GCFuncTrackTrain GetTrain() const;
@@ -20022,9 +20639,10 @@ class GCGameGibManager
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGameGibManager(std::string ptr);
+    GCGameGibManager(std::string ptr, lua_State* state);
     GCGameGibManager(void *ptr);
 
     bool GetAllowNewGibs() const;
@@ -20047,9 +20665,10 @@ class GCCSPointScript
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPointScript(std::string ptr);
+    GCCSPointScript(std::string ptr, lua_State* state);
     GCCSPointScript(void *ptr);
 
     GCCSPointScriptEntity GetParent() const;
@@ -20064,9 +20683,10 @@ class GCRagdollPropAlias_physics_prop_ragdoll
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRagdollPropAlias_physics_prop_ragdoll(std::string ptr);
+    GCRagdollPropAlias_physics_prop_ragdoll(std::string ptr, lua_State* state);
     GCRagdollPropAlias_physics_prop_ragdoll(void *ptr);
 
     GCRagdollProp GetParent() const;
@@ -20081,9 +20701,10 @@ class GCCSSprite
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSSprite(std::string ptr);
+    GCCSSprite(std::string ptr, lua_State* state);
     GCCSSprite(void *ptr);
 
     GCSprite GetParent() const;
@@ -20098,9 +20719,10 @@ class GCFuncPropRespawnZone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncPropRespawnZone(std::string ptr);
+    GCFuncPropRespawnZone(std::string ptr, lua_State* state);
     GCFuncPropRespawnZone(void *ptr);
 
     GCBaseEntity GetParent() const;
@@ -20115,9 +20737,10 @@ class GCInfoDeathmatchSpawn
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoDeathmatchSpawn(std::string ptr);
+    GCInfoDeathmatchSpawn(std::string ptr, lua_State* state);
     GCInfoDeathmatchSpawn(void *ptr);
 
     GSpawnPoint GetParent() const;
@@ -20132,9 +20755,10 @@ class GCWeaponSCAR20
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponSCAR20(std::string ptr);
+    GCWeaponSCAR20(std::string ptr, lua_State* state);
     GCWeaponSCAR20(void *ptr);
 
     GCCSWeaponBaseGun GetParent() const;
@@ -20149,9 +20773,10 @@ class GCTripWireFireProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTripWireFireProjectile(std::string ptr);
+    GCTripWireFireProjectile(std::string ptr, lua_State* state);
     GCTripWireFireProjectile(void *ptr);
 
     GCBaseGrenade GetParent() const;
@@ -20166,9 +20791,10 @@ class GCFuncTrackAuto
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncTrackAuto(std::string ptr);
+    GCFuncTrackAuto(std::string ptr, lua_State* state);
     GCFuncTrackAuto(void *ptr);
 
     GCFuncTrackChange GetParent() const;
@@ -20183,9 +20809,10 @@ class GCEnvSpark
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvSpark(std::string ptr);
+    GCEnvSpark(std::string ptr, lua_State* state);
     GCEnvSpark(void *ptr);
 
     float GetDelay() const;
@@ -20210,9 +20837,10 @@ class GCCSObserver_ObserverServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSObserver_ObserverServices(std::string ptr);
+    GCCSObserver_ObserverServices(std::string ptr, lua_State* state);
     GCCSObserver_ObserverServices(void *ptr);
 
     GCPlayer_ObserverServices GetParent() const;
@@ -20227,9 +20855,10 @@ class GCPlayer_AutoaimServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayer_AutoaimServices(std::string ptr);
+    GCPlayer_AutoaimServices(std::string ptr, lua_State* state);
     GCPlayer_AutoaimServices(void *ptr);
 
     GCPlayerPawnComponent GetParent() const;
@@ -20244,9 +20873,10 @@ class GCFuncTrain
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncTrain(std::string ptr);
+    GCFuncTrain(std::string ptr, lua_State* state);
     GCFuncTrain(void *ptr);
 
     GCBaseEntity GetCurrentTarget() const;
@@ -20273,9 +20903,10 @@ class GCHostageAlias_info_hostage_spawn
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHostageAlias_info_hostage_spawn(std::string ptr);
+    GCHostageAlias_info_hostage_spawn(std::string ptr, lua_State* state);
     GCHostageAlias_info_hostage_spawn(void *ptr);
 
     GCHostage GetParent() const;
@@ -20290,9 +20921,10 @@ class GCNavLinkAreaEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavLinkAreaEntity(std::string ptr);
+    GCNavLinkAreaEntity(std::string ptr, lua_State* state);
     GCNavLinkAreaEntity(void *ptr);
 
     float GetWidth() const;
@@ -20333,9 +20965,10 @@ class GCFuncMoveLinearAlias_momentary_door
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuncMoveLinearAlias_momentary_door(std::string ptr);
+    GCFuncMoveLinearAlias_momentary_door(std::string ptr, lua_State* state);
     GCFuncMoveLinearAlias_momentary_door(void *ptr);
 
     GCFuncMoveLinear GetParent() const;
@@ -20350,9 +20983,10 @@ class GCCommentaryAuto
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCommentaryAuto(std::string ptr);
+    GCCommentaryAuto(std::string ptr, lua_State* state);
     GCCommentaryAuto(void *ptr);
 
     GCEntityIOOutput GetOnCommentaryNewGame() const;
@@ -20373,9 +21007,10 @@ class GCMapInfo
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMapInfo(std::string ptr);
+    GCMapInfo(std::string ptr, lua_State* state);
     GCMapInfo(void *ptr);
 
     int32_t GetBuyingStatus() const;
@@ -20406,9 +21041,10 @@ class GCTriggerBombReset
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTriggerBombReset(std::string ptr);
+    GCTriggerBombReset(std::string ptr, lua_State* state);
     GCTriggerBombReset(void *ptr);
 
     GCBaseTrigger GetParent() const;
@@ -20423,9 +21059,10 @@ class GCBaseDMStart
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseDMStart(std::string ptr);
+    GCBaseDMStart(std::string ptr, lua_State* state);
     GCBaseDMStart(void *ptr);
 
     std::string GetMaster() const;
@@ -20442,9 +21079,10 @@ class GCLogicMeasureMovement
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLogicMeasureMovement(std::string ptr);
+    GCLogicMeasureMovement(std::string ptr, lua_State* state);
     GCLogicMeasureMovement(void *ptr);
 
     std::string GetStrMeasureTarget() const;
@@ -20477,9 +21115,10 @@ class GViewAngleServerChange_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GViewAngleServerChange_t(std::string ptr);
+    GViewAngleServerChange_t(std::string ptr, lua_State* state);
     GViewAngleServerChange_t(void *ptr);
 
     uint64_t GetType() const;
@@ -20498,9 +21137,10 @@ class GPhysicsRagdollPose_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPhysicsRagdollPose_t(std::string ptr);
+    GPhysicsRagdollPose_t(std::string ptr, lua_State* state);
     GPhysicsRagdollPose_t(void *ptr);
 
     GCNetworkVarChainer Get__pChainEntity() const;
@@ -20517,9 +21157,10 @@ class GCBreachChargeProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBreachChargeProjectile(std::string ptr);
+    GCBreachChargeProjectile(std::string ptr, lua_State* state);
     GCBreachChargeProjectile(void *ptr);
 
     GCBaseGrenade GetParent() const;
@@ -20534,9 +21175,10 @@ class GCRangeFloat
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRangeFloat(std::string ptr);
+    GCRangeFloat(std::string ptr, lua_State* state);
     GCRangeFloat(void *ptr);
 
     std::vector<float> GetValue() const;
@@ -20551,9 +21193,10 @@ class GCAnimEventListenerBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimEventListenerBase(std::string ptr);
+    GCAnimEventListenerBase(std::string ptr, lua_State* state);
     GCAnimEventListenerBase(void *ptr);
 
 
@@ -20567,9 +21210,10 @@ class GRelationship_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRelationship_t(std::string ptr);
+    GRelationship_t(std::string ptr, lua_State* state);
     GRelationship_t(void *ptr);
 
     uint64_t GetDisposition() const;
@@ -20586,9 +21230,10 @@ class GCRemapFloat
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRemapFloat(std::string ptr);
+    GCRemapFloat(std::string ptr, lua_State* state);
     GCRemapFloat(void *ptr);
 
     std::vector<float> GetValue() const;
@@ -20603,9 +21248,10 @@ class GIGapHost_GameEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIGapHost_GameEntity(std::string ptr);
+    GIGapHost_GameEntity(std::string ptr, lua_State* state);
     GIGapHost_GameEntity(void *ptr);
 
 
@@ -20619,9 +21265,10 @@ class GCFootstepTableHandle
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootstepTableHandle(std::string ptr);
+    GCFootstepTableHandle(std::string ptr, lua_State* state);
     GCFootstepTableHandle(void *ptr);
 
 
@@ -20635,9 +21282,10 @@ class GCCSPlayerController_InventoryServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayerController_InventoryServices(std::string ptr);
+    GCCSPlayerController_InventoryServices(std::string ptr, lua_State* state);
     GCCSPlayerController_InventoryServices(void *ptr);
 
     uint16_t GetMusicID() const;
@@ -20670,9 +21318,10 @@ class GCResponseQueue
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCResponseQueue(std::string ptr);
+    GCResponseQueue(std::string ptr, lua_State* state);
     GCResponseQueue(void *ptr);
 
     std::vector<GCAI_Expresser*> GetExpresserTargets() const;
@@ -20687,9 +21336,10 @@ class GCScriptUniformRandomStream
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCScriptUniformRandomStream(std::string ptr);
+    GCScriptUniformRandomStream(std::string ptr, lua_State* state);
     GCScriptUniformRandomStream(void *ptr);
 
     int32_t GetInitialSeed() const;
@@ -20704,9 +21354,10 @@ class GParticleIndex_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParticleIndex_t(std::string ptr);
+    GParticleIndex_t(std::string ptr, lua_State* state);
     GParticleIndex_t(void *ptr);
 
     int32_t GetValue() const;
@@ -20721,9 +21372,10 @@ class GCPhysHinge
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysHinge(std::string ptr);
+    GCPhysHinge(std::string ptr, lua_State* state);
     GCPhysHinge(void *ptr);
 
     GConstraintSoundInfo GetSoundInfo() const;
@@ -20774,9 +21426,10 @@ class GCSimpleSimTimer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSimpleSimTimer(std::string ptr);
+    GCSimpleSimTimer(std::string ptr, lua_State* state);
     GCSimpleSimTimer(void *ptr);
 
     float GetNext() const;
@@ -20793,9 +21446,10 @@ class GCSkillDamage
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSkillDamage(std::string ptr);
+    GCSkillDamage(std::string ptr, lua_State* state);
     GCSkillDamage(void *ptr);
 
     GCSkillFloat GetDamage() const;
@@ -20814,9 +21468,10 @@ class GCAnimEventQueueListener
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimEventQueueListener(std::string ptr);
+    GCAnimEventQueueListener(std::string ptr, lua_State* state);
     GCAnimEventQueueListener(void *ptr);
 
     GCAnimEventListenerBase GetParent() const;
@@ -20831,9 +21486,10 @@ class GCEnvLaser
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvLaser(std::string ptr);
+    GCEnvLaser(std::string ptr, lua_State* state);
     GCEnvLaser(void *ptr);
 
     std::string GetLaserTarget() const;
@@ -20858,9 +21514,10 @@ class GCFiringModeFloat
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFiringModeFloat(std::string ptr);
+    GCFiringModeFloat(std::string ptr, lua_State* state);
     GCFiringModeFloat(void *ptr);
 
     std::vector<float> GetValues() const;
@@ -20875,9 +21532,10 @@ class GCRopeOverlapHit
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRopeOverlapHit(std::string ptr);
+    GCRopeOverlapHit(std::string ptr, lua_State* state);
     GCRopeOverlapHit(void *ptr);
 
     GCBaseEntity GetEntity() const;
@@ -20894,9 +21552,10 @@ class GResponseContext_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GResponseContext_t(std::string ptr);
+    GResponseContext_t(std::string ptr, lua_State* state);
     GResponseContext_t(void *ptr);
 
     std::string GetName() const;
@@ -20915,9 +21574,10 @@ class GCNavVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavVolume(std::string ptr);
+    GCNavVolume(std::string ptr, lua_State* state);
     GCNavVolume(void *ptr);
 
 
@@ -20931,9 +21591,10 @@ class GCCSObserver_MovementServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSObserver_MovementServices(std::string ptr);
+    GCCSObserver_MovementServices(std::string ptr, lua_State* state);
     GCCSObserver_MovementServices(void *ptr);
 
     GCPlayer_MovementServices GetParent() const;
@@ -20948,9 +21609,10 @@ class GCCSGOPlayerAnimGraphState
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGOPlayerAnimGraphState(std::string ptr);
+    GCCSGOPlayerAnimGraphState(std::string ptr, lua_State* state);
     GCCSGOPlayerAnimGraphState(void *ptr);
 
 
@@ -20964,9 +21626,10 @@ class GCGameScriptedMoveData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGameScriptedMoveData(std::string ptr);
+    GCGameScriptedMoveData(std::string ptr, lua_State* state);
     GCGameScriptedMoveData(void *ptr);
 
     Vector GetAccumulatedRootMotion() const;
@@ -21011,9 +21674,10 @@ class GCBaseAnimGraphController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseAnimGraphController(std::string ptr);
+    GCBaseAnimGraphController(std::string ptr, lua_State* state);
     GCBaseAnimGraphController(void *ptr);
 
     GCAnimGraphNetworkedVariables GetAnimGraphNetworkedVars() const;
@@ -21054,9 +21718,10 @@ class GCNavVolumeSphere
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavVolumeSphere(std::string ptr);
+    GCNavVolumeSphere(std::string ptr, lua_State* state);
     GCNavVolumeSphere(void *ptr);
 
     Vector GetCenter() const;
@@ -21075,9 +21740,10 @@ class GCResponseCriteriaSet
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCResponseCriteriaSet(std::string ptr);
+    GCResponseCriteriaSet(std::string ptr, lua_State* state);
     GCResponseCriteriaSet(void *ptr);
 
     int32_t GetNumPrefixedContexts() const;
@@ -21094,9 +21760,10 @@ class GCAI_Expresser
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAI_Expresser(std::string ptr);
+    GCAI_Expresser(std::string ptr, lua_State* state);
     GCAI_Expresser(void *ptr);
 
     float GetStopTalkTime() const;
@@ -21129,9 +21796,10 @@ class GIChoreoServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIChoreoServices(std::string ptr);
+    GIChoreoServices(std::string ptr, lua_State* state);
     GIChoreoServices(void *ptr);
 
 
@@ -21145,9 +21813,10 @@ class GCStopwatchBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStopwatchBase(std::string ptr);
+    GCStopwatchBase(std::string ptr, lua_State* state);
     GCStopwatchBase(void *ptr);
 
     bool GetIsRunning() const;
@@ -21164,9 +21833,10 @@ class GResponseParams
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GResponseParams(std::string ptr);
+    GResponseParams(std::string ptr, lua_State* state);
     GResponseParams(void *ptr);
 
     int16_t GetOdds() const;
@@ -21185,9 +21855,10 @@ class GCItem_Healthshot
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCItem_Healthshot(std::string ptr);
+    GCItem_Healthshot(std::string ptr, lua_State* state);
     GCItem_Healthshot(void *ptr);
 
     GCWeaponBaseItem GetParent() const;
@@ -21202,9 +21873,10 @@ class GCPhysHingeAlias_phys_hinge_local
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysHingeAlias_phys_hinge_local(std::string ptr);
+    GCPhysHingeAlias_phys_hinge_local(std::string ptr, lua_State* state);
     GCPhysHingeAlias_phys_hinge_local(void *ptr);
 
     GCPhysHinge GetParent() const;
@@ -21219,9 +21891,10 @@ class GPointCameraSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPointCameraSettings_t(std::string ptr);
+    GPointCameraSettings_t(std::string ptr, lua_State* state);
     GPointCameraSettings_t(void *ptr);
 
     float GetNearBlurryDistance() const;
@@ -21242,9 +21915,10 @@ class GCSoundEnvelope
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEnvelope(std::string ptr);
+    GCSoundEnvelope(std::string ptr, lua_State* state);
     GCSoundEnvelope(void *ptr);
 
     float GetCurrent() const;
@@ -21265,9 +21939,10 @@ class Gdynpitchvol_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gdynpitchvol_t(std::string ptr);
+    Gdynpitchvol_t(std::string ptr, lua_State* state);
     Gdynpitchvol_t(void *ptr);
 
     Gdynpitchvol_base_t GetParent() const;
@@ -21282,9 +21957,10 @@ class GCStopwatch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStopwatch(std::string ptr);
+    GCStopwatch(std::string ptr, lua_State* state);
     GCStopwatch(void *ptr);
 
     float GetInterval() const;
@@ -21301,9 +21977,10 @@ class GCNavVolumeVector
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavVolumeVector(std::string ptr);
+    GCNavVolumeVector(std::string ptr, lua_State* state);
     GCNavVolumeVector(void *ptr);
 
     bool GetHasBeenPreFiltered() const;
@@ -21320,9 +21997,10 @@ class GNavGravity_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GNavGravity_t(std::string ptr);
+    GNavGravity_t(std::string ptr, lua_State* state);
     GNavGravity_t(void *ptr);
 
     Vector GetGravity() const;
@@ -21339,9 +22017,10 @@ class GCEnvShake
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnvShake(std::string ptr);
+    GCEnvShake(std::string ptr, lua_State* state);
     GCEnvShake(void *ptr);
 
     std::string GetLimitToEntity() const;
@@ -21376,9 +22055,10 @@ class GCPhysSlideConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysSlideConstraint(std::string ptr);
+    GCPhysSlideConstraint(std::string ptr, lua_State* state);
     GCPhysSlideConstraint(void *ptr);
 
     Vector GetAxisEnd() const;
@@ -21413,9 +22093,10 @@ class GCSound
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSound(std::string ptr);
+    GCSound(std::string ptr, lua_State* state);
     GCSound(void *ptr);
 
     GCBaseEntity GetOwner() const;
@@ -21450,9 +22131,10 @@ class GCTakeDamageResult
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTakeDamageResult(std::string ptr);
+    GCTakeDamageResult(std::string ptr, lua_State* state);
     GCTakeDamageResult(void *ptr);
 
     GCTakeDamageInfo GetOriginatingInfo() const;
@@ -21475,9 +22157,10 @@ class GCMolotovProjectile
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMolotovProjectile(std::string ptr);
+    GCMolotovProjectile(std::string ptr, lua_State* state);
     GCMolotovProjectile(void *ptr);
 
     bool GetIsIncGrenade() const;
@@ -21500,9 +22183,10 @@ class GCCommentarySystem
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCommentarySystem(std::string ptr);
+    GCCommentarySystem(std::string ptr, lua_State* state);
     GCCommentarySystem(void *ptr);
 
     bool GetCommentaryConvarsChanging() const;
@@ -21527,9 +22211,10 @@ class GResponseFollowup
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GResponseFollowup(std::string ptr);
+    GResponseFollowup(std::string ptr, lua_State* state);
     GResponseFollowup(void *ptr);
 
     std::string GetFollowup_concept() const;
@@ -21558,9 +22243,10 @@ class GCRangeInt
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRangeInt(std::string ptr);
+    GCRangeInt(std::string ptr, lua_State* state);
     GCRangeInt(void *ptr);
 
     std::vector<int32_t> GetValue() const;
@@ -21575,9 +22261,10 @@ class GCNavLinkAnimgraphVar
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavLinkAnimgraphVar(std::string ptr);
+    GCNavLinkAnimgraphVar(std::string ptr, lua_State* state);
     GCNavLinkAnimgraphVar(void *ptr);
 
     uint32_t GetAlignmentDegrees() const;
@@ -21592,9 +22279,10 @@ class GCCSGO_TeamSelectCounterTerroristPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_TeamSelectCounterTerroristPosition(std::string ptr);
+    GCCSGO_TeamSelectCounterTerroristPosition(std::string ptr, lua_State* state);
     GCCSGO_TeamSelectCounterTerroristPosition(void *ptr);
 
     GCCSGO_TeamSelectCharacterPosition GetParent() const;
@@ -21609,9 +22297,10 @@ class GCNavLinkMovementVData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavLinkMovementVData(std::string ptr);
+    GCNavLinkMovementVData(std::string ptr, lua_State* state);
     GCNavLinkMovementVData(void *ptr);
 
     bool GetIsInterpolated() const;
@@ -21630,9 +22319,10 @@ class GCAnimGraphControllerBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimGraphControllerBase(std::string ptr);
+    GCAnimGraphControllerBase(std::string ptr, lua_State* state);
     GCAnimGraphControllerBase(void *ptr);
 
 
@@ -21646,9 +22336,10 @@ class GRagdollCreationParams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRagdollCreationParams_t(std::string ptr);
+    GRagdollCreationParams_t(std::string ptr, lua_State* state);
     GRagdollCreationParams_t(void *ptr);
 
     Vector GetForce() const;
@@ -21667,9 +22358,10 @@ class GAmmoTypeInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAmmoTypeInfo_t(std::string ptr);
+    GAmmoTypeInfo_t(std::string ptr, lua_State* state);
     GAmmoTypeInfo_t(void *ptr);
 
     int32_t GetMaxCarry() const;
@@ -21692,9 +22384,10 @@ class GCRandStopwatch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRandStopwatch(std::string ptr);
+    GCRandStopwatch(std::string ptr, lua_State* state);
     GCRandStopwatch(void *ptr);
 
     float GetMinInterval() const;
@@ -21713,9 +22406,10 @@ class GCGameChoreoServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGameChoreoServices(std::string ptr);
+    GCGameChoreoServices(std::string ptr, lua_State* state);
     GCGameChoreoServices(void *ptr);
 
     GCBaseAnimGraph GetOwner() const;
@@ -21740,9 +22434,10 @@ class GCSimpleStopwatch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSimpleStopwatch(std::string ptr);
+    GCSimpleStopwatch(std::string ptr, lua_State* state);
     GCSimpleStopwatch(void *ptr);
 
     GCStopwatchBase GetParent() const;
@@ -21757,9 +22452,10 @@ class GCShatterGlassShard
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCShatterGlassShard(std::string ptr);
+    GCShatterGlassShard(std::string ptr, lua_State* state);
     GCShatterGlassShard(void *ptr);
 
     uint32_t GetShardHandle() const;
@@ -21830,9 +22526,10 @@ class GCommandToolCommand_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCommandToolCommand_t(std::string ptr);
+    GCommandToolCommand_t(std::string ptr, lua_State* state);
     GCommandToolCommand_t(void *ptr);
 
     bool GetEnabled() const;
@@ -21869,9 +22566,10 @@ class Gragdollelement_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gragdollelement_t(std::string ptr);
+    Gragdollelement_t(std::string ptr, lua_State* state);
     Gragdollelement_t(void *ptr);
 
     Vector GetOriginParentSpace() const;
@@ -21890,9 +22588,10 @@ class GCBodyComponentBaseModelEntity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBodyComponentBaseModelEntity(std::string ptr);
+    GCBodyComponentBaseModelEntity(std::string ptr, lua_State* state);
     GCBodyComponentBaseModelEntity(void *ptr);
 
     GCBodyComponentSkeletonInstance GetParent() const;
@@ -21907,9 +22606,10 @@ class GCNetworkOriginQuantizedVector
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNetworkOriginQuantizedVector(std::string ptr);
+    GCNetworkOriginQuantizedVector(std::string ptr, lua_State* state);
     GCNetworkOriginQuantizedVector(void *ptr);
 
     float GetX() const;
@@ -21928,9 +22628,10 @@ class Gmagnetted_objects_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gmagnetted_objects_t(std::string ptr);
+    Gmagnetted_objects_t(std::string ptr, lua_State* state);
     Gmagnetted_objects_t(void *ptr);
 
     GCBaseEntity GetEntity() const;
@@ -21945,9 +22646,10 @@ class GCHintMessageQueue
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHintMessageQueue(std::string ptr);
+    GCHintMessageQueue(std::string ptr, lua_State* state);
     GCHintMessageQueue(void *ptr);
 
     float GetTmMessageEnd() const;
@@ -21964,9 +22666,10 @@ class GCSkillInt
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSkillInt(std::string ptr);
+    GCSkillInt(std::string ptr, lua_State* state);
     GCSkillInt(void *ptr);
 
     std::vector<int32_t> GetValue() const;
@@ -21981,9 +22684,10 @@ class Gthinkfunc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gthinkfunc_t(std::string ptr);
+    Gthinkfunc_t(std::string ptr, lua_State* state);
     Gthinkfunc_t(void *ptr);
 
     uint32_t GetContext() const;
@@ -22002,9 +22706,10 @@ class GCNavHullPresetVData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavHullPresetVData(std::string ptr);
+    GCNavHullPresetVData(std::string ptr, lua_State* state);
     GCNavHullPresetVData(void *ptr);
 
     std::vector<CUtlString> GetNavHulls() const;
@@ -22019,9 +22724,10 @@ class GCBasePlayerVData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBasePlayerVData(std::string ptr);
+    GCBasePlayerVData(std::string ptr, lua_State* state);
     GCBasePlayerVData(void *ptr);
 
     GCSkillFloat GetHeadDamageMultiplier() const;
@@ -22062,9 +22768,10 @@ class GCSceneEventInfo
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSceneEventInfo(std::string ptr);
+    GCSceneEventInfo(std::string ptr, lua_State* state);
     GCSceneEventInfo(void *ptr);
 
     int32_t GetLayer() const;
@@ -22101,9 +22808,10 @@ class GCCopyRecipientFilter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCopyRecipientFilter(std::string ptr);
+    GCCopyRecipientFilter(std::string ptr, lua_State* state);
     GCCopyRecipientFilter(void *ptr);
 
     int32_t GetFlags() const;
@@ -22120,9 +22828,10 @@ class GCPropDoorRotatingBreakable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPropDoorRotatingBreakable(std::string ptr);
+    GCPropDoorRotatingBreakable(std::string ptr, lua_State* state);
     GCPropDoorRotatingBreakable(void *ptr);
 
     bool GetBreakable() const;
@@ -22145,9 +22854,10 @@ class GCBtActionAim
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBtActionAim(std::string ptr);
+    GCBtActionAim(std::string ptr, lua_State* state);
     GCBtActionAim(void *ptr);
 
     std::string GetSensorInputKey() const;
@@ -22186,9 +22896,10 @@ class GCFiringModeInt
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFiringModeInt(std::string ptr);
+    GCFiringModeInt(std::string ptr, lua_State* state);
     GCFiringModeInt(void *ptr);
 
     std::vector<int32_t> GetValues() const;
@@ -22203,9 +22914,10 @@ class GCSoundPatch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundPatch(std::string ptr);
+    GCSoundPatch(std::string ptr, lua_State* state);
     GCSoundPatch(void *ptr);
 
     GCSoundEnvelope GetPitch() const;
@@ -22244,9 +22956,10 @@ class GCSmoothFunc
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSmoothFunc(std::string ptr);
+    GCSmoothFunc(std::string ptr, lua_State* state);
     GCSmoothFunc(void *ptr);
 
     float GetSmoothAmplitude() const;
@@ -22269,9 +22982,10 @@ class GIHasAttributes
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIHasAttributes(std::string ptr);
+    GIHasAttributes(std::string ptr, lua_State* state);
     GIHasAttributes(void *ptr);
 
 
@@ -22285,9 +22999,10 @@ class GCRagdollPropAttached
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRagdollPropAttached(std::string ptr);
+    GCRagdollPropAttached(std::string ptr, lua_State* state);
     GCRagdollPropAttached(void *ptr);
 
     uint32_t GetBoneIndexAttached() const;
@@ -22314,9 +23029,10 @@ class GHullFlags_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GHullFlags_t(std::string ptr);
+    GHullFlags_t(std::string ptr, lua_State* state);
     GHullFlags_t(void *ptr);
 
     bool GetHull_Human() const;
@@ -22349,9 +23065,10 @@ class GCBodyComponentBaseAnimGraph
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBodyComponentBaseAnimGraph(std::string ptr);
+    GCBodyComponentBaseAnimGraph(std::string ptr, lua_State* state);
     GCBodyComponentBaseAnimGraph(void *ptr);
 
     GCBaseAnimGraphController GetAnimationController() const;
@@ -22368,9 +23085,10 @@ class GGameAmmoTypeInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GGameAmmoTypeInfo_t(std::string ptr);
+    GGameAmmoTypeInfo_t(std::string ptr, lua_State* state);
     GGameAmmoTypeInfo_t(void *ptr);
 
     int32_t GetBuySize() const;
@@ -22389,9 +23107,10 @@ class GCPhysMotor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysMotor(std::string ptr);
+    GCPhysMotor(std::string ptr, lua_State* state);
     GCPhysMotor(void *ptr);
 
     std::string GetNameAttach() const;
@@ -22420,9 +23139,10 @@ class GCSimTimer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSimTimer(std::string ptr);
+    GCSimTimer(std::string ptr, lua_State* state);
     GCSimTimer(void *ptr);
 
     float GetInterval() const;
@@ -22439,9 +23159,10 @@ class GCBaseIssue
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseIssue(std::string ptr);
+    GCBaseIssue(std::string ptr, lua_State* state);
     GCBaseIssue(void *ptr);
 
     std::string GetTypeString() const;
@@ -22464,9 +23185,10 @@ class GCTakeDamageInfo
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTakeDamageInfo(std::string ptr);
+    GCTakeDamageInfo(std::string ptr, lua_State* state);
     GCTakeDamageInfo(void *ptr);
 
     Vector GetDamageForce() const;
@@ -22515,9 +23237,10 @@ class GConceptHistory_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GConceptHistory_t(std::string ptr);
+    GConceptHistory_t(std::string ptr, lua_State* state);
     GConceptHistory_t(void *ptr);
 
     float GetTimeSpoken() const;
@@ -22532,9 +23255,10 @@ class GCPhysTorque
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysTorque(std::string ptr);
+    GCPhysTorque(std::string ptr, lua_State* state);
     GCPhysTorque(void *ptr);
 
     Vector GetAxis() const;
@@ -22551,9 +23275,10 @@ class GSummaryTakeDamageInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSummaryTakeDamageInfo_t(std::string ptr);
+    GSummaryTakeDamageInfo_t(std::string ptr, lua_State* state);
     GSummaryTakeDamageInfo_t(void *ptr);
 
     int32_t GetSummarisedCount() const;
@@ -22574,9 +23299,10 @@ class GCRandSimTimer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRandSimTimer(std::string ptr);
+    GCRandSimTimer(std::string ptr, lua_State* state);
     GCRandSimTimer(void *ptr);
 
     float GetMinInterval() const;
@@ -22595,9 +23321,10 @@ class GCBtNodeComposite
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBtNodeComposite(std::string ptr);
+    GCBtNodeComposite(std::string ptr, lua_State* state);
     GCBtNodeComposite(void *ptr);
 
     GCBtNode GetParent() const;
@@ -22612,9 +23339,10 @@ class GCFireCrackerBlast
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFireCrackerBlast(std::string ptr);
+    GCFireCrackerBlast(std::string ptr, lua_State* state);
     GCFireCrackerBlast(void *ptr);
 
     GCInferno GetParent() const;
@@ -22629,9 +23357,10 @@ class Gsndopvarlatchdata_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gsndopvarlatchdata_t(std::string ptr);
+    Gsndopvarlatchdata_t(std::string ptr, lua_State* state);
     Gsndopvarlatchdata_t(void *ptr);
 
     std::string GetStack() const;
@@ -22654,9 +23383,10 @@ class GCCSGO_TeamSelectTerroristPosition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSGO_TeamSelectTerroristPosition(std::string ptr);
+    GCCSGO_TeamSelectTerroristPosition(std::string ptr, lua_State* state);
     GCCSGO_TeamSelectTerroristPosition(void *ptr);
 
     GCCSGO_TeamSelectCharacterPosition GetParent() const;
@@ -22671,9 +23401,10 @@ class GCAI_ExpresserWithFollowup
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAI_ExpresserWithFollowup(std::string ptr);
+    GCAI_ExpresserWithFollowup(std::string ptr, lua_State* state);
     GCAI_ExpresserWithFollowup(void *ptr);
 
     GResponseFollowup GetPostponedFollowup() const;
@@ -22690,9 +23421,10 @@ class GCNavVolumeMarkupVolume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavVolumeMarkupVolume(std::string ptr);
+    GCNavVolumeMarkupVolume(std::string ptr, lua_State* state);
     GCNavVolumeMarkupVolume(void *ptr);
 
     GCNavVolume GetParent() const;
@@ -22707,9 +23439,10 @@ class GQuestProgress
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GQuestProgress(std::string ptr);
+    GQuestProgress(std::string ptr, lua_State* state);
     GQuestProgress(void *ptr);
 
 
@@ -22723,9 +23456,10 @@ class Glerpdata_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Glerpdata_t(std::string ptr);
+    Glerpdata_t(std::string ptr, lua_State* state);
     Glerpdata_t(void *ptr);
 
     GCBaseEntity GetEnt() const;
@@ -22748,9 +23482,10 @@ class GCMultiplayer_Expresser
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMultiplayer_Expresser(std::string ptr);
+    GCMultiplayer_Expresser(std::string ptr, lua_State* state);
     GCMultiplayer_Expresser(void *ptr);
 
     bool GetAllowMultipleScenes() const;
@@ -22767,9 +23502,10 @@ class GCTakeDamageSummaryScopeGuard
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTakeDamageSummaryScopeGuard(std::string ptr);
+    GCTakeDamageSummaryScopeGuard(std::string ptr, lua_State* state);
     GCTakeDamageSummaryScopeGuard(void *ptr);
 
     std::vector<GSummaryTakeDamageInfo_t*> GetSummaries() const;
@@ -22784,9 +23520,10 @@ class GCWeaponSawedoff
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWeaponSawedoff(std::string ptr);
+    GCWeaponSawedoff(std::string ptr, lua_State* state);
     GCWeaponSawedoff(void *ptr);
 
     GCCSWeaponBase GetParent() const;
@@ -22801,9 +23538,10 @@ class GCCSPlayer_MovementServices
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSPlayer_MovementServices(std::string ptr);
+    GCCSPlayer_MovementServices(std::string ptr, lua_State* state);
     GCCSPlayer_MovementServices(void *ptr);
 
     float GetMaxFallVelocity() const;
@@ -22894,9 +23632,10 @@ class GCNavHullVData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavHullVData(std::string ptr);
+    GCNavHullVData(std::string ptr, lua_State* state);
     GCNavHullVData(void *ptr);
 
     bool GetAgentEnabled() const;
@@ -22931,9 +23670,10 @@ class GSoundOpvarTraceResult_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSoundOpvarTraceResult_t(std::string ptr);
+    GSoundOpvarTraceResult_t(std::string ptr, lua_State* state);
     GSoundOpvarTraceResult_t(void *ptr);
 
     Vector GetPos() const;
@@ -22952,9 +23692,10 @@ class GCAnimEventListener
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimEventListener(std::string ptr);
+    GCAnimEventListener(std::string ptr, lua_State* state);
     GCAnimEventListener(void *ptr);
 
     GCAnimEventListenerBase GetParent() const;
@@ -22969,9 +23710,10 @@ class GCNavVolumeCalculatedVector
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavVolumeCalculatedVector(std::string ptr);
+    GCNavVolumeCalculatedVector(std::string ptr, lua_State* state);
     GCNavVolumeCalculatedVector(void *ptr);
 
     GCNavVolume GetParent() const;
@@ -22986,9 +23728,10 @@ class GCCSWeaponBaseVData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCSWeaponBaseVData(std::string ptr);
+    GCCSWeaponBaseVData(std::string ptr, lua_State* state);
     GCCSWeaponBaseVData(void *ptr);
 
     uint64_t GetWeaponType() const;
@@ -23161,9 +23904,10 @@ class GCBtNodeConditionInactive
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBtNodeConditionInactive(std::string ptr);
+    GCBtNodeConditionInactive(std::string ptr, lua_State* state);
     GCBtNodeConditionInactive(void *ptr);
 
     float GetRoundStartThresholdSeconds() const;
@@ -23184,9 +23928,10 @@ class GCSAdditionalPerRoundStats_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSAdditionalPerRoundStats_t(std::string ptr);
+    GCSAdditionalPerRoundStats_t(std::string ptr, lua_State* state);
     GCSAdditionalPerRoundStats_t(void *ptr);
 
     int32_t GetNumChickensKilled() const;
@@ -23211,9 +23956,10 @@ class GActiveModelConfig_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GActiveModelConfig_t(std::string ptr);
+    GActiveModelConfig_t(std::string ptr, lua_State* state);
     GActiveModelConfig_t(void *ptr);
 
     GModelConfigHandle_t GetHandle() const;
@@ -23234,9 +23980,10 @@ class GCPrecipitationVData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPrecipitationVData(std::string ptr);
+    GCPrecipitationVData(std::string ptr, lua_State* state);
     GCPrecipitationVData(void *ptr);
 
     float GetInnerDistance() const;
@@ -23263,9 +24010,10 @@ class GCBreakableStageHelper
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBreakableStageHelper(std::string ptr);
+    GCBreakableStageHelper(std::string ptr, lua_State* state);
     GCBreakableStageHelper(void *ptr);
 
     int32_t GetCurrentStage() const;
@@ -23282,9 +24030,10 @@ class GCNavVolumeBreadthFirstSearch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavVolumeBreadthFirstSearch(std::string ptr);
+    GCNavVolumeBreadthFirstSearch(std::string ptr, lua_State* state);
     GCNavVolumeBreadthFirstSearch(void *ptr);
 
     Vector GetStartPos() const;
@@ -23303,9 +24052,10 @@ class GCAmbientGeneric
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAmbientGeneric(std::string ptr);
+    GCAmbientGeneric(std::string ptr, lua_State* state);
     GCAmbientGeneric(void *ptr);
 
     float GetRadius() const;
@@ -23340,9 +24090,10 @@ class GCSAdditionalMatchStats_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSAdditionalMatchStats_t(std::string ptr);
+    GCSAdditionalMatchStats_t(std::string ptr, lua_State* state);
     GCSAdditionalMatchStats_t(void *ptr);
 
     int32_t GetNumRoundsSurvived() const;
@@ -23381,9 +24132,10 @@ class GIRagdoll
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIRagdoll(std::string ptr);
+    GIRagdoll(std::string ptr, lua_State* state);
     GIRagdoll(void *ptr);
 
 
@@ -23397,9 +24149,10 @@ class GCGameText
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGameText(std::string ptr);
+    GCGameText(std::string ptr, lua_State* state);
     GCGameText(void *ptr);
 
     std::string GetMessage() const;
@@ -23418,9 +24171,10 @@ class GCInfoInstructorHintBombTargetB
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInfoInstructorHintBombTargetB(std::string ptr);
+    GCInfoInstructorHintBombTargetB(std::string ptr, lua_State* state);
     GCInfoInstructorHintBombTargetB(void *ptr);
 
     GCPointEntity GetParent() const;
@@ -23435,9 +24189,10 @@ class GCNavVolumeAll
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavVolumeAll(std::string ptr);
+    GCNavVolumeAll(std::string ptr, lua_State* state);
     GCNavVolumeAll(void *ptr);
 
     GCNavVolumeVector GetParent() const;
@@ -23452,9 +24207,10 @@ class GCNavVolumeSphericalShell
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNavVolumeSphericalShell(std::string ptr);
+    GCNavVolumeSphericalShell(std::string ptr, lua_State* state);
     GCNavVolumeSphericalShell(void *ptr);
 
     float GetRadiusInner() const;
@@ -23471,9 +24227,10 @@ class GRelationshipOverride_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRelationshipOverride_t(std::string ptr);
+    GRelationshipOverride_t(std::string ptr, lua_State* state);
     GRelationshipOverride_t(void *ptr);
 
     GCBaseEntity GetEntity() const;
@@ -23492,9 +24249,10 @@ class GParticleAttributeIndex_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParticleAttributeIndex_t(std::string ptr);
+    GParticleAttributeIndex_t(std::string ptr, lua_State* state);
     GParticleAttributeIndex_t(void *ptr);
 
     int32_t GetValue() const;
@@ -23509,9 +24267,10 @@ class GCParticleInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleInput(std::string ptr);
+    GCParticleInput(std::string ptr, lua_State* state);
     GCParticleInput(void *ptr);
 
 
@@ -23525,9 +24284,10 @@ class GCParticleFloatInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleFloatInput(std::string ptr);
+    GCParticleFloatInput(std::string ptr, lua_State* state);
     GCParticleFloatInput(void *ptr);
 
     uint64_t GetType() const;
@@ -23630,9 +24390,10 @@ class GVoxelVisBlockOffset_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVoxelVisBlockOffset_t(std::string ptr);
+    GVoxelVisBlockOffset_t(std::string ptr, lua_State* state);
     GVoxelVisBlockOffset_t(void *ptr);
 
     uint32_t GetOffset() const;
@@ -23649,9 +24410,10 @@ class GAggregateLODSetup_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAggregateLODSetup_t(std::string ptr);
+    GAggregateLODSetup_t(std::string ptr, lua_State* state);
     GAggregateLODSetup_t(void *ptr);
 
     Vector GetLODOrigin() const;
@@ -23670,9 +24432,10 @@ class GCProductQuantizer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCProductQuantizer(std::string ptr);
+    GCProductQuantizer(std::string ptr, lua_State* state);
     GCProductQuantizer(void *ptr);
 
     std::vector<GCVectorQuantizer> GetSubQuantizers() const;
@@ -23689,9 +24452,10 @@ class GCAnimUpdateNodeRef
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimUpdateNodeRef(std::string ptr);
+    GCAnimUpdateNodeRef(std::string ptr, lua_State* state);
     GCAnimUpdateNodeRef(void *ptr);
 
     int32_t GetNodeIndex() const;
@@ -23706,9 +24470,10 @@ class GCNmGraphNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmGraphNode(std::string ptr);
+    GCNmGraphNode(std::string ptr, lua_State* state);
     GCNmGraphNode(void *ptr);
 
     int16_t GetNodeIdx() const;
@@ -23723,9 +24488,10 @@ class GCParticleCollectionFloatInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleCollectionFloatInput(std::string ptr);
+    GCParticleCollectionFloatInput(std::string ptr, lua_State* state);
     GCParticleCollectionFloatInput(void *ptr);
 
     GCParticleFloatInput GetParent() const;
@@ -23740,9 +24506,10 @@ class GCParticleFunction
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleFunction(std::string ptr);
+    GCParticleFunction(std::string ptr, lua_State* state);
     GCParticleFunction(void *ptr);
 
     GCParticleCollectionFloatInput GetOpStrength() const;
@@ -23787,9 +24554,10 @@ class GCParticleFunctionOperator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleFunctionOperator(std::string ptr);
+    GCParticleFunctionOperator(std::string ptr, lua_State* state);
     GCParticleFunctionOperator(void *ptr);
 
     GCParticleFunction GetParent() const;
@@ -23804,9 +24572,10 @@ class GPARTICLE_WORLD_HANDLE__
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPARTICLE_WORLD_HANDLE__(std::string ptr);
+    GPARTICLE_WORLD_HANDLE__(std::string ptr, lua_State* state);
     GPARTICLE_WORLD_HANDLE__(void *ptr);
 
     int32_t GetUnused() const;
@@ -23821,9 +24590,10 @@ class GVMixDynamicsCompressorDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixDynamicsCompressorDesc_t(std::string ptr);
+    GVMixDynamicsCompressorDesc_t(std::string ptr, lua_State* state);
     GVMixDynamicsCompressorDesc_t(void *ptr);
 
     float GetFldbOutputGain() const;
@@ -23854,9 +24624,10 @@ class GFootStepTrigger
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFootStepTrigger(std::string ptr);
+    GFootStepTrigger(std::string ptr, lua_State* state);
     GFootStepTrigger(void *ptr);
 
     std::vector<int32> GetTags() const;
@@ -23875,9 +24646,10 @@ class GParticleControlPointDriver_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParticleControlPointDriver_t(std::string ptr);
+    GParticleControlPointDriver_t(std::string ptr, lua_State* state);
     GParticleControlPointDriver_t(void *ptr);
 
     int32_t GetControlPoint() const;
@@ -23902,9 +24674,10 @@ class GFeSphereRigid_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSphereRigid_t(std::string ptr);
+    GFeSphereRigid_t(std::string ptr, lua_State* state);
     GFeSphereRigid_t(void *ptr);
 
     float GetSphere() const;
@@ -23927,9 +24700,10 @@ class GCMotionMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionMetricEvaluator(std::string ptr);
+    GCMotionMetricEvaluator(std::string ptr, lua_State* state);
     GCMotionMetricEvaluator(void *ptr);
 
     std::vector<float32> GetMeans() const;
@@ -23950,9 +24724,10 @@ class GCDrawCullingData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDrawCullingData(std::string ptr);
+    GCDrawCullingData(std::string ptr, lua_State* state);
     GCDrawCullingData(void *ptr);
 
     Vector GetConeApex() const;
@@ -23971,9 +24746,10 @@ class GCAnimUserDifference
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimUserDifference(std::string ptr);
+    GCAnimUserDifference(std::string ptr, lua_State* state);
     GCAnimUserDifference(void *ptr);
 
     int32_t GetType() const;
@@ -23988,9 +24764,10 @@ class GCSeqMultiFetchFlag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqMultiFetchFlag(std::string ptr);
+    GCSeqMultiFetchFlag(std::string ptr, lua_State* state);
     GCSeqMultiFetchFlag(void *ptr);
 
     bool GetRealtime() const;
@@ -24015,9 +24792,10 @@ class GCNmEvent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmEvent(std::string ptr);
+    GCNmEvent(std::string ptr, lua_State* state);
     GCNmEvent(void *ptr);
 
     float GetStartTime() const;
@@ -24034,9 +24812,10 @@ class GCAnimParamHandle
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimParamHandle(std::string ptr);
+    GCAnimParamHandle(std::string ptr, lua_State* state);
     GCAnimParamHandle(void *ptr);
 
     uint64_t GetType() const;
@@ -24053,9 +24832,10 @@ class GCFuseSymbolTable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuseSymbolTable(std::string ptr);
+    GCFuseSymbolTable(std::string ptr, lua_State* state);
     GCFuseSymbolTable(void *ptr);
 
     std::vector<GConstantInfo_t> GetConstants() const;
@@ -24074,9 +24854,10 @@ class GGeneratedTextureHandle_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GGeneratedTextureHandle_t(std::string ptr);
+    GGeneratedTextureHandle_t(std::string ptr, lua_State* state);
     GGeneratedTextureHandle_t(void *ptr);
 
     std::string GetStrBitmapName() const;
@@ -24091,9 +24872,10 @@ class GSceneViewId_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSceneViewId_t(std::string ptr);
+    GSceneViewId_t(std::string ptr, lua_State* state);
     GSceneViewId_t(void *ptr);
 
     uint64_t GetViewId() const;
@@ -24110,9 +24892,10 @@ class GPhysFeModelDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPhysFeModelDesc_t(std::string ptr);
+    GPhysFeModelDesc_t(std::string ptr, lua_State* state);
     GPhysFeModelDesc_t(void *ptr);
 
     std::vector<uint32> GetCtrlHash() const;
@@ -24325,9 +25108,10 @@ class GCCycleBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCycleBase(std::string ptr);
+    GCCycleBase(std::string ptr, lua_State* state);
     GCCycleBase(void *ptr);
 
     float GetCycle() const;
@@ -24342,9 +25126,10 @@ class GCPhysSurfacePropertiesSoundNames
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysSurfacePropertiesSoundNames(std::string ptr);
+    GCPhysSurfacePropertiesSoundNames(std::string ptr, lua_State* state);
     GCPhysSurfacePropertiesSoundNames(void *ptr);
 
     std::string GetImpactSoft() const;
@@ -24379,9 +25164,10 @@ class GDynamicMeshDeformParams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GDynamicMeshDeformParams_t(std::string ptr);
+    GDynamicMeshDeformParams_t(std::string ptr, lua_State* state);
     GDynamicMeshDeformParams_t(void *ptr);
 
     float GetTensionCompressScale() const;
@@ -24402,9 +25188,10 @@ class GCDistanceRemainingMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDistanceRemainingMetricEvaluator(std::string ptr);
+    GCDistanceRemainingMetricEvaluator(std::string ptr, lua_State* state);
     GCDistanceRemainingMetricEvaluator(void *ptr);
 
     float GetMaxDistance() const;
@@ -24433,9 +25220,10 @@ class GVMixDynamicsBand_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixDynamicsBand_t(std::string ptr);
+    GVMixDynamicsBand_t(std::string ptr, lua_State* state);
     GVMixDynamicsBand_t(void *ptr);
 
     float GetFldbGainInput() const;
@@ -24468,9 +25256,10 @@ class GRnCapsule_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnCapsule_t(std::string ptr);
+    GRnCapsule_t(std::string ptr, lua_State* state);
     GRnCapsule_t(void *ptr);
 
     std::vector<Vector> GetCenter() const;
@@ -24487,9 +25276,10 @@ class GCAnimInputDamping
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimInputDamping(std::string ptr);
+    GCAnimInputDamping(std::string ptr, lua_State* state);
     GCAnimInputDamping(void *ptr);
 
     uint64_t GetSpeedFunction() const;
@@ -24506,9 +25296,10 @@ class GAnimTagID
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimTagID(std::string ptr);
+    GAnimTagID(std::string ptr, lua_State* state);
     GAnimTagID(void *ptr);
 
     uint32_t GetId() const;
@@ -24523,9 +25314,10 @@ class GCParticleFunctionPreEmission
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleFunctionPreEmission(std::string ptr);
+    GCParticleFunctionPreEmission(std::string ptr, lua_State* state);
     GCParticleFunctionPreEmission(void *ptr);
 
     bool GetRunOnce() const;
@@ -24542,9 +25334,10 @@ class GCPerParticleFloatInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPerParticleFloatInput(std::string ptr);
+    GCPerParticleFloatInput(std::string ptr, lua_State* state);
     GCPerParticleFloatInput(void *ptr);
 
     GCParticleFloatInput GetParent() const;
@@ -24559,9 +25352,10 @@ class GCSosGroupActionSchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupActionSchema(std::string ptr);
+    GCSosGroupActionSchema(std::string ptr, lua_State* state);
     GCSosGroupActionSchema(void *ptr);
 
     std::string GetName() const;
@@ -24580,9 +25374,10 @@ class GCFutureFacingMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFutureFacingMetricEvaluator(std::string ptr);
+    GCFutureFacingMetricEvaluator(std::string ptr, lua_State* state);
     GCFutureFacingMetricEvaluator(void *ptr);
 
     float GetDistance() const;
@@ -24601,9 +25396,10 @@ class GCSeqTransition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqTransition(std::string ptr);
+    GCSeqTransition(std::string ptr, lua_State* state);
     GCSeqTransition(void *ptr);
 
     float GetFadeInTime() const;
@@ -24620,9 +25416,10 @@ class GCAnimNodePath
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimNodePath(std::string ptr);
+    GCAnimNodePath(std::string ptr, lua_State* state);
     GCAnimNodePath(void *ptr);
 
     std::vector<GAnimNodeID> GetPath() const;
@@ -24639,9 +25436,10 @@ class GCParamSpanUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParamSpanUpdater(std::string ptr);
+    GCParamSpanUpdater(std::string ptr, lua_State* state);
     GCParamSpanUpdater(void *ptr);
 
     std::vector<GParamSpan_t> GetSpans() const;
@@ -24656,9 +25454,10 @@ class GAnimNodeID
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimNodeID(std::string ptr);
+    GAnimNodeID(std::string ptr, lua_State* state);
     GAnimNodeID(void *ptr);
 
     uint32_t GetId() const;
@@ -24673,9 +25472,10 @@ class GCParticleFunctionInitializer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleFunctionInitializer(std::string ptr);
+    GCParticleFunctionInitializer(std::string ptr, lua_State* state);
     GCParticleFunctionInitializer(void *ptr);
 
     int32_t GetAssociatedEmitterIndex() const;
@@ -24692,9 +25492,10 @@ class GRnFace_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnFace_t(std::string ptr);
+    GRnFace_t(std::string ptr, lua_State* state);
     GRnFace_t(void *ptr);
 
     uint32_t GetEdge() const;
@@ -24709,9 +25510,10 @@ class GEngineLoopState_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEngineLoopState_t(std::string ptr);
+    GEngineLoopState_t(std::string ptr, lua_State* state);
     GEngineLoopState_t(void *ptr);
 
     int32_t GetPlatWindowWidth() const;
@@ -24732,9 +25534,10 @@ class GCNmPoseNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmPoseNode(std::string ptr);
+    GCNmPoseNode(std::string ptr, lua_State* state);
     GCNmPoseNode(void *ptr);
 
     GCNmGraphNode GetParent() const;
@@ -24749,9 +25552,10 @@ class GCParticleFunctionConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleFunctionConstraint(std::string ptr);
+    GCParticleFunctionConstraint(std::string ptr, lua_State* state);
     GCParticleFunctionConstraint(void *ptr);
 
     GCParticleFunction GetParent() const;
@@ -24766,9 +25570,10 @@ class GCNmStateMachineNode__TransitionDefinition_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmStateMachineNode__TransitionDefinition_t(std::string ptr);
+    GCNmStateMachineNode__TransitionDefinition_t(std::string ptr, lua_State* state);
     GCNmStateMachineNode__TransitionDefinition_t(void *ptr);
 
     int16_t GetTargetStateIdx() const;
@@ -24789,9 +25594,10 @@ class GCAnimAttachment
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimAttachment(std::string ptr);
+    GCAnimAttachment(std::string ptr, lua_State* state);
     GCAnimAttachment(void *ptr);
 
     std::vector<Vector> GetInfluenceOffsets() const;
@@ -24812,9 +25618,10 @@ class GEventSimulate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventSimulate_t(std::string ptr);
+    GEventSimulate_t(std::string ptr, lua_State* state);
     GEventSimulate_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -24833,9 +25640,10 @@ class GCParticleCollectionRendererFloatInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleCollectionRendererFloatInput(std::string ptr);
+    GCParticleCollectionRendererFloatInput(std::string ptr, lua_State* state);
     GCParticleCollectionRendererFloatInput(void *ptr);
 
     GCParticleCollectionFloatInput GetParent() const;
@@ -24850,9 +25658,10 @@ class GModelSkeletonData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GModelSkeletonData_t(std::string ptr);
+    GModelSkeletonData_t(std::string ptr, lua_State* state);
     GModelSkeletonData_t(void *ptr);
 
     std::vector<CUtlString> GetBoneName() const;
@@ -24877,9 +25686,10 @@ class GEventModInitialized_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventModInitialized_t(std::string ptr);
+    GEventModInitialized_t(std::string ptr, lua_State* state);
     GEventModInitialized_t(void *ptr);
 
 
@@ -24893,9 +25703,10 @@ class GCParticleTransformInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleTransformInput(std::string ptr);
+    GCParticleTransformInput(std::string ptr, lua_State* state);
     GCParticleTransformInput(void *ptr);
 
     uint64_t GetType() const;
@@ -24924,9 +25735,10 @@ class GCParticleVisibilityInputs
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleVisibilityInputs(std::string ptr);
+    GCParticleVisibilityInputs(std::string ptr, lua_State* state);
     GCParticleVisibilityInputs(void *ptr);
 
     float GetCameraBias() const;
@@ -24977,9 +25789,10 @@ class GMaterialGroup_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialGroup_t(std::string ptr);
+    GMaterialGroup_t(std::string ptr, lua_State* state);
     GMaterialGroup_t(void *ptr);
 
     std::string GetName() const;
@@ -24994,9 +25807,10 @@ class GCAnimUpdateNodeBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimUpdateNodeBase(std::string ptr);
+    GCAnimUpdateNodeBase(std::string ptr, lua_State* state);
     GCAnimUpdateNodeBase(void *ptr);
 
     GCAnimNodePath GetNodePath() const;
@@ -25015,9 +25829,10 @@ class GCParticleFunctionRenderer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleFunctionRenderer(std::string ptr);
+    GCParticleFunctionRenderer(std::string ptr, lua_State* state);
     GCParticleFunctionRenderer(void *ptr);
 
     GCParticleVisibilityInputs GetVisibilityInputs() const;
@@ -25038,9 +25853,10 @@ class GCParticleVecInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleVecInput(std::string ptr);
+    GCParticleVecInput(std::string ptr, lua_State* state);
     GCParticleVecInput(void *ptr);
 
     uint64_t GetType() const;
@@ -25097,9 +25913,10 @@ class GVPhysXConstraintParams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVPhysXConstraintParams_t(std::string ptr);
+    GVPhysXConstraintParams_t(std::string ptr, lua_State* state);
     GVPhysXConstraintParams_t(void *ptr);
 
     int32_t GetType() const;
@@ -25200,9 +26017,10 @@ class GCMorphRectData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMorphRectData(std::string ptr);
+    GCMorphRectData(std::string ptr, lua_State* state);
     GCMorphRectData(void *ptr);
 
     int16_t GetXLeftDst() const;
@@ -25225,9 +26043,10 @@ class GEventServerPollNetworking_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventServerPollNetworking_t(std::string ptr);
+    GEventServerPollNetworking_t(std::string ptr, lua_State* state);
     GEventServerPollNetworking_t(void *ptr);
 
     GEventSimulate_t GetParent() const;
@@ -25242,9 +26061,10 @@ class GCDspPresetModifierList
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDspPresetModifierList(std::string ptr);
+    GCDspPresetModifierList(std::string ptr, lua_State* state);
     GCDspPresetModifierList(void *ptr);
 
     std::string GetDspName() const;
@@ -25261,9 +26081,10 @@ class GSkeletonDemoDb_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSkeletonDemoDb_t(std::string ptr);
+    GSkeletonDemoDb_t(std::string ptr, lua_State* state);
     GSkeletonDemoDb_t(void *ptr);
 
     std::vector<GSkeletonAnimCapture_t*> GetAnimCaptures() const;
@@ -25282,9 +26103,10 @@ class GCRenderGroom
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRenderGroom(std::string ptr);
+    GCRenderGroom(std::string ptr, lua_State* state);
     GCRenderGroom(void *ptr);
 
     std::vector<GRenderHairStrandInfo_t> GetHairs() const;
@@ -25317,9 +26139,10 @@ class GCUnaryUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCUnaryUpdateNode(std::string ptr);
+    GCUnaryUpdateNode(std::string ptr, lua_State* state);
     GCUnaryUpdateNode(void *ptr);
 
     GCAnimUpdateNodeRef GetChildNode() const;
@@ -25336,9 +26159,10 @@ class GCBlendCurve
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBlendCurve(std::string ptr);
+    GCBlendCurve(std::string ptr, lua_State* state);
     GCBlendCurve(void *ptr);
 
     float GetControlPoint1() const;
@@ -25355,9 +26179,10 @@ class GChangeAccessorFieldPathIndex_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GChangeAccessorFieldPathIndex_t(std::string ptr);
+    GChangeAccessorFieldPathIndex_t(std::string ptr, lua_State* state);
     GChangeAccessorFieldPathIndex_t(void *ptr);
 
     int16_t GetValue() const;
@@ -25372,9 +26197,10 @@ class GFeKelagerBend2_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeKelagerBend2_t(std::string ptr);
+    GFeKelagerBend2_t(std::string ptr, lua_State* state);
     GFeKelagerBend2_t(void *ptr);
 
     std::vector<float> GetWeight() const;
@@ -25395,9 +26221,10 @@ class GCMorphSetData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMorphSetData(std::string ptr);
+    GCMorphSetData(std::string ptr, lua_State* state);
     GCMorphSetData(void *ptr);
 
     int32_t GetWidth() const;
@@ -25424,9 +26251,10 @@ class GCBinaryUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBinaryUpdateNode(std::string ptr);
+    GCBinaryUpdateNode(std::string ptr, lua_State* state);
     GCBinaryUpdateNode(void *ptr);
 
     GCAnimUpdateNodeRef GetChild1() const;
@@ -25453,9 +26281,10 @@ class Gconstraint_axislimit_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gconstraint_axislimit_t(std::string ptr);
+    Gconstraint_axislimit_t(std::string ptr, lua_State* state);
     Gconstraint_axislimit_t(void *ptr);
 
     float GetMinRotation() const;
@@ -25476,9 +26305,10 @@ class GFuseFunctionIndex_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFuseFunctionIndex_t(std::string ptr);
+    GFuseFunctionIndex_t(std::string ptr, lua_State* state);
     GFuseFunctionIndex_t(void *ptr);
 
     uint16_t GetValue() const;
@@ -25493,9 +26323,10 @@ class GCGeneralSpin
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGeneralSpin(std::string ptr);
+    GCGeneralSpin(std::string ptr, lua_State* state);
     GCGeneralSpin(void *ptr);
 
     int32_t GetSpinRateDegrees() const;
@@ -25516,9 +26347,10 @@ class GCFeJiggleBone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFeJiggleBone(std::string ptr);
+    GCFeJiggleBone(std::string ptr, lua_State* state);
     GCFeJiggleBone(void *ptr);
 
     uint32_t GetFlags() const;
@@ -25601,9 +26433,10 @@ class GCGlowOverlay
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGlowOverlay(std::string ptr);
+    GCGlowOverlay(std::string ptr, lua_State* state);
     GCGlowOverlay(void *ptr);
 
     Vector GetPos() const;
@@ -25646,9 +26479,10 @@ class GTextureControls_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GTextureControls_t(std::string ptr);
+    GTextureControls_t(std::string ptr, lua_State* state);
     GTextureControls_t(void *ptr);
 
     GCParticleCollectionRendererFloatInput GetFinalTextureScaleU() const;
@@ -25693,9 +26527,10 @@ class GCParticleModelInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleModelInput(std::string ptr);
+    GCParticleModelInput(std::string ptr, lua_State* state);
     GCParticleModelInput(void *ptr);
 
     uint64_t GetType() const;
@@ -25714,9 +26549,10 @@ class GCNmPassthroughNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmPassthroughNode(std::string ptr);
+    GCNmPassthroughNode(std::string ptr, lua_State* state);
     GCNmPassthroughNode(void *ptr);
 
     int16_t GetChildNodeIdx() const;
@@ -25733,9 +26569,10 @@ class GCAnimDecoder
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimDecoder(std::string ptr);
+    GCAnimDecoder(std::string ptr, lua_State* state);
     GCAnimDecoder(void *ptr);
 
     int32_t GetVersion() const;
@@ -25752,9 +26589,10 @@ class GNmPercent_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GNmPercent_t(std::string ptr);
+    GNmPercent_t(std::string ptr, lua_State* state);
     GNmPercent_t(void *ptr);
 
     float GetValue() const;
@@ -25769,9 +26607,10 @@ class GEventProfileStorageAvailable_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventProfileStorageAvailable_t(std::string ptr);
+    GEventProfileStorageAvailable_t(std::string ptr, lua_State* state);
     GEventProfileStorageAvailable_t(void *ptr);
 
     int32_t GetSplitScreenSlot() const;
@@ -25786,9 +26625,10 @@ class GCVoiceContainerBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerBase(std::string ptr);
+    GCVoiceContainerBase(std::string ptr, lua_State* state);
     GCVoiceContainerBase(void *ptr);
 
     bool GetHideAnalyzers() const;
@@ -25805,9 +26645,10 @@ class GCPerParticleVecInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPerParticleVecInput(std::string ptr);
+    GCPerParticleVecInput(std::string ptr, lua_State* state);
     GCPerParticleVecInput(void *ptr);
 
     GCParticleVecInput GetParent() const;
@@ -25822,9 +26663,10 @@ class GCBoneMaskUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBoneMaskUpdateNode(std::string ptr);
+    GCBoneMaskUpdateNode(std::string ptr, lua_State* state);
     GCBoneMaskUpdateNode(void *ptr);
 
     int32_t GetWeightListIndex() const;
@@ -25853,9 +26695,10 @@ class GConfigIndex
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GConfigIndex(std::string ptr);
+    GConfigIndex(std::string ptr, lua_State* state);
     GConfigIndex(void *ptr);
 
     uint16_t GetGroup() const;
@@ -25872,9 +26715,10 @@ class GFeSimdRodConstraint_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSimdRodConstraint_t(std::string ptr);
+    GFeSimdRodConstraint_t(std::string ptr, lua_State* state);
     GFeSimdRodConstraint_t(void *ptr);
 
     float Get4MaxDist() const;
@@ -25895,9 +26739,10 @@ class GCSSDSMsg_EndFrame
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSSDSMsg_EndFrame(std::string ptr);
+    GCSSDSMsg_EndFrame(std::string ptr, lua_State* state);
     GCSSDSMsg_EndFrame(void *ptr);
 
     std::vector<GCSSDSEndFrameViewInfo> GetViews() const;
@@ -25912,9 +26757,10 @@ class GSkeletonBoneBounds_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSkeletonBoneBounds_t(std::string ptr);
+    GSkeletonBoneBounds_t(std::string ptr, lua_State* state);
     GSkeletonBoneBounds_t(void *ptr);
 
     Vector GetCenter() const;
@@ -25931,9 +26777,10 @@ class GCDSPMixgroupModifier
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDSPMixgroupModifier(std::string ptr);
+    GCDSPMixgroupModifier(std::string ptr, lua_State* state);
     GCDSPMixgroupModifier(void *ptr);
 
     std::string GetMixgroup() const;
@@ -25958,9 +26805,10 @@ class GCBoneConstraintBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBoneConstraintBase(std::string ptr);
+    GCBoneConstraintBase(std::string ptr, lua_State* state);
     GCBoneConstraintBase(void *ptr);
 
 
@@ -25974,9 +26822,10 @@ class GEventAdvanceTick_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventAdvanceTick_t(std::string ptr);
+    GEventAdvanceTick_t(std::string ptr, lua_State* state);
     GEventAdvanceTick_t(void *ptr);
 
     int32_t GetCurrentTick() const;
@@ -25999,9 +26848,10 @@ class GMotionIndex
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMotionIndex(std::string ptr);
+    GMotionIndex(std::string ptr, lua_State* state);
     GMotionIndex(void *ptr);
 
     uint16_t GetGroup() const;
@@ -26018,9 +26868,10 @@ class GCAnimBoneDifference
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimBoneDifference(std::string ptr);
+    GCAnimBoneDifference(std::string ptr, lua_State* state);
     GCAnimBoneDifference(void *ptr);
 
     Vector GetPosError() const;
@@ -26039,9 +26890,10 @@ class GCFootDefinition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootDefinition(std::string ptr);
+    GCFootDefinition(std::string ptr, lua_State* state);
     GCFootDefinition(void *ptr);
 
     std::string GetName() const;
@@ -26072,9 +26924,10 @@ class GCFootCycle
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootCycle(std::string ptr);
+    GCFootCycle(std::string ptr, lua_State* state);
     GCFootCycle(void *ptr);
 
     GCCycleBase GetParent() const;
@@ -26089,9 +26942,10 @@ class GCMotionDataSet
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionDataSet(std::string ptr);
+    GCMotionDataSet(std::string ptr, lua_State* state);
     GCMotionDataSet(void *ptr);
 
     std::vector<GCMotionGraphGroup> GetGroups() const;
@@ -26108,9 +26962,10 @@ class GCVPhysXSurfacePropertiesList
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVPhysXSurfacePropertiesList(std::string ptr);
+    GCVPhysXSurfacePropertiesList(std::string ptr, lua_State* state);
     GCVPhysXSurfacePropertiesList(void *ptr);
 
     std::vector<GCPhysSurfaceProperties*> GetSurfacePropertiesList() const;
@@ -26125,9 +26980,10 @@ class GCParticleFunctionEmitter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleFunctionEmitter(std::string ptr);
+    GCParticleFunctionEmitter(std::string ptr, lua_State* state);
     GCParticleFunctionEmitter(void *ptr);
 
     int32_t GetEmitterIndex() const;
@@ -26144,9 +27000,10 @@ class GVMixFilterDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixFilterDesc_t(std::string ptr);
+    GVMixFilterDesc_t(std::string ptr, lua_State* state);
     GVMixFilterDesc_t(void *ptr);
 
     uint64_t GetFilterType() const;
@@ -26171,9 +27028,10 @@ class GCBaseConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseConstraint(std::string ptr);
+    GCBaseConstraint(std::string ptr, lua_State* state);
     GCBaseConstraint(void *ptr);
 
     std::string GetName() const;
@@ -26196,9 +27054,10 @@ class GCParticleMassCalculationParameters
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleMassCalculationParameters(std::string ptr);
+    GCParticleMassCalculationParameters(std::string ptr, lua_State* state);
     GCParticleMassCalculationParameters(void *ptr);
 
     uint64_t GetMassMode() const;
@@ -26219,9 +27078,10 @@ class GAnimParamID
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimParamID(std::string ptr);
+    GAnimParamID(std::string ptr, lua_State* state);
     GAnimParamID(void *ptr);
 
     uint32_t GetId() const;
@@ -26236,9 +27096,10 @@ class GCTransitionUpdateData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTransitionUpdateData(std::string ptr);
+    GCTransitionUpdateData(std::string ptr, lua_State* state);
     GCTransitionUpdateData(void *ptr);
 
     uint32_t GetSrcStateIndex() const;
@@ -26255,9 +27116,10 @@ class GManifestTestResource_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GManifestTestResource_t(std::string ptr);
+    GManifestTestResource_t(std::string ptr, lua_State* state);
     GManifestTestResource_t(void *ptr);
 
     std::string GetName() const;
@@ -26272,9 +27134,10 @@ class GFootPinningPoseOpFixedData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFootPinningPoseOpFixedData_t(std::string ptr);
+    GFootPinningPoseOpFixedData_t(std::string ptr, lua_State* state);
     GFootPinningPoseOpFixedData_t(void *ptr);
 
     std::vector<GFootFixedData_t> GetFootInfo() const;
@@ -26301,9 +27164,10 @@ class GCFootPinningUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootPinningUpdateNode(std::string ptr);
+    GCFootPinningUpdateNode(std::string ptr, lua_State* state);
     GCFootPinningUpdateNode(void *ptr);
 
     GFootPinningPoseOpFixedData_t GetPoseOpFixedData() const;
@@ -26326,9 +27190,10 @@ class GCLeafUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLeafUpdateNode(std::string ptr);
+    GCLeafUpdateNode(std::string ptr, lua_State* state);
     GCLeafUpdateNode(void *ptr);
 
     GCAnimUpdateNodeBase GetParent() const;
@@ -26343,9 +27208,10 @@ class GCAnimMotorUpdaterBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimMotorUpdaterBase(std::string ptr);
+    GCAnimMotorUpdaterBase(std::string ptr, lua_State* state);
     GCAnimMotorUpdaterBase(void *ptr);
 
     std::string GetName() const;
@@ -26362,9 +27228,10 @@ class GRnMesh_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnMesh_t(std::string ptr);
+    GRnMesh_t(std::string ptr, lua_State* state);
     GRnMesh_t(void *ptr);
 
     Vector GetMin() const;
@@ -26395,9 +27262,10 @@ class GCModelConfigElement
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement(std::string ptr);
+    GCModelConfigElement(std::string ptr, lua_State* state);
     GCModelConfigElement(void *ptr);
 
     std::string GetElementName() const;
@@ -26414,9 +27282,10 @@ class GVPhysXAggregateData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVPhysXAggregateData_t(std::string ptr);
+    GVPhysXAggregateData_t(std::string ptr, lua_State* state);
     GVPhysXAggregateData_t(void *ptr);
 
     uint16_t GetFlags() const;
@@ -26459,9 +27328,10 @@ class GCSequenceUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSequenceUpdateNode(std::string ptr);
+    GCSequenceUpdateNode(std::string ptr, lua_State* state);
     GCSequenceUpdateNode(void *ptr);
 
     GCParamSpanUpdater GetParamSpans() const;
@@ -26486,9 +27356,10 @@ class GCModelConfigElement_Command
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_Command(std::string ptr);
+    GCModelConfigElement_Command(std::string ptr, lua_State* state);
     GCModelConfigElement_Command(void *ptr);
 
     std::string GetCommand() const;
@@ -26505,9 +27376,10 @@ class GCAnimParameterBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimParameterBase(std::string ptr);
+    GCAnimParameterBase(std::string ptr, lua_State* state);
     GCAnimParameterBase(void *ptr);
 
     std::string GetComment() const;
@@ -26532,9 +27404,10 @@ class GCompositeMaterialInputLooseVariable_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCompositeMaterialInputLooseVariable_t(std::string ptr);
+    GCompositeMaterialInputLooseVariable_t(std::string ptr, lua_State* state);
     GCompositeMaterialInputLooseVariable_t(void *ptr);
 
     std::string GetStrName() const;
@@ -26615,9 +27488,10 @@ class GVecInputMaterialVariable_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVecInputMaterialVariable_t(std::string ptr);
+    GVecInputMaterialVariable_t(std::string ptr, lua_State* state);
     GVecInputMaterialVariable_t(void *ptr);
 
     std::string GetStrVariable() const;
@@ -26632,9 +27506,10 @@ class GCCachedPose
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCachedPose(std::string ptr);
+    GCCachedPose(std::string ptr, lua_State* state);
     GCCachedPose(void *ptr);
 
     std::vector<float32> GetMorphWeights() const;
@@ -26651,9 +27526,10 @@ class GCAnimGraphSettingsGroup
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimGraphSettingsGroup(std::string ptr);
+    GCAnimGraphSettingsGroup(std::string ptr, lua_State* state);
     GCAnimGraphSettingsGroup(void *ptr);
 
 
@@ -26667,9 +27543,10 @@ class GCModelConfig
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfig(std::string ptr);
+    GCModelConfig(std::string ptr, lua_State* state);
     GCModelConfig(void *ptr);
 
     std::string GetConfigName() const;
@@ -26688,9 +27565,10 @@ class GFootLockPoseOpFixedSettings
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFootLockPoseOpFixedSettings(std::string ptr);
+    GFootLockPoseOpFixedSettings(std::string ptr, lua_State* state);
     GFootLockPoseOpFixedSettings(void *ptr);
 
     std::vector<GFootFixedData_t> GetFootInfo() const;
@@ -26739,9 +27617,10 @@ class GCFlexRule
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFlexRule(std::string ptr);
+    GCFlexRule(std::string ptr, lua_State* state);
     GCFlexRule(void *ptr);
 
     int32_t GetFlex() const;
@@ -26758,9 +27637,10 @@ class GCSosGroupActionSetSoundeventParameterSchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupActionSetSoundeventParameterSchema(std::string ptr);
+    GCSosGroupActionSetSoundeventParameterSchema(std::string ptr, lua_State* state);
     GCSosGroupActionSetSoundeventParameterSchema(void *ptr);
 
     int32_t GetMaxCount() const;
@@ -26785,9 +27665,10 @@ class GCStepsRemainingMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStepsRemainingMetricEvaluator(std::string ptr);
+    GCStepsRemainingMetricEvaluator(std::string ptr, lua_State* state);
     GCStepsRemainingMetricEvaluator(void *ptr);
 
     std::vector<int32> GetFootIndices() const;
@@ -26806,9 +27687,10 @@ class GNmCompressionSettings_t__QuantizationRange_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GNmCompressionSettings_t__QuantizationRange_t(std::string ptr);
+    GNmCompressionSettings_t__QuantizationRange_t(std::string ptr, lua_State* state);
     GNmCompressionSettings_t__QuantizationRange_t(void *ptr);
 
     float GetRangeStart() const;
@@ -26825,9 +27707,10 @@ class GCAnimParameterManagerUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimParameterManagerUpdater(std::string ptr);
+    GCAnimParameterManagerUpdater(std::string ptr, lua_State* state);
     GCAnimParameterManagerUpdater(void *ptr);
 
     std::vector<GCAnimParamHandle> GetIndexToHandle() const;
@@ -26842,9 +27725,10 @@ class GCModelConfigElement_RandomColor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_RandomColor(std::string ptr);
+    GCModelConfigElement_RandomColor(std::string ptr, lua_State* state);
     GCModelConfigElement_RandomColor(void *ptr);
 
     GCModelConfigElement GetParent() const;
@@ -26859,9 +27743,10 @@ class GCMotionNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionNode(std::string ptr);
+    GCMotionNode(std::string ptr, lua_State* state);
     GCMotionNode(void *ptr);
 
     std::string GetName() const;
@@ -26878,9 +27763,10 @@ class GCAnimTagBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimTagBase(std::string ptr);
+    GCAnimTagBase(std::string ptr, lua_State* state);
     GCAnimTagBase(void *ptr);
 
     std::string GetComment() const;
@@ -26899,9 +27785,10 @@ class GAnimComponentID
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimComponentID(std::string ptr);
+    GAnimComponentID(std::string ptr, lua_State* state);
     GAnimComponentID(void *ptr);
 
     uint32_t GetId() const;
@@ -26916,9 +27803,10 @@ class GCAnimLocalHierarchy
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimLocalHierarchy(std::string ptr);
+    GCAnimLocalHierarchy(std::string ptr, lua_State* state);
     GCAnimLocalHierarchy(void *ptr);
 
     int32_t GetStartFrame() const;
@@ -26939,9 +27827,10 @@ class GRnShapeDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnShapeDesc_t(std::string ptr);
+    GRnShapeDesc_t(std::string ptr, lua_State* state);
     GRnShapeDesc_t(void *ptr);
 
     uint32_t GetCollisionAttributeIndex() const;
@@ -26960,9 +27849,10 @@ class GCBoneConstraintPoseSpaceBone__Input_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBoneConstraintPoseSpaceBone__Input_t(std::string ptr);
+    GCBoneConstraintPoseSpaceBone__Input_t(std::string ptr, lua_State* state);
     GCBoneConstraintPoseSpaceBone__Input_t(void *ptr);
 
     Vector GetInputValue() const;
@@ -26977,9 +27867,10 @@ class GCModelConfigElement_SetRenderColor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_SetRenderColor(std::string ptr);
+    GCModelConfigElement_SetRenderColor(std::string ptr, lua_State* state);
     GCModelConfigElement_SetRenderColor(void *ptr);
 
     Color GetColor() const;
@@ -26996,9 +27887,10 @@ class GPhysSoftbodyDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPhysSoftbodyDesc_t(std::string ptr);
+    GPhysSoftbodyDesc_t(std::string ptr, lua_State* state);
     GPhysSoftbodyDesc_t(void *ptr);
 
     std::vector<uint32> GetParticleBoneHash() const;
@@ -27021,9 +27913,10 @@ class GVMapResourceData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMapResourceData_t(std::string ptr);
+    GVMapResourceData_t(std::string ptr, lua_State* state);
     GVMapResourceData_t(void *ptr);
 
 
@@ -27037,9 +27930,10 @@ class GFeCtrlSoftOffset_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeCtrlSoftOffset_t(std::string ptr);
+    GFeCtrlSoftOffset_t(std::string ptr, lua_State* state);
     GFeCtrlSoftOffset_t(void *ptr);
 
     uint16_t GetCtrlParent() const;
@@ -27060,9 +27954,10 @@ class GCMorphBundleData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMorphBundleData(std::string ptr);
+    GCMorphBundleData(std::string ptr, lua_State* state);
     GCMorphBundleData(void *ptr);
 
     float GetULeftSrc() const;
@@ -27083,9 +27978,10 @@ class GCNmBoneMask
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmBoneMask(std::string ptr);
+    GCNmBoneMask(std::string ptr, lua_State* state);
     GCNmBoneMask(void *ptr);
 
     GCNmBoneMask GetWeightInfo() const;
@@ -27102,9 +27998,10 @@ class GCAudioEmphasisSample
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAudioEmphasisSample(std::string ptr);
+    GCAudioEmphasisSample(std::string ptr, lua_State* state);
     GCAudioEmphasisSample(void *ptr);
 
     float GetTime() const;
@@ -27121,9 +28018,10 @@ class GCNmFrameSnapEvent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmFrameSnapEvent(std::string ptr);
+    GCNmFrameSnapEvent(std::string ptr, lua_State* state);
     GCNmFrameSnapEvent(void *ptr);
 
     uint64_t GetFrameSnapMode() const;
@@ -27140,9 +28038,10 @@ class GCJumpHelperUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCJumpHelperUpdateNode(std::string ptr);
+    GCJumpHelperUpdateNode(std::string ptr, lua_State* state);
     GCJumpHelperUpdateNode(void *ptr);
 
     GCAnimParamHandle GetTargetParam() const;
@@ -27173,9 +28072,10 @@ class GSolveIKChainPoseOpFixedSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSolveIKChainPoseOpFixedSettings_t(std::string ptr);
+    GSolveIKChainPoseOpFixedSettings_t(std::string ptr, lua_State* state);
     GSolveIKChainPoseOpFixedSettings_t(void *ptr);
 
     std::vector<GChainToSolveData_t> GetChainsToSolveData() const;
@@ -27192,9 +28092,10 @@ class GCMaterialAttributeAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMaterialAttributeAnimTag(std::string ptr);
+    GCMaterialAttributeAnimTag(std::string ptr, lua_State* state);
     GCMaterialAttributeAnimTag(void *ptr);
 
     std::string GetAttributeName() const;
@@ -27217,9 +28118,10 @@ class GCAnimComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimComponentUpdater(std::string ptr);
+    GCAnimComponentUpdater(std::string ptr, lua_State* state);
     GCAnimComponentUpdater(void *ptr);
 
     std::string GetName() const;
@@ -27240,9 +28142,10 @@ class GCReplicationParameters
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCReplicationParameters(std::string ptr);
+    GCReplicationParameters(std::string ptr, lua_State* state);
     GCReplicationParameters(void *ptr);
 
     uint64_t GetReplicationMode() const;
@@ -27265,9 +28168,10 @@ class GVMixEnvelopeDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixEnvelopeDesc_t(std::string ptr);
+    GVMixEnvelopeDesc_t(std::string ptr, lua_State* state);
     GVMixEnvelopeDesc_t(void *ptr);
 
     float GetAttackTimeMS() const;
@@ -27286,9 +28190,10 @@ class GCNmValueNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmValueNode(std::string ptr);
+    GCNmValueNode(std::string ptr, lua_State* state);
     GCNmValueNode(void *ptr);
 
     GCNmGraphNode GetParent() const;
@@ -27303,9 +28208,10 @@ class GCFollowPathUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFollowPathUpdateNode(std::string ptr);
+    GCFollowPathUpdateNode(std::string ptr, lua_State* state);
     GCFollowPathUpdateNode(void *ptr);
 
     float GetBlendOutTime() const;
@@ -27346,9 +28252,10 @@ class GEventClientPostSimulate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientPostSimulate_t(std::string ptr);
+    GEventClientPostSimulate_t(std::string ptr, lua_State* state);
     GEventClientPostSimulate_t(void *ptr);
 
     GEventSimulate_t GetParent() const;
@@ -27363,9 +28270,10 @@ class GAABB_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAABB_t(std::string ptr);
+    GAABB_t(std::string ptr, lua_State* state);
     GAABB_t(void *ptr);
 
     Vector GetMinBounds() const;
@@ -27382,9 +28290,10 @@ class GFeNodeBase_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeNodeBase_t(std::string ptr);
+    GFeNodeBase_t(std::string ptr, lua_State* state);
     GFeNodeBase_t(void *ptr);
 
     uint16_t GetNode() const;
@@ -27409,9 +28318,10 @@ class GModelBoneFlexDriverControl_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GModelBoneFlexDriverControl_t(std::string ptr);
+    GModelBoneFlexDriverControl_t(std::string ptr, lua_State* state);
     GModelBoneFlexDriverControl_t(void *ptr);
 
     uint64_t GetBoneComponent() const;
@@ -27434,9 +28344,10 @@ class GPostProcessingVignetteParameters_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPostProcessingVignetteParameters_t(std::string ptr);
+    GPostProcessingVignetteParameters_t(std::string ptr, lua_State* state);
     GPostProcessingVignetteParameters_t(void *ptr);
 
     float GetVignetteStrength() const;
@@ -27461,9 +28372,10 @@ class GConstantInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GConstantInfo_t(std::string ptr);
+    GConstantInfo_t(std::string ptr, lua_State* state);
     GConstantInfo_t(void *ptr);
 
     std::string GetName() const;
@@ -27482,9 +28394,10 @@ class GFuseVariableIndex_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFuseVariableIndex_t(std::string ptr);
+    GFuseVariableIndex_t(std::string ptr, lua_State* state);
     GFuseVariableIndex_t(void *ptr);
 
     uint16_t GetValue() const;
@@ -27499,9 +28412,10 @@ class GIParticleEffect
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIParticleEffect(std::string ptr);
+    GIParticleEffect(std::string ptr, lua_State* state);
     GIParticleEffect(void *ptr);
 
 
@@ -27515,9 +28429,10 @@ class GCStopAtGoalUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStopAtGoalUpdateNode(std::string ptr);
+    GCStopAtGoalUpdateNode(std::string ptr, lua_State* state);
     GCStopAtGoalUpdateNode(void *ptr);
 
     float GetOuterRadius() const;
@@ -27542,9 +28457,10 @@ class GCSequenceGroupData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSequenceGroupData(std::string ptr);
+    GCSequenceGroupData(std::string ptr, lua_State* state);
     GCSequenceGroupData(void *ptr);
 
     uint32_t GetFlags() const;
@@ -27575,9 +28491,10 @@ class GParticleNamedValueConfiguration_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParticleNamedValueConfiguration_t(std::string ptr);
+    GParticleNamedValueConfiguration_t(std::string ptr, lua_State* state);
     GParticleNamedValueConfiguration_t(void *ptr);
 
     std::string GetConfigName() const;
@@ -27600,9 +28517,10 @@ class GCAnimSkeleton
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimSkeleton(std::string ptr);
+    GCAnimSkeleton(std::string ptr, lua_State* state);
     GCAnimSkeleton(void *ptr);
 
     std::vector<CUtlString> GetBoneNames() const;
@@ -27625,9 +28543,10 @@ class GCAnimationGraphVisualizerPrimitiveBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimationGraphVisualizerPrimitiveBase(std::string ptr);
+    GCAnimationGraphVisualizerPrimitiveBase(std::string ptr, lua_State* state);
     GCAnimationGraphVisualizerPrimitiveBase(void *ptr);
 
     uint64_t GetType() const;
@@ -27646,9 +28565,10 @@ class GCBodyGroupAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBodyGroupAnimTag(std::string ptr);
+    GCBodyGroupAnimTag(std::string ptr, lua_State* state);
     GCBodyGroupAnimTag(void *ptr);
 
     int32_t GetPriority() const;
@@ -27667,9 +28587,10 @@ class GFeAxialEdgeBend_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeAxialEdgeBend_t(std::string ptr);
+    GFeAxialEdgeBend_t(std::string ptr, lua_State* state);
     GFeAxialEdgeBend_t(void *ptr);
 
     float GetTe() const;
@@ -27692,9 +28613,10 @@ class GParamSpanSample_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParamSpanSample_t(std::string ptr);
+    GParamSpanSample_t(std::string ptr, lua_State* state);
     GParamSpanSample_t(void *ptr);
 
     float GetCycle() const;
@@ -27709,9 +28631,10 @@ class GFunctionInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFunctionInfo_t(std::string ptr);
+    GFunctionInfo_t(std::string ptr, lua_State* state);
     GFunctionInfo_t(void *ptr);
 
     std::string GetName() const;
@@ -27734,9 +28657,10 @@ class GFourQuaternions
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFourQuaternions(std::string ptr);
+    GFourQuaternions(std::string ptr, lua_State* state);
     GFourQuaternions(void *ptr);
 
     float GetX() const;
@@ -27757,9 +28681,10 @@ class GSkeletonAnimCapture_t__FrameStamp_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSkeletonAnimCapture_t__FrameStamp_t(std::string ptr);
+    GSkeletonAnimCapture_t__FrameStamp_t(std::string ptr, lua_State* state);
     GSkeletonAnimCapture_t__FrameStamp_t(void *ptr);
 
     float GetTime() const;
@@ -27788,9 +28713,10 @@ class GCSeqAutoLayerFlag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqAutoLayerFlag(std::string ptr);
+    GCSeqAutoLayerFlag(std::string ptr, lua_State* state);
     GCSeqAutoLayerFlag(void *ptr);
 
     bool GetPost() const;
@@ -27819,9 +28745,10 @@ class GParamSpan_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParamSpan_t(std::string ptr);
+    GParamSpan_t(std::string ptr, lua_State* state);
     GParamSpan_t(void *ptr);
 
     std::vector<GParamSpanSample_t> GetSamples() const;
@@ -27844,9 +28771,10 @@ class GCNmBoolValueNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmBoolValueNode(std::string ptr);
+    GCNmBoolValueNode(std::string ptr, lua_State* state);
     GCNmBoolValueNode(void *ptr);
 
     GCNmValueNode GetParent() const;
@@ -27861,9 +28789,10 @@ class GRenderInputLayoutField_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRenderInputLayoutField_t(std::string ptr);
+    GRenderInputLayoutField_t(std::string ptr, lua_State* state);
     GRenderInputLayoutField_t(void *ptr);
 
     std::vector<uint32_t> GetSemanticName() const;
@@ -27890,9 +28819,10 @@ class GCCPPScriptComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCPPScriptComponentUpdater(std::string ptr);
+    GCCPPScriptComponentUpdater(std::string ptr, lua_State* state);
     GCCPPScriptComponentUpdater(void *ptr);
 
     GCAnimComponentUpdater GetParent() const;
@@ -27907,9 +28837,10 @@ class GCDampedValueComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDampedValueComponentUpdater(std::string ptr);
+    GCDampedValueComponentUpdater(std::string ptr, lua_State* state);
     GCDampedValueComponentUpdater(void *ptr);
 
     std::vector<GCDampedValueUpdateItem> GetItems() const;
@@ -27926,9 +28857,10 @@ class GCSeqPoseSetting
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqPoseSetting(std::string ptr);
+    GCSeqPoseSetting(std::string ptr, lua_State* state);
     GCSeqPoseSetting(void *ptr);
 
     float GetValue() const;
@@ -27951,9 +28883,10 @@ class GRenderHairStrandInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRenderHairStrandInfo_t(std::string ptr);
+    GRenderHairStrandInfo_t(std::string ptr, lua_State* state);
     GRenderHairStrandInfo_t(void *ptr);
 
     std::vector<uint32_t> GetGuideHairIndices_nSurfaceTriIndex() const;
@@ -27978,9 +28911,10 @@ class GCExampleSchemaVData_Monomorphic
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCExampleSchemaVData_Monomorphic(std::string ptr);
+    GCExampleSchemaVData_Monomorphic(std::string ptr, lua_State* state);
     GCExampleSchemaVData_Monomorphic(void *ptr);
 
     int32_t GetExample1() const;
@@ -27997,9 +28931,10 @@ class GCPlayerSprayDecalRenderHelper
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayerSprayDecalRenderHelper(std::string ptr);
+    GCPlayerSprayDecalRenderHelper(std::string ptr, lua_State* state);
     GCPlayerSprayDecalRenderHelper(void *ptr);
 
 
@@ -28013,9 +28948,10 @@ class GFeTaperedCapsuleRigid_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeTaperedCapsuleRigid_t(std::string ptr);
+    GFeTaperedCapsuleRigid_t(std::string ptr, lua_State* state);
     GFeTaperedCapsuleRigid_t(void *ptr);
 
     std::vector<float> GetSphere() const;
@@ -28038,9 +28974,10 @@ class GCChoiceUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCChoiceUpdateNode(std::string ptr);
+    GCChoiceUpdateNode(std::string ptr, lua_State* state);
     GCChoiceUpdateNode(void *ptr);
 
     std::vector<GCAnimUpdateNodeRef> GetChildren() const;
@@ -28075,9 +29012,10 @@ class GIKSolverSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIKSolverSettings_t(std::string ptr);
+    GIKSolverSettings_t(std::string ptr, lua_State* state);
     GIKSolverSettings_t(void *ptr);
 
     uint64_t GetSolverType() const;
@@ -28094,9 +29032,10 @@ class GCNmLayerBlendNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmLayerBlendNode(std::string ptr);
+    GCNmLayerBlendNode(std::string ptr, lua_State* state);
     GCNmLayerBlendNode(void *ptr);
 
     int16_t GetBaseNodeIdx() const;
@@ -28115,9 +29054,10 @@ class GCRandomNumberGeneratorParameters
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRandomNumberGeneratorParameters(std::string ptr);
+    GCRandomNumberGeneratorParameters(std::string ptr, lua_State* state);
     GCRandomNumberGeneratorParameters(void *ptr);
 
     bool GetDistributeEvenly() const;
@@ -28134,9 +29074,10 @@ class GAnimationDecodeDebugDumpElement_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimationDecodeDebugDumpElement_t(std::string ptr);
+    GAnimationDecodeDebugDumpElement_t(std::string ptr, lua_State* state);
     GAnimationDecodeDebugDumpElement_t(void *ptr);
 
     int32_t GetEntityIndex() const;
@@ -28161,9 +29102,10 @@ class GCNmFloatValueNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmFloatValueNode(std::string ptr);
+    GCNmFloatValueNode(std::string ptr, lua_State* state);
     GCNmFloatValueNode(void *ptr);
 
     GCNmValueNode GetParent() const;
@@ -28178,9 +29120,10 @@ class GCSSDSMsg_LayerBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSSDSMsg_LayerBase(std::string ptr);
+    GCSSDSMsg_LayerBase(std::string ptr, lua_State* state);
     GCSSDSMsg_LayerBase(void *ptr);
 
     GSceneViewId_t GetViewId() const;
@@ -28205,9 +29148,10 @@ class GCSosGroupActionSoundeventClusterSchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupActionSoundeventClusterSchema(std::string ptr);
+    GCSosGroupActionSoundeventClusterSchema(std::string ptr, lua_State* state);
     GCSosGroupActionSoundeventClusterSchema(void *ptr);
 
     int32_t GetMinNearby() const;
@@ -28236,9 +29180,10 @@ class GCAnimationGraphVisualizerAxis
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimationGraphVisualizerAxis(std::string ptr);
+    GCAnimationGraphVisualizerAxis(std::string ptr, lua_State* state);
     GCAnimationGraphVisualizerAxis(void *ptr);
 
     float GetAxisSize() const;
@@ -28255,9 +29200,10 @@ class GMaterialResourceData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialResourceData_t(std::string ptr);
+    GMaterialResourceData_t(std::string ptr, lua_State* state);
     GMaterialResourceData_t(void *ptr);
 
     std::string GetMaterialName() const;
@@ -28298,9 +29244,10 @@ class GBlendItem_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GBlendItem_t(std::string ptr);
+    GBlendItem_t(std::string ptr, lua_State* state);
     GBlendItem_t(void *ptr);
 
     std::vector<GTagSpan_t> GetTags() const;
@@ -28323,9 +29270,10 @@ class GCVoiceContainerAnalysisBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerAnalysisBase(std::string ptr);
+    GCVoiceContainerAnalysisBase(std::string ptr, lua_State* state);
     GCVoiceContainerAnalysisBase(void *ptr);
 
     bool GetRegenerateCurveOnCompile() const;
@@ -28340,9 +29288,10 @@ class GCSosGroupActionLimitSchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupActionLimitSchema(std::string ptr);
+    GCSosGroupActionLimitSchema(std::string ptr, lua_State* state);
     GCSosGroupActionLimitSchema(void *ptr);
 
     int32_t GetMaxCount() const;
@@ -28363,9 +29312,10 @@ class GFeWeightedNode_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeWeightedNode_t(std::string ptr);
+    GFeWeightedNode_t(std::string ptr, lua_State* state);
     GFeWeightedNode_t(void *ptr);
 
     uint16_t GetNode() const;
@@ -28382,9 +29332,10 @@ class GCLookComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLookComponentUpdater(std::string ptr);
+    GCLookComponentUpdater(std::string ptr, lua_State* state);
     GCLookComponentUpdater(void *ptr);
 
     GCAnimParamHandle GetLookHeading() const;
@@ -28415,9 +29366,10 @@ class GCCycleControlUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCycleControlUpdateNode(std::string ptr);
+    GCCycleControlUpdateNode(std::string ptr, lua_State* state);
     GCCycleControlUpdateNode(void *ptr);
 
     uint64_t GetValueSource() const;
@@ -28436,9 +29388,10 @@ class GCNetworkVarChainer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNetworkVarChainer(std::string ptr);
+    GCNetworkVarChainer(std::string ptr, lua_State* state);
     GCNetworkVarChainer(void *ptr);
 
     GChangeAccessorFieldPathIndex_t GetPathIndex() const;
@@ -28453,9 +29406,10 @@ class GRnTriangle_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnTriangle_t(std::string ptr);
+    GRnTriangle_t(std::string ptr, lua_State* state);
     GRnTriangle_t(void *ptr);
 
     std::vector<int32_t> GetIndex() const;
@@ -28470,9 +29424,10 @@ class GCNmVectorValueNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmVectorValueNode(std::string ptr);
+    GCNmVectorValueNode(std::string ptr, lua_State* state);
     GCNmVectorValueNode(void *ptr);
 
     GCNmValueNode GetParent() const;
@@ -28487,9 +29442,10 @@ class GCSeqSeqDescFlag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqSeqDescFlag(std::string ptr);
+    GCSeqSeqDescFlag(std::string ptr, lua_State* state);
     GCSeqSeqDescFlag(void *ptr);
 
     bool GetLooping() const;
@@ -28524,9 +29480,10 @@ class GAimCameraOpFixedSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAimCameraOpFixedSettings_t(std::string ptr);
+    GAimCameraOpFixedSettings_t(std::string ptr, lua_State* state);
     GAimCameraOpFixedSettings_t(void *ptr);
 
     int32_t GetChainIndex() const;
@@ -28553,9 +29510,10 @@ class GCParticleRemapFloatInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleRemapFloatInput(std::string ptr);
+    GCParticleRemapFloatInput(std::string ptr, lua_State* state);
     GCParticleRemapFloatInput(void *ptr);
 
     GCParticleFloatInput GetParent() const;
@@ -28570,9 +29528,10 @@ class GBaseSceneObjectOverride_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GBaseSceneObjectOverride_t(std::string ptr);
+    GBaseSceneObjectOverride_t(std::string ptr, lua_State* state);
     GBaseSceneObjectOverride_t(void *ptr);
 
     uint32_t GetSceneObjectIndex() const;
@@ -28587,9 +29546,10 @@ class GCConcreteAnimParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCConcreteAnimParameter(std::string ptr);
+    GCConcreteAnimParameter(std::string ptr, lua_State* state);
     GCConcreteAnimParameter(void *ptr);
 
     uint64_t GetPreviewButton() const;
@@ -28616,9 +29576,10 @@ class GFeAnimStrayRadius_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeAnimStrayRadius_t(std::string ptr);
+    GFeAnimStrayRadius_t(std::string ptr, lua_State* state);
     GFeAnimStrayRadius_t(void *ptr);
 
     std::vector<uint16_t> GetNode() const;
@@ -28637,9 +29598,10 @@ class GModelReference_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GModelReference_t(std::string ptr);
+    GModelReference_t(std::string ptr, lua_State* state);
     GModelReference_t(void *ptr);
 
     float GetRelativeProbabilityOfSpawn() const;
@@ -28654,9 +29616,10 @@ class GRnCapsuleDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnCapsuleDesc_t(std::string ptr);
+    GRnCapsuleDesc_t(std::string ptr, lua_State* state);
     GRnCapsuleDesc_t(void *ptr);
 
     GRnCapsule_t GetCapsule() const;
@@ -28673,9 +29636,10 @@ class GCAnimGraphDebugReplay
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimGraphDebugReplay(std::string ptr);
+    GCAnimGraphDebugReplay(std::string ptr, lua_State* state);
     GCAnimGraphDebugReplay(void *ptr);
 
     std::string GetAnimGraphFileName() const;
@@ -28696,9 +29660,10 @@ class GCVoiceContainerSwitch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerSwitch(std::string ptr);
+    GCVoiceContainerSwitch(std::string ptr, lua_State* state);
     GCVoiceContainerSwitch(void *ptr);
 
     std::vector<GCVoiceContainerBase*> GetSoundsToPlay() const;
@@ -28715,9 +29680,10 @@ class GLookAtBone_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GLookAtBone_t(std::string ptr);
+    GLookAtBone_t(std::string ptr, lua_State* state);
     GLookAtBone_t(void *ptr);
 
     int32_t GetIndex() const;
@@ -28734,9 +29700,10 @@ class GCNmBoneMaskValueNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmBoneMaskValueNode(std::string ptr);
+    GCNmBoneMaskValueNode(std::string ptr, lua_State* state);
     GCNmBoneMaskValueNode(void *ptr);
 
     GCNmValueNode GetParent() const;
@@ -28751,9 +29718,10 @@ class GCNmTransitionEvent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmTransitionEvent(std::string ptr);
+    GCNmTransitionEvent(std::string ptr, lua_State* state);
     GCNmTransitionEvent(void *ptr);
 
     uint64_t GetRule() const;
@@ -28770,9 +29738,10 @@ class GCStringAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStringAnimTag(std::string ptr);
+    GCStringAnimTag(std::string ptr, lua_State* state);
     GCStringAnimTag(void *ptr);
 
     GCAnimTagBase GetParent() const;
@@ -28787,9 +29756,10 @@ class GSkeletonAnimCapture_t__Bone_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSkeletonAnimCapture_t__Bone_t(std::string ptr);
+    GSkeletonAnimCapture_t__Bone_t(std::string ptr, lua_State* state);
     GSkeletonAnimCapture_t__Bone_t(void *ptr);
 
     std::string GetName() const;
@@ -28806,9 +29776,10 @@ class GCStaticPoseCache
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStaticPoseCache(std::string ptr);
+    GCStaticPoseCache(std::string ptr, lua_State* state);
     GCStaticPoseCache(void *ptr);
 
     std::vector<GCCachedPose> GetPoses() const;
@@ -28827,9 +29798,10 @@ class GParticlePreviewBodyGroup_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParticlePreviewBodyGroup_t(std::string ptr);
+    GParticlePreviewBodyGroup_t(std::string ptr, lua_State* state);
     GParticlePreviewBodyGroup_t(void *ptr);
 
     std::string GetBodyGroupName() const;
@@ -28846,9 +29818,10 @@ class GFeWorldCollisionParams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeWorldCollisionParams_t(std::string ptr);
+    GFeWorldCollisionParams_t(std::string ptr, lua_State* state);
     GFeWorldCollisionParams_t(void *ptr);
 
     float GetWorldFriction() const;
@@ -28869,9 +29842,10 @@ class GCPlayerInputAnimMotorUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPlayerInputAnimMotorUpdater(std::string ptr);
+    GCPlayerInputAnimMotorUpdater(std::string ptr, lua_State* state);
     GCPlayerInputAnimMotorUpdater(void *ptr);
 
     std::vector<float32> GetSampleTimes() const;
@@ -28898,9 +29872,10 @@ class GCParticleCollectionRendererVecInput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleCollectionRendererVecInput(std::string ptr);
+    GCParticleCollectionRendererVecInput(std::string ptr, lua_State* state);
     GCParticleCollectionRendererVecInput(void *ptr);
 
 
@@ -28914,9 +29889,10 @@ class GFeBandBendLimit_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeBandBendLimit_t(std::string ptr);
+    GFeBandBendLimit_t(std::string ptr, lua_State* state);
     GFeBandBendLimit_t(void *ptr);
 
     float GetDistMin() const;
@@ -28935,9 +29911,10 @@ class GCAnimFoot
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimFoot(std::string ptr);
+    GCAnimFoot(std::string ptr, lua_State* state);
     GCAnimFoot(void *ptr);
 
     std::string GetName() const;
@@ -28960,9 +29937,10 @@ class GEventClientAdvanceTick_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientAdvanceTick_t(std::string ptr);
+    GEventClientAdvanceTick_t(std::string ptr, lua_State* state);
     GEventClientAdvanceTick_t(void *ptr);
 
     GEventAdvanceTick_t GetParent() const;
@@ -28977,9 +29955,10 @@ class GMaterialOverride_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialOverride_t(std::string ptr);
+    GMaterialOverride_t(std::string ptr, lua_State* state);
     GMaterialOverride_t(void *ptr);
 
     uint32_t GetSubSceneObject() const;
@@ -28998,9 +29977,10 @@ class GCAnimDemoCaptureSettings
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimDemoCaptureSettings(std::string ptr);
+    GCAnimDemoCaptureSettings(std::string ptr, lua_State* state);
     GCAnimDemoCaptureSettings(void *ptr);
 
     Vector2D GetErrorRangeSplineRotation() const;
@@ -29043,9 +30023,10 @@ class GCNmIDEvent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmIDEvent(std::string ptr);
+    GCNmIDEvent(std::string ptr, lua_State* state);
     GCNmIDEvent(void *ptr);
 
     GCNmEvent GetParent() const;
@@ -29060,9 +30041,10 @@ class GCPathMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathMetricEvaluator(std::string ptr);
+    GCPathMetricEvaluator(std::string ptr, lua_State* state);
     GCPathMetricEvaluator(void *ptr);
 
     std::vector<float32> GetPathTimeSamples() const;
@@ -29085,9 +30067,10 @@ class GMaterialParam_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialParam_t(std::string ptr);
+    GMaterialParam_t(std::string ptr, lua_State* state);
     GMaterialParam_t(void *ptr);
 
     std::string GetName() const;
@@ -29102,9 +30085,10 @@ class GCSpeedScaleUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSpeedScaleUpdateNode(std::string ptr);
+    GCSpeedScaleUpdateNode(std::string ptr, lua_State* state);
     GCSpeedScaleUpdateNode(void *ptr);
 
     GCAnimParamHandle GetParamIndex() const;
@@ -29121,9 +30105,10 @@ class GVMixEQ8Desc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixEQ8Desc_t(std::string ptr);
+    GVMixEQ8Desc_t(std::string ptr, lua_State* state);
     GVMixEQ8Desc_t(void *ptr);
 
     std::vector<GVMixFilterDesc_t> GetStages() const;
@@ -29138,9 +30123,10 @@ class GCModelConfigElement_SetMaterialGroupOnAttachedModels
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_SetMaterialGroupOnAttachedModels(std::string ptr);
+    GCModelConfigElement_SetMaterialGroupOnAttachedModels(std::string ptr, lua_State* state);
     GCModelConfigElement_SetMaterialGroupOnAttachedModels(void *ptr);
 
     std::string GetMaterialGroupName() const;
@@ -29157,9 +30143,10 @@ class GTwoBoneIKSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GTwoBoneIKSettings_t(std::string ptr);
+    GTwoBoneIKSettings_t(std::string ptr, lua_State* state);
     GTwoBoneIKSettings_t(void *ptr);
 
     uint64_t GetEndEffectorType() const;
@@ -29202,9 +30189,10 @@ class GCompositeMaterialInputContainer_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCompositeMaterialInputContainer_t(std::string ptr);
+    GCompositeMaterialInputContainer_t(std::string ptr, lua_State* state);
     GCompositeMaterialInputContainer_t(void *ptr);
 
     bool GetEnabled() const;
@@ -29231,9 +30219,10 @@ class GCStateNodeStateData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStateNodeStateData(std::string ptr);
+    GCStateNodeStateData(std::string ptr, lua_State* state);
     GCStateNodeStateData(void *ptr);
 
     GCAnimUpdateNodeRef GetChild() const;
@@ -29248,9 +30237,10 @@ class GFeTwistConstraint_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeTwistConstraint_t(std::string ptr);
+    GFeTwistConstraint_t(std::string ptr, lua_State* state);
     GFeTwistConstraint_t(void *ptr);
 
     uint16_t GetNodeOrient() const;
@@ -29271,9 +30261,10 @@ class GFootFixedData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFootFixedData_t(std::string ptr);
+    GFootFixedData_t(std::string ptr, lua_State* state);
     GFootFixedData_t(void *ptr);
 
     Vector GetToeOffset() const;
@@ -29308,9 +30299,10 @@ class GVMixDiffusorDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixDiffusorDesc_t(std::string ptr);
+    GVMixDiffusorDesc_t(std::string ptr, lua_State* state);
     GVMixDiffusorDesc_t(void *ptr);
 
     float GetSize() const;
@@ -29331,9 +30323,10 @@ class GFeProxyVertexMap_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeProxyVertexMap_t(std::string ptr);
+    GFeProxyVertexMap_t(std::string ptr, lua_State* state);
     GFeProxyVertexMap_t(void *ptr);
 
     std::string GetName() const;
@@ -29350,9 +30343,10 @@ class GCDirectPlaybackUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDirectPlaybackUpdateNode(std::string ptr);
+    GCDirectPlaybackUpdateNode(std::string ptr, lua_State* state);
     GCDirectPlaybackUpdateNode(void *ptr);
 
     bool GetFinishEarly() const;
@@ -29373,9 +30367,10 @@ class GPostProcessingLocalContrastParameters_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPostProcessingLocalContrastParameters_t(std::string ptr);
+    GPostProcessingLocalContrastParameters_t(std::string ptr, lua_State* state);
     GPostProcessingLocalContrastParameters_t(void *ptr);
 
     float GetLocalContrastStrength() const;
@@ -29398,9 +30393,10 @@ class GCFootLockUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootLockUpdateNode(std::string ptr);
+    GCFootLockUpdateNode(std::string ptr, lua_State* state);
     GCFootLockUpdateNode(void *ptr);
 
     GFootLockPoseOpFixedSettings GetOpFixedSettings() const;
@@ -29455,9 +30451,10 @@ class GCParentConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParentConstraint(std::string ptr);
+    GCParentConstraint(std::string ptr, lua_State* state);
     GCParentConstraint(void *ptr);
 
     GCBaseConstraint GetParent() const;
@@ -29472,9 +30469,10 @@ class GSkeletonAnimCapture_t__Frame_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSkeletonAnimCapture_t__Frame_t(std::string ptr);
+    GSkeletonAnimCapture_t__Frame_t(std::string ptr, lua_State* state);
     GSkeletonAnimCapture_t__Frame_t(void *ptr);
 
     float GetTime() const;
@@ -29497,9 +30495,10 @@ class GCPathParameters
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathParameters(std::string ptr);
+    GCPathParameters(std::string ptr, lua_State* state);
     GCPathParameters(void *ptr);
 
     int32_t GetStartControlPointNumber() const;
@@ -29528,9 +30527,10 @@ class GCSlowDownOnSlopesUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSlowDownOnSlopesUpdateNode(std::string ptr);
+    GCSlowDownOnSlopesUpdateNode(std::string ptr, lua_State* state);
     GCSlowDownOnSlopesUpdateNode(void *ptr);
 
     float GetSlowDownStrength() const;
@@ -29547,9 +30547,10 @@ class GCAttachment
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAttachment(std::string ptr);
+    GCAttachment(std::string ptr, lua_State* state);
     GCAttachment(void *ptr);
 
     std::string GetName() const;
@@ -29576,9 +30577,10 @@ class GCEmptyEntityInstance
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEmptyEntityInstance(std::string ptr);
+    GCEmptyEntityInstance(std::string ptr, lua_State* state);
     GCEmptyEntityInstance(void *ptr);
 
 
@@ -29592,9 +30594,10 @@ class GCCompositeMaterialEditorDoc
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCompositeMaterialEditorDoc(std::string ptr);
+    GCCompositeMaterialEditorDoc(std::string ptr, lua_State* state);
     GCCompositeMaterialEditorDoc(void *ptr);
 
     int32_t GetVersion() const;
@@ -29611,9 +30614,10 @@ class GCPhysSurfacePropertiesPhysics
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysSurfacePropertiesPhysics(std::string ptr);
+    GCPhysSurfacePropertiesPhysics(std::string ptr, lua_State* state);
     GCPhysSurfacePropertiesPhysics(void *ptr);
 
     float GetFriction() const;
@@ -29640,9 +30644,10 @@ class GEventClientPostOutput_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientPostOutput_t(std::string ptr);
+    GEventClientPostOutput_t(std::string ptr, lua_State* state);
     GEventClientPostOutput_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -29665,9 +30670,10 @@ class GFeNodeIntegrator_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeNodeIntegrator_t(std::string ptr);
+    GFeNodeIntegrator_t(std::string ptr, lua_State* state);
     GFeNodeIntegrator_t(void *ptr);
 
     float GetPointDamping() const;
@@ -29688,9 +30694,10 @@ class GRnMeshDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnMeshDesc_t(std::string ptr);
+    GRnMeshDesc_t(std::string ptr, lua_State* state);
     GRnMeshDesc_t(void *ptr);
 
     GRnMesh_t GetMesh() const;
@@ -29707,9 +30714,10 @@ class GCAnimGraphNetworkSettings
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimGraphNetworkSettings(std::string ptr);
+    GCAnimGraphNetworkSettings(std::string ptr, lua_State* state);
     GCAnimGraphNetworkSettings(void *ptr);
 
     bool GetNetworkingEnabled() const;
@@ -29726,9 +30734,10 @@ class GCAimConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAimConstraint(std::string ptr);
+    GCAimConstraint(std::string ptr, lua_State* state);
     GCAimConstraint(void *ptr);
 
     uint32_t GetUpType() const;
@@ -29745,9 +30754,10 @@ class GCAnimActionUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimActionUpdater(std::string ptr);
+    GCAnimActionUpdater(std::string ptr, lua_State* state);
     GCAnimActionUpdater(void *ptr);
 
 
@@ -29761,9 +30771,10 @@ class GCParticleFunctionForce
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleFunctionForce(std::string ptr);
+    GCParticleFunctionForce(std::string ptr, lua_State* state);
     GCParticleFunctionForce(void *ptr);
 
     GCParticleFunction GetParent() const;
@@ -29778,9 +30789,10 @@ class GCSpinUpdateBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSpinUpdateBase(std::string ptr);
+    GCSpinUpdateBase(std::string ptr, lua_State* state);
     GCSpinUpdateBase(void *ptr);
 
     GCParticleFunctionOperator GetParent() const;
@@ -29795,9 +30807,10 @@ class GControlPointReference_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GControlPointReference_t(std::string ptr);
+    GControlPointReference_t(std::string ptr, lua_State* state);
     GControlPointReference_t(void *ptr);
 
     int32_t GetControlPointNameString() const;
@@ -29816,9 +30829,10 @@ class GCVoiceContainerRandomSampler
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerRandomSampler(std::string ptr);
+    GCVoiceContainerRandomSampler(std::string ptr, lua_State* state);
     GCVoiceContainerRandomSampler(void *ptr);
 
     float GetAmplitude() const;
@@ -29843,9 +30857,10 @@ class GFeFollowNode_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeFollowNode_t(std::string ptr);
+    GFeFollowNode_t(std::string ptr, lua_State* state);
     GFeFollowNode_t(void *ptr);
 
     uint16_t GetParentNode() const;
@@ -29864,9 +30879,10 @@ class GCovMatrix3
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCovMatrix3(std::string ptr);
+    GCovMatrix3(std::string ptr, lua_State* state);
     GCovMatrix3(void *ptr);
 
     Vector GetDiag() const;
@@ -29887,9 +30903,10 @@ class GAnimStateID
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimStateID(std::string ptr);
+    GAnimStateID(std::string ptr, lua_State* state);
     GAnimStateID(void *ptr);
 
     uint32_t GetId() const;
@@ -29904,9 +30921,10 @@ class GCVoiceContainerStaticAdditiveSynth
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerStaticAdditiveSynth(std::string ptr);
+    GCVoiceContainerStaticAdditiveSynth(std::string ptr, lua_State* state);
     GCVoiceContainerStaticAdditiveSynth(void *ptr);
 
     float GetMinVolume() const;
@@ -29927,9 +30945,10 @@ class GRnSoftbodyCapsule_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnSoftbodyCapsule_t(std::string ptr);
+    GRnSoftbodyCapsule_t(std::string ptr, lua_State* state);
     GRnSoftbodyCapsule_t(void *ptr);
 
     std::vector<Vector> GetCenter() const;
@@ -29948,9 +30967,10 @@ class GCModelConfigElement_RandomPick
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_RandomPick(std::string ptr);
+    GCModelConfigElement_RandomPick(std::string ptr, lua_State* state);
     GCModelConfigElement_RandomPick(void *ptr);
 
     std::vector<CUtlString> GetChoices() const;
@@ -29969,9 +30989,10 @@ class GNmSyncTrackTime_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GNmSyncTrackTime_t(std::string ptr);
+    GNmSyncTrackTime_t(std::string ptr, lua_State* state);
     GNmSyncTrackTime_t(void *ptr);
 
     int32_t GetEventIdx() const;
@@ -29988,9 +31009,10 @@ class GCGeneralRandomRotation
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGeneralRandomRotation(std::string ptr);
+    GCGeneralRandomRotation(std::string ptr, lua_State* state);
     GCGeneralRandomRotation(void *ptr);
 
     GParticleAttributeIndex_t GetFieldOutput() const;
@@ -30017,9 +31039,10 @@ class GRnPlane_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnPlane_t(std::string ptr);
+    GRnPlane_t(std::string ptr, lua_State* state);
     GRnPlane_t(void *ptr);
 
     Vector GetNormal() const;
@@ -30036,9 +31059,10 @@ class GFeNodeWindBase_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeNodeWindBase_t(std::string ptr);
+    GFeNodeWindBase_t(std::string ptr, lua_State* state);
     GFeNodeWindBase_t(void *ptr);
 
     uint16_t GetNodeX0() const;
@@ -30059,9 +31083,10 @@ class GCQuaternionAnimParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCQuaternionAnimParameter(std::string ptr);
+    GCQuaternionAnimParameter(std::string ptr, lua_State* state);
     GCQuaternionAnimParameter(void *ptr);
 
     bool GetInterpolate() const;
@@ -30078,9 +31103,10 @@ class GSkeletonAnimCapture_t__Camera_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSkeletonAnimCapture_t__Camera_t(std::string ptr);
+    GSkeletonAnimCapture_t__Camera_t(std::string ptr, lua_State* state);
     GSkeletonAnimCapture_t__Camera_t(void *ptr);
 
     float GetTime() const;
@@ -30095,9 +31121,10 @@ class GCAnimEncodeDifference
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimEncodeDifference(std::string ptr);
+    GCAnimEncodeDifference(std::string ptr, lua_State* state);
     GCAnimEncodeDifference(void *ptr);
 
     std::vector<GCAnimBoneDifference> GetBoneArray() const;
@@ -30124,9 +31151,10 @@ class GAggregateSceneObject_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAggregateSceneObject_t(std::string ptr);
+    GAggregateSceneObject_t(std::string ptr, lua_State* state);
     GAggregateSceneObject_t(void *ptr);
 
     uint64_t GetAllFlags() const;
@@ -30151,9 +31179,10 @@ class GIKDemoCaptureSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIKDemoCaptureSettings_t(std::string ptr);
+    GIKDemoCaptureSettings_t(std::string ptr, lua_State* state);
     GIKDemoCaptureSettings_t(void *ptr);
 
     std::string GetParentBoneName() const;
@@ -30176,9 +31205,10 @@ class GCParticleCollectionBindingInstance
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleCollectionBindingInstance(std::string ptr);
+    GCParticleCollectionBindingInstance(std::string ptr, lua_State* state);
     GCParticleCollectionBindingInstance(void *ptr);
 
 
@@ -30192,9 +31222,10 @@ class GCVoiceContainerDefault
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerDefault(std::string ptr);
+    GCVoiceContainerDefault(std::string ptr, lua_State* state);
     GCVoiceContainerDefault(void *ptr);
 
     GCVoiceContainerBase GetParent() const;
@@ -30209,9 +31240,10 @@ class GCSoundEventMetaData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundEventMetaData(std::string ptr);
+    GCSoundEventMetaData(std::string ptr, lua_State* state);
     GCSoundEventMetaData(void *ptr);
 
 
@@ -30225,9 +31257,10 @@ class GCMorphConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMorphConstraint(std::string ptr);
+    GCMorphConstraint(std::string ptr, lua_State* state);
     GCMorphConstraint(void *ptr);
 
     std::string GetTargetMorph() const;
@@ -30250,9 +31283,10 @@ class GDop26_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GDop26_t(std::string ptr);
+    GDop26_t(std::string ptr, lua_State* state);
     GDop26_t(void *ptr);
 
     std::vector<float> GetSupport() const;
@@ -30267,9 +31301,10 @@ class GCAnimGraphModelBinding
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimGraphModelBinding(std::string ptr);
+    GCAnimGraphModelBinding(std::string ptr, lua_State* state);
     GCAnimGraphModelBinding(void *ptr);
 
     std::string GetModelName() const;
@@ -30284,9 +31319,10 @@ class GFakeEntityDerivedA_tAPI
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFakeEntityDerivedA_tAPI(std::string ptr);
+    GFakeEntityDerivedA_tAPI(std::string ptr, lua_State* state);
     GFakeEntityDerivedA_tAPI(void *ptr);
 
 
@@ -30300,9 +31336,10 @@ class GCAnimParamHandleMap
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimParamHandleMap(std::string ptr);
+    GCAnimParamHandleMap(std::string ptr, lua_State* state);
     GCAnimParamHandleMap(void *ptr);
 
 
@@ -30316,9 +31353,10 @@ class GFeMorphLayerDepr_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeMorphLayerDepr_t(std::string ptr);
+    GFeMorphLayerDepr_t(std::string ptr, lua_State* state);
     GFeMorphLayerDepr_t(void *ptr);
 
     std::string GetName() const;
@@ -30347,9 +31385,10 @@ class GFourCovMatrices3
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFourCovMatrices3(std::string ptr);
+    GFourCovMatrices3(std::string ptr, lua_State* state);
     GFourCovMatrices3(void *ptr);
 
     float GetXY() const;
@@ -30368,9 +31407,10 @@ class GFeFitMatrix_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeFitMatrix_t(std::string ptr);
+    GFeFitMatrix_t(std::string ptr, lua_State* state);
     GFeFitMatrix_t(void *ptr);
 
     Vector GetCenter() const;
@@ -30391,9 +31431,10 @@ class GRnVertex_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnVertex_t(std::string ptr);
+    GRnVertex_t(std::string ptr, lua_State* state);
     GRnVertex_t(void *ptr);
 
     uint32_t GetEdge() const;
@@ -30408,9 +31449,10 @@ class GTraceSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GTraceSettings_t(std::string ptr);
+    GTraceSettings_t(std::string ptr, lua_State* state);
     GTraceSettings_t(void *ptr);
 
     float GetTraceHeight() const;
@@ -30427,9 +31469,10 @@ class GCConstraintTarget
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCConstraintTarget(std::string ptr);
+    GCConstraintTarget(std::string ptr, lua_State* state);
     GCConstraintTarget(void *ptr);
 
     Vector GetOffset() const;
@@ -30452,9 +31495,10 @@ class GCompMatPropertyMutator_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCompMatPropertyMutator_t(std::string ptr);
+    GCompMatPropertyMutator_t(std::string ptr, lua_State* state);
     GCompMatPropertyMutator_t(void *ptr);
 
     bool GetEnabled() const;
@@ -30523,9 +31567,10 @@ class GIKBoneNameAndIndex_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIKBoneNameAndIndex_t(std::string ptr);
+    GIKBoneNameAndIndex_t(std::string ptr, lua_State* state);
     GIKBoneNameAndIndex_t(void *ptr);
 
     std::string GetName() const;
@@ -30540,9 +31585,10 @@ class GPermEntityLumpData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPermEntityLumpData_t(std::string ptr);
+    GPermEntityLumpData_t(std::string ptr, lua_State* state);
     GPermEntityLumpData_t(void *ptr);
 
     std::string GetName() const;
@@ -30557,9 +31603,10 @@ class GVMixDelayDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixDelayDesc_t(std::string ptr);
+    GVMixDelayDesc_t(std::string ptr, lua_State* state);
     GVMixDelayDesc_t(void *ptr);
 
     GVMixFilterDesc_t GetFeedbackFilter() const;
@@ -30586,9 +31633,10 @@ class GCBoneConstraintDotToMorph
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBoneConstraintDotToMorph(std::string ptr);
+    GCBoneConstraintDotToMorph(std::string ptr, lua_State* state);
     GCBoneConstraintDotToMorph(void *ptr);
 
     std::string GetBoneName() const;
@@ -30611,9 +31659,10 @@ class GPostProcessingBloomParameters_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPostProcessingBloomParameters_t(std::string ptr);
+    GPostProcessingBloomParameters_t(std::string ptr, lua_State* state);
     GPostProcessingBloomParameters_t(void *ptr);
 
     uint64_t GetBlendMode() const;
@@ -30646,9 +31695,10 @@ class GEntOutput_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEntOutput_t(std::string ptr);
+    GEntOutput_t(std::string ptr, lua_State* state);
     GEntOutput_t(void *ptr);
 
 
@@ -30662,9 +31712,10 @@ class GFakeEntityDerivedB_tAPI
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFakeEntityDerivedB_tAPI(std::string ptr);
+    GFakeEntityDerivedB_tAPI(std::string ptr, lua_State* state);
     GFakeEntityDerivedB_tAPI(void *ptr);
 
 
@@ -30678,9 +31729,10 @@ class GCSlopeComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSlopeComponentUpdater(std::string ptr);
+    GCSlopeComponentUpdater(std::string ptr, lua_State* state);
     GCSlopeComponentUpdater(void *ptr);
 
     float GetTraceDistance() const;
@@ -30709,9 +31761,10 @@ class GRnNode_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnNode_t(std::string ptr);
+    GRnNode_t(std::string ptr, lua_State* state);
     GRnNode_t(void *ptr);
 
     Vector GetMin() const;
@@ -30732,9 +31785,10 @@ class GCSeqCmdSeqDesc
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqCmdSeqDesc(std::string ptr);
+    GCSeqCmdSeqDesc(std::string ptr, lua_State* state);
     GCSeqCmdSeqDesc(void *ptr);
 
     GCSeqSeqDescFlag GetFlags() const;
@@ -30769,9 +31823,10 @@ class GCPathAnimMotorUpdaterBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathAnimMotorUpdaterBase(std::string ptr);
+    GCPathAnimMotorUpdaterBase(std::string ptr, lua_State* state);
     GCPathAnimMotorUpdaterBase(void *ptr);
 
     bool GetLockToPath() const;
@@ -30788,9 +31843,10 @@ class GCVariantDefaultAllocator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVariantDefaultAllocator(std::string ptr);
+    GCVariantDefaultAllocator(std::string ptr, lua_State* state);
     GCVariantDefaultAllocator(void *ptr);
 
 
@@ -30804,9 +31860,10 @@ class GVMixOscDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixOscDesc_t(std::string ptr);
+    GVMixOscDesc_t(std::string ptr, lua_State* state);
     GVMixOscDesc_t(void *ptr);
 
     uint64_t GetOscType() const;
@@ -30825,9 +31882,10 @@ class GFeEdgeDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeEdgeDesc_t(std::string ptr);
+    GFeEdgeDesc_t(std::string ptr, lua_State* state);
     GFeEdgeDesc_t(void *ptr);
 
     std::vector<uint16_t> GetEdge() const;
@@ -30844,9 +31902,10 @@ class GCPathAnimMotorUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathAnimMotorUpdater(std::string ptr);
+    GCPathAnimMotorUpdater(std::string ptr, lua_State* state);
     GCPathAnimMotorUpdater(void *ptr);
 
     GCPathAnimMotorUpdaterBase GetParent() const;
@@ -30861,9 +31920,10 @@ class GCWayPointHelperUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCWayPointHelperUpdateNode(std::string ptr);
+    GCWayPointHelperUpdateNode(std::string ptr, lua_State* state);
     GCWayPointHelperUpdateNode(void *ptr);
 
     float GetStartCycle() const;
@@ -30888,9 +31948,10 @@ class GMaterialParamInt_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialParamInt_t(std::string ptr);
+    GMaterialParamInt_t(std::string ptr, lua_State* state);
     GMaterialParamInt_t(void *ptr);
 
     int32_t GetValue() const;
@@ -30907,9 +31968,10 @@ class GPermModelInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPermModelInfo_t(std::string ptr);
+    GPermModelInfo_t(std::string ptr, lua_State* state);
     GPermModelInfo_t(void *ptr);
 
     uint32_t GetFlags() const;
@@ -30942,9 +32004,10 @@ class GAnimScriptHandle
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimScriptHandle(std::string ptr);
+    GAnimScriptHandle(std::string ptr, lua_State* state);
     GAnimScriptHandle(void *ptr);
 
     uint32_t GetId() const;
@@ -30959,9 +32022,10 @@ class GFeCtrlOffset_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeCtrlOffset_t(std::string ptr);
+    GFeCtrlOffset_t(std::string ptr, lua_State* state);
     GFeCtrlOffset_t(void *ptr);
 
     Vector GetOffset() const;
@@ -30980,9 +32044,10 @@ class GFeTri_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeTri_t(std::string ptr);
+    GFeTri_t(std::string ptr, lua_State* state);
     GFeTri_t(void *ptr);
 
     std::vector<uint16_t> GetNode() const;
@@ -31005,9 +32070,10 @@ class GCLeanMatrixUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLeanMatrixUpdateNode(std::string ptr);
+    GCLeanMatrixUpdateNode(std::string ptr, lua_State* state);
     GCLeanMatrixUpdateNode(void *ptr);
 
     std::vector<GCPoseHandle> GetPoses() const;
@@ -31038,9 +32104,10 @@ class GCStanceScaleUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStanceScaleUpdateNode(std::string ptr);
+    GCStanceScaleUpdateNode(std::string ptr, lua_State* state);
     GCStanceScaleUpdateNode(void *ptr);
 
     GCAnimParamHandle GetParam() const;
@@ -31057,9 +32124,10 @@ class GIKTargetSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIKTargetSettings_t(std::string ptr);
+    GIKTargetSettings_t(std::string ptr, lua_State* state);
     GIKTargetSettings_t(void *ptr);
 
     uint64_t GetTargetSource() const;
@@ -31082,9 +32150,10 @@ class GTestResource_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GTestResource_t(std::string ptr);
+    GTestResource_t(std::string ptr, lua_State* state);
     GTestResource_t(void *ptr);
 
     std::string GetName() const;
@@ -31099,9 +32168,10 @@ class GCBaseRendererSource2
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseRendererSource2(std::string ptr);
+    GCBaseRendererSource2(std::string ptr, lua_State* state);
     GCBaseRendererSource2(void *ptr);
 
     GCParticleCollectionRendererFloatInput GetRadiusScale() const;
@@ -31240,9 +32310,10 @@ class GCSSDSMsg_ViewRender
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSSDSMsg_ViewRender(std::string ptr);
+    GCSSDSMsg_ViewRender(std::string ptr, lua_State* state);
     GCSSDSMsg_ViewRender(void *ptr);
 
     GSceneViewId_t GetViewId() const;
@@ -31259,9 +32330,10 @@ class GCZeroPoseUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCZeroPoseUpdateNode(std::string ptr);
+    GCZeroPoseUpdateNode(std::string ptr, lua_State* state);
     GCZeroPoseUpdateNode(void *ptr);
 
     GCLeafUpdateNode GetParent() const;
@@ -31276,9 +32348,10 @@ class GFeFitWeight_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeFitWeight_t(std::string ptr);
+    GFeFitWeight_t(std::string ptr, lua_State* state);
     GFeFitWeight_t(void *ptr);
 
     float GetWeight() const;
@@ -31297,9 +32370,10 @@ class GCFootCycleMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootCycleMetricEvaluator(std::string ptr);
+    GCFootCycleMetricEvaluator(std::string ptr, lua_State* state);
     GCFootCycleMetricEvaluator(void *ptr);
 
     std::vector<int32> GetFootIndices() const;
@@ -31316,9 +32390,10 @@ class GCFootPositionMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootPositionMetricEvaluator(std::string ptr);
+    GCFootPositionMetricEvaluator(std::string ptr, lua_State* state);
     GCFootPositionMetricEvaluator(void *ptr);
 
     std::vector<int32> GetFootIndices() const;
@@ -31337,9 +32412,10 @@ class GCFlexOp
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFlexOp(std::string ptr);
+    GCFlexOp(std::string ptr, lua_State* state);
     GCFlexOp(void *ptr);
 
     uint64_t GetOpCode() const;
@@ -31356,9 +32432,10 @@ class GCPointConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPointConstraint(std::string ptr);
+    GCPointConstraint(std::string ptr, lua_State* state);
     GCPointConstraint(void *ptr);
 
     GCBaseConstraint GetParent() const;
@@ -31373,9 +32450,10 @@ class GMotionBlendItem
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMotionBlendItem(std::string ptr);
+    GMotionBlendItem(std::string ptr, lua_State* state);
     GMotionBlendItem(void *ptr);
 
     float GetKeyValue() const;
@@ -31390,9 +32468,10 @@ class GCVectorQuantizer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVectorQuantizer(std::string ptr);
+    GCVectorQuantizer(std::string ptr, lua_State* state);
     GCVectorQuantizer(void *ptr);
 
     std::vector<float32> GetCentroidVectors() const;
@@ -31411,9 +32490,10 @@ class GSignatureOutflow_Resume
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSignatureOutflow_Resume(std::string ptr);
+    GSignatureOutflow_Resume(std::string ptr, lua_State* state);
     GSignatureOutflow_Resume(void *ptr);
 
 
@@ -31427,9 +32507,10 @@ class GFeBoxRigid_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeBoxRigid_t(std::string ptr);
+    GFeBoxRigid_t(std::string ptr, lua_State* state);
     GFeBoxRigid_t(void *ptr);
 
     uint16_t GetNode() const;
@@ -31452,9 +32533,10 @@ class GCIntAnimParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCIntAnimParameter(std::string ptr);
+    GCIntAnimParameter(std::string ptr, lua_State* state);
     GCIntAnimParameter(void *ptr);
 
     int32_t GetDefaultValue() const;
@@ -31475,9 +32557,10 @@ class GCNmTargetValueNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmTargetValueNode(std::string ptr);
+    GCNmTargetValueNode(std::string ptr, lua_State* state);
     GCNmTargetValueNode(void *ptr);
 
     GCNmValueNode GetParent() const;
@@ -31492,9 +32575,10 @@ class GEventSimpleLoopFrameUpdate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventSimpleLoopFrameUpdate_t(std::string ptr);
+    GEventSimpleLoopFrameUpdate_t(std::string ptr, lua_State* state);
     GEventSimpleLoopFrameUpdate_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -31513,9 +32597,10 @@ class GEventServerAdvanceTick_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventServerAdvanceTick_t(std::string ptr);
+    GEventServerAdvanceTick_t(std::string ptr, lua_State* state);
     GEventServerAdvanceTick_t(void *ptr);
 
     GEventAdvanceTick_t GetParent() const;
@@ -31530,9 +32615,10 @@ class GTimedEvent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GTimedEvent(std::string ptr);
+    GTimedEvent(std::string ptr, lua_State* state);
     GTimedEvent(void *ptr);
 
     float GetTimeBetweenEvents() const;
@@ -31549,9 +32635,10 @@ class GTextureGroup_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GTextureGroup_t(std::string ptr);
+    GTextureGroup_t(std::string ptr, lua_State* state);
     GTextureGroup_t(void *ptr);
 
     bool GetEnabled() const;
@@ -31578,9 +32665,10 @@ class GCSosGroupActionSoundeventPrioritySchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupActionSoundeventPrioritySchema(std::string ptr);
+    GCSosGroupActionSoundeventPrioritySchema(std::string ptr, lua_State* state);
     GCSosGroupActionSoundeventPrioritySchema(void *ptr);
 
     std::string GetPriorityValue() const;
@@ -31603,9 +32691,10 @@ class GCBonePositionMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBonePositionMetricEvaluator(std::string ptr);
+    GCBonePositionMetricEvaluator(std::string ptr, lua_State* state);
     GCBonePositionMetricEvaluator(void *ptr);
 
     int32_t GetBoneIndex() const;
@@ -31622,9 +32711,10 @@ class GCPhysSurfacePropertiesAudio
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysSurfacePropertiesAudio(std::string ptr);
+    GCPhysSurfacePropertiesAudio(std::string ptr, lua_State* state);
     GCPhysSurfacePropertiesAudio(void *ptr);
 
     float GetReflectivity() const;
@@ -31653,9 +32743,10 @@ class GCNmIDValueNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmIDValueNode(std::string ptr);
+    GCNmIDValueNode(std::string ptr, lua_State* state);
     GCNmIDValueNode(void *ptr);
 
     GCNmValueNode GetParent() const;
@@ -31670,9 +32761,10 @@ class GFeSimdNodeBase_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSimdNodeBase_t(std::string ptr);
+    GFeSimdNodeBase_t(std::string ptr, lua_State* state);
     GFeSimdNodeBase_t(void *ptr);
 
     std::vector<uint16_t> GetNode() const;
@@ -31697,9 +32789,10 @@ class GPermModelExtPart_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPermModelExtPart_t(std::string ptr);
+    GPermModelExtPart_t(std::string ptr, lua_State* state);
     GPermModelExtPart_t(void *ptr);
 
     std::string GetName() const;
@@ -31716,9 +32809,10 @@ class GCCurrentRotationVelocityMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCurrentRotationVelocityMetricEvaluator(std::string ptr);
+    GCCurrentRotationVelocityMetricEvaluator(std::string ptr, lua_State* state);
     GCCurrentRotationVelocityMetricEvaluator(void *ptr);
 
     GCMotionMetricEvaluator GetParent() const;
@@ -31733,9 +32827,10 @@ class GCAnimEventDefinition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimEventDefinition(std::string ptr);
+    GCAnimEventDefinition(std::string ptr, lua_State* state);
     GCAnimEventDefinition(void *ptr);
 
     int32_t GetFrame() const;
@@ -31756,9 +32851,10 @@ class GCAnimEnum
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimEnum(std::string ptr);
+    GCAnimEnum(std::string ptr, lua_State* state);
     GCAnimEnum(void *ptr);
 
     uint32_t GetValue() const;
@@ -31773,9 +32869,10 @@ class GCAnimFrameBlockAnim
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimFrameBlockAnim(std::string ptr);
+    GCAnimFrameBlockAnim(std::string ptr, lua_State* state);
     GCAnimFrameBlockAnim(void *ptr);
 
     int32_t GetStartFrame() const;
@@ -31794,9 +32891,10 @@ class GCNmVirtualParameterIDNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmVirtualParameterIDNode(std::string ptr);
+    GCNmVirtualParameterIDNode(std::string ptr, lua_State* state);
     GCNmVirtualParameterIDNode(void *ptr);
 
     int16_t GetChildNodeIdx() const;
@@ -31813,9 +32911,10 @@ class GCFlashlightEffect
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFlashlightEffect(std::string ptr);
+    GCFlashlightEffect(std::string ptr, lua_State* state);
     GCFlashlightEffect(void *ptr);
 
     bool GetIsOn() const;
@@ -31848,9 +32947,10 @@ class GFeBuildSphereRigid_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeBuildSphereRigid_t(std::string ptr);
+    GFeBuildSphereRigid_t(std::string ptr, lua_State* state);
     GFeBuildSphereRigid_t(void *ptr);
 
     int32_t GetPriority() const;
@@ -31869,9 +32969,10 @@ class GCAnimEncodedFrames
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimEncodedFrames(std::string ptr);
+    GCAnimEncodedFrames(std::string ptr, lua_State* state);
     GCAnimEncodedFrames(void *ptr);
 
     int32_t GetFrames() const;
@@ -31892,9 +32993,10 @@ class GEventSetTime_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventSetTime_t(std::string ptr);
+    GEventSetTime_t(std::string ptr, lua_State* state);
     GEventSetTime_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -31923,9 +33025,10 @@ class GOldFeEdge_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GOldFeEdge_t(std::string ptr);
+    GOldFeEdge_t(std::string ptr, lua_State* state);
     GOldFeEdge_t(void *ptr);
 
     std::vector<float> GetK() const;
@@ -31962,9 +33065,10 @@ class GCStanceOverrideUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStanceOverrideUpdateNode(std::string ptr);
+    GCStanceOverrideUpdateNode(std::string ptr, lua_State* state);
     GCStanceOverrideUpdateNode(void *ptr);
 
     std::vector<GStanceInfo_t> GetFootStanceInfo() const;
@@ -31987,9 +33091,10 @@ class Gconstraint_breakableparams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gconstraint_breakableparams_t(std::string ptr);
+    Gconstraint_breakableparams_t(std::string ptr, lua_State* state);
     Gconstraint_breakableparams_t(void *ptr);
 
     float GetStrength() const;
@@ -32012,9 +33117,10 @@ class GCStateNodeTransitionData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStateNodeTransitionData(std::string ptr);
+    GCStateNodeTransitionData(std::string ptr, lua_State* state);
     GCStateNodeTransitionData(void *ptr);
 
     GCBlendCurve GetCurve() const;
@@ -32029,9 +33135,10 @@ class GCMotionMatchingUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionMatchingUpdateNode(std::string ptr);
+    GCMotionMatchingUpdateNode(std::string ptr, lua_State* state);
     GCMotionMatchingUpdateNode(void *ptr);
 
     GCMotionDataSet GetDataSet() const;
@@ -32090,9 +33197,10 @@ class GCNmSyncTrack__Event_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmSyncTrack__Event_t(std::string ptr);
+    GCNmSyncTrack__Event_t(std::string ptr, lua_State* state);
     GCNmSyncTrack__Event_t(void *ptr);
 
     GNmPercent_t GetStartTime() const;
@@ -32109,9 +33217,10 @@ class GEventSplitScreenStateChanged_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventSplitScreenStateChanged_t(std::string ptr);
+    GEventSplitScreenStateChanged_t(std::string ptr, lua_State* state);
     GEventSplitScreenStateChanged_t(void *ptr);
 
 
@@ -32125,9 +33234,10 @@ class GParticleNamedValueSource_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParticleNamedValueSource_t(std::string ptr);
+    GParticleNamedValueSource_t(std::string ptr, lua_State* state);
     GParticleNamedValueSource_t(void *ptr);
 
     std::string GetName() const;
@@ -32150,9 +33260,10 @@ class GMaterialParamBuffer_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialParamBuffer_t(std::string ptr);
+    GMaterialParamBuffer_t(std::string ptr, lua_State* state);
     GMaterialParamBuffer_t(void *ptr);
 
     GMaterialParam_t GetParent() const;
@@ -32167,9 +33278,10 @@ class GEventPostDataUpdate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventPostDataUpdate_t(std::string ptr);
+    GEventPostDataUpdate_t(std::string ptr, lua_State* state);
     GEventPostDataUpdate_t(void *ptr);
 
     int32_t GetCount() const;
@@ -32184,9 +33296,10 @@ class GRenderProjectedMaterial_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRenderProjectedMaterial_t(std::string ptr);
+    GRenderProjectedMaterial_t(std::string ptr, lua_State* state);
     GRenderProjectedMaterial_t(void *ptr);
 
 
@@ -32200,9 +33313,10 @@ class GCSSDSMsg_ViewTargetList
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSSDSMsg_ViewTargetList(std::string ptr);
+    GCSSDSMsg_ViewTargetList(std::string ptr, lua_State* state);
     GCSSDSMsg_ViewTargetList(void *ptr);
 
     GSceneViewId_t GetViewId() const;
@@ -32221,9 +33335,10 @@ class GFeSimdAnimStrayRadius_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSimdAnimStrayRadius_t(std::string ptr);
+    GFeSimdAnimStrayRadius_t(std::string ptr, lua_State* state);
     GFeSimdAnimStrayRadius_t(void *ptr);
 
     float GetMaxDist() const;
@@ -32240,9 +33355,10 @@ class GCAnimUser
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimUser(std::string ptr);
+    GCAnimUser(std::string ptr, lua_State* state);
     GCAnimUser(void *ptr);
 
     int32_t GetType() const;
@@ -32257,9 +33373,10 @@ class GFeSpringIntegrator_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSpringIntegrator_t(std::string ptr);
+    GFeSpringIntegrator_t(std::string ptr, lua_State* state);
     GFeSpringIntegrator_t(void *ptr);
 
     std::vector<uint16_t> GetNode() const;
@@ -32282,9 +33399,10 @@ class GCModelConfigElement_UserPick
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_UserPick(std::string ptr);
+    GCModelConfigElement_UserPick(std::string ptr, lua_State* state);
     GCModelConfigElement_UserPick(void *ptr);
 
     std::vector<CUtlString> GetChoices() const;
@@ -32301,9 +33419,10 @@ class GRenderSkeletonBone_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRenderSkeletonBone_t(std::string ptr);
+    GRenderSkeletonBone_t(std::string ptr, lua_State* state);
     GRenderSkeletonBone_t(void *ptr);
 
     std::string GetBoneName() const;
@@ -32324,9 +33443,10 @@ class GAnimationDecodeDebugDump_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimationDecodeDebugDump_t(std::string ptr);
+    GAnimationDecodeDebugDump_t(std::string ptr, lua_State* state);
     GAnimationDecodeDebugDump_t(void *ptr);
 
     uint64_t GetProcessingType() const;
@@ -32343,9 +33463,10 @@ class GPARTICLE_EHANDLE__
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPARTICLE_EHANDLE__(std::string ptr);
+    GPARTICLE_EHANDLE__(std::string ptr, lua_State* state);
     GPARTICLE_EHANDLE__(void *ptr);
 
     int32_t GetUnused() const;
@@ -32360,9 +33481,10 @@ class GFeCollisionPlane_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeCollisionPlane_t(std::string ptr);
+    GFeCollisionPlane_t(std::string ptr, lua_State* state);
     GFeCollisionPlane_t(void *ptr);
 
     uint16_t GetCtrlParent() const;
@@ -32383,9 +33505,10 @@ class GCAnimCycle
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimCycle(std::string ptr);
+    GCAnimCycle(std::string ptr, lua_State* state);
     GCAnimCycle(void *ptr);
 
     GCCycleBase GetParent() const;
@@ -32400,9 +33523,10 @@ class GCNmSyncTrack__EventMarker_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmSyncTrack__EventMarker_t(std::string ptr);
+    GCNmSyncTrack__EventMarker_t(std::string ptr, lua_State* state);
     GCNmSyncTrack__EventMarker_t(void *ptr);
 
     GNmPercent_t GetStartTime() const;
@@ -32417,9 +33541,10 @@ class GCAnimGraphSettingsManager
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimGraphSettingsManager(std::string ptr);
+    GCAnimGraphSettingsManager(std::string ptr, lua_State* state);
     GCAnimGraphSettingsManager(void *ptr);
 
 
@@ -32433,9 +33558,10 @@ class GCRagdollUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRagdollUpdateNode(std::string ptr);
+    GCRagdollUpdateNode(std::string ptr, lua_State* state);
     GCRagdollUpdateNode(void *ptr);
 
     int32_t GetWeightListIndex() const;
@@ -32454,9 +33580,10 @@ class GCEntityComponentHelper
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEntityComponentHelper(std::string ptr);
+    GCEntityComponentHelper(std::string ptr, lua_State* state);
     GCEntityComponentHelper(void *ptr);
 
     uint32_t GetFlags() const;
@@ -32477,9 +33604,10 @@ class GCompositeMaterial_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCompositeMaterial_t(std::string ptr);
+    GCompositeMaterial_t(std::string ptr, lua_State* state);
     GCompositeMaterial_t(void *ptr);
 
     std::vector<GGeneratedTextureHandle_t> GetGeneratedTextures() const;
@@ -32494,9 +33622,10 @@ class GSignatureOutflow_Continue
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSignatureOutflow_Continue(std::string ptr);
+    GSignatureOutflow_Continue(std::string ptr, lua_State* state);
     GSignatureOutflow_Continue(void *ptr);
 
 
@@ -32510,9 +33639,10 @@ class GWeightList
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GWeightList(std::string ptr);
+    GWeightList(std::string ptr, lua_State* state);
     GWeightList(void *ptr);
 
     std::string GetName() const;
@@ -32529,9 +33659,10 @@ class GRnBodyDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnBodyDesc_t(std::string ptr);
+    GRnBodyDesc_t(std::string ptr, lua_State* state);
     GRnBodyDesc_t(void *ptr);
 
     std::string GetDebugName() const;
@@ -32612,9 +33743,10 @@ class GCFeMorphLayer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFeMorphLayer(std::string ptr);
+    GCFeMorphLayer(std::string ptr, lua_State* state);
     GCFeMorphLayer(void *ptr);
 
     std::string GetName() const;
@@ -32641,9 +33773,10 @@ class GAnimNodeOutputID
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimNodeOutputID(std::string ptr);
+    GAnimNodeOutputID(std::string ptr, lua_State* state);
     GAnimNodeOutputID(void *ptr);
 
     uint32_t GetId() const;
@@ -32658,9 +33791,10 @@ class GEventClientSceneSystemThreadStateChange_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientSceneSystemThreadStateChange_t(std::string ptr);
+    GEventClientSceneSystemThreadStateChange_t(std::string ptr, lua_State* state);
     GEventClientSceneSystemThreadStateChange_t(void *ptr);
 
     bool GetThreadsActive() const;
@@ -32675,9 +33809,10 @@ class GEventClientPreSimulate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientPreSimulate_t(std::string ptr);
+    GEventClientPreSimulate_t(std::string ptr, lua_State* state);
     GEventClientPreSimulate_t(void *ptr);
 
     GEventSimulate_t GetParent() const;
@@ -32692,9 +33827,10 @@ class GClutterSceneObject_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GClutterSceneObject_t(std::string ptr);
+    GClutterSceneObject_t(std::string ptr, lua_State* state);
     GClutterSceneObject_t(void *ptr);
 
     GAABB_t GetBounds() const;
@@ -32721,9 +33857,10 @@ class GCPoseHandle
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPoseHandle(std::string ptr);
+    GCPoseHandle(std::string ptr, lua_State* state);
     GCPoseHandle(void *ptr);
 
     uint16_t GetIndex() const;
@@ -32740,9 +33877,10 @@ class GCAnimScriptBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimScriptBase(std::string ptr);
+    GCAnimScriptBase(std::string ptr, lua_State* state);
     GCAnimScriptBase(void *ptr);
 
     bool GetIsValid() const;
@@ -32757,9 +33895,10 @@ class GCVoiceContainerBlender
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerBlender(std::string ptr);
+    GCVoiceContainerBlender(std::string ptr, lua_State* state);
     GCVoiceContainerBlender(void *ptr);
 
     float GetBlendFactor() const;
@@ -32776,9 +33915,10 @@ class Gvphysics_save_cphysicsbody_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gvphysics_save_cphysicsbody_t(std::string ptr);
+    Gvphysics_save_cphysicsbody_t(std::string ptr, lua_State* state);
     Gvphysics_save_cphysicsbody_t(void *ptr);
 
     uint64_t GetOldPointer() const;
@@ -32795,9 +33935,10 @@ class GCRagdollAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRagdollAnimTag(std::string ptr);
+    GCRagdollAnimTag(std::string ptr, lua_State* state);
     GCRagdollAnimTag(void *ptr);
 
     uint64_t GetPoseControl() const;
@@ -32824,9 +33965,10 @@ class GIClientAlphaProperty
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIClientAlphaProperty(std::string ptr);
+    GIClientAlphaProperty(std::string ptr, lua_State* state);
     GIClientAlphaProperty(void *ptr);
 
 
@@ -32840,9 +33982,10 @@ class GPermModelData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPermModelData_t(std::string ptr);
+    GPermModelData_t(std::string ptr, lua_State* state);
     GPermModelData_t(void *ptr);
 
     std::string GetName() const;
@@ -32889,9 +34032,10 @@ class GFootFixedSettings
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFootFixedSettings(std::string ptr);
+    GFootFixedSettings(std::string ptr, lua_State* state);
     GFootFixedSettings(void *ptr);
 
     GTraceSettings_t GetTraceSettings() const;
@@ -32924,9 +34068,10 @@ class GCSolveIKTargetHandle_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSolveIKTargetHandle_t(std::string ptr);
+    GCSolveIKTargetHandle_t(std::string ptr, lua_State* state);
     GCSolveIKTargetHandle_t(void *ptr);
 
     GCAnimParamHandle GetPositionHandle() const;
@@ -32943,9 +34088,10 @@ class GCBlendUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBlendUpdateNode(std::string ptr);
+    GCBlendUpdateNode(std::string ptr, lua_State* state);
     GCBlendUpdateNode(void *ptr);
 
     std::vector<GCAnimUpdateNodeRef> GetChildren() const;
@@ -32982,9 +34128,10 @@ class GCAnimationGraphVisualizerSphere
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimationGraphVisualizerSphere(std::string ptr);
+    GCAnimationGraphVisualizerSphere(std::string ptr, lua_State* state);
     GCAnimationGraphVisualizerSphere(void *ptr);
 
     Vector GetWsPosition() const;
@@ -33005,9 +34152,10 @@ class GMaterialParamFloat_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialParamFloat_t(std::string ptr);
+    GMaterialParamFloat_t(std::string ptr, lua_State* state);
     GMaterialParamFloat_t(void *ptr);
 
     float GetValue() const;
@@ -33024,9 +34172,10 @@ class GEventServerSimulate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventServerSimulate_t(std::string ptr);
+    GEventServerSimulate_t(std::string ptr, lua_State* state);
     GEventServerSimulate_t(void *ptr);
 
     GEventSimulate_t GetParent() const;
@@ -33041,9 +34190,10 @@ class GCVoiceContainerEnvelopeAnalyzer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerEnvelopeAnalyzer(std::string ptr);
+    GCVoiceContainerEnvelopeAnalyzer(std::string ptr, lua_State* state);
     GCVoiceContainerEnvelopeAnalyzer(void *ptr);
 
     uint64_t GetMode() const;
@@ -33064,9 +34214,10 @@ class GFollowAttachmentSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFollowAttachmentSettings_t(std::string ptr);
+    GFollowAttachmentSettings_t(std::string ptr, lua_State* state);
     GFollowAttachmentSettings_t(void *ptr);
 
     GCAnimAttachment GetAttachment() const;
@@ -33087,9 +34238,10 @@ class GJiggleBoneSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GJiggleBoneSettings_t(std::string ptr);
+    GJiggleBoneSettings_t(std::string ptr, lua_State* state);
     GJiggleBoneSettings_t(void *ptr);
 
     int32_t GetBoneIndex() const;
@@ -33116,9 +34268,10 @@ class GCAnimStateMachineUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimStateMachineUpdater(std::string ptr);
+    GCAnimStateMachineUpdater(std::string ptr, lua_State* state);
     GCAnimStateMachineUpdater(void *ptr);
 
     std::vector<GCStateUpdateData> GetStates() const;
@@ -33137,9 +34290,10 @@ class GCNmControlParameterFloatNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmControlParameterFloatNode(std::string ptr);
+    GCNmControlParameterFloatNode(std::string ptr, lua_State* state);
     GCNmControlParameterFloatNode(void *ptr);
 
     GCNmFloatValueNode GetParent() const;
@@ -33154,9 +34308,10 @@ class GCSeqCmdLayer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqCmdLayer(std::string ptr);
+    GCSeqCmdLayer(std::string ptr, lua_State* state);
     GCSeqCmdLayer(void *ptr);
 
     int16_t GetCmd() const;
@@ -33187,9 +34342,10 @@ class GCAnimScriptComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimScriptComponentUpdater(std::string ptr);
+    GCAnimScriptComponentUpdater(std::string ptr, lua_State* state);
     GCAnimScriptComponentUpdater(void *ptr);
 
     GAnimScriptHandle GetScript() const;
@@ -33206,9 +34362,10 @@ class GFeRigidColliderIndices_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeRigidColliderIndices_t(std::string ptr);
+    GFeRigidColliderIndices_t(std::string ptr, lua_State* state);
     GFeRigidColliderIndices_t(void *ptr);
 
     uint16_t GetTaperedCapsuleRigidIndex() const;
@@ -33229,9 +34386,10 @@ class GCSeqAutoLayer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqAutoLayer(std::string ptr);
+    GCSeqAutoLayer(std::string ptr, lua_State* state);
     GCSeqAutoLayer(void *ptr);
 
     int16_t GetLocalReference() const;
@@ -33258,9 +34416,10 @@ class GBakedLightingInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GBakedLightingInfo_t(std::string ptr);
+    GBakedLightingInfo_t(std::string ptr, lua_State* state);
     GBakedLightingInfo_t(void *ptr);
 
     uint32_t GetLightmapVersionNumber() const;
@@ -33289,9 +34448,10 @@ class GCExampleSchemaVData_PolymorphicBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCExampleSchemaVData_PolymorphicBase(std::string ptr);
+    GCExampleSchemaVData_PolymorphicBase(std::string ptr, lua_State* state);
     GCExampleSchemaVData_PolymorphicBase(void *ptr);
 
     int32_t GetBase() const;
@@ -33306,9 +34466,10 @@ class GFourVectors2D
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFourVectors2D(std::string ptr);
+    GFourVectors2D(std::string ptr, lua_State* state);
     GFourVectors2D(void *ptr);
 
     float GetX() const;
@@ -33325,9 +34486,10 @@ class GCOrientConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCOrientConstraint(std::string ptr);
+    GCOrientConstraint(std::string ptr, lua_State* state);
     GCOrientConstraint(void *ptr);
 
     GCBaseConstraint GetParent() const;
@@ -33342,9 +34504,10 @@ class GSequenceWeightedList_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSequenceWeightedList_t(std::string ptr);
+    GSequenceWeightedList_t(std::string ptr, lua_State* state);
     GSequenceWeightedList_t(void *ptr);
 
     int32_t GetSequence() const;
@@ -33361,9 +34524,10 @@ class GCSosGroupActionMemberCountEnvelopeSchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupActionMemberCountEnvelopeSchema(std::string ptr);
+    GCSosGroupActionMemberCountEnvelopeSchema(std::string ptr, lua_State* state);
     GCSosGroupActionMemberCountEnvelopeSchema(void *ptr);
 
     int32_t GetBaseCount() const;
@@ -33394,9 +34558,10 @@ class GFeRodConstraint_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeRodConstraint_t(std::string ptr);
+    GFeRodConstraint_t(std::string ptr, lua_State* state);
     GFeRodConstraint_t(void *ptr);
 
     std::vector<uint16_t> GetNode() const;
@@ -33419,9 +34584,10 @@ class GFollowTargetOpFixedSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFollowTargetOpFixedSettings_t(std::string ptr);
+    GFollowTargetOpFixedSettings_t(std::string ptr, lua_State* state);
     GFollowTargetOpFixedSettings_t(void *ptr);
 
     int32_t GetBoneIndex() const;
@@ -33444,9 +34610,10 @@ class GCRenderSkeleton
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRenderSkeleton(std::string ptr);
+    GCRenderSkeleton(std::string ptr, lua_State* state);
     GCRenderSkeleton(void *ptr);
 
     std::vector<GRenderSkeletonBone_t> GetBones() const;
@@ -33465,9 +34632,10 @@ class GVMixConvolutionDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixConvolutionDesc_t(std::string ptr);
+    GVMixConvolutionDesc_t(std::string ptr, lua_State* state);
     GVMixConvolutionDesc_t(void *ptr);
 
     float GetFldbGain() const;
@@ -33496,9 +34664,10 @@ class GCSosGroupBranchPattern
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupBranchPattern(std::string ptr);
+    GCSosGroupBranchPattern(std::string ptr, lua_State* state);
     GCSosGroupBranchPattern(void *ptr);
 
     bool GetMatchEventName() const;
@@ -33521,9 +34690,10 @@ class GCNmGraphDefinition__ExternalGraphSlot_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmGraphDefinition__ExternalGraphSlot_t(std::string ptr);
+    GCNmGraphDefinition__ExternalGraphSlot_t(std::string ptr, lua_State* state);
     GCNmGraphDefinition__ExternalGraphSlot_t(void *ptr);
 
     int16_t GetNodeIdx() const;
@@ -33538,9 +34708,10 @@ class GCNmStateMachineNode__StateDefinition_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmStateMachineNode__StateDefinition_t(std::string ptr);
+    GCNmStateMachineNode__StateDefinition_t(std::string ptr, lua_State* state);
     GCNmStateMachineNode__StateDefinition_t(void *ptr);
 
     int16_t GetStateNodeIdx() const;
@@ -33557,9 +34728,10 @@ class GCModelConfigElement_SetBodygroupOnAttachedModels
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_SetBodygroupOnAttachedModels(std::string ptr);
+    GCModelConfigElement_SetBodygroupOnAttachedModels(std::string ptr, lua_State* state);
     GCModelConfigElement_SetBodygroupOnAttachedModels(void *ptr);
 
     std::string GetGroupName() const;
@@ -33578,9 +34750,10 @@ class GCNmFootEvent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmFootEvent(std::string ptr);
+    GCNmFootEvent(std::string ptr, lua_State* state);
     GCNmFootEvent(void *ptr);
 
     uint64_t GetPhase() const;
@@ -33597,9 +34770,10 @@ class GCHandshakeAnimTagBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHandshakeAnimTagBase(std::string ptr);
+    GCHandshakeAnimTagBase(std::string ptr, lua_State* state);
     GCHandshakeAnimTagBase(void *ptr);
 
     bool GetIsDisableTag() const;
@@ -33616,9 +34790,10 @@ class GCBlend2DUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBlend2DUpdateNode(std::string ptr);
+    GCBlend2DUpdateNode(std::string ptr, lua_State* state);
     GCBlend2DUpdateNode(void *ptr);
 
     std::vector<GBlendItem_t> GetItems() const;
@@ -33663,9 +34838,10 @@ class GAnimationSnapshotBase_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimationSnapshotBase_t(std::string ptr);
+    GAnimationSnapshotBase_t(std::string ptr, lua_State* state);
     GAnimationSnapshotBase_t(void *ptr);
 
     float GetRealTime() const;
@@ -33692,9 +34868,10 @@ class GCTiltTwistConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTiltTwistConstraint(std::string ptr);
+    GCTiltTwistConstraint(std::string ptr, lua_State* state);
     GCTiltTwistConstraint(void *ptr);
 
     int32_t GetTargetAxis() const;
@@ -33713,9 +34890,10 @@ class GMaterialParamTexture_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialParamTexture_t(std::string ptr);
+    GMaterialParamTexture_t(std::string ptr, lua_State* state);
     GMaterialParamTexture_t(void *ptr);
 
     GMaterialParam_t GetParent() const;
@@ -33730,9 +34908,10 @@ class GCGlobalLightBase
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGlobalLightBase(std::string ptr);
+    GCGlobalLightBase(std::string ptr, lua_State* state);
     GCGlobalLightBase(void *ptr);
 
     bool GetSpotLight() const;
@@ -33827,9 +35006,10 @@ class GCModelConfigElement_SetBodygroup
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_SetBodygroup(std::string ptr);
+    GCModelConfigElement_SetBodygroup(std::string ptr, lua_State* state);
     GCModelConfigElement_SetBodygroup(void *ptr);
 
     std::string GetGroupName() const;
@@ -33848,9 +35028,10 @@ class GCModelConfigElement_AttachedModel
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_AttachedModel(std::string ptr);
+    GCModelConfigElement_AttachedModel(std::string ptr, lua_State* state);
     GCModelConfigElement_AttachedModel(void *ptr);
 
     std::string GetInstanceName() const;
@@ -33891,9 +35072,10 @@ class GCFollowAttachmentUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFollowAttachmentUpdateNode(std::string ptr);
+    GCFollowAttachmentUpdateNode(std::string ptr, lua_State* state);
     GCFollowAttachmentUpdateNode(void *ptr);
 
     GFollowAttachmentSettings_t GetOpFixedData() const;
@@ -33910,9 +35092,10 @@ class GParticleChildrenInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParticleChildrenInfo_t(std::string ptr);
+    GParticleChildrenInfo_t(std::string ptr, lua_State* state);
     GParticleChildrenInfo_t(void *ptr);
 
     float GetDelay() const;
@@ -33933,9 +35116,10 @@ class GCVoiceContainerNull
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerNull(std::string ptr);
+    GCVoiceContainerNull(std::string ptr, lua_State* state);
     GCVoiceContainerNull(void *ptr);
 
     GCVoiceContainerBase GetParent() const;
@@ -33950,9 +35134,10 @@ class GMoodAnimation_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMoodAnimation_t(std::string ptr);
+    GMoodAnimation_t(std::string ptr, lua_State* state);
     GMoodAnimation_t(void *ptr);
 
     std::string GetName() const;
@@ -33969,9 +35154,10 @@ class GCClientAlphaProperty
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCClientAlphaProperty(std::string ptr);
+    GCClientAlphaProperty(std::string ptr, lua_State* state);
     GCClientAlphaProperty(void *ptr);
 
     uint32_t GetRenderFX() const;
@@ -34006,9 +35192,10 @@ class GCTimeRemainingMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTimeRemainingMetricEvaluator(std::string ptr);
+    GCTimeRemainingMetricEvaluator(std::string ptr, lua_State* state);
     GCTimeRemainingMetricEvaluator(void *ptr);
 
     bool GetMatchByTimeRemaining() const;
@@ -34031,9 +35218,10 @@ class GNmSyncTrackTimeRange_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GNmSyncTrackTimeRange_t(std::string ptr);
+    GNmSyncTrackTimeRange_t(std::string ptr, lua_State* state);
     GNmSyncTrackTimeRange_t(void *ptr);
 
     GNmSyncTrackTime_t GetStartTime() const;
@@ -34050,9 +35238,10 @@ class GCAnimActivity
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimActivity(std::string ptr);
+    GCAnimActivity(std::string ptr, lua_State* state);
     GCAnimActivity(void *ptr);
 
     int32_t GetActivity() const;
@@ -34071,9 +35260,10 @@ class GCNmGraphDefinition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmGraphDefinition(std::string ptr);
+    GCNmGraphDefinition(std::string ptr, lua_State* state);
     GCNmGraphDefinition(void *ptr);
 
     std::vector<int16> GetPersistentNodeIndices() const;
@@ -34096,9 +35286,10 @@ class GCSolveIKChainUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSolveIKChainUpdateNode(std::string ptr);
+    GCSolveIKChainUpdateNode(std::string ptr, lua_State* state);
     GCSolveIKChainUpdateNode(void *ptr);
 
     std::vector<GCSolveIKTargetHandle_t> GetTargetHandles() const;
@@ -34117,9 +35308,10 @@ class GEventClientPollNetworking_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientPollNetworking_t(std::string ptr);
+    GEventClientPollNetworking_t(std::string ptr, lua_State* state);
     GEventClientPollNetworking_t(void *ptr);
 
     int32_t GetTickCount() const;
@@ -34134,9 +35326,10 @@ class GCMeshletDescriptor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMeshletDescriptor(std::string ptr);
+    GCMeshletDescriptor(std::string ptr, lua_State* state);
     GCMeshletDescriptor(void *ptr);
 
     GCDrawCullingData GetCullingData() const;
@@ -34151,9 +35344,10 @@ class GCNmLayerBlendNode__LayerDefinition_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmLayerBlendNode__LayerDefinition_t(std::string ptr);
+    GCNmLayerBlendNode__LayerDefinition_t(std::string ptr, lua_State* state);
     GCNmLayerBlendNode__LayerDefinition_t(void *ptr);
 
     int16_t GetInputNodeIdx() const;
@@ -34182,9 +35376,10 @@ class GCAnimSequenceParams
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimSequenceParams(std::string ptr);
+    GCAnimSequenceParams(std::string ptr, lua_State* state);
     GCAnimSequenceParams(void *ptr);
 
     float GetFadeInTime() const;
@@ -34201,9 +35396,10 @@ class GCDemoSettingsComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDemoSettingsComponentUpdater(std::string ptr);
+    GCDemoSettingsComponentUpdater(std::string ptr, lua_State* state);
     GCDemoSettingsComponentUpdater(void *ptr);
 
     GCAnimDemoCaptureSettings GetSettings() const;
@@ -34220,9 +35416,10 @@ class GCompositeMaterialAssemblyProcedure_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCompositeMaterialAssemblyProcedure_t(std::string ptr);
+    GCompositeMaterialAssemblyProcedure_t(std::string ptr, lua_State* state);
     GCompositeMaterialAssemblyProcedure_t(void *ptr);
 
     std::vector<GCompositeMaterialMatchFilter_t> GetMatchFilters() const;
@@ -34241,9 +35438,10 @@ class GCTaskHandshakeAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTaskHandshakeAnimTag(std::string ptr);
+    GCTaskHandshakeAnimTag(std::string ptr, lua_State* state);
     GCTaskHandshakeAnimTag(void *ptr);
 
     GCHandshakeAnimTagBase GetParent() const;
@@ -34258,9 +35456,10 @@ class GEventClientPauseSimulate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientPauseSimulate_t(std::string ptr);
+    GEventClientPauseSimulate_t(std::string ptr, lua_State* state);
     GEventClientPauseSimulate_t(void *ptr);
 
     GEventSimulate_t GetParent() const;
@@ -34275,9 +35474,10 @@ class GCFireOverlay
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFireOverlay(std::string ptr);
+    GCFireOverlay(std::string ptr, lua_State* state);
     GCFireOverlay(void *ptr);
 
     std::vector<Vector> GetBaseColors() const;
@@ -34298,9 +35498,10 @@ class GFeBuildTaperedCapsuleRigid_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeBuildTaperedCapsuleRigid_t(std::string ptr);
+    GFeBuildTaperedCapsuleRigid_t(std::string ptr, lua_State* state);
     GFeBuildTaperedCapsuleRigid_t(void *ptr);
 
     int32_t GetPriority() const;
@@ -34319,9 +35520,10 @@ class GCStateUpdateData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStateUpdateData(std::string ptr);
+    GCStateUpdateData(std::string ptr, lua_State* state);
     GCStateUpdateData(void *ptr);
 
     std::string GetName() const;
@@ -34344,9 +35546,10 @@ class GCPhysSurfaceProperties
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPhysSurfaceProperties(std::string ptr);
+    GCPhysSurfaceProperties(std::string ptr, lua_State* state);
     GCPhysSurfaceProperties(void *ptr);
 
     std::string GetName() const;
@@ -34375,9 +35578,10 @@ class GCMotionSearchNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionSearchNode(std::string ptr);
+    GCMotionSearchNode(std::string ptr, lua_State* state);
     GCMotionSearchNode(void *ptr);
 
     std::vector<GCMotionSearchNode*> GetChildren() const;
@@ -34396,9 +35600,10 @@ class GVMixVocoderDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixVocoderDesc_t(std::string ptr);
+    GVMixVocoderDesc_t(std::string ptr, lua_State* state);
     GVMixVocoderDesc_t(void *ptr);
 
     int32_t GetBandCount() const;
@@ -34431,9 +35636,10 @@ class GCAnimScriptManager
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimScriptManager(std::string ptr);
+    GCAnimScriptManager(std::string ptr, lua_State* state);
     GCAnimScriptManager(void *ptr);
 
     std::vector<GScriptInfo_t> GetScriptInfo() const;
@@ -34448,9 +35654,10 @@ class GCAnimationGraphVisualizerLine
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimationGraphVisualizerLine(std::string ptr);
+    GCAnimationGraphVisualizerLine(std::string ptr, lua_State* state);
     GCAnimationGraphVisualizerLine(void *ptr);
 
     Vector GetWsPositionStart() const;
@@ -34471,9 +35678,10 @@ class GCFootTrajectory
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootTrajectory(std::string ptr);
+    GCFootTrajectory(std::string ptr, lua_State* state);
     GCFootTrajectory(void *ptr);
 
     Vector GetOffset() const;
@@ -34492,9 +35700,10 @@ class GVMixModDelayDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixModDelayDesc_t(std::string ptr);
+    GVMixModDelayDesc_t(std::string ptr, lua_State* state);
     GVMixModDelayDesc_t(void *ptr);
 
     GVMixFilterDesc_t GetFeedbackFilter() const;
@@ -34525,9 +35734,10 @@ class GCHitBox
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHitBox(std::string ptr);
+    GCHitBox(std::string ptr, lua_State* state);
     GCHitBox(void *ptr);
 
     std::string GetName() const;
@@ -34566,9 +35776,10 @@ class GCTestDomainDerived_Cursor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTestDomainDerived_Cursor(std::string ptr);
+    GCTestDomainDerived_Cursor(std::string ptr, lua_State* state);
     GCTestDomainDerived_Cursor(void *ptr);
 
     int32_t GetCursorValueA() const;
@@ -34585,9 +35796,10 @@ class GCAudioMorphData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAudioMorphData(std::string ptr);
+    GCAudioMorphData(std::string ptr, lua_State* state);
     GCAudioMorphData(void *ptr);
 
     std::vector<float32> GetTimes() const;
@@ -34610,9 +35822,10 @@ class GCSeqIKLock
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqIKLock(std::string ptr);
+    GCSeqIKLock(std::string ptr, lua_State* state);
     GCSeqIKLock(void *ptr);
 
     float GetPosWeight() const;
@@ -34633,9 +35846,10 @@ class GFeQuad_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeQuad_t(std::string ptr);
+    GFeQuad_t(std::string ptr, lua_State* state);
     GFeQuad_t(void *ptr);
 
     std::vector<uint16_t> GetNode() const;
@@ -34654,9 +35868,10 @@ class GCSosGroupMatchPattern
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupMatchPattern(std::string ptr);
+    GCSosGroupMatchPattern(std::string ptr, lua_State* state);
     GCSosGroupMatchPattern(void *ptr);
 
     std::string GetMatchSoundEventName() const;
@@ -34681,9 +35896,10 @@ class GCSSDSEndFrameViewInfo
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSSDSEndFrameViewInfo(std::string ptr);
+    GCSSDSEndFrameViewInfo(std::string ptr, lua_State* state);
     GCSSDSEndFrameViewInfo(void *ptr);
 
     uint64_t GetViewId() const;
@@ -34700,9 +35916,10 @@ class GCNmExternalGraphNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmExternalGraphNode(std::string ptr);
+    GCNmExternalGraphNode(std::string ptr, lua_State* state);
     GCNmExternalGraphNode(void *ptr);
 
     GCNmPoseNode GetParent() const;
@@ -34717,9 +35934,10 @@ class GCMoverUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMoverUpdateNode(std::string ptr);
+    GCMoverUpdateNode(std::string ptr, lua_State* state);
     GCMoverUpdateNode(void *ptr);
 
     GCAnimInputDamping GetDamping() const;
@@ -34758,9 +35976,10 @@ class GRnHull_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnHull_t(std::string ptr);
+    GRnHull_t(std::string ptr, lua_State* state);
     GRnHull_t(void *ptr);
 
     Vector GetCentroid() const;
@@ -34799,9 +36018,10 @@ class GCMoodVData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMoodVData(std::string ptr);
+    GCMoodVData(std::string ptr, lua_State* state);
     GCMoodVData(void *ptr);
 
     uint64_t GetMoodType() const;
@@ -34816,9 +36036,10 @@ class GEventClientFrameSimulate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientFrameSimulate_t(std::string ptr);
+    GEventClientFrameSimulate_t(std::string ptr, lua_State* state);
     GEventClientFrameSimulate_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -34839,9 +36060,10 @@ class GCRagdollComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRagdollComponentUpdater(std::string ptr);
+    GCRagdollComponentUpdater(std::string ptr, lua_State* state);
     GCRagdollComponentUpdater(void *ptr);
 
     std::vector<GCAnimNodePath> GetRagdollNodePaths() const;
@@ -34872,9 +36094,10 @@ class GCMotionNodeBlend1D
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionNodeBlend1D(std::string ptr);
+    GCMotionNodeBlend1D(std::string ptr, lua_State* state);
     GCMotionNodeBlend1D(void *ptr);
 
     std::vector<GMotionBlendItem> GetBlendItems() const;
@@ -34893,9 +36116,10 @@ class GCNmControlParameterVectorNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmControlParameterVectorNode(std::string ptr);
+    GCNmControlParameterVectorNode(std::string ptr, lua_State* state);
     GCNmControlParameterVectorNode(void *ptr);
 
     GCNmVectorValueNode GetParent() const;
@@ -34910,9 +36134,10 @@ class GCPathHelperUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCPathHelperUpdateNode(std::string ptr);
+    GCPathHelperUpdateNode(std::string ptr, lua_State* state);
     GCPathHelperUpdateNode(void *ptr);
 
     float GetStoppingRadius() const;
@@ -34931,9 +36156,10 @@ class GCSeqPoseParamDesc
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqPoseParamDesc(std::string ptr);
+    GCSeqPoseParamDesc(std::string ptr, lua_State* state);
     GCSeqPoseParamDesc(void *ptr);
 
     float GetStart() const;
@@ -34954,9 +36180,10 @@ class GVMixPitchShiftDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixPitchShiftDesc_t(std::string ptr);
+    GVMixPitchShiftDesc_t(std::string ptr, lua_State* state);
     GVMixPitchShiftDesc_t(void *ptr);
 
     int32_t GetGrainSampleCount() const;
@@ -34977,9 +36204,10 @@ class GCAudioSentence
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAudioSentence(std::string ptr);
+    GCAudioSentence(std::string ptr, lua_State* state);
     GCAudioSentence(void *ptr);
 
     bool GetShouldVoiceDuck() const;
@@ -35000,9 +36228,10 @@ class GCRenderBufferBinding
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRenderBufferBinding(std::string ptr);
+    GCRenderBufferBinding(std::string ptr, lua_State* state);
     GCRenderBufferBinding(void *ptr);
 
     uint64_t GetBuffer() const;
@@ -35019,9 +36248,10 @@ class GCParticleAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleAnimTag(std::string ptr);
+    GCParticleAnimTag(std::string ptr, lua_State* state);
     GCParticleAnimTag(void *ptr);
 
     std::string GetParticleSystemName() const;
@@ -35054,9 +36284,10 @@ class GCStaticPoseCacheBuilder
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStaticPoseCacheBuilder(std::string ptr);
+    GCStaticPoseCacheBuilder(std::string ptr, lua_State* state);
     GCStaticPoseCacheBuilder(void *ptr);
 
     GCStaticPoseCache GetParent() const;
@@ -35071,9 +36302,10 @@ class GCNmRootMotionData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmRootMotionData(std::string ptr);
+    GCNmRootMotionData(std::string ptr, lua_State* state);
     GCNmRootMotionData(void *ptr);
 
     int32_t GetNumFrames() const;
@@ -35092,9 +36324,10 @@ class GCAnimReplayFrame
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimReplayFrame(std::string ptr);
+    GCAnimReplayFrame(std::string ptr, lua_State* state);
     GCAnimReplayFrame(void *ptr);
 
     float GetTimeStamp() const;
@@ -35109,9 +36342,10 @@ class GCNmVirtualParameterBoneMaskNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmVirtualParameterBoneMaskNode(std::string ptr);
+    GCNmVirtualParameterBoneMaskNode(std::string ptr, lua_State* state);
     GCNmVirtualParameterBoneMaskNode(void *ptr);
 
     int16_t GetChildNodeIdx() const;
@@ -35128,9 +36362,10 @@ class GCBlockSelectionMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBlockSelectionMetricEvaluator(std::string ptr);
+    GCBlockSelectionMetricEvaluator(std::string ptr, lua_State* state);
     GCBlockSelectionMetricEvaluator(void *ptr);
 
     GCMotionMetricEvaluator GetParent() const;
@@ -35145,9 +36380,10 @@ class GCMotionGraph
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionGraph(std::string ptr);
+    GCMotionGraph(std::string ptr, lua_State* state);
     GCMotionGraph(void *ptr);
 
     GCParamSpanUpdater GetParamSpans() const;
@@ -35172,9 +36408,10 @@ class GCSosSoundEventGroupSchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosSoundEventGroupSchema(std::string ptr);
+    GCSosSoundEventGroupSchema(std::string ptr, lua_State* state);
     GCSosSoundEventGroupSchema(void *ptr);
 
     std::string GetName() const;
@@ -35205,9 +36442,10 @@ class GCFootMotion
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootMotion(std::string ptr);
+    GCFootMotion(std::string ptr, lua_State* state);
     GCFootMotion(void *ptr);
 
     std::vector<GCFootStride> GetStrides() const;
@@ -35226,9 +36464,10 @@ class GCDampedValueUpdateItem
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDampedValueUpdateItem(std::string ptr);
+    GCDampedValueUpdateItem(std::string ptr, lua_State* state);
     GCDampedValueUpdateItem(void *ptr);
 
     GCAnimInputDamping GetDamping() const;
@@ -35247,9 +36486,10 @@ class GRnHalfEdge_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnHalfEdge_t(std::string ptr);
+    GRnHalfEdge_t(std::string ptr, lua_State* state);
     GRnHalfEdge_t(void *ptr);
 
     uint32_t GetNext() const;
@@ -35270,9 +36510,10 @@ class GCAnimDataChannelDesc
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimDataChannelDesc(std::string ptr);
+    GCAnimDataChannelDesc(std::string ptr, lua_State* state);
     GCAnimDataChannelDesc(void *ptr);
 
     int32_t GetFlags() const;
@@ -35293,9 +36534,10 @@ class GEventClientProcessNetworking_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientProcessNetworking_t(std::string ptr);
+    GEventClientProcessNetworking_t(std::string ptr, lua_State* state);
     GEventClientProcessNetworking_t(void *ptr);
 
 
@@ -35309,9 +36551,10 @@ class GCModelConfigList
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigList(std::string ptr);
+    GCModelConfigList(std::string ptr, lua_State* state);
     GCModelConfigList(void *ptr);
 
     bool GetHideMaterialGroupInTools() const;
@@ -35330,9 +36573,10 @@ class GCNmGraphVariation
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmGraphVariation(std::string ptr);
+    GCNmGraphVariation(std::string ptr, lua_State* state);
     GCNmGraphVariation(void *ptr);
 
 
@@ -35346,9 +36590,10 @@ class GCSosGroupActionTimeBlockLimitSchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupActionTimeBlockLimitSchema(std::string ptr);
+    GCSosGroupActionTimeBlockLimitSchema(std::string ptr, lua_State* state);
     GCSosGroupActionTimeBlockLimitSchema(void *ptr);
 
     int32_t GetMaxCount() const;
@@ -35367,9 +36612,10 @@ class GVMixDynamics3BandDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixDynamics3BandDesc_t(std::string ptr);
+    GVMixDynamics3BandDesc_t(std::string ptr, lua_State* state);
     GVMixDynamics3BandDesc_t(void *ptr);
 
     float GetFldbGainOutput() const;
@@ -35402,9 +36648,10 @@ class GCModelConfigElement_SetMaterialGroup
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCModelConfigElement_SetMaterialGroup(std::string ptr);
+    GCModelConfigElement_SetMaterialGroup(std::string ptr, lua_State* state);
     GCModelConfigElement_SetMaterialGroup(void *ptr);
 
     std::string GetMaterialGroupName() const;
@@ -35421,9 +36668,10 @@ class GCMovementHandshakeAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMovementHandshakeAnimTag(std::string ptr);
+    GCMovementHandshakeAnimTag(std::string ptr, lua_State* state);
     GCMovementHandshakeAnimTag(void *ptr);
 
     GCHandshakeAnimTagBase GetParent() const;
@@ -35438,9 +36686,10 @@ class GCSeqScaleSet
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqScaleSet(std::string ptr);
+    GCSeqScaleSet(std::string ptr, lua_State* state);
     GCSeqScaleSet(void *ptr);
 
     bool GetRootOffset() const;
@@ -35461,9 +36710,10 @@ class GEventClientProcessGameInput_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientProcessGameInput_t(std::string ptr);
+    GEventClientProcessGameInput_t(std::string ptr, lua_State* state);
     GEventClientProcessGameInput_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -35482,9 +36732,10 @@ class GVsInputSignatureElement_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVsInputSignatureElement_t(std::string ptr);
+    GVsInputSignatureElement_t(std::string ptr, lua_State* state);
     GVsInputSignatureElement_t(void *ptr);
 
     std::string GetName() const;
@@ -35505,9 +36756,10 @@ class GCompositeMaterialMatchFilter_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCompositeMaterialMatchFilter_t(std::string ptr);
+    GCompositeMaterialMatchFilter_t(std::string ptr, lua_State* state);
     GCompositeMaterialMatchFilter_t(void *ptr);
 
     uint64_t GetCompositeMaterialMatchFilterType() const;
@@ -35528,9 +36780,10 @@ class GVertexPositionColor_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVertexPositionColor_t(std::string ptr);
+    GVertexPositionColor_t(std::string ptr, lua_State* state);
     GVertexPositionColor_t(void *ptr);
 
     Vector GetPosition() const;
@@ -35545,9 +36798,10 @@ class GCFootTrajectories
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootTrajectories(std::string ptr);
+    GCFootTrajectories(std::string ptr, lua_State* state);
     GCFootTrajectories(void *ptr);
 
     std::vector<GCFootTrajectory> GetTrajectories() const;
@@ -35562,9 +36816,10 @@ class GSceneObject_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSceneObject_t(std::string ptr);
+    GSceneObject_t(std::string ptr, lua_State* state);
     GSceneObject_t(void *ptr);
 
     uint32_t GetObjectID() const;
@@ -35601,9 +36856,10 @@ class GCSSDSMsg_ViewTarget
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSSDSMsg_ViewTarget(std::string ptr);
+    GCSSDSMsg_ViewTarget(std::string ptr, lua_State* state);
     GCSSDSMsg_ViewTarget(void *ptr);
 
     std::string GetName() const;
@@ -35636,9 +36892,10 @@ class GVMixSubgraphSwitchDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixSubgraphSwitchDesc_t(std::string ptr);
+    GVMixSubgraphSwitchDesc_t(std::string ptr, lua_State* state);
     GVMixSubgraphSwitchDesc_t(void *ptr);
 
     uint64_t GetInterpolationMode() const;
@@ -35657,9 +36914,10 @@ class GCNmTransitionNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmTransitionNode(std::string ptr);
+    GCNmTransitionNode(std::string ptr, lua_State* state);
     GCNmTransitionNode(void *ptr);
 
     int16_t GetTargetCNmStateNodeIdx() const;
@@ -35696,9 +36954,10 @@ class GMotionDBIndex
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMotionDBIndex(std::string ptr);
+    GMotionDBIndex(std::string ptr, lua_State* state);
     GMotionDBIndex(void *ptr);
 
     uint32_t GetIndex() const;
@@ -35713,9 +36972,10 @@ class GCToggleComponentActionUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCToggleComponentActionUpdater(std::string ptr);
+    GCToggleComponentActionUpdater(std::string ptr, lua_State* state);
     GCToggleComponentActionUpdater(void *ptr);
 
     GAnimComponentID GetComponentID() const;
@@ -35734,9 +36994,10 @@ class GCNmControlParameterIDNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmControlParameterIDNode(std::string ptr);
+    GCNmControlParameterIDNode(std::string ptr, lua_State* state);
     GCNmControlParameterIDNode(void *ptr);
 
     GCNmIDValueNode GetParent() const;
@@ -35751,9 +37012,10 @@ class GPostProcessingTonemapParameters_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPostProcessingTonemapParameters_t(std::string ptr);
+    GPostProcessingTonemapParameters_t(std::string ptr, lua_State* state);
     GPostProcessingTonemapParameters_t(void *ptr);
 
     float GetExposureBias() const;
@@ -35796,9 +37058,10 @@ class GVMixAutoFilterDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixAutoFilterDesc_t(std::string ptr);
+    GVMixAutoFilterDesc_t(std::string ptr, lua_State* state);
     GVMixAutoFilterDesc_t(void *ptr);
 
     float GetEnvelopeAmount() const;
@@ -35827,9 +37090,10 @@ class GCSeqMultiFetch
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqMultiFetch(std::string ptr);
+    GCSeqMultiFetch(std::string ptr, lua_State* state);
     GCSeqMultiFetch(void *ptr);
 
     GCSeqMultiFetchFlag GetFlags() const;
@@ -35862,9 +37126,10 @@ class GCNmStateMachineNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmStateMachineNode(std::string ptr);
+    GCNmStateMachineNode(std::string ptr, lua_State* state);
     GCNmStateMachineNode(void *ptr);
 
     int16_t GetDefaultStateIndex() const;
@@ -35881,9 +37146,10 @@ class GCBoneConstraintPoseSpaceMorph
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBoneConstraintPoseSpaceMorph(std::string ptr);
+    GCBoneConstraintPoseSpaceMorph(std::string ptr, lua_State* state);
     GCBoneConstraintPoseSpaceMorph(void *ptr);
 
     std::string GetBoneName() const;
@@ -35908,9 +37174,10 @@ class GCSSDSMsg_PreLayer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSSDSMsg_PreLayer(std::string ptr);
+    GCSSDSMsg_PreLayer(std::string ptr, lua_State* state);
     GCSSDSMsg_PreLayer(void *ptr);
 
     GCSSDSMsg_LayerBase GetParent() const;
@@ -35925,9 +37192,10 @@ class GCSelectorUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSelectorUpdateNode(std::string ptr);
+    GCSelectorUpdateNode(std::string ptr, lua_State* state);
     GCSelectorUpdateNode(void *ptr);
 
     std::vector<GCAnimUpdateNodeRef> GetChildren() const;
@@ -35960,9 +37228,10 @@ class GCAimCameraUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAimCameraUpdateNode(std::string ptr);
+    GCAimCameraUpdateNode(std::string ptr, lua_State* state);
     GCAimCameraUpdateNode(void *ptr);
 
     GCAnimParamHandle GetParameterPosition() const;
@@ -35993,9 +37262,10 @@ class GCFootStepTriggerUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootStepTriggerUpdateNode(std::string ptr);
+    GCFootStepTriggerUpdateNode(std::string ptr, lua_State* state);
     GCFootStepTriggerUpdateNode(void *ptr);
 
     std::vector<GFootStepTrigger> GetTriggers() const;
@@ -36014,9 +37284,10 @@ class GRnSoftbodyParticle_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnSoftbodyParticle_t(std::string ptr);
+    GRnSoftbodyParticle_t(std::string ptr, lua_State* state);
     GRnSoftbodyParticle_t(void *ptr);
 
     float GetMassInv() const;
@@ -36031,9 +37302,10 @@ class GCSingleFrameUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSingleFrameUpdateNode(std::string ptr);
+    GCSingleFrameUpdateNode(std::string ptr, lua_State* state);
     GCSingleFrameUpdateNode(void *ptr);
 
     GCPoseHandle GetPoseCacheHandle() const;
@@ -36052,9 +37324,10 @@ class GCSeqSynthAnimDesc
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqSynthAnimDesc(std::string ptr);
+    GCSeqSynthAnimDesc(std::string ptr, lua_State* state);
     GCSeqSynthAnimDesc(void *ptr);
 
     GCSeqSeqDescFlag GetFlags() const;
@@ -36077,9 +37350,10 @@ class GCDirectPlaybackTagData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDirectPlaybackTagData(std::string ptr);
+    GCDirectPlaybackTagData(std::string ptr, lua_State* state);
     GCDirectPlaybackTagData(void *ptr);
 
     std::string GetSequenceName() const;
@@ -36096,9 +37370,10 @@ class GEventFrameBoundary_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventFrameBoundary_t(std::string ptr);
+    GEventFrameBoundary_t(std::string ptr, lua_State* state);
     GEventFrameBoundary_t(void *ptr);
 
     float GetFrameTime() const;
@@ -36113,9 +37388,10 @@ class GWorldNode_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GWorldNode_t(std::string ptr);
+    GWorldNode_t(std::string ptr, lua_State* state);
     GWorldNode_t(void *ptr);
 
     std::vector<GSceneObject_t> GetSceneObjects() const;
@@ -36154,9 +37430,10 @@ class GAggregateMeshInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAggregateMeshInfo_t(std::string ptr);
+    GAggregateMeshInfo_t(std::string ptr, lua_State* state);
     GAggregateMeshInfo_t(void *ptr);
 
     uint32_t GetVisClusterMemberOffset() const;
@@ -36187,9 +37464,10 @@ class GFeSimdRodConstraintAnim_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSimdRodConstraintAnim_t(std::string ptr);
+    GFeSimdRodConstraintAnim_t(std::string ptr, lua_State* state);
     GFeSimdRodConstraintAnim_t(void *ptr);
 
     float Get4Weight0() const;
@@ -36206,9 +37484,10 @@ class GEventPostAdvanceTick_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventPostAdvanceTick_t(std::string ptr);
+    GEventPostAdvanceTick_t(std::string ptr, lua_State* state);
     GEventPostAdvanceTick_t(void *ptr);
 
     int32_t GetCurrentTick() const;
@@ -36231,9 +37510,10 @@ class GFeBuildBoxRigid_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeBuildBoxRigid_t(std::string ptr);
+    GFeBuildBoxRigid_t(std::string ptr, lua_State* state);
     GFeBuildBoxRigid_t(void *ptr);
 
     int32_t GetPriority() const;
@@ -36252,9 +37532,10 @@ class GIPhysicsPlayerController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIPhysicsPlayerController(std::string ptr);
+    GIPhysicsPlayerController(std::string ptr, lua_State* state);
     GIPhysicsPlayerController(void *ptr);
 
 
@@ -36268,9 +37549,10 @@ class GEventServerPostAdvanceTick_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventServerPostAdvanceTick_t(std::string ptr);
+    GEventServerPostAdvanceTick_t(std::string ptr, lua_State* state);
     GEventServerPostAdvanceTick_t(void *ptr);
 
     GEventPostAdvanceTick_t GetParent() const;
@@ -36285,9 +37567,10 @@ class GEventClientPreOutput_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientPreOutput_t(std::string ptr);
+    GEventClientPreOutput_t(std::string ptr, lua_State* state);
     GEventClientPreOutput_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -36312,9 +37595,10 @@ class GRnSoftbodySpring_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnSoftbodySpring_t(std::string ptr);
+    GRnSoftbodySpring_t(std::string ptr, lua_State* state);
     GRnSoftbodySpring_t(void *ptr);
 
     std::vector<uint16_t> GetParticle() const;
@@ -36331,9 +37615,10 @@ class GFeNodeReverseOffset_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeNodeReverseOffset_t(std::string ptr);
+    GFeNodeReverseOffset_t(std::string ptr, lua_State* state);
     GFeNodeReverseOffset_t(void *ptr);
 
     Vector GetOffset() const;
@@ -36352,9 +37637,10 @@ class GRnHullDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnHullDesc_t(std::string ptr);
+    GRnHullDesc_t(std::string ptr, lua_State* state);
     GRnHullDesc_t(void *ptr);
 
     GRnHull_t GetHull() const;
@@ -36371,9 +37657,10 @@ class GCSymbolAnimParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSymbolAnimParameter(std::string ptr);
+    GCSymbolAnimParameter(std::string ptr, lua_State* state);
     GCSymbolAnimParameter(void *ptr);
 
     GCConcreteAnimParameter GetParent() const;
@@ -36388,9 +37675,10 @@ class GFeStiffHingeBuild_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeStiffHingeBuild_t(std::string ptr);
+    GFeStiffHingeBuild_t(std::string ptr, lua_State* state);
     GFeStiffHingeBuild_t(void *ptr);
 
     float GetMaxAngle() const;
@@ -36411,9 +37699,10 @@ class GExtraVertexStreamOverride_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GExtraVertexStreamOverride_t(std::string ptr);
+    GExtraVertexStreamOverride_t(std::string ptr, lua_State* state);
     GExtraVertexStreamOverride_t(void *ptr);
 
     uint32_t GetSubSceneObject() const;
@@ -36436,9 +37725,10 @@ class GEntityIOConnectionData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEntityIOConnectionData_t(std::string ptr);
+    GEntityIOConnectionData_t(std::string ptr, lua_State* state);
     GEntityIOConnectionData_t(void *ptr);
 
     std::string GetOutputName() const;
@@ -36465,9 +37755,10 @@ class GSkeletonAnimCapture_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSkeletonAnimCapture_t(std::string ptr);
+    GSkeletonAnimCapture_t(std::string ptr, lua_State* state);
     GSkeletonAnimCapture_t(void *ptr);
 
     int GetEntIndex() const;
@@ -36500,9 +37791,10 @@ class GCStateActionUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStateActionUpdater(std::string ptr);
+    GCStateActionUpdater(std::string ptr, lua_State* state);
     GCStateActionUpdater(void *ptr);
 
     uint64_t GetBehavior() const;
@@ -36517,9 +37809,10 @@ class GCSeqS1SeqDesc
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqS1SeqDesc(std::string ptr);
+    GCSeqS1SeqDesc(std::string ptr, lua_State* state);
     GCSeqS1SeqDesc(void *ptr);
 
     GCSeqSeqDescFlag GetFlags() const;
@@ -36548,9 +37841,10 @@ class GAimMatrixOpFixedSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAimMatrixOpFixedSettings_t(std::string ptr);
+    GAimMatrixOpFixedSettings_t(std::string ptr, lua_State* state);
     GAimMatrixOpFixedSettings_t(void *ptr);
 
     GCAnimAttachment GetAttachment() const;
@@ -36589,9 +37883,10 @@ class GParticlePreviewState_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParticlePreviewState_t(std::string ptr);
+    GParticlePreviewState_t(std::string ptr, lua_State* state);
     GParticlePreviewState_t(void *ptr);
 
     std::string GetPreviewModel() const;
@@ -36636,9 +37931,10 @@ class GFeCtrlOsOffset_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeCtrlOsOffset_t(std::string ptr);
+    GFeCtrlOsOffset_t(std::string ptr, lua_State* state);
     GFeCtrlOsOffset_t(void *ptr);
 
     uint16_t GetCtrlParent() const;
@@ -36655,9 +37951,10 @@ class GCMorphData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMorphData(std::string ptr);
+    GCMorphData(std::string ptr, lua_State* state);
     GCMorphData(void *ptr);
 
     std::string GetName() const;
@@ -36674,9 +37971,10 @@ class GCAimMatrixUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAimMatrixUpdateNode(std::string ptr);
+    GCAimMatrixUpdateNode(std::string ptr, lua_State* state);
     GCAimMatrixUpdateNode(void *ptr);
 
     GAimMatrixOpFixedSettings_t GetOpFixedSettings() const;
@@ -36701,9 +37999,10 @@ class GCDirectionalBlendUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDirectionalBlendUpdateNode(std::string ptr);
+    GCDirectionalBlendUpdateNode(std::string ptr, lua_State* state);
     GCDirectionalBlendUpdateNode(void *ptr);
 
     GCAnimInputDamping GetDamping() const;
@@ -36732,9 +38031,10 @@ class GVMixPannerDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixPannerDesc_t(std::string ptr);
+    GVMixPannerDesc_t(std::string ptr, lua_State* state);
     GVMixPannerDesc_t(void *ptr);
 
     uint64_t GetType() const;
@@ -36751,9 +38051,10 @@ class GFeSimdSpringIntegrator_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSimdSpringIntegrator_t(std::string ptr);
+    GFeSimdSpringIntegrator_t(std::string ptr, lua_State* state);
     GFeSimdSpringIntegrator_t(void *ptr);
 
     float GetSpringRestLength() const;
@@ -36774,9 +38075,10 @@ class GModelBoneFlexDriver_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GModelBoneFlexDriver_t(std::string ptr);
+    GModelBoneFlexDriver_t(std::string ptr, lua_State* state);
     GModelBoneFlexDriver_t(void *ptr);
 
     std::string GetBoneName() const;
@@ -36795,9 +38097,10 @@ class GCBoolAnimParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBoolAnimParameter(std::string ptr);
+    GCBoolAnimParameter(std::string ptr, lua_State* state);
     GCBoolAnimParameter(void *ptr);
 
     bool GetDefaultValue() const;
@@ -36814,9 +38117,10 @@ class GEventAppShutdown_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventAppShutdown_t(std::string ptr);
+    GEventAppShutdown_t(std::string ptr, lua_State* state);
     GEventAppShutdown_t(void *ptr);
 
     int32_t GetDummy0() const;
@@ -36831,9 +38135,10 @@ class GResourceId_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GResourceId_t(std::string ptr);
+    GResourceId_t(std::string ptr, lua_State* state);
     GResourceId_t(void *ptr);
 
     uint64_t GetValue() const;
@@ -36848,9 +38153,10 @@ class GCVoiceContainerRealtimeFMSineWave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerRealtimeFMSineWave(std::string ptr);
+    GCVoiceContainerRealtimeFMSineWave(std::string ptr, lua_State* state);
     GCVoiceContainerRealtimeFMSineWave(void *ptr);
 
     float GetCarrierFrequency() const;
@@ -36871,9 +38177,10 @@ class GCNmVirtualParameterBoolNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmVirtualParameterBoolNode(std::string ptr);
+    GCNmVirtualParameterBoolNode(std::string ptr, lua_State* state);
     GCNmVirtualParameterBoolNode(void *ptr);
 
     int16_t GetChildNodeIdx() const;
@@ -36890,9 +38197,10 @@ class GCNmSyncTrack
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmSyncTrack(std::string ptr);
+    GCNmSyncTrack(std::string ptr, lua_State* state);
     GCNmSyncTrack(void *ptr);
 
     int32_t GetStartEventOffset() const;
@@ -36907,9 +38215,10 @@ class GTagSpan_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GTagSpan_t(std::string ptr);
+    GTagSpan_t(std::string ptr, lua_State* state);
     GTagSpan_t(void *ptr);
 
     int32_t GetTagIndex() const;
@@ -36928,9 +38237,10 @@ class GCNmStateNode__TimedEvent_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmStateNode__TimedEvent_t(std::string ptr);
+    GCNmStateNode__TimedEvent_t(std::string ptr, lua_State* state);
     GCNmStateNode__TimedEvent_t(void *ptr);
 
     float GetTimeValue() const;
@@ -36945,9 +38255,10 @@ class GCNmControlParameterTargetNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmControlParameterTargetNode(std::string ptr);
+    GCNmControlParameterTargetNode(std::string ptr, lua_State* state);
     GCNmControlParameterTargetNode(void *ptr);
 
     GCNmTargetValueNode GetParent() const;
@@ -36962,9 +38273,10 @@ class GCFootstepLandedAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootstepLandedAnimTag(std::string ptr);
+    GCFootstepLandedAnimTag(std::string ptr, lua_State* state);
     GCFootstepLandedAnimTag(void *ptr);
 
     uint64_t GetFootstepType() const;
@@ -36987,9 +38299,10 @@ class GCEnumAnimParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEnumAnimParameter(std::string ptr);
+    GCEnumAnimParameter(std::string ptr, lua_State* state);
     GCEnumAnimParameter(void *ptr);
 
     uint32_t GetDefaultValue() const;
@@ -37010,9 +38323,10 @@ class GCAnimationGraphVisualizerPie
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimationGraphVisualizerPie(std::string ptr);
+    GCAnimationGraphVisualizerPie(std::string ptr, lua_State* state);
     GCAnimationGraphVisualizerPie(void *ptr);
 
     Vector GetWsCenter() const;
@@ -37035,9 +38349,10 @@ class GAnimationSnapshot_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GAnimationSnapshot_t(std::string ptr);
+    GAnimationSnapshot_t(std::string ptr, lua_State* state);
     GAnimationSnapshot_t(void *ptr);
 
     int32_t GetEntIndex() const;
@@ -37056,9 +38371,10 @@ class GVPhysXCollisionAttributes_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVPhysXCollisionAttributes_t(std::string ptr);
+    GVPhysXCollisionAttributes_t(std::string ptr, lua_State* state);
     GVPhysXCollisionAttributes_t(void *ptr);
 
     uint32_t GetCollisionGroup() const;
@@ -37087,9 +38403,10 @@ class GCActionComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCActionComponentUpdater(std::string ptr);
+    GCActionComponentUpdater(std::string ptr, lua_State* state);
     GCActionComponentUpdater(void *ptr);
 
     GCAnimComponentUpdater GetParent() const;
@@ -37104,9 +38421,10 @@ class GCNmVirtualParameterVectorNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmVirtualParameterVectorNode(std::string ptr);
+    GCNmVirtualParameterVectorNode(std::string ptr, lua_State* state);
     GCNmVirtualParameterVectorNode(void *ptr);
 
     int16_t GetChildNodeIdx() const;
@@ -37123,9 +38441,10 @@ class GCAnimFrameSegment
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimFrameSegment(std::string ptr);
+    GCAnimFrameSegment(std::string ptr, lua_State* state);
     GCAnimFrameSegment(void *ptr);
 
     int32_t GetUniqueFrameIndex() const;
@@ -37144,9 +38463,10 @@ class GCClothSettingsAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCClothSettingsAnimTag(std::string ptr);
+    GCClothSettingsAnimTag(std::string ptr, lua_State* state);
     GCClothSettingsAnimTag(void *ptr);
 
     float GetStiffness() const;
@@ -37169,9 +38489,10 @@ class GVariableInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVariableInfo_t(std::string ptr);
+    GVariableInfo_t(std::string ptr, lua_State* state);
     GVariableInfo_t(void *ptr);
 
     std::string GetName() const;
@@ -37196,9 +38517,10 @@ class GVMixShaperDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixShaperDesc_t(std::string ptr);
+    GVMixShaperDesc_t(std::string ptr, lua_State* state);
     GVMixShaperDesc_t(void *ptr);
 
     int32_t GetShape() const;
@@ -37221,9 +38543,10 @@ class GCSoundInfoHeader
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSoundInfoHeader(std::string ptr);
+    GCSoundInfoHeader(std::string ptr, lua_State* state);
     GCSoundInfoHeader(void *ptr);
 
 
@@ -37237,9 +38560,10 @@ class GCVoiceContainerDecayingSineWave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerDecayingSineWave(std::string ptr);
+    GCVoiceContainerDecayingSineWave(std::string ptr, lua_State* state);
     GCVoiceContainerDecayingSineWave(void *ptr);
 
     float GetFrequency() const;
@@ -37258,9 +38582,10 @@ class GCCycleControlClipUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCycleControlClipUpdateNode(std::string ptr);
+    GCCycleControlClipUpdateNode(std::string ptr, lua_State* state);
     GCCycleControlClipUpdateNode(void *ptr);
 
     std::vector<GTagSpan_t> GetTags() const;
@@ -37283,9 +38608,10 @@ class GCBaseTrailRenderer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBaseTrailRenderer(std::string ptr);
+    GCBaseTrailRenderer(std::string ptr, lua_State* state);
     GCBaseTrailRenderer(void *ptr);
 
     uint64_t GetOrientationType() const;
@@ -37314,9 +38640,10 @@ class GCBoneConstraintPoseSpaceBone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBoneConstraintPoseSpaceBone(std::string ptr);
+    GCBoneConstraintPoseSpaceBone(std::string ptr, lua_State* state);
     GCBoneConstraintPoseSpaceBone(void *ptr);
 
     std::vector<GCBoneConstraintPoseSpaceBone> GetInputList() const;
@@ -37333,9 +38660,10 @@ class GEventServerPostSimulate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventServerPostSimulate_t(std::string ptr);
+    GEventServerPostSimulate_t(std::string ptr, lua_State* state);
     GEventServerPostSimulate_t(void *ptr);
 
     GEventSimulate_t GetParent() const;
@@ -37350,9 +38678,10 @@ class GCChoreoUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCChoreoUpdateNode(std::string ptr);
+    GCChoreoUpdateNode(std::string ptr, lua_State* state);
     GCChoreoUpdateNode(void *ptr);
 
     GCUnaryUpdateNode GetParent() const;
@@ -37367,9 +38696,10 @@ class GCNmSkeleton
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmSkeleton(std::string ptr);
+    GCNmSkeleton(std::string ptr, lua_State* state);
     GCNmSkeleton(void *ptr);
 
     std::vector<int32> GetParentIndices() const;
@@ -37386,9 +38716,10 @@ class GVMixBoxverbDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixBoxverbDesc_t(std::string ptr);
+    GVMixBoxverbDesc_t(std::string ptr, lua_State* state);
     GVMixBoxverbDesc_t(void *ptr);
 
     float GetSizeMax() const;
@@ -37435,9 +38766,10 @@ class GFeTreeChildren_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeTreeChildren_t(std::string ptr);
+    GFeTreeChildren_t(std::string ptr, lua_State* state);
     GFeTreeChildren_t(void *ptr);
 
     std::vector<uint16_t> GetChild() const;
@@ -37452,9 +38784,10 @@ class GCSceneObjectData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSceneObjectData(std::string ptr);
+    GCSceneObjectData(std::string ptr, lua_State* state);
     GCSceneObjectData(void *ptr);
 
     Vector GetMinBounds() const;
@@ -37479,9 +38812,10 @@ class GStanceInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GStanceInfo_t(std::string ptr);
+    GStanceInfo_t(std::string ptr, lua_State* state);
     GStanceInfo_t(void *ptr);
 
     Vector GetPosition() const;
@@ -37498,9 +38832,10 @@ class GCMotionNodeSequence
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionNodeSequence(std::string ptr);
+    GCMotionNodeSequence(std::string ptr, lua_State* state);
     GCMotionNodeSequence(void *ptr);
 
     std::vector<GTagSpan_t> GetTags() const;
@@ -37519,9 +38854,10 @@ class GCFootCycleDefinition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootCycleDefinition(std::string ptr);
+    GCFootCycleDefinition(std::string ptr, lua_State* state);
     GCFootCycleDefinition(void *ptr);
 
     Vector GetStancePositionMS() const;
@@ -37552,9 +38888,10 @@ class GCAnimDesc_Flag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimDesc_Flag(std::string ptr);
+    GCAnimDesc_Flag(std::string ptr, lua_State* state);
     GCAnimDesc_Flag(void *ptr);
 
     bool GetLooping() const;
@@ -37583,9 +38920,10 @@ class GCBoneVelocityMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBoneVelocityMetricEvaluator(std::string ptr);
+    GCBoneVelocityMetricEvaluator(std::string ptr, lua_State* state);
     GCBoneVelocityMetricEvaluator(void *ptr);
 
     int32_t GetBoneIndex() const;
@@ -37602,9 +38940,10 @@ class GCFuseProgram
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFuseProgram(std::string ptr);
+    GCFuseProgram(std::string ptr, lua_State* state);
     GCFuseProgram(void *ptr);
 
     std::vector<uint8> GetProgramBuffer() const;
@@ -37625,9 +38964,10 @@ class GCFeVertexMapBuildArray
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFeVertexMapBuildArray(std::string ptr);
+    GCFeVertexMapBuildArray(std::string ptr, lua_State* state);
     GCFeVertexMapBuildArray(void *ptr);
 
     std::vector<GFeVertexMapBuild_t*> GetArray() const;
@@ -37642,9 +38982,10 @@ class GFeSoftParent_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSoftParent_t(std::string ptr);
+    GFeSoftParent_t(std::string ptr, lua_State* state);
     GFeSoftParent_t(void *ptr);
 
     int32_t GetParent() const;
@@ -37661,9 +39002,10 @@ class GCFootFallAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootFallAnimTag(std::string ptr);
+    GCFootFallAnimTag(std::string ptr, lua_State* state);
     GCFootFallAnimTag(void *ptr);
 
     uint64_t GetFoot() const;
@@ -37680,9 +39022,10 @@ class GEventClientOutput_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientOutput_t(std::string ptr);
+    GEventClientOutput_t(std::string ptr, lua_State* state);
     GEventClientOutput_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -37705,9 +39048,10 @@ class GMaterialVariable_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialVariable_t(std::string ptr);
+    GMaterialVariable_t(std::string ptr, lua_State* state);
     GMaterialVariable_t(void *ptr);
 
     std::string GetStrVariable() const;
@@ -37726,9 +39070,10 @@ class GCFeNamedJiggleBone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFeNamedJiggleBone(std::string ptr);
+    GCFeNamedJiggleBone(std::string ptr, lua_State* state);
     GCFeNamedJiggleBone(void *ptr);
 
     std::string GetStrParentBone() const;
@@ -37747,9 +39092,10 @@ class GEventClientProcessInput_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientProcessInput_t(std::string ptr);
+    GEventClientProcessInput_t(std::string ptr, lua_State* state);
     GEventClientProcessInput_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -37770,9 +39116,10 @@ class GJiggleBoneSettingsList_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GJiggleBoneSettingsList_t(std::string ptr);
+    GJiggleBoneSettingsList_t(std::string ptr, lua_State* state);
     GJiggleBoneSettingsList_t(void *ptr);
 
     std::vector<GJiggleBoneSettings_t> GetBoneSettings() const;
@@ -37787,9 +39134,10 @@ class GCSequenceFinishedAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSequenceFinishedAnimTag(std::string ptr);
+    GCSequenceFinishedAnimTag(std::string ptr, lua_State* state);
     GCSequenceFinishedAnimTag(void *ptr);
 
     std::string GetSequenceName() const;
@@ -37806,9 +39154,10 @@ class GCAnimationGraphVisualizerText
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimationGraphVisualizerText(std::string ptr);
+    GCAnimationGraphVisualizerText(std::string ptr, lua_State* state);
     GCAnimationGraphVisualizerText(void *ptr);
 
     Vector GetWsPosition() const;
@@ -37829,9 +39178,10 @@ class GCDampedPathAnimMotorUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDampedPathAnimMotorUpdater(std::string ptr);
+    GCDampedPathAnimMotorUpdater(std::string ptr, lua_State* state);
     GCDampedPathAnimMotorUpdater(void *ptr);
 
     float GetAnticipationTime() const;
@@ -37860,9 +39210,10 @@ class GLookAtOpFixedSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GLookAtOpFixedSettings_t(std::string ptr);
+    GLookAtOpFixedSettings_t(std::string ptr, lua_State* state);
     GLookAtOpFixedSettings_t(void *ptr);
 
     GCAnimAttachment GetAttachment() const;
@@ -37897,9 +39248,10 @@ class GCEntityIOOutput
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEntityIOOutput(std::string ptr);
+    GCEntityIOOutput(std::string ptr, lua_State* state);
     GCEntityIOOutput(void *ptr);
 
 
@@ -37913,9 +39265,10 @@ class GCDSPPresetMixgroupModifierTable
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDSPPresetMixgroupModifierTable(std::string ptr);
+    GCDSPPresetMixgroupModifierTable(std::string ptr, lua_State* state);
     GCDSPPresetMixgroupModifierTable(void *ptr);
 
     std::vector<GCDspPresetModifierList> GetTable() const;
@@ -37930,9 +39283,10 @@ class GRnWing_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnWing_t(std::string ptr);
+    GRnWing_t(std::string ptr, lua_State* state);
     GRnWing_t(void *ptr);
 
     std::vector<int32_t> GetIndex() const;
@@ -37947,9 +39301,10 @@ class GCNmChildGraphNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmChildGraphNode(std::string ptr);
+    GCNmChildGraphNode(std::string ptr, lua_State* state);
     GCNmChildGraphNode(void *ptr);
 
     int16_t GetChildGraphIdx() const;
@@ -37966,9 +39321,10 @@ class GVMixPlateverbDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixPlateverbDesc_t(std::string ptr);
+    GVMixPlateverbDesc_t(std::string ptr, lua_State* state);
     GVMixPlateverbDesc_t(void *ptr);
 
     float GetPrefilter() const;
@@ -37995,9 +39351,10 @@ class GCMotionSearchDB
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionSearchDB(std::string ptr);
+    GCMotionSearchDB(std::string ptr, lua_State* state);
     GCMotionSearchDB(void *ptr);
 
     GCMotionSearchNode GetRootNode() const;
@@ -38016,9 +39373,10 @@ class GVPhysics2ShapeDef_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVPhysics2ShapeDef_t(std::string ptr);
+    GVPhysics2ShapeDef_t(std::string ptr, lua_State* state);
     GVPhysics2ShapeDef_t(void *ptr);
 
     std::vector<GRnSphereDesc_t> GetSpheres() const;
@@ -38041,9 +39399,10 @@ class GWorldBuilderParams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GWorldBuilderParams_t(std::string ptr);
+    GWorldBuilderParams_t(std::string ptr, lua_State* state);
     GWorldBuilderParams_t(void *ptr);
 
     float GetMinDrawVolumeSize() const;
@@ -38066,9 +39425,10 @@ class GCFootAdjustmentUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootAdjustmentUpdateNode(std::string ptr);
+    GCFootAdjustmentUpdateNode(std::string ptr, lua_State* state);
     GCFootAdjustmentUpdateNode(void *ptr);
 
     GCPoseHandle GetBasePoseCacheHandle() const;
@@ -38099,9 +39459,10 @@ class GCNmClipNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmClipNode(std::string ptr);
+    GCNmClipNode(std::string ptr, lua_State* state);
     GCNmClipNode(void *ptr);
 
     int16_t GetPlayInReverseValueNodeIdx() const;
@@ -38126,9 +39487,10 @@ class GCAnimMorphDifference
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimMorphDifference(std::string ptr);
+    GCAnimMorphDifference(std::string ptr, lua_State* state);
     GCAnimMorphDifference(void *ptr);
 
 
@@ -38142,9 +39504,10 @@ class GIParticleCollection
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GIParticleCollection(std::string ptr);
+    GIParticleCollection(std::string ptr, lua_State* state);
     GIParticleCollection(void *ptr);
 
 
@@ -38158,9 +39521,10 @@ class GCNmGraphDefinition__ChildGraphSlot_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmGraphDefinition__ChildGraphSlot_t(std::string ptr);
+    GCNmGraphDefinition__ChildGraphSlot_t(std::string ptr, lua_State* state);
     GCNmGraphDefinition__ChildGraphSlot_t(void *ptr);
 
     int16_t GetNodeIdx() const;
@@ -38177,9 +39541,10 @@ class GCFutureVelocityMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFutureVelocityMetricEvaluator(std::string ptr);
+    GCFutureVelocityMetricEvaluator(std::string ptr, lua_State* state);
     GCFutureVelocityMetricEvaluator(void *ptr);
 
     float GetDistance() const;
@@ -38202,9 +39567,10 @@ class GCParticleProperty
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleProperty(std::string ptr);
+    GCParticleProperty(std::string ptr, lua_State* state);
     GCParticleProperty(void *ptr);
 
 
@@ -38218,9 +39584,10 @@ class GVertexPositionNormal_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVertexPositionNormal_t(std::string ptr);
+    GVertexPositionNormal_t(std::string ptr, lua_State* state);
     GVertexPositionNormal_t(void *ptr);
 
     Vector GetPosition() const;
@@ -38237,9 +39604,10 @@ class GFeEffectDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeEffectDesc_t(std::string ptr);
+    GFeEffectDesc_t(std::string ptr, lua_State* state);
     GFeEffectDesc_t(void *ptr);
 
     std::string GetName() const;
@@ -38258,9 +39626,10 @@ class GCLODComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLODComponentUpdater(std::string ptr);
+    GCLODComponentUpdater(std::string ptr, lua_State* state);
     GCLODComponentUpdater(void *ptr);
 
     int32_t GetServerLOD() const;
@@ -38277,9 +39646,10 @@ class GCNmLegacyEvent
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmLegacyEvent(std::string ptr);
+    GCNmLegacyEvent(std::string ptr, lua_State* state);
     GCNmLegacyEvent(void *ptr);
 
     GCNmEvent GetParent() const;
@@ -38294,9 +39664,10 @@ class GMaterialParamVector_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialParamVector_t(std::string ptr);
+    GMaterialParamVector_t(std::string ptr, lua_State* state);
     GMaterialParamVector_t(void *ptr);
 
     Vector4D GetValue() const;
@@ -38313,9 +39684,10 @@ class GCMotionGraphGroup
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionGraphGroup(std::string ptr);
+    GCMotionGraphGroup(std::string ptr, lua_State* state);
     GCMotionGraphGroup(void *ptr);
 
     GCMotionSearchDB GetSearchDB() const;
@@ -38336,9 +39708,10 @@ class GHitReactFixedSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GHitReactFixedSettings_t(std::string ptr);
+    GHitReactFixedSettings_t(std::string ptr, lua_State* state);
     GHitReactFixedSettings_t(void *ptr);
 
     int32_t GetWeightListIndex() const;
@@ -38385,9 +39758,10 @@ class GCRootUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRootUpdateNode(std::string ptr);
+    GCRootUpdateNode(std::string ptr, lua_State* state);
     GCRootUpdateNode(void *ptr);
 
     GCUnaryUpdateNode GetParent() const;
@@ -38402,9 +39776,10 @@ class GCAnimMovement
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimMovement(std::string ptr);
+    GCAnimMovement(std::string ptr, lua_State* state);
     GCAnimMovement(void *ptr);
 
     int32_t GetEndframe() const;
@@ -38431,9 +39806,10 @@ class GCConstraintSlave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCConstraintSlave(std::string ptr);
+    GCConstraintSlave(std::string ptr, lua_State* state);
     GCConstraintSlave(void *ptr);
 
     Vector GetBasePosition() const;
@@ -38454,9 +39830,10 @@ class GCSeqBoneMaskList
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSeqBoneMaskList(std::string ptr);
+    GCSeqBoneMaskList(std::string ptr, lua_State* state);
     GCSeqBoneMaskList(void *ptr);
 
     std::vector<int16> GetLocalBoneArray() const;
@@ -38475,9 +39852,10 @@ class GPermModelDataAnimatedMaterialAttribute_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPermModelDataAnimatedMaterialAttribute_t(std::string ptr);
+    GPermModelDataAnimatedMaterialAttribute_t(std::string ptr, lua_State* state);
     GPermModelDataAnimatedMaterialAttribute_t(void *ptr);
 
     std::string GetAttributeName() const;
@@ -38494,9 +39872,10 @@ class GScriptInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GScriptInfo_t(std::string ptr);
+    GScriptInfo_t(std::string ptr, lua_State* state);
     GScriptInfo_t(void *ptr);
 
     std::string GetCode() const;
@@ -38519,9 +39898,10 @@ class GVPhysXRange_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVPhysXRange_t(std::string ptr);
+    GVPhysXRange_t(std::string ptr, lua_State* state);
     GVPhysXRange_t(void *ptr);
 
     float GetMin() const;
@@ -38538,9 +39918,10 @@ class GCJiggleBoneUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCJiggleBoneUpdateNode(std::string ptr);
+    GCJiggleBoneUpdateNode(std::string ptr, lua_State* state);
     GCJiggleBoneUpdateNode(void *ptr);
 
     GJiggleBoneSettingsList_t GetOpFixedData() const;
@@ -38557,9 +39938,10 @@ class GCollisionGroupContext_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCollisionGroupContext_t(std::string ptr);
+    GCollisionGroupContext_t(std::string ptr, lua_State* state);
     GCollisionGroupContext_t(void *ptr);
 
     int32_t GetCollisionGroupNumber() const;
@@ -38574,9 +39956,10 @@ class GCAudioPhonemeTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAudioPhonemeTag(std::string ptr);
+    GCAudioPhonemeTag(std::string ptr, lua_State* state);
     GCAudioPhonemeTag(void *ptr);
 
     float GetStartTime() const;
@@ -38595,9 +39978,10 @@ class GCAnimData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimData(std::string ptr);
+    GCAnimData(std::string ptr, lua_State* state);
     GCAnimData(void *ptr);
 
     std::vector<GCAnimDesc> GetAnimArray() const;
@@ -38618,9 +40002,10 @@ class GSosEditItemInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSosEditItemInfo_t(std::string ptr);
+    GSosEditItemInfo_t(std::string ptr, lua_State* state);
     GSosEditItemInfo_t(void *ptr);
 
     uint64_t GetItemType() const;
@@ -38643,9 +40028,10 @@ class GFeFitInfluence_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeFitInfluence_t(std::string ptr);
+    GFeFitInfluence_t(std::string ptr, lua_State* state);
     GFeFitInfluence_t(void *ptr);
 
     uint32_t GetVertexNode() const;
@@ -38664,9 +40050,10 @@ class GCInputStreamUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInputStreamUpdateNode(std::string ptr);
+    GCInputStreamUpdateNode(std::string ptr, lua_State* state);
     GCInputStreamUpdateNode(void *ptr);
 
     GCLeafUpdateNode GetParent() const;
@@ -38681,9 +40068,10 @@ class GEventClientPollInput_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientPollInput_t(std::string ptr);
+    GEventClientPollInput_t(std::string ptr, lua_State* state);
     GEventClientPollInput_t(void *ptr);
 
     GEngineLoopState_t GetLoopState() const;
@@ -38700,9 +40088,10 @@ class GFeSimdQuad_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSimdQuad_t(std::string ptr);
+    GFeSimdQuad_t(std::string ptr, lua_State* state);
     GFeSimdQuad_t(void *ptr);
 
     float Get4Slack() const;
@@ -38719,9 +40108,10 @@ class GCEmitTagActionUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEmitTagActionUpdater(std::string ptr);
+    GCEmitTagActionUpdater(std::string ptr, lua_State* state);
     GCEmitTagActionUpdater(void *ptr);
 
     int32_t GetTagIndex() const;
@@ -38740,9 +40130,10 @@ class GCAddUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAddUpdateNode(std::string ptr);
+    GCAddUpdateNode(std::string ptr, lua_State* state);
     GCAddUpdateNode(void *ptr);
 
     uint64_t GetFootMotionTiming() const;
@@ -38767,9 +40158,10 @@ class GCAnimTagManagerUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimTagManagerUpdater(std::string ptr);
+    GCAnimTagManagerUpdater(std::string ptr, lua_State* state);
     GCAnimTagManagerUpdater(void *ptr);
 
 
@@ -38783,9 +40175,10 @@ class GSampleCode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSampleCode(std::string ptr);
+    GSampleCode(std::string ptr, lua_State* state);
     GSampleCode(void *ptr);
 
     std::vector<uint32_t> GetSubCode() const;
@@ -38800,9 +40193,10 @@ class GCExpressionActionUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCExpressionActionUpdater(std::string ptr);
+    GCExpressionActionUpdater(std::string ptr, lua_State* state);
     GCExpressionActionUpdater(void *ptr);
 
     GCAnimParamHandle GetParam() const;
@@ -38823,9 +40217,10 @@ class GEventClientPostAdvanceTick_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientPostAdvanceTick_t(std::string ptr);
+    GEventClientPostAdvanceTick_t(std::string ptr, lua_State* state);
     GEventClientPostAdvanceTick_t(void *ptr);
 
     GEventPostAdvanceTick_t GetParent() const;
@@ -38840,9 +40235,10 @@ class GBoneDemoCaptureSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GBoneDemoCaptureSettings_t(std::string ptr);
+    GBoneDemoCaptureSettings_t(std::string ptr, lua_State* state);
     GBoneDemoCaptureSettings_t(void *ptr);
 
     std::string GetBoneName() const;
@@ -38869,9 +40265,10 @@ class GVPhysXBodyPart_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVPhysXBodyPart_t(std::string ptr);
+    GVPhysXBodyPart_t(std::string ptr, lua_State* state);
     GVPhysXBodyPart_t(void *ptr);
 
     uint32_t GetFlags() const;
@@ -38904,9 +40301,10 @@ class GCDecalInfo
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCDecalInfo(std::string ptr);
+    GCDecalInfo(std::string ptr, lua_State* state);
     GCDecalInfo(void *ptr);
 
     float GetAnimationScale() const;
@@ -38943,9 +40341,10 @@ class GParticleControlPointConfiguration_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GParticleControlPointConfiguration_t(std::string ptr);
+    GParticleControlPointConfiguration_t(std::string ptr, lua_State* state);
     GParticleControlPointConfiguration_t(void *ptr);
 
     std::string GetName() const;
@@ -38964,9 +40363,10 @@ class GVMixUtilityDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixUtilityDesc_t(std::string ptr);
+    GVMixUtilityDesc_t(std::string ptr, lua_State* state);
     GVMixUtilityDesc_t(void *ptr);
 
     uint64_t GetOp() const;
@@ -38991,9 +40391,10 @@ class GCMotionGraphConfig
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionGraphConfig(std::string ptr);
+    GCMotionGraphConfig(std::string ptr, lua_State* state);
     GCMotionGraphConfig(void *ptr);
 
     std::vector<float> GetParamValues() const;
@@ -39016,9 +40417,10 @@ class GCMovementComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMovementComponentUpdater(std::string ptr);
+    GCMovementComponentUpdater(std::string ptr, lua_State* state);
     GCMovementComponentUpdater(void *ptr);
 
     GCAnimInputDamping GetFacingDamping() const;
@@ -39047,9 +40449,10 @@ class GPointDefinition_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPointDefinition_t(std::string ptr);
+    GPointDefinition_t(std::string ptr, lua_State* state);
     GPointDefinition_t(void *ptr);
 
     int32_t GetControlPoint() const;
@@ -39068,9 +40471,10 @@ class GVMixEffectChainDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixEffectChainDesc_t(std::string ptr);
+    GVMixEffectChainDesc_t(std::string ptr, lua_State* state);
     GVMixEffectChainDesc_t(void *ptr);
 
     float GetCrossfadeTime() const;
@@ -39085,9 +40489,10 @@ class GCHitReactUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHitReactUpdateNode(std::string ptr);
+    GCHitReactUpdateNode(std::string ptr, lua_State* state);
     GCHitReactUpdateNode(void *ptr);
 
     GHitReactFixedSettings_t GetOpFixedSettings() const;
@@ -39118,9 +40523,10 @@ class GEntInput_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEntInput_t(std::string ptr);
+    GEntInput_t(std::string ptr, lua_State* state);
     GEntInput_t(void *ptr);
 
 
@@ -39134,9 +40540,10 @@ class GCNmVirtualParameterFloatNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmVirtualParameterFloatNode(std::string ptr);
+    GCNmVirtualParameterFloatNode(std::string ptr, lua_State* state);
     GCNmVirtualParameterFloatNode(void *ptr);
 
     int16_t GetChildNodeIdx() const;
@@ -39153,9 +40560,10 @@ class GCParticleSystemDefinition
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCParticleSystemDefinition(std::string ptr);
+    GCParticleSystemDefinition(std::string ptr, lua_State* state);
     GCParticleSystemDefinition(void *ptr);
 
     int32_t GetBehaviorVersion() const;
@@ -39288,9 +40696,10 @@ class GCVoiceContainerSelector
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerSelector(std::string ptr);
+    GCVoiceContainerSelector(std::string ptr, lua_State* state);
     GCVoiceContainerSelector(void *ptr);
 
     uint64_t GetMode() const;
@@ -39309,9 +40718,10 @@ class GCRegionSVM
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRegionSVM(std::string ptr);
+    GCRegionSVM(std::string ptr, lua_State* state);
     GCRegionSVM(void *ptr);
 
     std::vector<GRnPlane_t> GetPlanes() const;
@@ -39328,9 +40738,10 @@ class GCSetParameterActionUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSetParameterActionUpdater(std::string ptr);
+    GCSetParameterActionUpdater(std::string ptr, lua_State* state);
     GCSetParameterActionUpdater(void *ptr);
 
     GCAnimParamHandle GetParam() const;
@@ -39347,9 +40758,10 @@ class GCAnimUpdateSharedData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimUpdateSharedData(std::string ptr);
+    GCAnimUpdateSharedData(std::string ptr, lua_State* state);
     GCAnimUpdateSharedData(void *ptr);
 
     GCAnimGraphSettingsManager GetSettings() const;
@@ -39366,9 +40778,10 @@ class GEventClientSimulate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientSimulate_t(std::string ptr);
+    GEventClientSimulate_t(std::string ptr, lua_State* state);
     GEventClientSimulate_t(void *ptr);
 
     GEventSimulate_t GetParent() const;
@@ -39383,9 +40796,10 @@ class GCVoiceContainerAmpedDecayingSineWave
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoiceContainerAmpedDecayingSineWave(std::string ptr);
+    GCVoiceContainerAmpedDecayingSineWave(std::string ptr, lua_State* state);
     GCVoiceContainerAmpedDecayingSineWave(void *ptr);
 
     float GetGainAmount() const;
@@ -39402,9 +40816,10 @@ class GClutterTile_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GClutterTile_t(std::string ptr);
+    GClutterTile_t(std::string ptr, lua_State* state);
     GClutterTile_t(void *ptr);
 
     uint32_t GetFirstInstance() const;
@@ -39423,9 +40838,10 @@ class GPointDefinitionWithTimeValues_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPointDefinitionWithTimeValues_t(std::string ptr);
+    GPointDefinitionWithTimeValues_t(std::string ptr, lua_State* state);
     GPointDefinitionWithTimeValues_t(void *ptr);
 
     float GetTimeDuration() const;
@@ -39442,9 +40858,10 @@ class GFeVertexMapBuild_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeVertexMapBuild_t(std::string ptr);
+    GFeVertexMapBuild_t(std::string ptr, lua_State* state);
     GFeVertexMapBuild_t(void *ptr);
 
     std::string GetVertexMapName() const;
@@ -39469,9 +40886,10 @@ class GCAnimDesc
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimDesc(std::string ptr);
+    GCAnimDesc(std::string ptr, lua_State* state);
     GCAnimDesc(void *ptr);
 
     GCAnimDesc_Flag GetFlags() const;
@@ -39510,9 +40928,10 @@ class GCTwistConstraint
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTwistConstraint(std::string ptr);
+    GCTwistConstraint(std::string ptr, lua_State* state);
     GCTwistConstraint(void *ptr);
 
     bool GetInverse() const;
@@ -39529,9 +40948,10 @@ class GCNewParticleEffect
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNewParticleEffect(std::string ptr);
+    GCNewParticleEffect(std::string ptr, lua_State* state);
     GCNewParticleEffect(void *ptr);
 
     GCNewParticleEffect GetNext() const;
@@ -39584,9 +41004,10 @@ class GCFeIndexedJiggleBone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFeIndexedJiggleBone(std::string ptr);
+    GCFeIndexedJiggleBone(std::string ptr, lua_State* state);
     GCFeIndexedJiggleBone(void *ptr);
 
     uint32_t GetNode() const;
@@ -39605,9 +41026,10 @@ class GCFloatAnimParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFloatAnimParameter(std::string ptr);
+    GCFloatAnimParameter(std::string ptr, lua_State* state);
     GCFloatAnimParameter(void *ptr);
 
     float GetDefaultValue() const;
@@ -39630,9 +41052,10 @@ class GRnBlendVertex_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnBlendVertex_t(std::string ptr);
+    GRnBlendVertex_t(std::string ptr, lua_State* state);
     GRnBlendVertex_t(void *ptr);
 
     uint16_t GetWeight0() const;
@@ -39661,9 +41084,10 @@ class GCVirtualAnimParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVirtualAnimParameter(std::string ptr);
+    GCVirtualAnimParameter(std::string ptr, lua_State* state);
     GCVirtualAnimParameter(void *ptr);
 
     std::string GetExpressionString() const;
@@ -39682,9 +41106,10 @@ class GCHitBoxSetList
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHitBoxSetList(std::string ptr);
+    GCHitBoxSetList(std::string ptr, lua_State* state);
     GCHitBoxSetList(void *ptr);
 
     std::vector<GCHitBoxSet> GetHitBoxSets() const;
@@ -39699,9 +41124,10 @@ class GMaterialParamString_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GMaterialParamString_t(std::string ptr);
+    GMaterialParamString_t(std::string ptr, lua_State* state);
     GMaterialParamString_t(void *ptr);
 
     std::string GetValue() const;
@@ -39718,9 +41144,10 @@ class GVsInputSignature_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVsInputSignature_t(std::string ptr);
+    GVsInputSignature_t(std::string ptr, lua_State* state);
     GVsInputSignature_t(void *ptr);
 
     std::vector<GVsInputSignatureElement_t> GetElems() const;
@@ -39735,9 +41162,10 @@ class GInfoOverlayData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GInfoOverlayData_t(std::string ptr);
+    GInfoOverlayData_t(std::string ptr, lua_State* state);
     GInfoOverlayData_t(void *ptr);
 
     float GetWidth() const;
@@ -39766,9 +41194,10 @@ class GCastSphereSATParams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCastSphereSATParams_t(std::string ptr);
+    GCastSphereSATParams_t(std::string ptr, lua_State* state);
     GCastSphereSATParams_t(void *ptr);
 
     Vector GetRayStart() const;
@@ -39793,9 +41222,10 @@ class GCBindPoseUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBindPoseUpdateNode(std::string ptr);
+    GCBindPoseUpdateNode(std::string ptr, lua_State* state);
     GCBindPoseUpdateNode(void *ptr);
 
     GCLeafUpdateNode GetParent() const;
@@ -39810,9 +41240,10 @@ class GVMixFreeverbDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixFreeverbDesc_t(std::string ptr);
+    GVMixFreeverbDesc_t(std::string ptr, lua_State* state);
     GVMixFreeverbDesc_t(void *ptr);
 
     float GetRoomSize() const;
@@ -39833,9 +41264,10 @@ class GCCurrentVelocityMetricEvaluator
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCCurrentVelocityMetricEvaluator(std::string ptr);
+    GCCurrentVelocityMetricEvaluator(std::string ptr, lua_State* state);
     GCCurrentVelocityMetricEvaluator(void *ptr);
 
     GCMotionMetricEvaluator GetParent() const;
@@ -39850,9 +41282,10 @@ class GCVoxelVisibility
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVoxelVisibility(std::string ptr);
+    GCVoxelVisibility(std::string ptr, lua_State* state);
     GCVoxelVisibility(void *ptr);
 
     uint32_t GetBaseClusterCount() const;
@@ -39891,9 +41324,10 @@ class GSelectedEditItemInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GSelectedEditItemInfo_t(std::string ptr);
+    GSelectedEditItemInfo_t(std::string ptr, lua_State* state);
     GSelectedEditItemInfo_t(void *ptr);
 
     std::vector<GSosEditItemInfo_t> GetEditItems() const;
@@ -39908,9 +41342,10 @@ class GChainToSolveData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GChainToSolveData_t(std::string ptr);
+    GChainToSolveData_t(std::string ptr, lua_State* state);
     GChainToSolveData_t(void *ptr);
 
     int32_t GetChainIndex() const;
@@ -39935,9 +41370,10 @@ class GCGlowSprite
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCGlowSprite(std::string ptr);
+    GCGlowSprite(std::string ptr, lua_State* state);
     GCGlowSprite(void *ptr);
 
     Vector GetColor() const;
@@ -39956,9 +41392,10 @@ class GCSSDSMsg_PostLayer
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSSDSMsg_PostLayer(std::string ptr);
+    GCSSDSMsg_PostLayer(std::string ptr, lua_State* state);
     GCSSDSMsg_PostLayer(void *ptr);
 
     GCSSDSMsg_LayerBase GetParent() const;
@@ -39973,9 +41410,10 @@ class GCAnimBone
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimBone(std::string ptr);
+    GCAnimBone(std::string ptr, lua_State* state);
     GCAnimBone(void *ptr);
 
     int32_t GetParent() const;
@@ -39996,9 +41434,10 @@ class GVPhysXConstraint2_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVPhysXConstraint2_t(std::string ptr);
+    GVPhysXConstraint2_t(std::string ptr, lua_State* state);
     GVPhysXConstraint2_t(void *ptr);
 
     uint32_t GetFlags() const;
@@ -40019,9 +41458,10 @@ class GCEditableMotionGraph
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCEditableMotionGraph(std::string ptr);
+    GCEditableMotionGraph(std::string ptr, lua_State* state);
     GCEditableMotionGraph(void *ptr);
 
     GCMotionGraph GetParent() const;
@@ -40036,9 +41476,10 @@ class GCAnimKeyData
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimKeyData(std::string ptr);
+    GCAnimKeyData(std::string ptr, lua_State* state);
     GCAnimKeyData(void *ptr);
 
     std::vector<GCAnimBone> GetBoneArray() const;
@@ -40059,9 +41500,10 @@ class GEventPreDataUpdate_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventPreDataUpdate_t(std::string ptr);
+    GEventPreDataUpdate_t(std::string ptr, lua_State* state);
     GEventPreDataUpdate_t(void *ptr);
 
     int32_t GetCount() const;
@@ -40076,9 +41518,10 @@ class GWorld_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GWorld_t(std::string ptr);
+    GWorld_t(std::string ptr, lua_State* state);
     GWorld_t(void *ptr);
 
     GWorldBuilderParams_t GetBuilderParams() const;
@@ -40097,9 +41540,10 @@ class GCVectorAnimParameter
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCVectorAnimParameter(std::string ptr);
+    GCVectorAnimParameter(std::string ptr, lua_State* state);
     GCVectorAnimParameter(void *ptr);
 
     Vector GetDefaultValue() const;
@@ -40118,9 +41562,10 @@ class GCNmControlParameterBoolNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmControlParameterBoolNode(std::string ptr);
+    GCNmControlParameterBoolNode(std::string ptr, lua_State* state);
     GCNmControlParameterBoolNode(void *ptr);
 
     GCNmBoolValueNode GetParent() const;
@@ -40135,9 +41580,10 @@ class GCStateMachineUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStateMachineUpdateNode(std::string ptr);
+    GCStateMachineUpdateNode(std::string ptr, lua_State* state);
     GCStateMachineUpdateNode(void *ptr);
 
     GCAnimStateMachineUpdater GetStateMachine() const;
@@ -40162,9 +41608,10 @@ class GCHitBoxSet
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCHitBoxSet(std::string ptr);
+    GCHitBoxSet(std::string ptr, lua_State* state);
     GCHitBoxSet(void *ptr);
 
     std::string GetName() const;
@@ -40185,9 +41632,10 @@ class GCExampleSchemaVData_PolymorphicDerivedB
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCExampleSchemaVData_PolymorphicDerivedB(std::string ptr);
+    GCExampleSchemaVData_PolymorphicDerivedB(std::string ptr, lua_State* state);
     GCExampleSchemaVData_PolymorphicDerivedB(void *ptr);
 
     int32_t GetDerivedB() const;
@@ -40204,9 +41652,10 @@ class GFeSimdTri_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSimdTri_t(std::string ptr);
+    GFeSimdTri_t(std::string ptr, lua_State* state);
     GFeSimdTri_t(void *ptr);
 
     float GetW1() const;
@@ -40225,9 +41674,10 @@ class GPostProcessingResource_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GPostProcessingResource_t(std::string ptr);
+    GPostProcessingResource_t(std::string ptr, lua_State* state);
     GPostProcessingResource_t(void *ptr);
 
     bool GetHasTonemapParams() const;
@@ -40260,9 +41710,10 @@ class GCNmStateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmStateNode(std::string ptr);
+    GCNmStateNode(std::string ptr, lua_State* state);
     GCNmStateNode(void *ptr);
 
     int16_t GetChildNodeIdx() const;
@@ -40287,9 +41738,10 @@ class GNodeData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GNodeData_t(std::string ptr);
+    GNodeData_t(std::string ptr, lua_State* state);
     GNodeData_t(void *ptr);
 
     int32_t GetParent() const;
@@ -40316,9 +41768,10 @@ class GCTaskStatusAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTaskStatusAnimTag(std::string ptr);
+    GCTaskStatusAnimTag(std::string ptr, lua_State* state);
     GCTaskStatusAnimTag(void *ptr);
 
     GCAnimTagBase GetParent() const;
@@ -40333,9 +41786,10 @@ class GCMaterialDrawDescriptor
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMaterialDrawDescriptor(std::string ptr);
+    GCMaterialDrawDescriptor(std::string ptr, lua_State* state);
     GCMaterialDrawDescriptor(void *ptr);
 
     float GetUvDensity() const;
@@ -40370,9 +41824,10 @@ class GEventServerProcessNetworking_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventServerProcessNetworking_t(std::string ptr);
+    GEventServerProcessNetworking_t(std::string ptr, lua_State* state);
     GEventServerProcessNetworking_t(void *ptr);
 
     GEventSimulate_t GetParent() const;
@@ -40387,9 +41842,10 @@ class GCInterpolatedValue
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCInterpolatedValue(std::string ptr);
+    GCInterpolatedValue(std::string ptr, lua_State* state);
     GCInterpolatedValue(void *ptr);
 
     float GetStartTime() const;
@@ -40412,9 +41868,10 @@ class GCMotionGraphUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCMotionGraphUpdateNode(std::string ptr);
+    GCMotionGraphUpdateNode(std::string ptr, lua_State* state);
     GCMotionGraphUpdateNode(void *ptr);
 
     GCLeafUpdateNode GetParent() const;
@@ -40429,9 +41886,10 @@ class GCLookAtUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCLookAtUpdateNode(std::string ptr);
+    GCLookAtUpdateNode(std::string ptr, lua_State* state);
     GCLookAtUpdateNode(void *ptr);
 
     GLookAtOpFixedSettings_t GetOpFixedSettings() const;
@@ -40458,9 +41916,10 @@ class GCFlexController
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFlexController(std::string ptr);
+    GCFlexController(std::string ptr, lua_State* state);
     GCFlexController(void *ptr);
 
     std::string GetName() const;
@@ -40481,9 +41940,10 @@ class GCExampleSchemaVData_PolymorphicDerivedA
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCExampleSchemaVData_PolymorphicDerivedA(std::string ptr);
+    GCExampleSchemaVData_PolymorphicDerivedA(std::string ptr, lua_State* state);
     GCExampleSchemaVData_PolymorphicDerivedA(void *ptr);
 
     int32_t GetDerivedA() const;
@@ -40500,9 +41960,10 @@ class GEntityKeyValueData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEntityKeyValueData_t(std::string ptr);
+    GEntityKeyValueData_t(std::string ptr, lua_State* state);
     GEntityKeyValueData_t(void *ptr);
 
     std::vector<GEntityIOConnectionData_t> GetConnections() const;
@@ -40517,9 +41978,10 @@ class GCFootStride
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFootStride(std::string ptr);
+    GCFootStride(std::string ptr, lua_State* state);
     GCFootStride(void *ptr);
 
     GCFootCycleDefinition GetDefinition() const;
@@ -40536,9 +41998,10 @@ class GCAnimationGroup
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAnimationGroup(std::string ptr);
+    GCAnimationGroup(std::string ptr, lua_State* state);
     GCAnimationGroup(void *ptr);
 
     uint32_t GetFlags() const;
@@ -40555,9 +42018,10 @@ class GCSubtractUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSubtractUpdateNode(std::string ptr);
+    GCSubtractUpdateNode(std::string ptr, lua_State* state);
     GCSubtractUpdateNode(void *ptr);
 
     uint64_t GetFootMotionTiming() const;
@@ -40580,9 +42044,10 @@ class GFeTaperedCapsuleStretch_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeTaperedCapsuleStretch_t(std::string ptr);
+    GFeTaperedCapsuleStretch_t(std::string ptr, lua_State* state);
     GFeTaperedCapsuleStretch_t(void *ptr);
 
     std::vector<uint16_t> GetNode() const;
@@ -40603,9 +42068,10 @@ class GWorldNodeOnDiskBufferData_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GWorldNodeOnDiskBufferData_t(std::string ptr);
+    GWorldNodeOnDiskBufferData_t(std::string ptr, lua_State* state);
     GWorldNodeOnDiskBufferData_t(void *ptr);
 
     int32_t GetElementCount() const;
@@ -40626,9 +42092,10 @@ class GEntComponentInfo_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEntComponentInfo_t(std::string ptr);
+    GEntComponentInfo_t(std::string ptr, lua_State* state);
     GEntComponentInfo_t(void *ptr);
 
     std::string GetName() const;
@@ -40655,9 +42122,10 @@ class GCClientGapTypeQueryRegistration
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCClientGapTypeQueryRegistration(std::string ptr);
+    GCClientGapTypeQueryRegistration(std::string ptr, lua_State* state);
     GCClientGapTypeQueryRegistration(void *ptr);
 
 
@@ -40671,9 +42139,10 @@ class GCNmVirtualParameterTargetNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmVirtualParameterTargetNode(std::string ptr);
+    GCNmVirtualParameterTargetNode(std::string ptr, lua_State* state);
     GCNmVirtualParameterTargetNode(void *ptr);
 
     int16_t GetChildNodeIdx() const;
@@ -40690,9 +42159,10 @@ class GCAudioAnimTag
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCAudioAnimTag(std::string ptr);
+    GCAudioAnimTag(std::string ptr, lua_State* state);
     GCAudioAnimTag(void *ptr);
 
     std::string GetClipName() const;
@@ -40721,9 +42191,10 @@ class GCRenderMesh
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCRenderMesh(std::string ptr);
+    GCRenderMesh(std::string ptr, lua_State* state);
     GCRenderMesh(void *ptr);
 
     std::vector<GCBaseConstraint*> GetConstraints() const;
@@ -40744,9 +42215,10 @@ class Gconstraint_hingeparams_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    Gconstraint_hingeparams_t(std::string ptr);
+    Gconstraint_hingeparams_t(std::string ptr, lua_State* state);
     Gconstraint_hingeparams_t(void *ptr);
 
     Vector GetWorldPosition() const;
@@ -40767,9 +42239,10 @@ class GNmCompressionSettings_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GNmCompressionSettings_t(std::string ptr);
+    GNmCompressionSettings_t(std::string ptr, lua_State* state);
     GNmCompressionSettings_t(void *ptr);
 
     GNmCompressionSettings_t GetTranslationRangeX() const;
@@ -40796,9 +42269,10 @@ class GCTurnHelperUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTurnHelperUpdateNode(std::string ptr);
+    GCTurnHelperUpdateNode(std::string ptr, lua_State* state);
     GCTurnHelperUpdateNode(void *ptr);
 
     uint64_t GetFacingTarget() const;
@@ -40825,9 +42299,10 @@ class GCSosGroupActionTimeLimitSchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosGroupActionTimeLimitSchema(std::string ptr);
+    GCSosGroupActionTimeLimitSchema(std::string ptr, lua_State* state);
     GCSosGroupActionTimeLimitSchema(void *ptr);
 
     float GetMaxDuration() const;
@@ -40844,9 +42319,10 @@ class GCFollowTargetUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFollowTargetUpdateNode(std::string ptr);
+    GCFollowTargetUpdateNode(std::string ptr, lua_State* state);
     GCFollowTargetUpdateNode(void *ptr);
 
     GFollowTargetOpFixedSettings_t GetOpFixedData() const;
@@ -40867,9 +42343,10 @@ class GEventClientAdvanceNonRenderedFrame_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GEventClientAdvanceNonRenderedFrame_t(std::string ptr);
+    GEventClientAdvanceNonRenderedFrame_t(std::string ptr, lua_State* state);
     GEventClientAdvanceNonRenderedFrame_t(void *ptr);
 
 
@@ -40883,9 +42360,10 @@ class GCSosSoundEventGroupListSchema
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCSosSoundEventGroupListSchema(std::string ptr);
+    GCSosSoundEventGroupListSchema(std::string ptr, lua_State* state);
     GCSosSoundEventGroupListSchema(void *ptr);
 
     std::vector<GCSosSoundEventGroupSchema> GetGroupList() const;
@@ -40900,9 +42378,10 @@ class GCNmClip
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmClip(std::string ptr);
+    GCNmClip(std::string ptr, lua_State* state);
     GCNmClip(void *ptr);
 
     uint32_t GetNumFrames() const;
@@ -40929,9 +42408,10 @@ class GCFlexDesc
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCFlexDesc(std::string ptr);
+    GCFlexDesc(std::string ptr, lua_State* state);
     GCFlexDesc(void *ptr);
 
     std::string GetFacs() const;
@@ -40946,9 +42426,10 @@ class GCStateMachineComponentUpdater
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCStateMachineComponentUpdater(std::string ptr);
+    GCStateMachineComponentUpdater(std::string ptr, lua_State* state);
     GCStateMachineComponentUpdater(void *ptr);
 
     GCAnimStateMachineUpdater GetStateMachine() const;
@@ -40965,9 +42446,10 @@ class GCompMatMutatorCondition_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCompMatMutatorCondition_t(std::string ptr);
+    GCompMatMutatorCondition_t(std::string ptr, lua_State* state);
     GCompMatMutatorCondition_t(void *ptr);
 
     uint64_t GetMutatorCondition() const;
@@ -40990,9 +42472,10 @@ class GFakeEntity_tAPI
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFakeEntity_tAPI(std::string ptr);
+    GFakeEntity_tAPI(std::string ptr, lua_State* state);
     GFakeEntity_tAPI(void *ptr);
 
 
@@ -41006,9 +42489,10 @@ class GCBoneConstraintPoseSpaceMorph__Input_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBoneConstraintPoseSpaceMorph__Input_t(std::string ptr);
+    GCBoneConstraintPoseSpaceMorph__Input_t(std::string ptr, lua_State* state);
     GCBoneConstraintPoseSpaceMorph__Input_t(void *ptr);
 
     Vector GetInputValue() const;
@@ -41025,9 +42509,10 @@ class GCTwoBoneIKUpdateNode
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCTwoBoneIKUpdateNode(std::string ptr);
+    GCTwoBoneIKUpdateNode(std::string ptr, lua_State* state);
     GCTwoBoneIKUpdateNode(void *ptr);
 
     GTwoBoneIKSettings_t GetOpFixedData() const;
@@ -41044,9 +42529,10 @@ class GVMixDynamicsDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVMixDynamicsDesc_t(std::string ptr);
+    GVMixDynamicsDesc_t(std::string ptr, lua_State* state);
     GVMixDynamicsDesc_t(void *ptr);
 
     float GetFldbGain() const;
@@ -41083,9 +42569,10 @@ class GFeVertexMapDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeVertexMapDesc_t(std::string ptr);
+    GFeVertexMapDesc_t(std::string ptr, lua_State* state);
     GFeVertexMapDesc_t(void *ptr);
 
     std::string GetName() const;
@@ -41122,9 +42609,10 @@ class GFeSourceEdge_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GFeSourceEdge_t(std::string ptr);
+    GFeSourceEdge_t(std::string ptr, lua_State* state);
     GFeSourceEdge_t(void *ptr);
 
     std::vector<uint16_t> GetNode() const;
@@ -41139,9 +42627,10 @@ class GCompositeMaterialEditorPoint_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCompositeMaterialEditorPoint_t(std::string ptr);
+    GCompositeMaterialEditorPoint_t(std::string ptr, lua_State* state);
     GCompositeMaterialEditorPoint_t(void *ptr);
 
     int32_t GetSequenceIndex() const;
@@ -41164,9 +42653,10 @@ class GVPhysXJoint_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GVPhysXJoint_t(std::string ptr);
+    GVPhysXJoint_t(std::string ptr, lua_State* state);
     GVPhysXJoint_t(void *ptr);
 
     uint16_t GetType() const;
@@ -41223,9 +42713,10 @@ class GCBodyGroupSetting
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCBodyGroupSetting(std::string ptr);
+    GCBodyGroupSetting(std::string ptr, lua_State* state);
     GCBodyGroupSetting(void *ptr);
 
     std::string GetBodyGroupName() const;
@@ -41242,9 +42733,10 @@ class GRnSphereDesc_t
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GRnSphereDesc_t(std::string ptr);
+    GRnSphereDesc_t(std::string ptr, lua_State* state);
     GRnSphereDesc_t(void *ptr);
 
     GRnShapeDesc_t GetParent() const;
@@ -41259,9 +42751,10 @@ class GCNmTarget
 {
 private:
     void *m_ptr;
+    std::string plugin_name = "unknown";
 
 public:
-    GCNmTarget(std::string ptr);
+    GCNmTarget(std::string ptr, lua_State* state);
     GCNmTarget(void *ptr);
 
     bool GetIsBoneTarget() const;

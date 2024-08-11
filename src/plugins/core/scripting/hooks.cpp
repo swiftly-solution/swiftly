@@ -17,13 +17,13 @@
 
 typedef std::pair<std::string, std::string> OutputPair_t;
 std::map<OutputPair_t, std::vector<std::string>> outputHooksList;
-void Hook_FireOutputInternal(CEntityIOOutput *const pThis, CEntityInstance *pActivator, CEntityInstance *pCaller, const CVariant *const value, float flDelay);
+void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pActivator, CEntityInstance* pCaller, const CVariant* const value, float flDelay);
 FuncHook<decltype(Hook_FireOutputInternal)> TFireOutputInternal(Hook_FireOutputInternal, "FireOutputInternal");
 
-DCCallVM *pCallVM = dcNewCallVM(4096);
+DCCallVM* pCallVM = dcNewCallVM(4096);
 
-std::map<dyno::Hook *, std::vector<Hook>> hooksList;
-std::map<std::string, dyno::Hook *> hooksMap;
+std::map<dyno::Hook*, std::vector<Hook>> hooksList;
+std::map<std::string, dyno::Hook*> hooksMap;
 
 PluginHooks::PluginHooks(std::string plugin_name)
 {
@@ -76,9 +76,9 @@ std::vector<dyno::DataObject> ConvertDT(const std::vector<DataType_t> dataTypes)
     return converted;
 }
 
-dyno::ReturnAction DynHookHandler(dyno::HookType hookType, dyno::Hook &hook)
+dyno::ReturnAction DynHookHandler(dyno::HookType hookType, dyno::Hook& hook)
 {
-    dyno::Hook *hookPtr = &hook;
+    dyno::Hook* hookPtr = &hook;
     std::string callbackType = (hookType == dyno::HookType::Pre ? "Pre" : "Post");
     if (hooksList.find(hookPtr) == hooksList.end())
         return dyno::ReturnAction::Ignored;
@@ -93,7 +93,7 @@ dyno::ReturnAction DynHookHandler(dyno::HookType hookType, dyno::Hook &hook)
         setEmptyPayload = true;
     }
 
-    PluginEvent *event = new PluginEvent("core", nullptr, hookPtr);
+    PluginEvent* event = new PluginEvent("core", nullptr, hookPtr);
     for (auto hk : hooksList[hookPtr])
     {
         auto res = g_pluginManager->ExecuteEvent("core", "hook:" + callbackType + ":" + hk.id, emptyPayload, event);
@@ -110,13 +110,15 @@ dyno::ReturnAction DynHookHandler(dyno::HookType hookType, dyno::Hook &hook)
 
 std::string PluginHooks::AddHook(PluginMemory mem, std::string args_list, std::string ret_type)
 {
+    REGISTER_CALLSTACK(this->m_plugin_name, string_format("PluginHooks::AddHook(mem=%p,args_list=\"%s\",ret_type=\"%s\")", mem.GetRawPtr(), args_list.c_str(), ret_type.c_str()));
+
     if (!mem.IsValid())
     {
         PRINT("ERROR: Tried to add a hook with invalid memory.\n");
         return "00000000-0000-0000-0000-000000000000";
     }
 
-    void *funcPtr = mem.GetRawPtr();
+    void* funcPtr = mem.GetRawPtr();
 
     std::string id = get_uuid();
     Hook hk = {
@@ -128,33 +130,34 @@ std::string PluginHooks::AddHook(PluginMemory mem, std::string args_list, std::s
 
     std::vector<DataType_t> argTypes = ParseArgsList(args_list);
 
-    dyno::HookManager &manager = dyno::HookManager::Get();
-    dyno::Hook *hook = manager.hook(funcPtr, [argTypes, ret_type]
-                                    {
+    dyno::HookManager& manager = dyno::HookManager::Get();
+    dyno::Hook* hook = manager.hook(funcPtr, [argTypes, ret_type]
+        {
 #ifdef _WIN32
-                                        return new dyno::x64MsFastcall(ConvertDT(argTypes), static_cast<dyno::DataType>(ParseArgsList(ret_type)[0]));
+            return new dyno::x64MsFastcall(ConvertDT(argTypes), static_cast<dyno::DataType>(ParseArgsList(ret_type)[0]));
 #else
-                                        return new dyno::x64SystemVcall(ConvertDT(argTypes), static_cast<dyno::DataType>(ParseArgsList(ret_type)[0]));
+            return new dyno::x64SystemVcall(ConvertDT(argTypes), static_cast<dyno::DataType>(ParseArgsList(ret_type)[0]));
 #endif
-                                    });
+        });
 
     if (hooksList.find(hook) == hooksList.end())
-        hooksList.insert({hook, {}});
+        hooksList.insert({ hook, {} });
 
     hooksList[hook].push_back(hk);
 
     if (hooksMap.find(id) == hooksMap.end())
-        hooksMap.insert({id, hook});
+        hooksMap.insert({ id, hook });
     else
         hooksMap[id] = hook;
 
-    hook->addCallback(dyno::HookType::Pre, (dyno::HookHandler *)&DynHookHandler);
-    hook->addCallback(dyno::HookType::Post, (dyno::HookHandler *)&DynHookHandler);
+    hook->addCallback(dyno::HookType::Pre, (dyno::HookHandler*)&DynHookHandler);
+    hook->addCallback(dyno::HookType::Post, (dyno::HookHandler*)&DynHookHandler);
     return id;
 }
 
-luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookPayload, lua_State *L)
+luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookPayload, lua_State* L)
 {
+    REGISTER_CALLSTACK(this->m_plugin_name, string_format("PluginHooks::CallHookLua(hookId=\"%s\")", hookId.c_str()));
     if (hooksMap.find(hookId) == hooksMap.end())
         return LuaSerializeData(nullptr, L);
 
@@ -187,7 +190,7 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
             break;
 
         if (hk.argsList.at(i) == 'p')
-            dcArgPointer(pCallVM, (void *)strtol(args[i].as<std::string>().c_str(), nullptr, 16));
+            dcArgPointer(pCallVM, (void*)strtol(args[i].as<std::string>().c_str(), nullptr, 16));
         else if (hk.argsList.at(i) == 'f')
             dcArgFloat(pCallVM, args[i].as<float>());
         else if (hk.argsList.at(i) == 'b')
@@ -199,7 +202,7 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
         else if (hk.argsList.at(i) == 'u')
             dcArgLong(pCallVM, args[i].as<uint32_t>());
         else if (hk.argsList.at(i) == 's')
-            dcArgPointer(pCallVM, (void *)args[i].as<std::string>().c_str());
+            dcArgPointer(pCallVM, (void*)args[i].as<std::string>().c_str());
         else if (hk.argsList.at(i) == 'I')
             dcArgLongLong(pCallVM, args[i].as<int64_t>());
         else if (hk.argsList.at(i) == 'U')
@@ -213,7 +216,7 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
 
     std::any retval = nullptr;
     if (hk.retType.at(0) == 'p')
-        retval = string_format("%p", (void *)dcCallPointer(pCallVM, hk.ptr));
+        retval = string_format("%p", (void*)dcCallPointer(pCallVM, hk.ptr));
     else if (hk.retType.at(0) == 'f')
         retval = (float)dcCallFloat(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 'b')
@@ -225,7 +228,7 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
     else if (hk.retType.at(0) == 'u')
         retval = (uint32_t)dcCallInt(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 's')
-        retval = std::string((const char *)dcCallPointer(pCallVM, hk.ptr));
+        retval = std::string((const char*)dcCallPointer(pCallVM, hk.ptr));
     else if (hk.retType.at(0) == 'I')
         retval = (int64_t)dcCallLongLong(pCallVM, hk.ptr);
     else if (hk.retType.at(0) == 'U')
@@ -246,19 +249,20 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
 
 std::string PluginHooks::AddEntityOutputHook(std::string classname, std::string output)
 {
+    REGISTER_CALLSTACK(this->m_plugin_name, string_format("PluginHooks::AddEntityOutputHook(classname=\"%s\",output=\"%s\")", classname.c_str(), output.c_str()));
     std::string id = get_uuid();
     auto outputKey = OutputPair_t(classname, output);
 
     if (outputHooksList.find(outputKey) == outputHooksList.end())
-        outputHooksList.insert({outputKey, {}});
+        outputHooksList.insert({ outputKey, {} });
 
     outputHooksList[outputKey].push_back(id);
     return id;
 }
 
-void Hook_FireOutputInternal(CEntityIOOutput *const pThis, CEntityInstance *pActivator, CEntityInstance *pCaller, const CVariant *const value, float flDelay)
+void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pActivator, CEntityInstance* pCaller, const CVariant* const value, float flDelay)
 {
-    std::vector searchOutputs{OutputPair_t("*", pThis->m_pDesc->m_pName), OutputPair_t("*", "*")};
+    std::vector searchOutputs{ OutputPair_t("*", pThis->m_pDesc->m_pName), OutputPair_t("*", "*") };
 
     if (pCaller)
     {
@@ -279,7 +283,7 @@ void Hook_FireOutputInternal(CEntityIOOutput *const pThis, CEntityInstance *pAct
 
     if (hookIds.size() > 0)
     {
-        PluginEvent *preEvent = new PluginEvent("core", nullptr, nullptr);
+        PluginEvent* preEvent = new PluginEvent("core", nullptr, nullptr);
         std::stringstream preSS;
         std::vector<msgpack::object> preEventData;
 
@@ -306,7 +310,7 @@ void Hook_FireOutputInternal(CEntityIOOutput *const pThis, CEntityInstance *pAct
 
     if (hookIds.size() > 0)
     {
-        PluginEvent *postEvent = new PluginEvent("core", nullptr, nullptr);
+        PluginEvent* postEvent = new PluginEvent("core", nullptr, nullptr);
         std::stringstream postSS;
         std::vector<msgpack::object> postEventData;
 

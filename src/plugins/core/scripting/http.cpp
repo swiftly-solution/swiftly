@@ -166,6 +166,8 @@ void ProcessingHTTPThread()
 
 PluginHTTP::PluginHTTP(std::string m_plugin_name)
 {
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginHTTP::PluginHTTP(m_plugin_name=\"%s\")", m_plugin_name.c_str()));
+
     this->plugin_name = m_plugin_name;
 }
 
@@ -173,6 +175,8 @@ static bool httpThread = false;
 
 std::string PluginHTTP::PerformHTTP(std::string receivedData)
 {
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginHTTP::PerformHTTP(receivedData=\"%s\")", receivedData.c_str()));
+
     rapidjson::Document request;
     request.Parse(receivedData.c_str());
     if (request.HasParseError())

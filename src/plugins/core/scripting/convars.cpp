@@ -1,7 +1,7 @@
 #include "../scripting.h"
 #include "../../../entrypoint.h"
 
-ConVar *FetchCVar(std::string cvarname)
+ConVar* FetchCVar(std::string cvarname)
 {
     if (!g_pCVar)
         return nullptr;
@@ -20,7 +20,9 @@ PluginConvars::PluginConvars(std::string m_plugin_name)
 
 std::any PluginConvars::GetConvarValue(std::string cvarname)
 {
-    ConVar *cvar = FetchCVar(cvarname);
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::GetConvarValue(cvarname=\"%s\")", cvarname.c_str()));
+
+    ConVar* cvar = FetchCVar(cvarname);
     if (!cvar)
         return nullptr;
 
@@ -80,7 +82,7 @@ std::any PluginConvars::GetConvarValue(std::string cvarname)
     }
     else if (cvar->m_eVarType == EConVarType_String)
     {
-        char *val;
+        char* val;
         memcpy(&val, &cvar->values, sizeof(val));
         return val;
     }
@@ -118,14 +120,16 @@ std::any PluginConvars::GetConvarValue(std::string cvarname)
     return 0;
 }
 
-luabridge::LuaRef PluginConvars::GetConvarValueLua(std::string cvarname, lua_State *L)
+luabridge::LuaRef PluginConvars::GetConvarValueLua(std::string cvarname, lua_State* L)
 {
     return LuaSerializeData(GetConvarValue(cvarname), L);
 }
 
 int16_t PluginConvars::GetConvarType(std::string cvarname)
 {
-    ConVar *cvar = FetchCVar(cvarname);
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::GetConvarType(cvarname=\"%s\")", cvarname.c_str()));
+
+    ConVar* cvar = FetchCVar(cvarname);
     if (!cvar)
         return EConVarType::EConVarType_Invalid;
 
@@ -134,7 +138,9 @@ int16_t PluginConvars::GetConvarType(std::string cvarname)
 
 void PluginConvars::SetConvar(std::string cvarname, std::string value)
 {
-    ConVar *cvar = FetchCVar(cvarname);
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::SetConvar(cvarname=\"%s\", value=\"%s\")", cvarname.c_str(), value.c_str()));
+
+    ConVar* cvar = FetchCVar(cvarname);
     if (!cvar)
         return;
 

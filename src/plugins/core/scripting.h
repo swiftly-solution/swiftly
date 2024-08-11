@@ -4,6 +4,7 @@
 #include "scripting_includes.h"
 #include "../../resourcemonitor/ResourceMonitor.h"
 #include "../../sdk/entity/CCSWeaponBase.h"
+#include "../../crashreporter/CallStack.h"
 
 #include "cstrike15_usermessages.pb.h"
 #include <google/protobuf/message.h>
@@ -53,12 +54,12 @@ struct EntityIOConnectionDesc_t
 struct EntityIOConnection_t : EntityIOConnectionDesc_t
 {
     bool m_bMarkedForRemoval;
-    EntityIOConnection_t *m_pNext;
+    EntityIOConnection_t* m_pNext;
 };
 
 struct EntityIOOutputDesc_t
 {
-    const char *m_pName;
+    const char* m_pName;
     uint32 m_nFlags;
     uint32 m_nOutputOffset;
 };
@@ -66,9 +67,9 @@ struct EntityIOOutputDesc_t
 class CEntityIOOutput
 {
 public:
-    void *vtable;
-    EntityIOConnection_t *m_pConnections;
-    EntityIOOutputDesc_t *m_pDesc;
+    void* vtable;
+    EntityIOConnection_t* m_pConnections;
+    EntityIOOutputDesc_t* m_pDesc;
 };
 
 //////////////////////////////////////////////////////////////
@@ -126,13 +127,13 @@ class PluginEvent
 {
 private:
     std::string plugin_name;
-    IGameEvent *gameEvent;
-    dyno::Hook *hookPtr;
+    IGameEvent* gameEvent;
+    dyno::Hook* hookPtr;
 
     std::any returnValue;
 
 public:
-    PluginEvent(std::string m_plugin_name, IGameEvent *m_gameEvent, dyno::Hook *m_hookPtr);
+    PluginEvent(std::string m_plugin_name, IGameEvent* m_gameEvent, dyno::Hook* m_hookPtr);
     ~PluginEvent();
 
     std::string GetInvokingPlugin();
@@ -195,8 +196,8 @@ class PluginUserMessage
 {
 private:
     int msgid = INVALID_MESSAGE_ID;
-    CNetMessagePB<google::protobuf::Message> *msgBuffer = nullptr;
-    INetworkMessageInternal *internalMsg = nullptr;
+    CNetMessagePB<google::protobuf::Message>* msgBuffer = nullptr;
+    INetworkMessageInternal* internalMsg = nullptr;
 
 public:
     PluginUserMessage(std::string msgname);
@@ -263,34 +264,34 @@ public:
     void AddFloatOrDouble(std::string pszFieldName, float value);
 
     std::string GetString(std::string pszFieldName);
-    void SetString(std::string pszFieldName, const char *value);
+    void SetString(std::string pszFieldName, const char* value);
     std::string GetRepeatedString(std::string pszFieldName, int index);
-    void SetRepeatedString(std::string pszFieldName, int index, const char *value);
-    void AddString(std::string pszFieldName, const char *value);
+    void SetRepeatedString(std::string pszFieldName, int index, const char* value);
+    void AddString(std::string pszFieldName, const char* value);
 
     Color GetColor(std::string pszFieldName);
-    void SetColor(std::string pszFieldName, const Color &value);
+    void SetColor(std::string pszFieldName, const Color& value);
     Color GetRepeatedColor(std::string pszFieldName, int index);
-    void SetRepeatedColor(std::string pszFieldName, int index, const Color &value);
-    void AddColor(std::string pszFieldName, const Color &value);
+    void SetRepeatedColor(std::string pszFieldName, int index, const Color& value);
+    void AddColor(std::string pszFieldName, const Color& value);
 
     Vector2D GetVector2D(std::string pszFieldName);
-    void SetVector2D(std::string pszFieldName, Vector2D &vec);
+    void SetVector2D(std::string pszFieldName, Vector2D& vec);
     Vector2D GetRepeatedVector2D(std::string pszFieldName, int index);
-    void SetRepeatedVector2D(std::string pszFieldName, int index, Vector2D &vec);
-    void AddVector2D(std::string pszFieldName, Vector2D &vec);
+    void SetRepeatedVector2D(std::string pszFieldName, int index, Vector2D& vec);
+    void AddVector2D(std::string pszFieldName, Vector2D& vec);
 
     Vector GetVector(std::string pszFieldName);
-    void SetVector(std::string pszFieldName, Vector &vec);
+    void SetVector(std::string pszFieldName, Vector& vec);
     Vector GetRepeatedVector(std::string pszFieldName, int index);
-    void SetRepeatedVector(std::string pszFieldName, int index, Vector &vec);
-    void AddVector(std::string pszFieldName, Vector &vec);
+    void SetRepeatedVector(std::string pszFieldName, int index, Vector& vec);
+    void AddVector(std::string pszFieldName, Vector& vec);
 
     QAngle GetQAngle(std::string pszFieldName);
-    void SetQAngle(std::string pszFieldName, QAngle &vec);
+    void SetQAngle(std::string pszFieldName, QAngle& vec);
     QAngle GetRepeatedQAngle(std::string pszFieldName, int index);
-    void SetRepeatedQAngle(std::string pszFieldName, int index, QAngle &vec);
-    void AddQAngle(std::string pszFieldName, QAngle &vec);
+    void SetRepeatedQAngle(std::string pszFieldName, int index, QAngle& vec);
+    void AddQAngle(std::string pszFieldName, QAngle& vec);
 
     void RemoveRepeatedFieldValue(std::string pszFieldName, int index);
 
@@ -312,7 +313,7 @@ private:
 public:
     PluginCommands(std::string m_plugin_name);
 
-    void RegisterCommand(std::string commandName, void *callback);
+    void RegisterCommand(std::string commandName, void* callback);
     void UnregisterCommand(std::string commandName);
 
     void RegisterRawAlias(std::string commandName, std::string aliasName);
@@ -330,7 +331,7 @@ class PluginDatabase
 {
 private:
     std::string connection_name;
-    Database *db;
+    Database* db;
     bool dbConnected;
 
 public:
@@ -339,8 +340,8 @@ public:
     bool IsConnected();
     std::string EscapeString(std::string str);
 
-    void QueryLua(std::string query, luabridge::LuaRef callback, lua_State *L);
-    void QueryParamsLua(std::string query, std::map<luabridge::LuaRef, luabridge::LuaRef> params, luabridge::LuaRef callback, lua_State *L);
+    void QueryLua(std::string query, luabridge::LuaRef callback, lua_State* L);
+    void QueryParamsLua(std::string query, std::map<luabridge::LuaRef, luabridge::LuaRef> params, luabridge::LuaRef callback, lua_State* L);
 };
 
 //////////////////////////////////////////////////////////////
@@ -350,11 +351,11 @@ public:
 class PluginCHandle
 {
 private:
-    CHandle<CEntityInstance> *m_Handle;
+    CHandle<CEntityInstance>* m_Handle;
 
 public:
     PluginCHandle(std::string ptr);
-    PluginCHandle(void *ptr);
+    PluginCHandle(void* ptr);
 
     std::string GetPtr();
     void SetPtr(std::string ptr);
@@ -379,9 +380,9 @@ public:
     uint64_t FetchArraySize(std::string key);
     std::any Fetch(std::string key);
 
-    luabridge::LuaRef FetchLua(std::string key, lua_State *L);
+    luabridge::LuaRef FetchLua(std::string key, lua_State* L);
 
-    void CreateLua(std::string configurationKey, luabridge::LuaRef table, lua_State *L);
+    void CreateLua(std::string configurationKey, luabridge::LuaRef table, lua_State* L);
 };
 
 //////////////////////////////////////////////////////////////
@@ -397,7 +398,7 @@ public:
     PluginConvars(std::string m_plugin_name);
 
     std::any GetConvarValue(std::string cvarname);
-    luabridge::LuaRef GetConvarValueLua(std::string cvarname, lua_State *L);
+    luabridge::LuaRef GetConvarValueLua(std::string cvarname, lua_State* L);
 
     int16_t GetConvarType(std::string cvarname);
     void SetConvar(std::string cvarname, std::string value);
@@ -495,10 +496,10 @@ class PluginWeapon
 {
 private:
     int m_playerId;
-    CBasePlayerWeapon *m_ptr;
+    CBasePlayerWeapon* m_ptr;
 
 public:
-    PluginWeapon(int playerId, CBasePlayerWeapon *ptr);
+    PluginWeapon(int playerId, CBasePlayerWeapon* ptr);
 
     GCBasePlayerWeapon GetCBasePlayerWeapon();
     GCCSWeaponBase GetCCSWeaponBase();
@@ -538,18 +539,18 @@ private:
     std::string plugin_name;
     int playerId;
 
-    std::map<std::string, void *> ptrs;
+    std::map<std::string, void*> ptrs;
 
 public:
     PluginPlayer(std::string m_plugin_name, int m_playerId);
     ~PluginPlayer();
 
-    GCBaseEntity *GetCBaseEntity();
-    GCBasePlayerController *GetCBasePlayerController();
-    GCBasePlayerPawn *GetCBasePlayerPawn();
-    GCCSPlayerController *GetCCSPlayerController();
-    GCCSPlayerPawn *GetCCSPlayerPawn();
-    GCCSPlayerPawnBase *GetCCSPlayerPawnBase();
+    GCBaseEntity* GetCBaseEntity();
+    GCBasePlayerController* GetCBasePlayerController();
+    GCBasePlayerPawn* GetCBasePlayerPawn();
+    GCCSPlayerController* GetCCSPlayerController();
+    GCCSPlayerPawn* GetCCSPlayerPawn();
+    GCCSPlayerPawnBase* GetCCSPlayerPawnBase();
     void Drop(int reason);
     uint32_t GetConnectedTime();
     PluginWeaponManager GetWeaponManager();
@@ -583,7 +584,7 @@ public:
     void ShowMenu(std::string menuid);
 
     std::any GetVarValue(std::string key);
-    luabridge::LuaRef GetVarValueLua(std::string key, lua_State *L);
+    luabridge::LuaRef GetVarValueLua(std::string key, lua_State* L);
 
     void SetVarValue(std::string key, std::any value);
     void SetVarValueLua(std::string key, luabridge::LuaRef value);
@@ -602,7 +603,7 @@ public:
 /////////////////         Translations         //////////////
 ////////////////////////////////////////////////////////////
 
-std::string scripting_FetchTranslation(Plugin *plugin, std::string key);
+std::string scripting_FetchTranslation(Plugin* plugin, std::string key);
 
 //////////////////////////////////////////////////////////////
 /////////////////            Memory            //////////////
@@ -611,12 +612,12 @@ std::string scripting_FetchTranslation(Plugin *plugin, std::string key);
 class PluginMemory
 {
 private:
-    void *m_ptr;
+    void* m_ptr;
 
 public:
     PluginMemory();
 
-    void LoadFromPtr(void *ptr);
+    void LoadFromPtr(void* ptr);
     void LoadFromAddress(std::string addr);
     void LoadFromSignatureName(std::string signature_name);
     void LoadFromSignature(std::string library, std::string signature);
@@ -642,7 +643,7 @@ public:
     float GetFloat();
     double GetDouble();
 
-    void *GetRawPtr();
+    void* GetRawPtr();
     std::string GetPtr();
     bool IsValid();
 };
@@ -688,7 +689,7 @@ enum class DataType_t
 
 struct Hook
 {
-    void *ptr;
+    void* ptr;
     std::string argsList;
     std::string retType;
     std::string id;
@@ -705,15 +706,15 @@ public:
     std::string AddHook(PluginMemory mem, std::string args_list, std::string ret_type);
     std::string AddEntityOutputHook(std::string classname, std::string output);
 
-    luabridge::LuaRef CallHookLua(std::string hookId, std::string hookPayload, lua_State *L);
+    luabridge::LuaRef CallHookLua(std::string hookId, std::string hookPayload, lua_State* L);
 };
 
 //////////////////////////////////////////////////////////////
 /////////////////           Entities           //////////////
 ////////////////////////////////////////////////////////////
 
-std::vector<GCEntityInstance *> UTIL_FindEntitiesByClassname(const char *name);
-GCEntityInstance *CreateEntityByName(const char *name);
+std::vector<GCEntityInstance*> UTIL_FindEntitiesByClassname(const char* name);
+GCEntityInstance* CreateEntityByName(const char* name);
 
 //////////////////////////////////////////////////////////////
 /////////////////             Utils            //////////////
@@ -722,7 +723,7 @@ GCEntityInstance *CreateEntityByName(const char *name);
 bool scripting_IsWindows();
 bool scripting_IsLinux();
 std::string scripting_GetOS();
-GCCSGameRules *scripting_GetCCSGameRules();
+GCCSGameRules* scripting_GetCCSGameRules();
 std::string scripting_GetPluginPath(std::string plugin_name);
 
 #endif

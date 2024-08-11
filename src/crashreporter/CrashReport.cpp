@@ -23,38 +23,40 @@ bool BeginCrashListener() { return true; }
 #include "../files/Files.h"
 #include "../common.h"
 #include "../entrypoint.h"
+#include "../plugins/PluginManager.h"
+#include "CallStack.h"
 
 std::string startup_cmd = "None";
 
-const char *ws = " \t\n\r\f\v";
+const char* ws = " \t\n\r\f\v";
 
 // trim from end of string (right)
-inline std::string &rtrim(std::string &s, const char *t = ws)
+inline std::string& rtrim(std::string& s, const char* t = ws)
 {
     s.erase(s.find_last_not_of(t) + 1);
     return s;
 }
 
 // trim from beginning of string (left)
-inline std::string &ltrim(std::string &s, const char *t = ws)
+inline std::string& ltrim(std::string& s, const char* t = ws)
 {
     s.erase(0, s.find_first_not_of(t));
     return s;
 }
 
 // trim from both ends of string (right then left)
-inline std::string &trim(std::string &s, const char *t = ws)
+inline std::string& trim(std::string& s, const char* t = ws)
 {
     return ltrim(rtrim(s, t), t);
 }
 
 std::string BacktraceRaw(int skip = 1)
 {
-    void *callstack[128];
+    void* callstack[128];
     const int nMaxFrames = sizeof(callstack) / sizeof(callstack[0]);
     char buf[1024];
     int nFrames = backtrace(callstack, nMaxFrames);
-    char **symbols = backtrace_symbols(callstack, nFrames);
+    char** symbols = backtrace_symbols(callstack, nFrames);
 
     std::ostringstream trace_buf;
     for (int i = skip; i < nFrames; i++)
@@ -62,21 +64,21 @@ std::string BacktraceRaw(int skip = 1)
         Dl_info info;
         if (dladdr(callstack[i], &info) && info.dli_sname)
         {
-            char *demangled = NULL;
+            char* demangled = NULL;
             int status = -1;
             if (info.dli_sname[0] == '_')
                 demangled = abi::__cxa_demangle(info.dli_sname, NULL, 0, &status);
             snprintf(buf, sizeof(buf), "%02d. %p %s + %zd\n",
-                     i - 1, callstack[i],
-                     status == 0 ? demangled : info.dli_sname == 0 ? symbols[i]
-                                                                   : info.dli_sname,
-                     (char *)callstack[i] - (char *)info.dli_saddr);
+                i - 1, callstack[i],
+                status == 0 ? demangled : info.dli_sname == 0 ? symbols[i]
+                : info.dli_sname,
+                (char*)callstack[i] - (char*)info.dli_saddr);
             free(demangled);
         }
         else
         {
             snprintf(buf, sizeof(buf), "%02d. %p %s\n",
-                     i - 1, callstack[i], symbols[i]);
+                i - 1, callstack[i], symbols[i]);
         }
         trace_buf << buf;
     }
@@ -97,11 +99,11 @@ TextTable GetBacktrace()
     backtraceTable.add(" Address ");
     backtraceTable.endOfRow();
 
-    void *callstack[128];
+    void* callstack[128];
     const int nMaxFrames = sizeof(callstack) / sizeof(callstack[0]);
     char buf[1024];
     int nFrames = backtrace(callstack, nMaxFrames);
-    char **symbols = backtrace_symbols(callstack, nFrames);
+    char** symbols = backtrace_symbols(callstack, nFrames);
 
     for (int i = 2; i < nFrames; i++)
     {
@@ -113,13 +115,13 @@ TextTable GetBacktrace()
         Dl_info info;
         if (dladdr(callstack[i], &info) && info.dli_sname)
         {
-            char *demangled = NULL;
+            char* demangled = NULL;
             int status = -1;
             if (info.dli_sname[0] == '_')
                 demangled = abi::__cxa_demangle(info.dli_sname, NULL, 0, &status);
 
             std::string funcName = (status == 0 ? demangled : info.dli_sname == 0 ? "-"
-                                                                                  : info.dli_sname);
+                : info.dli_sname);
 
             backtraceTable.add(string_format(" %s ", (funcName.size() > 36 ? (funcName.substr(0, 33) + "...") : funcName).c_str()));
             free(demangled);
@@ -136,11 +138,27 @@ TextTable GetBacktrace()
     return backtraceTable;
 }
 
+std::string WritePluginsCallStack()
+{
+    std::string callstacks = "";
+    for (Plugin* plugin : g_pluginManager->GetPluginsList()) {
+        auto callstack = g_callStack->GetPluginCallstack(plugin->GetName());
+        if (callstack.size() > 0) {
+            callstacks += string_format("Plugin %s:\n", plugin->GetName().c_str());
+            for (auto it = callstack.begin(); it != callstack.end(); ++it)
+                callstacks += string_format("    - %s\n", it->second.c_str());
+
+            callstacks += "\n";
+        }
+    }
+    return callstacks;
+}
+
 void signal_handler(int signumber)
 {
     try
     {
-        void *tracePointers[20];
+        void* tracePointers[20];
         size_t count = backtrace(tracePointers, 20);
 
         PLUGIN_PRINTF("Crash Reporter", "A crash has occured and a dump has been created:\n");
@@ -153,10 +171,10 @@ void signal_handler(int signumber)
         if (Files::ExistsPath(file_path))
             Files::Delete(file_path);
 
-        Files::Append(file_path, string_format("================================\nCommand: %s\nMap: %s\n================================\n\n%s", startup_cmd.c_str(), engine->GetServerGlobals() ? engine->GetServerGlobals()->mapname.ToCStr() : "None", backtraceData.c_str()), false);
+        Files::Append(file_path, string_format("================================\nCommand: %s\nMap: %s\n================================\n\n%s\n%s", startup_cmd.c_str(), engine->GetServerGlobals() ? engine->GetServerGlobals()->mapname.ToCStr() : "None", backtraceData.c_str(), WritePluginsCallStack().c_str()), false);
         PLUGIN_PRINTF("Crash Reporter", "A dump log file has been created at: %s\n", file_path.c_str());
     }
-    catch (const std::runtime_error &e)
+    catch (const std::runtime_error& e)
     {
         PLUGIN_PRINTF("Crash Reporter", "Error crash handling: %s\n", e.what());
     }

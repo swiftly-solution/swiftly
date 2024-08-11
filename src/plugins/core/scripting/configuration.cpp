@@ -12,6 +12,9 @@ PluginConfiguration::PluginConfiguration(std::string m_plugin_name)
 
 bool PluginConfiguration::Exists(std::string key)
 {
+
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::Exists(key=\"%s\")", key.c_str()));
+
     std::map<std::string, std::any> config = g_Config->FetchConfiguration();
 
     return (config.find(key) != config.end());
@@ -19,11 +22,17 @@ bool PluginConfiguration::Exists(std::string key)
 
 void PluginConfiguration::Reload(std::string key)
 {
+
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::Reload(key=\"%s\")", key.c_str()));
+
     g_Config->LoadPluginConfig(key);
 }
 
 uint64_t PluginConfiguration::FetchArraySize(std::string key)
 {
+
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::FetchArraySize(key=\"%s\")", key.c_str()));
+
     std::map<std::string, unsigned int> arraySizes = g_Config->FetchConfigArraySizes();
 
     if (arraySizes.find(key) == arraySizes.end())
@@ -34,6 +43,8 @@ uint64_t PluginConfiguration::FetchArraySize(std::string key)
 
 std::any PluginConfiguration::Fetch(std::string key)
 {
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::Fetch(key=\"%s\")", key.c_str()));
+
     std::map<std::string, std::any> config = g_Config->FetchConfiguration();
 
     if (config.find(key) == config.end())
@@ -42,18 +53,18 @@ std::any PluginConfiguration::Fetch(std::string key)
     return config.at(key);
 }
 
-luabridge::LuaRef PluginConfiguration::FetchLua(std::string key, lua_State *L)
+luabridge::LuaRef PluginConfiguration::FetchLua(std::string key, lua_State* L)
 {
     std::any value = Fetch(key);
 
     return LuaSerializeData(value, L);
 }
 
-void ParseAndFillConfiguration(rapidjson::Value &initDoc, rapidjson::Value &config, rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator> &allocator, bool &wasEdited)
+void ParseAndFillConfiguration(rapidjson::Value& initDoc, rapidjson::Value& config, rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator>& allocator, bool& wasEdited)
 {
     for (auto it = initDoc.MemberBegin(); it != initDoc.MemberEnd(); ++it)
     {
-        const char *key = it->name.GetString();
+        const char* key = it->name.GetString();
         if (!config.HasMember(key))
         {
             config.AddMember(it->name, initDoc[key], allocator);
@@ -66,8 +77,9 @@ void ParseAndFillConfiguration(rapidjson::Value &initDoc, rapidjson::Value &conf
     }
 }
 
-void PluginConfiguration::CreateLua(std::string configurationKey, luabridge::LuaRef table, lua_State *L)
+void PluginConfiguration::CreateLua(std::string configurationKey, luabridge::LuaRef table, lua_State* L)
 {
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::CreateLua(configurationKey=\"%s\")", configurationKey.c_str()));
     rapidjson::Document doc(rapidjson::kObjectType);
     if (!table.isTable())
     {
@@ -85,7 +97,7 @@ void PluginConfiguration::CreateLua(std::string configurationKey, luabridge::Lua
     {
         encodedResult = rapidJsonTable["encode"](table);
     }
-    catch (luabridge::LuaException &e)
+    catch (luabridge::LuaException& e)
     {
         PLUGIN_PRINTF("Configuration - Create", "An error has occured: %s\n", e.what());
         return;

@@ -5,6 +5,7 @@
 #include "../../commands/CommandsManager.h"
 #include "../core/scripting.h"
 #include "../PluginManager.h"
+#include "../../crashreporter/CallStack.h"
 
 #include <vector>
 #include <msgpack.hpp>
@@ -244,6 +245,7 @@ void LuaPlugin::RegisterEventHandling(std::string eventName)
 
 EventResult LuaPlugin::TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event)
 {
+
     if (this->GetPluginState() == PluginState_t::Stopped && eventName != "OnPluginStart" && eventName != "OnAllPluginsLoaded")
         return EventResult::Continue;
 
@@ -253,9 +255,10 @@ EventResult LuaPlugin::TriggerEvent(std::string invokedBy, std::string eventName
     if (this->eventHandlers.find(eventName) == this->eventHandlers.end())
         return EventResult::Continue;
 
-    PERF_RECORD(string_format("event:%s:%s", invokedBy.c_str(), eventName.c_str()), this->GetName())
+    REGISTER_CALLSTACK(this->GetName(), string_format("Event: %s(invokedBy=\"%s\",payload=\"%s\",event=%p)", eventName.c_str(), invokedBy.c_str(), eventPayload.c_str(), (void*)event));
+    PERF_RECORD(string_format("event:%s:%s", invokedBy.c_str(), eventName.c_str()), this->GetName());
 
-        int res = (int)EventResult::Continue;
+    int res = (int)EventResult::Continue;
     try
     {
         luabridge::LuaRef func = *this->globalEventHandler;

@@ -13,6 +13,7 @@
 #include "addons/clients.h"
 #include "configuration/Configuration.h"
 #include "commands/CommandsManager.h"
+#include "crashreporter/CallStack.h"
 #include "crashreporter/CrashReport.h"
 #include "database/DatabaseManager.h"
 #include "gameevents/gameevents.h"
@@ -31,19 +32,19 @@
 #include "signatures/Offsets.h"
 #include "voicemanager/VoiceManager.h"
 
-SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t &, ISource2WorldSession *, const char *);
+SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t&, ISource2WorldSession*, const char*);
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
-SH_DECL_HOOK5_void(IServerGameClients, ClientDisconnect, SH_NOATTRIB, 0, CPlayerSlot, ENetworkDisconnectionReason, const char *, uint64, const char *);
+SH_DECL_HOOK5_void(IServerGameClients, ClientDisconnect, SH_NOATTRIB, 0, CPlayerSlot, ENetworkDisconnectionReason, const char*, uint64, const char*);
 SH_DECL_HOOK1_void(IServerGameClients, ClientSettingsChanged, SH_NOATTRIB, 0, CPlayerSlot);
-SH_DECL_HOOK6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlayerSlot, const char *, uint64, const char *, const char *, bool);
-SH_DECL_HOOK6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSlot, const char *, uint64, const char *, bool, CBufferString *);
-SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand &);
-SH_DECL_HOOK3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandHandle, const CCommandContext &, const CCommand &);
+SH_DECL_HOOK6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlayerSlot, const char*, uint64, const char*, const char*, bool);
+SH_DECL_HOOK6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSlot, const char*, uint64, const char*, bool, CBufferString*);
+SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand&);
+SH_DECL_HOOK3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandHandle, const CCommandContext&, const CCommand&);
 SH_DECL_HOOK0_void(IServerGameDLL, GameServerSteamAPIActivated, SH_NOATTRIB, 0);
 
 #ifdef _WIN32
-FILE _ioccc[] = {*stdin, *stdout, *stderr};
-extern "C" FILE *__cdecl __iob_func(void)
+FILE _ioccc[] = { *stdin, *stdout, *stderr };
+extern "C" FILE* __cdecl __iob_func(void)
 {
     return _ioccc;
 }
@@ -54,31 +55,31 @@ extern "C" FILE *__cdecl __iob_func(void)
 ////////////////////////////////////////////////////////////
 
 Swiftly g_Plugin;
-ISource2Server *server = nullptr;
-IServerGameClients *gameclients = nullptr;
-IVEngineServer2 *engine = nullptr;
-IServerGameClients *g_clientsManager = nullptr;
-ICvar *icvar = nullptr;
-ICvar *g_pcVar = nullptr;
-IGameResourceService *g_pGameResourceService = nullptr;
-CEntitySystem *g_pEntitySystem = nullptr;
-CGameEntitySystem *g_pGameEntitySystem = nullptr;
-IGameEventManager2 *g_gameEventManager = nullptr;
-IGameEventSystem *g_pGameEventSystem = nullptr;
+ISource2Server* server = nullptr;
+IServerGameClients* gameclients = nullptr;
+IVEngineServer2* engine = nullptr;
+IServerGameClients* g_clientsManager = nullptr;
+ICvar* icvar = nullptr;
+ICvar* g_pcVar = nullptr;
+IGameResourceService* g_pGameResourceService = nullptr;
+CEntitySystem* g_pEntitySystem = nullptr;
+CGameEntitySystem* g_pGameEntitySystem = nullptr;
+IGameEventManager2* g_gameEventManager = nullptr;
+IGameEventSystem* g_pGameEventSystem = nullptr;
 CEntityListener g_entityListener;
 CSteamGameServerAPIContext g_SteamAPI;
-CSchemaSystem *g_pSchemaSystem2 = nullptr;
+CSchemaSystem* g_pSchemaSystem2 = nullptr;
 
 class CGameResourceService
 {
 public:
-    CGameEntitySystem *GetGameEntitySystem()
+    CGameEntitySystem* GetGameEntitySystem()
     {
-        return *reinterpret_cast<CGameEntitySystem **>((uintptr_t)(this) + g_Offsets->GetOffset("GameEntitySystem"));
+        return *reinterpret_cast<CGameEntitySystem**>((uintptr_t)(this) + g_Offsets->GetOffset("GameEntitySystem"));
     }
 };
 
-CGameEntitySystem *GameEntitySystem()
+CGameEntitySystem* GameEntitySystem()
 {
     return g_pGameEntitySystem;
 }
@@ -87,23 +88,24 @@ CGameEntitySystem *GameEntitySystem()
 /////////////////      Internal Variables      //////////////
 ////////////////////////////////////////////////////////////
 
-CUtlVector<FuncHookBase *> g_vecHooks;
+CUtlVector<FuncHookBase*> g_vecHooks;
 
 Addons g_addons;
-CommandsManager *g_commandsManager = nullptr;
-Configuration *g_Config = nullptr;
-ConsoleFilter *g_conFilter = nullptr;
-Translations *g_translations = nullptr;
-Logger *g_Logger = nullptr;
-PlayerManager *g_playerManager = nullptr;
-PluginManager *g_pluginManager = nullptr;
-Offsets *g_Offsets = nullptr;
-Signatures *g_Signatures = nullptr;
-Precacher *g_precacher = nullptr;
-DatabaseManager *g_dbManager = nullptr;
-MenuManager *g_MenuManager = nullptr;
-ResourceMonitor *g_ResourceMonitor = nullptr;
-Patches *g_Patches = nullptr;
+CommandsManager* g_commandsManager = nullptr;
+Configuration* g_Config = nullptr;
+ConsoleFilter* g_conFilter = nullptr;
+Translations* g_translations = nullptr;
+Logger* g_Logger = nullptr;
+PlayerManager* g_playerManager = nullptr;
+PluginManager* g_pluginManager = nullptr;
+Offsets* g_Offsets = nullptr;
+Signatures* g_Signatures = nullptr;
+Precacher* g_precacher = nullptr;
+DatabaseManager* g_dbManager = nullptr;
+MenuManager* g_MenuManager = nullptr;
+ResourceMonitor* g_ResourceMonitor = nullptr;
+Patches* g_Patches = nullptr;
+CallStack* g_callStack = nullptr;
 VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
@@ -111,7 +113,7 @@ VoiceManager g_voiceManager;
 ////////////////////////////////////////////////////////////
 
 PLUGIN_EXPOSE(Swiftly, g_Plugin);
-bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool late)
+bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool late)
 {
     PLUGIN_SAVEVARS();
 
@@ -145,7 +147,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     if (!BeginCrashListener())
         PRINTRET("Crash Reporter failed to initialize.\n", false)
 
-    g_pluginManager = new PluginManager();
+        g_pluginManager = new PluginManager();
     g_Config = new Configuration();
     g_conFilter = new ConsoleFilter();
     g_Signatures = new Signatures();
@@ -159,13 +161,14 @@ bool Swiftly::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
     g_dbManager = new DatabaseManager();
     g_MenuManager = new MenuManager();
     g_ResourceMonitor = new ResourceMonitor();
+    g_callStack = new CallStack();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
     else
         PRINTRET("Failed to load configurations. The plugin will not work.\n", false)
 
-    g_Config->LoadPluginConfigurations();
+        g_Config->LoadPluginConfigurations();
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
     g_Patches->LoadPatches();
@@ -214,17 +217,17 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
     m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
 
     std::thread([&]() -> void
-                {
-                    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(3000));
 
-                    if (g_addons.GetStatus())
-                        g_addons.RefreshAddons(true); })
+            if (g_addons.GetStatus())
+                g_addons.RefreshAddons(true); })
         .detach();
 
     RETURN_META(MRES_IGNORED);
 }
 
-void Swiftly::OnAddonDownloaded(DownloadItemResult_t *pResult)
+void Swiftly::OnAddonDownloaded(DownloadItemResult_t* pResult)
 {
     g_addons.OnAddonDownloaded(pResult);
 }
@@ -233,7 +236,7 @@ void Swiftly::AllPluginsLoaded()
 {
 }
 
-bool Swiftly::Unload(char *error, size_t maxlen)
+bool Swiftly::Unload(char* error, size_t maxlen)
 {
     g_pluginManager->StopPlugins();
     g_pluginManager->UnloadPlugins();
@@ -258,7 +261,7 @@ bool Swiftly::Unload(char *error, size_t maxlen)
 
 std::string currentMap = "None";
 
-void Swiftly::OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background)
+void Swiftly::OnLevelInit(char const* pMapName, char const* pMapEntities, char const* pOldLevel, char const* pLandmarkName, bool loadGame, bool background)
 {
     if (!g_precacher->GetSoundsPrecached())
     {
@@ -273,7 +276,7 @@ void Swiftly::OnLevelInit(char const *pMapName, char const *pMapEntities, char c
 
     msgpack::pack(ss, eventData);
 
-    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnMapLoad", ss.str(), event);
     delete event;
 
@@ -293,17 +296,17 @@ void Swiftly::OnLevelShutdown()
 
     msgpack::pack(ss, eventData);
 
-    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnMapUnload", ss.str(), event);
     delete event;
 }
 
 bool bDone = false;
-void Swiftly::Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *)
+void Swiftly::Hook_StartupServer(const GameSessionConfiguration_t& config, ISource2WorldSession*, const char*)
 {
     if (!bDone)
     {
-        g_pGameEntitySystem = ((CGameResourceService *)g_pGameResourceService)->GetGameEntitySystem();
+        g_pGameEntitySystem = ((CGameResourceService*)g_pGameResourceService)->GetGameEntitySystem();
         g_pEntitySystem = g_pGameEntitySystem;
 
         g_pGameEntitySystem->AddListenerEntity(&g_entityListener);
@@ -328,7 +331,7 @@ void Swiftly::UpdatePlayers()
         auto steamId = engine->GetClientSteamID(CPlayerSlot(i));
         if (steamId)
         {
-            auto controller = (CBasePlayerController *)g_pEntitySystem->GetEntityInstance(CEntityIndex(i + 1));
+            auto controller = (CBasePlayerController*)g_pEntitySystem->GetEntityInstance(CEntityIndex(i + 1));
             if (controller)
                 g_SteamAPI.SteamGameServer()->BUpdateUserData(*steamId, controller->m_iszPlayerName(), gameclients->GetPlayerScore(CPlayerSlot(i)));
         }
@@ -342,7 +345,7 @@ struct GameFrameMsgPackCache
     bool bLastTick;
 };
 
-PluginEvent *gameFrameEvent = nullptr;
+PluginEvent* gameFrameEvent = nullptr;
 std::string gameFramePack;
 GameFrameMsgPackCache gameFrameCache = {
     false,
@@ -353,7 +356,7 @@ GameFrameMsgPackCache gameFrameCache = {
 void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     PERF_RECORD("GameFrame", "core")
-    static double g_flNextUpdate = 0.0;
+        static double g_flNextUpdate = 0.0;
 
     //////////////////////////////////////////////////////////////
     /////////////////         Server List          //////////////
@@ -396,17 +399,17 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     ////////////////////////////////////////////////////////////
     for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
-        Player *player = g_playerManager->GetPlayer(i);
+        Player* player = g_playerManager->GetPlayer(i);
         if (!player)
             continue;
         if (player->IsFakeClient())
             continue;
 
-        CBasePlayerPawn *pawn = player->GetPawn();
+        CBasePlayerPawn* pawn = player->GetPawn();
         if (!pawn)
             continue;
 
-        CPlayer_MovementServices *movementServices = pawn->m_pMovementServices();
+        CPlayer_MovementServices* movementServices = pawn->m_pMovementServices();
         if (!movementServices)
             continue;
 
@@ -428,7 +431,7 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     }
 }
 
-void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char *pszName, uint64 xuid, const char *pszNetworkID)
+void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char* pszName, uint64 xuid, const char* pszNetworkID)
 {
     std::stringstream ss;
     std::vector<msgpack::object> eventData;
@@ -437,30 +440,30 @@ void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReaso
 
     msgpack::pack(ss, eventData);
 
-    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnClientDisconnect", ss.str(), event);
 
-    Player *player = g_playerManager->GetPlayer(slot);
+    Player* player = g_playerManager->GetPlayer(slot);
     if (player)
         g_playerManager->UnregisterPlayer(slot);
 }
 
-void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer)
+void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, const char* pszAddress, bool bFakePlayer)
 {
     if (bFakePlayer)
     {
-        Player *player = new Player(true, slot.Get(), pszName, 0, "127.0.0.1");
+        Player* player = new Player(true, slot.Get(), pszName, 0, "127.0.0.1");
         g_playerManager->RegisterPlayer(player);
     }
 }
 
-bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason)
+bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, bool unk1, CBufferString* pRejectReason)
 {
     if (!g_addons.OnClientConnect(xuid))
         RETURN_META_VALUE(MRES_IGNORED, true);
 
     std::string ip_address = explode(pszNetworkID, ":")[0];
-    Player *player = new Player(false, slot.Get(), pszName, xuid, ip_address);
+    Player* player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     g_playerManager->RegisterPlayer(player);
 
     player->SetConnected(true);
@@ -472,7 +475,7 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 x
 
     msgpack::pack(ss, eventData);
 
-    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnClientConnect", ss.str(), event);
 
     bool response = true;
@@ -480,7 +483,7 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 x
     {
         response = std::any_cast<bool>(event->GetReturnValue());
     }
-    catch (std::bad_any_cast &e)
+    catch (std::bad_any_cast& e)
     {
         response = true;
     }
@@ -495,29 +498,29 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 x
 bool OnClientCommand(int playerid, std::string command);
 bool OnClientChat(int playerid, std::string text, bool teamonly);
 
-const char *wws = " \t\n\r\f\v";
+const char* wws = " \t\n\r\f\v";
 
 // trim from end of string (right)
-inline std::string &rrtrim(std::string &s, const char *t = wws)
+inline std::string& rrtrim(std::string& s, const char* t = wws)
 {
     s.erase(s.find_last_not_of(t) + 1);
     return s;
 }
 
 // trim from beginning of string (left)
-inline std::string &lltrim(std::string &s, const char *t = wws)
+inline std::string& lltrim(std::string& s, const char* t = wws)
 {
     s.erase(0, s.find_first_not_of(t));
     return s;
 }
 
 // trim from both ends of string (right then left)
-inline std::string &strim(std::string &s, const char *t = wws)
+inline std::string& strim(std::string& s, const char* t = wws)
 {
     return lltrim(rrtrim(s, t), t);
 }
 
-void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext &ctx, const CCommand &args)
+void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext& ctx, const CCommand& args)
 {
     CPlayerSlot slot = ctx.GetPlayerSlot();
 
@@ -532,11 +535,11 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
 
         if (command == "say" || command == "say_team")
         {
-            Player *player = g_playerManager->GetPlayer(slot);
+            Player* player = g_playerManager->GetPlayer(slot);
             if (!player)
                 return;
 
-            CCSPlayerController *controller = player->GetPlayerController();
+            CCSPlayerController* controller = player->GetPlayerController();
             bool teamonly = (command == "say_team");
 
             std::vector<std::string> textSplitted = explode(args.GetCommandString(), " ");
@@ -552,7 +555,7 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
 
             if (controller)
             {
-                IGameEvent *pEvent = g_gameEventManager->CreateEvent("player_chat");
+                IGameEvent* pEvent = g_gameEventManager->CreateEvent("player_chat");
 
                 if (pEvent)
                 {
@@ -583,11 +586,11 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
 
                 for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
                 {
-                    Player *p = g_playerManager->GetPlayer(i);
+                    Player* p = g_playerManager->GetPlayer(i);
                     if (p == nullptr)
                         continue;
 
-                    CCSPlayerController *pcontroller = p->GetPlayerController();
+                    CCSPlayerController* pcontroller = p->GetPlayerController();
                     if (!pcontroller)
                         continue;
 
@@ -610,68 +613,68 @@ void Swiftly::NextFrame(std::function<void()> fn)
     m_nextFrame.push_back(fn);
 }
 
-void CEntityListener::OnEntitySpawned(CEntityInstance *pEntity)
+void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)
 {
     std::stringstream ss;
     std::vector<msgpack::object> eventData;
 
-    eventData.push_back(msgpack::object(string_format("%p", (void *)pEntity).c_str()));
+    eventData.push_back(msgpack::object(string_format("%p", (void*)pEntity).c_str()));
 
     msgpack::pack(ss, eventData);
 
-    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnEntitySpawned", ss.str(), event);
     delete event;
 }
 
-void CEntityListener::OnEntityParentChanged(CEntityInstance *pEntity, CEntityInstance *pNewParent)
+void CEntityListener::OnEntityParentChanged(CEntityInstance* pEntity, CEntityInstance* pNewParent)
 {
 }
 
-void CEntityListener::OnEntityCreated(CEntityInstance *pEntity)
+void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
 {
     std::stringstream ss;
     std::vector<msgpack::object> eventData;
 
-    eventData.push_back(msgpack::object(string_format("%p", (void *)pEntity).c_str()));
+    eventData.push_back(msgpack::object(string_format("%p", (void*)pEntity).c_str()));
 
     msgpack::pack(ss, eventData);
 
-    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnEntityCreated", ss.str(), event);
     delete event;
 }
 
-void CEntityListener::OnEntityDeleted(CEntityInstance *pEntity)
+void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
 {
     std::stringstream ss;
     std::vector<msgpack::object> eventData;
 
-    eventData.push_back(msgpack::object(string_format("%p", (void *)pEntity).c_str()));
+    eventData.push_back(msgpack::object(string_format("%p", (void*)pEntity).c_str()));
 
     msgpack::pack(ss, eventData);
 
-    PluginEvent *event = new PluginEvent("core", nullptr, nullptr);
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnEntityDeleted", ss.str(), event);
     delete event;
 }
 
-bool Swiftly::Pause(char *error, size_t maxlen)
+bool Swiftly::Pause(char* error, size_t maxlen)
 {
     return true;
 }
 
-bool Swiftly::Unpause(char *error, size_t maxlen)
+bool Swiftly::Unpause(char* error, size_t maxlen)
 {
     return true;
 }
 
-const char *Swiftly::GetLicense()
+const char* Swiftly::GetLicense()
 {
     return "MIT License";
 }
 
-const char *Swiftly::GetVersion()
+const char* Swiftly::GetVersion()
 {
 #ifndef SWIFTLY_VERSION
     return "Local";
@@ -680,32 +683,32 @@ const char *Swiftly::GetVersion()
 #endif
 }
 
-const char *Swiftly::GetDate()
+const char* Swiftly::GetDate()
 {
     return __DATE__;
 }
 
-const char *Swiftly::GetLogTag()
+const char* Swiftly::GetLogTag()
 {
     return "SWIFTLY";
 }
 
-const char *Swiftly::GetAuthor()
+const char* Swiftly::GetAuthor()
 {
     return "Swiftly Development Team";
 }
 
-const char *Swiftly::GetDescription()
+const char* Swiftly::GetDescription()
 {
     return "Swiftly - Framework";
 }
 
-const char *Swiftly::GetName()
+const char* Swiftly::GetName()
 {
     return "Swiftly";
 }
 
-const char *Swiftly::GetURL()
+const char* Swiftly::GetURL()
 {
     return "https://github.com/swiftly-solution/swiftly";
 }
