@@ -2,7 +2,7 @@
 
 #include "../../../utils/utils.h"
 
-int customPrint(lua_State *state)
+int customPrint(lua_State* state)
 {
     std::string prefix = string_format("[Swiftly] %s[%16s]\e[39m ", GetTerminalStringColor(luabridge::getGlobal(state, "plugin_name").tostring()).c_str(), ("plugin:" + luabridge::getGlobal(state, "plugin_name").tostring()).c_str());
 
@@ -19,7 +19,7 @@ int customPrint(lua_State *state)
         lua_call(state, 1, 1);
 
         size_t l = 0;
-        const char *s = lua_tolstring(state, -1, &l);
+        const char* s = lua_tolstring(state, -1, &l);
         if (s == nullptr)
         {
             outputArr.push_back("An error has occured while trying to call 'print'.\nError: 'tostring' must return a string to 'print'\n");
@@ -43,26 +43,47 @@ int customPrint(lua_State *state)
     return 0;
 }
 
-void SetupLuaEnvironment(LuaPlugin *plugin, lua_State *state)
+std::map<std::string, lua_State*> pluginNamesMap = {};
+std::map<lua_State*, std::string> pluginNamesMap2 = {};
+
+std::string FetchPluginName(lua_State* state)
 {
+    return pluginNamesMap2.at(state);
+}
+
+void SetupLuaEnvironment(LuaPlugin* plugin, lua_State* state)
+{
+    if (pluginNamesMap.find(plugin->GetName()) == pluginNamesMap.end()) {
+        pluginNamesMap.insert({ plugin->GetName(), state });
+        pluginNamesMap2.insert({ state, plugin->GetName() });
+    }
+    else {
+        lua_State* st = pluginNamesMap[plugin->GetName()];
+        pluginNamesMap2.erase(st);
+
+        pluginNamesMap2.insert({ state, plugin->GetName() });
+        pluginNamesMap[plugin->GetName()] = state;
+    }
+
     luabridge::getGlobalNamespace(state)
         .addCFunction("print", &customPrint)
-        .addFunction("GetCurrentPluginName", +[](lua_State *L) -> std::string
-                     { return FetchPluginName(L); })
+        .addFunction("GetCurrentPluginName", +[](lua_State* L) -> std::string
+            { return FetchPluginName(L); })
         .addFunction("CreateTextTable", +[](std::vector<std::vector<std::string>> data)
-                                        {
-            TextTable tbl('-', '|', '+');
+            {
+                TextTable tbl('-', '|', '+');
 
-            for(auto vec : data) {
-                for(std::string str : vec)
-                    tbl.add(" " + str + " ");
+                for (auto vec : data) {
+                    for (std::string str : vec)
+                        tbl.add(" " + str + " ");
 
-                tbl.endOfRow();
-            }
+                    tbl.endOfRow();
+                }
 
-            std::stringstream outputTable;
-            outputTable << tbl;
-            return outputTable.str(); });
+                std::stringstream outputTable;
+                outputTable << tbl;
+                return outputTable.str();
+            });
 
     luabridge::setGlobal(state, plugin->GetName(), "plugin_name");
 

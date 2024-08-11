@@ -6,7 +6,7 @@
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
 
-#define FetchPluginName(state) luabridge::getGlobal(state, "plugin_name").tostring()
+std::string FetchPluginName(lua_State* state);
 #define FetchPluginByState(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
 
 struct DatabaseQueryQueue
@@ -28,6 +28,7 @@ void DatabaseQueryThread()
         {
             DatabaseQueryQueue queue = queryQueue.front();
 
+            RegisterCallStack* callStack = new RegisterCallStack(queue.plugin->GetName(), string_format("database::Query(database=%p, query=\"%s\")", (void*)queue.db, queue.query.c_str()));
             auto queryResult = queue.db->Query(queue.query.c_str());
             if (queue.plugin->GetKind() == PluginKind_t::Lua)
             {
@@ -77,14 +78,15 @@ void DatabaseQueryThread()
                 try
                 {
                     std::string error = queue.db->GetError();
-                    if (error == "MySQL server has gone away")
+                    if (error == "MySQL server has gone away") {
                         if (queue.db->Connect())
                         {
-                            delete ((luabridge::LuaRef*)queue.callback);
+                            delete callStack;
                             continue;
                         }
                         else
                             error = queue.db->GetError();
+                    }
 
                     if (ref.isFunction())
                         ref(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
@@ -95,6 +97,7 @@ void DatabaseQueryThread()
                 }
             }
 
+            delete callStack;
             delete ((luabridge::LuaRef*)queue.callback);
             queryQueue.pop_front();
         }
