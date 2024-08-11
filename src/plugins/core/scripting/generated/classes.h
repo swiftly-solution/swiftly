@@ -2081,7 +2081,7 @@ public:
     void SetDecalHealBloodRate(float value);
     float GetDecalHealHeightRate() const;
     void SetDecalHealHeightRate(float value);
-    std::vector<GCBaseModelEntity> GetConfigEntitiesToPropagateMaterialDecalsTo();
+    std::vector<GCBaseModelEntity> GetConfigEntitiesToPropagateMaterialDecalsTo() const;
     void SetConfigEntitiesToPropagateMaterialDecalsTo(std::vector<GCBaseModelEntity> value);
     GCNetworkViewOffsetVector GetViewOffset() const;
     void SetViewOffset(GCNetworkViewOffsetVector value);
@@ -4471,7 +4471,7 @@ public:
     void SetQueuedLightStyleStrings(std::vector<CUtlString> value);
     std::vector<CUtlString> GetLightStyleEvents() const;
     void SetLightStyleEvents(std::vector<CUtlString> value);
-    std::vector<GCBaseModelEntity> GetLightStyleTargets();
+    std::vector<GCBaseModelEntity> GetLightStyleTargets() const;
     void SetLightStyleTargets(std::vector<GCBaseModelEntity> value);
     std::vector<GCEntityIOOutput> GetStyleEvent() const;
     void SetStyleEvent(std::vector<GCEntityIOOutput> value);
@@ -4800,7 +4800,7 @@ public:
 
     bool GetForceServerRagdoll() const;
     void SetForceServerRagdoll(bool value);
-    std::vector<GCEconWearable> GetMyWearables();
+    std::vector<GCEconWearable> GetMyWearables() const;
     void SetMyWearables(std::vector<GCEconWearable> value);
     float GetFieldOfView() const;
     void SetFieldOfView(float value);
@@ -5585,7 +5585,7 @@ public:
     void SetTonemapController(GCTonemapController2 value);
     Gaudioparams_t GetAudio() const;
     void SetAudio(Gaudioparams_t value);
-    std::vector<GCPostProcessingVolume> GetPostProcessingVolumes();
+    std::vector<GCPostProcessingVolume> GetPostProcessingVolumes() const;
     void SetPostProcessingVolumes(std::vector<GCPostProcessingVolume> value);
     float GetOldPlayerZ() const;
     void SetOldPlayerZ(float value);
@@ -7572,7 +7572,7 @@ public:
     void SetBreakOnNonIdle(bool value);
     bool GetSceneFinished() const;
     void SetSceneFinished(bool value);
-    std::vector<GCBaseFlex> GetActorList();
+    std::vector<GCBaseFlex> GetActorList() const;
     void SetActorList(std::vector<GCBaseFlex> value);
     int32_t GetSceneFlushCounter() const;
     void SetSceneFlushCounter(int32_t value);
@@ -9430,7 +9430,7 @@ public:
     void SetOutputEntity3Name(std::string value);
     std::string GetOutputEntity4Name() const;
     void SetOutputEntity4Name(std::string value);
-    std::vector<GCBaseEntity> GetOutputEntities();
+    std::vector<GCBaseEntity> GetOutputEntities() const;
     void SetOutputEntities(std::vector<GCBaseEntity> value);
     uint64_t GetHapticsType() const;
     void SetHapticsType(uint64_t value);
@@ -13311,7 +13311,7 @@ public:
     GCPlayer_WeaponServices(std::string ptr);
     GCPlayer_WeaponServices(void *ptr);
 
-    std::vector<GCBasePlayerWeapon> GetMyWeapons();
+    std::vector<GCBasePlayerWeapon> GetMyWeapons() const;
     void SetMyWeapons(std::vector<GCBasePlayerWeapon> value);
     GCBasePlayerWeapon GetActiveWeapon() const;
     void SetActiveWeapon(GCBasePlayerWeapon value);
@@ -13359,9 +13359,9 @@ public:
     GCTeam(std::string ptr);
     GCTeam(void *ptr);
 
-    std::vector<GCBasePlayerController> GetPlayerControllers();
+    std::vector<GCBasePlayerController> GetPlayerControllers() const;
     void SetPlayerControllers(std::vector<GCBasePlayerController> value);
-    std::vector<GCBasePlayerPawn> GetPlayers();
+    std::vector<GCBasePlayerPawn> GetPlayers() const;
     void SetPlayers(std::vector<GCBasePlayerPawn> value);
     int32_t GetScore() const;
     void SetScore(int32_t value);
@@ -14835,7 +14835,7 @@ public:
     void SetOwnerSpawnGroupType(uint64_t value);
     std::vector<uint32> GetCreatedSpawnGroupHandles() const;
     void SetCreatedSpawnGroupHandles(std::vector<uint32> value);
-    std::vector<GCEntityInstance> GetSpawnedEntityHandles();
+    std::vector<GCEntityInstance> GetSpawnedEntityHandles() const;
     void SetSpawnedEntityHandles(std::vector<GCEntityInstance> value);
     GCLogicalEntity GetParent() const;
     void SetParent(GCLogicalEntity value);
@@ -17090,7 +17090,7 @@ public:
     void SetLayoutFileName(std::string value);
     std::string GetRenderAttrName() const;
     void SetRenderAttrName(std::string value);
-    std::vector<GCBaseModelEntity> GetTargetEntities();
+    std::vector<GCBaseModelEntity> GetTargetEntities() const;
     void SetTargetEntities(std::vector<GCBaseModelEntity> value);
     int32_t GetTargetChangeCount() const;
     void SetTargetChangeCount(int32_t value);
@@ -19033,7 +19033,7 @@ public:
     void SetTransitionDurationTicks(int32_t value);
     float GetTransitionStartSpeed() const;
     void SetTransitionStartSpeed(float value);
-    std::vector<GCBaseEntity> GetConveyorModels1();
+    std::vector<GCBaseEntity> GetConveyorModels1() const;
     void SetConveyorModels1(std::vector<GCBaseEntity> value);
     GCBaseModelEntity GetParent() const;
     void SetParent(GCBaseModelEntity value);
@@ -23220,7 +23220,7 @@ public:
     void SetHandle(GModelConfigHandle_t value);
     std::string GetName() const;
     void SetName(std::string value);
-    std::vector<GCBaseModelEntity> GetAssociatedEntities();
+    std::vector<GCBaseModelEntity> GetAssociatedEntities() const;
     void SetAssociatedEntities(std::vector<GCBaseModelEntity> value);
     std::vector<CUtlSymbolLarge> GetAssociatedEntityNames() const;
     void SetAssociatedEntityNames(std::vector<CUtlSymbolLarge> value);
