@@ -5908,7 +5908,7 @@ GCCSPlayer_ViewModelServices::GCCSPlayer_ViewModelServices(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GCBaseViewModel> GCCSPlayer_ViewModelServices::GetViewModel() const {
-    CHandle<CEntityInstance>* outValue = GetSchemaPtr(m_ptr, "CCSPlayer_ViewModelServices", "m_hViewModel"); std::vector<GCBaseViewModel> ret; for(int i = 0; i < 3; i++) { ret.push_back(GCBaseViewModel((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CCSPlayer_ViewModelServices", "m_hViewModel"); std::vector<GCBaseViewModel> ret; for(int i = 0; i < 3; i++) { ret.push_back(GCBaseViewModel((void*)(outValue[i].Get()))); } return ret;
 }
 void GCCSPlayer_ViewModelServices::SetViewModel(std::vector<GCBaseViewModel> value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'ViewModel' is not possible.\n");
@@ -8798,7 +8798,7 @@ GCMultiSource::GCMultiSource(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GCBaseEntity> GCMultiSource::GetRgEntities() const {
-    CHandle<CEntityInstance>* outValue = GetSchemaPtr(m_ptr, "CMultiSource", "m_rgEntities"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 32; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CMultiSource", "m_rgEntities"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 32; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCMultiSource::SetRgEntities(std::vector<GCBaseEntity> value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'RgEntities' is not possible.\n");
@@ -9151,7 +9151,7 @@ void GCFilterMultiple::SetFilterName(std::vector<CUtlSymbolLarge> value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'FilterName' is not possible.\n");
 }
 std::vector<GCBaseEntity> GCFilterMultiple::GetFilter() const {
-    CHandle<CEntityInstance>* outValue = GetSchemaPtr(m_ptr, "CFilterMultiple", "m_hFilter"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 10; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CFilterMultiple", "m_hFilter"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 10; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCFilterMultiple::SetFilter(std::vector<GCBaseEntity> value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Filter' is not possible.\n");
@@ -16231,7 +16231,7 @@ void GCParticleSystem::SetServerControlPointAssignments(std::vector<uint32_t> va
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'ServerControlPointAssignments' is not possible.\n");
 }
 std::vector<GCBaseEntity> GCParticleSystem::GetControlPointEnts() const {
-    CHandle<CEntityInstance>* outValue = GetSchemaPtr(m_ptr, "CParticleSystem", "m_hControlPointEnts"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 64; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CParticleSystem", "m_hControlPointEnts"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 64; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCParticleSystem::SetControlPointEnts(std::vector<GCBaseEntity> value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'ControlPointEnts' is not possible.\n");
@@ -19051,7 +19051,7 @@ void GCSceneListManager::SetScenes(std::vector<CUtlSymbolLarge> value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Scenes' is not possible.\n");
 }
 std::vector<GCBaseEntity> GCSceneListManager::GetScenes1() const {
-    CHandle<CEntityInstance>* outValue = GetSchemaPtr(m_ptr, "CSceneListManager", "m_hScenes"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 16; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CSceneListManager", "m_hScenes"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 16; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCSceneListManager::SetScenes1(std::vector<GCBaseEntity> value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Scenes1' is not possible.\n");
@@ -27219,7 +27219,7 @@ void GCBeam::SetBeamFlags(uint32_t value) {
     SetSchemaValue(m_ptr, "CBeam", "m_nBeamFlags", false, value);
 }
 std::vector<GCBaseEntity> GCBeam::GetAttachEntity() const {
-    CHandle<CEntityInstance>* outValue = GetSchemaPtr(m_ptr, "CBeam", "m_hAttachEntity"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 10; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CBeam", "m_hAttachEntity"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 10; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCBeam::SetAttachEntity(std::vector<GCBaseEntity> value) {
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'AttachEntity' is not possible.\n");
