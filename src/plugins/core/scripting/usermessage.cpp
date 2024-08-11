@@ -76,14 +76,12 @@ PluginUserMessage::PluginUserMessage(std::string msgname)
     if (!msg)
         return;
 
-    NetMessageInfo_t *msginfo = msg->GetNetMessageInfo();
+    NetMessageInfo_t* msginfo = msg->GetNetMessageInfo();
     if (!msginfo)
         return;
 
     this->msgid = msginfo->m_MessageId;
-    auto cnetmsg = msg->AllocateMessage();
-    this->msgBuffer = cnetmsg->ToPB<google::protobuf::Message>();
-    delete cnetmsg;
+    this->msgBuffer = msg->AllocateMessage()->ToPB<google::protobuf::Message>();
     this->internalMsg = msg;
 }
 
@@ -117,8 +115,8 @@ bool PluginUserMessage::HasField(std::string pszFieldName)
         return false;
 
     GETCHECK_FIELD(false)
-    CHECK_FIELD_NOT_REPEATED(false)
-    return this->msgBuffer->GetReflection()->HasField(*this->msgBuffer, field);
+        CHECK_FIELD_NOT_REPEATED(false)
+        return this->msgBuffer->GetReflection()->HasField(*this->msgBuffer, field);
 }
 int32 PluginUserMessage::GetInt32(std::string pszFieldName)
 {
@@ -549,7 +547,7 @@ std::string PluginUserMessage::GetString(std::string pszFieldName)
 
     return this->msgBuffer->GetReflection()->GetString(*this->msgBuffer, field);
 }
-void PluginUserMessage::SetString(std::string pszFieldName, const char *value)
+void PluginUserMessage::SetString(std::string pszFieldName, const char* value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(STRING);
@@ -567,7 +565,7 @@ std::string PluginUserMessage::GetRepeatedString(std::string pszFieldName, int i
     std::string scratch;
     return this->msgBuffer->GetReflection()->GetRepeatedStringReference(*this->msgBuffer, field, index, &scratch);
 }
-void PluginUserMessage::SetRepeatedString(std::string pszFieldName, int index, const char *value)
+void PluginUserMessage::SetRepeatedString(std::string pszFieldName, int index, const char* value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(STRING);
@@ -576,7 +574,7 @@ void PluginUserMessage::SetRepeatedString(std::string pszFieldName, int index, c
 
     this->msgBuffer->GetReflection()->SetRepeatedString(this->msgBuffer, field, index, value);
 }
-void PluginUserMessage::AddString(std::string pszFieldName, const char *value)
+void PluginUserMessage::AddString(std::string pszFieldName, const char* value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(STRING);
@@ -590,17 +588,17 @@ Color PluginUserMessage::GetColor(std::string pszFieldName)
     CHECK_FIELD_TYPE(MESSAGE, Color(0, 0, 0, 0));
     CHECK_FIELD_NOT_REPEATED(Color(0, 0, 0, 0));
 
-    const CMsgRGBA *msgRGBA = (const CMsgRGBA *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    const CMsgRGBA* msgRGBA = (const CMsgRGBA*)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
 
     return Color(msgRGBA->r(), msgRGBA->g(), msgRGBA->b(), msgRGBA->a());
 }
-void PluginUserMessage::SetColor(std::string pszFieldName, const Color &value)
+void PluginUserMessage::SetColor(std::string pszFieldName, const Color& value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_NOT_REPEATED();
 
-    CMsgRGBA *msgRGBA = (CMsgRGBA *)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
+    CMsgRGBA* msgRGBA = (CMsgRGBA*)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
     msgRGBA->set_r(value.r());
     msgRGBA->set_g(value.g());
     msgRGBA->set_b(value.b());
@@ -613,29 +611,29 @@ Color PluginUserMessage::GetRepeatedColor(std::string pszFieldName, int index)
     CHECK_FIELD_REPEATED(Color(0, 0, 0, 0));
     CHECK_REPEATED_ELEMENT(index, Color(0, 0, 0, 0));
 
-    const CMsgRGBA &msgRGBA = (const CMsgRGBA &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
+    const CMsgRGBA& msgRGBA = (const CMsgRGBA&)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
     return Color(msgRGBA.r(), msgRGBA.g(), msgRGBA.b(), msgRGBA.a());
 }
-void PluginUserMessage::SetRepeatedColor(std::string pszFieldName, int index, const Color &value)
+void PluginUserMessage::SetRepeatedColor(std::string pszFieldName, int index, const Color& value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_REPEATED();
     CHECK_REPEATED_ELEMENT_VOID(index);
 
-    CMsgRGBA *msgRGBA = (CMsgRGBA *)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
+    CMsgRGBA* msgRGBA = (CMsgRGBA*)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
     msgRGBA->set_r(value.r());
     msgRGBA->set_g(value.g());
     msgRGBA->set_b(value.b());
     msgRGBA->set_a(value.a());
 }
-void PluginUserMessage::AddColor(std::string pszFieldName, const Color &value)
+void PluginUserMessage::AddColor(std::string pszFieldName, const Color& value)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_REPEATED();
 
-    CMsgRGBA *msgRGBA = (CMsgRGBA *)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
+    CMsgRGBA* msgRGBA = (CMsgRGBA*)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
     msgRGBA->set_r(value.r());
     msgRGBA->set_g(value.g());
     msgRGBA->set_b(value.b());
@@ -647,16 +645,16 @@ Vector2D PluginUserMessage::GetVector2D(std::string pszFieldName)
     CHECK_FIELD_TYPE(MESSAGE, Vector2D(0, 0));
     CHECK_FIELD_NOT_REPEATED(Vector2D(0, 0));
 
-    const CMsgVector2D *msgVec2d = (const CMsgVector2D *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    const CMsgVector2D* msgVec2d = (const CMsgVector2D*)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     return Vector2D(msgVec2d->x(), msgVec2d->y());
 }
-void PluginUserMessage::SetVector2D(std::string pszFieldName, Vector2D &vec)
+void PluginUserMessage::SetVector2D(std::string pszFieldName, Vector2D& vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_NOT_REPEATED();
 
-    CMsgVector2D *msgVec2d = (CMsgVector2D *)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
+    CMsgVector2D* msgVec2d = (CMsgVector2D*)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
     msgVec2d->set_x(vec.x);
     msgVec2d->set_y(vec.y);
 }
@@ -667,27 +665,27 @@ Vector2D PluginUserMessage::GetRepeatedVector2D(std::string pszFieldName, int in
     CHECK_FIELD_REPEATED(Vector2D(0, 0));
     CHECK_REPEATED_ELEMENT(index, Vector2D(0, 0));
 
-    const CMsgVector2D &msgVec2d = (const CMsgVector2D &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
+    const CMsgVector2D& msgVec2d = (const CMsgVector2D&)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
     return Vector2D(msgVec2d.x(), msgVec2d.y());
 }
-void PluginUserMessage::SetRepeatedVector2D(std::string pszFieldName, int index, Vector2D &vec)
+void PluginUserMessage::SetRepeatedVector2D(std::string pszFieldName, int index, Vector2D& vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_REPEATED();
     CHECK_REPEATED_ELEMENT_VOID(index);
 
-    CMsgVector2D *msgVec2d = (CMsgVector2D *)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
+    CMsgVector2D* msgVec2d = (CMsgVector2D*)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
     msgVec2d->set_x(vec.x);
     msgVec2d->set_y(vec.y);
 }
-void PluginUserMessage::AddVector2D(std::string pszFieldName, Vector2D &vec)
+void PluginUserMessage::AddVector2D(std::string pszFieldName, Vector2D& vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_REPEATED();
 
-    CMsgVector2D *msgVec2d = (CMsgVector2D *)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
+    CMsgVector2D* msgVec2d = (CMsgVector2D*)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
     msgVec2d->set_x(vec.x);
     msgVec2d->set_y(vec.y);
 }
@@ -697,16 +695,16 @@ Vector PluginUserMessage::GetVector(std::string pszFieldName)
     CHECK_FIELD_TYPE(MESSAGE, Vector(0, 0, 0));
     CHECK_FIELD_NOT_REPEATED(Vector(0, 0, 0));
 
-    const CMsgVector *msgVec = (const CMsgVector *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    const CMsgVector* msgVec = (const CMsgVector*)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     return Vector(msgVec->x(), msgVec->y(), msgVec->z());
 }
-void PluginUserMessage::SetVector(std::string pszFieldName, Vector &vec)
+void PluginUserMessage::SetVector(std::string pszFieldName, Vector& vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_NOT_REPEATED();
 
-    CMsgVector *msgVec = (CMsgVector *)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
+    CMsgVector* msgVec = (CMsgVector*)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
     msgVec->set_x(vec.x);
     msgVec->set_y(vec.y);
     msgVec->set_z(vec.z);
@@ -718,28 +716,28 @@ Vector PluginUserMessage::GetRepeatedVector(std::string pszFieldName, int index)
     CHECK_FIELD_REPEATED(Vector(0, 0, 0));
     CHECK_REPEATED_ELEMENT(index, Vector(0, 0, 0));
 
-    const CMsgVector &msgVec = (const CMsgVector &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
+    const CMsgVector& msgVec = (const CMsgVector&)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
     return Vector(msgVec.x(), msgVec.y(), msgVec.z());
 }
-void PluginUserMessage::SetRepeatedVector(std::string pszFieldName, int index, Vector &vec)
+void PluginUserMessage::SetRepeatedVector(std::string pszFieldName, int index, Vector& vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_REPEATED();
     CHECK_REPEATED_ELEMENT_VOID(index);
 
-    CMsgVector *msgVec = (CMsgVector *)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
+    CMsgVector* msgVec = (CMsgVector*)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
     msgVec->set_x(vec.x);
     msgVec->set_y(vec.y);
     msgVec->set_z(vec.z);
 }
-void PluginUserMessage::AddVector(std::string pszFieldName, Vector &vec)
+void PluginUserMessage::AddVector(std::string pszFieldName, Vector& vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_REPEATED();
 
-    CMsgVector *msgVec = (CMsgVector *)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
+    CMsgVector* msgVec = (CMsgVector*)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
     msgVec->set_x(vec.x);
     msgVec->set_y(vec.y);
     msgVec->set_z(vec.z);
@@ -750,16 +748,16 @@ QAngle PluginUserMessage::GetQAngle(std::string pszFieldName)
     CHECK_FIELD_TYPE(MESSAGE, QAngle(0, 0, 0));
     CHECK_FIELD_NOT_REPEATED(QAngle(0, 0, 0));
 
-    const CMsgQAngle *msgAng = (const CMsgQAngle *)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
+    const CMsgQAngle* msgAng = (const CMsgQAngle*)&this->msgBuffer->GetReflection()->GetMessage(*this->msgBuffer, field);
     return QAngle(msgAng->x(), msgAng->y(), msgAng->z());
 }
-void PluginUserMessage::SetQAngle(std::string pszFieldName, QAngle &vec)
+void PluginUserMessage::SetQAngle(std::string pszFieldName, QAngle& vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_NOT_REPEATED();
 
-    CMsgQAngle *msgAng = (CMsgQAngle *)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
+    CMsgQAngle* msgAng = (CMsgQAngle*)this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
     msgAng->set_x(vec.x);
     msgAng->set_y(vec.y);
     msgAng->set_z(vec.z);
@@ -771,28 +769,28 @@ QAngle PluginUserMessage::GetRepeatedQAngle(std::string pszFieldName, int index)
     CHECK_FIELD_REPEATED(QAngle(0, 0, 0));
     CHECK_REPEATED_ELEMENT(index, QAngle(0, 0, 0));
 
-    const CMsgQAngle &msgAng = (const CMsgQAngle &)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
+    const CMsgQAngle& msgAng = (const CMsgQAngle&)this->msgBuffer->GetReflection()->GetRepeatedMessage(*this->msgBuffer, field, index);
     return QAngle(msgAng.x(), msgAng.y(), msgAng.z());
 }
-void PluginUserMessage::SetRepeatedQAngle(std::string pszFieldName, int index, QAngle &vec)
+void PluginUserMessage::SetRepeatedQAngle(std::string pszFieldName, int index, QAngle& vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_REPEATED();
     CHECK_REPEATED_ELEMENT_VOID(index);
 
-    CMsgQAngle *msgAng = (CMsgQAngle *)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
+    CMsgQAngle* msgAng = (CMsgQAngle*)this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index);
     msgAng->set_x(vec.x);
     msgAng->set_y(vec.y);
     msgAng->set_z(vec.z);
 }
-void PluginUserMessage::AddQAngle(std::string pszFieldName, QAngle &vec)
+void PluginUserMessage::AddQAngle(std::string pszFieldName, QAngle& vec)
 {
     GETCHECK_FIELD();
     CHECK_FIELD_TYPE_VOID(MESSAGE);
     CHECK_FIELD_REPEATED();
 
-    CMsgQAngle *msgAng = (CMsgQAngle *)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
+    CMsgQAngle* msgAng = (CMsgQAngle*)this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field);
     msgAng->set_x(vec.x);
     msgAng->set_y(vec.y);
     msgAng->set_z(vec.z);
@@ -803,7 +801,7 @@ void PluginUserMessage::RemoveRepeatedFieldValue(std::string pszFieldName, int i
     CHECK_FIELD_REPEATED();
     CHECK_REPEATED_ELEMENT_VOID(index);
 
-    const google::protobuf::Reflection *pReflection = this->msgBuffer->GetReflection();
+    const google::protobuf::Reflection* pReflection = this->msgBuffer->GetReflection();
     for (int i = index; i < elemCount - 1; ++i)
         pReflection->SwapElements(this->msgBuffer, field, i, i + 1);
 
@@ -811,7 +809,7 @@ void PluginUserMessage::RemoveRepeatedFieldValue(std::string pszFieldName, int i
 }
 int PluginUserMessage::GetRepeatedFieldCount(std::string pszFieldName)
 {
-    const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName.c_str());
+    const google::protobuf::FieldDescriptor* field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName.c_str());
     if (!field)
         return -1;
 
@@ -840,7 +838,7 @@ void PluginUserMessage::SendToAllPlayers()
     if (!this->msgBuffer)
         return;
 
-    CBroadcastRecipientFilter *filter = new CBroadcastRecipientFilter;
+    CBroadcastRecipientFilter* filter = new CBroadcastRecipientFilter;
     g_pGameEventSystem->PostEventAbstract(0, false, filter, this->internalMsg, this->msgBuffer, 0);
     delete filter;
 }
