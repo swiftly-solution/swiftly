@@ -17,6 +17,8 @@ class CCollisionProperty
 public:
     DECLARE_SCHEMA_CLASS_BASE(CCollisionProperty, true)
 
+    SCHEMA_FIELD_OFFSET(VPhysicsCollisionAttribute_t, m_collisionAttribute, 0)
+    SCHEMA_FIELD_OFFSET(SolidType_t, m_nSolidType, 0)
     SCHEMA_FIELD_OFFSET(uint8, m_usSolidFlags, 0)
     SCHEMA_FIELD_OFFSET(uint8, m_CollisionGroup, 0)
 };

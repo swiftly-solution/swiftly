@@ -33,6 +33,6 @@ public:
 
     void SetSolidType(SolidType_t type)
     {
-        this->m_Collision.Get().m_usSolidFlags = type;
+        this->m_Collision.Get().m_nSolidType = type;
     }
 };
