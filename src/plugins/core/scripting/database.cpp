@@ -28,7 +28,13 @@ void DatabaseQueryThread()
         {
             DatabaseQueryQueue queue = queryQueue.front();
 
+            if (!queue.db->IsConnected()) {
+                queryQueue.pop_front();
+                continue;
+            }
+
             RegisterCallStack* callStack = new RegisterCallStack(queue.plugin->GetName(), string_format("database::Query(database=%p, query=\"%s\")", (void*)queue.db, queue.query.c_str()));
+
             auto queryResult = queue.db->Query(queue.query.c_str());
             if (queue.plugin->GetKind() == PluginKind_t::Lua)
             {

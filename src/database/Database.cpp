@@ -1,8 +1,8 @@
 #include "Database.h"
 
-std::string Database::QueryEscape(const char *query)
+std::string Database::QueryEscape(const char* query)
 {
-    char *newQuery = new char[strlen(query) * 2 + 1];
+    char* newQuery = new char[strlen(query) * 2 + 1];
     mysql_real_escape_string(this->connection, newQuery, query, strlen(query));
     std::string str(newQuery);
     delete[] newQuery;
@@ -39,7 +39,7 @@ bool Database::Connect()
 
 static constexpr int MYSQL_JSON = 245;
 
-std::any ParseFieldType(enum_field_types type, const char *value)
+std::any ParseFieldType(enum_field_types type, const char* value)
 {
     if (type == enum_field_types::MYSQL_TYPE_FLOAT || type == enum_field_types::MYSQL_TYPE_DOUBLE || type == enum_field_types::MYSQL_TYPE_DECIMAL)
         return atof(value);
@@ -56,9 +56,12 @@ std::any ParseFieldType(enum_field_types type, const char *value)
     }
 }
 
-std::vector<std::map<const char *, std::any>> Database::Query(const char *query)
+std::vector<std::map<const char*, std::any>> Database::Query(const char* query)
 {
-    std::vector<std::map<const char *, std::any>> values;
+    std::vector<std::map<const char*, std::any>> values;
+
+    if (!this->connected)
+        return {};
 
     if (mysql_ping(this->connection))
     {
@@ -72,10 +75,10 @@ std::vector<std::map<const char *, std::any>> Database::Query(const char *query)
         return {};
     }
 
-    MYSQL_RES *result = mysql_store_result(this->connection);
+    MYSQL_RES* result = mysql_store_result(this->connection);
     if (result == nullptr)
     {
-        std::map<const char *, std::any> value;
+        std::map<const char*, std::any> value;
 
         if (mysql_field_count(this->connection) == 0)
         {
@@ -94,9 +97,9 @@ std::vector<std::map<const char *, std::any>> Database::Query(const char *query)
     {
         uint32 num_fields = mysql_num_fields(result);
         MYSQL_ROW row;
-        MYSQL_FIELD *field;
+        MYSQL_FIELD* field;
 
-        std::vector<const char *> fields;
+        std::vector<const char*> fields;
         std::vector<enum_field_types> fieldTypes;
         while ((field = mysql_fetch_field(result)))
         {
@@ -106,7 +109,7 @@ std::vector<std::map<const char *, std::any>> Database::Query(const char *query)
 
         while ((row = mysql_fetch_row(result)))
         {
-            std::map<const char *, std::any> value;
+            std::map<const char*, std::any> value;
             for (uint32 i = 0; i < num_fields; i++)
                 value.insert(std::make_pair(fields[i], row[i] ? ParseFieldType(fieldTypes[i], row[i]) : "NULL"));
 
