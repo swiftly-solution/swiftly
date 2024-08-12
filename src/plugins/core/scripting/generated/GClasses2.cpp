@@ -5389,7 +5389,9 @@ std::vector<Vector> GCPhysLength::GetOffset() const {
 }
 void GCPhysLength::SetOffset(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPhysLength->Offset(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Offset' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Offset' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CPhysLength", "m_offset");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 Vector GCPhysLength::GetAttach() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPhysLength->Attach(ptr=%p)", m_ptr));
@@ -5904,7 +5906,9 @@ std::vector<Vector> GCInferno::GetFirePositions() const {
 }
 void GCInferno::SetFirePositions(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CInferno->FirePositions(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FirePositions' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'FirePositions' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CInferno", "m_firePositions");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<Vector> GCInferno::GetFireParentPositions() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CInferno->FireParentPositions(ptr=%p,size=64)", m_ptr));
@@ -5912,7 +5916,9 @@ std::vector<Vector> GCInferno::GetFireParentPositions() const {
 }
 void GCInferno::SetFireParentPositions(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CInferno->FireParentPositions(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FireParentPositions' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'FireParentPositions' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CInferno", "m_fireParentPositions");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<bool> GCInferno::GetFireIsBurning() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CInferno->FireIsBurning(ptr=%p,size=64)", m_ptr));
@@ -5920,7 +5926,9 @@ std::vector<bool> GCInferno::GetFireIsBurning() const {
 }
 void GCInferno::SetFireIsBurning(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CInferno->FireIsBurning(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FireIsBurning' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'FireIsBurning' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<bool>(m_ptr, "CInferno", "m_bFireIsBurning");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<Vector> GCInferno::GetBurnNormal() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CInferno->BurnNormal(ptr=%p,size=64)", m_ptr));
@@ -5928,7 +5936,9 @@ std::vector<Vector> GCInferno::GetBurnNormal() const {
 }
 void GCInferno::SetBurnNormal(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CInferno->BurnNormal(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BurnNormal' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'BurnNormal' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CInferno", "m_BurnNormal");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCInferno::GetFireCount() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CInferno->FireCount(ptr=%p)", m_ptr));
@@ -8394,7 +8404,9 @@ std::vector<bool> GCPlantedC4::GetVoiceAlertPlayed() const {
 }
 void GCPlantedC4::SetVoiceAlertPlayed(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPlantedC4->VoiceAlertPlayed(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VoiceAlertPlayed' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'VoiceAlertPlayed' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<bool>(m_ptr, "CPlantedC4", "m_bVoiceAlertPlayed");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GCPlantedC4::GetNextBotBeepTime() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlantedC4->NextBotBeepTime(ptr=%p)", m_ptr));
@@ -11693,7 +11705,9 @@ std::vector<float> GCCSBot::GetPlayerTravelDistance() const {
 }
 void GCCSBot::SetPlayerTravelDistance(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSBot->PlayerTravelDistance(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PlayerTravelDistance' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'PlayerTravelDistance' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CCSBot", "m_playerTravelDistance");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint32_t GCCSBot::GetTravelDistancePhase() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSBot->TravelDistancePhase(ptr=%p)", m_ptr));
@@ -12410,7 +12424,9 @@ std::vector<float> GCCSBot::GetAvgVel() const {
 }
 void GCCSBot::SetAvgVel(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSBot->AvgVel(ptr=%p,size=10)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AvgVel' is not possible.\n");
+    if(value.size() != 10) return PLUGIN_PRINT("Schema SDK", "Field 'AvgVel' needs to have 10 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CCSBot", "m_avgVel");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCCSBot::GetAvgVelIndex() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSBot->AvgVelIndex(ptr=%p)", m_ptr));
@@ -12962,7 +12978,9 @@ std::vector<GCBeam*> GCTestEffect::GetBeam1() const {
 }
 void GCTestEffect::SetBeam1(std::vector<GCBeam*> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CTestEffect->Beam1(ptr=%p,size=24)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Beam1' is not possible.\n");
+    if(value.size() != 24) return PLUGIN_PRINT("Schema SDK", "Field 'Beam1' needs to have 24 values.\n");
+    auto val = GetSchemaValuePtr<GCBeam*>(m_ptr, "CTestEffect", "m_pBeam");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<float> GCTestEffect::GetBeamTime() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTestEffect->BeamTime(ptr=%p,size=24)", m_ptr));
@@ -12970,7 +12988,9 @@ std::vector<float> GCTestEffect::GetBeamTime() const {
 }
 void GCTestEffect::SetBeamTime(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CTestEffect->BeamTime(ptr=%p,size=24)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BeamTime' is not possible.\n");
+    if(value.size() != 24) return PLUGIN_PRINT("Schema SDK", "Field 'BeamTime' needs to have 24 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CTestEffect", "m_flBeamTime");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GCTestEffect::GetStartTime() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTestEffect->StartTime(ptr=%p)", m_ptr));
@@ -14251,7 +14271,9 @@ std::vector<CUtlSymbolLarge> GCEnvScreenOverlay::GetOverlayNames() const {
 }
 void GCEnvScreenOverlay::SetOverlayNames(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEnvScreenOverlay->OverlayNames(ptr=%p,size=10)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OverlayNames' is not possible.\n");
+    if(value.size() != 10) return PLUGIN_PRINT("Schema SDK", "Field 'OverlayNames' needs to have 10 values.\n");
+    auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CEnvScreenOverlay", "m_iszOverlayNames");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<float> GCEnvScreenOverlay::GetOverlayTimes() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEnvScreenOverlay->OverlayTimes(ptr=%p,size=10)", m_ptr));
@@ -14259,7 +14281,9 @@ std::vector<float> GCEnvScreenOverlay::GetOverlayTimes() const {
 }
 void GCEnvScreenOverlay::SetOverlayTimes(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEnvScreenOverlay->OverlayTimes(ptr=%p,size=10)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'OverlayTimes' is not possible.\n");
+    if(value.size() != 10) return PLUGIN_PRINT("Schema SDK", "Field 'OverlayTimes' needs to have 10 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CEnvScreenOverlay", "m_flOverlayTimes");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GCEnvScreenOverlay::GetStartTime() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEnvScreenOverlay->StartTime(ptr=%p)", m_ptr));
@@ -15180,7 +15204,9 @@ std::vector<uint32_t> GCCSPlayerPawn::GetPlayerPatchEconIndices() const {
 }
 void GCCSPlayerPawn::SetPlayerPatchEconIndices(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerPawn->PlayerPatchEconIndices(ptr=%p,size=5)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PlayerPatchEconIndices' is not possible.\n");
+    if(value.size() != 5) return PLUGIN_PRINT("Schema SDK", "Field 'PlayerPatchEconIndices' needs to have 5 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CCSPlayerPawn", "m_vecPlayerPatchEconIndices");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 Color GCCSPlayerPawn::GetGunGameImmunityColor() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerPawn->GunGameImmunityColor(ptr=%p)", m_ptr));
@@ -15236,7 +15262,9 @@ std::vector<QAngle> GCCSPlayerPawn::GetShootAngleHistory() const {
 }
 void GCCSPlayerPawn::SetShootAngleHistory(std::vector<QAngle> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerPawn->ShootAngleHistory(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ShootAngleHistory' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'ShootAngleHistory' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<QAngle>(m_ptr, "CCSPlayerPawn", "m_angShootAngleHistory");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<Vector> GCCSPlayerPawn::GetThrowPositionHistory() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerPawn->ThrowPositionHistory(ptr=%p,size=2)", m_ptr));
@@ -15244,7 +15272,9 @@ std::vector<Vector> GCCSPlayerPawn::GetThrowPositionHistory() const {
 }
 void GCCSPlayerPawn::SetThrowPositionHistory(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerPawn->ThrowPositionHistory(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ThrowPositionHistory' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'ThrowPositionHistory' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CCSPlayerPawn", "m_vecThrowPositionHistory");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<Vector> GCCSPlayerPawn::GetVelocityHistory() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerPawn->VelocityHistory(ptr=%p,size=2)", m_ptr));
@@ -15252,7 +15282,9 @@ std::vector<Vector> GCCSPlayerPawn::GetVelocityHistory() const {
 }
 void GCCSPlayerPawn::SetVelocityHistory(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerPawn->VelocityHistory(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VelocityHistory' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'VelocityHistory' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CCSPlayerPawn", "m_vecVelocityHistory");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCCSPlayerPawn::GetPtr() {
     return m_ptr;
@@ -17215,7 +17247,9 @@ std::vector<CUtlSymbolLarge> GConstraintSoundInfo::GetReversalSounds() const {
 }
 void GConstraintSoundInfo::SetReversalSounds(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: ConstraintSoundInfo->ReversalSounds(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ReversalSounds' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'ReversalSounds' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "ConstraintSoundInfo", "m_iszReversalSounds");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GConstraintSoundInfo::GetPlayTravelSound() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: ConstraintSoundInfo->PlayTravelSound(ptr=%p)", m_ptr));
@@ -18902,7 +18936,9 @@ std::vector<uint16_t> GCCSGameRules::GetProhibitedItemIndices() const {
 }
 void GCCSGameRules::SetProhibitedItemIndices(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->ProhibitedItemIndices(ptr=%p,size=100)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ProhibitedItemIndices' is not possible.\n");
+    if(value.size() != 100) return PLUGIN_PRINT("Schema SDK", "Field 'ProhibitedItemIndices' needs to have 100 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "CCSGameRules", "m_arrProhibitedItemIndices");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint32_t> GCCSGameRules::GetTournamentActiveCasterAccounts() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->TournamentActiveCasterAccounts(ptr=%p,size=4)", m_ptr));
@@ -18910,7 +18946,9 @@ std::vector<uint32_t> GCCSGameRules::GetTournamentActiveCasterAccounts() const {
 }
 void GCCSGameRules::SetTournamentActiveCasterAccounts(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->TournamentActiveCasterAccounts(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TournamentActiveCasterAccounts' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'TournamentActiveCasterAccounts' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CCSGameRules", "m_arrTournamentActiveCasterAccounts");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCCSGameRules::GetNumBestOfMaps() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->NumBestOfMaps(ptr=%p)", m_ptr));
@@ -18982,7 +19020,9 @@ std::vector<int32_t> GCCSGameRules::GetMatchStats_RoundResults() const {
 }
 void GCCSGameRules::SetMatchStats_RoundResults(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->MatchStats_RoundResults(ptr=%p,size=30)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MatchStats_RoundResults' is not possible.\n");
+    if(value.size() != 30) return PLUGIN_PRINT("Schema SDK", "Field 'MatchStats_RoundResults' needs to have 30 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSGameRules", "m_iMatchStats_RoundResults");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCCSGameRules::GetMatchStats_PlayersAlive_CT() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->MatchStats_PlayersAlive_CT(ptr=%p,size=30)", m_ptr));
@@ -18990,7 +19030,9 @@ std::vector<int32_t> GCCSGameRules::GetMatchStats_PlayersAlive_CT() const {
 }
 void GCCSGameRules::SetMatchStats_PlayersAlive_CT(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->MatchStats_PlayersAlive_CT(ptr=%p,size=30)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MatchStats_PlayersAlive_CT' is not possible.\n");
+    if(value.size() != 30) return PLUGIN_PRINT("Schema SDK", "Field 'MatchStats_PlayersAlive_CT' needs to have 30 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSGameRules", "m_iMatchStats_PlayersAlive_CT");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCCSGameRules::GetMatchStats_PlayersAlive_T() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->MatchStats_PlayersAlive_T(ptr=%p,size=30)", m_ptr));
@@ -18998,7 +19040,9 @@ std::vector<int32_t> GCCSGameRules::GetMatchStats_PlayersAlive_T() const {
 }
 void GCCSGameRules::SetMatchStats_PlayersAlive_T(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->MatchStats_PlayersAlive_T(ptr=%p,size=30)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MatchStats_PlayersAlive_T' is not possible.\n");
+    if(value.size() != 30) return PLUGIN_PRINT("Schema SDK", "Field 'MatchStats_PlayersAlive_T' needs to have 30 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSGameRules", "m_iMatchStats_PlayersAlive_T");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<float> GCCSGameRules::GetTeamRespawnWaveTimes() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->TeamRespawnWaveTimes(ptr=%p,size=32)", m_ptr));
@@ -19006,7 +19050,9 @@ std::vector<float> GCCSGameRules::GetTeamRespawnWaveTimes() const {
 }
 void GCCSGameRules::SetTeamRespawnWaveTimes(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->TeamRespawnWaveTimes(ptr=%p,size=32)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TeamRespawnWaveTimes' is not possible.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'TeamRespawnWaveTimes' needs to have 32 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CCSGameRules", "m_TeamRespawnWaveTimes");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<float> GCCSGameRules::GetNextRespawnWave() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->NextRespawnWave(ptr=%p,size=32)", m_ptr));
@@ -19014,7 +19060,9 @@ std::vector<float> GCCSGameRules::GetNextRespawnWave() const {
 }
 void GCCSGameRules::SetNextRespawnWave(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->NextRespawnWave(ptr=%p,size=32)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NextRespawnWave' is not possible.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'NextRespawnWave' needs to have 32 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CCSGameRules", "m_flNextRespawnWave");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCCSGameRules::GetServerQuestID() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->ServerQuestID(ptr=%p)", m_ptr));
@@ -19046,7 +19094,9 @@ std::vector<float> GCCSGameRules::GetMinimapVerticalSectionHeights() const {
 }
 void GCCSGameRules::SetMinimapVerticalSectionHeights(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->MinimapVerticalSectionHeights(ptr=%p,size=8)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MinimapVerticalSectionHeights' is not possible.\n");
+    if(value.size() != 8) return PLUGIN_PRINT("Schema SDK", "Field 'MinimapVerticalSectionHeights' needs to have 8 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CCSGameRules", "m_MinimapVerticalSectionHeights");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GCCSGameRules::GetSpawnedTerrorHuntHeavy() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->SpawnedTerrorHuntHeavy(ptr=%p)", m_ptr));
@@ -19062,7 +19112,9 @@ std::vector<int32_t> GCCSGameRules::GetEndMatchMapGroupVoteTypes() const {
 }
 void GCCSGameRules::SetEndMatchMapGroupVoteTypes(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->EndMatchMapGroupVoteTypes(ptr=%p,size=10)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EndMatchMapGroupVoteTypes' is not possible.\n");
+    if(value.size() != 10) return PLUGIN_PRINT("Schema SDK", "Field 'EndMatchMapGroupVoteTypes' needs to have 10 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSGameRules", "m_nEndMatchMapGroupVoteTypes");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCCSGameRules::GetEndMatchMapGroupVoteOptions() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->EndMatchMapGroupVoteOptions(ptr=%p,size=10)", m_ptr));
@@ -19070,7 +19122,9 @@ std::vector<int32_t> GCCSGameRules::GetEndMatchMapGroupVoteOptions() const {
 }
 void GCCSGameRules::SetEndMatchMapGroupVoteOptions(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->EndMatchMapGroupVoteOptions(ptr=%p,size=10)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EndMatchMapGroupVoteOptions' is not possible.\n");
+    if(value.size() != 10) return PLUGIN_PRINT("Schema SDK", "Field 'EndMatchMapGroupVoteOptions' needs to have 10 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSGameRules", "m_nEndMatchMapGroupVoteOptions");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCCSGameRules::GetEndMatchMapVoteWinner() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->EndMatchMapVoteWinner(ptr=%p)", m_ptr));
@@ -19825,7 +19879,9 @@ std::vector<bool> GCCSGameRules::GetTeamLastKillUsedUniqueWeaponMatch() const {
 }
 void GCCSGameRules::SetTeamLastKillUsedUniqueWeaponMatch(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameRules->TeamLastKillUsedUniqueWeaponMatch(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TeamLastKillUsedUniqueWeaponMatch' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'TeamLastKillUsedUniqueWeaponMatch' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<bool>(m_ptr, "CCSGameRules", "m_bTeamLastKillUsedUniqueWeaponMatch");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint32_t GCCSGameRules::GetMatchEndCount() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameRules->MatchEndCount(ptr=%p)", m_ptr));
@@ -20595,7 +20651,9 @@ std::vector<bool> GCC4::GetPlayedArmingBeeps() const {
 }
 void GCC4::SetPlayedArmingBeeps(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CC4->PlayedArmingBeeps(ptr=%p,size=7)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PlayedArmingBeeps' is not possible.\n");
+    if(value.size() != 7) return PLUGIN_PRINT("Schema SDK", "Field 'PlayedArmingBeeps' needs to have 7 values.\n");
+    auto val = GetSchemaValuePtr<bool>(m_ptr, "CC4", "m_bPlayedArmingBeeps");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GCC4::GetBombPlanted() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CC4->BombPlanted(ptr=%p)", m_ptr));
@@ -22327,7 +22385,9 @@ std::vector<float> GCRangeFloat::GetValue() const {
 }
 void GCRangeFloat::SetValue(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CRangeFloat->Value(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Value' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Value' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CRangeFloat", "m_pValue");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCRangeFloat::GetPtr() {
     return m_ptr;
@@ -22429,7 +22489,9 @@ std::vector<float> GCRemapFloat::GetValue() const {
 }
 void GCRemapFloat::SetValue(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CRemapFloat->Value(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Value' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Value' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CRemapFloat", "m_pValue");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCRemapFloat::GetPtr() {
     return m_ptr;
@@ -22521,7 +22583,9 @@ std::vector<uint64_t> GCCSPlayerController_InventoryServices::GetRank() const {
 }
 void GCCSPlayerController_InventoryServices::SetRank(std::vector<uint64_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerController_InventoryServices->Rank(ptr=%p,size=6)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Rank' is not possible.\n");
+    if(value.size() != 6) return PLUGIN_PRINT("Schema SDK", "Field 'Rank' needs to have 6 values.\n");
+    auto val = GetSchemaValuePtr<uint64_t>(m_ptr, "CCSPlayerController_InventoryServices", "m_rank");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCCSPlayerController_InventoryServices::GetPersonaDataPublicLevel() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerController_InventoryServices->PersonaDataPublicLevel(ptr=%p)", m_ptr));
@@ -22569,7 +22633,9 @@ std::vector<uint32_t> GCCSPlayerController_InventoryServices::GetEquippedPlayerS
 }
 void GCCSPlayerController_InventoryServices::SetEquippedPlayerSprayIDs(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerController_InventoryServices->EquippedPlayerSprayIDs(ptr=%p,size=1)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'EquippedPlayerSprayIDs' is not possible.\n");
+    if(value.size() != 1) return PLUGIN_PRINT("Schema SDK", "Field 'EquippedPlayerSprayIDs' needs to have 1 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CCSPlayerController_InventoryServices", "m_unEquippedPlayerSprayIDs");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<GServerAuthoritativeWeaponSlot_t> GCCSPlayerController_InventoryServices::GetServerAuthoritativeWeaponSlots() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerController_InventoryServices->ServerAuthoritativeWeaponSlots(ptr=%p)", m_ptr));
@@ -23146,7 +23212,9 @@ std::vector<float> GCFiringModeFloat::GetValues() const {
 }
 void GCFiringModeFloat::SetValues(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFiringModeFloat->Values(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Values' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Values' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CFiringModeFloat", "m_flValues");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCFiringModeFloat::GetPtr() {
     return m_ptr;
@@ -25072,7 +25140,9 @@ std::vector<int32_t> GCRangeInt::GetValue() const {
 }
 void GCRangeInt::SetValue(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CRangeInt->Value(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Value' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Value' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CRangeInt", "m_pValue");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCRangeInt::GetPtr() {
     return m_ptr;
@@ -26188,7 +26258,9 @@ std::vector<int32_t> GCSkillInt::GetValue() const {
 }
 void GCSkillInt::SetValue(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSkillInt->Value(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Value' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Value' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CSkillInt", "m_pValue");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCSkillInt::GetPtr() {
     return m_ptr;
@@ -26860,7 +26932,9 @@ std::vector<int32_t> GCFiringModeInt::GetValues() const {
 }
 void GCFiringModeInt::SetValues(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFiringModeInt->Values(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Values' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Values' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CFiringModeInt", "m_nValues");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCFiringModeInt::GetPtr() {
     return m_ptr;
@@ -32145,7 +32219,9 @@ std::vector<int32_t> GCDrawCullingData::GetConeAxis() const {
 }
 void GCDrawCullingData::SetConeAxis(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CDrawCullingData->ConeAxis(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ConeAxis' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'ConeAxis' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CDrawCullingData", "m_ConeAxis");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCDrawCullingData::GetConeCutoff() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CDrawCullingData->ConeCutoff(ptr=%p)", m_ptr));
@@ -33874,7 +33950,9 @@ std::vector<Vector> GRnCapsule_t::GetCenter() const {
 }
 void GRnCapsule_t::SetCenter(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RnCapsule_t->Center(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Center' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Center' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "RnCapsule_t", "m_vCenter");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GRnCapsule_t::GetRadius() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: RnCapsule_t->Radius(ptr=%p)", m_ptr));

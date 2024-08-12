@@ -170,4 +170,5 @@ public:
     DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_InventoryServices, false)
 
     SCHEMA_FIELD_OFFSET(uint16_t, m_unMusicID, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(uint8_t, m_rank, 0)
 };

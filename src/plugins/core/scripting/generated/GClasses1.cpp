@@ -1556,7 +1556,9 @@ std::vector<uint32_t> GCHitboxComponent::GetDisabledHitGroups() const {
 }
 void GCHitboxComponent::SetDisabledHitGroups(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CHitboxComponent->DisabledHitGroups(ptr=%p,size=1)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'DisabledHitGroups' is not possible.\n");
+    if(value.size() != 1) return PLUGIN_PRINT("Schema SDK", "Field 'DisabledHitGroups' needs to have 1 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CHitboxComponent", "m_bvDisabledHitGroups");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCHitboxComponent::GetPtr() {
     return m_ptr;
@@ -3628,7 +3630,9 @@ std::vector<CUtlSymbolLarge> GCEnvSoundscape::GetPositionNames() const {
 }
 void GCEnvSoundscape::SetPositionNames(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEnvSoundscape->PositionNames(ptr=%p,size=8)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PositionNames' is not possible.\n");
+    if(value.size() != 8) return PLUGIN_PRINT("Schema SDK", "Field 'PositionNames' needs to have 8 values.\n");
+    auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CEnvSoundscape", "m_positionNames");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCEnvSoundscape GCEnvSoundscape::GetProxySoundscape() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEnvSoundscape->ProxySoundscape(ptr=%p)", m_ptr));
@@ -4199,7 +4203,9 @@ std::vector<uint64_t> GCInButtonState::GetButtonStates() const {
 }
 void GCInButtonState::SetButtonStates(std::vector<uint64_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CInButtonState->ButtonStates(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ButtonStates' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'ButtonStates' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<uint64_t>(m_ptr, "CInButtonState", "m_pButtonStates");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCInButtonState::GetPtr() {
     return m_ptr;
@@ -6016,7 +6022,9 @@ std::vector<CUtlSymbolLarge> GCLogicBranchList::GetLogicBranchNames() const {
 }
 void GCLogicBranchList::SetLogicBranchNames(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CLogicBranchList->LogicBranchNames(ptr=%p,size=16)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LogicBranchNames' is not possible.\n");
+    if(value.size() != 16) return PLUGIN_PRINT("Schema SDK", "Field 'LogicBranchNames' needs to have 16 values.\n");
+    auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CLogicBranchList", "m_nLogicBranchNames");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCLogicBranchList GCLogicBranchList::GetLastState() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CLogicBranchList->LastState(ptr=%p)", m_ptr));
@@ -6100,7 +6108,9 @@ std::vector<Vector> Gaudioparams_t::GetLocalSound() const {
 }
 void Gaudioparams_t::SetLocalSound(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: audioparams_t->LocalSound(ptr=%p,size=8)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LocalSound' is not possible.\n");
+    if(value.size() != 8) return PLUGIN_PRINT("Schema SDK", "Field 'LocalSound' needs to have 8 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "audioparams_t", "localSound");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t Gaudioparams_t::GetSoundscapeIndex() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: audioparams_t->SoundscapeIndex(ptr=%p)", m_ptr));
@@ -6654,7 +6664,9 @@ std::vector<CUtlSymbolLarge> GCLogicCase::GetCase() const {
 }
 void GCLogicCase::SetCase(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CLogicCase->Case(ptr=%p,size=32)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Case' is not possible.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'Case' needs to have 32 values.\n");
+    auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CLogicCase", "m_nCase");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCLogicCase::GetShuffleCases() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CLogicCase->ShuffleCases(ptr=%p)", m_ptr));
@@ -6678,7 +6690,9 @@ std::vector<uint32_t> GCLogicCase::GetUchShuffleCaseMap() const {
 }
 void GCLogicCase::SetUchShuffleCaseMap(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CLogicCase->UchShuffleCaseMap(ptr=%p,size=32)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'UchShuffleCaseMap' is not possible.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'UchShuffleCaseMap' needs to have 32 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CLogicCase", "m_uchShuffleCaseMap");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<GCEntityIOOutput> GCLogicCase::GetOnCase() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CLogicCase->OnCase(ptr=%p,size=32)", m_ptr));
@@ -7169,7 +7183,9 @@ std::vector<int32_t> GCBasePlayerWeapon::GetReserveAmmo() const {
 }
 void GCBasePlayerWeapon::SetReserveAmmo(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerWeapon->ReserveAmmo(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ReserveAmmo' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'ReserveAmmo' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CBasePlayerWeapon", "m_pReserveAmmo");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCEntityIOOutput GCBasePlayerWeapon::GetOnPlayerUse() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerWeapon->OnPlayerUse(ptr=%p)", m_ptr));
@@ -7619,7 +7635,9 @@ std::vector<uint32_t> GCPlayer_MovementServices::GetButtonPressedCmdNumber() con
 }
 void GCPlayer_MovementServices::SetButtonPressedCmdNumber(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPlayer_MovementServices->ButtonPressedCmdNumber(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ButtonPressedCmdNumber' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'ButtonPressedCmdNumber' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CPlayer_MovementServices", "m_pButtonPressedCmdNumber");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint32_t GCPlayer_MovementServices::GetLastCommandNumberProcessed() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_MovementServices->LastCommandNumberProcessed(ptr=%p)", m_ptr));
@@ -7651,7 +7669,9 @@ std::vector<float> GCPlayer_MovementServices::GetForceSubtickMoveWhen() const {
 }
 void GCPlayer_MovementServices::SetForceSubtickMoveWhen(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPlayer_MovementServices->ForceSubtickMoveWhen(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ForceSubtickMoveWhen' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ForceSubtickMoveWhen' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CPlayer_MovementServices", "m_arrForceSubtickMoveWhen");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GCPlayer_MovementServices::GetForwardMove() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_MovementServices->ForwardMove(ptr=%p)", m_ptr));
@@ -10624,7 +10644,9 @@ std::vector<int32_t> GCMultiSource::GetRgTriggered() const {
 }
 void GCMultiSource::SetRgTriggered(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMultiSource->RgTriggered(ptr=%p,size=32)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RgTriggered' is not possible.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'RgTriggered' needs to have 32 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMultiSource", "m_rgTriggered");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCEntityIOOutput GCMultiSource::GetOnTrigger() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMultiSource->OnTrigger(ptr=%p)", m_ptr));
@@ -11030,7 +11052,9 @@ std::vector<CUtlSymbolLarge> GCFilterMultiple::GetFilterName() const {
 }
 void GCFilterMultiple::SetFilterName(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFilterMultiple->FilterName(ptr=%p,size=10)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FilterName' is not possible.\n");
+    if(value.size() != 10) return PLUGIN_PRINT("Schema SDK", "Field 'FilterName' needs to have 10 values.\n");
+    auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CFilterMultiple", "m_iFilterName");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<GCBaseEntity> GCFilterMultiple::GetFilter() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CFilterMultiple->Filter(ptr=%p,size=10)", m_ptr));
@@ -13002,7 +13026,9 @@ std::vector<uint32_t> GEntitySpottedState_t::GetSpottedByMask() const {
 }
 void GEntitySpottedState_t::SetSpottedByMask(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: EntitySpottedState_t->SpottedByMask(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SpottedByMask' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'SpottedByMask' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "EntitySpottedState_t", "m_bSpottedByMask");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GEntitySpottedState_t::GetPtr() {
     return m_ptr;
@@ -14658,7 +14684,9 @@ std::vector<float> GCCSPlayer_PingServices::GetPlayerPingTokens() const {
 }
 void GCCSPlayer_PingServices::SetPlayerPingTokens(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayer_PingServices->PlayerPingTokens(ptr=%p,size=5)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PlayerPingTokens' is not possible.\n");
+    if(value.size() != 5) return PLUGIN_PRINT("Schema SDK", "Field 'PlayerPingTokens' needs to have 5 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CCSPlayer_PingServices", "m_flPlayerPingTokens");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCBaseEntity GCCSPlayer_PingServices::GetPlayerPing() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayer_PingServices->PlayerPing(ptr=%p)", m_ptr));
@@ -18759,7 +18787,9 @@ std::vector<float> GCCSPlayer_RadioServices::GetRadioTokenSlots() const {
 }
 void GCCSPlayer_RadioServices::SetRadioTokenSlots(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayer_RadioServices->RadioTokenSlots(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RadioTokenSlots' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'RadioTokenSlots' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CCSPlayer_RadioServices", "m_flRadioTokenSlots");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GCCSPlayer_RadioServices::GetIgnoreRadio() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayer_RadioServices->IgnoreRadio(ptr=%p)", m_ptr));
@@ -19547,7 +19577,9 @@ std::vector<Vector> GCParticleSystem::GetServerControlPoints() const {
 }
 void GCParticleSystem::SetServerControlPoints(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CParticleSystem->ServerControlPoints(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ServerControlPoints' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ServerControlPoints' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CParticleSystem", "m_vServerControlPoints");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint32_t> GCParticleSystem::GetServerControlPointAssignments() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CParticleSystem->ServerControlPointAssignments(ptr=%p,size=4)", m_ptr));
@@ -19555,7 +19587,9 @@ std::vector<uint32_t> GCParticleSystem::GetServerControlPointAssignments() const
 }
 void GCParticleSystem::SetServerControlPointAssignments(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CParticleSystem->ServerControlPointAssignments(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ServerControlPointAssignments' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ServerControlPointAssignments' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<GCBaseEntity> GCParticleSystem::GetControlPointEnts() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CParticleSystem->ControlPointEnts(ptr=%p,size=64)", m_ptr));
@@ -19611,7 +19645,9 @@ std::vector<CUtlSymbolLarge> GCParticleSystem::GetControlPointNames() const {
 }
 void GCParticleSystem::SetControlPointNames(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CParticleSystem->ControlPointNames(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ControlPointNames' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'ControlPointNames' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CParticleSystem", "m_iszControlPointNames");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCParticleSystem::GetDataCP() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CParticleSystem->DataCP(ptr=%p)", m_ptr));
@@ -22987,7 +23023,9 @@ std::vector<CUtlSymbolLarge> GCSceneListManager::GetScenes() const {
 }
 void GCSceneListManager::SetScenes(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSceneListManager->Scenes(ptr=%p,size=16)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Scenes' is not possible.\n");
+    if(value.size() != 16) return PLUGIN_PRINT("Schema SDK", "Field 'Scenes' needs to have 16 values.\n");
+    auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CSceneListManager", "m_iszScenes");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<GCBaseEntity> GCSceneListManager::GetScenes1() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSceneListManager->Scenes1(ptr=%p,size=16)", m_ptr));
@@ -28787,7 +28825,9 @@ std::vector<uint32_t> GCPlayerSprayDecal::GetSignature() const {
 }
 void GCPlayerSprayDecal::SetSignature(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPlayerSprayDecal->Signature(ptr=%p,size=128)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Signature' is not possible.\n");
+    if(value.size() != 128) return PLUGIN_PRINT("Schema SDK", "Field 'Signature' needs to have 128 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CPlayerSprayDecal", "m_ubSignature");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCPlayerSprayDecal::GetPtr() {
     return m_ptr;
@@ -31480,7 +31520,9 @@ std::vector<int32_t> GCMapVetoPickController::GetTeamWithFirstChoice() const {
 }
 void GCMapVetoPickController::SetTeamWithFirstChoice(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->TeamWithFirstChoice(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TeamWithFirstChoice' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'TeamWithFirstChoice' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nTeamWithFirstChoice");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetVoteMapIdsList() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->VoteMapIdsList(ptr=%p,size=7)", m_ptr));
@@ -31488,7 +31530,9 @@ std::vector<int32_t> GCMapVetoPickController::GetVoteMapIdsList() const {
 }
 void GCMapVetoPickController::SetVoteMapIdsList(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->VoteMapIdsList(ptr=%p,size=7)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VoteMapIdsList' is not possible.\n");
+    if(value.size() != 7) return PLUGIN_PRINT("Schema SDK", "Field 'VoteMapIdsList' needs to have 7 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nVoteMapIdsList");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetAccountIDs() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->AccountIDs(ptr=%p,size=64)", m_ptr));
@@ -31496,7 +31540,9 @@ std::vector<int32_t> GCMapVetoPickController::GetAccountIDs() const {
 }
 void GCMapVetoPickController::SetAccountIDs(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->AccountIDs(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AccountIDs' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'AccountIDs' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nAccountIDs");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId0(ptr=%p,size=64)", m_ptr));
@@ -31504,7 +31550,9 @@ std::vector<int32_t> GCMapVetoPickController::GetMapId0() const {
 }
 void GCMapVetoPickController::SetMapId0(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId0(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MapId0' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId0' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId0");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId1() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId1(ptr=%p,size=64)", m_ptr));
@@ -31512,7 +31560,9 @@ std::vector<int32_t> GCMapVetoPickController::GetMapId1() const {
 }
 void GCMapVetoPickController::SetMapId1(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId1(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MapId1' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId1' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId1");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId2() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId2(ptr=%p,size=64)", m_ptr));
@@ -31520,7 +31570,9 @@ std::vector<int32_t> GCMapVetoPickController::GetMapId2() const {
 }
 void GCMapVetoPickController::SetMapId2(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId2(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MapId2' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId2' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId2");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId3() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId3(ptr=%p,size=64)", m_ptr));
@@ -31528,7 +31580,9 @@ std::vector<int32_t> GCMapVetoPickController::GetMapId3() const {
 }
 void GCMapVetoPickController::SetMapId3(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId3(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MapId3' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId3' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId3");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId4() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId4(ptr=%p,size=64)", m_ptr));
@@ -31536,7 +31590,9 @@ std::vector<int32_t> GCMapVetoPickController::GetMapId4() const {
 }
 void GCMapVetoPickController::SetMapId4(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId4(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MapId4' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId4' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId4");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId5() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId5(ptr=%p,size=64)", m_ptr));
@@ -31544,7 +31600,9 @@ std::vector<int32_t> GCMapVetoPickController::GetMapId5() const {
 }
 void GCMapVetoPickController::SetMapId5(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId5(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MapId5' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId5' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId5");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetStartingSide0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->StartingSide0(ptr=%p,size=64)", m_ptr));
@@ -31552,7 +31610,9 @@ std::vector<int32_t> GCMapVetoPickController::GetStartingSide0() const {
 }
 void GCMapVetoPickController::SetStartingSide0(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->StartingSide0(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'StartingSide0' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'StartingSide0' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nStartingSide0");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCMapVetoPickController::GetCurrentPhase() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->CurrentPhase(ptr=%p)", m_ptr));
@@ -32225,7 +32285,9 @@ std::vector<float> GCSkillFloat::GetValue() const {
 }
 void GCSkillFloat::SetValue(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSkillFloat->Value(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Value' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Value' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CSkillFloat", "m_pValue");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCSkillFloat::GetPtr() {
     return m_ptr;
@@ -33062,7 +33124,9 @@ std::vector<Vector> GCPhysPulley::GetOffset() const {
 }
 void GCPhysPulley::SetOffset(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPhysPulley->Offset(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Offset' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Offset' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CPhysPulley", "m_offset");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GCPhysPulley::GetAddLength() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPhysPulley->AddLength(ptr=%p)", m_ptr));
@@ -33772,7 +33836,9 @@ std::vector<float> GSimpleConstraintSoundProfile::GetKeyPoints() const {
 }
 void GSimpleConstraintSoundProfile::SetKeyPoints(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: SimpleConstraintSoundProfile->KeyPoints(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'KeyPoints' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'KeyPoints' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "SimpleConstraintSoundProfile", "m_keyPoints");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<float> GSimpleConstraintSoundProfile::GetReversalSoundThresholds() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: SimpleConstraintSoundProfile->ReversalSoundThresholds(ptr=%p,size=3)", m_ptr));
@@ -33780,7 +33846,9 @@ std::vector<float> GSimpleConstraintSoundProfile::GetReversalSoundThresholds() c
 }
 void GSimpleConstraintSoundProfile::SetReversalSoundThresholds(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: SimpleConstraintSoundProfile->ReversalSoundThresholds(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ReversalSoundThresholds' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'ReversalSoundThresholds' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "SimpleConstraintSoundProfile", "m_reversalSoundThresholds");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GSimpleConstraintSoundProfile::GetPtr() {
     return m_ptr;
@@ -36268,7 +36336,9 @@ std::vector<float> GCTimeline::GetValues() const {
 }
 void GCTimeline::SetValues(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CTimeline->Values(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Values' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'Values' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CTimeline", "m_flValues");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCTimeline::GetValueCounts() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTimeline->ValueCounts(ptr=%p,size=64)", m_ptr));
@@ -36276,7 +36346,9 @@ std::vector<int32_t> GCTimeline::GetValueCounts() const {
 }
 void GCTimeline::SetValueCounts(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CTimeline->ValueCounts(ptr=%p,size=64)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ValueCounts' is not possible.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'ValueCounts' needs to have 64 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CTimeline", "m_nValueCounts");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCTimeline::GetBucketCount() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTimeline->BucketCount(ptr=%p)", m_ptr));
@@ -36896,7 +36968,9 @@ std::vector<bool> GCCSPlayerResource::GetHostageAlive() const {
 }
 void GCCSPlayerResource::SetHostageAlive(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->HostageAlive(ptr=%p,size=12)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HostageAlive' is not possible.\n");
+    if(value.size() != 12) return PLUGIN_PRINT("Schema SDK", "Field 'HostageAlive' needs to have 12 values.\n");
+    auto val = GetSchemaValuePtr<bool>(m_ptr, "CCSPlayerResource", "m_bHostageAlive");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<bool> GCCSPlayerResource::GetIsHostageFollowingSomeone() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->IsHostageFollowingSomeone(ptr=%p,size=12)", m_ptr));
@@ -36904,7 +36978,9 @@ std::vector<bool> GCCSPlayerResource::GetIsHostageFollowingSomeone() const {
 }
 void GCCSPlayerResource::SetIsHostageFollowingSomeone(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->IsHostageFollowingSomeone(ptr=%p,size=12)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'IsHostageFollowingSomeone' is not possible.\n");
+    if(value.size() != 12) return PLUGIN_PRINT("Schema SDK", "Field 'IsHostageFollowingSomeone' needs to have 12 values.\n");
+    auto val = GetSchemaValuePtr<bool>(m_ptr, "CCSPlayerResource", "m_isHostageFollowingSomeone");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int> GCCSPlayerResource::GetHostageEntityIDs() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->HostageEntityIDs(ptr=%p,size=12)", m_ptr));
@@ -36936,7 +37012,9 @@ std::vector<int32_t> GCCSPlayerResource::GetHostageRescueX() const {
 }
 void GCCSPlayerResource::SetHostageRescueX(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->HostageRescueX(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HostageRescueX' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'HostageRescueX' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSPlayerResource", "m_hostageRescueX");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCCSPlayerResource::GetHostageRescueY() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->HostageRescueY(ptr=%p,size=4)", m_ptr));
@@ -36944,7 +37022,9 @@ std::vector<int32_t> GCCSPlayerResource::GetHostageRescueY() const {
 }
 void GCCSPlayerResource::SetHostageRescueY(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->HostageRescueY(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HostageRescueY' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'HostageRescueY' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSPlayerResource", "m_hostageRescueY");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCCSPlayerResource::GetHostageRescueZ() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->HostageRescueZ(ptr=%p,size=4)", m_ptr));
@@ -36952,7 +37032,9 @@ std::vector<int32_t> GCCSPlayerResource::GetHostageRescueZ() const {
 }
 void GCCSPlayerResource::SetHostageRescueZ(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->HostageRescueZ(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'HostageRescueZ' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'HostageRescueZ' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSPlayerResource", "m_hostageRescueZ");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GCCSPlayerResource::GetEndMatchNextMapAllVoted() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->EndMatchNextMapAllVoted(ptr=%p)", m_ptr));
@@ -37052,7 +37134,9 @@ std::vector<uint16_t> GCPlayer_WeaponServices::GetAmmo() const {
 }
 void GCPlayer_WeaponServices::SetAmmo(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPlayer_WeaponServices->Ammo(ptr=%p,size=32)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Ammo' is not possible.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'Ammo' needs to have 32 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "CPlayer_WeaponServices", "m_iAmmo");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GCPlayer_WeaponServices::GetPreventWeaponPickup() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_WeaponServices->PreventWeaponPickup(ptr=%p)", m_ptr));

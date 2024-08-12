@@ -985,7 +985,9 @@ std::vector<uint16_t> GFeQuad_t::GetNode() const {
 }
 void GFeQuad_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeQuad_t->Node(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeQuad_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GFeQuad_t::GetSlack() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeQuad_t->Slack(ptr=%p)", m_ptr));
@@ -1001,7 +1003,9 @@ std::vector<Vector4D> GFeQuad_t::GetShape() const {
 }
 void GFeQuad_t::SetShape(std::vector<Vector4D> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeQuad_t->Shape(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Shape' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Shape' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<Vector4D>(m_ptr, "FeQuad_t", "vShape");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeQuad_t::GetPtr() {
     return m_ptr;
@@ -2519,7 +2523,9 @@ std::vector<GCSosGroupActionSchema*> GCSosSoundEventGroupSchema::GetActions() co
 }
 void GCSosSoundEventGroupSchema::SetActions(std::vector<GCSosGroupActionSchema*> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSosSoundEventGroupSchema->Actions(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Actions' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Actions' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<GCSosGroupActionSchema*>(m_ptr, "CSosSoundEventGroupSchema", "m_vActions");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCSosSoundEventGroupSchema::GetPtr() {
     return m_ptr;
@@ -3451,7 +3457,9 @@ std::vector<Vector4D> GSceneObject_t::GetTransform() const {
 }
 void GSceneObject_t::SetTransform(std::vector<Vector4D> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: SceneObject_t->Transform(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Transform' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'Transform' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<Vector4D>(m_ptr, "SceneObject_t", "m_vTransform");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GSceneObject_t::GetFadeStartDistance() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: SceneObject_t->FadeStartDistance(ptr=%p)", m_ptr));
@@ -4277,7 +4285,9 @@ std::vector<int32_t> GCSeqMultiFetch::GetGroupSize() const {
 }
 void GCSeqMultiFetch::SetGroupSize(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSeqMultiFetch->GroupSize(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'GroupSize' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'GroupSize' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CSeqMultiFetch", "m_nGroupSize");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCSeqMultiFetch::GetLocalPose() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSeqMultiFetch->LocalPose(ptr=%p,size=2)", m_ptr));
@@ -4285,7 +4295,9 @@ std::vector<int32_t> GCSeqMultiFetch::GetLocalPose() const {
 }
 void GCSeqMultiFetch::SetLocalPose(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSeqMultiFetch->LocalPose(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LocalPose' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'LocalPose' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CSeqMultiFetch", "m_nLocalPose");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<float32> GCSeqMultiFetch::GetPoseKeyArray0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSeqMultiFetch->PoseKeyArray0(ptr=%p)", m_ptr));
@@ -4333,7 +4345,9 @@ std::vector<float> GCSeqMultiFetch::GetFixedBlendWeightVals() const {
 }
 void GCSeqMultiFetch::SetFixedBlendWeightVals(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSeqMultiFetch->FixedBlendWeightVals(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'FixedBlendWeightVals' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'FixedBlendWeightVals' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CSeqMultiFetch", "m_flFixedBlendWeightVals");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCSeqMultiFetch::GetPtr() {
     return m_ptr;
@@ -5614,7 +5628,9 @@ std::vector<uint16_t> GRnSoftbodySpring_t::GetParticle() const {
 }
 void GRnSoftbodySpring_t::SetParticle(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RnSoftbodySpring_t->Particle(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Particle' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Particle' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "RnSoftbodySpring_t", "m_nParticle");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GRnSoftbodySpring_t::GetLength() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: RnSoftbodySpring_t->Length(ptr=%p)", m_ptr));
@@ -5805,7 +5821,9 @@ std::vector<float> GFeStiffHingeBuild_t::GetMotionBias() const {
 }
 void GFeStiffHingeBuild_t::SetMotionBias(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeStiffHingeBuild_t->MotionBias(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'MotionBias' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'MotionBias' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "FeStiffHingeBuild_t", "flMotionBias");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GFeStiffHingeBuild_t::GetNode() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeStiffHingeBuild_t->Node(ptr=%p,size=3)", m_ptr));
@@ -5813,7 +5831,9 @@ std::vector<uint16_t> GFeStiffHingeBuild_t::GetNode() const {
 }
 void GFeStiffHingeBuild_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeStiffHingeBuild_t->Node(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeStiffHingeBuild_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeStiffHingeBuild_t::GetPtr() {
     return m_ptr;
@@ -8662,7 +8682,9 @@ std::vector<uint16_t> GFeTreeChildren_t::GetChild() const {
 }
 void GFeTreeChildren_t::SetChild(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeTreeChildren_t->Child(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Child' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Child' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeTreeChildren_t", "nChild");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeTreeChildren_t::GetPtr() {
     return m_ptr;
@@ -9969,7 +9991,9 @@ std::vector<int32_t> GRnWing_t::GetIndex() const {
 }
 void GRnWing_t::SetIndex(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RnWing_t->Index(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Index' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'Index' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "RnWing_t", "m_nIndex");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GRnWing_t::GetPtr() {
     return m_ptr;
@@ -11960,7 +11984,9 @@ std::vector<float> GFeSimdQuad_t::Get4Weights() const {
 }
 void GFeSimdQuad_t::Set4Weights(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeSimdQuad_t->4Weights(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for '4Weights' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field '4Weights' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "FeSimdQuad_t", "f4Weights");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeSimdQuad_t::GetPtr() {
     return m_ptr;
@@ -12153,7 +12179,9 @@ std::vector<uint32_t> GSampleCode::GetSubCode() const {
 }
 void GSampleCode::SetSubCode(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: SampleCode->SubCode(ptr=%p,size=8)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SubCode' is not possible.\n");
+    if(value.size() != 8) return PLUGIN_PRINT("Schema SDK", "Field 'SubCode' needs to have 8 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "SampleCode", "m_subCode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GSampleCode::GetPtr() {
     return m_ptr;
@@ -12757,7 +12785,9 @@ std::vector<float> GCMotionGraphConfig::GetParamValues() const {
 }
 void GCMotionGraphConfig::SetParamValues(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMotionGraphConfig->ParamValues(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'ParamValues' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ParamValues' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CMotionGraphConfig", "m_paramValues");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GCMotionGraphConfig::GetDuration() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMotionGraphConfig->Duration(ptr=%p)", m_ptr));
@@ -17256,7 +17286,9 @@ std::vector<uint16_t> GFeTaperedCapsuleStretch_t::GetNode() const {
 }
 void GFeTaperedCapsuleStretch_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeTaperedCapsuleStretch_t->Node(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeTaperedCapsuleStretch_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint16_t GFeTaperedCapsuleStretch_t::GetCollisionMask() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeTaperedCapsuleStretch_t->CollisionMask(ptr=%p)", m_ptr));
@@ -17280,7 +17312,9 @@ std::vector<float> GFeTaperedCapsuleStretch_t::GetRadius() const {
 }
 void GFeTaperedCapsuleStretch_t::SetRadius(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeTaperedCapsuleStretch_t->Radius(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Radius' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Radius' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "FeTaperedCapsuleStretch_t", "flRadius");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeTaperedCapsuleStretch_t::GetPtr() {
     return m_ptr;
@@ -18728,7 +18762,9 @@ std::vector<uint16_t> GFeSourceEdge_t::GetNode() const {
 }
 void GFeSourceEdge_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeSourceEdge_t->Node(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeSourceEdge_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeSourceEdge_t::GetPtr() {
     return m_ptr;

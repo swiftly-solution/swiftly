@@ -247,7 +247,9 @@ std::vector<Vector> GCAnimAttachment::GetInfluenceOffsets() const {
 }
 void GCAnimAttachment::SetInfluenceOffsets(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimAttachment->InfluenceOffsets(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'InfluenceOffsets' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'InfluenceOffsets' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CAnimAttachment", "m_influenceOffsets");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCAnimAttachment::GetInfluenceIndices() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimAttachment->InfluenceIndices(ptr=%p,size=3)", m_ptr));
@@ -255,7 +257,9 @@ std::vector<int32_t> GCAnimAttachment::GetInfluenceIndices() const {
 }
 void GCAnimAttachment::SetInfluenceIndices(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimAttachment->InfluenceIndices(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'InfluenceIndices' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'InfluenceIndices' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CAnimAttachment", "m_influenceIndices");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<float> GCAnimAttachment::GetInfluenceWeights() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimAttachment->InfluenceWeights(ptr=%p,size=3)", m_ptr));
@@ -263,7 +267,9 @@ std::vector<float> GCAnimAttachment::GetInfluenceWeights() const {
 }
 void GCAnimAttachment::SetInfluenceWeights(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimAttachment->InfluenceWeights(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'InfluenceWeights' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'InfluenceWeights' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CAnimAttachment", "m_influenceWeights");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint32_t GCAnimAttachment::GetNumInfluences() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimAttachment->NumInfluences(ptr=%p)", m_ptr));
@@ -1205,7 +1211,9 @@ std::vector<Vector> GVPhysXConstraintParams_t::GetAnchor() const {
 }
 void GVPhysXConstraintParams_t::SetAnchor(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: VPhysXConstraintParams_t->Anchor(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Anchor' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Anchor' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "VPhysXConstraintParams_t", "m_anchor");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GVPhysXConstraintParams_t::GetMaxForce() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: VPhysXConstraintParams_t->MaxForce(ptr=%p)", m_ptr));
@@ -2031,7 +2039,9 @@ std::vector<float> GFeKelagerBend2_t::GetWeight() const {
 }
 void GFeKelagerBend2_t::SetWeight(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeKelagerBend2_t->Weight(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Weight' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'Weight' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "FeKelagerBend2_t", "flWeight");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GFeKelagerBend2_t::GetHeight0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeKelagerBend2_t->Height0(ptr=%p)", m_ptr));
@@ -2047,7 +2057,9 @@ std::vector<uint16_t> GFeKelagerBend2_t::GetNode() const {
 }
 void GFeKelagerBend2_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeKelagerBend2_t->Node(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeKelagerBend2_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint16_t GFeKelagerBend2_t::GetReserved() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeKelagerBend2_t->Reserved(ptr=%p)", m_ptr));
@@ -6960,7 +6972,9 @@ std::vector<bool> GCJumpHelperUpdateNode::GetTranslationAxis() const {
 }
 void GCJumpHelperUpdateNode::SetTranslationAxis(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CJumpHelperUpdateNode->TranslationAxis(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'TranslationAxis' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'TranslationAxis' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<bool>(m_ptr, "CJumpHelperUpdateNode", "m_bTranslationAxis");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GCJumpHelperUpdateNode::GetScaleSpeed() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CJumpHelperUpdateNode->ScaleSpeed(ptr=%p)", m_ptr));
@@ -7595,7 +7609,9 @@ std::vector<uint16_t> GFeNodeBase_t::GetDummy() const {
 }
 void GFeNodeBase_t::SetDummy(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeNodeBase_t->Dummy(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Dummy' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'Dummy' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeNodeBase_t", "nDummy");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint16_t GFeNodeBase_t::GetNodeX0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeNodeBase_t->NodeX0(ptr=%p)", m_ptr));
@@ -8382,7 +8398,9 @@ std::vector<float> GFeAxialEdgeBend_t::GetWeight() const {
 }
 void GFeAxialEdgeBend_t::SetWeight(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeAxialEdgeBend_t->Weight(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Weight' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Weight' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "FeAxialEdgeBend_t", "flWeight");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GFeAxialEdgeBend_t::GetNode() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeAxialEdgeBend_t->Node(ptr=%p,size=6)", m_ptr));
@@ -8390,7 +8408,9 @@ std::vector<uint16_t> GFeAxialEdgeBend_t::GetNode() const {
 }
 void GFeAxialEdgeBend_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeAxialEdgeBend_t->Node(ptr=%p,size=6)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 6) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 6 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeAxialEdgeBend_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeAxialEdgeBend_t::GetPtr() {
     return m_ptr;
@@ -8894,7 +8914,9 @@ std::vector<uint32_t> GRenderInputLayoutField_t::GetSemanticName() const {
 }
 void GRenderInputLayoutField_t::SetSemanticName(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RenderInputLayoutField_t->SemanticName(ptr=%p,size=32)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'SemanticName' is not possible.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'SemanticName' needs to have 32 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "RenderInputLayoutField_t", "m_pSemanticName");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GRenderInputLayoutField_t::GetSemanticIndex() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: RenderInputLayoutField_t->SemanticIndex(ptr=%p)", m_ptr));
@@ -9131,7 +9153,9 @@ std::vector<uint32_t> GRenderHairStrandInfo_t::GetGuideHairIndices_nSurfaceTriIn
 }
 void GRenderHairStrandInfo_t::SetGuideHairIndices_nSurfaceTriIndex(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RenderHairStrandInfo_t->GuideHairIndices_nSurfaceTriIndex(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'GuideHairIndices_nSurfaceTriIndex' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'GuideHairIndices_nSurfaceTriIndex' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "RenderHairStrandInfo_t", "m_nGuideHairIndices_nSurfaceTriIndex");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GRenderHairStrandInfo_t::GetGuideBary_vBaseBary() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: RenderHairStrandInfo_t->GuideBary_vBaseBary(ptr=%p,size=4)", m_ptr));
@@ -9139,7 +9163,9 @@ std::vector<uint16_t> GRenderHairStrandInfo_t::GetGuideBary_vBaseBary() const {
 }
 void GRenderHairStrandInfo_t::SetGuideBary_vBaseBary(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RenderHairStrandInfo_t->GuideBary_vBaseBary(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'GuideBary_vBaseBary' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'GuideBary_vBaseBary' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "RenderHairStrandInfo_t", "m_vGuideBary_vBaseBary");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GRenderHairStrandInfo_t::GetRootOffset_flLengthScale() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: RenderHairStrandInfo_t->RootOffset_flLengthScale(ptr=%p,size=4)", m_ptr));
@@ -9147,7 +9173,9 @@ std::vector<uint16_t> GRenderHairStrandInfo_t::GetRootOffset_flLengthScale() con
 }
 void GRenderHairStrandInfo_t::SetRootOffset_flLengthScale(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RenderHairStrandInfo_t->RootOffset_flLengthScale(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'RootOffset_flLengthScale' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'RootOffset_flLengthScale' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "RenderHairStrandInfo_t", "m_vRootOffset_flLengthScale");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GRenderHairStrandInfo_t::GetPackedBaseUv() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: RenderHairStrandInfo_t->PackedBaseUv(ptr=%p,size=2)", m_ptr));
@@ -9155,7 +9183,9 @@ std::vector<uint16_t> GRenderHairStrandInfo_t::GetPackedBaseUv() const {
 }
 void GRenderHairStrandInfo_t::SetPackedBaseUv(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RenderHairStrandInfo_t->PackedBaseUv(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'PackedBaseUv' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'PackedBaseUv' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "RenderHairStrandInfo_t", "m_nPackedBaseUv");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint32_t GRenderHairStrandInfo_t::GetPackedSurfaceNormalOs() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: RenderHairStrandInfo_t->PackedSurfaceNormalOs(ptr=%p)", m_ptr));
@@ -9278,7 +9308,9 @@ std::vector<float> GFeTaperedCapsuleRigid_t::GetSphere() const {
 }
 void GFeTaperedCapsuleRigid_t::SetSphere(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeTaperedCapsuleRigid_t->Sphere(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Sphere' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Sphere' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "FeTaperedCapsuleRigid_t", "vSphere");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint16_t GFeTaperedCapsuleRigid_t::GetNode() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeTaperedCapsuleRigid_t->Node(ptr=%p)", m_ptr));
@@ -10512,7 +10544,9 @@ std::vector<int32_t> GRnTriangle_t::GetIndex() const {
 }
 void GRnTriangle_t::SetIndex(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RnTriangle_t->Index(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Index' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'Index' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<int32_t>(m_ptr, "RnTriangle_t", "m_nIndex");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GRnTriangle_t::GetPtr() {
     return m_ptr;
@@ -10951,7 +10985,9 @@ std::vector<uint16_t> GFeAnimStrayRadius_t::GetNode() const {
 }
 void GFeAnimStrayRadius_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeAnimStrayRadius_t->Node(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeAnimStrayRadius_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GFeAnimStrayRadius_t::GetMaxDist() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeAnimStrayRadius_t->MaxDist(ptr=%p)", m_ptr));
@@ -11675,7 +11711,9 @@ std::vector<uint16_t> GFeBandBendLimit_t::GetNode() const {
 }
 void GFeBandBendLimit_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeBandBendLimit_t->Node(ptr=%p,size=6)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 6) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 6 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeBandBendLimit_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeBandBendLimit_t::GetPtr() {
     return m_ptr;
@@ -13473,7 +13511,9 @@ std::vector<CUtlString> GCAttachment::GetInfluenceNames() const {
 }
 void GCAttachment::SetInfluenceNames(std::vector<CUtlString> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAttachment->InfluenceNames(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'InfluenceNames' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'InfluenceNames' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<CUtlString>(m_ptr, "CAttachment", "m_influenceNames");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<Vector> GCAttachment::GetInfluenceOffsets() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAttachment->InfluenceOffsets(ptr=%p,size=3)", m_ptr));
@@ -13481,7 +13521,9 @@ std::vector<Vector> GCAttachment::GetInfluenceOffsets() const {
 }
 void GCAttachment::SetInfluenceOffsets(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAttachment->InfluenceOffsets(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'InfluenceOffsets' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'InfluenceOffsets' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CAttachment", "m_vInfluenceOffsets");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<float> GCAttachment::GetInfluenceWeights() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAttachment->InfluenceWeights(ptr=%p,size=3)", m_ptr));
@@ -13489,7 +13531,9 @@ std::vector<float> GCAttachment::GetInfluenceWeights() const {
 }
 void GCAttachment::SetInfluenceWeights(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAttachment->InfluenceWeights(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'InfluenceWeights' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'InfluenceWeights' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CAttachment", "m_influenceWeights");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<bool> GCAttachment::GetInfluenceRootTransform() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAttachment->InfluenceRootTransform(ptr=%p,size=3)", m_ptr));
@@ -13497,7 +13541,9 @@ std::vector<bool> GCAttachment::GetInfluenceRootTransform() const {
 }
 void GCAttachment::SetInfluenceRootTransform(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAttachment->InfluenceRootTransform(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'InfluenceRootTransform' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'InfluenceRootTransform' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<bool>(m_ptr, "CAttachment", "m_bInfluenceRootTransform");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint32_t GCAttachment::GetInfluences() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAttachment->Influences(ptr=%p)", m_ptr));
@@ -14409,7 +14455,9 @@ std::vector<Vector> GRnSoftbodyCapsule_t::GetCenter() const {
 }
 void GRnSoftbodyCapsule_t::SetCenter(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RnSoftbodyCapsule_t->Center(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Center' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Center' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "RnSoftbodyCapsule_t", "m_vCenter");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GRnSoftbodyCapsule_t::GetRadius() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: RnSoftbodyCapsule_t->Radius(ptr=%p)", m_ptr));
@@ -14425,7 +14473,9 @@ std::vector<uint16_t> GRnSoftbodyCapsule_t::GetParticle() const {
 }
 void GRnSoftbodyCapsule_t::SetParticle(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RnSoftbodyCapsule_t->Particle(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Particle' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Particle' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "RnSoftbodyCapsule_t", "m_nParticle");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GRnSoftbodyCapsule_t::GetPtr() {
     return m_ptr;
@@ -15223,7 +15273,9 @@ std::vector<float> GDop26_t::GetSupport() const {
 }
 void GDop26_t::SetSupport(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: Dop26_t->Support(ptr=%p,size=26)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Support' is not possible.\n");
+    if(value.size() != 26) return PLUGIN_PRINT("Schema SDK", "Field 'Support' needs to have 26 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "Dop26_t", "m_flSupport");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GDop26_t::GetPtr() {
     return m_ptr;
@@ -16157,7 +16209,9 @@ std::vector<float> GCBoneConstraintDotToMorph::GetRemap() const {
 }
 void GCBoneConstraintDotToMorph::SetRemap(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBoneConstraintDotToMorph->Remap(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Remap' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Remap' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "CBoneConstraintDotToMorph", "m_flRemap");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCBoneConstraintDotToMorph::GetPtr() {
     return m_ptr;
@@ -16268,7 +16322,9 @@ std::vector<float> GPostProcessingBloomParameters_t::GetBlurWeight() const {
 }
 void GPostProcessingBloomParameters_t::SetBlurWeight(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: PostProcessingBloomParameters_t->BlurWeight(ptr=%p,size=5)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BlurWeight' is not possible.\n");
+    if(value.size() != 5) return PLUGIN_PRINT("Schema SDK", "Field 'BlurWeight' needs to have 5 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "PostProcessingBloomParameters_t", "m_flBlurWeight");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<Vector> GPostProcessingBloomParameters_t::GetBlurTint() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: PostProcessingBloomParameters_t->BlurTint(ptr=%p,size=5)", m_ptr));
@@ -16276,7 +16332,9 @@ std::vector<Vector> GPostProcessingBloomParameters_t::GetBlurTint() const {
 }
 void GPostProcessingBloomParameters_t::SetBlurTint(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: PostProcessingBloomParameters_t->BlurTint(ptr=%p,size=5)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BlurTint' is not possible.\n");
+    if(value.size() != 5) return PLUGIN_PRINT("Schema SDK", "Field 'BlurTint' needs to have 5 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "PostProcessingBloomParameters_t", "m_vBlurTint");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GPostProcessingBloomParameters_t::GetPtr() {
     return m_ptr;
@@ -16781,7 +16839,9 @@ std::vector<uint16_t> GFeEdgeDesc_t::GetEdge() const {
 }
 void GFeEdgeDesc_t::SetEdge(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeEdgeDesc_t->Edge(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Edge' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Edge' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeEdgeDesc_t", "nEdge");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GFeEdgeDesc_t::GetVirtElem() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeEdgeDesc_t->VirtElem(ptr=%p,size=2)", m_ptr));
@@ -16789,7 +16849,9 @@ std::vector<uint16_t> GFeEdgeDesc_t::GetVirtElem() const {
 }
 void GFeEdgeDesc_t::SetVirtElem(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeEdgeDesc_t->VirtElem(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'VirtElem' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'VirtElem' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeEdgeDesc_t", "nVirtElem");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeEdgeDesc_t::GetPtr() {
     return m_ptr;
@@ -17184,7 +17246,9 @@ std::vector<uint16_t> GFeTri_t::GetNode() const {
 }
 void GFeTri_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeTri_t->Node(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeTri_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GFeTri_t::GetW1() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeTri_t->W1(ptr=%p)", m_ptr));
@@ -19183,7 +19247,9 @@ std::vector<uint16_t> GFeSimdNodeBase_t::GetNode() const {
 }
 void GFeSimdNodeBase_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeSimdNodeBase_t->Node(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeSimdNodeBase_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GFeSimdNodeBase_t::GetNodeX0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeSimdNodeBase_t->NodeX0(ptr=%p,size=4)", m_ptr));
@@ -19191,7 +19257,9 @@ std::vector<uint16_t> GFeSimdNodeBase_t::GetNodeX0() const {
 }
 void GFeSimdNodeBase_t::SetNodeX0(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeSimdNodeBase_t->NodeX0(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NodeX0' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'NodeX0' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeSimdNodeBase_t", "nNodeX0");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GFeSimdNodeBase_t::GetNodeX1() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeSimdNodeBase_t->NodeX1(ptr=%p,size=4)", m_ptr));
@@ -19199,7 +19267,9 @@ std::vector<uint16_t> GFeSimdNodeBase_t::GetNodeX1() const {
 }
 void GFeSimdNodeBase_t::SetNodeX1(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeSimdNodeBase_t->NodeX1(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NodeX1' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'NodeX1' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeSimdNodeBase_t", "nNodeX1");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GFeSimdNodeBase_t::GetNodeY0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeSimdNodeBase_t->NodeY0(ptr=%p,size=4)", m_ptr));
@@ -19207,7 +19277,9 @@ std::vector<uint16_t> GFeSimdNodeBase_t::GetNodeY0() const {
 }
 void GFeSimdNodeBase_t::SetNodeY0(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeSimdNodeBase_t->NodeY0(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NodeY0' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'NodeY0' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeSimdNodeBase_t", "nNodeY0");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GFeSimdNodeBase_t::GetNodeY1() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeSimdNodeBase_t->NodeY1(ptr=%p,size=4)", m_ptr));
@@ -19215,7 +19287,9 @@ std::vector<uint16_t> GFeSimdNodeBase_t::GetNodeY1() const {
 }
 void GFeSimdNodeBase_t::SetNodeY1(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeSimdNodeBase_t->NodeY1(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'NodeY1' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'NodeY1' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeSimdNodeBase_t", "nNodeY1");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GFeSimdNodeBase_t::GetDummy() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeSimdNodeBase_t->Dummy(ptr=%p,size=4)", m_ptr));
@@ -19223,7 +19297,9 @@ std::vector<uint16_t> GFeSimdNodeBase_t::GetDummy() const {
 }
 void GFeSimdNodeBase_t::SetDummy(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeSimdNodeBase_t->Dummy(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Dummy' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Dummy' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeSimdNodeBase_t", "nDummy");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GFeSimdNodeBase_t::GetPtr() {
     return m_ptr;
@@ -19859,7 +19935,9 @@ std::vector<float> GOldFeEdge_t::GetK() const {
 }
 void GOldFeEdge_t::SetK(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: OldFeEdge_t->K(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'K' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'K' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "OldFeEdge_t", "m_flK");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GOldFeEdge_t::GetInvA() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: OldFeEdge_t->InvA(ptr=%p)", m_ptr));
@@ -19939,7 +20017,9 @@ std::vector<float> GOldFeEdge_t::GetAxialModelWeights() const {
 }
 void GOldFeEdge_t::SetAxialModelWeights(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: OldFeEdge_t->AxialModelWeights(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'AxialModelWeights' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'AxialModelWeights' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "OldFeEdge_t", "flAxialModelWeights");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint16_t> GOldFeEdge_t::GetNode() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: OldFeEdge_t->Node(ptr=%p,size=4)", m_ptr));
@@ -19947,7 +20027,9 @@ std::vector<uint16_t> GOldFeEdge_t::GetNode() const {
 }
 void GOldFeEdge_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: OldFeEdge_t->Node(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "OldFeEdge_t", "m_nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GOldFeEdge_t::GetPtr() {
     return m_ptr;
@@ -20089,7 +20171,9 @@ std::vector<float> Gconstraint_breakableparams_t::GetBodyMassScale() const {
 }
 void Gconstraint_breakableparams_t::SetBodyMassScale(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: constraint_breakableparams_t->BodyMassScale(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BodyMassScale' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'BodyMassScale' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<float>(m_ptr, "constraint_breakableparams_t", "bodyMassScale");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool Gconstraint_breakableparams_t::GetIsActive() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: constraint_breakableparams_t->IsActive(ptr=%p)", m_ptr));
@@ -20771,7 +20855,9 @@ std::vector<uint16_t> GFeSpringIntegrator_t::GetNode() const {
 }
 void GFeSpringIntegrator_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeSpringIntegrator_t->Node(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeSpringIntegrator_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GFeSpringIntegrator_t::GetSpringRestLength() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeSpringIntegrator_t->SpringRestLength(ptr=%p)", m_ptr));
@@ -21439,7 +21525,9 @@ std::vector<Vector> GRnBodyDesc_t::GetLocalInertiaInv() const {
 }
 void GRnBodyDesc_t::SetLocalInertiaInv(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: RnBodyDesc_t->LocalInertiaInv(ptr=%p,size=3)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'LocalInertiaInv' is not possible.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'LocalInertiaInv' needs to have 3 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "RnBodyDesc_t", "m_LocalInertiaInv");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GRnBodyDesc_t::GetMassInv() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: RnBodyDesc_t->MassInv(ptr=%p)", m_ptr));
@@ -23867,7 +23955,9 @@ std::vector<uint16_t> GFeRodConstraint_t::GetNode() const {
 }
 void GFeRodConstraint_t::SetNode(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: FeRodConstraint_t->Node(ptr=%p,size=2)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'Node' is not possible.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Node' needs to have 2 values.\n");
+    auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "FeRodConstraint_t", "nNode");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GFeRodConstraint_t::GetMaxDist() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: FeRodConstraint_t->MaxDist(ptr=%p)", m_ptr));
@@ -25099,7 +25189,9 @@ std::vector<Vector> GCGlobalLightBase::GetWorldPoints() const {
 }
 void GCGlobalLightBase::SetWorldPoints(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CGlobalLightBase->WorldPoints(ptr=%p,size=8)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'WorldPoints' is not possible.\n");
+    if(value.size() != 8) return PLUGIN_PRINT("Schema SDK", "Field 'WorldPoints' needs to have 8 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CGlobalLightBase", "m_WorldPoints");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 Vector2D GCGlobalLightBase::GetFogOffsetLayer0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CGlobalLightBase->FogOffsetLayer0(ptr=%p)", m_ptr));
@@ -26371,7 +26463,9 @@ std::vector<Vector> GCFireOverlay::GetBaseColors() const {
 }
 void GCFireOverlay::SetBaseColors(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFireOverlay->BaseColors(ptr=%p,size=4)", m_ptr));
-    PLUGIN_PRINT("Schema SDK", "Setting a value for 'BaseColors' is not possible.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'BaseColors' needs to have 4 values.\n");
+    auto val = GetSchemaValuePtr<Vector>(m_ptr, "CFireOverlay", "m_vBaseColors");
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GCFireOverlay::GetScale() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CFireOverlay->Scale(ptr=%p)", m_ptr));
