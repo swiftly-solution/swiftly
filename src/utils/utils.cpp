@@ -167,8 +167,8 @@ bool starts_with(std::string value, std::string starting)
 void PLUGIN_PRINT(std::string category, std::string str)
 {
     g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]\e[39m " + str).c_str());
-    if (g_Config) {
-        if (g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
+    if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
+        if (g_Logger && g_Logger->FetchLogger("core")) {
             str.pop_back();
             g_Logger->FetchLogger("core")->WriteLog(LogType_t::Common, "[" + category + "] " + str);
         }
@@ -185,8 +185,8 @@ void PLUGIN_PRINTF(std::string category, std::string str, ...)
     va_end(ap);
 
     g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]\e[39m " + std::string(buffer)).c_str());
-    if (g_Config) {
-        if (g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
+    if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
+        if (g_Logger && g_Logger->FetchLogger("core")) {
             std::string buf = buffer;
             buf.pop_back();
             g_Logger->FetchLogger("core")->WriteLog(LogType_t::Common, "[" + category + "] " + buf);
