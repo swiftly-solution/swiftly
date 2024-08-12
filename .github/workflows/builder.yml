@@ -77,6 +77,7 @@ jobs:
                   bash ./setup.sh
 
                   echo "[Builder] Setting up default plugins"
+                  cp -r build/package build/package2
                   cd build/package/addons/swiftly
                   wget https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip
                   unzip Swiftly.Plugin.Admins.zip
@@ -142,15 +143,15 @@ jobs:
                   unzip Swiftly.Plugin.Linux.zip
                   mkdir release
                   mv addons release
-                  fdupes -r --delete --noprompt package release
-                  find package -empty -type d -delete
+                  fdupes -r --delete --noprompt package2 release
+                  find package2 -empty -type d -delete
 
             - name: Upload Swiftly Depot - Linux
               if: matrix.os == 'Linux'
               uses: actions/upload-artifact@v4
               with:
                   name: Swiftly.Plugin.Depot.Linux
-                  path: ${{ github.workspace }}/swiftly/build/package
+                  path: ${{ github.workspace }}/swiftly/build/package2
 
     release:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
