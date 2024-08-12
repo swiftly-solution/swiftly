@@ -436,6 +436,7 @@ bool Configuration::LoadConfiguration()
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "logging.enabled", true);
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "logging.mode", std::string("daily"));
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "logging.save_core_messages", false);
 
     std::string loggingMode = std::string(coreConfigFile["logging"]["mode"].GetString());
     if (loggingMode != "daily" && loggingMode != "map" && loggingMode != "permanent")

@@ -145,9 +145,9 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     ConVar_Register(FCVAR_RELEASE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_GAMEDLL);
 
     if (!BeginCrashListener())
-        PRINTRET("Crash Reporter failed to initialize.\n", false)
+        PRINTRET("Crash Reporter failed to initialize.\n", false);
 
-        g_pluginManager = new PluginManager();
+    g_pluginManager = new PluginManager();
     g_Config = new Configuration();
     g_conFilter = new ConsoleFilter();
     g_Signatures = new Signatures();
@@ -166,9 +166,11 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
     else
-        PRINTRET("Failed to load configurations. The plugin will not work.\n", false)
+        PRINTRET("Failed to load configurations. The plugin will not work.\n", false);
 
-        g_Config->LoadPluginConfigurations();
+    g_Logger->AddLogger("core", false);
+
+    g_Config->LoadPluginConfigurations();
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
     g_Patches->LoadPatches();

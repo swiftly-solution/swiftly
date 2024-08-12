@@ -1,7 +1,8 @@
 {
     "logging": {
         "enabled": true,
-        "mode": "daily"
+        "mode": "daily",
+        "save_core_messages": false
     },
     "commandPrefixes": [
         "!"

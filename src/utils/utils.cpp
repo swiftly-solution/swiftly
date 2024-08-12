@@ -5,6 +5,8 @@
 #include <sstream>
 
 #include "../sdk/schema.h"
+#include "../configuration/Configuration.h"
+#include "../logs/Logger.h"
 
 std::map<std::string, std::string> terminalColors = {
     {"{DEFAULT}", "\e[39m"},
@@ -93,7 +95,7 @@ std::string GetTerminalStringColor(std::string plugin_name)
     return terminalColors.at(terminalPrefixColors[steps]);
 }
 
-size_t UTIL_FormatArgs(char *buffer, size_t maxlength, const char *fmt, va_list params)
+size_t UTIL_FormatArgs(char* buffer, size_t maxlength, const char* fmt, va_list params)
 {
     size_t len = vsnprintf(buffer, maxlength, fmt, params);
 
@@ -165,6 +167,12 @@ bool starts_with(std::string value, std::string starting)
 void PLUGIN_PRINT(std::string category, std::string str)
 {
     g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]\e[39m " + str).c_str());
+    if (g_Config) {
+        if (g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
+            str.pop_back();
+            g_Logger->FetchLogger("core")->WriteLog(LogType_t::Common, "[" + category + "] " + str);
+        }
+    }
 }
 
 void PLUGIN_PRINTF(std::string category, std::string str, ...)
@@ -177,6 +185,13 @@ void PLUGIN_PRINTF(std::string category, std::string str, ...)
     va_end(ap);
 
     g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]\e[39m " + std::string(buffer)).c_str());
+    if (g_Config) {
+        if (g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
+            std::string buf = buffer;
+            buf.pop_back();
+            g_Logger->FetchLogger("core")->WriteLog(LogType_t::Common, "[" + category + "] " + buf);
+        }
+    }
 }
 
 void PrintTextTable(std::string category, TextTable table)
@@ -196,14 +211,14 @@ uint64_t GetTime()
 std::string str_tolower(std::string s)
 {
     std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c)
-                   { return std::tolower(c); });
+        { return std::tolower(c); });
     return s;
 }
 
 std::string str_toupper(std::string s)
 {
     std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c)
-                   { return std::toupper(c); });
+        { return std::toupper(c); });
     return s;
 }
 
@@ -214,8 +229,8 @@ std::string get_uuid()
 
     std::uniform_int_distribution<int> dist(0, 15);
 
-    const char *v = "0123456789abcdef";
-    const bool dash[] = {0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0};
+    const char* v = "0123456789abcdef";
+    const bool dash[] = { 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0 };
 
     std::string res;
     for (int i = 0; i < 16; i++)
