@@ -2049,6 +2049,7 @@ public:
     GCBaseModelEntity(void *ptr);
 
     void SetModel(std::string model);
+    void SetSolidType(int64_t solidType);
     GCRenderComponent GetCRenderComponent() const;
     void SetCRenderComponent(GCRenderComponent value);
     GCHitboxComponent GetCHitboxComponent() const;
