@@ -7,7 +7,7 @@
 
 class CBaseModelEntity;
 
-typedef void (*CBaseModelEntity_SetModel)(CBaseModelEntity *, const char *);
+typedef void (*CBaseModelEntity_SetModel)(CBaseModelEntity*, const char*);
 
 class CBaseModelEntity : public Z_CBaseEntity
 {
@@ -18,7 +18,7 @@ public:
     SCHEMA_FIELD_OFFSET(CGlowProperty, m_Glow, 0)
     SCHEMA_FIELD_OFFSET(Color, m_clrRender, 0)
 
-    void SetModel(const char *model)
+    void SetModel(const char* model)
     {
         bool hasModel = (g_precacher->HasModelInList(model));
         if (!hasModel)
@@ -29,5 +29,10 @@ public:
         }
 
         g_Signatures->FetchSignature<CBaseModelEntity_SetModel>("CBaseModelEntity_SetModel")(this, model);
+    }
+
+    void SetSolidType(SolidType_t type)
+    {
+        this->m_Collision.Get().m_usSolidFlags = type;
     }
 };
