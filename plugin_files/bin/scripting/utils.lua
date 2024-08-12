@@ -39,22 +39,26 @@ function FindPlayersByTarget(target, matchbots)
 
         --[[ team ]]
         if teamSelector[target] then
-            local cbaseentity = fetchedPlayer:CBaseEntity()
+            local cbaseentity = CBaseEntity(fetchedPlayer:CCSPlayerPawn():ToPtr())
             if cbaseentity then
-                if cbaseentity.TeamNum == teamSelector[target] then
-                    table.insert(matchedPlayers, fetchedPlayer)
-                    goto findplayersbytargetcontinue
+                if cbaseentity:IsValid() then
+                    if cbaseentity.TeamNum == teamSelector[target] then
+                        table.insert(matchedPlayers, fetchedPlayer)
+                        goto findplayersbytargetcontinue
+                    end
                 end
             end
         end
 
         --[[ life state ]]
         if lifeStateSelector[target] then
-            local cbaseentity = fetchedPlayer:CBaseEntity()
+            local cbaseentity = CBaseEntity(fetchedPlayer:CCSPlayerPawn():ToPtr())
             if cbaseentity then
-                if cbaseentity.LifeState == lifeStateSelector[target] then
-                    table.insert(matchedPlayers, fetchedPlayer)
-                    goto findplayersbytargetcontinue
+                if cbaseentity:IsValid() then
+                    if cbaseentity.LifeState == lifeStateSelector[target] then
+                        table.insert(matchedPlayers, fetchedPlayer)
+                        goto findplayersbytargetcontinue
+                    end
                 end
             end
         end
@@ -67,9 +71,11 @@ function FindPlayersByTarget(target, matchbots)
 
         local cbaseplayercontroller = fetchedPlayer:CBasePlayerController()
         if cbaseplayercontroller then
-            if cbaseplayercontroller.PlayerName:find(target) then
-                table.insert(matchedPlayers, fetchedPlayer)
-                goto findplayersbytargetcontinue
+            if cbaseplayercontroller:IsValid() then
+                if cbaseplayercontroller.PlayerName:find(target) then
+                    table.insert(matchedPlayers, fetchedPlayer)
+                    goto findplayersbytargetcontinue
+                end
             end
         end
 
