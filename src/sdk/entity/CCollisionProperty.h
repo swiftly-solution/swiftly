@@ -15,7 +15,7 @@ struct VPhysicsCollisionAttribute_t
 class CCollisionProperty
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCollisionProperty, true)
+    DECLARE_SCHEMA_CLASS_BASE(CCollisionProperty, false)
 
     SCHEMA_FIELD_OFFSET(VPhysicsCollisionAttribute_t, m_collisionAttribute, 0)
     SCHEMA_FIELD_OFFSET(SolidType_t, m_nSolidType, 0)

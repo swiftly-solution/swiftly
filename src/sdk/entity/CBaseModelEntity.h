@@ -14,7 +14,7 @@ class CBaseModelEntity : public Z_CBaseEntity
 public:
     DECLARE_SCHEMA_CLASS_BASE(CBaseModelEntity, false)
 
-    SCHEMA_FIELD_OFFSET(CCollisionProperty, m_Collision, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(CCollisionProperty, m_Collision, 0)
     SCHEMA_FIELD_OFFSET(CGlowProperty, m_Glow, 0)
     SCHEMA_FIELD_OFFSET(Color, m_clrRender, 0)
 
@@ -33,6 +33,6 @@ public:
 
     void SetSolidType(SolidType_t type)
     {
-        this->m_Collision.Get().m_nSolidType = type;
+        this->m_Collision->m_nSolidType = type;
     }
 };
