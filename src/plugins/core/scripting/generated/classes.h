@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../../scripting_includes.h"
 #include "enums.h"
 

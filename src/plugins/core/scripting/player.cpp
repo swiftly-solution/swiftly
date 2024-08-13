@@ -4,8 +4,6 @@
 #include "../../../commands/CommandsManager.h"
 #include "../../../precacher/precacher.h"
 
-#include "generated/classes.h"
-
 PluginPlayer::PluginPlayer(std::string m_plugin_name, int m_playerId)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::PluginPlayer(m_plugin_name=\"%s\", m_playerId=%d)", m_plugin_name.c_str(), m_playerId));
@@ -14,123 +12,78 @@ PluginPlayer::PluginPlayer(std::string m_plugin_name, int m_playerId)
     this->playerId = m_playerId;
 }
 
-PluginPlayer::~PluginPlayer()
-{
+PluginPlayer::~PluginPlayer() {}
 
-    for (auto it = this->ptrs.begin(); it != this->ptrs.end(); ++it)
-    {
-        delete it->second;
-    }
-    this->ptrs.clear();
-}
-
-GCBaseEntity* PluginPlayer::GetCBaseEntity()
+GCBaseEntity PluginPlayer::GetCBaseEntity()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
-
-    if (this->ptrs.find("CBaseEntity") == this->ptrs.end())
-    {
-        void* ptr = (void*)(new GCBaseEntity(player->GetPlayerPawn()));
-        this->ptrs.insert({ "CBaseEntity", ptr });
-    }
-    else {
-        if (((GCBaseEntity*)this->ptrs.at("CBaseEntity"))->GetPtr() != (void*)player->GetPlayerPawn()) {
-            delete this->ptrs["CBaseEntity"];
-            this->ptrs["CBaseEntity"] = (void*)(new GCBaseEntity(player->GetPlayerPawn()));
-        }
+    if (!player) {
+        GCBaseEntity val(nullptr);
+        return val;
     }
 
-    return (GCBaseEntity*)this->ptrs.at("CBaseEntity");
+    GCBaseEntity val((void*)player->GetPlayerPawn());
+    return val;
 }
 
-GCBasePlayerController* PluginPlayer::GetCBasePlayerController()
+GCBasePlayerController PluginPlayer::GetCBasePlayerController()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
-    if (this->ptrs.find("CBasePlayerController") == this->ptrs.end())
-    {
-        void* ptr = (void*)(new GCBasePlayerController(player->GetController()));
-        this->ptrs.insert({ "CBasePlayerController", ptr });
-    }
-    else {
-        if (((GCBasePlayerController*)this->ptrs.at("CBasePlayerController"))->GetPtr() != (void*)player->GetController()) {
-            delete this->ptrs["CBasePlayerController"];
-            this->ptrs["CBasePlayerController"] = (void*)(new GCBasePlayerController(player->GetController()));
-        }
+    if (!player) {
+        GCBasePlayerController val(nullptr);
+        return val;
     }
 
-    return (GCBasePlayerController*)this->ptrs.at("CBasePlayerController");
+    GCBasePlayerController val((void*)player->GetController());
+    return val;
 }
 
-GCBasePlayerPawn* PluginPlayer::GetCBasePlayerPawn()
+GCBasePlayerPawn PluginPlayer::GetCBasePlayerPawn()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
-    if (this->ptrs.find("CBasePlayerPawn") == this->ptrs.end())
-    {
-        void* ptr = (void*)(new GCBasePlayerPawn(player->GetPawn()));
-        this->ptrs.insert({ "CBasePlayerPawn", ptr });
-    }
-    else {
-        if (((GCBasePlayerPawn*)this->ptrs.at("CBasePlayerPawn"))->GetPtr() != (void*)player->GetPawn()) {
-            delete this->ptrs["CBasePlayerPawn"];
-            this->ptrs["CBasePlayerPawn"] = (void*)(new GCBasePlayerPawn(player->GetPawn()));
-        }
+    if (!player) {
+        GCBasePlayerPawn val(nullptr);
+        return val;
     }
 
-    return (GCBasePlayerPawn*)this->ptrs.at("CBasePlayerPawn");
+    GCBasePlayerPawn val((void*)player->GetPawn());
+    return val;
 }
 
-GCCSPlayerController* PluginPlayer::GetCCSPlayerController()
+GCCSPlayerController PluginPlayer::GetCCSPlayerController()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
-    if (this->ptrs.find("CCSPlayerController") == this->ptrs.end())
-    {
-        void* ptr = (void*)(new GCCSPlayerController(player->GetPlayerController()));
-        this->ptrs.insert({ "CCSPlayerController", ptr });
-    }
-    else {
-        if (((GCCSPlayerController*)this->ptrs.at("CCSPlayerController"))->GetPtr() != (void*)player->GetPlayerController()) {
-            delete this->ptrs["CCSPlayerController"];
-            this->ptrs["CCSPlayerController"] = (void*)(new GCCSPlayerController(player->GetPlayerController()));
-        }
+    if (!player) {
+        GCCSPlayerController val(nullptr);
+        return val;
     }
 
-    return (GCCSPlayerController*)this->ptrs.at("CCSPlayerController");
+    GCCSPlayerController val((void*)player->GetPlayerController());
+    return val;
 }
 
-GCCSPlayerPawn* PluginPlayer::GetCCSPlayerPawn()
+GCCSPlayerPawn PluginPlayer::GetCCSPlayerPawn()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
-    if (this->ptrs.find("CCSPlayerPawn") == this->ptrs.end())
-    {
-        void* ptr = (void*)(new GCCSPlayerPawn(player->GetPlayerPawn()));
-        this->ptrs.insert({ "CCSPlayerPawn", ptr });
-    }
-    else {
-        if (((GCCSPlayerPawn*)this->ptrs.at("CCSPlayerPawn"))->GetPtr() != (void*)player->GetPlayerPawn()) {
-            delete this->ptrs["CCSPlayerPawn"];
-            this->ptrs["CCSPlayerPawn"] = (void*)(new GCCSPlayerPawn(player->GetPlayerPawn()));
-        }
+    if (!player) {
+        GCCSPlayerPawn val(nullptr);
+        return val;
     }
 
-    return (GCCSPlayerPawn*)this->ptrs.at("CCSPlayerPawn");
+    GCCSPlayerPawn val((void*)player->GetPlayerPawn());
+    return val;
 }
 
-GCCSPlayerPawnBase* PluginPlayer::GetCCSPlayerPawnBase()
+GCCSPlayerPawnBase PluginPlayer::GetCCSPlayerPawnBase()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
-    if (this->ptrs.find("CCSPlayerPawnBase") == this->ptrs.end())
-    {
-        void* ptr = (void*)(new GCCSPlayerPawnBase(player->GetPlayerBasePawn()));
-        this->ptrs.insert({ "CCSPlayerPawnBase", ptr });
-    }
-    else {
-        if (((GCCSPlayerPawnBase*)this->ptrs.at("CCSPlayerPawnBase"))->GetPtr() != (void*)player->GetPlayerBasePawn()) {
-            delete this->ptrs["CCSPlayerPawnBase"];
-            this->ptrs["CCSPlayerPawnBase"] = (void*)(new GCCSPlayerPawnBase(player->GetPlayerBasePawn()));
-        }
+    if (!player) {
+        GCCSPlayerPawnBase val(nullptr);
+        return val;
     }
 
-    return (GCCSPlayerPawnBase*)this->ptrs.at("CCSPlayerPawnBase");
+    GCCSPlayerPawnBase val((void*)player->GetPlayerBasePawn());
+    return val;
 }
 
 void PluginPlayer::Drop(int reason)
@@ -562,4 +515,22 @@ bool PluginPlayer::GetBunnyhop()
         return false;
 
     return self->bunnyhopState;
+}
+
+bool PluginPlayer::IsValid()
+{
+    Player* self = g_playerManager->GetPlayer(this->playerId);
+    if (!self) return false;
+    if (self->IsFirstSpawn()) return false;
+    if (self->IsFakeClient()) return false;
+
+    CBasePlayerController* controller = self->GetController();
+    if (!controller) return false;
+    if (controller->m_bIsHLTV()) return false;
+    if (controller->m_iConnected() != CPlayerConnectedState::PlayerConnected) return false;
+
+    CBasePlayerPawn* pawn = self->GetPawn();
+    if (!pawn) return false;
+
+    return true;
 }

@@ -29,6 +29,7 @@ public:
     SCHEMA_FIELD_POINTER_OFFSET(char, m_iszPlayerName, 0)
     SCHEMA_FIELD_OFFSET(CPlayerConnectedState, m_iConnected, 0)
     SCHEMA_FIELD_OFFSET(uint32_t, m_iDesiredFOV, 0)
+    SCHEMA_FIELD_OFFSET(bool, m_bIsHLTV, 0)
 
     void SendMsg(int destination, const char *message)
     {

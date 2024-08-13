@@ -20,21 +20,11 @@
 
 #include <any>
 
+#include "scripting/generated/classes.h"
+
 #define INVALID_MESSAGE_ID -1
 
-class GCBaseEntity;
-class GCBasePlayerController;
-class GCBasePlayerPawn;
-class GCCSPlayerController;
-class GCCSPlayerPawn;
-class GCCSPlayerPawnBase;
-class GCEntityInstance;
 class PluginMemory;
-class GCBasePlayerWeapon;
-class GCCSWeaponBase;
-class GCBasePlayerWeaponVData;
-class GCCSWeaponBaseVData;
-class GCCSGameRules;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Entity IO           //////////////
@@ -539,18 +529,16 @@ private:
     std::string plugin_name;
     int playerId;
 
-    std::map<std::string, void*> ptrs;
-
 public:
     PluginPlayer(std::string m_plugin_name, int m_playerId);
     ~PluginPlayer();
 
-    GCBaseEntity* GetCBaseEntity();
-    GCBasePlayerController* GetCBasePlayerController();
-    GCBasePlayerPawn* GetCBasePlayerPawn();
-    GCCSPlayerController* GetCCSPlayerController();
-    GCCSPlayerPawn* GetCCSPlayerPawn();
-    GCCSPlayerPawnBase* GetCCSPlayerPawnBase();
+    GCBaseEntity GetCBaseEntity();
+    GCBasePlayerController GetCBasePlayerController();
+    GCBasePlayerPawn GetCBasePlayerPawn();
+    GCCSPlayerController GetCCSPlayerController();
+    GCCSPlayerPawn GetCCSPlayerPawn();
+    GCCSPlayerPawnBase GetCCSPlayerPawnBase();
     void Drop(int reason);
     uint32_t GetConnectedTime();
     PluginWeaponManager GetWeaponManager();
@@ -597,6 +585,8 @@ public:
 
     void SetBunnyhop(bool state);
     bool GetBunnyhop();
+
+    bool IsValid();
 };
 
 //////////////////////////////////////////////////////////////
@@ -718,8 +708,8 @@ public:
 /////////////////           Entities           //////////////
 ////////////////////////////////////////////////////////////
 
-std::vector<GCEntityInstance*> UTIL_FindEntitiesByClassname(const char* name);
-GCEntityInstance* CreateEntityByName(const char* name);
+std::vector<GCEntityInstance> UTIL_FindEntitiesByClassname(const char* name);
+GCEntityInstance CreateEntityByName(const char* name);
 
 //////////////////////////////////////////////////////////////
 /////////////////             Utils            //////////////
@@ -728,7 +718,7 @@ GCEntityInstance* CreateEntityByName(const char* name);
 bool scripting_IsWindows();
 bool scripting_IsLinux();
 std::string scripting_GetOS();
-GCCSGameRules* scripting_GetCCSGameRules();
+GCCSGameRules scripting_GetCCSGameRules();
 std::string scripting_GetPluginPath(std::string plugin_name);
 void scripting_StateUpdate(std::string ptr, std::string classname, std::string field, bool isStruct);
 

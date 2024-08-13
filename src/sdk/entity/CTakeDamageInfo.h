@@ -6,7 +6,7 @@
 
 class Vector;
 
-enum DamageTypes_t : uint32_t
+enum DDamageTypes_t : uint32_t
 {
     DMG_GENERIC = 0x0,
     DMG_CRUSH = 0x1,
@@ -34,7 +34,7 @@ enum DamageTypes_t : uint32_t
     DMG_DANGERZONE = 0x4000000,
 };
 
-enum TakeDamageFlags_t : uint32_t
+enum TTakeDamageFlags_t : uint32_t
 {
     DFLAG_NONE = 0x0,
     DFLAG_SUPPRESS_HEALTH_CHANGES = 0x1,
@@ -66,7 +66,7 @@ public:
     CHandle<CBaseEntity> m_hAttacker;
     CHandle<CBaseEntity> m_hAbility;
     float m_flDamage;
-    DamageTypes_t m_bitsDamageType;
+    DDamageTypes_t m_bitsDamageType;
     int32_t m_iDamageCustom;
     uint8_t m_iAmmoType;
 
@@ -82,7 +82,7 @@ private:
     [[maybe_unused]] uint8_t __pad0066[0xa];
 
 public:
-    TakeDamageFlags_t m_nDamageFlags;
+    TTakeDamageFlags_t m_nDamageFlags;
     int32_t m_nNumObjectsPenetrated;
     uint64_t m_hScriptInstance;
 

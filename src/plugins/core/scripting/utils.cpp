@@ -1,18 +1,16 @@
 #include "../scripting.h"
 #include "../../../sdk/entity/CGameRules.h"
 #include "../../../hooks/FuncHook.h"
-#include "generated/classes.h"
 #include "../../PluginManager.h"
 
-void Hook_CGameRules_Constructor(CGameRules *pThis);
-CCSGameRules *gameRules = nullptr;
-GCCSGameRules *gameRulesPtr = nullptr;
+void Hook_CGameRules_Constructor(CGameRules* pThis);
+CCSGameRules* gameRules = nullptr;
 
 FuncHook<decltype(Hook_CGameRules_Constructor)> CGameRules_ConstructorT(Hook_CGameRules_Constructor, "CGameRules_Constructor");
 
-void Hook_CGameRules_Constructor(CGameRules *pThis)
+void Hook_CGameRules_Constructor(CGameRules* pThis)
 {
-    gameRules = (CCSGameRules *)pThis;
+    gameRules = (CCSGameRules*)pThis;
     CGameRules_ConstructorT(pThis);
 }
 
@@ -31,23 +29,16 @@ std::string scripting_GetOS()
     return WIN_LINUX("Windows", "Linux");
 }
 
-GCCSGameRules *scripting_GetCCSGameRules()
+GCCSGameRules scripting_GetCCSGameRules()
 {
-    if (!gameRulesPtr)
-        gameRulesPtr = new GCCSGameRules((void *)gameRules);
-    else if (gameRulesPtr->GetPtr() != (void *)gameRules)
-    {
-        delete gameRulesPtr;
-        gameRulesPtr = new GCCSGameRules((void *)gameRules);
-    }
-
-    return gameRulesPtr;
+    GCCSGameRules val(gameRules);
+    return val;
 }
 
 std::string scripting_GetPluginPath(std::string plugin_name)
 {
     Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
-    if(!plugin) return "";
+    if (!plugin) return "";
 
     return string_format("addons/swiftly/plugins/%s", plugin->GetName().c_str());
 }

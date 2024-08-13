@@ -1,7 +1,6 @@
 #include "core.h"
-#include "../../core/scripting/generated/classes.h"
 
-void SetupLuaWeapons(LuaPlugin *plugin, lua_State *state)
+void SetupLuaWeapons(LuaPlugin* plugin, lua_State* state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<PluginWeaponManager>("WeaponManager")

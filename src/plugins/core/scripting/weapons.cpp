@@ -1,6 +1,5 @@
 #include "../scripting.h"
 #include "../../../player/PlayerManager.h"
-#include "generated/classes.h"
 
 PluginWeaponManager::PluginWeaponManager(int playerId)
 {
