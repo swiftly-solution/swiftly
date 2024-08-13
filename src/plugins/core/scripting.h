@@ -730,5 +730,6 @@ bool scripting_IsLinux();
 std::string scripting_GetOS();
 GCCSGameRules* scripting_GetCCSGameRules();
 std::string scripting_GetPluginPath(std::string plugin_name);
+void scripting_StateUpdate(std::string ptr, std::string classname, std::string field, bool isStruct);
 
 #endif

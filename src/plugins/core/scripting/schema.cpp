@@ -70,3 +70,35 @@ void* GetSchemaPtr(void* ptr, const char* className, const char* fieldName)
 
     return reinterpret_cast<void*>((uintptr_t)(ptr)+m_key.offset);
 }
+
+void scripting_StateUpdate(std::string ptr, std::string classname, std::string field, bool isStruct)
+{
+    if (BlockedCS2GuidelinesFields.find(field) != BlockedCS2GuidelinesFields.end() && g_Config->FetchValue<bool>("core.FollowCS2ServerGuidelines"))
+    {
+        PRINTF("Getting or setting %s::%s is not permitted due to CS2 Server Guidelines violation.\n", classname.c_str(), field.c_str());
+        PRINT("To get or set this value, switch to false the \"core.FollowCS2ServerGuidelines\" field.\n");
+        PRINT("Note: Using non-compliant field values can result in a GSLT ban.\n");
+        PRINT("Note: We are not providing any kind of support for people which are using these fields.\n");
+        return;
+    }
+
+    if (!starts_with(ptr, "0x")) return;
+
+    auto datatable_hash = hash_32_fnv1a_const(classname.c_str());
+    auto prop_hash = hash_32_fnv1a_const(field.c_str());
+
+    auto m_key = sch::GetOffset(classname.c_str(), datatable_hash, field.c_str(), prop_hash);
+    auto m_chain = sch::FindChainOffset(classname.c_str());
+
+    void* vPtr = (void*)(strtol(ptr.c_str(), nullptr, 16));
+
+    if (m_chain != 0 && m_key.networked)
+        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(vPtr)+m_chain, m_key.offset, 0xFFFFFFFF);
+    else if (m_key.networked)
+    {
+        if (!isStruct)
+            SetStateChanged((Z_CBaseEntity*)vPtr, m_key.offset);
+        else if (IsPlatformPosix())
+            CALL_VIRTUAL(void, 1, vPtr, m_key.offset, 0xFFFFFFFF, 0xFFFF);
+    }
+}
