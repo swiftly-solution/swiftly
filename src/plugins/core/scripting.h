@@ -613,6 +613,7 @@ class PluginMemory
 {
 private:
     void* m_ptr;
+    bool accessedVTable = false;
 
 public:
     PluginMemory();
@@ -624,6 +625,9 @@ public:
 
     void AddOffset(int64_t offset);
     void RemoveOffset(int64_t offset);
+
+    void AccessVTable(int64_t offset);
+    bool AccessedVTable();
 
     void Clear();
 
@@ -693,6 +697,7 @@ struct Hook
     std::string argsList;
     std::string retType;
     std::string id;
+    bool vTable;
 };
 
 class PluginHooks

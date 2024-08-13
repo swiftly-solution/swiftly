@@ -1,6 +1,6 @@
 #include "core.h"
 
-void SetupLuaMemory(LuaPlugin *plugin, lua_State *state)
+void SetupLuaMemory(LuaPlugin* plugin, lua_State* state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<PluginMemory>("Memory")
@@ -11,6 +11,8 @@ void SetupLuaMemory(LuaPlugin *plugin, lua_State *state)
         .addFunction("LoadFromSignature", &PluginMemory::LoadFromSignature)
         .addFunction("AddOffset", &PluginMemory::AddOffset)
         .addFunction("RemoveOffset", &PluginMemory::RemoveOffset)
+        .addFunction("AccessVTable", &PluginMemory::AccessVTable)
+        .addFunction("AccessedVTable", &PluginMemory::AccessedVTable)
         .addFunction("Clear", &PluginMemory::Clear)
         .addFunction("SetBool", &PluginMemory::SetBool)
         .addFunction("SetInt", &PluginMemory::SetInt)

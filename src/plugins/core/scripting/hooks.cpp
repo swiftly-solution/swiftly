@@ -126,6 +126,7 @@ std::string PluginHooks::AddHook(PluginMemory mem, std::string args_list, std::s
         args_list,
         ret_type,
         id,
+        mem.AccessedVTable()
     };
 
     std::vector<DataType_t> argTypes = ParseArgsList(args_list);
@@ -182,7 +183,7 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
     }
 
     dcReset(pCallVM);
-    dcMode(pCallVM, DC_CALL_C_DEFAULT);
+    dcMode(pCallVM, hk.vTable ? DC_CALL_C_X86_WIN32_THIS_GNU : DC_CALL_C_DEFAULT);
 
     for (size_t i = 0; i < args.size(); i++)
     {

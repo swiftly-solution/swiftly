@@ -58,6 +58,18 @@ void PluginMemory::RemoveOffset(int64_t offset)
     m_ptr = ((char*)m_ptr) - offset;
 }
 
+void PluginMemory::AccessVTable(int64_t offset)
+{
+    void* pt = m_ptr;
+    m_ptr = reinterpret_cast<void***>(pt)[0][offset];
+    accessedVTable = true;
+}
+
+bool PluginMemory::AccessedVTable()
+{
+    return accessedVTable;
+}
+
 void PluginMemory::Clear()
 {
     m_ptr = nullptr;
