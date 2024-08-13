@@ -45,34 +45,35 @@ class GameSessionConfiguration_t
 class Swiftly : public ISmmPlugin, public IMetamodListener
 {
 public:
-    bool Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool late);
-    bool Unload(char *error, size_t maxlen);
-    bool Pause(char *error, size_t maxlen);
-    bool Unpause(char *error, size_t maxlen);
+    bool Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool late);
+    bool Unload(char* error, size_t maxlen);
+    bool Pause(char* error, size_t maxlen);
+    bool Unpause(char* error, size_t maxlen);
     void AllPluginsLoaded();
-    void OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame, bool background);
+    void OnLevelInit(char const* pMapName, char const* pMapEntities, char const* pOldLevel, char const* pLandmarkName, bool loadGame, bool background);
     void OnLevelShutdown();
     void NextFrame(std::function<void()> fn);
     void UpdatePlayers();
 
 public:
-    void Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *);
+    void Hook_StartupServer(const GameSessionConfiguration_t& config, ISource2WorldSession*, const char*);
     void Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick);
-    void Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char *pszName, uint64 xuid, const char *pszNetworkID);
-    void Hook_OnClientConnected(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, const char *pszAddress, bool bFakePlayer);
-    bool Hook_ClientConnect(CPlayerSlot slot, const char *pszName, uint64 xuid, const char *pszNetworkID, bool unk1, CBufferString *pRejectReason);
-    void Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext &ctx, const CCommand &args);
+    void Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char* pszName, uint64 xuid, const char* pszNetworkID);
+    void Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, const char* pszAddress, bool bFakePlayer);
+    bool Hook_ClientConnect(CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, bool unk1, CBufferString* pRejectReason);
+    void Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext& ctx, const CCommand& args);
     void Hook_GameServerSteamAPIActivated();
+    void Hook_OnClientCommand(CPlayerSlot slot, const CCommand& args);
 
 public:
-    const char *GetAuthor();
-    const char *GetName();
-    const char *GetDescription();
-    const char *GetURL();
-    const char *GetLicense();
-    const char *GetVersion();
-    const char *GetDate();
-    const char *GetLogTag();
+    const char* GetAuthor();
+    const char* GetName();
+    const char* GetDescription();
+    const char* GetURL();
+    const char* GetLicense();
+    const char* GetVersion();
+    const char* GetDate();
+    const char* GetLogTag();
 
 public:
     std::deque<std::function<void()>> m_nextFrame;
@@ -83,26 +84,26 @@ public:
 
 class CEntityListener : public IEntityListener
 {
-    void OnEntityCreated(CEntityInstance *pEntity) override;
-    void OnEntitySpawned(CEntityInstance *pEntity) override;
-    void OnEntityDeleted(CEntityInstance *pEntity) override;
-    void OnEntityParentChanged(CEntityInstance *pEntity, CEntityInstance *pNewParent) override;
+    void OnEntityCreated(CEntityInstance* pEntity) override;
+    void OnEntitySpawned(CEntityInstance* pEntity) override;
+    void OnEntityDeleted(CEntityInstance* pEntity) override;
+    void OnEntityParentChanged(CEntityInstance* pEntity, CEntityInstance* pNewParent) override;
 };
 
 extern Swiftly g_Plugin;
-extern ISource2Server *server;
-extern IServerGameClients *gameclients;
-extern IVEngineServer2 *engine;
-extern IServerGameClients *g_clientsManager;
-extern ICvar *icvar;
-extern ICvar *g_pcVar;
-extern IGameResourceService *g_pGameResourceService;
-extern CEntitySystem *g_pEntitySystem;
-extern CGameEntitySystem *g_pGameEntitySystem;
-extern IGameEventManager2 *g_gameEventManager;
-extern IGameEventSystem *g_pGameEventSystem;
+extern ISource2Server* server;
+extern IServerGameClients* gameclients;
+extern IVEngineServer2* engine;
+extern IServerGameClients* g_clientsManager;
+extern ICvar* icvar;
+extern ICvar* g_pcVar;
+extern IGameResourceService* g_pGameResourceService;
+extern CEntitySystem* g_pEntitySystem;
+extern CGameEntitySystem* g_pGameEntitySystem;
+extern IGameEventManager2* g_gameEventManager;
+extern IGameEventSystem* g_pGameEventSystem;
 extern CSteamGameServerAPIContext g_SteamAPI;
-extern INetworkSystem *g_pNetworkSystem;
+extern INetworkSystem* g_pNetworkSystem;
 
 PLUGIN_GLOBALVARS();
 
