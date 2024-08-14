@@ -1,15 +1,15 @@
 #include "core.h"
 #include "../../../player/PlayerManager.h"
 
-std::map<int, std::pair<uint64_t, PluginPlayer *>> playerObjectCache;
+std::map<int, std::pair<uint64_t, PluginPlayer*>> playerObjectCache;
 
-PluginPlayer *scripting_GetPlayer(int playerid, lua_State *state)
+PluginPlayer* scripting_GetPlayer(int playerid, lua_State* state)
 {
-    Player *player = g_playerManager->GetPlayer(playerid);
+    Player* player = g_playerManager->GetPlayer(playerid);
     if (!player)
         return nullptr;
 
-    PluginPlayer *pl = nullptr;
+    PluginPlayer* pl = nullptr;
     if (playerObjectCache.find(playerid) != playerObjectCache.end())
     {
         auto pair = playerObjectCache.at(playerid);
@@ -27,13 +27,13 @@ PluginPlayer *scripting_GetPlayer(int playerid, lua_State *state)
         uint64_t steamid = player->GetSteamID();
 
         pl = new PluginPlayer(FetchPluginName(state), playerid);
-        playerObjectCache.insert({playerid, {steamid, pl}});
+        playerObjectCache.insert({ playerid, {steamid, pl} });
     }
 
     return pl;
 }
 
-void SetupLuaPlayer(LuaPlugin *plugin, lua_State *state)
+void SetupLuaPlayer(LuaPlugin* plugin, lua_State* state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<PluginPlayer>("Player")
@@ -76,6 +76,7 @@ void SetupLuaPlayer(LuaPlugin *plugin, lua_State *state)
         .addFunction("GetWeaponManager", &PluginPlayer::GetWeaponManager)
         .addFunction("SetBunnyhop", &PluginPlayer::SetBunnyhop)
         .addFunction("GetBunnyhop", &PluginPlayer::GetBunnyhop)
+        .addFunction("IsValid", &PluginPlayer::IsValid)
         .endClass()
         .addFunction("GetPlayer", scripting_GetPlayer);
 }
