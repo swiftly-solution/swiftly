@@ -19,11 +19,6 @@
         "windows": "40 ? 53 56 41 ? 41 ? 48 ? ? ? ? 48 ? ? ? ? ? ? 48 ? ? 45",
         "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 53 89 D3"
     },
-    "IsHearingClient": {
-        "lib": "engine2",
-        "windows": "40 53 48 83 EC 20 48 8B D9 3B 51 48",
-        "linux": "55 48 89 E5 41 55 41 54 53 48 89 FB 48 83 EC 08 3B 77 58"
-    },
     "ServerMovementUnlock": {
         "lib": "server",
         "windows": "76 ? F2 0F 10 57 ? 0F 28 ? F3 0F ? ? 0F 28 ?",
@@ -102,7 +97,7 @@
     "CBasePlayerController_SetPawn": {
         "lib": "server",
         "windows": "44 88 4C 24 ? 55 56 57 41 54 41 56 48 8D 6C 24 ?",
-        "linux": "55 48 89 E5 41 57 41 56 41 89 D6 41 55 49 89 FD 41 54 45 89 C4"
+        "linux": "55 48 89 E5 41 57 41 56 41 55 49 89 FD 41 54 45 89 C4"
     },
     "SendNetMessage": {
         "lib": "networksystem",
@@ -119,20 +114,10 @@
         "windows": "48 2A 2A 55 53 56 57 41 2A 48 2A 2A 2A 48 2A 2A 2A 2A 2A 2A 4C 89 68",
         "linux": "55 48 89 E5 41 56 41 55 41 54 53 48 89 FB 48 83 EC 30 E8 2A 2A 2A 2A"
     },
-    "CBaseEntity_TakeDamageOld": {
-        "lib": "server",
-        "windows": "48 89 74 24 20 57 48 83 EC 60 48 8B 41 10",
-        "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 49 89 FC 53 48 83 EC 48 4C 8D 2D ? ? ? ? 49 8B 7D 00 48 85 FF 0F 84 ? ? ? ?"
-    },
     "CCSPlayer_MovementServices_CheckJumpPre": {
         "lib": "server",
         "windows": "48 89 5C 24 ? 56 48 83 EC 40 48 8B F2 48 8B D9 BA ? ? ? ? E8 ? ? ? ? 48 8B 4B 30",
         "linux": "55 48 89 E5 41 56 41 55 41 54 49 89 F4 BE ? ? ? ? 53 48 89 FB 48 83 EC 30 E8 ? ? ? ? 48 8B 7B 30"
-    },
-    "CCSPlayer_WeaponServices_CanUse": {
-        "lib": "server",
-        "windows": "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 30 48 8B 01",
-        "linux": "55 48 8D 15 2A 2A 2A 2A 48 89 E5 41 55 49 89 FD 41 54 49 89 F4"
     },
     "CBaseEntity_EmitSoundParams": {
         "lib": "server",
