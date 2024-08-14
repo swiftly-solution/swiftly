@@ -85,6 +85,17 @@ PluginUserMessage::PluginUserMessage(std::string msgname)
     this->internalMsg = msg;
 }
 
+PluginUserMessage::PluginUserMessage(INetworkMessageInternal* msg, NetMessageInfo_t* msgInfo, CNetMessage* pData)
+{
+    this->msgid = INVALID_MESSAGE_ID;
+
+    if (!msgInfo || !pData || !msg) return;
+
+    this->msgid = msgInfo->m_MessageId;
+    this->msgBuffer = pData->ToPB<google::protobuf::Message>();
+    this->internalMsg = msg;
+}
+
 PluginUserMessage::~PluginUserMessage()
 {
 }

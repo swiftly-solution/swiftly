@@ -2,6 +2,7 @@
 #include "../../../sdk/entity/CGameRules.h"
 #include "../../../hooks/FuncHook.h"
 #include "../../PluginManager.h"
+#include "../../../usermessages/usermessages.h"
 
 void Hook_CGameRules_Constructor(CGameRules* pThis);
 CCSGameRules* gameRules = nullptr;
@@ -41,4 +42,14 @@ std::string scripting_GetPluginPath(std::string plugin_name)
     if (!plugin) return "";
 
     return string_format("addons/swiftly/plugins/%s", plugin->GetName().c_str());
+}
+
+PluginUserMessage scripting_GetUserMessage(std::string uuid)
+{
+    if (scriptingUserMessages.find(uuid) == scriptingUserMessages.end()) {
+        PluginUserMessage val(nullptr, nullptr, nullptr);
+        return val;
+    }
+
+    return scriptingUserMessages.at(uuid);
 }

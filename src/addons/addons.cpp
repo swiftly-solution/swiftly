@@ -6,6 +6,7 @@
 #include "addons.h"
 #include "../files/Files.h"
 #include "../hooks/FuncHook.h"
+#include "../usermessages/usermessages.h"
 #include "clients.h"
 
 #include <rapidjson/document.h>
@@ -37,7 +38,7 @@
 FuncHook<decltype(Hook_SendNetMessage)> TSendNetMessage(Hook_SendNetMessage, "SendNetMessage");
 FuncHook<decltype(Hook_HostStateRequest)> THostStateRequest(Hook_HostStateRequest, "HostStateRequest");
 
-size_t FormatArgs(char *buffer, size_t maxlength, const char *fmt, va_list params)
+size_t FormatArgs(char* buffer, size_t maxlength, const char* fmt, va_list params)
 {
     size_t len = vsnprintf(buffer, maxlength, fmt, params);
 
@@ -50,7 +51,7 @@ size_t FormatArgs(char *buffer, size_t maxlength, const char *fmt, va_list param
     return len;
 }
 
-const char *format(const char *str, ...)
+const char* format(const char* str, ...)
 {
     va_list ap;
     char buffer[2048];
@@ -64,14 +65,17 @@ const char *format(const char *str, ...)
     return return_str.c_str();
 }
 
-void Hook_SendNetMessage(INetChannel *pNetChan, CNetMessage *pData, int a4)
+void Hook_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, int a4)
 {
-    NetMessageInfo_t *info = pData->GetNetMessage()->GetNetMessageInfo();
+    NetMessageInfo_t* info = pData->GetNetMessage()->GetNetMessageInfo();
+
+    if (!UserMessages_SendNetMessage(pNetChan, pData, a4))
+        return;
 
     if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         return TSendNetMessage(pNetChan, pData, a4);
 
-    ClientJoinInfo_t *pPendingClient = GetPendingClient(pNetChan);
+    ClientJoinInfo_t* pPendingClient = GetPendingClient(pNetChan);
 
     if (pPendingClient)
     {
@@ -85,13 +89,13 @@ void Hook_SendNetMessage(INetChannel *pNetChan, CNetMessage *pData, int a4)
     TSendNetMessage(pNetChan, pData, a4);
 }
 
-void *Hook_HostStateRequest(void *a1, void **pRequest)
+void* Hook_HostStateRequest(void* a1, void** pRequest)
 {
     if (g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         return THostStateRequest(a1, pRequest);
 
-    CUtlString *psNextMap = (CUtlString *)(pRequest + 5);
-    CUtlString *psAddonString = (CUtlString *)(pRequest + 11);
+    CUtlString* psNextMap = (CUtlString*)(pRequest + 5);
+    CUtlString* psAddonString = (CUtlString*)(pRequest + 11);
 
     std::string sExtraAddonString = implode(g_addons.GetAddons(), ",");
 
@@ -131,7 +135,7 @@ void AddonsPrint(std::string str)
     PLUGIN_PRINTF("Addons", "%s\n", str.c_str());
 }
 
-void Addons::BuildAddonPath(std::string pszAddon, std::string &buffer)
+void Addons::BuildAddonPath(std::string pszAddon, std::string& buffer)
 {
     static CBufferStringGrowable<MAX_PATH> s_sWorkingDir;
     ExecuteOnce(g_pFullFileSystem->GetSearchPath("EXECUTABLE_PATH", GET_SEARCH_PATH_ALL, s_sWorkingDir, 1));
@@ -214,7 +218,7 @@ bool Addons::PrintDownload()
 
     if (this->downloadProgresses.find(iAddon) == this->downloadProgresses.end())
     {
-        ProgressBar *bar = new ProgressBar();
+        ProgressBar* bar = new ProgressBar();
         bar->SetBarPrefix(string_format("%lli: Downloading ", iAddon));
         bar->SetProgress(0);
 
@@ -226,7 +230,7 @@ bool Addons::PrintDownload()
             bar,
         };
 
-        this->downloadProgresses.insert({iAddon, info});
+        this->downloadProgresses.insert({ iAddon, info });
 
         AddonsPrint(bar->GetContent(format("[0s] [0.00MB/%.2fMB] 0.00%%", ((double)totalBytes / 1024.0f / 1024.0f))));
     }
@@ -339,7 +343,7 @@ void Addons::ReloadMap()
     engine->ServerCommand(cmd.c_str());
 }
 
-void Addons::OnAddonDownloaded(DownloadItemResult_t *result)
+void Addons::OnAddonDownloaded(DownloadItemResult_t* result)
 {
     if (result->m_eResult == k_EResultOK)
         AddonsPrint(string_format("Addon %lli was succesfully downloaded.", result->m_nPublishedFileId));
@@ -449,7 +453,7 @@ bool Addons::OnClientConnect(uint64 xuid)
         return true;
 
     int idx;
-    ClientJoinInfo_t *pendingClient = GetPendingClient(xuid, idx);
+    ClientJoinInfo_t* pendingClient = GetPendingClient(xuid, idx);
 
     if (!pendingClient)
     {
@@ -472,10 +476,10 @@ bool Addons::OnClientConnect(uint64 xuid)
 void Addons::SetupThread()
 {
     std::thread([&]() -> void
-                {
-        while(true) {
-            uint64_t sleeptime = this->PrintDownload() ? 100 : 1000;
-            std::this_thread::sleep_for(std::chrono::milliseconds(sleeptime));
-        } })
+        {
+            while (true) {
+                uint64_t sleeptime = this->PrintDownload() ? 100 : 1000;
+                std::this_thread::sleep_for(std::chrono::milliseconds(sleeptime));
+            } })
         .detach();
 }

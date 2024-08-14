@@ -9,6 +9,7 @@ void SetupLuaUtils(LuaPlugin* plugin, lua_State* state)
         .addFunction("IsLinux", scripting_IsLinux)
         .addFunction("GetOS", scripting_GetOS)
         .addFunction("StateUpdate", scripting_StateUpdate)
+        .addFunction("GetUserMessage", scripting_GetUserMessage)
         .addFunction("GetPluginState", +[](std::string plugin_name) -> int
             {
                 if (!g_pluginManager->PluginExists(plugin_name)) return (int)PluginState_t::Stopped;

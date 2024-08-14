@@ -7,19 +7,19 @@
 
 CUtlVector<ClientJoinInfo_t> g_ClientsPendingAddon;
 
-CUtlVector<CServerSideClient *> *GetClientList()
+CUtlVector<CServerSideClient*>* GetClientList()
 {
-    INetworkGameServer *server = g_pNetworkServerService->GetIGameServer();
+    INetworkGameServer* server = g_pNetworkServerService->GetIGameServer();
     if (!server)
         return nullptr;
 
     static int offset = g_Offsets->GetOffset("CNetworkGameServer_ClientList");
-    return (CUtlVector<CServerSideClient *> *)(&server[offset]);
+    return (CUtlVector<CServerSideClient*> *)(&server[offset]);
 }
 
-CServerSideClient *GetClientBySlot(CPlayerSlot slot)
+CServerSideClient* GetClientBySlot(CPlayerSlot slot)
 {
-    CUtlVector<CServerSideClient *> *pClients = GetClientList();
+    CUtlVector<CServerSideClient*>* pClients = GetClientList();
 
     if (!pClients)
         return nullptr;
@@ -29,11 +29,11 @@ CServerSideClient *GetClientBySlot(CPlayerSlot slot)
 
 void AddPendingClient(uint64 steamid)
 {
-    ClientJoinInfo_t PendingClient{steamid, 0.f, 0};
+    ClientJoinInfo_t PendingClient{ steamid, 0.f, 0 };
     g_ClientsPendingAddon.AddToTail(PendingClient);
 }
 
-ClientJoinInfo_t *GetPendingClient(uint64 steamid, int &index)
+ClientJoinInfo_t* GetPendingClient(uint64 steamid, int& index)
 {
     index = 0;
 
@@ -49,20 +49,38 @@ ClientJoinInfo_t *GetPendingClient(uint64 steamid, int &index)
     return nullptr;
 }
 
-ClientJoinInfo_t *GetPendingClient(INetChannel *pNetChan)
+ClientJoinInfo_t* GetPendingClient(INetChannel* pNetChan)
 {
-    CUtlVector<CServerSideClient *> *pClients = GetClientList();
+    CUtlVector<CServerSideClient*>* pClients = GetClientList();
 
     if (!pClients)
         return nullptr;
 
     FOR_EACH_VEC(*pClients, i)
     {
-        CServerSideClient *pClient = pClients->Element(i);
+        CServerSideClient* pClient = pClients->Element(i);
 
         if (pClient && pClient->GetNetChannel() == pNetChan)
             return GetPendingClient(pClient->GetClientSteamID()->ConvertToUint64(), i); // just pass i here, it's discarded anyway
     }
 
     return nullptr;
+}
+
+int FindClientByNetChannel(INetChannel* pNetChan)
+{
+    CUtlVector<CServerSideClient*>* pClients = GetClientList();
+
+    if (!pClients)
+        return -1;
+
+    FOR_EACH_VEC(*pClients, i)
+    {
+        CServerSideClient* pClient = pClients->Element(i);
+
+        if (pClient && pClient->GetNetChannel() == pNetChan)
+            return i;
+    }
+
+    return -1;
 }
