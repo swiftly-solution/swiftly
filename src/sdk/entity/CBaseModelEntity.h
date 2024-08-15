@@ -34,5 +34,6 @@ public:
     void SetSolidType(SolidType_t type)
     {
         this->m_Collision->m_nSolidType = type;
+        CollisionRulesChanged();
     }
 };

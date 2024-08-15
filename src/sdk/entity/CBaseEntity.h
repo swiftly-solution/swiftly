@@ -182,5 +182,11 @@ public:
         g_Signatures->FetchSignature<CBaseEntity_EmitSoundFilter>("CBaseEntity_EmitSoundFilter")(filter, m_pEntity->m_EHandle.GetEntryIndex(), params);
     }
 
+    void CollisionRulesChanged()
+    {
+        static int offset = g_Offsets->GetOffset("CollisionRulesChanged");
+        CALL_VIRTUAL(void, offset, this);
+    }
+
     CEntitySubclassVDataBase* GetVData() { return *(CEntitySubclassVDataBase**)((uint8*)(m_nSubclassID()) + 4); }
 };

@@ -24,8 +24,8 @@
         "linux": 80
     },
     "CollisionRulesChanged": {
-        "windows": 174,
-        "linux": 173
+        "windows": 178,
+        "linux": 177
     },
     "CCSPlayer_ItemServices_GiveNamedItem": {
         "windows": 17,
