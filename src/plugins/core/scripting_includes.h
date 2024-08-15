@@ -18,7 +18,7 @@
 extern std::map<std::string, bool> BlockedCS2GuidelinesFields;
 
 template <typename T>
-T GetSchemaValue(void *ptr, const char *className, const char *fieldName)
+T GetSchemaValue(void* ptr, const char* className, const char* fieldName)
 {
     if (fieldName)
     {
@@ -48,11 +48,11 @@ T GetSchemaValue(void *ptr, const char *className, const char *fieldName)
     auto prop_hash = hash_32_fnv1a_const(fieldName);
     auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
 
-    return *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr) + m_key.offset);
+    return *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key.offset);
 }
 
 template <typename T>
-T *GetSchemaValuePtr(void *ptr, const char *className, const char *fieldName)
+T* GetSchemaValuePtr(void* ptr, const char* className, const char* fieldName)
 {
     if (BlockedCS2GuidelinesFields.find(fieldName) != BlockedCS2GuidelinesFields.end() && g_Config->FetchValue<bool>("core.FollowCS2ServerGuidelines"))
     {
@@ -67,15 +67,15 @@ T *GetSchemaValuePtr(void *ptr, const char *className, const char *fieldName)
     auto prop_hash = hash_32_fnv1a_const(fieldName);
     auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
 
-    return reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr) + m_key.offset);
+    return reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key.offset);
 }
 
-void *GetSchemaPtr(void *ptr, const char *className, const char *fieldName);
+void* GetSchemaPtr(void* ptr, const char* className, const char* fieldName);
 
-void WriteSchemaPtrValue(void *ptr, const char *className, const char *fieldName, bool isStruct, byte *value, int size);
+void WriteSchemaPtrValue(void* ptr, const char* className, const char* fieldName, bool isStruct, byte* value, int size);
 
 template <typename T>
-void SetSchemaValue(void *ptr, const char *className, const char *fieldName, bool isStruct, T value)
+void SetSchemaValue(void* ptr, const char* className, const char* fieldName, bool isStruct, T value)
 {
     if (BlockedCS2GuidelinesFields.find(fieldName) != BlockedCS2GuidelinesFields.end() && g_Config->FetchValue<bool>("core.FollowCS2ServerGuidelines"))
     {
@@ -93,19 +93,19 @@ void SetSchemaValue(void *ptr, const char *className, const char *fieldName, boo
     auto m_chain = sch::FindChainOffset(className);
 
     if (m_chain != 0 && m_key.networked)
-        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(ptr) + m_chain, m_key.offset, 0xFFFFFFFF);
+        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(ptr)+m_chain, m_key.offset, 0xFFFFFFFF);
     else if (m_key.networked)
     {
         if (!isStruct)
-            SetStateChanged((Z_CBaseEntity *)ptr, m_key.offset);
+            SetStateChanged((CBaseEntity*)ptr, m_key.offset);
         else if (IsPlatformPosix())
             CALL_VIRTUAL(void, 1, ptr, m_key.offset, 0xFFFFFFFF, 0xFFFF);
     }
-    *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr) + m_key.offset) = value;
+    *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key.offset) = value;
 }
 
 template <typename T>
-void SetSchemaValueCUtlVector(void *ptr, const char *className, const char *fieldName, bool isStruct, std::vector<T> value)
+void SetSchemaValueCUtlVector(void* ptr, const char* className, const char* fieldName, bool isStruct, std::vector<T> value)
 {
     if (BlockedCS2GuidelinesFields.find(fieldName) != BlockedCS2GuidelinesFields.end() && g_Config->FetchValue<bool>("core.FollowCS2ServerGuidelines"))
     {
@@ -123,16 +123,16 @@ void SetSchemaValueCUtlVector(void *ptr, const char *className, const char *fiel
     auto m_chain = sch::FindChainOffset(className);
 
     if (m_chain != 0 && m_key.networked)
-        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(ptr) + m_chain, m_key.offset, 0xFFFFFFFF);
+        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(ptr)+m_chain, m_key.offset, 0xFFFFFFFF);
     else if (m_key.networked)
     {
         if (!isStruct)
-            SetStateChanged((Z_CBaseEntity *)ptr, m_key.offset);
+            SetStateChanged((CBaseEntity*)ptr, m_key.offset);
         else if (IsPlatformPosix())
             CALL_VIRTUAL(void, 1, ptr, m_key.offset, 0xFFFFFFFF, 0xFFFF);
     }
 
-    CUtlVector<T> *vec = reinterpret_cast<CUtlVector<T> *>((uintptr_t)(ptr) + m_key.offset);
+    CUtlVector<T>* vec = reinterpret_cast<CUtlVector<T> *>((uintptr_t)(ptr)+m_key.offset);
     vec->Purge();
     for (auto elem : value)
         vec->AddToTail(elem);

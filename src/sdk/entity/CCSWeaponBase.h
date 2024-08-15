@@ -36,11 +36,11 @@ class CEconItemAttribute
 public:
     DECLARE_SCHEMA_CLASS_BASE(CEconItemAttribute, false)
 
-    SCHEMA_FIELD_OFFSET(uint16_t, m_iAttributeDefinitionIndex, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flValue, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flInitialValue, 0)
-    SCHEMA_FIELD_OFFSET(int32_t, m_nRefundableCurrency, 0)
-    SCHEMA_FIELD_OFFSET(bool, m_bSetBonus, 0)
+    SCHEMA_FIELD_OFFSET(uint16_t, m_iAttributeDefinitionIndex, 0);
+    SCHEMA_FIELD_OFFSET(float, m_flValue, 0);
+    SCHEMA_FIELD_OFFSET(float, m_flInitialValue, 0);
+    SCHEMA_FIELD_OFFSET(int32_t, m_nRefundableCurrency, 0);
+    SCHEMA_FIELD_OFFSET(bool, m_bSetBonus, 0);
 };
 
 class CAttributeList
@@ -56,18 +56,18 @@ class CEconItemView
 public:
     DECLARE_SCHEMA_CLASS_BASE(CEconItemView, true)
 
-    SCHEMA_FIELD_OFFSET(uint16_t, m_iItemDefinitionIndex, 0)
-    SCHEMA_FIELD_OFFSET(uint64_t, m_iItemID, 0)
-    SCHEMA_FIELD_OFFSET(uint32_t, m_iItemIDHigh, 0)
-    SCHEMA_FIELD_OFFSET(uint32_t, m_iItemIDLow, 0)
-    SCHEMA_FIELD_OFFSET(bool, m_bInitialized, 0)
-    SCHEMA_FIELD_OFFSET(uint32_t, m_iAccountID, 0)
-    SCHEMA_FIELD_OFFSET(int32_t, m_iEntityQuality, 0)
+    SCHEMA_FIELD_OFFSET(uint16_t, m_iItemDefinitionIndex, 0);
+    SCHEMA_FIELD_OFFSET(uint64_t, m_iItemID, 0);
+    SCHEMA_FIELD_OFFSET(uint32_t, m_iItemIDHigh, 0);
+    SCHEMA_FIELD_OFFSET(uint32_t, m_iItemIDLow, 0);
+    SCHEMA_FIELD_OFFSET(bool, m_bInitialized, 0);
+    SCHEMA_FIELD_OFFSET(uint32_t, m_iAccountID, 0);
+    SCHEMA_FIELD_OFFSET(int32_t, m_iEntityQuality, 0);
 
-    SCHEMA_FIELD_POINTER_OFFSET(char *, m_szCustomName, 0)
-    SCHEMA_FIELD_POINTER_OFFSET(char *, m_szCustomNameOverride, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(char*, m_szCustomName, 0);
+    SCHEMA_FIELD_POINTER_OFFSET(char*, m_szCustomNameOverride, 0);
 
-    SCHEMA_FIELD_POINTER_OFFSET(CAttributeList, m_NetworkedDynamicAttributes, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(CAttributeList, m_NetworkedDynamicAttributes, 0);
 };
 
 class CAttributeContainer
@@ -78,28 +78,28 @@ public:
     SCHEMA_FIELD_OFFSET(CEconItemView, m_Item, 0)
 };
 
-class CEconEntity : public Z_CBaseEntity
+class CEconEntity : public CBaseEntity
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CEconEntity, false)
 
-    SCHEMA_FIELD_OFFSET(CAttributeContainer, m_AttributeManager, 0)
-    SCHEMA_FIELD_OFFSET(int32_t, m_nFallbackPaintKit, 0)
-    SCHEMA_FIELD_OFFSET(int32_t, m_nFallbackSeed, 0)
-    SCHEMA_FIELD_OFFSET(int32_t, m_nFallbackStatTrak, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flFallbackWear, 0)
-    SCHEMA_FIELD_OFFSET(uint64_t, m_OriginalOwnerXuidLow, 0)
-    SCHEMA_FIELD_OFFSET(uint64_t, m_OriginalOwnerXuidHigh, 0)
+    SCHEMA_FIELD_OFFSET(CAttributeContainer, m_AttributeManager, 0);
+    SCHEMA_FIELD_OFFSET(int32_t, m_nFallbackPaintKit, 0);
+    SCHEMA_FIELD_OFFSET(int32_t, m_nFallbackSeed, 0);
+    SCHEMA_FIELD_OFFSET(int32_t, m_nFallbackStatTrak, 0);
+    SCHEMA_FIELD_OFFSET(float, m_flFallbackWear, 0);
+    SCHEMA_FIELD_OFFSET(uint64_t, m_OriginalOwnerXuidLow, 0);
+    SCHEMA_FIELD_OFFSET(uint64_t, m_OriginalOwnerXuidHigh, 0);
 };
 
 class CBasePlayerWeaponVData : public CEntitySubclassVDataBase
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeaponVData, false)
-    SCHEMA_FIELD_OFFSET(int, m_iMaxClip1, 0)
-    SCHEMA_FIELD_OFFSET(int, m_iDefaultClip1, 0)
-    SCHEMA_FIELD_OFFSET(int, m_iMaxClip2, 0)
-    SCHEMA_FIELD_OFFSET(int, m_iDefaultClip2, 0)
+    SCHEMA_FIELD_OFFSET(int, m_iMaxClip1, 0);
+    SCHEMA_FIELD_OFFSET(int, m_iDefaultClip1, 0);
+    SCHEMA_FIELD_OFFSET(int, m_iMaxClip2, 0);
+    SCHEMA_FIELD_OFFSET(int, m_iDefaultClip2, 0);
 };
 
 class CCSWeaponBaseVData : public CBasePlayerWeaponVData
@@ -107,10 +107,10 @@ class CCSWeaponBaseVData : public CBasePlayerWeaponVData
 public:
     DECLARE_SCHEMA_CLASS_BASE(CCSWeaponBaseVData, false)
 
-    SCHEMA_FIELD_OFFSET(cgear_slot_t, m_GearSlot, 0)
-    SCHEMA_FIELD_OFFSET(int, m_nPrice, 0)
-    SCHEMA_FIELD_OFFSET(int, m_nPrimaryReserveAmmoMax, 0)
-    SCHEMA_FIELD_OFFSET(CCSWeaponSilencerType, m_eSilencerType, 0)
+    SCHEMA_FIELD_OFFSET(cgear_slot_t, m_GearSlot, 0);
+    SCHEMA_FIELD_OFFSET(int, m_nPrice, 0);
+    SCHEMA_FIELD_OFFSET(int, m_nPrimaryReserveAmmoMax, 0);
+    SCHEMA_FIELD_OFFSET(CCSWeaponSilencerType, m_eSilencerType, 0);
 };
 
 class CEconWearable : public CEconEntity
@@ -118,8 +118,8 @@ class CEconWearable : public CEconEntity
 public:
     DECLARE_SCHEMA_CLASS_BASE(CEconWearable, false)
 
-    SCHEMA_FIELD_OFFSET(int32_t, m_nForceSkin, 0)
-    SCHEMA_FIELD_OFFSET(bool, m_bAlwaysAllow, 0)
+    SCHEMA_FIELD_OFFSET(int32_t, m_nForceSkin, 0);
+    SCHEMA_FIELD_OFFSET(bool, m_bAlwaysAllow, 0);
 };
 
 class CBasePlayerWeapon : public CEconEntity
@@ -127,15 +127,15 @@ class CBasePlayerWeapon : public CEconEntity
 public:
     DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeapon, false)
 
-    SCHEMA_FIELD_OFFSET(int32_t, m_iClip1, 0)
-    SCHEMA_FIELD_OFFSET(int32_t, m_iClip2, 0)
-    SCHEMA_FIELD_POINTER_OFFSET(int32_t, m_pReserveAmmo, 0)
-    SCHEMA_FIELD_OFFSET(int32_t, m_nNextPrimaryAttackTick, 0)
-    SCHEMA_FIELD_OFFSET(int32_t, m_nNextSecondaryAttackTick, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flNextPrimaryAttackTickRatio, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flNextSecondaryAttackTickRatio, 0)
+    SCHEMA_FIELD_OFFSET(int32_t, m_iClip1, 0);
+    SCHEMA_FIELD_OFFSET(int32_t, m_iClip2, 0);
+    SCHEMA_FIELD_POINTER_OFFSET(int32_t, m_pReserveAmmo, 0);
+    SCHEMA_FIELD_OFFSET(int32_t, m_nNextPrimaryAttackTick, 0);
+    SCHEMA_FIELD_OFFSET(int32_t, m_nNextSecondaryAttackTick, 0);
+    SCHEMA_FIELD_OFFSET(float, m_flNextPrimaryAttackTickRatio, 0);
+    SCHEMA_FIELD_OFFSET(float, m_flNextSecondaryAttackTickRatio, 0);
 
-    CCSWeaponBaseVData *GetWeaponVData() { return (CCSWeaponBaseVData *)GetVData(); }
+    CCSWeaponBaseVData* GetWeaponVData() { return (CCSWeaponBaseVData*)GetVData(); }
 };
 
 class CCSWeaponBase : public CBasePlayerWeapon

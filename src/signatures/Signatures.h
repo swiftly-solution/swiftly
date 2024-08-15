@@ -7,7 +7,7 @@
 
 class CBasePlayerController;
 class CCSPlayerController;
-class Z_CBaseEntity;
+class CBaseEntity;
 class CBaseModelEntity;
 class CEntityInstance;
 class CCSPlayer_ItemServices;
@@ -21,30 +21,30 @@ class CCSPlayer_MovementServices;
 struct EmitSound_t;
 struct SndOpEventGuid_t;
 
-typedef void (*ClientPrint)(CBasePlayerController *, int, const char *, const char *, const char *, const char *, const char *);
+typedef void (*ClientPrint)(CBasePlayerController*, int, const char*, const char*, const char*, const char*, const char*);
 typedef void (*NetworkSTChange)(uintptr_t, int, int);
-typedef void (*StateChanged)(void *, Z_CBaseEntity *, int, int, int);
-typedef void (*CCSPlayerController_SwitchTeam)(CCSPlayerController *pController, unsigned int team);
-typedef void *(*UTIL_CreateEntityByName)(const char *, int);
-typedef void (*CBaseModelEntity_SetModel)(CBaseModelEntity *, const char *);
-typedef void (*CBaseEntity_DispatchSpawn)(Z_CBaseEntity *, void *);
-typedef void (*PrecacheResource)(const char *, int64_t);
-typedef void (*UTIL_Remove)(CEntityInstance *);
-typedef void (*CEntityInstance_AcceptInput)(CEntityInstance *, const char *, CEntityInstance *, CEntityInstance *, variant_t *, int);
-typedef void (*CAttributeList_SetOrAddAttributeValueByName)(void *, const char *, float);
-typedef void (*CBaseModelEntity_SetBodygroup)(void *, const char *, ...);
-typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices *, const char *, int, int, int, int);
-typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController *, CCSPlayerPawn *, bool, bool);
-typedef void (*CCSPlayerPawnBase_PostThink)(CCSPlayerPawnBase *);
-typedef void (*CBaseEntity_TakeDamageOld)(Z_CBaseEntity *, CTakeDamageInfo *);
-typedef void (*CBaseEntity_EmitSoundParams)(Z_CBaseEntity *, const char *, int, float, float);
-typedef void (*CCSPlayer_MovementServices_CheckJumpPre)(CCSPlayer_MovementServices *, void *);
-typedef SndOpEventGuid_t (*CBaseEntity_EmitSoundFilter)(IRecipientFilter &filter, CEntityIndex ent, const EmitSound_t &params);
+typedef void (*StateChanged)(void*, CBaseEntity*, int, int, int);
+typedef void (*CCSPlayerController_SwitchTeam)(CCSPlayerController* pController, unsigned int team);
+typedef void* (*UTIL_CreateEntityByName)(const char*, int);
+typedef void (*CBaseModelEntity_SetModel)(CBaseModelEntity*, const char*);
+typedef void (*CBaseEntity_DispatchSpawn)(CBaseEntity*, void*);
+typedef void (*PrecacheResource)(const char*, int64_t);
+typedef void (*UTIL_Remove)(CEntityInstance*);
+typedef void (*CEntityInstance_AcceptInput)(CEntityInstance*, const char*, CEntityInstance*, CEntityInstance*, variant_t*, int);
+typedef void (*CAttributeList_SetOrAddAttributeValueByName)(void*, const char*, float);
+typedef void (*CBaseModelEntity_SetBodygroup)(void*, const char*, ...);
+typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices*, const char*, int, int, int, int);
+typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController*, CCSPlayerPawn*, bool, bool);
+typedef void (*CCSPlayerPawnBase_PostThink)(CCSPlayerPawnBase*);
+typedef void (*CBaseEntity_TakeDamageOld)(CBaseEntity*, CTakeDamageInfo*);
+typedef void (*CBaseEntity_EmitSoundParams)(CBaseEntity*, const char*, int, float, float);
+typedef void (*CCSPlayer_MovementServices_CheckJumpPre)(CCSPlayer_MovementServices*, void*);
+typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
 
 class Signatures
 {
 private:
-    std::map<std::string, void *> signatures;
+    std::map<std::string, void*> signatures;
 
 public:
     void LoadSignatures();
@@ -58,7 +58,7 @@ public:
         return reinterpret_cast<T>(this->signatures.at(name));
     }
 
-    void *FetchRawSignature(std::string name)
+    void* FetchRawSignature(std::string name)
     {
         if (!this->Exists(name))
             return nullptr;
@@ -69,4 +69,4 @@ public:
     bool Exists(std::string name);
 };
 
-extern Signatures *g_Signatures;
+extern Signatures* g_Signatures;

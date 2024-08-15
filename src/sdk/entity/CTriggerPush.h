@@ -11,9 +11,9 @@ public:
     DECLARE_SCHEMA_CLASS_BASE(CTriggerPush, false)
 
     SCHEMA_FIELD_OFFSET(Vector, m_vecPushDirEntitySpace, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flPushSpeed, 0)
+        SCHEMA_FIELD_OFFSET(float, m_flPushSpeed, 0)
 
-    virtual ~CTriggerPush() = 0;
+        virtual ~CTriggerPush() = 0;
 
 private:
     virtual void unk_01() = 0;
@@ -261,5 +261,5 @@ private:
     virtual void unk_243() = 0;
 
 public:
-    virtual bool PassesTriggerFilters(Z_CBaseEntity *pOther) = 0;
+    virtual bool PassesTriggerFilters(CBaseEntity* pOther) = 0;
 };

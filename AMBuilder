@@ -35,6 +35,8 @@ for sdk_target in MMSPlugin.sdk_targets:
 
 	binary.sources.append(os.path.join(sdk['path'], 'entity2', 'entitysystem.cpp'))
 	binary.sources.append(os.path.join(sdk['path'], 'entity2', 'entityidentity.cpp'))
+	binary.sources.append(os.path.join(sdk['path'], 'entity2', 'entitykeyvalues.cpp'))
+	binary.sources.append(os.path.join(sdk['path'], 'tier1', 'keyvalues3.cpp'))
 
 	if binary.compiler.target.platform == 'linux':
 		binary.compiler.cxxflags += [

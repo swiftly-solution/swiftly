@@ -97,7 +97,7 @@ void scripting_StateUpdate(std::string ptr, std::string classname, std::string f
     else if (m_key.networked)
     {
         if (!isStruct)
-            SetStateChanged((Z_CBaseEntity*)vPtr, m_key.offset);
+            SetStateChanged((CBaseEntity*)vPtr, m_key.offset);
         else if (IsPlatformPosix())
             CALL_VIRTUAL(void, 1, vPtr, m_key.offset, 0xFFFFFFFF, 0xFFFF);
     }

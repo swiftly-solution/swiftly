@@ -14,7 +14,7 @@ extern CSchemaSystem* g_pSchemaSystem2;
 using SchemaKeyValueMap_t = CUtlMap<uint32_t, SchemaKey>;
 using SchemaTableMap_t = CUtlMap<uint32_t, SchemaKeyValueMap_t*>;
 
-typedef void (*StateChanged)(void*, Z_CBaseEntity*, int, int, int);
+typedef void (*StateChanged)(void*, CBaseEntity*, int, int, int);
 
 static bool IsFieldNetworked(SchemaClassFieldData_t& field)
 {
@@ -108,7 +108,7 @@ SchemaKey sch::GetOffset(const char* className, uint32_t classKey, const char* m
     return tableMap->Element(memberIndex);
 }
 
-void SetStateChanged(Z_CBaseEntity* pEntity, int offset)
+void SetStateChanged(CBaseEntity* pEntity, int offset)
 {
     if (pEntity->m_NetworkTransmitComponent())
     {

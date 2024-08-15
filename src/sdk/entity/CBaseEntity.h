@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../../entrypoint.h"
 #include "../schema.h"
 #include "../../signatures/Offsets.h"
 #include "../../common.h"
@@ -13,10 +14,10 @@
 #define CS_TEAM_T 2
 #define CS_TEAM_CT 3
 
-inline CEntityInstance *UTIL_FindEntityByClassname(CEntityInstance *pStart, const char *name)
+inline CEntityInstance* UTIL_FindEntityByClassname(CEntityInstance* pStart, const char* name)
 {
-    extern CEntitySystem *g_pEntitySystem;
-    CEntityIdentity *pEntity = pStart ? pStart->m_pEntity->m_pNext : g_pEntitySystem->m_EntityList.m_pFirstActiveEntity;
+    extern CEntitySystem* g_pEntitySystem;
+    CEntityIdentity* pEntity = pStart ? pStart->m_pEntity->m_pNext : g_pEntitySystem->m_EntityList.m_pFirstActiveEntity;
 
     for (; pEntity; pEntity = pEntity->m_pNext)
     {
@@ -54,16 +55,16 @@ class CGameSceneNode
 public:
     DECLARE_SCHEMA_CLASS_BASE(CGameSceneNode, false)
 
-    SCHEMA_FIELD_OFFSET(CEntityInstance *, m_pOwner, 0)
-    SCHEMA_FIELD_OFFSET(CGameSceneNode *, m_pParent, 0)
-    SCHEMA_FIELD_OFFSET(CGameSceneNode *, m_pChild, 0)
-    SCHEMA_FIELD_OFFSET(CNetworkOriginCellCoordQuantizedVector, m_vecOrigin, 0)
-    SCHEMA_FIELD_OFFSET(QAngle, m_angRotation, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flScale, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flAbsScale, 0)
-    SCHEMA_FIELD_OFFSET(Vector, m_vecAbsOrigin, 0)
-    SCHEMA_FIELD_OFFSET(QAngle, m_angAbsRotation, 0)
-    SCHEMA_FIELD_OFFSET(Vector, m_vRenderOrigin, 0)
+    SCHEMA_FIELD_OFFSET(CEntityInstance*, m_pOwner, 0);
+    SCHEMA_FIELD_OFFSET(CGameSceneNode*, m_pParent, 0);
+    SCHEMA_FIELD_OFFSET(CGameSceneNode*, m_pChild, 0);
+    SCHEMA_FIELD_OFFSET(CNetworkOriginCellCoordQuantizedVector, m_vecOrigin, 0);
+    SCHEMA_FIELD_OFFSET(QAngle, m_angRotation, 0);
+    SCHEMA_FIELD_OFFSET(float, m_flScale, 0);
+    SCHEMA_FIELD_OFFSET(float, m_flAbsScale, 0);
+    SCHEMA_FIELD_OFFSET(Vector, m_vecAbsOrigin, 0);
+    SCHEMA_FIELD_OFFSET(QAngle, m_angAbsRotation, 0);
+    SCHEMA_FIELD_OFFSET(Vector, m_vRenderOrigin, 0);
 
     matrix3x4_t EntityToWorldTransform()
     {
@@ -101,9 +102,9 @@ public:
         return mat;
     }
 
-    CSkeletonInstance *GetSkeletonInstance()
+    CSkeletonInstance* GetSkeletonInstance()
     {
-        return CALL_VIRTUAL(CSkeletonInstance *, 8, this);
+        return CALL_VIRTUAL(CSkeletonInstance*, 8, this);
     }
 };
 
@@ -112,36 +113,34 @@ class CBodyComponent
 public:
     DECLARE_SCHEMA_CLASS_BASE(CBodyComponent, false)
 
-    SCHEMA_FIELD_OFFSET(CGameSceneNode *, m_pSceneNode, 0)
+    SCHEMA_FIELD_OFFSET(CGameSceneNode*, m_pSceneNode, 0)
 };
 
-class Z_CBaseEntity : public CEntityInstance
+class CBaseEntity : public CEntityInstance
 {
 public:
-    typedef Z_CBaseEntity ThisClass;
-    static constexpr const char *ThisClassName = "CBaseEntity";
-    static constexpr bool IsStruct = false;
+    DECLARE_SCHEMA_CLASS_BASE(CBaseEntity, false)
 
-    SCHEMA_FIELD_OFFSET(CBitVec<64>, m_isSteadyState, 0)
-    SCHEMA_FIELD_OFFSET(float, m_lastNetworkChange, 0)
-    SCHEMA_FIELD_POINTER_OFFSET(CNetworkTransmitComponent, m_NetworkTransmitComponent, 0)
-    SCHEMA_FIELD_OFFSET(int, m_iHealth, 0)
-    SCHEMA_FIELD_OFFSET(int, m_iMaxHealth, 0)
-    SCHEMA_FIELD_OFFSET(int, m_iTeamNum, 0)
-    SCHEMA_FIELD_OFFSET(MoveType_t, m_MoveType, 0)
-    SCHEMA_FIELD_OFFSET(uint32, m_spawnflags, 0)
-    SCHEMA_FIELD_OFFSET(uint32, m_fFlags, 0)
-    SCHEMA_FIELD_OFFSET(LifeState_t, m_lifeState, 0)
-    SCHEMA_FIELD_OFFSET(CCollisionProperty *, m_pCollision, 0)
-    SCHEMA_FIELD_OFFSET(CBodyComponent *, m_CBodyComponent, 0)
-    SCHEMA_FIELD_OFFSET(Vector, m_vecAbsVelocity, 0)
-    SCHEMA_FIELD_POINTER_OFFSET(CUtlStringToken, m_nSubclassID, 0)
-    SCHEMA_FIELD_OFFSET(CUtlSymbolLarge, m_iGlobalname, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flGravityScale, 0)
+    SCHEMA_FIELD_OFFSET(CBitVec<64>, m_isSteadyState, 0);
+    SCHEMA_FIELD_OFFSET(float, m_lastNetworkChange, 0);
+    SCHEMA_FIELD_POINTER_OFFSET(CNetworkTransmitComponent, m_NetworkTransmitComponent, 0);
+    SCHEMA_FIELD_OFFSET(int, m_iHealth, 0);
+    SCHEMA_FIELD_OFFSET(int, m_iMaxHealth, 0);
+    SCHEMA_FIELD_OFFSET(int, m_iTeamNum, 0);
+    SCHEMA_FIELD_OFFSET(MoveType_t, m_MoveType, 0);
+    SCHEMA_FIELD_OFFSET(uint32, m_spawnflags, 0);
+    SCHEMA_FIELD_OFFSET(uint32, m_fFlags, 0);
+    SCHEMA_FIELD_OFFSET(LifeState_t, m_lifeState, 0);
+    SCHEMA_FIELD_OFFSET(CCollisionProperty*, m_pCollision, 0);
+    SCHEMA_FIELD_OFFSET(CBodyComponent*, m_CBodyComponent, 0);
+    SCHEMA_FIELD_OFFSET(Vector, m_vecAbsVelocity, 0);
+    SCHEMA_FIELD_POINTER_OFFSET(CUtlStringToken, m_nSubclassID, 0);
+    SCHEMA_FIELD_OFFSET(CUtlSymbolLarge, m_iGlobalname, 0);
+    SCHEMA_FIELD_OFFSET(float, m_flGravityScale, 0);
 
     int EntityIndex() { return this->m_pEntity->GetRefEHandle().GetEntryIndex(); }
 
-    void Teleport(Vector *position, QAngle *angles, Vector *velocity)
+    void Teleport(Vector* position, QAngle* angles, Vector* velocity)
     {
         static int offset = g_Offsets->GetOffset("CBaseEntity_Teleport");
         CALL_VIRTUAL(void, offset, this, position, angles, velocity);
@@ -152,7 +151,7 @@ public:
         this->m_iHealth = this->m_iHealth() - damage;
     }
 
-    void Spawn()
+    void DispatchSpawn()
     {
         g_Signatures->FetchSignature<CBaseEntity_DispatchSpawn>("CBaseEntity_DispatchSpawn")(this, nullptr);
     }
@@ -162,7 +161,7 @@ public:
         g_Signatures->FetchSignature<UTIL_Remove>("UTIL_Remove")(this);
     }
 
-    void AcceptInput(const char *pInputName, CEntityInstance *pActivator = nullptr, CEntityInstance *pCaller = nullptr, const char *value = nullptr, int outputID = 0)
+    void AcceptInput(const char* pInputName, CEntityInstance* pActivator = nullptr, CEntityInstance* pCaller = nullptr, const char* value = nullptr, int outputID = 0)
     {
         variant_t variantValue = variant_t(value);
         g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this, pInputName, pActivator, pCaller, &variantValue, outputID);
@@ -173,7 +172,7 @@ public:
         g_Signatures->FetchSignature<CBaseEntity_EmitSoundParams>("CBaseEntity_EmitSoundParams")(this, sound_name.c_str(), pitch, volume, delay);
     }
 
-    void EmitSoundFilter(IRecipientFilter &filter, std::string sound_name, int pitch, float volume)
+    void EmitSoundFilter(IRecipientFilter& filter, std::string sound_name, int pitch, float volume)
     {
         EmitSound_t params;
         params.m_pSoundName = sound_name.c_str();
@@ -183,5 +182,5 @@ public:
         g_Signatures->FetchSignature<CBaseEntity_EmitSoundFilter>("CBaseEntity_EmitSoundFilter")(filter, m_pEntity->m_EHandle.GetEntryIndex(), params);
     }
 
-    CEntitySubclassVDataBase *GetVData() { return *(CEntitySubclassVDataBase **)((uint8 *)(m_nSubclassID()) + 4); }
+    CEntitySubclassVDataBase* GetVData() { return *(CEntitySubclassVDataBase**)((uint8*)(m_nSubclassID()) + 4); }
 };

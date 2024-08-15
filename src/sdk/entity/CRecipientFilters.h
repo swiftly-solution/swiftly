@@ -54,7 +54,7 @@ public:
         }
         for (int i = 0; i <= engine->GetServerGlobals()->maxClients; i++)
         {
-            Z_CBaseEntity *ent = static_cast<Z_CBaseEntity *>(GameEntitySystem()->GetEntityInstance(CEntityIndex(i)));
+            CBaseEntity* ent = static_cast<CBaseEntity*>(GameEntitySystem()->GetEntityInstance(CEntityIndex(i)));
             if (ent)
             {
                 AddRecipient(i);
@@ -64,7 +64,7 @@ public:
 
 private:
     // Can't copy this unless we explicitly do it!
-    CRecipientFilter(CRecipientFilter const &source)
+    CRecipientFilter(CRecipientFilter const& source)
     {
         Assert(0);
     }

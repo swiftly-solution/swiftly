@@ -61,8 +61,8 @@
     },
     "UTIL_Remove": {
         "lib": "server",
-        "windows": "48 85 C9 74 ? 48 8B D1 48 8B 0D ? ? ? ?",
-        "linux": "48 89 FE 48 85 FF 74 ? 48 8D 05 ? ? ? ? 48"
+        "windows": "48 85 C9 74 2A 48 8B D1 48 8B 0D 2A 2A 2A 2A",
+        "linux": "48 89 FE 48 85 FF 74 2A 48 8D 05 2A 2A 2A 2A 48"
     },
     "LegacyGameEventListener": {
         "lib": "server",
@@ -96,7 +96,7 @@
     },
     "CBasePlayerController_SetPawn": {
         "lib": "server",
-        "windows": "44 88 4C 24 ? 55 56 57 41 54 41 56 48 8D 6C 24 ?",
+        "windows": "48 89 74 24 2A 55 41 54 41 55 41 56 41 57 48 8D 6C 24 2A 48 81 EC 2A 2A 2A 2A 4C 8B F9",
         "linux": "55 48 89 E5 41 57 41 56 41 55 49 89 FD 41 54 45 89 C4"
     },
     "SendNetMessage": {

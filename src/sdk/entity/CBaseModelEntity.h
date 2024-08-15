@@ -9,14 +9,14 @@ class CBaseModelEntity;
 
 typedef void (*CBaseModelEntity_SetModel)(CBaseModelEntity*, const char*);
 
-class CBaseModelEntity : public Z_CBaseEntity
+class CBaseModelEntity : public CBaseEntity
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CBaseModelEntity, false)
 
-    SCHEMA_FIELD_POINTER_OFFSET(CCollisionProperty, m_Collision, 0)
-    SCHEMA_FIELD_OFFSET(CGlowProperty, m_Glow, 0)
-    SCHEMA_FIELD_OFFSET(Color, m_clrRender, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(CCollisionProperty, m_Collision, 0);
+    SCHEMA_FIELD_OFFSET(CGlowProperty, m_Glow, 0);
+    SCHEMA_FIELD_OFFSET(Color, m_clrRender, 0);
 
     void SetModel(const char* model)
     {
