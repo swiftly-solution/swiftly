@@ -669,8 +669,8 @@ std::string GCBaseEntity::GetClassname() {
 GCEntitySubclassVDataBase GCBaseEntity::GetVData() {
     return GCEntitySubclassVDataBase(((CBaseEntity*)m_ptr)->GetVData());
 }
-void GCBaseEntity::Teleport(Vector value) {
-    ((CBaseEntity*)m_ptr)->Teleport(&value, nullptr, nullptr);
+void GCBaseEntity::Teleport(Vector value, QAngle angle) {
+    ((CBaseEntity*)m_ptr)->Teleport(&value, &angle, nullptr);
 }
 void GCBaseEntity::EmitSound(std::string sound_name, float pitch, float volume) {
     for (int i = 0; i < g_playerManager->GetPlayerCap(); i++) {

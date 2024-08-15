@@ -1737,7 +1737,7 @@ public:
     void AcceptInput(std::string input, GCEntityInstance activator, GCEntityInstance caller, std::string value, int outputID);
     std::string GetClassname();
     GCEntitySubclassVDataBase GetVData();
-    void Teleport(Vector value);
+    void Teleport(Vector value, QAngle angle);
     void EmitSound(std::string sound_name, float pitch, float volume);
     GCBaseEntity EHandle();
     GCBodyComponent GetCBodyComponent() const;
