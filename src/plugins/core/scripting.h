@@ -388,6 +388,10 @@ private:
 public:
     PluginConvars(std::string m_plugin_name);
 
+    void CreateFake(std::string cvarname, int32_t type, std::any defaultValue, bool prot);
+    void CreateFakeLua(std::string cvarname, int32_t type, luabridge::LuaRef defaultValue, bool prot);
+    void DeleteFake(std::string cvarname);
+
     std::any GetConvarValue(std::string cvarname);
     luabridge::LuaRef GetConvarValueLua(std::string cvarname, lua_State* L);
 

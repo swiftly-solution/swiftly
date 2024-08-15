@@ -57,8 +57,8 @@ void PLUGIN_PRINTF(std::string category, std::string str, ...);
         PRINTF(FORMAT_STR, __VA_ARGS__); \
         return RET;                      \
     }
-#define CLIENT_PRINT(SLOT, FORMAT_STR) g_SMAPI->ClientConPrintf(SLOT, std::string(PREFIX).append(" [").append(__FUNCTION_NAME__).append("] ").append(FORMAT_STR).c_str())
-#define CLIENT_PRINTF(SLOT, FORMAT_STR, ...) g_SMAPI->ClientConPrintf(SLOT, std::string(PREFIX).append(" [").append(__FUNCTION_NAME__).append("] ").append(FORMAT_STR).c_str(), __VA_ARGS__)
+#define CLIENT_PRINT(SLOT, CATEGORY, FORMAT_STR) g_SMAPI->ClientConPrint(SLOT, std::string(PREFIX).append(" [").append(CATEGORY).append("] ").append(FORMAT_STR).c_str())
+#define CLIENT_PRINTF(SLOT, CATEGORY, FORMAT_STR, ...) g_SMAPI->ClientConPrintf(SLOT, std::string(PREFIX).append(" [").append(CATEGORY).append("] ").append(FORMAT_STR).c_str(), __VA_ARGS__)
 
 #ifndef SWIFTLY_DEBUG
 #define DEBUG_PRINTF(FORMAT_STR, ...)

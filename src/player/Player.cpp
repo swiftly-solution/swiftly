@@ -12,7 +12,9 @@
 
 #include <bitset>
 
-typedef IGameEventListener2 *(*GetLegacyGameEventListener)(CPlayerSlot slot);
+#include "../convars/convars.h"
+
+typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
 
 std::map<std::string, std::string> colors = {
     {"{DEFAULT}", "\x01"},
@@ -51,7 +53,7 @@ std::string ProcessColor(std::string str, int team = CS_TEAM_CT)
     return str;
 }
 
-Player::Player(bool m_isFakeClient, int m_slot, const char *m_name, uint64 m_xuid, std::string ip_address)
+Player::Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64 m_xuid, std::string ip_address)
 {
     this->slot = m_slot;
     this->isFakeClient = m_isFakeClient;
@@ -67,41 +69,41 @@ Player::~Player()
     this->isAuthenticated = false;
 }
 
-CBasePlayerController *Player::GetController()
+CBasePlayerController* Player::GetController()
 {
-    return (CBasePlayerController *)g_pEntitySystem->GetEntityInstance(CEntityIndex(this->slot + 1));
+    return (CBasePlayerController*)g_pEntitySystem->GetEntityInstance(CEntityIndex(this->slot + 1));
 }
 
-CBasePlayerPawn *Player::GetPawn()
+CBasePlayerPawn* Player::GetPawn()
 {
-    CBasePlayerController *controller = this->GetController();
+    CBasePlayerController* controller = this->GetController();
     if (controller == nullptr)
         return nullptr;
 
     return controller->m_hPawn();
 }
 
-CCSPlayerController *Player::GetPlayerController()
+CCSPlayerController* Player::GetPlayerController()
 {
-    return (CCSPlayerController *)g_pEntitySystem->GetEntityInstance(CEntityIndex(this->slot + 1));
+    return (CCSPlayerController*)g_pEntitySystem->GetEntityInstance(CEntityIndex(this->slot + 1));
 }
 
-CCSPlayerPawn *Player::GetPlayerPawn()
+CCSPlayerPawn* Player::GetPlayerPawn()
 {
-    CCSPlayerController *controller = this->GetPlayerController();
+    CCSPlayerController* controller = this->GetPlayerController();
     if (controller == nullptr)
         return nullptr;
 
     return controller->m_hPlayerPawn().Get();
 }
 
-CCSPlayerPawnBase *Player::GetPlayerBasePawn()
+CCSPlayerPawnBase* Player::GetPlayerBasePawn()
 {
-    CCSPlayerPawn *pawn = this->GetPlayerPawn();
+    CCSPlayerPawn* pawn = this->GetPlayerPawn();
     if (pawn == nullptr)
         return nullptr;
 
-    return (CCSPlayerPawnBase *)pawn;
+    return (CCSPlayerPawnBase*)pawn;
 }
 
 uint64 Player::GetSteamID()
@@ -109,16 +111,16 @@ uint64 Player::GetSteamID()
     if (this->IsFakeClient())
         return 0;
 
-    CBasePlayerController *controller = this->GetController();
+    CBasePlayerController* controller = this->GetController();
     if (!controller)
         return this->xuid;
 
     return controller->m_steamID();
 }
 
-void Player::SendMsg(int dest, const char *msg, ...)
+void Player::SendMsg(int dest, const char* msg, ...)
 {
-    CBasePlayerController *controller = this->GetController();
+    CBasePlayerController* controller = this->GetController();
     if (!controller)
         return;
 
@@ -188,13 +190,13 @@ void Player::SendMsg(int dest, const char *msg, ...)
     }
 }
 
-const char *Player::GetName()
+const char* Player::GetName()
 {
-    CBasePlayerController *controller = this->GetController();
+    CBasePlayerController* controller = this->GetController();
     if (!controller)
         return this->name;
 
-    return reinterpret_cast<char *>(controller->m_iszPlayerName());
+    return reinterpret_cast<char*>(controller->m_iszPlayerName());
 }
 
 void Player::Authenticate()
@@ -204,7 +206,7 @@ void Player::Authenticate()
 
 Vector Player::GetCoords()
 {
-    CCSPlayerPawn *pawn = this->GetPlayerPawn();
+    CCSPlayerPawn* pawn = this->GetPlayerPawn();
     if (!pawn)
     {
         Vector vec(0.0, 0.0, 0.0);
@@ -215,7 +217,7 @@ Vector Player::GetCoords()
 
 void Player::SetCoords(float x, float y, float z)
 {
-    CBasePlayerPawn *pawn = this->GetPawn();
+    CBasePlayerPawn* pawn = this->GetPawn();
     if (!pawn)
         return;
 
@@ -225,7 +227,7 @@ void Player::SetCoords(float x, float y, float z)
 
 void Player::SwitchTeam(int team)
 {
-    CCSPlayerController *playerController = this->GetPlayerController();
+    CCSPlayerController* playerController = this->GetPlayerController();
     if (!playerController)
         return;
 
@@ -241,14 +243,14 @@ void Player::RenderCenterText()
     {
         if (this->centerMessageEndTime >= GetTime())
         {
-            IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+            IGameEvent* pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
             if (pEvent)
             {
                 pEvent->SetString("loc_token", this->centerMessageText.c_str());
                 pEvent->SetUint64("duration", 1);
                 pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
 
-                IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
+                IGameEventListener2* playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
 
                 playerListener->FireGameEvent(pEvent);
                 g_gameEventManager->FreeEvent(pEvent);
@@ -377,7 +379,7 @@ bool Player::IsButtonPressed(uint64_t but)
 }
 
 bool Player::HasMenuShown() { return (this->menu != nullptr); }
-Menu *Player::GetMenu() { return this->menu; }
+Menu* Player::GetMenu() { return this->menu; }
 
 int Player::GetPage() { return this->page; }
 void Player::SetPage(int pg)
@@ -405,7 +407,7 @@ void Player::ShowMenu(std::string menuid)
     if (this->menu != nullptr)
         return;
 
-    Menu *m = g_MenuManager->FetchMenu(menuid);
+    Menu* m = g_MenuManager->FetchMenu(menuid);
     if (m == nullptr)
         return;
 
@@ -425,14 +427,14 @@ void Player::RenderMenu()
     if (this->centerMessageEndTime > 0)
         this->centerMessageEndTime = 0;
 
-    IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+    IGameEvent* pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
     if (pEvent)
     {
         pEvent->SetString("loc_token", this->menu->GeneratedItems(this->GetSlot().Get(), this->page).c_str());
         pEvent->SetUint64("duration", 10);
         pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
 
-        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
+        IGameEventListener2* playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
 
         playerListener->FireGameEvent(pEvent);
         g_gameEventManager->FreeEvent(pEvent);
@@ -453,14 +455,14 @@ void Player::HideMenu()
     }
     this->menu = nullptr;
 
-    IGameEvent *pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+    IGameEvent* pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
     if (pEvent)
     {
         pEvent->SetString("loc_token", "Exiting...");
         pEvent->SetUint64("duration", 1);
         pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
 
-        IGameEventListener2 *playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
+        IGameEventListener2* playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
 
         playerListener->FireGameEvent(pEvent);
         g_gameEventManager->FreeEvent(pEvent);
@@ -474,7 +476,7 @@ void Player::PerformMenuAction(std::string button)
 
     if (button == g_Config->FetchValue<std::string>("core.menu.buttons.scroll"))
     {
-        CCSPlayerController *controller = this->GetPlayerController();
+        CCSPlayerController* controller = this->GetPlayerController();
         CSingleRecipientFilter filter(this->GetSlot().Get());
         if (controller)
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.volume"));
@@ -488,7 +490,7 @@ void Player::PerformMenuAction(std::string button)
     }
     else if (button == g_Config->FetchValue<std::string>("core.menu.buttons.use"))
     {
-        CCSPlayerController *controller = this->GetPlayerController();
+        CCSPlayerController* controller = this->GetPlayerController();
         CSingleRecipientFilter filter(this->GetSlot().Get());
         if (controller)
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.volume"));
@@ -524,7 +526,7 @@ void Player::PerformMenuAction(std::string button)
 
             std::string commandName = replace(tokenizedArgs[0], "sw_", "");
 
-            Command *cmd = g_commandsManager->FetchCommand(commandName);
+            Command* cmd = g_commandsManager->FetchCommand(commandName);
             if (cmd)
                 cmd->Execute(this->GetSlot().Get(), cmdString, true, "sw_");
         }
@@ -538,17 +540,15 @@ void Player::PerformCommand(std::string command)
     engine->ClientCommand(this->GetSlot(), command.c_str());
 }
 
-ConVar *FetchCVar(std::string cvarname);
-
 void Player::SetClientConvar(std::string cmd, std::string val)
 {
-    ConVar *cv = FetchCVar(cmd.c_str());
+    ConVar* cv = FetchCVar(cmd);
     if (!cv)
         return;
 
-    INetworkMessageInternal *netmsg = g_pNetworkMessages->FindNetworkMessagePartial("SetConVar");
+    INetworkMessageInternal* netmsg = g_pNetworkMessages->FindNetworkMessagePartial("SetConVar");
     auto msg = netmsg->AllocateMessage()->ToPB<CNETMsg_SetConVar>();
-    CMsg_CVars_CVar *cvar = msg->mutable_convars()->add_cvars();
+    CMsg_CVars_CVar* cvar = msg->mutable_convars()->add_cvars();
     cvar->set_name(cv->m_pszName);
     cvar->set_value(val.c_str());
 

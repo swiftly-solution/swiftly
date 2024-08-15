@@ -11,6 +11,7 @@
 
 #include "addons/addons.h"
 #include "addons/clients.h"
+#include "convars/convars.h"
 #include "configuration/Configuration.h"
 #include "commands/CommandsManager.h"
 #include "crashreporter/CallStack.h"
@@ -90,6 +91,7 @@ CGameEntitySystem* GameEntitySystem()
 
 CUtlVector<FuncHookBase*> g_vecHooks;
 std::map<std::string, PluginUserMessage> scriptingUserMessages;
+std::map<std::string, FakeConVar*> fakeConvars;
 
 Addons g_addons;
 CommandsManager* g_commandsManager = nullptr;

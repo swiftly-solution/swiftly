@@ -6,6 +6,7 @@
 #include "../entrypoint.h"
 #include "../common.h"
 #include "../addons/addons.h"
+#include "../convars/convars.h"
 #include "../utils/utils.h"
 #include "../player/PlayerManager.h"
 #include "../filters/ConsoleFilter.h"
@@ -112,6 +113,32 @@ void SwiftlyStatus(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Status", "end of status\n");
 }
 
+void SwiftlyConvarsManager(CPlayerSlot slot, CCommandContext context, int page)
+{
+    PrintToClientOrConsole(slot, "Convars", "There are %d convars created by plugins.\n", fakeConvars.size());
+    PrintToClientOrConsole(slot, "Convars", "Below will be shown a list of all the convars:\n");
+
+    if (page < 1)
+        page = 1;
+    else if (static_cast<unsigned int>(page) * 10 > fakeConvars.size())
+        page = int(ceil(double(fakeConvars.size()) / 10.0));
+
+    auto it = fakeConvars.begin();
+    for (int i = 0; i < (page - 1) * 10; i++)
+        ++it;
+
+    for (uint32 i = 0; i < 10; i++)
+    {
+        if (it == fakeConvars.end())
+            break;
+        PrintToClientOrConsole(slot, "Convars", "%s\n", it->first.c_str());
+        ++it;
+    }
+
+    if (static_cast<unsigned int>(page) * 10 < fakeConvars.size())
+        PrintToClientOrConsole(slot, "Convars", "To see more please use swiftly cvars %d\n", page + 1);
+}
+
 void ShowSwiftlyCommands(CPlayerSlot slot, CCommandContext context, int page)
 {
     std::map<std::string, Command*> cmds = g_commandsManager->GetCommands();
@@ -151,6 +178,7 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
     if (slot.Get() == -1)
     {
         PrintToClientOrConsole(slot, "Commands", " addons       - Addons Management Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " cvars        - List all convars created by plugins\n");
         PrintToClientOrConsole(slot, "Commands", " confilter    - Console Filtering Menu\n");
         PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " resmon       - Resource Monitor Menu\n");
@@ -813,7 +841,7 @@ void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
     if (subcmd == "credits")
         ShowSwiftlyCredits(slot, context);
     else if (subcmd == "cmds")
-        ShowSwiftlyCommands(slot, context, args[2] == nullptr ? 1 : atoi(args[2]));
+        ShowSwiftlyCommands(slot, context, V_StringToInt32(args[2], 1));
     else if (subcmd == "help")
         ShowSwiftlyCommandHelp(slot, context);
     else if (subcmd == "version")
@@ -824,6 +852,8 @@ void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
         SwiftlyConFilterManager(slot, context, args[2]);
     else if (subcmd == "addons")
         SwiftlyAddonsManager(slot, context, args[2]);
+    else if (subcmd == "cvars")
+        SwiftlyConvarsManager(slot, context, V_StringToInt32(args[2], 1));
     else if (subcmd == "translations")
         SwiftlyTranslationManager(slot, context, args[2]);
     else if (subcmd == "plugins")

@@ -1,7 +1,8 @@
 #include "PlayerManager.h"
 #include "../hooks/FuncHook.h"
+#include "../convars/convars.h"
 
-void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices *services, void *movementData);
+void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices* services, void* movementData);
 
 FuncHook<decltype(Hook_CCSPlayer_MovementServices_CheckJumpPre)> TCCSPlayer_MovementServices_CheckJumpPre(Hook_CCSPlayer_MovementServices_CheckJumpPre, "CCSPlayer_MovementServices_CheckJumpPre");
 
@@ -12,7 +13,7 @@ void PlayerManager::LoadPlayers()
 {
     for (uint16_t i = 0; i < MAX_PLAYERS; i++)
     {
-        Player *player = this->GetPlayer(i);
+        Player* player = this->GetPlayer(i);
         if (!player)
             continue;
 
@@ -26,7 +27,7 @@ void PlayerManager::LoadPlayers()
     }
 }
 
-void PlayerManager::RegisterPlayer(Player *player)
+void PlayerManager::RegisterPlayer(Player* player)
 {
     this->g_Players[player->GetSlot().Get()] = player;
 }
@@ -52,14 +53,14 @@ uint16_t PlayerManager::GetPlayers()
     return count;
 }
 
-Player *PlayerManager::FindPlayerBySteamID(uint64 steamid)
+Player* PlayerManager::FindPlayerBySteamID(uint64 steamid)
 {
     if (steamid == 0)
         return nullptr;
 
     for (int i = 0; i < this->GetPlayerCap(); i++)
     {
-        Player *player = this->GetPlayer(i);
+        Player* player = this->GetPlayer(i);
         if (!player)
             continue;
 
@@ -69,19 +70,18 @@ Player *PlayerManager::FindPlayerBySteamID(uint64 steamid)
     return nullptr;
 }
 
-ConVar *FetchCVar(std::string cvarname);
-ConVar *autobunnyhoppingcvar = nullptr;
+ConVar* autobunnyhoppingcvar = nullptr;
 
-void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices *services, void *movementData)
+void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices* services, void* movementData)
 {
     if (autobunnyhoppingcvar == nullptr)
         autobunnyhoppingcvar = FetchCVar("sv_autobunnyhopping");
 
-    bool &autobunnyhopping = *reinterpret_cast<bool *>(&autobunnyhoppingcvar->values);
+    bool& autobunnyhopping = *reinterpret_cast<bool*>(&autobunnyhoppingcvar->values);
 
     if (!autobunnyhopping)
     {
-        Player *player = g_playerManager->GetPlayer(((CPlayer_MovementServices *)services)->m_pPawn->m_hController().GetEntryIndex() - 1);
+        Player* player = g_playerManager->GetPlayer(((CPlayer_MovementServices*)services)->m_pPawn->m_hController().GetEntryIndex() - 1);
         if (player)
         {
             if (player->bunnyhopState)
