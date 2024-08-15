@@ -83,22 +83,7 @@ void scripting_StateUpdate(std::string ptr, std::string classname, std::string f
     }
 
     if (!starts_with(ptr, "0x")) return;
-
-    auto datatable_hash = hash_32_fnv1a_const(classname.c_str());
-    auto prop_hash = hash_32_fnv1a_const(field.c_str());
-
-    auto m_key = sch::GetOffset(classname.c_str(), datatable_hash, field.c_str(), prop_hash);
-    auto m_chain = sch::FindChainOffset(classname.c_str());
-
     void* vPtr = (void*)(strtol(ptr.c_str(), nullptr, 16));
 
-    if (m_chain != 0 && m_key.networked)
-        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(vPtr)+m_chain, m_key.offset, 0xFFFFFFFF);
-    else if (m_key.networked)
-    {
-        if (!isStruct)
-            SetStateChanged((CBaseEntity*)vPtr, m_key.offset);
-        else if (IsPlatformPosix())
-            CALL_VIRTUAL(void, 1, vPtr, m_key.offset, 0xFFFFFFFF, 0xFFFF);
-    }
+    SetStateChanged((uintptr_t)vPtr, classname, field, 0, isStruct);
 }

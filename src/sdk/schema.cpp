@@ -108,15 +108,28 @@ SchemaKey sch::GetOffset(const char* className, uint32_t classKey, const char* m
     return tableMap->Element(memberIndex);
 }
 
-void SetStateChanged(CBaseEntity* pEntity, int offset)
+void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset, bool isStruct)
 {
-    if (pEntity->m_NetworkTransmitComponent())
-    {
-        g_Signatures->FetchSignature<StateChanged>("StateChanged")(pEntity->m_NetworkTransmitComponent(), pEntity, offset, -1, -1);
+    if ((CBaseEntity*)entityPtr == nullptr) return;
 
-        if (engine && engine->GetServerGlobals())
-            pEntity->m_lastNetworkChange = engine->GetServerGlobals()->curtime;
+    auto datatable_hash = hash_32_fnv1a_const(className.c_str());
+    auto prop_hash = hash_32_fnv1a_const(fieldName.c_str());
 
-        pEntity->m_isSteadyState().ClearAll();
+    auto m_key = sch::GetOffset(className.c_str(), datatable_hash, fieldName.c_str(), prop_hash);
+    auto m_chain = sch::FindChainOffset(className.c_str());
+
+    if (!m_key.networked) return;
+
+    if (m_chain) {
+        entityPtr += m_chain;
+        CEntityInstance* pEntity = *reinterpret_cast<CEntityInstance**>(entityPtr);
+        if (pEntity && (pEntity->m_pEntity->m_flags & EF_IS_CONSTRUCTION_IN_PROGRESS) == 0)
+            pEntity->NetworkStateChanged(m_key.offset + extraOffset, -1, *reinterpret_cast<ChangeAccessorFieldPathIndex_t*>(entityPtr + 32));
+    }
+    else {
+        if (!isStruct)
+            reinterpret_cast<CEntityInstance*>(entityPtr)->NetworkStateChanged(m_key.offset + extraOffset);
+        else
+            CALL_VIRTUAL(void, 1, (CBaseEntity*)entityPtr, m_key.offset + extraOffset, 0xFFFFFFFF, 0xFFFF);
     }
 }

@@ -90,17 +90,8 @@ void SetSchemaValue(void* ptr, const char* className, const char* fieldName, boo
     auto prop_hash = hash_32_fnv1a_const(fieldName);
 
     auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
-    auto m_chain = sch::FindChainOffset(className);
 
-    if (m_chain != 0 && m_key.networked)
-        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(ptr)+m_chain, m_key.offset, 0xFFFFFFFF);
-    else if (m_key.networked)
-    {
-        if (!isStruct)
-            SetStateChanged((CBaseEntity*)ptr, m_key.offset);
-        else if (IsPlatformPosix())
-            CALL_VIRTUAL(void, 1, ptr, m_key.offset, 0xFFFFFFFF, 0xFFFF);
-    }
+    SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
     *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key.offset) = value;
 }
 
@@ -120,17 +111,8 @@ void SetSchemaValueCUtlVector(void* ptr, const char* className, const char* fiel
     auto prop_hash = hash_32_fnv1a_const(fieldName);
 
     auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
-    auto m_chain = sch::FindChainOffset(className);
 
-    if (m_chain != 0 && m_key.networked)
-        g_Signatures->FetchSignature<NetworkSTChange>("NetworkStateChanged")((uintptr_t)(ptr)+m_chain, m_key.offset, 0xFFFFFFFF);
-    else if (m_key.networked)
-    {
-        if (!isStruct)
-            SetStateChanged((CBaseEntity*)ptr, m_key.offset);
-        else if (IsPlatformPosix())
-            CALL_VIRTUAL(void, 1, ptr, m_key.offset, 0xFFFFFFFF, 0xFFFF);
-    }
+    SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
 
     CUtlVector<T>* vec = reinterpret_cast<CUtlVector<T> *>((uintptr_t)(ptr)+m_key.offset);
     vec->Purge();

@@ -22,8 +22,6 @@ struct EmitSound_t;
 struct SndOpEventGuid_t;
 
 typedef void (*ClientPrint)(CBasePlayerController*, int, const char*, const char*, const char*, const char*, const char*);
-typedef void (*NetworkSTChange)(uintptr_t, int, int);
-typedef void (*StateChanged)(void*, CBaseEntity*, int, int, int);
 typedef void (*CCSPlayerController_SwitchTeam)(CCSPlayerController* pController, unsigned int team);
 typedef void* (*UTIL_CreateEntityByName)(const char*, int);
 typedef void (*CBaseModelEntity_SetModel)(CBaseModelEntity*, const char*);
