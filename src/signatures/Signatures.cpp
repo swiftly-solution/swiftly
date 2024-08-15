@@ -105,7 +105,7 @@ void Signatures::LoadSignatures()
     rapidjson::Document signaturesFile;
     signaturesFile.Parse(Files::Read("addons/swiftly/gamedata/signatures.json").c_str());
     if (signaturesFile.HasParseError())
-        return SignaturesError(string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)signaturesFile.GetErrorOffset(), GetParseError_En(signaturesFile.GetParseError())));
+        return SignaturesError(string_format("A parsing error has been detected.\nError (offset %u): %s", (unsigned)signaturesFile.GetErrorOffset(), GetParseError_En(signaturesFile.GetParseError())));
 
     if (signaturesFile.IsArray())
         return SignaturesError("Signatures file cannot be an array.");
@@ -124,7 +124,7 @@ void Signatures::LoadSignatures()
 
         const char *lib = it->value["lib"].GetString();
         std::string rawSig = it->value[WIN_LINUX("windows", "linux")].GetString();
-        SignaturesError(string_format("Searching for \"%s\"...\n", rawSig.c_str()));
+        SignaturesError(string_format("Searching for \"%s\"...", rawSig.c_str()));
 
         void *sig = nullptr;
         if (rawSig.find("?") == std::string::npos)
