@@ -18,7 +18,7 @@
 #define GITHUB_SHA "LOCAL"
 #endif
 
-const char *GetCppVersion()
+const char* GetCppVersion()
 {
     if (__cplusplus == 202101L)
         return "C++23";
@@ -56,11 +56,11 @@ void SwiftlyList(CPlayerSlot slot, CCommandContext context)
     uint16 idx = 0;
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
-        Player *player = g_playerManager->GetPlayer(i);
+        Player* player = g_playerManager->GetPlayer(i);
         if (!player)
             continue;
 
-        CBasePlayerController *controller = player->GetController();
+        CBasePlayerController* controller = player->GetController();
         if (!controller)
             continue;
 
@@ -82,11 +82,11 @@ void SwiftlyStatus(CPlayerSlot slot, CCommandContext context)
 
     for (uint16 i = 0; i < g_playerManager->GetPlayerCap(); i++)
     {
-        Player *player = g_playerManager->GetPlayer(i);
+        Player* player = g_playerManager->GetPlayer(i);
         if (!player)
             continue;
 
-        CBasePlayerController *controller = player->GetController();
+        CBasePlayerController* controller = player->GetController();
         if (!controller)
             continue;
 
@@ -99,13 +99,13 @@ void SwiftlyStatus(CPlayerSlot slot, CCommandContext context)
     }
 
     auto PrintTT = [slot](std::string category, TextTable table) -> void
-    {
-        std::stringstream outputTable;
-        outputTable << table;
-        std::vector<std::string> rows = explode(outputTable.str(), "\n");
-        for (int i = 0; i < rows.size() - 1; i++)
-            PrintToClientOrConsole(slot, category, "%s\n", rows[i].c_str());
-    };
+        {
+            std::stringstream outputTable;
+            outputTable << table;
+            std::vector<std::string> rows = explode(outputTable.str(), "\n");
+            for (size_t i = 0; i < rows.size() - 1; i++)
+                PrintToClientOrConsole(slot, category, "%s\n", rows[i].c_str());
+        };
 
     PrintTT("Status", statusTable);
 
@@ -114,16 +114,16 @@ void SwiftlyStatus(CPlayerSlot slot, CCommandContext context)
 
 void ShowSwiftlyCommands(CPlayerSlot slot, CCommandContext context, int page)
 {
-    std::map<std::string, Command *> cmds = g_commandsManager->GetCommands();
+    std::map<std::string, Command*> cmds = g_commandsManager->GetCommands();
     PrintToClientOrConsole(slot, "Commands", "There are %d commands created by plugins.\n", cmds.size());
     PrintToClientOrConsole(slot, "Commands", "Below will be shown a list of all the commands:\n");
 
     if (page < 1)
         page = 1;
     else if (static_cast<unsigned int>(page) * 10 > cmds.size())
-        page = int(floor(cmds.size() / 10));
+        page = int(ceil(double(cmds.size()) / 10.0));
 
-    std::map<std::string, Command *>::iterator it = cmds.begin();
+    std::map<std::string, Command*>::iterator it = cmds.begin();
     for (int i = 0; i < (page - 1) * 10; i++)
         ++it;
 
@@ -202,7 +202,7 @@ void SwiftlyAddonsManagerStatus(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Addons", "Addons Status: %s.\n", g_addons.GetStatus() ? "Enabled" : "Disabled");
 }
 
-void SwiftlyAddonsManager(CPlayerSlot slot, CCommandContext context, const char *subcmd)
+void SwiftlyAddonsManager(CPlayerSlot slot, CCommandContext context, const char* subcmd)
 {
     if (slot.Get() != -1)
         return;
@@ -285,7 +285,7 @@ void SwiftlyConFilterReload(CPlayerSlot slot, CCommandContext context)
         g_conFilter->Toggle();
 }
 
-void SwiftlyConFilterManager(CPlayerSlot slot, CCommandContext context, const char *subcmd)
+void SwiftlyConFilterManager(CPlayerSlot slot, CCommandContext context, const char* subcmd)
 {
     if (slot.Get() != -1)
         return;
@@ -331,7 +331,7 @@ void SwiftlyPluginManagerList(CPlayerSlot slot, CCommandContext context)
     auto plugins = g_pluginManager->GetPluginsList();
     for (uint32 i = 0; i < plugins.size(); i++)
     {
-        Plugin *plugin = plugins[i];
+        Plugin* plugin = plugins[i];
         if (plugin == nullptr)
             continue;
         if (plugin->GetPluginState() == PluginState_t::Stopped)
@@ -348,7 +348,7 @@ void SwiftlyPluginManagerList(CPlayerSlot slot, CCommandContext context)
     std::vector<std::string> errors;
     for (uint32 i = 0; i < plugins.size(); i++)
     {
-        Plugin *plugin = plugins[i];
+        Plugin* plugin = plugins[i];
         if (plugin == nullptr)
             continue;
         if (plugin->GetLoadError().size() > 0)
@@ -361,11 +361,11 @@ void SwiftlyPluginManagerList(CPlayerSlot slot, CCommandContext context)
         auto website = plugin->GetWebsite();
 
         PrintToClientOrConsole(slot, "Plugins List", "%02d. \"%s\" (%s) by %s%s\n",
-                               showingIdx,
-                               plugin->GetPlName().c_str(),
-                               plugin->GetVersion().c_str(),
-                               plugin->GetAuthor().c_str(),
-                               website == "" ? "" : string_format(" ( %s )", website.c_str()).c_str());
+            showingIdx,
+            plugin->GetPlName().c_str(),
+            plugin->GetVersion().c_str(),
+            plugin->GetAuthor().c_str(),
+            website == "" ? "" : string_format(" ( %s )", website.c_str()).c_str());
     }
     if (errors.size() && slot.Get() == -1)
     {
@@ -385,7 +385,7 @@ void SwiftlyPluginManagerInfo(CPlayerSlot slot, CCommandContext context, std::st
     if (!g_pluginManager->PluginExists(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Info", "Invalid plugin name.\n");
 
-    Plugin *plugin = g_pluginManager->FetchPlugin(plugin_name);
+    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return PrintToClientOrConsole(slot, "Plugin Info", "Plugin is not loaded.\n");
 
@@ -398,7 +398,7 @@ void SwiftlyPluginManagerInfo(CPlayerSlot slot, CCommandContext context, std::st
     PrintToClientOrConsole(slot, "Plugin Info", "URL: %s\n", website == "" ? "Not Present" : website.c_str());
     if (plugin->GetKind() == PluginKind_t::Lua)
     {
-        LuaPlugin *plg = (LuaPlugin *)plugin;
+        LuaPlugin* plg = (LuaPlugin*)plugin;
 
         auto collectgarbage = luabridge::getGlobal(plg->GetState(), "collectgarbage");
         auto countResult = collectgarbage(std::string("count"));
@@ -415,7 +415,7 @@ void SwiftlyPluginManagerUnload(CPlayerSlot slot, CCommandContext context, std::
     if (!g_pluginManager->PluginExists(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Unload", "Invalid plugin name.\n");
 
-    Plugin *plugin = g_pluginManager->FetchPlugin(plugin_name);
+    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return PrintToClientOrConsole(slot, "Plugin Unload", "Plugin is not loaded.\n");
 
@@ -431,7 +431,7 @@ void SwiftlyPluginManagerLoad(CPlayerSlot slot, CCommandContext context, std::st
     if (!g_pluginManager->PluginExists(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Load", "Invalid plugin name.\n");
 
-    Plugin *plugin = g_pluginManager->FetchPlugin(plugin_name);
+    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
     if (plugin->GetPluginState() == PluginState_t::Started)
         return PrintToClientOrConsole(slot, "Plugin Load", "Plugin is already loaded.\n");
 
@@ -448,7 +448,7 @@ void SwiftlyPluginManagerReload(CPlayerSlot slot, CCommandContext context, std::
     if (!g_pluginManager->PluginExists(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Reload", "Invalid plugin name.\n");
 
-    Plugin *plugin = g_pluginManager->FetchPlugin(plugin_name);
+    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return PrintToClientOrConsole(slot, "Plugin Reload", "Plugin is not loaded.\n");
 
@@ -466,7 +466,7 @@ void SwiftlyPluginManagerRefresh(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Plugin Refresh", "Plugins have been succesfully refreshed. (%d -> %d plugins)\n", oldPluginsAmount, newPluginsAmount);
 }
 
-void SwiftlyPluginManager(CPlayerSlot slot, CCommandContext context, const char *subcmd, const char *plugin_name)
+void SwiftlyPluginManager(CPlayerSlot slot, CCommandContext context, const char* subcmd, const char* plugin_name)
 {
     if (slot.Get() != -1)
         return;
@@ -535,13 +535,13 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, CCommandContext c
         return PrintToClientOrConsole(slot, "Resource Monitor", "Invalid plugin ID.\n");
 
     auto PrintTable = [](TextTable tbl) -> void
-    {
-        std::stringstream outputTable;
-        outputTable << tbl;
-        std::vector<std::string> rows = explode(outputTable.str(), "\n");
-        for (int i = 0; i < rows.size(); i++)
-            PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
-    };
+        {
+            std::stringstream outputTable;
+            outputTable << tbl;
+            std::vector<std::string> rows = explode(outputTable.str(), "\n");
+            for (size_t i = 0; i < rows.size(); i++)
+                PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
+        };
 
     PrintToClientOrConsole(slot, "Resource Monitor", "Resource Monitor View Plugin\n");
     PrintToClientOrConsole(slot, "Resource Monitor", "ID: %s\n", plugin_id.c_str());
@@ -610,13 +610,13 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
     pluginsTable.endOfRow();
 
     auto PrintTable = [](TextTable tbl) -> void
-    {
-        std::stringstream outputTable;
-        outputTable << tbl;
-        std::vector<std::string> rows = explode(outputTable.str(), "\n");
-        for (int i = 0; i < rows.size(); i++)
-            PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
-    };
+        {
+            std::stringstream outputTable;
+            outputTable << tbl;
+            std::vector<std::string> rows = explode(outputTable.str(), "\n");
+            for (size_t i = 0; i < rows.size(); i++)
+                PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
+        };
 
     PLUGIN_PRINTF("Resource Monitor", "Plugin Resource Viewer\n");
 
@@ -660,7 +660,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
 
     pluginsTable.endOfRow();
 
-    for (Plugin *plugin : g_pluginManager->GetPluginsList())
+    for (Plugin* plugin : g_pluginManager->GetPluginsList())
     {
         std::string plugin_id = plugin->GetName();
 
@@ -671,7 +671,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
         pluginsTable.add(std::string(" ") + (plugin->GetKind() == PluginKind_t::Lua ? "Lua" : "None") + " ");
         if (plugin->GetKind() == PluginKind_t::Lua && plugin->GetPluginState() == PluginState_t::Started)
         {
-            auto collectgarbage = luabridge::getGlobal(((LuaPlugin *)plugin)->GetState(), "collectgarbage");
+            auto collectgarbage = luabridge::getGlobal(((LuaPlugin*)plugin)->GetState(), "collectgarbage");
             auto countResult = collectgarbage(std::string("count"));
             pluginsTable.add(string_format(" %.4f MB ", (countResult.cast<double>() / 1024)));
         }
@@ -716,7 +716,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
     PrintToClientOrConsole(slot, "Resource Monitor", "To view more detailed informations for each plugin, use: sw resmon viewplugin <ID>\n");
 }
 
-void SwiftlyResourceMonitorManager(CPlayerSlot slot, CCommandContext context, const char *subcmd, const char *subcmd2)
+void SwiftlyResourceMonitorManager(CPlayerSlot slot, CCommandContext context, const char* subcmd, const char* subcmd2)
 {
     if (slot.Get() != -1)
         return;
@@ -757,7 +757,7 @@ void SwiftlyTranslationReload(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Translations", "All translations have been succesfully reloaded.\n");
 }
 
-void SwiftlyTranslationManager(CPlayerSlot slot, CCommandContext context, const char *subcmd)
+void SwiftlyTranslationManager(CPlayerSlot slot, CCommandContext context, const char* subcmd)
 {
     if (slot.Get() != -1)
         return;
@@ -800,7 +800,7 @@ void ShowSwiftlyCredits(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", "https://github.com/swiftly-solution \n");
 }
 
-void SwiftlyCommand(const CCommandContext &context, const CCommand &args)
+void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
 {
     CPlayerSlot slot = context.GetPlayerSlot();
     if (args.ArgC() < 2)
