@@ -29,8 +29,10 @@ void PluginManager::LoadPlugins(std::string directory)
         if (folder.find("disabled") != std::string::npos)
             continue;
 
-        if (folder.find("[") == 0)
-            LoadPlugins(directory + "/" + folder);
+        auto directory_name = explode(folder, WIN_LINUX("\\", "/")).back();
+
+        if (directory_name.find("[") != std::string::npos)
+            LoadPlugins(directory + "/" + directory_name);
         else
         {
             folder = replace(folder, "addons/swiftly/plugins" + directory, "");
