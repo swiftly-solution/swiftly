@@ -24,7 +24,7 @@ public:
 
     bool PluginExists(std::string plugin_name);
 
-    void LoadPlugins();
+    void LoadPlugins(std::string directory);
     void UnloadPlugins();
 
     void LoadPlugin(std::string plugin_name);

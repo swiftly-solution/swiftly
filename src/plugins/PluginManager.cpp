@@ -17,12 +17,12 @@ bool PluginManager::PluginExists(std::string plugin_name)
     return (pluginsMap.find(plugin_name) != pluginsMap.end());
 }
 
-void PluginManager::LoadPlugins()
+void PluginManager::LoadPlugins(std::string directory = "")
 {
-    if (!Files::ExistsPath("addons/swiftly/plugins"))
-        Files::CreateDirectory("addons/swiftly/plugins");
+    if (!Files::ExistsPath("addons/swiftly/plugins" + directory))
+        Files::CreateDirectory("addons/swiftly/plugins" + directory);
 
-    std::vector<std::string> plugins = Files::FetchDirectories("addons/swiftly/plugins");
+    std::vector<std::string> plugins = Files::FetchDirectories("addons/swiftly/plugins" + directory);
     for (std::string folder : plugins)
     {
         // Skips over disabled
@@ -30,19 +30,7 @@ void PluginManager::LoadPlugins()
             continue;
 
         if (folder.find("[") == 0)
-        {
-            std::vector<std::string> subFolders = Files::FetchDirectories(folder);
-            for (std::string subFolder : subFolders)
-            {
-                std::string plugin_base_path = "addons/swiftly/plugins/" + folder + "/";
-                std::string plugin_name = replace(subFolder, plugin_base_path, "");
-
-                plugin_name = replace(plugin_name, WIN_LINUX("\\", "/"), "");
-                
-                LoadPlugin(plugin_name);
-            }
-
-        }
+            LoadPlugins(directory + "/" + folder);
         else
         {
             folder = replace(folder, "addons/swiftly/plugins", "");
