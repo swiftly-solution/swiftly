@@ -195,7 +195,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     if (g_Config->FetchValue<bool>("core.console_filtering"))
         g_conFilter->Toggle();
 
-    g_pluginManager->LoadPlugins();
+    g_pluginManager->LoadPlugins("");
     g_pluginManager->StartPlugins();
 
     if (late)

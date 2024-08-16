@@ -489,7 +489,7 @@ void SwiftlyPluginManagerReload(CPlayerSlot slot, CCommandContext context, std::
 void SwiftlyPluginManagerRefresh(CPlayerSlot slot, CCommandContext context)
 {
     auto oldPluginsAmount = g_pluginManager->GetPluginsList().size();
-    g_pluginManager->LoadPlugins();
+    g_pluginManager->LoadPlugins("");
     auto newPluginsAmount = g_pluginManager->GetPluginsList().size();
     PrintToClientOrConsole(slot, "Plugin Refresh", "Plugins have been succesfully refreshed. (%d -> %d plugins)\n", oldPluginsAmount, newPluginsAmount);
 }

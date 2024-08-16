@@ -17,7 +17,7 @@ bool PluginManager::PluginExists(std::string plugin_name)
     return (pluginsMap.find(plugin_name) != pluginsMap.end());
 }
 
-void PluginManager::LoadPlugins(std::string directory = "")
+void PluginManager::LoadPlugins(std::string directory)
 {
     if (!Files::ExistsPath("addons/swiftly/plugins" + directory))
         Files::CreateDirectory("addons/swiftly/plugins" + directory);
