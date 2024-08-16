@@ -33,7 +33,7 @@ void PluginManager::LoadPlugins(std::string directory)
             LoadPlugins(directory + "/" + folder);
         else
         {
-            folder = replace(folder, "addons/swiftly/plugins", "");
+            folder = replace(folder, "addons/swiftly/plugins" + directory, "");
             std::string plugin_name = replace(folder, WIN_LINUX("\\", "/"), "");
 
             LoadPlugin(plugin_name);            
