@@ -92,6 +92,7 @@ CGameEntitySystem* GameEntitySystem()
 CUtlVector<FuncHookBase*> g_vecHooks;
 std::map<std::string, PluginUserMessage> scriptingUserMessages;
 std::map<std::string, FakeConVar*> fakeConvars;
+std::map<std::string, std::string> pluginBasePaths;
 
 Addons g_addons;
 CommandsManager* g_commandsManager = nullptr;
