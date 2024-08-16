@@ -29,10 +29,27 @@ void PluginManager::LoadPlugins()
         if (folder.find("disabled") != std::string::npos)
             continue;
 
-        folder = replace(folder, "addons/swiftly/plugins", "");
-        std::string plugin_name = replace(folder, WIN_LINUX("\\", "/"), "");
+        if (folder.find("[") == 0)
+        {
+            std::vector<std::string> subFolders = Files::FetchDirectories(folder);
+            for (std::string subFolder : subFolders)
+            {
+                std::string plugin_base_path = "addons/swiftly/plugins/" + folder + "/";
+                std::string plugin_name = replace(subFolder, plugin_base_path, "");
 
-        LoadPlugin(plugin_name);
+                plugin_name = replace(plugin_name, WIN_LINUX("\\", "/"), "");
+                
+                LoadPlugin(plugin_name);
+            }
+
+        }
+        else
+        {
+            folder = replace(folder, "addons/swiftly/plugins", "");
+            std::string plugin_name = replace(folder, WIN_LINUX("\\", "/"), "");
+
+            LoadPlugin(plugin_name);            
+        }
     }
 }
 
