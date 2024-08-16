@@ -92,6 +92,7 @@ CGameEntitySystem* GameEntitySystem()
 CUtlVector<FuncHookBase*> g_vecHooks;
 std::map<std::string, PluginUserMessage> scriptingUserMessages;
 std::map<std::string, FakeConVar*> fakeConvars;
+std::map<std::string, std::string> pluginBasePaths;
 
 Addons g_addons;
 CommandsManager* g_commandsManager = nullptr;
@@ -195,7 +196,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     if (g_Config->FetchValue<bool>("core.console_filtering"))
         g_conFilter->Toggle();
 
-    g_pluginManager->LoadPlugins();
+    g_pluginManager->LoadPlugins("");
     g_pluginManager->StartPlugins();
 
     if (late)

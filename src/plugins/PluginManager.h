@@ -15,8 +15,8 @@ class PluginEvent;
 class PluginManager
 {
 private:
-    std::vector<Plugin *> pluginsList;
-    std::map<std::string, Plugin *> pluginsMap;
+    std::vector<Plugin*> pluginsList;
+    std::map<std::string, Plugin*> pluginsMap;
 
 public:
     PluginManager();
@@ -24,7 +24,7 @@ public:
 
     bool PluginExists(std::string plugin_name);
 
-    void LoadPlugins();
+    void LoadPlugins(std::string directory);
     void UnloadPlugins();
 
     void LoadPlugin(std::string plugin_name);
@@ -36,13 +36,14 @@ public:
     bool StartPlugin(std::string plugin_name);
     void StopPlugin(std::string plugin_name);
 
-    Plugin *FetchPlugin(std::string name);
+    Plugin* FetchPlugin(std::string name);
 
-    std::vector<Plugin *> GetPluginsList();
+    std::vector<Plugin*> GetPluginsList();
 
-    EventResult ExecuteEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event);
+    EventResult ExecuteEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event);
 };
 
-extern PluginManager *g_pluginManager;
+extern PluginManager* g_pluginManager;
+extern std::map<std::string, std::string> pluginBasePaths;
 
 #endif
