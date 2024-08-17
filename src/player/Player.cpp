@@ -494,12 +494,11 @@ void Player::PerformMenuAction(std::string button)
     }
     else if (button == g_Config->FetchValue<std::string>("core.menu.buttons.use"))
     {
+        std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
         CCSPlayerController* controller = this->GetPlayerController();
         CSingleRecipientFilter filter(this->GetSlot().Get());
-        if (controller)
+        if (controller && cmd != "menuexit")
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.use.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.use.volume"));
-
-        std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
         if (cmd == "menunext")
         {
             this->SetPage(this->GetPage() + 1);
