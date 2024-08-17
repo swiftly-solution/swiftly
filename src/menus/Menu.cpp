@@ -105,8 +105,7 @@ void Menu::RegeneratePage(int playerid, int page, int selected)
 
     std::string stringPage = string_format("<div><font color=\"#%s\">&nbsp;&nbsp;&nbsp;%s</font></div><br/>", this->color.c_str(), this->title.c_str());
     for (int i = 0; i < processedOptions[page - 1].size(); i++)
-        stringPage += string_format("<div><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? "➤&nbsp;" : "&nbsp;&nbsp;&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
-
+        stringPage += string_format("<div><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? (g_Config->FetchValue<std::string>("core.menu.navigation_prefix") + "&nbsp;").c_str() : "&nbsp;&nbsp;&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
     std::string footer = replace(g_translations->FetchTranslation(g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.footer" : "core.menu.footer.nooption"), "{PAGE}", std::to_string(page));
     footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
     footer = replace(footer, "{CYCLE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.scroll")));
