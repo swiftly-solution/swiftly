@@ -453,8 +453,16 @@ bool Configuration::LoadConfiguration()
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "language", "en");
 
-    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.name", "UI.ContractType");
-    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.volume", 0.75);
+    RegisterConfiguration(wasEdited,coreConfigFile, "core", "core", "menu.navigation_prefix", "➤");
+
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.use.name", "Vote.Cast.Yes");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.use.volume", 0.75);
+
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.scroll.name", "UI.ContractType");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.scroll.volume", 0.75);
+
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.exit.name", "Vote.Failed");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.exit.volume", 0.75);
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.buttons.use", "e");
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.buttons.scroll", "shift");

@@ -479,23 +479,26 @@ void Player::PerformMenuAction(std::string button)
         CCSPlayerController* controller = this->GetPlayerController();
         CSingleRecipientFilter filter(this->GetSlot().Get());
         if (controller)
-            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.volume"));
+            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.scroll.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.scroll.volume"));
 
         this->MoveSelection();
         this->RenderMenu();
     }
     else if (!g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && button == g_Config->FetchValue<std::string>("core.menu.buttons.exit.button"))
     {
+        CCSPlayerController* controller = this->GetPlayerController();
+        CSingleRecipientFilter filter(this->GetSlot().Get());
+        if (controller)
+            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.exit.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.exit.volume"));       
         this->HideMenu();
     }
     else if (button == g_Config->FetchValue<std::string>("core.menu.buttons.use"))
     {
+        std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
         CCSPlayerController* controller = this->GetPlayerController();
         CSingleRecipientFilter filter(this->GetSlot().Get());
-        if (controller)
-            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.volume"));
-
-        std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
+        if (controller && cmd != "menuexit")
+            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.use.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.use.volume"));
         if (cmd == "menunext")
         {
             this->SetPage(this->GetPage() + 1);
@@ -508,6 +511,10 @@ void Player::PerformMenuAction(std::string button)
         }
         else if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && cmd == "menuexit")
         {
+            CCSPlayerController* controller = this->GetPlayerController();
+            CSingleRecipientFilter filter(this->GetSlot().Get());
+            if (controller)
+                controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.exit.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.exit.volume"));
             this->HideMenu();
         }
         else if (g_MenuManager->FetchMenu(cmd))
