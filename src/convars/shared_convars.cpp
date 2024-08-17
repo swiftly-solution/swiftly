@@ -111,8 +111,8 @@ std::any FetchCVarValue(std::string cvarname)
             return nullptr;
         }
     }
-    else if (fakeConvars.find(cvarname) != fakeConvars.end())
-        return fakeConvars.at(cvarname)->GetValue();
+    else if (FakeConvarExists(cvarname))
+        return GetFakeConvar(cvarname)->GetValue();
 
     return nullptr;
 }
@@ -122,6 +122,6 @@ EConVarType FetchCVarType(std::string cvarname)
     ConVar* cvar = FetchCVar(cvarname);
 
     if (cvar) return cvar->m_eVarType;
-    else if (fakeConvars.find(cvarname) != fakeConvars.end()) return fakeConvars.at(cvarname)->GetType();
+    else if (FakeConvarExists(cvarname)) return GetFakeConvar(cvarname)->GetType();
     else return EConVarType_Invalid;
 }

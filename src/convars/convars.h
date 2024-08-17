@@ -28,6 +28,10 @@ public:
     std::any GetValue();
 };
 
-extern std::map<std::string, FakeConVar*> fakeConvars;
+bool FakeConvarExists(std::string name);
+FakeConVar* GetFakeConvar(std::string name);
+void DeleteFakeConvar(std::string name);
+std::map<std::string, FakeConVar*> FetchFakeConvars();
+void InsertFakeConvar(std::string name, FakeConVar* cvar);
 
 #endif

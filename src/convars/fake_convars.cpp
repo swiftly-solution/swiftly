@@ -2,6 +2,38 @@
 
 static void convarsCallback(const CCommandContext& context, const CCommand& args);
 std::map<std::string, bool> convarCreated;
+std::map<std::string, FakeConVar*> fakeConvars;
+
+bool FakeConvarExists(std::string name)
+{
+    return (fakeConvars.find(name) != fakeConvars.end());
+}
+
+FakeConVar* GetFakeConvar(std::string name)
+{
+    if (!FakeConvarExists(name)) return nullptr;
+
+    return fakeConvars.at(name);
+}
+
+void DeleteFakeConvar(std::string name)
+{
+    if (!FakeConvarExists(name)) return;
+
+    fakeConvars.erase(name);
+}
+
+std::map<std::string, FakeConVar*> FetchFakeConvars()
+{
+    return fakeConvars;
+}
+
+void InsertFakeConvar(std::string name, FakeConVar* cvar)
+{
+    if (FakeConvarExists(name)) return;
+
+    fakeConvars.insert({ name, cvar });
+}
 
 FakeConVar::FakeConVar(std::string name, EConVarType type, std::any defaultValue, bool prot)
 {

@@ -102,7 +102,7 @@ bool LuaPlugin::LoadScriptingEnvironment()
 
     luabridge::setGlobal(this->state, NULL, "AddGlobalEvents");
 
-    std::vector<std::string> files = Files::FetchFileNames(pluginBasePaths[this->GetName()] + "/" + this->GetName());
+    std::vector<std::string> files = Files::FetchFileNames(g_pluginManager->GetPluginBasePath(this->GetName()) + "/" + this->GetName());
     for (std::string file : files)
     {
         if (ends_with(file, ".lua"))

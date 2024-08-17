@@ -17,10 +17,13 @@ class PluginManager
 private:
     std::vector<Plugin*> pluginsList;
     std::map<std::string, Plugin*> pluginsMap;
+    std::map<std::string, std::string> pluginBasePaths;
 
 public:
     PluginManager();
     ~PluginManager();
+
+    std::string GetPluginBasePath(std::string plugin_name);
 
     bool PluginExists(std::string plugin_name);
 
@@ -44,6 +47,5 @@ public:
 };
 
 extern PluginManager* g_pluginManager;
-extern std::map<std::string, std::string> pluginBasePaths;
 
 #endif

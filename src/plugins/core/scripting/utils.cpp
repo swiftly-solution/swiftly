@@ -41,7 +41,7 @@ std::string scripting_GetPluginPath(std::string plugin_name)
     Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
     if (!plugin) return "";
 
-    return string_format("%s/%s", pluginBasePaths[plugin_name].c_str(), plugin->GetName().c_str());
+    return string_format("%s/%s", g_pluginManager->GetPluginBasePath(plugin_name).c_str(), plugin->GetName().c_str());
 }
 
 PluginUserMessage scripting_GetUserMessage(std::string uuid)

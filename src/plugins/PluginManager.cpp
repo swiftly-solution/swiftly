@@ -194,3 +194,9 @@ std::vector<Plugin*> PluginManager::GetPluginsList()
 {
     return this->pluginsList;
 }
+
+std::string PluginManager::GetPluginBasePath(std::string plugin_name)
+{
+    if (this->pluginBasePaths.find(plugin_name) == this->pluginBasePaths.end()) return "addons/swiftly/plugins";
+    return this->pluginBasePaths[plugin_name];
+}

@@ -49,6 +49,4 @@ public:
     virtual EventResult TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event) = 0;
 };
 
-extern std::map<std::string, std::string> pluginBasePaths;
-
 #endif

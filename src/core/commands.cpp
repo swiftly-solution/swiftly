@@ -115,6 +115,8 @@ void SwiftlyStatus(CPlayerSlot slot, CCommandContext context)
 
 void SwiftlyConvarsManager(CPlayerSlot slot, CCommandContext context, int page)
 {
+    auto fakeConvars = FetchFakeConvars();
+
     PrintToClientOrConsole(slot, "Convars", "There are %d convars created by plugins.\n", fakeConvars.size());
     PrintToClientOrConsole(slot, "Convars", "Below will be shown a list of all the convars:\n");
 

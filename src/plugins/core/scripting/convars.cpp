@@ -10,11 +10,11 @@ PluginConvars::PluginConvars(std::string m_plugin_name)
 void PluginConvars::CreateFake(std::string cvarname, int32_t type, std::any defaultValue, bool prot)
 {
     if (type < 0 || type > 14) return;
-    if (fakeConvars.find(cvarname) != fakeConvars.end()) return;
+    if (FakeConvarExists(cvarname)) return;
     if (FetchCVar(cvarname)) return;
 
     auto cvar = new FakeConVar(cvarname, (EConVarType)type, defaultValue, prot);
-    fakeConvars.insert({ cvarname, cvar });
+    InsertFakeConvar(cvarname, cvar);
 }
 
 void PluginConvars::CreateFakeLua(std::string cvarname, int32_t type, luabridge::LuaRef defaultValue, bool prot)
@@ -83,11 +83,11 @@ void PluginConvars::CreateFakeLua(std::string cvarname, int32_t type, luabridge:
 
 void PluginConvars::DeleteFake(std::string cvarname)
 {
-    if (fakeConvars.find(cvarname) == fakeConvars.end()) return;
+    if (!FakeConvarExists(cvarname)) return;
 
-    auto cvar = fakeConvars.at(cvarname);
+    auto cvar = GetFakeConvar(cvarname);
     delete cvar;
-    fakeConvars.erase(cvarname);
+    DeleteFakeConvar(cvarname);
 }
 
 std::any PluginConvars::GetConvarValue(std::string cvarname)
