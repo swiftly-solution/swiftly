@@ -1,6 +1,6 @@
 #include "core.h"
 
-void SetupLuaDatabase(LuaPlugin *plugin, lua_State *state)
+void SetupLuaDatabase(LuaPlugin* plugin, lua_State* state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<PluginDatabase>("Database")
@@ -11,5 +11,5 @@ void SetupLuaDatabase(LuaPlugin *plugin, lua_State *state)
         .addFunction("QueryParams", &PluginDatabase::QueryParamsLua)
         .endClass();
 
-    luabridge::setGlobal(state, luabridge::LuaRef(state), "db");
+    luaL_dostring(state, "db = Database(\"default_connection\")");
 }
