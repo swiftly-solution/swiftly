@@ -12,7 +12,7 @@ GCGlowProperty::GCGlowProperty(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCGlowProperty::GCGlowProperty(void* ptr) {
+GCGlowProperty::GCGlowProperty(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCGlowProperty::GetGlowColor() const {
@@ -112,7 +112,7 @@ std::string GCGlowProperty::ToPtr() {
 bool GCGlowProperty::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCGlowProperty(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCGlowProperty(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCGlowProperty>("CGlowProperty")
@@ -136,7 +136,7 @@ GCEntityComponent::GCEntityComponent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEntityComponent::GCEntityComponent(void* ptr) {
+GCEntityComponent::GCEntityComponent(void *ptr) {
     m_ptr = ptr;
 }
 void* GCEntityComponent::GetPtr() {
@@ -148,7 +148,7 @@ std::string GCEntityComponent::ToPtr() {
 bool GCEntityComponent::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCEntityComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEntityComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEntityComponent>("CEntityComponent")
@@ -161,7 +161,7 @@ GCPlayerPawnComponent::GCPlayerPawnComponent(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayerPawnComponent::GCPlayerPawnComponent(void* ptr) {
+GCPlayerPawnComponent::GCPlayerPawnComponent(void *ptr) {
     m_ptr = ptr;
 }
 GCNetworkVarChainer GCPlayerPawnComponent::Get__pChainEntity() const {
@@ -182,7 +182,7 @@ std::string GCPlayerPawnComponent::ToPtr() {
 bool GCPlayerPawnComponent::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCPlayerPawnComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayerPawnComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayerPawnComponent>("CPlayerPawnComponent")
@@ -196,7 +196,7 @@ Gfogparams_t::Gfogparams_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-Gfogparams_t::Gfogparams_t(void* ptr) {
+Gfogparams_t::Gfogparams_t(void *ptr) {
     m_ptr = ptr;
 }
 Vector Gfogparams_t::GetDirPrimary() const {
@@ -408,7 +408,7 @@ std::string Gfogparams_t::ToPtr() {
 bool Gfogparams_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassfogparams_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassfogparams_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<Gfogparams_t>("fogparams_t")
@@ -446,7 +446,7 @@ GCNetworkTransmitComponent::GCNetworkTransmitComponent(std::string ptr, lua_Stat
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCNetworkTransmitComponent::GCNetworkTransmitComponent(void* ptr) {
+GCNetworkTransmitComponent::GCNetworkTransmitComponent(void *ptr) {
     m_ptr = ptr;
 }
 uint32_t GCNetworkTransmitComponent::GetTransmitStateOwnedCounter() const {
@@ -466,7 +466,7 @@ std::string GCNetworkTransmitComponent::ToPtr() {
 bool GCNetworkTransmitComponent::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCNetworkTransmitComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCNetworkTransmitComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCNetworkTransmitComponent>("CNetworkTransmitComponent")
@@ -480,7 +480,7 @@ GCNetworkViewOffsetVector::GCNetworkViewOffsetVector(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCNetworkViewOffsetVector::GCNetworkViewOffsetVector(void* ptr) {
+GCNetworkViewOffsetVector::GCNetworkViewOffsetVector(void *ptr) {
     m_ptr = ptr;
 }
 float GCNetworkViewOffsetVector::GetX() const {
@@ -516,7 +516,7 @@ std::string GCNetworkViewOffsetVector::ToPtr() {
 bool GCNetworkViewOffsetVector::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCNetworkViewOffsetVector(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCNetworkViewOffsetVector(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCNetworkViewOffsetVector>("CNetworkViewOffsetVector")
@@ -532,7 +532,7 @@ GCNetworkVelocityVector::GCNetworkVelocityVector(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCNetworkVelocityVector::GCNetworkVelocityVector(void* ptr) {
+GCNetworkVelocityVector::GCNetworkVelocityVector(void *ptr) {
     m_ptr = ptr;
 }
 float GCNetworkVelocityVector::GetX() const {
@@ -568,7 +568,7 @@ std::string GCNetworkVelocityVector::ToPtr() {
 bool GCNetworkVelocityVector::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCNetworkVelocityVector(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCNetworkVelocityVector(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCNetworkVelocityVector>("CNetworkVelocityVector")
@@ -584,7 +584,7 @@ GCEntityInstance::GCEntityInstance(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEntityInstance::GCEntityInstance(void* ptr) {
+GCEntityInstance::GCEntityInstance(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCEntityInstance::GetPrivateVScripts() const {
@@ -602,7 +602,7 @@ GCEntityIdentity GCEntityInstance::GetEntity() const {
 }
 void GCEntityInstance::SetEntity(GCEntityIdentity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEntityInstance->Entity(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEntityInstance", "m_pEntity", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CEntityInstance","m_pEntity", false, (char*)value.GetPtr());
 }
 GCScriptComponent GCEntityInstance::GetCScriptComponent() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEntityInstance->CScriptComponent(ptr=%p)", m_ptr));
@@ -611,7 +611,7 @@ GCScriptComponent GCEntityInstance::GetCScriptComponent() const {
 }
 void GCEntityInstance::SetCScriptComponent(GCScriptComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEntityInstance->CScriptComponent(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEntityInstance", "m_CScriptComponent", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CEntityInstance","m_CScriptComponent", false, (char*)value.GetPtr());
 }
 bool GCEntityInstance::GetVisibleinPVS() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEntityInstance->VisibleinPVS(ptr=%p)", m_ptr));
@@ -630,7 +630,7 @@ std::string GCEntityInstance::ToPtr() {
 bool GCEntityInstance::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCEntityInstance(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEntityInstance(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEntityInstance>("CEntityInstance")
@@ -647,7 +647,7 @@ GCBaseEntity::GCBaseEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseEntity::GCBaseEntity(void* ptr) {
+GCBaseEntity::GCBaseEntity(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCBaseEntity::EHandle() {
@@ -673,10 +673,10 @@ void GCBaseEntity::Teleport(Vector value, QAngle angle) {
     ((CBaseEntity*)m_ptr)->Teleport(&value, &angle, nullptr);
 }
 void GCBaseEntity::EmitSound(std::string sound_name, float pitch, float volume) {
-    for (int i = 0; i < g_playerManager->GetPlayerCap(); i++) {
+    for(int i = 0; i < g_playerManager->GetPlayerCap(); i++) {
         Player* player = g_playerManager->GetPlayer(i);
-        if (!player) continue;
-        if (player->IsFakeClient()) continue;
+        if(!player) continue;
+        if(player->IsFakeClient()) continue;
         if ((void*)player->GetPlayerController() == m_ptr) {
             CSingleRecipientFilter filter(i);
             ((CBaseEntity*)m_ptr)->EmitSoundFilter(filter, sound_name, pitch, volume);
@@ -691,7 +691,7 @@ GCBodyComponent GCBaseEntity::GetCBodyComponent() const {
 }
 void GCBaseEntity::SetCBodyComponent(GCBodyComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseEntity->CBodyComponent(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBaseEntity", "m_CBodyComponent", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBaseEntity","m_CBodyComponent", false, (char*)value.GetPtr());
 }
 GCNetworkTransmitComponent GCBaseEntity::GetNetworkTransmitComponent() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseEntity->NetworkTransmitComponent(ptr=%p)", m_ptr));
@@ -704,7 +704,7 @@ void GCBaseEntity::SetNetworkTransmitComponent(GCNetworkTransmitComponent value)
 }
 std::vector<Gthinkfunc_t> GCBaseEntity::GetThinkFunctions() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseEntity->ThinkFunctions(ptr=%p)", m_ptr));
-    CUtlVector<Gthinkfunc_t>* vec = GetSchemaValue<CUtlVector<Gthinkfunc_t>*>(m_ptr, "CBaseEntity", "m_aThinkFunctions"); std::vector<Gthinkfunc_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<Gthinkfunc_t>* vec = GetSchemaValue<CUtlVector<Gthinkfunc_t>*>(m_ptr, "CBaseEntity", "m_aThinkFunctions"); std::vector<Gthinkfunc_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCBaseEntity::SetThinkFunctions(std::vector<Gthinkfunc_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseEntity->ThinkFunctions(ptr=%p)", m_ptr));
@@ -744,7 +744,7 @@ void GCBaseEntity::SetLastNetworkChange(float value) {
 }
 std::vector<GResponseContext_t> GCBaseEntity::GetResponseContexts() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseEntity->ResponseContexts(ptr=%p)", m_ptr));
-    CUtlVector<GResponseContext_t>* vec = GetSchemaValue<CUtlVector<GResponseContext_t>*>(m_ptr, "CBaseEntity", "m_ResponseContexts"); std::vector<GResponseContext_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GResponseContext_t>* vec = GetSchemaValue<CUtlVector<GResponseContext_t>*>(m_ptr, "CBaseEntity", "m_ResponseContexts"); std::vector<GResponseContext_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCBaseEntity::SetResponseContexts(std::vector<GResponseContext_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseEntity->ResponseContexts(ptr=%p)", m_ptr));
@@ -1072,7 +1072,7 @@ GCCollisionProperty GCBaseEntity::GetCollision() const {
 }
 void GCBaseEntity::SetCollision(GCCollisionProperty value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseEntity->Collision(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBaseEntity", "m_pCollision", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBaseEntity","m_pCollision", false, (char*)value.GetPtr());
 }
 GCBaseEntity GCBaseEntity::GetEffectEntity() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseEntity->EffectEntity(ptr=%p)", m_ptr));
@@ -1324,7 +1324,7 @@ void GCBaseEntity::SetParent(GCEntityInstance value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseEntity>("CBaseEntity")
@@ -1422,7 +1422,7 @@ GCPropDataComponent::GCPropDataComponent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPropDataComponent::GCPropDataComponent(void* ptr) {
+GCPropDataComponent::GCPropDataComponent(void *ptr) {
     m_ptr = ptr;
 }
 float GCPropDataComponent::GetDmgModBullet() const {
@@ -1523,7 +1523,7 @@ void GCPropDataComponent::SetParent(GCEntityComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPropDataComponent::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPropDataComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPropDataComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPropDataComponent>("CPropDataComponent")
@@ -1547,18 +1547,18 @@ GCHitboxComponent::GCHitboxComponent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCHitboxComponent::GCHitboxComponent(void* ptr) {
+GCHitboxComponent::GCHitboxComponent(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<uint32_t> GCHitboxComponent::GetDisabledHitGroups() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CHitboxComponent->DisabledHitGroups(ptr=%p,size=1)", m_ptr));
-    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CHitboxComponent", "m_bvDisabledHitGroups"); std::vector<uint32_t> ret; for (int i = 0; i < 1; i++) { ret.push_back(outValue[i]); } return ret;
+    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CHitboxComponent", "m_bvDisabledHitGroups"); std::vector<uint32_t> ret; for(int i = 0; i < 1; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCHitboxComponent::SetDisabledHitGroups(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CHitboxComponent->DisabledHitGroups(ptr=%p,size=1)", m_ptr));
-    if (value.size() != 1) return PLUGIN_PRINT("Schema SDK", "Field 'DisabledHitGroups' needs to have 1 values.\n");
+    if(value.size() != 1) return PLUGIN_PRINT("Schema SDK", "Field 'DisabledHitGroups' needs to have 1 values.\n");
     auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CHitboxComponent", "m_bvDisabledHitGroups");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCHitboxComponent::GetPtr() {
     return m_ptr;
@@ -1578,7 +1578,7 @@ void GCHitboxComponent::SetParent(GCEntityComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CHitboxComponent::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCHitboxComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCHitboxComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCHitboxComponent>("CHitboxComponent")
@@ -1593,7 +1593,7 @@ GVPhysicsCollisionAttribute_t::GVPhysicsCollisionAttribute_t(std::string ptr, lu
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GVPhysicsCollisionAttribute_t::GVPhysicsCollisionAttribute_t(void* ptr) {
+GVPhysicsCollisionAttribute_t::GVPhysicsCollisionAttribute_t(void *ptr) {
     m_ptr = ptr;
 }
 uint64_t GVPhysicsCollisionAttribute_t::GetInteractsAs() const {
@@ -1669,7 +1669,7 @@ std::string GVPhysicsCollisionAttribute_t::ToPtr() {
 bool GVPhysicsCollisionAttribute_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassVPhysicsCollisionAttribute_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassVPhysicsCollisionAttribute_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GVPhysicsCollisionAttribute_t>("VPhysicsCollisionAttribute_t")
@@ -1690,7 +1690,7 @@ GCCollisionProperty::GCCollisionProperty(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCollisionProperty::GCCollisionProperty(void* ptr) {
+GCCollisionProperty::GCCollisionProperty(void *ptr) {
     m_ptr = ptr;
 }
 GVPhysicsCollisionAttribute_t GCCollisionProperty::GetCollisionAttribute() const {
@@ -1708,7 +1708,7 @@ Vector GCCollisionProperty::GetMins() const {
 }
 void GCCollisionProperty::SetMins(Vector value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->Mins(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecMins", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecMins", true, value);
 }
 Vector GCCollisionProperty::GetMaxs() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->Maxs(ptr=%p)", m_ptr));
@@ -1716,7 +1716,7 @@ Vector GCCollisionProperty::GetMaxs() const {
 }
 void GCCollisionProperty::SetMaxs(Vector value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->Maxs(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecMaxs", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecMaxs", true, value);
 }
 uint32_t GCCollisionProperty::GetSolidFlags() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->SolidFlags(ptr=%p)", m_ptr));
@@ -1724,7 +1724,7 @@ uint32_t GCCollisionProperty::GetSolidFlags() const {
 }
 void GCCollisionProperty::SetSolidFlags(uint32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->SolidFlags(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_usSolidFlags", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_usSolidFlags", true, value);
 }
 uint64_t GCCollisionProperty::GetSolidType() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->SolidType(ptr=%p)", m_ptr));
@@ -1732,7 +1732,7 @@ uint64_t GCCollisionProperty::GetSolidType() const {
 }
 void GCCollisionProperty::SetSolidType(uint64_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->SolidType(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_nSolidType", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_nSolidType", true, value);
 }
 uint32_t GCCollisionProperty::GetTriggerBloat() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->TriggerBloat(ptr=%p)", m_ptr));
@@ -1740,7 +1740,7 @@ uint32_t GCCollisionProperty::GetTriggerBloat() const {
 }
 void GCCollisionProperty::SetTriggerBloat(uint32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->TriggerBloat(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_triggerBloat", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_triggerBloat", true, value);
 }
 uint64_t GCCollisionProperty::GetSurroundType() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->SurroundType(ptr=%p)", m_ptr));
@@ -1748,7 +1748,7 @@ uint64_t GCCollisionProperty::GetSurroundType() const {
 }
 void GCCollisionProperty::SetSurroundType(uint64_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->SurroundType(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_nSurroundType", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_nSurroundType", true, value);
 }
 uint32_t GCCollisionProperty::GetCollisionGroup() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->CollisionGroup(ptr=%p)", m_ptr));
@@ -1756,7 +1756,7 @@ uint32_t GCCollisionProperty::GetCollisionGroup() const {
 }
 void GCCollisionProperty::SetCollisionGroup(uint32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->CollisionGroup(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_CollisionGroup", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_CollisionGroup", true, value);
 }
 uint32_t GCCollisionProperty::GetEnablePhysics() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->EnablePhysics(ptr=%p)", m_ptr));
@@ -1764,7 +1764,7 @@ uint32_t GCCollisionProperty::GetEnablePhysics() const {
 }
 void GCCollisionProperty::SetEnablePhysics(uint32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->EnablePhysics(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_nEnablePhysics", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_nEnablePhysics", true, value);
 }
 float GCCollisionProperty::GetBoundingRadius() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->BoundingRadius(ptr=%p)", m_ptr));
@@ -1772,7 +1772,7 @@ float GCCollisionProperty::GetBoundingRadius() const {
 }
 void GCCollisionProperty::SetBoundingRadius(float value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->BoundingRadius(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_flBoundingRadius", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_flBoundingRadius", true, value);
 }
 Vector GCCollisionProperty::GetSpecifiedSurroundingMins() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->SpecifiedSurroundingMins(ptr=%p)", m_ptr));
@@ -1780,7 +1780,7 @@ Vector GCCollisionProperty::GetSpecifiedSurroundingMins() const {
 }
 void GCCollisionProperty::SetSpecifiedSurroundingMins(Vector value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->SpecifiedSurroundingMins(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecSpecifiedSurroundingMins", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecSpecifiedSurroundingMins", true, value);
 }
 Vector GCCollisionProperty::GetSpecifiedSurroundingMaxs() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->SpecifiedSurroundingMaxs(ptr=%p)", m_ptr));
@@ -1788,7 +1788,7 @@ Vector GCCollisionProperty::GetSpecifiedSurroundingMaxs() const {
 }
 void GCCollisionProperty::SetSpecifiedSurroundingMaxs(Vector value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->SpecifiedSurroundingMaxs(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecSpecifiedSurroundingMaxs", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecSpecifiedSurroundingMaxs", true, value);
 }
 Vector GCCollisionProperty::GetSurroundingMaxs() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->SurroundingMaxs(ptr=%p)", m_ptr));
@@ -1796,7 +1796,7 @@ Vector GCCollisionProperty::GetSurroundingMaxs() const {
 }
 void GCCollisionProperty::SetSurroundingMaxs(Vector value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->SurroundingMaxs(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecSurroundingMaxs", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecSurroundingMaxs", true, value);
 }
 Vector GCCollisionProperty::GetSurroundingMins() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->SurroundingMins(ptr=%p)", m_ptr));
@@ -1804,7 +1804,7 @@ Vector GCCollisionProperty::GetSurroundingMins() const {
 }
 void GCCollisionProperty::SetSurroundingMins(Vector value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->SurroundingMins(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecSurroundingMins", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vecSurroundingMins", true, value);
 }
 Vector GCCollisionProperty::GetCapsuleCenter1() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->CapsuleCenter1(ptr=%p)", m_ptr));
@@ -1812,7 +1812,7 @@ Vector GCCollisionProperty::GetCapsuleCenter1() const {
 }
 void GCCollisionProperty::SetCapsuleCenter1(Vector value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->CapsuleCenter1(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vCapsuleCenter1", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vCapsuleCenter1", true, value);
 }
 Vector GCCollisionProperty::GetCapsuleCenter2() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->CapsuleCenter2(ptr=%p)", m_ptr));
@@ -1820,7 +1820,7 @@ Vector GCCollisionProperty::GetCapsuleCenter2() const {
 }
 void GCCollisionProperty::SetCapsuleCenter2(Vector value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->CapsuleCenter2(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vCapsuleCenter2", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_vCapsuleCenter2", true, value);
 }
 float GCCollisionProperty::GetCapsuleRadius() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCollisionProperty->CapsuleRadius(ptr=%p)", m_ptr));
@@ -1828,7 +1828,7 @@ float GCCollisionProperty::GetCapsuleRadius() const {
 }
 void GCCollisionProperty::SetCapsuleRadius(float value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCollisionProperty->CapsuleRadius(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CCollisionProperty", "m_flCapsuleRadius", false, value);
+    SetSchemaValue(m_ptr, "CCollisionProperty", "m_flCapsuleRadius", true, value);
 }
 void* GCCollisionProperty::GetPtr() {
     return m_ptr;
@@ -1839,7 +1839,7 @@ std::string GCCollisionProperty::ToPtr() {
 bool GCCollisionProperty::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCCollisionProperty(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCollisionProperty(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCollisionProperty>("CCollisionProperty")
@@ -1869,7 +1869,7 @@ GCBaseModelEntity::GCBaseModelEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseModelEntity::GCBaseModelEntity(void* ptr) {
+GCBaseModelEntity::GCBaseModelEntity(void *ptr) {
     m_ptr = ptr;
 }
 void GCBaseModelEntity::SetModel(std::string model) {
@@ -1885,7 +1885,7 @@ GCRenderComponent GCBaseModelEntity::GetCRenderComponent() const {
 }
 void GCBaseModelEntity::SetCRenderComponent(GCRenderComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseModelEntity->CRenderComponent(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBaseModelEntity", "m_CRenderComponent", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBaseModelEntity","m_CRenderComponent", false, (char*)value.GetPtr());
 }
 GCHitboxComponent GCBaseModelEntity::GetCHitboxComponent() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseModelEntity->CHitboxComponent(ptr=%p)", m_ptr));
@@ -1947,7 +1947,7 @@ void GCBaseModelEntity::SetRender(Color value) {
 }
 std::vector<GEntityRenderAttribute_t> GCBaseModelEntity::GetRenderAttributes() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseModelEntity->RenderAttributes(ptr=%p)", m_ptr));
-    CUtlVector<GEntityRenderAttribute_t>* vec = GetSchemaValue<CUtlVector<GEntityRenderAttribute_t>*>(m_ptr, "CBaseModelEntity", "m_vecRenderAttributes"); std::vector<GEntityRenderAttribute_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GEntityRenderAttribute_t>* vec = GetSchemaValue<CUtlVector<GEntityRenderAttribute_t>*>(m_ptr, "CBaseModelEntity", "m_vecRenderAttributes"); std::vector<GEntityRenderAttribute_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCBaseModelEntity::SetRenderAttributes(std::vector<GEntityRenderAttribute_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseModelEntity->RenderAttributes(ptr=%p)", m_ptr));
@@ -2069,11 +2069,11 @@ void GCBaseModelEntity::SetDecalHealHeightRate(float value) {
 }
 std::vector<GCBaseModelEntity> GCBaseModelEntity::GetConfigEntitiesToPropagateMaterialDecalsTo() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseModelEntity->ConfigEntitiesToPropagateMaterialDecalsTo(ptr=%p)", m_ptr));
-    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CBaseModelEntity", "m_ConfigEntitiesToPropagateMaterialDecalsTo");
-    std::vector<GCBaseModelEntity> outVec;
-    for (int i = 0; i < vec->Count(); i++) {
-        outVec.push_back(GCBaseModelEntity((void*)(vec->Element(i).Get())));
-    }
+    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CBaseModelEntity", "m_ConfigEntitiesToPropagateMaterialDecalsTo"); 
+    std::vector<GCBaseModelEntity> outVec; 
+    for(int i = 0; i < vec->Count(); i++) { 
+        outVec.push_back(GCBaseModelEntity((void*)(vec->Element(i).Get()))); 
+    } 
     return outVec;
 }
 void GCBaseModelEntity::SetConfigEntitiesToPropagateMaterialDecalsTo(std::vector<GCBaseModelEntity> value) {
@@ -2107,7 +2107,7 @@ void GCBaseModelEntity::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseModelEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseModelEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseModelEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseModelEntity>("CBaseModelEntity")
@@ -2148,7 +2148,7 @@ GCServerOnlyEntity::GCServerOnlyEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCServerOnlyEntity::GCServerOnlyEntity(void* ptr) {
+GCServerOnlyEntity::GCServerOnlyEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCServerOnlyEntity::GetPtr() {
@@ -2169,7 +2169,7 @@ void GCServerOnlyEntity::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CServerOnlyEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCServerOnlyEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCServerOnlyEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCServerOnlyEntity>("CServerOnlyEntity")
@@ -2183,7 +2183,7 @@ GCBaseToggle::GCBaseToggle(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseToggle::GCBaseToggle(void* ptr) {
+GCBaseToggle::GCBaseToggle(void *ptr) {
     m_ptr = ptr;
 }
 uint64_t GCBaseToggle::GetToggle_state() const {
@@ -2333,7 +2333,7 @@ void GCBaseToggle::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseToggle::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseToggle(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseToggle(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseToggle>("CBaseToggle")
@@ -2363,7 +2363,7 @@ GCBaseTrigger::GCBaseTrigger(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseTrigger::GCBaseTrigger(void* ptr) {
+GCBaseTrigger::GCBaseTrigger(void *ptr) {
     m_ptr = ptr;
 }
 bool GCBaseTrigger::GetDisabled() const {
@@ -2480,7 +2480,7 @@ void GCBaseTrigger::SetParent(GCBaseToggle value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseTrigger::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseTrigger(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseTrigger(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseTrigger>("CBaseTrigger")
@@ -2505,7 +2505,7 @@ GCTriggerProximity::GCTriggerProximity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerProximity::GCTriggerProximity(void* ptr) {
+GCTriggerProximity::GCTriggerProximity(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCTriggerProximity::GetMeasureTarget() const {
@@ -2559,7 +2559,7 @@ void GCTriggerProximity::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerProximity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerProximity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerProximity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerProximity>("CTriggerProximity")
@@ -2577,7 +2577,7 @@ GCLogicalEntity::GCLogicalEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicalEntity::GCLogicalEntity(void* ptr) {
+GCLogicalEntity::GCLogicalEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCLogicalEntity::GetPtr() {
@@ -2598,7 +2598,7 @@ void GCLogicalEntity::SetParent(GCServerOnlyEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicalEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicalEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicalEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicalEntity>("CLogicalEntity")
@@ -2612,7 +2612,7 @@ GCTriggerPush::GCTriggerPush(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerPush::GCTriggerPush(void* ptr) {
+GCTriggerPush::GCTriggerPush(void *ptr) {
     m_ptr = ptr;
 }
 QAngle GCTriggerPush::GetPushEntitySpace() const {
@@ -2662,7 +2662,7 @@ GCPathSimple GCTriggerPush::GetPathSimple() const {
 }
 void GCTriggerPush::SetPathSimple(GCPathSimple value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CTriggerPush->PathSimple(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CTriggerPush", "m_PathSimple", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CTriggerPush","m_PathSimple", false, (char*)value.GetPtr());
 }
 uint32_t GCTriggerPush::GetSplinePushType() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTriggerPush->SplinePushType(ptr=%p)", m_ptr));
@@ -2690,7 +2690,7 @@ void GCTriggerPush::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerPush::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerPush(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerPush(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerPush>("CTriggerPush")
@@ -2711,7 +2711,7 @@ GCTriggerMultiple::GCTriggerMultiple(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerMultiple::GCTriggerMultiple(void* ptr) {
+GCTriggerMultiple::GCTriggerMultiple(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCTriggerMultiple::GetOnTrigger() const {
@@ -2741,7 +2741,7 @@ void GCTriggerMultiple::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerMultiple::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerMultiple(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerMultiple(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerMultiple>("CTriggerMultiple")
@@ -2756,7 +2756,7 @@ GCBasePlatTrain::GCBasePlatTrain(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBasePlatTrain::GCBasePlatTrain(void* ptr) {
+GCBasePlatTrain::GCBasePlatTrain(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCBasePlatTrain::GetNoiseMoving() const {
@@ -2817,7 +2817,7 @@ void GCBasePlatTrain::SetParent(GCBaseToggle value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBasePlatTrain::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBasePlatTrain(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBasePlatTrain(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBasePlatTrain>("CBasePlatTrain")
@@ -2836,7 +2836,7 @@ GCTonemapTrigger::GCTonemapTrigger(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTonemapTrigger::GCTonemapTrigger(void* ptr) {
+GCTonemapTrigger::GCTonemapTrigger(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCTonemapTrigger::GetTonemapControllerName() const {
@@ -2874,7 +2874,7 @@ void GCTonemapTrigger::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTonemapTrigger::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTonemapTrigger(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTonemapTrigger(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTonemapTrigger>("CTonemapTrigger")
@@ -2890,7 +2890,7 @@ GCEconItemAttribute::GCEconItemAttribute(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEconItemAttribute::GCEconItemAttribute(void* ptr) {
+GCEconItemAttribute::GCEconItemAttribute(void *ptr) {
     m_ptr = ptr;
 }
 uint16_t GCEconItemAttribute::GetAttributeDefinitionIndex() const {
@@ -2942,7 +2942,7 @@ std::string GCEconItemAttribute::ToPtr() {
 bool GCEconItemAttribute::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCEconItemAttribute(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEconItemAttribute(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEconItemAttribute>("CEconItemAttribute")
@@ -2960,7 +2960,7 @@ GCIronSightController::GCIronSightController(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCIronSightController::GCIronSightController(void* ptr) {
+GCIronSightController::GCIronSightController(void *ptr) {
     m_ptr = ptr;
 }
 bool GCIronSightController::GetIronSightAvailable() const {
@@ -3004,7 +3004,7 @@ std::string GCIronSightController::ToPtr() {
 bool GCIronSightController::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCIronSightController(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCIronSightController(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCIronSightController>("CIronSightController")
@@ -3021,7 +3021,7 @@ GCFogTrigger::GCFogTrigger(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFogTrigger::GCFogTrigger(void* ptr) {
+GCFogTrigger::GCFogTrigger(void *ptr) {
     m_ptr = ptr;
 }
 Gfogparams_t GCFogTrigger::GetFog() const {
@@ -3051,7 +3051,7 @@ void GCFogTrigger::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFogTrigger::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFogTrigger(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFogTrigger(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFogTrigger>("CFogTrigger")
@@ -3066,7 +3066,7 @@ GCBaseFilter::GCBaseFilter(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseFilter::GCBaseFilter(void* ptr) {
+GCBaseFilter::GCBaseFilter(void *ptr) {
     m_ptr = ptr;
 }
 bool GCBaseFilter::GetNegated() const {
@@ -3113,7 +3113,7 @@ void GCBaseFilter::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseFilter::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseFilter(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseFilter(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseFilter>("CBaseFilter")
@@ -3130,7 +3130,7 @@ GCCSPointScriptExtensions_weapon_cs_base::GCCSPointScriptExtensions_weapon_cs_ba
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPointScriptExtensions_weapon_cs_base::GCCSPointScriptExtensions_weapon_cs_base(void* ptr) {
+GCCSPointScriptExtensions_weapon_cs_base::GCCSPointScriptExtensions_weapon_cs_base(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSPointScriptExtensions_weapon_cs_base::GetPtr() {
@@ -3142,7 +3142,7 @@ std::string GCCSPointScriptExtensions_weapon_cs_base::ToPtr() {
 bool GCCSPointScriptExtensions_weapon_cs_base::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCCSPointScriptExtensions_weapon_cs_base(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPointScriptExtensions_weapon_cs_base(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPointScriptExtensions_weapon_cs_base>("CCSPointScriptExtensions_weapon_cs_base")
@@ -3155,7 +3155,7 @@ GCTriggerHostageReset::GCTriggerHostageReset(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerHostageReset::GCTriggerHostageReset(void* ptr) {
+GCTriggerHostageReset::GCTriggerHostageReset(void *ptr) {
     m_ptr = ptr;
 }
 void* GCTriggerHostageReset::GetPtr() {
@@ -3176,7 +3176,7 @@ void GCTriggerHostageReset::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerHostageReset::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerHostageReset(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerHostageReset(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerHostageReset>("CTriggerHostageReset")
@@ -3190,7 +3190,7 @@ GCServerOnlyPointEntity::GCServerOnlyPointEntity(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCServerOnlyPointEntity::GCServerOnlyPointEntity(void* ptr) {
+GCServerOnlyPointEntity::GCServerOnlyPointEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCServerOnlyPointEntity::GetPtr() {
@@ -3211,7 +3211,7 @@ void GCServerOnlyPointEntity::SetParent(GCServerOnlyEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CServerOnlyPointEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCServerOnlyPointEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCServerOnlyPointEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCServerOnlyPointEntity>("CServerOnlyPointEntity")
@@ -3225,7 +3225,7 @@ GCPointEntity::GCPointEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointEntity::GCPointEntity(void* ptr) {
+GCPointEntity::GCPointEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPointEntity::GetPtr() {
@@ -3246,7 +3246,7 @@ void GCPointEntity::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointEntity>("CPointEntity")
@@ -3260,7 +3260,7 @@ GCountdownTimer::GCountdownTimer(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCountdownTimer::GCountdownTimer(void* ptr) {
+GCountdownTimer::GCountdownTimer(void *ptr) {
     m_ptr = ptr;
 }
 float GCountdownTimer::GetDuration() const {
@@ -3304,7 +3304,7 @@ std::string GCountdownTimer::ToPtr() {
 bool GCountdownTimer::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCountdownTimer(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCountdownTimer(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCountdownTimer>("CountdownTimer")
@@ -3321,7 +3321,7 @@ GSceneEventId_t::GSceneEventId_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GSceneEventId_t::GSceneEventId_t(void* ptr) {
+GSceneEventId_t::GSceneEventId_t(void *ptr) {
     m_ptr = ptr;
 }
 uint32_t GSceneEventId_t::GetValue() const {
@@ -3341,7 +3341,7 @@ std::string GSceneEventId_t::ToPtr() {
 bool GSceneEventId_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassSceneEventId_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassSceneEventId_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GSceneEventId_t>("SceneEventId_t")
@@ -3355,7 +3355,7 @@ GCBuoyancyHelper::GCBuoyancyHelper(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBuoyancyHelper::GCBuoyancyHelper(void* ptr) {
+GCBuoyancyHelper::GCBuoyancyHelper(void *ptr) {
     m_ptr = ptr;
 }
 float GCBuoyancyHelper::GetFluidDensity() const {
@@ -3375,7 +3375,7 @@ std::string GCBuoyancyHelper::ToPtr() {
 bool GCBuoyancyHelper::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCBuoyancyHelper(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBuoyancyHelper(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBuoyancyHelper>("CBuoyancyHelper")
@@ -3389,7 +3389,7 @@ GCMoverPathNode::GCMoverPathNode(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMoverPathNode::GCMoverPathNode(void* ptr) {
+GCMoverPathNode::GCMoverPathNode(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCMoverPathNode::GetInTangentLocal() const {
@@ -3452,7 +3452,7 @@ void GCMoverPathNode::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMoverPathNode::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMoverPathNode(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMoverPathNode(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMoverPathNode>("CMoverPathNode")
@@ -3471,7 +3471,7 @@ GCBtNode::GCBtNode(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBtNode::GCBtNode(void* ptr) {
+GCBtNode::GCBtNode(void *ptr) {
     m_ptr = ptr;
 }
 void* GCBtNode::GetPtr() {
@@ -3483,7 +3483,7 @@ std::string GCBtNode::ToPtr() {
 bool GCBtNode::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCBtNode(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBtNode(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBtNode>("CBtNode")
@@ -3496,7 +3496,7 @@ GCPlayer_ViewModelServices::GCPlayer_ViewModelServices(std::string ptr, lua_Stat
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_ViewModelServices::GCPlayer_ViewModelServices(void* ptr) {
+GCPlayer_ViewModelServices::GCPlayer_ViewModelServices(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPlayer_ViewModelServices::GetPtr() {
@@ -3517,7 +3517,7 @@ void GCPlayer_ViewModelServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_ViewModelServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_ViewModelServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_ViewModelServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_ViewModelServices>("CPlayer_ViewModelServices")
@@ -3531,7 +3531,7 @@ GIEconItemInterface::GIEconItemInterface(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GIEconItemInterface::GIEconItemInterface(void* ptr) {
+GIEconItemInterface::GIEconItemInterface(void *ptr) {
     m_ptr = ptr;
 }
 void* GIEconItemInterface::GetPtr() {
@@ -3543,7 +3543,7 @@ std::string GIEconItemInterface::ToPtr() {
 bool GIEconItemInterface::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassIEconItemInterface(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassIEconItemInterface(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GIEconItemInterface>("IEconItemInterface")
@@ -3556,7 +3556,7 @@ GCEnvSoundscape::GCEnvSoundscape(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvSoundscape::GCEnvSoundscape(void* ptr) {
+GCEnvSoundscape::GCEnvSoundscape(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCEnvSoundscape::GetOnPlay() const {
@@ -3626,13 +3626,13 @@ void GCEnvSoundscape::SetSoundEventHash(uint32_t value) {
 }
 std::vector<CUtlSymbolLarge> GCEnvSoundscape::GetPositionNames() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEnvSoundscape->PositionNames(ptr=%p,size=8)", m_ptr));
-    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CEnvSoundscape", "m_positionNames"); std::vector<CUtlSymbolLarge> ret; for (int i = 0; i < 8; i++) { ret.push_back(outValue[i]); } return ret;
+    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CEnvSoundscape", "m_positionNames"); std::vector<CUtlSymbolLarge> ret; for(int i = 0; i < 8; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCEnvSoundscape::SetPositionNames(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEnvSoundscape->PositionNames(ptr=%p,size=8)", m_ptr));
-    if (value.size() != 8) return PLUGIN_PRINT("Schema SDK", "Field 'PositionNames' needs to have 8 values.\n");
+    if(value.size() != 8) return PLUGIN_PRINT("Schema SDK", "Field 'PositionNames' needs to have 8 values.\n");
     auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CEnvSoundscape", "m_positionNames");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCEnvSoundscape GCEnvSoundscape::GetProxySoundscape() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEnvSoundscape->ProxySoundscape(ptr=%p)", m_ptr));
@@ -3669,7 +3669,7 @@ void GCEnvSoundscape::SetParent(GCServerOnlyEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvSoundscape::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvSoundscape(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvSoundscape(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvSoundscape>("CEnvSoundscape")
@@ -3694,7 +3694,7 @@ Gfogplayerparams_t::Gfogplayerparams_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-Gfogplayerparams_t::Gfogplayerparams_t(void* ptr) {
+Gfogplayerparams_t::Gfogplayerparams_t(void *ptr) {
     m_ptr = ptr;
 }
 GCFogController Gfogplayerparams_t::GetCtrl() const {
@@ -3819,7 +3819,7 @@ std::string Gfogplayerparams_t::ToPtr() {
 bool Gfogplayerparams_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassfogplayerparams_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassfogplayerparams_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<Gfogplayerparams_t>("fogplayerparams_t")
@@ -3846,7 +3846,7 @@ GCFogController::GCFogController(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFogController::GCFogController(void* ptr) {
+GCFogController::GCFogController(void *ptr) {
     m_ptr = ptr;
 }
 Gfogparams_t GCFogController::GetFog() const {
@@ -3892,7 +3892,7 @@ void GCFogController::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFogController::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFogController(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFogController(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFogController>("CFogController")
@@ -3909,16 +3909,16 @@ GCAttributeList::GCAttributeList(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCAttributeList::GCAttributeList(void* ptr) {
+GCAttributeList::GCAttributeList(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GCEconItemAttribute> GCAttributeList::GetAttributes() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAttributeList->Attributes(ptr=%p)", m_ptr));
-    CUtlVector<GCEconItemAttribute>* vec = GetSchemaValue<CUtlVector<GCEconItemAttribute>*>(m_ptr, "CAttributeList", "m_Attributes"); std::vector<GCEconItemAttribute> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GCEconItemAttribute>* vec = GetSchemaValue<CUtlVector<GCEconItemAttribute>*>(m_ptr, "CAttributeList", "m_Attributes"); std::vector<GCEconItemAttribute> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAttributeList::SetAttributes(std::vector<GCEconItemAttribute> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAttributeList->Attributes(ptr=%p)", m_ptr));
-    SetSchemaValueCUtlVector<GCEconItemAttribute>(m_ptr, "CAttributeList", "m_Attributes", false, value);
+    SetSchemaValueCUtlVector<GCEconItemAttribute>(m_ptr, "CAttributeList", "m_Attributes", true, value);
 }
 GCAttributeManager GCAttributeList::GetManager() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAttributeList->Manager(ptr=%p)", m_ptr));
@@ -3927,7 +3927,7 @@ GCAttributeManager GCAttributeList::GetManager() const {
 }
 void GCAttributeList::SetManager(GCAttributeManager value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAttributeList->Manager(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CAttributeList", "m_pManager", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CAttributeList","m_pManager", true, (char*)value.GetPtr());
 }
 void* GCAttributeList::GetPtr() {
     return m_ptr;
@@ -3938,7 +3938,7 @@ std::string GCAttributeList::ToPtr() {
 bool GCAttributeList::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCAttributeList(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCAttributeList(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCAttributeList>("CAttributeList")
@@ -3953,7 +3953,7 @@ GCModelState::GCModelState(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCModelState::GCModelState(void* ptr) {
+GCModelState::GCModelState(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCModelState::GetModelName() const {
@@ -3962,7 +3962,7 @@ std::string GCModelState::GetModelName() const {
 }
 void GCModelState::SetModelName(std::string value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CModelState->ModelName(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CModelState", "m_ModelName", false, CUtlSymbolLarge(value.c_str()));
+    SetSchemaValue(m_ptr, "CModelState", "m_ModelName", true, CUtlSymbolLarge(value.c_str()));
 }
 bool GCModelState::GetClientClothCreationSuppressed() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CModelState->ClientClothCreationSuppressed(ptr=%p)", m_ptr));
@@ -3970,7 +3970,7 @@ bool GCModelState::GetClientClothCreationSuppressed() const {
 }
 void GCModelState::SetClientClothCreationSuppressed(bool value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CModelState->ClientClothCreationSuppressed(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CModelState", "m_bClientClothCreationSuppressed", false, value);
+    SetSchemaValue(m_ptr, "CModelState", "m_bClientClothCreationSuppressed", true, value);
 }
 uint64_t GCModelState::GetMeshGroupMask() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CModelState->MeshGroupMask(ptr=%p)", m_ptr));
@@ -3978,7 +3978,7 @@ uint64_t GCModelState::GetMeshGroupMask() const {
 }
 void GCModelState::SetMeshGroupMask(uint64_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CModelState->MeshGroupMask(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CModelState", "m_MeshGroupMask", false, value);
+    SetSchemaValue(m_ptr, "CModelState", "m_MeshGroupMask", true, value);
 }
 int32_t GCModelState::GetIdealMotionType() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CModelState->IdealMotionType(ptr=%p)", m_ptr));
@@ -3986,7 +3986,7 @@ int32_t GCModelState::GetIdealMotionType() const {
 }
 void GCModelState::SetIdealMotionType(int32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CModelState->IdealMotionType(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CModelState", "m_nIdealMotionType", false, value);
+    SetSchemaValue(m_ptr, "CModelState", "m_nIdealMotionType", true, value);
 }
 int32_t GCModelState::GetForceLOD() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CModelState->ForceLOD(ptr=%p)", m_ptr));
@@ -3994,7 +3994,7 @@ int32_t GCModelState::GetForceLOD() const {
 }
 void GCModelState::SetForceLOD(int32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CModelState->ForceLOD(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CModelState", "m_nForceLOD", false, value);
+    SetSchemaValue(m_ptr, "CModelState", "m_nForceLOD", true, value);
 }
 int32_t GCModelState::GetClothUpdateFlags() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CModelState->ClothUpdateFlags(ptr=%p)", m_ptr));
@@ -4002,7 +4002,7 @@ int32_t GCModelState::GetClothUpdateFlags() const {
 }
 void GCModelState::SetClothUpdateFlags(int32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CModelState->ClothUpdateFlags(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CModelState", "m_nClothUpdateFlags", false, value);
+    SetSchemaValue(m_ptr, "CModelState", "m_nClothUpdateFlags", true, value);
 }
 void* GCModelState::GetPtr() {
     return m_ptr;
@@ -4013,7 +4013,7 @@ std::string GCModelState::ToPtr() {
 bool GCModelState::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCModelState(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCModelState(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCModelState>("CModelState")
@@ -4032,7 +4032,7 @@ GCBaseAnimGraph::GCBaseAnimGraph(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseAnimGraph::GCBaseAnimGraph(void* ptr) {
+GCBaseAnimGraph::GCBaseAnimGraph(void *ptr) {
     m_ptr = ptr;
 }
 bool GCBaseAnimGraph::GetInitiallyPopulateInterpHistory() const {
@@ -4050,7 +4050,7 @@ GIChoreoServices GCBaseAnimGraph::GetChoreoServices() const {
 }
 void GCBaseAnimGraph::SetChoreoServices(GIChoreoServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseAnimGraph->ChoreoServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBaseAnimGraph", "m_pChoreoServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBaseAnimGraph","m_pChoreoServices", false, (char*)value.GetPtr());
 }
 bool GCBaseAnimGraph::GetAnimGraphUpdateEnabled() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseAnimGraph->AnimGraphUpdateEnabled(ptr=%p)", m_ptr));
@@ -4107,7 +4107,7 @@ GPhysicsRagdollPose_t GCBaseAnimGraph::GetRagdollPose() const {
 }
 void GCBaseAnimGraph::SetRagdollPose(GPhysicsRagdollPose_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseAnimGraph->RagdollPose(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBaseAnimGraph", "m_pRagdollPose", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBaseAnimGraph","m_pRagdollPose", false, (char*)value.GetPtr());
 }
 bool GCBaseAnimGraph::GetRagdollClientSide() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseAnimGraph->RagdollClientSide(ptr=%p)", m_ptr));
@@ -4135,7 +4135,7 @@ void GCBaseAnimGraph::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseAnimGraph::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseAnimGraph(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseAnimGraph(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseAnimGraph>("CBaseAnimGraph")
@@ -4159,7 +4159,7 @@ GCEnableMotionFixup::GCEnableMotionFixup(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnableMotionFixup::GCEnableMotionFixup(void* ptr) {
+GCEnableMotionFixup::GCEnableMotionFixup(void *ptr) {
     m_ptr = ptr;
 }
 void* GCEnableMotionFixup::GetPtr() {
@@ -4180,7 +4180,7 @@ void GCEnableMotionFixup::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnableMotionFixup::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnableMotionFixup(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnableMotionFixup(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnableMotionFixup>("CEnableMotionFixup")
@@ -4194,18 +4194,18 @@ GCInButtonState::GCInButtonState(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInButtonState::GCInButtonState(void* ptr) {
+GCInButtonState::GCInButtonState(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<uint64_t> GCInButtonState::GetButtonStates() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CInButtonState->ButtonStates(ptr=%p,size=3)", m_ptr));
-    uint64_t* outValue = (uint64_t*)GetSchemaPtr(m_ptr, "CInButtonState", "m_pButtonStates"); std::vector<uint64_t> ret; for (int i = 0; i < 3; i++) { ret.push_back(outValue[i]); } return ret;
+    uint64_t* outValue = (uint64_t*)GetSchemaPtr(m_ptr, "CInButtonState", "m_pButtonStates"); std::vector<uint64_t> ret; for(int i = 0; i < 3; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCInButtonState::SetButtonStates(std::vector<uint64_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CInButtonState->ButtonStates(ptr=%p,size=3)", m_ptr));
-    if (value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'ButtonStates' needs to have 3 values.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'ButtonStates' needs to have 3 values.\n");
     auto val = GetSchemaValuePtr<uint64_t>(m_ptr, "CInButtonState", "m_pButtonStates");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCInButtonState::GetPtr() {
     return m_ptr;
@@ -4216,7 +4216,7 @@ std::string GCInButtonState::ToPtr() {
 bool GCInButtonState::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCInButtonState(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInButtonState(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInButtonState>("CInButtonState")
@@ -4230,7 +4230,7 @@ GCBtNodeDecorator::GCBtNodeDecorator(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBtNodeDecorator::GCBtNodeDecorator(void* ptr) {
+GCBtNodeDecorator::GCBtNodeDecorator(void *ptr) {
     m_ptr = ptr;
 }
 void* GCBtNodeDecorator::GetPtr() {
@@ -4251,7 +4251,7 @@ void GCBtNodeDecorator::SetParent(GCBtNode value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBtNodeDecorator::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBtNodeDecorator(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBtNodeDecorator(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBtNodeDecorator>("CBtNodeDecorator")
@@ -4265,7 +4265,7 @@ GCAttributeManager::GCAttributeManager(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCAttributeManager::GCAttributeManager(void* ptr) {
+GCAttributeManager::GCAttributeManager(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCAttributeManager::GetReapplyProvisionParity() const {
@@ -4303,7 +4303,7 @@ void GCAttributeManager::SetProviderType(uint64_t value) {
 }
 std::vector<GCAttributeManager> GCAttributeManager::GetCachedResults() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAttributeManager->CachedResults(ptr=%p)", m_ptr));
-    CUtlVector<GCAttributeManager>* vec = GetSchemaValue<CUtlVector<GCAttributeManager>*>(m_ptr, "CAttributeManager", "m_CachedResults"); std::vector<GCAttributeManager> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GCAttributeManager>* vec = GetSchemaValue<CUtlVector<GCAttributeManager>*>(m_ptr, "CAttributeManager", "m_CachedResults"); std::vector<GCAttributeManager> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAttributeManager::SetCachedResults(std::vector<GCAttributeManager> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAttributeManager->CachedResults(ptr=%p)", m_ptr));
@@ -4318,7 +4318,7 @@ std::string GCAttributeManager::ToPtr() {
 bool GCAttributeManager::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCAttributeManager(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCAttributeManager(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCAttributeManager>("CAttributeManager")
@@ -4336,7 +4336,7 @@ GFilterHealth::GFilterHealth(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GFilterHealth::GFilterHealth(void* ptr) {
+GFilterHealth::GFilterHealth(void *ptr) {
     m_ptr = ptr;
 }
 bool GFilterHealth::GetAdrenalineActive() const {
@@ -4381,7 +4381,7 @@ void GFilterHealth::SetParent(GCBaseFilter value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("FilterHealth::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassFilterHealth(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassFilterHealth(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GFilterHealth>("FilterHealth")
@@ -4398,7 +4398,7 @@ GCPlayerPing::GCPlayerPing(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayerPing::GCPlayerPing(void* ptr) {
+GCPlayerPing::GCPlayerPing(void *ptr) {
     m_ptr = ptr;
 }
 GCCSPlayerPawn GCPlayerPing::GetPlayer() const {
@@ -4461,7 +4461,7 @@ void GCPlayerPing::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayerPing::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayerPing(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayerPing(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayerPing>("CPlayerPing")
@@ -4480,7 +4480,7 @@ GCCSPointScriptEntity::GCCSPointScriptEntity(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPointScriptEntity::GCCSPointScriptEntity(void* ptr) {
+GCCSPointScriptEntity::GCCSPointScriptEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSPointScriptEntity::GetPtr() {
@@ -4501,7 +4501,7 @@ void GCCSPointScriptEntity::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPointScriptEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPointScriptEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPointScriptEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPointScriptEntity>("CCSPointScriptEntity")
@@ -4515,7 +4515,7 @@ GCNetworkOriginCellCoordQuantizedVector::GCNetworkOriginCellCoordQuantizedVector
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCNetworkOriginCellCoordQuantizedVector::GCNetworkOriginCellCoordQuantizedVector(void* ptr) {
+GCNetworkOriginCellCoordQuantizedVector::GCNetworkOriginCellCoordQuantizedVector(void *ptr) {
     m_ptr = ptr;
 }
 uint16_t GCNetworkOriginCellCoordQuantizedVector::GetCellX() const {
@@ -4583,7 +4583,7 @@ std::string GCNetworkOriginCellCoordQuantizedVector::ToPtr() {
 bool GCNetworkOriginCellCoordQuantizedVector::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCNetworkOriginCellCoordQuantizedVector(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCNetworkOriginCellCoordQuantizedVector(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCNetworkOriginCellCoordQuantizedVector>("CNetworkOriginCellCoordQuantizedVector")
@@ -4603,7 +4603,7 @@ GCInfoLandmark::GCInfoLandmark(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoLandmark::GCInfoLandmark(void* ptr) {
+GCInfoLandmark::GCInfoLandmark(void *ptr) {
     m_ptr = ptr;
 }
 void* GCInfoLandmark::GetPtr() {
@@ -4624,7 +4624,7 @@ void GCInfoLandmark::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoLandmark::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoLandmark(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoLandmark(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoLandmark>("CInfoLandmark")
@@ -4638,12 +4638,12 @@ GCBaseFlex::GCBaseFlex(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseFlex::GCBaseFlex(void* ptr) {
+GCBaseFlex::GCBaseFlex(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<float32> GCBaseFlex::GetFlexWeight() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseFlex->FlexWeight(ptr=%p)", m_ptr));
-    CUtlVector<float32>* vec = GetSchemaValue<CUtlVector<float32>*>(m_ptr, "CBaseFlex", "m_flexWeight"); std::vector<float32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<float32>* vec = GetSchemaValue<CUtlVector<float32>*>(m_ptr, "CBaseFlex", "m_flexWeight"); std::vector<float32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCBaseFlex::SetFlexWeight(std::vector<float32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseFlex->FlexWeight(ptr=%p)", m_ptr));
@@ -4716,7 +4716,7 @@ void GCBaseFlex::SetParent(GCBaseAnimGraph value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseFlex::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseFlex(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseFlex(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseFlex>("CBaseFlex")
@@ -4737,7 +4737,7 @@ GCEconItemView::GCEconItemView(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEconItemView::GCEconItemView(void* ptr) {
+GCEconItemView::GCEconItemView(void *ptr) {
     m_ptr = ptr;
 }
 uint16_t GCEconItemView::GetItemDefinitionIndex() const {
@@ -4746,7 +4746,7 @@ uint16_t GCEconItemView::GetItemDefinitionIndex() const {
 }
 void GCEconItemView::SetItemDefinitionIndex(uint16_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->ItemDefinitionIndex(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEconItemView", "m_iItemDefinitionIndex", false, value);
+    SetSchemaValue(m_ptr, "CEconItemView", "m_iItemDefinitionIndex", true, value);
 }
 int32_t GCEconItemView::GetEntityQuality() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->EntityQuality(ptr=%p)", m_ptr));
@@ -4754,7 +4754,7 @@ int32_t GCEconItemView::GetEntityQuality() const {
 }
 void GCEconItemView::SetEntityQuality(int32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->EntityQuality(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEconItemView", "m_iEntityQuality", false, value);
+    SetSchemaValue(m_ptr, "CEconItemView", "m_iEntityQuality", true, value);
 }
 uint32_t GCEconItemView::GetEntityLevel() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->EntityLevel(ptr=%p)", m_ptr));
@@ -4762,7 +4762,7 @@ uint32_t GCEconItemView::GetEntityLevel() const {
 }
 void GCEconItemView::SetEntityLevel(uint32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->EntityLevel(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEconItemView", "m_iEntityLevel", false, value);
+    SetSchemaValue(m_ptr, "CEconItemView", "m_iEntityLevel", true, value);
 }
 uint64_t GCEconItemView::GetItemID() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->ItemID(ptr=%p)", m_ptr));
@@ -4770,7 +4770,7 @@ uint64_t GCEconItemView::GetItemID() const {
 }
 void GCEconItemView::SetItemID(uint64_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->ItemID(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEconItemView", "m_iItemID", false, value);
+    SetSchemaValue(m_ptr, "CEconItemView", "m_iItemID", true, value);
 }
 uint32_t GCEconItemView::GetItemIDHigh() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->ItemIDHigh(ptr=%p)", m_ptr));
@@ -4778,7 +4778,7 @@ uint32_t GCEconItemView::GetItemIDHigh() const {
 }
 void GCEconItemView::SetItemIDHigh(uint32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->ItemIDHigh(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEconItemView", "m_iItemIDHigh", false, value);
+    SetSchemaValue(m_ptr, "CEconItemView", "m_iItemIDHigh", true, value);
 }
 uint32_t GCEconItemView::GetItemIDLow() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->ItemIDLow(ptr=%p)", m_ptr));
@@ -4786,7 +4786,7 @@ uint32_t GCEconItemView::GetItemIDLow() const {
 }
 void GCEconItemView::SetItemIDLow(uint32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->ItemIDLow(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEconItemView", "m_iItemIDLow", false, value);
+    SetSchemaValue(m_ptr, "CEconItemView", "m_iItemIDLow", true, value);
 }
 uint32_t GCEconItemView::GetAccountID() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->AccountID(ptr=%p)", m_ptr));
@@ -4794,7 +4794,7 @@ uint32_t GCEconItemView::GetAccountID() const {
 }
 void GCEconItemView::SetAccountID(uint32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->AccountID(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEconItemView", "m_iAccountID", false, value);
+    SetSchemaValue(m_ptr, "CEconItemView", "m_iAccountID", true, value);
 }
 uint32_t GCEconItemView::GetInventoryPosition() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->InventoryPosition(ptr=%p)", m_ptr));
@@ -4802,7 +4802,7 @@ uint32_t GCEconItemView::GetInventoryPosition() const {
 }
 void GCEconItemView::SetInventoryPosition(uint32_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->InventoryPosition(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEconItemView", "m_iInventoryPosition", false, value);
+    SetSchemaValue(m_ptr, "CEconItemView", "m_iInventoryPosition", true, value);
 }
 bool GCEconItemView::GetInitialized() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->Initialized(ptr=%p)", m_ptr));
@@ -4810,7 +4810,7 @@ bool GCEconItemView::GetInitialized() const {
 }
 void GCEconItemView::SetInitialized(bool value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->Initialized(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CEconItemView", "m_bInitialized", false, value);
+    SetSchemaValue(m_ptr, "CEconItemView", "m_bInitialized", true, value);
 }
 GCAttributeList GCEconItemView::GetAttributeList() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->AttributeList(ptr=%p)", m_ptr));
@@ -4836,7 +4836,7 @@ std::string GCEconItemView::GetCustomName() const {
 }
 void GCEconItemView::SetCustomName(std::string value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->CustomName(ptr=%p)", m_ptr));
-    WriteSchemaPtrValue(m_ptr, "CEconItemView", "m_szCustomName", false, reinterpret_cast<byte*>(const_cast<char*>(value.c_str())), 161);
+    WriteSchemaPtrValue(m_ptr, "CEconItemView", "m_szCustomName", true, reinterpret_cast<byte*>(const_cast<char*>(value.c_str())), 161);
 }
 std::string GCEconItemView::GetCustomNameOverride() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CEconItemView->CustomNameOverride(ptr=%p)", m_ptr));
@@ -4844,7 +4844,7 @@ std::string GCEconItemView::GetCustomNameOverride() const {
 }
 void GCEconItemView::SetCustomNameOverride(std::string value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CEconItemView->CustomNameOverride(ptr=%p)", m_ptr));
-    WriteSchemaPtrValue(m_ptr, "CEconItemView", "m_szCustomNameOverride", false, reinterpret_cast<byte*>(const_cast<char*>(value.c_str())), 161);
+    WriteSchemaPtrValue(m_ptr, "CEconItemView", "m_szCustomNameOverride", true, reinterpret_cast<byte*>(const_cast<char*>(value.c_str())), 161);
 }
 void* GCEconItemView::GetPtr() {
     return m_ptr;
@@ -4864,7 +4864,7 @@ void GCEconItemView::SetParent(GIEconItemInterface value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEconItemView::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEconItemView(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEconItemView(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEconItemView>("CEconItemView")
@@ -4891,12 +4891,12 @@ GCAnimGraphNetworkedVariables::GCAnimGraphNetworkedVariables(std::string ptr, lu
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCAnimGraphNetworkedVariables::GCAnimGraphNetworkedVariables(void* ptr) {
+GCAnimGraphNetworkedVariables::GCAnimGraphNetworkedVariables(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<uint32> GCAnimGraphNetworkedVariables::GetPredNetBoolVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->PredNetBoolVariables(ptr=%p)", m_ptr));
-    CUtlVector<uint32>* vec = GetSchemaValue<CUtlVector<uint32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetBoolVariables"); std::vector<uint32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint32>* vec = GetSchemaValue<CUtlVector<uint32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetBoolVariables"); std::vector<uint32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetPredNetBoolVariables(std::vector<uint32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->PredNetBoolVariables(ptr=%p)", m_ptr));
@@ -4904,7 +4904,7 @@ void GCAnimGraphNetworkedVariables::SetPredNetBoolVariables(std::vector<uint32> 
 }
 std::vector<uint8> GCAnimGraphNetworkedVariables::GetPredNetByteVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->PredNetByteVariables(ptr=%p)", m_ptr));
-    CUtlVector<uint8>* vec = GetSchemaValue<CUtlVector<uint8>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetByteVariables"); std::vector<uint8> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint8>* vec = GetSchemaValue<CUtlVector<uint8>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetByteVariables"); std::vector<uint8> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetPredNetByteVariables(std::vector<uint8> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->PredNetByteVariables(ptr=%p)", m_ptr));
@@ -4912,7 +4912,7 @@ void GCAnimGraphNetworkedVariables::SetPredNetByteVariables(std::vector<uint8> v
 }
 std::vector<uint16> GCAnimGraphNetworkedVariables::GetPredNetUInt16Variables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->PredNetUInt16Variables(ptr=%p)", m_ptr));
-    CUtlVector<uint16>* vec = GetSchemaValue<CUtlVector<uint16>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetUInt16Variables"); std::vector<uint16> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint16>* vec = GetSchemaValue<CUtlVector<uint16>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetUInt16Variables"); std::vector<uint16> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetPredNetUInt16Variables(std::vector<uint16> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->PredNetUInt16Variables(ptr=%p)", m_ptr));
@@ -4920,7 +4920,7 @@ void GCAnimGraphNetworkedVariables::SetPredNetUInt16Variables(std::vector<uint16
 }
 std::vector<int32> GCAnimGraphNetworkedVariables::GetPredNetIntVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->PredNetIntVariables(ptr=%p)", m_ptr));
-    CUtlVector<int32>* vec = GetSchemaValue<CUtlVector<int32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetIntVariables"); std::vector<int32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<int32>* vec = GetSchemaValue<CUtlVector<int32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetIntVariables"); std::vector<int32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetPredNetIntVariables(std::vector<int32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->PredNetIntVariables(ptr=%p)", m_ptr));
@@ -4928,7 +4928,7 @@ void GCAnimGraphNetworkedVariables::SetPredNetIntVariables(std::vector<int32> va
 }
 std::vector<uint32> GCAnimGraphNetworkedVariables::GetPredNetUInt32Variables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->PredNetUInt32Variables(ptr=%p)", m_ptr));
-    CUtlVector<uint32>* vec = GetSchemaValue<CUtlVector<uint32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetUInt32Variables"); std::vector<uint32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint32>* vec = GetSchemaValue<CUtlVector<uint32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetUInt32Variables"); std::vector<uint32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetPredNetUInt32Variables(std::vector<uint32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->PredNetUInt32Variables(ptr=%p)", m_ptr));
@@ -4936,7 +4936,7 @@ void GCAnimGraphNetworkedVariables::SetPredNetUInt32Variables(std::vector<uint32
 }
 std::vector<uint64> GCAnimGraphNetworkedVariables::GetPredNetUInt64Variables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->PredNetUInt64Variables(ptr=%p)", m_ptr));
-    CUtlVector<uint64>* vec = GetSchemaValue<CUtlVector<uint64>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetUInt64Variables"); std::vector<uint64> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint64>* vec = GetSchemaValue<CUtlVector<uint64>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetUInt64Variables"); std::vector<uint64> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetPredNetUInt64Variables(std::vector<uint64> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->PredNetUInt64Variables(ptr=%p)", m_ptr));
@@ -4944,7 +4944,7 @@ void GCAnimGraphNetworkedVariables::SetPredNetUInt64Variables(std::vector<uint64
 }
 std::vector<float32> GCAnimGraphNetworkedVariables::GetPredNetFloatVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->PredNetFloatVariables(ptr=%p)", m_ptr));
-    CUtlVector<float32>* vec = GetSchemaValue<CUtlVector<float32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetFloatVariables"); std::vector<float32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<float32>* vec = GetSchemaValue<CUtlVector<float32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetFloatVariables"); std::vector<float32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetPredNetFloatVariables(std::vector<float32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->PredNetFloatVariables(ptr=%p)", m_ptr));
@@ -4952,7 +4952,7 @@ void GCAnimGraphNetworkedVariables::SetPredNetFloatVariables(std::vector<float32
 }
 std::vector<Vector> GCAnimGraphNetworkedVariables::GetPredNetVectorVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->PredNetVectorVariables(ptr=%p)", m_ptr));
-    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetVectorVariables"); std::vector<Vector> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_PredNetVectorVariables"); std::vector<Vector> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetPredNetVectorVariables(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->PredNetVectorVariables(ptr=%p)", m_ptr));
@@ -4960,7 +4960,7 @@ void GCAnimGraphNetworkedVariables::SetPredNetVectorVariables(std::vector<Vector
 }
 std::vector<uint32> GCAnimGraphNetworkedVariables::GetOwnerOnlyPredNetBoolVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->OwnerOnlyPredNetBoolVariables(ptr=%p)", m_ptr));
-    CUtlVector<uint32>* vec = GetSchemaValue<CUtlVector<uint32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetBoolVariables"); std::vector<uint32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint32>* vec = GetSchemaValue<CUtlVector<uint32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetBoolVariables"); std::vector<uint32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetBoolVariables(std::vector<uint32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->OwnerOnlyPredNetBoolVariables(ptr=%p)", m_ptr));
@@ -4968,7 +4968,7 @@ void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetBoolVariables(std::vector
 }
 std::vector<uint8> GCAnimGraphNetworkedVariables::GetOwnerOnlyPredNetByteVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->OwnerOnlyPredNetByteVariables(ptr=%p)", m_ptr));
-    CUtlVector<uint8>* vec = GetSchemaValue<CUtlVector<uint8>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetByteVariables"); std::vector<uint8> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint8>* vec = GetSchemaValue<CUtlVector<uint8>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetByteVariables"); std::vector<uint8> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetByteVariables(std::vector<uint8> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->OwnerOnlyPredNetByteVariables(ptr=%p)", m_ptr));
@@ -4976,7 +4976,7 @@ void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetByteVariables(std::vector
 }
 std::vector<uint16> GCAnimGraphNetworkedVariables::GetOwnerOnlyPredNetUInt16Variables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->OwnerOnlyPredNetUInt16Variables(ptr=%p)", m_ptr));
-    CUtlVector<uint16>* vec = GetSchemaValue<CUtlVector<uint16>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetUInt16Variables"); std::vector<uint16> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint16>* vec = GetSchemaValue<CUtlVector<uint16>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetUInt16Variables"); std::vector<uint16> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetUInt16Variables(std::vector<uint16> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->OwnerOnlyPredNetUInt16Variables(ptr=%p)", m_ptr));
@@ -4984,7 +4984,7 @@ void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetUInt16Variables(std::vect
 }
 std::vector<int32> GCAnimGraphNetworkedVariables::GetOwnerOnlyPredNetIntVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->OwnerOnlyPredNetIntVariables(ptr=%p)", m_ptr));
-    CUtlVector<int32>* vec = GetSchemaValue<CUtlVector<int32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetIntVariables"); std::vector<int32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<int32>* vec = GetSchemaValue<CUtlVector<int32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetIntVariables"); std::vector<int32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetIntVariables(std::vector<int32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->OwnerOnlyPredNetIntVariables(ptr=%p)", m_ptr));
@@ -4992,7 +4992,7 @@ void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetIntVariables(std::vector<
 }
 std::vector<uint32> GCAnimGraphNetworkedVariables::GetOwnerOnlyPredNetUInt32Variables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->OwnerOnlyPredNetUInt32Variables(ptr=%p)", m_ptr));
-    CUtlVector<uint32>* vec = GetSchemaValue<CUtlVector<uint32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetUInt32Variables"); std::vector<uint32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint32>* vec = GetSchemaValue<CUtlVector<uint32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetUInt32Variables"); std::vector<uint32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetUInt32Variables(std::vector<uint32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->OwnerOnlyPredNetUInt32Variables(ptr=%p)", m_ptr));
@@ -5000,7 +5000,7 @@ void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetUInt32Variables(std::vect
 }
 std::vector<uint64> GCAnimGraphNetworkedVariables::GetOwnerOnlyPredNetUInt64Variables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->OwnerOnlyPredNetUInt64Variables(ptr=%p)", m_ptr));
-    CUtlVector<uint64>* vec = GetSchemaValue<CUtlVector<uint64>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetUInt64Variables"); std::vector<uint64> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint64>* vec = GetSchemaValue<CUtlVector<uint64>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetUInt64Variables"); std::vector<uint64> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetUInt64Variables(std::vector<uint64> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->OwnerOnlyPredNetUInt64Variables(ptr=%p)", m_ptr));
@@ -5008,7 +5008,7 @@ void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetUInt64Variables(std::vect
 }
 std::vector<float32> GCAnimGraphNetworkedVariables::GetOwnerOnlyPredNetFloatVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->OwnerOnlyPredNetFloatVariables(ptr=%p)", m_ptr));
-    CUtlVector<float32>* vec = GetSchemaValue<CUtlVector<float32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetFloatVariables"); std::vector<float32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<float32>* vec = GetSchemaValue<CUtlVector<float32>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetFloatVariables"); std::vector<float32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetFloatVariables(std::vector<float32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->OwnerOnlyPredNetFloatVariables(ptr=%p)", m_ptr));
@@ -5016,7 +5016,7 @@ void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetFloatVariables(std::vecto
 }
 std::vector<Vector> GCAnimGraphNetworkedVariables::GetOwnerOnlyPredNetVectorVariables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAnimGraphNetworkedVariables->OwnerOnlyPredNetVectorVariables(ptr=%p)", m_ptr));
-    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetVectorVariables"); std::vector<Vector> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CAnimGraphNetworkedVariables", "m_OwnerOnlyPredNetVectorVariables"); std::vector<Vector> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCAnimGraphNetworkedVariables::SetOwnerOnlyPredNetVectorVariables(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CAnimGraphNetworkedVariables->OwnerOnlyPredNetVectorVariables(ptr=%p)", m_ptr));
@@ -5063,7 +5063,7 @@ std::string GCAnimGraphNetworkedVariables::ToPtr() {
 bool GCAnimGraphNetworkedVariables::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCAnimGraphNetworkedVariables(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCAnimGraphNetworkedVariables(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCAnimGraphNetworkedVariables>("CAnimGraphNetworkedVariables")
@@ -5096,7 +5096,7 @@ GCBodyComponent::GCBodyComponent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBodyComponent::GCBodyComponent(void* ptr) {
+GCBodyComponent::GCBodyComponent(void *ptr) {
     m_ptr = ptr;
 }
 GCGameSceneNode GCBodyComponent::GetSceneNode() const {
@@ -5106,7 +5106,7 @@ GCGameSceneNode GCBodyComponent::GetSceneNode() const {
 }
 void GCBodyComponent::SetSceneNode(GCGameSceneNode value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBodyComponent->SceneNode(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBodyComponent", "m_pSceneNode", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBodyComponent","m_pSceneNode", false, (char*)value.GetPtr());
 }
 GCNetworkVarChainer GCBodyComponent::Get__pChainEntity() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBodyComponent->__pChainEntity(ptr=%p)", m_ptr));
@@ -5135,7 +5135,7 @@ void GCBodyComponent::SetParent(GCEntityComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBodyComponent::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBodyComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBodyComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBodyComponent>("CBodyComponent")
@@ -5151,7 +5151,7 @@ GCEnvFireSensor::GCEnvFireSensor(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvFireSensor::GCEnvFireSensor(void* ptr) {
+GCEnvFireSensor::GCEnvFireSensor(void *ptr) {
     m_ptr = ptr;
 }
 bool GCEnvFireSensor::GetEnabled() const {
@@ -5238,7 +5238,7 @@ void GCEnvFireSensor::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvFireSensor::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvFireSensor(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvFireSensor(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvFireSensor>("CEnvFireSensor")
@@ -5260,7 +5260,7 @@ GCCSGO_TeamPreviewCharacterPosition::GCCSGO_TeamPreviewCharacterPosition(std::st
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSGO_TeamPreviewCharacterPosition::GCCSGO_TeamPreviewCharacterPosition(void* ptr) {
+GCCSGO_TeamPreviewCharacterPosition::GCCSGO_TeamPreviewCharacterPosition(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCCSGO_TeamPreviewCharacterPosition::GetVariant() const {
@@ -5348,7 +5348,7 @@ void GCCSGO_TeamPreviewCharacterPosition::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSGO_TeamPreviewCharacterPosition::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSGO_TeamPreviewCharacterPosition(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSGO_TeamPreviewCharacterPosition(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSGO_TeamPreviewCharacterPosition>("CCSGO_TeamPreviewCharacterPosition")
@@ -5370,7 +5370,7 @@ GCEnvWindShared__WindAveEvent_t::GCEnvWindShared__WindAveEvent_t(std::string ptr
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvWindShared__WindAveEvent_t::GCEnvWindShared__WindAveEvent_t(void* ptr) {
+GCEnvWindShared__WindAveEvent_t::GCEnvWindShared__WindAveEvent_t(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvWindShared__WindAveEvent_t::GetStartWindSpeed() const {
@@ -5398,7 +5398,7 @@ std::string GCEnvWindShared__WindAveEvent_t::ToPtr() {
 bool GCEnvWindShared__WindAveEvent_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCEnvWindShared__WindAveEvent_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvWindShared__WindAveEvent_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvWindShared__WindAveEvent_t>("CEnvWindShared__WindAveEvent_t")
@@ -5413,7 +5413,7 @@ GCBaseProp::GCBaseProp(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseProp::GCBaseProp(void* ptr) {
+GCBaseProp::GCBaseProp(void *ptr) {
     m_ptr = ptr;
 }
 bool GCBaseProp::GetModelOverrodeBlockLOS() const {
@@ -5458,7 +5458,7 @@ void GCBaseProp::SetParent(GCBaseAnimGraph value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseProp::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseProp(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseProp(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseProp>("CBaseProp")
@@ -5475,7 +5475,7 @@ GCPointGamestatsCounter::GCPointGamestatsCounter(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointGamestatsCounter::GCPointGamestatsCounter(void* ptr) {
+GCPointGamestatsCounter::GCPointGamestatsCounter(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCPointGamestatsCounter::GetStrStatisticName() const {
@@ -5512,7 +5512,7 @@ void GCPointGamestatsCounter::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointGamestatsCounter::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointGamestatsCounter(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointGamestatsCounter(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointGamestatsCounter>("CPointGamestatsCounter")
@@ -5528,7 +5528,7 @@ GCPhysicsShake::GCPhysicsShake(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysicsShake::GCPhysicsShake(void* ptr) {
+GCPhysicsShake::GCPhysicsShake(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCPhysicsShake::GetForce() const {
@@ -5548,7 +5548,7 @@ std::string GCPhysicsShake::ToPtr() {
 bool GCPhysicsShake::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCPhysicsShake(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysicsShake(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysicsShake>("CPhysicsShake")
@@ -5562,7 +5562,7 @@ GCBreakable::GCBreakable(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBreakable::GCBreakable(void* ptr) {
+GCBreakable::GCBreakable(void *ptr) {
     m_ptr = ptr;
 }
 GCPropDataComponent GCBreakable::GetCPropDataComponent() const {
@@ -5699,7 +5699,7 @@ void GCBreakable::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBreakable::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBreakable(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBreakable(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBreakable>("CBreakable")
@@ -5727,7 +5727,7 @@ GCPathKeyFrame::GCPathKeyFrame(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPathKeyFrame::GCPathKeyFrame(void* ptr) {
+GCPathKeyFrame::GCPathKeyFrame(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCPathKeyFrame::GetOrigin() const {
@@ -5769,7 +5769,7 @@ GCPathKeyFrame GCPathKeyFrame::GetNextKey1() const {
 }
 void GCPathKeyFrame::SetNextKey1(GCPathKeyFrame value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPathKeyFrame->NextKey1(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CPathKeyFrame", "m_pNextKey", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CPathKeyFrame","m_pNextKey", false, (char*)value.GetPtr());
 }
 GCPathKeyFrame GCPathKeyFrame::GetPrevKey() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPathKeyFrame->PrevKey(ptr=%p)", m_ptr));
@@ -5778,7 +5778,7 @@ GCPathKeyFrame GCPathKeyFrame::GetPrevKey() const {
 }
 void GCPathKeyFrame::SetPrevKey(GCPathKeyFrame value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPathKeyFrame->PrevKey(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CPathKeyFrame", "m_pPrevKey", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CPathKeyFrame","m_pPrevKey", false, (char*)value.GetPtr());
 }
 float GCPathKeyFrame::GetMoveSpeed() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPathKeyFrame->MoveSpeed(ptr=%p)", m_ptr));
@@ -5806,7 +5806,7 @@ void GCPathKeyFrame::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPathKeyFrame::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPathKeyFrame(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPathKeyFrame(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPathKeyFrame>("CPathKeyFrame")
@@ -5827,7 +5827,7 @@ GCTriggerTripWire::GCTriggerTripWire(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerTripWire::GCTriggerTripWire(void* ptr) {
+GCTriggerTripWire::GCTriggerTripWire(void *ptr) {
     m_ptr = ptr;
 }
 void* GCTriggerTripWire::GetPtr() {
@@ -5848,7 +5848,7 @@ void GCTriggerTripWire::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerTripWire::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerTripWire(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerTripWire(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerTripWire>("CTriggerTripWire")
@@ -5862,7 +5862,7 @@ GCEnvTilt::GCEnvTilt(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvTilt::GCEnvTilt(void* ptr) {
+GCEnvTilt::GCEnvTilt(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvTilt::GetDuration() const {
@@ -5915,7 +5915,7 @@ void GCEnvTilt::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvTilt::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvTilt(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvTilt(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvTilt>("CEnvTilt")
@@ -5933,7 +5933,7 @@ GCAttributeContainer::GCAttributeContainer(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCAttributeContainer::GCAttributeContainer(void* ptr) {
+GCAttributeContainer::GCAttributeContainer(void *ptr) {
     m_ptr = ptr;
 }
 GCEconItemView GCAttributeContainer::GetItem() const {
@@ -5963,7 +5963,7 @@ void GCAttributeContainer::SetParent(GCAttributeManager value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CAttributeContainer::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCAttributeContainer(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCAttributeContainer(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCAttributeContainer>("CAttributeContainer")
@@ -5978,7 +5978,7 @@ GCItemGenericTriggerHelper::GCItemGenericTriggerHelper(std::string ptr, lua_Stat
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCItemGenericTriggerHelper::GCItemGenericTriggerHelper(void* ptr) {
+GCItemGenericTriggerHelper::GCItemGenericTriggerHelper(void *ptr) {
     m_ptr = ptr;
 }
 void* GCItemGenericTriggerHelper::GetPtr() {
@@ -5999,7 +5999,7 @@ void GCItemGenericTriggerHelper::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CItemGenericTriggerHelper::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCItemGenericTriggerHelper(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCItemGenericTriggerHelper(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCItemGenericTriggerHelper>("CItemGenericTriggerHelper")
@@ -6013,18 +6013,18 @@ GCLogicBranchList::GCLogicBranchList(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicBranchList::GCLogicBranchList(void* ptr) {
+GCLogicBranchList::GCLogicBranchList(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<CUtlSymbolLarge> GCLogicBranchList::GetLogicBranchNames() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CLogicBranchList->LogicBranchNames(ptr=%p,size=16)", m_ptr));
-    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CLogicBranchList", "m_nLogicBranchNames"); std::vector<CUtlSymbolLarge> ret; for (int i = 0; i < 16; i++) { ret.push_back(outValue[i]); } return ret;
+    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CLogicBranchList", "m_nLogicBranchNames"); std::vector<CUtlSymbolLarge> ret; for(int i = 0; i < 16; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCLogicBranchList::SetLogicBranchNames(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CLogicBranchList->LogicBranchNames(ptr=%p,size=16)", m_ptr));
-    if (value.size() != 16) return PLUGIN_PRINT("Schema SDK", "Field 'LogicBranchNames' needs to have 16 values.\n");
+    if(value.size() != 16) return PLUGIN_PRINT("Schema SDK", "Field 'LogicBranchNames' needs to have 16 values.\n");
     auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CLogicBranchList", "m_nLogicBranchNames");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCLogicBranchList GCLogicBranchList::GetLastState() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CLogicBranchList->LastState(ptr=%p)", m_ptr));
@@ -6080,7 +6080,7 @@ void GCLogicBranchList::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicBranchList::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicBranchList(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicBranchList(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicBranchList>("CLogicBranchList")
@@ -6099,18 +6099,18 @@ Gaudioparams_t::Gaudioparams_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-Gaudioparams_t::Gaudioparams_t(void* ptr) {
+Gaudioparams_t::Gaudioparams_t(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<Vector> Gaudioparams_t::GetLocalSound() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: audioparams_t->LocalSound(ptr=%p,size=8)", m_ptr));
-    Vector* outValue = (Vector*)GetSchemaPtr(m_ptr, "audioparams_t", "localSound"); std::vector<Vector> ret; for (int i = 0; i < 8; i++) { ret.push_back(outValue[i]); } return ret;
+    Vector* outValue = (Vector*)GetSchemaPtr(m_ptr, "audioparams_t", "localSound"); std::vector<Vector> ret; for(int i = 0; i < 8; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void Gaudioparams_t::SetLocalSound(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: audioparams_t->LocalSound(ptr=%p,size=8)", m_ptr));
-    if (value.size() != 8) return PLUGIN_PRINT("Schema SDK", "Field 'LocalSound' needs to have 8 values.\n");
+    if(value.size() != 8) return PLUGIN_PRINT("Schema SDK", "Field 'LocalSound' needs to have 8 values.\n");
     auto val = GetSchemaValuePtr<Vector>(m_ptr, "audioparams_t", "localSound");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t Gaudioparams_t::GetSoundscapeIndex() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: audioparams_t->SoundscapeIndex(ptr=%p)", m_ptr));
@@ -6153,7 +6153,7 @@ std::string Gaudioparams_t::ToPtr() {
 bool Gaudioparams_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassaudioparams_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassaudioparams_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<Gaudioparams_t>("audioparams_t")
@@ -6171,7 +6171,7 @@ GCEconEntity::GCEconEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEconEntity::GCEconEntity(void* ptr) {
+GCEconEntity::GCEconEntity(void *ptr) {
     m_ptr = ptr;
 }
 GCAttributeContainer GCEconEntity::GetAttributeManager() const {
@@ -6266,7 +6266,7 @@ void GCEconEntity::SetParent(GCBaseFlex value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEconEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEconEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEconEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEconEntity>("CEconEntity")
@@ -6289,7 +6289,7 @@ GCModelPointEntity::GCModelPointEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCModelPointEntity::GCModelPointEntity(void* ptr) {
+GCModelPointEntity::GCModelPointEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCModelPointEntity::GetPtr() {
@@ -6310,7 +6310,7 @@ void GCModelPointEntity::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CModelPointEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCModelPointEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCModelPointEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCModelPointEntity>("CModelPointEntity")
@@ -6324,7 +6324,7 @@ GCMultiLightProxy::GCMultiLightProxy(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMultiLightProxy::GCMultiLightProxy(void* ptr) {
+GCMultiLightProxy::GCMultiLightProxy(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCMultiLightProxy::GetLightNameFilter() const {
@@ -6401,7 +6401,7 @@ void GCMultiLightProxy::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMultiLightProxy::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMultiLightProxy(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMultiLightProxy(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMultiLightProxy>("CMultiLightProxy")
@@ -6422,7 +6422,7 @@ GCEffectData::GCEffectData(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEffectData::GCEffectData(void* ptr) {
+GCEffectData::GCEffectData(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCEffectData::GetOrigin() const {
@@ -6588,7 +6588,7 @@ std::string GCEffectData::ToPtr() {
 bool GCEffectData::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCEffectData(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEffectData(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEffectData>("CEffectData")
@@ -6620,7 +6620,7 @@ GCEntityBlocker::GCEntityBlocker(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEntityBlocker::GCEntityBlocker(void* ptr) {
+GCEntityBlocker::GCEntityBlocker(void *ptr) {
     m_ptr = ptr;
 }
 void* GCEntityBlocker::GetPtr() {
@@ -6641,7 +6641,7 @@ void GCEntityBlocker::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEntityBlocker::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEntityBlocker(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEntityBlocker(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEntityBlocker>("CEntityBlocker")
@@ -6655,18 +6655,18 @@ GCLogicCase::GCLogicCase(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicCase::GCLogicCase(void* ptr) {
+GCLogicCase::GCLogicCase(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<CUtlSymbolLarge> GCLogicCase::GetCase() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CLogicCase->Case(ptr=%p,size=32)", m_ptr));
-    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CLogicCase", "m_nCase"); std::vector<CUtlSymbolLarge> ret; for (int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
+    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CLogicCase", "m_nCase"); std::vector<CUtlSymbolLarge> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCLogicCase::SetCase(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CLogicCase->Case(ptr=%p,size=32)", m_ptr));
-    if (value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'Case' needs to have 32 values.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'Case' needs to have 32 values.\n");
     auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CLogicCase", "m_nCase");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCLogicCase::GetShuffleCases() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CLogicCase->ShuffleCases(ptr=%p)", m_ptr));
@@ -6686,17 +6686,17 @@ void GCLogicCase::SetLastShuffleCase(int32_t value) {
 }
 std::vector<uint32_t> GCLogicCase::GetUchShuffleCaseMap() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CLogicCase->UchShuffleCaseMap(ptr=%p,size=32)", m_ptr));
-    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CLogicCase", "m_uchShuffleCaseMap"); std::vector<uint32_t> ret; for (int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
+    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CLogicCase", "m_uchShuffleCaseMap"); std::vector<uint32_t> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCLogicCase::SetUchShuffleCaseMap(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CLogicCase->UchShuffleCaseMap(ptr=%p,size=32)", m_ptr));
-    if (value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'UchShuffleCaseMap' needs to have 32 values.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'UchShuffleCaseMap' needs to have 32 values.\n");
     auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CLogicCase", "m_uchShuffleCaseMap");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<GCEntityIOOutput> GCLogicCase::GetOnCase() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CLogicCase->OnCase(ptr=%p,size=32)", m_ptr));
-    GCEntityIOOutput* outValue = (GCEntityIOOutput*)GetSchemaPtr(m_ptr, "CLogicCase", "m_OnCase"); std::vector<GCEntityIOOutput> ret; for (int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
+    GCEntityIOOutput* outValue = (GCEntityIOOutput*)GetSchemaPtr(m_ptr, "CLogicCase", "m_OnCase"); std::vector<GCEntityIOOutput> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCLogicCase::SetOnCase(std::vector<GCEntityIOOutput> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CLogicCase->OnCase(ptr=%p,size=32)", m_ptr));
@@ -6720,7 +6720,7 @@ void GCLogicCase::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicCase::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicCase(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicCase(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicCase>("CLogicCase")
@@ -6739,7 +6739,7 @@ GCItem::GCItem(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCItem::GCItem(void* ptr) {
+GCItem::GCItem(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCItem::GetOnPlayerTouch() const {
@@ -6828,7 +6828,7 @@ void GCItem::SetParent(GCBaseAnimGraph value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CItem::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCItem(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCItem(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCItem>("CItem")
@@ -6850,7 +6850,7 @@ GCRuleEntity::GCRuleEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRuleEntity::GCRuleEntity(void* ptr) {
+GCRuleEntity::GCRuleEntity(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCRuleEntity::GetMaster() const {
@@ -6879,7 +6879,7 @@ void GCRuleEntity::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRuleEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRuleEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRuleEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRuleEntity>("CRuleEntity")
@@ -6894,7 +6894,7 @@ GExtent::GExtent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GExtent::GExtent(void* ptr) {
+GExtent::GExtent(void *ptr) {
     m_ptr = ptr;
 }
 Vector GExtent::GetLo() const {
@@ -6922,7 +6922,7 @@ std::string GExtent::ToPtr() {
 bool GExtent::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassExtent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassExtent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GExtent>("Extent")
@@ -6937,7 +6937,7 @@ GCSoundEventEntity::GCSoundEventEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundEventEntity::GCSoundEventEntity(void* ptr) {
+GCSoundEventEntity::GCSoundEventEntity(void *ptr) {
     m_ptr = ptr;
 }
 bool GCSoundEventEntity::GetStartOnSpawn() const {
@@ -7056,7 +7056,7 @@ void GCSoundEventEntity::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundEventEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundEventEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundEventEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundEventEntity>("CSoundEventEntity")
@@ -7082,12 +7082,12 @@ GCCSPlayer_ViewModelServices::GCCSPlayer_ViewModelServices(std::string ptr, lua_
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayer_ViewModelServices::GCCSPlayer_ViewModelServices(void* ptr) {
+GCCSPlayer_ViewModelServices::GCCSPlayer_ViewModelServices(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GCBaseViewModel> GCCSPlayer_ViewModelServices::GetViewModel() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayer_ViewModelServices->ViewModel(ptr=%p,size=3)", m_ptr));
-    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CCSPlayer_ViewModelServices", "m_hViewModel"); std::vector<GCBaseViewModel> ret; for (int i = 0; i < 3; i++) { ret.push_back(GCBaseViewModel((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CCSPlayer_ViewModelServices", "m_hViewModel"); std::vector<GCBaseViewModel> ret; for(int i = 0; i < 3; i++) { ret.push_back(GCBaseViewModel((void*)(outValue[i].Get()))); } return ret;
 }
 void GCCSPlayer_ViewModelServices::SetViewModel(std::vector<GCBaseViewModel> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayer_ViewModelServices->ViewModel(ptr=%p,size=3)", m_ptr));
@@ -7111,7 +7111,7 @@ void GCCSPlayer_ViewModelServices::SetParent(GCPlayer_ViewModelServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayer_ViewModelServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayer_ViewModelServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayer_ViewModelServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayer_ViewModelServices>("CCSPlayer_ViewModelServices")
@@ -7126,7 +7126,7 @@ GCBasePlayerWeapon::GCBasePlayerWeapon(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBasePlayerWeapon::GCBasePlayerWeapon(void* ptr) {
+GCBasePlayerWeapon::GCBasePlayerWeapon(void *ptr) {
     m_ptr = ptr;
 }
 int32 GCBasePlayerWeapon::GetNextPrimaryAttackTick() const {
@@ -7179,13 +7179,13 @@ void GCBasePlayerWeapon::SetClip2(int32_t value) {
 }
 std::vector<int32_t> GCBasePlayerWeapon::GetReserveAmmo() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerWeapon->ReserveAmmo(ptr=%p,size=2)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CBasePlayerWeapon", "m_pReserveAmmo"); std::vector<int32_t> ret; for (int i = 0; i < 2; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CBasePlayerWeapon", "m_pReserveAmmo"); std::vector<int32_t> ret; for(int i = 0; i < 2; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCBasePlayerWeapon::SetReserveAmmo(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerWeapon->ReserveAmmo(ptr=%p,size=2)", m_ptr));
-    if (value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'ReserveAmmo' needs to have 2 values.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'ReserveAmmo' needs to have 2 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CBasePlayerWeapon", "m_pReserveAmmo");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCEntityIOOutput GCBasePlayerWeapon::GetOnPlayerUse() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerWeapon->OnPlayerUse(ptr=%p)", m_ptr));
@@ -7214,7 +7214,7 @@ void GCBasePlayerWeapon::SetParent(GCEconEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBasePlayerWeapon::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBasePlayerWeapon(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBasePlayerWeapon(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBasePlayerWeapon>("CBasePlayerWeapon")
@@ -7236,7 +7236,7 @@ GCInfoParticleTarget::GCInfoParticleTarget(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoParticleTarget::GCInfoParticleTarget(void* ptr) {
+GCInfoParticleTarget::GCInfoParticleTarget(void *ptr) {
     m_ptr = ptr;
 }
 void* GCInfoParticleTarget::GetPtr() {
@@ -7257,7 +7257,7 @@ void GCInfoParticleTarget::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoParticleTarget::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoParticleTarget(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoParticleTarget(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoParticleTarget>("CInfoParticleTarget")
@@ -7271,7 +7271,7 @@ GCEnvVolumetricFogController::GCEnvVolumetricFogController(std::string ptr, lua_
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvVolumetricFogController::GCEnvVolumetricFogController(void* ptr) {
+GCEnvVolumetricFogController::GCEnvVolumetricFogController(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvVolumetricFogController::GetScattering() const {
@@ -7540,7 +7540,7 @@ void GCEnvVolumetricFogController::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvVolumetricFogController::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvVolumetricFogController(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvVolumetricFogController(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvVolumetricFogController>("CEnvVolumetricFogController")
@@ -7585,7 +7585,7 @@ GCPlayer_MovementServices::GCPlayer_MovementServices(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_MovementServices::GCPlayer_MovementServices(void* ptr) {
+GCPlayer_MovementServices::GCPlayer_MovementServices(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCPlayer_MovementServices::GetImpulse() const {
@@ -7631,13 +7631,13 @@ void GCPlayer_MovementServices::SetButtonDoublePressed(uint64_t value) {
 }
 std::vector<uint32_t> GCPlayer_MovementServices::GetButtonPressedCmdNumber() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_MovementServices->ButtonPressedCmdNumber(ptr=%p,size=64)", m_ptr));
-    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CPlayer_MovementServices", "m_pButtonPressedCmdNumber"); std::vector<uint32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CPlayer_MovementServices", "m_pButtonPressedCmdNumber"); std::vector<uint32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCPlayer_MovementServices::SetButtonPressedCmdNumber(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPlayer_MovementServices->ButtonPressedCmdNumber(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'ButtonPressedCmdNumber' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'ButtonPressedCmdNumber' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CPlayer_MovementServices", "m_pButtonPressedCmdNumber");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 uint32_t GCPlayer_MovementServices::GetLastCommandNumberProcessed() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_MovementServices->LastCommandNumberProcessed(ptr=%p)", m_ptr));
@@ -7665,13 +7665,13 @@ void GCPlayer_MovementServices::SetMaxspeed(float value) {
 }
 std::vector<float> GCPlayer_MovementServices::GetForceSubtickMoveWhen() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_MovementServices->ForceSubtickMoveWhen(ptr=%p,size=4)", m_ptr));
-    float* outValue = (float*)GetSchemaPtr(m_ptr, "CPlayer_MovementServices", "m_arrForceSubtickMoveWhen"); std::vector<float> ret; for (int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
+    float* outValue = (float*)GetSchemaPtr(m_ptr, "CPlayer_MovementServices", "m_arrForceSubtickMoveWhen"); std::vector<float> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCPlayer_MovementServices::SetForceSubtickMoveWhen(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPlayer_MovementServices->ForceSubtickMoveWhen(ptr=%p,size=4)", m_ptr));
-    if (value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ForceSubtickMoveWhen' needs to have 4 values.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ForceSubtickMoveWhen' needs to have 4 values.\n");
     auto val = GetSchemaValuePtr<float>(m_ptr, "CPlayer_MovementServices", "m_arrForceSubtickMoveWhen");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GCPlayer_MovementServices::GetForwardMove() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_MovementServices->ForwardMove(ptr=%p)", m_ptr));
@@ -7731,7 +7731,7 @@ void GCPlayer_MovementServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_MovementServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_MovementServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_MovementServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_MovementServices>("CPlayer_MovementServices")
@@ -7760,7 +7760,7 @@ GCBreakableProp::GCBreakableProp(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBreakableProp::GCBreakableProp(void* ptr) {
+GCBreakableProp::GCBreakableProp(void *ptr) {
     m_ptr = ptr;
 }
 GCPropDataComponent GCBreakableProp::GetCPropDataComponent() const {
@@ -8020,7 +8020,7 @@ void GCBreakableProp::SetParent(GCBaseProp value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBreakableProp::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBreakableProp(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBreakableProp(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBreakableProp>("CBreakableProp")
@@ -8063,7 +8063,7 @@ GCEnvSoundscapeProxy::GCEnvSoundscapeProxy(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvSoundscapeProxy::GCEnvSoundscapeProxy(void* ptr) {
+GCEnvSoundscapeProxy::GCEnvSoundscapeProxy(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCEnvSoundscapeProxy::GetMainSoundscapeName() const {
@@ -8092,7 +8092,7 @@ void GCEnvSoundscapeProxy::SetParent(GCEnvSoundscape value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvSoundscapeProxy::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvSoundscapeProxy(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvSoundscapeProxy(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvSoundscapeProxy>("CEnvSoundscapeProxy")
@@ -8107,7 +8107,7 @@ GCPhysConstraint::GCPhysConstraint(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysConstraint::GCPhysConstraint(void* ptr) {
+GCPhysConstraint::GCPhysConstraint(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCPhysConstraint::GetNameAttach1() const {
@@ -8235,7 +8235,7 @@ void GCPhysConstraint::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysConstraint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysConstraint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysConstraint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysConstraint>("CPhysConstraint")
@@ -8262,7 +8262,7 @@ GCCSGameModeRules::GCCSGameModeRules(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSGameModeRules::GCCSGameModeRules(void* ptr) {
+GCCSGameModeRules::GCCSGameModeRules(void *ptr) {
     m_ptr = ptr;
 }
 GCNetworkVarChainer GCCSGameModeRules::Get__pChainEntity() const {
@@ -8283,7 +8283,7 @@ std::string GCCSGameModeRules::ToPtr() {
 bool GCCSGameModeRules::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCCSGameModeRules(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSGameModeRules(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSGameModeRules>("CCSGameModeRules")
@@ -8297,7 +8297,7 @@ GCItemAssaultSuit::GCItemAssaultSuit(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCItemAssaultSuit::GCItemAssaultSuit(void* ptr) {
+GCItemAssaultSuit::GCItemAssaultSuit(void *ptr) {
     m_ptr = ptr;
 }
 void* GCItemAssaultSuit::GetPtr() {
@@ -8318,7 +8318,7 @@ void GCItemAssaultSuit::SetParent(GCItem value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CItemAssaultSuit::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCItemAssaultSuit(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCItemAssaultSuit(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCItemAssaultSuit>("CItemAssaultSuit")
@@ -8332,7 +8332,7 @@ GCInfoPlayerStart::GCInfoPlayerStart(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoPlayerStart::GCInfoPlayerStart(void* ptr) {
+GCInfoPlayerStart::GCInfoPlayerStart(void *ptr) {
     m_ptr = ptr;
 }
 bool GCInfoPlayerStart::GetDisabled() const {
@@ -8361,7 +8361,7 @@ void GCInfoPlayerStart::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoPlayerStart::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoPlayerStart(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoPlayerStart(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoPlayerStart>("CInfoPlayerStart")
@@ -8376,7 +8376,7 @@ GCSoundOpvarSetPointBase::GCSoundOpvarSetPointBase(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundOpvarSetPointBase::GCSoundOpvarSetPointBase(void* ptr) {
+GCSoundOpvarSetPointBase::GCSoundOpvarSetPointBase(void *ptr) {
     m_ptr = ptr;
 }
 bool GCSoundOpvarSetPointBase::GetDisabled() const {
@@ -8470,7 +8470,7 @@ void GCSoundOpvarSetPointBase::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundOpvarSetPointBase::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundOpvarSetPointBase(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundOpvarSetPointBase(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundOpvarSetPointBase>("CSoundOpvarSetPointBase")
@@ -8493,12 +8493,12 @@ Gragdoll_t::Gragdoll_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-Gragdoll_t::Gragdoll_t(void* ptr) {
+Gragdoll_t::Gragdoll_t(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<Gragdollelement_t> Gragdoll_t::GetList() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: ragdoll_t->List(ptr=%p)", m_ptr));
-    CUtlVector<Gragdollelement_t>* vec = GetSchemaValue<CUtlVector<Gragdollelement_t>*>(m_ptr, "ragdoll_t", "list"); std::vector<Gragdollelement_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<Gragdollelement_t>* vec = GetSchemaValue<CUtlVector<Gragdollelement_t>*>(m_ptr, "ragdoll_t", "list"); std::vector<Gragdollelement_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void Gragdoll_t::SetList(std::vector<Gragdollelement_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: ragdoll_t->List(ptr=%p)", m_ptr));
@@ -8506,7 +8506,7 @@ void Gragdoll_t::SetList(std::vector<Gragdollelement_t> value) {
 }
 std::vector<int32> Gragdoll_t::GetBoneIndex() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: ragdoll_t->BoneIndex(ptr=%p)", m_ptr));
-    CUtlVector<int32>* vec = GetSchemaValue<CUtlVector<int32>*>(m_ptr, "ragdoll_t", "boneIndex"); std::vector<int32> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<int32>* vec = GetSchemaValue<CUtlVector<int32>*>(m_ptr, "ragdoll_t", "boneIndex"); std::vector<int32> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void Gragdoll_t::SetBoneIndex(std::vector<int32> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: ragdoll_t->BoneIndex(ptr=%p)", m_ptr));
@@ -8537,7 +8537,7 @@ std::string Gragdoll_t::ToPtr() {
 bool Gragdoll_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassragdoll_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassragdoll_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<Gragdoll_t>("ragdoll_t")
@@ -8554,7 +8554,7 @@ GCItemDogtags::GCItemDogtags(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCItemDogtags::GCItemDogtags(void* ptr) {
+GCItemDogtags::GCItemDogtags(void *ptr) {
     m_ptr = ptr;
 }
 GCCSPlayerPawn GCItemDogtags::GetOwningPlayer() const {
@@ -8593,7 +8593,7 @@ void GCItemDogtags::SetParent(GCItem value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CItemDogtags::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCItemDogtags(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCItemDogtags(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCItemDogtags>("CItemDogtags")
@@ -8609,7 +8609,7 @@ GCLightEntity::GCLightEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLightEntity::GCLightEntity(void* ptr) {
+GCLightEntity::GCLightEntity(void *ptr) {
     m_ptr = ptr;
 }
 GCLightComponent GCLightEntity::GetCLightComponent() const {
@@ -8619,7 +8619,7 @@ GCLightComponent GCLightEntity::GetCLightComponent() const {
 }
 void GCLightEntity::SetCLightComponent(GCLightComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CLightEntity->CLightComponent(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CLightEntity", "m_CLightComponent", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CLightEntity","m_CLightComponent", false, (char*)value.GetPtr());
 }
 void* GCLightEntity::GetPtr() {
     return m_ptr;
@@ -8639,7 +8639,7 @@ void GCLightEntity::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLightEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLightEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLightEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLightEntity>("CLightEntity")
@@ -8654,7 +8654,7 @@ GCPlayer_WaterServices::GCPlayer_WaterServices(std::string ptr, lua_State* state
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_WaterServices::GCPlayer_WaterServices(void* ptr) {
+GCPlayer_WaterServices::GCPlayer_WaterServices(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPlayer_WaterServices::GetPtr() {
@@ -8675,7 +8675,7 @@ void GCPlayer_WaterServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_WaterServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_WaterServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_WaterServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_WaterServices>("CPlayer_WaterServices")
@@ -8689,7 +8689,7 @@ GCSkyboxReference::GCSkyboxReference(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSkyboxReference::GCSkyboxReference(void* ptr) {
+GCSkyboxReference::GCSkyboxReference(void *ptr) {
     m_ptr = ptr;
 }
 uint32_t GCSkyboxReference::GetWorldGroupId() const {
@@ -8727,7 +8727,7 @@ void GCSkyboxReference::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSkyboxReference::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSkyboxReference(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSkyboxReference(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSkyboxReference>("CSkyboxReference")
@@ -8743,7 +8743,7 @@ GCDynamicProp::GCDynamicProp(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCDynamicProp::GCDynamicProp(void* ptr) {
+GCDynamicProp::GCDynamicProp(void *ptr) {
     m_ptr = ptr;
 }
 bool GCDynamicProp::GetCreateNavObstacle() const {
@@ -8937,7 +8937,7 @@ void GCDynamicProp::SetParent(GCBreakableProp value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CDynamicProp::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCDynamicProp(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCDynamicProp(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCDynamicProp>("CDynamicProp")
@@ -8972,7 +8972,7 @@ GCRopeKeyframe::GCRopeKeyframe(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRopeKeyframe::GCRopeKeyframe(void* ptr) {
+GCRopeKeyframe::GCRopeKeyframe(void *ptr) {
     m_ptr = ptr;
 }
 uint16_t GCRopeKeyframe::GetRopeFlags() const {
@@ -9139,7 +9139,7 @@ void GCRopeKeyframe::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRopeKeyframe::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRopeKeyframe(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRopeKeyframe(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRopeKeyframe>("CRopeKeyframe")
@@ -9171,7 +9171,7 @@ GCBarnLight::GCBarnLight(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBarnLight::GCBarnLight(void* ptr) {
+GCBarnLight::GCBarnLight(void *ptr) {
     m_ptr = ptr;
 }
 bool GCBarnLight::GetEnabled() const {
@@ -9280,7 +9280,7 @@ void GCBarnLight::SetLightStyleStartTime(float value) {
 }
 std::vector<CUtlString> GCBarnLight::GetQueuedLightStyleStrings() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBarnLight->QueuedLightStyleStrings(ptr=%p)", m_ptr));
-    CUtlVector<CUtlString>* vec = GetSchemaValue<CUtlVector<CUtlString>*>(m_ptr, "CBarnLight", "m_QueuedLightStyleStrings"); std::vector<CUtlString> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<CUtlString>* vec = GetSchemaValue<CUtlVector<CUtlString>*>(m_ptr, "CBarnLight", "m_QueuedLightStyleStrings"); std::vector<CUtlString> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCBarnLight::SetQueuedLightStyleStrings(std::vector<CUtlString> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBarnLight->QueuedLightStyleStrings(ptr=%p)", m_ptr));
@@ -9288,7 +9288,7 @@ void GCBarnLight::SetQueuedLightStyleStrings(std::vector<CUtlString> value) {
 }
 std::vector<CUtlString> GCBarnLight::GetLightStyleEvents() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBarnLight->LightStyleEvents(ptr=%p)", m_ptr));
-    CUtlVector<CUtlString>* vec = GetSchemaValue<CUtlVector<CUtlString>*>(m_ptr, "CBarnLight", "m_LightStyleEvents"); std::vector<CUtlString> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<CUtlString>* vec = GetSchemaValue<CUtlVector<CUtlString>*>(m_ptr, "CBarnLight", "m_LightStyleEvents"); std::vector<CUtlString> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCBarnLight::SetLightStyleEvents(std::vector<CUtlString> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBarnLight->LightStyleEvents(ptr=%p)", m_ptr));
@@ -9296,11 +9296,11 @@ void GCBarnLight::SetLightStyleEvents(std::vector<CUtlString> value) {
 }
 std::vector<GCBaseModelEntity> GCBarnLight::GetLightStyleTargets() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBarnLight->LightStyleTargets(ptr=%p)", m_ptr));
-    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CBarnLight", "m_LightStyleTargets");
-    std::vector<GCBaseModelEntity> outVec;
-    for (int i = 0; i < vec->Count(); i++) {
-        outVec.push_back(GCBaseModelEntity((void*)(vec->Element(i).Get())));
-    }
+    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CBarnLight", "m_LightStyleTargets"); 
+    std::vector<GCBaseModelEntity> outVec; 
+    for(int i = 0; i < vec->Count(); i++) { 
+        outVec.push_back(GCBaseModelEntity((void*)(vec->Element(i).Get()))); 
+    } 
     return outVec;
 }
 void GCBarnLight::SetLightStyleTargets(std::vector<GCBaseModelEntity> value) {
@@ -9309,7 +9309,7 @@ void GCBarnLight::SetLightStyleTargets(std::vector<GCBaseModelEntity> value) {
 }
 std::vector<GCEntityIOOutput> GCBarnLight::GetStyleEvent() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBarnLight->StyleEvent(ptr=%p,size=4)", m_ptr));
-    GCEntityIOOutput* outValue = (GCEntityIOOutput*)GetSchemaPtr(m_ptr, "CBarnLight", "m_StyleEvent"); std::vector<GCEntityIOOutput> ret; for (int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
+    GCEntityIOOutput* outValue = (GCEntityIOOutput*)GetSchemaPtr(m_ptr, "CBarnLight", "m_StyleEvent"); std::vector<GCEntityIOOutput> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCBarnLight::SetStyleEvent(std::vector<GCEntityIOOutput> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBarnLight->StyleEvent(ptr=%p,size=4)", m_ptr));
@@ -9605,7 +9605,7 @@ void GCBarnLight::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBarnLight::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBarnLight(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBarnLight(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBarnLight>("CBarnLight")
@@ -9670,7 +9670,7 @@ GSpawnPoint::GSpawnPoint(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GSpawnPoint::GSpawnPoint(void* ptr) {
+GSpawnPoint::GSpawnPoint(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GSpawnPoint::GetPriority() const {
@@ -9715,7 +9715,7 @@ void GSpawnPoint::SetParent(GCServerOnlyPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SpawnPoint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassSpawnPoint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassSpawnPoint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GSpawnPoint>("SpawnPoint")
@@ -9732,7 +9732,7 @@ GCEnvViewPunch::GCEnvViewPunch(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvViewPunch::GCEnvViewPunch(void* ptr) {
+GCEnvViewPunch::GCEnvViewPunch(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvViewPunch::GetRadius() const {
@@ -9769,7 +9769,7 @@ void GCEnvViewPunch::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvViewPunch::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvViewPunch(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvViewPunch(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvViewPunch>("CEnvViewPunch")
@@ -9785,7 +9785,7 @@ GCCSWeaponBase::GCCSWeaponBase(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSWeaponBase::GCCSWeaponBase(void* ptr) {
+GCCSWeaponBase::GCCSWeaponBase(void *ptr) {
     m_ptr = ptr;
 }
 bool GCCSWeaponBase::GetRemoveable() const {
@@ -10273,7 +10273,7 @@ void GCCSWeaponBase::SetParent(GCBasePlayerWeapon value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSWeaponBase::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSWeaponBase(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSWeaponBase(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSWeaponBase>("CCSWeaponBase")
@@ -10345,7 +10345,7 @@ GCPathCorner::GCPathCorner(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPathCorner::GCPathCorner(void* ptr) {
+GCPathCorner::GCPathCorner(void *ptr) {
     m_ptr = ptr;
 }
 float GCPathCorner::GetWait() const {
@@ -10391,7 +10391,7 @@ void GCPathCorner::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPathCorner::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPathCorner(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPathCorner(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPathCorner>("CPathCorner")
@@ -10408,7 +10408,7 @@ GCPlayerControllerComponent::GCPlayerControllerComponent(std::string ptr, lua_St
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayerControllerComponent::GCPlayerControllerComponent(void* ptr) {
+GCPlayerControllerComponent::GCPlayerControllerComponent(void *ptr) {
     m_ptr = ptr;
 }
 GCNetworkVarChainer GCPlayerControllerComponent::Get__pChainEntity() const {
@@ -10429,7 +10429,7 @@ std::string GCPlayerControllerComponent::ToPtr() {
 bool GCPlayerControllerComponent::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCPlayerControllerComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayerControllerComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayerControllerComponent>("CPlayerControllerComponent")
@@ -10443,7 +10443,7 @@ GCWeaponBaseItem::GCWeaponBaseItem(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponBaseItem::GCWeaponBaseItem(void* ptr) {
+GCWeaponBaseItem::GCWeaponBaseItem(void *ptr) {
     m_ptr = ptr;
 }
 GCountdownTimer GCWeaponBaseItem::GetSequenceCompleteTimer() const {
@@ -10481,7 +10481,7 @@ void GCWeaponBaseItem::SetParent(GCCSWeaponBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponBaseItem::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponBaseItem(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponBaseItem(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponBaseItem>("CWeaponBaseItem")
@@ -10497,7 +10497,7 @@ GCBaseCombatCharacter::GCBaseCombatCharacter(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseCombatCharacter::GCBaseCombatCharacter(void* ptr) {
+GCBaseCombatCharacter::GCBaseCombatCharacter(void *ptr) {
     m_ptr = ptr;
 }
 bool GCBaseCombatCharacter::GetForceServerRagdoll() const {
@@ -10510,11 +10510,11 @@ void GCBaseCombatCharacter::SetForceServerRagdoll(bool value) {
 }
 std::vector<GCEconWearable> GCBaseCombatCharacter::GetMyWearables() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseCombatCharacter->MyWearables(ptr=%p)", m_ptr));
-    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CBaseCombatCharacter", "m_hMyWearables");
-    std::vector<GCEconWearable> outVec;
-    for (int i = 0; i < vec->Count(); i++) {
-        outVec.push_back(GCEconWearable((void*)(vec->Element(i).Get())));
-    }
+    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CBaseCombatCharacter", "m_hMyWearables"); 
+    std::vector<GCEconWearable> outVec; 
+    for(int i = 0; i < vec->Count(); i++) { 
+        outVec.push_back(GCEconWearable((void*)(vec->Element(i).Get()))); 
+    } 
     return outVec;
 }
 void GCBaseCombatCharacter::SetMyWearables(std::vector<GCEconWearable> value) {
@@ -10603,7 +10603,7 @@ void GCBaseCombatCharacter::SetParent(GCBaseFlex value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseCombatCharacter::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseCombatCharacter(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseCombatCharacter(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseCombatCharacter>("CBaseCombatCharacter")
@@ -10627,12 +10627,12 @@ GCMultiSource::GCMultiSource(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMultiSource::GCMultiSource(void* ptr) {
+GCMultiSource::GCMultiSource(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GCBaseEntity> GCMultiSource::GetRgEntities() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMultiSource->RgEntities(ptr=%p,size=32)", m_ptr));
-    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CMultiSource", "m_rgEntities"); std::vector<GCBaseEntity> ret; for (int i = 0; i < 32; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CMultiSource", "m_rgEntities"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 32; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCMultiSource::SetRgEntities(std::vector<GCBaseEntity> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMultiSource->RgEntities(ptr=%p,size=32)", m_ptr));
@@ -10640,13 +10640,13 @@ void GCMultiSource::SetRgEntities(std::vector<GCBaseEntity> value) {
 }
 std::vector<int32_t> GCMultiSource::GetRgTriggered() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMultiSource->RgTriggered(ptr=%p,size=32)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMultiSource", "m_rgTriggered"); std::vector<int32_t> ret; for (int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMultiSource", "m_rgTriggered"); std::vector<int32_t> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMultiSource::SetRgTriggered(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMultiSource->RgTriggered(ptr=%p,size=32)", m_ptr));
-    if (value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'RgTriggered' needs to have 32 values.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'RgTriggered' needs to have 32 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMultiSource", "m_rgTriggered");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCEntityIOOutput GCMultiSource::GetOnTrigger() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMultiSource->OnTrigger(ptr=%p)", m_ptr));
@@ -10691,7 +10691,7 @@ void GCMultiSource::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMultiSource::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMultiSource(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMultiSource(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMultiSource>("CMultiSource")
@@ -10710,7 +10710,7 @@ GCLogicNavigation::GCLogicNavigation(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicNavigation::GCLogicNavigation(void* ptr) {
+GCLogicNavigation::GCLogicNavigation(void *ptr) {
     m_ptr = ptr;
 }
 bool GCLogicNavigation::GetIsOn() const {
@@ -10747,7 +10747,7 @@ void GCLogicNavigation::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicNavigation::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicNavigation(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicNavigation(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicNavigation>("CLogicNavigation")
@@ -10763,7 +10763,7 @@ GCEnvEntityMaker::GCEnvEntityMaker(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvEntityMaker::GCEnvEntityMaker(void* ptr) {
+GCEnvEntityMaker::GCEnvEntityMaker(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCEnvEntityMaker::GetEntityMins() const {
@@ -10884,7 +10884,7 @@ void GCEnvEntityMaker::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvEntityMaker::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvEntityMaker(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvEntityMaker(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvEntityMaker>("CEnvEntityMaker")
@@ -10910,7 +10910,7 @@ GCProjectedDecal::GCProjectedDecal(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCProjectedDecal::GCProjectedDecal(void* ptr) {
+GCProjectedDecal::GCProjectedDecal(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCProjectedDecal::GetTexture() const {
@@ -10947,7 +10947,7 @@ void GCProjectedDecal::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CProjectedDecal::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCProjectedDecal(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCProjectedDecal(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCProjectedDecal>("CProjectedDecal")
@@ -10963,7 +10963,7 @@ GCLogicEventListener::GCLogicEventListener(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicEventListener::GCLogicEventListener(void* ptr) {
+GCLogicEventListener::GCLogicEventListener(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCLogicEventListener::GetStrEventName() const {
@@ -11017,7 +11017,7 @@ void GCLogicEventListener::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicEventListener::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicEventListener(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicEventListener(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicEventListener>("CLogicEventListener")
@@ -11035,7 +11035,7 @@ GCFilterMultiple::GCFilterMultiple(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFilterMultiple::GCFilterMultiple(void* ptr) {
+GCFilterMultiple::GCFilterMultiple(void *ptr) {
     m_ptr = ptr;
 }
 uint64_t GCFilterMultiple::GetFilterType() const {
@@ -11048,17 +11048,17 @@ void GCFilterMultiple::SetFilterType(uint64_t value) {
 }
 std::vector<CUtlSymbolLarge> GCFilterMultiple::GetFilterName() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CFilterMultiple->FilterName(ptr=%p,size=10)", m_ptr));
-    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CFilterMultiple", "m_iFilterName"); std::vector<CUtlSymbolLarge> ret; for (int i = 0; i < 10; i++) { ret.push_back(outValue[i]); } return ret;
+    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CFilterMultiple", "m_iFilterName"); std::vector<CUtlSymbolLarge> ret; for(int i = 0; i < 10; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCFilterMultiple::SetFilterName(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFilterMultiple->FilterName(ptr=%p,size=10)", m_ptr));
-    if (value.size() != 10) return PLUGIN_PRINT("Schema SDK", "Field 'FilterName' needs to have 10 values.\n");
+    if(value.size() != 10) return PLUGIN_PRINT("Schema SDK", "Field 'FilterName' needs to have 10 values.\n");
     auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CFilterMultiple", "m_iFilterName");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<GCBaseEntity> GCFilterMultiple::GetFilter() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CFilterMultiple->Filter(ptr=%p,size=10)", m_ptr));
-    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CFilterMultiple", "m_hFilter"); std::vector<GCBaseEntity> ret; for (int i = 0; i < 10; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CFilterMultiple", "m_hFilter"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 10; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCFilterMultiple::SetFilter(std::vector<GCBaseEntity> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFilterMultiple->Filter(ptr=%p,size=10)", m_ptr));
@@ -11090,7 +11090,7 @@ void GCFilterMultiple::SetParent(GCBaseFilter value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFilterMultiple::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFilterMultiple(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFilterMultiple(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFilterMultiple>("CFilterMultiple")
@@ -11108,7 +11108,7 @@ GCPlayer_UseServices::GCPlayer_UseServices(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_UseServices::GCPlayer_UseServices(void* ptr) {
+GCPlayer_UseServices::GCPlayer_UseServices(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPlayer_UseServices::GetPtr() {
@@ -11129,7 +11129,7 @@ void GCPlayer_UseServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_UseServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_UseServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_UseServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_UseServices>("CPlayer_UseServices")
@@ -11143,7 +11143,7 @@ GCScriptComponent::GCScriptComponent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCScriptComponent::GCScriptComponent(void* ptr) {
+GCScriptComponent::GCScriptComponent(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCScriptComponent::GetScriptClassName() const {
@@ -11172,7 +11172,7 @@ void GCScriptComponent::SetParent(GCEntityComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CScriptComponent::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCScriptComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCScriptComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCScriptComponent>("CScriptComponent")
@@ -11187,7 +11187,7 @@ GCPhysicsWire::GCPhysicsWire(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysicsWire::GCPhysicsWire(void* ptr) {
+GCPhysicsWire::GCPhysicsWire(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCPhysicsWire::GetDensity() const {
@@ -11216,7 +11216,7 @@ void GCPhysicsWire::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysicsWire::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysicsWire(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysicsWire(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysicsWire>("CPhysicsWire")
@@ -11231,7 +11231,7 @@ Glocksound_t::Glocksound_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-Glocksound_t::Glocksound_t(void* ptr) {
+Glocksound_t::Glocksound_t(void *ptr) {
     m_ptr = ptr;
 }
 std::string Glocksound_t::GetLockedSound() const {
@@ -11267,7 +11267,7 @@ std::string Glocksound_t::ToPtr() {
 bool Glocksound_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClasslocksound_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClasslocksound_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<Glocksound_t>("locksound_t")
@@ -11283,7 +11283,7 @@ GCCSPointScriptExtensions_player_controller::GCCSPointScriptExtensions_player_co
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPointScriptExtensions_player_controller::GCCSPointScriptExtensions_player_controller(void* ptr) {
+GCCSPointScriptExtensions_player_controller::GCCSPointScriptExtensions_player_controller(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSPointScriptExtensions_player_controller::GetPtr() {
@@ -11295,7 +11295,7 @@ std::string GCCSPointScriptExtensions_player_controller::ToPtr() {
 bool GCCSPointScriptExtensions_player_controller::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCCSPointScriptExtensions_player_controller(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPointScriptExtensions_player_controller(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPointScriptExtensions_player_controller>("CCSPointScriptExtensions_player_controller")
@@ -11308,7 +11308,7 @@ GCBaseFire::GCBaseFire(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseFire::GCBaseFire(void* ptr) {
+GCBaseFire::GCBaseFire(void *ptr) {
     m_ptr = ptr;
 }
 float GCBaseFire::GetScale() const {
@@ -11361,7 +11361,7 @@ void GCBaseFire::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseFire::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseFire(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseFire(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseFire>("CBaseFire")
@@ -11379,7 +11379,7 @@ GCBumpMine::GCBumpMine(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBumpMine::GCBumpMine(void* ptr) {
+GCBumpMine::GCBumpMine(void *ptr) {
     m_ptr = ptr;
 }
 void* GCBumpMine::GetPtr() {
@@ -11400,7 +11400,7 @@ void GCBumpMine::SetParent(GCCSWeaponBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBumpMine::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBumpMine(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBumpMine(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBumpMine>("CBumpMine")
@@ -11414,7 +11414,7 @@ GCLightGlow::GCLightGlow(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLightGlow::GCLightGlow(void* ptr) {
+GCLightGlow::GCLightGlow(void *ptr) {
     m_ptr = ptr;
 }
 uint32_t GCLightGlow::GetHorizontalSize() const {
@@ -11491,7 +11491,7 @@ void GCLightGlow::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLightGlow::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLightGlow(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLightGlow(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLightGlow>("CLightGlow")
@@ -11512,7 +11512,7 @@ GCSPerRoundStats_t::GCSPerRoundStats_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSPerRoundStats_t::GCSPerRoundStats_t(void* ptr) {
+GCSPerRoundStats_t::GCSPerRoundStats_t(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCSPerRoundStats_t::GetKills() const {
@@ -11628,7 +11628,7 @@ std::string GCSPerRoundStats_t::ToPtr() {
 bool GCSPerRoundStats_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCSPerRoundStats_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSPerRoundStats_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSPerRoundStats_t>("CSPerRoundStats_t")
@@ -11654,7 +11654,7 @@ GCBasePropDoor::GCBasePropDoor(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBasePropDoor::GCBasePropDoor(void* ptr) {
+GCBasePropDoor::GCBasePropDoor(void *ptr) {
     m_ptr = ptr;
 }
 float GCBasePropDoor::GetAutoReturnDelay() const {
@@ -11977,7 +11977,7 @@ void GCBasePropDoor::SetParent(GCDynamicProp value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBasePropDoor::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBasePropDoor(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBasePropDoor(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBasePropDoor>("CBasePropDoor")
@@ -12027,7 +12027,7 @@ GCRagdollManager::GCRagdollManager(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRagdollManager::GCRagdollManager(void* ptr) {
+GCRagdollManager::GCRagdollManager(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCRagdollManager::GetCurrentMaxRagdollCount() const {
@@ -12072,7 +12072,7 @@ void GCRagdollManager::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRagdollManager::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRagdollManager(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRagdollManager(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRagdollManager>("CRagdollManager")
@@ -12089,7 +12089,7 @@ GCTriggerFan::GCTriggerFan(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerFan::GCTriggerFan(void* ptr) {
+GCTriggerFan::GCTriggerFan(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCTriggerFan::GetFanOrigin() const {
@@ -12207,7 +12207,7 @@ void GCTriggerFan::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerFan::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerFan(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerFan(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerFan>("CTriggerFan")
@@ -12233,7 +12233,7 @@ GCBaseCSGrenade::GCBaseCSGrenade(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseCSGrenade::GCBaseCSGrenade(void* ptr) {
+GCBaseCSGrenade::GCBaseCSGrenade(void *ptr) {
     m_ptr = ptr;
 }
 bool GCBaseCSGrenade::GetRedraw() const {
@@ -12367,7 +12367,7 @@ void GCBaseCSGrenade::SetParent(GCCSWeaponBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseCSGrenade::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseCSGrenade(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseCSGrenade(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseCSGrenade>("CBaseCSGrenade")
@@ -12395,7 +12395,7 @@ GCPathCornerCrash::GCPathCornerCrash(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPathCornerCrash::GCPathCornerCrash(void* ptr) {
+GCPathCornerCrash::GCPathCornerCrash(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPathCornerCrash::GetPtr() {
@@ -12416,7 +12416,7 @@ void GCPathCornerCrash::SetParent(GCPathCorner value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPathCornerCrash::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPathCornerCrash(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPathCornerCrash(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPathCornerCrash>("CPathCornerCrash")
@@ -12430,7 +12430,7 @@ GCHandleTest::GCHandleTest(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCHandleTest::GCHandleTest(void* ptr) {
+GCHandleTest::GCHandleTest(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCHandleTest::GetHandle() const {
@@ -12468,7 +12468,7 @@ void GCHandleTest::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CHandleTest::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCHandleTest(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCHandleTest(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCHandleTest>("CHandleTest")
@@ -12484,7 +12484,7 @@ GCSoundOpvarSetEntity::GCSoundOpvarSetEntity(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundOpvarSetEntity::GCSoundOpvarSetEntity(void* ptr) {
+GCSoundOpvarSetEntity::GCSoundOpvarSetEntity(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCSoundOpvarSetEntity::GetStackName() const {
@@ -12569,7 +12569,7 @@ void GCSoundOpvarSetEntity::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundOpvarSetEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundOpvarSetEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundOpvarSetEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundOpvarSetEntity>("CSoundOpvarSetEntity")
@@ -12591,7 +12591,7 @@ GWeaponPurchaseCount_t::GWeaponPurchaseCount_t(std::string ptr, lua_State* state
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GWeaponPurchaseCount_t::GWeaponPurchaseCount_t(void* ptr) {
+GWeaponPurchaseCount_t::GWeaponPurchaseCount_t(void *ptr) {
     m_ptr = ptr;
 }
 uint16_t GWeaponPurchaseCount_t::GetItemDefIndex() const {
@@ -12619,7 +12619,7 @@ std::string GWeaponPurchaseCount_t::ToPtr() {
 bool GWeaponPurchaseCount_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassWeaponPurchaseCount_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassWeaponPurchaseCount_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GWeaponPurchaseCount_t>("WeaponPurchaseCount_t")
@@ -12634,7 +12634,7 @@ GCNavSpaceInfo::GCNavSpaceInfo(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCNavSpaceInfo::GCNavSpaceInfo(void* ptr) {
+GCNavSpaceInfo::GCNavSpaceInfo(void *ptr) {
     m_ptr = ptr;
 }
 bool GCNavSpaceInfo::GetCreateFlightSpace() const {
@@ -12663,7 +12663,7 @@ void GCNavSpaceInfo::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CNavSpaceInfo::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCNavSpaceInfo(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCNavSpaceInfo(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCNavSpaceInfo>("CNavSpaceInfo")
@@ -12678,7 +12678,7 @@ GCLogicAchievement::GCLogicAchievement(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicAchievement::GCLogicAchievement(void* ptr) {
+GCLogicAchievement::GCLogicAchievement(void *ptr) {
     m_ptr = ptr;
 }
 bool GCLogicAchievement::GetDisabled() const {
@@ -12724,7 +12724,7 @@ void GCLogicAchievement::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicAchievement::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicAchievement(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicAchievement(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicAchievement>("CLogicAchievement")
@@ -12741,7 +12741,7 @@ GCPathSimple::GCPathSimple(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPathSimple::GCPathSimple(void* ptr) {
+GCPathSimple::GCPathSimple(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCPathSimple::GetPathString() const {
@@ -12770,7 +12770,7 @@ void GCPathSimple::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPathSimple::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPathSimple(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPathSimple(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPathSimple>("CPathSimple")
@@ -12785,7 +12785,7 @@ GCBtActionParachutePositioning::GCBtActionParachutePositioning(std::string ptr, 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBtActionParachutePositioning::GCBtActionParachutePositioning(void* ptr) {
+GCBtActionParachutePositioning::GCBtActionParachutePositioning(void *ptr) {
     m_ptr = ptr;
 }
 GCountdownTimer GCBtActionParachutePositioning::GetActionTimer() const {
@@ -12815,7 +12815,7 @@ void GCBtActionParachutePositioning::SetParent(GCBtNode value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBtActionParachutePositioning::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBtActionParachutePositioning(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBtActionParachutePositioning(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBtActionParachutePositioning>("CBtActionParachutePositioning")
@@ -12830,7 +12830,7 @@ GCPlayer_CameraServices::GCPlayer_CameraServices(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_CameraServices::GCPlayer_CameraServices(void* ptr) {
+GCPlayer_CameraServices::GCPlayer_CameraServices(void *ptr) {
     m_ptr = ptr;
 }
 QAngle GCPlayer_CameraServices::GetCsViewPunchAngle() const {
@@ -12904,11 +12904,11 @@ void GCPlayer_CameraServices::SetAudio(Gaudioparams_t value) {
 }
 std::vector<GCPostProcessingVolume> GCPlayer_CameraServices::GetPostProcessingVolumes() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_CameraServices->PostProcessingVolumes(ptr=%p)", m_ptr));
-    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CPlayer_CameraServices", "m_PostProcessingVolumes");
-    std::vector<GCPostProcessingVolume> outVec;
-    for (int i = 0; i < vec->Count(); i++) {
-        outVec.push_back(GCPostProcessingVolume((void*)(vec->Element(i).Get())));
-    }
+    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CPlayer_CameraServices", "m_PostProcessingVolumes"); 
+    std::vector<GCPostProcessingVolume> outVec; 
+    for(int i = 0; i < vec->Count(); i++) { 
+        outVec.push_back(GCPostProcessingVolume((void*)(vec->Element(i).Get()))); 
+    } 
     return outVec;
 }
 void GCPlayer_CameraServices::SetPostProcessingVolumes(std::vector<GCPostProcessingVolume> value) {
@@ -12949,7 +12949,7 @@ void GCPlayer_CameraServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_CameraServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_CameraServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_CameraServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_CameraServices>("CPlayer_CameraServices")
@@ -12974,7 +12974,7 @@ GCTouchExpansionComponent::GCTouchExpansionComponent(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTouchExpansionComponent::GCTouchExpansionComponent(void* ptr) {
+GCTouchExpansionComponent::GCTouchExpansionComponent(void *ptr) {
     m_ptr = ptr;
 }
 void* GCTouchExpansionComponent::GetPtr() {
@@ -12995,7 +12995,7 @@ void GCTouchExpansionComponent::SetParent(GCEntityComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTouchExpansionComponent::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTouchExpansionComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTouchExpansionComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTouchExpansionComponent>("CTouchExpansionComponent")
@@ -13009,7 +13009,7 @@ GEntitySpottedState_t::GEntitySpottedState_t(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GEntitySpottedState_t::GEntitySpottedState_t(void* ptr) {
+GEntitySpottedState_t::GEntitySpottedState_t(void *ptr) {
     m_ptr = ptr;
 }
 bool GEntitySpottedState_t::GetSpotted() const {
@@ -13022,13 +13022,13 @@ void GEntitySpottedState_t::SetSpotted(bool value) {
 }
 std::vector<uint32_t> GEntitySpottedState_t::GetSpottedByMask() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: EntitySpottedState_t->SpottedByMask(ptr=%p,size=2)", m_ptr));
-    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "EntitySpottedState_t", "m_bSpottedByMask"); std::vector<uint32_t> ret; for (int i = 0; i < 2; i++) { ret.push_back(outValue[i]); } return ret;
+    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "EntitySpottedState_t", "m_bSpottedByMask"); std::vector<uint32_t> ret; for(int i = 0; i < 2; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GEntitySpottedState_t::SetSpottedByMask(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: EntitySpottedState_t->SpottedByMask(ptr=%p,size=2)", m_ptr));
-    if (value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'SpottedByMask' needs to have 2 values.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'SpottedByMask' needs to have 2 values.\n");
     auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "EntitySpottedState_t", "m_bSpottedByMask");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GEntitySpottedState_t::GetPtr() {
     return m_ptr;
@@ -13039,7 +13039,7 @@ std::string GEntitySpottedState_t::ToPtr() {
 bool GEntitySpottedState_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassEntitySpottedState_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassEntitySpottedState_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GEntitySpottedState_t>("EntitySpottedState_t")
@@ -13054,7 +13054,7 @@ GCBaseClientUIEntity::GCBaseClientUIEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseClientUIEntity::GCBaseClientUIEntity(void* ptr) {
+GCBaseClientUIEntity::GCBaseClientUIEntity(void *ptr) {
     m_ptr = ptr;
 }
 bool GCBaseClientUIEntity::GetEnabled() const {
@@ -13197,7 +13197,7 @@ void GCBaseClientUIEntity::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseClientUIEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseClientUIEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseClientUIEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseClientUIEntity>("CBaseClientUIEntity")
@@ -13225,7 +13225,7 @@ GCEnvDecal::GCEnvDecal(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvDecal::GCEnvDecal(void* ptr) {
+GCEnvDecal::GCEnvDecal(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvDecal::GetWidth() const {
@@ -13310,7 +13310,7 @@ void GCEnvDecal::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvDecal::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvDecal(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvDecal(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvDecal>("CEnvDecal")
@@ -13332,7 +13332,7 @@ GCCSPointScriptExtensions_entity::GCCSPointScriptExtensions_entity(std::string p
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPointScriptExtensions_entity::GCCSPointScriptExtensions_entity(void* ptr) {
+GCCSPointScriptExtensions_entity::GCCSPointScriptExtensions_entity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSPointScriptExtensions_entity::GetPtr() {
@@ -13344,7 +13344,7 @@ std::string GCCSPointScriptExtensions_entity::ToPtr() {
 bool GCCSPointScriptExtensions_entity::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCCSPointScriptExtensions_entity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPointScriptExtensions_entity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPointScriptExtensions_entity>("CCSPointScriptExtensions_entity")
@@ -13357,7 +13357,7 @@ GCGameSceneNode::GCGameSceneNode(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCGameSceneNode::GCGameSceneNode(void* ptr) {
+GCGameSceneNode::GCGameSceneNode(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityInstance GCGameSceneNode::GetOwner() const {
@@ -13367,7 +13367,7 @@ GCEntityInstance GCGameSceneNode::GetOwner() const {
 }
 void GCGameSceneNode::SetOwner(GCEntityInstance value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CGameSceneNode->Owner(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CGameSceneNode", "m_pOwner", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CGameSceneNode","m_pOwner", false, (char*)value.GetPtr());
 }
 GCGameSceneNode GCGameSceneNode::GetParent() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CGameSceneNode->Parent(ptr=%p)", m_ptr));
@@ -13376,7 +13376,7 @@ GCGameSceneNode GCGameSceneNode::GetParent() const {
 }
 void GCGameSceneNode::SetParent(GCGameSceneNode value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CGameSceneNode->Parent(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CGameSceneNode", "m_pParent", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CGameSceneNode","m_pParent", false, (char*)value.GetPtr());
 }
 GCGameSceneNode GCGameSceneNode::GetChild() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CGameSceneNode->Child(ptr=%p)", m_ptr));
@@ -13385,7 +13385,7 @@ GCGameSceneNode GCGameSceneNode::GetChild() const {
 }
 void GCGameSceneNode::SetChild(GCGameSceneNode value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CGameSceneNode->Child(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CGameSceneNode", "m_pChild", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CGameSceneNode","m_pChild", false, (char*)value.GetPtr());
 }
 GCGameSceneNode GCGameSceneNode::GetNextSibling() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CGameSceneNode->NextSibling(ptr=%p)", m_ptr));
@@ -13394,7 +13394,7 @@ GCGameSceneNode GCGameSceneNode::GetNextSibling() const {
 }
 void GCGameSceneNode::SetNextSibling(GCGameSceneNode value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CGameSceneNode->NextSibling(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CGameSceneNode", "m_pNextSibling", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CGameSceneNode","m_pNextSibling", false, (char*)value.GetPtr());
 }
 GCNetworkOriginCellCoordQuantizedVector GCGameSceneNode::GetOrigin() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CGameSceneNode->Origin(ptr=%p)", m_ptr));
@@ -13550,7 +13550,7 @@ std::string GCGameSceneNode::ToPtr() {
 bool GCGameSceneNode::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCGameSceneNode(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCGameSceneNode(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCGameSceneNode>("CGameSceneNode")
@@ -13585,7 +13585,7 @@ GCLogicAuto::GCLogicAuto(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicAuto::GCLogicAuto(void* ptr) {
+GCLogicAuto::GCLogicAuto(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCLogicAuto::GetOnMapSpawn() const {
@@ -13704,7 +13704,7 @@ void GCLogicAuto::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicAuto::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicAuto(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicAuto(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicAuto>("CLogicAuto")
@@ -13729,7 +13729,7 @@ GCSoundOpvarSetOBBWindEntity::GCSoundOpvarSetOBBWindEntity(std::string ptr, lua_
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundOpvarSetOBBWindEntity::GCSoundOpvarSetOBBWindEntity(void* ptr) {
+GCSoundOpvarSetOBBWindEntity::GCSoundOpvarSetOBBWindEntity(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCSoundOpvarSetOBBWindEntity::GetMins() const {
@@ -13814,7 +13814,7 @@ void GCSoundOpvarSetOBBWindEntity::SetParent(GCSoundOpvarSetPointBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundOpvarSetOBBWindEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundOpvarSetOBBWindEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundOpvarSetOBBWindEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundOpvarSetOBBWindEntity>("CSoundOpvarSetOBBWindEntity")
@@ -13836,7 +13836,7 @@ GCLightDirectionalEntity::GCLightDirectionalEntity(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLightDirectionalEntity::GCLightDirectionalEntity(void* ptr) {
+GCLightDirectionalEntity::GCLightDirectionalEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCLightDirectionalEntity::GetPtr() {
@@ -13857,7 +13857,7 @@ void GCLightDirectionalEntity::SetParent(GCLightEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLightDirectionalEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLightDirectionalEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLightDirectionalEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLightDirectionalEntity>("CLightDirectionalEntity")
@@ -13871,7 +13871,7 @@ GCLogicNPCCounter::GCLogicNPCCounter(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicNPCCounter::GCLogicNPCCounter(void* ptr) {
+GCLogicNPCCounter::GCLogicNPCCounter(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCLogicNPCCounter::GetOnMinCountAll() const {
@@ -14221,7 +14221,7 @@ void GCLogicNPCCounter::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicNPCCounter::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicNPCCounter(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicNPCCounter(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicNPCCounter>("CLogicNPCCounter")
@@ -14275,7 +14275,7 @@ GCCSObserver_UseServices::GCCSObserver_UseServices(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSObserver_UseServices::GCCSObserver_UseServices(void* ptr) {
+GCCSObserver_UseServices::GCCSObserver_UseServices(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSObserver_UseServices::GetPtr() {
@@ -14296,7 +14296,7 @@ void GCCSObserver_UseServices::SetParent(GCPlayer_UseServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSObserver_UseServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSObserver_UseServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSObserver_UseServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSObserver_UseServices>("CCSObserver_UseServices")
@@ -14310,7 +14310,7 @@ GCFuncPlat::GCFuncPlat(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncPlat::GCFuncPlat(void* ptr) {
+GCFuncPlat::GCFuncPlat(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCFuncPlat::GetNoise() const {
@@ -14339,7 +14339,7 @@ void GCFuncPlat::SetParent(GCBasePlatTrain value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncPlat::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncPlat(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncPlat(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncPlat>("CFuncPlat")
@@ -14354,7 +14354,7 @@ GCRuleBrushEntity::GCRuleBrushEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRuleBrushEntity::GCRuleBrushEntity(void* ptr) {
+GCRuleBrushEntity::GCRuleBrushEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCRuleBrushEntity::GetPtr() {
@@ -14375,7 +14375,7 @@ void GCRuleBrushEntity::SetParent(GCRuleEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRuleBrushEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRuleBrushEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRuleBrushEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRuleBrushEntity>("CRuleBrushEntity")
@@ -14389,7 +14389,7 @@ GCRulePointEntity::GCRulePointEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRulePointEntity::GCRulePointEntity(void* ptr) {
+GCRulePointEntity::GCRulePointEntity(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCRulePointEntity::GetScore() const {
@@ -14418,7 +14418,7 @@ void GCRulePointEntity::SetParent(GCRuleEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRulePointEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRulePointEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRulePointEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRulePointEntity>("CRulePointEntity")
@@ -14433,7 +14433,7 @@ GCMessageEntity::GCMessageEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMessageEntity::GCMessageEntity(void* ptr) {
+GCMessageEntity::GCMessageEntity(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCMessageEntity::GetRadius() const {
@@ -14494,7 +14494,7 @@ void GCMessageEntity::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMessageEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMessageEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMessageEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMessageEntity>("CMessageEntity")
@@ -14513,7 +14513,7 @@ GCSmokeGrenade::GCSmokeGrenade(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSmokeGrenade::GCSmokeGrenade(void* ptr) {
+GCSmokeGrenade::GCSmokeGrenade(void *ptr) {
     m_ptr = ptr;
 }
 void* GCSmokeGrenade::GetPtr() {
@@ -14534,7 +14534,7 @@ void GCSmokeGrenade::SetParent(GCBaseCSGrenade value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSmokeGrenade::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSmokeGrenade(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSmokeGrenade(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSmokeGrenade>("CSmokeGrenade")
@@ -14548,7 +14548,7 @@ GCBaseViewModel::GCBaseViewModel(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseViewModel::GCBaseViewModel(void* ptr) {
+GCBaseViewModel::GCBaseViewModel(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCBaseViewModel::GetLastFacing() const {
@@ -14651,7 +14651,7 @@ void GCBaseViewModel::SetParent(GCBaseAnimGraph value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseViewModel::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseViewModel(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseViewModel(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseViewModel>("CBaseViewModel")
@@ -14675,18 +14675,18 @@ GCCSPlayer_PingServices::GCCSPlayer_PingServices(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayer_PingServices::GCCSPlayer_PingServices(void* ptr) {
+GCCSPlayer_PingServices::GCCSPlayer_PingServices(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<float> GCCSPlayer_PingServices::GetPlayerPingTokens() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayer_PingServices->PlayerPingTokens(ptr=%p,size=5)", m_ptr));
-    float* outValue = (float*)GetSchemaPtr(m_ptr, "CCSPlayer_PingServices", "m_flPlayerPingTokens"); std::vector<float> ret; for (int i = 0; i < 5; i++) { ret.push_back(outValue[i]); } return ret;
+    float* outValue = (float*)GetSchemaPtr(m_ptr, "CCSPlayer_PingServices", "m_flPlayerPingTokens"); std::vector<float> ret; for(int i = 0; i < 5; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCCSPlayer_PingServices::SetPlayerPingTokens(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayer_PingServices->PlayerPingTokens(ptr=%p,size=5)", m_ptr));
-    if (value.size() != 5) return PLUGIN_PRINT("Schema SDK", "Field 'PlayerPingTokens' needs to have 5 values.\n");
+    if(value.size() != 5) return PLUGIN_PRINT("Schema SDK", "Field 'PlayerPingTokens' needs to have 5 values.\n");
     auto val = GetSchemaValuePtr<float>(m_ptr, "CCSPlayer_PingServices", "m_flPlayerPingTokens");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 GCBaseEntity GCCSPlayer_PingServices::GetPlayerPing() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayer_PingServices->PlayerPing(ptr=%p)", m_ptr));
@@ -14715,7 +14715,7 @@ void GCCSPlayer_PingServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayer_PingServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayer_PingServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayer_PingServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayer_PingServices>("CCSPlayer_PingServices")
@@ -14731,7 +14731,7 @@ GCPlayer_FlashlightServices::GCPlayer_FlashlightServices(std::string ptr, lua_St
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_FlashlightServices::GCPlayer_FlashlightServices(void* ptr) {
+GCPlayer_FlashlightServices::GCPlayer_FlashlightServices(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPlayer_FlashlightServices::GetPtr() {
@@ -14752,7 +14752,7 @@ void GCPlayer_FlashlightServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_FlashlightServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_FlashlightServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_FlashlightServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_FlashlightServices>("CPlayer_FlashlightServices")
@@ -14766,7 +14766,7 @@ GCServerOnlyModelEntity::GCServerOnlyModelEntity(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCServerOnlyModelEntity::GCServerOnlyModelEntity(void* ptr) {
+GCServerOnlyModelEntity::GCServerOnlyModelEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCServerOnlyModelEntity::GetPtr() {
@@ -14787,7 +14787,7 @@ void GCServerOnlyModelEntity::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CServerOnlyModelEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCServerOnlyModelEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCServerOnlyModelEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCServerOnlyModelEntity>("CServerOnlyModelEntity")
@@ -14801,7 +14801,7 @@ GCBtActionCombatPositioning::GCBtActionCombatPositioning(std::string ptr, lua_St
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBtActionCombatPositioning::GCBtActionCombatPositioning(void* ptr) {
+GCBtActionCombatPositioning::GCBtActionCombatPositioning(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCBtActionCombatPositioning::GetSensorInputKey() const {
@@ -14855,7 +14855,7 @@ void GCBtActionCombatPositioning::SetParent(GCBtNode value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBtActionCombatPositioning::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBtActionCombatPositioning(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBtActionCombatPositioning(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBtActionCombatPositioning>("CBtActionCombatPositioning")
@@ -14873,7 +14873,7 @@ GCFireSmoke::GCFireSmoke(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFireSmoke::GCFireSmoke(void* ptr) {
+GCFireSmoke::GCFireSmoke(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCFireSmoke::GetFlameModelIndex() const {
@@ -14910,7 +14910,7 @@ void GCFireSmoke::SetParent(GCBaseFire value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFireSmoke::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFireSmoke(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFireSmoke(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFireSmoke>("CFireSmoke")
@@ -14926,7 +14926,7 @@ GCCSWeaponBaseGun::GCCSWeaponBaseGun(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSWeaponBaseGun::GCCSWeaponBaseGun(void* ptr) {
+GCCSWeaponBaseGun::GCCSWeaponBaseGun(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCCSWeaponBaseGun::GetZoomLevel() const {
@@ -15019,7 +15019,7 @@ void GCCSWeaponBaseGun::SetParent(GCCSWeaponBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSWeaponBaseGun::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSWeaponBaseGun(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSWeaponBaseGun(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSWeaponBaseGun>("CCSWeaponBaseGun")
@@ -15042,7 +15042,7 @@ GCWeaponGlock::GCWeaponGlock(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponGlock::GCWeaponGlock(void* ptr) {
+GCWeaponGlock::GCWeaponGlock(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponGlock::GetPtr() {
@@ -15063,7 +15063,7 @@ void GCWeaponGlock::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponGlock::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponGlock(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponGlock(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponGlock>("CWeaponGlock")
@@ -15077,7 +15077,7 @@ GCPredictedViewModel::GCPredictedViewModel(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPredictedViewModel::GCPredictedViewModel(void* ptr) {
+GCPredictedViewModel::GCPredictedViewModel(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPredictedViewModel::GetPtr() {
@@ -15098,7 +15098,7 @@ void GCPredictedViewModel::SetParent(GCBaseViewModel value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPredictedViewModel::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPredictedViewModel(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPredictedViewModel(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPredictedViewModel>("CPredictedViewModel")
@@ -15112,7 +15112,7 @@ GCTriggerActiveWeaponDetect::GCTriggerActiveWeaponDetect(std::string ptr, lua_St
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerActiveWeaponDetect::GCTriggerActiveWeaponDetect(void* ptr) {
+GCTriggerActiveWeaponDetect::GCTriggerActiveWeaponDetect(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCTriggerActiveWeaponDetect::GetOnTouchedActiveWeapon() const {
@@ -15150,7 +15150,7 @@ void GCTriggerActiveWeaponDetect::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerActiveWeaponDetect::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerActiveWeaponDetect(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerActiveWeaponDetect(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerActiveWeaponDetect>("CTriggerActiveWeaponDetect")
@@ -15166,7 +15166,7 @@ GCEnvMicrophone::GCEnvMicrophone(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvMicrophone::GCEnvMicrophone(void* ptr) {
+GCEnvMicrophone::GCEnvMicrophone(void *ptr) {
     m_ptr = ptr;
 }
 bool GCEnvMicrophone::GetDisabled() const {
@@ -15328,7 +15328,7 @@ void GCEnvMicrophone::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvMicrophone::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvMicrophone(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvMicrophone(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvMicrophone>("CEnvMicrophone")
@@ -15359,7 +15359,7 @@ GCInfoSpawnGroupLoadUnload::GCInfoSpawnGroupLoadUnload(std::string ptr, lua_Stat
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoSpawnGroupLoadUnload::GCInfoSpawnGroupLoadUnload(void* ptr) {
+GCInfoSpawnGroupLoadUnload::GCInfoSpawnGroupLoadUnload(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCInfoSpawnGroupLoadUnload::GetOnSpawnGroupLoadStarted() const {
@@ -15472,7 +15472,7 @@ void GCInfoSpawnGroupLoadUnload::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoSpawnGroupLoadUnload::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoSpawnGroupLoadUnload(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoSpawnGroupLoadUnload(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoSpawnGroupLoadUnload>("CInfoSpawnGroupLoadUnload")
@@ -15497,7 +15497,7 @@ GCBasePlayerController::GCBasePlayerController(std::string ptr, lua_State* state
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBasePlayerController::GCBasePlayerController(void* ptr) {
+GCBasePlayerController::GCBasePlayerController(void *ptr) {
     m_ptr = ptr;
 }
 int GCBasePlayerController::EntityIndex() {
@@ -15723,7 +15723,7 @@ void GCBasePlayerController::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBasePlayerController::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBasePlayerController(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBasePlayerController(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBasePlayerController>("CBasePlayerController")
@@ -15763,7 +15763,7 @@ GCPointTemplateAPI::GCPointTemplateAPI(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointTemplateAPI::GCPointTemplateAPI(void* ptr) {
+GCPointTemplateAPI::GCPointTemplateAPI(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPointTemplateAPI::GetPtr() {
@@ -15775,7 +15775,7 @@ std::string GCPointTemplateAPI::ToPtr() {
 bool GCPointTemplateAPI::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCPointTemplateAPI(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointTemplateAPI(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointTemplateAPI>("CPointTemplateAPI")
@@ -15788,7 +15788,7 @@ GCKnife::GCKnife(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCKnife::GCKnife(void* ptr) {
+GCKnife::GCKnife(void *ptr) {
     m_ptr = ptr;
 }
 bool GCKnife::GetFirstAttack() const {
@@ -15817,7 +15817,7 @@ void GCKnife::SetParent(GCCSWeaponBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CKnife::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCKnife(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCKnife(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCKnife>("CKnife")
@@ -15832,7 +15832,7 @@ GCFuncTrackTrain::GCFuncTrackTrain(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncTrackTrain::GCFuncTrackTrain(void* ptr) {
+GCFuncTrackTrain::GCFuncTrackTrain(void *ptr) {
     m_ptr = ptr;
 }
 GCPathTrack GCFuncTrackTrain::GetPpath() const {
@@ -16153,7 +16153,7 @@ void GCFuncTrackTrain::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncTrackTrain::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncTrackTrain(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncTrackTrain(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncTrackTrain>("CFuncTrackTrain")
@@ -16204,7 +16204,7 @@ GCFogVolume::GCFogVolume(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFogVolume::GCFogVolume(void* ptr) {
+GCFogVolume::GCFogVolume(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCFogVolume::GetFogName() const {
@@ -16265,7 +16265,7 @@ void GCFogVolume::SetParent(GCServerOnlyModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFogVolume::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFogVolume(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFogVolume(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFogVolume>("CFogVolume")
@@ -16284,7 +16284,7 @@ GCInfoPlayerCounterterrorist::GCInfoPlayerCounterterrorist(std::string ptr, lua_
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoPlayerCounterterrorist::GCInfoPlayerCounterterrorist(void* ptr) {
+GCInfoPlayerCounterterrorist::GCInfoPlayerCounterterrorist(void *ptr) {
     m_ptr = ptr;
 }
 void* GCInfoPlayerCounterterrorist::GetPtr() {
@@ -16305,7 +16305,7 @@ void GCInfoPlayerCounterterrorist::SetParent(GSpawnPoint value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoPlayerCounterterrorist::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoPlayerCounterterrorist(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoPlayerCounterterrorist(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoPlayerCounterterrorist>("CInfoPlayerCounterterrorist")
@@ -16319,7 +16319,7 @@ GCFire::GCFire(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFire::GCFire(void* ptr) {
+GCFire::GCFire(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseFire GCFire::GetEffect() const {
@@ -16496,7 +16496,7 @@ void GCFire::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFire::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFire(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFire(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFire>("CFire")
@@ -16529,7 +16529,7 @@ GISkeletonAnimationController::GISkeletonAnimationController(std::string ptr, lu
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GISkeletonAnimationController::GISkeletonAnimationController(void* ptr) {
+GISkeletonAnimationController::GISkeletonAnimationController(void *ptr) {
     m_ptr = ptr;
 }
 void* GISkeletonAnimationController::GetPtr() {
@@ -16541,7 +16541,7 @@ std::string GISkeletonAnimationController::ToPtr() {
 bool GISkeletonAnimationController::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassISkeletonAnimationController(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassISkeletonAnimationController(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GISkeletonAnimationController>("ISkeletonAnimationController")
@@ -16554,7 +16554,7 @@ GCCSServerPointScriptEntity::GCCSServerPointScriptEntity(std::string ptr, lua_St
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSServerPointScriptEntity::GCCSServerPointScriptEntity(void* ptr) {
+GCCSServerPointScriptEntity::GCCSServerPointScriptEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSServerPointScriptEntity::GetPtr() {
@@ -16575,7 +16575,7 @@ void GCCSServerPointScriptEntity::SetParent(GCCSPointScriptEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSServerPointScriptEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSServerPointScriptEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSServerPointScriptEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSServerPointScriptEntity>("CCSServerPointScriptEntity")
@@ -16589,7 +16589,7 @@ GCWeaponBizon::GCWeaponBizon(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponBizon::GCWeaponBizon(void* ptr) {
+GCWeaponBizon::GCWeaponBizon(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponBizon::GetPtr() {
@@ -16610,7 +16610,7 @@ void GCWeaponBizon::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponBizon::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponBizon(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponBizon(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponBizon>("CWeaponBizon")
@@ -16624,7 +16624,7 @@ GCFuncPlatRot::GCFuncPlatRot(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncPlatRot::GCFuncPlatRot(void* ptr) {
+GCFuncPlatRot::GCFuncPlatRot(void *ptr) {
     m_ptr = ptr;
 }
 QAngle GCFuncPlatRot::GetEnd() const {
@@ -16661,7 +16661,7 @@ void GCFuncPlatRot::SetParent(GCFuncPlat value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncPlatRot::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncPlatRot(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncPlatRot(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncPlatRot>("CFuncPlatRot")
@@ -16677,7 +16677,7 @@ GCGenericConstraint::GCGenericConstraint(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCGenericConstraint::GCGenericConstraint(void* ptr) {
+GCGenericConstraint::GCGenericConstraint(void *ptr) {
     m_ptr = ptr;
 }
 uint64_t GCGenericConstraint::GetLinearMotionX() const {
@@ -17085,7 +17085,7 @@ void GCGenericConstraint::SetParent(GCPhysConstraint value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CGenericConstraint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCGenericConstraint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCGenericConstraint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCGenericConstraint>("CGenericConstraint")
@@ -17147,7 +17147,7 @@ GCDecoyGrenade::GCDecoyGrenade(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCDecoyGrenade::GCDecoyGrenade(void* ptr) {
+GCDecoyGrenade::GCDecoyGrenade(void *ptr) {
     m_ptr = ptr;
 }
 void* GCDecoyGrenade::GetPtr() {
@@ -17168,7 +17168,7 @@ void GCDecoyGrenade::SetParent(GCBaseCSGrenade value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CDecoyGrenade::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCDecoyGrenade(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCDecoyGrenade(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCDecoyGrenade>("CDecoyGrenade")
@@ -17182,7 +17182,7 @@ GCWeaponG3SG1::GCWeaponG3SG1(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponG3SG1::GCWeaponG3SG1(void* ptr) {
+GCWeaponG3SG1::GCWeaponG3SG1(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponG3SG1::GetPtr() {
@@ -17203,7 +17203,7 @@ void GCWeaponG3SG1::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponG3SG1::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponG3SG1(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponG3SG1(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponG3SG1>("CWeaponG3SG1")
@@ -17217,7 +17217,7 @@ GCItemDefuser::GCItemDefuser(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCItemDefuser::GCItemDefuser(void* ptr) {
+GCItemDefuser::GCItemDefuser(void *ptr) {
     m_ptr = ptr;
 }
 GEntitySpottedState_t GCItemDefuser::GetEntitySpottedState() const {
@@ -17255,7 +17255,7 @@ void GCItemDefuser::SetParent(GCItem value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CItemDefuser::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCItemDefuser(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCItemDefuser(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCItemDefuser>("CItemDefuser")
@@ -17271,7 +17271,7 @@ GCConstantForceController::GCConstantForceController(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCConstantForceController::GCConstantForceController(void* ptr) {
+GCConstantForceController::GCConstantForceController(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCConstantForceController::GetLinear() const {
@@ -17315,7 +17315,7 @@ std::string GCConstantForceController::ToPtr() {
 bool GCConstantForceController::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCConstantForceController(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCConstantForceController(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCConstantForceController>("CConstantForceController")
@@ -17332,7 +17332,7 @@ GCDEagle::GCDEagle(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCDEagle::GCDEagle(void* ptr) {
+GCDEagle::GCDEagle(void *ptr) {
     m_ptr = ptr;
 }
 void* GCDEagle::GetPtr() {
@@ -17353,7 +17353,7 @@ void GCDEagle::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CDEagle::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCDEagle(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCDEagle(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCDEagle>("CDEagle")
@@ -17367,7 +17367,7 @@ GCRagdollProp::GCRagdollProp(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRagdollProp::GCRagdollProp(void* ptr) {
+GCRagdollProp::GCRagdollProp(void *ptr) {
     m_ptr = ptr;
 }
 Gragdoll_t GCRagdollProp::GetRagdoll() const {
@@ -17389,7 +17389,7 @@ void GCRagdollProp::SetStartDisabled(bool value) {
 }
 std::vector<Vector> GCRagdollProp::GetRagPos() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CRagdollProp->RagPos(ptr=%p)", m_ptr));
-    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CRagdollProp", "m_ragPos"); std::vector<Vector> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CRagdollProp", "m_ragPos"); std::vector<Vector> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCRagdollProp::SetRagPos(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CRagdollProp->RagPos(ptr=%p)", m_ptr));
@@ -17397,7 +17397,7 @@ void GCRagdollProp::SetRagPos(std::vector<Vector> value) {
 }
 std::vector<QAngle> GCRagdollProp::GetRagAngles() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CRagdollProp->RagAngles(ptr=%p)", m_ptr));
-    CUtlVector<QAngle>* vec = GetSchemaValue<CUtlVector<QAngle>*>(m_ptr, "CRagdollProp", "m_ragAngles"); std::vector<QAngle> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<QAngle>* vec = GetSchemaValue<CUtlVector<QAngle>*>(m_ptr, "CRagdollProp", "m_ragAngles"); std::vector<QAngle> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCRagdollProp::SetRagAngles(std::vector<QAngle> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CRagdollProp->RagAngles(ptr=%p)", m_ptr));
@@ -17561,7 +17561,7 @@ void GCRagdollProp::SetDefaultFadeScale(float value) {
 }
 std::vector<Vector> GCRagdollProp::GetRagdollMins() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CRagdollProp->RagdollMins(ptr=%p)", m_ptr));
-    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CRagdollProp", "m_ragdollMins"); std::vector<Vector> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CRagdollProp", "m_ragdollMins"); std::vector<Vector> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCRagdollProp::SetRagdollMins(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CRagdollProp->RagdollMins(ptr=%p)", m_ptr));
@@ -17569,7 +17569,7 @@ void GCRagdollProp::SetRagdollMins(std::vector<Vector> value) {
 }
 std::vector<Vector> GCRagdollProp::GetRagdollMaxs() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CRagdollProp->RagdollMaxs(ptr=%p)", m_ptr));
-    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CRagdollProp", "m_ragdollMaxs"); std::vector<Vector> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, "CRagdollProp", "m_ragdollMaxs"); std::vector<Vector> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCRagdollProp::SetRagdollMaxs(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CRagdollProp->RagdollMaxs(ptr=%p)", m_ptr));
@@ -17609,7 +17609,7 @@ void GCRagdollProp::SetParent(GCBaseAnimGraph value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRagdollProp::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRagdollProp(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRagdollProp(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRagdollProp>("CRagdollProp")
@@ -17650,7 +17650,7 @@ GCItemSoda::GCItemSoda(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCItemSoda::GCItemSoda(void* ptr) {
+GCItemSoda::GCItemSoda(void *ptr) {
     m_ptr = ptr;
 }
 void* GCItemSoda::GetPtr() {
@@ -17671,7 +17671,7 @@ void GCItemSoda::SetParent(GCBaseAnimGraph value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CItemSoda::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCItemSoda(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCItemSoda(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCItemSoda>("CItemSoda")
@@ -17685,7 +17685,7 @@ GCEnvCubemap::GCEnvCubemap(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvCubemap::GCEnvCubemap(void* ptr) {
+GCEnvCubemap::GCEnvCubemap(void *ptr) {
     m_ptr = ptr;
 }
 bool GCEnvCubemap::GetEntity_bCustomCubemapTexture() const {
@@ -17842,7 +17842,7 @@ void GCEnvCubemap::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvCubemap::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvCubemap(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvCubemap(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvCubemap>("CEnvCubemap")
@@ -17873,7 +17873,7 @@ GCBasePlayerControllerAPI::GCBasePlayerControllerAPI(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBasePlayerControllerAPI::GCBasePlayerControllerAPI(void* ptr) {
+GCBasePlayerControllerAPI::GCBasePlayerControllerAPI(void *ptr) {
     m_ptr = ptr;
 }
 void* GCBasePlayerControllerAPI::GetPtr() {
@@ -17885,7 +17885,7 @@ std::string GCBasePlayerControllerAPI::ToPtr() {
 bool GCBasePlayerControllerAPI::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCBasePlayerControllerAPI(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBasePlayerControllerAPI(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBasePlayerControllerAPI>("CBasePlayerControllerAPI")
@@ -17898,7 +17898,7 @@ GCCSPointScriptExtensions_CCSWeaponBaseVData::GCCSPointScriptExtensions_CCSWeapo
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPointScriptExtensions_CCSWeaponBaseVData::GCCSPointScriptExtensions_CCSWeaponBaseVData(void* ptr) {
+GCCSPointScriptExtensions_CCSWeaponBaseVData::GCCSPointScriptExtensions_CCSWeaponBaseVData(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSPointScriptExtensions_CCSWeaponBaseVData::GetPtr() {
@@ -17910,7 +17910,7 @@ std::string GCCSPointScriptExtensions_CCSWeaponBaseVData::ToPtr() {
 bool GCCSPointScriptExtensions_CCSWeaponBaseVData::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCCSPointScriptExtensions_CCSWeaponBaseVData(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPointScriptExtensions_CCSWeaponBaseVData(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPointScriptExtensions_CCSWeaponBaseVData>("CCSPointScriptExtensions_CCSWeaponBaseVData")
@@ -17923,7 +17923,7 @@ GCEnvDetailController::GCEnvDetailController(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvDetailController::GCEnvDetailController(void* ptr) {
+GCEnvDetailController::GCEnvDetailController(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvDetailController::GetFadeStartDist() const {
@@ -17960,7 +17960,7 @@ void GCEnvDetailController::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvDetailController::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvDetailController(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvDetailController(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvDetailController>("CEnvDetailController")
@@ -17976,7 +17976,7 @@ GCTriggerOnce::GCTriggerOnce(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerOnce::GCTriggerOnce(void* ptr) {
+GCTriggerOnce::GCTriggerOnce(void *ptr) {
     m_ptr = ptr;
 }
 void* GCTriggerOnce::GetPtr() {
@@ -17997,7 +17997,7 @@ void GCTriggerOnce::SetParent(GCTriggerMultiple value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerOnce::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerOnce(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerOnce(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerOnce>("CTriggerOnce")
@@ -18011,7 +18011,7 @@ GCInfoTeleportDestination::GCInfoTeleportDestination(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoTeleportDestination::GCInfoTeleportDestination(void* ptr) {
+GCInfoTeleportDestination::GCInfoTeleportDestination(void *ptr) {
     m_ptr = ptr;
 }
 void* GCInfoTeleportDestination::GetPtr() {
@@ -18032,7 +18032,7 @@ void GCInfoTeleportDestination::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoTeleportDestination::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoTeleportDestination(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoTeleportDestination(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoTeleportDestination>("CInfoTeleportDestination")
@@ -18046,7 +18046,7 @@ GCMathRemap::GCMathRemap(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMathRemap::GCMathRemap(void* ptr) {
+GCMathRemap::GCMathRemap(void *ptr) {
     m_ptr = ptr;
 }
 float GCMathRemap::GetInMin() const {
@@ -18151,7 +18151,7 @@ void GCMathRemap::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMathRemap::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMathRemap(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMathRemap(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMathRemap>("CMathRemap")
@@ -18175,7 +18175,7 @@ GCInstructorEventEntity::GCInstructorEventEntity(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInstructorEventEntity::GCInstructorEventEntity(void* ptr) {
+GCInstructorEventEntity::GCInstructorEventEntity(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCInstructorEventEntity::GetName() const {
@@ -18221,7 +18221,7 @@ void GCInstructorEventEntity::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInstructorEventEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInstructorEventEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInstructorEventEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInstructorEventEntity>("CInstructorEventEntity")
@@ -18238,7 +18238,7 @@ GCGradientFog::GCGradientFog(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCGradientFog::GCGradientFog(void* ptr) {
+GCGradientFog::GCGradientFog(void *ptr) {
     m_ptr = ptr;
 }
 float GCGradientFog::GetFogStartDistance() const {
@@ -18379,7 +18379,7 @@ void GCGradientFog::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CGradientFog::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCGradientFog(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCGradientFog(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCGradientFog>("CGradientFog")
@@ -18408,7 +18408,7 @@ GCFootstepControl::GCFootstepControl(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFootstepControl::GCFootstepControl(void* ptr) {
+GCFootstepControl::GCFootstepControl(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCFootstepControl::GetSource() const {
@@ -18445,7 +18445,7 @@ void GCFootstepControl::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFootstepControl::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFootstepControl(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFootstepControl(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFootstepControl>("CFootstepControl")
@@ -18461,7 +18461,7 @@ GCTriggerVolume::GCTriggerVolume(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerVolume::GCTriggerVolume(void* ptr) {
+GCTriggerVolume::GCTriggerVolume(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCTriggerVolume::GetFilterName() const {
@@ -18499,7 +18499,7 @@ void GCTriggerVolume::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerVolume::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerVolume(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerVolume(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerVolume>("CTriggerVolume")
@@ -18515,7 +18515,7 @@ GCInfoInstructorHintHostageRescueZone::GCInfoInstructorHintHostageRescueZone(std
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoInstructorHintHostageRescueZone::GCInfoInstructorHintHostageRescueZone(void* ptr) {
+GCInfoInstructorHintHostageRescueZone::GCInfoInstructorHintHostageRescueZone(void *ptr) {
     m_ptr = ptr;
 }
 void* GCInfoInstructorHintHostageRescueZone::GetPtr() {
@@ -18536,7 +18536,7 @@ void GCInfoInstructorHintHostageRescueZone::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoInstructorHintHostageRescueZone::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoInstructorHintHostageRescueZone(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoInstructorHintHostageRescueZone(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoInstructorHintHostageRescueZone>("CInfoInstructorHintHostageRescueZone")
@@ -18550,7 +18550,7 @@ GCEnvSoundscapeAlias_snd_soundscape::GCEnvSoundscapeAlias_snd_soundscape(std::st
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvSoundscapeAlias_snd_soundscape::GCEnvSoundscapeAlias_snd_soundscape(void* ptr) {
+GCEnvSoundscapeAlias_snd_soundscape::GCEnvSoundscapeAlias_snd_soundscape(void *ptr) {
     m_ptr = ptr;
 }
 void* GCEnvSoundscapeAlias_snd_soundscape::GetPtr() {
@@ -18571,7 +18571,7 @@ void GCEnvSoundscapeAlias_snd_soundscape::SetParent(GCEnvSoundscape value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvSoundscapeAlias_snd_soundscape::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvSoundscapeAlias_snd_soundscape(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvSoundscapeAlias_snd_soundscape(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvSoundscapeAlias_snd_soundscape>("CEnvSoundscapeAlias_snd_soundscape")
@@ -18585,7 +18585,7 @@ GCFishPool::GCFishPool(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFishPool::GCFishPool(void* ptr) {
+GCFishPool::GCFishPool(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCFishPool::GetFishCount() const {
@@ -18655,7 +18655,7 @@ void GCFishPool::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFishPool::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFishPool(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFishPool(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFishPool>("CFishPool")
@@ -18675,7 +18675,7 @@ GCPointClientCommand::GCPointClientCommand(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointClientCommand::GCPointClientCommand(void* ptr) {
+GCPointClientCommand::GCPointClientCommand(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPointClientCommand::GetPtr() {
@@ -18696,7 +18696,7 @@ void GCPointClientCommand::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointClientCommand::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointClientCommand(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointClientCommand(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointClientCommand>("CPointClientCommand")
@@ -18710,7 +18710,7 @@ GCFuncVPhysicsClip::GCFuncVPhysicsClip(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncVPhysicsClip::GCFuncVPhysicsClip(void* ptr) {
+GCFuncVPhysicsClip::GCFuncVPhysicsClip(void *ptr) {
     m_ptr = ptr;
 }
 bool GCFuncVPhysicsClip::GetDisabled() const {
@@ -18739,7 +18739,7 @@ void GCFuncVPhysicsClip::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncVPhysicsClip::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncVPhysicsClip(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncVPhysicsClip(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncVPhysicsClip>("CFuncVPhysicsClip")
@@ -18754,7 +18754,7 @@ GCCSPlayer_RadioServices::GCCSPlayer_RadioServices(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayer_RadioServices::GCCSPlayer_RadioServices(void* ptr) {
+GCCSPlayer_RadioServices::GCCSPlayer_RadioServices(void *ptr) {
     m_ptr = ptr;
 }
 float GCCSPlayer_RadioServices::GetGotHostageTalkTimer() const {
@@ -18783,13 +18783,13 @@ void GCCSPlayer_RadioServices::SetC4PlantTalkTimer(float value) {
 }
 std::vector<float> GCCSPlayer_RadioServices::GetRadioTokenSlots() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayer_RadioServices->RadioTokenSlots(ptr=%p,size=3)", m_ptr));
-    float* outValue = (float*)GetSchemaPtr(m_ptr, "CCSPlayer_RadioServices", "m_flRadioTokenSlots"); std::vector<float> ret; for (int i = 0; i < 3; i++) { ret.push_back(outValue[i]); } return ret;
+    float* outValue = (float*)GetSchemaPtr(m_ptr, "CCSPlayer_RadioServices", "m_flRadioTokenSlots"); std::vector<float> ret; for(int i = 0; i < 3; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCCSPlayer_RadioServices::SetRadioTokenSlots(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayer_RadioServices->RadioTokenSlots(ptr=%p,size=3)", m_ptr));
-    if (value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'RadioTokenSlots' needs to have 3 values.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'RadioTokenSlots' needs to have 3 values.\n");
     auto val = GetSchemaValuePtr<float>(m_ptr, "CCSPlayer_RadioServices", "m_flRadioTokenSlots");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GCCSPlayer_RadioServices::GetIgnoreRadio() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayer_RadioServices->IgnoreRadio(ptr=%p)", m_ptr));
@@ -18817,7 +18817,7 @@ void GCCSPlayer_RadioServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayer_RadioServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayer_RadioServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayer_RadioServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayer_RadioServices>("CCSPlayer_RadioServices")
@@ -18836,7 +18836,7 @@ GCSceneEntity::GCSceneEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSceneEntity::GCSceneEntity(void* ptr) {
+GCSceneEntity::GCSceneEntity(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCSceneEntity::GetSceneFile() const {
@@ -19178,11 +19178,11 @@ void GCSceneEntity::SetSceneFinished(bool value) {
 }
 std::vector<GCBaseFlex> GCSceneEntity::GetActorList() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSceneEntity->ActorList(ptr=%p)", m_ptr));
-    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CSceneEntity", "m_hActorList");
-    std::vector<GCBaseFlex> outVec;
-    for (int i = 0; i < vec->Count(); i++) {
-        outVec.push_back(GCBaseFlex((void*)(vec->Element(i).Get())));
-    }
+    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CSceneEntity", "m_hActorList"); 
+    std::vector<GCBaseFlex> outVec; 
+    for(int i = 0; i < vec->Count(); i++) { 
+        outVec.push_back(GCBaseFlex((void*)(vec->Element(i).Get()))); 
+    } 
     return outVec;
 }
 void GCSceneEntity::SetActorList(std::vector<GCBaseFlex> value) {
@@ -19252,7 +19252,7 @@ void GCSceneEntity::SetOnResumed(GCEntityIOOutput value) {
 }
 std::vector<GCEntityIOOutput> GCSceneEntity::GetOnTrigger() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSceneEntity->OnTrigger(ptr=%p,size=16)", m_ptr));
-    GCEntityIOOutput* outValue = (GCEntityIOOutput*)GetSchemaPtr(m_ptr, "CSceneEntity", "m_OnTrigger"); std::vector<GCEntityIOOutput> ret; for (int i = 0; i < 16; i++) { ret.push_back(outValue[i]); } return ret;
+    GCEntityIOOutput* outValue = (GCEntityIOOutput*)GetSchemaPtr(m_ptr, "CSceneEntity", "m_OnTrigger"); std::vector<GCEntityIOOutput> ret; for(int i = 0; i < 16; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCSceneEntity::SetOnTrigger(std::vector<GCEntityIOOutput> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSceneEntity->OnTrigger(ptr=%p,size=16)", m_ptr));
@@ -19383,7 +19383,7 @@ void GCSceneEntity::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSceneEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSceneEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSceneEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSceneEntity>("CSceneEntity")
@@ -19460,7 +19460,7 @@ GCEnvHudHint::GCEnvHudHint(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvHudHint::GCEnvHudHint(void* ptr) {
+GCEnvHudHint::GCEnvHudHint(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCEnvHudHint::GetMessage() const {
@@ -19489,7 +19489,7 @@ void GCEnvHudHint::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvHudHint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvHudHint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvHudHint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvHudHint>("CEnvHudHint")
@@ -19504,7 +19504,7 @@ GCParticleSystem::GCParticleSystem(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCParticleSystem::GCParticleSystem(void* ptr) {
+GCParticleSystem::GCParticleSystem(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCParticleSystem::GetSnapshotFileName() const {
@@ -19573,27 +19573,27 @@ void GCParticleSystem::SetPreSimTime(float value) {
 }
 std::vector<Vector> GCParticleSystem::GetServerControlPoints() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CParticleSystem->ServerControlPoints(ptr=%p,size=4)", m_ptr));
-    Vector* outValue = (Vector*)GetSchemaPtr(m_ptr, "CParticleSystem", "m_vServerControlPoints"); std::vector<Vector> ret; for (int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
+    Vector* outValue = (Vector*)GetSchemaPtr(m_ptr, "CParticleSystem", "m_vServerControlPoints"); std::vector<Vector> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCParticleSystem::SetServerControlPoints(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CParticleSystem->ServerControlPoints(ptr=%p,size=4)", m_ptr));
-    if (value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ServerControlPoints' needs to have 4 values.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ServerControlPoints' needs to have 4 values.\n");
     auto val = GetSchemaValuePtr<Vector>(m_ptr, "CParticleSystem", "m_vServerControlPoints");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<uint32_t> GCParticleSystem::GetServerControlPointAssignments() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CParticleSystem->ServerControlPointAssignments(ptr=%p,size=4)", m_ptr));
-    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments"); std::vector<uint32_t> ret; for (int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
+    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments"); std::vector<uint32_t> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCParticleSystem::SetServerControlPointAssignments(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CParticleSystem->ServerControlPointAssignments(ptr=%p,size=4)", m_ptr));
-    if (value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ServerControlPointAssignments' needs to have 4 values.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'ServerControlPointAssignments' needs to have 4 values.\n");
     auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CParticleSystem", "m_iServerControlPointAssignments");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<GCBaseEntity> GCParticleSystem::GetControlPointEnts() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CParticleSystem->ControlPointEnts(ptr=%p,size=64)", m_ptr));
-    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CParticleSystem", "m_hControlPointEnts"); std::vector<GCBaseEntity> ret; for (int i = 0; i < 64; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CParticleSystem", "m_hControlPointEnts"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 64; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCParticleSystem::SetControlPointEnts(std::vector<GCBaseEntity> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CParticleSystem->ControlPointEnts(ptr=%p,size=64)", m_ptr));
@@ -19641,13 +19641,13 @@ void GCParticleSystem::SetEffectName(std::string value) {
 }
 std::vector<CUtlSymbolLarge> GCParticleSystem::GetControlPointNames() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CParticleSystem->ControlPointNames(ptr=%p,size=64)", m_ptr));
-    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CParticleSystem", "m_iszControlPointNames"); std::vector<CUtlSymbolLarge> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CParticleSystem", "m_iszControlPointNames"); std::vector<CUtlSymbolLarge> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCParticleSystem::SetControlPointNames(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CParticleSystem->ControlPointNames(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'ControlPointNames' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'ControlPointNames' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CParticleSystem", "m_iszControlPointNames");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCParticleSystem::GetDataCP() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CParticleSystem->DataCP(ptr=%p)", m_ptr));
@@ -19699,7 +19699,7 @@ void GCParticleSystem::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CParticleSystem::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCParticleSystem(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCParticleSystem(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCParticleSystem>("CParticleSystem")
@@ -19734,7 +19734,7 @@ GAmmoIndex_t::GAmmoIndex_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GAmmoIndex_t::GAmmoIndex_t(void* ptr) {
+GAmmoIndex_t::GAmmoIndex_t(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GAmmoIndex_t::GetValue() const {
@@ -19754,7 +19754,7 @@ std::string GAmmoIndex_t::ToPtr() {
 bool GAmmoIndex_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassAmmoIndex_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassAmmoIndex_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GAmmoIndex_t>("AmmoIndex_t")
@@ -19768,7 +19768,7 @@ Gsky3dparams_t::Gsky3dparams_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-Gsky3dparams_t::Gsky3dparams_t(void* ptr) {
+Gsky3dparams_t::Gsky3dparams_t(void *ptr) {
     m_ptr = ptr;
 }
 int16_t Gsky3dparams_t::GetScale() const {
@@ -19829,7 +19829,7 @@ std::string Gsky3dparams_t::ToPtr() {
 bool Gsky3dparams_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClasssky3dparams_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClasssky3dparams_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<Gsky3dparams_t>("sky3dparams_t")
@@ -19848,7 +19848,7 @@ GCScriptItem::GCScriptItem(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCScriptItem::GCScriptItem(void* ptr) {
+GCScriptItem::GCScriptItem(void *ptr) {
     m_ptr = ptr;
 }
 uint64_t GCScriptItem::GetMoveTypeOverride() const {
@@ -19877,7 +19877,7 @@ void GCScriptItem::SetParent(GCItem value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CScriptItem::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCScriptItem(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCScriptItem(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCScriptItem>("CScriptItem")
@@ -19892,7 +19892,7 @@ GIntervalTimer::GIntervalTimer(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GIntervalTimer::GIntervalTimer(void* ptr) {
+GIntervalTimer::GIntervalTimer(void *ptr) {
     m_ptr = ptr;
 }
 float GIntervalTimer::GetTimestamp() const {
@@ -19920,7 +19920,7 @@ std::string GIntervalTimer::ToPtr() {
 bool GIntervalTimer::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassIntervalTimer(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassIntervalTimer(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GIntervalTimer>("IntervalTimer")
@@ -19935,7 +19935,7 @@ GCWeaponSG556::GCWeaponSG556(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponSG556::GCWeaponSG556(void* ptr) {
+GCWeaponSG556::GCWeaponSG556(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponSG556::GetPtr() {
@@ -19956,7 +19956,7 @@ void GCWeaponSG556::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponSG556::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponSG556(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponSG556(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponSG556>("CWeaponSG556")
@@ -19970,7 +19970,7 @@ Gdynpitchvol_base_t::Gdynpitchvol_base_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-Gdynpitchvol_base_t::Gdynpitchvol_base_t(void* ptr) {
+Gdynpitchvol_base_t::Gdynpitchvol_base_t(void *ptr) {
     m_ptr = ptr;
 }
 int32_t Gdynpitchvol_base_t::GetPreset() const {
@@ -20182,7 +20182,7 @@ std::string Gdynpitchvol_base_t::ToPtr() {
 bool Gdynpitchvol_base_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassdynpitchvol_base_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassdynpitchvol_base_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<Gdynpitchvol_base_t>("dynpitchvol_base_t")
@@ -20220,7 +20220,7 @@ GCDynamicLight::GCDynamicLight(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCDynamicLight::GCDynamicLight(void* ptr) {
+GCDynamicLight::GCDynamicLight(void *ptr) {
     m_ptr = ptr;
 }
 uint32_t GCDynamicLight::GetActualFlags() const {
@@ -20313,7 +20313,7 @@ void GCDynamicLight::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CDynamicLight::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCDynamicLight(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCDynamicLight(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCDynamicLight>("CDynamicLight")
@@ -20336,7 +20336,7 @@ GCWeaponP90::GCWeaponP90(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponP90::GCWeaponP90(void* ptr) {
+GCWeaponP90::GCWeaponP90(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponP90::GetPtr() {
@@ -20357,7 +20357,7 @@ void GCWeaponP90::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponP90::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponP90(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponP90(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponP90>("CWeaponP90")
@@ -20371,7 +20371,7 @@ GCTriggerToggleSave::GCTriggerToggleSave(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerToggleSave::GCTriggerToggleSave(void* ptr) {
+GCTriggerToggleSave::GCTriggerToggleSave(void *ptr) {
     m_ptr = ptr;
 }
 void* GCTriggerToggleSave::GetPtr() {
@@ -20392,7 +20392,7 @@ void GCTriggerToggleSave::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerToggleSave::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerToggleSave(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerToggleSave(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerToggleSave>("CTriggerToggleSave")
@@ -20406,7 +20406,7 @@ GCPrecipitation::GCPrecipitation(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPrecipitation::GCPrecipitation(void* ptr) {
+GCPrecipitation::GCPrecipitation(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPrecipitation::GetPtr() {
@@ -20427,7 +20427,7 @@ void GCPrecipitation::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPrecipitation::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPrecipitation(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPrecipitation(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPrecipitation>("CPrecipitation")
@@ -20441,7 +20441,7 @@ GCPointServerCommand::GCPointServerCommand(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointServerCommand::GCPointServerCommand(void* ptr) {
+GCPointServerCommand::GCPointServerCommand(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPointServerCommand::GetPtr() {
@@ -20462,7 +20462,7 @@ void GCPointServerCommand::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointServerCommand::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointServerCommand(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointServerCommand(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointServerCommand>("CPointServerCommand")
@@ -20476,7 +20476,7 @@ GCCSGO_TeamIntroCharacterPosition::GCCSGO_TeamIntroCharacterPosition(std::string
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSGO_TeamIntroCharacterPosition::GCCSGO_TeamIntroCharacterPosition(void* ptr) {
+GCCSGO_TeamIntroCharacterPosition::GCCSGO_TeamIntroCharacterPosition(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSGO_TeamIntroCharacterPosition::GetPtr() {
@@ -20497,7 +20497,7 @@ void GCCSGO_TeamIntroCharacterPosition::SetParent(GCCSGO_TeamPreviewCharacterPos
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSGO_TeamIntroCharacterPosition::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSGO_TeamIntroCharacterPosition(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSGO_TeamIntroCharacterPosition(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSGO_TeamIntroCharacterPosition>("CCSGO_TeamIntroCharacterPosition")
@@ -20511,7 +20511,7 @@ GCLogicCollisionPair::GCLogicCollisionPair(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicCollisionPair::GCLogicCollisionPair(void* ptr) {
+GCLogicCollisionPair::GCLogicCollisionPair(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCLogicCollisionPair::GetNameAttach1() const {
@@ -20572,7 +20572,7 @@ void GCLogicCollisionPair::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicCollisionPair::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicCollisionPair(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicCollisionPair(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicCollisionPair>("CLogicCollisionPair")
@@ -20591,7 +20591,7 @@ GCSkeletonInstance::GCSkeletonInstance(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSkeletonInstance::GCSkeletonInstance(void* ptr) {
+GCSkeletonInstance::GCSkeletonInstance(void *ptr) {
     m_ptr = ptr;
 }
 GCModelState GCSkeletonInstance::GetModelState() const {
@@ -20661,7 +20661,7 @@ void GCSkeletonInstance::SetParent(GCGameSceneNode value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSkeletonInstance::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSkeletonInstance(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSkeletonInstance(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSkeletonInstance>("CSkeletonInstance")
@@ -20681,7 +20681,7 @@ GCPhysicsProp::GCPhysicsProp(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysicsProp::GCPhysicsProp(void* ptr) {
+GCPhysicsProp::GCPhysicsProp(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCPhysicsProp::GetMotionEnabled() const {
@@ -20973,7 +20973,7 @@ void GCPhysicsProp::SetParent(GCBreakableProp value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysicsProp::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysicsProp(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysicsProp(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysicsProp>("CPhysicsProp")
@@ -21020,7 +21020,7 @@ GCFuncWall::GCFuncWall(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncWall::GCFuncWall(void* ptr) {
+GCFuncWall::GCFuncWall(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCFuncWall::GetState() const {
@@ -21049,7 +21049,7 @@ void GCFuncWall::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncWall::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncWall(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncWall(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncWall>("CFuncWall")
@@ -21064,7 +21064,7 @@ GCItemDefuserAlias_item_defuser::GCItemDefuserAlias_item_defuser(std::string ptr
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCItemDefuserAlias_item_defuser::GCItemDefuserAlias_item_defuser(void* ptr) {
+GCItemDefuserAlias_item_defuser::GCItemDefuserAlias_item_defuser(void *ptr) {
     m_ptr = ptr;
 }
 void* GCItemDefuserAlias_item_defuser::GetPtr() {
@@ -21085,7 +21085,7 @@ void GCItemDefuserAlias_item_defuser::SetParent(GCItemDefuser value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CItemDefuserAlias_item_defuser::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCItemDefuserAlias_item_defuser(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCItemDefuserAlias_item_defuser(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCItemDefuserAlias_item_defuser>("CItemDefuserAlias_item_defuser")
@@ -21099,7 +21099,7 @@ GCBaseGrenade::GCBaseGrenade(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseGrenade::GCBaseGrenade(void* ptr) {
+GCBaseGrenade::GCBaseGrenade(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCBaseGrenade::GetOnPlayerPickup() const {
@@ -21236,7 +21236,7 @@ void GCBaseGrenade::SetParent(GCBaseFlex value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseGrenade::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseGrenade(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseGrenade(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseGrenade>("CBaseGrenade")
@@ -21264,7 +21264,7 @@ GCCSPlayerBase_CameraServices::GCCSPlayerBase_CameraServices(std::string ptr, lu
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayerBase_CameraServices::GCCSPlayerBase_CameraServices(void* ptr) {
+GCCSPlayerBase_CameraServices::GCCSPlayerBase_CameraServices(void *ptr) {
     m_ptr = ptr;
 }
 uint32_t GCCSPlayerBase_CameraServices::GetFOV() const {
@@ -21335,7 +21335,7 @@ void GCCSPlayerBase_CameraServices::SetParent(GCPlayer_CameraServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayerBase_CameraServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayerBase_CameraServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayerBase_CameraServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayerBase_CameraServices>("CCSPlayerBase_CameraServices")
@@ -21355,7 +21355,7 @@ GCCSGO_WingmanIntroCharacterPosition::GCCSGO_WingmanIntroCharacterPosition(std::
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSGO_WingmanIntroCharacterPosition::GCCSGO_WingmanIntroCharacterPosition(void* ptr) {
+GCCSGO_WingmanIntroCharacterPosition::GCCSGO_WingmanIntroCharacterPosition(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSGO_WingmanIntroCharacterPosition::GetPtr() {
@@ -21376,7 +21376,7 @@ void GCCSGO_WingmanIntroCharacterPosition::SetParent(GCCSGO_TeamIntroCharacterPo
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSGO_WingmanIntroCharacterPosition::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSGO_WingmanIntroCharacterPosition(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSGO_WingmanIntroCharacterPosition(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSGO_WingmanIntroCharacterPosition>("CCSGO_WingmanIntroCharacterPosition")
@@ -21390,7 +21390,7 @@ GCSMatchStats_t::GCSMatchStats_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSMatchStats_t::GCSMatchStats_t(void* ptr) {
+GCSMatchStats_t::GCSMatchStats_t(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCSMatchStats_t::GetEnemy5Ks() const {
@@ -21579,7 +21579,7 @@ void GCSMatchStats_t::SetParent(GCSPerRoundStats_t value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSMatchStats_t::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSMatchStats_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSMatchStats_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSMatchStats_t>("CSMatchStats_t")
@@ -21614,7 +21614,7 @@ GCFuncLadder::GCFuncLadder(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncLadder::GCFuncLadder(void* ptr) {
+GCFuncLadder::GCFuncLadder(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCFuncLadder::GetLadderDir() const {
@@ -21725,7 +21725,7 @@ void GCFuncLadder::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncLadder::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncLadder(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncLadder(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncLadder>("CFuncLadder")
@@ -21750,7 +21750,7 @@ GCTriggerSndSosOpvar::GCTriggerSndSosOpvar(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerSndSosOpvar::GCTriggerSndSosOpvar(void* ptr) {
+GCTriggerSndSosOpvar::GCTriggerSndSosOpvar(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCTriggerSndSosOpvar::GetPosition() const {
@@ -21875,7 +21875,7 @@ void GCTriggerSndSosOpvar::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerSndSosOpvar::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerSndSosOpvar(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerSndSosOpvar(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerSndSosOpvar>("CTriggerSndSosOpvar")
@@ -21902,7 +21902,7 @@ GCItemHeavyAssaultSuit::GCItemHeavyAssaultSuit(std::string ptr, lua_State* state
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCItemHeavyAssaultSuit::GCItemHeavyAssaultSuit(void* ptr) {
+GCItemHeavyAssaultSuit::GCItemHeavyAssaultSuit(void *ptr) {
     m_ptr = ptr;
 }
 void* GCItemHeavyAssaultSuit::GetPtr() {
@@ -21923,7 +21923,7 @@ void GCItemHeavyAssaultSuit::SetParent(GCItemAssaultSuit value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CItemHeavyAssaultSuit::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCItemHeavyAssaultSuit(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCItemHeavyAssaultSuit(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCItemHeavyAssaultSuit>("CItemHeavyAssaultSuit")
@@ -21937,7 +21937,7 @@ GCScriptedSequence::GCScriptedSequence(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCScriptedSequence::GCScriptedSequence(void* ptr) {
+GCScriptedSequence::GCScriptedSequence(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCScriptedSequence::GetEntry() const {
@@ -22479,7 +22479,7 @@ void GCScriptedSequence::SetOnCancelFailedSequence(GCEntityIOOutput value) {
 }
 std::vector<GCEntityIOOutput> GCScriptedSequence::GetOnScriptEvent() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CScriptedSequence->OnScriptEvent(ptr=%p,size=8)", m_ptr));
-    GCEntityIOOutput* outValue = (GCEntityIOOutput*)GetSchemaPtr(m_ptr, "CScriptedSequence", "m_OnScriptEvent"); std::vector<GCEntityIOOutput> ret; for (int i = 0; i < 8; i++) { ret.push_back(outValue[i]); } return ret;
+    GCEntityIOOutput* outValue = (GCEntityIOOutput*)GetSchemaPtr(m_ptr, "CScriptedSequence", "m_OnScriptEvent"); std::vector<GCEntityIOOutput> ret; for(int i = 0; i < 8; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCScriptedSequence::SetOnScriptEvent(std::vector<GCEntityIOOutput> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CScriptedSequence->OnScriptEvent(ptr=%p,size=8)", m_ptr));
@@ -22520,7 +22520,7 @@ void GCScriptedSequence::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CScriptedSequence::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCScriptedSequence(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCScriptedSequence(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCScriptedSequence>("CScriptedSequence")
@@ -22603,7 +22603,7 @@ GCWeaponNegev::GCWeaponNegev(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponNegev::GCWeaponNegev(void* ptr) {
+GCWeaponNegev::GCWeaponNegev(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponNegev::GetPtr() {
@@ -22624,7 +22624,7 @@ void GCWeaponNegev::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponNegev::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponNegev(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponNegev(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponNegev>("CWeaponNegev")
@@ -22638,7 +22638,7 @@ GCWeaponGalilAR::GCWeaponGalilAR(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponGalilAR::GCWeaponGalilAR(void* ptr) {
+GCWeaponGalilAR::GCWeaponGalilAR(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponGalilAR::GetPtr() {
@@ -22659,7 +22659,7 @@ void GCWeaponGalilAR::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponGalilAR::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponGalilAR(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponGalilAR(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponGalilAR>("CWeaponGalilAR")
@@ -22673,7 +22673,7 @@ GCEnvProjectedTexture::GCEnvProjectedTexture(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvProjectedTexture::GCEnvProjectedTexture(void* ptr) {
+GCEnvProjectedTexture::GCEnvProjectedTexture(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCEnvProjectedTexture::GetTargetEntity() const {
@@ -22935,7 +22935,7 @@ void GCEnvProjectedTexture::SetParent(GCModelPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvProjectedTexture::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvProjectedTexture(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvProjectedTexture(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvProjectedTexture>("CEnvProjectedTexture")
@@ -22979,7 +22979,7 @@ GCDynamicPropAlias_prop_dynamic_override::GCDynamicPropAlias_prop_dynamic_overri
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCDynamicPropAlias_prop_dynamic_override::GCDynamicPropAlias_prop_dynamic_override(void* ptr) {
+GCDynamicPropAlias_prop_dynamic_override::GCDynamicPropAlias_prop_dynamic_override(void *ptr) {
     m_ptr = ptr;
 }
 void* GCDynamicPropAlias_prop_dynamic_override::GetPtr() {
@@ -23000,7 +23000,7 @@ void GCDynamicPropAlias_prop_dynamic_override::SetParent(GCDynamicProp value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CDynamicPropAlias_prop_dynamic_override::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCDynamicPropAlias_prop_dynamic_override(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCDynamicPropAlias_prop_dynamic_override(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCDynamicPropAlias_prop_dynamic_override>("CDynamicPropAlias_prop_dynamic_override")
@@ -23014,22 +23014,22 @@ GCSceneListManager::GCSceneListManager(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSceneListManager::GCSceneListManager(void* ptr) {
+GCSceneListManager::GCSceneListManager(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<CUtlSymbolLarge> GCSceneListManager::GetScenes() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSceneListManager->Scenes(ptr=%p,size=16)", m_ptr));
-    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CSceneListManager", "m_iszScenes"); std::vector<CUtlSymbolLarge> ret; for (int i = 0; i < 16; i++) { ret.push_back(outValue[i]); } return ret;
+    CUtlSymbolLarge* outValue = (CUtlSymbolLarge*)GetSchemaPtr(m_ptr, "CSceneListManager", "m_iszScenes"); std::vector<CUtlSymbolLarge> ret; for(int i = 0; i < 16; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCSceneListManager::SetScenes(std::vector<CUtlSymbolLarge> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSceneListManager->Scenes(ptr=%p,size=16)", m_ptr));
-    if (value.size() != 16) return PLUGIN_PRINT("Schema SDK", "Field 'Scenes' needs to have 16 values.\n");
+    if(value.size() != 16) return PLUGIN_PRINT("Schema SDK", "Field 'Scenes' needs to have 16 values.\n");
     auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, "CSceneListManager", "m_iszScenes");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<GCBaseEntity> GCSceneListManager::GetScenes1() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSceneListManager->Scenes1(ptr=%p,size=16)", m_ptr));
-    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CSceneListManager", "m_hScenes"); std::vector<GCBaseEntity> ret; for (int i = 0; i < 16; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CSceneListManager", "m_hScenes"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 16; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCSceneListManager::SetScenes1(std::vector<GCBaseEntity> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSceneListManager->Scenes1(ptr=%p,size=16)", m_ptr));
@@ -23053,7 +23053,7 @@ void GCSceneListManager::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSceneListManager::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSceneListManager(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSceneListManager(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSceneListManager>("CSceneListManager")
@@ -23069,7 +23069,7 @@ GCSplineConstraint::GCSplineConstraint(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSplineConstraint::GCSplineConstraint(void* ptr) {
+GCSplineConstraint::GCSplineConstraint(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCSplineConstraint::GetAnchorOffsetRestore() const {
@@ -23098,7 +23098,7 @@ void GCSplineConstraint::SetParent(GCPhysConstraint value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSplineConstraint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSplineConstraint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSplineConstraint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSplineConstraint>("CSplineConstraint")
@@ -23113,7 +23113,7 @@ GCCSObserver_ViewModelServices::GCCSObserver_ViewModelServices(std::string ptr, 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSObserver_ViewModelServices::GCCSObserver_ViewModelServices(void* ptr) {
+GCCSObserver_ViewModelServices::GCCSObserver_ViewModelServices(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSObserver_ViewModelServices::GetPtr() {
@@ -23134,7 +23134,7 @@ void GCCSObserver_ViewModelServices::SetParent(GCPlayer_ViewModelServices value)
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSObserver_ViewModelServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSObserver_ViewModelServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSObserver_ViewModelServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSObserver_ViewModelServices>("CCSObserver_ViewModelServices")
@@ -23148,7 +23148,7 @@ GCDynamicPropAlias_dynamic_prop::GCDynamicPropAlias_dynamic_prop(std::string ptr
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCDynamicPropAlias_dynamic_prop::GCDynamicPropAlias_dynamic_prop(void* ptr) {
+GCDynamicPropAlias_dynamic_prop::GCDynamicPropAlias_dynamic_prop(void *ptr) {
     m_ptr = ptr;
 }
 void* GCDynamicPropAlias_dynamic_prop::GetPtr() {
@@ -23169,7 +23169,7 @@ void GCDynamicPropAlias_dynamic_prop::SetParent(GCDynamicProp value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CDynamicPropAlias_dynamic_prop::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCDynamicPropAlias_dynamic_prop(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCDynamicPropAlias_dynamic_prop(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCDynamicPropAlias_dynamic_prop>("CDynamicPropAlias_dynamic_prop")
@@ -23183,7 +23183,7 @@ GModelConfigHandle_t::GModelConfigHandle_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GModelConfigHandle_t::GModelConfigHandle_t(void* ptr) {
+GModelConfigHandle_t::GModelConfigHandle_t(void *ptr) {
     m_ptr = ptr;
 }
 uint32_t GModelConfigHandle_t::GetValue() const {
@@ -23203,7 +23203,7 @@ std::string GModelConfigHandle_t::ToPtr() {
 bool GModelConfigHandle_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassModelConfigHandle_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassModelConfigHandle_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GModelConfigHandle_t>("ModelConfigHandle_t")
@@ -23217,7 +23217,7 @@ GCPhysicsPropMultiplayer::GCPhysicsPropMultiplayer(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysicsPropMultiplayer::GCPhysicsPropMultiplayer(void* ptr) {
+GCPhysicsPropMultiplayer::GCPhysicsPropMultiplayer(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPhysicsPropMultiplayer::GetPtr() {
@@ -23238,7 +23238,7 @@ void GCPhysicsPropMultiplayer::SetParent(GCPhysicsProp value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysicsPropMultiplayer::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysicsPropMultiplayer(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysicsPropMultiplayer(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysicsPropMultiplayer>("CPhysicsPropMultiplayer")
@@ -23252,7 +23252,7 @@ GCFuncTrackChange::GCFuncTrackChange(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncTrackChange::GCFuncTrackChange(void* ptr) {
+GCFuncTrackChange::GCFuncTrackChange(void *ptr) {
     m_ptr = ptr;
 }
 GCPathTrack GCFuncTrackChange::GetTrackTop() const {
@@ -23262,7 +23262,7 @@ GCPathTrack GCFuncTrackChange::GetTrackTop() const {
 }
 void GCFuncTrackChange::SetTrackTop(GCPathTrack value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFuncTrackChange->TrackTop(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CFuncTrackChange", "m_trackTop", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CFuncTrackChange","m_trackTop", false, (char*)value.GetPtr());
 }
 GCPathTrack GCFuncTrackChange::GetTrackBottom() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CFuncTrackChange->TrackBottom(ptr=%p)", m_ptr));
@@ -23271,7 +23271,7 @@ GCPathTrack GCFuncTrackChange::GetTrackBottom() const {
 }
 void GCFuncTrackChange::SetTrackBottom(GCPathTrack value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFuncTrackChange->TrackBottom(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CFuncTrackChange", "m_trackBottom", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CFuncTrackChange","m_trackBottom", false, (char*)value.GetPtr());
 }
 GCFuncTrackTrain GCFuncTrackChange::GetTrain() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CFuncTrackChange->Train(ptr=%p)", m_ptr));
@@ -23280,7 +23280,7 @@ GCFuncTrackTrain GCFuncTrackChange::GetTrain() const {
 }
 void GCFuncTrackChange::SetTrain(GCFuncTrackTrain value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFuncTrackChange->Train(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CFuncTrackChange", "m_train", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CFuncTrackChange","m_train", false, (char*)value.GetPtr());
 }
 std::string GCFuncTrackChange::GetTrackTopName() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CFuncTrackChange->TrackTopName(ptr=%p)", m_ptr));
@@ -23348,7 +23348,7 @@ void GCFuncTrackChange::SetParent(GCFuncPlatRot value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncTrackChange::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncTrackChange(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncTrackChange(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncTrackChange>("CFuncTrackChange")
@@ -23371,7 +23371,7 @@ GCMarkupVolume::GCMarkupVolume(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMarkupVolume::GCMarkupVolume(void* ptr) {
+GCMarkupVolume::GCMarkupVolume(void *ptr) {
     m_ptr = ptr;
 }
 bool GCMarkupVolume::GetDisabled() const {
@@ -23400,7 +23400,7 @@ void GCMarkupVolume::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMarkupVolume::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMarkupVolume(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMarkupVolume(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMarkupVolume>("CMarkupVolume")
@@ -23415,7 +23415,7 @@ GCInfoPlayerTerrorist::GCInfoPlayerTerrorist(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoPlayerTerrorist::GCInfoPlayerTerrorist(void* ptr) {
+GCInfoPlayerTerrorist::GCInfoPlayerTerrorist(void *ptr) {
     m_ptr = ptr;
 }
 void* GCInfoPlayerTerrorist::GetPtr() {
@@ -23436,7 +23436,7 @@ void GCInfoPlayerTerrorist::SetParent(GSpawnPoint value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoPlayerTerrorist::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoPlayerTerrorist(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoPlayerTerrorist(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoPlayerTerrorist>("CInfoPlayerTerrorist")
@@ -23450,7 +23450,7 @@ GVelocitySampler::GVelocitySampler(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GVelocitySampler::GVelocitySampler(void* ptr) {
+GVelocitySampler::GVelocitySampler(void *ptr) {
     m_ptr = ptr;
 }
 Vector GVelocitySampler::GetPrevSample() const {
@@ -23486,7 +23486,7 @@ std::string GVelocitySampler::ToPtr() {
 bool GVelocitySampler::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassVelocitySampler(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassVelocitySampler(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GVelocitySampler>("VelocitySampler")
@@ -23502,7 +23502,7 @@ GCTankTargetChange::GCTankTargetChange(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTankTargetChange::GCTankTargetChange(void* ptr) {
+GCTankTargetChange::GCTankTargetChange(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCTankTargetChange::GetNewTargetName() const {
@@ -23531,7 +23531,7 @@ void GCTankTargetChange::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTankTargetChange::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTankTargetChange(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTankTargetChange(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTankTargetChange>("CTankTargetChange")
@@ -23546,7 +23546,7 @@ GCLogicCompare::GCLogicCompare(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicCompare::GCLogicCompare(void* ptr) {
+GCLogicCompare::GCLogicCompare(void *ptr) {
     m_ptr = ptr;
 }
 float GCLogicCompare::GetInValue() const {
@@ -23583,7 +23583,7 @@ void GCLogicCompare::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicCompare::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicCompare(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicCompare(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicCompare>("CLogicCompare")
@@ -23599,7 +23599,7 @@ GCCSPlayer_BulletServices::GCCSPlayer_BulletServices(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayer_BulletServices::GCCSPlayer_BulletServices(void* ptr) {
+GCCSPlayer_BulletServices::GCCSPlayer_BulletServices(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCCSPlayer_BulletServices::GetTotalHitsOnServer() const {
@@ -23628,7 +23628,7 @@ void GCCSPlayer_BulletServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayer_BulletServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayer_BulletServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayer_BulletServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayer_BulletServices>("CCSPlayer_BulletServices")
@@ -23643,7 +23643,7 @@ GCLogicRelay::GCLogicRelay(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicRelay::GCLogicRelay(void* ptr) {
+GCLogicRelay::GCLogicRelay(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCLogicRelay::GetOnTrigger() const {
@@ -23722,7 +23722,7 @@ void GCLogicRelay::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicRelay::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicRelay(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicRelay(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicRelay>("CLogicRelay")
@@ -23743,7 +23743,7 @@ GCPlayer_ItemServices::GCPlayer_ItemServices(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_ItemServices::GCPlayer_ItemServices(void* ptr) {
+GCPlayer_ItemServices::GCPlayer_ItemServices(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPlayer_ItemServices::GetPtr() {
@@ -23764,7 +23764,7 @@ void GCPlayer_ItemServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_ItemServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_ItemServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_ItemServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_ItemServices>("CPlayer_ItemServices")
@@ -23778,7 +23778,7 @@ GCKeepUpright::GCKeepUpright(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCKeepUpright::GCKeepUpright(void* ptr) {
+GCKeepUpright::GCKeepUpright(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCKeepUpright::GetWorldGoalAxis() const {
@@ -23856,7 +23856,7 @@ void GCKeepUpright::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CKeepUpright::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCKeepUpright(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCKeepUpright(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCKeepUpright>("CKeepUpright")
@@ -23877,7 +23877,7 @@ GCRevertSaved::GCRevertSaved(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRevertSaved::GCRevertSaved(void* ptr) {
+GCRevertSaved::GCRevertSaved(void *ptr) {
     m_ptr = ptr;
 }
 float GCRevertSaved::GetLoadTime() const {
@@ -23922,7 +23922,7 @@ void GCRevertSaved::SetParent(GCModelPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRevertSaved::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRevertSaved(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRevertSaved(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRevertSaved>("CRevertSaved")
@@ -23939,7 +23939,7 @@ GCFuncWater::GCFuncWater(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncWater::GCFuncWater(void* ptr) {
+GCFuncWater::GCFuncWater(void *ptr) {
     m_ptr = ptr;
 }
 GCBuoyancyHelper GCFuncWater::GetBuoyancyHelper() const {
@@ -23969,7 +23969,7 @@ void GCFuncWater::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncWater::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncWater(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncWater(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncWater>("CFuncWater")
@@ -23984,7 +23984,7 @@ GCFuncTimescale::GCFuncTimescale(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncTimescale::GCFuncTimescale(void* ptr) {
+GCFuncTimescale::GCFuncTimescale(void *ptr) {
     m_ptr = ptr;
 }
 float GCFuncTimescale::GetDesiredTimescale() const {
@@ -24045,7 +24045,7 @@ void GCFuncTimescale::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncTimescale::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncTimescale(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncTimescale(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncTimescale>("CFuncTimescale")
@@ -24064,7 +24064,7 @@ GCBtActionMoveTo::GCBtActionMoveTo(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBtActionMoveTo::GCBtActionMoveTo(void* ptr) {
+GCBtActionMoveTo::GCBtActionMoveTo(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCBtActionMoveTo::GetDestinationInputKey() const {
@@ -24200,7 +24200,7 @@ void GCBtActionMoveTo::SetParent(GCBtNode value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBtActionMoveTo::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBtActionMoveTo(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBtActionMoveTo(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBtActionMoveTo>("CBtActionMoveTo")
@@ -24228,7 +24228,7 @@ GCTonemapController2::GCTonemapController2(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTonemapController2::GCTonemapController2(void* ptr) {
+GCTonemapController2::GCTonemapController2(void *ptr) {
     m_ptr = ptr;
 }
 float GCTonemapController2::GetAutoExposureMin() const {
@@ -24313,7 +24313,7 @@ void GCTonemapController2::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTonemapController2::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTonemapController2(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTonemapController2(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTonemapController2>("CTonemapController2")
@@ -24335,7 +24335,7 @@ GCRopeKeyframeAlias_move_rope::GCRopeKeyframeAlias_move_rope(std::string ptr, lu
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRopeKeyframeAlias_move_rope::GCRopeKeyframeAlias_move_rope(void* ptr) {
+GCRopeKeyframeAlias_move_rope::GCRopeKeyframeAlias_move_rope(void *ptr) {
     m_ptr = ptr;
 }
 void* GCRopeKeyframeAlias_move_rope::GetPtr() {
@@ -24356,7 +24356,7 @@ void GCRopeKeyframeAlias_move_rope::SetParent(GCRopeKeyframe value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRopeKeyframeAlias_move_rope::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRopeKeyframeAlias_move_rope(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRopeKeyframeAlias_move_rope(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRopeKeyframeAlias_move_rope>("CRopeKeyframeAlias_move_rope")
@@ -24370,7 +24370,7 @@ GCEnvInstructorVRHint::GCEnvInstructorVRHint(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvInstructorVRHint::GCEnvInstructorVRHint(void* ptr) {
+GCEnvInstructorVRHint::GCEnvInstructorVRHint(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCEnvInstructorVRHint::GetName() const {
@@ -24463,7 +24463,7 @@ void GCEnvInstructorVRHint::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvInstructorVRHint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvInstructorVRHint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvInstructorVRHint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvInstructorVRHint>("CEnvInstructorVRHint")
@@ -24486,7 +24486,7 @@ GCWeaponXM1014::GCWeaponXM1014(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponXM1014::GCWeaponXM1014(void* ptr) {
+GCWeaponXM1014::GCWeaponXM1014(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponXM1014::GetPtr() {
@@ -24507,7 +24507,7 @@ void GCWeaponXM1014::SetParent(GCCSWeaponBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponXM1014::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponXM1014(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponXM1014(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponXM1014>("CWeaponXM1014")
@@ -24521,7 +24521,7 @@ GCPlatTrigger::GCPlatTrigger(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlatTrigger::GCPlatTrigger(void* ptr) {
+GCPlatTrigger::GCPlatTrigger(void *ptr) {
     m_ptr = ptr;
 }
 GCFuncPlat GCPlatTrigger::GetPlatform() const {
@@ -24551,7 +24551,7 @@ void GCPlatTrigger::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlatTrigger::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlatTrigger(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlatTrigger(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlatTrigger>("CPlatTrigger")
@@ -24566,7 +24566,7 @@ GCEnvWindShared::GCEnvWindShared(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvWindShared::GCEnvWindShared(void* ptr) {
+GCEnvWindShared::GCEnvWindShared(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvWindShared::GetStartTime() const {
@@ -24828,7 +24828,7 @@ std::string GCEnvWindShared::ToPtr() {
 bool GCEnvWindShared::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCEnvWindShared(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvWindShared(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvWindShared>("CEnvWindShared")
@@ -24872,7 +24872,7 @@ GCMolotovGrenade::GCMolotovGrenade(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMolotovGrenade::GCMolotovGrenade(void* ptr) {
+GCMolotovGrenade::GCMolotovGrenade(void *ptr) {
     m_ptr = ptr;
 }
 void* GCMolotovGrenade::GetPtr() {
@@ -24893,7 +24893,7 @@ void GCMolotovGrenade::SetParent(GCBaseCSGrenade value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMolotovGrenade::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMolotovGrenade(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMolotovGrenade(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMolotovGrenade>("CMolotovGrenade")
@@ -24907,7 +24907,7 @@ GCPointHurt::GCPointHurt(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointHurt::GCPointHurt(void* ptr) {
+GCPointHurt::GCPointHurt(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCPointHurt::GetDamage() const {
@@ -24977,7 +24977,7 @@ void GCPointHurt::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointHurt::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointHurt(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointHurt(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointHurt>("CPointHurt")
@@ -24997,7 +24997,7 @@ GCPointValueRemapper::GCPointValueRemapper(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointValueRemapper::GCPointValueRemapper(void* ptr) {
+GCPointValueRemapper::GCPointValueRemapper(void *ptr) {
     m_ptr = ptr;
 }
 bool GCPointValueRemapper::GetDisabled() const {
@@ -25132,11 +25132,11 @@ void GCPointValueRemapper::SetOutputEntity4Name(std::string value) {
 }
 std::vector<GCBaseEntity> GCPointValueRemapper::GetOutputEntities() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPointValueRemapper->OutputEntities(ptr=%p)", m_ptr));
-    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CPointValueRemapper", "m_hOutputEntities");
-    std::vector<GCBaseEntity> outVec;
-    for (int i = 0; i < vec->Count(); i++) {
-        outVec.push_back(GCBaseEntity((void*)(vec->Element(i).Get())));
-    }
+    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CPointValueRemapper", "m_hOutputEntities"); 
+    std::vector<GCBaseEntity> outVec; 
+    for(int i = 0; i < vec->Count(); i++) { 
+        outVec.push_back(GCBaseEntity((void*)(vec->Element(i).Get()))); 
+    } 
     return outVec;
 }
 void GCPointValueRemapper::SetOutputEntities(std::vector<GCBaseEntity> value) {
@@ -25367,7 +25367,7 @@ void GCPointValueRemapper::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointValueRemapper::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointValueRemapper(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointValueRemapper(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointValueRemapper>("CPointValueRemapper")
@@ -25423,7 +25423,7 @@ GCLogicNPCCounterAABB::GCLogicNPCCounterAABB(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicNPCCounterAABB::GCLogicNPCCounterAABB(void* ptr) {
+GCLogicNPCCounterAABB::GCLogicNPCCounterAABB(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCLogicNPCCounterAABB::GetDistanceOuterMins() const {
@@ -25476,7 +25476,7 @@ void GCLogicNPCCounterAABB::SetParent(GCLogicNPCCounter value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicNPCCounterAABB::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicNPCCounterAABB(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicNPCCounterAABB(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicNPCCounterAABB>("CLogicNPCCounterAABB")
@@ -25494,7 +25494,7 @@ GCLightOrthoEntity::GCLightOrthoEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLightOrthoEntity::GCLightOrthoEntity(void* ptr) {
+GCLightOrthoEntity::GCLightOrthoEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCLightOrthoEntity::GetPtr() {
@@ -25515,7 +25515,7 @@ void GCLightOrthoEntity::SetParent(GCLightEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLightOrthoEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLightOrthoEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLightOrthoEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLightOrthoEntity>("CLightOrthoEntity")
@@ -25529,7 +25529,7 @@ GCEnvSoundscapeTriggerable::GCEnvSoundscapeTriggerable(std::string ptr, lua_Stat
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvSoundscapeTriggerable::GCEnvSoundscapeTriggerable(void* ptr) {
+GCEnvSoundscapeTriggerable::GCEnvSoundscapeTriggerable(void *ptr) {
     m_ptr = ptr;
 }
 void* GCEnvSoundscapeTriggerable::GetPtr() {
@@ -25550,7 +25550,7 @@ void GCEnvSoundscapeTriggerable::SetParent(GCEnvSoundscape value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvSoundscapeTriggerable::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvSoundscapeTriggerable(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvSoundscapeTriggerable(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvSoundscapeTriggerable>("CEnvSoundscapeTriggerable")
@@ -25564,7 +25564,7 @@ GCSoundOpvarSetPointEntity::GCSoundOpvarSetPointEntity(std::string ptr, lua_Stat
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundOpvarSetPointEntity::GCSoundOpvarSetPointEntity(void* ptr) {
+GCSoundOpvarSetPointEntity::GCSoundOpvarSetPointEntity(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCSoundOpvarSetPointEntity::GetOnEnter() const {
@@ -25772,7 +25772,7 @@ void GCSoundOpvarSetPointEntity::SetParent(GCSoundOpvarSetPointBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundOpvarSetPointEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundOpvarSetPointEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundOpvarSetPointEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundOpvarSetPointEntity>("CSoundOpvarSetPointEntity")
@@ -25809,7 +25809,7 @@ GCBasePlayerPawn::GCBasePlayerPawn(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBasePlayerPawn::GCBasePlayerPawn(void* ptr) {
+GCBasePlayerPawn::GCBasePlayerPawn(void *ptr) {
     m_ptr = ptr;
 }
 GCPlayer_WeaponServices GCBasePlayerPawn::GetWeaponServices() const {
@@ -25819,7 +25819,7 @@ GCPlayer_WeaponServices GCBasePlayerPawn::GetWeaponServices() const {
 }
 void GCBasePlayerPawn::SetWeaponServices(GCPlayer_WeaponServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->WeaponServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pWeaponServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pWeaponServices", false, (char*)value.GetPtr());
 }
 GCPlayer_ItemServices GCBasePlayerPawn::GetItemServices() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->ItemServices(ptr=%p)", m_ptr));
@@ -25828,7 +25828,7 @@ GCPlayer_ItemServices GCBasePlayerPawn::GetItemServices() const {
 }
 void GCBasePlayerPawn::SetItemServices(GCPlayer_ItemServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->ItemServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pItemServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pItemServices", false, (char*)value.GetPtr());
 }
 GCPlayer_AutoaimServices GCBasePlayerPawn::GetAutoaimServices() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->AutoaimServices(ptr=%p)", m_ptr));
@@ -25837,7 +25837,7 @@ GCPlayer_AutoaimServices GCBasePlayerPawn::GetAutoaimServices() const {
 }
 void GCBasePlayerPawn::SetAutoaimServices(GCPlayer_AutoaimServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->AutoaimServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pAutoaimServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pAutoaimServices", false, (char*)value.GetPtr());
 }
 GCPlayer_ObserverServices GCBasePlayerPawn::GetObserverServices() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->ObserverServices(ptr=%p)", m_ptr));
@@ -25846,7 +25846,7 @@ GCPlayer_ObserverServices GCBasePlayerPawn::GetObserverServices() const {
 }
 void GCBasePlayerPawn::SetObserverServices(GCPlayer_ObserverServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->ObserverServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pObserverServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pObserverServices", false, (char*)value.GetPtr());
 }
 GCPlayer_WaterServices GCBasePlayerPawn::GetWaterServices() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->WaterServices(ptr=%p)", m_ptr));
@@ -25855,7 +25855,7 @@ GCPlayer_WaterServices GCBasePlayerPawn::GetWaterServices() const {
 }
 void GCBasePlayerPawn::SetWaterServices(GCPlayer_WaterServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->WaterServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pWaterServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pWaterServices", false, (char*)value.GetPtr());
 }
 GCPlayer_UseServices GCBasePlayerPawn::GetUseServices() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->UseServices(ptr=%p)", m_ptr));
@@ -25864,7 +25864,7 @@ GCPlayer_UseServices GCBasePlayerPawn::GetUseServices() const {
 }
 void GCBasePlayerPawn::SetUseServices(GCPlayer_UseServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->UseServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pUseServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pUseServices", false, (char*)value.GetPtr());
 }
 GCPlayer_FlashlightServices GCBasePlayerPawn::GetFlashlightServices() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->FlashlightServices(ptr=%p)", m_ptr));
@@ -25873,7 +25873,7 @@ GCPlayer_FlashlightServices GCBasePlayerPawn::GetFlashlightServices() const {
 }
 void GCBasePlayerPawn::SetFlashlightServices(GCPlayer_FlashlightServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->FlashlightServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pFlashlightServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pFlashlightServices", false, (char*)value.GetPtr());
 }
 GCPlayer_CameraServices GCBasePlayerPawn::GetCameraServices() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->CameraServices(ptr=%p)", m_ptr));
@@ -25882,7 +25882,7 @@ GCPlayer_CameraServices GCBasePlayerPawn::GetCameraServices() const {
 }
 void GCBasePlayerPawn::SetCameraServices(GCPlayer_CameraServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->CameraServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pCameraServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pCameraServices", false, (char*)value.GetPtr());
 }
 GCPlayer_MovementServices GCBasePlayerPawn::GetMovementServices() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->MovementServices(ptr=%p)", m_ptr));
@@ -25891,11 +25891,11 @@ GCPlayer_MovementServices GCBasePlayerPawn::GetMovementServices() const {
 }
 void GCBasePlayerPawn::SetMovementServices(GCPlayer_MovementServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->MovementServices(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pMovementServices", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pMovementServices", false, (char*)value.GetPtr());
 }
 std::vector<GViewAngleServerChange_t> GCBasePlayerPawn::GetServerViewAngleChanges() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->ServerViewAngleChanges(ptr=%p)", m_ptr));
-    CUtlVector<GViewAngleServerChange_t>* vec = GetSchemaValue<CUtlVector<GViewAngleServerChange_t>*>(m_ptr, "CBasePlayerPawn", "m_ServerViewAngleChanges"); std::vector<GViewAngleServerChange_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GViewAngleServerChange_t>* vec = GetSchemaValue<CUtlVector<GViewAngleServerChange_t>*>(m_ptr, "CBasePlayerPawn", "m_ServerViewAngleChanges"); std::vector<GViewAngleServerChange_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCBasePlayerPawn::SetServerViewAngleChanges(std::vector<GViewAngleServerChange_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->ServerViewAngleChanges(ptr=%p)", m_ptr));
@@ -25981,7 +25981,7 @@ GCAI_Expresser GCBasePlayerPawn::GetExpresser() const {
 }
 void GCBasePlayerPawn::SetExpresser(GCAI_Expresser value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->Expresser(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBasePlayerPawn", "m_pExpresser", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBasePlayerPawn","m_pExpresser", false, (char*)value.GetPtr());
 }
 GCBasePlayerController GCBasePlayerPawn::GetController() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->Controller(ptr=%p)", m_ptr));
@@ -26018,7 +26018,7 @@ void GCBasePlayerPawn::SetHltvReplayEntity(int value) {
 }
 std::vector<Gsndopvarlatchdata_t> GCBasePlayerPawn::GetSndOpvarLatchData() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBasePlayerPawn->SndOpvarLatchData(ptr=%p)", m_ptr));
-    CUtlVector<Gsndopvarlatchdata_t>* vec = GetSchemaValue<CUtlVector<Gsndopvarlatchdata_t>*>(m_ptr, "CBasePlayerPawn", "m_sndOpvarLatchData"); std::vector<Gsndopvarlatchdata_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<Gsndopvarlatchdata_t>* vec = GetSchemaValue<CUtlVector<Gsndopvarlatchdata_t>*>(m_ptr, "CBasePlayerPawn", "m_sndOpvarLatchData"); std::vector<Gsndopvarlatchdata_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCBasePlayerPawn::SetSndOpvarLatchData(std::vector<Gsndopvarlatchdata_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBasePlayerPawn->SndOpvarLatchData(ptr=%p)", m_ptr));
@@ -26042,7 +26042,7 @@ void GCBasePlayerPawn::SetParent(GCBaseCombatCharacter value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBasePlayerPawn::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBasePlayerPawn(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBasePlayerPawn(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBasePlayerPawn>("CBasePlayerPawn")
@@ -26081,7 +26081,7 @@ GCGameMoney::GCGameMoney(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCGameMoney::GCGameMoney(void* ptr) {
+GCGameMoney::GCGameMoney(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCGameMoney::GetOnMoneySpent() const {
@@ -26136,7 +26136,7 @@ void GCGameMoney::SetParent(GCRulePointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CGameMoney::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCGameMoney(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCGameMoney(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCGameMoney>("CGameMoney")
@@ -26154,7 +26154,7 @@ GCLogicPlayerProxy::GCLogicPlayerProxy(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicPlayerProxy::GCLogicPlayerProxy(void* ptr) {
+GCLogicPlayerProxy::GCLogicPlayerProxy(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCLogicPlayerProxy::GetPlayer() const {
@@ -26211,7 +26211,7 @@ void GCLogicPlayerProxy::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicPlayerProxy::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicPlayerProxy(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicPlayerProxy(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicPlayerProxy>("CLogicPlayerProxy")
@@ -26229,7 +26229,7 @@ GCPlayer_ObserverServices::GCPlayer_ObserverServices(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_ObserverServices::GCPlayer_ObserverServices(void* ptr) {
+GCPlayer_ObserverServices::GCPlayer_ObserverServices(void *ptr) {
     m_ptr = ptr;
 }
 uint32_t GCPlayer_ObserverServices::GetObserverMode() const {
@@ -26283,7 +26283,7 @@ void GCPlayer_ObserverServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_ObserverServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_ObserverServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_ObserverServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_ObserverServices>("CPlayer_ObserverServices")
@@ -26301,7 +26301,7 @@ GCWeaponZoneRepulsor::GCWeaponZoneRepulsor(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponZoneRepulsor::GCWeaponZoneRepulsor(void* ptr) {
+GCWeaponZoneRepulsor::GCWeaponZoneRepulsor(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponZoneRepulsor::GetPtr() {
@@ -26322,7 +26322,7 @@ void GCWeaponZoneRepulsor::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponZoneRepulsor::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponZoneRepulsor(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponZoneRepulsor(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponZoneRepulsor>("CWeaponZoneRepulsor")
@@ -26336,7 +26336,7 @@ GCPhysImpact::GCPhysImpact(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysImpact::GCPhysImpact(void* ptr) {
+GCPhysImpact::GCPhysImpact(void *ptr) {
     m_ptr = ptr;
 }
 float GCPhysImpact::GetDamage() const {
@@ -26381,7 +26381,7 @@ void GCPhysImpact::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysImpact::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysImpact(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysImpact(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysImpact>("CPhysImpact")
@@ -26398,7 +26398,7 @@ GCEnvCombinedLightProbeVolume::GCEnvCombinedLightProbeVolume(std::string ptr, lu
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvCombinedLightProbeVolume::GCEnvCombinedLightProbeVolume(void* ptr) {
+GCEnvCombinedLightProbeVolume::GCEnvCombinedLightProbeVolume(void *ptr) {
     m_ptr = ptr;
 }
 Color GCEnvCombinedLightProbeVolume::GetEntity_Color() const {
@@ -26571,7 +26571,7 @@ void GCEnvCombinedLightProbeVolume::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvCombinedLightProbeVolume::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvCombinedLightProbeVolume(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvCombinedLightProbeVolume(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvCombinedLightProbeVolume>("CEnvCombinedLightProbeVolume")
@@ -26604,7 +26604,7 @@ GCCSPlayer_WaterServices::GCCSPlayer_WaterServices(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayer_WaterServices::GCCSPlayer_WaterServices(void* ptr) {
+GCCSPlayer_WaterServices::GCCSPlayer_WaterServices(void *ptr) {
     m_ptr = ptr;
 }
 float GCCSPlayer_WaterServices::GetNextDrownDamageTime() const {
@@ -26673,7 +26673,7 @@ void GCCSPlayer_WaterServices::SetParent(GCPlayer_WaterServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayer_WaterServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayer_WaterServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayer_WaterServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayer_WaterServices>("CCSPlayer_WaterServices")
@@ -26693,7 +26693,7 @@ GCWeaponM249::GCWeaponM249(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponM249::GCWeaponM249(void* ptr) {
+GCWeaponM249::GCWeaponM249(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponM249::GetPtr() {
@@ -26714,7 +26714,7 @@ void GCWeaponM249::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponM249::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponM249(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponM249(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponM249>("CWeaponM249")
@@ -26728,7 +26728,7 @@ GCEnvParticleGlow::GCEnvParticleGlow(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvParticleGlow::GCEnvParticleGlow(void* ptr) {
+GCEnvParticleGlow::GCEnvParticleGlow(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvParticleGlow::GetAlphaScale() const {
@@ -26781,7 +26781,7 @@ void GCEnvParticleGlow::SetParent(GCParticleSystem value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvParticleGlow::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvParticleGlow(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvParticleGlow(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvParticleGlow>("CEnvParticleGlow")
@@ -26799,7 +26799,7 @@ GCFuncVehicleClip::GCFuncVehicleClip(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncVehicleClip::GCFuncVehicleClip(void* ptr) {
+GCFuncVehicleClip::GCFuncVehicleClip(void *ptr) {
     m_ptr = ptr;
 }
 void* GCFuncVehicleClip::GetPtr() {
@@ -26820,7 +26820,7 @@ void GCFuncVehicleClip::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncVehicleClip::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncVehicleClip(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncVehicleClip(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncVehicleClip>("CFuncVehicleClip")
@@ -26834,7 +26834,7 @@ GCSoundAreaEntityBase::GCSoundAreaEntityBase(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundAreaEntityBase::GCSoundAreaEntityBase(void* ptr) {
+GCSoundAreaEntityBase::GCSoundAreaEntityBase(void *ptr) {
     m_ptr = ptr;
 }
 bool GCSoundAreaEntityBase::GetDisabled() const {
@@ -26879,7 +26879,7 @@ void GCSoundAreaEntityBase::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundAreaEntityBase::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundAreaEntityBase(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundAreaEntityBase(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundAreaEntityBase>("CSoundAreaEntityBase")
@@ -26896,7 +26896,7 @@ GCFuncBrush::GCFuncBrush(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncBrush::GCFuncBrush(void* ptr) {
+GCFuncBrush::GCFuncBrush(void *ptr) {
     m_ptr = ptr;
 }
 uint64_t GCFuncBrush::GetSolidity() const {
@@ -26965,7 +26965,7 @@ void GCFuncBrush::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncBrush::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncBrush(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncBrush(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncBrush>("CFuncBrush")
@@ -26985,7 +26985,7 @@ GCEnvFunnel::GCEnvFunnel(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvFunnel::GCEnvFunnel(void* ptr) {
+GCEnvFunnel::GCEnvFunnel(void *ptr) {
     m_ptr = ptr;
 }
 void* GCEnvFunnel::GetPtr() {
@@ -27006,7 +27006,7 @@ void GCEnvFunnel::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvFunnel::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvFunnel(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvFunnel(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvFunnel>("CEnvFunnel")
@@ -27020,7 +27020,7 @@ GSequenceHistory_t::GSequenceHistory_t(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GSequenceHistory_t::GSequenceHistory_t(void* ptr) {
+GSequenceHistory_t::GSequenceHistory_t(void *ptr) {
     m_ptr = ptr;
 }
 float GSequenceHistory_t::GetSeqStartTime() const {
@@ -27072,7 +27072,7 @@ std::string GSequenceHistory_t::ToPtr() {
 bool GSequenceHistory_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassSequenceHistory_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassSequenceHistory_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GSequenceHistory_t>("SequenceHistory_t")
@@ -27090,7 +27090,7 @@ GCCSGameModeRules_Noop::GCCSGameModeRules_Noop(std::string ptr, lua_State* state
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSGameModeRules_Noop::GCCSGameModeRules_Noop(void* ptr) {
+GCCSGameModeRules_Noop::GCCSGameModeRules_Noop(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSGameModeRules_Noop::GetPtr() {
@@ -27111,7 +27111,7 @@ void GCCSGameModeRules_Noop::SetParent(GCCSGameModeRules value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSGameModeRules_Noop::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSGameModeRules_Noop(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSGameModeRules_Noop(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSGameModeRules_Noop>("CCSGameModeRules_Noop")
@@ -27125,7 +27125,7 @@ GCPointAngularVelocitySensor::GCPointAngularVelocitySensor(std::string ptr, lua_
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointAngularVelocitySensor::GCPointAngularVelocitySensor(void* ptr) {
+GCPointAngularVelocitySensor::GCPointAngularVelocitySensor(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCPointAngularVelocitySensor::GetTargetEntity() const {
@@ -27272,7 +27272,7 @@ void GCPointAngularVelocitySensor::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointAngularVelocitySensor::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointAngularVelocitySensor(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointAngularVelocitySensor(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointAngularVelocitySensor>("CPointAngularVelocitySensor")
@@ -27301,7 +27301,7 @@ GCBaseCSGrenadeProjectile::GCBaseCSGrenadeProjectile(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseCSGrenadeProjectile::GCBaseCSGrenadeProjectile(void* ptr) {
+GCBaseCSGrenadeProjectile::GCBaseCSGrenadeProjectile(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCBaseCSGrenadeProjectile::GetInitialPosition() const {
@@ -27450,7 +27450,7 @@ void GCBaseCSGrenadeProjectile::SetParent(GCBaseGrenade value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseCSGrenadeProjectile::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseCSGrenadeProjectile(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseCSGrenadeProjectile(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseCSGrenadeProjectile>("CBaseCSGrenadeProjectile")
@@ -27480,7 +27480,7 @@ GCHostageRescueZoneShim::GCHostageRescueZoneShim(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCHostageRescueZoneShim::GCHostageRescueZoneShim(void* ptr) {
+GCHostageRescueZoneShim::GCHostageRescueZoneShim(void *ptr) {
     m_ptr = ptr;
 }
 void* GCHostageRescueZoneShim::GetPtr() {
@@ -27501,7 +27501,7 @@ void GCHostageRescueZoneShim::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CHostageRescueZoneShim::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCHostageRescueZoneShim(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCHostageRescueZoneShim(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCHostageRescueZoneShim>("CHostageRescueZoneShim")
@@ -27515,7 +27515,7 @@ GCEnvInstructorHint::GCEnvInstructorHint(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvInstructorHint::GCEnvInstructorHint(void* ptr) {
+GCEnvInstructorHint::GCEnvInstructorHint(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCEnvInstructorHint::GetName() const {
@@ -27728,7 +27728,7 @@ void GCEnvInstructorHint::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvInstructorHint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvInstructorHint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvInstructorHint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvInstructorHint>("CEnvInstructorHint")
@@ -27766,7 +27766,7 @@ GCEnvTracer::GCEnvTracer(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvTracer::GCEnvTracer(void* ptr) {
+GCEnvTracer::GCEnvTracer(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCEnvTracer::GetEnd() const {
@@ -27803,7 +27803,7 @@ void GCEnvTracer::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvTracer::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvTracer(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvTracer(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvTracer>("CEnvTracer")
@@ -27819,7 +27819,7 @@ GCInfoGameEventProxy::GCInfoGameEventProxy(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoGameEventProxy::GCInfoGameEventProxy(void* ptr) {
+GCInfoGameEventProxy::GCInfoGameEventProxy(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCInfoGameEventProxy::GetEventName() const {
@@ -27856,7 +27856,7 @@ void GCInfoGameEventProxy::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoGameEventProxy::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoGameEventProxy(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoGameEventProxy(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoGameEventProxy>("CInfoGameEventProxy")
@@ -27872,7 +27872,7 @@ GCPointCamera::GCPointCamera(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointCamera::GCPointCamera(void* ptr) {
+GCPointCamera::GCPointCamera(void *ptr) {
     m_ptr = ptr;
 }
 float GCPointCamera::GetFOV() const {
@@ -28074,7 +28074,7 @@ GCPointCamera GCPointCamera::GetNext() const {
 }
 void GCPointCamera::SetNext(GCPointCamera value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPointCamera->Next(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CPointCamera", "m_pNext", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CPointCamera","m_pNext", false, (char*)value.GetPtr());
 }
 void* GCPointCamera::GetPtr() {
     return m_ptr;
@@ -28094,7 +28094,7 @@ void GCPointCamera::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointCamera::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointCamera(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointCamera(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointCamera>("CPointCamera")
@@ -28133,7 +28133,7 @@ GCBodyComponentSkeletonInstance::GCBodyComponentSkeletonInstance(std::string ptr
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBodyComponentSkeletonInstance::GCBodyComponentSkeletonInstance(void* ptr) {
+GCBodyComponentSkeletonInstance::GCBodyComponentSkeletonInstance(void *ptr) {
     m_ptr = ptr;
 }
 GCSkeletonInstance GCBodyComponentSkeletonInstance::GetSkeletonInstance() const {
@@ -28163,7 +28163,7 @@ void GCBodyComponentSkeletonInstance::SetParent(GCBodyComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBodyComponentSkeletonInstance::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBodyComponentSkeletonInstance(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBodyComponentSkeletonInstance(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBodyComponentSkeletonInstance>("CBodyComponentSkeletonInstance")
@@ -28178,7 +28178,7 @@ GCFuncLadderAlias_func_useableladder::GCFuncLadderAlias_func_useableladder(std::
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncLadderAlias_func_useableladder::GCFuncLadderAlias_func_useableladder(void* ptr) {
+GCFuncLadderAlias_func_useableladder::GCFuncLadderAlias_func_useableladder(void *ptr) {
     m_ptr = ptr;
 }
 void* GCFuncLadderAlias_func_useableladder::GetPtr() {
@@ -28199,7 +28199,7 @@ void GCFuncLadderAlias_func_useableladder::SetParent(GCFuncLadder value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncLadderAlias_func_useableladder::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncLadderAlias_func_useableladder(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncLadderAlias_func_useableladder(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncLadderAlias_func_useableladder>("CFuncLadderAlias_func_useableladder")
@@ -28213,7 +28213,7 @@ GCBaseMoveBehavior::GCBaseMoveBehavior(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseMoveBehavior::GCBaseMoveBehavior(void* ptr) {
+GCBaseMoveBehavior::GCBaseMoveBehavior(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCBaseMoveBehavior::GetPositionInterpolator() const {
@@ -28263,7 +28263,7 @@ GCPathKeyFrame GCBaseMoveBehavior::GetCurrentKeyFrame() const {
 }
 void GCBaseMoveBehavior::SetCurrentKeyFrame(GCPathKeyFrame value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseMoveBehavior->CurrentKeyFrame(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBaseMoveBehavior", "m_pCurrentKeyFrame", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBaseMoveBehavior","m_pCurrentKeyFrame", false, (char*)value.GetPtr());
 }
 GCPathKeyFrame GCBaseMoveBehavior::GetTargetKeyFrame() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseMoveBehavior->TargetKeyFrame(ptr=%p)", m_ptr));
@@ -28272,7 +28272,7 @@ GCPathKeyFrame GCBaseMoveBehavior::GetTargetKeyFrame() const {
 }
 void GCBaseMoveBehavior::SetTargetKeyFrame(GCPathKeyFrame value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseMoveBehavior->TargetKeyFrame(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBaseMoveBehavior", "m_pTargetKeyFrame", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBaseMoveBehavior","m_pTargetKeyFrame", false, (char*)value.GetPtr());
 }
 GCPathKeyFrame GCBaseMoveBehavior::GetPreKeyFrame() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseMoveBehavior->PreKeyFrame(ptr=%p)", m_ptr));
@@ -28281,7 +28281,7 @@ GCPathKeyFrame GCBaseMoveBehavior::GetPreKeyFrame() const {
 }
 void GCBaseMoveBehavior::SetPreKeyFrame(GCPathKeyFrame value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseMoveBehavior->PreKeyFrame(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBaseMoveBehavior", "m_pPreKeyFrame", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBaseMoveBehavior","m_pPreKeyFrame", false, (char*)value.GetPtr());
 }
 GCPathKeyFrame GCBaseMoveBehavior::GetPostKeyFrame() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseMoveBehavior->PostKeyFrame(ptr=%p)", m_ptr));
@@ -28290,7 +28290,7 @@ GCPathKeyFrame GCBaseMoveBehavior::GetPostKeyFrame() const {
 }
 void GCBaseMoveBehavior::SetPostKeyFrame(GCPathKeyFrame value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBaseMoveBehavior->PostKeyFrame(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBaseMoveBehavior", "m_pPostKeyFrame", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBaseMoveBehavior","m_pPostKeyFrame", false, (char*)value.GetPtr());
 }
 float GCBaseMoveBehavior::GetTimeIntoFrame() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseMoveBehavior->TimeIntoFrame(ptr=%p)", m_ptr));
@@ -28326,7 +28326,7 @@ void GCBaseMoveBehavior::SetParent(GCPathKeyFrame value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseMoveBehavior::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseMoveBehavior(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseMoveBehavior(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseMoveBehavior>("CBaseMoveBehavior")
@@ -28351,7 +28351,7 @@ GCFuncInteractionLayerClip::GCFuncInteractionLayerClip(std::string ptr, lua_Stat
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncInteractionLayerClip::GCFuncInteractionLayerClip(void* ptr) {
+GCFuncInteractionLayerClip::GCFuncInteractionLayerClip(void *ptr) {
     m_ptr = ptr;
 }
 bool GCFuncInteractionLayerClip::GetDisabled() const {
@@ -28396,7 +28396,7 @@ void GCFuncInteractionLayerClip::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncInteractionLayerClip::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncInteractionLayerClip(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncInteractionLayerClip(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncInteractionLayerClip>("CFuncInteractionLayerClip")
@@ -28413,7 +28413,7 @@ GCWeaponMAC10::GCWeaponMAC10(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponMAC10::GCWeaponMAC10(void* ptr) {
+GCWeaponMAC10::GCWeaponMAC10(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponMAC10::GetPtr() {
@@ -28434,7 +28434,7 @@ void GCWeaponMAC10::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponMAC10::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponMAC10(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponMAC10(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponMAC10>("CWeaponMAC10")
@@ -28448,7 +28448,7 @@ GCGameRules::GCGameRules(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCGameRules::GCGameRules(void* ptr) {
+GCGameRules::GCGameRules(void *ptr) {
     m_ptr = ptr;
 }
 GCNetworkVarChainer GCGameRules::Get__pChainEntity() const {
@@ -28509,7 +28509,7 @@ std::string GCGameRules::ToPtr() {
 bool GCGameRules::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCGameRules(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCGameRules(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCGameRules>("CGameRules")
@@ -28528,7 +28528,7 @@ GCWeaponRevolver::GCWeaponRevolver(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponRevolver::GCWeaponRevolver(void* ptr) {
+GCWeaponRevolver::GCWeaponRevolver(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponRevolver::GetPtr() {
@@ -28549,7 +28549,7 @@ void GCWeaponRevolver::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponRevolver::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponRevolver(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponRevolver(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponRevolver>("CWeaponRevolver")
@@ -28563,7 +28563,7 @@ GCOrnamentProp::GCOrnamentProp(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCOrnamentProp::GCOrnamentProp(void* ptr) {
+GCOrnamentProp::GCOrnamentProp(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCOrnamentProp::GetInitialOwner() const {
@@ -28592,7 +28592,7 @@ void GCOrnamentProp::SetParent(GCDynamicProp value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("COrnamentProp::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCOrnamentProp(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCOrnamentProp(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCOrnamentProp>("COrnamentProp")
@@ -28607,7 +28607,7 @@ GCLogicGameEvent::GCLogicGameEvent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicGameEvent::GCLogicGameEvent(void* ptr) {
+GCLogicGameEvent::GCLogicGameEvent(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCLogicGameEvent::GetEventName() const {
@@ -28636,7 +28636,7 @@ void GCLogicGameEvent::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicGameEvent::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicGameEvent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicGameEvent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicGameEvent>("CLogicGameEvent")
@@ -28651,7 +28651,7 @@ GCEnvMuzzleFlash::GCEnvMuzzleFlash(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvMuzzleFlash::GCEnvMuzzleFlash(void* ptr) {
+GCEnvMuzzleFlash::GCEnvMuzzleFlash(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvMuzzleFlash::GetScale() const {
@@ -28688,7 +28688,7 @@ void GCEnvMuzzleFlash::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvMuzzleFlash::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvMuzzleFlash(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvMuzzleFlash(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvMuzzleFlash>("CEnvMuzzleFlash")
@@ -28704,7 +28704,7 @@ GCPlayerSprayDecal::GCPlayerSprayDecal(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayerSprayDecal::GCPlayerSprayDecal(void* ptr) {
+GCPlayerSprayDecal::GCPlayerSprayDecal(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCPlayerSprayDecal::GetUniqueID() const {
@@ -28821,13 +28821,13 @@ void GCPlayerSprayDecal::SetVersion(uint32_t value) {
 }
 std::vector<uint32_t> GCPlayerSprayDecal::GetSignature() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayerSprayDecal->Signature(ptr=%p,size=128)", m_ptr));
-    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CPlayerSprayDecal", "m_ubSignature"); std::vector<uint32_t> ret; for (int i = 0; i < 128; i++) { ret.push_back(outValue[i]); } return ret;
+    uint32_t* outValue = (uint32_t*)GetSchemaPtr(m_ptr, "CPlayerSprayDecal", "m_ubSignature"); std::vector<uint32_t> ret; for(int i = 0; i < 128; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCPlayerSprayDecal::SetSignature(std::vector<uint32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPlayerSprayDecal->Signature(ptr=%p,size=128)", m_ptr));
-    if (value.size() != 128) return PLUGIN_PRINT("Schema SDK", "Field 'Signature' needs to have 128 values.\n");
+    if(value.size() != 128) return PLUGIN_PRINT("Schema SDK", "Field 'Signature' needs to have 128 values.\n");
     auto val = GetSchemaValuePtr<uint32_t>(m_ptr, "CPlayerSprayDecal", "m_ubSignature");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCPlayerSprayDecal::GetPtr() {
     return m_ptr;
@@ -28847,7 +28847,7 @@ void GCPlayerSprayDecal::SetParent(GCModelPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayerSprayDecal::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayerSprayDecal(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayerSprayDecal(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayerSprayDecal>("CPlayerSprayDecal")
@@ -28876,7 +28876,7 @@ GCBombTarget::GCBombTarget(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBombTarget::GCBombTarget(void* ptr) {
+GCBombTarget::GCBombTarget(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCBombTarget::GetOnBombExplode() const {
@@ -28973,7 +28973,7 @@ void GCBombTarget::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBombTarget::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBombTarget(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBombTarget(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBombTarget>("CBombTarget")
@@ -28996,7 +28996,7 @@ GCPhysicsSpring::GCPhysicsSpring(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysicsSpring::GCPhysicsSpring(void* ptr) {
+GCPhysicsSpring::GCPhysicsSpring(void *ptr) {
     m_ptr = ptr;
 }
 float GCPhysicsSpring::GetFrequency() const {
@@ -29081,7 +29081,7 @@ void GCPhysicsSpring::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysicsSpring::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysicsSpring(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysicsSpring(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysicsSpring>("CPhysicsSpring")
@@ -29103,7 +29103,7 @@ GCEnvLightProbeVolume::GCEnvLightProbeVolume(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvLightProbeVolume::GCEnvLightProbeVolume(void* ptr) {
+GCEnvLightProbeVolume::GCEnvLightProbeVolume(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCEnvLightProbeVolume::GetEntity_vBoxMins() const {
@@ -29228,7 +29228,7 @@ void GCEnvLightProbeVolume::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvLightProbeVolume::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvLightProbeVolume(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvLightProbeVolume(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvLightProbeVolume>("CEnvLightProbeVolume")
@@ -29255,12 +29255,12 @@ GCCSGameModeRules_ArmsRace::GCCSGameModeRules_ArmsRace(std::string ptr, lua_Stat
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSGameModeRules_ArmsRace::GCCSGameModeRules_ArmsRace(void* ptr) {
+GCCSGameModeRules_ArmsRace::GCCSGameModeRules_ArmsRace(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<CUtlString> GCCSGameModeRules_ArmsRace::GetWeaponSequence() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSGameModeRules_ArmsRace->WeaponSequence(ptr=%p)", m_ptr));
-    CUtlVector<CUtlString>* vec = GetSchemaValue<CUtlVector<CUtlString>*>(m_ptr, "CCSGameModeRules_ArmsRace", "m_WeaponSequence"); std::vector<CUtlString> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<CUtlString>* vec = GetSchemaValue<CUtlVector<CUtlString>*>(m_ptr, "CCSGameModeRules_ArmsRace", "m_WeaponSequence"); std::vector<CUtlString> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCCSGameModeRules_ArmsRace::SetWeaponSequence(std::vector<CUtlString> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSGameModeRules_ArmsRace->WeaponSequence(ptr=%p)", m_ptr));
@@ -29284,7 +29284,7 @@ void GCCSGameModeRules_ArmsRace::SetParent(GCCSGameModeRules value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSGameModeRules_ArmsRace::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSGameModeRules_ArmsRace(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSGameModeRules_ArmsRace(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSGameModeRules_ArmsRace>("CCSGameModeRules_ArmsRace")
@@ -29299,7 +29299,7 @@ GCScriptTriggerPush::GCScriptTriggerPush(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCScriptTriggerPush::GCScriptTriggerPush(void* ptr) {
+GCScriptTriggerPush::GCScriptTriggerPush(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCScriptTriggerPush::GetExtent() const {
@@ -29328,7 +29328,7 @@ void GCScriptTriggerPush::SetParent(GCTriggerPush value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CScriptTriggerPush::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCScriptTriggerPush(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCScriptTriggerPush(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCScriptTriggerPush>("CScriptTriggerPush")
@@ -29343,7 +29343,7 @@ GCEnvEntityIgniter::GCEnvEntityIgniter(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvEntityIgniter::GCEnvEntityIgniter(void* ptr) {
+GCEnvEntityIgniter::GCEnvEntityIgniter(void *ptr) {
     m_ptr = ptr;
 }
 float GCEnvEntityIgniter::GetLifetime() const {
@@ -29372,7 +29372,7 @@ void GCEnvEntityIgniter::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvEntityIgniter::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvEntityIgniter(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvEntityIgniter(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvEntityIgniter>("CEnvEntityIgniter")
@@ -29387,7 +29387,7 @@ GCFuncWallToggle::GCFuncWallToggle(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncWallToggle::GCFuncWallToggle(void* ptr) {
+GCFuncWallToggle::GCFuncWallToggle(void *ptr) {
     m_ptr = ptr;
 }
 void* GCFuncWallToggle::GetPtr() {
@@ -29408,7 +29408,7 @@ void GCFuncWallToggle::SetParent(GCFuncWall value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncWallToggle::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncWallToggle(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncWallToggle(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncWallToggle>("CFuncWallToggle")
@@ -29422,7 +29422,7 @@ GCDamageRecord::GCDamageRecord(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCDamageRecord::GCDamageRecord(void* ptr) {
+GCDamageRecord::GCDamageRecord(void *ptr) {
     m_ptr = ptr;
 }
 GCCSPlayerPawn GCDamageRecord::GetPlayerDamager() const {
@@ -29550,7 +29550,7 @@ std::string GCDamageRecord::ToPtr() {
 bool GCDamageRecord::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCDamageRecord(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCDamageRecord(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCDamageRecord>("CDamageRecord")
@@ -29577,7 +29577,7 @@ GCLogicAutosave::GCLogicAutosave(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLogicAutosave::GCLogicAutosave(void* ptr) {
+GCLogicAutosave::GCLogicAutosave(void *ptr) {
     m_ptr = ptr;
 }
 bool GCLogicAutosave::GetForceNewLevelUnit() const {
@@ -29622,7 +29622,7 @@ void GCLogicAutosave::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLogicAutosave::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLogicAutosave(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLogicAutosave(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLogicAutosave>("CLogicAutosave")
@@ -29639,7 +29639,7 @@ GCCSPlayerController_DamageServices::GCCSPlayerController_DamageServices(std::st
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayerController_DamageServices::GCCSPlayerController_DamageServices(void* ptr) {
+GCCSPlayerController_DamageServices::GCCSPlayerController_DamageServices(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCCSPlayerController_DamageServices::GetSendUpdate() const {
@@ -29652,7 +29652,7 @@ void GCCSPlayerController_DamageServices::SetSendUpdate(int32_t value) {
 }
 std::vector<GCDamageRecord> GCCSPlayerController_DamageServices::GetDamageList() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerController_DamageServices->DamageList(ptr=%p)", m_ptr));
-    CUtlVector<GCDamageRecord>* vec = GetSchemaValue<CUtlVector<GCDamageRecord>*>(m_ptr, "CCSPlayerController_DamageServices", "m_DamageList"); std::vector<GCDamageRecord> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GCDamageRecord>* vec = GetSchemaValue<CUtlVector<GCDamageRecord>*>(m_ptr, "CCSPlayerController_DamageServices", "m_DamageList"); std::vector<GCDamageRecord> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCCSPlayerController_DamageServices::SetDamageList(std::vector<GCDamageRecord> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerController_DamageServices->DamageList(ptr=%p)", m_ptr));
@@ -29676,7 +29676,7 @@ void GCCSPlayerController_DamageServices::SetParent(GCPlayerControllerComponent 
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayerController_DamageServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayerController_DamageServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayerController_DamageServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayerController_DamageServices>("CCSPlayerController_DamageServices")
@@ -29692,7 +29692,7 @@ GCRenderComponent::GCRenderComponent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRenderComponent::GCRenderComponent(void* ptr) {
+GCRenderComponent::GCRenderComponent(void *ptr) {
     m_ptr = ptr;
 }
 GCNetworkVarChainer GCRenderComponent::Get__pChainEntity() const {
@@ -29754,7 +29754,7 @@ void GCRenderComponent::SetParent(GCEntityComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRenderComponent::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRenderComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRenderComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRenderComponent>("CRenderComponent")
@@ -29773,7 +29773,7 @@ GCSoundEventPathCornerEntity::GCSoundEventPathCornerEntity(std::string ptr, lua_
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundEventPathCornerEntity::GCSoundEventPathCornerEntity(void* ptr) {
+GCSoundEventPathCornerEntity::GCSoundEventPathCornerEntity(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCSoundEventPathCornerEntity::GetPathCorner() const {
@@ -29842,7 +29842,7 @@ void GCSoundEventPathCornerEntity::SetParent(GCSoundEventEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundEventPathCornerEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundEventPathCornerEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundEventPathCornerEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundEventPathCornerEntity>("CSoundEventPathCornerEntity")
@@ -29862,7 +29862,7 @@ GCEnvSoundscapeProxyAlias_snd_soundscape_proxy::GCEnvSoundscapeProxyAlias_snd_so
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvSoundscapeProxyAlias_snd_soundscape_proxy::GCEnvSoundscapeProxyAlias_snd_soundscape_proxy(void* ptr) {
+GCEnvSoundscapeProxyAlias_snd_soundscape_proxy::GCEnvSoundscapeProxyAlias_snd_soundscape_proxy(void *ptr) {
     m_ptr = ptr;
 }
 void* GCEnvSoundscapeProxyAlias_snd_soundscape_proxy::GetPtr() {
@@ -29883,7 +29883,7 @@ void GCEnvSoundscapeProxyAlias_snd_soundscape_proxy::SetParent(GCEnvSoundscapePr
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvSoundscapeProxyAlias_snd_soundscape_proxy::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvSoundscapeProxyAlias_snd_soundscape_proxy(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvSoundscapeProxyAlias_snd_soundscape_proxy(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvSoundscapeProxyAlias_snd_soundscape_proxy>("CEnvSoundscapeProxyAlias_snd_soundscape_proxy")
@@ -29897,7 +29897,7 @@ GCLightComponent::GCLightComponent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLightComponent::GCLightComponent(void* ptr) {
+GCLightComponent::GCLightComponent(void *ptr) {
     m_ptr = ptr;
 }
 GCNetworkVarChainer GCLightComponent::Get__pChainEntity() const {
@@ -30447,7 +30447,7 @@ void GCLightComponent::SetParent(GCEntityComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLightComponent::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLightComponent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLightComponent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLightComponent>("CLightComponent")
@@ -30527,7 +30527,7 @@ GCSmokeGrenadeProjectile::GCSmokeGrenadeProjectile(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSmokeGrenadeProjectile::GCSmokeGrenadeProjectile(void* ptr) {
+GCSmokeGrenadeProjectile::GCSmokeGrenadeProjectile(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCSmokeGrenadeProjectile::GetSmokeEffectTickBegin() const {
@@ -30572,7 +30572,7 @@ void GCSmokeGrenadeProjectile::SetSmokeDetonationPos(Vector value) {
 }
 std::vector<uint8> GCSmokeGrenadeProjectile::GetVoxelFrameData() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSmokeGrenadeProjectile->VoxelFrameData(ptr=%p)", m_ptr));
-    CUtlVector<uint8>* vec = GetSchemaValue<CUtlVector<uint8>*>(m_ptr, "CSmokeGrenadeProjectile", "m_VoxelFrameData"); std::vector<uint8> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<uint8>* vec = GetSchemaValue<CUtlVector<uint8>*>(m_ptr, "CSmokeGrenadeProjectile", "m_VoxelFrameData"); std::vector<uint8> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCSmokeGrenadeProjectile::SetVoxelFrameData(std::vector<uint8> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSmokeGrenadeProjectile->VoxelFrameData(ptr=%p)", m_ptr));
@@ -30612,7 +30612,7 @@ void GCSmokeGrenadeProjectile::SetParent(GCBaseCSGrenadeProjectile value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSmokeGrenadeProjectile::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSmokeGrenadeProjectile(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSmokeGrenadeProjectile(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSmokeGrenadeProjectile>("CSmokeGrenadeProjectile")
@@ -30634,7 +30634,7 @@ GCScriptTriggerMultiple::GCScriptTriggerMultiple(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCScriptTriggerMultiple::GCScriptTriggerMultiple(void* ptr) {
+GCScriptTriggerMultiple::GCScriptTriggerMultiple(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCScriptTriggerMultiple::GetExtent() const {
@@ -30663,7 +30663,7 @@ void GCScriptTriggerMultiple::SetParent(GCTriggerMultiple value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CScriptTriggerMultiple::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCScriptTriggerMultiple(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCScriptTriggerMultiple(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCScriptTriggerMultiple>("CScriptTriggerMultiple")
@@ -30678,12 +30678,12 @@ GCSoundOpvarSetAutoRoomEntity::GCSoundOpvarSetAutoRoomEntity(std::string ptr, lu
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundOpvarSetAutoRoomEntity::GCSoundOpvarSetAutoRoomEntity(void* ptr) {
+GCSoundOpvarSetAutoRoomEntity::GCSoundOpvarSetAutoRoomEntity(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GSoundOpvarTraceResult_t> GCSoundOpvarSetAutoRoomEntity::GetTraceResults() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSoundOpvarSetAutoRoomEntity->TraceResults(ptr=%p)", m_ptr));
-    CUtlVector<GSoundOpvarTraceResult_t>* vec = GetSchemaValue<CUtlVector<GSoundOpvarTraceResult_t>*>(m_ptr, "CSoundOpvarSetAutoRoomEntity", "m_traceResults"); std::vector<GSoundOpvarTraceResult_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GSoundOpvarTraceResult_t>* vec = GetSchemaValue<CUtlVector<GSoundOpvarTraceResult_t>*>(m_ptr, "CSoundOpvarSetAutoRoomEntity", "m_traceResults"); std::vector<GSoundOpvarTraceResult_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCSoundOpvarSetAutoRoomEntity::SetTraceResults(std::vector<GSoundOpvarTraceResult_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSoundOpvarSetAutoRoomEntity->TraceResults(ptr=%p)", m_ptr));
@@ -30731,7 +30731,7 @@ void GCSoundOpvarSetAutoRoomEntity::SetParent(GCSoundOpvarSetPointEntity value) 
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundOpvarSetAutoRoomEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundOpvarSetAutoRoomEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundOpvarSetAutoRoomEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundOpvarSetAutoRoomEntity>("CSoundOpvarSetAutoRoomEntity")
@@ -30749,7 +30749,7 @@ GCBodyComponentPoint::GCBodyComponentPoint(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBodyComponentPoint::GCBodyComponentPoint(void* ptr) {
+GCBodyComponentPoint::GCBodyComponentPoint(void *ptr) {
     m_ptr = ptr;
 }
 GCGameSceneNode GCBodyComponentPoint::GetSceneNode() const {
@@ -30779,7 +30779,7 @@ void GCBodyComponentPoint::SetParent(GCBodyComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBodyComponentPoint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBodyComponentPoint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBodyComponentPoint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBodyComponentPoint>("CBodyComponentPoint")
@@ -30794,7 +30794,7 @@ GFilterDamageType::GFilterDamageType(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GFilterDamageType::GFilterDamageType(void* ptr) {
+GFilterDamageType::GFilterDamageType(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GFilterDamageType::GetDamageType() const {
@@ -30823,7 +30823,7 @@ void GFilterDamageType::SetParent(GCBaseFilter value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("FilterDamageType::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassFilterDamageType(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassFilterDamageType(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GFilterDamageType>("FilterDamageType")
@@ -30838,7 +30838,7 @@ GCBot::GCBot(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBot::GCBot(void* ptr) {
+GCBot::GCBot(void *ptr) {
     m_ptr = ptr;
 }
 GCCSPlayerController GCBot::GetController() const {
@@ -30848,7 +30848,7 @@ GCCSPlayerController GCBot::GetController() const {
 }
 void GCBot::SetController(GCCSPlayerController value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBot->Controller(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBot", "m_pController", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBot","m_pController", false, (char*)value.GetPtr());
 }
 GCCSPlayerPawn GCBot::GetPlayer() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBot->Player(ptr=%p)", m_ptr));
@@ -30857,7 +30857,7 @@ GCCSPlayerPawn GCBot::GetPlayer() const {
 }
 void GCBot::SetPlayer(GCCSPlayerPawn value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBot->Player(ptr=%p)", m_ptr));
-    SetSchemaValue(m_ptr, "CBot", "m_pPlayer", false, (char*)value.GetPtr());
+    SetSchemaValue(m_ptr, "CBot","m_pPlayer", false, (char*)value.GetPtr());
 }
 bool GCBot::GetHasSpawned() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBot->HasSpawned(ptr=%p)", m_ptr));
@@ -30956,7 +30956,7 @@ std::string GCBot::ToPtr() {
 bool GCBot::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCBot(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBot(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBot>("CBot")
@@ -30982,7 +30982,7 @@ GCMotorController::GCMotorController(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMotorController::GCMotorController(void* ptr) {
+GCMotorController::GCMotorController(void *ptr) {
     m_ptr = ptr;
 }
 float GCMotorController::GetSpeed() const {
@@ -31026,7 +31026,7 @@ std::string GCMotorController::ToPtr() {
 bool GCMotorController::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCMotorController(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMotorController(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMotorController>("CMotorController")
@@ -31043,7 +31043,7 @@ GCSoundAreaEntitySphere::GCSoundAreaEntitySphere(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundAreaEntitySphere::GCSoundAreaEntitySphere(void* ptr) {
+GCSoundAreaEntitySphere::GCSoundAreaEntitySphere(void *ptr) {
     m_ptr = ptr;
 }
 float GCSoundAreaEntitySphere::GetRadius() const {
@@ -31072,7 +31072,7 @@ void GCSoundAreaEntitySphere::SetParent(GCSoundAreaEntityBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundAreaEntitySphere::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundAreaEntitySphere(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundAreaEntitySphere(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundAreaEntitySphere>("CSoundAreaEntitySphere")
@@ -31087,7 +31087,7 @@ GCCSPlayer_UseServices::GCCSPlayer_UseServices(std::string ptr, lua_State* state
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayer_UseServices::GCCSPlayer_UseServices(void* ptr) {
+GCCSPlayer_UseServices::GCCSPlayer_UseServices(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCCSPlayer_UseServices::GetLastKnownUseEntity() const {
@@ -31133,7 +31133,7 @@ void GCCSPlayer_UseServices::SetParent(GCPlayer_UseServices value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayer_UseServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayer_UseServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayer_UseServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayer_UseServices>("CCSPlayer_UseServices")
@@ -31150,7 +31150,7 @@ GCCSGO_WingmanIntroCounterTerroristPosition::GCCSGO_WingmanIntroCounterTerrorist
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSGO_WingmanIntroCounterTerroristPosition::GCCSGO_WingmanIntroCounterTerroristPosition(void* ptr) {
+GCCSGO_WingmanIntroCounterTerroristPosition::GCCSGO_WingmanIntroCounterTerroristPosition(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSGO_WingmanIntroCounterTerroristPosition::GetPtr() {
@@ -31171,7 +31171,7 @@ void GCCSGO_WingmanIntroCounterTerroristPosition::SetParent(GCCSGO_WingmanIntroC
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSGO_WingmanIntroCounterTerroristPosition::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSGO_WingmanIntroCounterTerroristPosition(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSGO_WingmanIntroCounterTerroristPosition(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSGO_WingmanIntroCounterTerroristPosition>("CCSGO_WingmanIntroCounterTerroristPosition")
@@ -31185,7 +31185,7 @@ GCItemKevlar::GCItemKevlar(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCItemKevlar::GCItemKevlar(void* ptr) {
+GCItemKevlar::GCItemKevlar(void *ptr) {
     m_ptr = ptr;
 }
 void* GCItemKevlar::GetPtr() {
@@ -31206,7 +31206,7 @@ void GCItemKevlar::SetParent(GCItem value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CItemKevlar::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCItemKevlar(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCItemKevlar(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCItemKevlar>("CItemKevlar")
@@ -31220,7 +31220,7 @@ GCTriggerHurt::GCTriggerHurt(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerHurt::GCTriggerHurt(void* ptr) {
+GCTriggerHurt::GCTriggerHurt(void *ptr) {
     m_ptr = ptr;
 }
 float GCTriggerHurt::GetOriginalDamage() const {
@@ -31347,7 +31347,7 @@ void GCTriggerHurt::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerHurt::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerHurt(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerHurt(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerHurt>("CTriggerHurt")
@@ -31374,7 +31374,7 @@ GCPhysBallSocket::GCPhysBallSocket(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysBallSocket::GCPhysBallSocket(void* ptr) {
+GCPhysBallSocket::GCPhysBallSocket(void *ptr) {
     m_ptr = ptr;
 }
 float GCPhysBallSocket::GetJointFriction() const {
@@ -31443,7 +31443,7 @@ void GCPhysBallSocket::SetParent(GCPhysConstraint value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysBallSocket::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysBallSocket(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysBallSocket(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysBallSocket>("CPhysBallSocket")
@@ -31463,7 +31463,7 @@ GCMapVetoPickController::GCMapVetoPickController(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMapVetoPickController::GCMapVetoPickController(void* ptr) {
+GCMapVetoPickController::GCMapVetoPickController(void *ptr) {
     m_ptr = ptr;
 }
 bool GCMapVetoPickController::GetPlayedIntroVcd() const {
@@ -31516,103 +31516,103 @@ void GCMapVetoPickController::SetTeamWinningCoinToss(int32_t value) {
 }
 std::vector<int32_t> GCMapVetoPickController::GetTeamWithFirstChoice() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->TeamWithFirstChoice(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nTeamWithFirstChoice"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nTeamWithFirstChoice"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetTeamWithFirstChoice(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->TeamWithFirstChoice(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'TeamWithFirstChoice' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'TeamWithFirstChoice' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nTeamWithFirstChoice");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetVoteMapIdsList() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->VoteMapIdsList(ptr=%p,size=7)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nVoteMapIdsList"); std::vector<int32_t> ret; for (int i = 0; i < 7; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nVoteMapIdsList"); std::vector<int32_t> ret; for(int i = 0; i < 7; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetVoteMapIdsList(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->VoteMapIdsList(ptr=%p,size=7)", m_ptr));
-    if (value.size() != 7) return PLUGIN_PRINT("Schema SDK", "Field 'VoteMapIdsList' needs to have 7 values.\n");
+    if(value.size() != 7) return PLUGIN_PRINT("Schema SDK", "Field 'VoteMapIdsList' needs to have 7 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nVoteMapIdsList");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetAccountIDs() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->AccountIDs(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nAccountIDs"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nAccountIDs"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetAccountIDs(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->AccountIDs(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'AccountIDs' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'AccountIDs' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nAccountIDs");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId0(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId0"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId0"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetMapId0(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId0(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId0' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId0' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId0");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId1() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId1(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId1"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId1"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetMapId1(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId1(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId1' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId1' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId1");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId2() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId2(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId2"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId2"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetMapId2(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId2(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId2' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId2' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId2");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId3() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId3(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId3"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId3"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetMapId3(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId3(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId3' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId3' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId3");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId4() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId4(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId4"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId4"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetMapId4(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId4(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId4' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId4' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId4");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetMapId5() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->MapId5(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId5"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nMapId5"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetMapId5(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->MapId5(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId5' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'MapId5' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nMapId5");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCMapVetoPickController::GetStartingSide0() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->StartingSide0(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nStartingSide0"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CMapVetoPickController", "m_nStartingSide0"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCMapVetoPickController::SetStartingSide0(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CMapVetoPickController->StartingSide0(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'StartingSide0' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'StartingSide0' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CMapVetoPickController", "m_nStartingSide0");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCMapVetoPickController::GetCurrentPhase() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CMapVetoPickController->CurrentPhase(ptr=%p)", m_ptr));
@@ -31656,7 +31656,7 @@ void GCMapVetoPickController::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMapVetoPickController::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMapVetoPickController(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMapVetoPickController(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMapVetoPickController>("CMapVetoPickController")
@@ -31689,7 +31689,7 @@ GCCSMinimapBoundary::GCCSMinimapBoundary(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSMinimapBoundary::GCCSMinimapBoundary(void* ptr) {
+GCCSMinimapBoundary::GCCSMinimapBoundary(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSMinimapBoundary::GetPtr() {
@@ -31710,7 +31710,7 @@ void GCCSMinimapBoundary::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSMinimapBoundary::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSMinimapBoundary(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSMinimapBoundary(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSMinimapBoundary>("CCSMinimapBoundary")
@@ -31724,7 +31724,7 @@ GCSoundEnt::GCSoundEnt(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundEnt::GCSoundEnt(void* ptr) {
+GCSoundEnt::GCSoundEnt(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCSoundEnt::GetFreeSound() const {
@@ -31753,7 +31753,7 @@ void GCSoundEnt::SetCLastActiveSounds(int32_t value) {
 }
 std::vector<GCSound> GCSoundEnt::GetSoundPool() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSoundEnt->SoundPool(ptr=%p,size=128)", m_ptr));
-    GCSound* outValue = (GCSound*)GetSchemaPtr(m_ptr, "CSoundEnt", "m_SoundPool"); std::vector<GCSound> ret; for (int i = 0; i < 128; i++) { ret.push_back(outValue[i]); } return ret;
+    GCSound* outValue = (GCSound*)GetSchemaPtr(m_ptr, "CSoundEnt", "m_SoundPool"); std::vector<GCSound> ret; for(int i = 0; i < 128; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCSoundEnt::SetSoundPool(std::vector<GCSound> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSoundEnt->SoundPool(ptr=%p,size=128)", m_ptr));
@@ -31777,7 +31777,7 @@ void GCSoundEnt::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundEnt::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundEnt(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundEnt(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundEnt>("CSoundEnt")
@@ -31795,7 +31795,7 @@ GCInfoSpawnGroupLandmark::GCInfoSpawnGroupLandmark(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoSpawnGroupLandmark::GCInfoSpawnGroupLandmark(void* ptr) {
+GCInfoSpawnGroupLandmark::GCInfoSpawnGroupLandmark(void *ptr) {
     m_ptr = ptr;
 }
 void* GCInfoSpawnGroupLandmark::GetPtr() {
@@ -31816,7 +31816,7 @@ void GCInfoSpawnGroupLandmark::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoSpawnGroupLandmark::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoSpawnGroupLandmark(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoSpawnGroupLandmark(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoSpawnGroupLandmark>("CInfoSpawnGroupLandmark")
@@ -31830,7 +31830,7 @@ GCPlayer_MovementServices_Humanoid::GCPlayer_MovementServices_Humanoid(std::stri
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_MovementServices_Humanoid::GCPlayer_MovementServices_Humanoid(void* ptr) {
+GCPlayer_MovementServices_Humanoid::GCPlayer_MovementServices_Humanoid(void *ptr) {
     m_ptr = ptr;
 }
 float GCPlayer_MovementServices_Humanoid::GetStepSoundTime() const {
@@ -31963,7 +31963,7 @@ void GCPlayer_MovementServices_Humanoid::SetParent(GCPlayer_MovementServices val
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_MovementServices_Humanoid::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_MovementServices_Humanoid(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_MovementServices_Humanoid(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_MovementServices_Humanoid>("CPlayer_MovementServices_Humanoid")
@@ -31991,7 +31991,7 @@ GCTriggerSave::GCTriggerSave(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerSave::GCTriggerSave(void* ptr) {
+GCTriggerSave::GCTriggerSave(void *ptr) {
     m_ptr = ptr;
 }
 bool GCTriggerSave::GetForceNewLevelUnit() const {
@@ -32036,7 +32036,7 @@ void GCTriggerSave::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerSave::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerSave(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerSave(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerSave>("CTriggerSave")
@@ -32053,7 +32053,7 @@ GCPhysWheelConstraint::GCPhysWheelConstraint(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysWheelConstraint::GCPhysWheelConstraint(void* ptr) {
+GCPhysWheelConstraint::GCPhysWheelConstraint(void *ptr) {
     m_ptr = ptr;
 }
 float GCPhysWheelConstraint::GetSuspensionFrequency() const {
@@ -32162,7 +32162,7 @@ void GCPhysWheelConstraint::SetParent(GCPhysConstraint value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysWheelConstraint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysWheelConstraint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysWheelConstraint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysWheelConstraint>("CPhysWheelConstraint")
@@ -32187,7 +32187,7 @@ GCPhysFixed::GCPhysFixed(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysFixed::GCPhysFixed(void* ptr) {
+GCPhysFixed::GCPhysFixed(void *ptr) {
     m_ptr = ptr;
 }
 float GCPhysFixed::GetLinearFrequency() const {
@@ -32256,7 +32256,7 @@ void GCPhysFixed::SetParent(GCPhysConstraint value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysFixed::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysFixed(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysFixed(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysFixed>("CPhysFixed")
@@ -32276,18 +32276,18 @@ GCSkillFloat::GCSkillFloat(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSkillFloat::GCSkillFloat(void* ptr) {
+GCSkillFloat::GCSkillFloat(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<float> GCSkillFloat::GetValue() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CSkillFloat->Value(ptr=%p,size=4)", m_ptr));
-    float* outValue = (float*)GetSchemaPtr(m_ptr, "CSkillFloat", "m_pValue"); std::vector<float> ret; for (int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
+    float* outValue = (float*)GetSchemaPtr(m_ptr, "CSkillFloat", "m_pValue"); std::vector<float> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCSkillFloat::SetValue(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CSkillFloat->Value(ptr=%p,size=4)", m_ptr));
-    if (value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Value' needs to have 4 values.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'Value' needs to have 4 values.\n");
     auto val = GetSchemaValuePtr<float>(m_ptr, "CSkillFloat", "m_pValue");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GCSkillFloat::GetPtr() {
     return m_ptr;
@@ -32298,7 +32298,7 @@ std::string GCSkillFloat::ToPtr() {
 bool GCSkillFloat::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCSkillFloat(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSkillFloat(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSkillFloat>("CSkillFloat")
@@ -32312,7 +32312,7 @@ GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable::GCEnvSoundscapeTrigg
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable::GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(void* ptr) {
+GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable::GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(void *ptr) {
     m_ptr = ptr;
 }
 void* GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable::GetPtr() {
@@ -32333,7 +32333,7 @@ void GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable::SetParent(GCEnv
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable>("CEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable")
@@ -32347,7 +32347,7 @@ GCCSPlayerController_InGameMoneyServices::GCCSPlayerController_InGameMoneyServic
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayerController_InGameMoneyServices::GCCSPlayerController_InGameMoneyServices(void* ptr) {
+GCCSPlayerController_InGameMoneyServices::GCCSPlayerController_InGameMoneyServices(void *ptr) {
     m_ptr = ptr;
 }
 bool GCCSPlayerController_InGameMoneyServices::GetReceivesMoneyNextRound() const {
@@ -32416,7 +32416,7 @@ void GCCSPlayerController_InGameMoneyServices::SetParent(GCPlayerControllerCompo
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayerController_InGameMoneyServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayerController_InGameMoneyServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayerController_InGameMoneyServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayerController_InGameMoneyServices>("CCSPlayerController_InGameMoneyServices")
@@ -32436,7 +32436,7 @@ GCSprite::GCSprite(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSprite::GCSprite(void* ptr) {
+GCSprite::GCSprite(void *ptr) {
     m_ptr = ptr;
 }
 GCBaseEntity GCSprite::GetAttachedToEntity() const {
@@ -32626,7 +32626,7 @@ void GCSprite::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSprite::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSprite(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSprite(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSprite>("CSprite")
@@ -32661,7 +32661,7 @@ GCSoundOpvarSetAABBEntity::GCSoundOpvarSetAABBEntity(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundOpvarSetAABBEntity::GCSoundOpvarSetAABBEntity(void* ptr) {
+GCSoundOpvarSetAABBEntity::GCSoundOpvarSetAABBEntity(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCSoundOpvarSetAABBEntity::GetDistanceInnerMins() const {
@@ -32754,7 +32754,7 @@ void GCSoundOpvarSetAABBEntity::SetParent(GCSoundOpvarSetPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundOpvarSetAABBEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundOpvarSetAABBEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundOpvarSetAABBEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundOpvarSetAABBEntity>("CSoundOpvarSetAABBEntity")
@@ -32777,7 +32777,7 @@ GCWeaponM4A1::GCWeaponM4A1(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponM4A1::GCWeaponM4A1(void* ptr) {
+GCWeaponM4A1::GCWeaponM4A1(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponM4A1::GetPtr() {
@@ -32798,7 +32798,7 @@ void GCWeaponM4A1::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponM4A1::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponM4A1(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponM4A1(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponM4A1>("CWeaponM4A1")
@@ -32812,7 +32812,7 @@ GCBeam::GCBeam(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBeam::GCBeam(void* ptr) {
+GCBeam::GCBeam(void *ptr) {
     m_ptr = ptr;
 }
 float GCBeam::GetFrameRate() const {
@@ -32873,7 +32873,7 @@ void GCBeam::SetBeamFlags(uint32_t value) {
 }
 std::vector<GCBaseEntity> GCBeam::GetAttachEntity() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBeam->AttachEntity(ptr=%p,size=10)", m_ptr));
-    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CBeam", "m_hAttachEntity"); std::vector<GCBaseEntity> ret; for (int i = 0; i < 10; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
+    CHandle<CEntityInstance>* outValue = (CHandle<CEntityInstance>*)GetSchemaPtr(m_ptr, "CBeam", "m_hAttachEntity"); std::vector<GCBaseEntity> ret; for(int i = 0; i < 10; i++) { ret.push_back(GCBaseEntity((void*)(outValue[i].Get()))); } return ret;
 }
 void GCBeam::SetAttachEntity(std::vector<GCBaseEntity> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CBeam->AttachEntity(ptr=%p,size=10)", m_ptr));
@@ -33002,7 +33002,7 @@ void GCBeam::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBeam::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBeam(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBeam(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBeam>("CBeam")
@@ -33037,7 +33037,7 @@ GCCommentaryViewPosition::GCCommentaryViewPosition(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCommentaryViewPosition::GCCommentaryViewPosition(void* ptr) {
+GCCommentaryViewPosition::GCCommentaryViewPosition(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCommentaryViewPosition::GetPtr() {
@@ -33058,7 +33058,7 @@ void GCCommentaryViewPosition::SetParent(GCSprite value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCommentaryViewPosition::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCommentaryViewPosition(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCommentaryViewPosition(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCommentaryViewPosition>("CCommentaryViewPosition")
@@ -33072,7 +33072,7 @@ GCTonemapController2Alias_env_tonemap_controller2::GCTonemapController2Alias_env
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTonemapController2Alias_env_tonemap_controller2::GCTonemapController2Alias_env_tonemap_controller2(void* ptr) {
+GCTonemapController2Alias_env_tonemap_controller2::GCTonemapController2Alias_env_tonemap_controller2(void *ptr) {
     m_ptr = ptr;
 }
 void* GCTonemapController2Alias_env_tonemap_controller2::GetPtr() {
@@ -33093,7 +33093,7 @@ void GCTonemapController2Alias_env_tonemap_controller2::SetParent(GCTonemapContr
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTonemapController2Alias_env_tonemap_controller2::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTonemapController2Alias_env_tonemap_controller2(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTonemapController2Alias_env_tonemap_controller2(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTonemapController2Alias_env_tonemap_controller2>("CTonemapController2Alias_env_tonemap_controller2")
@@ -33107,7 +33107,7 @@ GCPhysPulley::GCPhysPulley(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysPulley::GCPhysPulley(void* ptr) {
+GCPhysPulley::GCPhysPulley(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCPhysPulley::GetPosition2() const {
@@ -33120,13 +33120,13 @@ void GCPhysPulley::SetPosition2(Vector value) {
 }
 std::vector<Vector> GCPhysPulley::GetOffset() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPhysPulley->Offset(ptr=%p,size=2)", m_ptr));
-    Vector* outValue = (Vector*)GetSchemaPtr(m_ptr, "CPhysPulley", "m_offset"); std::vector<Vector> ret; for (int i = 0; i < 2; i++) { ret.push_back(outValue[i]); } return ret;
+    Vector* outValue = (Vector*)GetSchemaPtr(m_ptr, "CPhysPulley", "m_offset"); std::vector<Vector> ret; for(int i = 0; i < 2; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCPhysPulley::SetOffset(std::vector<Vector> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPhysPulley->Offset(ptr=%p,size=2)", m_ptr));
-    if (value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Offset' needs to have 2 values.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'Offset' needs to have 2 values.\n");
     auto val = GetSchemaValuePtr<Vector>(m_ptr, "CPhysPulley", "m_offset");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 float GCPhysPulley::GetAddLength() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPhysPulley->AddLength(ptr=%p)", m_ptr));
@@ -33162,7 +33162,7 @@ void GCPhysPulley::SetParent(GCPhysConstraint value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysPulley::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysPulley(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysPulley(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysPulley>("CPhysPulley")
@@ -33180,7 +33180,7 @@ GCGameRulesProxy::GCGameRulesProxy(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCGameRulesProxy::GCGameRulesProxy(void* ptr) {
+GCGameRulesProxy::GCGameRulesProxy(void *ptr) {
     m_ptr = ptr;
 }
 void* GCGameRulesProxy::GetPtr() {
@@ -33201,7 +33201,7 @@ void GCGameRulesProxy::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CGameRulesProxy::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCGameRulesProxy(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCGameRulesProxy(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCGameRulesProxy>("CGameRulesProxy")
@@ -33215,7 +33215,7 @@ GCWeaponMP7::GCWeaponMP7(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCWeaponMP7::GCWeaponMP7(void* ptr) {
+GCWeaponMP7::GCWeaponMP7(void *ptr) {
     m_ptr = ptr;
 }
 void* GCWeaponMP7::GetPtr() {
@@ -33236,7 +33236,7 @@ void GCWeaponMP7::SetParent(GCCSWeaponBaseGun value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CWeaponMP7::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCWeaponMP7(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCWeaponMP7(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCWeaponMP7>("CWeaponMP7")
@@ -33250,12 +33250,12 @@ GCCSPlayerController_ActionTrackingServices::GCCSPlayerController_ActionTracking
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayerController_ActionTrackingServices::GCCSPlayerController_ActionTrackingServices(void* ptr) {
+GCCSPlayerController_ActionTrackingServices::GCCSPlayerController_ActionTrackingServices(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GCSPerRoundStats_t> GCCSPlayerController_ActionTrackingServices::GetPerRoundStats() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerController_ActionTrackingServices->PerRoundStats(ptr=%p)", m_ptr));
-    CUtlVector<GCSPerRoundStats_t>* vec = GetSchemaValue<CUtlVector<GCSPerRoundStats_t>*>(m_ptr, "CCSPlayerController_ActionTrackingServices", "m_perRoundStats"); std::vector<GCSPerRoundStats_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GCSPerRoundStats_t>* vec = GetSchemaValue<CUtlVector<GCSPerRoundStats_t>*>(m_ptr, "CCSPlayerController_ActionTrackingServices", "m_perRoundStats"); std::vector<GCSPerRoundStats_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCCSPlayerController_ActionTrackingServices::SetPerRoundStats(std::vector<GCSPerRoundStats_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerController_ActionTrackingServices->PerRoundStats(ptr=%p)", m_ptr));
@@ -33312,7 +33312,7 @@ void GCCSPlayerController_ActionTrackingServices::SetParent(GCPlayerControllerCo
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayerController_ActionTrackingServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayerController_ActionTrackingServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayerController_ActionTrackingServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayerController_ActionTrackingServices>("CCSPlayerController_ActionTrackingServices")
@@ -33331,7 +33331,7 @@ GCPrecipitationBlocker::GCPrecipitationBlocker(std::string ptr, lua_State* state
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPrecipitationBlocker::GCPrecipitationBlocker(void* ptr) {
+GCPrecipitationBlocker::GCPrecipitationBlocker(void *ptr) {
     m_ptr = ptr;
 }
 void* GCPrecipitationBlocker::GetPtr() {
@@ -33352,7 +33352,7 @@ void GCPrecipitationBlocker::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPrecipitationBlocker::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPrecipitationBlocker(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPrecipitationBlocker(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPrecipitationBlocker>("CPrecipitationBlocker")
@@ -33366,7 +33366,7 @@ GCBaseFlexAlias_funCBaseFlex::GCBaseFlexAlias_funCBaseFlex(std::string ptr, lua_
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBaseFlexAlias_funCBaseFlex::GCBaseFlexAlias_funCBaseFlex(void* ptr) {
+GCBaseFlexAlias_funCBaseFlex::GCBaseFlexAlias_funCBaseFlex(void *ptr) {
     m_ptr = ptr;
 }
 void* GCBaseFlexAlias_funCBaseFlex::GetPtr() {
@@ -33387,7 +33387,7 @@ void GCBaseFlexAlias_funCBaseFlex::SetParent(GCBaseFlex value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBaseFlexAlias_funCBaseFlex::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBaseFlexAlias_funCBaseFlex(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBaseFlexAlias_funCBaseFlex(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBaseFlexAlias_funCBaseFlex>("CBaseFlexAlias_funCBaseFlex")
@@ -33401,7 +33401,7 @@ GCFish::GCFish(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFish::GCFish(void* ptr) {
+GCFish::GCFish(void *ptr) {
     m_ptr = ptr;
 }
 GCFishPool GCFish::GetPool() const {
@@ -33597,7 +33597,7 @@ void GCFish::SetProximityTimer(GCountdownTimer value) {
 }
 std::vector<GCFish*> GCFish::GetVisible() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CFish->Visible(ptr=%p)", m_ptr));
-    CUtlVector<GCFish*>* vec = GetSchemaValue<CUtlVector<GCFish*>*>(m_ptr, "CFish", "m_visible"); std::vector<GCFish*> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GCFish*>* vec = GetSchemaValue<CUtlVector<GCFish*>*>(m_ptr, "CFish", "m_visible"); std::vector<GCFish*> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCFish::SetVisible(std::vector<GCFish*> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CFish->Visible(ptr=%p)", m_ptr));
@@ -33621,7 +33621,7 @@ void GCFish::SetParent(GCBaseAnimGraph value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFish::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFish(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFish(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFish>("CFish")
@@ -33659,7 +33659,7 @@ GCEnvFireSource::GCEnvFireSource(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvFireSource::GCEnvFireSource(void* ptr) {
+GCEnvFireSource::GCEnvFireSource(void *ptr) {
     m_ptr = ptr;
 }
 bool GCEnvFireSource::GetEnabled() const {
@@ -33704,7 +33704,7 @@ void GCEnvFireSource::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvFireSource::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvFireSource(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvFireSource(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvFireSource>("CEnvFireSource")
@@ -33721,7 +33721,7 @@ GCInfoLadderDismount::GCInfoLadderDismount(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoLadderDismount::GCInfoLadderDismount(void* ptr) {
+GCInfoLadderDismount::GCInfoLadderDismount(void *ptr) {
     m_ptr = ptr;
 }
 void* GCInfoLadderDismount::GetPtr() {
@@ -33742,7 +33742,7 @@ void GCInfoLadderDismount::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoLadderDismount::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoLadderDismount(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoLadderDismount(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoLadderDismount>("CInfoLadderDismount")
@@ -33756,7 +33756,7 @@ GCTriggerGameEvent::GCTriggerGameEvent(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTriggerGameEvent::GCTriggerGameEvent(void* ptr) {
+GCTriggerGameEvent::GCTriggerGameEvent(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCTriggerGameEvent::GetStrStartTouchEventName() const {
@@ -33801,7 +33801,7 @@ void GCTriggerGameEvent::SetParent(GCBaseTrigger value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTriggerGameEvent::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTriggerGameEvent(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTriggerGameEvent(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTriggerGameEvent>("CTriggerGameEvent")
@@ -33818,7 +33818,7 @@ GSimpleConstraintSoundProfile::GSimpleConstraintSoundProfile(std::string ptr, lu
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GSimpleConstraintSoundProfile::GSimpleConstraintSoundProfile(void* ptr) {
+GSimpleConstraintSoundProfile::GSimpleConstraintSoundProfile(void *ptr) {
     m_ptr = ptr;
 }
 GSimpleConstraintSoundProfile GSimpleConstraintSoundProfile::GetKeypoints() const {
@@ -33832,23 +33832,23 @@ void GSimpleConstraintSoundProfile::SetKeypoints(GSimpleConstraintSoundProfile v
 }
 std::vector<float> GSimpleConstraintSoundProfile::GetKeyPoints() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: SimpleConstraintSoundProfile->KeyPoints(ptr=%p,size=2)", m_ptr));
-    float* outValue = (float*)GetSchemaPtr(m_ptr, "SimpleConstraintSoundProfile", "m_keyPoints"); std::vector<float> ret; for (int i = 0; i < 2; i++) { ret.push_back(outValue[i]); } return ret;
+    float* outValue = (float*)GetSchemaPtr(m_ptr, "SimpleConstraintSoundProfile", "m_keyPoints"); std::vector<float> ret; for(int i = 0; i < 2; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GSimpleConstraintSoundProfile::SetKeyPoints(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: SimpleConstraintSoundProfile->KeyPoints(ptr=%p,size=2)", m_ptr));
-    if (value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'KeyPoints' needs to have 2 values.\n");
+    if(value.size() != 2) return PLUGIN_PRINT("Schema SDK", "Field 'KeyPoints' needs to have 2 values.\n");
     auto val = GetSchemaValuePtr<float>(m_ptr, "SimpleConstraintSoundProfile", "m_keyPoints");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<float> GSimpleConstraintSoundProfile::GetReversalSoundThresholds() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: SimpleConstraintSoundProfile->ReversalSoundThresholds(ptr=%p,size=3)", m_ptr));
-    float* outValue = (float*)GetSchemaPtr(m_ptr, "SimpleConstraintSoundProfile", "m_reversalSoundThresholds"); std::vector<float> ret; for (int i = 0; i < 3; i++) { ret.push_back(outValue[i]); } return ret;
+    float* outValue = (float*)GetSchemaPtr(m_ptr, "SimpleConstraintSoundProfile", "m_reversalSoundThresholds"); std::vector<float> ret; for(int i = 0; i < 3; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GSimpleConstraintSoundProfile::SetReversalSoundThresholds(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: SimpleConstraintSoundProfile->ReversalSoundThresholds(ptr=%p,size=3)", m_ptr));
-    if (value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'ReversalSoundThresholds' needs to have 3 values.\n");
+    if(value.size() != 3) return PLUGIN_PRINT("Schema SDK", "Field 'ReversalSoundThresholds' needs to have 3 values.\n");
     auto val = GetSchemaValuePtr<float>(m_ptr, "SimpleConstraintSoundProfile", "m_reversalSoundThresholds");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 void* GSimpleConstraintSoundProfile::GetPtr() {
     return m_ptr;
@@ -33859,7 +33859,7 @@ std::string GSimpleConstraintSoundProfile::ToPtr() {
 bool GSimpleConstraintSoundProfile::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassSimpleConstraintSoundProfile(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassSimpleConstraintSoundProfile(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GSimpleConstraintSoundProfile>("SimpleConstraintSoundProfile")
@@ -33875,7 +33875,7 @@ GCDebugHistory::GCDebugHistory(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCDebugHistory::GCDebugHistory(void* ptr) {
+GCDebugHistory::GCDebugHistory(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCDebugHistory::GetNpcEvents() const {
@@ -33904,7 +33904,7 @@ void GCDebugHistory::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CDebugHistory::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCDebugHistory(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCDebugHistory(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCDebugHistory>("CDebugHistory")
@@ -33919,7 +33919,7 @@ GCInfoData::GCInfoData(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCInfoData::GCInfoData(void* ptr) {
+GCInfoData::GCInfoData(void *ptr) {
     m_ptr = ptr;
 }
 void* GCInfoData::GetPtr() {
@@ -33940,7 +33940,7 @@ void GCInfoData::SetParent(GCServerOnlyEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CInfoData::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCInfoData(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCInfoData(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCInfoData>("CInfoData")
@@ -33954,7 +33954,7 @@ GCHostageCarriableProp::GCHostageCarriableProp(std::string ptr, lua_State* state
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCHostageCarriableProp::GCHostageCarriableProp(void* ptr) {
+GCHostageCarriableProp::GCHostageCarriableProp(void *ptr) {
     m_ptr = ptr;
 }
 void* GCHostageCarriableProp::GetPtr() {
@@ -33975,7 +33975,7 @@ void GCHostageCarriableProp::SetParent(GCBaseAnimGraph value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CHostageCarriableProp::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCHostageCarriableProp(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCHostageCarriableProp(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCHostageCarriableProp>("CHostageCarriableProp")
@@ -33989,7 +33989,7 @@ GCLightSpotEntity::GCLightSpotEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCLightSpotEntity::GCLightSpotEntity(void* ptr) {
+GCLightSpotEntity::GCLightSpotEntity(void *ptr) {
     m_ptr = ptr;
 }
 void* GCLightSpotEntity::GetPtr() {
@@ -34010,7 +34010,7 @@ void GCLightSpotEntity::SetParent(GCLightEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CLightSpotEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCLightSpotEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCLightSpotEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCLightSpotEntity>("CLightSpotEntity")
@@ -34024,7 +34024,7 @@ GCFuncRotating::GCFuncRotating(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncRotating::GCFuncRotating(void* ptr) {
+GCFuncRotating::GCFuncRotating(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCFuncRotating::GetOnStopped() const {
@@ -34192,7 +34192,7 @@ void GCFuncRotating::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncRotating::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncRotating(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncRotating(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncRotating>("CFuncRotating")
@@ -34224,7 +34224,7 @@ GCDecoyProjectile::GCDecoyProjectile(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCDecoyProjectile::GCDecoyProjectile(void* ptr) {
+GCDecoyProjectile::GCDecoyProjectile(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCDecoyProjectile::GetDecoyShotTick() const {
@@ -34277,7 +34277,7 @@ void GCDecoyProjectile::SetParent(GCBaseCSGrenadeProjectile value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CDecoyProjectile::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCDecoyProjectile(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCDecoyProjectile(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCDecoyProjectile>("CDecoyProjectile")
@@ -34295,7 +34295,7 @@ GCCSPlace::GCCSPlace(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlace::GCCSPlace(void* ptr) {
+GCCSPlace::GCCSPlace(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCCSPlace::GetName() const {
@@ -34324,7 +34324,7 @@ void GCCSPlace::SetParent(GCServerOnlyModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlace::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlace(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlace(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlace>("CCSPlace")
@@ -34339,7 +34339,7 @@ GCFuncTrainControls::GCFuncTrainControls(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncTrainControls::GCFuncTrainControls(void* ptr) {
+GCFuncTrainControls::GCFuncTrainControls(void *ptr) {
     m_ptr = ptr;
 }
 void* GCFuncTrainControls::GetPtr() {
@@ -34360,7 +34360,7 @@ void GCFuncTrainControls::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncTrainControls::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncTrainControls(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncTrainControls(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncTrainControls>("CFuncTrainControls")
@@ -34374,7 +34374,7 @@ GCEntityDissolve::GCEntityDissolve(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEntityDissolve::GCEntityDissolve(void* ptr) {
+GCEntityDissolve::GCEntityDissolve(void *ptr) {
     m_ptr = ptr;
 }
 float GCEntityDissolve::GetFadeInStart() const {
@@ -34475,7 +34475,7 @@ void GCEntityDissolve::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEntityDissolve::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEntityDissolve(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEntityDissolve(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEntityDissolve>("CEntityDissolve")
@@ -34499,7 +34499,7 @@ GCPointAngleSensor::GCPointAngleSensor(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointAngleSensor::GCPointAngleSensor(void* ptr) {
+GCPointAngleSensor::GCPointAngleSensor(void *ptr) {
     m_ptr = ptr;
 }
 bool GCPointAngleSensor::GetDisabled() const {
@@ -34604,7 +34604,7 @@ void GCPointAngleSensor::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointAngleSensor::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointAngleSensor(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointAngleSensor(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointAngleSensor>("CPointAngleSensor")
@@ -34628,7 +34628,7 @@ GCSoundEventOBBEntity::GCSoundEventOBBEntity(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSoundEventOBBEntity::GCSoundEventOBBEntity(void* ptr) {
+GCSoundEventOBBEntity::GCSoundEventOBBEntity(void *ptr) {
     m_ptr = ptr;
 }
 Vector GCSoundEventOBBEntity::GetMins() const {
@@ -34665,7 +34665,7 @@ void GCSoundEventOBBEntity::SetParent(GCSoundEventEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSoundEventOBBEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSoundEventOBBEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSoundEventOBBEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSoundEventOBBEntity>("CSoundEventOBBEntity")
@@ -34681,7 +34681,7 @@ GCBtNodeCondition::GCBtNodeCondition(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCBtNodeCondition::GCBtNodeCondition(void* ptr) {
+GCBtNodeCondition::GCBtNodeCondition(void *ptr) {
     m_ptr = ptr;
 }
 bool GCBtNodeCondition::GetNegated() const {
@@ -34710,7 +34710,7 @@ void GCBtNodeCondition::SetParent(GCBtNodeDecorator value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CBtNodeCondition::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCBtNodeCondition(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCBtNodeCondition(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCBtNodeCondition>("CBtNodeCondition")
@@ -34725,7 +34725,7 @@ GCSharedGapTypeQueryRegistration::GCSharedGapTypeQueryRegistration(std::string p
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSharedGapTypeQueryRegistration::GCSharedGapTypeQueryRegistration(void* ptr) {
+GCSharedGapTypeQueryRegistration::GCSharedGapTypeQueryRegistration(void *ptr) {
     m_ptr = ptr;
 }
 void* GCSharedGapTypeQueryRegistration::GetPtr() {
@@ -34737,7 +34737,7 @@ std::string GCSharedGapTypeQueryRegistration::ToPtr() {
 bool GCSharedGapTypeQueryRegistration::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCSharedGapTypeQueryRegistration(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSharedGapTypeQueryRegistration(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSharedGapTypeQueryRegistration>("CSharedGapTypeQueryRegistration")
@@ -34750,7 +34750,7 @@ GCEnvVolumetricFogVolume::GCEnvVolumetricFogVolume(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvVolumetricFogVolume::GCEnvVolumetricFogVolume(void* ptr) {
+GCEnvVolumetricFogVolume::GCEnvVolumetricFogVolume(void *ptr) {
     m_ptr = ptr;
 }
 bool GCEnvVolumetricFogVolume::GetActive() const {
@@ -34891,7 +34891,7 @@ void GCEnvVolumetricFogVolume::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvVolumetricFogVolume::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvVolumetricFogVolume(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvVolumetricFogVolume(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvVolumetricFogVolume>("CEnvVolumetricFogVolume")
@@ -34920,7 +34920,7 @@ GCEnvBeam::GCEnvBeam(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvBeam::GCEnvBeam(void* ptr) {
+GCEnvBeam::GCEnvBeam(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCEnvBeam::GetActive() const {
@@ -35087,7 +35087,7 @@ void GCEnvBeam::SetParent(GCBeam value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvBeam::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvBeam(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvBeam(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvBeam>("CEnvBeam")
@@ -35119,7 +35119,7 @@ GCFuncIllusionary::GCFuncIllusionary(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncIllusionary::GCFuncIllusionary(void* ptr) {
+GCFuncIllusionary::GCFuncIllusionary(void *ptr) {
     m_ptr = ptr;
 }
 void* GCFuncIllusionary::GetPtr() {
@@ -35140,7 +35140,7 @@ void GCFuncIllusionary::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncIllusionary::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncIllusionary(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncIllusionary(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncIllusionary>("CFuncIllusionary")
@@ -35154,7 +35154,7 @@ GCPhysMagnet::GCPhysMagnet(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysMagnet::GCPhysMagnet(void* ptr) {
+GCPhysMagnet::GCPhysMagnet(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCPhysMagnet::GetOnMagnetAttach() const {
@@ -35201,7 +35201,7 @@ void GCPhysMagnet::SetTorqueLimit(float value) {
 }
 std::vector<Gmagnetted_objects_t> GCPhysMagnet::GetMagnettedEntities() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPhysMagnet->MagnettedEntities(ptr=%p)", m_ptr));
-    CUtlVector<Gmagnetted_objects_t>* vec = GetSchemaValue<CUtlVector<Gmagnetted_objects_t>*>(m_ptr, "CPhysMagnet", "m_MagnettedEntities"); std::vector<Gmagnetted_objects_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<Gmagnetted_objects_t>* vec = GetSchemaValue<CUtlVector<Gmagnetted_objects_t>*>(m_ptr, "CPhysMagnet", "m_MagnettedEntities"); std::vector<Gmagnetted_objects_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GCPhysMagnet::SetMagnettedEntities(std::vector<Gmagnetted_objects_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPhysMagnet->MagnettedEntities(ptr=%p)", m_ptr));
@@ -35273,7 +35273,7 @@ void GCPhysMagnet::SetParent(GCBaseAnimGraph value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysMagnet::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysMagnet(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysMagnet(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysMagnet>("CPhysMagnet")
@@ -35299,7 +35299,7 @@ GCSceneEntityAlias_logic_choreographed_scene::GCSceneEntityAlias_logic_choreogra
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSceneEntityAlias_logic_choreographed_scene::GCSceneEntityAlias_logic_choreographed_scene(void* ptr) {
+GCSceneEntityAlias_logic_choreographed_scene::GCSceneEntityAlias_logic_choreographed_scene(void *ptr) {
     m_ptr = ptr;
 }
 void* GCSceneEntityAlias_logic_choreographed_scene::GetPtr() {
@@ -35320,7 +35320,7 @@ void GCSceneEntityAlias_logic_choreographed_scene::SetParent(GCSceneEntity value
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSceneEntityAlias_logic_choreographed_scene::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSceneEntityAlias_logic_choreographed_scene(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSceneEntityAlias_logic_choreographed_scene(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSceneEntityAlias_logic_choreographed_scene>("CSceneEntityAlias_logic_choreographed_scene")
@@ -35334,7 +35334,7 @@ GCFuncNavBlocker::GCFuncNavBlocker(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncNavBlocker::GCFuncNavBlocker(void* ptr) {
+GCFuncNavBlocker::GCFuncNavBlocker(void *ptr) {
     m_ptr = ptr;
 }
 bool GCFuncNavBlocker::GetDisabled() const {
@@ -35371,7 +35371,7 @@ void GCFuncNavBlocker::SetParent(GCBaseModelEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncNavBlocker::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncNavBlocker(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncNavBlocker(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncNavBlocker>("CFuncNavBlocker")
@@ -35387,7 +35387,7 @@ GCRagdollMagnet::GCRagdollMagnet(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRagdollMagnet::GCRagdollMagnet(void* ptr) {
+GCRagdollMagnet::GCRagdollMagnet(void *ptr) {
     m_ptr = ptr;
 }
 bool GCRagdollMagnet::GetDisabled() const {
@@ -35440,7 +35440,7 @@ void GCRagdollMagnet::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRagdollMagnet::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRagdollMagnet(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRagdollMagnet(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRagdollMagnet>("CRagdollMagnet")
@@ -35458,7 +35458,7 @@ GCFuncElectrifiedVolume::GCFuncElectrifiedVolume(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFuncElectrifiedVolume::GCFuncElectrifiedVolume(void* ptr) {
+GCFuncElectrifiedVolume::GCFuncElectrifiedVolume(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCFuncElectrifiedVolume::GetEffectName() const {
@@ -35511,7 +35511,7 @@ void GCFuncElectrifiedVolume::SetParent(GCFuncBrush value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFuncElectrifiedVolume::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFuncElectrifiedVolume(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFuncElectrifiedVolume(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFuncElectrifiedVolume>("CFuncElectrifiedVolume")
@@ -35529,7 +35529,7 @@ GCPointProximitySensor::GCPointProximitySensor(std::string ptr, lua_State* state
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointProximitySensor::GCPointProximitySensor(void* ptr) {
+GCPointProximitySensor::GCPointProximitySensor(void *ptr) {
     m_ptr = ptr;
 }
 bool GCPointProximitySensor::GetDisabled() const {
@@ -35567,7 +35567,7 @@ void GCPointProximitySensor::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointProximitySensor::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointProximitySensor(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointProximitySensor(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointProximitySensor>("CPointProximitySensor")
@@ -35583,12 +35583,12 @@ GWeaponPurchaseTracker_t::GWeaponPurchaseTracker_t(std::string ptr, lua_State* s
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GWeaponPurchaseTracker_t::GWeaponPurchaseTracker_t(void* ptr) {
+GWeaponPurchaseTracker_t::GWeaponPurchaseTracker_t(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GWeaponPurchaseCount_t> GWeaponPurchaseTracker_t::GetWeaponPurchases() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: WeaponPurchaseTracker_t->WeaponPurchases(ptr=%p)", m_ptr));
-    CUtlVector<GWeaponPurchaseCount_t>* vec = GetSchemaValue<CUtlVector<GWeaponPurchaseCount_t>*>(m_ptr, "WeaponPurchaseTracker_t", "m_weaponPurchases"); std::vector<GWeaponPurchaseCount_t> outVec; for (int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
+    CUtlVector<GWeaponPurchaseCount_t>* vec = GetSchemaValue<CUtlVector<GWeaponPurchaseCount_t>*>(m_ptr, "WeaponPurchaseTracker_t", "m_weaponPurchases"); std::vector<GWeaponPurchaseCount_t> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
 }
 void GWeaponPurchaseTracker_t::SetWeaponPurchases(std::vector<GWeaponPurchaseCount_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: WeaponPurchaseTracker_t->WeaponPurchases(ptr=%p)", m_ptr));
@@ -35603,7 +35603,7 @@ std::string GWeaponPurchaseTracker_t::ToPtr() {
 bool GWeaponPurchaseTracker_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassWeaponPurchaseTracker_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassWeaponPurchaseTracker_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GWeaponPurchaseTracker_t>("WeaponPurchaseTracker_t")
@@ -35617,7 +35617,7 @@ GCFilterClass::GCFilterClass(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFilterClass::GCFilterClass(void* ptr) {
+GCFilterClass::GCFilterClass(void *ptr) {
     m_ptr = ptr;
 }
 std::string GCFilterClass::GetFilterClass() const {
@@ -35646,7 +35646,7 @@ void GCFilterClass::SetParent(GCBaseFilter value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFilterClass::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFilterClass(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFilterClass(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFilterClass>("CFilterClass")
@@ -35661,7 +35661,7 @@ GCMelee::GCMelee(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMelee::GCMelee(void* ptr) {
+GCMelee::GCMelee(void *ptr) {
     m_ptr = ptr;
 }
 void* GCMelee::GetPtr() {
@@ -35682,7 +35682,7 @@ void GCMelee::SetParent(GCCSWeaponBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMelee::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMelee(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMelee(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMelee>("CMelee")
@@ -35696,7 +35696,7 @@ GCMultiplayRules::GCMultiplayRules(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCMultiplayRules::GCMultiplayRules(void* ptr) {
+GCMultiplayRules::GCMultiplayRules(void *ptr) {
     m_ptr = ptr;
 }
 void* GCMultiplayRules::GetPtr() {
@@ -35717,7 +35717,7 @@ void GCMultiplayRules::SetParent(GCGameRules value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CMultiplayRules::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCMultiplayRules(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCMultiplayRules(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCMultiplayRules>("CMultiplayRules")
@@ -35731,7 +35731,7 @@ GCFilterLOS::GCFilterLOS(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFilterLOS::GCFilterLOS(void* ptr) {
+GCFilterLOS::GCFilterLOS(void *ptr) {
     m_ptr = ptr;
 }
 void* GCFilterLOS::GetPtr() {
@@ -35752,7 +35752,7 @@ void GCFilterLOS::SetParent(GCBaseFilter value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFilterLOS::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFilterLOS(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFilterLOS(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFilterLOS>("CFilterLOS")
@@ -35766,7 +35766,7 @@ GEngineCountdownTimer::GEngineCountdownTimer(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GEngineCountdownTimer::GEngineCountdownTimer(void* ptr) {
+GEngineCountdownTimer::GEngineCountdownTimer(void *ptr) {
     m_ptr = ptr;
 }
 float GEngineCountdownTimer::GetDuration() const {
@@ -35802,7 +35802,7 @@ std::string GEngineCountdownTimer::ToPtr() {
 bool GEngineCountdownTimer::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassEngineCountdownTimer(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassEngineCountdownTimer(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GEngineCountdownTimer>("EngineCountdownTimer")
@@ -35818,7 +35818,7 @@ GCPhysBox::GCPhysBox(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysBox::GCPhysBox(void* ptr) {
+GCPhysBox::GCPhysBox(void *ptr) {
     m_ptr = ptr;
 }
 int32_t GCPhysBox::GetDamageType() const {
@@ -35965,7 +35965,7 @@ void GCPhysBox::SetParent(GCBreakable value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysBox::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysBox(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysBox(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysBox>("CPhysBox")
@@ -35994,7 +35994,7 @@ GCSensorGrenadeProjectile::GCSensorGrenadeProjectile(std::string ptr, lua_State*
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCSensorGrenadeProjectile::GCSensorGrenadeProjectile(void* ptr) {
+GCSensorGrenadeProjectile::GCSensorGrenadeProjectile(void *ptr) {
     m_ptr = ptr;
 }
 float GCSensorGrenadeProjectile::GetExpireTime() const {
@@ -36040,7 +36040,7 @@ void GCSensorGrenadeProjectile::SetParent(GCBaseCSGrenadeProjectile value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CSensorGrenadeProjectile::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCSensorGrenadeProjectile(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCSensorGrenadeProjectile(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCSensorGrenadeProjectile>("CSensorGrenadeProjectile")
@@ -36057,7 +36057,7 @@ GCTimerEntity::GCTimerEntity(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTimerEntity::GCTimerEntity(void* ptr) {
+GCTimerEntity::GCTimerEntity(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCTimerEntity::GetOnTimer() const {
@@ -36185,7 +36185,7 @@ void GCTimerEntity::SetParent(GCLogicalEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTimerEntity::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTimerEntity(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTimerEntity(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTimerEntity>("CTimerEntity")
@@ -36212,7 +36212,7 @@ GCCSGO_TeamIntroCounterTerroristPosition::GCCSGO_TeamIntroCounterTerroristPositi
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSGO_TeamIntroCounterTerroristPosition::GCCSGO_TeamIntroCounterTerroristPosition(void* ptr) {
+GCCSGO_TeamIntroCounterTerroristPosition::GCCSGO_TeamIntroCounterTerroristPosition(void *ptr) {
     m_ptr = ptr;
 }
 void* GCCSGO_TeamIntroCounterTerroristPosition::GetPtr() {
@@ -36233,7 +36233,7 @@ void GCCSGO_TeamIntroCounterTerroristPosition::SetParent(GCCSGO_TeamIntroCharact
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSGO_TeamIntroCounterTerroristPosition::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSGO_TeamIntroCounterTerroristPosition(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSGO_TeamIntroCounterTerroristPosition(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSGO_TeamIntroCounterTerroristPosition>("CCSGO_TeamIntroCounterTerroristPosition")
@@ -36247,7 +36247,7 @@ GCHEGrenadeProjectile::GCHEGrenadeProjectile(std::string ptr, lua_State* state) 
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCHEGrenadeProjectile::GCHEGrenadeProjectile(void* ptr) {
+GCHEGrenadeProjectile::GCHEGrenadeProjectile(void *ptr) {
     m_ptr = ptr;
 }
 void* GCHEGrenadeProjectile::GetPtr() {
@@ -36268,7 +36268,7 @@ void GCHEGrenadeProjectile::SetParent(GCBaseCSGrenadeProjectile value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CHEGrenadeProjectile::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCHEGrenadeProjectile(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCHEGrenadeProjectile(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCHEGrenadeProjectile>("CHEGrenadeProjectile")
@@ -36282,7 +36282,7 @@ GCEnvWind::GCEnvWind(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCEnvWind::GCEnvWind(void* ptr) {
+GCEnvWind::GCEnvWind(void *ptr) {
     m_ptr = ptr;
 }
 GCEnvWindShared GCEnvWind::GetEnvWindShared() const {
@@ -36312,7 +36312,7 @@ void GCEnvWind::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CEnvWind::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCEnvWind(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCEnvWind(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCEnvWind>("CEnvWind")
@@ -36327,28 +36327,28 @@ GCTimeline::GCTimeline(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTimeline::GCTimeline(void* ptr) {
+GCTimeline::GCTimeline(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<float> GCTimeline::GetValues() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTimeline->Values(ptr=%p,size=64)", m_ptr));
-    float* outValue = (float*)GetSchemaPtr(m_ptr, "CTimeline", "m_flValues"); std::vector<float> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    float* outValue = (float*)GetSchemaPtr(m_ptr, "CTimeline", "m_flValues"); std::vector<float> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCTimeline::SetValues(std::vector<float> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CTimeline->Values(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'Values' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'Values' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<float>(m_ptr, "CTimeline", "m_flValues");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCTimeline::GetValueCounts() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTimeline->ValueCounts(ptr=%p,size=64)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CTimeline", "m_nValueCounts"); std::vector<int32_t> ret; for (int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CTimeline", "m_nValueCounts"); std::vector<int32_t> ret; for(int i = 0; i < 64; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCTimeline::SetValueCounts(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CTimeline->ValueCounts(ptr=%p,size=64)", m_ptr));
-    if (value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'ValueCounts' needs to have 64 values.\n");
+    if(value.size() != 64) return PLUGIN_PRINT("Schema SDK", "Field 'ValueCounts' needs to have 64 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CTimeline", "m_nValueCounts");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 int32_t GCTimeline::GetBucketCount() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTimeline->BucketCount(ptr=%p)", m_ptr));
@@ -36408,7 +36408,7 @@ void GCTimeline::SetParent(GIntervalTimer value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTimeline::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTimeline(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTimeline(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTimeline>("CTimeline")
@@ -36429,7 +36429,7 @@ GCFists::GCFists(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCFists::GCFists(void* ptr) {
+GCFists::GCFists(void *ptr) {
     m_ptr = ptr;
 }
 bool GCFists::GetPlayingUninterruptableAct() const {
@@ -36508,7 +36508,7 @@ void GCFists::SetParent(GCCSWeaponBase value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CFists::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCFists(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCFists(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCFists>("CFists")
@@ -36529,7 +36529,7 @@ GCHandleDummy::GCHandleDummy(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCHandleDummy::GCHandleDummy(void* ptr) {
+GCHandleDummy::GCHandleDummy(void *ptr) {
     m_ptr = ptr;
 }
 void* GCHandleDummy::GetPtr() {
@@ -36550,7 +36550,7 @@ void GCHandleDummy::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CHandleDummy::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCHandleDummy(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCHandleDummy(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCHandleDummy>("CHandleDummy")
@@ -36564,7 +36564,7 @@ GCRagdollConstraint::GCRagdollConstraint(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCRagdollConstraint::GCRagdollConstraint(void* ptr) {
+GCRagdollConstraint::GCRagdollConstraint(void *ptr) {
     m_ptr = ptr;
 }
 float GCRagdollConstraint::GetXmin() const {
@@ -36657,7 +36657,7 @@ void GCRagdollConstraint::SetParent(GCPhysConstraint value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CRagdollConstraint::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCRagdollConstraint(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCRagdollConstraint(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCRagdollConstraint>("CRagdollConstraint")
@@ -36680,7 +36680,7 @@ GCPhysExplosion::GCPhysExplosion(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPhysExplosion::GCPhysExplosion(void* ptr) {
+GCPhysExplosion::GCPhysExplosion(void *ptr) {
     m_ptr = ptr;
 }
 bool GCPhysExplosion::GetExplodeOnSpawn() const {
@@ -36774,7 +36774,7 @@ void GCPhysExplosion::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPhysExplosion::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPhysExplosion(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPhysExplosion(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPhysExplosion>("CPhysExplosion")
@@ -36797,7 +36797,7 @@ GCPointPush::GCPointPush(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPointPush::GCPointPush(void* ptr) {
+GCPointPush::GCPointPush(void *ptr) {
     m_ptr = ptr;
 }
 bool GCPointPush::GetEnabled() const {
@@ -36875,7 +36875,7 @@ void GCPointPush::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPointPush::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPointPush(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPointPush(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPointPush>("CPointPush")
@@ -36896,7 +36896,7 @@ GCCredits::GCCredits(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCredits::GCCredits(void* ptr) {
+GCCredits::GCCredits(void *ptr) {
     m_ptr = ptr;
 }
 GCEntityIOOutput GCCredits::GetOnCreditsDone() const {
@@ -36942,7 +36942,7 @@ void GCCredits::SetParent(GCPointEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCredits::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCredits(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCredits(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCredits>("CCredits")
@@ -36959,36 +36959,36 @@ GCCSPlayerResource::GCCSPlayerResource(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSPlayerResource::GCCSPlayerResource(void* ptr) {
+GCCSPlayerResource::GCCSPlayerResource(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<bool> GCCSPlayerResource::GetHostageAlive() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->HostageAlive(ptr=%p,size=12)", m_ptr));
-    bool* outValue = (bool*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_bHostageAlive"); std::vector<bool> ret; for (int i = 0; i < 12; i++) { ret.push_back(outValue[i]); } return ret;
+    bool* outValue = (bool*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_bHostageAlive"); std::vector<bool> ret; for(int i = 0; i < 12; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCCSPlayerResource::SetHostageAlive(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->HostageAlive(ptr=%p,size=12)", m_ptr));
-    if (value.size() != 12) return PLUGIN_PRINT("Schema SDK", "Field 'HostageAlive' needs to have 12 values.\n");
+    if(value.size() != 12) return PLUGIN_PRINT("Schema SDK", "Field 'HostageAlive' needs to have 12 values.\n");
     auto val = GetSchemaValuePtr<bool>(m_ptr, "CCSPlayerResource", "m_bHostageAlive");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<bool> GCCSPlayerResource::GetIsHostageFollowingSomeone() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->IsHostageFollowingSomeone(ptr=%p,size=12)", m_ptr));
-    bool* outValue = (bool*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_isHostageFollowingSomeone"); std::vector<bool> ret; for (int i = 0; i < 12; i++) { ret.push_back(outValue[i]); } return ret;
+    bool* outValue = (bool*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_isHostageFollowingSomeone"); std::vector<bool> ret; for(int i = 0; i < 12; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCCSPlayerResource::SetIsHostageFollowingSomeone(std::vector<bool> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->IsHostageFollowingSomeone(ptr=%p,size=12)", m_ptr));
-    if (value.size() != 12) return PLUGIN_PRINT("Schema SDK", "Field 'IsHostageFollowingSomeone' needs to have 12 values.\n");
+    if(value.size() != 12) return PLUGIN_PRINT("Schema SDK", "Field 'IsHostageFollowingSomeone' needs to have 12 values.\n");
     auto val = GetSchemaValuePtr<bool>(m_ptr, "CCSPlayerResource", "m_isHostageFollowingSomeone");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int> GCCSPlayerResource::GetHostageEntityIDs() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->HostageEntityIDs(ptr=%p,size=12)", m_ptr));
-    CEntityIndex* outValue = GetSchemaValue<CEntityIndex*>(m_ptr, "CCSPlayerResource", "m_iHostageEntityIDs"); std::vector<int> ret; for (int i = 0; i < 12; i++) { ret.push_back(outValue[i].Get()); } return ret;
+    CEntityIndex* outValue = GetSchemaValue<CEntityIndex*>(m_ptr, "CCSPlayerResource", "m_iHostageEntityIDs"); std::vector<int> ret; for(int i = 0; i < 12; i++) { ret.push_back(outValue[i].Get()); } return ret;
 }
 void GCCSPlayerResource::SetHostageEntityIDs(std::vector<int> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->HostageEntityIDs(ptr=%p,size=12)", m_ptr));
-    CEntityIndex* outValue = GetSchemaValue<CEntityIndex*>(m_ptr, "CCSPlayerResource", "m_iHostageEntityIDs"); for (int i = 0; i < 12; i++) { outValue[i] = CEntityIndex(value[i]); } SetSchemaValue(m_ptr, "CCSPlayerResource", "m_iHostageEntityIDs", false, outValue);
+    CEntityIndex* outValue = GetSchemaValue<CEntityIndex*>(m_ptr, "CCSPlayerResource", "m_iHostageEntityIDs"); for(int i = 0; i < 12; i++) { outValue[i] = CEntityIndex(value[i]); } SetSchemaValue(m_ptr, "CCSPlayerResource", "m_iHostageEntityIDs", false, outValue);
 }
 Vector GCCSPlayerResource::GetBombsiteCenterA() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->BombsiteCenterA(ptr=%p)", m_ptr));
@@ -37008,33 +37008,33 @@ void GCCSPlayerResource::SetBombsiteCenterB(Vector value) {
 }
 std::vector<int32_t> GCCSPlayerResource::GetHostageRescueX() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->HostageRescueX(ptr=%p,size=4)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_hostageRescueX"); std::vector<int32_t> ret; for (int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_hostageRescueX"); std::vector<int32_t> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCCSPlayerResource::SetHostageRescueX(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->HostageRescueX(ptr=%p,size=4)", m_ptr));
-    if (value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'HostageRescueX' needs to have 4 values.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'HostageRescueX' needs to have 4 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSPlayerResource", "m_hostageRescueX");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCCSPlayerResource::GetHostageRescueY() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->HostageRescueY(ptr=%p,size=4)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_hostageRescueY"); std::vector<int32_t> ret; for (int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_hostageRescueY"); std::vector<int32_t> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCCSPlayerResource::SetHostageRescueY(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->HostageRescueY(ptr=%p,size=4)", m_ptr));
-    if (value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'HostageRescueY' needs to have 4 values.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'HostageRescueY' needs to have 4 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSPlayerResource", "m_hostageRescueY");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 std::vector<int32_t> GCCSPlayerResource::GetHostageRescueZ() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->HostageRescueZ(ptr=%p,size=4)", m_ptr));
-    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_hostageRescueZ"); std::vector<int32_t> ret; for (int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
+    int32_t* outValue = (int32_t*)GetSchemaPtr(m_ptr, "CCSPlayerResource", "m_hostageRescueZ"); std::vector<int32_t> ret; for(int i = 0; i < 4; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCCSPlayerResource::SetHostageRescueZ(std::vector<int32_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CCSPlayerResource->HostageRescueZ(ptr=%p,size=4)", m_ptr));
-    if (value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'HostageRescueZ' needs to have 4 values.\n");
+    if(value.size() != 4) return PLUGIN_PRINT("Schema SDK", "Field 'HostageRescueZ' needs to have 4 values.\n");
     auto val = GetSchemaValuePtr<int32_t>(m_ptr, "CCSPlayerResource", "m_hostageRescueZ");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GCCSPlayerResource::GetEndMatchNextMapAllVoted() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CCSPlayerResource->EndMatchNextMapAllVoted(ptr=%p)", m_ptr));
@@ -37070,7 +37070,7 @@ void GCCSPlayerResource::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSPlayerResource::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSPlayerResource(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSPlayerResource(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSPlayerResource>("CCSPlayerResource")
@@ -37094,16 +37094,16 @@ GCPlayer_WeaponServices::GCPlayer_WeaponServices(std::string ptr, lua_State* sta
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCPlayer_WeaponServices::GCPlayer_WeaponServices(void* ptr) {
+GCPlayer_WeaponServices::GCPlayer_WeaponServices(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GCBasePlayerWeapon> GCPlayer_WeaponServices::GetMyWeapons() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_WeaponServices->MyWeapons(ptr=%p)", m_ptr));
-    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CPlayer_WeaponServices", "m_hMyWeapons");
-    std::vector<GCBasePlayerWeapon> outVec;
-    for (int i = 0; i < vec->Count(); i++) {
-        outVec.push_back(GCBasePlayerWeapon((void*)(vec->Element(i).Get())));
-    }
+    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CPlayer_WeaponServices", "m_hMyWeapons"); 
+    std::vector<GCBasePlayerWeapon> outVec; 
+    for(int i = 0; i < vec->Count(); i++) { 
+        outVec.push_back(GCBasePlayerWeapon((void*)(vec->Element(i).Get()))); 
+    } 
     return outVec;
 }
 void GCPlayer_WeaponServices::SetMyWeapons(std::vector<GCBasePlayerWeapon> value) {
@@ -37130,13 +37130,13 @@ void GCPlayer_WeaponServices::SetLastWeapon(GCBasePlayerWeapon value) {
 }
 std::vector<uint16_t> GCPlayer_WeaponServices::GetAmmo() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_WeaponServices->Ammo(ptr=%p,size=32)", m_ptr));
-    uint16_t* outValue = (uint16_t*)GetSchemaPtr(m_ptr, "CPlayer_WeaponServices", "m_iAmmo"); std::vector<uint16_t> ret; for (int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
+    uint16_t* outValue = (uint16_t*)GetSchemaPtr(m_ptr, "CPlayer_WeaponServices", "m_iAmmo"); std::vector<uint16_t> ret; for(int i = 0; i < 32; i++) { ret.push_back(outValue[i]); } return ret;
 }
 void GCPlayer_WeaponServices::SetAmmo(std::vector<uint16_t> value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Set: CPlayer_WeaponServices->Ammo(ptr=%p,size=32)", m_ptr));
-    if (value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'Ammo' needs to have 32 values.\n");
+    if(value.size() != 32) return PLUGIN_PRINT("Schema SDK", "Field 'Ammo' needs to have 32 values.\n");
     auto val = GetSchemaValuePtr<uint16_t>(m_ptr, "CPlayer_WeaponServices", "m_iAmmo");
-    for (size_t i = 0; i < value.size(); i++) val[i] = value[i];
+    for(size_t i = 0; i < value.size(); i++) val[i] = value[i];
 }
 bool GCPlayer_WeaponServices::GetPreventWeaponPickup() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CPlayer_WeaponServices->PreventWeaponPickup(ptr=%p)", m_ptr));
@@ -37164,7 +37164,7 @@ void GCPlayer_WeaponServices::SetParent(GCPlayerPawnComponent value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CPlayer_WeaponServices::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCPlayer_WeaponServices(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCPlayer_WeaponServices(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCPlayer_WeaponServices>("CPlayer_WeaponServices")
@@ -37183,7 +37183,7 @@ GCAttributeManager__cached_attribute_float_t::GCAttributeManager__cached_attribu
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCAttributeManager__cached_attribute_float_t::GCAttributeManager__cached_attribute_float_t(void* ptr) {
+GCAttributeManager__cached_attribute_float_t::GCAttributeManager__cached_attribute_float_t(void *ptr) {
     m_ptr = ptr;
 }
 float GCAttributeManager__cached_attribute_float_t::GetIn() const {
@@ -37219,7 +37219,7 @@ std::string GCAttributeManager__cached_attribute_float_t::ToPtr() {
 bool GCAttributeManager__cached_attribute_float_t::IsValid() {
     return (m_ptr != nullptr);
 }
-void SetupLuaClassCAttributeManager__cached_attribute_float_t(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCAttributeManager__cached_attribute_float_t(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCAttributeManager__cached_attribute_float_t>("CAttributeManager__cached_attribute_float_t")
@@ -37235,16 +37235,16 @@ GCTeam::GCTeam(std::string ptr, lua_State* state) {
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCTeam::GCTeam(void* ptr) {
+GCTeam::GCTeam(void *ptr) {
     m_ptr = ptr;
 }
 std::vector<GCBasePlayerController> GCTeam::GetPlayerControllers() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTeam->PlayerControllers(ptr=%p)", m_ptr));
-    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CTeam", "m_aPlayerControllers");
-    std::vector<GCBasePlayerController> outVec;
-    for (int i = 0; i < vec->Count(); i++) {
-        outVec.push_back(GCBasePlayerController((void*)(vec->Element(i).Get())));
-    }
+    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CTeam", "m_aPlayerControllers"); 
+    std::vector<GCBasePlayerController> outVec; 
+    for(int i = 0; i < vec->Count(); i++) { 
+        outVec.push_back(GCBasePlayerController((void*)(vec->Element(i).Get()))); 
+    } 
     return outVec;
 }
 void GCTeam::SetPlayerControllers(std::vector<GCBasePlayerController> value) {
@@ -37253,11 +37253,11 @@ void GCTeam::SetPlayerControllers(std::vector<GCBasePlayerController> value) {
 }
 std::vector<GCBasePlayerPawn> GCTeam::GetPlayers() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CTeam->Players(ptr=%p)", m_ptr));
-    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CTeam", "m_aPlayers");
-    std::vector<GCBasePlayerPawn> outVec;
-    for (int i = 0; i < vec->Count(); i++) {
-        outVec.push_back(GCBasePlayerPawn((void*)(vec->Element(i).Get())));
-    }
+    CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, "CTeam", "m_aPlayers"); 
+    std::vector<GCBasePlayerPawn> outVec; 
+    for(int i = 0; i < vec->Count(); i++) { 
+        outVec.push_back(GCBasePlayerPawn((void*)(vec->Element(i).Get()))); 
+    } 
     return outVec;
 }
 void GCTeam::SetPlayers(std::vector<GCBasePlayerPawn> value) {
@@ -37298,7 +37298,7 @@ void GCTeam::SetParent(GCBaseEntity value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CTeam::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCTeam(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCTeam(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCTeam>("CTeam")
@@ -37316,7 +37316,7 @@ GCCSGameModeRules_Deathmatch::GCCSGameModeRules_Deathmatch(std::string ptr, lua_
     m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     plugin_name = FetchPluginName(state);
 }
-GCCSGameModeRules_Deathmatch::GCCSGameModeRules_Deathmatch(void* ptr) {
+GCCSGameModeRules_Deathmatch::GCCSGameModeRules_Deathmatch(void *ptr) {
     m_ptr = ptr;
 }
 float GCCSGameModeRules_Deathmatch::GetDMBonusStartTime() const {
@@ -37361,7 +37361,7 @@ void GCCSGameModeRules_Deathmatch::SetParent(GCCSGameModeRules value) {
     REGISTER_CALLSTACK(this->plugin_name, string_format("CCSGameModeRules_Deathmatch::SetParent(ptr=%p)", m_ptr));
     PLUGIN_PRINT("Schema SDK", "Setting a value for 'Parent' is not possible.\n");
 }
-void SetupLuaClassCCSGameModeRules_Deathmatch(LuaPlugin* plugin, lua_State* state)
+void SetupLuaClassCCSGameModeRules_Deathmatch(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<GCCSGameModeRules_Deathmatch>("CCSGameModeRules_Deathmatch")
