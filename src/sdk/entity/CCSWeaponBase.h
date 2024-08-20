@@ -48,7 +48,12 @@ class CAttributeList
 public:
     DECLARE_SCHEMA_CLASS_BASE(CAttributeList, true)
 
-    SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<CHandle<CEconItemAttribute>>, m_Attributes, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<CHandle<CEconItemAttribute>>, m_Attributes, 0);
+
+    void SetOrAddAttributeValueByName(const char* str, float val)
+    {
+        g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(this, str, val);
+    }
 };
 
 class CEconItemView

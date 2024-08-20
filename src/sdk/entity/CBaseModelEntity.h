@@ -31,6 +31,11 @@ public:
         g_Signatures->FetchSignature<CBaseModelEntity_SetModel>("CBaseModelEntity_SetModel")(this, model);
     }
 
+    void SetBodygroup(const char* str, uint64_t val)
+    {
+        g_Signatures->FetchSignature<CBaseModelEntity_SetBodygroup>("CBaseModelEntity_SetBodygroup")(this, str, val);
+    }
+
     void SetSolidType(SolidType_t type)
     {
         this->m_Collision->m_nSolidType = type;
