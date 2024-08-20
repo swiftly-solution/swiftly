@@ -5,27 +5,29 @@ local timeoutsRemoveTbl = {}
 local timeoutsTbl = {}
 local nextTickFunctions = {}
 
-AddEventHandler("OnGameTick", function(event, simulating, first, last) 
-    timerstblsize = #timeoutsTbl; 
+AddEventHandler("OnGameTick", function(event, simulating, first, last)
+    timerstblsize = #timeoutsTbl;
     timerst = GetTime()
 
-    for i=1,#nextTickFunctions do
-        nextTickFunctions[i]()
+    local nexttickCopy = nextTickFunctions
+    nextTickFunctions = {}
+
+    for i = 1, #nexttickCopy do
+        nexttickCopy[i]()
     end
 
-    for i=1,timerstblsize do 
-        if timeoutsTbl[i].call - timerst <= 0 then 
-            timeoutsTbl[i].cb(); 
-            timeoutsRemoveTbl[#timeoutsRemoveTbl + 1] = i 
-        end 
+    for i = 1, timerstblsize do
+        if timeoutsTbl[i].call - timerst <= 0 then
+            timeoutsTbl[i].cb();
+            timeoutsRemoveTbl[#timeoutsRemoveTbl + 1] = i
+        end
     end
 
-    for i=#timeoutsRemoveTbl,1,-1 do 
-        table.remove(timeoutsTbl, timeoutsRemoveTbl[i]) 
-    end 
+    for i = #timeoutsRemoveTbl, 1, -1 do
+        table.remove(timeoutsTbl, timeoutsRemoveTbl[i])
+    end
 
     timeoutsRemoveTbl = {}
-    nextTickFunctions = {}
 
     return EventResult.Continue
 end)
@@ -54,8 +56,8 @@ function SetTimer(delay, callback)
 
     timerIds = timerIds + 1
 
-    timersTable[timerIds] = { 
-        id = timerIds, 
+    timersTable[timerIds] = {
+        id = timerIds,
         callback = callback,
         timeoutFunction = function()
             if timersTable[timerIds] then
