@@ -1878,6 +1878,9 @@ void GCBaseModelEntity::SetModel(std::string model) {
 void GCBaseModelEntity::SetSolidType(int64_t solidType) {
     ((CBaseModelEntity*)m_ptr)->SetSolidType((SolidType_t)solidType);
 }
+void GCBaseModelEntity::SetBodygroup(std::string str, int64_t val) {
+    ((CBaseModelEntity*)m_ptr)->SetBodygroup(str.c_str(), (uint64_t)val);
+}
 GCRenderComponent GCBaseModelEntity::GetCRenderComponent() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CBaseModelEntity->CRenderComponent(ptr=%p)", m_ptr));
     GCRenderComponent value(*(void**)GetSchemaPtr(m_ptr, "CBaseModelEntity", "m_CRenderComponent"));
@@ -2140,6 +2143,7 @@ void SetupLuaClassCBaseModelEntity(LuaPlugin *plugin, lua_State *state)
         .addProperty("Parent", &GCBaseModelEntity::GetParent, &GCBaseModelEntity::SetParent)
         .addFunction("SetModel", &GCBaseModelEntity::SetModel)
         .addFunction("SetSolidType", &GCBaseModelEntity::SetSolidType)
+        .addFunction("SetBodygroup", &GCBaseModelEntity::SetBodygroup)
         .addFunction("ToPtr", &GCBaseModelEntity::ToPtr)
         .addFunction("IsValid", &GCBaseModelEntity::IsValid)
         .endClass();
@@ -3912,6 +3916,9 @@ GCAttributeList::GCAttributeList(std::string ptr, lua_State* state) {
 GCAttributeList::GCAttributeList(void *ptr) {
     m_ptr = ptr;
 }
+void GCAttributeList::SetOrAddAttributeValueByName(std::string str, float value) {
+    ((CAttributeList*)m_ptr)->SetOrAddAttributeValueByName(str.c_str(), value);
+}
 std::vector<GCEconItemAttribute> GCAttributeList::GetAttributes() const {
     REGISTER_CALLSTACK(this->plugin_name, string_format("SDK Get: CAttributeList->Attributes(ptr=%p)", m_ptr));
     CUtlVector<GCEconItemAttribute>* vec = GetSchemaValue<CUtlVector<GCEconItemAttribute>*>(m_ptr, "CAttributeList", "m_Attributes"); std::vector<GCEconItemAttribute> outVec; for(int i = 0; i < vec->Count(); i++) { outVec.push_back(vec->Element(i)); } return outVec;
@@ -3945,6 +3952,7 @@ void SetupLuaClassCAttributeList(LuaPlugin *plugin, lua_State *state)
         .addConstructor<void (*)(std::string, lua_State*)>()
         .addProperty("Attributes", &GCAttributeList::GetAttributes, &GCAttributeList::SetAttributes)
         .addProperty("Manager", &GCAttributeList::GetManager, &GCAttributeList::SetManager)
+        .addFunction("SetOrAddAttributeValueByName", &GCAttributeList::SetOrAddAttributeValueByName)
         .addFunction("ToPtr", &GCAttributeList::ToPtr)
         .addFunction("IsValid", &GCAttributeList::IsValid)
         .endClass();

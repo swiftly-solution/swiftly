@@ -2052,6 +2052,7 @@ public:
 
     void SetModel(std::string model);
     void SetSolidType(int64_t solidType);
+    void SetBodygroup(std::string str, int64_t val);
     GCRenderComponent GetCRenderComponent() const;
     void SetCRenderComponent(GCRenderComponent value);
     GCHitboxComponent GetCHitboxComponent() const;
@@ -2787,6 +2788,7 @@ public:
     GCAttributeList(std::string ptr, lua_State* state);
     GCAttributeList(void *ptr);
 
+    void SetOrAddAttributeValueByName(std::string str, float value);
     std::vector<GCEconItemAttribute> GetAttributes() const;
     void SetAttributes(std::vector<GCEconItemAttribute> value);
     GCAttributeManager GetManager() const;
