@@ -47,7 +47,7 @@ class CSkeletonInstance
 public:
     DECLARE_SCHEMA_CLASS_BASE(CSkeletonInstance, false)
 
-    SCHEMA_FIELD_OFFSET(CModelState, m_modelState, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(CModelState, m_modelState, 0)
 };
 
 class CGameSceneNode

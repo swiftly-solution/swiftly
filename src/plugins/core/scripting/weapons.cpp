@@ -8,15 +8,15 @@ PluginWeaponManager::PluginWeaponManager(int playerId)
 
 void PluginWeaponManager::GiveWeapon(std::string weapon_name)
 {
-    Player *player = g_playerManager->GetPlayer(m_playerId);
+    Player* player = g_playerManager->GetPlayer(m_playerId);
     if (!player)
         return;
 
-    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    CCSPlayerPawn* pawn = player->GetPlayerPawn();
     if (!pawn)
         return;
 
-    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    CCSPlayer_ItemServices* itemServices = pawn->m_pItemServices();
     if (!itemServices)
         return;
 
@@ -24,33 +24,33 @@ void PluginWeaponManager::GiveWeapon(std::string weapon_name)
 }
 void PluginWeaponManager::RemoveWeapons()
 {
-    Player *player = g_playerManager->GetPlayer(m_playerId);
+    Player* player = g_playerManager->GetPlayer(m_playerId);
     if (!player)
         return;
 
-    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    CCSPlayerPawn* pawn = player->GetPlayerPawn();
     if (!pawn)
         return;
 
-    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    CPlayer_WeaponServices* weaponServices = pawn->m_pWeaponServices();
     if (!weaponServices)
         return;
 
-    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    CCSPlayer_ItemServices* itemServices = pawn->m_pItemServices();
     if (!itemServices)
         return;
 
-    CUtlVector<CHandle<CBasePlayerWeapon>> *weapons = weaponServices->m_hMyWeapons();
+    CUtlVector<CHandle<CBasePlayerWeapon>>* weapons = weaponServices->m_hMyWeapons();
     if (!weapons)
         return;
 
     FOR_EACH_VEC(*weapons, i)
     {
-        CHandle<CBasePlayerWeapon> &weaponHandle = (*weapons)[i];
+        CHandle<CBasePlayerWeapon>& weaponHandle = (*weapons)[i];
         if (!weaponHandle.IsValid())
             continue;
 
-        CBasePlayerWeapon *weapon = weaponHandle.Get();
+        CBasePlayerWeapon* weapon = weaponHandle.Get();
         if (!weapon)
             continue;
 
@@ -62,33 +62,33 @@ void PluginWeaponManager::RemoveWeapons()
 }
 void PluginWeaponManager::DropWeapons()
 {
-    Player *player = g_playerManager->GetPlayer(m_playerId);
+    Player* player = g_playerManager->GetPlayer(m_playerId);
     if (!player)
         return;
 
-    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    CCSPlayerPawn* pawn = player->GetPlayerPawn();
     if (!pawn)
         return;
 
-    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    CPlayer_WeaponServices* weaponServices = pawn->m_pWeaponServices();
     if (!weaponServices)
         return;
 
-    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    CCSPlayer_ItemServices* itemServices = pawn->m_pItemServices();
     if (!itemServices)
         return;
 
-    CUtlVector<CHandle<CBasePlayerWeapon>> *weapons = weaponServices->m_hMyWeapons();
+    CUtlVector<CHandle<CBasePlayerWeapon>>* weapons = weaponServices->m_hMyWeapons();
     if (!weapons)
         return;
 
     FOR_EACH_VEC(*weapons, i)
     {
-        CHandle<CBasePlayerWeapon> &weaponHandle = (*weapons)[i];
+        CHandle<CBasePlayerWeapon>& weaponHandle = (*weapons)[i];
         if (!weaponHandle.IsValid())
             continue;
 
-        CBasePlayerWeapon *weapon = weaponHandle.Get();
+        CBasePlayerWeapon* weapon = weaponHandle.Get();
         if (!weapon)
             continue;
 
@@ -101,29 +101,29 @@ std::vector<PluginWeapon> PluginWeaponManager::GetWeapons()
 {
     std::vector<PluginWeapon> vec;
 
-    Player *player = g_playerManager->GetPlayer(m_playerId);
+    Player* player = g_playerManager->GetPlayer(m_playerId);
     if (!player)
         return vec;
 
-    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    CCSPlayerPawn* pawn = player->GetPlayerPawn();
     if (!pawn)
         return vec;
 
-    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    CPlayer_WeaponServices* weaponServices = pawn->m_pWeaponServices();
     if (!weaponServices)
         return vec;
 
-    CUtlVector<CHandle<CBasePlayerWeapon>> *weapons = weaponServices->m_hMyWeapons();
+    CUtlVector<CHandle<CBasePlayerWeapon>>* weapons = weaponServices->m_hMyWeapons();
     if (!weapons)
         return vec;
 
     FOR_EACH_VEC(*weapons, i)
     {
-        CHandle<CBasePlayerWeapon> &weaponHandle = (*weapons)[i];
+        CHandle<CBasePlayerWeapon>& weaponHandle = (*weapons)[i];
         if (!weaponHandle.IsValid())
             continue;
 
-        CBasePlayerWeapon *weapon = weaponHandle.Get();
+        CBasePlayerWeapon* weapon = weaponHandle.Get();
         if (!weapon)
             continue;
 
@@ -133,7 +133,7 @@ std::vector<PluginWeapon> PluginWeaponManager::GetWeapons()
     return vec;
 }
 
-PluginWeapon::PluginWeapon(int playerId, CBasePlayerWeapon *ptr)
+PluginWeapon::PluginWeapon(int playerId, CBasePlayerWeapon* ptr)
 {
     this->m_playerId = playerId;
     this->m_ptr = ptr;
@@ -153,31 +153,31 @@ GCBasePlayerWeaponVData PluginWeapon::GetCBasePlayerWeaponVData()
     if (!this->m_ptr)
         return GCBasePlayerWeaponVData(nullptr);
 
-    return GCBasePlayerWeaponVData((void *)(this->m_ptr->GetWeaponVData()));
+    return GCBasePlayerWeaponVData((void*)(this->m_ptr->GetWeaponVData()));
 }
 GCCSWeaponBaseVData PluginWeapon::GetCCSWeaponBaseVData()
 {
     if (!this->m_ptr)
         return GCCSWeaponBaseVData(nullptr);
 
-    return GCCSWeaponBaseVData((void *)(this->m_ptr->GetWeaponVData()));
+    return GCCSWeaponBaseVData((void*)(this->m_ptr->GetWeaponVData()));
 }
 
 void PluginWeapon::Drop()
 {
-    Player *player = g_playerManager->GetPlayer(m_playerId);
+    Player* player = g_playerManager->GetPlayer(m_playerId);
     if (!player)
         return;
 
-    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    CCSPlayerPawn* pawn = player->GetPlayerPawn();
     if (!pawn)
         return;
 
-    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    CPlayer_WeaponServices* weaponServices = pawn->m_pWeaponServices();
     if (!weaponServices)
         return;
 
-    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    CCSPlayer_ItemServices* itemServices = pawn->m_pItemServices();
     if (!itemServices)
         return;
 
@@ -189,19 +189,19 @@ void PluginWeapon::Drop()
 }
 void PluginWeapon::Remove()
 {
-    Player *player = g_playerManager->GetPlayer(m_playerId);
+    Player* player = g_playerManager->GetPlayer(m_playerId);
     if (!player)
         return;
 
-    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    CCSPlayerPawn* pawn = player->GetPlayerPawn();
     if (!pawn)
         return;
 
-    CPlayer_WeaponServices *weaponServices = pawn->m_pWeaponServices();
+    CPlayer_WeaponServices* weaponServices = pawn->m_pWeaponServices();
     if (!weaponServices)
         return;
 
-    CCSPlayer_ItemServices *itemServices = pawn->m_pItemServices();
+    CCSPlayer_ItemServices* itemServices = pawn->m_pItemServices();
     if (!itemServices)
         return;
 
@@ -214,18 +214,18 @@ void PluginWeapon::Remove()
     this->m_ptr->Despawn();
 }
 
-std::vector<uint16_t> paintkitsFallbackCheck = {1171, 1170, 1169, 1164, 1162, 1161, 1159, 1175, 1174, 1167, 1165, 1168, 1163, 1160, 1166, 1173};
+std::vector<uint16_t> paintkitsFallbackCheck = { 1171, 1170, 1169, 1164, 1162, 1161, 1159, 1175, 1174, 1167, 1165, 1168, 1163, 1160, 1166, 1173 };
 
 void PluginWeapon::SetDefaultAttributes()
 {
     if (!this->m_ptr)
         return;
 
-    Player *player = g_playerManager->GetPlayer(m_playerId);
+    Player* player = g_playerManager->GetPlayer(m_playerId);
     if (!player)
         return;
 
-    CCSPlayerPawn *pawn = player->GetPlayerPawn();
+    CCSPlayerPawn* pawn = player->GetPlayerPawn();
     if (!pawn)
         return;
 
@@ -241,43 +241,37 @@ void PluginWeapon::SetDefaultAttributes()
 
     if (this->m_ptr->m_CBodyComponent() && this->m_ptr->m_CBodyComponent()->m_pSceneNode())
     {
-        CSkeletonInstance *skeleton = this->m_ptr->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
+        CSkeletonInstance* skeleton = this->m_ptr->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
         if (skeleton)
         {
-            if (skeleton->m_modelState().m_MeshGroupMask() != (legacy == true ? 2 : 1))
+            if (skeleton->m_modelState->m_MeshGroupMask() != (legacy == true ? 2 : 1))
             {
-                skeleton->m_modelState().m_MeshGroupMask = (legacy == true ? 2 : 1);
+                skeleton->m_modelState->m_MeshGroupMask = (legacy == true ? 2 : 1);
             }
         }
     }
 
-    CCSPlayer_ViewModelServices *viewmodelServices = pawn->m_pViewModelServices();
+    CCSPlayer_ViewModelServices* viewmodelServices = pawn->m_pViewModelServices();
     if (!viewmodelServices)
         return;
 
-    CHandle<CBaseViewModel> *viewmodelHandles = viewmodelServices->m_hViewModel();
+    CHandle<CBaseViewModel>* viewmodelHandles = viewmodelServices->m_hViewModel();
     if (!viewmodelHandles)
         return;
-    if (!viewmodelHandles[0])
-        return;
-    if (!viewmodelHandles[0].IsValid())
-        return;
 
-    CBaseViewModel *viewmodel = viewmodelHandles[0].Get();
+    CBaseViewModel* viewmodel = viewmodelHandles[0];
 
     if (!viewmodel)
         return;
 
     if (viewmodel->m_CBodyComponent() && viewmodel->m_CBodyComponent()->m_pSceneNode())
     {
-        CSkeletonInstance *viewmodelskeleton = viewmodel->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
-        if (viewmodelskeleton)
-        {
-            if (viewmodelskeleton->m_modelState().m_MeshGroupMask() != (legacy == true ? 2 : 1))
+        CSkeletonInstance* viewmodelskeleton = viewmodel->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance();
+        if (viewmodelskeleton && viewmodelskeleton->m_modelState())
+            if (viewmodelskeleton->m_modelState->m_MeshGroupMask() != (legacy == true ? 2 : 1))
             {
-                viewmodelskeleton->m_modelState().m_MeshGroupMask = (legacy == true ? 2 : 1);
+                viewmodelskeleton->m_modelState->m_MeshGroupMask = (legacy == true ? 2 : 1);
             }
-        }
     }
 
     viewmodel->m_CBodyComponent.StateUpdate();
