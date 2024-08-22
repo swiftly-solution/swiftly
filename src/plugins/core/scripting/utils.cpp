@@ -46,10 +46,5 @@ std::string scripting_GetPluginPath(std::string plugin_name)
 
 PluginUserMessage scripting_GetUserMessage(std::string uuid)
 {
-    if (scriptingUserMessages.find(uuid) == scriptingUserMessages.end()) {
-        PluginUserMessage val(nullptr, nullptr, nullptr);
-        return val;
-    }
-
-    return scriptingUserMessages.at(uuid);
+    return FetchUserMessage(uuid);
 }

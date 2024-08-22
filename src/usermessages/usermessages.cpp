@@ -2,6 +2,35 @@
 #include <msgpack.hpp>
 #include <map>
 
+std::map<std::string, PluginUserMessage> scriptingUserMessages;
+
+PluginUserMessage FetchUserMessage(std::string uuid)
+{
+    if (!ExistsUserMessage(uuid)) return PluginUserMessage("");
+    return scriptingUserMessages.at(uuid);
+}
+
+bool ExistsUserMessage(std::string uuid)
+{
+    return (scriptingUserMessages.find(uuid) != scriptingUserMessages.end());
+}
+
+void EraseUserMessage(std::string uuid)
+{
+    if (!ExistsUserMessage(uuid)) return;
+
+    scriptingUserMessages.erase(uuid);
+}
+
+std::string InsertUserMessage(PluginUserMessage um)
+{
+    std::string uuid = get_uuid();
+    if (ExistsUserMessage(uuid)) EraseUserMessage(uuid);
+    scriptingUserMessages.insert({ uuid, um });
+
+    return uuid;
+}
+
 bool UserMessages_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, int a4)
 {
     auto netmsg = pData->GetNetMessage();
@@ -9,9 +38,7 @@ bool UserMessages_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, int 
 
     PluginUserMessage um(netmsg, netmsg->GetNetMessageInfo(), pData);
 
-    std::string uuid = get_uuid();
-    if (scriptingUserMessages.find(uuid) != scriptingUserMessages.end()) scriptingUserMessages.erase(uuid);
-    scriptingUserMessages.insert({ uuid, um });
+    std::string uuid = InsertUserMessage(um);
 
     std::stringstream ss;
     std::vector<msgpack::object> eventData;
@@ -26,7 +53,7 @@ bool UserMessages_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, int 
     auto result = g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", ss.str(), event);
     delete event;
 
-    scriptingUserMessages.erase(uuid);
+    EraseUserMessage(uuid);
 
     return (result != EventResult::Stop);
 }

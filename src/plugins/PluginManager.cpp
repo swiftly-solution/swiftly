@@ -182,6 +182,7 @@ EventResult PluginManager::ExecuteEvent(std::string invokedBy, std::string event
 {
     for (Plugin* plugin : this->pluginsList)
     {
+        if (!plugin) continue;
         EventResult result = plugin->TriggerEvent(invokedBy, eventName, eventPayload, event);
         if (result != EventResult::Continue)
             return result;
