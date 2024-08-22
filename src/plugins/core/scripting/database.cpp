@@ -77,7 +77,7 @@ void DatabaseQueryThread()
                             rowTbl[key] = std::any_cast<double>(value);
                     }
 
-                    tbl.append(rowTbl);
+                    if (rowTbl.isTable()) tbl.append(rowTbl);
                 }
 
                 luabridge::LuaRef ref = *(luabridge::LuaRef*)queue.callback;
