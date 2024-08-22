@@ -2,11 +2,11 @@
 #include <msgpack.hpp>
 #include <map>
 
-std::map<std::string, PluginUserMessage> scriptingUserMessages;
+std::map<std::string, PluginUserMessage*> scriptingUserMessages;
 
-PluginUserMessage FetchUserMessage(std::string uuid)
+PluginUserMessage* FetchUserMessage(std::string uuid)
 {
-    if (!ExistsUserMessage(uuid)) return PluginUserMessage("");
+    if (!ExistsUserMessage(uuid)) return nullptr;
     return scriptingUserMessages.at(uuid);
 }
 
@@ -18,11 +18,10 @@ bool ExistsUserMessage(std::string uuid)
 void EraseUserMessage(std::string uuid)
 {
     if (!ExistsUserMessage(uuid)) return;
-
     scriptingUserMessages.erase(uuid);
 }
 
-std::string InsertUserMessage(PluginUserMessage um)
+std::string InsertUserMessage(PluginUserMessage* um)
 {
     std::string uuid = get_uuid();
     if (ExistsUserMessage(uuid)) EraseUserMessage(uuid);
@@ -36,8 +35,7 @@ bool UserMessages_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, int 
     auto netmsg = pData->GetNetMessage();
     int playerid = FindClientByNetChannel(pNetChan);
 
-    PluginUserMessage um(netmsg, netmsg->GetNetMessageInfo(), pData);
-
+    PluginUserMessage* um = new PluginUserMessage(netmsg, netmsg->GetNetMessageInfo(), pData);
     std::string uuid = InsertUserMessage(um);
 
     std::stringstream ss;
@@ -54,6 +52,7 @@ bool UserMessages_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, int 
     delete event;
 
     EraseUserMessage(uuid);
+    delete um;
 
     return (result != EventResult::Stop);
 }
