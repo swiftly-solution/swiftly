@@ -12,9 +12,6 @@
 
 #include <dyncall/dyncall.h>
 
-#include <msgpack.hpp>
-#include <sstream>
-
 typedef std::pair<std::string, std::string> OutputPair_t;
 std::map<OutputPair_t, std::vector<std::string>> outputHooksList;
 void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pActivator, CEntityInstance* pCaller, const CVariant* const value, float flDelay);
@@ -29,9 +26,6 @@ PluginHooks::PluginHooks(std::string plugin_name)
 {
     m_plugin_name = plugin_name;
 }
-
-std::string emptyPayload;
-bool setEmptyPayload = false;
 
 std::vector<DataType_t> ParseArgsList(std::string args_list)
 {
@@ -83,20 +77,10 @@ dyno::ReturnAction DynHookHandler(dyno::HookType hookType, dyno::Hook& hook)
     if (hooksList.find(hookPtr) == hooksList.end())
         return dyno::ReturnAction::Ignored;
 
-    if (!setEmptyPayload)
-    {
-        std::stringstream ss;
-        std::vector<msgpack::object> eventData;
-
-        msgpack::pack(ss, eventData);
-        emptyPayload = ss.str();
-        setEmptyPayload = true;
-    }
-
     PluginEvent* event = new PluginEvent("core", nullptr, hookPtr);
     for (auto hk : hooksList[hookPtr])
     {
-        auto res = g_pluginManager->ExecuteEvent("core", "hook:" + callbackType + ":" + hk.id, emptyPayload, event);
+        auto res = g_pluginManager->ExecuteEvent("core", "hook:" + callbackType + ":" + hk.id, encoders::msgpack::SerializeToString({}), event);
         if (res != EventResult::Continue)
         {
             delete event;
@@ -285,19 +269,15 @@ void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pAct
     if (hookIds.size() > 0)
     {
         PluginEvent* preEvent = new PluginEvent("core", nullptr, nullptr);
-        std::stringstream preSS;
-        std::vector<msgpack::object> preEventData;
-
-        preEventData.push_back(msgpack::object(pThis ? string_format("%p", pThis).c_str() : "0x00000000"));
-        preEventData.push_back(msgpack::object(pThis->m_pDesc->m_pName));
-        preEventData.push_back(msgpack::object(pActivator ? string_format("%p", pActivator).c_str() : "0x00000000"));
-        preEventData.push_back(msgpack::object(pCaller ? string_format("%p", pCaller).c_str() : "0x00000000"));
-        preEventData.push_back(msgpack::object(flDelay));
-
-        msgpack::pack(preSS, preEventData);
         for (auto id : hookIds)
         {
-            auto result = g_pluginManager->ExecuteEvent("core", "hook:Pre:" + id, preSS.str(), preEvent);
+            auto result = g_pluginManager->ExecuteEvent("core", "hook:Pre:" + id, encoders::msgpack::SerializeToString({
+                pThis ? string_format("%p", pThis) : "0x00000000",
+                pThis->m_pDesc->m_pName,
+                pActivator ? string_format("%p", pActivator) : "0x00000000",
+                pCaller ? string_format("%p", pCaller) : "0x00000000",
+                flDelay
+                }), preEvent);
             if (result != EventResult::Continue)
             {
                 delete preEvent;
@@ -312,19 +292,16 @@ void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pAct
     if (hookIds.size() > 0)
     {
         PluginEvent* postEvent = new PluginEvent("core", nullptr, nullptr);
-        std::stringstream postSS;
-        std::vector<msgpack::object> postEventData;
 
-        postEventData.push_back(msgpack::object(string_format("%p", pThis).c_str()));
-        postEventData.push_back(msgpack::object(pThis->m_pDesc->m_pName));
-        postEventData.push_back(msgpack::object(string_format("%p", pActivator).c_str()));
-        postEventData.push_back(msgpack::object(string_format("%p", pCaller).c_str()));
-        postEventData.push_back(msgpack::object(flDelay));
-
-        msgpack::pack(postSS, postEventData);
         for (auto id : hookIds)
         {
-            auto result = g_pluginManager->ExecuteEvent("core", "hook:Post:" + id, postSS.str(), postEvent);
+            auto result = g_pluginManager->ExecuteEvent("core", "hook:Post:" + id, encoders::msgpack::SerializeToString({
+                pThis ? string_format("%p", pThis) : "0x00000000",
+                pThis->m_pDesc->m_pName,
+                pActivator ? string_format("%p", pActivator) : "0x00000000",
+                pCaller ? string_format("%p", pCaller) : "0x00000000",
+                flDelay
+                }), postEvent);
             if (result != EventResult::Continue)
             {
                 delete postEvent;

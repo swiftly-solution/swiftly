@@ -6,18 +6,16 @@
 #include "../player/PlayerManager.h"
 
 #include <vector>
-#include <msgpack.hpp>
-#include <sstream>
 #include <map>
 #include <stack>
 
-SH_DECL_HOOK2(IGameEventManager2, FireEvent, SH_NOATTRIB, 0, bool, IGameEvent *, bool);
+SH_DECL_HOOK2(IGameEventManager2, FireEvent, SH_NOATTRIB, 0, bool, IGameEvent*, bool);
 FuncHook<decltype(Hook_CGameEventManager_Init)> TCGameEventManager_Init(Hook_CGameEventManager_Init, "CGameEventManager_Init");
 
-EventManager *eventManager = nullptr;
+EventManager* eventManager = nullptr;
 std::stack<IGameEvent*> dupEvents;
 
-void Hook_CGameEventManager_Init(IGameEventManager2 *pGameEventManager)
+void Hook_CGameEventManager_Init(IGameEventManager2* pGameEventManager)
 {
     g_gameEventManager = pGameEventManager;
     TCGameEventManager_Init(pGameEventManager);
@@ -66,12 +64,9 @@ void EventManager::Shutdown()
     g_gameEventManager->RemoveListener(this);
 }
 
-void EventManager::FireGameEvent(IGameEvent *pEvent) {}
+void EventManager::FireGameEvent(IGameEvent* pEvent) {}
 
-std::string emptyEventData = "";
-bool setEmptyEventdata = false;
-
-bool EventManager::OnFireEvent(IGameEvent *pEvent, bool bDontBroadcast)
+bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
 {
     if (!pEvent)
     {
@@ -84,24 +79,13 @@ bool EventManager::OnFireEvent(IGameEvent *pEvent, bool bDontBroadcast)
     {
         std::string prettyEventName = gameEventsRegister.at(eventName);
 
-        if (!setEmptyEventdata)
-        {
-            setEmptyEventdata = true;
-
-            std::stringstream ss;
-            std::vector<msgpack::object> eventData;
-
-            msgpack::pack(ss, eventData);
-            emptyEventData = ss.str();
-        }
-
-        PluginEvent *event = new PluginEvent("core", pEvent, nullptr);
-        EventResult result = g_pluginManager->ExecuteEvent("core", prettyEventName, emptyEventData, event);
+        PluginEvent* event = new PluginEvent("core", pEvent, nullptr);
+        EventResult result = g_pluginManager->ExecuteEvent("core", prettyEventName, encoders::msgpack::SerializeToString({}), event);
         delete event;
         if (prettyEventName == "OnPlayerSpawn")
         {
             auto slot = pEvent->GetPlayerSlot("userid");
-            Player *player = g_playerManager->GetPlayer(slot);
+            Player* player = g_playerManager->GetPlayer(slot);
             if (player)
                 player->SetFirstSpawn(false);
         }
@@ -117,7 +101,7 @@ bool EventManager::OnFireEvent(IGameEvent *pEvent, bool bDontBroadcast)
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
 
-bool EventManager::OnPostFireEvent(IGameEvent *pEvent, bool bDontBroadcast)
+bool EventManager::OnPostFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
 {
     if (!pEvent)
     {
@@ -132,19 +116,8 @@ bool EventManager::OnPostFireEvent(IGameEvent *pEvent, bool bDontBroadcast)
     {
         std::string prettyEventName = gameEventsRegister.at(eventName);
 
-        if (!setEmptyEventdata)
-        {
-            setEmptyEventdata = true;
-
-            std::stringstream ss;
-            std::vector<msgpack::object> eventData;
-
-            msgpack::pack(ss, eventData);
-            emptyEventData = ss.str();
-        }
-
-        PluginEvent *event = new PluginEvent("core", realGameEvent, nullptr);
-        EventResult result = g_pluginManager->ExecuteEvent("core", string_format("OnPost%s", prettyEventName.substr(2).c_str()), emptyEventData, event);
+        PluginEvent* event = new PluginEvent("core", realGameEvent, nullptr);
+        EventResult result = g_pluginManager->ExecuteEvent("core", string_format("OnPost%s", prettyEventName.substr(2).c_str()), encoders::msgpack::SerializeToString({}), event);
         delete event;
 
         if (result != EventResult::Continue) {

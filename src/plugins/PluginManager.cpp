@@ -4,7 +4,6 @@
 #include "../menus/MenuManager.h"
 
 #include <vector>
-#include <msgpack.hpp>
 
 bool AllPluginsStarted = false;
 
@@ -107,13 +106,8 @@ void PluginManager::StartPlugins()
         if (!StartPlugin(plugin->GetName()))
             StopPlugin(plugin->GetName());
 
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    this->ExecuteEvent("core", "OnAllPluginsLoaded", ss.str(), event);
+    this->ExecuteEvent("core", "OnAllPluginsLoaded", encoders::msgpack::SerializeToString({}), event);
     delete event;
     AllPluginsStarted = true;
 }
@@ -141,13 +135,8 @@ bool PluginManager::StartPlugin(std::string plugin_name)
 
     if (AllPluginsStarted)
     {
-        std::stringstream ss;
-        std::vector<msgpack::object> eventData;
-
-        msgpack::pack(ss, eventData);
-
         PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-        plugin->TriggerEvent("core", "OnAllPluginsLoaded", ss.str(), event);
+        plugin->TriggerEvent("core", "OnAllPluginsLoaded", encoders::msgpack::SerializeToString({}), event);
         delete event;
     }
 

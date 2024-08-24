@@ -5,11 +5,11 @@
 #include <tier1/convar.h>
 #include <interfaces/interfaces.h>
 #include <metamod_oslink.h>
-#include <msgpack.hpp>
 
 #include <steam/steam_gameserver.h>
 
 #include "addons/addons.h"
+#include "encoders/msgpack.h"
 #include "addons/clients.h"
 #include "configuration/Configuration.h"
 #include "commands/CommandsManager.h"
@@ -271,15 +271,8 @@ void Swiftly::OnLevelInit(char const* pMapName, char const* pMapEntities, char c
         g_precacher->SetSoundsPrecached(true);
     }
 
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    eventData.push_back(msgpack::object(pMapName));
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnMapLoad", ss.str(), event);
+    g_pluginManager->ExecuteEvent("core", "OnMapLoad", encoders::msgpack::SerializeToString({ pMapName }), event);
     delete event;
 
     currentMap = pMapName;
@@ -291,15 +284,8 @@ void Swiftly::OnLevelShutdown()
     g_translations->LoadTranslations();
     g_Config->LoadPluginConfigurations();
 
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    eventData.push_back(msgpack::object(currentMap.c_str()));
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnMapUnload", ss.str(), event);
+    g_pluginManager->ExecuteEvent("core", "OnMapUnload", encoders::msgpack::SerializeToString({ currentMap }), event);
     delete event;
 }
 
@@ -378,15 +364,7 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     ////////////////////////////////////////////////////////////
     if (gameFrameCache.bFirstTick != bFirstTick || gameFrameCache.bLastTick != bLastTick || gameFrameCache.simulating != simulating || gameFrameEvent == nullptr)
     {
-        std::stringstream ss;
-        std::vector<msgpack::object> eventData;
-
-        eventData.push_back(msgpack::object(simulating));
-        eventData.push_back(msgpack::object(bFirstTick));
-        eventData.push_back(msgpack::object(bLastTick));
-
-        msgpack::pack(ss, eventData);
-        gameFramePack = ss.str();
+        gameFramePack = encoders::msgpack::SerializeToString({ simulating, bFirstTick, bLastTick });
 
         gameFrameCache.bFirstTick = bFirstTick;
         gameFrameCache.bLastTick = bLastTick;
@@ -435,15 +413,8 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 
 void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char* pszName, uint64 xuid, const char* pszNetworkID)
 {
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    eventData.push_back(msgpack::object(slot.Get()));
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnClientDisconnect", ss.str(), event);
+    g_pluginManager->ExecuteEvent("core", "OnClientDisconnect", encoders::msgpack::SerializeToString({ slot.Get() }), event);
 
     Player* player = g_playerManager->GetPlayer(slot);
     if (player)
@@ -470,15 +441,8 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char* pszName, uint64 x
 
     player->SetConnected(true);
 
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    eventData.push_back(msgpack::object(slot.Get()));
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnClientConnect", ss.str(), event);
+    g_pluginManager->ExecuteEvent("core", "OnClientConnect", encoders::msgpack::SerializeToString({ slot.Get() }), event);
 
     bool response = true;
     try
@@ -617,15 +581,8 @@ void Swiftly::NextFrame(std::function<void()> fn)
 
 void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)
 {
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    eventData.push_back(msgpack::object(string_format("%p", (void*)pEntity).c_str()));
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntitySpawned", ss.str(), event);
+    g_pluginManager->ExecuteEvent("core", "OnEntitySpawned", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), event);
     delete event;
 }
 
@@ -635,29 +592,15 @@ void CEntityListener::OnEntityParentChanged(CEntityInstance* pEntity, CEntityIns
 
 void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
 {
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    eventData.push_back(msgpack::object(string_format("%p", (void*)pEntity).c_str()));
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntityCreated", ss.str(), event);
+    g_pluginManager->ExecuteEvent("core", "OnEntityCreated", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), event);
     delete event;
 }
 
 void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
 {
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    eventData.push_back(msgpack::object(string_format("%p", (void*)pEntity).c_str()));
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntityDeleted", ss.str(), event);
+    g_pluginManager->ExecuteEvent("core", "OnEntityDeleted", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), event);
     delete event;
 }
 

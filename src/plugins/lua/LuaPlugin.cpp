@@ -8,7 +8,6 @@
 #include "../../crashreporter/CallStack.h"
 
 #include <vector>
-#include <msgpack.hpp>
 
 int luaopen_cmsgpack(lua_State* L);
 extern "C"
@@ -180,13 +179,8 @@ bool LuaPlugin::ExecuteStart()
         return false;
     }
 
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    this->TriggerEvent("core", "OnPluginStart", ss.str(), event);
+    this->TriggerEvent("core", "OnPluginStart", encoders::msgpack::SerializeToString({}), event);
     delete event;
 
     return true;
@@ -194,13 +188,8 @@ bool LuaPlugin::ExecuteStart()
 
 void LuaPlugin::ExecuteStop()
 {
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
-    msgpack::pack(ss, eventData);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    this->TriggerEvent("core", "OnPluginStop", ss.str(), event);
+    this->TriggerEvent("core", "OnPluginStop", encoders::msgpack::SerializeToString({}), event);
     delete event;
 }
 

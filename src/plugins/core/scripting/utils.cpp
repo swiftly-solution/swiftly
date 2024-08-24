@@ -44,7 +44,14 @@ std::string scripting_GetPluginPath(std::string plugin_name)
     return string_format("%s/%s", g_pluginManager->GetPluginBasePath(plugin_name).c_str(), plugin->GetName().c_str());
 }
 
-PluginUserMessage *scripting_GetUserMessage(std::string uuid)
+PluginUserMessage scripting_GetUserMessage(std::string str)
 {
-    return FetchUserMessage(uuid);
+    auto ptrs = explode(str, "|");
+    if (ptrs.size() != 3) return PluginUserMessage("");
+
+    INetworkMessageInternal* msg = (INetworkMessageInternal*)(strtol(ptrs[0].c_str(), nullptr, 16));
+    NetMessageInfo_t* msginfo = (NetMessageInfo_t*)(strtol(ptrs[1].c_str(), nullptr, 16));
+    CNetMessage* data = (CNetMessage*)(strtol(ptrs[2].c_str(), nullptr, 16));
+
+    return PluginUserMessage(msg, msginfo, data);
 }

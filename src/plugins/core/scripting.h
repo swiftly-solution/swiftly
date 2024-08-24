@@ -5,6 +5,7 @@
 #include "../../resourcemonitor/ResourceMonitor.h"
 #include "../../sdk/entity/CCSWeaponBase.h"
 #include "../../crashreporter/CallStack.h"
+#include "../../encoders/msgpack.h"
 
 #include "cstrike15_usermessages.pb.h"
 #include <google/protobuf/message.h>
@@ -726,6 +727,6 @@ std::string scripting_GetOS();
 GCCSGameRules scripting_GetCCSGameRules();
 std::string scripting_GetPluginPath(std::string plugin_name);
 void scripting_StateUpdate(std::string ptr, std::string classname, std::string field, bool isStruct);
-PluginUserMessage *scripting_GetUserMessage(std::string uuid);
+PluginUserMessage scripting_GetUserMessage(std::string uuid);
 
 #endif

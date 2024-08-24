@@ -1,7 +1,5 @@
 #include "../scripting.h"
 
-#include <msgpack.hpp>
-
 #include <thread>
 
 #include <rapidjson/document.h>
@@ -102,9 +100,6 @@ void RunCurlRequest(std::string url, std::string data, std::map<std::string, std
     curl_easy_getinfo(curlRequest, CURLINFO_RESPONSE_CODE, &httpStatusCode);
     std::string error = (code == CURLE_OK ? "Success (no errors)" : curl_easy_strerror(code));
 
-    std::stringstream ss;
-    std::vector<msgpack::object> eventData;
-
     rapidjson::Document doc(rapidjson::kObjectType);
 
     for (size_t i = 1; i < responseHeaders.size(); i++)
@@ -124,15 +119,13 @@ void RunCurlRequest(std::string url, std::string data, std::map<std::string, std
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     doc.Accept(writer);
 
-    eventData.push_back(msgpack::object(httpStatusCode));
-    eventData.push_back(msgpack::object(implode(responseBody, "").c_str()));
-    eventData.push_back(msgpack::object(buffer.GetString()));
-    eventData.push_back(msgpack::object(error.c_str()));
-    eventData.push_back(msgpack::object(requestUUID.c_str()));
-
-    msgpack::pack(ss, eventData);
-
-    std::string eventPayload = ss.str();
+    std::string eventPayload = encoders::msgpack::SerializeToString({
+            httpStatusCode,
+            implode(responseBody, ""),
+            buffer.GetString(),
+            error,
+            requestUUID
+        });
 
     g_Plugin.NextFrame([&]() -> void {
         PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
