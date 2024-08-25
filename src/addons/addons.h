@@ -14,7 +14,7 @@
 
 #include <vector>
 
-void Hook_SendNetMessage(INetChannel *pNetChan, CNetMessage *pData, int a4);
+void Hook_SendNetMessage(INetChannel *pNetChan, CNetMessage *pData, NetChannelBufType_t bufType);
 void *Hook_HostStateRequest(void *a1, void **pRequest);
 
 struct DownloadInfo

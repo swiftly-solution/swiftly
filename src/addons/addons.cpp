@@ -65,15 +65,15 @@ const char* format(const char* str, ...)
     return return_str.c_str();
 }
 
-void Hook_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, int a4)
+void Hook_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, NetChannelBufType_t bufType)
 {
     NetMessageInfo_t* info = pData->GetNetMessage()->GetNetMessageInfo();
 
-    if (!UserMessages_SendNetMessage(pNetChan, pData, a4))
+    if (!UserMessages_SendNetMessage(pNetChan, pData, bufType))
         return;
 
     if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
-        return TSendNetMessage(pNetChan, pData, a4);
+        return TSendNetMessage(pNetChan, pData, bufType);
 
     ClientJoinInfo_t* pPendingClient = GetPendingClient(pNetChan);
 
@@ -86,7 +86,7 @@ void Hook_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, int a4)
         pPendingClient->signon_timestamp = Plat_FloatTime();
     }
 
-    TSendNetMessage(pNetChan, pData, a4);
+    TSendNetMessage(pNetChan, pData, bufType);
 }
 
 void* Hook_HostStateRequest(void* a1, void** pRequest)

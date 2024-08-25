@@ -4,6 +4,6 @@
 #include "../plugins/core/scripting.h"
 
 int FindClientByNetChannel(INetChannel* pNetChan);
-bool UserMessages_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, int a4);
+bool UserMessages_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, NetChannelBufType_t bufType);
 
 #endif
