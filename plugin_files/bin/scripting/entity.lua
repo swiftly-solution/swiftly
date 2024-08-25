@@ -8,7 +8,7 @@ function AddHookEntityOutput(classname, output)
         return
     end
 
-    local hookId = hooks:EntityOutputAdd(classname, output)
+    local hookId = hooks:AddEntityOutputHook(classname, output)
 
     if hookId == "00000000-0000-0000-0000-000000000000" then
         return
