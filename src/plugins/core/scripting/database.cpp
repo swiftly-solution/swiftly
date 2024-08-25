@@ -2,9 +2,9 @@
 
 #include <deque>
 #include <thread>
-#include <rapidjson/document.h>
-#include <rapidjson/writer.h>
-#include <rapidjson/stringbuffer.h>
+
+#include <vector>
+#include <map>
 
 std::string FetchPluginName(lua_State* state);
 #define FetchPluginByState(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
@@ -39,45 +39,16 @@ void DatabaseQueryThread()
             if (queue.plugin->GetKind() == PluginKind_t::Lua)
             {
                 lua_State* state = ((LuaPlugin*)queue.plugin)->GetState();
-                luabridge::LuaRef tbl = luabridge::LuaRef::newTable(state);
+                std::vector<std::map<std::string, luabridge::LuaRef>> tbl;
+
                 for (uint32_t i = 0; i < queryResult.size(); i++)
                 {
-                    luabridge::LuaRef rowTbl = luabridge::LuaRef::newTable(state);
+                    std::map<std::string, luabridge::LuaRef> rowTbl;
 
                     for (std::map<const char*, std::any>::iterator it = queryResult[i].begin(); it != queryResult[i].end(); ++it)
-                    {
-                        const char* key = it->first;
-                        std::any value = it->second;
+                        rowTbl.insert({ it->first, LuaSerializeData(it->second, state) });
 
-                        if (value.type() == typeid(const char*))
-                            rowTbl[key] = std::string(std::any_cast<const char*>(value));
-                        else if (value.type() == typeid(std::string))
-                            rowTbl[key] = std::any_cast<std::string>(value);
-                        else if (value.type() == typeid(uint64))
-                            rowTbl[key] = std::any_cast<uint64>(value);
-                        else if (value.type() == typeid(uint32))
-                            rowTbl[key] = std::any_cast<uint32>(value);
-                        else if (value.type() == typeid(uint16))
-                            rowTbl[key] = std::any_cast<uint16>(value);
-                        else if (value.type() == typeid(uint8))
-                            rowTbl[key] = std::any_cast<uint8>(value);
-                        else if (value.type() == typeid(int64))
-                            rowTbl[key] = std::any_cast<int64>(value);
-                        else if (value.type() == typeid(int32))
-                            rowTbl[key] = std::any_cast<int32>(value);
-                        else if (value.type() == typeid(int16))
-                            rowTbl[key] = std::any_cast<int16>(value);
-                        else if (value.type() == typeid(int8))
-                            rowTbl[key] = std::any_cast<int8>(value);
-                        else if (value.type() == typeid(bool))
-                            rowTbl[key] = std::any_cast<bool>(value);
-                        else if (value.type() == typeid(float))
-                            rowTbl[key] = std::any_cast<float>(value);
-                        else if (value.type() == typeid(double))
-                            rowTbl[key] = std::any_cast<double>(value);
-                    }
-
-                    if (rowTbl.isTable()) tbl.append(rowTbl);
+                    tbl.push_back(rowTbl);
                 }
 
                 luabridge::LuaRef ref = *(luabridge::LuaRef*)queue.callback;
