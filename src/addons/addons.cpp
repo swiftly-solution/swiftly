@@ -16,6 +16,7 @@
 #include <cmath>
 #include <algorithm>
 
+#include "../../vendor/dynlib/module.h"
 #include "networkbasetypes.pb.h"
 
 #define HAS_MEMBER(DOCUMENT, MEMBER_NAME, MEMBER_PATH) \
@@ -35,7 +36,9 @@
     if (!DOCUMENT[MEMBER_NAME].IsUint())            \
     return AddonsPrint(string_format("The field \"%s\" is not an unsigned integer.", MEMBER_PATH))
 
-FuncHook<decltype(Hook_SendNetMessage)> TSendNetMessage(Hook_SendNetMessage, "SendNetMessage");
+SH_DECL_MANUALHOOK2(SendNetMessage, WIN_LINUX(15, 16), 0, 0, bool, CNetMessage*, NetChannelBufType_t);
+int sendNetMessageHookID = -1;
+
 FuncHook<decltype(Hook_HostStateRequest)> THostStateRequest(Hook_HostStateRequest, "HostStateRequest");
 
 size_t FormatArgs(char* buffer, size_t maxlength, const char* fmt, va_list params)
@@ -63,30 +66,6 @@ const char* format(const char* str, ...)
     std::string return_str = buffer;
 
     return return_str.c_str();
-}
-
-void Hook_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, NetChannelBufType_t bufType)
-{
-    NetMessageInfo_t* info = pData->GetNetMessage()->GetNetMessageInfo();
-
-    if (!UserMessages_SendNetMessage(pNetChan, pData, bufType))
-        return;
-
-    if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
-        return TSendNetMessage(pNetChan, pData, bufType);
-
-    ClientJoinInfo_t* pPendingClient = GetPendingClient(pNetChan);
-
-    if (pPendingClient)
-    {
-        auto pMsg = pData->ToPB<CNETMsg_SignonState>();
-        pMsg->set_addons(g_addons.GetAddons()[pPendingClient->addon].c_str());
-        pMsg->set_signon_state(SIGNONSTATE_CHANGELEVEL);
-
-        pPendingClient->signon_timestamp = Plat_FloatTime();
-    }
-
-    TSendNetMessage(pNetChan, pData, bufType);
 }
 
 void* Hook_HostStateRequest(void* a1, void** pRequest)
@@ -133,6 +112,40 @@ void AddonsPrint(std::string str)
         return;
 
     PLUGIN_PRINTF("Addons", "%s\n", str.c_str());
+}
+
+void Addons::Initialize()
+{
+    DynLibUtils::CModule enginemodule("engine2");
+    void* serverSideClientVTable = enginemodule.GetVirtualTableByName("CServerSideClient");
+    sendNetMessageHookID = SH_ADD_MANUALDVPHOOK(SendNetMessage, serverSideClientVTable, SH_MEMBER(this, &Addons::SendNetMessage), false);
+}
+
+void Addons::Destroy()
+{
+    SH_REMOVE_HOOK_ID(sendNetMessageHookID);
+}
+
+bool Addons::SendNetMessage(CNetMessage* pData, NetChannelBufType_t bufType)
+{
+    CServerSideClient* pClient = META_IFACEPTR(CServerSideClient);
+    NetMessageInfo_t* info = pData->GetNetMessage()->GetNetMessageInfo();
+    if (!UserMessages_SendNetMessage(pClient->GetNetChannel(), pData, bufType))
+        RETURN_META_VALUE(MRES_SUPERCEDE, false);
+
+    if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
+        RETURN_META_VALUE(MRES_IGNORED, true);
+
+    ClientJoinInfo_t* pPendingClient = GetPendingClient(pClient->GetNetChannel());
+    if (pPendingClient)
+    {
+        auto pMsg = pData->ToPB<CNETMsg_SignonState>();
+        pMsg->set_addons(g_addons.GetAddons()[pPendingClient->addon].c_str());
+        pMsg->set_signon_state(SIGNONSTATE_CHANGELEVEL);
+        pPendingClient->signon_timestamp = Plat_FloatTime();
+    }
+
+    RETURN_META_VALUE(MRES_HANDLED, true);
 }
 
 void Addons::BuildAddonPath(std::string pszAddon, std::string& buffer)

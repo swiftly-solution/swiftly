@@ -14,7 +14,6 @@
 
 #include <vector>
 
-void Hook_SendNetMessage(INetChannel *pNetChan, CNetMessage *pData, NetChannelBufType_t bufType);
 void *Hook_HostStateRequest(void *a1, void **pRequest);
 
 struct DownloadInfo
@@ -75,6 +74,10 @@ public:
     bool OnClientConnect(uint64 xuid);
 
     void ReloadMap();
+
+    void Initialize();
+    void Destroy();
+    bool SendNetMessage(CNetMessage* msg, NetChannelBufType_t bufType);
 };
 
 extern Addons g_addons;

@@ -179,6 +179,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_dbManager->LoadDatabases();
 
     g_addons.LoadAddons();
+    g_addons.Initialize();
 
     if (!InitializeHooks())
         PRINTRET("Hooks failed to initialize.\n", false)
@@ -246,6 +247,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     UnloadHooks();
     UnregisterEventListeners();
     g_voiceManager.OnShutdown();
+    g_addons.Destroy();
 
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &Swiftly::Hook_ClientDisconnect, true);
