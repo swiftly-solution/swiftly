@@ -31,12 +31,8 @@ namespace encoders {
             {
                 if (value.type() == typeid(const char*))
                     data.push_back(::msgpack::object(std::any_cast<const char*>(value)));
-                else if (value.type() == typeid(std::string)) {
-                    ::msgpack::sbuffer sbuf;
-                    ::msgpack::pack(sbuf, std::any_cast<std::string>(value));
-
-                    data.push_back(::msgpack::unpack(sbuf.data(), sbuf.size()).get());
-                }
+                else if (value.type() == typeid(std::string))
+                    data.push_back(::msgpack::object(std::any_cast<std::string>(value).c_str()));
                 else if (value.type() == typeid(uint64))
                     data.push_back(::msgpack::object(std::any_cast<uint64>(value)));
                 else if (value.type() == typeid(uint32))
