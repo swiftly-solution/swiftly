@@ -42,6 +42,8 @@ class GameSessionConfiguration_t
 {
 };
 
+class CCSGameRules;
+
 class Swiftly : public ISmmPlugin, public IMetamodListener
 {
 public:
@@ -104,6 +106,7 @@ extern IGameEventManager2* g_gameEventManager;
 extern IGameEventSystem* g_pGameEventSystem;
 extern CSteamGameServerAPIContext g_SteamAPI;
 extern INetworkSystem* g_pNetworkSystem;
+extern CCSGameRules* gameRules;
 
 PLUGIN_GLOBALVARS();
 

@@ -4,11 +4,6 @@
         "windows": "48 85 C9 0F 84 2A 2A 2A 2A 48 89 5C 24 2A 55",
         "linux": "55 48 89 E5 41 57 49 89 CF 41 56 49 89 D6 41 55 41 89 F5 41 54 4C 8D A5 A0 FE FF FF"
     },
-    "CGameRules_Constructor": {
-        "lib": "server",
-        "windows": "48 89 5C 24 2A 48 89 74 24 2A 57 48 83 EC 2A 8B 15 2A 2A 2A 2A 48 8D 05 2A 2A 2A 2A 48 89 01 33 F6 65 48 8B 04 25 2A 2A 2A 2A 48 8B D9 48 89 71 2A 48 8B 3C D0 B8 2A 2A 2A 2A 40 38 34 38 75 2A E8 2A 2A 2A 2A B8 2A 2A 2A 2A 48 8B 04 38 48 89 43 2A 48 89 73 2A 48 89 73 2A 89 73 2A C7 43 2A 2A 2A 2A 2A 48 89 B3",
-        "linux": "55 48 8D 05 2A 2A 2A 2A 48 89 E5 53 48 89 FB 48 83 EC 2A 48 89 07 66 48 8D 3D 2A 2A 2A 2A 66 66 48 E8 2A 2A 2A 2A C7 43 2A 2A 2A 2A 2A 48 C7 43 2A 2A 2A 2A 2A 48 C7 43 2A 2A 2A 2A 2A C7 43 2A 2A 2A 2A 2A 48 C7 83"
-    },
     "ServerMovementUnlock": {
         "lib": "server",
         "windows": "76 ? F2 0F 10 57 ? 0F 28 ? F3 0F ? ? 0F 28 ?",

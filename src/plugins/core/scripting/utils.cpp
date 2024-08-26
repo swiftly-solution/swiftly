@@ -4,17 +4,6 @@
 #include "../../PluginManager.h"
 #include "../../../usermessages/usermessages.h"
 
-void Hook_CGameRules_Constructor(CGameRules* pThis);
-CCSGameRules* gameRules = nullptr;
-
-FuncHook<decltype(Hook_CGameRules_Constructor)> CGameRules_ConstructorT(Hook_CGameRules_Constructor, "CGameRules_Constructor");
-
-void Hook_CGameRules_Constructor(CGameRules* pThis)
-{
-    gameRules = (CCSGameRules*)pThis;
-    CGameRules_ConstructorT(pThis);
-}
-
 bool scripting_IsWindows()
 {
     return WIN_LINUX(true, false);

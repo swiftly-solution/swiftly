@@ -69,6 +69,7 @@ IGameEventSystem* g_pGameEventSystem = nullptr;
 CEntityListener g_entityListener;
 CSteamGameServerAPIContext g_SteamAPI;
 CSchemaSystem* g_pSchemaSystem2 = nullptr;
+CCSGameRules* gameRules = nullptr;
 
 class CGameResourceService
 {
@@ -600,6 +601,9 @@ void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnEntityCreated", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), event);
     delete event;
+
+    if (std::string(pEntity->GetClassname()) == "cs_gamerules")
+        gameRules = ((CCSGameRulesProxy*)pEntity)->m_pGameRules;
 }
 
 void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
