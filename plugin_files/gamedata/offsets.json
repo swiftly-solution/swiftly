@@ -42,5 +42,9 @@
     "CEntityResourceManifest_AddResource": {
         "windows": 2,
         "linux": 2
+    },
+    "SendNetMessage": {
+        "windows": 15,
+        "linux": 16
     }
 }

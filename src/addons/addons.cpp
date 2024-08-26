@@ -36,7 +36,7 @@
     if (!DOCUMENT[MEMBER_NAME].IsUint())            \
     return AddonsPrint(string_format("The field \"%s\" is not an unsigned integer.", MEMBER_PATH))
 
-SH_DECL_MANUALHOOK2(SendNetMessage, WIN_LINUX(15, 16), 0, 0, bool, CNetMessage*, NetChannelBufType_t);
+SH_DECL_MANUALHOOK2(SendNetMessage, 0, 0, 0, bool, CNetMessage*, NetChannelBufType_t);
 int sendNetMessageHookID = -1;
 
 FuncHook<decltype(Hook_HostStateRequest)> THostStateRequest(Hook_HostStateRequest, "HostStateRequest");
@@ -116,6 +116,7 @@ void AddonsPrint(std::string str)
 
 void Addons::Initialize()
 {
+    SH_MANUALHOOK_RECONFIGURE(SendNetMessage, g_Offsets->GetOffset("SendNetMessage"), 0, 0);
     DynLibUtils::CModule enginemodule("engine2");
     void* serverSideClientVTable = enginemodule.GetVirtualTableByName("CServerSideClient");
     sendNetMessageHookID = SH_ADD_MANUALDVPHOOK(SendNetMessage, serverSideClientVTable, SH_MEMBER(this, &Addons::SendNetMessage), false);
