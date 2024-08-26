@@ -106,6 +106,7 @@ MenuManager* g_MenuManager = nullptr;
 ResourceMonitor* g_ResourceMonitor = nullptr;
 Patches* g_Patches = nullptr;
 CallStack* g_callStack = nullptr;
+EventManager* eventManager = nullptr;
 VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
@@ -162,6 +163,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_MenuManager = new MenuManager();
     g_ResourceMonitor = new ResourceMonitor();
     g_callStack = new CallStack();
+    eventManager = new EventManager();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -180,6 +182,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
     g_addons.LoadAddons();
     g_addons.Initialize();
+    eventManager->Initialize();
 
     if (!InitializeHooks())
         PRINTRET("Hooks failed to initialize.\n", false)
@@ -245,9 +248,9 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     g_pluginManager->UnloadPlugins();
 
     UnloadHooks();
-    UnregisterEventListeners();
     g_voiceManager.OnShutdown();
     g_addons.Destroy();
+    eventManager->Shutdown();
 
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &Swiftly::Hook_ClientDisconnect, true);

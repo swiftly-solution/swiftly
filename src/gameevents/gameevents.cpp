@@ -4,51 +4,27 @@
 #include "../plugins/core/scripting.h"
 #include "../plugins/PluginManager.h"
 #include "../player/PlayerManager.h"
+#include "../../vendor/dynlib/module.h"
 
 #include <vector>
 #include <map>
 #include <stack>
 
 SH_DECL_HOOK2(IGameEventManager2, FireEvent, SH_NOATTRIB, 0, bool, IGameEvent*, bool);
-FuncHook<decltype(Hook_CGameEventManager_Init)> TCGameEventManager_Init(Hook_CGameEventManager_Init, "CGameEventManager_Init");
+SH_DECL_HOOK2(IGameEventManager2, LoadEventsFromFile, SH_NOATTRIB, 0, int, const char*, bool);
+int loadEventFromFileHookID = -1;
 
-EventManager* eventManager = nullptr;
 std::stack<IGameEvent*> dupEvents;
-
-void Hook_CGameEventManager_Init(IGameEventManager2* pGameEventManager)
-{
-    g_gameEventManager = pGameEventManager;
-    TCGameEventManager_Init(pGameEventManager);
-
-    PLUGIN_PRINT("Game Events", "Loading game events...\n");
-    RegisterEventListeners();
-    PLUGIN_PRINTF("Game Events", "%d game events have been succesfully loaded.\n", gameEventsRegister.size());
-}
-
-void RegisterEventListeners()
-{
-    if (!g_gameEventManager)
-        return;
-
-    if (!eventManager)
-        eventManager = new EventManager();
-
-    eventManager->Initialize();
-}
-
-void UnregisterEventListeners()
-{
-    if (!g_gameEventManager)
-        return;
-
-    eventManager->Shutdown();
-}
 
 void EventManager::Initialize()
 {
-    SH_ADD_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnFireEvent), false);
-    SH_ADD_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnPostFireEvent), true);
+    DynLibUtils::CModule servermodule("server");
+    auto CGameEventManagerVTable = servermodule.GetVirtualTableByName("CGameEventManager");
+    loadEventFromFileHookID = SH_ADD_DVPHOOK(IGameEventManager2, LoadEventsFromFile, (IGameEventManager2*)((void*)CGameEventManagerVTable), SH_MEMBER(this, &EventManager::LoadEventsFromFile), false);
+}
 
+void EventManager::RegisterGameEvents()
+{
     for (auto it = gameEventsRegister.begin(); it != gameEventsRegister.end(); ++it)
     {
         if (!g_gameEventManager->FindListener(this, it->first.c_str()))
@@ -56,10 +32,26 @@ void EventManager::Initialize()
     }
 }
 
+int EventManager::LoadEventsFromFile(const char* filePath, bool searchAll)
+{
+    if (!g_gameEventManager) {
+        g_gameEventManager = META_IFACEPTR(IGameEventManager2);
+        PLUGIN_PRINT("Game Events", "Loading game events...\n");
+        this->RegisterGameEvents();
+        PLUGIN_PRINTF("Game Events", "%d game events have been succesfully loaded.\n", gameEventsRegister.size());
+
+        SH_ADD_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnFireEvent), false);
+        SH_ADD_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnPostFireEvent), true);
+    }
+
+    RETURN_META_VALUE(MRES_IGNORED, 0);
+}
+
 void EventManager::Shutdown()
 {
     SH_REMOVE_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnFireEvent), false);
     SH_REMOVE_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnPostFireEvent), true);
+    SH_REMOVE_HOOK_ID(loadEventFromFileHookID);
 
     g_gameEventManager->RemoveListener(this);
 }

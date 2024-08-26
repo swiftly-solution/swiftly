@@ -5,11 +5,7 @@
 #include "../entrypoint.h"
 #include <utlvector.h>
 
-typedef void (*FnEventListenerCallback)(IGameEvent *event);
-void Hook_CGameEventManager_Init(IGameEventManager2 *);
-
-void RegisterEventListeners();
-void UnregisterEventListeners();
+typedef void (*FnEventListenerCallback)(IGameEvent* event);
 
 class EventManager : public IGameEventListener2
 {
@@ -19,10 +15,15 @@ public:
 
     void Initialize();
     void Shutdown();
+    void RegisterGameEvents();
 
-    void FireGameEvent(IGameEvent *pEvent) override;
-    bool OnFireEvent(IGameEvent *pEvent, bool bDontBroadcast);
-    bool OnPostFireEvent(IGameEvent *pEvent, bool bDontBroadcast);
+    void FireGameEvent(IGameEvent* pEvent) override;
+    bool OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast);
+    bool OnPostFireEvent(IGameEvent* pEvent, bool bDontBroadcast);
+
+    int LoadEventsFromFile(const char* filePath, bool searchAll);
 };
+
+extern EventManager* eventManager;
 
 #endif
