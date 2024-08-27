@@ -13,7 +13,10 @@ AddEventHandler("OnGameTick", function(event, simulating, first, last)
     nextTickFunctions = {}
 
     for i = 1, #nexttickCopy do
-        nexttickCopy[i]()
+        local status, err = pcall(nexttickCopy[i])
+        if not status then
+            print("An error has been occured while trying to execute NextTick.\nError: "..err)
+        end
     end
 
     for i = 1, timerstblsize do
