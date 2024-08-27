@@ -128,3 +128,9 @@ string.split = function(str, split)
     end
     return splitted
 end
+
+--- @param str string
+--- @return string
+string.trim = function(str)
+    return (str:gsub("^%s*(.-)%s*$", "%1"))
+end
