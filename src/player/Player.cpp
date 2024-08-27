@@ -560,7 +560,9 @@ void Player::SetClientConvar(std::string cmd, std::string val)
     cvar->set_value(val.c_str());
 
     CSingleRecipientFilter filter(this->GetSlot().Get());
-    g_pGameEventSystem->PostEventAbstract(0, false, &filter, netmsg, msg, 0);
+    g_pGameEventSystem->PostEventAbstract(-1, false, &filter, netmsg, msg, 0);
+
+    delete msg;
 }
 
 std::any Player::GetInternalVar(std::string name)

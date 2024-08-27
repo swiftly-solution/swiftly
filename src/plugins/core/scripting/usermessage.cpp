@@ -98,6 +98,7 @@ PluginUserMessage::PluginUserMessage(INetworkMessageInternal* msg, NetMessageInf
 
 PluginUserMessage::~PluginUserMessage()
 {
+    if(this->msgBuffer) delete this->msgBuffer;
 }
 
 bool PluginUserMessage::IsValidMessage()
@@ -839,7 +840,7 @@ void PluginUserMessage::SendToPlayer(int playerId)
         return;
 
     CSingleRecipientFilter filter(playerId);
-    g_pGameEventSystem->PostEventAbstract(0, false, &filter, this->internalMsg, this->msgBuffer, 0);
+    g_pGameEventSystem->PostEventAbstract(-1, false, &filter, this->internalMsg, this->msgBuffer, 0);
 }
 void PluginUserMessage::SendToAllPlayers()
 {
@@ -850,6 +851,6 @@ void PluginUserMessage::SendToAllPlayers()
         return;
 
     CBroadcastRecipientFilter* filter = new CBroadcastRecipientFilter;
-    g_pGameEventSystem->PostEventAbstract(0, false, filter, this->internalMsg, this->msgBuffer, 0);
+    g_pGameEventSystem->PostEventAbstract(-1, false, filter, this->internalMsg, this->msgBuffer, 0);
     delete filter;
 }
