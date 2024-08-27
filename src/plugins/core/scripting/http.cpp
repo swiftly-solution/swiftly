@@ -1,4 +1,5 @@
 #include "../scripting.h"
+#include "../../../player/PlayerManager.h"
 
 #include <thread>
 
@@ -127,12 +128,14 @@ void RunCurlRequest(std::string url, std::string data, std::map<std::string, std
             requestUUID
         });
 
-    g_Plugin.NextFrame([&]() -> void {
+    auto ExecuteCallback = [&]() -> void {
         PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
         g_pluginManager->ExecuteEvent("core", "OnHTTPActionPerformed", eventPayload, event);
         delete event;
-        });
+        };
 
+    if (g_playerManager->GetPlayers() > 0) g_Plugin.NextFrame(ExecuteCallback);
+    else ExecuteCallback();
 
     if (headersList)
         curl_slist_free_all(headersList);

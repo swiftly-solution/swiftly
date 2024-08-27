@@ -1,4 +1,6 @@
 #include "../scripting.h"
+#include "../../../entrypoint.h"
+#include "../../../player/PlayerManager.h"
 
 #include <deque>
 #include <thread>
@@ -29,6 +31,8 @@ void DatabaseQueryThread()
             DatabaseQueryQueue queue = queryQueue.front();
 
             if (!queue.db->IsConnected()) {
+                PRINT("The following query has been skipped due to the database not being connected.\n");
+                PRINTF("Query: \"%s\".\n", queue.query.c_str());
                 queryQueue.pop_front();
                 continue;
             }
@@ -51,31 +55,40 @@ void DatabaseQueryThread()
                     tbl.push_back(rowTbl);
                 }
 
-                luabridge::LuaRef ref = *(luabridge::LuaRef*)queue.callback;
-                try
-                {
-                    std::string error = queue.db->GetError();
-                    if (error == "MySQL server has gone away") {
-                        if (queue.db->Connect())
-                        {
-                            delete callStack;
-                            continue;
-                        }
-                        else
-                            error = queue.db->GetError();
+                std::string error = queue.db->GetError();
+                if (error == "MySQL server has gone away") {
+                    if (queue.db->Connect())
+                    {
+                        delete callStack;
+                        continue;
                     }
+                    else
+                        error = queue.db->GetError();
+                }
 
-                    if (ref.isFunction())
-                        ref(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
-                }
-                catch (luabridge::LuaException& e)
-                {
-                    PRINTF("An error has occured: %s\n", e.what());
-                }
+                luabridge::LuaRef* ref = (luabridge::LuaRef*)queue.callback;
+                auto ExecuteCallback = [error, ref, state, tbl]() -> void {
+                    try
+                    {
+                        if (ref != nullptr) {
+                            if (ref->isFunction())
+                                ref->operator()(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
+
+                            delete ref;
+                        }
+                    }
+                    catch (luabridge::LuaException& e)
+                    {
+                        PRINTF("An error has occured: %s\n", e.what());
+                    }
+                    };
+
+                if (g_playerManager->GetPlayers() > 0) g_Plugin.NextFrame(ExecuteCallback);
+                else ExecuteCallback();
             }
 
             delete callStack;
-            delete ((luabridge::LuaRef*)queue.callback);
+
             queryQueue.pop_front();
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
