@@ -214,8 +214,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
     PRINT("Succesfully started.\n");
 
-    PRINTF("%s\n", get_uuid().c_str());
-
     return true;
 }
 

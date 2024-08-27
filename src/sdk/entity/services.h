@@ -165,7 +165,6 @@ public:
     void RemoveWeapon(CBasePlayerWeapon* weapon)
     {
         this->DropWeapon(weapon);
-        CALL_VIRTUAL(void, 20, weapon, nullptr, nullptr);
         weapon->Despawn();
     }
 };
