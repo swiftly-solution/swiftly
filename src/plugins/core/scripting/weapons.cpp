@@ -54,10 +54,7 @@ void PluginWeaponManager::RemoveWeapons()
         if (!weapon)
             continue;
 
-        weaponServices->m_hActiveWeapon = weaponHandle;
-        itemServices->DropPlayerWeapon(weapon);
         weaponServices->RemoveWeapon(weapon);
-        weapon->Despawn();
     }
 }
 void PluginWeaponManager::DropWeapons()
@@ -92,8 +89,7 @@ void PluginWeaponManager::DropWeapons()
         if (!weapon)
             continue;
 
-        weaponServices->m_hActiveWeapon = weaponHandle;
-        itemServices->DropPlayerWeapon(weapon);
+        weaponServices->DropWeapon(weapon);
     }
 }
 
@@ -177,15 +173,10 @@ void PluginWeapon::Drop()
     if (!weaponServices)
         return;
 
-    CCSPlayer_ItemServices* itemServices = pawn->m_pItemServices();
-    if (!itemServices)
-        return;
-
     if (!this->m_ptr)
         return;
 
-    weaponServices->m_hActiveWeapon = this->m_ptr;
-    itemServices->DropPlayerWeapon(this->m_ptr);
+    weaponServices->DropWeapon(this->m_ptr);
 }
 void PluginWeapon::Remove()
 {
@@ -208,10 +199,7 @@ void PluginWeapon::Remove()
     if (!this->m_ptr)
         return;
 
-    weaponServices->m_hActiveWeapon = this->m_ptr;
-    itemServices->DropPlayerWeapon(this->m_ptr);
     weaponServices->RemoveWeapon(this->m_ptr);
-    this->m_ptr->Despawn();
 }
 
 std::vector<uint16_t> paintkitsFallbackCheck = { 1171, 1170, 1169, 1164, 1162, 1161, 1159, 1175, 1174, 1167, 1165, 1168, 1163, 1160, 1166, 1173 };

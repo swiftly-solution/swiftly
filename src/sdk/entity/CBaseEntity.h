@@ -167,11 +167,6 @@ public:
         g_Signatures->FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(this, pInputName, pActivator, pCaller, &variantValue, outputID);
     }
 
-    void EmitSound(std::string sound_name, int pitch, float volume, float delay)
-    {
-        g_Signatures->FetchSignature<CBaseEntity_EmitSoundParams>("CBaseEntity_EmitSoundParams")(this, sound_name.c_str(), pitch, volume, delay);
-    }
-
     void EmitSoundFilter(IRecipientFilter& filter, std::string sound_name, int pitch, float volume)
     {
         EmitSound_t params;

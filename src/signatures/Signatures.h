@@ -35,7 +35,6 @@ typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices*, const char*, int, int, 
 typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController*, CCSPlayerPawn*, bool, bool);
 typedef void (*CCSPlayerPawnBase_PostThink)(CCSPlayerPawnBase*);
 typedef void (*CBaseEntity_TakeDamageOld)(CBaseEntity*, CTakeDamageInfo*);
-typedef void (*CBaseEntity_EmitSoundParams)(CBaseEntity*, const char*, int, float, float);
 typedef void (*CCSPlayer_MovementServices_CheckJumpPre)(CCSPlayer_MovementServices*, void*);
 typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
 

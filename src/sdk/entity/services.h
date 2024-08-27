@@ -17,7 +17,7 @@ public:
 private:
     [[maybe_unused]] uint8_t __pad0008[0x28]; // 0x8
 public:
-    CBasePlayerPawn *m_pPawn; // 0x30
+    CBasePlayerPawn* m_pPawn; // 0x30
 };
 
 struct CSPerRoundStats_t
@@ -25,10 +25,10 @@ struct CSPerRoundStats_t
 public:
     DECLARE_SCHEMA_CLASS_BASE(CSPerRoundStats_t, true)
 
-    SCHEMA_FIELD_OFFSET(int, m_iKills, 0)
-    SCHEMA_FIELD_OFFSET(int, m_iDeaths, 0)
-    SCHEMA_FIELD_OFFSET(int, m_iAssists, 0)
-    SCHEMA_FIELD_OFFSET(int, m_iDamage, 0)
+    SCHEMA_FIELD_OFFSET(int, m_iKills, 0);
+    SCHEMA_FIELD_OFFSET(int, m_iDeaths, 0);
+    SCHEMA_FIELD_OFFSET(int, m_iAssists, 0);
+    SCHEMA_FIELD_OFFSET(int, m_iDamage, 0);
 };
 
 struct CSMatchStats_t : public CSPerRoundStats_t
@@ -50,16 +50,14 @@ class CPlayer_MovementServices : public CPlayerPawnComponent
 public:
     DECLARE_SCHEMA_CLASS_BASE(CPlayer_MovementServices, false)
 
-    SCHEMA_FIELD_OFFSET(CInButtonState, m_nButtons, 0)
-    SCHEMA_FIELD_OFFSET(uint64_t, m_nQueuedButtonDownMask, 0)
-    SCHEMA_FIELD_OFFSET(uint64_t, m_nQueuedButtonChangeMask, 0)
-    SCHEMA_FIELD_OFFSET(uint64_t, m_nButtonDoublePressed, 0)
-
-    // m_pButtonPressedCmdNumber[64]
-    SCHEMA_FIELD_POINTER_OFFSET(uint32_t, m_pButtonPressedCmdNumber, 0)
-    SCHEMA_FIELD_OFFSET(uint32_t, m_nLastCommandNumberProcessed, 0)
-    SCHEMA_FIELD_OFFSET(uint64_t, m_nToggleButtonDownMask, 0)
-    SCHEMA_FIELD_OFFSET(float, m_flMaxspeed, 0)
+    SCHEMA_FIELD_OFFSET(CInButtonState, m_nButtons, 0);
+    SCHEMA_FIELD_OFFSET(uint64_t, m_nQueuedButtonDownMask, 0);
+    SCHEMA_FIELD_OFFSET(uint64_t, m_nQueuedButtonChangeMask, 0);
+    SCHEMA_FIELD_OFFSET(uint64_t, m_nButtonDoublePressed, 0);
+    SCHEMA_FIELD_POINTER_OFFSET(uint32_t, m_pButtonPressedCmdNumber, 0);
+    SCHEMA_FIELD_OFFSET(uint32_t, m_nLastCommandNumberProcessed, 0);
+    SCHEMA_FIELD_OFFSET(uint64_t, m_nToggleButtonDownMask, 0);
+    SCHEMA_FIELD_OFFSET(float, m_flMaxspeed, 0);
 };
 
 class CPlayer_MovementServices_Humanoid : CPlayer_MovementServices
@@ -89,9 +87,9 @@ public:
 
     virtual ~CCSPlayer_ItemServices() = 0;
 
-    SCHEMA_FIELD_OFFSET(bool, m_bHasDefuser, 0)
-    SCHEMA_FIELD_OFFSET(bool, m_bHasHelmet, 0)
-    SCHEMA_FIELD_OFFSET(bool, m_bHasHeavyArmor, 0)
+    SCHEMA_FIELD_OFFSET(bool, m_bHasDefuser, 0);
+    SCHEMA_FIELD_OFFSET(bool, m_bHasHelmet, 0);
+    SCHEMA_FIELD_OFFSET(bool, m_bHasHeavyArmor, 0);
 
 private:
     virtual void unk_01() = 0;
@@ -108,12 +106,12 @@ private:
     virtual void unk_12() = 0;
     virtual void unk_13() = 0;
     virtual void unk_14() = 0;
-    virtual CBaseEntity *_GiveNamedItem(const char *pchName) = 0;
+    virtual CBaseEntity* _GiveNamedItem(const char* pchName) = 0;
 
 public:
-    virtual bool GiveNamedItemBool(const char *pchName) = 0;
-    virtual CBaseEntity *GiveNamedItem(const char *pchName) = 0;
-    virtual void DropPlayerWeapon(CBasePlayerWeapon *weapon) = 0;
+    virtual bool GiveNamedItemBool(const char* pchName) = 0;
+    virtual CBaseEntity* GiveNamedItem(const char* pchName) = 0;
+    virtual void DropPlayerWeapon(CBasePlayerWeapon* weapon) = 0;
     virtual void StripPlayerWeapons() = 0;
 };
 
@@ -155,12 +153,20 @@ class CPlayer_WeaponServices : public CPlayerPawnComponent
 public:
     DECLARE_SCHEMA_CLASS_BASE(CPlayer_WeaponServices, false)
 
-    SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<CHandle<CBasePlayerWeapon>>, m_hMyWeapons, 0)
-    SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerWeapon>, m_hActiveWeapon, 0)
+    SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<CHandle<CBasePlayerWeapon>>, m_hMyWeapons, 0);
+    SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerWeapon>, m_hActiveWeapon, 0);
 
-    void RemoveWeapon(CBasePlayerWeapon *weapon)
+    void DropWeapon(CBasePlayerWeapon* pWeapon, Vector* pVecTarget = nullptr, Vector* pVelocity = nullptr)
     {
+        static int offset = g_Offsets->GetOffset("CCSPlayer_WeaponServices_DropWeapon");
+        CALL_VIRTUAL(void, offset, this, pWeapon, pVecTarget, pVelocity);
+    }
+
+    void RemoveWeapon(CBasePlayerWeapon* weapon)
+    {
+        this->DropWeapon(weapon);
         CALL_VIRTUAL(void, 20, weapon, nullptr, nullptr);
+        weapon->Despawn();
     }
 };
 
@@ -169,6 +175,6 @@ class CCSPlayerController_InventoryServices
 public:
     DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_InventoryServices, false)
 
-    SCHEMA_FIELD_OFFSET(uint16_t, m_unMusicID, 0)
-    SCHEMA_FIELD_POINTER_OFFSET(uint8_t, m_rank, 0)
+    SCHEMA_FIELD_OFFSET(uint16_t, m_unMusicID, 0);
+    SCHEMA_FIELD_POINTER_OFFSET(uint8_t, m_rank, 0);
 };
