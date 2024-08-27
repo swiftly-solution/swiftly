@@ -7,7 +7,7 @@ class RegisterCallStack
 {
 private:
     std::string plugin_name;
-    std::string id;
+    uint64_t id;
 
 public:
     RegisterCallStack(std::string plugin_name, std::string stack_msg);

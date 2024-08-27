@@ -11,14 +11,14 @@
 class CallStack
 {
 private:
-    std::map<std::string, std::unordered_map<std::string, std::string>> callStacks;
+    std::map<std::string, std::unordered_map<uint64_t, std::string>> callStacks;
 public:
     CallStack() = default;
 
-    std::string RegisterPluginCallstack(std::string plugin_name, std::string stackMsg);
-    void UnregisterPluginCallstack(std::string plugin_name, std::string stackID);
+    uint64_t RegisterPluginCallstack(std::string plugin_name, std::string stackMsg);
+    void UnregisterPluginCallstack(std::string plugin_name, uint64_t stackID);
 
-    std::unordered_map<std::string, std::string> GetPluginCallstack(std::string plugin_name);
+    std::unordered_map<uint64_t, std::string> GetPluginCallstack(std::string plugin_name);
 };
 
 extern CallStack* g_callStack;
