@@ -1,163 +1,48 @@
 #include "../scripting.h"
 #include "../../../player/PlayerManager.h"
-
-#include <thread>
+#include "../../../http/HTTPManager.h"
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
-
-extern "C"
-{
-#include <curl/curl.h>
-};
+#include <steam/steam_gameserver.h>
 
 #include <deque>
 
-#ifdef GetObject
-#undef GetObject
-#endif
+extern ISteamHTTP* g_http;
 
-static size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::vector<std::string>* userp)
-{
-    size_t totalSize = size * nmemb;
-    userp->emplace_back((char*)contents, totalSize);
-    return totalSize;
-}
-
-static size_t HeaderCallback(char* buffer, size_t size, size_t nitems, std::vector<std::string>* headers)
-{
-    size_t totalSize = size * nitems;
-    headers->emplace_back(buffer, totalSize);
-    return totalSize;
-}
-
-struct Request
-{
-    std::string url;
-    std::string data;
-    std::map<std::string, std::string> headers;
-    std::map<std::string, std::string> files;
-    std::string method;
-    std::string requestUUID;
+static const std::map<std::string, EHTTPMethod> methodMap = {
+    { "GET", EHTTPMethod::k_EHTTPMethodGET },
+    { "POST", EHTTPMethod::k_EHTTPMethodPOST },
+    { "HEAD", EHTTPMethod::k_EHTTPMethodHEAD },
+    { "PUT", EHTTPMethod::k_EHTTPMethodPUT },
+    { "DELETE", EHTTPMethod::k_EHTTPMethodDELETE },
+    { "OPTIONS", EHTTPMethod::k_EHTTPMethodOPTIONS },
+    { "PATCH", EHTTPMethod::k_EHTTPMethodPATCH },
 };
 
-std::deque<Request> requestsQueue;
+std::string CreateMultipartFormData(const std::map<std::string, std::string>& files, const std::string& boundary) {
+    std::string formData;
 
-void RunCurlRequest(std::string url, std::string data, std::map<std::string, std::string> headers, std::map<std::string, std::string> files, std::string method, std::string requestUUID)
-{
-    std::vector<std::string> responseBody;
-    std::vector<std::string> responseHeaders;
-    curl_mime* mime = nullptr;
-    CURL* curlRequest = curl_easy_init();
-    if (!curlRequest)
-        return;
+    for (const auto& file : files) {
+        std::vector<uint8> fileData;
+        if (!Files::ExistsPath(file.second)) continue;
+        auto content = explode(Files::Read(file.second), "");
+        for (size_t i = 0; i < content.size(); i++) fileData.push_back((uint8)(content[i].at(0)));
 
-    if (Files::ExistsPath("/etc/pki/tls/certs/ca-bundle.crt"))
-        curl_easy_setopt(curlRequest, CURLOPT_CAINFO, "/etc/pki/tls/certs/ca-bundle.crt");
+        std::string filename = file.second.substr(file.second.find_last_of("/\\") + 1);
 
-    curl_easy_setopt(curlRequest, CURLOPT_URL, url.c_str());
-    curl_easy_setopt(curlRequest, CURLOPT_FOLLOWLOCATION, 1L);
-    curl_easy_setopt(curlRequest, CURLOPT_TIMEOUT, 5000);
-    if (headers.find("User-Agent") != headers.end())
-        curl_easy_setopt(curlRequest, CURLOPT_USERAGENT, headers.at("User-Agent").c_str());
-
-    struct curl_slist* headersList = nullptr;
-    for (auto it = headers.begin(); it != headers.end(); ++it)
-        headersList = curl_slist_append(headersList, (string_format("%s: %s", it->first.c_str(), it->second.c_str()) + "\0").c_str());
-
-    if (files.size() > 0)
-    {
-        mime = curl_mime_init(curlRequest);
-
-        for (auto& file : files)
-        {
-            curl_mimepart* part = curl_mime_addpart(mime);
-            curl_mime_name(part, file.first.c_str());
-            curl_mime_filedata(part, file.second.c_str());
-        }
-
-        curl_easy_setopt(curlRequest, CURLOPT_MIMEPOST, mime);
+        formData += "--" + boundary + "\r\n";
+        formData += "Content-Disposition: form-data; name=\"" + file.first + "\"; filename=\"" + filename + "\"\r\n";
+        formData += "Content-Type: application/octet-stream\r\n\r\n";
+        formData.append(fileData.begin(), fileData.end());
+        formData += "\r\n";
     }
 
-    curl_easy_setopt(curlRequest, CURLOPT_HTTPHEADER, headersList);
-    if (method != "GET")
-    {
-        curl_easy_setopt(curlRequest, CURLOPT_CUSTOMREQUEST, method.c_str());
-        if (method != "DELETE" && method != "GET")
-            curl_easy_setopt(curlRequest, CURLOPT_COPYPOSTFIELDS, (data + "\0").c_str());
-    }
+    formData += "--" + boundary + "--\r\n";
 
-    curl_easy_setopt(curlRequest, CURLOPT_WRITEFUNCTION, WriteCallback);
-    curl_easy_setopt(curlRequest, CURLOPT_WRITEDATA, &responseBody);
-
-    curl_easy_setopt(curlRequest, CURLOPT_HEADERFUNCTION, HeaderCallback);
-    curl_easy_setopt(curlRequest, CURLOPT_HEADERDATA, &responseHeaders);
-
-    CURLcode code = curl_easy_perform(curlRequest);
-
-    int httpStatusCode = 0;
-    curl_easy_getinfo(curlRequest, CURLINFO_RESPONSE_CODE, &httpStatusCode);
-    std::string error = (code == CURLE_OK ? "Success (no errors)" : curl_easy_strerror(code));
-
-    rapidjson::Document doc(rapidjson::kObjectType);
-
-    for (size_t i = 1; i < responseHeaders.size(); i++)
-    {
-        std::vector<std::string> splitted = explode(responseHeaders[i], ":");
-        if (splitted.size() < 2)
-            continue;
-
-        std::string headerName = splitted[0];
-        splitted.erase(splitted.begin());
-        std::string headerValue = implode(splitted, ":");
-
-        doc.AddMember(rapidjson::Value().SetString(headerName.c_str(), doc.GetAllocator()), rapidjson::Value().SetString(headerValue.c_str(), doc.GetAllocator()), doc.GetAllocator());
-    }
-
-    rapidjson::StringBuffer buffer;
-    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-    doc.Accept(writer);
-
-    std::string eventPayload = encoders::msgpack::SerializeToString({
-            httpStatusCode,
-            implode(responseBody, ""),
-            buffer.GetString(),
-            error,
-            requestUUID
-        });
-
-    auto ExecuteCallback = [&]() -> void {
-        PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-        g_pluginManager->ExecuteEvent("core", "OnHTTPActionPerformed", eventPayload, event);
-        delete event;
-        };
-
-    if (g_playerManager->GetPlayers() > 0) g_Plugin.NextFrame(ExecuteCallback);
-    else ExecuteCallback();
-
-    if (headersList)
-        curl_slist_free_all(headersList);
-
-    if (mime)
-        curl_mime_free(mime);
-    if (curlRequest)
-        curl_easy_cleanup(curlRequest);
-}
-
-void ProcessingHTTPThread()
-{
-    while (true)
-    {
-        while (!requestsQueue.empty())
-        {
-            Request req = requestsQueue.front();
-            RunCurlRequest(req.url, req.data, req.headers, req.files, req.method, req.requestUUID);
-            requestsQueue.pop_front();
-        }
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
-    }
+    return formData;
 }
 
 PluginHTTP::PluginHTTP(std::string m_plugin_name)
@@ -167,11 +52,25 @@ PluginHTTP::PluginHTTP(std::string m_plugin_name)
     this->plugin_name = m_plugin_name;
 }
 
-static bool httpThread = false;
-
 std::string PluginHTTP::PerformHTTP(std::string receivedData)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginHTTP::PerformHTTP(receivedData=\"%s\")", receivedData.c_str()));
+
+    std::string requestUUID = get_uuid();
+    if (!g_http) {
+        if (g_httpManager->m_PendingHTTPRequests.find(this->plugin_name) == g_httpManager->m_PendingHTTPRequests.end())
+            g_httpManager->m_PendingHTTPRequests.insert({ this->plugin_name, {} });
+
+        g_httpManager->m_PendingHTTPRequests[this->plugin_name].insert_or_assign(requestUUID, receivedData);
+        return requestUUID;
+    }
+
+    return PerformHTTPWithRequestID(receivedData, requestUUID);
+}
+
+std::string PluginHTTP::PerformHTTPWithRequestID(std::string receivedData, std::string requestID)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginHTTP::PerformHTTPWithRequestID(receivedData=\"%s\",requestID=\"%s\")", receivedData.c_str(), requestID.c_str()));
 
     rapidjson::Document request;
     request.Parse(receivedData.c_str());
@@ -184,8 +83,14 @@ std::string PluginHTTP::PerformHTTP(std::string receivedData)
     std::string url = request.HasMember("url") ? (request["url"].IsString() ? request["url"].GetString() : "") : "";
     std::string data = request.HasMember("data") ? (request["data"].IsString() ? request["data"].GetString() : "") : "";
     std::string method = request.HasMember("method") ? (request["method"].IsString() ? request["method"].GetString() : "") : "";
-    std::map<std::string, std::string> headers;
+    if (methodMap.find(method) == methodMap.end()) {
+        PLUGIN_PRINTF("PerformHTTP", "An error has occured while trying to create the HTTP Request: Invalid method \"%s\"\n", method.c_str());
+        return "00000000-0000-0000-0000-000000000000";
+    }
+
+    std::vector<HTTPHeader> headers;
     std::map<std::string, std::string> files;
+    std::string contentType = "text/plain";
 
     if (request.HasMember("headers"))
     {
@@ -198,8 +103,9 @@ std::string PluginHTTP::PerformHTTP(std::string receivedData)
                     continue;
 
                 std::string headerValue = headerIt->value.GetString();
+                if (headerName == "Content-Type") contentType = headerValue;
 
-                headers.insert({ headerName, headerValue });
+                headers.push_back(HTTPHeader(headerName, headerValue));
             }
         }
     }
@@ -223,16 +129,34 @@ std::string PluginHTTP::PerformHTTP(std::string receivedData)
         }
     }
 
-    std::string requestUUID = get_uuid();
-
-    Request req = { url, data, headers, files, method, requestUUID };
-    requestsQueue.push_back(req);
-
-    if (!httpThread)
-    {
-        httpThread = true;
-        std::thread(ProcessingHTTPThread).detach();
+    auto req = g_http->CreateHTTPRequest(methodMap.at(method), url.c_str());
+    if (methodMap.at(method) != k_EHTTPMethodGET && methodMap.at(method) != k_EHTTPMethodDELETE) {
+        if (!g_http->SetHTTPRequestRawPostBody(req, contentType.c_str(), (uint8*)(data.c_str()), data.size())) {
+            PLUGIN_PRINT("PerformHTTP", "An error has occured while trying to create the HTTP Request: Couldn't copy the body data. Possibly invalid content type.\n");
+            return "00000000-0000-0000-0000-000000000000";
+        }
     }
 
-    return requestUUID;
+    if (headers.size() > 0)
+        for (auto header : headers)
+            g_http->SetHTTPRequestHeaderValue(req, header.GetName(), header.GetValue());
+
+    if (files.size() > 0) {
+        std::string boundary = "------------------------boundaryString1234567890";
+        std::string formData = CreateMultipartFormData(files, boundary);
+
+        g_http->SetHTTPRequestHeaderValue(req, "Content-Type", ("multipart/form-data; boundary=" + boundary).c_str());
+
+        g_http->SetHTTPRequestRawPostBody(req, "multipart/form-data", (uint8*)formData.data(), formData.size());
+    }
+
+    SteamAPICall_t call;
+    g_http->SendHTTPRequest(req, &call);
+    new TrackedRequest(req, call, requestID, [](HTTPRequestHandle hndl, int status, std::string body, std::string headers, std::string err, std::string reqID) -> void {
+        PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
+        g_pluginManager->ExecuteEvent("core", "OnHTTPActionPerformed", encoders::msgpack::SerializeToString({ status, body, headers, err, reqID }), event);
+        delete event;
+        });
+
+    return requestID;
 }

@@ -99,6 +99,21 @@ public:
 /////////////////         HTTP Client          //////////////
 ////////////////////////////////////////////////////////////
 
+class HTTPHeader
+{
+public:
+    HTTPHeader(std::string strName, std::string strValue)
+    {
+        m_strName = strName;
+        m_strValue = strValue;
+    }
+    const char* GetName() { return m_strName.c_str(); }
+    const char* GetValue() { return m_strValue.c_str(); }
+private:
+    std::string m_strName;
+    std::string m_strValue;
+};
+
 class PluginHTTP
 {
 private:
@@ -108,6 +123,7 @@ public:
     PluginHTTP(std::string m_plugin_name);
 
     std::string PerformHTTP(std::string receivedData);
+    std::string PerformHTTPWithRequestID(std::string receivedData, std::string requestID);
 };
 
 //////////////////////////////////////////////////////////////

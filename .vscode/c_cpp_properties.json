@@ -15,7 +15,6 @@
                 "${workspaceFolder}/vendor/msgpack/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
                 "${workspaceFolder}/vendor/texttable/**",
-                "${workspaceFolder}/vendor/curl/win64/include/**",
                 "${workspaceFolder}/vendor/mysql/win64/include/**",
                 "${workspaceFolder}/vendor/asmjit/src/**",
                 "${workspaceFolder}/vendor/dynohook/win64/include/**",
@@ -29,7 +28,6 @@
                 "WIN32",
                 "COMPILER_GCC",
                 "CPPHTTPLIB_OPENSSL_SUPPORT",
-                "CURL_STATICLIB",
                 "MSGPACK_NO_BOOST"
             ],
             "cStandard": "c17",
@@ -51,7 +49,6 @@
                 "${workspaceFolder}/vendor/msgpack/include/**",
                 "${workspaceFolder}/vendor/funchook/include/**",
                 "${workspaceFolder}/vendor/texttable/**",
-                "${workspaceFolder}/vendor/curl/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/mysql/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/asmjit/src/**",
                 "${workspaceFolder}/vendor/dynohook/linuxsteamrt64/include/**",
@@ -64,8 +61,7 @@
                 "_UNICODE",
                 "POSIX",
                 "COMPILER_GCC",
-                "CPPHTTPLIB_OPENSSL_SUPPORT",
-                "CURL_STATICLIB"
+                "CPPHTTPLIB_OPENSSL_SUPPORT"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",

@@ -11,6 +11,7 @@
 #include "addons/addons.h"
 #include "encoders/msgpack.h"
 #include "addons/clients.h"
+#include "http/HTTPManager.h"
 #include "configuration/Configuration.h"
 #include "commands/CommandsManager.h"
 #include "crashreporter/CallStack.h"
@@ -41,6 +42,7 @@ SH_DECL_HOOK6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlaye
 SH_DECL_HOOK6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSlot, const char*, uint64, const char*, bool, CBufferString*);
 SH_DECL_HOOK3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandHandle, const CCommandContext&, const CCommand&);
 SH_DECL_HOOK0_void(IServerGameDLL, GameServerSteamAPIActivated, SH_NOATTRIB, 0);
+SH_DECL_HOOK0_void(IServerGameDLL, GameServerSteamAPIDeactivated, SH_NOATTRIB, 0);
 SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand&);
 
 #ifdef _WIN32
@@ -69,6 +71,7 @@ IGameEventManager2* g_gameEventManager = nullptr;
 IGameEventSystem* g_pGameEventSystem = nullptr;
 CEntityListener g_entityListener;
 CSteamGameServerAPIContext g_SteamAPI;
+ISteamHTTP* g_http = nullptr;
 CSchemaSystem* g_pSchemaSystem2 = nullptr;
 CCSGameRules* gameRules = nullptr;
 
@@ -109,6 +112,7 @@ ResourceMonitor* g_ResourceMonitor = nullptr;
 Patches* g_Patches = nullptr;
 CallStack* g_callStack = nullptr;
 EventManager* eventManager = nullptr;
+HTTPManager* g_httpManager = nullptr;
 VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
@@ -143,6 +147,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &Swiftly::Hook_StartupServer, true);
     SH_ADD_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &Swiftly::Hook_DispatchConCommand, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &Swiftly::Hook_GameServerSteamAPIActivated, false);
+    SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
 
     g_pCVar = icvar;
 
@@ -151,6 +156,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     if (!BeginCrashListener())
         PRINTRET("Crash Reporter failed to initialize.\n", false);
 
+    g_httpManager = new HTTPManager();
     g_pluginManager = new PluginManager();
     g_Config = new Configuration();
     g_conFilter = new ConsoleFilter();
@@ -205,6 +211,8 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     if (late)
     {
         g_SteamAPI.Init();
+        g_http = g_SteamAPI.SteamHTTP();
+        g_httpManager->ProcessPendingHTTPRequests();
         m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
     }
 
@@ -223,6 +231,8 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
         return;
 
     g_SteamAPI.Init();
+    g_http = g_SteamAPI.SteamHTTP();
+    g_httpManager->ProcessPendingHTTPRequests();
     m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
 
     std::thread([&]() -> void
@@ -232,6 +242,13 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
             if (g_addons.GetStatus())
                 g_addons.RefreshAddons(true); })
         .detach();
+
+    RETURN_META(MRES_IGNORED);
+}
+
+void Swiftly::Hook_GameServerSteamAPIDeactivated()
+{
+    g_http = nullptr;
 
     RETURN_META(MRES_IGNORED);
 }
@@ -263,6 +280,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &Swiftly::Hook_StartupServer, true);
     SH_REMOVE_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &Swiftly::Hook_DispatchConCommand, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &Swiftly::Hook_GameServerSteamAPIActivated, false);
+    SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
 
     g_pGameEntitySystem->RemoveListenerEntity(&g_entityListener);
 

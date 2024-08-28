@@ -66,7 +66,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 		binary.compiler.postlink += [
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libfunchook.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libdistorm.a'),
-      		os.path.join(builder.sourcePath, 'vendor', 'curl', 'linuxsteamrt64', 'lib', 'libcurl.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'linuxsteamrt64', 'lib', 'libmysqlclient.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'dynohook', 'linuxsteamrt64', 'lib', 'libdynohook.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'zydis', 'linuxsteamrt64', 'libZydis.a'),
@@ -117,7 +116,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 		binary.compiler.postlink += [
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
 		    os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
-      		os.path.join(builder.sourcePath, 'vendor', 'curl', 'win64', 'lib', 'libcurl_a.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'win64', 'lib', 'mysqlclient.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'dynohook', 'win64', 'lib', 'dynohook.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'zydis', 'win64', 'Zydis.lib'),
@@ -172,7 +170,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 		"GITHUB_SHA=\"" + (os.getenv('GITHUB_SHA') == None and "LOCAL" or os.getenv('GITHUB_SHA')) + "\"",
 		"HAVE_STRUCT_TIMESPEC",
 		"BUILDING",
-		"CURL_STATICLIB",
 		"MSGPACK_NO_BOOST",
 	]
 
@@ -195,7 +192,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 		os.path.join(builder.sourcePath, 'vendor', 'json', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'texttable'),
-		os.path.join(builder.sourcePath, 'vendor', 'curl', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'asmjit', 'src'),
 		os.path.join(builder.sourcePath, 'vendor', 'dynohook', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
