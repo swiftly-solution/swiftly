@@ -11,6 +11,7 @@
 std::string FetchPluginName(lua_State* state);
 #define FetchPluginByState(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
 
+extern std::string currentMap;
 struct DatabaseQueryQueue
 {
     std::string query;
@@ -83,7 +84,7 @@ void DatabaseQueryThread()
                     }
                     };
 
-                if (g_playerManager->GetPlayers() > 0) g_Plugin.NextFrame(ExecuteCallback);
+                if (currentMap != "None") g_Plugin.NextFrame(ExecuteCallback);
                 else ExecuteCallback();
             }
 
