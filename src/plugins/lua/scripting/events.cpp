@@ -1,11 +1,11 @@
 #include "core.h"
 
-int AddGlobalEvents(luabridge::LuaRef eventFunction, lua_State *L)
+int AddGlobalEvents(luabridge::LuaRef eventFunction, lua_State* L)
 {
     if (!eventFunction.isFunction())
         return 0;
 
-    Plugin *plugin = FetchPluginByState(L);
+    Plugin* plugin = FetchPluginByState(L);
     if (!plugin)
         return 0;
 
@@ -13,9 +13,9 @@ int AddGlobalEvents(luabridge::LuaRef eventFunction, lua_State *L)
     return 0;
 }
 
-int RegisterEventHandlerPlugin(std::string eventName, lua_State *L)
+int RegisterEventHandlerPlugin(std::string eventName, lua_State* L)
 {
-    Plugin *plugin = FetchPluginByState(L);
+    Plugin* plugin = FetchPluginByState(L);
     if (!plugin)
         return 0;
 
@@ -23,29 +23,29 @@ int RegisterEventHandlerPlugin(std::string eventName, lua_State *L)
     return 0;
 }
 
-luabridge::LuaRef TriggerEventInternal(std::string eventName, std::string eventPayload, lua_State *L)
+std::vector<luabridge::LuaRef> TriggerEventInternal(std::string eventName, std::string eventPayload, lua_State* L)
 {
-    luabridge::LuaRef returnValue = luabridge::LuaRef::newTable(L);
+    std::vector<luabridge::LuaRef> returnValues;
 
     PluginEvent event(FetchPluginName(L), nullptr, nullptr);
 
-    returnValue.append((int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, eventPayload, &event));
-    returnValue.append(event);
+    returnValues.push_back(luabridge::LuaRef(L, (int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, eventPayload, &event)));
+    returnValues.push_back(luabridge::LuaRef(L, event));
 
-    return returnValue;
+    return returnValues;
 }
 
-luabridge::LuaRef GetReturnValueInternal(PluginEvent *event, lua_State *L)
+luabridge::LuaRef GetReturnValueInternal(PluginEvent* event, lua_State* L)
 {
     return LuaSerializeData(event->GetReturnValue(), L);
 }
 
-luabridge::LuaRef GetHookReturnValueInternal(PluginEvent *event, lua_State *L)
+luabridge::LuaRef GetHookReturnValueInternal(PluginEvent* event, lua_State* L)
 {
     return LuaSerializeData(event->GetHookReturn(), L);
 }
 
-void SetupLuaEvents(LuaPlugin *plugin, lua_State *state)
+void SetupLuaEvents(LuaPlugin* plugin, lua_State* state)
 {
     luabridge::getGlobalNamespace(state)
         .addFunction("AddGlobalEvents", AddGlobalEvents)
