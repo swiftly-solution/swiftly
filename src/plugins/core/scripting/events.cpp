@@ -137,6 +137,8 @@ bool PluginEvent::GetBool(std::string key)
     if (!this->gameEvent)
         return false;
 
+    if (!this->gameEvent->HasKey(key.c_str())) return false;
+
     return this->gameEvent->GetBool(key.c_str());
 }
 
@@ -145,7 +147,9 @@ int PluginEvent::GetInt(std::string key)
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetInt(key=\"%s\")", key.c_str()));
 
     if (!this->gameEvent)
-        return 0;
+        return -1;
+
+    if (!this->gameEvent->HasKey(key.c_str())) return -1;
 
     return this->gameEvent->GetInt(key.c_str());
 }
@@ -157,6 +161,8 @@ uint64_t PluginEvent::GetUint64(std::string key)
     if (!this->gameEvent)
         return 0;
 
+    if (!this->gameEvent->HasKey(key.c_str())) return 0;
+
     return this->gameEvent->GetUint64(key.c_str());
 }
 
@@ -167,6 +173,8 @@ float PluginEvent::GetFloat(std::string key)
     if (!this->gameEvent)
         return 0.0f;
 
+    if (!this->gameEvent->HasKey(key.c_str())) return 0.0f;
+
     return this->gameEvent->GetFloat(key.c_str());
 }
 
@@ -176,6 +184,8 @@ std::string PluginEvent::GetString(std::string key)
 
     if (!this->gameEvent)
         return "";
+
+    if (!this->gameEvent->HasKey(key.c_str())) return "";
 
     return this->gameEvent->GetString(key.c_str());
 }
