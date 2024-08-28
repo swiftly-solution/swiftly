@@ -267,6 +267,8 @@ EventResult LuaPlugin::TriggerEvent(std::string invokedBy, std::string eventName
     return (EventResult)res;
 }
 
+std::vector<luabridge::LuaRef> emptyTable;
+
 luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state)
 {
     std::any value = data;
@@ -285,7 +287,7 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state)
 
                 luabridge::LuaRef rapidJsonTable = luabridge::getGlobal(state, "json");
                 if (!rapidJsonTable["decode"].isFunction())
-                    return luabridge::newTable(state);
+                    return luabridge::LuaRef(state, emptyTable);
 
                 luabridge::LuaRef decodedResult(state);
                 try
@@ -295,11 +297,11 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state)
                 catch (luabridge::LuaException& e)
                 {
                     PLUGIN_PRINTF("LuaSerializeData", "An error has occured: %s\n", e.what());
-                    return luabridge::newTable(state);
+                    return luabridge::LuaRef(state, emptyTable);
                 }
 
                 if (decodedResult.isNil())
-                    return luabridge::newTable(state);
+                    return luabridge::LuaRef(state, emptyTable);
 
                 return decodedResult;
             }
@@ -353,18 +355,18 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state)
             {
                 luabridge::LuaRef loadReturnValue = load(tbl);
                 if (!loadReturnValue.isFunction())
-                    return luabridge::newTable(state);
+                    return luabridge::LuaRef(state, emptyTable);
 
                 luabridge::LuaRef loadFuncRetVal = loadReturnValue();
                 if (!loadFuncRetVal.isTable())
-                    return luabridge::newTable(state);
+                    return luabridge::LuaRef(state, emptyTable);
 
                 return loadFuncRetVal;
             }
             catch (luabridge::LuaException& e)
             {
                 PRINTF("Lua Exception: %s\n", e.what());
-                return luabridge::newTable(state);
+                return luabridge::LuaRef(state, emptyTable);
             }
         }
         else
