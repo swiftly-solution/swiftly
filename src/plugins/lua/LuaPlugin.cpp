@@ -180,7 +180,7 @@ bool LuaPlugin::ExecuteStart()
     }
 
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    this->TriggerEvent("core", "OnPluginStart", encoders::msgpack::SerializeToString({}), event);
+    this->PluginTriggerEvent("core", "OnPluginStart", encoders::msgpack::SerializeToString({}), event);
     delete event;
 
     return true;
@@ -189,7 +189,7 @@ bool LuaPlugin::ExecuteStart()
 void LuaPlugin::ExecuteStop()
 {
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    this->TriggerEvent("core", "OnPluginStop", encoders::msgpack::SerializeToString({}), event);
+    this->PluginTriggerEvent("core", "OnPluginStop", encoders::msgpack::SerializeToString({}), event);
     delete event;
 }
 
