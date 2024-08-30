@@ -3,6 +3,7 @@
 #include <cstdarg>
 #include <random>
 #include <sstream>
+#include <chrono>
 
 #include "../sdk/schema.h"
 #include "../configuration/Configuration.h"
@@ -199,7 +200,7 @@ void PrintTextTable(std::string category, TextTable table)
     std::stringstream outputTable;
     outputTable << table;
     std::vector<std::string> rows = explode(outputTable.str(), "\n");
-    for (int i = 0; i < rows.size() - 1; i++)
+    for (size_t i = 0; i < rows.size() - 1; i++)
         PLUGIN_PRINTF(category, "%s\n", rows[i].c_str());
 }
 
@@ -222,14 +223,19 @@ std::string str_toupper(std::string s)
     return s;
 }
 
+int32_t genrand()
+{
+    std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+    return std::uniform_int_distribution<int>(0, INT_MAX)(rng);
+}
+
 std::string get_uuid()
 {
-    std::srand(std::time(nullptr));
     return string_format(
-        "%x%x-%x-%x-%x-%x%x%x",
-        (rand() & 0xFFFF), (rand() & 0xFFFF),
-        (rand() & 0xFFFF),
-        ((rand() & 0x0fff) | 0x4000),
-        (rand() % 0x3fff + 0x8000),
-        (rand() & 0xFFFF), (rand() & 0xFFFF), (rand() & 0xFFFF));
+        "%04x%04x-%04x-%04x-%04x-%04x%04x%04x",
+        (genrand() & 0xFFFF), (genrand() & 0xFFFF),
+        (genrand() & 0xFFFF),
+        ((genrand() & 0x0fff) | 0x4000),
+        (genrand() % 0x3fff + 0x8000),
+        (genrand() & 0xFFFF), (genrand() & 0xFFFF), (genrand() & 0xFFFF));
 }
