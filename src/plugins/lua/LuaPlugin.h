@@ -26,8 +26,8 @@ class PluginEvent;
 class LuaPlugin : public Plugin
 {
 private:
-    lua_State *state;
-    luabridge::LuaRef *globalEventHandler;
+    lua_State* state;
+    luabridge::LuaRef* globalEventHandler;
     std::map<std::string, bool> eventHandlers;
 
 public:
@@ -38,20 +38,20 @@ public:
     bool ExecuteStart();
     void ExecuteStop();
 
-    void ExecuteCommand(void *functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent, std::string prefix);
+    void ExecuteCommand(void* functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent, std::string prefix);
 
-    void RegisterEventHandler(void *functionPtr);
+    void RegisterEventHandler(void* functionPtr);
     void RegisterEventHandling(std::string eventName);
-    EventResult TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent *event);
+    EventResult PluginTriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event);
 
     std::string GetAuthor();
     std::string GetWebsite();
     std::string GetVersion();
     std::string GetPlName();
 
-    lua_State *GetState() { return this->state; }
+    lua_State* GetState() { return this->state; }
 };
 
-luabridge::LuaRef LuaSerializeData(std::any data, lua_State *state);
+luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state);
 
 #endif

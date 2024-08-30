@@ -1,4 +1,5 @@
 #include "Plugin.h"
+#include "lua/LuaPlugin.h"
 
 Plugin::Plugin(std::string m_name, PluginKind_t m_kind)
 {
@@ -36,4 +37,10 @@ std::string Plugin::GetLoadError()
 void Plugin::SetLoadError(std::string error)
 {
     this->loadError = error;
+}
+
+EventResult Plugin::TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event)
+{
+    if (this->GetKind() == PluginKind_t::Lua) return ((LuaPlugin*)this)->PluginTriggerEvent(invokedBy, eventName, eventPayload, event);
+    else return EventResult::Continue;
 }

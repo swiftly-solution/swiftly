@@ -46,7 +46,7 @@ public:
     virtual std::string GetVersion() = 0;
     virtual std::string GetPlName() = 0;
 
-    virtual EventResult TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event) = 0;
+    EventResult TriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event);
 };
 
 #endif
