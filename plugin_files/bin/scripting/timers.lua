@@ -5,7 +5,9 @@ local timeoutsRemoveTbl = {}
 local timeoutsTbl = {}
 local nextTickFunctions = {}
 
-AddEventHandler("OnGameTick", function(event, simulating, first, last)
+local gameTickEvent = nil
+
+local gameTickCall = function()
     timerstblsize = #timeoutsTbl;
     timerst = GetTime()
 
@@ -31,9 +33,7 @@ AddEventHandler("OnGameTick", function(event, simulating, first, last)
     end
 
     timeoutsRemoveTbl = {}
-
-    return EventResult.Continue
-end)
+end
 
 function SetTimeout(delay, callback)
     if type(delay) ~= "number" then
@@ -42,6 +42,8 @@ function SetTimeout(delay, callback)
     if type(callback) ~= "function" then
         return print("The callback needs to be a function.")
     end
+
+    if not gameTickEvent then gameTickEvent = AddEventHandler("OnGameTick", gameTickCall) end
 
     table.insert(timeoutsTbl, { call = GetTime() + delay, cb = callback })
 end
@@ -56,6 +58,8 @@ function SetTimer(delay, callback)
     if type(callback) ~= "function" then
         return print("The callback needs to be a function.")
     end
+
+    if not gameTickEvent then gameTickEvent = AddEventHandler("OnGameTick", gameTickCall) end
 
     timerIds = timerIds + 1
 
@@ -91,5 +95,8 @@ function NextTick(callback)
     if type(callback) ~= "function" then
         return print("The callback needs to be a function.")
     end
+
+    if not gameTickEvent then gameTickEvent = AddEventHandler("OnGameTick", gameTickCall) end
+
     table.insert(nextTickFunctions, callback)
 end
