@@ -27,7 +27,7 @@ public:
     std::map<std::string, std::map<std::string, std::list<float>>> GetResmonTimeTables() { return this->resmonTimesTable; }
 };
 
-extern ResourceMonitor *g_ResourceMonitor;
+extern ResourceMonitor* g_ResourceMonitor;
 
 class TempResMon
 {
@@ -46,7 +46,7 @@ public:
 
     ~TempResMon()
     {
-        g_ResourceMonitor->RecordTime(m_plugin_id, m_key, std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - startTime).count() / 1000);
+        g_ResourceMonitor->RecordTime(m_plugin_id, m_key, float(std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - startTime).count()) / 1000.0);
     }
 };
 

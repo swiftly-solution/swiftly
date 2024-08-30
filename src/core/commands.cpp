@@ -600,12 +600,10 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, CCommandContext c
             usagesTable.add(string_format(" %llu ", it->second.size()));
 
             if (it->second.size() == 0)
-                usagesTable.add(" 0.000ms / 0.000ms ");
+                usagesTable.add(" 0.00000ms / 0.00000ms ");
             else
             {
-                auto it2 = it->second.end();
-                --it2;
-                float max = *(it2);
+                float max = *std::max_element(it->second.begin(), it->second.end());
 
                 float avg = 0;
                 uint64_t avgCount = 0;
@@ -615,7 +613,7 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, CCommandContext c
                     ++avgCount;
                 }
 
-                usagesTable.add(string_format(" %.3fms / %.3fms ", (avg / avgCount), max));
+                usagesTable.add(string_format(" %.5fms / %.5fms ", (avg / avgCount), max));
             }
             usagesTable.endOfRow();
         }
@@ -632,7 +630,6 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
     TextTable pluginsTable('-', '|', '+');
 
     pluginsTable.add(" ID ");
-    pluginsTable.add(" Name ");
     pluginsTable.add(" Status ");
     pluginsTable.add(" Type ");
     pluginsTable.add(" Memory ");
@@ -653,7 +650,6 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
     std::map<std::string, std::map<std::string, std::list<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
 
     pluginsTable.add(" core ");
-    pluginsTable.add(" [Swiftly] Core ");
     pluginsTable.add(" Loaded ");
     pluginsTable.add(" - ");
     pluginsTable.add(" - ");
@@ -671,9 +667,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
             if (it->second.size() == 0)
                 continue;
 
-            auto maxend = it->second.end();
-            --maxend;
-            max += *(maxend);
+            max += *std::max_element(it->second.begin(), it->second.end());
             ++maxCount;
 
             for (std::list<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
@@ -683,7 +677,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
             }
         }
 
-        pluginsTable.add(string_format(" %.3fms / %.3fms ", (avg / avgCount), (max / maxCount)));
+        pluginsTable.add(string_format(" %.5fms / %.5fms ", (avg / avgCount), (max / maxCount)));
     }
     else
         pluginsTable.add(" 0.000ms / 0.000ms ");
@@ -695,8 +689,6 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
         std::string plugin_id = plugin->GetName();
 
         pluginsTable.add(" " + plugin_id + " ");
-        std::string plugin_name = (plugin->GetPluginState() == PluginState_t::Started ? plugin->GetPlName() : "-");
-        pluginsTable.add(string_format(" %s ", (plugin_name.size() > 24 ? (plugin_name.substr(0, 21) + "...") : plugin_name).c_str()));
         pluginsTable.add(std::string(" ") + (plugin->GetPluginState() == PluginState_t::Started ? "Loaded" : "Unloaded") + " ");
         pluginsTable.add(std::string(" ") + (plugin->GetKind() == PluginKind_t::Lua ? "Lua" : "None") + " ");
         if (plugin->GetKind() == PluginKind_t::Lua && plugin->GetPluginState() == PluginState_t::Started)
@@ -722,9 +714,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
                 if (it->second.size() == 0)
                     continue;
 
-                auto maxend = it->second.end();
-                --maxend;
-                max += *(maxend);
+                max += *std::max_element(it->second.begin(), it->second.end());
                 ++maxCount;
 
                 for (std::list<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
@@ -734,10 +724,10 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
                 }
             }
 
-            pluginsTable.add(string_format(" %.3fms / %.3fms ", (avg / avgCount), (max / maxCount)));
+            pluginsTable.add(string_format(" %.5fms / %.5fms ", (avg / avgCount), (max / maxCount)));
         }
         else
-            pluginsTable.add(" 0.000ms / 0.000ms ");
+            pluginsTable.add(" 0.00000ms / 0.00000ms ");
 
         pluginsTable.endOfRow();
     }
