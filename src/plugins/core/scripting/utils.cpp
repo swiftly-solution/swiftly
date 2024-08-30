@@ -35,12 +35,8 @@ std::string scripting_GetPluginPath(std::string plugin_name)
 
 PluginUserMessage scripting_GetUserMessage(std::string str)
 {
-    auto ptrs = explode(str, "|");
-    if (ptrs.size() != 3) return PluginUserMessage("");
+    if (!starts_with(str, "0x")) return PluginUserMessage("");
 
-    INetworkMessageInternal* msg = (INetworkMessageInternal*)(strtol(ptrs[0].c_str(), nullptr, 16));
-    NetMessageInfo_t* msginfo = (NetMessageInfo_t*)(strtol(ptrs[1].c_str(), nullptr, 16));
-    CNetMessage* data = (CNetMessage*)(strtol(ptrs[2].c_str(), nullptr, 16));
-
-    return PluginUserMessage(msg, msginfo, data);
+    INetworkMessageInternal* msg = (INetworkMessageInternal*)(strtol(str.c_str(), nullptr, 16));
+    return PluginUserMessage(msg);
 }

@@ -208,7 +208,7 @@ private:
 
 public:
     PluginUserMessage(std::string msgname);
-    PluginUserMessage(INetworkMessageInternal* msg, NetMessageInfo_t* msgInfo, CNetMessage* pData);
+    PluginUserMessage(INetworkMessageInternal* msg);
     ~PluginUserMessage();
 
     bool IsValidMessage();

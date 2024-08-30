@@ -85,20 +85,23 @@ PluginUserMessage::PluginUserMessage(std::string msgname)
     this->internalMsg = msg;
 }
 
-PluginUserMessage::PluginUserMessage(INetworkMessageInternal* msg, NetMessageInfo_t* msgInfo, CNetMessage* pData)
+PluginUserMessage::PluginUserMessage(INetworkMessageInternal* msg)
 {
     this->msgid = INVALID_MESSAGE_ID;
 
-    if (!msgInfo || !pData || !msg) return;
+    if (!msg) return;
 
-    this->msgid = msgInfo->m_MessageId;
-    this->msgBuffer = pData->ToPB<google::protobuf::Message>();
+    NetMessageInfo_t* msginfo = msg->GetNetMessageInfo();
+    if (!msginfo)
+        return;
+
+    this->msgid = msginfo->m_MessageId;
+    this->msgBuffer = msg->AllocateMessage()->ToPB<google::protobuf::Message>();
     this->internalMsg = msg;
 }
 
 PluginUserMessage::~PluginUserMessage()
 {
-    if(this->msgBuffer) delete this->msgBuffer;
 }
 
 bool PluginUserMessage::IsValidMessage()

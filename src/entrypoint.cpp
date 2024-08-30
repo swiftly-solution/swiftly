@@ -264,12 +264,13 @@ void Swiftly::AllPluginsLoaded()
 
 bool Swiftly::Unload(char* error, size_t maxlen)
 {
+    g_addons.Destroy();
+    g_voiceManager.OnShutdown();
+
     g_pluginManager->StopPlugins();
     g_pluginManager->UnloadPlugins();
 
     UnloadHooks();
-    g_voiceManager.OnShutdown();
-    g_addons.Destroy();
     eventManager->Shutdown();
 
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
