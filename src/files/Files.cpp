@@ -24,10 +24,15 @@ std::string Files::Read(std::string path)
     if (!std::filesystem::exists(path))
         return "";
 
-    std::ifstream f(path);
-    std::stringstream strStream;
-    strStream << f.rdbuf();
-    return strStream.str();
+    auto fp = std::fopen(path.c_str(), "rb");
+    std::string s;
+    std::fseek(fp, 0u, SEEK_END);
+    auto size = std::ftell(fp);
+    std::fseek(fp, 0u, SEEK_SET);
+    s.resize(size);
+    std::fread(&s[0], 1u, size, fp);
+    std::fclose(fp);
+    return s;
 }
 
 std::string Files::getBase(std::string filePath)
@@ -52,7 +57,7 @@ void Files::Append(std::string path, std::string content, bool hasdate)
     ChangePath();
     std::filesystem::create_directories(Files::getBase(path));
     time_t now = time(0);
-    tm *ltm = localtime(&now);
+    tm* ltm = localtime(&now);
 
     char date[32];
 
@@ -75,7 +80,7 @@ void Files::Write(std::string path, std::string content, bool hasdate)
     ChangePath();
     std::filesystem::create_directories(Files::getBase(path));
     time_t now = time(0);
-    tm *ltm = localtime(&now);
+    tm* ltm = localtime(&now);
 
     char date[32];
 
@@ -122,7 +127,7 @@ std::vector<std::string> Files::FetchFileNames(std::string path)
     if (!IsDirectory(path))
         return files;
 
-    for (const auto &entry : std::filesystem::directory_iterator(path))
+    for (const auto& entry : std::filesystem::directory_iterator(path))
     {
         if (entry.is_directory())
         {
@@ -146,7 +151,7 @@ std::vector<std::string> Files::FetchDirectories(std::string path)
     if (!IsDirectory(path))
         return directories;
 
-    for (const auto &entry : std::filesystem::directory_iterator(path))
+    for (const auto& entry : std::filesystem::directory_iterator(path))
         if (entry.is_directory())
             directories.push_back(entry.path().string());
 
