@@ -44,17 +44,6 @@ void DatabaseQueryThread()
             if (queue.plugin->GetKind() == PluginKind_t::Lua)
             {
                 lua_State* state = ((LuaPlugin*)queue.plugin)->GetState();
-                std::vector<std::map<std::string, luabridge::LuaRef>> tbl;
-
-                for (uint32_t i = 0; i < queryResult.size(); i++)
-                {
-                    std::map<std::string, luabridge::LuaRef> rowTbl;
-
-                    for (std::map<const char*, std::any>::iterator it = queryResult[i].begin(); it != queryResult[i].end(); ++it)
-                        rowTbl.insert({ it->first, LuaSerializeData(it->second, state) });
-
-                    tbl.push_back(rowTbl);
-                }
 
                 std::string error = queue.db->GetError();
                 if (error == "MySQL server has gone away") {
@@ -68,7 +57,19 @@ void DatabaseQueryThread()
                 }
 
                 luabridge::LuaRef* ref = (luabridge::LuaRef*)queue.callback;
-                auto ExecuteCallback = [error, ref, state, tbl]() -> void {
+                auto ExecuteCallback = [&]() -> void {
+                    std::vector<std::map<std::string, luabridge::LuaRef>> tbl;
+
+                    for (uint32_t i = 0; i < queryResult.size(); i++)
+                    {
+                        std::map<std::string, luabridge::LuaRef> rowTbl;
+
+                        for (std::map<const char*, std::any>::iterator it = queryResult[i].begin(); it != queryResult[i].end(); ++it)
+                            rowTbl.insert({ it->first, LuaSerializeData(it->second, state) });
+
+                        tbl.push_back(rowTbl);
+                    }
+
                     try
                     {
                         if (ref != nullptr) {
