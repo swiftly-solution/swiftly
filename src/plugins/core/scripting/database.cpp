@@ -23,6 +23,40 @@ struct DatabaseQueryQueue
 std::deque<DatabaseQueryQueue> queryQueue;
 bool dbThreadStarted = false;
 
+void DatabaseLuaCallback(std::vector<std::any> values)
+{
+    std::vector<std::map<const char*, std::any>> queryResult = std::any_cast<std::vector<std::map<const char*, std::any>>>(values[0]);
+    lua_State* state = std::any_cast<lua_State*>(values[1]);
+    luabridge::LuaRef* ref = std::any_cast<luabridge::LuaRef*>(values[2]);
+    std::string error = std::any_cast<std::string>(values[3]);
+
+    std::vector<std::map<std::string, luabridge::LuaRef>> tbl;
+
+    for (uint32_t i = 0; i < queryResult.size(); i++)
+    {
+        std::map<std::string, luabridge::LuaRef> rowTbl;
+
+        for (auto it = queryResult[i].begin(); it != queryResult[i].end(); ++it)
+            rowTbl.insert({ it->first, LuaSerializeData(it->second, state) });
+
+        tbl.push_back(rowTbl);
+    }
+
+    try
+    {
+        if (ref != nullptr) {
+            if (ref->isFunction())
+                ref->operator()(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
+
+            delete ref;
+        }
+    }
+    catch (luabridge::LuaException& e)
+    {
+        PRINTF("An error has occured: %s\n", e.what());
+    }
+}
+
 void DatabaseQueryThread()
 {
     while (true)
@@ -58,37 +92,8 @@ void DatabaseQueryThread()
                 }
 
                 luabridge::LuaRef* ref = (luabridge::LuaRef*)queue.callback;
-                auto ExecuteCallback = [ref, queue, state, error](std::any result) -> void {
-                    std::vector<std::map<const char*, std::any>> queryResult = std::any_cast<std::vector<std::map<const char*, std::any>>>(result);
-                    std::vector<std::map<std::string, luabridge::LuaRef>> tbl;
-
-                    for (uint32_t i = 0; i < queryResult.size(); i++)
-                    {
-                        std::map<std::string, luabridge::LuaRef> rowTbl;
-
-                        for (auto it = queryResult[i].begin(); it != queryResult[i].end(); ++it)
-                            rowTbl.insert({ it->first, LuaSerializeData(it->second, state) });
-
-                        tbl.push_back(rowTbl);
-                    }
-
-                    try
-                    {
-                        if (ref != nullptr) {
-                            if (ref->isFunction())
-                                ref->operator()(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
-
-                            delete ref;
-                        }
-                    }
-                    catch (luabridge::LuaException& e)
-                    {
-                        PRINTF("An error has occured: %s\n", e.what());
-                    }
-                    };
-
-                if (currentMap != "None") g_Plugin.NextFrame(ExecuteCallback, queryResult);
-                else ExecuteCallback(queryResult);
+                if (currentMap != "None") g_Plugin.NextFrame(DatabaseLuaCallback, { queryResult, state, ref, error });
+                else DatabaseLuaCallback({ queryResult, state, ref, error });
             }
 
             delete callStack;

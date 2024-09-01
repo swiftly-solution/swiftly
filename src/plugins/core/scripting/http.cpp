@@ -22,6 +22,19 @@ static const std::map<std::string, EHTTPMethod> methodMap = {
     { "PATCH", EHTTPMethod::k_EHTTPMethodPATCH },
 };
 
+void HTTPCallback(std::vector<std::any> values)
+{
+    int status = std::any_cast<int>(values[0]);
+    std::string body = std::any_cast<std::string>(values[1]);
+    std::string headers = std::any_cast<std::string>(values[2]);
+    std::string err = std::any_cast<std::string>(values[3]);
+    std::string reqID = std::any_cast<std::string>(values[4]);
+
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
+    g_pluginManager->ExecuteEvent("core", "OnHTTPActionPerformed", encoders::msgpack::SerializeToString({ status, body, headers, err, reqID }), event);
+    delete event;
+}
+
 std::string CreateMultipartFormData(const std::map<std::string, std::string>& files, const std::string& boundary) {
     std::string formData;
 
@@ -153,11 +166,7 @@ std::string PluginHTTP::PerformHTTPWithRequestID(std::string receivedData, std::
     SteamAPICall_t call;
     g_http->SendHTTPRequest(req, &call);
     new TrackedRequest(req, call, requestID, [](HTTPRequestHandle hndl, int status, std::string body, std::string headers, std::string err, std::string reqID) -> void {
-        g_Plugin.NextFrame([&](std::any value) -> void {
-            PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-            g_pluginManager->ExecuteEvent("core", "OnHTTPActionPerformed", encoders::msgpack::SerializeToString({ status, body, headers, err, reqID }), event);
-            delete event;
-            }, nullptr);
+        g_Plugin.NextFrame(HTTPCallback, { status, body, headers, err, reqID });
         });
 
     return requestID;

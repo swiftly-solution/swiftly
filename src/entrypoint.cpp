@@ -631,7 +631,7 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
     }
 }
 
-void Swiftly::NextFrame(std::function<void(std::any)> fn, std::any param)
+void Swiftly::NextFrame(std::function<void(std::vector<std::any>)> fn, std::vector<std::any> param)
 {
     m_nextFrame.push_back({ fn, param });
 }

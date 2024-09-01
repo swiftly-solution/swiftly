@@ -36,6 +36,7 @@
 #include <deque>
 #include <functional>
 #include <any>
+#include <vector>
 
 #include "common.h"
 
@@ -55,7 +56,7 @@ public:
     void AllPluginsLoaded();
     void OnLevelInit(char const* pMapName, char const* pMapEntities, char const* pOldLevel, char const* pLandmarkName, bool loadGame, bool background);
     void OnLevelShutdown();
-    void NextFrame(std::function<void(std::any)> fn, std::any param);
+    void NextFrame(std::function<void(std::vector<std::any>)> fn, std::vector<std::any> param);
     void UpdatePlayers();
 
 public:
@@ -80,7 +81,7 @@ public:
     const char* GetLogTag();
 
 public:
-    std::deque<std::pair<std::function<void(std::any)>, std::any>> m_nextFrame;
+    std::deque<std::pair<std::function<void(std::vector<std::any>)>, std::vector<std::any>>> m_nextFrame;
 
 public:
     STEAM_GAMESERVER_CALLBACK_MANUAL(Swiftly, OnAddonDownloaded, DownloadItemResult_t, m_CallbackDownloadItemResult);
