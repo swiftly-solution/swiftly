@@ -106,34 +106,9 @@
         "hook_param": "ppup",
         "hook_return": "u"
     },
-    "LoggingSystem_Log": {
+    "CLoggingSystem_LogDirect": {
         "lib": "tier0",
-        "windows": "@LoggingSystem_Log",
-        "linux": "@LoggingSystem_Log"
-    },
-    "LoggingSystem_LogDirect": {
-        "lib": "tier0",
-        "windows": "@LoggingSystem_LogDirect",
-        "linux": "@LoggingSystem_LogDirect"
-    },
-    "LoggingSystem_LogAssert": {
-        "lib": "tier0",
-        "windows": "@LoggingSystem_LogAssert",
-        "linux": "@LoggingSystem_LogAssert"
-    },
-    "Msg": {
-        "lib": "tier0",
-        "windows": "@Msg",
-        "linux": "@Msg"
-    },
-    "Warning": {
-        "lib": "tier0",
-        "windows": "@Warning",
-        "linux": "@Warning"
-    },
-    "ConDMsg": {
-        "lib": "tier0",
-        "windows": "@ConDMsg",
-        "linux": "@ConDMsg"
+        "windows": "4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55",
+        "linux": "55 89 D0 48 89 E5 41 57 41 56 41 55"
     }
 }

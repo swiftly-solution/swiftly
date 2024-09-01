@@ -7,11 +7,7 @@
 #include "../entrypoint.h"
 #include "../common.h"
 
-void Hook_LoggingSystem_LogDirect(int, int, const char *, ...);
-void Hook_LoggingSystem_Log(int, int, const char *, ...);
-void Hook_LoggingSystem_LogAssert(const char *, ...);
-void Hook_Msg(const char *, ...);
-void Hook_Warning(const char *, ...);
+int Hook_CLoggingSystem_LogDirect(void*, int, int, LeafCodeInfo_t*, LoggingMetaData_t*, Color, char const*, va_list*);
 
 class ConsoleFilter
 {
@@ -31,6 +27,6 @@ public:
     bool Status() { return this->m_status; }
 };
 
-extern ConsoleFilter *g_conFilter;
+extern ConsoleFilter* g_conFilter;
 
 #endif

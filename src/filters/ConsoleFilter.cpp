@@ -9,56 +9,23 @@
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 
-FuncHook<decltype(Hook_LoggingSystem_LogDirect)> LoggingSystemt_LogDirect(Hook_LoggingSystem_LogDirect, "LoggingSystem_LogDirect");
-FuncHook<decltype(Hook_LoggingSystem_Log)> LoggingSystemt_Log(Hook_LoggingSystem_Log, "LoggingSystem_Log");
-FuncHook<decltype(Hook_Msg)> TMsg(Hook_Msg, "Msg");
-FuncHook<decltype(Hook_Warning)> TWarning(Hook_Warning, "Warning");
-FuncHook<decltype(Hook_LoggingSystem_LogAssert)> LoggingSystemt_LogAssert(Hook_LoggingSystem_LogAssert, "LoggingSystem_LogAssert");
+FuncHook<decltype(Hook_CLoggingSystem_LogDirect)> CLoggingSystem_LogDirect(Hook_CLoggingSystem_LogDirect, "CLoggingSystem_LogDirect");
 
-#define CHECKLOGS()                                                \
-    va_list args;                                                  \
-    char buffer[4096];                                             \
-    va_start(args, message);                                       \
-                                                                   \
-    size_t len = vsnprintf(buffer, sizeof(buffer), message, args); \
-    if (len >= sizeof(buffer))                                     \
-    {                                                              \
-        len = sizeof(buffer) - 1;                                  \
-        buffer[len] = '\0';                                        \
-    }                                                              \
-    va_end(args);                                                  \
-    if (g_conFilter->Status())                                     \
-        if (g_conFilter->NeedFiltering(buffer))                    \
-            return;
-
-void Hook_LoggingSystem_LogDirect(int channelId, int severity, const char *message, ...)
+int Hook_CLoggingSystem_LogDirect(void* _this, int chan, int severity, LeafCodeInfo_t* leafCode, LoggingMetaData_t* meta, Color color, char const* str, va_list* args)
 {
-    CHECKLOGS();
-    LoggingSystemt_LogDirect(channelId, severity, buffer);
-}
+    if (!g_conFilter->Status()) return CLoggingSystem_LogDirect(_this, chan, severity, leafCode, meta, color, str, args);
 
-void Hook_LoggingSystem_Log(int channelId, int severity, const char *message, ...)
-{
-    CHECKLOGS();
-    LoggingSystemt_Log(channelId, severity, buffer);
-}
+    char buf[MAX_LOGGING_MESSAGE_LENGTH];
 
-void Hook_LoggingSystem_LogAssert(const char *message, ...)
-{
-    CHECKLOGS();
-    LoggingSystemt_LogAssert(buffer);
-}
+    if (args) {
+        va_list cpargs;
+        va_copy(cpargs, *args);
+        V_vsnprintf(buf, sizeof(buf), str, cpargs);
+        va_end(cpargs);
+    }
 
-void Hook_Msg(const char *message, ...)
-{
-    CHECKLOGS()
-    TMsg(buffer);
-}
-
-void Hook_Warning(const char *message, ...)
-{
-    CHECKLOGS()
-    TWarning(buffer);
+    if (g_conFilter->NeedFiltering((args ? buf : str))) return 0;
+    return CLoggingSystem_LogDirect(_this, chan, severity, leafCode, meta, color, str, args);
 }
 
 void ConFilterError(std::string text)
@@ -99,16 +66,16 @@ void ConsoleFilter::LoadFilters()
 
         try
         {
-            std::regex tmp(it->value.GetString(), std::regex_constants::ECMAScript);
+            std::regex tmp(it->value.GetString(), std::regex_constants::ECMAScript | std::regex_constants::optimize | std::regex_constants::nosubs);
         }
-        catch (const std::regex_error &err)
+        catch (const std::regex_error& err)
         {
             ConFilterError(string_format("The regex for \"%s\" is not valid.", key.c_str()));
             ConFilterError(string_format("Error: %s", err.what()));
             continue;
         }
 
-        this->filter.insert({key, std::regex(it->value.GetString(), std::regex_constants::ECMAScript)});
+        this->filter.insert({ key, std::regex(it->value.GetString(), std::regex_constants::ECMAScript | std::regex_constants::optimize | std::regex_constants::nosubs) });
         this->counter.insert(std::make_pair(key, 0));
     }
 }
@@ -118,7 +85,8 @@ bool ConsoleFilter::NeedFiltering(std::string message)
     if (!this->Status())
         return false;
 
-    PERF_RECORD("Console Filter", "core")
+    PERF_RECORD("Console Filter", "core");
+
     for (auto it = this->filter.begin(); it != this->filter.end(); ++it)
     {
         std::string key = it->first;
