@@ -62,6 +62,14 @@ public:
         }
     }
 
+    void RemoveRecipient(CPlayerSlot slot)
+    {
+        if (m_Recipients.Find(slot) == m_Recipients.InvalidIndex())
+            return;
+
+        m_Recipients.FindAndRemove(slot);
+    }
+
 private:
     // Can't copy this unless we explicitly do it!
     CRecipientFilter(CRecipientFilter const& source)

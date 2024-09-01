@@ -4,6 +4,13 @@
 #include "../plugins/core/scripting.h"
 
 int FindClientByNetChannel(INetChannel* pNetChan);
-bool UserMessages_SendNetMessage(INetChannel* pNetChan, CNetMessage* pData, NetChannelBufType_t bufType);
+
+class UserMessages {
+public:
+    void Initialize();
+    void Destroy();
+
+    void PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, IRecipientFilter* filter, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize);
+};
 
 #endif

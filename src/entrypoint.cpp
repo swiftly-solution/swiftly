@@ -113,6 +113,7 @@ Patches* g_Patches = nullptr;
 CallStack* g_callStack = nullptr;
 EventManager* eventManager = nullptr;
 HTTPManager* g_httpManager = nullptr;
+UserMessages* g_userMessages = nullptr;
 VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
@@ -173,6 +174,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_ResourceMonitor = new ResourceMonitor();
     g_callStack = new CallStack();
     eventManager = new EventManager();
+    g_userMessages = new UserMessages();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -191,6 +193,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
     g_addons.LoadAddons();
     g_addons.Initialize();
+    g_userMessages->Initialize();
     eventManager->Initialize();
 
     if (!InitializeHooks())
@@ -266,6 +269,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
 {
     g_addons.Destroy();
     g_voiceManager.OnShutdown();
+    g_userMessages->Destroy();
 
     g_pluginManager->StopPlugins();
     g_pluginManager->UnloadPlugins();
@@ -284,6 +288,25 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
 
     g_pGameEntitySystem->RemoveListenerEntity(&g_entityListener);
+
+    delete g_commandsManager;
+    delete g_Config;
+    delete g_conFilter;
+    delete g_translations;
+    delete g_Logger;
+    delete g_playerManager;
+    delete g_pluginManager;
+    delete g_Offsets;
+    delete g_Signatures;
+    delete g_precacher;
+    delete g_dbManager;
+    delete g_MenuManager;
+    delete g_ResourceMonitor;
+    delete g_Patches;
+    delete g_callStack;
+    delete eventManager;
+    delete g_httpManager;
+    delete g_userMessages;
 
     ConVar_Unregister();
     return true;

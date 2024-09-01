@@ -131,8 +131,6 @@ bool Addons::SendNetMessage(CNetMessage* pData, NetChannelBufType_t bufType)
 {
     CServerSideClient* pClient = META_IFACEPTR(CServerSideClient);
     NetMessageInfo_t* info = pData->GetNetMessage()->GetNetMessageInfo();
-    if (!UserMessages_SendNetMessage(pClient->GetNetChannel(), pData, bufType))
-        RETURN_META_VALUE(MRES_SUPERCEDE, false);
 
     if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         RETURN_META_VALUE(MRES_IGNORED, true);
