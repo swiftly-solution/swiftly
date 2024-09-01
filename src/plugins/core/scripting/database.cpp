@@ -34,6 +34,7 @@ void DatabaseQueryThread()
             if (!queue.db->IsConnected()) {
                 PRINT("The following query has been skipped due to the database not being connected.\n");
                 PRINTF("Query: \"%s\".\n", queue.query.c_str());
+                delete queue.callback;
                 queryQueue.pop_front();
                 continue;
             }
@@ -57,14 +58,15 @@ void DatabaseQueryThread()
                 }
 
                 luabridge::LuaRef* ref = (luabridge::LuaRef*)queue.callback;
-                auto ExecuteCallback = [&]() -> void {
+                auto ExecuteCallback = [ref, queue, state, error](std::any result) -> void {
+                    std::vector<std::map<const char*, std::any>> queryResult = std::any_cast<std::vector<std::map<const char*, std::any>>>(result);
                     std::vector<std::map<std::string, luabridge::LuaRef>> tbl;
 
                     for (uint32_t i = 0; i < queryResult.size(); i++)
                     {
                         std::map<std::string, luabridge::LuaRef> rowTbl;
 
-                        for (std::map<const char*, std::any>::iterator it = queryResult[i].begin(); it != queryResult[i].end(); ++it)
+                        for (auto it = queryResult[i].begin(); it != queryResult[i].end(); ++it)
                             rowTbl.insert({ it->first, LuaSerializeData(it->second, state) });
 
                         tbl.push_back(rowTbl);
@@ -85,8 +87,8 @@ void DatabaseQueryThread()
                     }
                     };
 
-                if (currentMap != "None") g_Plugin.NextFrame(ExecuteCallback);
-                else ExecuteCallback();
+                if (currentMap != "None") g_Plugin.NextFrame(ExecuteCallback, queryResult);
+                else ExecuteCallback(queryResult);
             }
 
             delete callStack;

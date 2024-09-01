@@ -434,7 +434,8 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     ////////////////////////////////////////////////////////////
     while (!m_nextFrame.empty())
     {
-        m_nextFrame.front()();
+        auto pair = m_nextFrame.front();
+        pair.first(pair.second);
         m_nextFrame.pop_front();
     }
 }
@@ -607,9 +608,9 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
     }
 }
 
-void Swiftly::NextFrame(std::function<void()> fn)
+void Swiftly::NextFrame(std::function<void(std::any)> fn, std::any param)
 {
-    m_nextFrame.push_back(fn);
+    m_nextFrame.push_back({ fn, param });
 }
 
 void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)

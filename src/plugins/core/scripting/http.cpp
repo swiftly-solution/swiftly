@@ -153,11 +153,11 @@ std::string PluginHTTP::PerformHTTPWithRequestID(std::string receivedData, std::
     SteamAPICall_t call;
     g_http->SendHTTPRequest(req, &call);
     new TrackedRequest(req, call, requestID, [](HTTPRequestHandle hndl, int status, std::string body, std::string headers, std::string err, std::string reqID) -> void {
-        g_Plugin.NextFrame([&]() -> void {
+        g_Plugin.NextFrame([&](std::any value) -> void {
             PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
             g_pluginManager->ExecuteEvent("core", "OnHTTPActionPerformed", encoders::msgpack::SerializeToString({ status, body, headers, err, reqID }), event);
             delete event;
-            });
+            }, nullptr);
         });
 
     return requestID;
