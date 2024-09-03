@@ -1,7 +1,5 @@
 #include "core.h"
 
-int CustomIndexFunc(lua_State* state);
-
 void SetupLuaClasses(LuaPlugin *plugin, lua_State *state)
 {
     luabridge::getGlobalNamespace(state)
