@@ -42,18 +42,20 @@ void DatabaseLuaCallback(std::vector<std::any> values)
         tbl.push_back(rowTbl);
     }
 
-    try
-    {
-        if (ref != nullptr) {
-            if (ref->isFunction())
-                ref->operator()(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
 
-            delete ref;
+    if (ref != nullptr) {
+        try
+        {
+            luabridge::LuaRef func = *ref;
+            if (func.isFunction())
+                func(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
         }
-    }
-    catch (luabridge::LuaException& e)
-    {
-        PRINTF("An error has occured: %s\n", e.what());
+        catch (luabridge::LuaException& e)
+        {
+            PRINTF("An error has occured: %s\n", e.what());
+        }
+
+        delete ref;
     }
 }
 

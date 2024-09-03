@@ -1,2993 +1,11186 @@
-#include "../../core/scripting/generated/classes.h"
-#include "../../core/scripting_includes.h"
+#include "core.h"
 
-void SetupLuaClassCGlowProperty(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEntityComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayerPawnComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassfogparams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNetworkTransmitComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNetworkViewOffsetVector(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNetworkVelocityVector(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEntityInstance(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPropDataComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHitboxComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVPhysicsCollisionAttribute_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCollisionProperty(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseModelEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCServerOnlyEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseToggle(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseTrigger(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerProximity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicalEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerPush(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerMultiple(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBasePlatTrain(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTonemapTrigger(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEconItemAttribute(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCIronSightController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFogTrigger(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseFilter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPointScriptExtensions_weapon_cs_base(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerHostageReset(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCServerOnlyPointEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCountdownTimer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSceneEventId_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBuoyancyHelper(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMoverPathNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBtNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_ViewModelServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIEconItemInterface(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvSoundscape(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassfogplayerparams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFogController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAttributeList(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelState(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseAnimGraph(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnableMotionFixup(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInButtonState(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBtNodeDecorator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAttributeManager(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFilterHealth(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayerPing(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPointScriptEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNetworkOriginCellCoordQuantizedVector(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoLandmark(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseFlex(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEconItemView(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimGraphNetworkedVariables(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBodyComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvFireSensor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_TeamPreviewCharacterPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvWindShared__WindAveEvent_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseProp(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointGamestatsCounter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysicsShake(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBreakable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathKeyFrame(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerTripWire(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvTilt(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAttributeContainer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItemGenericTriggerHelper(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicBranchList(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassaudioparams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEconEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelPointEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMultiLightProxy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEffectData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEntityBlocker(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicCase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItem(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRuleEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassExtent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEventEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_ViewModelServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBasePlayerWeapon(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoParticleTarget(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvVolumetricFogController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_MovementServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBreakableProp(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvSoundscapeProxy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGameModeRules(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItemAssaultSuit(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoPlayerStart(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundOpvarSetPointBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassragdoll_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItemDogtags(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLightEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_WaterServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSkyboxReference(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDynamicProp(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRopeKeyframe(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBarnLight(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSpawnPoint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvViewPunch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSWeaponBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathCorner(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayerControllerComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponBaseItem(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseCombatCharacter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMultiSource(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicNavigation(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvEntityMaker(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCProjectedDecal(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicEventListener(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterMultiple(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_UseServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCScriptComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysicsWire(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClasslocksound_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPointScriptExtensions_player_controller(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseFire(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBumpMine(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLightGlow(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSPerRoundStats_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBasePropDoor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRagdollManager(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerFan(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseCSGrenade(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathCornerCrash(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHandleTest(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundOpvarSetEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassWeaponPurchaseCount_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavSpaceInfo(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicAchievement(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathSimple(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBtActionParachutePositioning(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_CameraServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTouchExpansionComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEntitySpottedState_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseClientUIEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvDecal(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPointScriptExtensions_entity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGameSceneNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicAuto(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundOpvarSetOBBWindEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLightDirectionalEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicNPCCounter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSObserver_UseServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncPlat(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRuleBrushEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRulePointEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMessageEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSmokeGrenade(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseViewModel(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_PingServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_FlashlightServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCServerOnlyModelEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBtActionCombatPositioning(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFireSmoke(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSWeaponBaseGun(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponGlock(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPredictedViewModel(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerActiveWeaponDetect(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvMicrophone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoSpawnGroupLoadUnload(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBasePlayerController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointTemplateAPI(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCKnife(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncTrackTrain(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFogVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoPlayerCounterterrorist(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFire(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassISkeletonAnimationController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSServerPointScriptEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponBizon(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncPlatRot(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGenericConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDecoyGrenade(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponG3SG1(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItemDefuser(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCConstantForceController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDEagle(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRagdollProp(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItemSoda(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvCubemap(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBasePlayerControllerAPI(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPointScriptExtensions_CCSWeaponBaseVData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvDetailController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerOnce(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoTeleportDestination(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMathRemap(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInstructorEventEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGradientFog(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootstepControl(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoInstructorHintHostageRescueZone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvSoundscapeAlias_snd_soundscape(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFishPool(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointClientCommand(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncVPhysicsClip(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_RadioServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSceneEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvHudHint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleSystem(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAmmoIndex_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClasssky3dparams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCScriptItem(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIntervalTimer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponSG556(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassdynpitchvol_base_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDynamicLight(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponP90(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerToggleSave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPrecipitation(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointServerCommand(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_TeamIntroCharacterPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicCollisionPair(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSkeletonInstance(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysicsProp(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncWall(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItemDefuserAlias_item_defuser(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseGrenade(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayerBase_CameraServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_WingmanIntroCharacterPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSMatchStats_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncLadder(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerSndSosOpvar(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItemHeavyAssaultSuit(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCScriptedSequence(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponNegev(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponGalilAR(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvProjectedTexture(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDynamicPropAlias_prop_dynamic_override(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSceneListManager(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSplineConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSObserver_ViewModelServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDynamicPropAlias_dynamic_prop(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassModelConfigHandle_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysicsPropMultiplayer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncTrackChange(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMarkupVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoPlayerTerrorist(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVelocitySampler(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTankTargetChange(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicCompare(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_BulletServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicRelay(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_ItemServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCKeepUpright(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRevertSaved(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncWater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncTimescale(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBtActionMoveTo(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTonemapController2(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRopeKeyframeAlias_move_rope(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvInstructorVRHint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponXM1014(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlatTrigger(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvWindShared(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMolotovGrenade(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointHurt(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointValueRemapper(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicNPCCounterAABB(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLightOrthoEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvSoundscapeTriggerable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundOpvarSetPointEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBasePlayerPawn(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGameMoney(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicPlayerProxy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_ObserverServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponZoneRepulsor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysImpact(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvCombinedLightProbeVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_WaterServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponM249(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvParticleGlow(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncVehicleClip(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundAreaEntityBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncBrush(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvFunnel(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSequenceHistory_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGameModeRules_Noop(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointAngularVelocitySensor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseCSGrenadeProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHostageRescueZoneShim(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvInstructorHint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvTracer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoGameEventProxy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointCamera(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBodyComponentSkeletonInstance(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncLadderAlias_func_useableladder(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseMoveBehavior(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncInteractionLayerClip(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponMAC10(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGameRules(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponRevolver(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCOrnamentProp(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicGameEvent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvMuzzleFlash(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayerSprayDecal(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBombTarget(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysicsSpring(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvLightProbeVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGameModeRules_ArmsRace(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCScriptTriggerPush(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvEntityIgniter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncWallToggle(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDamageRecord(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicAutosave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayerController_DamageServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRenderComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEventPathCornerEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvSoundscapeProxyAlias_snd_soundscape_proxy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLightComponent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSmokeGrenadeProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCScriptTriggerMultiple(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundOpvarSetAutoRoomEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBodyComponentPoint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFilterDamageType(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBot(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotorController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundAreaEntitySphere(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_UseServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_WingmanIntroCounterTerroristPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItemKevlar(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerHurt(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysBallSocket(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMapVetoPickController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSMinimapBoundary(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEnt(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoSpawnGroupLandmark(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_MovementServices_Humanoid(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerSave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysWheelConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysFixed(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSkillFloat(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayerController_InGameMoneyServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSprite(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundOpvarSetAABBEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponM4A1(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBeam(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCommentaryViewPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTonemapController2Alias_env_tonemap_controller2(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysPulley(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGameRulesProxy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponMP7(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayerController_ActionTrackingServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPrecipitationBlocker(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseFlexAlias_funCBaseFlex(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFish(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvFireSource(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoLadderDismount(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerGameEvent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSimpleConstraintSoundProfile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDebugHistory(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHostageCarriableProp(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLightSpotEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncRotating(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDecoyProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlace(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncTrainControls(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEntityDissolve(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointAngleSensor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEventOBBEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBtNodeCondition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSharedGapTypeQueryRegistration(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvVolumetricFogVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvBeam(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncIllusionary(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysMagnet(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSceneEntityAlias_logic_choreographed_scene(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncNavBlocker(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRagdollMagnet(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncElectrifiedVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointProximitySensor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassWeaponPurchaseTracker_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterClass(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMelee(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMultiplayRules(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterLOS(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEngineCountdownTimer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysBox(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSensorGrenadeProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTimerEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_TeamIntroCounterTerroristPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHEGrenadeProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvWind(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTimeline(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFists(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHandleDummy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRagdollConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysExplosion(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointPush(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCredits(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayerResource(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_WeaponServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAttributeManager__cached_attribute_float_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTeam(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGameModeRules_Deathmatch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncNavObstruction(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerImpact(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSun(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerDetectBulletFire(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWorld(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointGiveAmmo(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncMoveLinear(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathParticleRope(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayerVisibility(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointTeleport(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAK47(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerTeleport(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSObserver_CameraServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_TeamIntroTerroristPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncMover(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_CameraServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHEGrenade(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGameEnd(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerCallback(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBubbling(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTeamplayRules(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysicsPropOverride(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAI_ChangeHintGroup(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCColorCorrectionVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterEnemy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCShower(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvCubemapFog(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseButton(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvExplosion(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEventAABBEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerLook(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEntitySubclassVDataBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicProximity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointClientUIWorldPanel(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterContext(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathParticleRopeAlias_path_particle_rope_clientside(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerBuoyancy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterAttributeInt(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_ActionTrackingServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAISound(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointEntityFinder(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassshard_model_desc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysicsPropRespawnable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvSky(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointVelocitySensor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterMassGreater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFilterTeam(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncTankTrain(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNullEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPointScriptExtensions_observer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMarkupVolumeTagged(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBuyZone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointTemplate(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTripWireFire(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysForce(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicDistanceAutosave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoDynamicShadowHint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundOpvarSetOBBEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvWindShared__WindVariationEvent_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTakeDamageInfoAPI(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCScriptTriggerOnce(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavWalkable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncMonitor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFlashbangProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointClientUIWorldTextPanel(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoInstructorHintTarget(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_HostageServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponSSG08(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBreachCharge(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicBranch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponUMP45(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSpriteAlias_env_glow(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysicalButton(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysLength(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicNPCCounterOBB(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGOViewModel(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponShield(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBlood(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvFade(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDynamicPropAlias_cable_dynamic(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_BuyServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHostageExpresserShim(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInferno(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvGlobal(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterName(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSTeam(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponUSPSilencer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSpriteOriented(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerGravity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCServerRagdollTrigger(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoDynamicShadowHintBox(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathMover(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFlashbang(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponAug(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCIncendiaryGrenade(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCChangeLevel(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerLerpObject(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerSoundscape(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicScript(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponFiveSeven(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerBrush(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysicsEntitySolver(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNetworkedSequenceOperation(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointWorldText(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundAreaEntityOrientedBox(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerPhysics(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEntityRenderAttribute_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointBroadcastClientCommand(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncShatterglass(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRotButton(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEventSphereEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponHKP2000(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlantedC4(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointClientUIDialog(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvSplash(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSkyCamera(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponNOVA(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointCameraVFOV(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponTaser(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWaterBullet(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMarkupVolumeWithRef(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMessage(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicGameEventListener(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPushable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerRemove(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoTarget(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMomentaryRotButton(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPropDoorRotating(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClasshudtextparms_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponMP5SD(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTextureBasedAnimatable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMarkupVolumeTagged_NavGame(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysThruster(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPointScriptExtensions_player(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCitadelSoundOpvarSetOBB(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSellbackPurchaseEntry_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponFamas(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCShatterGlassShardPhysics(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterModel(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayerPawnBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathTrack(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicDistanceCheck(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCOmniLight(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoOffscreenPanoramaTexture(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoVisibilityBox(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGamePlayerEquip(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoTargetServerOnly(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundOpvarSetPathCornerEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_WeaponServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEntityFlame(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponMP9(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSBot(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEntityIdentity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGunTarget(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEventParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSimpleMarkupVolumeTagged(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTestEffect(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponM4A1Silencer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCScriptNavBlocker(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCConstraintAnchor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponTec9(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMarkupVolumeTagged_Nav(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInstancedSceneEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLightEnvironmentEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicActiveAutosave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvBeverage(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponCZ75a(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponP250(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHostage(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCScriptTriggerHurt(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBasePlayerWeaponVData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMathColorBlend(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvScreenOverlay(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayerPawn(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBumpMineProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayerController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCChicken(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoInstructorHintBombTargetA(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponAWP(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSObserverPawn(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPostProcessingVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSpotlightEnd(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGamePlayerZone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSensorGrenade(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_WingmanIntroTerroristPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerDetectExplosion(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundStackSave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassConstraintSoundInfo(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSingleplayRules(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFilterProximity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEconWearable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_ItemServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncConveyor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponMag7(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMathCounter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoWorldLayer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRectLight(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_TeamSelectCharacterPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseDoor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicLineToEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRetakeGameRules(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGameRulesProxy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvCubemapBox(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_DamageReactServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassServerAuthoritativeWeaponSlot_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGameRules(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCColorCorrection(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponElite(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEventEntityAlias_snd_event_point(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseEntityAPI(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCC4(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHostageRescueZone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointPrefab(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRotDoor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSkeletonAnimationController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTablet(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTankTrainAI(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGameGibManager(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPointScript(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRagdollPropAlias_physics_prop_ragdoll(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSSprite(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncPropRespawnZone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoDeathmatchSpawn(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponSCAR20(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTripWireFireProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncTrackAuto(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvSpark(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSObserver_ObserverServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayer_AutoaimServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncTrain(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHostageAlias_info_hostage_spawn(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavLinkAreaEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuncMoveLinearAlias_momentary_door(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCommentaryAuto(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMapInfo(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTriggerBombReset(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseDMStart(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLogicMeasureMovement(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassViewAngleServerChange_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPhysicsRagdollPose_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBreachChargeProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRangeFloat(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimEventListenerBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRelationship_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRemapFloat(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIGapHost_GameEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootstepTableHandle(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayerController_InventoryServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCResponseQueue(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCScriptUniformRandomStream(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParticleIndex_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysHinge(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSimpleSimTimer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSkillDamage(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimEventQueueListener(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvLaser(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFiringModeFloat(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRopeOverlapHit(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassResponseContext_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSObserver_MovementServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGOPlayerAnimGraphState(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGameScriptedMoveData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseAnimGraphController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavVolumeSphere(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCResponseCriteriaSet(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAI_Expresser(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIChoreoServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStopwatchBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassResponseParams(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCItem_Healthshot(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysHingeAlias_phys_hinge_local(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPointCameraSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEnvelope(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassdynpitchvol_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStopwatch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavVolumeVector(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassNavGravity_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnvShake(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysSlideConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSound(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTakeDamageResult(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMolotovProjectile(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCommentarySystem(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassResponseFollowup(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRangeInt(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavLinkAnimgraphVar(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_TeamSelectCounterTerroristPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavLinkMovementVData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimGraphControllerBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRagdollCreationParams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAmmoTypeInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRandStopwatch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGameChoreoServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSimpleStopwatch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCShatterGlassShard(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCommandToolCommand_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassragdollelement_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBodyComponentBaseModelEntity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNetworkOriginQuantizedVector(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassmagnetted_objects_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHintMessageQueue(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSkillInt(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassthinkfunc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavHullPresetVData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBasePlayerVData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSceneEventInfo(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCopyRecipientFilter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPropDoorRotatingBreakable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBtActionAim(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFiringModeInt(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundPatch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSmoothFunc(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIHasAttributes(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRagdollPropAttached(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassHullFlags_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBodyComponentBaseAnimGraph(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassGameAmmoTypeInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysMotor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSimTimer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseIssue(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTakeDamageInfo(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassConceptHistory_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysTorque(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSummaryTakeDamageInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRandSimTimer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBtNodeComposite(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFireCrackerBlast(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClasssndopvarlatchdata_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSGO_TeamSelectTerroristPosition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAI_ExpresserWithFollowup(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavVolumeMarkupVolume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassQuestProgress(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClasslerpdata_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMultiplayer_Expresser(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTakeDamageSummaryScopeGuard(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWeaponSawedoff(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSPlayer_MovementServices(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavHullVData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSoundOpvarTraceResult_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimEventListener(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavVolumeCalculatedVector(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCSWeaponBaseVData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBtNodeConditionInactive(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSAdditionalPerRoundStats_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassActiveModelConfig_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPrecipitationVData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBreakableStageHelper(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavVolumeBreadthFirstSearch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAmbientGeneric(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSAdditionalMatchStats_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIRagdoll(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGameText(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInfoInstructorHintBombTargetB(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavVolumeAll(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNavVolumeSphericalShell(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRelationshipOverride_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParticleAttributeIndex_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleFloatInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVoxelVisBlockOffset_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAggregateLODSetup_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCProductQuantizer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimUpdateNodeRef(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmGraphNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleCollectionFloatInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleFunction(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleFunctionOperator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPARTICLE_WORLD_HANDLE__(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixDynamicsCompressorDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFootStepTrigger(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParticleControlPointDriver_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSphereRigid_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDrawCullingData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimUserDifference(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqMultiFetchFlag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmEvent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimParamHandle(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuseSymbolTable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassGeneratedTextureHandle_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSceneViewId_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPhysFeModelDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCycleBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysSurfacePropertiesSoundNames(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassDynamicMeshDeformParams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDistanceRemainingMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixDynamicsBand_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnCapsule_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimInputDamping(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimTagID(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleFunctionPreEmission(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPerParticleFloatInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupActionSchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFutureFacingMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqTransition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimNodePath(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParamSpanUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimNodeID(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleFunctionInitializer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnFace_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEngineLoopState_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmPoseNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleFunctionConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmStateMachineNode__TransitionDefinition_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimAttachment(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventSimulate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleCollectionRendererFloatInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassModelSkeletonData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventModInitialized_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleTransformInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleVisibilityInputs(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialGroup_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimUpdateNodeBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleFunctionRenderer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleVecInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVPhysXConstraintParams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMorphRectData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventServerPollNetworking_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDspPresetModifierList(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSkeletonDemoDb_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRenderGroom(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCUnaryUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBlendCurve(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassChangeAccessorFieldPathIndex_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeKelagerBend2_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMorphSetData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBinaryUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassconstraint_axislimit_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFuseFunctionIndex_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGeneralSpin(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFeJiggleBone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGlowOverlay(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassTextureControls_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleModelInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmPassthroughNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimDecoder(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassNmPercent_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventProfileStorageAvailable_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPerParticleVecInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBoneMaskUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassConfigIndex(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSimdRodConstraint_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSSDSMsg_EndFrame(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSkeletonBoneBounds_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDSPMixgroupModifier(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBoneConstraintBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventAdvanceTick_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMotionIndex(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimBoneDifference(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootDefinition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootCycle(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionDataSet(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVPhysXSurfacePropertiesList(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleFunctionEmitter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixFilterDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleMassCalculationParameters(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimParamID(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTransitionUpdateData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassManifestTestResource_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFootPinningPoseOpFixedData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootPinningUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLeafUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimMotorUpdaterBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnMesh_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVPhysXAggregateData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSequenceUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_Command(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimParameterBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCompositeMaterialInputLooseVariable_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVecInputMaterialVariable_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCachedPose(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimGraphSettingsGroup(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfig(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFootLockPoseOpFixedSettings(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFlexRule(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupActionSetSoundeventParameterSchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStepsRemainingMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassNmCompressionSettings_t__QuantizationRange_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimParameterManagerUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_RandomColor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimTagBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimComponentID(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimLocalHierarchy(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnShapeDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBoneConstraintPoseSpaceBone__Input_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_SetRenderColor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPhysSoftbodyDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMapResourceData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeCtrlSoftOffset_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMorphBundleData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmBoneMask(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAudioEmphasisSample(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmFrameSnapEvent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCJumpHelperUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSolveIKChainPoseOpFixedSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMaterialAttributeAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCReplicationParameters(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixEnvelopeDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmValueNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFollowPathUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientPostSimulate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAABB_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeNodeBase_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassModelBoneFlexDriverControl_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPostProcessingVignetteParameters_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassConstantInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFuseVariableIndex_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIParticleEffect(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStopAtGoalUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSequenceGroupData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParticleNamedValueConfiguration_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimSkeleton(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimationGraphVisualizerPrimitiveBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBodyGroupAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeAxialEdgeBend_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParamSpanSample_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFunctionInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFourQuaternions(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSkeletonAnimCapture_t__FrameStamp_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqAutoLayerFlag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParamSpan_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmBoolValueNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRenderInputLayoutField_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCPPScriptComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDampedValueComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqPoseSetting(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRenderHairStrandInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCExampleSchemaVData_Monomorphic(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayerSprayDecalRenderHelper(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeTaperedCapsuleRigid_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCChoiceUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIKSolverSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmLayerBlendNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRandomNumberGeneratorParameters(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimationDecodeDebugDumpElement_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmFloatValueNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSSDSMsg_LayerBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupActionSoundeventClusterSchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimationGraphVisualizerAxis(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialResourceData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassBlendItem_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerAnalysisBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupActionLimitSchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeWeightedNode_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLookComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCycleControlUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNetworkVarChainer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnTriangle_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmVectorValueNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqSeqDescFlag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAimCameraOpFixedSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleRemapFloatInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassBaseSceneObjectOverride_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCConcreteAnimParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeAnimStrayRadius_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassModelReference_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnCapsuleDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimGraphDebugReplay(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerSwitch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassLookAtBone_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmBoneMaskValueNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmTransitionEvent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStringAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSkeletonAnimCapture_t__Bone_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStaticPoseCache(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParticlePreviewBodyGroup_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeWorldCollisionParams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPlayerInputAnimMotorUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleCollectionRendererVecInput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeBandBendLimit_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimFoot(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientAdvanceTick_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialOverride_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimDemoCaptureSettings(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmIDEvent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialParam_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSpeedScaleUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixEQ8Desc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_SetMaterialGroupOnAttachedModels(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassTwoBoneIKSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCompositeMaterialInputContainer_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStateNodeStateData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeTwistConstraint_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFootFixedData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixDiffusorDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeProxyVertexMap_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDirectPlaybackUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPostProcessingLocalContrastParameters_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootLockUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParentConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSkeletonAnimCapture_t__Frame_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathParameters(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSlowDownOnSlopesUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAttachment(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEmptyEntityInstance(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCompositeMaterialEditorDoc(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysSurfacePropertiesPhysics(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientPostOutput_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeNodeIntegrator_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnMeshDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimGraphNetworkSettings(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAimConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimActionUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleFunctionForce(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSpinUpdateBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassControlPointReference_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerRandomSampler(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeFollowNode_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCovMatrix3(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimStateID(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerStaticAdditiveSynth(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnSoftbodyCapsule_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_RandomPick(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassNmSyncTrackTime_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGeneralRandomRotation(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnPlane_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeNodeWindBase_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCQuaternionAnimParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSkeletonAnimCapture_t__Camera_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimEncodeDifference(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAggregateSceneObject_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIKDemoCaptureSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleCollectionBindingInstance(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerDefault(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundEventMetaData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMorphConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassDop26_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimGraphModelBinding(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFakeEntityDerivedA_tAPI(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimParamHandleMap(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeMorphLayerDepr_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFourCovMatrices3(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeFitMatrix_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnVertex_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassTraceSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCConstraintTarget(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCompMatPropertyMutator_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIKBoneNameAndIndex_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPermEntityLumpData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixDelayDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBoneConstraintDotToMorph(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPostProcessingBloomParameters_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEntOutput_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFakeEntityDerivedB_tAPI(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSlopeComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnNode_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqCmdSeqDesc(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathAnimMotorUpdaterBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVariantDefaultAllocator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixOscDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeEdgeDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathAnimMotorUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCWayPointHelperUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialParamInt_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPermModelInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimScriptHandle(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeCtrlOffset_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeTri_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLeanMatrixUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStanceScaleUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIKTargetSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassTestResource_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseRendererSource2(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSSDSMsg_ViewRender(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCZeroPoseUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeFitWeight_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootCycleMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootPositionMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFlexOp(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPointConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMotionBlendItem(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVectorQuantizer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSignatureOutflow_Resume(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeBoxRigid_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCIntAnimParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmTargetValueNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventSimpleLoopFrameUpdate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventServerAdvanceTick_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassTimedEvent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassTextureGroup_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupActionSoundeventPrioritySchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBonePositionMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysSurfacePropertiesAudio(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmIDValueNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSimdNodeBase_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPermModelExtPart_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCurrentRotationVelocityMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimEventDefinition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimEnum(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimFrameBlockAnim(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmVirtualParameterIDNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFlashlightEffect(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeBuildSphereRigid_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimEncodedFrames(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventSetTime_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassOldFeEdge_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStanceOverrideUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassconstraint_breakableparams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStateNodeTransitionData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionMatchingUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmSyncTrack__Event_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventSplitScreenStateChanged_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParticleNamedValueSource_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialParamBuffer_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventPostDataUpdate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRenderProjectedMaterial_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSSDSMsg_ViewTargetList(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSimdAnimStrayRadius_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimUser(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSpringIntegrator_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_UserPick(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRenderSkeletonBone_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimationDecodeDebugDump_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPARTICLE_EHANDLE__(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeCollisionPlane_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimCycle(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmSyncTrack__EventMarker_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimGraphSettingsManager(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRagdollUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEntityComponentHelper(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCompositeMaterial_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSignatureOutflow_Continue(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassWeightList(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnBodyDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFeMorphLayer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimNodeOutputID(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientSceneSystemThreadStateChange_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientPreSimulate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassClutterSceneObject_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPoseHandle(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimScriptBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerBlender(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassvphysics_save_cphysicsbody_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRagdollAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIClientAlphaProperty(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPermModelData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFootFixedSettings(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSolveIKTargetHandle_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBlendUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimationGraphVisualizerSphere(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialParamFloat_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventServerSimulate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerEnvelopeAnalyzer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFollowAttachmentSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassJiggleBoneSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimStateMachineUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmControlParameterFloatNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqCmdLayer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimScriptComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeRigidColliderIndices_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqAutoLayer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassBakedLightingInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCExampleSchemaVData_PolymorphicBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFourVectors2D(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCOrientConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSequenceWeightedList_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupActionMemberCountEnvelopeSchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeRodConstraint_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFollowTargetOpFixedSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRenderSkeleton(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixConvolutionDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupBranchPattern(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmGraphDefinition__ExternalGraphSlot_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmStateMachineNode__StateDefinition_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_SetBodygroupOnAttachedModels(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmFootEvent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHandshakeAnimTagBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBlend2DUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimationSnapshotBase_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTiltTwistConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialParamTexture_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGlobalLightBase(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_SetBodygroup(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_AttachedModel(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFollowAttachmentUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParticleChildrenInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerNull(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMoodAnimation_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCClientAlphaProperty(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTimeRemainingMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassNmSyncTrackTimeRange_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimActivity(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmGraphDefinition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSolveIKChainUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientPollNetworking_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMeshletDescriptor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmLayerBlendNode__LayerDefinition_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimSequenceParams(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDemoSettingsComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCompositeMaterialAssemblyProcedure_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTaskHandshakeAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientPauseSimulate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFireOverlay(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeBuildTaperedCapsuleRigid_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStateUpdateData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPhysSurfaceProperties(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionSearchNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixVocoderDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimScriptManager(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimationGraphVisualizerLine(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootTrajectory(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixModDelayDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHitBox(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTestDomainDerived_Cursor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAudioMorphData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqIKLock(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeQuad_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupMatchPattern(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSSDSEndFrameViewInfo(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmExternalGraphNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMoverUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnHull_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMoodVData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientFrameSimulate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRagdollComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionNodeBlend1D(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmControlParameterVectorNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCPathHelperUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqPoseParamDesc(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixPitchShiftDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAudioSentence(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRenderBufferBinding(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStaticPoseCacheBuilder(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmRootMotionData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimReplayFrame(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmVirtualParameterBoneMaskNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBlockSelectionMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionGraph(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosSoundEventGroupSchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootMotion(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDampedValueUpdateItem(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnHalfEdge_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimDataChannelDesc(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientProcessNetworking_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigList(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmGraphVariation(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupActionTimeBlockLimitSchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixDynamics3BandDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCModelConfigElement_SetMaterialGroup(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMovementHandshakeAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqScaleSet(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientProcessGameInput_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVsInputSignatureElement_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCompositeMaterialMatchFilter_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVertexPositionColor_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootTrajectories(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSceneObject_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSSDSMsg_ViewTarget(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixSubgraphSwitchDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmTransitionNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMotionDBIndex(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCToggleComponentActionUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmControlParameterIDNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPostProcessingTonemapParameters_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixAutoFilterDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqMultiFetch(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmStateMachineNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBoneConstraintPoseSpaceMorph(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSSDSMsg_PreLayer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSelectorUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAimCameraUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootStepTriggerUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnSoftbodyParticle_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSingleFrameUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqSynthAnimDesc(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDirectPlaybackTagData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventFrameBoundary_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassWorldNode_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAggregateMeshInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSimdRodConstraintAnim_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventPostAdvanceTick_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeBuildBoxRigid_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIPhysicsPlayerController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventServerPostAdvanceTick_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientPreOutput_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnSoftbodySpring_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeNodeReverseOffset_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnHullDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSymbolAnimParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeStiffHingeBuild_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassExtraVertexStreamOverride_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEntityIOConnectionData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSkeletonAnimCapture_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStateActionUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqS1SeqDesc(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAimMatrixOpFixedSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParticlePreviewState_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeCtrlOsOffset_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMorphData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAimMatrixUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDirectionalBlendUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixPannerDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSimdSpringIntegrator_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassModelBoneFlexDriver_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBoolAnimParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventAppShutdown_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassResourceId_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerRealtimeFMSineWave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmVirtualParameterBoolNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmSyncTrack(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassTagSpan_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmStateNode__TimedEvent_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmControlParameterTargetNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootstepLandedAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEnumAnimParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimationGraphVisualizerPie(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassAnimationSnapshot_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVPhysXCollisionAttributes_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCActionComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmVirtualParameterVectorNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimFrameSegment(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCClothSettingsAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVariableInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixShaperDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSoundInfoHeader(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerDecayingSineWave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCycleControlClipUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBaseTrailRenderer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBoneConstraintPoseSpaceBone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventServerPostSimulate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCChoreoUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmSkeleton(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixBoxverbDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeTreeChildren_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSceneObjectData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassStanceInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionNodeSequence(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootCycleDefinition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimDesc_Flag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBoneVelocityMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFuseProgram(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFeVertexMapBuildArray(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSoftParent_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootFallAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientOutput_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialVariable_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFeNamedJiggleBone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientProcessInput_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassJiggleBoneSettingsList_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSequenceFinishedAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimationGraphVisualizerText(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDampedPathAnimMotorUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassLookAtOpFixedSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEntityIOOutput(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDSPPresetMixgroupModifierTable(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnWing_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmChildGraphNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixPlateverbDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionSearchDB(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVPhysics2ShapeDef_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassWorldBuilderParams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootAdjustmentUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmClipNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimMorphDifference(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassIParticleCollection(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmGraphDefinition__ChildGraphSlot_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFutureVelocityMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleProperty(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVertexPositionNormal_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeEffectDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLODComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmLegacyEvent(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialParamVector_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionGraphGroup(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassHitReactFixedSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRootUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimMovement(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCConstraintSlave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSeqBoneMaskList(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPermModelDataAnimatedMaterialAttribute_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassScriptInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVPhysXRange_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCJiggleBoneUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCollisionGroupContext_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAudioPhonemeTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSosEditItemInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeFitInfluence_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInputStreamUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientPollInput_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSimdQuad_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEmitTagActionUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAddUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimTagManagerUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSampleCode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCExpressionActionUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientPostAdvanceTick_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassBoneDemoCaptureSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVPhysXBodyPart_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCDecalInfo(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassParticleControlPointConfiguration_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixUtilityDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionGraphConfig(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMovementComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPointDefinition_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixEffectChainDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHitReactUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEntInput_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmVirtualParameterFloatNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCParticleSystemDefinition(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerSelector(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRegionSVM(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSetParameterActionUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimUpdateSharedData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientSimulate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoiceContainerAmpedDecayingSineWave(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassClutterTile_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPointDefinitionWithTimeValues_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeVertexMapBuild_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimDesc(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTwistConstraint(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNewParticleEffect(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFeIndexedJiggleBone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFloatAnimParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnBlendVertex_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVirtualAnimParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHitBoxSetList(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassMaterialParamString_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVsInputSignature_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassInfoOverlayData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCastSphereSATParams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBindPoseUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixFreeverbDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCCurrentVelocityMetricEvaluator(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVoxelVisibility(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassSelectedEditItemInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassChainToSolveData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCGlowSprite(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSSDSMsg_PostLayer(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimBone(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVPhysXConstraint2_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCEditableMotionGraph(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimKeyData(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventPreDataUpdate_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassWorld_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCVectorAnimParameter(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmControlParameterBoolNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStateMachineUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCHitBoxSet(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCExampleSchemaVData_PolymorphicDerivedB(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSimdTri_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassPostProcessingResource_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmStateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassNodeData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTaskStatusAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMaterialDrawDescriptor(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventServerProcessNetworking_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCInterpolatedValue(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCMotionGraphUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCLookAtUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFlexController(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCExampleSchemaVData_PolymorphicDerivedA(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEntityKeyValueData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFootStride(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAnimationGroup(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSubtractUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeTaperedCapsuleStretch_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassWorldNodeOnDiskBufferData_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEntComponentInfo_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCClientGapTypeQueryRegistration(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmVirtualParameterTargetNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCAudioAnimTag(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCRenderMesh(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassconstraint_hingeparams_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassNmCompressionSettings_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTurnHelperUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosGroupActionTimeLimitSchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFollowTargetUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassEventClientAdvanceNonRenderedFrame_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCSosSoundEventGroupListSchema(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmClip(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCFlexDesc(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCStateMachineComponentUpdater(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCompMatMutatorCondition_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFakeEntity_tAPI(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBoneConstraintPoseSpaceMorph__Input_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCTwoBoneIKUpdateNode(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVMixDynamicsDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeVertexMapDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassFeSourceEdge_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCompositeMaterialEditorPoint_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassVPhysXJoint_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCBodyGroupSetting(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassRnSphereDesc_t(LuaPlugin *plugin, lua_State *state);
-void SetupLuaClassCNmTarget(LuaPlugin *plugin, lua_State *state);
+int CustomIndexFunc(lua_State* state);
 
 void SetupLuaClasses(LuaPlugin *plugin, lua_State *state)
 {
-    SetupLuaClassCGlowProperty(plugin, state);
-    SetupLuaClassCEntityComponent(plugin, state);
-    SetupLuaClassCPlayerPawnComponent(plugin, state);
-    SetupLuaClassfogparams_t(plugin, state);
-    SetupLuaClassCNetworkTransmitComponent(plugin, state);
-    SetupLuaClassCNetworkViewOffsetVector(plugin, state);
-    SetupLuaClassCNetworkVelocityVector(plugin, state);
-    SetupLuaClassCEntityInstance(plugin, state);
-    SetupLuaClassCBaseEntity(plugin, state);
-    SetupLuaClassCPropDataComponent(plugin, state);
-    SetupLuaClassCHitboxComponent(plugin, state);
-    SetupLuaClassVPhysicsCollisionAttribute_t(plugin, state);
-    SetupLuaClassCCollisionProperty(plugin, state);
-    SetupLuaClassCBaseModelEntity(plugin, state);
-    SetupLuaClassCServerOnlyEntity(plugin, state);
-    SetupLuaClassCBaseToggle(plugin, state);
-    SetupLuaClassCBaseTrigger(plugin, state);
-    SetupLuaClassCTriggerProximity(plugin, state);
-    SetupLuaClassCLogicalEntity(plugin, state);
-    SetupLuaClassCTriggerPush(plugin, state);
-    SetupLuaClassCTriggerMultiple(plugin, state);
-    SetupLuaClassCBasePlatTrain(plugin, state);
-    SetupLuaClassCTonemapTrigger(plugin, state);
-    SetupLuaClassCEconItemAttribute(plugin, state);
-    SetupLuaClassCIronSightController(plugin, state);
-    SetupLuaClassCFogTrigger(plugin, state);
-    SetupLuaClassCBaseFilter(plugin, state);
-    SetupLuaClassCCSPointScriptExtensions_weapon_cs_base(plugin, state);
-    SetupLuaClassCTriggerHostageReset(plugin, state);
-    SetupLuaClassCServerOnlyPointEntity(plugin, state);
-    SetupLuaClassCPointEntity(plugin, state);
-    SetupLuaClassCountdownTimer(plugin, state);
-    SetupLuaClassSceneEventId_t(plugin, state);
-    SetupLuaClassCBuoyancyHelper(plugin, state);
-    SetupLuaClassCMoverPathNode(plugin, state);
-    SetupLuaClassCBtNode(plugin, state);
-    SetupLuaClassCPlayer_ViewModelServices(plugin, state);
-    SetupLuaClassIEconItemInterface(plugin, state);
-    SetupLuaClassCEnvSoundscape(plugin, state);
-    SetupLuaClassfogplayerparams_t(plugin, state);
-    SetupLuaClassCFogController(plugin, state);
-    SetupLuaClassCAttributeList(plugin, state);
-    SetupLuaClassCModelState(plugin, state);
-    SetupLuaClassCBaseAnimGraph(plugin, state);
-    SetupLuaClassCEnableMotionFixup(plugin, state);
-    SetupLuaClassCInButtonState(plugin, state);
-    SetupLuaClassCBtNodeDecorator(plugin, state);
-    SetupLuaClassCAttributeManager(plugin, state);
-    SetupLuaClassFilterHealth(plugin, state);
-    SetupLuaClassCPlayerPing(plugin, state);
-    SetupLuaClassCCSPointScriptEntity(plugin, state);
-    SetupLuaClassCNetworkOriginCellCoordQuantizedVector(plugin, state);
-    SetupLuaClassCInfoLandmark(plugin, state);
-    SetupLuaClassCBaseFlex(plugin, state);
-    SetupLuaClassCEconItemView(plugin, state);
-    SetupLuaClassCAnimGraphNetworkedVariables(plugin, state);
-    SetupLuaClassCBodyComponent(plugin, state);
-    SetupLuaClassCEnvFireSensor(plugin, state);
-    SetupLuaClassCCSGO_TeamPreviewCharacterPosition(plugin, state);
-    SetupLuaClassCEnvWindShared__WindAveEvent_t(plugin, state);
-    SetupLuaClassCBaseProp(plugin, state);
-    SetupLuaClassCPointGamestatsCounter(plugin, state);
-    SetupLuaClassCPhysicsShake(plugin, state);
-    SetupLuaClassCBreakable(plugin, state);
-    SetupLuaClassCPathKeyFrame(plugin, state);
-    SetupLuaClassCTriggerTripWire(plugin, state);
-    SetupLuaClassCEnvTilt(plugin, state);
-    SetupLuaClassCAttributeContainer(plugin, state);
-    SetupLuaClassCItemGenericTriggerHelper(plugin, state);
-    SetupLuaClassCLogicBranchList(plugin, state);
-    SetupLuaClassaudioparams_t(plugin, state);
-    SetupLuaClassCEconEntity(plugin, state);
-    SetupLuaClassCModelPointEntity(plugin, state);
-    SetupLuaClassCMultiLightProxy(plugin, state);
-    SetupLuaClassCEffectData(plugin, state);
-    SetupLuaClassCEntityBlocker(plugin, state);
-    SetupLuaClassCLogicCase(plugin, state);
-    SetupLuaClassCItem(plugin, state);
-    SetupLuaClassCRuleEntity(plugin, state);
-    SetupLuaClassExtent(plugin, state);
-    SetupLuaClassCSoundEventEntity(plugin, state);
-    SetupLuaClassCCSPlayer_ViewModelServices(plugin, state);
-    SetupLuaClassCBasePlayerWeapon(plugin, state);
-    SetupLuaClassCInfoParticleTarget(plugin, state);
-    SetupLuaClassCEnvVolumetricFogController(plugin, state);
-    SetupLuaClassCPlayer_MovementServices(plugin, state);
-    SetupLuaClassCBreakableProp(plugin, state);
-    SetupLuaClassCEnvSoundscapeProxy(plugin, state);
-    SetupLuaClassCPhysConstraint(plugin, state);
-    SetupLuaClassCCSGameModeRules(plugin, state);
-    SetupLuaClassCItemAssaultSuit(plugin, state);
-    SetupLuaClassCInfoPlayerStart(plugin, state);
-    SetupLuaClassCSoundOpvarSetPointBase(plugin, state);
-    SetupLuaClassragdoll_t(plugin, state);
-    SetupLuaClassCItemDogtags(plugin, state);
-    SetupLuaClassCLightEntity(plugin, state);
-    SetupLuaClassCPlayer_WaterServices(plugin, state);
-    SetupLuaClassCSkyboxReference(plugin, state);
-    SetupLuaClassCDynamicProp(plugin, state);
-    SetupLuaClassCRopeKeyframe(plugin, state);
-    SetupLuaClassCBarnLight(plugin, state);
-    SetupLuaClassSpawnPoint(plugin, state);
-    SetupLuaClassCEnvViewPunch(plugin, state);
-    SetupLuaClassCCSWeaponBase(plugin, state);
-    SetupLuaClassCPathCorner(plugin, state);
-    SetupLuaClassCPlayerControllerComponent(plugin, state);
-    SetupLuaClassCWeaponBaseItem(plugin, state);
-    SetupLuaClassCBaseCombatCharacter(plugin, state);
-    SetupLuaClassCMultiSource(plugin, state);
-    SetupLuaClassCLogicNavigation(plugin, state);
-    SetupLuaClassCEnvEntityMaker(plugin, state);
-    SetupLuaClassCProjectedDecal(plugin, state);
-    SetupLuaClassCLogicEventListener(plugin, state);
-    SetupLuaClassCFilterMultiple(plugin, state);
-    SetupLuaClassCPlayer_UseServices(plugin, state);
-    SetupLuaClassCScriptComponent(plugin, state);
-    SetupLuaClassCPhysicsWire(plugin, state);
-    SetupLuaClasslocksound_t(plugin, state);
-    SetupLuaClassCCSPointScriptExtensions_player_controller(plugin, state);
-    SetupLuaClassCBaseFire(plugin, state);
-    SetupLuaClassCBumpMine(plugin, state);
-    SetupLuaClassCLightGlow(plugin, state);
-    SetupLuaClassCSPerRoundStats_t(plugin, state);
-    SetupLuaClassCBasePropDoor(plugin, state);
-    SetupLuaClassCRagdollManager(plugin, state);
-    SetupLuaClassCTriggerFan(plugin, state);
-    SetupLuaClassCBaseCSGrenade(plugin, state);
-    SetupLuaClassCPathCornerCrash(plugin, state);
-    SetupLuaClassCHandleTest(plugin, state);
-    SetupLuaClassCSoundOpvarSetEntity(plugin, state);
-    SetupLuaClassWeaponPurchaseCount_t(plugin, state);
-    SetupLuaClassCNavSpaceInfo(plugin, state);
-    SetupLuaClassCLogicAchievement(plugin, state);
-    SetupLuaClassCPathSimple(plugin, state);
-    SetupLuaClassCBtActionParachutePositioning(plugin, state);
-    SetupLuaClassCPlayer_CameraServices(plugin, state);
-    SetupLuaClassCTouchExpansionComponent(plugin, state);
-    SetupLuaClassEntitySpottedState_t(plugin, state);
-    SetupLuaClassCBaseClientUIEntity(plugin, state);
-    SetupLuaClassCEnvDecal(plugin, state);
-    SetupLuaClassCCSPointScriptExtensions_entity(plugin, state);
-    SetupLuaClassCGameSceneNode(plugin, state);
-    SetupLuaClassCLogicAuto(plugin, state);
-    SetupLuaClassCSoundOpvarSetOBBWindEntity(plugin, state);
-    SetupLuaClassCLightDirectionalEntity(plugin, state);
-    SetupLuaClassCLogicNPCCounter(plugin, state);
-    SetupLuaClassCCSObserver_UseServices(plugin, state);
-    SetupLuaClassCFuncPlat(plugin, state);
-    SetupLuaClassCRuleBrushEntity(plugin, state);
-    SetupLuaClassCRulePointEntity(plugin, state);
-    SetupLuaClassCMessageEntity(plugin, state);
-    SetupLuaClassCSmokeGrenade(plugin, state);
-    SetupLuaClassCBaseViewModel(plugin, state);
-    SetupLuaClassCCSPlayer_PingServices(plugin, state);
-    SetupLuaClassCPlayer_FlashlightServices(plugin, state);
-    SetupLuaClassCServerOnlyModelEntity(plugin, state);
-    SetupLuaClassCBtActionCombatPositioning(plugin, state);
-    SetupLuaClassCFireSmoke(plugin, state);
-    SetupLuaClassCCSWeaponBaseGun(plugin, state);
-    SetupLuaClassCWeaponGlock(plugin, state);
-    SetupLuaClassCPredictedViewModel(plugin, state);
-    SetupLuaClassCTriggerActiveWeaponDetect(plugin, state);
-    SetupLuaClassCEnvMicrophone(plugin, state);
-    SetupLuaClassCInfoSpawnGroupLoadUnload(plugin, state);
-    SetupLuaClassCBasePlayerController(plugin, state);
-    SetupLuaClassCPointTemplateAPI(plugin, state);
-    SetupLuaClassCKnife(plugin, state);
-    SetupLuaClassCFuncTrackTrain(plugin, state);
-    SetupLuaClassCFogVolume(plugin, state);
-    SetupLuaClassCInfoPlayerCounterterrorist(plugin, state);
-    SetupLuaClassCFire(plugin, state);
-    SetupLuaClassISkeletonAnimationController(plugin, state);
-    SetupLuaClassCCSServerPointScriptEntity(plugin, state);
-    SetupLuaClassCWeaponBizon(plugin, state);
-    SetupLuaClassCFuncPlatRot(plugin, state);
-    SetupLuaClassCGenericConstraint(plugin, state);
-    SetupLuaClassCDecoyGrenade(plugin, state);
-    SetupLuaClassCWeaponG3SG1(plugin, state);
-    SetupLuaClassCItemDefuser(plugin, state);
-    SetupLuaClassCConstantForceController(plugin, state);
-    SetupLuaClassCDEagle(plugin, state);
-    SetupLuaClassCRagdollProp(plugin, state);
-    SetupLuaClassCItemSoda(plugin, state);
-    SetupLuaClassCEnvCubemap(plugin, state);
-    SetupLuaClassCBasePlayerControllerAPI(plugin, state);
-    SetupLuaClassCCSPointScriptExtensions_CCSWeaponBaseVData(plugin, state);
-    SetupLuaClassCEnvDetailController(plugin, state);
-    SetupLuaClassCTriggerOnce(plugin, state);
-    SetupLuaClassCInfoTeleportDestination(plugin, state);
-    SetupLuaClassCMathRemap(plugin, state);
-    SetupLuaClassCInstructorEventEntity(plugin, state);
-    SetupLuaClassCGradientFog(plugin, state);
-    SetupLuaClassCFootstepControl(plugin, state);
-    SetupLuaClassCTriggerVolume(plugin, state);
-    SetupLuaClassCInfoInstructorHintHostageRescueZone(plugin, state);
-    SetupLuaClassCEnvSoundscapeAlias_snd_soundscape(plugin, state);
-    SetupLuaClassCFishPool(plugin, state);
-    SetupLuaClassCPointClientCommand(plugin, state);
-    SetupLuaClassCFuncVPhysicsClip(plugin, state);
-    SetupLuaClassCCSPlayer_RadioServices(plugin, state);
-    SetupLuaClassCSceneEntity(plugin, state);
-    SetupLuaClassCEnvHudHint(plugin, state);
-    SetupLuaClassCParticleSystem(plugin, state);
-    SetupLuaClassAmmoIndex_t(plugin, state);
-    SetupLuaClasssky3dparams_t(plugin, state);
-    SetupLuaClassCScriptItem(plugin, state);
-    SetupLuaClassIntervalTimer(plugin, state);
-    SetupLuaClassCWeaponSG556(plugin, state);
-    SetupLuaClassdynpitchvol_base_t(plugin, state);
-    SetupLuaClassCDynamicLight(plugin, state);
-    SetupLuaClassCWeaponP90(plugin, state);
-    SetupLuaClassCTriggerToggleSave(plugin, state);
-    SetupLuaClassCPrecipitation(plugin, state);
-    SetupLuaClassCPointServerCommand(plugin, state);
-    SetupLuaClassCCSGO_TeamIntroCharacterPosition(plugin, state);
-    SetupLuaClassCLogicCollisionPair(plugin, state);
-    SetupLuaClassCSkeletonInstance(plugin, state);
-    SetupLuaClassCPhysicsProp(plugin, state);
-    SetupLuaClassCFuncWall(plugin, state);
-    SetupLuaClassCItemDefuserAlias_item_defuser(plugin, state);
-    SetupLuaClassCBaseGrenade(plugin, state);
-    SetupLuaClassCCSPlayerBase_CameraServices(plugin, state);
-    SetupLuaClassCCSGO_WingmanIntroCharacterPosition(plugin, state);
-    SetupLuaClassCSMatchStats_t(plugin, state);
-    SetupLuaClassCFuncLadder(plugin, state);
-    SetupLuaClassCTriggerSndSosOpvar(plugin, state);
-    SetupLuaClassCItemHeavyAssaultSuit(plugin, state);
-    SetupLuaClassCScriptedSequence(plugin, state);
-    SetupLuaClassCWeaponNegev(plugin, state);
-    SetupLuaClassCWeaponGalilAR(plugin, state);
-    SetupLuaClassCEnvProjectedTexture(plugin, state);
-    SetupLuaClassCDynamicPropAlias_prop_dynamic_override(plugin, state);
-    SetupLuaClassCSceneListManager(plugin, state);
-    SetupLuaClassCSplineConstraint(plugin, state);
-    SetupLuaClassCCSObserver_ViewModelServices(plugin, state);
-    SetupLuaClassCDynamicPropAlias_dynamic_prop(plugin, state);
-    SetupLuaClassModelConfigHandle_t(plugin, state);
-    SetupLuaClassCPhysicsPropMultiplayer(plugin, state);
-    SetupLuaClassCFuncTrackChange(plugin, state);
-    SetupLuaClassCMarkupVolume(plugin, state);
-    SetupLuaClassCInfoPlayerTerrorist(plugin, state);
-    SetupLuaClassVelocitySampler(plugin, state);
-    SetupLuaClassCTankTargetChange(plugin, state);
-    SetupLuaClassCLogicCompare(plugin, state);
-    SetupLuaClassCCSPlayer_BulletServices(plugin, state);
-    SetupLuaClassCLogicRelay(plugin, state);
-    SetupLuaClassCPlayer_ItemServices(plugin, state);
-    SetupLuaClassCKeepUpright(plugin, state);
-    SetupLuaClassCRevertSaved(plugin, state);
-    SetupLuaClassCFuncWater(plugin, state);
-    SetupLuaClassCFuncTimescale(plugin, state);
-    SetupLuaClassCBtActionMoveTo(plugin, state);
-    SetupLuaClassCTonemapController2(plugin, state);
-    SetupLuaClassCRopeKeyframeAlias_move_rope(plugin, state);
-    SetupLuaClassCEnvInstructorVRHint(plugin, state);
-    SetupLuaClassCWeaponXM1014(plugin, state);
-    SetupLuaClassCPlatTrigger(plugin, state);
-    SetupLuaClassCEnvWindShared(plugin, state);
-    SetupLuaClassCMolotovGrenade(plugin, state);
-    SetupLuaClassCPointHurt(plugin, state);
-    SetupLuaClassCPointValueRemapper(plugin, state);
-    SetupLuaClassCLogicNPCCounterAABB(plugin, state);
-    SetupLuaClassCLightOrthoEntity(plugin, state);
-    SetupLuaClassCEnvSoundscapeTriggerable(plugin, state);
-    SetupLuaClassCSoundOpvarSetPointEntity(plugin, state);
-    SetupLuaClassCBasePlayerPawn(plugin, state);
-    SetupLuaClassCGameMoney(plugin, state);
-    SetupLuaClassCLogicPlayerProxy(plugin, state);
-    SetupLuaClassCPlayer_ObserverServices(plugin, state);
-    SetupLuaClassCWeaponZoneRepulsor(plugin, state);
-    SetupLuaClassCPhysImpact(plugin, state);
-    SetupLuaClassCEnvCombinedLightProbeVolume(plugin, state);
-    SetupLuaClassCCSPlayer_WaterServices(plugin, state);
-    SetupLuaClassCWeaponM249(plugin, state);
-    SetupLuaClassCEnvParticleGlow(plugin, state);
-    SetupLuaClassCFuncVehicleClip(plugin, state);
-    SetupLuaClassCSoundAreaEntityBase(plugin, state);
-    SetupLuaClassCFuncBrush(plugin, state);
-    SetupLuaClassCEnvFunnel(plugin, state);
-    SetupLuaClassSequenceHistory_t(plugin, state);
-    SetupLuaClassCCSGameModeRules_Noop(plugin, state);
-    SetupLuaClassCPointAngularVelocitySensor(plugin, state);
-    SetupLuaClassCBaseCSGrenadeProjectile(plugin, state);
-    SetupLuaClassCHostageRescueZoneShim(plugin, state);
-    SetupLuaClassCEnvInstructorHint(plugin, state);
-    SetupLuaClassCEnvTracer(plugin, state);
-    SetupLuaClassCInfoGameEventProxy(plugin, state);
-    SetupLuaClassCPointCamera(plugin, state);
-    SetupLuaClassCBodyComponentSkeletonInstance(plugin, state);
-    SetupLuaClassCFuncLadderAlias_func_useableladder(plugin, state);
-    SetupLuaClassCBaseMoveBehavior(plugin, state);
-    SetupLuaClassCFuncInteractionLayerClip(plugin, state);
-    SetupLuaClassCWeaponMAC10(plugin, state);
-    SetupLuaClassCGameRules(plugin, state);
-    SetupLuaClassCWeaponRevolver(plugin, state);
-    SetupLuaClassCOrnamentProp(plugin, state);
-    SetupLuaClassCLogicGameEvent(plugin, state);
-    SetupLuaClassCEnvMuzzleFlash(plugin, state);
-    SetupLuaClassCPlayerSprayDecal(plugin, state);
-    SetupLuaClassCBombTarget(plugin, state);
-    SetupLuaClassCPhysicsSpring(plugin, state);
-    SetupLuaClassCEnvLightProbeVolume(plugin, state);
-    SetupLuaClassCCSGameModeRules_ArmsRace(plugin, state);
-    SetupLuaClassCScriptTriggerPush(plugin, state);
-    SetupLuaClassCEnvEntityIgniter(plugin, state);
-    SetupLuaClassCFuncWallToggle(plugin, state);
-    SetupLuaClassCDamageRecord(plugin, state);
-    SetupLuaClassCLogicAutosave(plugin, state);
-    SetupLuaClassCCSPlayerController_DamageServices(plugin, state);
-    SetupLuaClassCRenderComponent(plugin, state);
-    SetupLuaClassCSoundEventPathCornerEntity(plugin, state);
-    SetupLuaClassCEnvSoundscapeProxyAlias_snd_soundscape_proxy(plugin, state);
-    SetupLuaClassCLightComponent(plugin, state);
-    SetupLuaClassCSmokeGrenadeProjectile(plugin, state);
-    SetupLuaClassCScriptTriggerMultiple(plugin, state);
-    SetupLuaClassCSoundOpvarSetAutoRoomEntity(plugin, state);
-    SetupLuaClassCBodyComponentPoint(plugin, state);
-    SetupLuaClassFilterDamageType(plugin, state);
-    SetupLuaClassCBot(plugin, state);
-    SetupLuaClassCMotorController(plugin, state);
-    SetupLuaClassCSoundAreaEntitySphere(plugin, state);
-    SetupLuaClassCCSPlayer_UseServices(plugin, state);
-    SetupLuaClassCCSGO_WingmanIntroCounterTerroristPosition(plugin, state);
-    SetupLuaClassCItemKevlar(plugin, state);
-    SetupLuaClassCTriggerHurt(plugin, state);
-    SetupLuaClassCPhysBallSocket(plugin, state);
-    SetupLuaClassCMapVetoPickController(plugin, state);
-    SetupLuaClassCCSMinimapBoundary(plugin, state);
-    SetupLuaClassCSoundEnt(plugin, state);
-    SetupLuaClassCInfoSpawnGroupLandmark(plugin, state);
-    SetupLuaClassCPlayer_MovementServices_Humanoid(plugin, state);
-    SetupLuaClassCTriggerSave(plugin, state);
-    SetupLuaClassCPhysWheelConstraint(plugin, state);
-    SetupLuaClassCPhysFixed(plugin, state);
-    SetupLuaClassCSkillFloat(plugin, state);
-    SetupLuaClassCEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable(plugin, state);
-    SetupLuaClassCCSPlayerController_InGameMoneyServices(plugin, state);
-    SetupLuaClassCSprite(plugin, state);
-    SetupLuaClassCSoundOpvarSetAABBEntity(plugin, state);
-    SetupLuaClassCWeaponM4A1(plugin, state);
-    SetupLuaClassCBeam(plugin, state);
-    SetupLuaClassCCommentaryViewPosition(plugin, state);
-    SetupLuaClassCTonemapController2Alias_env_tonemap_controller2(plugin, state);
-    SetupLuaClassCPhysPulley(plugin, state);
-    SetupLuaClassCGameRulesProxy(plugin, state);
-    SetupLuaClassCWeaponMP7(plugin, state);
-    SetupLuaClassCCSPlayerController_ActionTrackingServices(plugin, state);
-    SetupLuaClassCPrecipitationBlocker(plugin, state);
-    SetupLuaClassCBaseFlexAlias_funCBaseFlex(plugin, state);
-    SetupLuaClassCFish(plugin, state);
-    SetupLuaClassCEnvFireSource(plugin, state);
-    SetupLuaClassCInfoLadderDismount(plugin, state);
-    SetupLuaClassCTriggerGameEvent(plugin, state);
-    SetupLuaClassSimpleConstraintSoundProfile(plugin, state);
-    SetupLuaClassCDebugHistory(plugin, state);
-    SetupLuaClassCInfoData(plugin, state);
-    SetupLuaClassCHostageCarriableProp(plugin, state);
-    SetupLuaClassCLightSpotEntity(plugin, state);
-    SetupLuaClassCFuncRotating(plugin, state);
-    SetupLuaClassCDecoyProjectile(plugin, state);
-    SetupLuaClassCCSPlace(plugin, state);
-    SetupLuaClassCFuncTrainControls(plugin, state);
-    SetupLuaClassCEntityDissolve(plugin, state);
-    SetupLuaClassCPointAngleSensor(plugin, state);
-    SetupLuaClassCSoundEventOBBEntity(plugin, state);
-    SetupLuaClassCBtNodeCondition(plugin, state);
-    SetupLuaClassCSharedGapTypeQueryRegistration(plugin, state);
-    SetupLuaClassCEnvVolumetricFogVolume(plugin, state);
-    SetupLuaClassCEnvBeam(plugin, state);
-    SetupLuaClassCFuncIllusionary(plugin, state);
-    SetupLuaClassCPhysMagnet(plugin, state);
-    SetupLuaClassCSceneEntityAlias_logic_choreographed_scene(plugin, state);
-    SetupLuaClassCFuncNavBlocker(plugin, state);
-    SetupLuaClassCRagdollMagnet(plugin, state);
-    SetupLuaClassCFuncElectrifiedVolume(plugin, state);
-    SetupLuaClassCPointProximitySensor(plugin, state);
-    SetupLuaClassWeaponPurchaseTracker_t(plugin, state);
-    SetupLuaClassCFilterClass(plugin, state);
-    SetupLuaClassCMelee(plugin, state);
-    SetupLuaClassCMultiplayRules(plugin, state);
-    SetupLuaClassCFilterLOS(plugin, state);
-    SetupLuaClassEngineCountdownTimer(plugin, state);
-    SetupLuaClassCPhysBox(plugin, state);
-    SetupLuaClassCSensorGrenadeProjectile(plugin, state);
-    SetupLuaClassCTimerEntity(plugin, state);
-    SetupLuaClassCCSGO_TeamIntroCounterTerroristPosition(plugin, state);
-    SetupLuaClassCHEGrenadeProjectile(plugin, state);
-    SetupLuaClassCEnvWind(plugin, state);
-    SetupLuaClassCTimeline(plugin, state);
-    SetupLuaClassCFists(plugin, state);
-    SetupLuaClassCHandleDummy(plugin, state);
-    SetupLuaClassCRagdollConstraint(plugin, state);
-    SetupLuaClassCPhysExplosion(plugin, state);
-    SetupLuaClassCPointPush(plugin, state);
-    SetupLuaClassCCredits(plugin, state);
-    SetupLuaClassCCSPlayerResource(plugin, state);
-    SetupLuaClassCPlayer_WeaponServices(plugin, state);
-    SetupLuaClassCAttributeManager__cached_attribute_float_t(plugin, state);
-    SetupLuaClassCTeam(plugin, state);
-    SetupLuaClassCCSGameModeRules_Deathmatch(plugin, state);
-    SetupLuaClassCFuncNavObstruction(plugin, state);
-    SetupLuaClassCTriggerImpact(plugin, state);
-    SetupLuaClassCSun(plugin, state);
-    SetupLuaClassCTriggerDetectBulletFire(plugin, state);
-    SetupLuaClassCWorld(plugin, state);
-    SetupLuaClassCPointGiveAmmo(plugin, state);
-    SetupLuaClassCFuncMoveLinear(plugin, state);
-    SetupLuaClassCPathParticleRope(plugin, state);
-    SetupLuaClassCPlayerVisibility(plugin, state);
-    SetupLuaClassCPointTeleport(plugin, state);
-    SetupLuaClassCAK47(plugin, state);
-    SetupLuaClassCTriggerTeleport(plugin, state);
-    SetupLuaClassCCSObserver_CameraServices(plugin, state);
-    SetupLuaClassCCSGO_TeamIntroTerroristPosition(plugin, state);
-    SetupLuaClassCFuncMover(plugin, state);
-    SetupLuaClassCCSPlayer_CameraServices(plugin, state);
-    SetupLuaClassCHEGrenade(plugin, state);
-    SetupLuaClassCGameEnd(plugin, state);
-    SetupLuaClassCTriggerCallback(plugin, state);
-    SetupLuaClassCBubbling(plugin, state);
-    SetupLuaClassCTeamplayRules(plugin, state);
-    SetupLuaClassCPhysicsPropOverride(plugin, state);
-    SetupLuaClassCAI_ChangeHintGroup(plugin, state);
-    SetupLuaClassCColorCorrectionVolume(plugin, state);
-    SetupLuaClassCFilterEnemy(plugin, state);
-    SetupLuaClassCShower(plugin, state);
-    SetupLuaClassCEnvCubemapFog(plugin, state);
-    SetupLuaClassCBaseButton(plugin, state);
-    SetupLuaClassCEnvExplosion(plugin, state);
-    SetupLuaClassCSoundEventAABBEntity(plugin, state);
-    SetupLuaClassCTriggerLook(plugin, state);
-    SetupLuaClassCEntitySubclassVDataBase(plugin, state);
-    SetupLuaClassCLogicProximity(plugin, state);
-    SetupLuaClassCPointClientUIWorldPanel(plugin, state);
-    SetupLuaClassCFilterContext(plugin, state);
-    SetupLuaClassCPathParticleRopeAlias_path_particle_rope_clientside(plugin, state);
-    SetupLuaClassCTriggerBuoyancy(plugin, state);
-    SetupLuaClassCFilterAttributeInt(plugin, state);
-    SetupLuaClassCCSPlayer_ActionTrackingServices(plugin, state);
-    SetupLuaClassCAISound(plugin, state);
-    SetupLuaClassCPointEntityFinder(plugin, state);
-    SetupLuaClassshard_model_desc_t(plugin, state);
-    SetupLuaClassCPhysicsPropRespawnable(plugin, state);
-    SetupLuaClassCEnvSky(plugin, state);
-    SetupLuaClassCPointVelocitySensor(plugin, state);
-    SetupLuaClassCFilterMassGreater(plugin, state);
-    SetupLuaClassFilterTeam(plugin, state);
-    SetupLuaClassCFuncTankTrain(plugin, state);
-    SetupLuaClassCNullEntity(plugin, state);
-    SetupLuaClassCCSPointScriptExtensions_observer(plugin, state);
-    SetupLuaClassCMarkupVolumeTagged(plugin, state);
-    SetupLuaClassCBuyZone(plugin, state);
-    SetupLuaClassCPointTemplate(plugin, state);
-    SetupLuaClassCTripWireFire(plugin, state);
-    SetupLuaClassCPhysForce(plugin, state);
-    SetupLuaClassCLogicDistanceAutosave(plugin, state);
-    SetupLuaClassCInfoDynamicShadowHint(plugin, state);
-    SetupLuaClassCSoundOpvarSetOBBEntity(plugin, state);
-    SetupLuaClassCEnvWindShared__WindVariationEvent_t(plugin, state);
-    SetupLuaClassCTakeDamageInfoAPI(plugin, state);
-    SetupLuaClassCScriptTriggerOnce(plugin, state);
-    SetupLuaClassCNavWalkable(plugin, state);
-    SetupLuaClassCFuncMonitor(plugin, state);
-    SetupLuaClassCFlashbangProjectile(plugin, state);
-    SetupLuaClassCPointClientUIWorldTextPanel(plugin, state);
-    SetupLuaClassCInfoInstructorHintTarget(plugin, state);
-    SetupLuaClassCCSPlayer_HostageServices(plugin, state);
-    SetupLuaClassCWeaponSSG08(plugin, state);
-    SetupLuaClassCBreachCharge(plugin, state);
-    SetupLuaClassCLogicBranch(plugin, state);
-    SetupLuaClassCWeaponUMP45(plugin, state);
-    SetupLuaClassCSpriteAlias_env_glow(plugin, state);
-    SetupLuaClassCPhysicalButton(plugin, state);
-    SetupLuaClassCPhysLength(plugin, state);
-    SetupLuaClassCLogicNPCCounterOBB(plugin, state);
-    SetupLuaClassCCSGOViewModel(plugin, state);
-    SetupLuaClassCWeaponShield(plugin, state);
-    SetupLuaClassCBlood(plugin, state);
-    SetupLuaClassCEnvFade(plugin, state);
-    SetupLuaClassCDynamicPropAlias_cable_dynamic(plugin, state);
-    SetupLuaClassCCSPlayer_BuyServices(plugin, state);
-    SetupLuaClassCHostageExpresserShim(plugin, state);
-    SetupLuaClassCInferno(plugin, state);
-    SetupLuaClassCEnvGlobal(plugin, state);
-    SetupLuaClassCFilterName(plugin, state);
-    SetupLuaClassCCSTeam(plugin, state);
-    SetupLuaClassCWeaponUSPSilencer(plugin, state);
-    SetupLuaClassCSpriteOriented(plugin, state);
-    SetupLuaClassCTriggerGravity(plugin, state);
-    SetupLuaClassCServerRagdollTrigger(plugin, state);
-    SetupLuaClassCInfoDynamicShadowHintBox(plugin, state);
-    SetupLuaClassCPathMover(plugin, state);
-    SetupLuaClassCFlashbang(plugin, state);
-    SetupLuaClassCWeaponAug(plugin, state);
-    SetupLuaClassCIncendiaryGrenade(plugin, state);
-    SetupLuaClassCChangeLevel(plugin, state);
-    SetupLuaClassCTriggerLerpObject(plugin, state);
-    SetupLuaClassCTriggerSoundscape(plugin, state);
-    SetupLuaClassCLogicScript(plugin, state);
-    SetupLuaClassCWeaponFiveSeven(plugin, state);
-    SetupLuaClassCTriggerBrush(plugin, state);
-    SetupLuaClassCPhysicsEntitySolver(plugin, state);
-    SetupLuaClassCNetworkedSequenceOperation(plugin, state);
-    SetupLuaClassCPointWorldText(plugin, state);
-    SetupLuaClassCSoundAreaEntityOrientedBox(plugin, state);
-    SetupLuaClassCTriggerPhysics(plugin, state);
-    SetupLuaClassEntityRenderAttribute_t(plugin, state);
-    SetupLuaClassCPointBroadcastClientCommand(plugin, state);
-    SetupLuaClassCFuncShatterglass(plugin, state);
-    SetupLuaClassCRotButton(plugin, state);
-    SetupLuaClassCSoundEventSphereEntity(plugin, state);
-    SetupLuaClassCWeaponHKP2000(plugin, state);
-    SetupLuaClassCPlantedC4(plugin, state);
-    SetupLuaClassCPointClientUIDialog(plugin, state);
-    SetupLuaClassCEnvSplash(plugin, state);
-    SetupLuaClassCSkyCamera(plugin, state);
-    SetupLuaClassCWeaponNOVA(plugin, state);
-    SetupLuaClassCPointCameraVFOV(plugin, state);
-    SetupLuaClassCWeaponTaser(plugin, state);
-    SetupLuaClassCWaterBullet(plugin, state);
-    SetupLuaClassCMarkupVolumeWithRef(plugin, state);
-    SetupLuaClassCMessage(plugin, state);
-    SetupLuaClassCLogicGameEventListener(plugin, state);
-    SetupLuaClassCPushable(plugin, state);
-    SetupLuaClassCTriggerRemove(plugin, state);
-    SetupLuaClassCInfoTarget(plugin, state);
-    SetupLuaClassCMomentaryRotButton(plugin, state);
-    SetupLuaClassCPropDoorRotating(plugin, state);
-    SetupLuaClasshudtextparms_t(plugin, state);
-    SetupLuaClassCWeaponMP5SD(plugin, state);
-    SetupLuaClassCTextureBasedAnimatable(plugin, state);
-    SetupLuaClassCMarkupVolumeTagged_NavGame(plugin, state);
-    SetupLuaClassCPhysThruster(plugin, state);
-    SetupLuaClassCCSPointScriptExtensions_player(plugin, state);
-    SetupLuaClassCCitadelSoundOpvarSetOBB(plugin, state);
-    SetupLuaClassSellbackPurchaseEntry_t(plugin, state);
-    SetupLuaClassCWeaponFamas(plugin, state);
-    SetupLuaClassCShatterGlassShardPhysics(plugin, state);
-    SetupLuaClassCFilterModel(plugin, state);
-    SetupLuaClassCCSPlayerPawnBase(plugin, state);
-    SetupLuaClassCPathTrack(plugin, state);
-    SetupLuaClassCLogicDistanceCheck(plugin, state);
-    SetupLuaClassCOmniLight(plugin, state);
-    SetupLuaClassCInfoOffscreenPanoramaTexture(plugin, state);
-    SetupLuaClassCInfoVisibilityBox(plugin, state);
-    SetupLuaClassCGamePlayerEquip(plugin, state);
-    SetupLuaClassCInfoTargetServerOnly(plugin, state);
-    SetupLuaClassCSoundOpvarSetPathCornerEntity(plugin, state);
-    SetupLuaClassCCSPlayer_WeaponServices(plugin, state);
-    SetupLuaClassCEntityFlame(plugin, state);
-    SetupLuaClassCWeaponMP9(plugin, state);
-    SetupLuaClassCCSBot(plugin, state);
-    SetupLuaClassCEntityIdentity(plugin, state);
-    SetupLuaClassCGunTarget(plugin, state);
-    SetupLuaClassCSoundEventParameter(plugin, state);
-    SetupLuaClassCSimpleMarkupVolumeTagged(plugin, state);
-    SetupLuaClassCTestEffect(plugin, state);
-    SetupLuaClassCWeaponM4A1Silencer(plugin, state);
-    SetupLuaClassCScriptNavBlocker(plugin, state);
-    SetupLuaClassCConstraintAnchor(plugin, state);
-    SetupLuaClassCWeaponTec9(plugin, state);
-    SetupLuaClassCMarkupVolumeTagged_Nav(plugin, state);
-    SetupLuaClassCInstancedSceneEntity(plugin, state);
-    SetupLuaClassCLightEnvironmentEntity(plugin, state);
-    SetupLuaClassCLogicActiveAutosave(plugin, state);
-    SetupLuaClassCEnvBeverage(plugin, state);
-    SetupLuaClassCWeaponCZ75a(plugin, state);
-    SetupLuaClassCWeaponP250(plugin, state);
-    SetupLuaClassCHostage(plugin, state);
-    SetupLuaClassCScriptTriggerHurt(plugin, state);
-    SetupLuaClassCBasePlayerWeaponVData(plugin, state);
-    SetupLuaClassCMathColorBlend(plugin, state);
-    SetupLuaClassCEnvScreenOverlay(plugin, state);
-    SetupLuaClassCCSPlayerPawn(plugin, state);
-    SetupLuaClassCBumpMineProjectile(plugin, state);
-    SetupLuaClassCCSPlayerController(plugin, state);
-    SetupLuaClassCChicken(plugin, state);
-    SetupLuaClassCInfoInstructorHintBombTargetA(plugin, state);
-    SetupLuaClassCWeaponAWP(plugin, state);
-    SetupLuaClassCCSObserverPawn(plugin, state);
-    SetupLuaClassCPostProcessingVolume(plugin, state);
-    SetupLuaClassCSpotlightEnd(plugin, state);
-    SetupLuaClassCGamePlayerZone(plugin, state);
-    SetupLuaClassCSensorGrenade(plugin, state);
-    SetupLuaClassCCSGO_WingmanIntroTerroristPosition(plugin, state);
-    SetupLuaClassCTriggerDetectExplosion(plugin, state);
-    SetupLuaClassCSoundStackSave(plugin, state);
-    SetupLuaClassConstraintSoundInfo(plugin, state);
-    SetupLuaClassCSingleplayRules(plugin, state);
-    SetupLuaClassCFilterProximity(plugin, state);
-    SetupLuaClassCEconWearable(plugin, state);
-    SetupLuaClassCCSPlayer_ItemServices(plugin, state);
-    SetupLuaClassCFuncConveyor(plugin, state);
-    SetupLuaClassCWeaponMag7(plugin, state);
-    SetupLuaClassCMathCounter(plugin, state);
-    SetupLuaClassCInfoWorldLayer(plugin, state);
-    SetupLuaClassCRectLight(plugin, state);
-    SetupLuaClassCCSGO_TeamSelectCharacterPosition(plugin, state);
-    SetupLuaClassCBaseDoor(plugin, state);
-    SetupLuaClassCLogicLineToEntity(plugin, state);
-    SetupLuaClassCRetakeGameRules(plugin, state);
-    SetupLuaClassCCSGameRulesProxy(plugin, state);
-    SetupLuaClassCEnvCubemapBox(plugin, state);
-    SetupLuaClassCCSPlayer_DamageReactServices(plugin, state);
-    SetupLuaClassServerAuthoritativeWeaponSlot_t(plugin, state);
-    SetupLuaClassCCSGameRules(plugin, state);
-    SetupLuaClassCColorCorrection(plugin, state);
-    SetupLuaClassCWeaponElite(plugin, state);
-    SetupLuaClassCSoundEventEntityAlias_snd_event_point(plugin, state);
-    SetupLuaClassCBaseEntityAPI(plugin, state);
-    SetupLuaClassCC4(plugin, state);
-    SetupLuaClassCHostageRescueZone(plugin, state);
-    SetupLuaClassCPointPrefab(plugin, state);
-    SetupLuaClassCRotDoor(plugin, state);
-    SetupLuaClassCSkeletonAnimationController(plugin, state);
-    SetupLuaClassCTablet(plugin, state);
-    SetupLuaClassCTankTrainAI(plugin, state);
-    SetupLuaClassCGameGibManager(plugin, state);
-    SetupLuaClassCCSPointScript(plugin, state);
-    SetupLuaClassCRagdollPropAlias_physics_prop_ragdoll(plugin, state);
-    SetupLuaClassCCSSprite(plugin, state);
-    SetupLuaClassCFuncPropRespawnZone(plugin, state);
-    SetupLuaClassCInfoDeathmatchSpawn(plugin, state);
-    SetupLuaClassCWeaponSCAR20(plugin, state);
-    SetupLuaClassCTripWireFireProjectile(plugin, state);
-    SetupLuaClassCFuncTrackAuto(plugin, state);
-    SetupLuaClassCEnvSpark(plugin, state);
-    SetupLuaClassCCSObserver_ObserverServices(plugin, state);
-    SetupLuaClassCPlayer_AutoaimServices(plugin, state);
-    SetupLuaClassCFuncTrain(plugin, state);
-    SetupLuaClassCHostageAlias_info_hostage_spawn(plugin, state);
-    SetupLuaClassCNavLinkAreaEntity(plugin, state);
-    SetupLuaClassCFuncMoveLinearAlias_momentary_door(plugin, state);
-    SetupLuaClassCCommentaryAuto(plugin, state);
-    SetupLuaClassCMapInfo(plugin, state);
-    SetupLuaClassCTriggerBombReset(plugin, state);
-    SetupLuaClassCBaseDMStart(plugin, state);
-    SetupLuaClassCLogicMeasureMovement(plugin, state);
-    SetupLuaClassViewAngleServerChange_t(plugin, state);
-    SetupLuaClassPhysicsRagdollPose_t(plugin, state);
-    SetupLuaClassCBreachChargeProjectile(plugin, state);
-    SetupLuaClassCRangeFloat(plugin, state);
-    SetupLuaClassCAnimEventListenerBase(plugin, state);
-    SetupLuaClassRelationship_t(plugin, state);
-    SetupLuaClassCRemapFloat(plugin, state);
-    SetupLuaClassIGapHost_GameEntity(plugin, state);
-    SetupLuaClassCFootstepTableHandle(plugin, state);
-    SetupLuaClassCCSPlayerController_InventoryServices(plugin, state);
-    SetupLuaClassCResponseQueue(plugin, state);
-    SetupLuaClassCScriptUniformRandomStream(plugin, state);
-    SetupLuaClassParticleIndex_t(plugin, state);
-    SetupLuaClassCPhysHinge(plugin, state);
-    SetupLuaClassCSimpleSimTimer(plugin, state);
-    SetupLuaClassCSkillDamage(plugin, state);
-    SetupLuaClassCAnimEventQueueListener(plugin, state);
-    SetupLuaClassCEnvLaser(plugin, state);
-    SetupLuaClassCFiringModeFloat(plugin, state);
-    SetupLuaClassCRopeOverlapHit(plugin, state);
-    SetupLuaClassResponseContext_t(plugin, state);
-    SetupLuaClassCNavVolume(plugin, state);
-    SetupLuaClassCCSObserver_MovementServices(plugin, state);
-    SetupLuaClassCCSGOPlayerAnimGraphState(plugin, state);
-    SetupLuaClassCGameScriptedMoveData(plugin, state);
-    SetupLuaClassCBaseAnimGraphController(plugin, state);
-    SetupLuaClassCNavVolumeSphere(plugin, state);
-    SetupLuaClassCResponseCriteriaSet(plugin, state);
-    SetupLuaClassCAI_Expresser(plugin, state);
-    SetupLuaClassIChoreoServices(plugin, state);
-    SetupLuaClassCStopwatchBase(plugin, state);
-    SetupLuaClassResponseParams(plugin, state);
-    SetupLuaClassCItem_Healthshot(plugin, state);
-    SetupLuaClassCPhysHingeAlias_phys_hinge_local(plugin, state);
-    SetupLuaClassPointCameraSettings_t(plugin, state);
-    SetupLuaClassCSoundEnvelope(plugin, state);
-    SetupLuaClassdynpitchvol_t(plugin, state);
-    SetupLuaClassCStopwatch(plugin, state);
-    SetupLuaClassCNavVolumeVector(plugin, state);
-    SetupLuaClassNavGravity_t(plugin, state);
-    SetupLuaClassCEnvShake(plugin, state);
-    SetupLuaClassCPhysSlideConstraint(plugin, state);
-    SetupLuaClassCSound(plugin, state);
-    SetupLuaClassCTakeDamageResult(plugin, state);
-    SetupLuaClassCMolotovProjectile(plugin, state);
-    SetupLuaClassCCommentarySystem(plugin, state);
-    SetupLuaClassResponseFollowup(plugin, state);
-    SetupLuaClassCRangeInt(plugin, state);
-    SetupLuaClassCNavLinkAnimgraphVar(plugin, state);
-    SetupLuaClassCCSGO_TeamSelectCounterTerroristPosition(plugin, state);
-    SetupLuaClassCNavLinkMovementVData(plugin, state);
-    SetupLuaClassCAnimGraphControllerBase(plugin, state);
-    SetupLuaClassRagdollCreationParams_t(plugin, state);
-    SetupLuaClassAmmoTypeInfo_t(plugin, state);
-    SetupLuaClassCRandStopwatch(plugin, state);
-    SetupLuaClassCGameChoreoServices(plugin, state);
-    SetupLuaClassCSimpleStopwatch(plugin, state);
-    SetupLuaClassCShatterGlassShard(plugin, state);
-    SetupLuaClassCommandToolCommand_t(plugin, state);
-    SetupLuaClassragdollelement_t(plugin, state);
-    SetupLuaClassCBodyComponentBaseModelEntity(plugin, state);
-    SetupLuaClassCNetworkOriginQuantizedVector(plugin, state);
-    SetupLuaClassmagnetted_objects_t(plugin, state);
-    SetupLuaClassCHintMessageQueue(plugin, state);
-    SetupLuaClassCSkillInt(plugin, state);
-    SetupLuaClassthinkfunc_t(plugin, state);
-    SetupLuaClassCNavHullPresetVData(plugin, state);
-    SetupLuaClassCBasePlayerVData(plugin, state);
-    SetupLuaClassCSceneEventInfo(plugin, state);
-    SetupLuaClassCCopyRecipientFilter(plugin, state);
-    SetupLuaClassCPropDoorRotatingBreakable(plugin, state);
-    SetupLuaClassCBtActionAim(plugin, state);
-    SetupLuaClassCFiringModeInt(plugin, state);
-    SetupLuaClassCSoundPatch(plugin, state);
-    SetupLuaClassCSmoothFunc(plugin, state);
-    SetupLuaClassIHasAttributes(plugin, state);
-    SetupLuaClassCRagdollPropAttached(plugin, state);
-    SetupLuaClassHullFlags_t(plugin, state);
-    SetupLuaClassCBodyComponentBaseAnimGraph(plugin, state);
-    SetupLuaClassGameAmmoTypeInfo_t(plugin, state);
-    SetupLuaClassCPhysMotor(plugin, state);
-    SetupLuaClassCSimTimer(plugin, state);
-    SetupLuaClassCBaseIssue(plugin, state);
-    SetupLuaClassCTakeDamageInfo(plugin, state);
-    SetupLuaClassConceptHistory_t(plugin, state);
-    SetupLuaClassCPhysTorque(plugin, state);
-    SetupLuaClassSummaryTakeDamageInfo_t(plugin, state);
-    SetupLuaClassCRandSimTimer(plugin, state);
-    SetupLuaClassCBtNodeComposite(plugin, state);
-    SetupLuaClassCFireCrackerBlast(plugin, state);
-    SetupLuaClasssndopvarlatchdata_t(plugin, state);
-    SetupLuaClassCCSGO_TeamSelectTerroristPosition(plugin, state);
-    SetupLuaClassCAI_ExpresserWithFollowup(plugin, state);
-    SetupLuaClassCNavVolumeMarkupVolume(plugin, state);
-    SetupLuaClassQuestProgress(plugin, state);
-    SetupLuaClasslerpdata_t(plugin, state);
-    SetupLuaClassCMultiplayer_Expresser(plugin, state);
-    SetupLuaClassCTakeDamageSummaryScopeGuard(plugin, state);
-    SetupLuaClassCWeaponSawedoff(plugin, state);
-    SetupLuaClassCCSPlayer_MovementServices(plugin, state);
-    SetupLuaClassCNavHullVData(plugin, state);
-    SetupLuaClassSoundOpvarTraceResult_t(plugin, state);
-    SetupLuaClassCAnimEventListener(plugin, state);
-    SetupLuaClassCNavVolumeCalculatedVector(plugin, state);
-    SetupLuaClassCCSWeaponBaseVData(plugin, state);
-    SetupLuaClassCBtNodeConditionInactive(plugin, state);
-    SetupLuaClassCSAdditionalPerRoundStats_t(plugin, state);
-    SetupLuaClassActiveModelConfig_t(plugin, state);
-    SetupLuaClassCPrecipitationVData(plugin, state);
-    SetupLuaClassCBreakableStageHelper(plugin, state);
-    SetupLuaClassCNavVolumeBreadthFirstSearch(plugin, state);
-    SetupLuaClassCAmbientGeneric(plugin, state);
-    SetupLuaClassCSAdditionalMatchStats_t(plugin, state);
-    SetupLuaClassIRagdoll(plugin, state);
-    SetupLuaClassCGameText(plugin, state);
-    SetupLuaClassCInfoInstructorHintBombTargetB(plugin, state);
-    SetupLuaClassCNavVolumeAll(plugin, state);
-    SetupLuaClassCNavVolumeSphericalShell(plugin, state);
-    SetupLuaClassRelationshipOverride_t(plugin, state);
-    SetupLuaClassParticleAttributeIndex_t(plugin, state);
-    SetupLuaClassCParticleInput(plugin, state);
-    SetupLuaClassCParticleFloatInput(plugin, state);
-    SetupLuaClassVoxelVisBlockOffset_t(plugin, state);
-    SetupLuaClassAggregateLODSetup_t(plugin, state);
-    SetupLuaClassCProductQuantizer(plugin, state);
-    SetupLuaClassCAnimUpdateNodeRef(plugin, state);
-    SetupLuaClassCNmGraphNode(plugin, state);
-    SetupLuaClassCParticleCollectionFloatInput(plugin, state);
-    SetupLuaClassCParticleFunction(plugin, state);
-    SetupLuaClassCParticleFunctionOperator(plugin, state);
-    SetupLuaClassPARTICLE_WORLD_HANDLE__(plugin, state);
-    SetupLuaClassVMixDynamicsCompressorDesc_t(plugin, state);
-    SetupLuaClassFootStepTrigger(plugin, state);
-    SetupLuaClassParticleControlPointDriver_t(plugin, state);
-    SetupLuaClassFeSphereRigid_t(plugin, state);
-    SetupLuaClassCMotionMetricEvaluator(plugin, state);
-    SetupLuaClassCDrawCullingData(plugin, state);
-    SetupLuaClassCAnimUserDifference(plugin, state);
-    SetupLuaClassCSeqMultiFetchFlag(plugin, state);
-    SetupLuaClassCNmEvent(plugin, state);
-    SetupLuaClassCAnimParamHandle(plugin, state);
-    SetupLuaClassCFuseSymbolTable(plugin, state);
-    SetupLuaClassGeneratedTextureHandle_t(plugin, state);
-    SetupLuaClassSceneViewId_t(plugin, state);
-    SetupLuaClassPhysFeModelDesc_t(plugin, state);
-    SetupLuaClassCCycleBase(plugin, state);
-    SetupLuaClassCPhysSurfacePropertiesSoundNames(plugin, state);
-    SetupLuaClassDynamicMeshDeformParams_t(plugin, state);
-    SetupLuaClassCDistanceRemainingMetricEvaluator(plugin, state);
-    SetupLuaClassVMixDynamicsBand_t(plugin, state);
-    SetupLuaClassRnCapsule_t(plugin, state);
-    SetupLuaClassCAnimInputDamping(plugin, state);
-    SetupLuaClassAnimTagID(plugin, state);
-    SetupLuaClassCParticleFunctionPreEmission(plugin, state);
-    SetupLuaClassCPerParticleFloatInput(plugin, state);
-    SetupLuaClassCSosGroupActionSchema(plugin, state);
-    SetupLuaClassCFutureFacingMetricEvaluator(plugin, state);
-    SetupLuaClassCSeqTransition(plugin, state);
-    SetupLuaClassCAnimNodePath(plugin, state);
-    SetupLuaClassCParamSpanUpdater(plugin, state);
-    SetupLuaClassAnimNodeID(plugin, state);
-    SetupLuaClassCParticleFunctionInitializer(plugin, state);
-    SetupLuaClassRnFace_t(plugin, state);
-    SetupLuaClassEngineLoopState_t(plugin, state);
-    SetupLuaClassCNmPoseNode(plugin, state);
-    SetupLuaClassCParticleFunctionConstraint(plugin, state);
-    SetupLuaClassCNmStateMachineNode__TransitionDefinition_t(plugin, state);
-    SetupLuaClassCAnimAttachment(plugin, state);
-    SetupLuaClassEventSimulate_t(plugin, state);
-    SetupLuaClassCParticleCollectionRendererFloatInput(plugin, state);
-    SetupLuaClassModelSkeletonData_t(plugin, state);
-    SetupLuaClassEventModInitialized_t(plugin, state);
-    SetupLuaClassCParticleTransformInput(plugin, state);
-    SetupLuaClassCParticleVisibilityInputs(plugin, state);
-    SetupLuaClassMaterialGroup_t(plugin, state);
-    SetupLuaClassCAnimUpdateNodeBase(plugin, state);
-    SetupLuaClassCParticleFunctionRenderer(plugin, state);
-    SetupLuaClassCParticleVecInput(plugin, state);
-    SetupLuaClassVPhysXConstraintParams_t(plugin, state);
-    SetupLuaClassCMorphRectData(plugin, state);
-    SetupLuaClassEventServerPollNetworking_t(plugin, state);
-    SetupLuaClassCDspPresetModifierList(plugin, state);
-    SetupLuaClassSkeletonDemoDb_t(plugin, state);
-    SetupLuaClassCRenderGroom(plugin, state);
-    SetupLuaClassCUnaryUpdateNode(plugin, state);
-    SetupLuaClassCBlendCurve(plugin, state);
-    SetupLuaClassChangeAccessorFieldPathIndex_t(plugin, state);
-    SetupLuaClassFeKelagerBend2_t(plugin, state);
-    SetupLuaClassCMorphSetData(plugin, state);
-    SetupLuaClassCBinaryUpdateNode(plugin, state);
-    SetupLuaClassconstraint_axislimit_t(plugin, state);
-    SetupLuaClassFuseFunctionIndex_t(plugin, state);
-    SetupLuaClassCGeneralSpin(plugin, state);
-    SetupLuaClassCFeJiggleBone(plugin, state);
-    SetupLuaClassCGlowOverlay(plugin, state);
-    SetupLuaClassTextureControls_t(plugin, state);
-    SetupLuaClassCParticleModelInput(plugin, state);
-    SetupLuaClassCNmPassthroughNode(plugin, state);
-    SetupLuaClassCAnimDecoder(plugin, state);
-    SetupLuaClassNmPercent_t(plugin, state);
-    SetupLuaClassEventProfileStorageAvailable_t(plugin, state);
-    SetupLuaClassCVoiceContainerBase(plugin, state);
-    SetupLuaClassCPerParticleVecInput(plugin, state);
-    SetupLuaClassCBoneMaskUpdateNode(plugin, state);
-    SetupLuaClassConfigIndex(plugin, state);
-    SetupLuaClassFeSimdRodConstraint_t(plugin, state);
-    SetupLuaClassCSSDSMsg_EndFrame(plugin, state);
-    SetupLuaClassSkeletonBoneBounds_t(plugin, state);
-    SetupLuaClassCDSPMixgroupModifier(plugin, state);
-    SetupLuaClassCBoneConstraintBase(plugin, state);
-    SetupLuaClassEventAdvanceTick_t(plugin, state);
-    SetupLuaClassMotionIndex(plugin, state);
-    SetupLuaClassCAnimBoneDifference(plugin, state);
-    SetupLuaClassCFootDefinition(plugin, state);
-    SetupLuaClassCFootCycle(plugin, state);
-    SetupLuaClassCMotionDataSet(plugin, state);
-    SetupLuaClassCVPhysXSurfacePropertiesList(plugin, state);
-    SetupLuaClassCParticleFunctionEmitter(plugin, state);
-    SetupLuaClassVMixFilterDesc_t(plugin, state);
-    SetupLuaClassCBaseConstraint(plugin, state);
-    SetupLuaClassCParticleMassCalculationParameters(plugin, state);
-    SetupLuaClassAnimParamID(plugin, state);
-    SetupLuaClassCTransitionUpdateData(plugin, state);
-    SetupLuaClassManifestTestResource_t(plugin, state);
-    SetupLuaClassFootPinningPoseOpFixedData_t(plugin, state);
-    SetupLuaClassCFootPinningUpdateNode(plugin, state);
-    SetupLuaClassCLeafUpdateNode(plugin, state);
-    SetupLuaClassCAnimMotorUpdaterBase(plugin, state);
-    SetupLuaClassRnMesh_t(plugin, state);
-    SetupLuaClassCModelConfigElement(plugin, state);
-    SetupLuaClassVPhysXAggregateData_t(plugin, state);
-    SetupLuaClassCSequenceUpdateNode(plugin, state);
-    SetupLuaClassCModelConfigElement_Command(plugin, state);
-    SetupLuaClassCAnimParameterBase(plugin, state);
-    SetupLuaClassCompositeMaterialInputLooseVariable_t(plugin, state);
-    SetupLuaClassVecInputMaterialVariable_t(plugin, state);
-    SetupLuaClassCCachedPose(plugin, state);
-    SetupLuaClassCAnimGraphSettingsGroup(plugin, state);
-    SetupLuaClassCModelConfig(plugin, state);
-    SetupLuaClassFootLockPoseOpFixedSettings(plugin, state);
-    SetupLuaClassCFlexRule(plugin, state);
-    SetupLuaClassCSosGroupActionSetSoundeventParameterSchema(plugin, state);
-    SetupLuaClassCStepsRemainingMetricEvaluator(plugin, state);
-    SetupLuaClassNmCompressionSettings_t__QuantizationRange_t(plugin, state);
-    SetupLuaClassCAnimParameterManagerUpdater(plugin, state);
-    SetupLuaClassCModelConfigElement_RandomColor(plugin, state);
-    SetupLuaClassCMotionNode(plugin, state);
-    SetupLuaClassCAnimTagBase(plugin, state);
-    SetupLuaClassAnimComponentID(plugin, state);
-    SetupLuaClassCAnimLocalHierarchy(plugin, state);
-    SetupLuaClassRnShapeDesc_t(plugin, state);
-    SetupLuaClassCBoneConstraintPoseSpaceBone__Input_t(plugin, state);
-    SetupLuaClassCModelConfigElement_SetRenderColor(plugin, state);
-    SetupLuaClassPhysSoftbodyDesc_t(plugin, state);
-    SetupLuaClassVMapResourceData_t(plugin, state);
-    SetupLuaClassFeCtrlSoftOffset_t(plugin, state);
-    SetupLuaClassCMorphBundleData(plugin, state);
-    SetupLuaClassCNmBoneMask(plugin, state);
-    SetupLuaClassCAudioEmphasisSample(plugin, state);
-    SetupLuaClassCNmFrameSnapEvent(plugin, state);
-    SetupLuaClassCJumpHelperUpdateNode(plugin, state);
-    SetupLuaClassSolveIKChainPoseOpFixedSettings_t(plugin, state);
-    SetupLuaClassCMaterialAttributeAnimTag(plugin, state);
-    SetupLuaClassCAnimComponentUpdater(plugin, state);
-    SetupLuaClassCReplicationParameters(plugin, state);
-    SetupLuaClassVMixEnvelopeDesc_t(plugin, state);
-    SetupLuaClassCNmValueNode(plugin, state);
-    SetupLuaClassCFollowPathUpdateNode(plugin, state);
-    SetupLuaClassEventClientPostSimulate_t(plugin, state);
-    SetupLuaClassAABB_t(plugin, state);
-    SetupLuaClassFeNodeBase_t(plugin, state);
-    SetupLuaClassModelBoneFlexDriverControl_t(plugin, state);
-    SetupLuaClassPostProcessingVignetteParameters_t(plugin, state);
-    SetupLuaClassConstantInfo_t(plugin, state);
-    SetupLuaClassFuseVariableIndex_t(plugin, state);
-    SetupLuaClassIParticleEffect(plugin, state);
-    SetupLuaClassCStopAtGoalUpdateNode(plugin, state);
-    SetupLuaClassCSequenceGroupData(plugin, state);
-    SetupLuaClassParticleNamedValueConfiguration_t(plugin, state);
-    SetupLuaClassCAnimSkeleton(plugin, state);
-    SetupLuaClassCAnimationGraphVisualizerPrimitiveBase(plugin, state);
-    SetupLuaClassCBodyGroupAnimTag(plugin, state);
-    SetupLuaClassFeAxialEdgeBend_t(plugin, state);
-    SetupLuaClassParamSpanSample_t(plugin, state);
-    SetupLuaClassFunctionInfo_t(plugin, state);
-    SetupLuaClassFourQuaternions(plugin, state);
-    SetupLuaClassSkeletonAnimCapture_t__FrameStamp_t(plugin, state);
-    SetupLuaClassCSeqAutoLayerFlag(plugin, state);
-    SetupLuaClassParamSpan_t(plugin, state);
-    SetupLuaClassCNmBoolValueNode(plugin, state);
-    SetupLuaClassRenderInputLayoutField_t(plugin, state);
-    SetupLuaClassCCPPScriptComponentUpdater(plugin, state);
-    SetupLuaClassCDampedValueComponentUpdater(plugin, state);
-    SetupLuaClassCSeqPoseSetting(plugin, state);
-    SetupLuaClassRenderHairStrandInfo_t(plugin, state);
-    SetupLuaClassCExampleSchemaVData_Monomorphic(plugin, state);
-    SetupLuaClassCPlayerSprayDecalRenderHelper(plugin, state);
-    SetupLuaClassFeTaperedCapsuleRigid_t(plugin, state);
-    SetupLuaClassCChoiceUpdateNode(plugin, state);
-    SetupLuaClassIKSolverSettings_t(plugin, state);
-    SetupLuaClassCNmLayerBlendNode(plugin, state);
-    SetupLuaClassCRandomNumberGeneratorParameters(plugin, state);
-    SetupLuaClassAnimationDecodeDebugDumpElement_t(plugin, state);
-    SetupLuaClassCNmFloatValueNode(plugin, state);
-    SetupLuaClassCSSDSMsg_LayerBase(plugin, state);
-    SetupLuaClassCSosGroupActionSoundeventClusterSchema(plugin, state);
-    SetupLuaClassCAnimationGraphVisualizerAxis(plugin, state);
-    SetupLuaClassMaterialResourceData_t(plugin, state);
-    SetupLuaClassBlendItem_t(plugin, state);
-    SetupLuaClassCVoiceContainerAnalysisBase(plugin, state);
-    SetupLuaClassCSosGroupActionLimitSchema(plugin, state);
-    SetupLuaClassFeWeightedNode_t(plugin, state);
-    SetupLuaClassCLookComponentUpdater(plugin, state);
-    SetupLuaClassCCycleControlUpdateNode(plugin, state);
-    SetupLuaClassCNetworkVarChainer(plugin, state);
-    SetupLuaClassRnTriangle_t(plugin, state);
-    SetupLuaClassCNmVectorValueNode(plugin, state);
-    SetupLuaClassCSeqSeqDescFlag(plugin, state);
-    SetupLuaClassAimCameraOpFixedSettings_t(plugin, state);
-    SetupLuaClassCParticleRemapFloatInput(plugin, state);
-    SetupLuaClassBaseSceneObjectOverride_t(plugin, state);
-    SetupLuaClassCConcreteAnimParameter(plugin, state);
-    SetupLuaClassFeAnimStrayRadius_t(plugin, state);
-    SetupLuaClassModelReference_t(plugin, state);
-    SetupLuaClassRnCapsuleDesc_t(plugin, state);
-    SetupLuaClassCAnimGraphDebugReplay(plugin, state);
-    SetupLuaClassCVoiceContainerSwitch(plugin, state);
-    SetupLuaClassLookAtBone_t(plugin, state);
-    SetupLuaClassCNmBoneMaskValueNode(plugin, state);
-    SetupLuaClassCNmTransitionEvent(plugin, state);
-    SetupLuaClassCStringAnimTag(plugin, state);
-    SetupLuaClassSkeletonAnimCapture_t__Bone_t(plugin, state);
-    SetupLuaClassCStaticPoseCache(plugin, state);
-    SetupLuaClassParticlePreviewBodyGroup_t(plugin, state);
-    SetupLuaClassFeWorldCollisionParams_t(plugin, state);
-    SetupLuaClassCPlayerInputAnimMotorUpdater(plugin, state);
-    SetupLuaClassCParticleCollectionRendererVecInput(plugin, state);
-    SetupLuaClassFeBandBendLimit_t(plugin, state);
-    SetupLuaClassCAnimFoot(plugin, state);
-    SetupLuaClassEventClientAdvanceTick_t(plugin, state);
-    SetupLuaClassMaterialOverride_t(plugin, state);
-    SetupLuaClassCAnimDemoCaptureSettings(plugin, state);
-    SetupLuaClassCNmIDEvent(plugin, state);
-    SetupLuaClassCPathMetricEvaluator(plugin, state);
-    SetupLuaClassMaterialParam_t(plugin, state);
-    SetupLuaClassCSpeedScaleUpdateNode(plugin, state);
-    SetupLuaClassVMixEQ8Desc_t(plugin, state);
-    SetupLuaClassCModelConfigElement_SetMaterialGroupOnAttachedModels(plugin, state);
-    SetupLuaClassTwoBoneIKSettings_t(plugin, state);
-    SetupLuaClassCompositeMaterialInputContainer_t(plugin, state);
-    SetupLuaClassCStateNodeStateData(plugin, state);
-    SetupLuaClassFeTwistConstraint_t(plugin, state);
-    SetupLuaClassFootFixedData_t(plugin, state);
-    SetupLuaClassVMixDiffusorDesc_t(plugin, state);
-    SetupLuaClassFeProxyVertexMap_t(plugin, state);
-    SetupLuaClassCDirectPlaybackUpdateNode(plugin, state);
-    SetupLuaClassPostProcessingLocalContrastParameters_t(plugin, state);
-    SetupLuaClassCFootLockUpdateNode(plugin, state);
-    SetupLuaClassCParentConstraint(plugin, state);
-    SetupLuaClassSkeletonAnimCapture_t__Frame_t(plugin, state);
-    SetupLuaClassCPathParameters(plugin, state);
-    SetupLuaClassCSlowDownOnSlopesUpdateNode(plugin, state);
-    SetupLuaClassCAttachment(plugin, state);
-    SetupLuaClassCEmptyEntityInstance(plugin, state);
-    SetupLuaClassCCompositeMaterialEditorDoc(plugin, state);
-    SetupLuaClassCPhysSurfacePropertiesPhysics(plugin, state);
-    SetupLuaClassEventClientPostOutput_t(plugin, state);
-    SetupLuaClassFeNodeIntegrator_t(plugin, state);
-    SetupLuaClassRnMeshDesc_t(plugin, state);
-    SetupLuaClassCAnimGraphNetworkSettings(plugin, state);
-    SetupLuaClassCAimConstraint(plugin, state);
-    SetupLuaClassCAnimActionUpdater(plugin, state);
-    SetupLuaClassCParticleFunctionForce(plugin, state);
-    SetupLuaClassCSpinUpdateBase(plugin, state);
-    SetupLuaClassControlPointReference_t(plugin, state);
-    SetupLuaClassCVoiceContainerRandomSampler(plugin, state);
-    SetupLuaClassFeFollowNode_t(plugin, state);
-    SetupLuaClassCovMatrix3(plugin, state);
-    SetupLuaClassAnimStateID(plugin, state);
-    SetupLuaClassCVoiceContainerStaticAdditiveSynth(plugin, state);
-    SetupLuaClassRnSoftbodyCapsule_t(plugin, state);
-    SetupLuaClassCModelConfigElement_RandomPick(plugin, state);
-    SetupLuaClassNmSyncTrackTime_t(plugin, state);
-    SetupLuaClassCGeneralRandomRotation(plugin, state);
-    SetupLuaClassRnPlane_t(plugin, state);
-    SetupLuaClassFeNodeWindBase_t(plugin, state);
-    SetupLuaClassCQuaternionAnimParameter(plugin, state);
-    SetupLuaClassSkeletonAnimCapture_t__Camera_t(plugin, state);
-    SetupLuaClassCAnimEncodeDifference(plugin, state);
-    SetupLuaClassAggregateSceneObject_t(plugin, state);
-    SetupLuaClassIKDemoCaptureSettings_t(plugin, state);
-    SetupLuaClassCParticleCollectionBindingInstance(plugin, state);
-    SetupLuaClassCVoiceContainerDefault(plugin, state);
-    SetupLuaClassCSoundEventMetaData(plugin, state);
-    SetupLuaClassCMorphConstraint(plugin, state);
-    SetupLuaClassDop26_t(plugin, state);
-    SetupLuaClassCAnimGraphModelBinding(plugin, state);
-    SetupLuaClassFakeEntityDerivedA_tAPI(plugin, state);
-    SetupLuaClassCAnimParamHandleMap(plugin, state);
-    SetupLuaClassFeMorphLayerDepr_t(plugin, state);
-    SetupLuaClassFourCovMatrices3(plugin, state);
-    SetupLuaClassFeFitMatrix_t(plugin, state);
-    SetupLuaClassRnVertex_t(plugin, state);
-    SetupLuaClassTraceSettings_t(plugin, state);
-    SetupLuaClassCConstraintTarget(plugin, state);
-    SetupLuaClassCompMatPropertyMutator_t(plugin, state);
-    SetupLuaClassIKBoneNameAndIndex_t(plugin, state);
-    SetupLuaClassPermEntityLumpData_t(plugin, state);
-    SetupLuaClassVMixDelayDesc_t(plugin, state);
-    SetupLuaClassCBoneConstraintDotToMorph(plugin, state);
-    SetupLuaClassPostProcessingBloomParameters_t(plugin, state);
-    SetupLuaClassEntOutput_t(plugin, state);
-    SetupLuaClassFakeEntityDerivedB_tAPI(plugin, state);
-    SetupLuaClassCSlopeComponentUpdater(plugin, state);
-    SetupLuaClassRnNode_t(plugin, state);
-    SetupLuaClassCSeqCmdSeqDesc(plugin, state);
-    SetupLuaClassCPathAnimMotorUpdaterBase(plugin, state);
-    SetupLuaClassCVariantDefaultAllocator(plugin, state);
-    SetupLuaClassVMixOscDesc_t(plugin, state);
-    SetupLuaClassFeEdgeDesc_t(plugin, state);
-    SetupLuaClassCPathAnimMotorUpdater(plugin, state);
-    SetupLuaClassCWayPointHelperUpdateNode(plugin, state);
-    SetupLuaClassMaterialParamInt_t(plugin, state);
-    SetupLuaClassPermModelInfo_t(plugin, state);
-    SetupLuaClassAnimScriptHandle(plugin, state);
-    SetupLuaClassFeCtrlOffset_t(plugin, state);
-    SetupLuaClassFeTri_t(plugin, state);
-    SetupLuaClassCLeanMatrixUpdateNode(plugin, state);
-    SetupLuaClassCStanceScaleUpdateNode(plugin, state);
-    SetupLuaClassIKTargetSettings_t(plugin, state);
-    SetupLuaClassTestResource_t(plugin, state);
-    SetupLuaClassCBaseRendererSource2(plugin, state);
-    SetupLuaClassCSSDSMsg_ViewRender(plugin, state);
-    SetupLuaClassCZeroPoseUpdateNode(plugin, state);
-    SetupLuaClassFeFitWeight_t(plugin, state);
-    SetupLuaClassCFootCycleMetricEvaluator(plugin, state);
-    SetupLuaClassCFootPositionMetricEvaluator(plugin, state);
-    SetupLuaClassCFlexOp(plugin, state);
-    SetupLuaClassCPointConstraint(plugin, state);
-    SetupLuaClassMotionBlendItem(plugin, state);
-    SetupLuaClassCVectorQuantizer(plugin, state);
-    SetupLuaClassSignatureOutflow_Resume(plugin, state);
-    SetupLuaClassFeBoxRigid_t(plugin, state);
-    SetupLuaClassCIntAnimParameter(plugin, state);
-    SetupLuaClassCNmTargetValueNode(plugin, state);
-    SetupLuaClassEventSimpleLoopFrameUpdate_t(plugin, state);
-    SetupLuaClassEventServerAdvanceTick_t(plugin, state);
-    SetupLuaClassTimedEvent(plugin, state);
-    SetupLuaClassTextureGroup_t(plugin, state);
-    SetupLuaClassCSosGroupActionSoundeventPrioritySchema(plugin, state);
-    SetupLuaClassCBonePositionMetricEvaluator(plugin, state);
-    SetupLuaClassCPhysSurfacePropertiesAudio(plugin, state);
-    SetupLuaClassCNmIDValueNode(plugin, state);
-    SetupLuaClassFeSimdNodeBase_t(plugin, state);
-    SetupLuaClassPermModelExtPart_t(plugin, state);
-    SetupLuaClassCCurrentRotationVelocityMetricEvaluator(plugin, state);
-    SetupLuaClassCAnimEventDefinition(plugin, state);
-    SetupLuaClassCAnimEnum(plugin, state);
-    SetupLuaClassCAnimFrameBlockAnim(plugin, state);
-    SetupLuaClassCNmVirtualParameterIDNode(plugin, state);
-    SetupLuaClassCFlashlightEffect(plugin, state);
-    SetupLuaClassFeBuildSphereRigid_t(plugin, state);
-    SetupLuaClassCAnimEncodedFrames(plugin, state);
-    SetupLuaClassEventSetTime_t(plugin, state);
-    SetupLuaClassOldFeEdge_t(plugin, state);
-    SetupLuaClassCStanceOverrideUpdateNode(plugin, state);
-    SetupLuaClassconstraint_breakableparams_t(plugin, state);
-    SetupLuaClassCStateNodeTransitionData(plugin, state);
-    SetupLuaClassCMotionMatchingUpdateNode(plugin, state);
-    SetupLuaClassCNmSyncTrack__Event_t(plugin, state);
-    SetupLuaClassEventSplitScreenStateChanged_t(plugin, state);
-    SetupLuaClassParticleNamedValueSource_t(plugin, state);
-    SetupLuaClassMaterialParamBuffer_t(plugin, state);
-    SetupLuaClassEventPostDataUpdate_t(plugin, state);
-    SetupLuaClassRenderProjectedMaterial_t(plugin, state);
-    SetupLuaClassCSSDSMsg_ViewTargetList(plugin, state);
-    SetupLuaClassFeSimdAnimStrayRadius_t(plugin, state);
-    SetupLuaClassCAnimUser(plugin, state);
-    SetupLuaClassFeSpringIntegrator_t(plugin, state);
-    SetupLuaClassCModelConfigElement_UserPick(plugin, state);
-    SetupLuaClassRenderSkeletonBone_t(plugin, state);
-    SetupLuaClassAnimationDecodeDebugDump_t(plugin, state);
-    SetupLuaClassPARTICLE_EHANDLE__(plugin, state);
-    SetupLuaClassFeCollisionPlane_t(plugin, state);
-    SetupLuaClassCAnimCycle(plugin, state);
-    SetupLuaClassCNmSyncTrack__EventMarker_t(plugin, state);
-    SetupLuaClassCAnimGraphSettingsManager(plugin, state);
-    SetupLuaClassCRagdollUpdateNode(plugin, state);
-    SetupLuaClassCEntityComponentHelper(plugin, state);
-    SetupLuaClassCompositeMaterial_t(plugin, state);
-    SetupLuaClassSignatureOutflow_Continue(plugin, state);
-    SetupLuaClassWeightList(plugin, state);
-    SetupLuaClassRnBodyDesc_t(plugin, state);
-    SetupLuaClassCFeMorphLayer(plugin, state);
-    SetupLuaClassAnimNodeOutputID(plugin, state);
-    SetupLuaClassEventClientSceneSystemThreadStateChange_t(plugin, state);
-    SetupLuaClassEventClientPreSimulate_t(plugin, state);
-    SetupLuaClassClutterSceneObject_t(plugin, state);
-    SetupLuaClassCPoseHandle(plugin, state);
-    SetupLuaClassCAnimScriptBase(plugin, state);
-    SetupLuaClassCVoiceContainerBlender(plugin, state);
-    SetupLuaClassvphysics_save_cphysicsbody_t(plugin, state);
-    SetupLuaClassCRagdollAnimTag(plugin, state);
-    SetupLuaClassIClientAlphaProperty(plugin, state);
-    SetupLuaClassPermModelData_t(plugin, state);
-    SetupLuaClassFootFixedSettings(plugin, state);
-    SetupLuaClassCSolveIKTargetHandle_t(plugin, state);
-    SetupLuaClassCBlendUpdateNode(plugin, state);
-    SetupLuaClassCAnimationGraphVisualizerSphere(plugin, state);
-    SetupLuaClassMaterialParamFloat_t(plugin, state);
-    SetupLuaClassEventServerSimulate_t(plugin, state);
-    SetupLuaClassCVoiceContainerEnvelopeAnalyzer(plugin, state);
-    SetupLuaClassFollowAttachmentSettings_t(plugin, state);
-    SetupLuaClassJiggleBoneSettings_t(plugin, state);
-    SetupLuaClassCAnimStateMachineUpdater(plugin, state);
-    SetupLuaClassCNmControlParameterFloatNode(plugin, state);
-    SetupLuaClassCSeqCmdLayer(plugin, state);
-    SetupLuaClassCAnimScriptComponentUpdater(plugin, state);
-    SetupLuaClassFeRigidColliderIndices_t(plugin, state);
-    SetupLuaClassCSeqAutoLayer(plugin, state);
-    SetupLuaClassBakedLightingInfo_t(plugin, state);
-    SetupLuaClassCExampleSchemaVData_PolymorphicBase(plugin, state);
-    SetupLuaClassFourVectors2D(plugin, state);
-    SetupLuaClassCOrientConstraint(plugin, state);
-    SetupLuaClassSequenceWeightedList_t(plugin, state);
-    SetupLuaClassCSosGroupActionMemberCountEnvelopeSchema(plugin, state);
-    SetupLuaClassFeRodConstraint_t(plugin, state);
-    SetupLuaClassFollowTargetOpFixedSettings_t(plugin, state);
-    SetupLuaClassCRenderSkeleton(plugin, state);
-    SetupLuaClassVMixConvolutionDesc_t(plugin, state);
-    SetupLuaClassCSosGroupBranchPattern(plugin, state);
-    SetupLuaClassCNmGraphDefinition__ExternalGraphSlot_t(plugin, state);
-    SetupLuaClassCNmStateMachineNode__StateDefinition_t(plugin, state);
-    SetupLuaClassCModelConfigElement_SetBodygroupOnAttachedModels(plugin, state);
-    SetupLuaClassCNmFootEvent(plugin, state);
-    SetupLuaClassCHandshakeAnimTagBase(plugin, state);
-    SetupLuaClassCBlend2DUpdateNode(plugin, state);
-    SetupLuaClassAnimationSnapshotBase_t(plugin, state);
-    SetupLuaClassCTiltTwistConstraint(plugin, state);
-    SetupLuaClassMaterialParamTexture_t(plugin, state);
-    SetupLuaClassCGlobalLightBase(plugin, state);
-    SetupLuaClassCModelConfigElement_SetBodygroup(plugin, state);
-    SetupLuaClassCModelConfigElement_AttachedModel(plugin, state);
-    SetupLuaClassCFollowAttachmentUpdateNode(plugin, state);
-    SetupLuaClassParticleChildrenInfo_t(plugin, state);
-    SetupLuaClassCVoiceContainerNull(plugin, state);
-    SetupLuaClassMoodAnimation_t(plugin, state);
-    SetupLuaClassCClientAlphaProperty(plugin, state);
-    SetupLuaClassCTimeRemainingMetricEvaluator(plugin, state);
-    SetupLuaClassNmSyncTrackTimeRange_t(plugin, state);
-    SetupLuaClassCAnimActivity(plugin, state);
-    SetupLuaClassCNmGraphDefinition(plugin, state);
-    SetupLuaClassCSolveIKChainUpdateNode(plugin, state);
-    SetupLuaClassEventClientPollNetworking_t(plugin, state);
-    SetupLuaClassCMeshletDescriptor(plugin, state);
-    SetupLuaClassCNmLayerBlendNode__LayerDefinition_t(plugin, state);
-    SetupLuaClassCAnimSequenceParams(plugin, state);
-    SetupLuaClassCDemoSettingsComponentUpdater(plugin, state);
-    SetupLuaClassCompositeMaterialAssemblyProcedure_t(plugin, state);
-    SetupLuaClassCTaskHandshakeAnimTag(plugin, state);
-    SetupLuaClassEventClientPauseSimulate_t(plugin, state);
-    SetupLuaClassCFireOverlay(plugin, state);
-    SetupLuaClassFeBuildTaperedCapsuleRigid_t(plugin, state);
-    SetupLuaClassCStateUpdateData(plugin, state);
-    SetupLuaClassCPhysSurfaceProperties(plugin, state);
-    SetupLuaClassCMotionSearchNode(plugin, state);
-    SetupLuaClassVMixVocoderDesc_t(plugin, state);
-    SetupLuaClassCAnimScriptManager(plugin, state);
-    SetupLuaClassCAnimationGraphVisualizerLine(plugin, state);
-    SetupLuaClassCFootTrajectory(plugin, state);
-    SetupLuaClassVMixModDelayDesc_t(plugin, state);
-    SetupLuaClassCHitBox(plugin, state);
-    SetupLuaClassCTestDomainDerived_Cursor(plugin, state);
-    SetupLuaClassCAudioMorphData(plugin, state);
-    SetupLuaClassCSeqIKLock(plugin, state);
-    SetupLuaClassFeQuad_t(plugin, state);
-    SetupLuaClassCSosGroupMatchPattern(plugin, state);
-    SetupLuaClassCSSDSEndFrameViewInfo(plugin, state);
-    SetupLuaClassCNmExternalGraphNode(plugin, state);
-    SetupLuaClassCMoverUpdateNode(plugin, state);
-    SetupLuaClassRnHull_t(plugin, state);
-    SetupLuaClassCMoodVData(plugin, state);
-    SetupLuaClassEventClientFrameSimulate_t(plugin, state);
-    SetupLuaClassCRagdollComponentUpdater(plugin, state);
-    SetupLuaClassCMotionNodeBlend1D(plugin, state);
-    SetupLuaClassCNmControlParameterVectorNode(plugin, state);
-    SetupLuaClassCPathHelperUpdateNode(plugin, state);
-    SetupLuaClassCSeqPoseParamDesc(plugin, state);
-    SetupLuaClassVMixPitchShiftDesc_t(plugin, state);
-    SetupLuaClassCAudioSentence(plugin, state);
-    SetupLuaClassCRenderBufferBinding(plugin, state);
-    SetupLuaClassCParticleAnimTag(plugin, state);
-    SetupLuaClassCStaticPoseCacheBuilder(plugin, state);
-    SetupLuaClassCNmRootMotionData(plugin, state);
-    SetupLuaClassCAnimReplayFrame(plugin, state);
-    SetupLuaClassCNmVirtualParameterBoneMaskNode(plugin, state);
-    SetupLuaClassCBlockSelectionMetricEvaluator(plugin, state);
-    SetupLuaClassCMotionGraph(plugin, state);
-    SetupLuaClassCSosSoundEventGroupSchema(plugin, state);
-    SetupLuaClassCFootMotion(plugin, state);
-    SetupLuaClassCDampedValueUpdateItem(plugin, state);
-    SetupLuaClassRnHalfEdge_t(plugin, state);
-    SetupLuaClassCAnimDataChannelDesc(plugin, state);
-    SetupLuaClassEventClientProcessNetworking_t(plugin, state);
-    SetupLuaClassCModelConfigList(plugin, state);
-    SetupLuaClassCNmGraphVariation(plugin, state);
-    SetupLuaClassCSosGroupActionTimeBlockLimitSchema(plugin, state);
-    SetupLuaClassVMixDynamics3BandDesc_t(plugin, state);
-    SetupLuaClassCModelConfigElement_SetMaterialGroup(plugin, state);
-    SetupLuaClassCMovementHandshakeAnimTag(plugin, state);
-    SetupLuaClassCSeqScaleSet(plugin, state);
-    SetupLuaClassEventClientProcessGameInput_t(plugin, state);
-    SetupLuaClassVsInputSignatureElement_t(plugin, state);
-    SetupLuaClassCompositeMaterialMatchFilter_t(plugin, state);
-    SetupLuaClassVertexPositionColor_t(plugin, state);
-    SetupLuaClassCFootTrajectories(plugin, state);
-    SetupLuaClassSceneObject_t(plugin, state);
-    SetupLuaClassCSSDSMsg_ViewTarget(plugin, state);
-    SetupLuaClassVMixSubgraphSwitchDesc_t(plugin, state);
-    SetupLuaClassCNmTransitionNode(plugin, state);
-    SetupLuaClassMotionDBIndex(plugin, state);
-    SetupLuaClassCToggleComponentActionUpdater(plugin, state);
-    SetupLuaClassCNmControlParameterIDNode(plugin, state);
-    SetupLuaClassPostProcessingTonemapParameters_t(plugin, state);
-    SetupLuaClassVMixAutoFilterDesc_t(plugin, state);
-    SetupLuaClassCSeqMultiFetch(plugin, state);
-    SetupLuaClassCNmStateMachineNode(plugin, state);
-    SetupLuaClassCBoneConstraintPoseSpaceMorph(plugin, state);
-    SetupLuaClassCSSDSMsg_PreLayer(plugin, state);
-    SetupLuaClassCSelectorUpdateNode(plugin, state);
-    SetupLuaClassCAimCameraUpdateNode(plugin, state);
-    SetupLuaClassCFootStepTriggerUpdateNode(plugin, state);
-    SetupLuaClassRnSoftbodyParticle_t(plugin, state);
-    SetupLuaClassCSingleFrameUpdateNode(plugin, state);
-    SetupLuaClassCSeqSynthAnimDesc(plugin, state);
-    SetupLuaClassCDirectPlaybackTagData(plugin, state);
-    SetupLuaClassEventFrameBoundary_t(plugin, state);
-    SetupLuaClassWorldNode_t(plugin, state);
-    SetupLuaClassAggregateMeshInfo_t(plugin, state);
-    SetupLuaClassFeSimdRodConstraintAnim_t(plugin, state);
-    SetupLuaClassEventPostAdvanceTick_t(plugin, state);
-    SetupLuaClassFeBuildBoxRigid_t(plugin, state);
-    SetupLuaClassIPhysicsPlayerController(plugin, state);
-    SetupLuaClassEventServerPostAdvanceTick_t(plugin, state);
-    SetupLuaClassEventClientPreOutput_t(plugin, state);
-    SetupLuaClassRnSoftbodySpring_t(plugin, state);
-    SetupLuaClassFeNodeReverseOffset_t(plugin, state);
-    SetupLuaClassRnHullDesc_t(plugin, state);
-    SetupLuaClassCSymbolAnimParameter(plugin, state);
-    SetupLuaClassFeStiffHingeBuild_t(plugin, state);
-    SetupLuaClassExtraVertexStreamOverride_t(plugin, state);
-    SetupLuaClassEntityIOConnectionData_t(plugin, state);
-    SetupLuaClassSkeletonAnimCapture_t(plugin, state);
-    SetupLuaClassCStateActionUpdater(plugin, state);
-    SetupLuaClassCSeqS1SeqDesc(plugin, state);
-    SetupLuaClassAimMatrixOpFixedSettings_t(plugin, state);
-    SetupLuaClassParticlePreviewState_t(plugin, state);
-    SetupLuaClassFeCtrlOsOffset_t(plugin, state);
-    SetupLuaClassCMorphData(plugin, state);
-    SetupLuaClassCAimMatrixUpdateNode(plugin, state);
-    SetupLuaClassCDirectionalBlendUpdateNode(plugin, state);
-    SetupLuaClassVMixPannerDesc_t(plugin, state);
-    SetupLuaClassFeSimdSpringIntegrator_t(plugin, state);
-    SetupLuaClassModelBoneFlexDriver_t(plugin, state);
-    SetupLuaClassCBoolAnimParameter(plugin, state);
-    SetupLuaClassEventAppShutdown_t(plugin, state);
-    SetupLuaClassResourceId_t(plugin, state);
-    SetupLuaClassCVoiceContainerRealtimeFMSineWave(plugin, state);
-    SetupLuaClassCNmVirtualParameterBoolNode(plugin, state);
-    SetupLuaClassCNmSyncTrack(plugin, state);
-    SetupLuaClassTagSpan_t(plugin, state);
-    SetupLuaClassCNmStateNode__TimedEvent_t(plugin, state);
-    SetupLuaClassCNmControlParameterTargetNode(plugin, state);
-    SetupLuaClassCFootstepLandedAnimTag(plugin, state);
-    SetupLuaClassCEnumAnimParameter(plugin, state);
-    SetupLuaClassCAnimationGraphVisualizerPie(plugin, state);
-    SetupLuaClassAnimationSnapshot_t(plugin, state);
-    SetupLuaClassVPhysXCollisionAttributes_t(plugin, state);
-    SetupLuaClassCActionComponentUpdater(plugin, state);
-    SetupLuaClassCNmVirtualParameterVectorNode(plugin, state);
-    SetupLuaClassCAnimFrameSegment(plugin, state);
-    SetupLuaClassCClothSettingsAnimTag(plugin, state);
-    SetupLuaClassVariableInfo_t(plugin, state);
-    SetupLuaClassVMixShaperDesc_t(plugin, state);
-    SetupLuaClassCSoundInfoHeader(plugin, state);
-    SetupLuaClassCVoiceContainerDecayingSineWave(plugin, state);
-    SetupLuaClassCCycleControlClipUpdateNode(plugin, state);
-    SetupLuaClassCBaseTrailRenderer(plugin, state);
-    SetupLuaClassCBoneConstraintPoseSpaceBone(plugin, state);
-    SetupLuaClassEventServerPostSimulate_t(plugin, state);
-    SetupLuaClassCChoreoUpdateNode(plugin, state);
-    SetupLuaClassCNmSkeleton(plugin, state);
-    SetupLuaClassVMixBoxverbDesc_t(plugin, state);
-    SetupLuaClassFeTreeChildren_t(plugin, state);
-    SetupLuaClassCSceneObjectData(plugin, state);
-    SetupLuaClassStanceInfo_t(plugin, state);
-    SetupLuaClassCMotionNodeSequence(plugin, state);
-    SetupLuaClassCFootCycleDefinition(plugin, state);
-    SetupLuaClassCAnimDesc_Flag(plugin, state);
-    SetupLuaClassCBoneVelocityMetricEvaluator(plugin, state);
-    SetupLuaClassCFuseProgram(plugin, state);
-    SetupLuaClassCFeVertexMapBuildArray(plugin, state);
-    SetupLuaClassFeSoftParent_t(plugin, state);
-    SetupLuaClassCFootFallAnimTag(plugin, state);
-    SetupLuaClassEventClientOutput_t(plugin, state);
-    SetupLuaClassMaterialVariable_t(plugin, state);
-    SetupLuaClassCFeNamedJiggleBone(plugin, state);
-    SetupLuaClassEventClientProcessInput_t(plugin, state);
-    SetupLuaClassJiggleBoneSettingsList_t(plugin, state);
-    SetupLuaClassCSequenceFinishedAnimTag(plugin, state);
-    SetupLuaClassCAnimationGraphVisualizerText(plugin, state);
-    SetupLuaClassCDampedPathAnimMotorUpdater(plugin, state);
-    SetupLuaClassLookAtOpFixedSettings_t(plugin, state);
-    SetupLuaClassCEntityIOOutput(plugin, state);
-    SetupLuaClassCDSPPresetMixgroupModifierTable(plugin, state);
-    SetupLuaClassRnWing_t(plugin, state);
-    SetupLuaClassCNmChildGraphNode(plugin, state);
-    SetupLuaClassVMixPlateverbDesc_t(plugin, state);
-    SetupLuaClassCMotionSearchDB(plugin, state);
-    SetupLuaClassVPhysics2ShapeDef_t(plugin, state);
-    SetupLuaClassWorldBuilderParams_t(plugin, state);
-    SetupLuaClassCFootAdjustmentUpdateNode(plugin, state);
-    SetupLuaClassCNmClipNode(plugin, state);
-    SetupLuaClassCAnimMorphDifference(plugin, state);
-    SetupLuaClassIParticleCollection(plugin, state);
-    SetupLuaClassCNmGraphDefinition__ChildGraphSlot_t(plugin, state);
-    SetupLuaClassCFutureVelocityMetricEvaluator(plugin, state);
-    SetupLuaClassCParticleProperty(plugin, state);
-    SetupLuaClassVertexPositionNormal_t(plugin, state);
-    SetupLuaClassFeEffectDesc_t(plugin, state);
-    SetupLuaClassCLODComponentUpdater(plugin, state);
-    SetupLuaClassCNmLegacyEvent(plugin, state);
-    SetupLuaClassMaterialParamVector_t(plugin, state);
-    SetupLuaClassCMotionGraphGroup(plugin, state);
-    SetupLuaClassHitReactFixedSettings_t(plugin, state);
-    SetupLuaClassCRootUpdateNode(plugin, state);
-    SetupLuaClassCAnimMovement(plugin, state);
-    SetupLuaClassCConstraintSlave(plugin, state);
-    SetupLuaClassCSeqBoneMaskList(plugin, state);
-    SetupLuaClassPermModelDataAnimatedMaterialAttribute_t(plugin, state);
-    SetupLuaClassScriptInfo_t(plugin, state);
-    SetupLuaClassVPhysXRange_t(plugin, state);
-    SetupLuaClassCJiggleBoneUpdateNode(plugin, state);
-    SetupLuaClassCollisionGroupContext_t(plugin, state);
-    SetupLuaClassCAudioPhonemeTag(plugin, state);
-    SetupLuaClassCAnimData(plugin, state);
-    SetupLuaClassSosEditItemInfo_t(plugin, state);
-    SetupLuaClassFeFitInfluence_t(plugin, state);
-    SetupLuaClassCInputStreamUpdateNode(plugin, state);
-    SetupLuaClassEventClientPollInput_t(plugin, state);
-    SetupLuaClassFeSimdQuad_t(plugin, state);
-    SetupLuaClassCEmitTagActionUpdater(plugin, state);
-    SetupLuaClassCAddUpdateNode(plugin, state);
-    SetupLuaClassCAnimTagManagerUpdater(plugin, state);
-    SetupLuaClassSampleCode(plugin, state);
-    SetupLuaClassCExpressionActionUpdater(plugin, state);
-    SetupLuaClassEventClientPostAdvanceTick_t(plugin, state);
-    SetupLuaClassBoneDemoCaptureSettings_t(plugin, state);
-    SetupLuaClassVPhysXBodyPart_t(plugin, state);
-    SetupLuaClassCDecalInfo(plugin, state);
-    SetupLuaClassParticleControlPointConfiguration_t(plugin, state);
-    SetupLuaClassVMixUtilityDesc_t(plugin, state);
-    SetupLuaClassCMotionGraphConfig(plugin, state);
-    SetupLuaClassCMovementComponentUpdater(plugin, state);
-    SetupLuaClassPointDefinition_t(plugin, state);
-    SetupLuaClassVMixEffectChainDesc_t(plugin, state);
-    SetupLuaClassCHitReactUpdateNode(plugin, state);
-    SetupLuaClassEntInput_t(plugin, state);
-    SetupLuaClassCNmVirtualParameterFloatNode(plugin, state);
-    SetupLuaClassCParticleSystemDefinition(plugin, state);
-    SetupLuaClassCVoiceContainerSelector(plugin, state);
-    SetupLuaClassCRegionSVM(plugin, state);
-    SetupLuaClassCSetParameterActionUpdater(plugin, state);
-    SetupLuaClassCAnimUpdateSharedData(plugin, state);
-    SetupLuaClassEventClientSimulate_t(plugin, state);
-    SetupLuaClassCVoiceContainerAmpedDecayingSineWave(plugin, state);
-    SetupLuaClassClutterTile_t(plugin, state);
-    SetupLuaClassPointDefinitionWithTimeValues_t(plugin, state);
-    SetupLuaClassFeVertexMapBuild_t(plugin, state);
-    SetupLuaClassCAnimDesc(plugin, state);
-    SetupLuaClassCTwistConstraint(plugin, state);
-    SetupLuaClassCNewParticleEffect(plugin, state);
-    SetupLuaClassCFeIndexedJiggleBone(plugin, state);
-    SetupLuaClassCFloatAnimParameter(plugin, state);
-    SetupLuaClassRnBlendVertex_t(plugin, state);
-    SetupLuaClassCVirtualAnimParameter(plugin, state);
-    SetupLuaClassCHitBoxSetList(plugin, state);
-    SetupLuaClassMaterialParamString_t(plugin, state);
-    SetupLuaClassVsInputSignature_t(plugin, state);
-    SetupLuaClassInfoOverlayData_t(plugin, state);
-    SetupLuaClassCastSphereSATParams_t(plugin, state);
-    SetupLuaClassCBindPoseUpdateNode(plugin, state);
-    SetupLuaClassVMixFreeverbDesc_t(plugin, state);
-    SetupLuaClassCCurrentVelocityMetricEvaluator(plugin, state);
-    SetupLuaClassCVoxelVisibility(plugin, state);
-    SetupLuaClassSelectedEditItemInfo_t(plugin, state);
-    SetupLuaClassChainToSolveData_t(plugin, state);
-    SetupLuaClassCGlowSprite(plugin, state);
-    SetupLuaClassCSSDSMsg_PostLayer(plugin, state);
-    SetupLuaClassCAnimBone(plugin, state);
-    SetupLuaClassVPhysXConstraint2_t(plugin, state);
-    SetupLuaClassCEditableMotionGraph(plugin, state);
-    SetupLuaClassCAnimKeyData(plugin, state);
-    SetupLuaClassEventPreDataUpdate_t(plugin, state);
-    SetupLuaClassWorld_t(plugin, state);
-    SetupLuaClassCVectorAnimParameter(plugin, state);
-    SetupLuaClassCNmControlParameterBoolNode(plugin, state);
-    SetupLuaClassCStateMachineUpdateNode(plugin, state);
-    SetupLuaClassCHitBoxSet(plugin, state);
-    SetupLuaClassCExampleSchemaVData_PolymorphicDerivedB(plugin, state);
-    SetupLuaClassFeSimdTri_t(plugin, state);
-    SetupLuaClassPostProcessingResource_t(plugin, state);
-    SetupLuaClassCNmStateNode(plugin, state);
-    SetupLuaClassNodeData_t(plugin, state);
-    SetupLuaClassCTaskStatusAnimTag(plugin, state);
-    SetupLuaClassCMaterialDrawDescriptor(plugin, state);
-    SetupLuaClassEventServerProcessNetworking_t(plugin, state);
-    SetupLuaClassCInterpolatedValue(plugin, state);
-    SetupLuaClassCMotionGraphUpdateNode(plugin, state);
-    SetupLuaClassCLookAtUpdateNode(plugin, state);
-    SetupLuaClassCFlexController(plugin, state);
-    SetupLuaClassCExampleSchemaVData_PolymorphicDerivedA(plugin, state);
-    SetupLuaClassEntityKeyValueData_t(plugin, state);
-    SetupLuaClassCFootStride(plugin, state);
-    SetupLuaClassCAnimationGroup(plugin, state);
-    SetupLuaClassCSubtractUpdateNode(plugin, state);
-    SetupLuaClassFeTaperedCapsuleStretch_t(plugin, state);
-    SetupLuaClassWorldNodeOnDiskBufferData_t(plugin, state);
-    SetupLuaClassEntComponentInfo_t(plugin, state);
-    SetupLuaClassCClientGapTypeQueryRegistration(plugin, state);
-    SetupLuaClassCNmVirtualParameterTargetNode(plugin, state);
-    SetupLuaClassCAudioAnimTag(plugin, state);
-    SetupLuaClassCRenderMesh(plugin, state);
-    SetupLuaClassconstraint_hingeparams_t(plugin, state);
-    SetupLuaClassNmCompressionSettings_t(plugin, state);
-    SetupLuaClassCTurnHelperUpdateNode(plugin, state);
-    SetupLuaClassCSosGroupActionTimeLimitSchema(plugin, state);
-    SetupLuaClassCFollowTargetUpdateNode(plugin, state);
-    SetupLuaClassEventClientAdvanceNonRenderedFrame_t(plugin, state);
-    SetupLuaClassCSosSoundEventGroupListSchema(plugin, state);
-    SetupLuaClassCNmClip(plugin, state);
-    SetupLuaClassCFlexDesc(plugin, state);
-    SetupLuaClassCStateMachineComponentUpdater(plugin, state);
-    SetupLuaClassCompMatMutatorCondition_t(plugin, state);
-    SetupLuaClassFakeEntity_tAPI(plugin, state);
-    SetupLuaClassCBoneConstraintPoseSpaceMorph__Input_t(plugin, state);
-    SetupLuaClassCTwoBoneIKUpdateNode(plugin, state);
-    SetupLuaClassVMixDynamicsDesc_t(plugin, state);
-    SetupLuaClassFeVertexMapDesc_t(plugin, state);
-    SetupLuaClassFeSourceEdge_t(plugin, state);
-    SetupLuaClassCompositeMaterialEditorPoint_t(plugin, state);
-    SetupLuaClassVPhysXJoint_t(plugin, state);
-    SetupLuaClassCBodyGroupSetting(plugin, state);
-    SetupLuaClassRnSphereDesc_t(plugin, state);
-    SetupLuaClassCNmTarget(plugin, state);
+    luabridge::getGlobalNamespace(state)
+        .beginClass<SDKBaseClass>("CGlowProperty")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEntityInstance")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEntityComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("EHandle", &CBaseEntity_EHandle)
+        .addFunction("Spawn", &CBaseEntity_Spawn)
+        .addFunction("Despawn", &CBaseEntity_Despawn)
+        .addFunction("AcceptInput", &CBaseEntity_AcceptInput)
+        .addFunction("GetClassname", &CBaseEntity_GetClassname)
+        .addFunction("GetVData", &CBaseEntity_GetVData)
+        .addFunction("Teleport", &CBaseEntity_Teleport)
+        .addFunction("EmitSound", &CBaseEntity_EmitSound)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_MovementServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("fogparams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CIronSightController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHitboxComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CServerOnlyEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VPhysicsCollisionAttribute_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCollisionProperty")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPropDataComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseModelEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("SetModel", &CBaseModelEntity_SetModel)
+        .addFunction("SetSolidType", &CBaseModelEntity_SetSolidType)
+        .addFunction("SetBodygroup", &CBaseModelEntity_SetBodygroup)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseToggle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBasePlatTrain")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseTrigger")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicalEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerPush")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerProximity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerMultiple")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGameRulesProxy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseAnimGraph")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBreakable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTonemapTrigger")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEconItemAttribute")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseFlex")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFogTrigger")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseFilter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPointScriptExtensions_weapon_cs_base")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerHostageReset")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CServerOnlyPointEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoInstructorHintBombTargetB")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CountdownTimer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAttributeManager")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBuoyancyHelper")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMoverPathNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBtNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_ViewModelServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAttributeList")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("SetOrAddAttributeValueByName", &CAttributeList_SetOrAddAttributeValueByName)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvSoundscape")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("fogplayerparams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFogController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEconItemView")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelState")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseGrenade")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnableMotionFixup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSObserver_MovementServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBtNodeDecorator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAttributeContainer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FilterHealth")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayerPing")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PredictedDamageTag_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPointScriptEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGameSceneNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoLandmark")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEconEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBasePlayerWeapon")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimGraphNetworkedVariables")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBodyComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvFireSensor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_TeamPreviewCharacterPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvWindShared__WindAveEvent_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseProp")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointGamestatsCounter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysicsShake")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerTripWire")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathKeyFrame")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncNavObstruction")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvTilt")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSWeaponBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItemGenericTriggerHelper")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicBranchList")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("audioparams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSWeaponBaseGun")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelPointEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMultiLightProxy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEffectData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEntityBlocker")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicCase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItem")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRuleEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("Extent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEventEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_ViewModelServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponBaseItem")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoParticleTarget")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvVolumetricFogController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_MovementServices_Humanoid")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBreakableProp")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvSoundscapeProxy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGameModeRules")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItemAssaultSuit")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoPlayerStart")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundOpvarSetPointBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRagdollProp")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItemDogtags")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLightEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_WaterServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSkyboxReference")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDynamicProp")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRopeKeyframe")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBarnLight")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SpawnPoint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvViewPunch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDEagle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathCorner")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayerController_InventoryServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseCSGrenade")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseCombatCharacter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMultiSource")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicNavigation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvEntityMaker")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CProjectedDecal")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicEventListener")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterMultiple")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_UseServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CScriptComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysicsWire")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("locksound_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPointScriptExtensions_player_controller")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseFire")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBumpMine")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLightGlow")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSPerRoundStats_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBasePropDoor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRagdollManager")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerFan")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMolotovGrenade")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathCornerCrash")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHandleTest")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundOpvarSetEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("WeaponPurchaseCount_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavSpaceInfo")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicAchievement")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathSimple")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBtActionParachutePositioning")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_CameraServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTouchExpansionComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EntitySpottedState_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseClientUIEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvDecal")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPointScriptExtensions_entity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSkeletonInstance")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicAuto")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundOpvarSetOBBWindEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLightDirectionalEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicNPCCounter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSObserver_UseServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncPlat")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRuleBrushEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRulePointEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMessageEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmokeGrenade")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseViewModel")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_PingServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_FlashlightServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CServerOnlyModelEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBtActionCombatPositioning")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFireSmoke")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponMAC10")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponGlock")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPredictedViewModel")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerActiveWeaponDetect")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvMicrophone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoSpawnGroupLoadUnload")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBasePlayerController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("EntityIndex", &CBasePlayerController_EntityIndex)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointTemplateAPI")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CKnife")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncTrackTrain")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFogVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoPlayerCounterterrorist")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFire")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseAnimGraphController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSServerPointScriptEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponBizon")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncPlatRot")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGenericConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDecoyGrenade")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponG3SG1")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItemDefuser")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CConstantForceController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBreachChargeProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRagdollPropAttached")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItemSoda")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvCubemap")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBasePlayerControllerAPI")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPointScriptExtensions_CCSWeaponBaseVData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvDetailController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerOnce")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoTeleportDestination")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMathRemap")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInstructorEventEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGradientFog")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootstepControl")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoInstructorHintHostageRescueZone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvSoundscapeAlias_snd_soundscape")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFishPool")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointClientCommand")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncVPhysicsClip")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_RadioServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSceneEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvHudHint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleSystem")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBasePlayerWeaponVData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("sky3dparams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CScriptItem")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IntervalTimer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponSG556")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("dynpitchvol_base_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDynamicLight")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponP90")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerToggleSave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPrecipitation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointServerCommand")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_TeamIntroCharacterPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicCollisionPair")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBodyComponentSkeletonInstance")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysicsProp")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncWall")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItemDefuserAlias_item_defuser")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseCSGrenadeProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayerBase_CameraServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_WingmanIntroCharacterPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSMatchStats_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncLadder")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerSndSosOpvar")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItemHeavyAssaultSuit")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CScriptedSequence")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponNegev")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponGalilAR")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvProjectedTexture")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDynamicPropAlias_prop_dynamic_override")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSceneListManager")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSplineConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSObserver_ViewModelServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDynamicPropAlias_dynamic_prop")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ActiveModelConfig_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysicsPropMultiplayer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncTrackChange")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMarkupVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoPlayerTerrorist")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VelocitySampler")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTankTargetChange")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicCompare")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_BulletServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicRelay")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_ItemServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CKeepUpright")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRevertSaved")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncWater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncTimescale")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBtActionMoveTo")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTonemapController2")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRopeKeyframeAlias_move_rope")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvInstructorVRHint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponXM1014")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlatTrigger")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvWindShared")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CIncendiaryGrenade")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointHurt")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointValueRemapper")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicNPCCounterAABB")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLightOrthoEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvSoundscapeTriggerable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundOpvarSetPointEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBasePlayerPawn")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGameMoney")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicPlayerProxy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_ObserverServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponZoneRepulsor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysImpact")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvCombinedLightProbeVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_WaterServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponM249")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvParticleGlow")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncVehicleClip")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundAreaEntityBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncBrush")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvFunnel")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SequenceHistory_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGameModeRules_Noop")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointAngularVelocitySensor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMolotovProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHostageRescueZoneShim")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvInstructorHint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvTracer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoGameEventProxy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointCamera")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBodyComponentBaseModelEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncLadderAlias_func_useableladder")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseMoveBehavior")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncInteractionLayerClip")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_WingmanIntroCounterTerroristPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGameRules")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponRevolver")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("COrnamentProp")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicGameEvent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvMuzzleFlash")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayerSprayDecal")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBombTarget")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysicsSpring")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvLightProbeVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGameModeRules_ArmsRace")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CScriptTriggerPush")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvEntityIgniter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncWallToggle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDamageRecord")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicAutosave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayerController_DamageServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRenderComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEventPathCornerEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvSoundscapeProxyAlias_snd_soundscape_proxy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLightComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmokeGrenadeProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CScriptTriggerMultiple")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundOpvarSetAutoRoomEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBodyComponentPoint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FilterDamageType")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBot")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotorController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundAreaEntitySphere")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_UseServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_TeamSelectCharacterPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItemKevlar")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerHurt")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysBallSocket")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMapVetoPickController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSMinimapBoundary")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEnt")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoSpawnGroupLandmark")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_MovementServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerSave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysWheelConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysFixed")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBasePlayerVData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayerController_InGameMoneyServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSprite")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundOpvarSetAABBEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponM4A1")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBeam")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCommentaryViewPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTonemapController2Alias_env_tonemap_controller2")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysPulley")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGameRulesProxy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponSawedoff")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayerController_ActionTrackingServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvLaser")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseFlexAlias_funCBaseFlex")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFish")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvFireSource")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoLadderDismount")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerGameEvent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SimpleConstraintSoundProfile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDebugHistory")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHostageCarriableProp")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLightSpotEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncRotating")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDecoyProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlace")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncTrainControls")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEntityDissolve")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointAngleSensor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEventOBBEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBtNodeCondition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSharedGapTypeQueryRegistration")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvVolumetricFogVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvBeam")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncIllusionary")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysMagnet")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSceneEntityAlias_logic_choreographed_scene")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncNavBlocker")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRagdollMagnet")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncElectrifiedVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointProximitySensor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("WeaponPurchaseTracker_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterClass")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMelee")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMultiplayRules")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterLOS")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EngineCountdownTimer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysBox")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSensorGrenadeProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTimerEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_TeamIntroCounterTerroristPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHEGrenadeProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvWind")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTimeline")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFists")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHandleDummy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRagdollConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysExplosion")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointPush")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCredits")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayerResource")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_WeaponServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAttributeManager__cached_attribute_float_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTeam")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGameModeRules_Deathmatch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPrecipitationBlocker")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerImpact")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSun")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerDetectBulletFire")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWorld")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointGiveAmmo")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncMoveLinear")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathParticleRope")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayerVisibility")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointTeleport")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAK47")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerTeleport")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSObserver_CameraServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_TeamIntroTerroristPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncMover")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_CameraServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHEGrenade")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGameEnd")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerCallback")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBubbling")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTeamplayRules")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysicsPropOverride")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAI_ChangeHintGroup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CColorCorrectionVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterEnemy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CShower")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvCubemapFog")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseButton")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvExplosion")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEventAABBEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerLook")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPrecipitationVData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicProximity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointClientUIWorldPanel")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterContext")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathParticleRopeAlias_path_particle_rope_clientside")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerBuoyancy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterAttributeInt")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_ActionTrackingServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAISound")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointEntityFinder")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("shard_model_desc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysicsPropRespawnable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvSky")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointVelocitySensor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterMassGreater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FilterTeam")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncTankTrain")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNullEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPointScriptExtensions_observer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMarkupVolumeTagged")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBuyZone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointTemplate")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTripWireFire")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysForce")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicDistanceAutosave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoDynamicShadowHint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundOpvarSetOBBEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvWindShared__WindVariationEvent_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTakeDamageInfoAPI")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CScriptTriggerOnce")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavWalkable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncMonitor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFlashbangProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointClientUIWorldTextPanel")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoInstructorHintTarget")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_HostageServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponSSG08")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBreachCharge")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicBranch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponUMP45")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSpriteAlias_env_glow")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysicalButton")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysLength")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicNPCCounterOBB")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGOViewModel")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponShield")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBlood")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvFade")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDynamicPropAlias_cable_dynamic")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_BuyServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHostageExpresserShim")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInferno")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvGlobal")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterName")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSTeam")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponUSPSilencer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSpriteOriented")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerGravity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CServerRagdollTrigger")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoDynamicShadowHintBox")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathMover")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFlashbang")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponAug")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponFiveSeven")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CChangeLevel")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerLerpObject")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerSoundscape")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicScript")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponMP7")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerBrush")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysicsEntitySolver")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNetworkedSequenceOperation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointWorldText")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundAreaEntityOrientedBox")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerPhysics")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EntityRenderAttribute_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointBroadcastClientCommand")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncShatterglass")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRotButton")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEventSphereEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponHKP2000")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlantedC4")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointClientUIDialog")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvSplash")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSkyCamera")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponNOVA")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointCameraVFOV")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponTaser")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWaterBullet")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMarkupVolumeWithRef")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMessage")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicGameEventListener")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPushable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerRemove")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoTarget")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMomentaryRotButton")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPropDoorRotating")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGameText")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponMP5SD")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTextureBasedAnimatable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMarkupVolumeTagged_NavGame")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysThruster")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPointScriptExtensions_player")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCitadelSoundOpvarSetOBB")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SellbackPurchaseEntry_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponFamas")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CShatterGlassShardPhysics")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterModel")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayerPawnBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathTrack")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicDistanceCheck")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("COmniLight")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoOffscreenPanoramaTexture")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoVisibilityBox")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGamePlayerEquip")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoTargetServerOnly")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundOpvarSetPathCornerEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_WeaponServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEntityFlame")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponMP9")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSBot")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEntityIdentity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGunTarget")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEventParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSimpleMarkupVolumeTagged")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTestEffect")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponM4A1Silencer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CScriptNavBlocker")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CConstraintAnchor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponTec9")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMarkupVolumeTagged_Nav")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInstancedSceneEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLightEnvironmentEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicActiveAutosave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvBeverage")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponCZ75a")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponP250")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHostage")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CScriptTriggerHurt")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSWeaponBaseVData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMathColorBlend")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvScreenOverlay")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayerPawn")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBumpMineProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayerController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CChicken")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoInstructorHintBombTargetA")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponAWP")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSObserverPawn")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPostProcessingVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSpotlightEnd")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGamePlayerZone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSensorGrenade")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_TeamSelectCounterTerroristPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerDetectExplosion")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundStackSave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ConstraintSoundInfo")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSingleplayRules")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFilterProximity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEconWearable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_ItemServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncConveyor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponMag7")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMathCounter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoWorldLayer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRectLight")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_TeamSelectTerroristPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseDoor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicLineToEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRetakeGameRules")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGO_WingmanIntroTerroristPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvCubemapBox")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPlayer_DamageReactServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ServerAuthoritativeWeaponSlot_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGameRules")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CColorCorrection")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponElite")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEventEntityAlias_snd_event_point")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseEntityAPI")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CC4")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHostageRescueZone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointPrefab")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRotDoor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBodyComponentBaseAnimGraph")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTablet")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTankTrainAI")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGameGibManager")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSPointScript")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRagdollPropAlias_physics_prop_ragdoll")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSSprite")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncPropRespawnZone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInfoDeathmatchSpawn")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWeaponSCAR20")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTripWireFireProjectile")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncTrackAuto")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvSpark")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSObserver_ObserverServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayer_AutoaimServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncTrain")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHostageAlias_info_hostage_spawn")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavLinkAreaEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuncMoveLinearAlias_momentary_door")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCommentaryAuto")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMapInfo")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTriggerBombReset")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseDMStart")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLogicMeasureMovement")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ViewAngleServerChange_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PhysicsRagdollPose_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("Relationship_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CResponseQueue")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("lerpdata_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysHinge")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ResponseContext_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGameScriptedMoveData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavVolumeSphere")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAI_Expresser")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysHingeAlias_phys_hinge_local")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("dynpitchvol_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavVolumeVector")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("NavGravity_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnvShake")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysSlideConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSound")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCommentarySystem")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ConceptHistory_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGameChoreoServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CShatterGlassShard")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("magnetted_objects_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHintMessageQueue")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavHullPresetVData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPropDoorRotatingBreakable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBtActionAim")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmoothFunc")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("HullFlags_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysMotor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseIssue")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysTorque")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBtNodeComposite")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFireCrackerBlast")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAI_ExpresserWithFollowup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavVolumeMarkupVolume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMultiplayer_Expresser")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CItem_Healthshot")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavHullVData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SoundOpvarTraceResult_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavVolumeCalculatedVector")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBtNodeConditionInactive")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSAdditionalPerRoundStats_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavVolumeBreadthFirstSearch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAmbientGeneric")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSAdditionalMatchStats_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavVolumeAll")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavVolumeSphericalShell")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RelationshipOverride_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VoxelVisBlockOffset_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParticleAttributeIndex_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleFloatInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropModifier")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AggregateLODSetup_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CProductQuantizer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimUpdateNodeRef")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmGraphNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimEventListenerBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixDynamicsCompressorDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleCollectionFloatInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleFunction")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleFunctionOperator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PARTICLE_WORLD_HANDLE__")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FootStepTrigger")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeCoordinateSpace")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSphereRigid_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParticleControlPointDriver_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDrawCullingData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimUserDifference")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqMultiFetchFlag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmEvent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimParamHandle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuseSymbolTable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PhysFeModelDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SceneViewId_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCycleBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysSurfacePropertiesSoundNames")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("DynamicMeshDeformParams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDistanceRemainingMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("GeneratedTextureHandle_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnCapsule_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixDynamicsBand_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimInputDamping")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimTagID")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupActionSchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleFunctionPreEmission")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPerParticleFloatInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFutureFacingMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqTransition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeChoiceSelectionMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimNodePath")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParamSpanUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimNodeID")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnFace_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleFunctionInitializer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EngineLoopState_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeDirection")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmPoseNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleFunctionConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmStateMachineNode__TransitionDefinition_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimAttachment")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventSimulate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleCollectionRendererFloatInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ModelSkeletonData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventModInitialized_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleTransformInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleVisibilityInputs")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialGroup_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimUpdateNodeBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleFunctionRenderer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleVecInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VPhysXConstraintParams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMorphRectData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventServerPollNetworking_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDspPresetModifierList")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SkeletonDemoDb_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRenderGroom")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRemapFloat")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CUnaryUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStanceScaleUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeKelagerBend2_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMorphSetData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBinaryUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ChangeAccessorFieldPathIndex_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("constraint_axislimit_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FuseFunctionIndex_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_Group")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFeJiggleBone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGeneralSpin")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_ModifyState")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("TextureControls_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleModelInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmPassthroughNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimDecoder")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("NmPercent_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGlowOverlay")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventProfileStorageAvailable_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPerParticleVecInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBoneMaskUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ConfigIndex")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSimdRodConstraint_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSSDSMsg_EndFrame")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SkeletonBoneBounds_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PointCameraSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropTransformOperation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributePathPositions")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDSPMixgroupModifier")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBoneConstraintBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventAdvanceTick_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeScaleMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MotionIndex")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimBoneDifference")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootDefinition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootCycle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionDataSet")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVPhysXSurfacePropertiesList")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixFilterDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleFunctionEmitter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ManifestTestResource_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleMassCalculationParameters")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimParamID")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTransitionUpdateData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FootPinningPoseOpFixedData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootPinningUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLeafUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimMotorUpdaterBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("thinkfunc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnMesh_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VPhysXAggregateData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSequenceUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_Command")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimParameterBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VecInputMaterialVariable_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCachedPose")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimGraphSettingsGroup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfig")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FootLockPoseOpFixedSettings")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFlexRule")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CompositeMaterialInputLooseVariable_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeApplyColorMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupActionSetSoundeventParameterSchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStepsRemainingMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("NmCompressionSettings_t__QuantizationRange_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimParameterManagerUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_RandomScale")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_RandomColor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimTagBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimComponentID")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimLocalHierarchy")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnShapeDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBoneConstraintPoseSpaceBone__Input_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_SetRenderColor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PhysSoftbodyDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimGraphControllerBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_RotateTowards")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMapResourceData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeCtrlSoftOffset_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTakeDamageResult")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_Model")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMorphBundleData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmBoneMask")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAudioEmphasisSample")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmFrameSnapEvent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CJumpHelperUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SolveIKChainPoseOpFixedSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSimpleSimTimer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMaterialAttributeAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixEnvelopeDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CReplicationParameters")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmValueNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFollowPathUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientPostSimulate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AABB_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeNodeBase_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PostProcessingVignetteParameters_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ModelBoneFlexDriverControl_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ConstantInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FuseVariableIndex_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_SaveScale")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CResponseCriteriaSet")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IParticleEffect")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStopAtGoalUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSequenceGroupData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParticleNamedValueConfiguration_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimSkeleton")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimationGraphVisualizerPrimitiveBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBodyGroupAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeAxialEdgeBend_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParamSpanSample_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FunctionInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FourQuaternions")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SkeletonAnimCapture_t__FrameStamp_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqAutoLayerFlag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RenderInputLayoutField_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParamSpan_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmBoolValueNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCPPScriptComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDampedValueComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqPoseSetting")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RenderHairStrandInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CExampleSchemaVData_Monomorphic")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavLinkMovementVData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_Scale")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeTaperedCapsuleRigid_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CChoiceUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IKSolverSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmLayerBlendNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayerSprayDecalRenderHelper")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_SaveDirection")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRandomNumberGeneratorParameters")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimationDecodeDebugDumpElement_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmFloatValueNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupActionSoundeventClusterSchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSSDSMsg_LayerBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialResourceData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimationGraphVisualizerAxis")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ResponseParams")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("BlendItem_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeWeightedNode_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerAnalysisBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupActionLimitSchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNetworkVarChainer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLookComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCycleControlUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_DirectionVector")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropFilter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnTriangle_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmVectorValueNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqSeqDescFlag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AimCameraOpFixedSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNetworkTransmitComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("BaseSceneObjectOverride_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleRemapFloatInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CConcreteAnimParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParticleIndex_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_CreateSizer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeAnimStrayRadius_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnCapsuleDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ModelReference_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimGraphDebugReplay")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimEventListener")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_RandomRotation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerSwitch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("LookAtBone_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmBoneMaskValueNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmTransitionEvent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStringAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNavLinkAnimgraphVar")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SkeletonAnimCapture_t__Bone_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStaticPoseCache")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeWorldCollisionParams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParticlePreviewBodyGroup_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayerInputAnimMotorUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropRoot")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_PathPositions")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeBandBendLimit_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleCollectionRendererVecInput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimFoot")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientAdvanceTick_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialOverride_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialParam_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimDemoCaptureSettings")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmIDEvent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ModelConfigHandle_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSpeedScaleUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixEQ8Desc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_SetMaterialGroupOnAttachedModels")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("TwoBoneIKSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeTraceNoHit")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStateNodeStateData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CompositeMaterialInputContainer_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ISkeletonAnimationController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_GridPlacementMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropFilter_VariableValue")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeTwistConstraint_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FootFixedData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeProxyVertexMap_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixDiffusorDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDirectPlaybackUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PostProcessingLocalContrastParameters_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootLockUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParentConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SkeletonAnimCapture_t__Frame_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNetworkVelocityVector")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStopwatchBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathParameters")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSlowDownOnSlopesUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAttachment")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEmptyEntityInstance")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeGridPlacementMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysSurfacePropertiesPhysics")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRopeOverlapHit")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ResponseFollowup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientPostOutput_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCompositeMaterialEditorDoc")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_ResetScale")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_DistributionMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeNodeIntegrator_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnMeshDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimGraphNetworkSettings")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAimConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimActionUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_Trace")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_RadiusPlacementMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleFunctionForce")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeFollowNode_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CovMatrix3")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerRandomSampler")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSpinUpdateBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ControlPointReference_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimStateID")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_Int")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_PlaceOnPath")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnSoftbodyCapsule_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerStaticAdditiveSynth")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_RandomPick")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("NmSyncTrackTime_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnPlane_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeNodeWindBase_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGeneralRandomRotation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CQuaternionAnimParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SkeletonAnimCapture_t__Camera_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimEncodeDifference")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IEconItemInterface")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AggregateSceneObject_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IKDemoCaptureSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerDefault")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEventMetaData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMorphConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleCollectionBindingInstance")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFiringModeInt")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("Dop26_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimGraphModelBinding")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FakeEntityDerivedA_tAPI")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimParamHandleMap")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeMorphLayerDepr_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FourCovMatrices3")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_Vector3D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeFitMatrix_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnVertex_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("TraceSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_RandomColorTintColor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCSGOPlayerAnimGraphState")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_SetOrientation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CConstraintTarget")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CompMatPropertyMutator_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_PickOne")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_PlaceMultiple")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IKBoneNameAndIndex_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PermEntityLumpData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixDelayDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PostProcessingBloomParameters_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBoneConstraintDotToMorph")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EntOutput_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSlopeComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FakeEntityDerivedB_tAPI")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_ComputeDistance3D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_ComputeVectorBetweenPoints3D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnNode_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqCmdSeqDesc")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathAnimMotorUpdaterBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundEnvelope")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNetworkOriginQuantizedVector")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVariantDefaultAllocator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeEdgeDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixOscDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathAnimMotorUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_ApplyColorMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeRadiusPlacementMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialParamInt_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CWayPointHelperUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PermModelInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimScriptHandle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeCtrlOffset_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeTri_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("TestResource_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLeanMatrixUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBlendCurve")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IKTargetSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSSDSMsg_ViewRender")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseRendererSource2")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CZeroPoseUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeFitWeight_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootCycleMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootPositionMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFlexOp")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("sndopvarlatchdata_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPointConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MotionBlendItem")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVectorQuantizer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeBoxRigid_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CIntAnimParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmTargetValueNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventSimpleLoopFrameUpdate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SignatureOutflow_Resume")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventServerAdvanceTick_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupActionSoundeventPrioritySchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("TextureGroup_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBonePositionMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysSurfacePropertiesAudio")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmIDValueNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CScriptUniformRandomStream")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("TimedEvent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSimdNodeBase_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropSelectionCriteria")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PermModelExtPart_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCurrentRotationVelocityMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AmmoIndex_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimEventDefinition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimEnum")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_String")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimFrameBlockAnim")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmVirtualParameterIDNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_CoordinateSpace")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeBuildSphereRigid_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimEncodedFrames")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFlashlightEffect")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventSetTime_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("OldFeEdge_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStanceOverrideUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ColorChoice_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("constraint_breakableparams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStateNodeTransitionData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionMatchingUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmSyncTrack__Event_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventSplitScreenStateChanged_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParticleNamedValueSource_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialParamBuffer_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventPostDataUpdate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSimdAnimStrayRadius_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSSDSMsg_ViewTargetList")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RenderProjectedMaterial_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimUser")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTakeDamageInfo")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSpringIntegrator_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_UserPick")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RenderSkeletonBone_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimationDecodeDebugDump_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_Vector4D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeCollisionPlane_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PARTICLE_EHANDLE__")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimCycle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmSyncTrack__EventMarker_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimGraphSettingsManager")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRagdollUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEntityComponentHelper")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropSelectionCriteria_ChoiceWeight")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CompositeMaterial_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("WeightList")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SignatureOutflow_Continue")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_TraceToLine")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnBodyDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFeMorphLayer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimNodeOutputID")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IGapHost_GameEntity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientSceneSystemThreadStateChange_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientPreSimulate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ClutterSceneObject_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPoseHandle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeGridOriginMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerBlender")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimScriptBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("vphysics_save_cphysicsbody_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRagdollAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialParamFloat_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PermModelData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FootFixedSettings")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSolveIKTargetHandle_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBlendUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimationGraphVisualizerSphere")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventServerSimulate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IClientAlphaProperty")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerEnvelopeAnalyzer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FollowAttachmentSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("JiggleBoneSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimStateMachineUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmControlParameterFloatNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqCmdLayer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimScriptComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_RestoreState")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CommandToolCommand_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSkillFloat")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_CreateLocator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeRigidColliderIndices_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqAutoLayer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("BakedLightingInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CExampleSchemaVData_PolymorphicBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FourVectors2D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("COrientConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeRodConstraint_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupActionMemberCountEnvelopeSchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SequenceWeightedList_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FollowTargetOpFixedSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRenderSkeleton")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixConvolutionDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupBranchPattern")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmGraphDefinition__ExternalGraphSlot_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmStateMachineNode__StateDefinition_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_SetBodygroupOnAttachedModels")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmFootEvent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHandshakeAnimTagBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBlend2DUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialParamTexture_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimationSnapshotBase_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTiltTwistConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RagdollCreationParams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_SetBodygroup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_AttachedModel")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGlobalLightBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRangeFloat")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropFilter_SurfaceAngle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFollowAttachmentUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimEventQueueListener")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerNull")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParticleChildrenInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MoodAnimation_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTimeRemainingMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayerControllerComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CClientAlphaProperty")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("NmSyncTrackTimeRange_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_CreateRotator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimActivity")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmGraphDefinition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSolveIKChainUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMeshletDescriptor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientPollNetworking_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmLayerBlendNode__LayerDefinition_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropFilter_Expression")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_SaveState")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimSequenceParams")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDemoSettingsComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEntitySubclassVDataBase")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CompositeMaterialAssemblyProcedure_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTaskHandshakeAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientPauseSimulate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSkillInt")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFireOverlay")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_TraceNoHit")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeBuildTaperedCapsuleRigid_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStateUpdateData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPhysSurfaceProperties")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionSearchNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixVocoderDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimScriptManager")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimationGraphVisualizerLine")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootTrajectory")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTakeDamageSummaryScopeGuard")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixModDelayDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHitBox")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRangeInt")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropSelectionCriteria_LinearLength")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAudioMorphData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqIKLock")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTestDomainDerived_Cursor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeQuad_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_ResetRotation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_Model")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributePickMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupMatchPattern")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSkillDamage")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_Rotate")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSSDSEndFrameViewInfo")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmExternalGraphNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMoverUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPlayerPawnComponent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnHull_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMoodVData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientFrameSimulate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRagdollComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionNodeBlend1D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmControlParameterVectorNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CPathHelperUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqPoseParamDesc")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixPitchShiftDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAudioSentence")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRenderBufferBinding")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStaticPoseCacheBuilder")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmRootMotionData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSimpleStopwatch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSkeletonAnimationController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimReplayFrame")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_Layout2DGrid")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_ComputeCrossProduct3D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmVirtualParameterBoneMaskNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBlockSelectionMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionGraph")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCopyRecipientFilter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRandSimTimer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropFilter_Probability")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_TraceToPoint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosSoundEventGroupSchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootMotion")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDampedValueUpdateItem")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnHalfEdge_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropAttributeDistributionMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimDataChannelDesc")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientProcessNetworking_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SceneEventId_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigList")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmGraphVariation")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_Layout2DCircle_experimental")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupActionTimeBlockLimitSchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixDynamics3BandDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VsInputSignatureElement_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CModelConfigElement_SetMaterialGroup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMovementHandshakeAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqScaleSet")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientProcessGameInput_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_ScaleMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VertexPositionColor_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootTrajectories")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CompositeMaterialMatchFilter_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SceneObject_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixSubgraphSwitchDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSSDSMsg_ViewTarget")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PostProcessingTonemapParameters_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmTransitionNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MotionDBIndex")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CToggleComponentActionUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmControlParameterIDNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_SetVariable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixAutoFilterDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqMultiFetch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmStateMachineNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBoneConstraintPoseSpaceMorph")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSSDSMsg_PreLayer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSelectorUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAimCameraUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootStepTriggerUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_SavePosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnSoftbodyParticle_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSingleFrameUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqSynthAnimDesc")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDirectPlaybackTagData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventFrameBoundary_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("WorldNode_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AggregateMeshInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSimdRodConstraintAnim_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSimTimer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSceneEventInfo")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventPostAdvanceTick_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeBuildBoxRigid_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IPhysicsPlayerController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventServerPostAdvanceTick_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientPreOutput_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnSoftbodySpring_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeNodeReverseOffset_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnHullDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSymbolAnimParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_Angles")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeStiffHingeBuild_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_Bool")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ExtraVertexStreamOverride_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EntityIOConnectionData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SkeletonAnimCapture_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStateActionUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropChoice")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqS1SeqDesc")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AimMatrixOpFixedSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNetworkViewOffsetVector")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInButtonState")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("hudtextparms_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IChoreoServices")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParticlePreviewState_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_MaterialGroup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeCtrlOsOffset_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMorphData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAimMatrixUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDirectionalBlendUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSimdSpringIntegrator_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixPannerDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ModelBoneFlexDriver_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBoolAnimParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ResourceId_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventAppShutdown_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerRealtimeFMSineWave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmVirtualParameterBoolNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmSyncTrack")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("TagSpan_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmStateNode__TimedEvent_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmControlParameterTargetNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBreakableStageHelper")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootstepLandedAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEnumAnimParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimationGraphVisualizerPie")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("QuestProgress")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_SetPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AnimationSnapshot_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VPhysXCollisionAttributes_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CActionComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmVirtualParameterVectorNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimFrameSegment")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CClothSettingsAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ragdollelement_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VariableInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixShaperDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundInfoHeader")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerDecayingSineWave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCycleControlClipUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBaseTrailRenderer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBoneConstraintPoseSpaceBone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventServerPostSimulate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IRagdoll")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CChoreoUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmSkeleton")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeTreeChildren_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixBoxverbDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSceneObjectData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("StanceInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionNodeSequence")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootCycleDefinition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimDesc_Flag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBoneVelocityMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSoundPatch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFuseProgram")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFeVertexMapBuildArray")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSoftParent_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootFallAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientOutput_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFeNamedJiggleBone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialVariable_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientProcessInput_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropSelectionCriteria_PathPosition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("JiggleBoneSettingsList_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_Color")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSequenceFinishedAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimationGraphVisualizerText")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDampedPathAnimMotorUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("LookAtOpFixedSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEntityIOOutput")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnWing_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDSPPresetMixgroupModifierTable")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmChildGraphNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixPlateverbDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionSearchDB")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VPhysics2ShapeDef_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("WorldBuilderParams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootAdjustmentUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmClipNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimMorphDifference")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IParticleCollection")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmGraphDefinition__ChildGraphSlot_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFutureVelocityMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VertexPositionNormal_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeEffectDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleProperty")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialParamVector_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLODComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmLegacyEvent")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionGraphGroup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("HitReactFixedSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRootUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimMovement")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CConstraintSlave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_SaveSurfaceNormal")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSeqBoneMaskList")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PermModelDataAnimatedMaterialAttribute_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ScriptInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VPhysXRange_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CJiggleBoneUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_Float")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropFilter_SurfaceProperties")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAudioPhonemeTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CollisionGroupContext_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("AmmoTypeInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_ComputeNormalizedVector3D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeFitInfluence_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SosEditItemInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInputStreamUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientPollInput_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRandStopwatch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSimdQuad_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEmitTagActionUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAddUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimTagManagerUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNetworkOriginCellCoordQuantizedVector")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_Translate")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SampleCode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CExpressionActionUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientPostAdvanceTick_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("BoneDemoCaptureSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VPhysXBodyPart_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStopwatch")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_PlaceInSphere")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixUtilityDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ParticleControlPointConfiguration_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionGraphConfig")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMovementComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CDecalInfo")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixEffectChainDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PointDefinition_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHitReactUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EntInput_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_PickMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SummaryTakeDamageInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_RandomOffset")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmVirtualParameterFloatNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("IHasAttributes")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRegionSVM")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerSelector")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CParticleSystemDefinition")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSetParameterActionUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimUpdateSharedData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientSimulate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_FitOnLine")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoiceContainerAmpedDecayingSineWave")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ClutterTile_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeVertexMapBuild_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PointDefinitionWithTimeValues_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimDesc")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTwistConstraint")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFeIndexedJiggleBone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNewParticleEffect")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFloatAnimParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnBlendVertex_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VsInputSignature_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("MaterialParamString_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVirtualAnimParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHitBoxSetList")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("InfoOverlayData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CastSphereSATParams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBindPoseUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixFreeverbDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CCurrentVelocityMetricEvaluator")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropSelectionCriteria_IsValid")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVoxelVisibility")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("SelectedEditItemInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ChainToSolveData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSSDSMsg_PostLayer")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimBone")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VPhysXConstraint2_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CGlowSprite")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CEditableMotionGraph")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimKeyData")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventPreDataUpdate_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("GameAmmoTypeInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("World_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CVectorAnimParameter")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmControlParameterBoolNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_ComputeProjectVector3D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStateMachineUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CHitBoxSet")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CExampleSchemaVData_PolymorphicDerivedB")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSimdTri_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("PostProcessingResource_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_GridOriginMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmStateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootstepTableHandle")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropSelectionCriteria_EndCap")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("NodeData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTaskStatusAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMaterialDrawDescriptor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventServerProcessNetworking_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_Vector2D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CInterpolatedValue")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_SetTintColor")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CMotionGraphUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CLookAtUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFlexController")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CExampleSchemaVData_PolymorphicDerivedA")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EntityKeyValueData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFootStride")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAnimationGroup")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSubtractUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeTaperedCapsuleStretch_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("WorldNodeOnDiskBufferData_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EntComponentInfo_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmVirtualParameterTargetNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CAudioAnimTag")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CRenderMesh")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("ragdoll_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CClientGapTypeQueryRegistration")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("constraint_hingeparams_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("NmCompressionSettings_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTurnHelperUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosGroupActionTimeLimitSchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFollowTargetUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("EventClientAdvanceNonRenderedFrame_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_ComputeDotProduct3D")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropElement_SmartProp")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSosSoundEventGroupListSchema")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmClip")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFlexDesc")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CStateMachineComponentUpdater")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropOperation_TraceInDirection")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CFiringModeFloat")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBoneConstraintPoseSpaceMorph__Input_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CTwoBoneIKUpdateNode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FakeEntity_tAPI")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CompMatMutatorCondition_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeVertexMapDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("FeSourceEdge_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VMixDynamicsDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropVariable_ChoiceSelectionMode")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("VPhysXJoint_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CBodyGroupSetting")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CompositeMaterialEditorPoint_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CSmartPropChoiceOption")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("RnSphereDesc_t")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass()
+        .beginClass<SDKBaseClass>("CNmTarget")
+        .addConstructor<void(*)(std::string, lua_State*)>()
+        .addCFunction("__index", &SDKBaseClass::IndexFunc)
+        .addFunction("__newindex", &SDKBaseClass::UpdateSDKLua)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .endClass();
 }

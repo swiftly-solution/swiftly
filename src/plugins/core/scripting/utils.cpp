@@ -19,10 +19,11 @@ std::string scripting_GetOS()
     return WIN_LINUX("Windows", "Linux");
 }
 
-GCCSGameRules scripting_GetCCSGameRules()
+SDKBaseClass scripting_GetCCSGameRules()
 {
-    GCCSGameRules val(gameRules);
+    SDKBaseClass val(gameRules, "CCSGameRules");
     return val;
+
 }
 
 std::string scripting_GetPluginPath(std::string plugin_name)

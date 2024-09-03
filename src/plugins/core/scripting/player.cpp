@@ -14,75 +14,75 @@ PluginPlayer::PluginPlayer(std::string m_plugin_name, int m_playerId)
 
 PluginPlayer::~PluginPlayer() {}
 
-GCBaseEntity PluginPlayer::GetCBaseEntity()
+SDKBaseClass PluginPlayer::GetCBaseEntity()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) {
-        GCBaseEntity val(nullptr);
+        SDKBaseClass val(nullptr, "CBaseEntity");
         return val;
     }
 
-    GCBaseEntity val((void*)player->GetPlayerPawn());
+    SDKBaseClass val((void*)player->GetPlayerPawn(), "CBaseEntity");
     return val;
 }
 
-GCBasePlayerController PluginPlayer::GetCBasePlayerController()
+SDKBaseClass PluginPlayer::GetCBasePlayerController()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) {
-        GCBasePlayerController val(nullptr);
+        SDKBaseClass val(nullptr, "CBasePlayerController");
         return val;
     }
 
-    GCBasePlayerController val((void*)player->GetController());
+    SDKBaseClass val((void*)player->GetController(), "CBasePlayerController");
     return val;
 }
 
-GCBasePlayerPawn PluginPlayer::GetCBasePlayerPawn()
+SDKBaseClass PluginPlayer::GetCBasePlayerPawn()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) {
-        GCBasePlayerPawn val(nullptr);
+        SDKBaseClass val(nullptr, "CBasePlayerPawn");
         return val;
     }
 
-    GCBasePlayerPawn val((void*)player->GetPawn());
+    SDKBaseClass val((void*)player->GetPawn(), "CBasePlayerPawn");
     return val;
 }
 
-GCCSPlayerController PluginPlayer::GetCCSPlayerController()
+SDKBaseClass PluginPlayer::GetCCSPlayerController()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) {
-        GCCSPlayerController val(nullptr);
+        SDKBaseClass val(nullptr, "CCSPlayerController");
         return val;
     }
 
-    GCCSPlayerController val((void*)player->GetPlayerController());
+    SDKBaseClass val((void*)player->GetPlayerController(), "CCSPlayerController");
     return val;
 }
 
-GCCSPlayerPawn PluginPlayer::GetCCSPlayerPawn()
+SDKBaseClass PluginPlayer::GetCCSPlayerPawn()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) {
-        GCCSPlayerPawn val(nullptr);
+        SDKBaseClass val(nullptr, "CCSPlayerPawn");
         return val;
     }
 
-    GCCSPlayerPawn val((void*)player->GetPlayerPawn());
+    SDKBaseClass val((void*)player->GetPlayerPawn(), "CCSPlayerPawn");
     return val;
 }
 
-GCCSPlayerPawnBase PluginPlayer::GetCCSPlayerPawnBase()
+SDKBaseClass PluginPlayer::GetCCSPlayerPawnBase()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) {
-        GCCSPlayerPawnBase val(nullptr);
+        SDKBaseClass val(nullptr, "CCSPlayerPawnBase");
         return val;
     }
 
-    GCCSPlayerPawnBase val((void*)player->GetPlayerBasePawn());
+    SDKBaseClass val((void*)player->GetPlayerBasePawn(), "CCSPlayerPawnBase");
     return val;
 }
 

@@ -52,9 +52,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-fPIC",
 		]
 		binary.compiler.cflags += [
-			"-Wno-invalid-offsetof",
 			"-Wno-return-local-addr",
-			"-Wno-overloaded-virtual",
 			"-Wno-unknown-pragmas",
 			"-Wno-non-virtual-dtor",
 			"-Wno-attributes",

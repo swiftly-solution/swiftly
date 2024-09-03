@@ -135,28 +135,28 @@ PluginWeapon::PluginWeapon(int playerId, CBasePlayerWeapon* ptr)
     this->m_ptr = ptr;
 }
 
-GCBasePlayerWeapon PluginWeapon::GetCBasePlayerWeapon()
+SDKBaseClass PluginWeapon::GetCBasePlayerWeapon()
 {
-    return GCBasePlayerWeapon(this->m_ptr);
+    return SDKBaseClass(this->m_ptr, "CBasePlayerWeapon");
 }
 
-GCCSWeaponBase PluginWeapon::GetCCSWeaponBase()
+SDKBaseClass PluginWeapon::GetCCSWeaponBase()
 {
-    return GCCSWeaponBase(this->m_ptr);
+    return SDKBaseClass(this->m_ptr, "CCSWeaponBase");
 }
-GCBasePlayerWeaponVData PluginWeapon::GetCBasePlayerWeaponVData()
+SDKBaseClass PluginWeapon::GetCBasePlayerWeaponVData()
 {
     if (!this->m_ptr)
-        return GCBasePlayerWeaponVData(nullptr);
+        return SDKBaseClass(nullptr, "CBasePlayerWeaponVData");
 
-    return GCBasePlayerWeaponVData((void*)(this->m_ptr->GetWeaponVData()));
+    return SDKBaseClass((void*)(this->m_ptr->GetWeaponVData()), "CBasePlayerWeaponVData");
 }
-GCCSWeaponBaseVData PluginWeapon::GetCCSWeaponBaseVData()
+SDKBaseClass PluginWeapon::GetCCSWeaponBaseVData()
 {
     if (!this->m_ptr)
-        return GCCSWeaponBaseVData(nullptr);
+        return SDKBaseClass(nullptr, "CCSWeaponBaseVData");
 
-    return GCCSWeaponBaseVData((void*)(this->m_ptr->GetWeaponVData()));
+    return SDKBaseClass((void*)(this->m_ptr->GetWeaponVData()), "CCSWeaponBaseVData");
 }
 
 void PluginWeapon::Drop()

@@ -52,7 +52,7 @@ public:
 
     void SetOrAddAttributeValueByName(const char* str, float val)
     {
-        g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName>("CAttributeList_SetOrAddAttributeValueByName")(this, str, val);
+        g_Signatures->FetchSignature<CAttributeList_SetOrAddAttributeValueByName_t>("CAttributeList_SetOrAddAttributeValueByName")(this, str, val);
     }
 };
 

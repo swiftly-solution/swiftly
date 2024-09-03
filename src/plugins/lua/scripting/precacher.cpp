@@ -1,6 +1,6 @@
 #include "core.h"
 
-void SetupLuaPrecacher(LuaPlugin *plugin, lua_State *state)
+void SetupLuaPrecacher(LuaPlugin* plugin, lua_State* state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<PluginPrecacher>("Precacher")

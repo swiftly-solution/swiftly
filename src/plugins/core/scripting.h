@@ -21,8 +21,6 @@
 
 #include <any>
 
-#include "scripting/generated/classes.h"
-
 #define INVALID_MESSAGE_ID -1
 
 class PluginMemory;
@@ -194,6 +192,46 @@ public:
     void SetHookReturnLua(luabridge::LuaRef value);
     std::any GetHookReturn();
 };
+
+//////////////////////////////////////////////////////////////
+/////////////////          SDK Access          //////////////
+////////////////////////////////////////////////////////////
+
+class SDKBaseClass
+{
+private:
+    void* m_ptr;
+    std::string m_className;
+
+public:
+    SDKBaseClass(std::string ptr, lua_State* state);
+    SDKBaseClass(void* ptr, lua_State* state);
+    SDKBaseClass(void* ptr, std::string className);
+    SDKBaseClass(std::string ptr, std::string className);
+
+    int IndexFunc(lua_State* state);
+    luabridge::LuaRef AccessSDKLua(std::string fieldName, lua_State* state);
+    void UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, lua_State* state);
+
+    std::string GetClassName();
+    void* GetPtr();
+    std::string ToPtr();
+    bool IsValid();
+};
+
+int CBasePlayerController_EntityIndex(SDKBaseClass* _this);
+void CAttributeList_SetOrAddAttributeValueByName(SDKBaseClass* _this, std::string str, float value);
+void CBaseModelEntity_SetModel(SDKBaseClass* _this, std::string model);
+void CBaseModelEntity_SetSolidType(SDKBaseClass* _this, int64_t solidType);
+void CBaseModelEntity_SetBodygroup(SDKBaseClass* _this, std::string str, int64_t val);
+SDKBaseClass CBaseEntity_EHandle(SDKBaseClass* _this);
+void CBaseEntity_Spawn(SDKBaseClass* _this);
+void CBaseEntity_Despawn(SDKBaseClass* _this);
+void CBaseEntity_AcceptInput(SDKBaseClass* _this, std::string input, SDKBaseClass activator, SDKBaseClass caller, std::string value, int outputID);
+std::string CBaseEntity_GetClassname(SDKBaseClass* _this);
+SDKBaseClass CBaseEntity_GetVData(SDKBaseClass* _this);
+void CBaseEntity_Teleport(SDKBaseClass* _this, Vector value, QAngle angle);
+void CBaseEntity_EmitSound(SDKBaseClass* _this, std::string sound_name, float pitch, float volume);
 
 //////////////////////////////////////////////////////////////
 /////////////////         User Message         //////////////
@@ -513,10 +551,10 @@ private:
 public:
     PluginWeapon(int playerId, CBasePlayerWeapon* ptr);
 
-    GCBasePlayerWeapon GetCBasePlayerWeapon();
-    GCCSWeaponBase GetCCSWeaponBase();
-    GCBasePlayerWeaponVData GetCBasePlayerWeaponVData();
-    GCCSWeaponBaseVData GetCCSWeaponBaseVData();
+    SDKBaseClass GetCBasePlayerWeapon();
+    SDKBaseClass GetCCSWeaponBase();
+    SDKBaseClass GetCBasePlayerWeaponVData();
+    SDKBaseClass GetCCSWeaponBaseVData();
 
     void Drop();
     void Remove();
@@ -555,12 +593,12 @@ public:
     PluginPlayer(std::string m_plugin_name, int m_playerId);
     ~PluginPlayer();
 
-    GCBaseEntity GetCBaseEntity();
-    GCBasePlayerController GetCBasePlayerController();
-    GCBasePlayerPawn GetCBasePlayerPawn();
-    GCCSPlayerController GetCCSPlayerController();
-    GCCSPlayerPawn GetCCSPlayerPawn();
-    GCCSPlayerPawnBase GetCCSPlayerPawnBase();
+    SDKBaseClass GetCBaseEntity();
+    SDKBaseClass GetCBasePlayerController();
+    SDKBaseClass GetCBasePlayerPawn();
+    SDKBaseClass GetCCSPlayerController();
+    SDKBaseClass GetCCSPlayerPawn();
+    SDKBaseClass GetCCSPlayerPawnBase();
     void Drop(int reason);
     uint32_t GetConnectedTime();
     PluginWeaponManager GetWeaponManager();
@@ -730,8 +768,8 @@ public:
 /////////////////           Entities           //////////////
 ////////////////////////////////////////////////////////////
 
-std::vector<GCEntityInstance> UTIL_FindEntitiesByClassname(const char* name);
-GCEntityInstance CreateEntityByName(const char* name);
+std::vector<SDKBaseClass> UTIL_FindEntitiesByClassname(const char* name);
+SDKBaseClass CreateEntityByName(const char* name);
 
 //////////////////////////////////////////////////////////////
 /////////////////             Utils            //////////////
@@ -740,7 +778,7 @@ GCEntityInstance CreateEntityByName(const char* name);
 bool scripting_IsWindows();
 bool scripting_IsLinux();
 std::string scripting_GetOS();
-GCCSGameRules scripting_GetCCSGameRules();
+SDKBaseClass scripting_GetCCSGameRules();
 std::string scripting_GetPluginPath(std::string plugin_name);
 void scripting_StateUpdate(std::string ptr, std::string classname, std::string field, bool isStruct);
 PluginUserMessage scripting_GetUserMessage(std::string uuid);

@@ -30,7 +30,7 @@ function FindPlayersByTarget(target, matchbots)
         if target:sub(1,1) == "#" then
             local playerid = target:sub(2)
             if playerid then
-                if tostring(i):find(playerid) then
+                if i == tonumber(playerid) then
                     table.insert(matchedPlayers, fetchedPlayer)
                     goto findplayersbytargetcontinue
                 end

@@ -33,6 +33,7 @@
 #include "signatures/Offsets.h"
 #include "voicemanager/VoiceManager.h"
 #include "usermessages/usermessages.h"
+#include "sdk/sdkaccess.h"
 
 SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t&, ISource2WorldSession*, const char*);
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
@@ -114,6 +115,7 @@ CallStack* g_callStack = nullptr;
 EventManager* eventManager = nullptr;
 HTTPManager* g_httpManager = nullptr;
 UserMessages* g_userMessages = nullptr;
+SDKAccess* g_sdk = nullptr;
 VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
@@ -175,6 +177,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_callStack = new CallStack();
     eventManager = new EventManager();
     g_userMessages = new UserMessages();
+    g_sdk = new SDKAccess();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -183,6 +186,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
     g_Logger->AddLogger("core", false);
 
+    g_sdk->LoadSDKData();
     g_Config->LoadPluginConfigurations();
     g_Signatures->LoadSignatures();
     g_Offsets->LoadOffsets();
@@ -307,6 +311,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     delete eventManager;
     delete g_httpManager;
     delete g_userMessages;
+    delete g_sdk;
 
     ConVar_Unregister();
     return true;

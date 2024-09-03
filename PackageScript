@@ -69,6 +69,7 @@ builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'plu
 
 gamedata_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'gamedata'))
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'signatures.json'), gamedata_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'sdk.json'), gamedata_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'patches.json'), gamedata_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'offsets.json'), gamedata_folder)
 

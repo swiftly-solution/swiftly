@@ -7,8 +7,6 @@
 
 class CBaseModelEntity;
 
-typedef void (*CBaseModelEntity_SetModel)(CBaseModelEntity*, const char*);
-
 class CBaseModelEntity : public CBaseEntity
 {
 public:
@@ -28,12 +26,12 @@ public:
             PLUGIN_PRINTF("Precacher", "It may work on the second map change if the model is valid.\n");
         }
 
-        g_Signatures->FetchSignature<CBaseModelEntity_SetModel>("CBaseModelEntity_SetModel")(this, model);
+        g_Signatures->FetchSignature<CBaseModelEntity_SetModel_t>("CBaseModelEntity_SetModel")(this, model);
     }
 
     void SetBodygroup(const char* str, uint64_t val)
     {
-        g_Signatures->FetchSignature<CBaseModelEntity_SetBodygroup>("CBaseModelEntity_SetBodygroup")(this, str, val);
+        g_Signatures->FetchSignature<CBaseModelEntity_SetBodygroup_t>("CBaseModelEntity_SetBodygroup")(this, str, val);
     }
 
     void SetSolidType(SolidType_t type)
