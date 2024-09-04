@@ -8,65 +8,65 @@
 
 std::string FetchPluginName(lua_State* state);
 
-int CBasePlayerController_EntityIndex(SDKBaseClass* _this) {
-    return ((CBasePlayerController*)_this->GetPtr())->GetEntityIndex().Get();
+int SDKBaseClass::CBasePlayerController_EntityIndex() {
+    return ((CBasePlayerController*)this->GetPtr())->GetEntityIndex().Get();
 }
 
-void CAttributeList_SetOrAddAttributeValueByName(SDKBaseClass* _this, std::string str, float value) {
-    ((CAttributeList*)_this->GetPtr())->SetOrAddAttributeValueByName(str.c_str(), value);
+void SDKBaseClass::CAttributeList_SetOrAddAttributeValueByName(std::string str, float value) {
+    ((CAttributeList*)this->GetPtr())->SetOrAddAttributeValueByName(str.c_str(), value);
 }
 
-void CBaseModelEntity_SetModel(SDKBaseClass* _this, std::string model)
+void SDKBaseClass::CBaseModelEntity_SetModel(std::string model)
 {
-    ((CBaseModelEntity*)_this->GetPtr())->SetModel(model.c_str());
+    ((CBaseModelEntity*)this->GetPtr())->SetModel(model.c_str());
 }
 
-void CBaseModelEntity_SetSolidType(SDKBaseClass* _this, int64_t solidType)
+void SDKBaseClass::CBaseModelEntity_SetSolidType(int64_t solidType)
 {
-    ((CBaseModelEntity*)_this->GetPtr())->SetSolidType((SolidType_t)solidType);
+    ((CBaseModelEntity*)this->GetPtr())->SetSolidType((SolidType_t)solidType);
 }
 
-void CBaseModelEntity_SetBodygroup(SDKBaseClass* _this, std::string str, int64_t val)
+void SDKBaseClass::CBaseModelEntity_SetBodygroup(std::string str, int64_t val)
 {
-    ((CBaseModelEntity*)_this->GetPtr())->SetBodygroup(str.c_str(), (uint64_t)val);
+    ((CBaseModelEntity*)this->GetPtr())->SetBodygroup(str.c_str(), (uint64_t)val);
 }
 
-SDKBaseClass CBaseEntity_EHandle(SDKBaseClass* _this) {
-    return SDKBaseClass(((CBaseEntity*)_this->GetPtr())->m_pEntity->m_EHandle.Get(), "CBaseEntity");
+SDKBaseClass SDKBaseClass::CBaseEntity_EHandle() {
+    return SDKBaseClass(((CBaseEntity*)this->GetPtr())->m_pEntity->m_EHandle.Get(), "CBaseEntity");
 }
 
-void CBaseEntity_Spawn(SDKBaseClass* _this) {
-    ((CBaseEntity*)_this->GetPtr())->DispatchSpawn();
+void SDKBaseClass::CBaseEntity_Spawn() {
+    ((CBaseEntity*)this->GetPtr())->DispatchSpawn();
 }
 
-void CBaseEntity_Despawn(SDKBaseClass* _this) {
-    ((CBaseEntity*)_this->GetPtr())->Despawn();
+void SDKBaseClass::CBaseEntity_Despawn() {
+    ((CBaseEntity*)this->GetPtr())->Despawn();
 }
 
-void CBaseEntity_AcceptInput(SDKBaseClass* _this, std::string input, SDKBaseClass activator, SDKBaseClass caller, std::string value, int outputID) {
-    ((CBaseEntity*)_this->GetPtr())->AcceptInput(input.c_str(), (CEntityInstance*)activator.GetPtr(), (CEntityInstance*)caller.GetPtr(), value.c_str(), outputID);
+void SDKBaseClass::CBaseEntity_AcceptInput(std::string input, SDKBaseClass activator, SDKBaseClass caller, std::string value, int outputID) {
+    ((CBaseEntity*)this->GetPtr())->AcceptInput(input.c_str(), (CEntityInstance*)activator.GetPtr(), (CEntityInstance*)caller.GetPtr(), value.c_str(), outputID);
 }
 
-std::string CBaseEntity_GetClassname(SDKBaseClass* _this) {
-    return ((CBaseEntity*)_this->GetPtr())->GetClassname();
+std::string SDKBaseClass::CBaseEntity_GetClassname() {
+    return ((CBaseEntity*)this->GetPtr())->GetClassname();
 }
 
-SDKBaseClass CBaseEntity_GetVData(SDKBaseClass* _this) {
-    return SDKBaseClass(((CBaseEntity*)_this->GetPtr())->GetVData(), "CEntitySubclassVDataBase");
+SDKBaseClass SDKBaseClass::CBaseEntity_GetVData() {
+    return SDKBaseClass(((CBaseEntity*)this->GetPtr())->GetVData(), "CEntitySubclassVDataBase");
 }
 
-void CBaseEntity_Teleport(SDKBaseClass* _this, Vector value, QAngle angle) {
-    ((CBaseEntity*)_this->GetPtr())->Teleport(&value, &angle, nullptr);
+void SDKBaseClass::CBaseEntity_Teleport(Vector value, QAngle angle) {
+    ((CBaseEntity*)this->GetPtr())->Teleport(&value, &angle, nullptr);
 }
 
-void CBaseEntity_EmitSound(SDKBaseClass* _this, std::string sound_name, float pitch, float volume) {
+void SDKBaseClass::CBaseEntity_EmitSound(std::string sound_name, float pitch, float volume) {
     for (int i = 0; i < g_playerManager->GetPlayerCap(); i++) {
         Player* player = g_playerManager->GetPlayer(i);
         if (!player) continue;
         if (player->IsFakeClient()) continue;
-        if ((void*)player->GetPlayerController() == _this->GetPtr()) {
+        if ((void*)player->GetPlayerController() == this->GetPtr()) {
             CSingleRecipientFilter filter(i);
-            ((CBaseEntity*)_this->GetPtr())->EmitSoundFilter(filter, sound_name, pitch, volume);
+            ((CBaseEntity*)this->GetPtr())->EmitSoundFilter(filter, sound_name, pitch, volume);
             break;
         }
     }
@@ -76,20 +76,14 @@ SDKBaseClass::SDKBaseClass(std::string ptr, lua_State* state)
 {
     this->m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
 
-    lua_getmetatable(state, -1);
-    lua_rawgetp(state, -1, reinterpret_cast<void*>(0x71));
-    this->m_className = lua_tostring(state, -1);
-    lua_pop(state, 2);
-}
-
-SDKBaseClass::SDKBaseClass(void* ptr, lua_State* state)
-{
-    this->m_ptr = ptr;
-
-    lua_getmetatable(state, -1);
-    lua_rawgetp(state, -1, reinterpret_cast<void*>(0x71));
-    this->m_className = lua_tostring(state, -1);
-    lua_pop(state, 2);
+    lua_Debug ar;
+    if (lua_getstack(state, 0, &ar)) {
+        lua_getinfo(state, "n", &ar);
+        this->m_className = ar.name;
+    }
+    else {
+        this->m_className = "CBaseEntity";
+    }
 }
 
 SDKBaseClass::SDKBaseClass(std::string ptr, std::string className)
@@ -122,19 +116,6 @@ std::string SDKBaseClass::ToPtr()
 bool SDKBaseClass::IsValid()
 {
     return (this->m_ptr != nullptr);
-}
-
-int SDKBaseClass::IndexFunc(lua_State* state)
-{
-    std::string field_name = luabridge::LuaRef::fromStack(state, 2).cast<std::string>();
-    auto ref = this->AccessSDKLua(field_name, state);
-
-    if (ref.isNil())
-        luabridge::detail::CFunc::indexMetaMethod(state);
-    else
-        ref.push();
-
-    return 1;
 }
 
 luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, lua_State* state)

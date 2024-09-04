@@ -13,6 +13,7 @@ SDKAccess::~SDKAccess() {
     fieldSizes.clear();
     fieldClass.clear();
     structStates.clear();
+    classnames.clear();
 }
 
 void SDKAccess::LoadSDKData()
@@ -28,10 +29,12 @@ void SDKAccess::LoadSDKData()
     for (auto it = sdkFile.MemberBegin(); it != sdkFile.MemberEnd(); ++it)
     {
         std::string className = it->name.GetString();
+        this->classnames.push_back(className);
         if (it->value.IsObject()) {
             for (auto it2 = it->value.MemberBegin(); it2 != it->value.MemberEnd(); ++it2)
             {
                 std::string fieldName = it2->name.GetString();
+
                 if (fieldName == "struct")
                     this->structStates.insert({ className, it2->value.IsBool() ? it2->value.GetBool() : false });
 
@@ -47,6 +50,11 @@ void SDKAccess::LoadSDKData()
             }
         }
     }
+}
+
+std::vector<std::string> SDKAccess::GetClassnames()
+{
+    return this->classnames;
 }
 
 std::string SDKAccess::GetFieldName(std::string path)

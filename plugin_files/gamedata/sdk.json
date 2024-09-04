@@ -79,6 +79,7 @@
         },
         "NetworkTransmitComponent": {
             "field": "m_NetworkTransmitComponent",
+            "classname": "CNetworkTransmitComponent",
             "type": 16
         },
         "CurrentThinkContext": {
@@ -232,6 +233,7 @@
         },
         "OnKilled": {
             "field": "m_OnKilled",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Flags": {
@@ -244,6 +246,7 @@
         },
         "Velocity": {
             "field": "m_vecVelocity",
+            "classname": "CNetworkVelocityVector",
             "type": 16
         },
         "BaseVelocity": {
@@ -320,18 +323,22 @@
         },
         "OnUser1": {
             "field": "m_OnUser1",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnUser2": {
             "field": "m_OnUser2",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnUser3": {
             "field": "m_OnUser3",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnUser4": {
             "field": "m_OnUser4",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "InitialTeamNum": {
@@ -388,6 +395,7 @@
         },
         "Buttons": {
             "field": "m_nButtons",
+            "classname": "CInButtonState",
             "type": 16
         },
         "QueuedButtonDownMask": {
@@ -629,6 +637,7 @@
         "struct": true,
         "CollisionAttribute": {
             "field": "m_collisionAttribute",
+            "classname": "VPhysicsCollisionAttribute_t",
             "type": 16
         },
         "Mins": {
@@ -752,6 +761,7 @@
         },
         "CHitboxComponent": {
             "field": "m_CHitboxComponent",
+            "classname": "CHitboxComponent",
             "type": 16
         },
         "DissolveStartTime": {
@@ -760,6 +770,7 @@
         },
         "OnIgnite": {
             "field": "m_OnIgnite",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "RenderMode": {
@@ -784,10 +795,12 @@
         },
         "Collision": {
             "field": "m_Collision",
+            "classname": "CCollisionProperty",
             "type": 16
         },
         "Glow": {
             "field": "m_Glow",
+            "classname": "CGlowProperty",
             "type": 16
         },
         "GlowBackfaceMult": {
@@ -841,6 +854,7 @@
         },
         "ViewOffset": {
             "field": "m_vecViewOffset",
+            "classname": "CNetworkViewOffsetVector",
             "type": 16
         },
         "Parent": {
@@ -964,30 +978,37 @@
         },
         "OnStartTouch": {
             "field": "m_OnStartTouch",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnStartTouchAll": {
             "field": "m_OnStartTouchAll",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnEndTouch": {
             "field": "m_OnEndTouch",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnEndTouchAll": {
             "field": "m_OnEndTouchAll",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnTouching": {
             "field": "m_OnTouching",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnTouchingEachEntity": {
             "field": "m_OnTouchingEachEntity",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnNotTouching": {
             "field": "m_OnNotTouching",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "ClientSidePredicted": {
@@ -1070,6 +1091,7 @@
         "struct": false,
         "OnTrigger": {
             "field": "m_OnTrigger",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -1144,6 +1166,7 @@
         "struct": false,
         "CPropDataComponent": {
             "field": "m_CPropDataComponent",
+            "classname": "CPropDataComponent",
             "type": 16
         },
         "Material": {
@@ -1185,6 +1208,7 @@
         },
         "OnBreak": {
             "field": "m_OnBreak",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "PerformanceMode": {
@@ -1268,6 +1292,7 @@
         },
         "NextSceneEventId": {
             "field": "m_nNextSceneEventId",
+            "classname": "SceneEventId_t",
             "type": 16
         },
         "UpdateLayerPriorities": {
@@ -1283,6 +1308,7 @@
         "struct": false,
         "Fog": {
             "field": "m_fog",
+            "classname": "fogparams_t",
             "type": 16
         },
         "Parent": {
@@ -1298,10 +1324,12 @@
         },
         "OnPass": {
             "field": "m_OnPass",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFail": {
             "field": "m_OnFail",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -1395,6 +1423,7 @@
         },
         "OnPassThrough": {
             "field": "m_OnPassThrough",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Mover": {
@@ -1429,6 +1458,7 @@
         "struct": false,
         "OnPlay": {
             "field": "m_OnPlay",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Radius": {
@@ -1542,6 +1572,7 @@
         "struct": false,
         "Fog": {
             "field": "m_fog",
+            "classname": "fogparams_t",
             "type": 16
         },
         "UseAngles": {
@@ -1597,10 +1628,12 @@
         },
         "AttributeList": {
             "field": "m_AttributeList",
+            "classname": "CAttributeList",
             "type": 16
         },
         "NetworkedDynamicAttributes": {
             "field": "m_NetworkedDynamicAttributes",
+            "classname": "CAttributeList",
             "type": 16
         },
         "CustomName": {
@@ -1649,10 +1682,12 @@
         "struct": false,
         "OnPlayerPickup": {
             "field": "m_OnPlayerPickup",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnExplode": {
             "field": "m_OnExplode",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "HasWarnedAI": {
@@ -1735,6 +1770,7 @@
         "struct": true,
         "Item": {
             "field": "m_Item",
+            "classname": "CEconItemView",
             "type": 16
         },
         "Parent": {
@@ -1841,6 +1877,7 @@
         },
         "Origin": {
             "field": "m_vecOrigin",
+            "classname": "CNetworkOriginCellCoordQuantizedVector",
             "type": 16
         },
         "Rotation": {
@@ -1923,6 +1960,7 @@
         "struct": false,
         "AttributeManager": {
             "field": "m_AttributeManager",
+            "classname": "CAttributeContainer",
             "type": 16
         },
         "OriginalOwnerXuidLow": {
@@ -1996,6 +2034,7 @@
         },
         "OnPlayerUse": {
             "field": "m_OnPlayerUse",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -2095,6 +2134,7 @@
         },
         "__pChainEntity": {
             "field": "__m_pChainEntity",
+            "classname": "CNetworkVarChainer",
             "type": 16
         },
         "Parent": {
@@ -2130,10 +2170,12 @@
         },
         "OnHeatLevelStart": {
             "field": "m_OnHeatLevelStart",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnHeatLevelEnd": {
             "field": "m_OnHeatLevelEnd",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -2165,14 +2207,17 @@
         },
         "AgentItem": {
             "field": "m_agentItem",
+            "classname": "CEconItemView",
             "type": 16
         },
         "GlovesItem": {
             "field": "m_glovesItem",
+            "classname": "CEconItemView",
             "type": 16
         },
         "WeaponItem": {
             "field": "m_weaponItem",
+            "classname": "CEconItemView",
             "type": 16
         },
         "Parent": {
@@ -2382,6 +2427,7 @@
         },
         "OnPlayerPickup": {
             "field": "m_OnPlayerPickup",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "WeaponMode": {
@@ -2527,6 +2573,7 @@
         },
         "IronSightController": {
             "field": "m_IronSightController",
+            "classname": "CIronSightController",
             "type": 16
         },
         "IronSightMode": {
@@ -2566,18 +2613,22 @@
         },
         "LastState": {
             "field": "m_eLastState",
+            "classname": "CLogicBranchList",
             "type": 16
         },
         "OnAllTrue": {
             "field": "m_OnAllTrue",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnAllFalse": {
             "field": "m_OnAllFalse",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMixed": {
             "field": "m_OnMixed",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -2816,10 +2867,12 @@
         "struct": false,
         "OnPlayerTouch": {
             "field": "m_OnPlayerTouch",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnPlayerPickup": {
             "field": "m_OnPlayerPickup",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "ActivateWhenAtRest": {
@@ -2828,10 +2881,12 @@
         },
         "OnCacheInteraction": {
             "field": "m_OnCacheInteraction",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnGlovePulled": {
             "field": "m_OnGlovePulled",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OriginalSpawnOrigin": {
@@ -2909,6 +2964,7 @@
         },
         "OnSoundFinished": {
             "field": "m_onSoundFinished",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "SoundName": {
@@ -2945,6 +3001,7 @@
         "struct": false,
         "SequenceCompleteTimer": {
             "field": "m_SequenceCompleteTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Redraw": {
@@ -3161,14 +3218,17 @@
         "struct": false,
         "CPropDataComponent": {
             "field": "m_CPropDataComponent",
+            "classname": "CPropDataComponent",
             "type": 16
         },
         "OnBreak": {
             "field": "m_OnBreak",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnTakeDamage": {
             "field": "m_OnTakeDamage",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "ImpactEnergyScale": {
@@ -3349,6 +3409,7 @@
         },
         "OnBreak": {
             "field": "m_OnBreak",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -3360,6 +3421,7 @@
         "struct": false,
         "__pChainEntity": {
             "field": "__m_pChainEntity",
+            "classname": "CNetworkVarChainer",
             "type": 16
         }
     },
@@ -3429,6 +3491,7 @@
         "struct": false,
         "Ragdoll": {
             "field": "m_ragdoll",
+            "classname": "ragdoll_t",
             "type": 16
         },
         "StartDisabled": {
@@ -3612,22 +3675,27 @@
         },
         "OutputAnimBegun": {
             "field": "m_pOutputAnimBegun",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OutputAnimOver": {
             "field": "m_pOutputAnimOver",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OutputAnimLoopCycleOver": {
             "field": "m_pOutputAnimLoopCycleOver",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnAnimReachedStart": {
             "field": "m_OnAnimReachedStart",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnAnimReachedEnd": {
             "field": "m_OnAnimReachedEnd",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "IdleAnim": {
@@ -4034,6 +4102,7 @@
         },
         "OnPass": {
             "field": "m_OnPass",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -4208,6 +4277,7 @@
         },
         "OnTrigger": {
             "field": "m_OnTrigger",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Total": {
@@ -4284,10 +4354,12 @@
         },
         "OutputOnSpawned": {
             "field": "m_pOutputOnSpawned",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OutputOnFailedSpawn": {
             "field": "m_pOutputOnFailedSpawn",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -4326,6 +4398,7 @@
         },
         "OnEventFired": {
             "field": "m_OnEventFired",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -4566,6 +4639,7 @@
         },
         "Ls": {
             "field": "m_ls",
+            "classname": "locksound_t",
             "type": 16
         },
         "ForceClosed": {
@@ -4636,42 +4710,52 @@
         },
         "OnBlockedClosing": {
             "field": "m_OnBlockedClosing",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnBlockedOpening": {
             "field": "m_OnBlockedOpening",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnUnblockedClosing": {
             "field": "m_OnUnblockedClosing",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnUnblockedOpening": {
             "field": "m_OnUnblockedOpening",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFullyClosed": {
             "field": "m_OnFullyClosed",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFullyOpen": {
             "field": "m_OnFullyOpen",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnClose": {
             "field": "m_OnClose",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnOpen": {
             "field": "m_OnOpen",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnLockedUse": {
             "field": "m_OnLockedUse",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnAjarOpen": {
             "field": "m_OnAjarOpen",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -4746,6 +4830,7 @@
         },
         "RampTimer": {
             "field": "m_RampTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Parent": {
@@ -4856,6 +4941,7 @@
         },
         "OnFired": {
             "field": "m_OnFired",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -4878,6 +4964,7 @@
         "struct": false,
         "ActionTimer": {
             "field": "m_ActionTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Parent": {
@@ -4901,6 +4988,7 @@
         },
         "PlayerFog": {
             "field": "m_PlayerFog",
+            "classname": "fogplayerparams_t",
             "type": 16
         },
         "ColorCorrectionCtrl": {
@@ -4920,6 +5008,7 @@
         },
         "Audio": {
             "field": "m_audio",
+            "classname": "audioparams_t",
             "type": 16
         },
         "PostProcessingVolumes": {
@@ -4979,42 +5068,52 @@
         },
         "CustomOutput0": {
             "field": "m_CustomOutput0",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CustomOutput1": {
             "field": "m_CustomOutput1",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CustomOutput2": {
             "field": "m_CustomOutput2",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CustomOutput3": {
             "field": "m_CustomOutput3",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CustomOutput4": {
             "field": "m_CustomOutput4",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CustomOutput5": {
             "field": "m_CustomOutput5",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CustomOutput6": {
             "field": "m_CustomOutput6",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CustomOutput7": {
             "field": "m_CustomOutput7",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CustomOutput8": {
             "field": "m_CustomOutput8",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CustomOutput9": {
             "field": "m_CustomOutput9",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -5068,6 +5167,7 @@
         "struct": false,
         "ModelState": {
             "field": "m_modelState",
+            "classname": "CModelState",
             "type": 16
         },
         "IsAnimationEnabled": {
@@ -5099,42 +5199,52 @@
         "struct": false,
         "OnMapSpawn": {
             "field": "m_OnMapSpawn",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnDemoMapSpawn": {
             "field": "m_OnDemoMapSpawn",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnNewGame": {
             "field": "m_OnNewGame",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnLoadGame": {
             "field": "m_OnLoadGame",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMapTransition": {
             "field": "m_OnMapTransition",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnBackgroundMap": {
             "field": "m_OnBackgroundMap",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMultiNewMap": {
             "field": "m_OnMultiNewMap",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMultiNewRound": {
             "field": "m_OnMultiNewRound",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnVREnabled": {
             "field": "m_OnVREnabled",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnVRNotEnabled": {
             "field": "m_OnVRNotEnabled",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Globalstate": {
@@ -5196,34 +5306,42 @@
         "struct": false,
         "OnMinCountAll": {
             "field": "m_OnMinCountAll",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMaxCountAll": {
             "field": "m_OnMaxCountAll",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMinCount_1": {
             "field": "m_OnMinCount_1",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMaxCount_1": {
             "field": "m_OnMaxCount_1",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMinCount_2": {
             "field": "m_OnMinCount_2",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMaxCount_2": {
             "field": "m_OnMaxCount_2",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMinCount_3": {
             "field": "m_OnMinCount_3",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMaxCount_3": {
             "field": "m_OnMaxCount_3",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Source": {
@@ -5522,6 +5640,7 @@
         },
         "ActionTimer": {
             "field": "m_ActionTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Crouching": {
@@ -5573,6 +5692,7 @@
         "struct": false,
         "OnTouchedActiveWeapon": {
             "field": "m_OnTouchedActiveWeapon",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "WeaponClassName": {
@@ -5643,10 +5763,12 @@
         },
         "OnRoutedSound": {
             "field": "m_OnRoutedSound",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnHeardSound": {
             "field": "m_OnHeardSound",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "LastSound": {
@@ -5667,18 +5789,22 @@
         "struct": false,
         "OnSpawnGroupLoadStarted": {
             "field": "m_OnSpawnGroupLoadStarted",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnSpawnGroupLoadFinished": {
             "field": "m_OnSpawnGroupLoadFinished",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnSpawnGroupUnloadStarted": {
             "field": "m_OnSpawnGroupUnloadStarted",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnSpawnGroupUnloadFinished": {
             "field": "m_OnSpawnGroupUnloadFinished",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "SpawnGroupName": {
@@ -5943,14 +6069,17 @@
         },
         "OnStart": {
             "field": "m_OnStart",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnNext": {
             "field": "m_OnNext",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnArrivedAtDestinationNode": {
             "field": "m_OnArrivedAtDestinationNode",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "ManualSpeedChanges": {
@@ -6094,10 +6223,12 @@
         },
         "OnIgnited": {
             "field": "m_OnIgnited",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnExtinguished": {
             "field": "m_OnExtinguished",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -6109,6 +6240,7 @@
         "struct": false,
         "AnimGraphNetworkedVars": {
             "field": "m_animGraphNetworkedVars",
+            "classname": "CAnimGraphNetworkedVariables",
             "type": 16
         },
         "SequenceFinished": {
@@ -6377,14 +6509,17 @@
         },
         "NotifyForceReachedX": {
             "field": "m_NotifyForceReachedX",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "NotifyForceReachedY": {
             "field": "m_NotifyForceReachedY",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "NotifyForceReachedZ": {
             "field": "m_NotifyForceReachedZ",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -6410,6 +6545,7 @@
         "struct": false,
         "EntitySpottedState": {
             "field": "m_entitySpottedState",
+            "classname": "EntitySpottedState_t",
             "type": 16
         },
         "SpotRules": {
@@ -6623,18 +6759,22 @@
         },
         "OnRoseAboveMin": {
             "field": "m_OnRoseAboveMin",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnRoseAboveMax": {
             "field": "m_OnRoseAboveMax",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFellBelowMin": {
             "field": "m_OnFellBelowMin",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFellBelowMax": {
             "field": "m_OnFellBelowMax",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -6798,6 +6938,7 @@
         },
         "VisTimer": {
             "field": "m_visTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Parent": {
@@ -7041,22 +7182,27 @@
         },
         "OnStart": {
             "field": "m_OnStart",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnCompletion": {
             "field": "m_OnCompletion",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnCanceled": {
             "field": "m_OnCanceled",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnPaused": {
             "field": "m_OnPaused",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnResumed": {
             "field": "m_OnResumed",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnTrigger": {
@@ -7326,6 +7472,7 @@
         },
         "Fog": {
             "field": "fog",
+            "classname": "fogparams_t",
             "type": 16
         },
         "WorldGroupID": {
@@ -7574,6 +7721,7 @@
         "struct": false,
         "SkeletonInstance": {
             "field": "m_skeletonInstance",
+            "classname": "CSkeletonInstance",
             "type": 16
         },
         "Parent": {
@@ -7585,30 +7733,37 @@
         "struct": false,
         "MotionEnabled": {
             "field": "m_MotionEnabled",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnAwakened": {
             "field": "m_OnAwakened",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnAwake": {
             "field": "m_OnAwake",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnAsleep": {
             "field": "m_OnAsleep",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnPlayerUse": {
             "field": "m_OnPlayerUse",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnOutOfWorld": {
             "field": "m_OnOutOfWorld",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnPlayerPickup": {
             "field": "m_OnPlayerPickup",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "ForceNavIgnore": {
@@ -7980,10 +8135,12 @@
         },
         "OnPlayerGotOnLadder": {
             "field": "m_OnPlayerGotOnLadder",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnPlayerGotOffLadder": {
             "field": "m_OnPlayerGotOffLadder",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -8307,26 +8464,32 @@
         },
         "OnBeginSequence": {
             "field": "m_OnBeginSequence",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnActionStartOrLoop": {
             "field": "m_OnActionStartOrLoop",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnEndSequence": {
             "field": "m_OnEndSequence",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnPostIdleEndSequence": {
             "field": "m_OnPostIdleEndSequence",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnCancelSequence": {
             "field": "m_OnCancelSequence",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnCancelFailedSequence": {
             "field": "m_OnCancelFailedSequence",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnScriptEvent": {
@@ -8544,6 +8707,7 @@
         "struct": true,
         "Handle": {
             "field": "m_Handle",
+            "classname": "ModelConfigHandle_t",
             "type": 16
         },
         "Name": {
@@ -8687,10 +8851,12 @@
         "struct": false,
         "OnTrigger": {
             "field": "m_OnTrigger",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnSpawn": {
             "field": "m_OnSpawn",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Disabled": {
@@ -8784,6 +8950,7 @@
         "struct": false,
         "BuoyancyHelper": {
             "field": "m_BuoyancyHelper",
+            "classname": "CBuoyancyHelper",
             "type": 16
         },
         "Parent": {
@@ -8850,14 +9017,17 @@
         },
         "CheckApproximateCornersTimer": {
             "field": "m_CheckApproximateCornersTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "CheckHighPriorityItem": {
             "field": "m_CheckHighPriorityItem",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "RepathTimer": {
             "field": "m_RepathTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "ArrivalEpsilon": {
@@ -9073,10 +9243,12 @@
         },
         "OnGustStart": {
             "field": "m_OnGustStart",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnGustEnd": {
             "field": "m_OnGustEnd",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "VariationTime": {
@@ -9307,22 +9479,27 @@
         },
         "OnReachedValueZero": {
             "field": "m_OnReachedValueZero",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnReachedValueOne": {
             "field": "m_OnReachedValueOne",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnReachedValueCustom": {
             "field": "m_OnReachedValueCustom",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnEngage": {
             "field": "m_OnEngage",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnDisengage": {
             "field": "m_OnDisengage",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -9371,10 +9548,12 @@
         "struct": false,
         "OnEnter": {
             "field": "m_OnEnter",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnExit": {
             "field": "m_OnExit",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "AutoDisable": {
@@ -9532,6 +9711,7 @@
         },
         "Skybox3d": {
             "field": "m_skybox3d",
+            "classname": "sky3dparams_t",
             "type": 16
         },
         "TimeLastHurt": {
@@ -9577,10 +9757,12 @@
         "struct": false,
         "OnMoneySpent": {
             "field": "m_OnMoneySpent",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMoneySpentFail": {
             "field": "m_OnMoneySpentFail",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Money": {
@@ -9605,14 +9787,17 @@
         },
         "PlayerHasAmmo": {
             "field": "m_PlayerHasAmmo",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "PlayerHasNoAmmo": {
             "field": "m_PlayerHasNoAmmo",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "PlayerDied": {
             "field": "m_PlayerDied",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -9953,22 +10138,27 @@
         },
         "OnLessThan": {
             "field": "m_OnLessThan",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnLessThanOrEqualTo": {
             "field": "m_OnLessThanOrEqualTo",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnGreaterThan": {
             "field": "m_OnGreaterThan",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnGreaterThanOrEqualTo": {
             "field": "m_OnGreaterThanOrEqualTo",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnEqualTo": {
             "field": "m_OnEqualTo",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -9988,6 +10178,7 @@
         },
         "StillTimer": {
             "field": "m_stillTimer",
+            "classname": "IntervalTimer",
             "type": 16
         },
         "HasBouncedOffPlayer": {
@@ -10346,6 +10537,7 @@
         "struct": false,
         "__pChainEntity": {
             "field": "__m_pChainEntity",
+            "classname": "CNetworkVarChainer",
             "type": 16
         },
         "QuestName": {
@@ -10486,14 +10678,17 @@
         "struct": false,
         "OnBombExplode": {
             "field": "m_OnBombExplode",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnBombPlanted": {
             "field": "m_OnBombPlanted",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnBombDefused": {
             "field": "m_OnBombDefused",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "IsBombSiteB": {
@@ -10761,6 +10956,7 @@
         "struct": false,
         "__pChainEntity": {
             "field": "__m_pChainEntity",
+            "classname": "CNetworkVarChainer",
             "type": 16
         },
         "IsRenderingWithViewModels": {
@@ -10826,6 +11022,7 @@
         "struct": false,
         "__pChainEntity": {
             "field": "__m_pChainEntity",
+            "classname": "CNetworkVarChainer",
             "type": 16
         },
         "Color": {
@@ -11170,6 +11367,7 @@
         "struct": false,
         "SceneNode": {
             "field": "m_sceneNode",
+            "classname": "CGameSceneNode",
             "type": 16
         },
         "Parent": {
@@ -11357,10 +11555,12 @@
         },
         "OnHurt": {
             "field": "m_OnHurt",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnHurtPlayer": {
             "field": "m_OnHurtPlayer",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -11799,22 +11999,27 @@
         "struct": false,
         "HeadDamageMultiplier": {
             "field": "m_flHeadDamageMultiplier",
+            "classname": "CSkillFloat",
             "type": 16
         },
         "ChestDamageMultiplier": {
             "field": "m_flChestDamageMultiplier",
+            "classname": "CSkillFloat",
             "type": 16
         },
         "StomachDamageMultiplier": {
             "field": "m_flStomachDamageMultiplier",
+            "classname": "CSkillFloat",
             "type": 16
         },
         "ArmDamageMultiplier": {
             "field": "m_flArmDamageMultiplier",
+            "classname": "CSkillFloat",
             "type": 16
         },
         "LegDamageMultiplier": {
             "field": "m_flLegDamageMultiplier",
+            "classname": "CSkillFloat",
             "type": 16
         },
         "HoldBreathTime": {
@@ -12188,6 +12393,7 @@
         "struct": false,
         "MatchStats": {
             "field": "m_matchStats",
+            "classname": "CSMatchStats_t",
             "type": 16
         },
         "NumRoundKills": {
@@ -12311,6 +12517,7 @@
         },
         "TurnTimer": {
             "field": "m_turnTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "TurnClockwise": {
@@ -12319,22 +12526,27 @@
         },
         "GoTimer": {
             "field": "m_goTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "MoveTimer": {
             "field": "m_moveTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "PanicTimer": {
             "field": "m_panicTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "DisperseTimer": {
             "field": "m_disperseTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "ProximityTimer": {
             "field": "m_proximityTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Parent": {
@@ -12391,6 +12603,7 @@
         "struct": false,
         "Keypoints": {
             "field": "eKeypoints",
+            "classname": "SimpleConstraintSoundProfile",
             "type": 16
         },
         "KeyPoints": {
@@ -12440,14 +12653,17 @@
         "struct": false,
         "OnStopped": {
             "field": "m_OnStopped",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnStarted": {
             "field": "m_OnStarted",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnReachedStart": {
             "field": "m_OnReachedStart",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "LocalRotationVector": {
@@ -12641,10 +12857,12 @@
         },
         "OnFacingLookat": {
             "field": "m_OnFacingLookat",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnNotFacingLookat": {
             "field": "m_OnNotFacingLookat",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -12821,6 +13039,7 @@
         },
         "OnTouchedByEntity": {
             "field": "m_OnTouchedByEntity",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -12839,10 +13058,12 @@
         "struct": false,
         "OnMagnetAttach": {
             "field": "m_OnMagnetAttach",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMagnetDetach": {
             "field": "m_OnMagnetDetach",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "MassScale": {
@@ -13060,22 +13281,27 @@
         },
         "OnDamaged": {
             "field": "m_OnDamaged",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnAwakened": {
             "field": "m_OnAwakened",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnMotionEnabled": {
             "field": "m_OnMotionEnabled",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnPlayerUse": {
             "field": "m_OnPlayerUse",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnStartTouch": {
             "field": "m_OnStartTouch",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CarryingPlayer": {
@@ -13112,14 +13338,17 @@
         "struct": false,
         "OnTimer": {
             "field": "m_OnTimer",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnTimerHigh": {
             "field": "m_OnTimerHigh",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnTimerLow": {
             "field": "m_OnTimerLow",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Disabled": {
@@ -13185,6 +13414,7 @@
         "struct": false,
         "EnvWindShared": {
             "field": "m_EnvWindShared",
+            "classname": "CEnvWindShared",
             "type": 16
         },
         "Parent": {
@@ -13352,6 +13582,7 @@
         },
         "OnPushedPlayer": {
             "field": "m_OnPushedPlayer",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -13399,6 +13630,7 @@
         "struct": false,
         "OnCreditsDone": {
             "field": "m_OnCreditsDone",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "RolledOutroCredits": {
@@ -13655,6 +13887,7 @@
         },
         "OnDetectedBulletFire": {
             "field": "m_OnDetectedBulletFire",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -13717,10 +13950,12 @@
         },
         "OnFullyOpen": {
             "field": "m_OnFullyOpen",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFullyClosed": {
             "field": "m_OnFullyClosed",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CreateMovableNavMesh": {
@@ -13914,6 +14149,7 @@
         },
         "MoveType": {
             "field": "m_eMoveType",
+            "classname": "CFuncMover",
             "type": 16
         },
         "IsReversing": {
@@ -14263,6 +14499,7 @@
         },
         "Ls": {
             "field": "m_ls",
+            "classname": "locksound_t",
             "type": 16
         },
         "UseSound": {
@@ -14299,22 +14536,27 @@
         },
         "OnDamaged": {
             "field": "m_OnDamaged",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnPressed": {
             "field": "m_OnPressed",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnUseLocked": {
             "field": "m_OnUseLocked",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnIn": {
             "field": "m_OnIn",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnOut": {
             "field": "m_OnOut",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "State": {
@@ -14490,14 +14732,17 @@
         },
         "OnTimeout": {
             "field": "m_OnTimeout",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnStartLook": {
             "field": "m_OnStartLook",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnEndLook": {
             "field": "m_OnEndLook",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -14664,6 +14909,7 @@
         "struct": false,
         "BuoyancyHelper": {
             "field": "m_BuoyancyHelper",
+            "classname": "CBuoyancyHelper",
             "type": 16
         },
         "FluidDensity": {
@@ -14699,10 +14945,12 @@
         },
         "WeaponPurchasesThisMatch": {
             "field": "m_weaponPurchasesThisMatch",
+            "classname": "WeaponPurchaseTracker_t",
             "type": 16
         },
         "WeaponPurchasesThisRound": {
             "field": "m_weaponPurchasesThisRound",
+            "classname": "WeaponPurchaseTracker_t",
             "type": 16
         },
         "Parent": {
@@ -14772,6 +15020,7 @@
         },
         "OnFoundEntity": {
             "field": "m_OnFoundEntity",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -14954,6 +15203,7 @@
         "struct": false,
         "OnDeath": {
             "field": "m_OnDeath",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -15033,6 +15283,7 @@
         },
         "OutputOnSpawned": {
             "field": "m_pOutputOnSpawned",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "ClientOnlyEntityBehavior": {
@@ -15089,6 +15340,7 @@
         },
         "Integrator": {
             "field": "m_integrator",
+            "classname": "CConstantForceController",
             "type": 16
         },
         "Parent": {
@@ -15315,10 +15567,12 @@
         },
         "OnTrue": {
             "field": "m_OnTrue",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFalse": {
             "field": "m_OnFalse",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -15463,6 +15717,7 @@
         },
         "OnBeginFade": {
             "field": "m_OnBeginFade",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -15548,14 +15803,17 @@
         },
         "Extent": {
             "field": "m_extent",
+            "classname": "Extent",
             "type": 16
         },
         "DamageTimer": {
             "field": "m_damageTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "DamageRampTimer": {
             "field": "m_damageRampTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "SplashVelocity": {
@@ -15576,6 +15834,7 @@
         },
         "ActiveTimer": {
             "field": "m_activeTimer",
+            "classname": "IntervalTimer",
             "type": 16
         },
         "FireSpawnOffset": {
@@ -15592,10 +15851,12 @@
         },
         "BookkeepingTimer": {
             "field": "m_BookkeepingTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "NextSpreadTimer": {
             "field": "m_NextSpreadTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "SourceItemDefIndex": {
@@ -15799,6 +16060,7 @@
         },
         "OnChangeLevel": {
             "field": "m_OnChangeLevel",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Touched": {
@@ -15868,10 +16130,12 @@
         },
         "OnLerpStarted": {
             "field": "m_OnLerpStarted",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnLerpFinished": {
             "field": "m_OnLerpFinished",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -15913,14 +16177,17 @@
         "struct": false,
         "OnStartTouch": {
             "field": "m_OnStartTouch",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnEndTouch": {
             "field": "m_OnEndTouch",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnUse": {
             "field": "m_OnUse",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "InputFilter": {
@@ -16233,6 +16500,7 @@
         },
         "OnBroken": {
             "field": "m_OnBroken",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "SurfaceType": {
@@ -16289,14 +16557,17 @@
         },
         "OnBombDefused": {
             "field": "m_OnBombDefused",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnBombBeginDefuse": {
             "field": "m_OnBombBeginDefuse",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnBombDefuseAborted": {
             "field": "m_OnBombDefuseAborted",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "CannotBeDefused": {
@@ -16305,6 +16576,7 @@
         },
         "EntitySpottedState": {
             "field": "m_entitySpottedState",
+            "classname": "EntitySpottedState_t",
             "type": 16
         },
         "SpotRules": {
@@ -16414,6 +16686,7 @@
         "struct": false,
         "SkyboxData": {
             "field": "m_skyboxData",
+            "classname": "sky3dparams_t",
             "type": 16
         },
         "SkyboxSlotToken": {
@@ -16517,6 +16790,7 @@
         },
         "OnShowMessage": {
             "field": "m_OnShowMessage",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -16528,6 +16802,7 @@
         "struct": false,
         "OnEventFired": {
             "field": "m_OnEventFired",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "GameEventName": {
@@ -16562,6 +16837,7 @@
         "struct": false,
         "OnRemove": {
             "field": "m_OnRemove",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -16580,18 +16856,22 @@
         "struct": false,
         "OnUnpressed": {
             "field": "m_OnUnpressed",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFullyOpen": {
             "field": "m_OnFullyOpen",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFullyClosed": {
             "field": "m_OnFullyClosed",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnReachedPosition": {
             "field": "m_OnReachedPosition",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "LastUsed": {
@@ -16719,6 +16999,7 @@
         },
         "TextParms": {
             "field": "m_textParms",
+            "classname": "hudtextparms_t",
             "type": 16
         },
         "Parent": {
@@ -16871,6 +17152,7 @@
         },
         "ShardDesc": {
             "field": "m_ShardDesc",
+            "classname": "shard_model_desc_t",
             "type": 16
         },
         "Parent": {
@@ -16893,6 +17175,7 @@
         "struct": false,
         "CTouchExpansionComponent": {
             "field": "m_CTouchExpansionComponent",
+            "classname": "CTouchExpansionComponent",
             "type": 16
         },
         "PingServices": {
@@ -17026,6 +17309,7 @@
         },
         "OnPass": {
             "field": "m_OnPass",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -17053,14 +17337,17 @@
         },
         "InZone1": {
             "field": "m_InZone1",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "InZone2": {
             "field": "m_InZone2",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "InZone3": {
             "field": "m_InZone3",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -17332,6 +17619,7 @@
         },
         "RogueTimer": {
             "field": "m_rogueTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "DiedLastRound": {
@@ -17352,6 +17640,7 @@
         },
         "SurpriseTimer": {
             "field": "m_surpriseTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "AllowActive": {
@@ -17377,18 +17666,22 @@
         },
         "HurryTimer": {
             "field": "m_hurryTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "AlertTimer": {
             "field": "m_alertTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "SneakTimer": {
             "field": "m_sneakTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "PanicTimer": {
             "field": "m_panicTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "StateTimestamp": {
@@ -17436,6 +17729,7 @@
         },
         "StillTimer": {
             "field": "m_stillTimer",
+            "classname": "IntervalTimer",
             "type": 16
         },
         "EyeAnglesUnderPathFinderControl": {
@@ -17452,10 +17746,12 @@
         },
         "RepathTimer": {
             "field": "m_repathTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "AvoidFriendTimer": {
             "field": "m_avoidFriendTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "IsFriendInTheWay": {
@@ -17464,6 +17760,7 @@
         },
         "PoliteTimer": {
             "field": "m_politeTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "IsWaitingBehindFriend": {
@@ -17476,14 +17773,17 @@
         },
         "MustRunTimer": {
             "field": "m_mustRunTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "WaitTimer": {
             "field": "m_waitTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "UpdateTravelDistanceTimer": {
             "field": "m_updateTravelDistanceTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "PlayerTravelDistance": {
@@ -17517,10 +17817,12 @@
         },
         "InhibitWaitingForHostageTimer": {
             "field": "m_inhibitWaitingForHostageTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "WaitForHostageTimer": {
             "field": "m_waitForHostageTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "NoisePosition": {
@@ -17542,6 +17844,7 @@
         },
         "NoiseBendTimer": {
             "field": "m_noiseBendTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "BentNoisePosition": {
@@ -17610,14 +17913,17 @@
         },
         "ViewSteadyTimer": {
             "field": "m_viewSteadyTimer",
+            "classname": "IntervalTimer",
             "type": 16
         },
         "TossGrenadeTimer": {
             "field": "m_tossGrenadeTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "IsAvoidingGrenade": {
             "field": "m_isAvoidingGrenade",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "SpotCheckTimestamp": {
@@ -17682,6 +17988,7 @@
         },
         "IgnoreEnemiesTimer": {
             "field": "m_ignoreEnemiesTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Enemy": {
@@ -17750,6 +18057,7 @@
         },
         "AttentionInterval": {
             "field": "m_attentionInterval",
+            "classname": "IntervalTimer",
             "type": 16
         },
         "Attacker": {
@@ -17763,6 +18071,7 @@
         },
         "BurnedByFlamesTimer": {
             "field": "m_burnedByFlamesTimer",
+            "classname": "IntervalTimer",
             "type": 16
         },
         "LastVictimID": {
@@ -17779,10 +18088,12 @@
         },
         "EquipTimer": {
             "field": "m_equipTimer",
+            "classname": "IntervalTimer",
             "type": 16
         },
         "ZoomTimer": {
             "field": "m_zoomTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "FireWeaponTimestamp": {
@@ -17791,6 +18102,7 @@
         },
         "LookForWeaponsOnGroundTimer": {
             "field": "m_lookForWeaponsOnGroundTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "IsSleeping": {
@@ -17803,6 +18115,7 @@
         },
         "SawEnemySniperTimer": {
             "field": "m_sawEnemySniperTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "EnemyQueueIndex": {
@@ -17831,10 +18144,12 @@
         },
         "WiggleTimer": {
             "field": "m_wiggleTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "StuckJumpTimer": {
             "field": "m_stuckJumpTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "NextCleanupCheckTimestamp": {
@@ -17916,6 +18231,7 @@
         },
         "PathIndex": {
             "field": "m_PathIndex",
+            "classname": "ChangeAccessorFieldPathIndex_t",
             "type": 16
         },
         "Prev": {
@@ -17952,6 +18268,7 @@
         },
         "OnDeath": {
             "field": "m_OnDeath",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -18153,22 +18470,27 @@
         "struct": false,
         "OnHostageBeginGrab": {
             "field": "m_OnHostageBeginGrab",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFirstPickedUp": {
             "field": "m_OnFirstPickedUp",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnDroppedNotRescued": {
             "field": "m_OnDroppedNotRescued",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnRescued": {
             "field": "m_OnRescued",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "EntitySpottedState": {
             "field": "m_entitySpottedState",
+            "classname": "EntitySpottedState_t",
             "type": 16
         },
         "SpotRules": {
@@ -18215,6 +18537,7 @@
         },
         "ReuseTimer": {
             "field": "m_reuseTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "HasBeenUsed": {
@@ -18235,6 +18558,7 @@
         },
         "JumpTimer": {
             "field": "m_jumpTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "IsWaitingForLeader": {
@@ -18243,18 +18567,22 @@
         },
         "RepathTimer": {
             "field": "m_repathTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "InhibitDoorTimer": {
             "field": "m_inhibitDoorTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "InhibitObstacleAvoidanceTimer": {
             "field": "m_inhibitObstacleAvoidanceTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "WiggleTimer": {
             "field": "m_wiggleTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "IsAdjusted": {
@@ -18410,62 +18738,77 @@
         },
         "CycleTime": {
             "field": "m_flCycleTime",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "MaxSpeed": {
             "field": "m_flMaxSpeed",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "Spread": {
             "field": "m_flSpread",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "InaccuracyCrouch": {
             "field": "m_flInaccuracyCrouch",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "InaccuracyStand": {
             "field": "m_flInaccuracyStand",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "InaccuracyJump": {
             "field": "m_flInaccuracyJump",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "InaccuracyLand": {
             "field": "m_flInaccuracyLand",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "InaccuracyLadder": {
             "field": "m_flInaccuracyLadder",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "InaccuracyFire": {
             "field": "m_flInaccuracyFire",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "InaccuracyMove": {
             "field": "m_flInaccuracyMove",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "RecoilAngle": {
             "field": "m_flRecoilAngle",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "RecoilAngleVariance": {
             "field": "m_flRecoilAngleVariance",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "RecoilMagnitude": {
             "field": "m_flRecoilMagnitude",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "RecoilMagnitudeVariance": {
             "field": "m_flRecoilMagnitudeVariance",
+            "classname": "CFiringModeFloat",
             "type": 16
         },
         "TracerFrequency": {
             "field": "m_nTracerFrequency",
+            "classname": "CFiringModeInt",
             "type": 16
         },
         "InaccuracyJumpInitial": {
@@ -18885,6 +19228,7 @@
         },
         "EconGloves": {
             "field": "m_EconGloves",
+            "classname": "CEconItemView",
             "type": 16
         },
         "EconGlovesChanged": {
@@ -18957,6 +19301,7 @@
         },
         "EntitySpottedState": {
             "field": "m_entitySpottedState",
+            "classname": "EntitySpottedState_t",
             "type": 16
         },
         "SpotRules": {
@@ -19317,6 +19662,7 @@
         },
         "QuestProgressReason": {
             "field": "m_nQuestProgressReason",
+            "classname": "QuestProgress",
             "type": 16
         },
         "PlayerTvControlFlags": {
@@ -19489,6 +19835,7 @@
         },
         "LastHeldVoteTimer": {
             "field": "m_lastHeldVoteTimer",
+            "classname": "IntervalTimer",
             "type": 16
         },
         "ShowHints": {
@@ -19544,6 +19891,7 @@
         "struct": false,
         "AttributeManager": {
             "field": "m_AttributeManager",
+            "classname": "CAttributeContainer",
             "type": 16
         },
         "ActivityFinishedTag": {
@@ -19552,6 +19900,7 @@
         },
         "UpdateTimer": {
             "field": "m_updateTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "StuckAnchor": {
@@ -19560,10 +19909,12 @@
         },
         "StuckTimer": {
             "field": "m_stuckTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "CollisionStuckTimer": {
             "field": "m_collisionStuckTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "IsOnGround": {
@@ -19584,6 +19935,7 @@
         },
         "ActivityTimer": {
             "field": "m_activityTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "TurnRate": {
@@ -19597,14 +19949,17 @@
         },
         "MoveRateThrottleTimer": {
             "field": "m_moveRateThrottleTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "StartleTimer": {
             "field": "m_startleTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "VocalizeTimer": {
             "field": "m_vocalizeTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "WhenZombified": {
@@ -19622,6 +19977,7 @@
         },
         "ReuseTimer": {
             "field": "m_reuseTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "HasBeenUsed": {
@@ -19630,6 +19986,7 @@
         },
         "JumpTimer": {
             "field": "m_jumpTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "LastJumpTime": {
@@ -19646,14 +20003,17 @@
         },
         "RepathTimer": {
             "field": "m_repathTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "InhibitDoorTimer": {
             "field": "m_inhibitDoorTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "InhibitObstacleAvoidanceTimer": {
             "field": "m_inhibitObstacleAvoidanceTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "PathGoal": {
@@ -19666,6 +20026,7 @@
         },
         "FollowMinuteTimer": {
             "field": "m_followMinuteTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "LastEggPoopPosition": {
@@ -19674,6 +20035,7 @@
         },
         "BlockDirectionTimer": {
             "field": "m_BlockDirectionTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Parent": {
@@ -19796,10 +20158,12 @@
         "struct": false,
         "OnPlayerInZone": {
             "field": "m_OnPlayerInZone",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnPlayerOutZone": {
             "field": "m_OnPlayerOutZone",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -19825,6 +20189,7 @@
         "struct": false,
         "OnDetectedExplosion": {
             "field": "m_OnDetectedExplosion",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -19847,10 +20212,12 @@
         "struct": false,
         "Sampler": {
             "field": "m_vSampler",
+            "classname": "VelocitySampler",
             "type": 16
         },
         "SoundProfile": {
             "field": "m_soundProfile",
+            "classname": "SimpleConstraintSoundProfile",
             "type": 16
         },
         "ForwardAxis": {
@@ -20010,18 +20377,22 @@
         },
         "OnHitMin": {
             "field": "m_OnHitMin",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnHitMax": {
             "field": "m_OnHitMax",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnChangedFromMin": {
             "field": "m_OnChangedFromMin",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnChangedFromMax": {
             "field": "m_OnChangedFromMax",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -20033,6 +20404,7 @@
         "struct": false,
         "OutputOnEntitiesSpawned": {
             "field": "m_pOutputOnEntitiesSpawned",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "WorldName": {
@@ -20094,6 +20466,7 @@
         },
         "Ls": {
             "field": "m_ls",
+            "classname": "locksound_t",
             "type": 16
         },
         "ForceClosed": {
@@ -20142,38 +20515,47 @@
         },
         "OnBlockedClosing": {
             "field": "m_OnBlockedClosing",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnBlockedOpening": {
             "field": "m_OnBlockedOpening",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnUnblockedClosing": {
             "field": "m_OnUnblockedClosing",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnUnblockedOpening": {
             "field": "m_OnUnblockedOpening",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFullyClosed": {
             "field": "m_OnFullyClosed",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnFullyOpen": {
             "field": "m_OnFullyOpen",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnClose": {
             "field": "m_OnClose",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnOpen": {
             "field": "m_OnOpen",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnLockedUse": {
             "field": "m_OnLockedUse",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "LoopMoveSound": {
@@ -20929,6 +21311,7 @@
         },
         "RetakeRules": {
             "field": "m_RetakeRules",
+            "classname": "CRetakeGameRules",
             "type": 16
         },
         "TeamLastKillUsedUniqueWeaponMatch": {
@@ -21158,6 +21541,7 @@
         },
         "EntitySpottedState": {
             "field": "m_entitySpottedState",
+            "classname": "EntitySpottedState_t",
             "type": 16
         },
         "SpotRules": {
@@ -21232,6 +21616,7 @@
         "struct": false,
         "AnimationController": {
             "field": "m_animationController",
+            "classname": "CBaseAnimGraphController",
             "type": 16
         },
         "Parent": {
@@ -21382,6 +21767,7 @@
         },
         "OnSpark": {
             "field": "m_OnSpark",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -21488,10 +21874,12 @@
         },
         "OnNavLinkStart": {
             "field": "m_OnNavLinkStart",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnNavLinkFinish": {
             "field": "m_OnNavLinkFinish",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "IsTerminus": {
@@ -21514,14 +21902,17 @@
         "struct": false,
         "OnCommentaryNewGame": {
             "field": "m_OnCommentaryNewGame",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnCommentaryMidGame": {
             "field": "m_OnCommentaryMidGame",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnCommentaryMultiplayerSpawn": {
             "field": "m_OnCommentaryMultiplayerSpawn",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -21652,6 +22043,7 @@
         "struct": true,
         "__pChainEntity": {
             "field": "__m_pChainEntity",
+            "classname": "CNetworkVarChainer",
             "type": 16
         },
         "Owner": {
@@ -21695,6 +22087,7 @@
         },
         "FXIndex": {
             "field": "m_nFXIndex",
+            "classname": "ParticleIndex_t",
             "type": 16
         }
     },
@@ -21702,14 +22095,17 @@
         "struct": false,
         "SoundInfo": {
             "field": "m_soundInfo",
+            "classname": "ConstraintSoundInfo",
             "type": 16
         },
         "NotifyMinLimitReached": {
             "field": "m_NotifyMinLimitReached",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "NotifyMaxLimitReached": {
             "field": "m_NotifyMaxLimitReached",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "AtMinLimit": {
@@ -21722,6 +22118,7 @@
         },
         "Hinge": {
             "field": "m_hinge",
+            "classname": "constraint_hingeparams_t",
             "type": 16
         },
         "HingeFriction": {
@@ -21766,10 +22163,12 @@
         },
         "OnStartMoving": {
             "field": "m_OnStartMoving",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "OnStopMoving": {
             "field": "m_OnStopMoving",
+            "classname": "CEntityIOOutput",
             "type": 16
         },
         "Parent": {
@@ -21997,6 +22396,7 @@
         },
         "ShakeCallback": {
             "field": "m_shakeCallback",
+            "classname": "CPhysicsShake",
             "type": 16
         },
         "Parent": {
@@ -22044,6 +22444,7 @@
         },
         "SoundInfo": {
             "field": "m_soundInfo",
+            "classname": "ConstraintSoundInfo",
             "type": 16
         },
         "Parent": {
@@ -22148,10 +22549,12 @@
         },
         "ScriptState": {
             "field": "m_scriptState",
+            "classname": "IChoreoServices",
             "type": 16
         },
         "ChoreoState": {
             "field": "m_choreoState",
+            "classname": "IChoreoServices",
             "type": 16
         },
         "TimeStartedState": {
@@ -22371,14 +22774,17 @@
         },
         "AimTimer": {
             "field": "m_AimTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "SniperHoldTimer": {
             "field": "m_SniperHoldTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "FocusIntervalTimer": {
             "field": "m_FocusIntervalTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Acquired": {
@@ -22485,6 +22891,7 @@
         },
         "Motor": {
             "field": "m_motor",
+            "classname": "CMotorController",
             "type": 16
         },
         "Parent": {
@@ -22660,6 +23067,7 @@
         },
         "SensorInactivityTimer": {
             "field": "m_SensorInactivityTimer",
+            "classname": "CountdownTimer",
             "type": 16
         },
         "Parent": {
@@ -22725,6 +23133,7 @@
         },
         "Dpv": {
             "field": "m_dpv",
+            "classname": "dynpitchvol_t",
             "type": 16
         },
         "Active": {
@@ -22883,10 +23292,12 @@
         },
         "ScalarAttribute": {
             "field": "m_nScalarAttribute",
+            "classname": "ParticleAttributeIndex_t",
             "type": 16
         },
         "VectorAttribute": {
             "field": "m_nVectorAttribute",
+            "classname": "ParticleAttributeIndex_t",
             "type": 16
         },
         "VectorComponent": {
@@ -22931,6 +23342,7 @@
         },
         "NoiseInputVectorAttribute": {
             "field": "m_nNoiseInputVectorAttribute",
+            "classname": "ParticleAttributeIndex_t",
             "type": 16
         },
         "NoiseOutputMin": {
@@ -23138,6 +23550,7 @@
         "struct": false,
         "OpStrength": {
             "field": "m_flOpStrength",
+            "classname": "CParticleCollectionFloatInput",
             "type": 16
         },
         "OpEndCapState": {
@@ -24024,6 +24437,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "FirstTick": {
@@ -24197,6 +24611,7 @@
         "struct": false,
         "NodePath": {
             "field": "m_nodePath",
+            "classname": "CAnimNodePath",
             "type": 16
         },
         "NetworkMode": {
@@ -24212,6 +24627,7 @@
         "struct": false,
         "VisibilityInputs": {
             "field": "VisibilityInputs",
+            "classname": "CParticleVisibilityInputs",
             "type": 16
         },
         "CannotBeRefracted": {
@@ -24247,6 +24663,7 @@
         },
         "VectorAttribute": {
             "field": "m_nVectorAttribute",
+            "classname": "ParticleAttributeIndex_t",
             "type": 16
         },
         "VectorAttributeScale": {
@@ -24275,18 +24692,22 @@
         },
         "FloatComponentX": {
             "field": "m_FloatComponentX",
+            "classname": "CParticleFloatInput",
             "type": 16
         },
         "FloatComponentY": {
             "field": "m_FloatComponentY",
+            "classname": "CParticleFloatInput",
             "type": 16
         },
         "FloatComponentZ": {
             "field": "m_FloatComponentZ",
+            "classname": "CParticleFloatInput",
             "type": 16
         },
         "FloatInterp": {
             "field": "m_FloatInterp",
+            "classname": "CParticleFloatInput",
             "type": 16
         },
         "InterpInput0": {
@@ -24589,6 +25010,7 @@
         "struct": false,
         "ChildNode": {
             "field": "m_pChildNode",
+            "classname": "CAnimUpdateNodeRef",
             "type": 16
         },
         "Parent": {
@@ -24600,6 +25022,7 @@
         "struct": false,
         "Param": {
             "field": "m_hParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Parent": {
@@ -24647,10 +25070,12 @@
         "struct": false,
         "Child1": {
             "field": "m_pChild1",
+            "classname": "CAnimUpdateNodeRef",
             "type": 16
         },
         "Child2": {
             "field": "m_pChild2",
+            "classname": "CAnimUpdateNodeRef",
             "type": 16
         },
         "TimingBehavior": {
@@ -24902,30 +25327,37 @@
         "struct": true,
         "FinalTextureScaleU": {
             "field": "m_flFinalTextureScaleU",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "FinalTextureScaleV": {
             "field": "m_flFinalTextureScaleV",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "FinalTextureOffsetU": {
             "field": "m_flFinalTextureOffsetU",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "FinalTextureOffsetV": {
             "field": "m_flFinalTextureOffsetV",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "FinalTextureUVRotation": {
             "field": "m_flFinalTextureUVRotation",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "ZoomScale": {
             "field": "m_flZoomScale",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "Distortion": {
             "field": "m_flDistortion",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "RandomizeOffsets": {
@@ -25122,6 +25554,7 @@
         },
         "BlendParameter": {
             "field": "m_hBlendParameter",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Parent": {
@@ -25413,14 +25846,17 @@
         },
         "Radius": {
             "field": "m_flRadius",
+            "classname": "CPerParticleFloatInput",
             "type": 16
         },
         "NominalRadius": {
             "field": "m_flNominalRadius",
+            "classname": "CPerParticleFloatInput",
             "type": 16
         },
         "Scale": {
             "field": "m_flScale",
+            "classname": "CPerParticleFloatInput",
             "type": 16
         }
     },
@@ -25473,6 +25909,7 @@
         "struct": false,
         "PoseOpFixedData": {
             "field": "m_poseOpFixedData",
+            "classname": "FootPinningPoseOpFixedData_t",
             "type": 16
         },
         "TimingSource": {
@@ -25607,6 +26044,7 @@
         "struct": false,
         "ParamSpans": {
             "field": "m_paramSpans",
+            "classname": "CParamSpanUpdater",
             "type": 16
         },
         "PlaybackSpeed": {
@@ -25649,6 +26087,7 @@
         },
         "Id": {
             "field": "m_id",
+            "classname": "AnimParamID",
             "type": 16
         },
         "ComponentName": {
@@ -25700,6 +26139,7 @@
         "struct": false,
         "HipDampingSettings": {
             "field": "m_hipDampingSettings",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "HipBoneIndex": {
@@ -25994,6 +26434,7 @@
         },
         "Id": {
             "field": "m_id",
+            "classname": "AnimNodeID",
             "type": 16
         }
     },
@@ -26005,6 +26446,7 @@
         },
         "TagID": {
             "field": "m_tagID",
+            "classname": "AnimTagID",
             "type": 16
         },
         "IsReferenced": {
@@ -26089,14 +26531,17 @@
         "struct": false,
         "OriginSpace": {
             "field": "m_OriginSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "TargetSpace": {
             "field": "m_TargetSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "UpSpace": {
             "field": "m_UpSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -26180,6 +26625,7 @@
         "struct": false,
         "WeightInfo": {
             "field": "m_weightInfo",
+            "classname": "CNmBoneMask",
             "type": 16
         },
         "Weights": {
@@ -26213,6 +26659,7 @@
         "struct": false,
         "TargetParam": {
             "field": "m_hTargetParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "OriginalJumpMovement": {
@@ -26298,6 +26745,7 @@
         },
         "Id": {
             "field": "m_id",
+            "classname": "AnimComponentID",
             "type": 16
         },
         "NetworkMode": {
@@ -26336,14 +26784,17 @@
         },
         "MinRandomRadiusScale": {
             "field": "m_flMinRandomRadiusScale",
+            "classname": "CParticleCollectionFloatInput",
             "type": 16
         },
         "MaxRandomRadiusScale": {
             "field": "m_flMaxRandomRadiusScale",
+            "classname": "CParticleCollectionFloatInput",
             "type": 16
         },
         "ModellingScale": {
             "field": "m_flModellingScale",
+            "classname": "CParticleCollectionFloatInput",
             "type": 16
         }
     },
@@ -26390,6 +26841,7 @@
         },
         "TurnDamping": {
             "field": "m_turnDamping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "FacingTarget": {
@@ -26398,6 +26850,7 @@
         },
         "Param": {
             "field": "m_hParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "TurnToFaceOffset": {
@@ -26576,6 +27029,7 @@
         },
         "Damping": {
             "field": "m_damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "Parent": {
@@ -26707,6 +27161,7 @@
         },
         "Index": {
             "field": "m_nIndex",
+            "classname": "FuseFunctionIndex_t",
             "type": 16
         },
         "IsPure": {
@@ -26839,6 +27294,7 @@
         "struct": true,
         "Param": {
             "field": "m_hParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParamType": {
@@ -27058,10 +27514,12 @@
         "struct": false,
         "DirectionVector": {
             "field": "m_DirectionVector",
+            "classname": "CSmartPropAttributeDirection",
             "type": 16
         },
         "CoordinateSpace": {
             "field": "m_CoordinateSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "VariableName": {
@@ -27157,6 +27615,7 @@
         "struct": false,
         "ViewId": {
             "field": "m_viewId",
+            "classname": "SceneViewId_t",
             "type": 16
         },
         "ViewName": {
@@ -27226,6 +27685,7 @@
         "struct": true,
         "Child": {
             "field": "m_pChild",
+            "classname": "CAnimUpdateNodeRef",
             "type": 16
         },
         "Pos": {
@@ -27282,6 +27742,7 @@
         "struct": false,
         "PathIndex": {
             "field": "m_PathIndex",
+            "classname": "ChangeAccessorFieldPathIndex_t",
             "type": 16
         }
     },
@@ -27289,30 +27750,37 @@
         "struct": false,
         "LookHeading": {
             "field": "m_hLookHeading",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "LookHeadingVelocity": {
             "field": "m_hLookHeadingVelocity",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "LookPitch": {
             "field": "m_hLookPitch",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "LookDistance": {
             "field": "m_hLookDistance",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "LookDirection": {
             "field": "m_hLookDirection",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "LookTarget": {
             "field": "m_hLookTarget",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "LookTargetWorldSpace": {
             "field": "m_hLookTargetWorldSpace",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "NetworkLookTarget": {
@@ -27332,6 +27800,7 @@
         },
         "ParamIndex": {
             "field": "m_paramIndex",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Parent": {
@@ -27583,6 +28052,7 @@
         "struct": true,
         "Capsule": {
             "field": "m_Capsule",
+            "classname": "RnCapsule_t",
             "type": 16
         },
         "Parent": {
@@ -27748,10 +28218,12 @@
         },
         "AnticipationPosParam": {
             "field": "m_hAnticipationPosParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "AnticipationHeadingParam": {
             "field": "m_hAnticipationHeadingParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "UseAcceleration": {
@@ -27952,6 +28424,7 @@
         "struct": false,
         "ParamIndex": {
             "field": "m_paramIndex",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Parent": {
@@ -27986,6 +28459,7 @@
         },
         "EndEffectorAttachment": {
             "field": "m_endEffectorAttachment",
+            "classname": "CAnimAttachment",
             "type": 16
         },
         "TargetType": {
@@ -27994,6 +28468,7 @@
         },
         "TargetAttachment": {
             "field": "m_targetAttachment",
+            "classname": "CAnimAttachment",
             "type": 16
         },
         "TargetBoneIndex": {
@@ -28002,10 +28477,12 @@
         },
         "PositionParam": {
             "field": "m_hPositionParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "RotationParam": {
             "field": "m_hRotationParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "AlwaysUseFallbackHinge": {
@@ -28048,6 +28525,7 @@
         "struct": false,
         "Child": {
             "field": "m_pChild",
+            "classname": "CAnimUpdateNodeRef",
             "type": 16
         }
     },
@@ -28237,14 +28715,17 @@
         "struct": false,
         "OpFixedSettings": {
             "field": "m_opFixedSettings",
+            "classname": "FootLockPoseOpFixedSettings",
             "type": 16
         },
         "HipShiftDamping": {
             "field": "m_hipShiftDamping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "RootHeightDamping": {
             "field": "m_rootHeightDamping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "StrideCurveScale": {
@@ -28331,6 +28812,7 @@
         },
         "Stamp": {
             "field": "m_Stamp",
+            "classname": "SkeletonAnimCapture_t",
             "type": 16
         },
         "Teleport": {
@@ -28536,6 +29018,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "RenderTime": {
@@ -28603,6 +29086,7 @@
         "struct": true,
         "Mesh": {
             "field": "m_Mesh",
+            "classname": "RnMesh_t",
             "type": 16
         },
         "Parent": {
@@ -28639,10 +29123,12 @@
         "struct": false,
         "OriginSpace": {
             "field": "m_OriginSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "NoHitResult": {
             "field": "m_nNoHitResult",
+            "classname": "CSmartPropAttributeTraceNoHit",
             "type": 16
         },
         "Parent": {
@@ -28785,10 +29271,12 @@
         },
         "PathSpace": {
             "field": "m_PathSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "UpDirectionSpace": {
             "field": "m_UpDirectionSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "DefaultPath": {
@@ -28859,6 +29347,7 @@
         },
         "PercentageThrough": {
             "field": "m_percentageThrough",
+            "classname": "NmPercent_t",
             "type": 16
         }
     },
@@ -28896,6 +29385,7 @@
         "struct": false,
         "FieldOutput": {
             "field": "m_nFieldOutput",
+            "classname": "ParticleAttributeIndex_t",
             "type": 16
         },
         "Degrees": {
@@ -29190,10 +29680,12 @@
         "struct": false,
         "ForwardDirectionSpace": {
             "field": "m_ForwardDirectionSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "UpDirectionSpace": {
             "field": "m_UpDirectionSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -29276,6 +29768,7 @@
         },
         "SetValue_Value": {
             "field": "m_nSetValue_Value",
+            "classname": "CompositeMaterialInputLooseVariable_t",
             "type": 16
         },
         "StrGenerateTexture_TargetParam": {
@@ -29331,6 +29824,7 @@
         "struct": false,
         "SelectionMode": {
             "field": "m_SelectionMode",
+            "classname": "CSmartPropAttributeChoiceSelectionMode",
             "type": 16
         },
         "HandleShape": {
@@ -29371,6 +29865,7 @@
         "struct": true,
         "FeedbackFilter": {
             "field": "m_feedbackFilter",
+            "classname": "VMixFilterDesc_t",
             "type": 16
         },
         "EnableFilter": {
@@ -29478,26 +29973,32 @@
         },
         "SlopeAngle": {
             "field": "m_hSlopeAngle",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "SlopeAngleFront": {
             "field": "m_hSlopeAngleFront",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "SlopeAngleSide": {
             "field": "m_hSlopeAngleSide",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "SlopeHeading": {
             "field": "m_hSlopeHeading",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "SlopeNormal": {
             "field": "m_hSlopeNormal",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "SlopeNormal_WorldSpace": {
             "field": "m_hSlopeNormal_WorldSpace",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Parent": {
@@ -29516,14 +30017,17 @@
         },
         "OutputCoordinateSpace": {
             "field": "m_OutputCoordinateSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "CoordinateSpaceA": {
             "field": "m_CoordinateSpaceA",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "CoordinateSpaceB": {
             "field": "m_CoordinateSpaceB",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -29539,14 +30043,17 @@
         },
         "OutputCoordinateSpace": {
             "field": "m_OutputCoordinateSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "CoordinateSpaceA": {
             "field": "m_CoordinateSpaceA",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "CoordinateSpaceB": {
             "field": "m_CoordinateSpaceB",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -29577,10 +30084,12 @@
         "struct": false,
         "Flags": {
             "field": "m_flags",
+            "classname": "CSeqSeqDescFlag",
             "type": 16
         },
         "Transition": {
             "field": "m_transition",
+            "classname": "CSeqTransition",
             "type": 16
         },
         "FrameRangeSequence": {
@@ -29854,6 +30363,7 @@
         },
         "Damping": {
             "field": "m_damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "BlendSource": {
@@ -29862,6 +30372,7 @@
         },
         "ParamIndex": {
             "field": "m_paramIndex",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "VerticalAxis": {
@@ -29904,14 +30415,17 @@
         },
         "Bone": {
             "field": "m_Bone",
+            "classname": "IKBoneNameAndIndex_t",
             "type": 16
         },
         "AnimgraphParameterNamePosition": {
             "field": "m_AnimgraphParameterNamePosition",
+            "classname": "AnimParamID",
             "type": 16
         },
         "AnimgraphParameterNameOrientation": {
             "field": "m_AnimgraphParameterNameOrientation",
+            "classname": "AnimParamID",
             "type": 16
         },
         "TargetCoordSystem": {
@@ -29923,6 +30437,7 @@
         "struct": false,
         "ViewId": {
             "field": "m_viewId",
+            "classname": "SceneViewId_t",
             "type": 16
         },
         "ViewName": {
@@ -29934,22 +30449,27 @@
         "struct": false,
         "RadiusScale": {
             "field": "m_flRadiusScale",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "AlphaScale": {
             "field": "m_flAlphaScale",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "RollScale": {
             "field": "m_flRollScale",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "Alpha2Field": {
             "field": "m_nAlpha2Field",
+            "classname": "ParticleAttributeIndex_t",
             "type": 16
         },
         "ColorScale": {
             "field": "m_vecColorScale",
+            "classname": "CParticleCollectionRendererVecInput",
             "type": 16
         },
         "ColorBlendType": {
@@ -29966,10 +30486,12 @@
         },
         "CenterXOffset": {
             "field": "m_flCenterXOffset",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "CenterYOffset": {
             "field": "m_flCenterYOffset",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "BumpStrength": {
@@ -29994,14 +30516,17 @@
         },
         "SelfIllumAmount": {
             "field": "m_flSelfIllumAmount",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "DiffuseAmount": {
             "field": "m_flDiffuseAmount",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "DiffuseClamp": {
             "field": "m_flDiffuseClamp",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "LightingControlPoint": {
@@ -30010,6 +30535,7 @@
         },
         "SelfIllumPerParticle": {
             "field": "m_nSelfIllumPerParticle",
+            "classname": "ParticleAttributeIndex_t",
             "type": 16
         },
         "OutputBlendMode": {
@@ -30026,14 +30552,17 @@
         },
         "AddSelfAmount": {
             "field": "m_flAddSelfAmount",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "Desaturation": {
             "field": "m_flDesaturation",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "OverbrightFactor": {
             "field": "m_flOverbrightFactor",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "HSVShiftControlPoint": {
@@ -30046,6 +30575,7 @@
         },
         "FogAmount": {
             "field": "m_flFogAmount",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "TintByFOW": {
@@ -30070,14 +30600,17 @@
         },
         "AlphaReferenceSoftness": {
             "field": "m_flAlphaReferenceSoftness",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "SourceAlphaValueToMapToZero": {
             "field": "m_flSourceAlphaValueToMapToZero",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "SourceAlphaValueToMapToOne": {
             "field": "m_flSourceAlphaValueToMapToOne",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "Refract": {
@@ -30090,6 +30623,7 @@
         },
         "RefractAmount": {
             "field": "m_flRefractAmount",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "RefractBlurRadius": {
@@ -30152,18 +30686,22 @@
         },
         "FeatheringMinDist": {
             "field": "m_flFeatheringMinDist",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "FeatheringMaxDist": {
             "field": "m_flFeatheringMaxDist",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "FeatheringFilter": {
             "field": "m_flFeatheringFilter",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "DepthBias": {
             "field": "m_flDepthBias",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "SortMethod": {
@@ -30347,6 +30885,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "RealTime": {
@@ -30419,10 +30958,12 @@
         },
         "TextureBlend": {
             "field": "m_flTextureBlend",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "TextureControls": {
             "field": "m_TextureControls",
+            "classname": "TextureControls_t",
             "type": 16
         }
     },
@@ -30659,6 +31200,7 @@
         },
         "UsageDifferences": {
             "field": "m_usageDifferences",
+            "classname": "CAnimEncodeDifference",
             "type": 16
         }
     },
@@ -30710,6 +31252,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "ClientOutputFrames": {
@@ -30799,10 +31342,12 @@
         "struct": false,
         "StanceSourceNode": {
             "field": "m_pStanceSourceNode",
+            "classname": "CAnimUpdateNodeRef",
             "type": 16
         },
         "Parameter": {
             "field": "m_hParameter",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Mode": {
@@ -30845,6 +31390,7 @@
         "struct": false,
         "Curve": {
             "field": "m_curve",
+            "classname": "CBlendCurve",
             "type": 16
         }
     },
@@ -30852,6 +31398,7 @@
         "struct": false,
         "DataSet": {
             "field": "m_dataSet",
+            "classname": "CMotionDataSet",
             "type": 16
         },
         "Weights": {
@@ -30876,6 +31423,7 @@
         },
         "BlendCurve": {
             "field": "m_blendCurve",
+            "classname": "CBlendCurve",
             "type": 16
         },
         "SampleRate": {
@@ -30916,6 +31464,7 @@
         },
         "DistanceScale_Damping": {
             "field": "m_distanceScale_Damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "DistanceScale_OuterRadius": {
@@ -30947,10 +31496,12 @@
         "struct": true,
         "StartTime": {
             "field": "m_startTime",
+            "classname": "NmPercent_t",
             "type": 16
         },
         "Duration": {
             "field": "m_duration",
+            "classname": "NmPercent_t",
             "type": 16
         }
     },
@@ -30973,6 +31524,7 @@
         },
         "DefaultConfig": {
             "field": "m_DefaultConfig",
+            "classname": "ParticleNamedValueConfiguration_t",
             "type": 16
         }
     },
@@ -31010,6 +31562,7 @@
         "struct": false,
         "ViewId": {
             "field": "m_viewId",
+            "classname": "SceneViewId_t",
             "type": 16
         },
         "ViewName": {
@@ -31141,6 +31694,7 @@
         },
         "Bbox": {
             "field": "m_bbox",
+            "classname": "SkeletonBoneBounds_t",
             "type": 16
         },
         "SphereRadius": {
@@ -31178,6 +31732,7 @@
         },
         "Plane": {
             "field": "m_Plane",
+            "classname": "RnPlane_t",
             "type": 16
         },
         "Strength": {
@@ -31203,6 +31758,7 @@
         "struct": true,
         "StartTime": {
             "field": "m_startTime",
+            "classname": "NmPercent_t",
             "type": 16
         }
     },
@@ -31277,10 +31833,12 @@
         "struct": false,
         "EndPointSpaceA": {
             "field": "m_EndPointSpaceA",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "EndPointSpaceB": {
             "field": "m_EndPointSpaceB",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -31487,6 +32045,7 @@
         "struct": true,
         "Bounds": {
             "field": "m_Bounds",
+            "classname": "AABB_t",
             "type": 16
         },
         "Flags": {
@@ -31603,6 +32162,7 @@
         },
         "ModelInfo": {
             "field": "m_modelInfo",
+            "classname": "PermModelInfo_t",
             "type": 16
         },
         "RefMeshGroupMasks": {
@@ -31631,6 +32191,7 @@
         },
         "ModelSkeleton": {
             "field": "m_modelSkeleton",
+            "classname": "ModelSkeletonData_t",
             "type": 16
         },
         "RemappingTable": {
@@ -31655,6 +32216,7 @@
         "struct": false,
         "TraceSettings": {
             "field": "m_traceSettings",
+            "classname": "TraceSettings_t",
             "type": 16
         },
         "FootBaseBindPosePositionMS": {
@@ -31698,10 +32260,12 @@
         "struct": true,
         "PositionHandle": {
             "field": "m_positionHandle",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "OrientationHandle": {
             "field": "m_orientationHandle",
+            "classname": "CAnimParamHandle",
             "type": 16
         }
     },
@@ -31721,10 +32285,12 @@
         },
         "ParamIndex": {
             "field": "m_paramIndex",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Damping": {
             "field": "m_damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "BlendKeyType": {
@@ -31804,6 +32370,7 @@
         "struct": true,
         "Attachment": {
             "field": "m_attachment",
+            "classname": "CAnimAttachment",
             "type": 16
         },
         "BoneIndex": {
@@ -31907,6 +32474,7 @@
         "struct": false,
         "Script": {
             "field": "m_hScript",
+            "classname": "AnimScriptHandle",
             "type": 16
         },
         "Parent": {
@@ -32022,6 +32590,7 @@
         },
         "Flags": {
             "field": "m_flags",
+            "classname": "CSeqAutoLayerFlag",
             "type": 16
         },
         "Start": {
@@ -32326,6 +32895,7 @@
         "struct": false,
         "ParamSpans": {
             "field": "m_paramSpans",
+            "classname": "CParamSpanUpdater",
             "type": 16
         },
         "NodeItemIndices": {
@@ -32334,6 +32904,7 @@
         },
         "Damping": {
             "field": "m_damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "BlendSourceX": {
@@ -32342,6 +32913,7 @@
         },
         "ParamX": {
             "field": "m_paramX",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "BlendSourceY": {
@@ -32350,6 +32922,7 @@
         },
         "ParamY": {
             "field": "m_paramY",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "BlendMode": {
@@ -32416,6 +32989,7 @@
         },
         "DecodeDump": {
             "field": "m_DecodeDump",
+            "classname": "AnimationDecodeDebugDumpElement_t",
             "type": 16
         }
     },
@@ -32710,6 +33284,7 @@
         "struct": false,
         "OpFixedData": {
             "field": "m_opFixedData",
+            "classname": "FollowAttachmentSettings_t",
             "type": 16
         },
         "Parent": {
@@ -32788,6 +33363,7 @@
         "struct": false,
         "__pChainEntity": {
             "field": "__m_pChainEntity",
+            "classname": "CNetworkVarChainer",
             "type": 16
         }
     },
@@ -32842,10 +33418,12 @@
         "struct": true,
         "StartTime": {
             "field": "m_startTime",
+            "classname": "NmSyncTrackTime_t",
             "type": 16
         },
         "EndTime": {
             "field": "m_endTime",
+            "classname": "NmSyncTrackTime_t",
             "type": 16
         }
     },
@@ -32857,6 +33435,7 @@
         },
         "CoordinateSpace": {
             "field": "m_CoordinateSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "OutputVariable": {
@@ -32902,6 +33481,7 @@
         "struct": false,
         "OpFixedData": {
             "field": "m_opFixedData",
+            "classname": "SolveIKChainPoseOpFixedSettings_t",
             "type": 16
         },
         "Parent": {
@@ -32913,6 +33493,7 @@
         "struct": false,
         "CullingData": {
             "field": "m_CullingData",
+            "classname": "CDrawCullingData",
             "type": 16
         }
     },
@@ -32995,6 +33576,7 @@
         "struct": false,
         "Settings": {
             "field": "m_settings",
+            "classname": "CAnimDemoCaptureSettings",
             "type": 16
         },
         "Parent": {
@@ -33084,6 +33666,7 @@
         },
         "Script": {
             "field": "m_hScript",
+            "classname": "AnimScriptHandle",
             "type": 16
         },
         "TransitionIndices": {
@@ -33092,6 +33675,7 @@
         },
         "StateID": {
             "field": "m_stateID",
+            "classname": "AnimStateID",
             "type": 16
         }
     },
@@ -33119,14 +33703,17 @@
         },
         "Physics": {
             "field": "m_physics",
+            "classname": "CPhysSurfacePropertiesPhysics",
             "type": 16
         },
         "AudioSounds": {
             "field": "m_audioSounds",
+            "classname": "CPhysSurfacePropertiesSoundNames",
             "type": 16
         },
         "AudioParams": {
             "field": "m_audioParams",
+            "classname": "CPhysSurfacePropertiesAudio",
             "type": 16
         }
     },
@@ -33134,6 +33721,7 @@
         "struct": false,
         "Quantizer": {
             "field": "m_quantizer",
+            "classname": "CVectorQuantizer",
             "type": 16
         },
         "SelectableSamples": {
@@ -33228,6 +33816,7 @@
         "struct": true,
         "FeedbackFilter": {
             "field": "m_feedbackFilter",
+            "classname": "VMixFilterDesc_t",
             "type": 16
         },
         "PhaseInvert": {
@@ -33455,6 +34044,7 @@
         "struct": false,
         "Damage": {
             "field": "m_flDamage",
+            "classname": "CSkillFloat",
             "type": 16
         },
         "NPCDamageScalarVsNPC": {
@@ -33495,6 +34085,7 @@
         "struct": false,
         "Damping": {
             "field": "m_damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "FacingTarget": {
@@ -33503,14 +34094,17 @@
         },
         "MoveVecParam": {
             "field": "m_hMoveVecParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "MoveHeadingParam": {
             "field": "m_hMoveHeadingParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "TurnToFaceParam": {
             "field": "m_hTurnToFaceParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "TurnToFaceOffset": {
@@ -33550,6 +34144,7 @@
         "struct": false,
         "__pChainEntity": {
             "field": "__m_pChainEntity",
+            "classname": "CNetworkVarChainer",
             "type": 16
         }
     },
@@ -33565,6 +34160,7 @@
         },
         "Bounds": {
             "field": "m_Bounds",
+            "classname": "AABB_t",
             "type": 16
         },
         "OrthographicAreas": {
@@ -33604,6 +34200,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "RealTime": {
@@ -33729,6 +34326,7 @@
         },
         "MorphData": {
             "field": "m_morphData",
+            "classname": "CAudioMorphData",
             "type": 16
         }
     },
@@ -33838,10 +34436,12 @@
         "struct": false,
         "GridArrangement": {
             "field": "m_GridArrangement",
+            "classname": "CSmartPropAttributeGridPlacementMode",
             "type": 16
         },
         "GridOriginMode": {
             "field": "m_GridOriginMode",
+            "classname": "CSmartPropAttributeGridOriginMode",
             "type": 16
         },
         "Parent": {
@@ -33882,6 +34482,7 @@
         "struct": false,
         "ParamSpans": {
             "field": "m_paramSpans",
+            "classname": "CParamSpanUpdater",
             "type": 16
         },
         "ParameterCount": {
@@ -33938,6 +34539,7 @@
         "struct": false,
         "TargetPointSpace": {
             "field": "m_TargetPointSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -33969,10 +34571,12 @@
         },
         "MatchPattern": {
             "field": "m_matchPattern",
+            "classname": "CSosGroupMatchPattern",
             "type": 16
         },
         "BranchPattern": {
             "field": "m_branchPattern",
+            "classname": "CSosGroupBranchPattern",
             "type": 16
         },
         "LifeSpanTime": {
@@ -34000,14 +34604,17 @@
         "struct": false,
         "Damping": {
             "field": "m_damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "ParamIn": {
             "field": "m_hParamIn",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParamOut": {
             "field": "m_hParamOut",
+            "classname": "CAnimParamHandle",
             "type": 16
         }
     },
@@ -34080,10 +34687,12 @@
         "struct": false,
         "PlacementMode": {
             "field": "m_PlacementMode",
+            "classname": "CSmartPropAttributeRadiusPlacementMode",
             "type": 16
         },
         "DistributionMode": {
             "field": "m_DistributionMode",
+            "classname": "CSmartPropAttributeDistributionMode",
             "type": 16
         },
         "Parent": {
@@ -34213,6 +34822,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "RealTime": {
@@ -34461,6 +35071,7 @@
         },
         "BoneMaskBlendInTimePercentage": {
             "field": "m_boneMaskBlendInTimePercentage",
+            "classname": "NmPercent_t",
             "type": 16
         },
         "SyncEventOffset": {
@@ -34469,6 +35080,7 @@
         },
         "TransitionOptions": {
             "field": "m_transitionOptions",
+            "classname": "CNmTransitionNode",
             "type": 16
         },
         "TargetSyncIDNodeIdx": {
@@ -34499,6 +35111,7 @@
         "struct": false,
         "ComponentID": {
             "field": "m_componentID",
+            "classname": "AnimComponentID",
             "type": 16
         },
         "SetEnabled": {
@@ -34540,6 +35153,7 @@
         },
         "Filter": {
             "field": "m_filter",
+            "classname": "VMixFilterDesc_t",
             "type": 16
         },
         "LFOAmount": {
@@ -34563,6 +35177,7 @@
         "struct": false,
         "Flags": {
             "field": "m_flags",
+            "classname": "CSeqMultiFetchFlag",
             "type": 16
         },
         "LocalReferenceArray": {
@@ -34654,10 +35269,12 @@
         },
         "BlendCurve": {
             "field": "m_blendCurve",
+            "classname": "CBlendCurve",
             "type": 16
         },
         "Parameter": {
             "field": "m_hParameter",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "TagIndex": {
@@ -34689,34 +35306,42 @@
         "struct": false,
         "ParameterPosition": {
             "field": "m_hParameterPosition",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParameterOrientation": {
             "field": "m_hParameterOrientation",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParameterSpineRotationWeight": {
             "field": "m_hParameterSpineRotationWeight",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParameterPelvisOffset": {
             "field": "m_hParameterPelvisOffset",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParameterUseIK": {
             "field": "m_hParameterUseIK",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParameterWeaponDepenetrationDistance": {
             "field": "m_hParameterWeaponDepenetrationDistance",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParameterCameraClearanceDistance": {
             "field": "m_hParameterCameraClearanceDistance",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "OpFixedSettings": {
             "field": "m_opFixedSettings",
+            "classname": "AimCameraOpFixedSettings_t",
             "type": 16
         },
         "Parent": {
@@ -34739,6 +35364,7 @@
         "struct": false,
         "CoordinateSpace": {
             "field": "m_CoordinateSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "VariableName": {
@@ -34761,6 +35387,7 @@
         "struct": false,
         "PoseCacheHandle": {
             "field": "m_hPoseCacheHandle",
+            "classname": "CPoseHandle",
             "type": 16
         },
         "Cycle": {
@@ -34776,10 +35403,12 @@
         "struct": false,
         "Flags": {
             "field": "m_flags",
+            "classname": "CSeqSeqDescFlag",
             "type": 16
         },
         "Transition": {
             "field": "m_transition",
+            "classname": "CSeqTransition",
             "type": 16
         },
         "LocalBaseReference": {
@@ -34829,6 +35458,7 @@
         },
         "NodeLightingInfo": {
             "field": "m_nodeLightingInfo",
+            "classname": "BakedLightingInfo_t",
             "type": 16
         }
     },
@@ -34934,6 +35564,7 @@
         },
         "SceneEventId": {
             "field": "m_nSceneEventId",
+            "classname": "SceneEventId_t",
             "type": 16
         },
         "ClientSide": {
@@ -34997,6 +35628,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "RenderTime": {
@@ -35051,6 +35683,7 @@
         "struct": true,
         "Hull": {
             "field": "m_Hull",
+            "classname": "RnHull_t",
             "type": 16
         },
         "Parent": {
@@ -35124,6 +35757,7 @@
         },
         "ExtraBufferBinding": {
             "field": "m_extraBufferBinding",
+            "classname": "CRenderBufferBinding",
             "type": 16
         },
         "Parent": {
@@ -35207,10 +35841,12 @@
         "struct": false,
         "Flags": {
             "field": "m_flags",
+            "classname": "CSeqSeqDescFlag",
             "type": 16
         },
         "Fetch": {
             "field": "m_fetch",
+            "classname": "CSeqMultiFetch",
             "type": 16
         },
         "LocalWeightlist": {
@@ -35219,6 +35855,7 @@
         },
         "Transition": {
             "field": "m_transition",
+            "classname": "CSeqTransition",
             "type": 16
         }
     },
@@ -35226,10 +35863,12 @@
         "struct": true,
         "Attachment": {
             "field": "m_attachment",
+            "classname": "CAnimAttachment",
             "type": 16
         },
         "Damping": {
             "field": "m_damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "PoseCacheHandles": {
@@ -35275,6 +35914,7 @@
         },
         "BiasAndClampBlendCurve": {
             "field": "m_biasAndClampBlendCurve",
+            "classname": "CBlendCurve",
             "type": 16
         }
     },
@@ -35427,6 +36067,7 @@
         "struct": false,
         "OpFixedSettings": {
             "field": "m_opFixedSettings",
+            "classname": "AimMatrixOpFixedSettings_t",
             "type": 16
         },
         "Target": {
@@ -35435,6 +36076,7 @@
         },
         "ParamIndex": {
             "field": "m_paramIndex",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ResetChild": {
@@ -35454,6 +36096,7 @@
         "struct": false,
         "Damping": {
             "field": "m_damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "BlendValueSource": {
@@ -35462,6 +36105,7 @@
         },
         "ParamIndex": {
             "field": "m_paramIndex",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "PlaybackSpeed": {
@@ -35705,6 +36349,7 @@
         "struct": false,
         "CoordinateSpace": {
             "field": "m_CoordinateSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -35845,6 +36490,7 @@
         },
         "Index": {
             "field": "m_nIndex",
+            "classname": "FuseVariableIndex_t",
             "type": 16
         },
         "NumComponents": {
@@ -35913,6 +36559,7 @@
         },
         "ParamIndex": {
             "field": "m_paramIndex",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Parent": {
@@ -35940,10 +36587,12 @@
         },
         "StartFadeSize": {
             "field": "m_flStartFadeSize",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "EndFadeSize": {
             "field": "m_flEndFadeSize",
+            "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
         "ClampV": {
@@ -36030,6 +36679,7 @@
         },
         "FilterType": {
             "field": "m_filterType",
+            "classname": "VMixFilterDesc_t",
             "type": 16
         },
         "Width": {
@@ -36126,22 +36776,27 @@
         },
         "StanceCycle": {
             "field": "m_stanceCycle",
+            "classname": "CAnimCycle",
             "type": 16
         },
         "FootLiftCycle": {
             "field": "m_footLiftCycle",
+            "classname": "CFootCycle",
             "type": 16
         },
         "FootOffCycle": {
             "field": "m_footOffCycle",
+            "classname": "CFootCycle",
             "type": 16
         },
         "FootStrikeCycle": {
             "field": "m_footStrikeCycle",
+            "classname": "CFootCycle",
             "type": 16
         },
         "FootLandCycle": {
             "field": "m_footLandCycle",
+            "classname": "CFootCycle",
             "type": 16
         }
     },
@@ -36195,10 +36850,12 @@
         "struct": false,
         "Pitch": {
             "field": "m_pitch",
+            "classname": "CSoundEnvelope",
             "type": 16
         },
         "Volume": {
             "field": "m_volume",
+            "classname": "CSoundEnvelope",
             "type": 16
         },
         "ShutdownTime": {
@@ -36223,6 +36880,7 @@
         },
         "Filter": {
             "field": "m_Filter",
+            "classname": "CCopyRecipientFilter",
             "type": 16
         },
         "CloseCaptionDuration": {
@@ -36278,6 +36936,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "RenderTime": {
@@ -36309,6 +36968,7 @@
         },
         "JiggleBone": {
             "field": "m_jiggleBone",
+            "classname": "CFeJiggleBone",
             "type": 16
         }
     },
@@ -36320,6 +36980,7 @@
         },
         "VariableField": {
             "field": "m_nVariableField",
+            "classname": "ParticleAttributeIndex_t",
             "type": 16
         },
         "Scale": {
@@ -36331,6 +36992,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "RealTime": {
@@ -36350,6 +37012,7 @@
         "struct": false,
         "PlaceAtPositions": {
             "field": "m_PlaceAtPositions",
+            "classname": "CSmartPropAttributePathPositions",
             "type": 16
         },
         "Parent": {
@@ -36413,10 +37076,12 @@
         },
         "AnticipationPosParam": {
             "field": "m_hAnticipationPosParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "AnticipationHeadingParam": {
             "field": "m_hAnticipationHeadingParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "SpringConstant": {
@@ -36440,10 +37105,12 @@
         "struct": true,
         "Attachment": {
             "field": "m_attachment",
+            "classname": "CAnimAttachment",
             "type": 16
         },
         "Damping": {
             "field": "m_damping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "YawLimit": {
@@ -36539,10 +37206,12 @@
         "struct": false,
         "RootNode": {
             "field": "m_rootNode",
+            "classname": "CMotionSearchNode",
             "type": 16
         },
         "ResidualQuantizer": {
             "field": "m_residualQuantizer",
+            "classname": "CProductQuantizer",
             "type": 16
         }
     },
@@ -36565,6 +37234,7 @@
         },
         "BakedLightingInfo": {
             "field": "m_bakedLightingInfo",
+            "classname": "BakedLightingInfo_t",
             "type": 16
         },
         "CompileTimestamp": {
@@ -36580,10 +37250,12 @@
         "struct": false,
         "BasePoseCacheHandle": {
             "field": "m_hBasePoseCacheHandle",
+            "classname": "CPoseHandle",
             "type": 16
         },
         "FacingTarget": {
             "field": "m_facingTarget",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "TurnTimeMin": {
@@ -36744,6 +37416,7 @@
         "struct": false,
         "SearchDB": {
             "field": "m_searchDB",
+            "classname": "CMotionSearchDB",
             "type": 16
         },
         "SampleToConfig": {
@@ -36752,6 +37425,7 @@
         },
         "IsActiveScript": {
             "field": "m_hIsActiveScript",
+            "classname": "AnimScriptHandle",
             "type": 16
         }
     },
@@ -36887,6 +37561,7 @@
         "struct": false,
         "CoordinateSpace": {
             "field": "m_CoordinateSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "VariableName": {
@@ -36958,6 +37633,7 @@
         "struct": false,
         "OpFixedData": {
             "field": "m_opFixedData",
+            "classname": "JiggleBoneSettingsList_t",
             "type": 16
         },
         "Parent": {
@@ -37036,6 +37712,7 @@
         },
         "SplashSize": {
             "field": "m_nSplashSize",
+            "classname": "CRangeInt",
             "type": 16
         },
         "Flags": {
@@ -37048,6 +37725,7 @@
         },
         "Speed": {
             "field": "m_flSpeed",
+            "classname": "CRangeFloat",
             "type": 16
         }
     },
@@ -37111,6 +37789,7 @@
         "struct": true,
         "LoopState": {
             "field": "m_LoopState",
+            "classname": "EngineLoopState_t",
             "type": 16
         },
         "RealTime": {
@@ -37230,6 +37909,7 @@
         "struct": false,
         "CoordinateSpace": {
             "field": "m_CoordinateSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -37249,6 +37929,7 @@
         "struct": false,
         "Param": {
             "field": "m_hParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParamType": {
@@ -37257,6 +37938,7 @@
         },
         "Script": {
             "field": "m_hScript",
+            "classname": "AnimScriptHandle",
             "type": 16
         },
         "Parent": {
@@ -37314,6 +37996,7 @@
         },
         "RnShape": {
             "field": "m_rnShape",
+            "classname": "VPhysics2ShapeDef_t",
             "type": 16
         },
         "CollisionAttributeIndex": {
@@ -37360,10 +38043,12 @@
         "struct": false,
         "PlacementMode": {
             "field": "m_PlacementMode",
+            "classname": "CSmartPropAttributeRadiusPlacementMode",
             "type": 16
         },
         "DistributionMode": {
             "field": "m_DistributionMode",
+            "classname": "CSmartPropAttributeDistributionMode",
             "type": 16
         },
         "Parent": {
@@ -37406,6 +38091,7 @@
         },
         "PreviewState": {
             "field": "m_previewState",
+            "classname": "ParticlePreviewState_t",
             "type": 16
         }
     },
@@ -37422,6 +38108,7 @@
         },
         "MotionIndex": {
             "field": "m_nMotionIndex",
+            "classname": "MotionIndex",
             "type": 16
         },
         "SampleStart": {
@@ -37437,6 +38124,7 @@
         "struct": false,
         "FacingDamping": {
             "field": "m_facingDamping",
+            "classname": "CAnimInputDamping",
             "type": 16
         },
         "DefaultMotorIndex": {
@@ -37548,26 +38236,32 @@
         "struct": false,
         "OpFixedSettings": {
             "field": "m_opFixedSettings",
+            "classname": "HitReactFixedSettings_t",
             "type": 16
         },
         "TriggerParam": {
             "field": "m_triggerParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "HitBoneParam": {
             "field": "m_hitBoneParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "HitOffsetParam": {
             "field": "m_hitOffsetParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "HitDirectionParam": {
             "field": "m_hitDirectionParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "HitStrengthParam": {
             "field": "m_hitStrengthParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "MinDelayBetweenHits": {
@@ -37605,10 +38299,12 @@
         },
         "Info": {
             "field": "info",
+            "classname": "CTakeDamageInfo",
             "type": 16
         },
         "Result": {
             "field": "result",
+            "classname": "CTakeDamageResult",
             "type": 16
         }
     },
@@ -37866,6 +38562,7 @@
         "struct": false,
         "Param": {
             "field": "m_hParam",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Parent": {
@@ -37877,10 +38574,12 @@
         "struct": false,
         "Settings": {
             "field": "m_settings",
+            "classname": "CAnimGraphSettingsManager",
             "type": 16
         },
         "RootNodePath": {
             "field": "m_rootNodePath",
+            "classname": "CAnimNodePath",
             "type": 16
         }
     },
@@ -37895,18 +38594,22 @@
         "struct": false,
         "PointSpace": {
             "field": "m_PointSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "UpDirectionSpace": {
             "field": "m_UpDirectionSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "ScaleMode": {
             "field": "m_nScaleMode",
+            "classname": "CSmartPropAttributeScaleMode",
             "type": 16
         },
         "PickMode": {
             "field": "m_nPickMode",
+            "classname": "CSmartPropAttributePickMode",
             "type": 16
         },
         "Parent": {
@@ -37937,6 +38640,7 @@
         },
         "BoundsWs": {
             "field": "m_BoundsWs",
+            "classname": "AABB_t",
             "type": 16
         }
     },
@@ -37982,6 +38686,7 @@
         "struct": false,
         "Flags": {
             "field": "m_flags",
+            "classname": "CAnimDesc_Flag",
             "type": 16
         },
         "Fps": {
@@ -37990,6 +38695,7 @@
         },
         "Data": {
             "field": "m_Data",
+            "classname": "CAnimEncodedFrames",
             "type": 16
         },
         "Framestalltime": {
@@ -38014,6 +38720,7 @@
         },
         "SequenceParams": {
             "field": "m_sequenceParams",
+            "classname": "CAnimSequenceParams",
             "type": 16
         }
     },
@@ -38040,6 +38747,7 @@
         },
         "JiggleBone": {
             "field": "m_jiggleBone",
+            "classname": "CFeJiggleBone",
             "type": 16
         }
     },
@@ -38360,26 +39068,32 @@
         },
         "NodeBlock": {
             "field": "m_NodeBlock",
+            "classname": "VoxelVisBlockOffset_t",
             "type": 16
         },
         "RegionBlock": {
             "field": "m_RegionBlock",
+            "classname": "VoxelVisBlockOffset_t",
             "type": 16
         },
         "EnclosedClusterListBlock": {
             "field": "m_EnclosedClusterListBlock",
+            "classname": "VoxelVisBlockOffset_t",
             "type": 16
         },
         "EnclosedClustersBlock": {
             "field": "m_EnclosedClustersBlock",
+            "classname": "VoxelVisBlockOffset_t",
             "type": 16
         },
         "MasksBlock": {
             "field": "m_MasksBlock",
+            "classname": "VoxelVisBlockOffset_t",
             "type": 16
         },
         "VisBlocks": {
             "field": "m_nVisBlocks",
+            "classname": "VoxelVisBlockOffset_t",
             "type": 16
         }
     },
@@ -38394,10 +39108,12 @@
         },
         "SolverSettings": {
             "field": "m_SolverSettings",
+            "classname": "IKSolverSettings_t",
             "type": 16
         },
         "TargetSettings": {
             "field": "m_TargetSettings",
+            "classname": "IKTargetSettings_t",
             "type": 16
         },
         "DebugSetting": {
@@ -38455,6 +39171,7 @@
         },
         "Params": {
             "field": "m_params",
+            "classname": "VPhysXConstraintParams_t",
             "type": 16
         }
     },
@@ -38513,10 +39230,12 @@
         "struct": true,
         "BuilderParams": {
             "field": "m_builderParams",
+            "classname": "WorldBuilderParams_t",
             "type": 16
         },
         "WorldLightingInfo": {
             "field": "m_worldLightingInfo",
+            "classname": "BakedLightingInfo_t",
             "type": 16
         }
     },
@@ -38550,14 +39269,17 @@
         },
         "OutputCoordinateSpace": {
             "field": "m_OutputCoordinateSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "CoordinateSpaceA": {
             "field": "m_CoordinateSpaceA",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "CoordinateSpaceB": {
             "field": "m_CoordinateSpaceB",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -38569,6 +39291,7 @@
         "struct": false,
         "StateMachine": {
             "field": "m_stateMachine",
+            "classname": "CAnimStateMachineUpdater",
             "type": 16
         },
         "BlockWaningTags": {
@@ -38638,6 +39361,7 @@
         },
         "ToneMapParams": {
             "field": "m_toneMapParams",
+            "classname": "PostProcessingTonemapParameters_t",
             "type": 16
         },
         "HasBloomParams": {
@@ -38646,6 +39370,7 @@
         },
         "BloomParams": {
             "field": "m_bloomParams",
+            "classname": "PostProcessingBloomParameters_t",
             "type": 16
         },
         "HasVignetteParams": {
@@ -38654,6 +39379,7 @@
         },
         "VignetteParams": {
             "field": "m_vignetteParams",
+            "classname": "PostProcessingVignetteParameters_t",
             "type": 16
         },
         "HasLocalContrastParams": {
@@ -38662,6 +39388,7 @@
         },
         "LocalConstrastParams": {
             "field": "m_localConstrastParams",
+            "classname": "PostProcessingLocalContrastParameters_t",
             "type": 16
         },
         "ColorCorrectionVolumeDim": {
@@ -38803,6 +39530,7 @@
         },
         "IndexBuffer": {
             "field": "m_indexBuffer",
+            "classname": "CRenderBufferBinding",
             "type": 16
         }
     },
@@ -38851,6 +39579,7 @@
         "struct": false,
         "Mode": {
             "field": "m_Mode",
+            "classname": "CSmartPropAttributeApplyColorMode",
             "type": 16
         },
         "Parent": {
@@ -38869,6 +39598,7 @@
         "struct": false,
         "OpFixedSettings": {
             "field": "m_opFixedSettings",
+            "classname": "LookAtOpFixedSettings_t",
             "type": 16
         },
         "Target": {
@@ -38877,10 +39607,12 @@
         },
         "ParamIndex": {
             "field": "m_paramIndex",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "WeightParamIndex": {
             "field": "m_weightParamIndex",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ResetChild": {
@@ -38933,10 +39665,12 @@
         "struct": false,
         "Definition": {
             "field": "m_definition",
+            "classname": "CFootCycleDefinition",
             "type": 16
         },
         "Trajectories": {
             "field": "m_trajectories",
+            "classname": "CFootTrajectories",
             "type": 16
         }
     },
@@ -38948,6 +39682,7 @@
         },
         "DecodeKey": {
             "field": "m_decodeKey",
+            "classname": "CAnimKeyData",
             "type": 16
         }
     },
@@ -39092,10 +39827,12 @@
         "struct": false,
         "Skeleton": {
             "field": "m_skeleton",
+            "classname": "CRenderSkeleton",
             "type": 16
         },
         "MeshDeformParams": {
             "field": "m_meshDeformParams",
+            "classname": "DynamicMeshDeformParams_t",
             "type": 16
         },
         "GroomData": {
@@ -39134,10 +39871,12 @@
         },
         "HingeAxis": {
             "field": "hingeAxis",
+            "classname": "constraint_axislimit_t",
             "type": 16
         },
         "Constraint": {
             "field": "constraint",
+            "classname": "constraint_breakableparams_t",
             "type": 16
         }
     },
@@ -39145,18 +39884,22 @@
         "struct": true,
         "TranslationRangeX": {
             "field": "m_translationRangeX",
+            "classname": "NmCompressionSettings_t",
             "type": 16
         },
         "TranslationRangeY": {
             "field": "m_translationRangeY",
+            "classname": "NmCompressionSettings_t",
             "type": 16
         },
         "TranslationRangeZ": {
             "field": "m_translationRangeZ",
+            "classname": "NmCompressionSettings_t",
             "type": 16
         },
         "ScaleRange": {
             "field": "m_scaleRange",
+            "classname": "NmCompressionSettings_t",
             "type": 16
         },
         "IsRotationStatic": {
@@ -39218,14 +39961,17 @@
         "struct": false,
         "OpFixedData": {
             "field": "m_opFixedData",
+            "classname": "FollowTargetOpFixedSettings_t",
             "type": 16
         },
         "ParameterPosition": {
             "field": "m_hParameterPosition",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "ParameterOrientation": {
             "field": "m_hParameterOrientation",
+            "classname": "CAnimParamHandle",
             "type": 16
         },
         "Parent": {
@@ -39277,10 +40023,12 @@
         },
         "SyncTrack": {
             "field": "m_syncTrack",
+            "classname": "CNmSyncTrack",
             "type": 16
         },
         "RootMotion": {
             "field": "m_rootMotion",
+            "classname": "CNmRootMotionData",
             "type": 16
         },
         "IsAdditive": {
@@ -39299,6 +40047,7 @@
         "struct": false,
         "StateMachine": {
             "field": "m_stateMachine",
+            "classname": "CAnimStateMachineUpdater",
             "type": 16
         },
         "Parent": {
@@ -39310,6 +40059,7 @@
         "struct": false,
         "DirectionSpace": {
             "field": "m_DirectionSpace",
+            "classname": "CSmartPropAttributeCoordinateSpace",
             "type": 16
         },
         "Parent": {
@@ -39340,6 +40090,7 @@
         "struct": false,
         "OpFixedData": {
             "field": "m_opFixedData",
+            "classname": "TwoBoneIKSettings_t",
             "type": 16
         },
         "Parent": {
@@ -39522,6 +40273,7 @@
         },
         "LinearLimit": {
             "field": "m_LinearLimit",
+            "classname": "VPhysXRange_t",
             "type": 16
         },
         "EnableLinearMotor": {
@@ -39542,6 +40294,7 @@
         },
         "SwingLimit": {
             "field": "m_SwingLimit",
+            "classname": "VPhysXRange_t",
             "type": 16
         },
         "EnableTwistLimit": {
@@ -39550,6 +40303,7 @@
         },
         "TwistLimit": {
             "field": "m_TwistLimit",
+            "classname": "VPhysXRange_t",
             "type": 16
         },
         "EnableAngularMotor": {

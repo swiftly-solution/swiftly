@@ -2,6 +2,7 @@
 #define _sdkaccess_h
 
 #include <map>
+#include <vector>
 #include <string>
 
 enum SDKFieldType_t : uint32_t
@@ -84,6 +85,7 @@ private:
     std::map<std::string, uint64_t> fieldSizes;
     std::map<std::string, std::string> fieldClass;
     std::map<std::string, bool> structStates;
+    std::vector<std::string> classnames;
 
 public:
     SDKAccess();
@@ -91,6 +93,7 @@ public:
 
     void LoadSDKData();
 
+    std::vector<std::string> GetClassnames();
     std::string GetFieldName(std::string path);
     SDKFieldType_t GetFieldType(std::string path);
     std::string GetFieldClass(std::string path);

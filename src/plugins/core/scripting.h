@@ -205,33 +205,34 @@ private:
 
 public:
     SDKBaseClass(std::string ptr, lua_State* state);
-    SDKBaseClass(void* ptr, lua_State* state);
     SDKBaseClass(void* ptr, std::string className);
     SDKBaseClass(std::string ptr, std::string className);
 
-    int IndexFunc(lua_State* state);
     luabridge::LuaRef AccessSDKLua(std::string fieldName, lua_State* state);
     void UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, lua_State* state);
+
+    int CBasePlayerController_EntityIndex();
+    void CAttributeList_SetOrAddAttributeValueByName(std::string str, float value);
+    void CBaseModelEntity_SetModel(std::string model);
+    void CBaseModelEntity_SetSolidType(int64_t solidType);
+    void CBaseModelEntity_SetBodygroup(std::string str, int64_t val);
+    SDKBaseClass CBaseEntity_EHandle();
+    void CBaseEntity_Spawn();
+    void CBaseEntity_Despawn();
+    void CBaseEntity_AcceptInput(std::string input, SDKBaseClass activator, SDKBaseClass caller, std::string value, int outputID);
+    std::string CBaseEntity_GetClassname();
+    SDKBaseClass CBaseEntity_GetVData();
+    void CBaseEntity_Teleport(Vector value, QAngle angle);
+    void CBaseEntity_EmitSound(std::string sound_name, float pitch, float volume);
+
+    int GetProp(lua_State* state);
+    int SetProp(lua_State* state);
 
     std::string GetClassName();
     void* GetPtr();
     std::string ToPtr();
     bool IsValid();
 };
-
-int CBasePlayerController_EntityIndex(SDKBaseClass* _this);
-void CAttributeList_SetOrAddAttributeValueByName(SDKBaseClass* _this, std::string str, float value);
-void CBaseModelEntity_SetModel(SDKBaseClass* _this, std::string model);
-void CBaseModelEntity_SetSolidType(SDKBaseClass* _this, int64_t solidType);
-void CBaseModelEntity_SetBodygroup(SDKBaseClass* _this, std::string str, int64_t val);
-SDKBaseClass CBaseEntity_EHandle(SDKBaseClass* _this);
-void CBaseEntity_Spawn(SDKBaseClass* _this);
-void CBaseEntity_Despawn(SDKBaseClass* _this);
-void CBaseEntity_AcceptInput(SDKBaseClass* _this, std::string input, SDKBaseClass activator, SDKBaseClass caller, std::string value, int outputID);
-std::string CBaseEntity_GetClassname(SDKBaseClass* _this);
-SDKBaseClass CBaseEntity_GetVData(SDKBaseClass* _this);
-void CBaseEntity_Teleport(SDKBaseClass* _this, Vector value, QAngle angle);
-void CBaseEntity_EmitSound(SDKBaseClass* _this, std::string sound_name, float pitch, float volume);
 
 //////////////////////////////////////////////////////////////
 /////////////////         User Message         //////////////
