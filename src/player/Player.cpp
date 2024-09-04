@@ -61,6 +61,7 @@ Player::Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64 m_xui
     this->name = m_name;
     this->xuid = m_xuid;
     this->ip_address = ip_address;
+    this->language = g_Config->FetchValue<std::string>("core.language");
 }
 
 Player::~Player()

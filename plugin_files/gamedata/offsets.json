@@ -38,5 +38,9 @@
     "SendNetMessage": {
         "windows": 15,
         "linux": 16
+    },
+    "CServerSideClient_OnConVarQuery": {
+        "windows": 39,
+        "linux": 41
     }
 }

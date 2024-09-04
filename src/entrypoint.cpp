@@ -18,6 +18,7 @@
 #include "crashreporter/CrashReport.h"
 #include "database/DatabaseManager.h"
 #include "gameevents/gameevents.h"
+#include "convars/convars.h"
 #include "logs/Logger.h"
 #include "precacher/precacher.h"
 #include "translations/Translations.h"
@@ -116,6 +117,7 @@ EventManager* eventManager = nullptr;
 HTTPManager* g_httpManager = nullptr;
 UserMessages* g_userMessages = nullptr;
 SDKAccess* g_sdk = nullptr;
+ConvarQuery* g_cvarQuery = nullptr;
 VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
@@ -178,6 +180,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     eventManager = new EventManager();
     g_userMessages = new UserMessages();
     g_sdk = new SDKAccess();
+    g_cvarQuery = new ConvarQuery();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -199,6 +202,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_addons.Initialize();
     g_userMessages->Initialize();
     eventManager->Initialize();
+    g_cvarQuery->Initialize();
 
     if (!InitializeHooks())
         PRINTRET("Hooks failed to initialize.\n", false)
@@ -274,6 +278,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     g_addons.Destroy();
     g_voiceManager.OnShutdown();
     g_userMessages->Destroy();
+    g_cvarQuery->Destroy();
 
     g_pluginManager->StopPlugins();
     g_pluginManager->UnloadPlugins();
@@ -312,6 +317,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     delete g_httpManager;
     delete g_userMessages;
     delete g_sdk;
+    delete g_cvarQuery;
 
     ConVar_Unregister();
     return true;
@@ -484,6 +490,9 @@ void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint
     {
         Player* player = new Player(true, slot.Get(), pszName, 0, "127.0.0.1");
         g_playerManager->RegisterPlayer(player);
+    }
+    else {
+        g_cvarQuery->QueryCvarClient(slot, "cl_language");
     }
 }
 

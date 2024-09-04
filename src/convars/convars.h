@@ -7,6 +7,7 @@
 #include "../entrypoint.h"
 #include "../common.h"
 #include "../utils/utils.h"
+#include "netmessages.pb.h"
 
 ConVar* FetchCVar(std::string cvarname);
 std::any FetchCVarValue(std::string cvarname);
@@ -33,5 +34,18 @@ FakeConVar* GetFakeConvar(std::string name);
 void DeleteFakeConvar(std::string name);
 std::map<std::string, FakeConVar*> FetchFakeConvars();
 void InsertFakeConvar(std::string name, FakeConVar* cvar);
+
+class ConvarQuery
+{
+public:
+    void Initialize();
+    void Destroy();
+
+    bool OnConVarQuery(const CNetMessagePB<CCLCMsg_RespondCvarValue>& msg);
+
+    void QueryCvarClient(CPlayerSlot slot, std::string cvarName);
+};
+
+extern ConvarQuery* g_cvarQuery;
 
 #endif
