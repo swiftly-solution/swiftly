@@ -43,12 +43,12 @@ std::any ParseFieldType(enum_field_types type, const char* value)
 {
     if (type == enum_field_types::MYSQL_TYPE_FLOAT || type == enum_field_types::MYSQL_TYPE_DOUBLE || type == enum_field_types::MYSQL_TYPE_DECIMAL)
         return atof(value);
-    else if (type == enum_field_types::MYSQL_TYPE_INT24 || type == enum_field_types::MYSQL_TYPE_LONG || type == enum_field_types::MYSQL_TYPE_LONGLONG)
+    else if (type == enum_field_types::MYSQL_TYPE_SHORT || type == enum_field_types::MYSQL_TYPE_TINY || type == enum_field_types::MYSQL_TYPE_INT24 || type == enum_field_types::MYSQL_TYPE_LONG)
         return atoi(value);
     else if (type == enum_field_types::MYSQL_TYPE_VARCHAR || type == enum_field_types::MYSQL_TYPE_VAR_STRING || type == enum_field_types::MYSQL_TYPE_BLOB || type == MYSQL_JSON || type == enum_field_types::MYSQL_TYPE_TIMESTAMP)
         return std::string(value);
-    else if (type == enum_field_types::MYSQL_TYPE_SHORT || type == enum_field_types::MYSQL_TYPE_TINY)
-        return (short)strtol(value, nullptr, 10);
+    else if (type == enum_field_types::MYSQL_TYPE_LONGLONG)
+        return strtoll(value, nullptr, 10);
     else
     {
         PLUGIN_PRINTF("Database - ParseFieldType", "Invalid field type: %d.\n", type);
@@ -58,6 +58,7 @@ std::any ParseFieldType(enum_field_types type, const char* value)
 
 std::vector<std::map<const char*, std::any>> Database::Query(const char* query)
 {
+    std::lock_guard<std::mutex> lock(mtx);
     std::vector<std::map<const char*, std::any>> values;
 
     if (!this->connected)
@@ -95,26 +96,19 @@ std::vector<std::map<const char*, std::any>> Database::Query(const char* query)
     }
     else
     {
-        uint32 num_fields = mysql_num_fields(result);
         MYSQL_ROW row;
-        MYSQL_FIELD* field;
+        MYSQL_FIELD* fields = mysql_fetch_fields(result);
+        int num_fields = mysql_num_fields(result);
 
-        std::vector<const char*> fields;
-        std::vector<enum_field_types> fieldTypes;
-        while ((field = mysql_fetch_field(result)))
-        {
-            fields.push_back(field->name);
-            fieldTypes.push_back(field->type);
-        }
-
-        while ((row = mysql_fetch_row(result)))
-        {
+        while ((row = mysql_fetch_row(result))) {
             std::map<const char*, std::any> value;
-            for (uint32 i = 0; i < num_fields; i++)
-                value.insert(std::make_pair(fields[i], row[i] ? ParseFieldType(fieldTypes[i], row[i]) : "NULL"));
+
+            for (int i = 0; i < num_fields; i++)
+                value.insert({ fields[i].name, row[i] ? ParseFieldType(fields[i].type, row[i]) : "NULL" });
 
             values.push_back(value);
         }
+
         mysql_free_result(result);
     }
 

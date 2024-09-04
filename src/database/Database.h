@@ -10,6 +10,7 @@
 #include <any>
 #include <vector>
 #include <string>
+#include <mutex>
 
 class Database
 {
@@ -19,10 +20,12 @@ private:
     std::string m_username;
     std::string m_password;
     std::string m_database;
-    MYSQL *connection;
+    MYSQL* connection;
     bool connected = false;
 
-    const char *error = nullptr;
+    std::mutex mtx;
+
+    const char* error = nullptr;
 
 public:
     Database(std::string hostname, std::string username, std::string password, std::string database, uint16 port)
@@ -40,8 +43,8 @@ public:
     std::string GetError();
     bool HasError() { return this->error != nullptr; }
 
-    std::string QueryEscape(const char *query);
-    std::vector<std::map<const char *, std::any>> Query(const char *query);
+    std::string QueryEscape(const char* query);
+    std::vector<std::map<const char*, std::any>> Query(const char* query);
 };
 
 #endif
