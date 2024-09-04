@@ -385,6 +385,19 @@ void PluginPlayer::SwitchTeam(int team)
     player->SwitchTeam(team);
 }
 
+void PluginPlayer::ChangeTeam(int team)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::ChangeTeam(team=%d)", team));
+    if (team < 0 || team > 3)
+        return;
+
+    Player* player = g_playerManager->GetPlayer(this->playerId);
+    if (!player)
+        return;
+
+    player->ChangeTeam(team);
+}
+
 std::any PluginPlayer::GetVarValue(std::string key)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetVarValue(key=\"%s\")", key.c_str()));

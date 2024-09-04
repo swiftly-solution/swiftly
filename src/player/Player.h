@@ -42,7 +42,7 @@ typedef uint8_t VoiceFlag_t;
 class Player
 {
 public:
-    Player(bool m_isFakeClient, int m_slot, const char *m_name, uint64 m_xuid, std::string ip_address);
+    Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64 m_xuid, std::string ip_address);
     ~Player();
 
     bool IsFakeClient();
@@ -54,24 +54,25 @@ public:
     void SetConnected(bool connected);
     bool IsConnected();
 
-    void SendMsg(int dest, const char *msg, ...);
+    void SendMsg(int dest, const char* msg, ...);
 
     void RenderCenterText();
 
     void Authenticate();
-    const char *GetName();
+    const char* GetName();
     uint64 GetSteamID();
 
-    CBasePlayerController *GetController();
-    CBasePlayerPawn *GetPawn();
-    CCSPlayerController *GetPlayerController();
-    CCSPlayerPawn *GetPlayerPawn();
-    CCSPlayerPawnBase *GetPlayerBasePawn();
+    CBasePlayerController* GetController();
+    CBasePlayerPawn* GetPawn();
+    CCSPlayerController* GetPlayerController();
+    CCSPlayerPawn* GetPlayerPawn();
+    CCSPlayerPawnBase* GetPlayerBasePawn();
 
     Vector GetCoords();
     void SetCoords(float x, float y, float z);
 
     void SwitchTeam(int team);
+    void ChangeTeam(int team);
 
     void SetButtons(uint64_t new_buttons);
     uint64_t GetButtons();
@@ -91,7 +92,7 @@ public:
     void RenderMenu();
     void HideMenu();
     bool HasMenuShown();
-    Menu *GetMenu();
+    Menu* GetMenu();
 
     int GetPage();
     void SetPage(int pg);
@@ -125,7 +126,7 @@ private:
     uint64_t buttons = 0;
 
     std::time_t connectTime;
-    const char *name;
+    const char* name;
     uint64 xuid;
     std::string ip_address = "0.0.0.0";
 
@@ -134,7 +135,7 @@ private:
 
     bool firstSpawn = true;
 
-    Menu *menu = nullptr;
+    Menu* menu = nullptr;
     int page = 0;
     int selected = 0;
 

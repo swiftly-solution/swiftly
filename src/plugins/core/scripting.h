@@ -623,6 +623,7 @@ public:
     uint64_t GetSteamID();
     std::string GetSteamID2();
     void SwitchTeam(int team);
+    void ChangeTeam(int team);
     void HideMenu();
     bool IsFakeClient();
     bool IsFirstSpawn();

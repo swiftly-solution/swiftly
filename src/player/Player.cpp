@@ -237,6 +237,15 @@ void Player::SwitchTeam(int team)
         g_Signatures->FetchSignature<CCSPlayerController_SwitchTeam>("CCSPlayerController_SwitchTeam")(playerController, team);
 }
 
+void Player::ChangeTeam(int team)
+{
+    CCSPlayerController* playerController = this->GetPlayerController();
+    if (!playerController)
+        return;
+
+    CALL_VIRTUAL(void, g_Offsets->GetOffset("CCSPlayerController_ChangeTeam"), playerController, team);
+}
+
 void Player::RenderCenterText()
 {
     if (this->centerMessageEndTime != 0)
@@ -489,7 +498,7 @@ void Player::PerformMenuAction(std::string button)
         CCSPlayerController* controller = this->GetPlayerController();
         CSingleRecipientFilter filter(this->GetSlot().Get());
         if (controller)
-            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.exit.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.exit.volume"));       
+            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.exit.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.exit.volume"));
         this->HideMenu();
     }
     else if (button == g_Config->FetchValue<std::string>("core.menu.buttons.use"))
