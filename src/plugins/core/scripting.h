@@ -673,6 +673,9 @@ public:
     void LoadFromSignatureName(std::string signature_name);
     void LoadFromSignature(std::string library, std::string signature);
 
+    void AddOffsetByName(std::string offsetName);
+    void RemoveOffsetByName(std::string offsetName);
+
     void AddOffset(int64_t offset);
     void RemoveOffset(int64_t offset);
 

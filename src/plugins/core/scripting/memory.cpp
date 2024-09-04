@@ -49,6 +49,20 @@ void PluginMemory::LoadFromSignature(std::string library, std::string signature)
     m_ptr = sig;
 }
 
+void PluginMemory::AddOffsetByName(std::string offsetName)
+{
+    int64_t offset = g_Offsets->GetOffset(offsetName);
+    if (offset == -1) return;
+    m_ptr = ((char*)m_ptr) + offset;
+}
+
+void PluginMemory::RemoveOffsetByName(std::string offsetName)
+{
+    int64_t offset = g_Offsets->GetOffset(offsetName);
+    if (offset == -1) return;
+    m_ptr = ((char*)m_ptr) - offset;
+}
+
 void PluginMemory::AddOffset(int64_t offset)
 {
     m_ptr = ((char*)m_ptr) + offset;
