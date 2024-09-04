@@ -411,9 +411,7 @@ std::any PluginPlayer::GetVarValue(std::string key)
 luabridge::LuaRef PluginPlayer::GetVarValueLua(std::string key, lua_State* L)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetVarValueLua(key=\"%s\")", key.c_str()));
-    luabridge::LuaRef val = LuaSerializeData(GetVarValue(key), L);
-
-    return val;
+    return LuaSerializeData(GetVarValue(key), L);
 }
 
 void PluginPlayer::SetVarValue(std::string key, std::any value)
@@ -439,6 +437,16 @@ void PluginPlayer::SetVarValueLua(std::string key, luabridge::LuaRef value)
         returnValue = value.cast<int64_t>();
     else if (value.isString())
         returnValue = value.cast<std::string>();
+    else if (value.isTable())
+    {
+        luabridge::LuaRef serpentDump = luabridge::getGlobal(value.state(), "serpent")["dump"];
+        luabridge::LuaRef serpentDumpReturnValue = serpentDump(value);
+
+        std::vector<std::string> tmptbl;
+        tmptbl.push_back(serpentDumpReturnValue.cast<std::string>());
+
+        returnValue = tmptbl;
+    }
     else
         returnValue = nullptr;
 
