@@ -1,6 +1,6 @@
 #include "../scripting.h"
 
-#include <module.h>
+#include "../../../../vendor/dynlib/module.h"
 #include "../../../utils/module.h"
 
 void* FindSignature(const char* moduleName, const char* bytes);
@@ -38,7 +38,7 @@ void PluginMemory::LoadFromSignature(std::string library, std::string signature)
     }
     else
     {
-        DynLibUtils::CModule module(library == "server" ? server : nullptr);
+        DynLibUtils::CModule module(library);
         DynLibUtils::CMemory sg = module.FindPattern(signature);
         if (!sg)
             return;
@@ -56,6 +56,16 @@ void PluginMemory::AddOffset(int64_t offset)
 void PluginMemory::RemoveOffset(int64_t offset)
 {
     m_ptr = ((char*)m_ptr) - offset;
+}
+
+void PluginMemory::AccessVTableFromOffset(std::string offsetName)
+{
+    int64_t offset = g_Offsets->GetOffset(offsetName);
+    if (offset == -1) return;
+
+    void* pt = m_ptr;
+    m_ptr = reinterpret_cast<void***>(pt)[0][offset];
+    accessedVTable = true;
 }
 
 void PluginMemory::AccessVTable(int64_t offset)

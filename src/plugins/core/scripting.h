@@ -676,6 +676,7 @@ public:
     void AddOffset(int64_t offset);
     void RemoveOffset(int64_t offset);
 
+    void AccessVTableFromOffset(std::string offsetName);
     void AccessVTable(int64_t offset);
     bool AccessedVTable();
 
