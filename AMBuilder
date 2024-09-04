@@ -54,7 +54,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 		binary.compiler.cflags += [
 			"-Wno-return-local-addr",
 			"-Wno-unknown-pragmas",
-			"-Wno-non-virtual-dtor",
 			"-Wno-attributes",
 			"-Wno-array-bounds",
 			"-Wno-int-to-pointer-cast",

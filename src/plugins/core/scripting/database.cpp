@@ -15,7 +15,7 @@ extern std::string currentMap;
 struct DatabaseQueryQueue
 {
     std::string query;
-    void* callback;
+    std::string requestID;
     Database* db;
     Plugin* plugin;
 };
@@ -23,39 +23,66 @@ struct DatabaseQueryQueue
 std::deque<DatabaseQueryQueue> queryQueue;
 bool dbThreadStarted = false;
 
-void DatabaseLuaCallback(std::vector<std::any> values)
+std::string QueryToJSON(const std::vector<std::map<const char*, std::any>>& data)
 {
-    std::vector<std::map<const char*, std::any>> queryResult = std::any_cast<std::vector<std::map<const char*, std::any>>>(values[0]);
-    lua_State* state = std::any_cast<lua_State*>(values[1]);
-    luabridge::LuaRef* ref = std::any_cast<luabridge::LuaRef*>(values[2]);
-    std::string error = std::any_cast<std::string>(values[3]);
+    rapidjson::Document document(rapidjson::kArrayType);
 
-    std::vector<std::map<std::string, luabridge::LuaRef>> tbl;
-
-    for (uint32_t i = 0; i < queryResult.size(); i++)
+    for (const auto& map : data)
     {
-        std::map<std::string, luabridge::LuaRef> rowTbl;
+        rapidjson::Value entry(rapidjson::kObjectType);
 
-        for (auto it = queryResult[i].begin(); it != queryResult[i].end(); ++it)
-            rowTbl.insert({ it->first, LuaSerializeData(it->second, state) });
+        for (const auto& pair : map)
+        {
+            const char* key = pair.first;
+            const std::any& value = pair.second;
 
-        tbl.push_back(rowTbl);
+            if (value.type() == typeid(const char*))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetString(std::any_cast<const char*>(value), document.GetAllocator()), document.GetAllocator());
+            else if (value.type() == typeid(std::string))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetString(std::any_cast<std::string>(value).c_str(), document.GetAllocator()), document.GetAllocator());
+            else if (value.type() == typeid(uint64))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint64(std::any_cast<uint64>(value)), document.GetAllocator());
+            else if (value.type() == typeid(uint32))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint(std::any_cast<uint32>(value)), document.GetAllocator());
+            else if (value.type() == typeid(uint16))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint(std::any_cast<uint16>(value)), document.GetAllocator());
+            else if (value.type() == typeid(uint8))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint(std::any_cast<uint8>(value)), document.GetAllocator());
+            else if (value.type() == typeid(int64))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetInt64(std::any_cast<int64>(value)), document.GetAllocator());
+            else if (value.type() == typeid(int32))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetInt(std::any_cast<int32>(value)), document.GetAllocator());
+            else if (value.type() == typeid(int16))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetInt(std::any_cast<int16>(value)), document.GetAllocator());
+            else if (value.type() == typeid(int8))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetInt(std::any_cast<int8>(value)), document.GetAllocator());
+            else if (value.type() == typeid(bool))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetBool(std::any_cast<bool>(value)), document.GetAllocator());
+            else if (value.type() == typeid(float))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetFloat(std::any_cast<float>(value)), document.GetAllocator());
+            else if (value.type() == typeid(double))
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetDouble(std::any_cast<double>(value)), document.GetAllocator());
+        }
+
+        document.PushBack(entry, document.GetAllocator());
     }
 
-    if (ref != nullptr) {
-        try
-        {
-            luabridge::LuaRef func = *ref;
-            if (func.isFunction())
-                func(error.size() == 0 ? luabridge::LuaRef(state) : error, tbl);
-        }
-        catch (luabridge::LuaException& e)
-        {
-            PRINTF("An error has occured: %s\n", e.what());
-        }
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    document.Accept(writer);
+    return std::string(buffer.GetString());
+}
 
-        delete ref;
-    }
+void DatabaseLuaCallback(std::vector<std::any> res)
+{
+    std::string databaseRequestID = std::any_cast<std::string>(res[0]);
+    std::string result = std::any_cast<std::string>(res[1]);
+    std::string err = std::any_cast<std::string>(res[2]);
+    LuaPlugin* plugin = std::any_cast<LuaPlugin*>(res[3]);
+
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
+    plugin->PluginTriggerEvent("core", "OnDatabaseActionPerformed", encoders::msgpack::SerializeToString({ databaseRequestID, result, err }), event);
+    delete event;
 }
 
 void DatabaseQueryThread()
@@ -69,7 +96,6 @@ void DatabaseQueryThread()
             if (!queue.db->IsConnected()) {
                 PRINT("The following query has been skipped due to the database not being connected.\n");
                 PRINTF("Query: \"%s\".\n", queue.query.c_str());
-                delete queue.callback;
                 queryQueue.pop_front();
                 continue;
             }
@@ -92,9 +118,10 @@ void DatabaseQueryThread()
                         error = queue.db->GetError();
                 }
 
-                luabridge::LuaRef* ref = (luabridge::LuaRef*)queue.callback;
-                if (currentMap != "None") g_Plugin.NextFrame(DatabaseLuaCallback, { queryResult, state, ref, error });
-                else DatabaseLuaCallback({ queryResult, state, ref, error });
+                std::string result = QueryToJSON(queryResult);
+
+                if (currentMap != "None") g_Plugin.NextFrame(DatabaseLuaCallback, { queue.requestID, result, error, (LuaPlugin*)queue.plugin });
+                else DatabaseLuaCallback({ queue.requestID, result, error, (LuaPlugin*)queue.plugin });
             }
 
             delete callStack;
@@ -129,13 +156,19 @@ void PluginDatabase::QueryLua(std::string query, luabridge::LuaRef callback, lua
 {
     REGISTER_CALLSTACK(FetchPluginName(L), string_format("PluginDatabase::QueryLua(query=\"%s\")", query.c_str()));
 
+    std::string uuid = get_uuid();
+
     DatabaseQueryQueue queue = {
         query,
-        new luabridge::LuaRef(callback),
+        uuid,
         this->db,
         FetchPluginByState(L),
     };
     queryQueue.push_back(queue);
+
+    luabridge::LuaRef databaseRequestsQueue = luabridge::getGlobal(L, "databaseRequestsQueue");
+    if (databaseRequestsQueue.isTable())
+        databaseRequestsQueue[uuid] = callback;
 
     if (!dbThreadStarted)
     {
