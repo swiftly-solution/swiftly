@@ -24,73 +24,17 @@ void PluginWeaponManager::GiveWeapon(std::string weapon_name)
 }
 void PluginWeaponManager::RemoveWeapons()
 {
-    Player* player = g_playerManager->GetPlayer(m_playerId);
-    if (!player)
-        return;
+    auto weapons = GetWeapons();
 
-    CCSPlayerPawn* pawn = player->GetPlayerPawn();
-    if (!pawn)
-        return;
-
-    CPlayer_WeaponServices* weaponServices = pawn->m_pWeaponServices();
-    if (!weaponServices)
-        return;
-
-    CCSPlayer_ItemServices* itemServices = pawn->m_pItemServices();
-    if (!itemServices)
-        return;
-
-    CUtlVector<CHandle<CBasePlayerWeapon>>* weapons = weaponServices->m_hMyWeapons();
-    if (!weapons)
-        return;
-
-    FOR_EACH_VEC(*weapons, i)
-    {
-        CHandle<CBasePlayerWeapon>& weaponHandle = (*weapons)[i];
-        if (!weaponHandle.IsValid())
-            continue;
-
-        CBasePlayerWeapon* weapon = weaponHandle.Get();
-        if (!weapon)
-            continue;
-
-        weaponServices->RemoveWeapon(weapon);
-    }
+    for (auto weapon : weapons)
+        weapon.Remove();
 }
 void PluginWeaponManager::DropWeapons()
 {
-    Player* player = g_playerManager->GetPlayer(m_playerId);
-    if (!player)
-        return;
+    auto weapons = GetWeapons();
 
-    CCSPlayerPawn* pawn = player->GetPlayerPawn();
-    if (!pawn)
-        return;
-
-    CPlayer_WeaponServices* weaponServices = pawn->m_pWeaponServices();
-    if (!weaponServices)
-        return;
-
-    CCSPlayer_ItemServices* itemServices = pawn->m_pItemServices();
-    if (!itemServices)
-        return;
-
-    CUtlVector<CHandle<CBasePlayerWeapon>>* weapons = weaponServices->m_hMyWeapons();
-    if (!weapons)
-        return;
-
-    FOR_EACH_VEC(*weapons, i)
-    {
-        CHandle<CBasePlayerWeapon>& weaponHandle = (*weapons)[i];
-        if (!weaponHandle.IsValid())
-            continue;
-
-        CBasePlayerWeapon* weapon = weaponHandle.Get();
-        if (!weapon)
-            continue;
-
-        weaponServices->DropWeapon(weapon);
-    }
+    for (auto weapon : weapons)
+        weapon.Drop();
 }
 
 std::vector<PluginWeapon> PluginWeaponManager::GetWeapons()
