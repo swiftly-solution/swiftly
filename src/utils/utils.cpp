@@ -10,51 +10,50 @@
 #include "../logs/Logger.h"
 
 std::map<std::string, std::string> terminalColors = {
-    {"{DEFAULT}", "\e[39m"},
-    {"{WHITE}", "\e[39m"},
-    {"{DARKRED}", "\e[31m"},
-    {"{LIGHTPURPLE}", "\e[95m"},
-    {"{GREEN}", "\e[32m"},
-    {"{OLIVE}", "\e[33m"},
-    {"{LIME}", "\e[92m"},
-    {"{RED}", "\e[31m"},
-    {"{GRAY}", "\e[37m"},
-    {"{GREY}", "\e[37m"},
-    {"{LIGHTYELLOW}", "\e[93m"},
-    {"{YELLOW}", "\e[93m"},
-    {"{SILVER}", "\e[37m"},
-    {"{BLUEGREY}", "\e[94m"},
-    {"{LIGHTBLUE}", "\e[94m"},
-    {"{BLUE}", "\e[34m"},
-    {"{DARKBLUE}", "\e[34m"},
-    {"{PURPLE}", "\e[35m"},
-    {"{MAGENTA}", "\e[35m"},
-    {"{LIGHTRED}", "\e[91m"},
-    {"{GOLD}", "\e[93m"},
-    {"{ORANGE}", "\e[33m"},
+    {"{DEFAULT}", WIN_LINUX("\033[38;2;255;255;255m", "\e[39m")},
+    {"{WHITE}", WIN_LINUX("\033[38;2;255;255;255m", "\e[39m")},
+    {"{DARKRED}", WIN_LINUX("\x1B[31m", "\e[31m")},
+    {"{LIGHTPURPLE}", WIN_LINUX("\x1B[95m", "\e[95m")},
+    {"{GREEN}", WIN_LINUX("\x1B[32m", "\e[32m")},
+    {"{OLIVE}", WIN_LINUX("\x1B[33m", "\e[33m")},
+    {"{LIME}", WIN_LINUX("\x1B[92m", "\e[92m")},
+    {"{RED}", WIN_LINUX("\x1B[31m", "\e[31m")},
+    {"{GRAY}", WIN_LINUX("\x1B[37m", "\e[37m")},
+    {"{GREY}", WIN_LINUX("\x1B[37m", "\e[37m")},
+    {"{LIGHTYELLOW}", WIN_LINUX("\x1B[93m", "\e[93m")},
+    {"{YELLOW}", WIN_LINUX("\x1B[93m", "\e[93m")},
+    {"{SILVER}", WIN_LINUX("\x1B[37m", "\e[37m")},
+    {"{BLUEGREY}", WIN_LINUX("\x1B[94m", "\e[94m")},
+    {"{LIGHTBLUE}", WIN_LINUX("\x1B[94m", "\e[94m")},
+    {"{BLUE}", WIN_LINUX("\x1B[34m", "\e[34m")},
+    {"{DARKBLUE}", WIN_LINUX("\x1B[34m", "\e[34m")},
+    {"{PURPLE}", WIN_LINUX("\x1B[35m", "\e[35m")},
+    {"{MAGENTA}", WIN_LINUX("\x1B[35m", "\e[35m")},
+    {"{LIGHTRED}", WIN_LINUX("\x1B[91m", "\e[91m")},
+    {"{GOLD}", WIN_LINUX("\x1B[93m", "\e[93m")},
+    {"{ORANGE}", WIN_LINUX("\x1B[33m", "\e[33m")},
 
-    {"{BGDEFAULT}", "\e[49m"},
-    {"{BGWHITE}", "\e[49m"},
-    {"{BGDARKRED}", "\e[41m"},
-    {"{BGLIGHTPURPLE}", "\e[105m"},
-    {"{BGGREEN}", "\e[42m"},
-    {"{BGOLIVE}", "\e[43m"},
-    {"{BGLIME}", "\e[102m"},
-    {"{BGRED}", "\e[41m"},
-    {"{BGGRAY}", "\e[47m"},
-    {"{BGGREY}", "\e[47m"},
-    {"{BGLIGHTYELLOW}", "\e[103m"},
-    {"{BGYELLOW}", "\e[103m"},
-    {"{BGSILVER}", "\e[47m"},
-    {"{BGBLUEGREY}", "\e[104m"},
-    {"{BGLIGHTBLUE}", "\e[104m"},
-    {"{BGBLUE}", "\e[44m"},
-    {"{BGDARKBLUE}", "\e[44m"},
-    {"{BGPURPLE}", "\e[45m"},
-    {"{BGMAGENTA}", "\e[45m"},
-    {"{BGLIGHTRED}", "\e[101m"},
-    {"{BGGOLD}", "\e[103m"},
-    {"{BGORANGE}", "\e[43m"},
+    {"{BGDEFAULT}", WIN_LINUX("\x1B[40m", "\e[40m")},
+    {"{BGDARKRED}", WIN_LINUX("\x1B[41m", "\e[41m")},
+    {"{BGLIGHTPURPLE}", WIN_LINUX("\x1B[105m", "\e[105m")},
+    {"{BGGREEN}", WIN_LINUX("\x1B[42m", "\e[42m")},
+    {"{BGOLIVE}", WIN_LINUX("\x1B[43m", "\e[43m")},
+    {"{BGLIME}", WIN_LINUX("\x1B[102m", "\e[102m")},
+    {"{BGRED}", WIN_LINUX("\x1B[41m", "\e[41m")},
+    {"{BGGRAY}", WIN_LINUX("\x1B[47m", "\e[47m")},
+    {"{BGGREY}", WIN_LINUX("\x1B[47m", "\e[47m")},
+    {"{BGLIGHTYELLOW}", WIN_LINUX("\x1B[103m", "\e[103m")},
+    {"{BGYELLOW}", WIN_LINUX("\x1B[103m", "\e[103m")},
+    {"{BGSILVER}", WIN_LINUX("\x1B[47m", "\e[47m")},
+    {"{BGBLUEGREY}", WIN_LINUX("\x1B[104m", "\e[104m")},
+    {"{BGLIGHTBLUE}", WIN_LINUX("\x1B[104m", "\e[104m")},
+    {"{BGBLUE}", WIN_LINUX("\x1B[44m", "\e[44m")},
+    {"{BGDARKBLUE}", WIN_LINUX("\x1B[44m", "\e[44m")},
+    {"{BGPURPLE}", WIN_LINUX("\x1B[45m", "\e[45m")},
+    {"{BGMAGENTA}", WIN_LINUX("\x1B[45m", "\e[45m")},
+    {"{BGLIGHTRED}", WIN_LINUX("\x1B[101m", "\e[101m")},
+    {"{BGGOLD}", WIN_LINUX("\x1B[103m", "\e[103m")},
+    {"{BGORANGE}", WIN_LINUX("\x1B[43m", "\e[43m")},
 };
 
 std::vector<std::string> terminalPrefixColors = {
@@ -167,7 +166,7 @@ bool starts_with(std::string value, std::string starting)
 
 void PLUGIN_PRINT(std::string category, std::string str)
 {
-    g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]\e[39m " + str).c_str());
+    g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]" + terminalColors.at("{DEFAULT}") + " " + str).c_str());
     if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
         if (g_Logger && g_Logger->FetchLogger("core")) {
             str.pop_back();
@@ -185,7 +184,7 @@ void PLUGIN_PRINTF(std::string category, std::string str, ...)
     UTIL_FormatArgs(buffer, sizeof(buffer), str.c_str(), ap);
     va_end(ap);
 
-    g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]\e[39m " + std::string(buffer)).c_str());
+    g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]" + terminalColors.at("{DEFAULT}") + " " + std::string(buffer)).c_str());
     if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
         if (g_Logger && g_Logger->FetchLogger("core")) {
             std::string buf = buffer;
