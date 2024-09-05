@@ -83,4 +83,6 @@ void ConvarQuery::QueryCvarClient(CPlayerSlot slot, std::string cvarName)
 
     CSingleRecipientFilter filter(slot.Get());
     g_pGameEventSystem->PostEventAbstract(-1, false, &filter, pMsg, msg, 0);
+
+    delete msg;
 }
