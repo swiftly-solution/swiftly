@@ -19,10 +19,6 @@
         "windows": 254,
         "linux": 256
     },
-    "CNetworkGameServer_ClientList": {
-        "windows": 78,
-        "linux": 80
-    },
     "CollisionRulesChanged": {
         "windows": 178,
         "linux": 177

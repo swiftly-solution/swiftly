@@ -20,10 +20,7 @@ struct ClientJoinInfo_t
 
 extern CUtlVector<ClientJoinInfo_t> g_ClientsPendingAddon;
 
-CUtlVector<CServerSideClient *> *GetClientList();
-CServerSideClient *GetClientBySlot(CPlayerSlot slot);
 void AddPendingClient(uint64 steamid);
-ClientJoinInfo_t *GetPendingClient(uint64 steamid, int &index);
-ClientJoinInfo_t *GetPendingClient(INetChannel *pNetChan);
+ClientJoinInfo_t* GetPendingClient(uint64 steamid, int& index);
 
 #endif

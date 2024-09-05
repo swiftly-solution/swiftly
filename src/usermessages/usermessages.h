@@ -3,8 +3,6 @@
 
 #include "../plugins/core/scripting.h"
 
-int FindClientByNetChannel(INetChannel* pNetChan);
-
 class UserMessages {
 public:
     void Initialize();
