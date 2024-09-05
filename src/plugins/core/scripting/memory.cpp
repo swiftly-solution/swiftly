@@ -1,7 +1,6 @@
 #include "../scripting.h"
 
 #include "../../../../vendor/dynlib/module.h"
-#include "../../../utils/module.h"
 
 void* FindSignature(const char* moduleName, const char* bytes);
 
@@ -29,22 +28,10 @@ void PluginMemory::LoadFromSignatureName(std::string signature_name)
 void PluginMemory::LoadFromSignature(std::string library, std::string signature)
 {
     void* sig = nullptr;
-    if (signature.find("?") == std::string::npos)
-    {
-        std::string finalSig = (signature.at(0) == '@') ? signature : ("\\x" + replace(signature, " ", "\\x"));
-        sig = FindSignature(library.c_str(), finalSig.c_str());
-        if (sig == nullptr)
-            return;
-    }
-    else
-    {
-        DynLibUtils::CModule module = DetermineModuleByLibrary(library);
-        DynLibUtils::CMemory sg = module.FindPattern(signature);
-        if (!sg)
-            return;
-
-        sig = sg.RCast<void*>();
-    }
+    DynLibUtils::CModule module = DetermineModuleByLibrary(library);
+    if (signature.at(0) == '@') sig = module.GetFunctionByName((signature.c_str() + 1)).RCast<void*>();
+    else sig = module.FindPattern(signature).RCast<void*>();
+    if (sig == nullptr) return;
 
     m_ptr = sig;
 }

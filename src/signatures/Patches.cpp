@@ -22,14 +22,47 @@
         continue;                                                                      \
     }
 
-byte *HexToByte(const char *src, size_t &length);
+int HexStringToUint8Array(const char* hexString, uint8_t* byteArray, size_t maxBytes)
+{
+    if (!hexString)
+        return -1;
+
+    size_t hexStringLength = strlen(hexString);
+    size_t byteCount = hexStringLength / 4;
+
+    if (hexStringLength % 4 != 0 || byteCount == 0 || byteCount > maxBytes)
+        return -1;
+
+    for (size_t i = 0; i < hexStringLength; i += 4)
+    {
+        if (sscanf(hexString + i, "\\x%2hhX", &byteArray[i / 4]) != 1)
+            return -1;
+    }
+
+    byteArray[byteCount] = '\0';
+
+    return byteCount;
+}
+
+byte* HexToByte(const char* src, size_t& length)
+{
+    if (!src || strlen(src) <= 0)
+        return nullptr;
+
+    length = strlen(src) / 4;
+    uint8_t* dest = new uint8_t[length];
+    int byteCount = HexStringToUint8Array(src, dest, length);
+    if (byteCount <= 0)
+        return nullptr;
+    return (byte*)dest;
+}
 
 void PatchesError(std::string text)
 {
     if (!g_SMAPI)
         return;
 
-    PRINTF("Patches", "%s\n", text.c_str());
+    PLUGIN_PRINTF("Patches", "%s\n", text.c_str());
 }
 
 void Patches::LoadPatches()
@@ -46,13 +79,13 @@ void Patches::LoadPatches()
     {
         std::string name = it->name.GetString();
 
-        HAS_MEMBER(it->value, "signature", string_format("%s.signature", name))
-        HAS_MEMBER(it->value, "windows", string_format("%s.windows", name))
-        HAS_MEMBER(it->value, "linux", string_format("%s.linux", name))
+        HAS_MEMBER(it->value, "signature", string_format("%s.signature", name));
+        HAS_MEMBER(it->value, "windows", string_format("%s.windows", name));
+        HAS_MEMBER(it->value, "linux", string_format("%s.linux", name));
 
-        IS_STRING(it->value, "signature", string_format("%s.signature", name))
-        IS_STRING(it->value, "windows", string_format("%s.windows", name))
-        IS_STRING(it->value, "linux", string_format("%s.linux", name))
+        IS_STRING(it->value, "signature", string_format("%s.signature", name));
+        IS_STRING(it->value, "windows", string_format("%s.windows", name));
+        IS_STRING(it->value, "linux", string_format("%s.linux", name));
 
         std::string signature = it->value["signature"].GetString();
         if (!g_Signatures->Exists(signature))
@@ -74,12 +107,12 @@ void Patches::PerformPatch(std::string patch_name)
         return;
     }
 
-    void *patchAddress = g_Signatures->FetchRawSignature(this->signatures.at(patch_name));
+    void* patchAddress = g_Signatures->FetchRawSignature(this->signatures.at(patch_name));
 
     size_t iLength = 0;
-    byte *patch = HexToByte(this->patches.at(patch_name).c_str(), iLength);
+    byte* patch = HexToByte(this->patches.at(patch_name).c_str(), iLength);
 
-    Plat_WriteMemory(patchAddress, (byte *)patch, iLength);
+    Plat_WriteMemory(patchAddress, (byte*)patch, iLength);
     PLUGIN_PRINTF("Patch", "Patched \"%s\" using signature \"%s\".\n", patch_name.c_str(), this->signatures.at(patch_name).c_str());
 }
 
@@ -90,7 +123,7 @@ void Patches::PerformPatches()
         std::vector<std::string> patchesToPerform = explode(g_Config->FetchValue<std::string>("core.patches_to_perform"), " ");
 
         uint32_t patchesPerformed = 0;
-        for (std::string &patchName : patchesToPerform)
+        for (std::string& patchName : patchesToPerform)
         {
             if (patchName == "")
                 continue;

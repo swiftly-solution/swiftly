@@ -11,7 +11,7 @@
     },
     "CCSPlayerController_SwitchTeam": {
         "lib": "server",
-        "windows": "40 56 57 48 81 EC 2A 2A 2A 2A 48 8B F9 8B F2 8B CA",
+        "windows": "40 56 57 48 81 EC ? ? ? ? 48 8B F9 8B F2 8B CA",
         "linux": "55 48 89 E5 41 55 49 89 FD 89 F7"
     },
     "UTIL_CreateEntityByName": {
@@ -21,13 +21,13 @@
     },
     "CBaseModelEntity_SetModel": {
         "lib": "server",
-        "windows": "48 89 5C 24 2A 48 89 7C 24 2A 55 48 8B EC 48 83 EC 50 48 8B F9 4C 8B C2",
-        "linux": "55 48 89 F2 48 89 E5 41 54 49 89 FC 48 8D 7D E0 48 83 EC 2A 48 8D 05 2A 2A 2A 2A 48 8B 30 48 8B 06"
+        "windows": "48 89 5C 24 ? 48 89 7C 24 ? 55 48 8B EC 48 83 EC 50 48 8B F9 4C 8B C2",
+        "linux": "55 48 89 F2 48 89 E5 41 54 49 89 FC 48 8D 7D E0 48 83 EC ? 48 8D 05 ? ? ? ? 48 8B 30 48 8B 06"
     },
     "CBaseEntity_DispatchSpawn": {
         "lib": "server",
         "windows": "48 89 5C 24 10 57 48 83 EC 30 48 8B DA 48 8B F9 48 85 C9",
-        "linux": "48 85 FF 74 2A 55 48 89 E5 41 56"
+        "linux": "48 85 FF 74 ? 55 48 89 E5 41 56"
     },
     "PrecacheResource": {
         "lib": "server",
@@ -36,12 +36,12 @@
     },
     "UTIL_Remove": {
         "lib": "server",
-        "windows": "48 85 C9 74 2A 48 8B D1 48 8B 0D 2A 2A 2A 2A",
-        "linux": "48 89 FE 48 85 FF 74 2A 48 8D 05 2A 2A 2A 2A 48"
+        "windows": "48 85 C9 74 ? 48 8B D1 48 8B 0D ? ? ? ?",
+        "linux": "48 89 FE 48 85 FF 74 ? 48 8D 05 ? ? ? ? 48"
     },
     "LegacyGameEventListener": {
         "lib": "server",
-        "windows": "48 8B 15 2A 2A 2A 2A 48 85 D2 74 2A 85 C9 74",
+        "windows": "48 8B 15 ? ? ? ? 48 85 D2 74 ? 85 C9 74",
         "linux": "48 8B 05 ? ? ? ? 48 85 C0 74 ? 85 FF"
     },
     "CAttributeList_SetOrAddAttributeValueByName": {
@@ -51,12 +51,12 @@
     },
     "CBaseModelEntity_SetBodygroup": {
         "lib": "server",
-        "windows": "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 41 8B F8 48 8B F2 48 8B D9 E8 2A 2A 2A 2A",
+        "windows": "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 41 8B F8 48 8B F2 48 8B D9 E8 ? ? ? ?",
         "linux": "55 48 89 E5 41 56 49 89 F6 41 55 41 89 D5 41 54 49 89 FC 48 83 EC 08"
     },
     "GiveNamedItem": {
         "lib": "server",
-        "windows": "48 89 5C 24 2A 48 89 74 24 2A 55 57 41 2A 41 2A 41 2A 48 2A 2A 2A 2A 48 2A 2A 2A 2A 2A 2A 4D 2A 2A 48",
+        "windows": "48 89 5C 24 ? 48 89 74 24 ? 55 57 41 ? 41 ? 41 ? 48 ? ? ? ? 48 ? ? ? ? ? ? 4D ? ? 48",
         "linux": "55 48 89 E5 41 57 41 56 49 89 D6 41 55 49 89 CD 41 54 49 89 F4 53 48 89 FB 48 8D 3D"
     },
     "FireOutputInternal": {
@@ -76,8 +76,8 @@
     },
     "CCSPlayerPawnBase_PostThink": {
         "lib": "server",
-        "windows": "48 2A 2A 55 53 56 57 41 2A 48 2A 2A 2A 48 2A 2A 2A 2A 2A 2A 4C 89 68",
-        "linux": "55 48 89 E5 41 56 41 55 41 54 53 48 89 FB 48 83 EC 30 E8 2A 2A 2A 2A"
+        "windows": "48 ? ? 55 53 56 57 41 ? 48 ? ? ? 48 ? ? ? ? ? ? 4C 89 68",
+        "linux": "55 48 89 E5 41 56 41 55 41 54 53 48 89 FB 48 83 EC 30 E8 ? ? ? ?"
     },
     "CCSPlayer_MovementServices_CheckJumpPre": {
         "lib": "server",
@@ -87,12 +87,12 @@
     "CBaseEntity_EmitSoundFilter": {
         "lib": "server",
         "windows": "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 30 48 8B EA",
-        "linux": "55 48 89 E5 41 56 49 89 D6 41 55 41 89 F5 41 54 48 8D 35 2A 2A 2A 2A"
+        "linux": "55 48 89 E5 41 56 49 89 D6 41 55 41 89 F5 41 54 48 8D 35 ? ? ? ?"
     },
     "CGameRules_TerminateRound": {
         "lib": "server",
-        "windows": "48 8B C4 4C 89 48 2A 48 89 48 2A 55 56",
-        "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 49 89 FC 53 48 81 EC 88 00 00 00 48 8D 05 2A 2A 2A 2A"
+        "windows": "48 8B C4 4C 89 48 ? 48 89 48 ? 55 56",
+        "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 49 89 FC 53 48 81 EC 88 00 00 00 48 8D 05 ? ? ? ?"
     },
     "CCSPlayer_CanAcquire": {
         "lib": "server",
