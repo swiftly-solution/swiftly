@@ -2,51 +2,62 @@
     "seconds": {
         "en": "{TIME} second(s)",
         "ro": "{TIME} secunde",
-        "es": "{TIME} segundo(s)"
+        "es": "{TIME} segundo(s)",
+        "pl": "{TIME} sekund(a/y)"
     },
     "minutes": {
         "en": "{TIME} minute(s)",
         "ro": "{TIME} minut(e)",
-        "es": "{TIME} minuto(s)"
+        "es": "{TIME} minuto(s)",
+        "pl": "{TIME} minut(a/y)"
     },
     "hours": {
         "en": "{TIME} hour(s)",
         "ro": "{TIME} ore",
-        "es": "{TIME} hora(s)"
+        "es": "{TIME} hora(s)",
+        "pl": "{TIME} godzin(a/y)"
     },
     "days": {
         "en": "{TIME} day(s)",
         "ro": "{TIME} zi(le)",
-        "es": "{TIME} día(s)"
+        "es": "{TIME} día(s)",
+        "pl": "{TIME} dzień/dni"
     },
     "forever": {
         "en": "Forever",
         "ro": "Pentru totdeauna",
-        "es": "Para siempre"
+        "es": "Para siempre",
+        "pl": "Na zawsze"
     },
     "never": {
         "en": "Never",
         "ro": "Niciodată",
-        "es": "Nunca"
+        "es": "Nunca",
+        "pl": "Nigdy"
     },
     "menu.next": {
         "en": "Next",
-        "ro": "Următorul"
+        "ro": "Următorul",
+        "pl": "Następny"
     },
     "menu.back": {
         "en": "Back",
-        "ro": "Înapoi"
+        "ro": "Înapoi",
+        "pl": "Wstecz"
     },
     "menu.exit": {
         "en": "Exit",
-        "ro": "Ieșire"
+        "ro": "Ieșire",
+        "pl": "Wyjście"
     },
     "menu.footer": {
         "en": "{CYCLE_BUTTON} - Cycle | {USE_BUTTON} - Select | Page {PAGE}/{MAXPAGES}",
-        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează | Pagina {PAGE}/{MAXPAGES}"
+        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează | Pagina {PAGE}/{MAXPAGES}",
+        "pl": "{CYCLE_BUTTON} - Przeglądaj | {USE_BUTTON} - Wybierz | Strona {PAGE}/{MAXPAGES}"
     },
     "menu.footer.nooption": {
         "en": "{CYCLE_BUTTON} - Cycle | {USE_BUTTON} - Select | {EXIT_BUTTON} - Exit | Page {PAGE}/{MAXPAGES}",
-        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează | {EXIT_BUTTON} - Ieșire | Pagina {PAGE}/{MAXPAGES}"
+        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează | {EXIT_BUTTON} - Ieșire | Pagina {PAGE}/{MAXPAGES}",
+        "pl": "{CYCLE_BUTTON} - Przeglądaj | {USE_BUTTON} - Wybierz | {EXIT_BUTTON} - Wyjście | Strona {PAGE}/{MAXPAGES}"
     }
 }
