@@ -51,6 +51,8 @@ void WriteSchemaPtrValue(void* ptr, const char* className, const char* fieldName
     void* fieldPtr = reinterpret_cast<std::add_pointer_t<void>>((uintptr_t)(ptr)+m_key.offset);
 
     Plat_WriteMemory(fieldPtr, value, size);
+
+    SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
 }
 
 void* GetSchemaPtr(void* ptr, const char* className, const char* fieldName)

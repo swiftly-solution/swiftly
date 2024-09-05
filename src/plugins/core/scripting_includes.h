@@ -118,4 +118,6 @@ void SetSchemaValueCUtlVector(void* ptr, const char* className, const char* fiel
     vec->Purge();
     for (auto elem : value)
         vec->AddToTail(elem);
+
+    SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
 }

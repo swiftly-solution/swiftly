@@ -577,6 +577,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             val[i] = CEntityIndex(ret[i]);
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case StringSymbolLargeArray: {
@@ -585,6 +586,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             val[i] = CUtlSymbolLarge(ret[i].c_str());
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case StringTokenArray: {
@@ -593,6 +595,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             val[i] = CUtlStringToken(ret[i]);
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case StringUtlArray: {
@@ -601,6 +604,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             val[i] = CUtlString(ret[i].c_str());
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case Int8Array: {
@@ -609,6 +613,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case Int16Array: {
@@ -617,6 +622,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case Int32Array: {
@@ -625,6 +631,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case Int64Array: {
@@ -633,6 +640,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case UInt8Array: {
@@ -641,6 +649,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case UInt16Array: {
@@ -649,6 +658,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case UInt32Array: {
@@ -657,6 +667,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case UInt64Array: {
@@ -665,6 +676,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case FloatArray: {
@@ -673,6 +685,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case DoubleArray: {
@@ -681,6 +694,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case BoolArray: {
@@ -689,6 +703,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case SColorArray: {
@@ -697,6 +712,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case SQAngleArray: {
@@ -705,6 +721,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case SVectorArray: {
@@ -713,6 +730,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case SVector2DArray: {
@@ -721,6 +739,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case SVector4DArray: {
@@ -729,6 +748,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case StringSymbolLargeCUtlVector: {

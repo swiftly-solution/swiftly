@@ -59,14 +59,10 @@ bool ConvarQuery::OnConVarQuery(const CNetMessagePB<CCLCMsg_RespondCvarValue>& m
 {
     auto client = META_IFACEPTR(CServerSideClient);
 
-
     if (msg.name() == "cl_language") {
         if (languages.find(msg.value()) != languages.end()) {
-
             auto player = g_playerManager->GetPlayer(client->GetPlayerSlot());
-            if (player != nullptr) {
-                player->language = languages.at(msg.value());
-            }
+            if (player != nullptr) player->language = languages.at(msg.value());
         }
     }
 
