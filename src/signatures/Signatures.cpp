@@ -7,7 +7,7 @@
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 
-#include <module.h>
+#include "../../vendor/dynlib/module.h"
 #include "../utils/module.h"
 
 #ifdef _WIN32
@@ -32,7 +32,14 @@
         continue;                                                                         \
     }
 
-int HexStringToUint8Array(const char *hexString, uint8_t *byteArray, size_t maxBytes)
+DynLibUtils::CModule DetermineModuleByLibrary(std::string library) {
+    if (library == "server")
+        return DynLibUtils::CModule(server);
+    else
+        return DynLibUtils::CModule(library);
+}
+
+int HexStringToUint8Array(const char* hexString, uint8_t* byteArray, size_t maxBytes)
 {
     if (!hexString)
         return -1;
@@ -54,25 +61,25 @@ int HexStringToUint8Array(const char *hexString, uint8_t *byteArray, size_t maxB
     return byteCount;
 }
 
-byte *HexToByte(const char *src, size_t &length)
+byte* HexToByte(const char* src, size_t& length)
 {
     if (!src || strlen(src) <= 0)
         return nullptr;
 
     length = strlen(src) / 4;
-    uint8_t *dest = new uint8_t[length];
+    uint8_t* dest = new uint8_t[length];
     int byteCount = HexStringToUint8Array(src, dest, length);
     if (byteCount <= 0)
         return nullptr;
-    return (byte *)dest;
+    return (byte*)dest;
 }
 
-void *FindSignature(const char *moduleName, const char *bytes)
+void* FindSignature(const char* moduleName, const char* bytes)
 {
     if (moduleName == nullptr || bytes == nullptr)
         return nullptr;
 
-    CModule *mdl = new CModule(std::string(moduleName) == "server" ? GAMEBIN : ROOTBIN, moduleName);
+    CModule* mdl = new CModule(std::string(moduleName) == "server" ? GAMEBIN : ROOTBIN, moduleName);
     size_t iLength = 0;
     if (bytes[0] == '@')
     {
@@ -80,7 +87,7 @@ void *FindSignature(const char *moduleName, const char *bytes)
     }
     else
     {
-        byte *pSignature = HexToByte(bytes, iLength);
+        byte* pSignature = HexToByte(bytes, iLength);
         if (!pSignature)
             return nullptr;
         return mdl->FindSignature(pSignature, iLength);
@@ -115,18 +122,18 @@ void Signatures::LoadSignatures()
         std::string name = it->name.GetString();
 
         HAS_MEMBER(it->value, "lib", string_format("%s.lib", name))
-        HAS_MEMBER(it->value, "windows", string_format("%s.windows", name))
-        HAS_MEMBER(it->value, "linux", string_format("%s.linux", name))
+            HAS_MEMBER(it->value, "windows", string_format("%s.windows", name))
+            HAS_MEMBER(it->value, "linux", string_format("%s.linux", name))
 
-        IS_STRING(it->value, "lib", string_format("%s.lib", name))
-        IS_STRING(it->value, "windows", string_format("%s.windows", name))
-        IS_STRING(it->value, "linux", string_format("%s.linux", name))
+            IS_STRING(it->value, "lib", string_format("%s.lib", name))
+            IS_STRING(it->value, "windows", string_format("%s.windows", name))
+            IS_STRING(it->value, "linux", string_format("%s.linux", name))
 
-        const char *lib = it->value["lib"].GetString();
+            const char* lib = it->value["lib"].GetString();
         std::string rawSig = it->value[WIN_LINUX("windows", "linux")].GetString();
         SignaturesError(string_format("Searching for \"%s\"...", rawSig.c_str()));
 
-        void *sig = nullptr;
+        void* sig = nullptr;
         if (rawSig.find("?") == std::string::npos)
         {
             std::string finalSig = (rawSig.at(0) == '@') ? rawSig : ("\\x" + replace(rawSig, " ", "\\x"));
@@ -139,14 +146,14 @@ void Signatures::LoadSignatures()
         }
         else
         {
-            DynLibUtils::CModule module(std::string(lib) == "server" ? server : nullptr);
+            DynLibUtils::CModule module = DetermineModuleByLibrary(lib);
             DynLibUtils::CMemory sg = module.FindPattern(rawSig);
             if (!sg)
             {
                 SignaturesError(string_format("Couldn't find the signature for '%s' (Library '%s').", name.c_str(), lib));
                 continue;
             }
-            sig = sg.RCast<void *>();
+            sig = sg.RCast<void*>();
         }
         SignaturesError(string_format("Found function '%s' (Library '%s') pointing at %p.", name.c_str(), lib, sig));
 

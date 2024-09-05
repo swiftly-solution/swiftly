@@ -2,8 +2,8 @@
 
 #include <map>
 #include <string>
-
 #include <variant.h>
+#include "../../vendor/dynlib/module.h"
 
 class CBasePlayerController;
 class CCSPlayerController;
@@ -35,6 +35,8 @@ typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController*, CCSPlayerP
 typedef void (*CCSPlayerPawnBase_PostThink)(CCSPlayerPawnBase*);
 typedef void (*CCSPlayer_MovementServices_CheckJumpPre)(CCSPlayer_MovementServices*, void*);
 typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
+
+DynLibUtils::CModule DetermineModuleByLibrary(std::string library);
 
 class Signatures
 {

@@ -45,7 +45,7 @@ void ConvarQuery::Initialize()
 {
     SH_MANUALHOOK_RECONFIGURE(OnConVarQuery, g_Offsets->GetOffset("CServerSideClient_OnConVarQuery"), 0, 0);
 
-    DynLibUtils::CModule eng(engine);
+    DynLibUtils::CModule eng = DetermineModuleByLibrary("engine2");
     void* serverSideClientVTable = eng.GetVirtualTableByName("CServerSideClient");
     OnConVarQueryID = SH_ADD_MANUALDVPHOOK(OnConVarQuery, serverSideClientVTable, SH_MEMBER(this, &ConvarQuery::OnConVarQuery), true);
 }

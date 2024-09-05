@@ -18,7 +18,7 @@ std::stack<IGameEvent*> dupEvents;
 
 void EventManager::Initialize()
 {
-    DynLibUtils::CModule servermodule("server");
+    DynLibUtils::CModule servermodule = DetermineModuleByLibrary("server");
     auto CGameEventManagerVTable = servermodule.GetVirtualTableByName("CGameEventManager");
     loadEventFromFileHookID = SH_ADD_DVPHOOK(IGameEventManager2, LoadEventsFromFile, (IGameEventManager2*)((void*)CGameEventManagerVTable), SH_MEMBER(this, &EventManager::LoadEventsFromFile), false);
 }

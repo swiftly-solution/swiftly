@@ -117,7 +117,7 @@ void AddonsPrint(std::string str)
 void Addons::Initialize()
 {
     SH_MANUALHOOK_RECONFIGURE(SendNetMessage, g_Offsets->GetOffset("SendNetMessage"), 0, 0);
-    DynLibUtils::CModule enginemodule("engine2");
+    DynLibUtils::CModule enginemodule = DetermineModuleByLibrary("engine2");
     void* serverSideClientVTable = enginemodule.GetVirtualTableByName("CServerSideClient");
     sendNetMessageHookID = SH_ADD_MANUALDVPHOOK(SendNetMessage, serverSideClientVTable, SH_MEMBER(this, &Addons::SendNetMessage), false);
 }

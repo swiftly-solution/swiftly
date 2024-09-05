@@ -38,7 +38,7 @@ void PluginMemory::LoadFromSignature(std::string library, std::string signature)
     }
     else
     {
-        DynLibUtils::CModule module(library);
+        DynLibUtils::CModule module = DetermineModuleByLibrary(library);
         DynLibUtils::CMemory sg = module.FindPattern(signature);
         if (!sg)
             return;
