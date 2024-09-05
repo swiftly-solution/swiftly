@@ -58,12 +58,21 @@ void ConvarQuery::Destroy()
 bool ConvarQuery::OnConVarQuery(const CNetMessagePB<CCLCMsg_RespondCvarValue>& msg)
 {
     auto client = META_IFACEPTR(CServerSideClient);
-    if (msg.name() == "cl_language")
-        if (languages.find(msg.value()) != languages.end())
-            g_playerManager->GetPlayer(client->GetPlayerSlot())->language = languages.at(msg.value());
+
+
+    if (msg.name() == "cl_language") {
+        if (languages.find(msg.value()) != languages.end()) {
+
+            auto player = g_playerManager->GetPlayer(client->GetPlayerSlot());
+            if (player != nullptr) {
+                player->language = languages.at(msg.value());
+            }
+        }
+    }
 
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
+
 
 void ConvarQuery::QueryCvarClient(CPlayerSlot slot, std::string cvarName)
 {
