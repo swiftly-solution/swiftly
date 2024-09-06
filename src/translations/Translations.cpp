@@ -4,6 +4,7 @@
 #include "../configuration/Configuration.h"
 
 #include "../files/Files.h"
+#include "../player/PlayerManager.h"
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
@@ -94,14 +95,34 @@ void Translations::LoadTranslations()
     }
 }
 
-std::string Translations::FetchTranslation(std::string key)
+std::string Translations::FetchTranslation(std::string key, int playerid)
 {
-    if (this->m_translations.find(key) == this->m_translations.end())
-        return key + "." + g_Config->FetchValue<std::string>("core.language");
+    Player* player = g_playerManager->GetPlayer(playerid);
+    if(player && g_Config->FetchValue<bool>("core.use_player_language")) {
+        std::string language = player->language;
+        if (this->m_translations.find(key) == this->m_translations.end())
+            return key + "." + language;
 
-    std::string translation = this->m_translations.at(key)->FetchLanguage(g_Config->FetchValue<std::string>("core.language"));
-    if (translation == "NO_TRANSLATION")
-        return key + "." + g_Config->FetchValue<std::string>("core.language");
-    else
-        return translation;
+        std::string translation = this->m_translations.at(key)->FetchLanguage(language);
+        if (translation == "NO_TRANSLATION") {
+            translation = this->m_translations.at(key)->FetchLanguage(g_Config->FetchValue<std::string>("core.language"));
+            if(translation == "NO_TRANSLATION")
+                return key + "." + language;
+            else
+                return translation;
+        }
+        else
+            return translation;
+    } else {
+        std::string language = g_Config->FetchValue<std::string>("core.language");    
+
+        if (this->m_translations.find(key) == this->m_translations.end())
+            return key + "." + language;
+
+        std::string translation = this->m_translations.at(key)->FetchLanguage(language);
+        if (translation == "NO_TRANSLATION")
+            return key + "." + language;
+        else
+            return translation;
+    }
 }
