@@ -98,14 +98,31 @@ void Translations::LoadTranslations()
 std::string Translations::FetchTranslation(std::string key, int playerid)
 {
     Player* player = g_playerManager->GetPlayer(playerid);
-    std::string language = player ? player->language : g_Config->FetchValue<std::string>("core.language");    
+    if(player && g_Config->FetchValue<bool>("core.use_player_language")) {
+        std::string language = player->language;
+        if (this->m_translations.find(key) == this->m_translations.end())
+            return key + "." + language;
 
-    if (this->m_translations.find(key) == this->m_translations.end())
-        return key + "." + language;
+        std::string translation = this->m_translations.at(key)->FetchLanguage(language);
+        if (translation == "NO_TRANSLATION") {
+            translation = this->m_translations.at(key)->FetchLanguage(g_Config->FetchValue<std::string>("core.language"));
+            if(translation == "NO_TRANSLATION")
+                return key + "." + language;
+            else
+                return translation;
+        }
+        else
+            return translation;
+    } else {
+        std::string language = g_Config->FetchValue<std::string>("core.language");    
 
-    std::string translation = this->m_translations.at(key)->FetchLanguage(language);
-    if (translation == "NO_TRANSLATION")
-        return key + "." + language;
-    else
-        return translation;
+        if (this->m_translations.find(key) == this->m_translations.end())
+            return key + "." + language;
+
+        std::string translation = this->m_translations.at(key)->FetchLanguage(language);
+        if (translation == "NO_TRANSLATION")
+            return key + "." + language;
+        else
+            return translation;
+    }
 }

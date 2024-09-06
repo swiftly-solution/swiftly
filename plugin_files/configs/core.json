@@ -12,6 +12,7 @@
     ],
     "console_filtering": true,
     "language": "en",
+    "use_player_language": true,
     "patches_to_perform": [],
     "CS2ServerGuidelines": "https://blog.counter-strike.net/index.php/server_guidelines/",
     "FollowCS2ServerGuidelines": true,

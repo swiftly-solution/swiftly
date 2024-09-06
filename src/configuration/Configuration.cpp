@@ -452,6 +452,7 @@ bool Configuration::LoadConfiguration()
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "console_filtering", true);
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "language", "en");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "use_player_language", true);
 
     RegisterConfiguration(wasEdited,coreConfigFile, "core", "core", "menu.navigation_prefix", "➤");
 

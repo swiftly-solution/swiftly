@@ -43,6 +43,8 @@ int OnConVarQueryID = -1;
 
 void ConvarQuery::Initialize()
 {
+    if(!g_Config->FetchValue<bool>("core.use_player_language")) return;
+    
     SH_MANUALHOOK_RECONFIGURE(OnConVarQuery, g_Offsets->GetOffset("CServerSideClient_OnConVarQuery"), 0, 0);
 
     DynLibUtils::CModule eng(engine);
@@ -52,6 +54,8 @@ void ConvarQuery::Initialize()
 
 void ConvarQuery::Destroy()
 {
+    if(!g_Config->FetchValue<bool>("core.use_player_language") || OnConVarQueryID == -1) return;
+
     SH_REMOVE_HOOK_ID(OnConVarQueryID);
 }
 
@@ -67,6 +71,8 @@ bool ConvarQuery::OnConVarQuery(const CNetMessagePB<CCLCMsg_RespondCvarValue>& m
 
 void ConvarQuery::QueryCvarClient(CPlayerSlot slot, std::string cvarName)
 {
+    if(!g_Config->FetchValue<bool>("core.use_player_language")) return;
+
     auto pMsg = g_pNetworkMessages->FindNetworkMessagePartial("GetCvarValue");
 
     auto msg = pMsg->AllocateMessage()->ToPB<CSVCMsg_GetCvarValue>();
