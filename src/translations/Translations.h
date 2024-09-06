@@ -14,7 +14,7 @@ public:
     Translations() {}
 
     void LoadTranslations();
-    std::string FetchTranslation(std::string key);
+    std::string FetchTranslation(std::string key, int playerid = -1);
 };
 
 extern Translations *g_translations;

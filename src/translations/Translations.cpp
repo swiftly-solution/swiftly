@@ -4,6 +4,7 @@
 #include "../configuration/Configuration.h"
 
 #include "../files/Files.h"
+#include "../player/PlayerManager.h"
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
@@ -94,14 +95,17 @@ void Translations::LoadTranslations()
     }
 }
 
-std::string Translations::FetchTranslation(std::string key)
+std::string Translations::FetchTranslation(std::string key, int playerid)
 {
-    if (this->m_translations.find(key) == this->m_translations.end())
-        return key + "." + g_Config->FetchValue<std::string>("core.language");
+    Player* player = g_playerManager->GetPlayer(playerid);
+    std::string language = player ? player->language : g_Config->FetchValue<std::string>("core.language");    
 
-    std::string translation = this->m_translations.at(key)->FetchLanguage(g_Config->FetchValue<std::string>("core.language"));
+    if (this->m_translations.find(key) == this->m_translations.end())
+        return key + "." + language;
+
+    std::string translation = this->m_translations.at(key)->FetchLanguage(language);
     if (translation == "NO_TRANSLATION")
-        return key + "." + g_Config->FetchValue<std::string>("core.language");
+        return key + "." + language;
     else
         return translation;
 }
