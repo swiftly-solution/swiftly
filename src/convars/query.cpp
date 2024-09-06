@@ -1,4 +1,5 @@
 #include "convars.h"
+#include "../configuration/Configuration.h"
 #include "../sdk/entity/CRecipientFilters.h"
 #include "../../vendor/dynlib/module.h"
 #include "../sdk/entity/serversideclient.h"
