@@ -1,7 +1,7 @@
 #include "usermessages.h"
 #include "../sdk/entity/CRecipientFilters.h"
 
-SH_DECL_HOOK6_void(IGameEventSystem, PostEventAbstract, SH_NOATTRIB, 0, CSplitScreenSlot, bool, IRecipientFilter*, INetworkMessageInternal*, const CNetMessage*, unsigned long)
+SH_DECL_HOOK8_void(IGameEventSystem, PostEventAbstract, SH_NOATTRIB, 0, CSplitScreenSlot, bool, int, const uint64*, INetworkMessageInternal*, const CNetMessage*, unsigned long, NetChannelBufType_t)
 
 void UserMessages::Initialize()
 {
@@ -13,21 +13,23 @@ void UserMessages::Destroy()
     SH_REMOVE_HOOK_MEMFUNC(IGameEventSystem, PostEventAbstract, g_pGameEventSystem, this, &UserMessages::PostEvent, false);
 }
 
-void UserMessages::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, IRecipientFilter* filter, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize)
+void UserMessages::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType)
 {
-    CRecipientFilter* flt = (CRecipientFilter*)filter;
-    std::vector<CPlayerSlot> players;
-    for (int i = 0; i < flt->GetRecipientCount(); i++)
-        players.push_back(flt->GetRecipientIndex(i));
+    static void (IGameEventSystem:: * PostEventAbstract)(CSplitScreenSlot, bool, int, const uint64*,
+        INetworkMessageInternal*, const CNetMessage*, unsigned long, NetChannelBufType_t) = &IGameEventSystem::PostEventAbstract;
+
+    uint64 oldClients = *clients;
+    uint64 newClients = 0;
 
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-
-    for (auto player : players)
-    {
-        auto result = g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ player.Get(), string_format("%p|%p", pEvent, pData), filter->GetNetworkBufType() == BUF_RELIABLE }), event);
-        if (result == EventResult::Stop)
-            flt->RemoveRecipient(player);
-    }
+    for (uint64 i = 0; i < 64; i++)
+        if (oldClients & ((uint64)1 << i))
+            if (g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ i, string_format("%p|%p", pEvent, pData), bufType == BUF_RELIABLE }), event) != EventResult::Stop)
+                newClients |= ((uint64)1 << i);
 
     delete event;
+
+    SH_CALL(g_pGameEventSystem, PostEventAbstract)
+        (nSlot, bLocalOnly, nClientCount, &newClients, pEvent, pData, nSize, bufType);
+    RETURN_META(MRES_SUPERCEDE);
 }
