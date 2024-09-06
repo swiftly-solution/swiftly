@@ -1,6 +1,6 @@
 #include "core.h"
 
-void SetupLuaUserMessages(LuaPlugin *plugin, lua_State *state)
+void SetupLuaUserMessages(LuaPlugin* plugin, lua_State* state)
 {
     luabridge::getGlobalNamespace(state)
         .beginClass<PluginUserMessage>("UserMessage")
@@ -79,6 +79,9 @@ void SetupLuaUserMessages(LuaPlugin *plugin, lua_State *state)
         .addFunction("GetRepeatedQAngle", &PluginUserMessage::GetRepeatedQAngle)
         .addFunction("SetRepeatedQAngle", &PluginUserMessage::SetRepeatedQAngle)
         .addFunction("AddQAngle", &PluginUserMessage::AddQAngle)
+        .addFunction("GetMessage", &PluginUserMessage::GetMessage)
+        .addFunction("GetRepeatedMessage", &PluginUserMessage::GetRepeatedMessage)
+        .addFunction("AddMessage", &PluginUserMessage::AddMessage)
         .addFunction("RemoveRepeatedFieldValue", &PluginUserMessage::RemoveRepeatedFieldValue)
         .addFunction("GetRepeatedFieldCount", &PluginUserMessage::GetRepeatedFieldCount)
         .addFunction("SendToPlayer", &PluginUserMessage::SendToPlayer)

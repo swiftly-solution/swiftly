@@ -244,12 +244,14 @@ class PluginUserMessage
 {
 private:
     int msgid = INVALID_MESSAGE_ID;
-    CNetMessagePB<google::protobuf::Message>* msgBuffer = nullptr;
     INetworkMessageInternal* internalMsg = nullptr;
 
 public:
+    CNetMessagePB<google::protobuf::Message>* msgBuffer = nullptr;
+
     PluginUserMessage(std::string msgname);
     PluginUserMessage(INetworkMessageInternal* msg, CNetMessage* data);
+    PluginUserMessage(google::protobuf::Message* msg);
     ~PluginUserMessage();
 
     bool IsValidMessage();
@@ -342,8 +344,11 @@ public:
     void SetRepeatedQAngle(std::string pszFieldName, int index, QAngle& vec);
     void AddQAngle(std::string pszFieldName, QAngle& vec);
 
-    void RemoveRepeatedFieldValue(std::string pszFieldName, int index);
+    PluginUserMessage GetMessage(std::string pszFieldName);
+    PluginUserMessage GetRepeatedMessage(std::string pszFieldName, int index);
+    PluginUserMessage AddMessage(std::string pszFieldName);
 
+    void RemoveRepeatedFieldValue(std::string pszFieldName, int index);
     int GetRepeatedFieldCount(std::string pszFieldName);
 
     void SendToPlayer(int playerId);

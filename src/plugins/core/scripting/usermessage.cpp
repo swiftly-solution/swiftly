@@ -100,6 +100,11 @@ PluginUserMessage::PluginUserMessage(INetworkMessageInternal* msg, CNetMessage* 
     this->internalMsg = msg;
 }
 
+PluginUserMessage::PluginUserMessage(google::protobuf::Message* msg)
+{
+    this->msgBuffer = (CNetMessagePB<google::protobuf::Message> *)msg;
+}
+
 PluginUserMessage::~PluginUserMessage()
 {
 }
@@ -809,6 +814,36 @@ void PluginUserMessage::AddQAngle(std::string pszFieldName, QAngle& vec)
     msgAng->set_y(vec.y);
     msgAng->set_z(vec.z);
 }
+
+PluginUserMessage PluginUserMessage::GetMessage(std::string pszFieldName)
+{
+    GETCHECK_FIELD(PluginUserMessage(""));
+    CHECK_FIELD_TYPE(MESSAGE, PluginUserMessage(""));
+    CHECK_FIELD_NOT_REPEATED(PluginUserMessage(""));
+
+    auto msg = this->msgBuffer->GetReflection()->MutableMessage(this->msgBuffer, field);
+    return PluginUserMessage(msg);
+}
+
+PluginUserMessage PluginUserMessage::GetRepeatedMessage(std::string pszFieldName, int index)
+{
+    GETCHECK_FIELD(PluginUserMessage(""));
+    CHECK_FIELD_TYPE(MESSAGE, PluginUserMessage(""));
+    CHECK_FIELD_REPEATED(PluginUserMessage(""));
+    CHECK_REPEATED_ELEMENT(index, PluginUserMessage(""));
+
+    return PluginUserMessage(this->msgBuffer->GetReflection()->MutableRepeatedMessage(this->msgBuffer, field, index));
+}
+
+PluginUserMessage PluginUserMessage::AddMessage(std::string pszFieldName)
+{
+    GETCHECK_FIELD(PluginUserMessage(""));
+    CHECK_FIELD_TYPE(MESSAGE, PluginUserMessage(""));
+    CHECK_FIELD_REPEATED(PluginUserMessage(""));
+
+    return PluginUserMessage(this->msgBuffer->GetReflection()->AddMessage(this->msgBuffer, field));
+}
+
 void PluginUserMessage::RemoveRepeatedFieldValue(std::string pszFieldName, int index)
 {
     GETCHECK_FIELD();
@@ -845,6 +880,7 @@ void PluginUserMessage::SendToPlayer(int playerId)
     CSingleRecipientFilter filter(playerId);
     g_pGameEventSystem->PostEventAbstract(-1, false, &filter, this->internalMsg, this->msgBuffer, 0);
 }
+
 void PluginUserMessage::SendToAllPlayers()
 {
     if (!this->internalMsg)
