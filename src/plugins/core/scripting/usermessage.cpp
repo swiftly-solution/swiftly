@@ -10,7 +10,7 @@
 #define GETCHECK_FIELD(return_value)                                                                                          \
     if (!this->msgBuffer)                                                                                                     \
         return return_value;                                                                                                  \
-    const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName.c_str()); \
+    const google::protobuf::FieldDescriptor *field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName);         \
     if (!field)                                                                                                               \
     {                                                                                                                         \
         return return_value;                                                                                                  \
@@ -85,18 +85,18 @@ PluginUserMessage::PluginUserMessage(std::string msgname)
     this->internalMsg = msg;
 }
 
-PluginUserMessage::PluginUserMessage(INetworkMessageInternal* msg)
+PluginUserMessage::PluginUserMessage(INetworkMessageInternal* msg, CNetMessage* data)
 {
     this->msgid = INVALID_MESSAGE_ID;
 
-    if (!msg) return;
+    if (!msg || !data) return;
 
     NetMessageInfo_t* msginfo = msg->GetNetMessageInfo();
     if (!msginfo)
         return;
 
     this->msgid = msginfo->m_MessageId;
-    this->msgBuffer = msg->AllocateMessage()->ToPB<google::protobuf::Message>();
+    this->msgBuffer = data->ToPB<google::protobuf::Message>();
     this->internalMsg = msg;
 }
 
@@ -129,9 +129,9 @@ bool PluginUserMessage::HasField(std::string pszFieldName)
     if (!this->msgBuffer)
         return false;
 
-    GETCHECK_FIELD(false)
-        CHECK_FIELD_NOT_REPEATED(false)
-        return this->msgBuffer->GetReflection()->HasField(*this->msgBuffer, field);
+    GETCHECK_FIELD(false);
+    CHECK_FIELD_NOT_REPEATED(false);
+    return this->msgBuffer->GetReflection()->HasField(*this->msgBuffer, field);
 }
 int32 PluginUserMessage::GetInt32(std::string pszFieldName)
 {
@@ -577,8 +577,7 @@ std::string PluginUserMessage::GetRepeatedString(std::string pszFieldName, int i
     CHECK_FIELD_REPEATED("");
     CHECK_REPEATED_ELEMENT(index, "");
 
-    std::string scratch;
-    return this->msgBuffer->GetReflection()->GetRepeatedStringReference(*this->msgBuffer, field, index, &scratch);
+    return this->msgBuffer->GetReflection()->GetRepeatedString(*this->msgBuffer, field, index);
 }
 void PluginUserMessage::SetRepeatedString(std::string pszFieldName, int index, const char* value)
 {
@@ -822,9 +821,10 @@ void PluginUserMessage::RemoveRepeatedFieldValue(std::string pszFieldName, int i
 
     pReflection->RemoveLast(this->msgBuffer, field);
 }
+
 int PluginUserMessage::GetRepeatedFieldCount(std::string pszFieldName)
 {
-    const google::protobuf::FieldDescriptor* field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName.c_str());
+    const google::protobuf::FieldDescriptor* field = this->msgBuffer->GetDescriptor()->FindFieldByName(pszFieldName);
     if (!field)
         return -1;
 

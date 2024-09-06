@@ -24,7 +24,7 @@ void UserMessages::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, IRecipient
 
     for (auto player : players)
     {
-        auto result = g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ player.Get(), string_format("%p", pEvent), filter->GetNetworkBufType() == BUF_RELIABLE }), event);
+        auto result = g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ player.Get(), string_format("%p|%p", pEvent, pData), filter->GetNetworkBufType() == BUF_RELIABLE }), event);
         if (result == EventResult::Stop)
             flt->RemoveRecipient(player);
     }
