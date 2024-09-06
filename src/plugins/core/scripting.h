@@ -240,6 +240,8 @@ public:
 /////////////////         User Message         //////////////
 ////////////////////////////////////////////////////////////
 
+class PluginUserMessage;
+
 class PluginUserMessage
 {
 private:
@@ -344,7 +346,7 @@ public:
     void SetRepeatedQAngle(std::string pszFieldName, int index, QAngle& vec);
     void AddQAngle(std::string pszFieldName, QAngle& vec);
 
-    PluginUserMessage GetMessage(std::string pszFieldName);
+    PluginUserMessage GetUMessage(std::string pszFieldName);
     PluginUserMessage GetRepeatedMessage(std::string pszFieldName, int index);
     PluginUserMessage AddMessage(std::string pszFieldName);
 

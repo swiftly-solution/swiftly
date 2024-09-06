@@ -815,7 +815,7 @@ void PluginUserMessage::AddQAngle(std::string pszFieldName, QAngle& vec)
     msgAng->set_z(vec.z);
 }
 
-PluginUserMessage PluginUserMessage::GetMessage(std::string pszFieldName)
+PluginUserMessage PluginUserMessage::GetUMessage(std::string pszFieldName)
 {
     GETCHECK_FIELD(PluginUserMessage(""));
     CHECK_FIELD_TYPE(MESSAGE, PluginUserMessage(""));
