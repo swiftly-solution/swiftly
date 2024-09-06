@@ -31,6 +31,10 @@ void SDKBaseClass::CBaseModelEntity_SetBodygroup(std::string str, int64_t val)
     ((CBaseModelEntity*)this->GetPtr())->SetBodygroup(str.c_str(), (uint64_t)val);
 }
 
+SDKBaseClass SDKBaseClass::CGameSceneNode_GetSkeletonInstance() {
+    return SDKBaseClass(((CGameSceneNode*)this->GetPtr())->GetSkeletonInstance(), "CSkeletonInstance");
+}
+
 SDKBaseClass SDKBaseClass::CBaseEntity_EHandle() {
     return SDKBaseClass(((CBaseEntity*)this->GetPtr())->m_pEntity->m_EHandle.Get(), "CBaseEntity");
 }

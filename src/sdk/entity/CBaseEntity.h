@@ -104,7 +104,7 @@ public:
 
     CSkeletonInstance* GetSkeletonInstance()
     {
-        return CALL_VIRTUAL(CSkeletonInstance*, 8, this);
+        return CALL_VIRTUAL(CSkeletonInstance*, g_Offsets->GetOffset("CGameSceneNode_GetSkeletonInstance"), this);
     }
 };
 

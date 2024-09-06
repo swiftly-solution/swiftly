@@ -224,6 +224,7 @@ public:
     SDKBaseClass CBaseEntity_GetVData();
     void CBaseEntity_Teleport(Vector value, QAngle angle);
     void CBaseEntity_EmitSound(std::string sound_name, float pitch, float volume);
+    SDKBaseClass CGameSceneNode_GetSkeletonInstance();
 
     int GetProp(lua_State* state);
     int SetProp(lua_State* state);
