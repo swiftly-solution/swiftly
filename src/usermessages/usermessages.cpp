@@ -18,15 +18,10 @@ void UserMessages::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClien
     static void (IGameEventSystem:: * PostEventAbstract)(CSplitScreenSlot, bool, int, const uint64*,
         INetworkMessageInternal*, const CNetMessage*, unsigned long, NetChannelBufType_t) = &IGameEventSystem::PostEventAbstract;
 
-    uint64 oldClients = *clients;
-    uint64 newClients = 0;
+    uint64 newClients = *const_cast<uint64*>(clients);
 
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    for (uint64 i = 0; i < 64; i++)
-        if (oldClients & ((uint64)1 << i))
-            if (g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ i, string_format("%p|%p", pEvent, pData), bufType == BUF_RELIABLE }), event) != EventResult::Stop)
-                newClients |= ((uint64)1 << i);
-
+    g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ string_format("%p|%p|%p", pEvent, pData, &newClients), bufType == BUF_RELIABLE }), event);
     delete event;
 
     SH_CALL(g_pGameEventSystem, PostEventAbstract)

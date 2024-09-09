@@ -247,12 +247,13 @@ class PluginUserMessage
 private:
     int msgid = INVALID_MESSAGE_ID;
     INetworkMessageInternal* internalMsg = nullptr;
+    uint64* clients = nullptr;
 
 public:
     CNetMessagePB<google::protobuf::Message>* msgBuffer = nullptr;
 
     PluginUserMessage(std::string msgname);
-    PluginUserMessage(INetworkMessageInternal* msg, CNetMessage* data);
+    PluginUserMessage(INetworkMessageInternal* msg, CNetMessage* data, uint64* cls);
     PluginUserMessage(google::protobuf::Message* msg);
     ~PluginUserMessage();
 
@@ -352,6 +353,12 @@ public:
 
     void RemoveRepeatedFieldValue(std::string pszFieldName, int index);
     int GetRepeatedFieldCount(std::string pszFieldName);
+
+    void AddClient(int playerId);
+    void RemoveClient(int playerId);
+    void ClearClients();
+    void AddClients();
+    std::vector<int> GetClients();
 
     void SendToPlayer(int playerId);
     void SendToAllPlayers();
