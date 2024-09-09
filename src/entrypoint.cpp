@@ -8,6 +8,7 @@
 
 #include <steam/steam_gameserver.h>
 
+#include "sdk/entity/CRecipientFilters.h"
 #include "addons/addons.h"
 #include "encoders/msgpack.h"
 #include "addons/clients.h"
@@ -638,24 +639,31 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
 
                 std::string formatted_msg = (" " + implode(msg, " "));
 
-                for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
-                {
-                    Player* p = g_playerManager->GetPlayer(i);
-                    if (p == nullptr)
-                        continue;
+                CRecipientFilter filter;
+                INetworkMessageInternal* pNetMsg = g_pNetworkMessages->FindNetworkMessagePartial("TextMsg");
+                auto data = pNetMsg->AllocateMessage()->ToPB<CUserMessageTextMsg>();
 
-                    CCSPlayerController* pcontroller = p->GetPlayerController();
-                    if (!pcontroller)
-                        continue;
+                data->set_dest(HUD_PRINTTALK);
+                data->add_param(formatted_msg);
 
-                    if (teamonly)
+                if(teamonly) {
+                    for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
                     {
+                        Player* p = g_playerManager->GetPlayer(i);
+                        if (p == nullptr)
+                            continue;
+
+                        CCSPlayerController* pcontroller = p->GetPlayerController();
+                        if (!pcontroller)
+                            continue;
+
                         if (pcontroller->m_iTeamNum() == controller->m_iTeamNum())
-                            pcontroller->SendMsg(HUD_PRINTTALK, formatted_msg.c_str());
+                            filter.AddRecipient(p->GetSlot());
                     }
-                    else
-                        pcontroller->SendMsg(HUD_PRINTTALK, formatted_msg.c_str());
-                }
+                } else filter.AddAllPlayers();
+
+                g_pGameEventSystem->PostEventAbstract(-1, false, &filter, pNetMsg, data, 0);
+                delete data;
             }
             RETURN_META(MRES_SUPERCEDE);
         }
