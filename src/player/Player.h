@@ -46,19 +46,14 @@ public:
     ~Player();
 
     bool IsFakeClient();
-    bool IsAuthenticated();
     CPlayerSlot GetSlot();
     uint32_t GetConnectedTime();
     std::string GetIPAddress();
-
-    void SetConnected(bool connected);
-    bool IsConnected();
 
     void SendMsg(int dest, const char* msg, ...);
 
     void RenderCenterText();
 
-    void Authenticate();
     const char* GetName();
     uint64 GetSteamID();
 
@@ -121,8 +116,6 @@ public:
 private:
     int slot;
     bool isFakeClient = false;
-    bool isAuthenticated = false;
-    bool isConnected = false;
 
     uint64_t buttons = 0;
 

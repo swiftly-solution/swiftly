@@ -9,24 +9,6 @@ FuncHook<decltype(Hook_CCSPlayer_MovementServices_CheckJumpPre)> TCCSPlayer_Move
 PlayerManager::PlayerManager() {}
 PlayerManager::~PlayerManager() {}
 
-void PlayerManager::LoadPlayers()
-{
-    for (uint16_t i = 0; i < MAX_PLAYERS; i++)
-    {
-        Player* player = this->GetPlayer(i);
-        if (!player)
-            continue;
-
-        if (player->IsAuthenticated() || player->IsFakeClient())
-            continue;
-
-        if (engine->IsClientFullyAuthenticated(i))
-        {
-            player->Authenticate();
-        }
-    }
-}
-
 void PlayerManager::RegisterPlayer(Player* player)
 {
     this->g_Players[player->GetSlot().Get()] = player;
@@ -51,23 +33,6 @@ uint16_t PlayerManager::GetPlayers()
         ++count;
     }
     return count;
-}
-
-Player* PlayerManager::FindPlayerBySteamID(uint64 steamid)
-{
-    if (steamid == 0)
-        return nullptr;
-
-    for (int i = 0; i < this->GetPlayerCap(); i++)
-    {
-        Player* player = this->GetPlayer(i);
-        if (!player)
-            continue;
-
-        if (player->GetSteamID() == steamid)
-            return player;
-    }
-    return nullptr;
 }
 
 ConVar* autobunnyhoppingcvar = nullptr;

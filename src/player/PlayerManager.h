@@ -13,7 +13,6 @@ public:
     PlayerManager();
     ~PlayerManager();
 
-    void LoadPlayers();
     void RegisterPlayer(Player *player);
     void UnregisterPlayer(CPlayerSlot slot);
     uint16_t GetPlayers();
@@ -25,8 +24,6 @@ public:
     }
     Player *GetPlayer(CPlayerSlot slot) { return this->g_Players[slot.Get()]; }
     const uint16 GetPlayerCap() { return MAX_PLAYERS; }
-    CPlayerSlot GetSlotFromUserId(uint16 userid) { return CPlayerSlot(userid & 0xFF); }
-    Player *FindPlayerBySteamID(uint64 steamid);
 
 private:
     Player *g_Players[MAX_PLAYERS] = {};

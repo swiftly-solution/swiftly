@@ -67,7 +67,6 @@ Player::Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64 m_xui
 Player::~Player()
 {
     this->isFakeClient = true;
-    this->isAuthenticated = false;
 }
 
 CBasePlayerController* Player::GetController()
@@ -200,11 +199,6 @@ const char* Player::GetName()
     return reinterpret_cast<char*>(controller->m_iszPlayerName());
 }
 
-void Player::Authenticate()
-{
-    this->isAuthenticated = true;
-}
-
 Vector Player::GetCoords()
 {
     CCSPlayerPawn* pawn = this->GetPlayerPawn();
@@ -277,13 +271,9 @@ bool Player::IsFirstSpawn() { return this->firstSpawn; }
 void Player::SetFirstSpawn(bool value) { this->firstSpawn = value; }
 
 bool Player::IsFakeClient() { return this->isFakeClient; }
-bool Player::IsAuthenticated() { return this->isAuthenticated; }
 CPlayerSlot Player::GetSlot() { return CPlayerSlot(this->slot); }
 uint32 Player::GetConnectedTime() { return (std::time(0) - this->connectTime); }
 std::string Player::GetIPAddress() { return this->ip_address; }
-
-void Player::SetConnected(bool connected) { this->isConnected = connected; }
-bool Player::IsConnected() { return this->isConnected; }
 
 const std::vector<std::string> key_buttons = {
     "mouse1",
