@@ -616,6 +616,7 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
                     pEvent->SetString("text", text.c_str());
 
                     g_gameEventManager->FireEvent(pEvent, true);
+                    g_gameEventManager->FreeEvent(pEvent);
                 }
             }
 
