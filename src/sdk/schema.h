@@ -6,12 +6,6 @@
 #include "../signatures/Signatures.h"
 #include "interfaces/cschemasystem.h"
 
-struct SchemaKey
-{
-    int32_t offset;
-    bool networked;
-};
-
 class CBaseEntity;
 void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset, bool isStruct);
 
@@ -32,8 +26,9 @@ inline constexpr uint64_t hash_64_fnv1a_const(const char* const str, const uint6
 
 namespace sch
 {
-    int16_t FindChainOffset(const char* className);
-    SchemaKey GetOffset(const char* className, uint32_t classKey, const char* memberName, uint32_t memberKey);
+    int32_t FindChainOffset(const char* className);
+    int32_t GetOffset(const char* className, const char* memberName);
+    bool IsNetworked(const char* className, const char* memberName);
 };
 
 #define SCHEMA_FIELD_OFFSET(type, varName, extra_offset)                                                                                                          \
@@ -42,31 +37,25 @@ namespace sch
     public:                                                                                                                                                       \
         std::add_lvalue_reference_t<type> Get()                                                                                                                   \
         {                                                                                                                                                         \
-            static constexpr auto datatable_hash = hash_32_fnv1a_const(ThisClassName);                                                                            \
-            static constexpr auto prop_hash = hash_32_fnv1a_const(#varName);                                                                                      \
-                                                                                                                                                                  \
             static const auto m_key =                                                                                                                             \
-                sch::GetOffset(ThisClassName, datatable_hash, #varName, prop_hash);                                                                               \
+                sch::GetOffset(ThisClassName, #varName);                                                                                                          \
                                                                                                                                                                   \
             static const size_t offset = offsetof(ThisClass, varName);                                                                                            \
             ThisClass *pThisClass = (ThisClass *)((byte *)this - offset);                                                                                         \
                                                                                                                                                                   \
             return *reinterpret_cast<std::add_pointer_t<type>>(                                                                                                   \
-                (uintptr_t)(pThisClass) + m_key.offset + extra_offset);                                                                                           \
+                (uintptr_t)(pThisClass) + m_key + extra_offset);                                                                                           \
         }                                                                                                                                                         \
         void Set(type val)                                                                                                                                        \
         {                                                                                                                                                         \
-            static constexpr auto datatable_hash = hash_32_fnv1a_const(ThisClassName);                                                                            \
-            static constexpr auto prop_hash = hash_32_fnv1a_const(#varName);                                                                                      \
-                                                                                                                                                                  \
             static const auto m_key =                                                                                                                             \
-                sch::GetOffset(ThisClassName, datatable_hash, #varName, prop_hash);                                                                               \
+                sch::GetOffset(ThisClassName, #varName);                                                                                                          \
                                                                                                                                                                   \
             static const size_t offset = offsetof(ThisClass, varName);                                                                                            \
             ThisClass *pThisClass = (ThisClass *)((byte *)this - offset);                                                                                         \
                                                                                                                                                                   \
             SetStateChanged((uintptr_t)pThisClass, ThisClassName, #varName, extra_offset, IsStruct);                                                              \
-            *reinterpret_cast<std::add_pointer_t<type>>((uintptr_t)(pThisClass) + m_key.offset + extra_offset) = val;                                             \
+            *reinterpret_cast<std::add_pointer_t<type>>((uintptr_t)(pThisClass) + m_key + extra_offset) = val;                                             \
         }                                                                                                                                                         \
         void StateUpdate()                                                                                                                                        \
         {                                                                                                                                                         \
@@ -89,17 +78,14 @@ namespace sch
     public:                                                                            \
         type *Get()                                                                    \
         {                                                                              \
-            static constexpr auto datatable_hash = hash_32_fnv1a_const(ThisClassName); \
-            static constexpr auto prop_hash = hash_32_fnv1a_const(#varName);           \
-                                                                                       \
             static const auto m_key =                                                  \
-                sch::GetOffset(ThisClassName, datatable_hash, #varName, prop_hash);    \
+                sch::GetOffset(ThisClassName, #varName);                               \
                                                                                        \
             static const size_t offset = offsetof(ThisClass, varName);                 \
             ThisClass *pThisClass = (ThisClass *)((byte *)this - offset);              \
                                                                                        \
             return reinterpret_cast<std::add_pointer_t<type>>(                         \
-                (uintptr_t)(pThisClass) + m_key.offset + extra_offset);                \
+                (uintptr_t)(pThisClass) + m_key + extra_offset);                \
         }                                                                              \
         operator type *() { return Get(); }                                            \
         type *operator()() { return Get(); }                                           \

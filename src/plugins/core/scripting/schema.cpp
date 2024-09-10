@@ -44,11 +44,9 @@ void WriteSchemaPtrValue(void* ptr, const char* className, const char* fieldName
         return;
     }
 
-    auto datatable_hash = hash_32_fnv1a_const(className);
-    auto prop_hash = hash_32_fnv1a_const(fieldName);
-    const auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
+    const auto m_key = sch::GetOffset(className, fieldName);
 
-    void* fieldPtr = reinterpret_cast<std::add_pointer_t<void>>((uintptr_t)(ptr)+m_key.offset);
+    void* fieldPtr = reinterpret_cast<std::add_pointer_t<void>>((uintptr_t)(ptr)+m_key);
 
     Plat_WriteMemory(fieldPtr, value, size);
 
@@ -66,11 +64,9 @@ void* GetSchemaPtr(void* ptr, const char* className, const char* fieldName)
         return 0;
     }
 
-    auto datatable_hash = hash_32_fnv1a_const(className);
-    auto prop_hash = hash_32_fnv1a_const(fieldName);
-    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
+    auto m_key = sch::GetOffset(className, fieldName);
 
-    return reinterpret_cast<void*>((uintptr_t)(ptr)+m_key.offset);
+    return reinterpret_cast<void*>((uintptr_t)(ptr)+m_key);
 }
 
 void scripting_StateUpdate(std::string ptr, std::string classname, std::string field, bool isStruct)

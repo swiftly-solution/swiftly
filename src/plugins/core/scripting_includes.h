@@ -44,11 +44,9 @@ T GetSchemaValue(void* ptr, const char* className, const char* fieldName)
         }
     }
 
-    auto datatable_hash = hash_32_fnv1a_const(className);
-    auto prop_hash = hash_32_fnv1a_const(fieldName);
-    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
+    auto m_key = sch::GetOffset(className, fieldName);
 
-    return *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key.offset);
+    return *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key);
 }
 
 template <typename T>
@@ -63,11 +61,9 @@ T* GetSchemaValuePtr(void* ptr, const char* className, const char* fieldName)
         return 0;
     }
 
-    auto datatable_hash = hash_32_fnv1a_const(className);
-    auto prop_hash = hash_32_fnv1a_const(fieldName);
-    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
+    auto m_key = sch::GetOffset(className, fieldName);
 
-    return reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key.offset);
+    return reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key);
 }
 
 void* GetSchemaPtr(void* ptr, const char* className, const char* fieldName);
@@ -86,13 +82,10 @@ void SetSchemaValue(void* ptr, const char* className, const char* fieldName, boo
         return;
     }
 
-    auto datatable_hash = hash_32_fnv1a_const(className);
-    auto prop_hash = hash_32_fnv1a_const(fieldName);
-
-    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
+    auto m_key = sch::GetOffset(className, fieldName);
 
     SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
-    *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key.offset) = value;
+    *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key) = value;
 }
 
 template <typename T>
@@ -107,14 +100,11 @@ void SetSchemaValueCUtlVector(void* ptr, const char* className, const char* fiel
         return;
     }
 
-    auto datatable_hash = hash_32_fnv1a_const(className);
-    auto prop_hash = hash_32_fnv1a_const(fieldName);
-
-    auto m_key = sch::GetOffset(className, datatable_hash, fieldName, prop_hash);
+    auto m_key = sch::GetOffset(className, fieldName);
 
     SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
 
-    CUtlVector<T>* vec = reinterpret_cast<CUtlVector<T> *>((uintptr_t)(ptr)+m_key.offset);
+    CUtlVector<T>* vec = reinterpret_cast<CUtlVector<T> *>((uintptr_t)(ptr)+m_key);
     vec->Purge();
     for (auto elem : value)
         vec->AddToTail(elem);

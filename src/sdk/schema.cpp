@@ -7,14 +7,16 @@
 #include "../common.h"
 #include "../utils/utils.h"
 
-#include <tier1/utlmap.h>
+#include <unordered_map>
+#include <unordered_set>
 
 extern CSchemaSystem* g_pSchemaSystem2;
-
-using SchemaKeyValueMap_t = CUtlMap<uint32_t, SchemaKey>;
-using SchemaTableMap_t = CUtlMap<uint32_t, SchemaKeyValueMap_t*>;
-
 typedef void (*StateChanged)(void*, CBaseEntity*, int, int, int);
+
+std::unordered_set<uint32_t> invalidClasses;
+std::unordered_set<uint32_t> populatedClass;
+std::unordered_map<uint64_t, int32_t> offsetsCache;
+std::unordered_map<uint64_t, bool> networkedCache;
 
 static bool IsFieldNetworked(SchemaClassFieldData_t& field)
 {
@@ -26,110 +28,77 @@ static bool IsFieldNetworked(SchemaClassFieldData_t& field)
     return false;
 }
 
-static bool InitSchemaFieldsForClass(SchemaTableMap_t* tableMap, const char* className, uint32_t classKey)
+void PopulateClassData(const char* className, uint32_t classOffset)
 {
     CSchemaSystemTypeScope* pType = g_pSchemaSystem2->FindTypeScopeForModule(MODULE_PREFIX "server" MODULE_EXT);
+    if(!pType) return;
 
-    if (!pType)
-        return false;
+    populatedClass.insert(classOffset);
+    auto classData = pType->FindDeclaredClass(className);
 
-    SchemaClassInfoData_t* pClassInfo = pType->FindDeclaredClass(className);
-
-    if (!pClassInfo)
-    {
-        SchemaKeyValueMap_t* map = new SchemaKeyValueMap_t(0, 0, DefLessFunc(uint32_t));
-        tableMap->Insert(classKey, map);
-        return false;
+    if(!classData) {
+        invalidClasses.insert(classOffset);
+        return;
     }
 
-    short fieldsSize = pClassInfo->m_nFieldCount;
-    SchemaClassFieldData_t* pFields = pClassInfo->m_pFields;
+    short fieldsSize = classData->m_nFieldCount;
+    SchemaClassFieldData_t* pFields = classData->m_pFields;
 
-    SchemaKeyValueMap_t* keyValueMap = new SchemaKeyValueMap_t(0, 0, DefLessFunc(uint32_t));
-    keyValueMap->EnsureCapacity(fieldsSize);
-    tableMap->Insert(classKey, keyValueMap);
-
-    for (int i = 0; i < fieldsSize; ++i)
-    {
-        SchemaClassFieldData_t& field = pFields[i];
-
-        keyValueMap->Insert(hash_32_fnv1a_const(field.m_pszName), { field.m_nSingleInheritanceOffset, IsFieldNetworked(field) });
+    for(short i = 0; i < fieldsSize; i++) {
+        auto field = pFields[i];
+        uint64_t offsetKey = ((uint64_t) classOffset) << 32 | hash_32_fnv1a_const(field.m_pszName);
+        offsetsCache.insert({ offsetKey, field.m_nSingleInheritanceOffset });
+        networkedCache.insert({ offsetKey, IsFieldNetworked(field) });
     }
-
-    return true;
 }
 
-int16_t sch::FindChainOffset(const char* className)
+int32_t sch::FindChainOffset(const char* className)
 {
-    CSchemaSystemTypeScope* pType = g_pSchemaSystem2->FindTypeScopeForModule(MODULE_PREFIX "server" MODULE_EXT);
-
-    if (!pType)
-        return false;
-
-    SchemaClassInfoData_t* pClassInfo = pType->FindDeclaredClass(className);
-
-    do
-    {
-        SchemaClassFieldData_t* pFields = pClassInfo->m_pFields;
-        short fieldsSize = pClassInfo->m_nFieldCount;
-        for (int i = 0; i < fieldsSize; ++i)
-        {
-            SchemaClassFieldData_t& field = pFields[i];
-
-            if (V_strcmp(field.m_pszName, "__m_pChainEntity") == 0)
-            {
-                return field.m_nSingleInheritanceOffset;
-            }
-        }
-    } while ((pClassInfo = pClassInfo->m_pBaseClasses ? pClassInfo->m_pBaseClasses->m_pClass : nullptr) != nullptr);
-
-    return 0;
+    return sch::GetOffset(className, "__m_pChainEntity");
 }
 
-SchemaKey sch::GetOffset(const char* className, uint32_t classKey, const char* memberName, uint32_t memberKey)
+int32_t sch::GetOffset(const char* className, const char* memberName)
 {
-    static SchemaTableMap_t schemaTableMap(0, 0, DefLessFunc(uint32_t));
-    int16_t tableMapIndex = schemaTableMap.Find(classKey);
-    if (!schemaTableMap.IsValidIndex(tableMapIndex))
-    {
-        if (InitSchemaFieldsForClass(&schemaTableMap, className, classKey))
-            return GetOffset(className, classKey, memberName, memberKey);
+    uint32_t classOffset = hash_32_fnv1a_const(className);
+    if(invalidClasses.find(classOffset) != invalidClasses.end()) return 0;
+    if(populatedClass.find(classOffset) == populatedClass.end()) PopulateClassData(className, classOffset);
 
-        return { 0, 0 };
-    }
+    uint64_t fullOffset = ((uint64_t) classOffset) << 32 | hash_32_fnv1a_const(memberName);
 
-    SchemaKeyValueMap_t* tableMap = schemaTableMap[tableMapIndex];
-    int16_t memberIndex = tableMap->Find(memberKey);
-    if (!tableMap->IsValidIndex(memberIndex))
-    {
-        return { 0, 0 };
-    }
+    if(offsetsCache.find(fullOffset) == offsetsCache.end()) return 0;
+    return offsetsCache[fullOffset];
+}
 
-    return tableMap->Element(memberIndex);
+bool sch::IsNetworked(const char* className, const char* memberName)
+{
+    uint32_t classOffset = hash_32_fnv1a_const(className);
+    if(invalidClasses.find(classOffset) != invalidClasses.end()) return false;
+    if(populatedClass.find(classOffset) == populatedClass.end()) PopulateClassData(className, classOffset);
+
+    uint64_t fullOffset = ((uint64_t) classOffset) << 32 | hash_32_fnv1a_const(memberName);
+
+    if(networkedCache.find(fullOffset) == networkedCache.end()) return false;
+    return networkedCache[fullOffset];
 }
 
 void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset, bool isStruct)
 {
     if ((CBaseEntity*)entityPtr == nullptr) return;
+    if (!sch::IsNetworked(className.c_str(), fieldName.c_str())) return;
 
-    auto datatable_hash = hash_32_fnv1a_const(className.c_str());
-    auto prop_hash = hash_32_fnv1a_const(fieldName.c_str());
-
-    auto m_key = sch::GetOffset(className.c_str(), datatable_hash, fieldName.c_str(), prop_hash);
+    auto m_key = sch::GetOffset(className.c_str(), fieldName.c_str());
     auto m_chain = sch::FindChainOffset(className.c_str());
-
-    if (!m_key.networked) return;
 
     if (m_chain) {
         entityPtr += m_chain;
         CEntityInstance* pEntity = *reinterpret_cast<CEntityInstance**>(entityPtr);
         if (pEntity && (pEntity->m_pEntity->m_flags & EF_IS_CONSTRUCTION_IN_PROGRESS) == 0)
-            pEntity->NetworkStateChanged(m_key.offset + extraOffset, -1, *reinterpret_cast<ChangeAccessorFieldPathIndex_t*>(entityPtr + 32));
+            pEntity->NetworkStateChanged(m_key + extraOffset, -1, *reinterpret_cast<ChangeAccessorFieldPathIndex_t*>(entityPtr + 32));
     }
     else {
         if (!isStruct)
-            reinterpret_cast<CEntityInstance*>(entityPtr)->NetworkStateChanged(m_key.offset + extraOffset);
+            reinterpret_cast<CEntityInstance*>(entityPtr)->NetworkStateChanged(m_key + extraOffset);
         else
-            CALL_VIRTUAL(void, 1, (CBaseEntity*)entityPtr, m_key.offset + extraOffset, 0xFFFFFFFF, 0xFFFF);
+            CALL_VIRTUAL(void, 1, (CBaseEntity*)entityPtr, m_key + extraOffset, 0xFFFFFFFF, 0xFFFF);
     }
 }

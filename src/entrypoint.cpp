@@ -522,8 +522,6 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char* pszName, uint64 x
     g_playerManager->RegisterPlayer(player);
     g_Players.push_back(player);
 
-    player->SetConnected(true);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnClientConnect", encoders::msgpack::SerializeToString({ slot.Get() }), event);
 
