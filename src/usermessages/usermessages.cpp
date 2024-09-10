@@ -19,5 +19,6 @@ void UserMessages::Destroy()
 
 void UserMessages::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType)
 {
-    g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ string_format("%p|%p|%p", pEvent, pData, clients), bufType == BUF_RELIABLE }), umEvent);
+    if(g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ string_format("%p|%p|%p", pEvent, pData, clients), bufType == BUF_RELIABLE }), umEvent) == EventResult::Stop)
+        RETURN_META(MRES_SUPERCEDE);
 }
