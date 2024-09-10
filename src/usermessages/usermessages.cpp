@@ -15,16 +15,7 @@ void UserMessages::Destroy()
 
 void UserMessages::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType)
 {
-    static void (IGameEventSystem:: * PostEventAbstract)(CSplitScreenSlot, bool, int, const uint64*,
-        INetworkMessageInternal*, const CNetMessage*, unsigned long, NetChannelBufType_t) = &IGameEventSystem::PostEventAbstract;
-
-    uint64 newClients = *const_cast<uint64*>(clients);
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ string_format("%p|%p|%p", pEvent, pData, &newClients), bufType == BUF_RELIABLE }), event);
+    g_pluginManager->ExecuteEvent("core", "OnUserMessageSend", encoders::msgpack::SerializeToString({ string_format("%p|%p|%p", pEvent, pData, clients), bufType == BUF_RELIABLE }), event);
     delete event;
-
-    SH_CALL(g_pGameEventSystem, PostEventAbstract)
-        (nSlot, bLocalOnly, nClientCount, &newClients, pEvent, pData, nSize, bufType);
-    RETURN_META(MRES_SUPERCEDE);
 }
