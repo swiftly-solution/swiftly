@@ -14,6 +14,7 @@ local gameTickCall = function()
     local nexttickCopy = nextTickFunctions
     nextTickFunctions = {}
 
+    --[[ Next Tick section (High CPU Usage for some reason even when there is nothing in queue) ]]
     for i = 1, #nexttickCopy do
         local status, err = pcall(nexttickCopy[i])
         if not status then
@@ -21,6 +22,7 @@ local gameTickCall = function()
         end
     end
 
+    --[[ Timeout section ]]
     for i = 1, timerstblsize do
         if timeoutsTbl[i].call - timerst <= 0 then
             timeoutsTbl[i].cb();

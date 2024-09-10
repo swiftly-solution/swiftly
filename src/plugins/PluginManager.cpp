@@ -169,10 +169,9 @@ Plugin* PluginManager::FetchPlugin(std::string name)
 
 EventResult PluginManager::ExecuteEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event)
 {
-    for (Plugin* plugin : this->pluginsList)
+    for (std::size_t i = 0; i < this->pluginsList.size(); i++)
     {
-        if (!plugin) continue;
-        EventResult result = plugin->TriggerEvent(invokedBy, eventName, eventPayload, event);
+        EventResult result = this->pluginsList[i]->TriggerEvent(invokedBy, eventName, eventPayload, event);
         if (result != EventResult::Continue)
             return result;
     }

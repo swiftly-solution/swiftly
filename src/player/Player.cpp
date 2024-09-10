@@ -357,15 +357,17 @@ void Player::SetButtons(uint64_t new_buttons)
     PRINTF("Buttons: %s | %llu\n", std::bitset<64>(new_buttons).to_string().c_str(), new_buttons);
     */
 
-    for (uint16_t i = 0; i < key_buttons.size(); i++)
-    {
-        if (this->IsButtonPressed((1ULL << i)) && (new_buttons & (1ULL << i)) == 0)
-            OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], false);
-        else if (!this->IsButtonPressed((1ULL << i)) && (new_buttons & (1ULL << i)) != 0)
-            OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], true);
-    }
+    if(this->buttons != new_buttons) {
+        for (uint16_t i = 0; i < key_buttons.size(); i++)
+        {
+            if (this->IsButtonPressed((1ULL << i)) && (new_buttons & (1ULL << i)) == 0)
+                OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], false);
+            else if (!this->IsButtonPressed((1ULL << i)) && (new_buttons & (1ULL << i)) != 0)
+                OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], true);
+        }
 
-    this->buttons = new_buttons;
+        this->buttons = new_buttons;
+    }
 }
 
 uint64_t Player::GetButtons()

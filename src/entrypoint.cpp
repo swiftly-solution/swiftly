@@ -390,6 +390,8 @@ void Swiftly::Hook_StartupServer(const GameSessionConfiguration_t& config, ISour
 
 void Swiftly::UpdatePlayers()
 {
+    PERF_RECORD("UpdatePlayers", "core")
+
     // Credits to: https://github.com/Source2ZE/ServerListPlayersFix (Source2ZE Team)
     if (!engine->GetServerGlobals())
         return;
@@ -464,11 +466,7 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
         if (!pawn)
             continue;
 
-        CPlayer_MovementServices* movementServices = pawn->m_pMovementServices();
-        if (!movementServices)
-            continue;
-
-        player->SetButtons(movementServices->m_nButtons().m_pButtonStates()[0]);
+        player->SetButtons(pawn->m_pMovementServices()->m_nButtons().m_pButtonStates()[0]);
 
         if (player->HasMenuShown())
             player->RenderMenu();
