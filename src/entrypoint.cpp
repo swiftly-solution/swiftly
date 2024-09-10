@@ -101,6 +101,7 @@ CGameEntitySystem* GameEntitySystem()
 ////////////////////////////////////////////////////////////
 
 CUtlVector<FuncHookBase*> g_vecHooks;
+std::vector<Player*> g_Players;
 
 Addons g_addons;
 CommandsManager* g_commandsManager = nullptr;
@@ -227,7 +228,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     else
         PRINT("Hooks initialized succesfully.\n");
 
-    g_playerManager->LoadPlayers();
     g_conFilter->LoadFilters();
     g_translations->LoadTranslations();
 
@@ -457,14 +457,9 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     //////////////////////////////////////////////////////////////
     /////////////////            Player            //////////////
     ////////////////////////////////////////////////////////////
-    for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
+    for(std::size_t i = 0; i < g_Players.size(); i++)
     {
-        Player* player = g_playerManager->GetPlayer(i);
-        if (!player)
-            continue;
-        if (player->IsFakeClient())
-            continue;
-
+        Player* player = g_Players[i];
         CBasePlayerPawn* pawn = player->GetPawn();
         if (!pawn)
             continue;
@@ -475,10 +470,10 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 
         player->SetButtons(movementServices->m_nButtons().m_pButtonStates()[0]);
 
-        if (player->HasCenterText())
-            player->RenderCenterText();
         if (player->HasMenuShown())
             player->RenderMenu();
+        else if (player->HasCenterText())
+            player->RenderCenterText();
     }
 
     //////////////////////////////////////////////////////////////
@@ -498,8 +493,11 @@ void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReaso
     g_pluginManager->ExecuteEvent("core", "OnClientDisconnect", encoders::msgpack::SerializeToString({ slot.Get() }), event);
 
     Player* player = g_playerManager->GetPlayer(slot);
-    if (player)
+    if (player) {
+        auto it = std::find(g_Players.begin(), g_Players.end(), player);
+        if(it != g_Players.end()) g_Players.erase(it);
         g_playerManager->UnregisterPlayer(slot);
+    }
 }
 
 void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, const char* pszAddress, bool bFakePlayer)
@@ -522,6 +520,7 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char* pszName, uint64 x
     std::string ip_address = explode(pszNetworkID, ":")[0];
     Player* player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     g_playerManager->RegisterPlayer(player);
+    g_Players.push_back(player);
 
     player->SetConnected(true);
 
@@ -647,12 +646,9 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
                 data->add_param(formatted_msg);
 
                 if(teamonly) {
-                    for (uint16_t i = 0; i < g_playerManager->GetPlayerCap(); i++)
+                    for (std::size_t i = 0; i < g_Players.size(); i++)
                     {
-                        Player* p = g_playerManager->GetPlayer(i);
-                        if (p == nullptr)
-                            continue;
-
+                        Player* p = g_Players[i];
                         CCSPlayerController* pcontroller = p->GetPlayerController();
                         if (!pcontroller)
                             continue;
