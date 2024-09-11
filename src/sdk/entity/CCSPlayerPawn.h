@@ -1,9 +1,10 @@
 #pragma once
 
 #include "CBasePlayerPawn.h"
+#include "CCSPlayerPawnBase.h"
 #include "CBaseViewModel.h"
 
-class CCSPlayerPawn : public CBasePlayerPawn
+class CCSPlayerPawn : public CCSPlayerPawnBase
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CCSPlayerPawn, false)

@@ -6,6 +6,7 @@
 #include "../../sdk/entity/CCSWeaponBase.h"
 #include "../../crashreporter/CallStack.h"
 #include "../../encoders/msgpack.h"
+#include "../../sdk/entity/CTakeDamageInfo.h"
 
 #include "cstrike15_usermessages.pb.h"
 #include <google/protobuf/message.h>
@@ -672,6 +673,17 @@ public:
 ////////////////////////////////////////////////////////////
 
 std::string scripting_FetchTranslation(Plugin* plugin, std::string key, int playerid);
+
+//////////////////////////////////////////////////////////////
+/////////////////             Misc             //////////////
+////////////////////////////////////////////////////////////
+
+class PluginMisc
+{
+public:
+    void Initialize();
+    void Destroy();
+};
 
 //////////////////////////////////////////////////////////////
 /////////////////            Memory            //////////////

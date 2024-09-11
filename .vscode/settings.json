@@ -81,5 +81,10 @@
         "variant": "cpp",
         "expected": "cpp",
         "shared_mutex": "cpp"
+    },
+    "C_Cpp.files.exclude": {
+        "**/.vscode": true,
+        "**/.vs": true,
+        "alliedmodders/hl2sdk/thirdparty/protobuf-3.21.8/php/**": true
     }
 }

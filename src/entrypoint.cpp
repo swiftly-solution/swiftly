@@ -124,6 +124,7 @@ HTTPManager* g_httpManager = nullptr;
 UserMessages* g_userMessages = nullptr;
 SDKAccess* g_sdk = nullptr;
 ConvarQuery* g_cvarQuery = nullptr;
+PluginMisc* g_misc = nullptr;
 VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
@@ -148,7 +149,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
         }
     }
 #endif
-
 
     GET_V_IFACE_CURRENT(GetEngineFactory, engine, IVEngineServer, INTERFACEVERSION_VENGINESERVER);
     GET_V_IFACE_CURRENT(GetEngineFactory, icvar, ICvar, CVAR_INTERFACE_VERSION);
@@ -200,6 +200,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_userMessages = new UserMessages();
     g_sdk = new SDKAccess();
     g_cvarQuery = new ConvarQuery();
+    g_misc = new PluginMisc();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -222,6 +223,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_userMessages->Initialize();
     eventManager->Initialize();
     g_cvarQuery->Initialize();
+    g_misc->Initialize();
 
     if (!InitializeHooks())
         PRINTRET("Hooks failed to initialize.\n", false)
@@ -297,6 +299,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     g_voiceManager.OnShutdown();
     g_userMessages->Destroy();
     g_cvarQuery->Destroy();
+    g_misc->Destroy();
 
     g_pluginManager->StopPlugins();
     g_pluginManager->UnloadPlugins();
@@ -336,6 +339,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     delete g_userMessages;
     delete g_sdk;
     delete g_cvarQuery;
+    delete g_misc;
 
     ConVar_Unregister();
     return true;

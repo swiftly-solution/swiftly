@@ -3,6 +3,7 @@
 #include <platform.h>
 #include "ehandle.h"
 #include <public/mathlib/vector.h>
+#include "CBaseEntity.h"
 
 class Vector;
 
@@ -52,43 +53,52 @@ enum TTakeDamageFlags_t : uint32_t
     DFLAG_IGNORE_ARMOR = 0x800,
 };
 
+struct CTakeDamageInfoContainer
+{
+	CTakeDamageInfo *pInfo;
+};
+
 class CTakeDamageInfo
 {
 private:
-    [[maybe_unused]] uint8_t __pad0000[0x8];
+	[[maybe_unused]] uint8_t __pad0000[0x8];
 
 public:
-    Vector m_vecDamageForce;
-    Vector m_vecDamagePosition;
-    Vector m_vecReportedPosition;
-    Vector m_vecDamageDirection;
-    CHandle<CBaseEntity> m_hInflictor;
-    CHandle<CBaseEntity> m_hAttacker;
-    CHandle<CBaseEntity> m_hAbility;
-    float m_flDamage;
-    DDamageTypes_t m_bitsDamageType;
-    int32_t m_iDamageCustom;
-    uint8_t m_iAmmoType;
+	Vector m_vecDamageForce;
+	Vector m_vecDamagePosition;
+	Vector m_vecReportedPosition;
+	Vector m_vecDamageDirection;
+	CHandle<CBaseEntity> m_hInflictor;
+	CHandle<CBaseEntity> m_hAttacker;
+	CHandle<CBaseEntity> m_hAbility;
+	float m_flDamage;
+	float m_flTotalledDamage;
+	DDamageTypes_t m_bitsDamageType;
+	int32_t m_iDamageCustom;
+	uint8_t m_iAmmoType;
 
 private:
-    [[maybe_unused]] uint8_t __pad0051[0xf];
+	[[maybe_unused]] uint8_t __pad0051[0xf];
 
 public:
-    float m_flOriginalDamage;
-    bool m_bShouldBleed;
-    bool m_bShouldSpark;
+	float m_flOriginalDamage;
+	bool m_bShouldBleed;
+	bool m_bShouldSpark;
 
 private:
-    [[maybe_unused]] uint8_t __pad0066[0xa];
+	[[maybe_unused]] uint8_t __pad0066[0xa];
 
 public:
-    TTakeDamageFlags_t m_nDamageFlags;
-    int32_t m_nNumObjectsPenetrated;
-    uint64_t m_hScriptInstance;
+	TTakeDamageFlags_t m_nDamageFlags;
+	int32_t m_nNumObjectsPenetrated;
+	uint64_t m_hScriptInstance;
 
 private:
-    [[maybe_unused]] uint8_t __pad0080[0x14];
+	[[maybe_unused]] uint8_t __pad0080[0x14];
 
 public:
-    bool m_bInTakeDamageFlow;
+	bool m_bInTakeDamageFlow;
+
+private:
+	[[maybe_unused]] uint8_t __pad009d[0x8];
 };
