@@ -123,6 +123,8 @@ void Player::SendMsg(int dest, const char* msg, ...)
     CBasePlayerController* controller = this->GetController();
     if (!controller)
         return;
+    if(this->IsFakeClient())
+        return;
 
     if (dest == HUD_PRINTTALK || dest == HUD_PRINTNOTIFY)
     {
