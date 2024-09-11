@@ -112,7 +112,7 @@
         },
         "LifeState": {
             "field": "m_lifeState",
-            "type": 6
+            "type": 4
         },
         "DamageAccumulator": {
             "field": "m_flDamageAccumulator",
@@ -144,11 +144,11 @@
         },
         "WaterTouch": {
             "field": "m_nWaterTouch",
-            "type": 6
+            "type": 4
         },
         "SlimeTouch": {
             "field": "m_nSlimeTouch",
-            "type": 6
+            "type": 4
         },
         "RestoreInHierarchy": {
             "field": "m_bRestoreInHierarchy",
@@ -193,7 +193,7 @@
         },
         "InterpolationFrame": {
             "field": "m_ubInterpolationFrame",
-            "type": 6
+            "type": 4
         },
         "PrevVPhysicsUpdatePos": {
             "field": "m_vPrevVPhysicsUpdatePos",
@@ -201,7 +201,7 @@
         },
         "TeamNum": {
             "field": "m_iTeamNum",
-            "type": 6
+            "type": 4
         },
         "Globalname": {
             "field": "m_iGlobalname",
@@ -315,7 +315,7 @@
         },
         "WaterType": {
             "field": "m_nWaterType",
-            "type": 6
+            "type": 4
         },
         "EFlags": {
             "field": "m_iEFlags",
@@ -626,11 +626,11 @@
         },
         "CollisionGroup": {
             "field": "m_nCollisionGroup",
-            "type": 6
+            "type": 4
         },
         "CollisionFunctionMask": {
             "field": "m_nCollisionFunctionMask",
-            "type": 6
+            "type": 4
         }
     },
     "CCollisionProperty": {
@@ -650,7 +650,7 @@
         },
         "SolidFlags": {
             "field": "m_usSolidFlags",
-            "type": 6
+            "type": 4
         },
         "SolidType": {
             "field": "m_nSolidType",
@@ -658,7 +658,7 @@
         },
         "TriggerBloat": {
             "field": "m_triggerBloat",
-            "type": 6
+            "type": 4
         },
         "SurroundType": {
             "field": "m_nSurroundType",
@@ -666,11 +666,11 @@
         },
         "CollisionGroup": {
             "field": "m_CollisionGroup",
-            "type": 6
+            "type": 4
         },
         "EnablePhysics": {
             "field": "m_nEnablePhysics",
-            "type": 6
+            "type": 4
         },
         "BoundingRadius": {
             "field": "m_flBoundingRadius",
@@ -825,7 +825,7 @@
         },
         "ObjectCulling": {
             "field": "m_nObjectCulling",
-            "type": 6
+            "type": 4
         },
         "AddDecal": {
             "field": "m_nAddDecal",
@@ -1664,18 +1664,6 @@
         "MeshGroupMask": {
             "field": "m_MeshGroupMask",
             "type": 7
-        },
-        "IdealMotionType": {
-            "field": "m_nIdealMotionType",
-            "type": 2
-        },
-        "ForceLOD": {
-            "field": "m_nForceLOD",
-            "type": 2
-        },
-        "ClothUpdateFlags": {
-            "field": "m_nClothUpdateFlags",
-            "type": 2
         }
     },
     "CBaseGrenade": {
@@ -1918,15 +1906,15 @@
         },
         "HierarchicalDepth": {
             "field": "m_nHierarchicalDepth",
-            "type": 6
+            "type": 4
         },
         "HierarchyType": {
             "field": "m_nHierarchyType",
-            "type": 6
+            "type": 4
         },
         "DoNotSetAnimTimeInInvalidatePhysicsCount": {
             "field": "m_nDoNotSetAnimTimeInInvalidatePhysicsCount",
-            "type": 6
+            "type": 4
         },
         "Name": {
             "field": "m_name",
@@ -2649,7 +2637,7 @@
         },
         "LocalBits": {
             "field": "localBits",
-            "type": 6
+            "type": 4
         },
         "SoundscapeEntityListIndex": {
             "field": "soundscapeEntityListIndex",
@@ -2795,7 +2783,7 @@
         },
         "Penetrate": {
             "field": "m_nPenetrate",
-            "type": 6
+            "type": 4
         },
         "Material": {
             "field": "m_nMaterial",
@@ -2807,11 +2795,11 @@
         },
         "Color": {
             "field": "m_nColor",
-            "type": 6
+            "type": 4
         },
         "Flags": {
             "field": "m_fFlags",
-            "type": 6
+            "type": 4
         },
         "AttachmentName": {
             "field": "m_nAttachmentName",
@@ -2823,7 +2811,7 @@
         },
         "ExplosionType": {
             "field": "m_nExplosionType",
-            "type": 6
+            "type": 4
         }
     },
     "CEntityBlocker": {
@@ -2850,7 +2838,7 @@
         },
         "UchShuffleCaseMap": {
             "field": "m_uchShuffleCaseMap",
-            "type": 35,
+            "type": 33,
             "size": 32
         },
         "OnCase": {
@@ -3779,7 +3767,7 @@
         },
         "Segments": {
             "field": "m_nSegments",
-            "type": 6
+            "type": 4
         },
         "ConstrainBetweenEndpoints": {
             "field": "m_bConstrainBetweenEndpoints",
@@ -3791,11 +3779,11 @@
         },
         "Subdiv": {
             "field": "m_Subdiv",
-            "type": 6
+            "type": 4
         },
         "ChangeCount": {
             "field": "m_nChangeCount",
-            "type": 6
+            "type": 4
         },
         "RopeLength": {
             "field": "m_RopeLength",
@@ -3803,7 +3791,7 @@
         },
         "LockedPoints": {
             "field": "m_fLockedPoints",
-            "type": 6
+            "type": 4
         },
         "CreatedFromMapFile": {
             "field": "m_bCreatedFromMapFile",
@@ -4765,10 +4753,6 @@
     },
     "CRagdollManager": {
         "struct": false,
-        "CurrentMaxRagdollCount": {
-            "field": "m_iCurrentMaxRagdollCount",
-            "type": 2
-        },
         "MaxRagdollCount": {
             "field": "m_iMaxRagdollCount",
             "type": 2
@@ -5188,7 +5172,7 @@
         },
         "HitboxSet": {
             "field": "m_nHitboxSet",
-            "type": 6
+            "type": 4
         },
         "Parent": {
             "field": "CGameSceneNode",
@@ -7323,7 +7307,7 @@
         },
         "ServerControlPointAssignments": {
             "field": "m_iServerControlPointAssignments",
-            "type": 35,
+            "type": 33,
             "size": 4
         },
         "ControlPointEnts": {
@@ -7616,15 +7600,15 @@
         "struct": false,
         "ActualFlags": {
             "field": "m_ActualFlags",
-            "type": 6
+            "type": 4
         },
         "Flags": {
             "field": "m_Flags",
-            "type": 6
+            "type": 4
         },
         "LightStyle": {
             "field": "m_LightStyle",
-            "type": 6
+            "type": 4
         },
         "On": {
             "field": "m_On",
@@ -7921,7 +7905,7 @@
         },
         "OGSExtraFlags": {
             "field": "m_unOGSExtraFlags",
-            "type": 6
+            "type": 4
         },
         "DetonationRecorded": {
             "field": "m_bDetonationRecorded",
@@ -9809,7 +9793,7 @@
         "struct": false,
         "ObserverMode": {
             "field": "m_iObserverMode",
-            "type": 6
+            "type": 4
         },
         "ObserverTarget": {
             "field": "m_hObserverTarget",
@@ -10249,15 +10233,15 @@
         },
         "PulseOption": {
             "field": "m_iPulseOption",
-            "type": 6
+            "type": 4
         },
         "AlphaOption": {
             "field": "m_iAlphaOption",
-            "type": 6
+            "type": 4
         },
         "ShakeOption": {
             "field": "m_iShakeOption",
-            "type": 6
+            "type": 4
         },
         "Static": {
             "field": "m_bStatic",
@@ -10662,11 +10646,11 @@
         },
         "Version": {
             "field": "m_nVersion",
-            "type": 6
+            "type": 4
         },
         "Signature": {
             "field": "m_ubSignature",
-            "type": 35,
+            "type": 33,
             "size": 128
         },
         "Parent": {
@@ -12259,7 +12243,7 @@
         },
         "NumBeamEnts": {
             "field": "m_nNumBeamEnts",
-            "type": 6
+            "type": 4
         },
         "BeamType": {
             "field": "m_nBeamType",
@@ -15498,11 +15482,11 @@
         },
         "NumOpponentsHit": {
             "field": "m_numOpponentsHit",
-            "type": 6
+            "type": 4
         },
         "NumTeammatesHit": {
             "field": "m_numTeammatesHit",
-            "type": 6
+            "type": 4
         },
         "Parent": {
             "field": "CBaseCSGrenadeProjectile",
@@ -16472,7 +16456,7 @@
         },
         "InitialDamageType": {
             "field": "m_iInitialDamageType",
-            "type": 6
+            "type": 4
         },
         "DamagePositioningEntityName01": {
             "field": "m_szDamagePositioningEntityName01",
@@ -16505,7 +16489,7 @@
         },
         "SurfaceType": {
             "field": "m_iSurfaceType",
-            "type": 6
+            "type": 4
         },
         "Parent": {
             "field": "CBaseModelEntity",
@@ -17793,11 +17777,11 @@
         },
         "TravelDistancePhase": {
             "field": "m_travelDistancePhase",
-            "type": 6
+            "type": 4
         },
         "HostageEscortCount": {
             "field": "m_hostageEscortCount",
-            "type": 6
+            "type": 4
         },
         "HostageEscortCountTimestamp": {
             "field": "m_hostageEscortCountTimestamp",
@@ -17905,7 +17889,7 @@
         },
         "ApproachPointCount": {
             "field": "m_approachPointCount",
-            "type": 6
+            "type": 4
         },
         "ApproachPointViewPosition": {
             "field": "m_approachPointViewPosition",
@@ -18002,7 +17986,7 @@
         },
         "VisibleEnemyParts": {
             "field": "m_visibleEnemyParts",
-            "type": 6
+            "type": 4
         },
         "LastEnemyPosition": {
             "field": "m_lastEnemyPosition",
@@ -18120,15 +18104,15 @@
         },
         "EnemyQueueIndex": {
             "field": "m_enemyQueueIndex",
-            "type": 6
+            "type": 4
         },
         "EnemyQueueCount": {
             "field": "m_enemyQueueCount",
-            "type": 6
+            "type": 4
         },
         "EnemyQueueAttendIndex": {
             "field": "m_enemyQueueAttendIndex",
-            "type": 6
+            "type": 4
         },
         "IsStuck": {
             "field": "m_isStuck",
@@ -19233,7 +19217,7 @@
         },
         "EconGlovesChanged": {
             "field": "m_nEconGlovesChanged",
-            "type": 6
+            "type": 4
         },
         "DeathEyeAngles": {
             "field": "m_qDeathEyeAngles",
@@ -19561,7 +19545,7 @@
         },
         "PendingTeamNum": {
             "field": "m_iPendingTeamNum",
-            "type": 6
+            "type": 4
         },
         "ForceTeamTime": {
             "field": "m_flForceTeamTime",
@@ -19634,10 +19618,6 @@
         },
         "CompetitiveWins": {
             "field": "m_iCompetitiveWins",
-            "type": 2
-        },
-        "CompetitiveRankType": {
-            "field": "m_iCompetitiveRankType",
             "type": 2
         },
         "CompetitiveRankingPredicted_Win": {
@@ -21321,7 +21301,7 @@
         },
         "MatchEndCount": {
             "field": "m_nMatchEndCount",
-            "type": 6
+            "type": 4
         },
         "TTeamIntroVariant": {
             "field": "m_nTTeamIntroVariant",
@@ -21397,7 +21377,7 @@
         },
         "RoundEndCount": {
             "field": "m_nRoundEndCount",
-            "type": 6
+            "type": 4
         },
         "RoundStartRoundNumber": {
             "field": "m_iRoundStartRoundNumber",
@@ -21405,7 +21385,7 @@
         },
         "RoundStartCount": {
             "field": "m_nRoundStartCount",
-            "type": 6
+            "type": 4
         },
         "LastPerfSampleTime": {
             "field": "m_flLastPerfSampleTime",
@@ -23723,12 +23703,8 @@
         },
         "ConeAxis": {
             "field": "m_ConeAxis",
-            "type": 31,
+            "type": 29,
             "size": 3
-        },
-        "ConeCutoff": {
-            "field": "m_ConeCutoff",
-            "type": 2
         }
     },
     "CAnimUserDifference": {
@@ -23784,7 +23760,7 @@
         },
         "Index": {
             "field": "m_index",
-            "type": 6
+            "type": 4
         }
     },
     "CFuseSymbolTable": {
@@ -23930,19 +23906,19 @@
         },
         "ReservedUint8": {
             "field": "m_nReservedUint8",
-            "type": 6
+            "type": 4
         },
         "ExtraPressureIterations": {
             "field": "m_nExtraPressureIterations",
-            "type": 6
+            "type": 4
         },
         "ExtraGoalIterations": {
             "field": "m_nExtraGoalIterations",
-            "type": 6
+            "type": 4
         },
         "ExtraIterations": {
             "field": "m_nExtraIterations",
-            "type": 6
+            "type": 4
         },
         "DynNodeVertexSet": {
             "field": "m_DynNodeVertexSet",
@@ -24342,7 +24318,7 @@
         "struct": true,
         "Edge": {
             "field": "m_nEdge",
-            "type": 6
+            "type": 4
         }
     },
     "CParticleFunctionInitializer": {
@@ -24430,7 +24406,7 @@
         },
         "NumInfluences": {
             "field": "m_numInfluences",
-            "type": 6
+            "type": 4
         }
     },
     "EventSimulate_t": {
@@ -24741,22 +24717,6 @@
     },
     "VPhysXConstraintParams_t": {
         "struct": true,
-        "Type": {
-            "field": "m_nType",
-            "type": 2
-        },
-        "TranslateMotion": {
-            "field": "m_nTranslateMotion",
-            "type": 2
-        },
-        "RotateMotion": {
-            "field": "m_nRotateMotion",
-            "type": 2
-        },
-        "Flags": {
-            "field": "m_nFlags",
-            "type": 2
-        },
         "Anchor": {
             "field": "m_anchor",
             "type": 42,
@@ -25871,11 +25831,11 @@
         "struct": false,
         "SrcStateIndex": {
             "field": "m_srcStateIndex",
-            "type": 6
+            "type": 4
         },
         "DestStateIndex": {
             "field": "m_destStateIndex",
-            "type": 6
+            "type": 4
         }
     },
     "FootPinningPoseOpFixedData_t": {
@@ -27262,7 +27222,7 @@
         "struct": true,
         "SemanticName": {
             "field": "m_pSemanticName",
-            "type": 35,
+            "type": 33,
             "size": 32
         },
         "SemanticIndex": {
@@ -27942,7 +27902,7 @@
         "struct": false,
         "TransmitStateOwnedCounter": {
             "field": "m_nTransmitStateOwnedCounter",
-            "type": 6
+            "type": 4
         }
     },
     "BaseSceneObjectOverride_t": {
@@ -28928,7 +28888,7 @@
         },
         "Influences": {
             "field": "m_nInfluences",
-            "type": 6
+            "type": 4
         },
         "IgnoreRotation": {
             "field": "m_bIgnoreRotation",
@@ -29648,7 +29608,7 @@
         "struct": true,
         "Edge": {
             "field": "m_nEdge",
-            "type": 6
+            "type": 4
         }
     },
     "TraceSettings_t": {
@@ -31093,11 +31053,7 @@
         }
     },
     "AmmoIndex_t": {
-        "struct": true,
-        "Value": {
-            "field": "m_Value",
-            "type": 2
-        }
+        "struct": true
     },
     "CAnimEventDefinition": {
         "struct": false,
@@ -31122,7 +31078,7 @@
         "struct": false,
         "Value": {
             "field": "m_value",
-            "type": 6
+            "type": 4
         }
     },
     "CSmartPropVariable_String": {
@@ -31941,18 +31897,6 @@
             "field": "m_nGameFlags",
             "type": 6
         },
-        "MinVelocityIterations": {
-            "field": "m_nMinVelocityIterations",
-            "type": 2
-        },
-        "MinPositionIterations": {
-            "field": "m_nMinPositionIterations",
-            "type": 2
-        },
-        "MassPriority": {
-            "field": "m_nMassPriority",
-            "type": 2
-        },
         "Enabled": {
             "field": "m_bEnabled",
             "type": 10
@@ -32638,11 +32582,11 @@
         },
         "ChartPackIterations": {
             "field": "m_nChartPackIterations",
-            "type": 6
+            "type": 4
         },
         "VradQuality": {
             "field": "m_nVradQuality",
-            "type": 6
+            "type": 4
         }
     },
     "CExampleSchemaVData_PolymorphicBase": {
@@ -33371,15 +33315,15 @@
         "struct": false,
         "RenderFX": {
             "field": "m_nRenderFX",
-            "type": 6
+            "type": 4
         },
         "RenderMode": {
             "field": "m_nRenderMode",
-            "type": 6
+            "type": 4
         },
         "Alpha": {
             "field": "m_nAlpha",
-            "type": 6
+            "type": 4
         },
         "DesyncOffset": {
             "field": "m_nDesyncOffset",
@@ -33888,7 +33832,7 @@
         },
         "ShapeType": {
             "field": "m_nShapeType",
-            "type": 6
+            "type": 4
         },
         "TranslationOnly": {
             "field": "m_bTranslationOnly",
@@ -34622,19 +34566,19 @@
         "struct": true,
         "Next": {
             "field": "m_nNext",
-            "type": 6
+            "type": 4
         },
         "Twin": {
             "field": "m_nTwin",
-            "type": 6
+            "type": 4
         },
         "Origin": {
             "field": "m_nOrigin",
-            "type": 6
+            "type": 4
         },
         "Face": {
             "field": "m_nFace",
-            "type": 6
+            "type": 4
         }
     },
     "CSmartPropAttributeDistributionMode": {
@@ -35470,7 +35414,7 @@
         },
         "VisClusterMemberCount": {
             "field": "m_nVisClusterMemberCount",
-            "type": 6
+            "type": 4
         },
         "HasTransform": {
             "field": "m_bHasTransform",
@@ -35486,7 +35430,7 @@
         },
         "LODGroupMask": {
             "field": "m_nLODGroupMask",
-            "type": 6
+            "type": 4
         },
         "TintColor": {
             "field": "m_vTintColor",
@@ -35953,11 +35897,11 @@
         },
         "Effect": {
             "field": "effect",
-            "type": 6
+            "type": 4
         },
         "Channel": {
             "field": "channel",
-            "type": 6
+            "type": 4
         },
         "X": {
             "field": "x",
@@ -36304,7 +36248,7 @@
         "struct": false,
         "DefaultValue": {
             "field": "m_defaultValue",
-            "type": 6
+            "type": 4
         },
         "EnumOptions": {
             "field": "m_enumOptions",
@@ -36495,7 +36439,7 @@
         },
         "NumComponents": {
             "field": "m_nNumComponents",
-            "type": 6
+            "type": 4
         },
         "VarType": {
             "field": "m_eVarType",
@@ -37921,7 +37865,7 @@
         "struct": false,
         "SubCode": {
             "field": "m_subCode",
-            "type": 35,
+            "type": 33,
             "size": 8
         }
     },
