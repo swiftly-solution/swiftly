@@ -225,6 +225,7 @@ public:
     SDKBaseClass CBaseEntity_GetVData();
     void CBaseEntity_Teleport(Vector value, QAngle angle);
     void CBaseEntity_EmitSound(std::string sound_name, float pitch, float volume);
+    void CBaseEntity_CollisionRulesChanged();
     SDKBaseClass CGameSceneNode_GetSkeletonInstance();
     SDKBaseClass CPlayerPawnComponent_GetPawn();
 

@@ -13,6 +13,7 @@ std::map<std::string, std::vector<std::string>> classFuncs = {
             "GetVData",
             "Teleport",
             "EmitSound",
+            "CollisionRulesChanged"
         }
     },
     {
@@ -91,6 +92,7 @@ void SetupLuaClasses(LuaPlugin* plugin, lua_State* state)
         cls.addFunction("GetVData", &SDKBaseClass::CBaseEntity_GetVData);
         cls.addFunction("Teleport", &SDKBaseClass::CBaseEntity_Teleport);
         cls.addFunction("EmitSound", &SDKBaseClass::CBaseEntity_EmitSound);
+        cls.addFunction("CollisionRulesChanged", &SDKBaseClass::CBaseEntity_CollisionRulesChanged);
         cls.addFunction("GetSkeletonInstance", &SDKBaseClass::CGameSceneNode_GetSkeletonInstance);
         cls.addFunction("GetPawn", &SDKBaseClass::CPlayerPawnComponent_GetPawn);
         cls.addFunction("__index", &SDKBaseClass::GetProp);

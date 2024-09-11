@@ -64,6 +64,11 @@ SDKBaseClass SDKBaseClass::CBaseEntity_GetVData() {
     return SDKBaseClass(((CBaseEntity*)this->GetPtr())->GetVData(), "CEntitySubclassVDataBase");
 }
 
+void SDKBaseClass::CBaseEntity_CollisionRulesChanged()
+{
+    ((CBaseEntity*)this->GetPtr())->CollisionRulesChanged();
+}
+
 void SDKBaseClass::CBaseEntity_Teleport(Vector value, QAngle angle) {
     ((CBaseEntity*)this->GetPtr())->Teleport(&value, &angle, nullptr);
 }
