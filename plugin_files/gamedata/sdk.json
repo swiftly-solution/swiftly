@@ -1664,6 +1664,18 @@
         "MeshGroupMask": {
             "field": "m_MeshGroupMask",
             "type": 7
+        },
+        "IdealMotionType": {
+            "field": "m_nIdealMotionType",
+            "type": 0
+        },
+        "ForceLOD": {
+            "field": "m_nForceLOD",
+            "type": 0
+        },
+        "ClothUpdateFlags": {
+            "field": "m_nClothUpdateFlags",
+            "type": 0
         }
     },
     "CBaseGrenade": {
@@ -4753,6 +4765,10 @@
     },
     "CRagdollManager": {
         "struct": false,
+        "CurrentMaxRagdollCount": {
+            "field": "m_iCurrentMaxRagdollCount",
+            "type": 0
+        },
         "MaxRagdollCount": {
             "field": "m_iMaxRagdollCount",
             "type": 2
@@ -19620,6 +19636,10 @@
             "field": "m_iCompetitiveWins",
             "type": 2
         },
+        "CompetitiveRankType": {
+            "field": "m_iCompetitiveRankType",
+            "type": 0
+        },
         "CompetitiveRankingPredicted_Win": {
             "field": "m_iCompetitiveRankingPredicted_Win",
             "type": 2
@@ -23705,6 +23725,10 @@
             "field": "m_ConeAxis",
             "type": 29,
             "size": 3
+        },
+        "ConeCutoff": {
+            "field": "m_ConeCutoff",
+            "type": 0
         }
     },
     "CAnimUserDifference": {
@@ -24717,6 +24741,22 @@
     },
     "VPhysXConstraintParams_t": {
         "struct": true,
+        "Type": {
+            "field": "m_nType",
+            "type": 0
+        },
+        "TranslateMotion": {
+            "field": "m_nTranslateMotion",
+            "type": 0
+        },
+        "RotateMotion": {
+            "field": "m_nRotateMotion",
+            "type": 0
+        },
+        "Flags": {
+            "field": "m_nFlags",
+            "type": 0
+        },
         "Anchor": {
             "field": "m_anchor",
             "type": 42,
@@ -31053,7 +31093,11 @@
         }
     },
     "AmmoIndex_t": {
-        "struct": true
+        "struct": true,
+        "Value": {
+            "field": "m_Value",
+            "type": 0
+        }
     },
     "CAnimEventDefinition": {
         "struct": false,
@@ -31896,6 +31940,18 @@
         "GameFlags": {
             "field": "m_nGameFlags",
             "type": 6
+        },
+        "MinVelocityIterations": {
+            "field": "m_nMinVelocityIterations",
+            "type": 0
+        },
+        "MinPositionIterations": {
+            "field": "m_nMinPositionIterations",
+            "type": 0
+        },
+        "MassPriority": {
+            "field": "m_nMassPriority",
+            "type": 0
         },
         "Enabled": {
             "field": "m_bEnabled",
