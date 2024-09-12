@@ -429,11 +429,9 @@ void SwiftlyPluginManagerInfo(CPlayerSlot slot, CCommandContext context, std::st
     if (plugin->GetKind() == PluginKind_t::Lua)
     {
         LuaPlugin* plg = (LuaPlugin*)plugin;
+        int64_t memoryUsage = (int64_t(lua_gc(plg->GetState(), LUA_GCCOUNT, 0)) * 1024) + int64_t(lua_gc(plg->GetState(), LUA_GCCOUNTB, 0));
 
-        auto collectgarbage = luabridge::getGlobal(plg->GetState(), "collectgarbage");
-        auto countResult = collectgarbage(std::string("count"));
-
-        PrintToClientOrConsole(slot, "Plugin Info", "Memory Usage: %.4fMB\n", countResult.cast<double>() / 1024);
+        PrintToClientOrConsole(slot, "Plugin Info", "Memory Usage: %.4fMB\n", double(memoryUsage) / 1024.0f / 1024.0f);
     }
 }
 
@@ -693,9 +691,9 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
         pluginsTable.add(std::string(" ") + (plugin->GetKind() == PluginKind_t::Lua ? "Lua" : "None") + " ");
         if (plugin->GetKind() == PluginKind_t::Lua && plugin->GetPluginState() == PluginState_t::Started)
         {
-            auto collectgarbage = luabridge::getGlobal(((LuaPlugin*)plugin)->GetState(), "collectgarbage");
-            auto countResult = collectgarbage(std::string("count"));
-            pluginsTable.add(string_format(" %.4f MB ", (countResult.cast<double>() / 1024)));
+            lua_State* state = ((LuaPlugin*)plugin)->GetState();
+            int64_t memoryUsage = (int64_t(lua_gc(state, LUA_GCCOUNT, 0)) * 1024) + int64_t(lua_gc(state, LUA_GCCOUNTB, 0));
+            pluginsTable.add(string_format(" %.4f MB ", (double(memoryUsage) / 1024.0f / 1024.0f)));
         }
         else
             pluginsTable.add(" - ");

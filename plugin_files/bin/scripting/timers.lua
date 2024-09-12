@@ -6,6 +6,8 @@ local timeoutsTbl = {}
 local nextTickFunctions = {}
 
 local gameTickEvent = nil
+local table_remove = table.remove
+local table_insert = table.insert
 
 local gameTickCall = function()
     timerstblsize = #timeoutsTbl;
@@ -31,7 +33,7 @@ local gameTickCall = function()
     end
 
     for i = #timeoutsRemoveTbl, 1, -1 do
-        table.remove(timeoutsTbl, timeoutsRemoveTbl[i])
+        table_remove(timeoutsTbl, timeoutsRemoveTbl[i])
     end
 
     timeoutsRemoveTbl = {}
@@ -47,7 +49,7 @@ function SetTimeout(delay, callback)
 
     if not gameTickEvent then gameTickEvent = AddEventHandler("OnGameTick", gameTickCall) end
 
-    table.insert(timeoutsTbl, { call = GetTime() + delay, cb = callback })
+    table_insert(timeoutsTbl, { call = GetTime() + delay, cb = callback })
 end
 
 local timerIds = 50
@@ -100,5 +102,5 @@ function NextTick(callback)
 
     if not gameTickEvent then gameTickEvent = AddEventHandler("OnGameTick", gameTickCall) end
 
-    table.insert(nextTickFunctions, callback)
+    table_insert(nextTickFunctions, callback)
 end

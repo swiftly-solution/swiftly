@@ -1,17 +1,19 @@
-
 local eventHandlers = {}
+local msgpack_unpack = msgpack.unpack
+local msgpack_pack = msgpack.pack
+local table_unpack = table.unpack
 
 AddGlobalEvents(function(event, eventSource, eventName, eventData)
     if not eventHandlers[eventName] then return EventResult.Continue end
     if not eventHandlers[eventName].handlers then return EventResult.Continue end
 
-    local data = msgpack.unpack(eventData)
+    local data = msgpack_unpack(eventData)
     if not data then return end
     if type(data) ~= "table" then return end
 
     for idx,handle in next,eventHandlers[eventName].handlers,nil do
         if type(handle) == "function" then
-            local result = (handle(event, table.unpack(data)) or EventResult.Continue)
+            local result = (handle(event, table_unpack(data)) or EventResult.Continue)
             if result ~= EventResult.Continue then return result end
         end
     end
@@ -43,8 +45,8 @@ function RemoveEventHandler(eventData)
 end
 
 function TriggerEvent(eventName, ...)
-    local encodedData = msgpack.pack({...})
+    local encodedData = msgpack_pack({...})
 
-    local eventResult, eventData, _ = table.unpack(TriggerEventInternal(eventName, encodedData))
+    local eventResult, eventData, _ = table_unpack(TriggerEventInternal(eventName, encodedData))
     return eventResult, eventData
 end

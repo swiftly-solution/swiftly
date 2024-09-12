@@ -1,4 +1,6 @@
 local httpRequestsQueue = {}
+local json_encode = json.encode
+local json_decode = json.decode
 
 function PerformHTTPRequest(url, callback, method, data, headers, files)
     local sendData = {
@@ -9,7 +11,7 @@ function PerformHTTPRequest(url, callback, method, data, headers, files)
         files = files or {}
     }
 
-    local httpRequestID = http:PerformHTTP(json.encode(sendData))
+    local httpRequestID = http:PerformHTTP(json_encode(sendData))
 
     if httpRequestID ~= "00000000-0000-0000-0000-000000000000" then
         httpRequestsQueue[httpRequestID] = callback
@@ -20,7 +22,7 @@ end
 
 AddEventHandler("OnHTTPActionPerformed", function(event, status, body, headers, err, httpRequestID)
     if not httpRequestsQueue[httpRequestID] then return EventResult.Continue end
-    headers = json.decode(headers)
+    headers = json_decode(headers)
 
     httpRequestsQueue[httpRequestID](status, body, headers, err)
     httpRequestsQueue[httpRequestID] = nil

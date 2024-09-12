@@ -1,3 +1,5 @@
+local msgpack_pack = msgpack.pack
+
 function AddHook(mem, args_list, return_type)
     if type(args_list) ~= "string" then
         print("AddHook: args_list must be a string.")
@@ -28,9 +30,7 @@ function AddPreHookListener(hookHandle, callback)
         return
     end
 
-    return AddEventHandler("hook:Pre:"..hookHandle.hookId, function(event)
-        return callback(event)
-    end)
+    return AddEventHandler("hook:Pre:"..hookHandle.hookId, callback)
 end
 
 function AddPostHookListener(hookHandle, callback)
@@ -44,9 +44,7 @@ function AddPostHookListener(hookHandle, callback)
         return
     end
 
-    return AddEventHandler("hook:Post:"..hookHandle.hookId, function(event)
-        return callback(event)
-    end)
+    return AddEventHandler("hook:Post:"..hookHandle.hookId, callback)
 end
 
 function RemoveHookListener(hookListener)
@@ -74,5 +72,5 @@ function CallHook(hookHandle, ...)
         return
     end
 
-    return hooks:Call(hookHandle.hookId, msgpack.pack({...}))
+    return hooks:Call(hookHandle.hookId, msgpack_pack({...}))
 end
