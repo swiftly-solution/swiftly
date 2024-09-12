@@ -209,7 +209,7 @@ public:
     SDKBaseClass(void* ptr, std::string className);
     SDKBaseClass(std::string ptr, std::string className);
 
-    luabridge::LuaRef AccessSDKLua(std::string fieldName, lua_State* state);
+    luabridge::LuaRef AccessSDKLua(std::string fieldName, uint64_t path, lua_State* state);
     void UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, lua_State* state);
 
     int CBasePlayerController_EntityIndex();
@@ -684,6 +684,8 @@ class PluginMisc
 public:
     void Initialize();
     void Destroy();
+
+    void CheckMovingGround(double frametime);
 };
 
 //////////////////////////////////////////////////////////////

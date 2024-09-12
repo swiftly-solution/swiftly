@@ -27,8 +27,12 @@ inline constexpr uint64_t hash_64_fnv1a_const(const char* const str, const uint6
 namespace sch
 {
     int32_t FindChainOffset(const char* className);
+    
     int32_t GetOffset(const char* className, const char* memberName);
+    int32_t GetOffset(uint64_t path);
+    
     bool IsNetworked(const char* className, const char* memberName);
+    bool IsNetworked(uint64_t path);
 };
 
 #define SCHEMA_FIELD_OFFSET(type, varName, extra_offset)                                                                                                          \

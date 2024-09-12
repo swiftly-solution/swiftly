@@ -7,16 +7,13 @@
 #include "../common.h"
 #include "../utils/utils.h"
 
-#include <unordered_map>
-#include <unordered_set>
+#include <map>
 
 extern CSchemaSystem* g_pSchemaSystem2;
 typedef void (*StateChanged)(void*, CBaseEntity*, int, int, int);
 
-std::unordered_set<uint32_t> invalidClasses;
-std::unordered_set<uint32_t> populatedClass;
-std::unordered_map<uint64_t, int32_t> offsetsCache;
-std::unordered_map<uint64_t, bool> networkedCache;
+std::map<uint64_t, int32_t> offsetsCache;
+std::map<uint64_t, bool> networkedCache;
 
 static bool IsFieldNetworked(SchemaClassFieldData_t& field)
 {
@@ -33,13 +30,9 @@ void PopulateClassData(const char* className, uint32_t classOffset)
     CSchemaSystemTypeScope* pType = g_pSchemaSystem2->FindTypeScopeForModule(MODULE_PREFIX "server" MODULE_EXT);
     if(!pType) return;
 
-    populatedClass.insert(classOffset);
     auto classData = pType->FindDeclaredClass(className);
 
-    if(!classData) {
-        invalidClasses.insert(classOffset);
-        return;
-    }
+    if(!classData) return;
 
     short fieldsSize = classData->m_nFieldCount;
     SchemaClassFieldData_t* pFields = classData->m_pFields;
@@ -60,25 +53,27 @@ int32_t sch::FindChainOffset(const char* className)
 int32_t sch::GetOffset(const char* className, const char* memberName)
 {
     uint32_t classOffset = hash_32_fnv1a_const(className);
-    if(invalidClasses.find(classOffset) != invalidClasses.end()) return 0;
-    if(populatedClass.find(classOffset) == populatedClass.end()) PopulateClassData(className, classOffset);
-
     uint64_t fullOffset = ((uint64_t) classOffset) << 32 | hash_32_fnv1a_const(memberName);
 
-    if(offsetsCache.find(fullOffset) == offsetsCache.end()) return 0;
     return offsetsCache[fullOffset];
+}
+
+int32_t sch::GetOffset(uint64_t path)
+{
+    return offsetsCache[path];
 }
 
 bool sch::IsNetworked(const char* className, const char* memberName)
 {
     uint32_t classOffset = hash_32_fnv1a_const(className);
-    if(invalidClasses.find(classOffset) != invalidClasses.end()) return false;
-    if(populatedClass.find(classOffset) == populatedClass.end()) PopulateClassData(className, classOffset);
-
     uint64_t fullOffset = ((uint64_t) classOffset) << 32 | hash_32_fnv1a_const(memberName);
 
-    if(networkedCache.find(fullOffset) == networkedCache.end()) return false;
     return networkedCache[fullOffset];
+}
+
+bool sch::IsNetworked(uint64_t path)
+{
+    return networkedCache[path];
 }
 
 void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset, bool isStruct)

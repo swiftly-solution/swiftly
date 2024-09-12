@@ -228,8 +228,7 @@ void LuaPlugin::RegisterEventHandler(void* functionPtr)
 
 void LuaPlugin::RegisterEventHandling(std::string eventName)
 {
-    if (this->eventHandlers.find(eventName) == this->eventHandlers.end())
-        this->eventHandlers.insert({ eventName, true });
+    if(this->eventHandlers.find(eventName) == this->eventHandlers.end()) this->eventHandlers.insert(eventName);
 }
 
 EventResult LuaPlugin::PluginTriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event)

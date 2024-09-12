@@ -30,9 +30,11 @@ std::string string_format(const std::string &format, Args... args)
         return "";
 
     size_t size = static_cast<size_t>(size_s);
-    std::unique_ptr<char[]> buf(new char[size]);
-    snprintf(buf.get(), size, format.c_str(), args...);
-    return std::string(buf.get(), buf.get() + size - 1); // We don't want the '\0' inside
+    char* buf = new char[size];
+    snprintf(buf, size, format.c_str(), args...);
+    std::string out = std::string(buf, buf + size - 1); // We don't want the '\0' inside
+    delete buf;
+    return out;
 }
 
 extern std::map<std::string, std::string> terminalColors;

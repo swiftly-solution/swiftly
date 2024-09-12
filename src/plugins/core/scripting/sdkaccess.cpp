@@ -8,6 +8,41 @@
 
 std::string FetchPluginName(lua_State* state);
 
+std::map<std::string, bool> BlockedCS2GuidelinesFields = {
+    {"m_bIsValveDS", true},
+    {"m_bIsQuestEligible", true},
+    {"m_iEntityLevel", true},
+    {"m_iItemIDHigh", true},
+    {"m_iItemIDLow", true},
+    {"m_iAccountID", true},
+    {"m_iEntityQuality", true},
+    {"m_bInitialized", true},
+    {"m_szCustomName", true},
+    {"m_iAttributeDefinitionIndex", true},
+    {"m_iRawValue32", true},
+    {"m_iRawInitialValue32", true},
+    {"m_flValue", true},
+    {"m_flInitialValue", true},
+    {"m_bSetBonus", true},
+    {"m_nRefundableCurrency", true},
+    {"m_OriginalOwnerXuidLow", true},
+    {"m_OriginalOwnerXuidHigh", true},
+    {"m_nFallbackPaintKit", true},
+    {"m_nFallbackSeed", true},
+    {"m_flFallbackWear", true},
+    {"m_nFallbackStatTrak", true},
+    {"m_iCompetitiveWins", true},
+    {"m_iCompetitiveRanking", true},
+    {"m_iCompetitiveRankType", true},
+    {"m_iCompetitiveRankingPredicted_Win", true},
+    {"m_iCompetitiveRankingPredicted_Loss", true},
+    {"m_iCompetitiveRankingPredicted_Tie", true},
+    {"m_nActiveCoinRank", true},
+    {"m_nMusicID", true},
+};
+
+bool followCS2Guidelines = true;
+
 int SDKBaseClass::CBasePlayerController_EntityIndex() {
     return ((CBasePlayerController*)this->GetPtr())->GetEntityIndex().Get();
 }
@@ -132,10 +167,17 @@ bool SDKBaseClass::IsValid()
     return (this->m_ptr != nullptr);
 }
 
-luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, lua_State* state)
+luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t path, lua_State* state)
 {
-    REGISTER_CALLSTACK(FetchPluginName(state), string_format("SDK Get: %s::%s(ptr=%p)", this->m_className.c_str(), fieldName.c_str(), m_ptr));
-    std::string path = this->m_className + "." + fieldName;
+    if (followCS2Guidelines && BlockedCS2GuidelinesFields.find(fieldName) != BlockedCS2GuidelinesFields.end())
+    {
+        PRINTF("Getting or setting %s::%s is not permitted due to CS2 Server Guidelines violation.\nTo get or set this value, switch to false the \"core.FollowCS2ServerGuidelines\" field.\nNote: Using non-compliant field values can result in a GSLT ban.\nNote: We are not providing any kind of support for people which are using these fields.\n", this->m_className.c_str(), fieldName.c_str());
+        return luabridge::LuaRef(state);
+    }
+
+    if(!m_ptr) {
+        REGISTER_CALLSTACK(FetchPluginName(state), string_format("SDK Get: %s::%s(ptr=%p)", this->m_className.c_str(), fieldName.c_str(), m_ptr));
+    }
     if (!g_sdk->ExistsField(path)) return luabridge::LuaRef(state);
 
     std::string field = g_sdk->GetFieldName(path);
@@ -535,8 +577,16 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, lua_State* s
 
 void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, lua_State* state)
 {
-    REGISTER_CALLSTACK(FetchPluginName(state), string_format("SDK Set: %s::%s(ptr=%p)", this->m_className.c_str(), fieldName.c_str(), m_ptr));
-    std::string path = this->m_className + "." + fieldName;
+    if (followCS2Guidelines && BlockedCS2GuidelinesFields.find(fieldName) != BlockedCS2GuidelinesFields.end())
+    {
+        PRINTF("Getting or setting %s::%s is not permitted due to CS2 Server Guidelines violation.\nTo get or set this value, switch to false the \"core.FollowCS2ServerGuidelines\" field.\nNote: Using non-compliant field values can result in a GSLT ban.\nNote: We are not providing any kind of support for people which are using these fields.\n", this->m_className.c_str(), fieldName.c_str());
+        return;
+    }
+
+    if(!m_ptr) {
+        REGISTER_CALLSTACK(FetchPluginName(state), string_format("SDK Set: %s::%s(ptr=%p)", this->m_className.c_str(), fieldName.c_str(), m_ptr));
+    }
+    uint64 path = ((uint64) hash_32_fnv1a_const(this->m_className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
     if (!g_sdk->ExistsField(path)) return;
 
     std::string field = g_sdk->GetFieldName(path);

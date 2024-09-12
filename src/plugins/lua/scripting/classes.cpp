@@ -1,69 +1,34 @@
 #include "core.h"
 #include "../../../sdk/sdkaccess.h"
 
-std::map<std::string, std::vector<std::string>> classFuncs = {
-    {
-        "CBaseEntity",
-        {
-            "EHandle",
-            "Spawn",
-            "Despawn",
-            "AcceptInput",
-            "GetClassname",
-            "GetVData",
-            "Teleport",
-            "EmitSound",
-            "CollisionRulesChanged"
-        }
-    },
-    {
-        "CBaseModelEntity",
-        {
-            "SetModel",
-            "SetSolidType",
-            "SetBodygroup",
-        }
-    },
-    {
-        "CAttributeList",
-        {
-            "SetOrAddAttributeValueByName"
-        }
-    },
-    {
-        "CBasePlayerController",
-        {
-            "EntityIndex"
-        }
-    },
-    {
-        "CGameSceneNode",
-        {
-            "GetSkeletonInstance"
-        }
-    },
-    {
-        "CPlayerPawnComponent",
-        {
-            "GetPawn"
-        }
-    }
+std::set<uint64_t> classFuncs = {
+    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EHandle")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Spawn")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Despawn")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("AcceptInput")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetClassname")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetVData")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Teleport")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EmitSound")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("CollisionRulesChanged")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetModel")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetSolidType")),
+    ((uint64_t) hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetBodygroup")),
+    ((uint64_t) hash_32_fnv1a_const("CAttributeList") << 32 | hash_32_fnv1a_const("SetOrAddAttributeValueByName")),
+    ((uint64_t) hash_32_fnv1a_const("CBasePlayerController") << 32 | hash_32_fnv1a_const("EntityIndex")),
+    ((uint64_t) hash_32_fnv1a_const("CGameSceneNode") << 32 | hash_32_fnv1a_const("GetSkeletonInstance")),
+    ((uint64_t) hash_32_fnv1a_const("CPlayerPawnComponent") << 32 | hash_32_fnv1a_const("GetPawn")),
 };
 
 int SDKBaseClass::GetProp(lua_State* state)
 {
     std::string field_name = luabridge::LuaRef::fromStack(state, 2).cast<std::string>();
 
-    if (field_name == "IsValid" || field_name == "ToPtr") return luabridge::detail::CFunc::indexMetaMethod(state);
+    uint64_t path = ((uint64_t) hash_32_fnv1a_const(this->m_className.c_str()) << 32 | hash_32_fnv1a_const(field_name.c_str()));
 
-    if (classFuncs.find(this->m_className) == classFuncs.end())
-        this->AccessSDKLua(field_name, state).push();
-    else
-        if (std::find(classFuncs[this->m_className].begin(), classFuncs[this->m_className].end(), field_name) != classFuncs[this->m_className].end())
-            return luabridge::detail::CFunc::indexMetaMethod(state);
-        else
-            this->AccessSDKLua(field_name, state).push();
-
+    if (field_name == "IsValid" || field_name == "ToPtr" || classFuncs.find(path) != classFuncs.end()) return luabridge::detail::CFunc::indexMetaMethod(state);
+    
+    this->AccessSDKLua(field_name, path, state).push();
     return 1;
 }
 

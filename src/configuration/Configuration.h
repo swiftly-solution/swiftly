@@ -47,7 +47,7 @@ T Configuration::FetchValue(std::string key)
     if (this->config.find(key) == this->config.end())
         return 0;
 
-    return std::any_cast<T>(this->config.at(key));
+    return std::any_cast<T>(this->config[key]);
 }
 
 void WritePluginFile(std::string path, rapidjson::Value& val);

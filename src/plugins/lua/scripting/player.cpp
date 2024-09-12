@@ -10,19 +10,20 @@ PluginPlayer* scripting_GetPlayer(int playerid, lua_State* state)
         return nullptr;
 
     PluginPlayer* pl = nullptr;
-    if (playerObjectCache.find(playerid) != playerObjectCache.end())
+    bool found = (playerObjectCache.find(playerid) != playerObjectCache.end());
+    if (found)
     {
-        auto pair = playerObjectCache.at(playerid);
+        auto pair = playerObjectCache[playerid];
         if (pair.first != player->GetSteamID())
         {
             delete pair.second;
-            playerObjectCache.erase(playerid);
+            found = false;
         }
         else
             pl = pair.second;
     }
 
-    if (playerObjectCache.find(playerid) == playerObjectCache.end())
+    if (!found)
     {
         uint64_t steamid = player->GetSteamID();
 

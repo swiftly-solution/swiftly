@@ -48,18 +48,10 @@ public:
     void AddAllPlayers()
     {
         m_Recipients.RemoveAll();
-        if (!GameEntitySystem())
-        {
-            return;
-        }
+
         for (int i = 0; i <= engine->GetServerGlobals()->maxClients; i++)
-        {
-            CBaseEntity* ent = static_cast<CBaseEntity*>(GameEntitySystem()->GetEntityInstance(CEntityIndex(i)));
-            if (ent)
-            {
+            if(engine->IsClientFullyAuthenticated(i))
                 AddRecipient(i);
-            }
-        }
     }
 
     void RemoveRecipient(CPlayerSlot slot)

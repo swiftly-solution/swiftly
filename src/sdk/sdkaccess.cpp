@@ -5,6 +5,9 @@
 #include <rapidjson/error/en.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
+#include "schema.h"
+
+void PopulateClassData(const char* className, uint32_t classOffset);
 
 SDKAccess::SDKAccess() {}
 SDKAccess::~SDKAccess() {
@@ -30,6 +33,10 @@ void SDKAccess::LoadSDKData()
     {
         std::string className = it->name.GetString();
         this->classnames.push_back(className);
+
+        uint32_t classOffset = hash_32_fnv1a_const(className.c_str());
+        PopulateClassData(className.c_str(), classOffset);
+
         if (it->value.IsObject()) {
             for (auto it2 = it->value.MemberBegin(); it2 != it->value.MemberEnd(); ++it2)
             {
@@ -42,10 +49,12 @@ void SDKAccess::LoadSDKData()
                     if (!it2->value.HasMember("field") || !it2->value.HasMember("type")) continue;
                     if (!it2->value["field"].IsString() || !it2->value["type"].IsUint()) continue;
 
-                    this->fieldNames.insert({ className + "." + fieldName, it2->value["field"].GetString() });
-                    this->fieldTypes.insert({ className + "." + fieldName, (SDKFieldType_t)it2->value["type"].GetUint() });
-                    if (it2->value.HasMember("size") && it2->value["size"].IsUint()) this->fieldSizes.insert({ className + "." + fieldName, it2->value["size"].GetUint() });
-                    if (it2->value.HasMember("classname") && it2->value["classname"].IsString()) this->fieldClass.insert({ className + "." + fieldName, it2->value["classname"].GetString() });
+                    uint64_t key = ((uint64_t) hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
+
+                    this->fieldNames.insert({ key, it2->value["field"].GetString() });
+                    this->fieldTypes.insert({ key, (SDKFieldType_t)it2->value["type"].GetUint() });
+                    if (it2->value.HasMember("size") && it2->value["size"].IsUint()) this->fieldSizes.insert({ key, it2->value["size"].GetUint() });
+                    if (it2->value.HasMember("classname") && it2->value["classname"].IsString()) this->fieldClass.insert({ key, it2->value["classname"].GetString() });
                 }
             }
         }
@@ -57,32 +66,32 @@ std::vector<std::string> SDKAccess::GetClassnames()
     return this->classnames;
 }
 
-std::string SDKAccess::GetFieldName(std::string path)
+std::string SDKAccess::GetFieldName(uint64_t path)
 {
-    return this->fieldNames.at(path);
+    return this->fieldNames[path];
 }
 
-SDKFieldType_t SDKAccess::GetFieldType(std::string path)
+SDKFieldType_t SDKAccess::GetFieldType(uint64_t path)
 {
-    return this->fieldTypes.at(path);
+    return this->fieldTypes[path];
 }
 
-std::string SDKAccess::GetFieldClass(std::string path)
+std::string SDKAccess::GetFieldClass(uint64_t path)
 {
-    return this->fieldClass.at(path);
+    return this->fieldClass[path];
 }
 
-uint32_t SDKAccess::GetFieldSize(std::string path)
+uint32_t SDKAccess::GetFieldSize(uint64_t path)
 {
-    return this->fieldSizes.at(path);
+    return this->fieldSizes[path];
 }
 
 bool SDKAccess::GetClassStructState(std::string className)
 {
-    return this->structStates.at(className);
+    return this->structStates[className];
 }
 
-bool SDKAccess::ExistsField(std::string path)
+bool SDKAccess::ExistsField(uint64_t path)
 {
     return (this->fieldNames.find(path) != this->fieldNames.end());
 }

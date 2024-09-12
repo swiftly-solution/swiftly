@@ -6,7 +6,6 @@
 
 PluginPlayer::PluginPlayer(std::string m_plugin_name, int m_playerId)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::PluginPlayer(m_plugin_name=\"%s\", m_playerId=%d)", m_plugin_name.c_str(), m_playerId));
 
     this->plugin_name = m_plugin_name;
     this->playerId = m_playerId;
@@ -88,7 +87,6 @@ SDKBaseClass PluginPlayer::GetCCSPlayerPawnBase()
 
 void PluginPlayer::Drop(int reason)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::Drop(reason=%d)", reason));
 
     if (reason < 0 || reason > 69)
         return;
@@ -105,7 +103,6 @@ void PluginPlayer::Drop(int reason)
 
 std::string PluginPlayer::GetChatTag()
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetChatTag()"));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -116,7 +113,6 @@ std::string PluginPlayer::GetChatTag()
 
 void PluginPlayer::SetChatTag(std::string tag)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetChatTag(tag=\"%s\")", tag.c_str()));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -127,7 +123,6 @@ void PluginPlayer::SetChatTag(std::string tag)
 
 void PluginPlayer::SetChatTagColor(std::string color)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetChatTagColor(tag=\"%s\")", color.c_str()));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -138,7 +133,6 @@ void PluginPlayer::SetChatTagColor(std::string color)
 
 void PluginPlayer::SetNameColor(std::string color)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetNameColor(tag=\"%s\")", color.c_str()));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -149,7 +143,6 @@ void PluginPlayer::SetNameColor(std::string color)
 
 void PluginPlayer::SetChatColor(std::string color)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetChatColor(tag=\"%s\")", color.c_str()));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -160,7 +153,6 @@ void PluginPlayer::SetChatColor(std::string color)
 
 std::string PluginPlayer::GetChatTagColor()
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetChatTagColor()"));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -170,7 +162,6 @@ std::string PluginPlayer::GetChatTagColor()
 
 std::string PluginPlayer::GetNameColor()
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetNameColor()"));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -180,7 +171,6 @@ std::string PluginPlayer::GetNameColor()
 
 std::string PluginPlayer::GetChatColor()
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetChatColor()"));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -190,7 +180,6 @@ std::string PluginPlayer::GetChatColor()
 
 void PluginPlayer::ExecuteCommand(std::string cmd)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::ExecuteCommand(cmd=\"%s\")", cmd.c_str()));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -217,7 +206,6 @@ void PluginPlayer::ExecuteCommand(std::string cmd)
 
 std::string PluginPlayer::GetConvarValue(std::string name)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetConvarValue(name=\"%s\")", name.c_str()));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -231,7 +219,6 @@ std::string PluginPlayer::GetConvarValue(std::string name)
 
 void PluginPlayer::SetConvar(std::string name, std::string value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetConvar(name=\"%s\", value=\"%s\")", name.c_str(), value.c_str()));
 
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
@@ -242,7 +229,6 @@ void PluginPlayer::SetConvar(std::string name, std::string value)
 
 std::string PluginPlayer::GetIPAddress()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::GetIPAddress()");
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return "";
@@ -252,7 +238,6 @@ std::string PluginPlayer::GetIPAddress()
 
 int PluginPlayer::GetSlot()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::GetSlot()");
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return -1;
@@ -262,7 +247,6 @@ int PluginPlayer::GetSlot()
 
 uint64_t PluginPlayer::GetSteamID()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::GetSteamID()");
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return 0;
@@ -272,7 +256,6 @@ uint64_t PluginPlayer::GetSteamID()
 
 std::string PluginPlayer::GetSteamID2()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::GetSteamID2()");
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return "STEAM_0:0:000000000";
@@ -290,7 +273,6 @@ std::string PluginPlayer::GetSteamID2()
 
 void PluginPlayer::HideMenu()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::HideMenu()");
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return;
@@ -303,7 +285,6 @@ void PluginPlayer::HideMenu()
 
 bool PluginPlayer::IsFakeClient()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::IsFakeClient()");
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return false;
@@ -313,7 +294,6 @@ bool PluginPlayer::IsFakeClient()
 
 bool PluginPlayer::IsFirstSpawn()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::IsFirstSpawn()");
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return false;
@@ -323,7 +303,6 @@ bool PluginPlayer::IsFirstSpawn()
 
 void PluginPlayer::Kill()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::Kill()");
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return;
@@ -337,7 +316,6 @@ void PluginPlayer::Kill()
 
 void PluginPlayer::Respawn()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::Respawn()");
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return;
@@ -351,7 +329,6 @@ void PluginPlayer::Respawn()
 
 void PluginPlayer::SendMsg(int dest, std::string msg)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SendMsg(dest=%d)", dest));
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return;
@@ -361,7 +338,6 @@ void PluginPlayer::SendMsg(int dest, std::string msg)
 
 void PluginPlayer::ShowMenu(std::string menuid)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::ShowMenu(menuid=\"%s\")", menuid.c_str()));
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return;
@@ -374,7 +350,6 @@ void PluginPlayer::ShowMenu(std::string menuid)
 
 void PluginPlayer::SwitchTeam(int team)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SwitchTeam(team=%d)", team));
     if (team < 0 || team > 3)
         return;
 
@@ -387,7 +362,6 @@ void PluginPlayer::SwitchTeam(int team)
 
 void PluginPlayer::ChangeTeam(int team)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::ChangeTeam(team=%d)", team));
     if (team < 0 || team > 3)
         return;
 
@@ -400,7 +374,6 @@ void PluginPlayer::ChangeTeam(int team)
 
 std::any PluginPlayer::GetVarValue(std::string key)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetVarValue(key=\"%s\")", key.c_str()));
     Player* player = g_playerManager->GetPlayer(playerId);
     if (!player)
         return nullptr;
@@ -410,13 +383,11 @@ std::any PluginPlayer::GetVarValue(std::string key)
 
 luabridge::LuaRef PluginPlayer::GetVarValueLua(std::string key, lua_State* L)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetVarValueLua(key=\"%s\")", key.c_str()));
     return LuaSerializeData(GetVarValue(key), L);
 }
 
 void PluginPlayer::SetVarValue(std::string key, std::any value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetVarValue(key=\"%s\", value)", key.c_str()));
     Player* player = g_playerManager->GetPlayer(playerId);
     if (!player)
         return;
@@ -426,7 +397,6 @@ void PluginPlayer::SetVarValue(std::string key, std::any value)
 
 void PluginPlayer::SetVarValueLua(std::string key, luabridge::LuaRef value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetVarValueLua(key=\"%s\")", key.c_str()));
     std::any returnValue;
 
     if (value.isBool())
@@ -455,7 +425,6 @@ void PluginPlayer::SetVarValueLua(std::string key, luabridge::LuaRef value)
 
 void PluginPlayer::SetListening(int playerid, int listenOverride)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetListening(playerid=%d, listenOverride=%d)", playerid, listenOverride));
     Player* player = g_playerManager->GetPlayer(playerid);
     if (!player)
         return;
@@ -469,7 +438,6 @@ void PluginPlayer::SetListening(int playerid, int listenOverride)
 
 int PluginPlayer::GetListening(int playerid)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::GetListening(playerid=%d)", playerid));
     Player* player = g_playerManager->GetPlayer(playerid);
     if (!player)
         return ListenOverride::Listen_Default;
@@ -483,7 +451,6 @@ int PluginPlayer::GetListening(int playerid)
 
 void PluginPlayer::SetVoiceFlags(int flags)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetVoiceFlags(flags=%d)", flags));
     Player* self = g_playerManager->GetPlayer(this->playerId);
     if (!self)
         return;
@@ -493,7 +460,6 @@ void PluginPlayer::SetVoiceFlags(int flags)
 
 int PluginPlayer::GetVoiceFlags()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::GetVoiceFlags()");
     Player* self = g_playerManager->GetPlayer(this->playerId);
     if (!self)
         return 0;
@@ -503,7 +469,6 @@ int PluginPlayer::GetVoiceFlags()
 
 uint32_t PluginPlayer::GetConnectedTime()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::GetConnectedTime()");
     Player* self = g_playerManager->GetPlayer(this->playerId);
     if (!self)
         return 0;
@@ -513,13 +478,11 @@ uint32_t PluginPlayer::GetConnectedTime()
 
 PluginWeaponManager PluginPlayer::GetWeaponManager()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::GetWeaponManager()");
     return PluginWeaponManager(playerId);
 }
 
 void PluginPlayer::SetBunnyhop(bool state)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPlayer::SetBunnyhop(state=%d)", state));
     Player* self = g_playerManager->GetPlayer(this->playerId);
     if (!self)
         return;
@@ -530,7 +493,6 @@ void PluginPlayer::SetBunnyhop(bool state)
 
 bool PluginPlayer::GetBunnyhop()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginPlayer::GetBunnyhop()");
     Player* self = g_playerManager->GetPlayer(this->playerId);
     if (!self)
         return false;

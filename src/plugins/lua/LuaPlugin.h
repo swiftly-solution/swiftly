@@ -20,6 +20,7 @@ extern "C"
 #include "../Plugin.h"
 
 #include <any>
+#include <set>
 
 class PluginEvent;
 
@@ -28,7 +29,7 @@ class LuaPlugin : public Plugin
 private:
     lua_State* state;
     luabridge::LuaRef* globalEventHandler;
-    std::map<std::string, bool> eventHandlers;
+    std::set<std::string> eventHandlers;
 
 public:
     LuaPlugin(std::string plugin_name, PluginKind_t kind) : Plugin(plugin_name, kind) {}

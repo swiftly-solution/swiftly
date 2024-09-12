@@ -80,10 +80,10 @@ enum SDKFieldType_t : uint32_t
 
 class SDKAccess {
 private:
-    std::map<std::string, std::string> fieldNames;
-    std::map<std::string, SDKFieldType_t> fieldTypes;
-    std::map<std::string, uint64_t> fieldSizes;
-    std::map<std::string, std::string> fieldClass;
+    std::map<uint64_t, std::string> fieldNames;
+    std::map<uint64_t, SDKFieldType_t> fieldTypes;
+    std::map<uint64_t, uint64_t> fieldSizes;
+    std::map<uint64_t, std::string> fieldClass;
     std::map<std::string, bool> structStates;
     std::vector<std::string> classnames;
 
@@ -94,13 +94,13 @@ public:
     void LoadSDKData();
 
     std::vector<std::string> GetClassnames();
-    std::string GetFieldName(std::string path);
-    SDKFieldType_t GetFieldType(std::string path);
-    std::string GetFieldClass(std::string path);
-    uint32_t GetFieldSize(std::string path);
+    std::string GetFieldName(uint64_t path);
+    SDKFieldType_t GetFieldType(uint64_t path);
+    std::string GetFieldClass(uint64_t path);
+    uint32_t GetFieldSize(uint64_t path);
     bool GetClassStructState(std::string className);
 
-    bool ExistsField(std::string path);
+    bool ExistsField(uint64_t path);
 };
 
 extern SDKAccess* g_sdk;

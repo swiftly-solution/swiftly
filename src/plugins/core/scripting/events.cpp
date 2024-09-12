@@ -19,29 +19,21 @@ PluginEvent::~PluginEvent()
 
 std::string PluginEvent::GetInvokingPlugin()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginEvent::GetInvokingPlugin()");
-
     return this->plugin_name;
 }
 
 bool PluginEvent::IsGameEvent()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginEvent::IsGameEvent()");
-
     return (this->gameEvent != nullptr);
 }
 
 bool PluginEvent::IsHook()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginEvent::IsHook()");
-
     return (this->hookPtr != nullptr);
 }
 
 void PluginEvent::SetReturn(std::any value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginEvent::SetReturn()");
-
     this->returnValue = value;
 }
 
@@ -75,15 +67,11 @@ void PluginEvent::SetReturnLua(luabridge::LuaRef value)
 
 std::any PluginEvent::GetReturnValue()
 {
-    REGISTER_CALLSTACK(this->plugin_name, "PluginEvent::GetReturnValue()");
-
     return this->returnValue;
 }
 
 void PluginEvent::SetBool(std::string key, bool value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetBool(key=\"%s\", value=%d)", key.c_str(), value));
-
     if (!this->gameEvent)
         return;
 
@@ -92,8 +80,6 @@ void PluginEvent::SetBool(std::string key, bool value)
 
 void PluginEvent::SetInt(std::string key, int value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetInt(key=\"%s\", value=%d)", key.c_str(), value));
-
     if (!this->gameEvent)
         return;
 
@@ -102,8 +88,6 @@ void PluginEvent::SetInt(std::string key, int value)
 
 void PluginEvent::SetUint64(std::string key, uint64_t value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetUint64(key=\"%s\", value=%llu)", key.c_str(), value));
-
     if (!this->gameEvent)
         return;
 
@@ -112,8 +96,6 @@ void PluginEvent::SetUint64(std::string key, uint64_t value)
 
 void PluginEvent::SetFloat(std::string key, float value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetFloat(key=\"%s\", value=%f)", key.c_str(), value));
-
     if (!this->gameEvent)
         return;
 
@@ -122,8 +104,6 @@ void PluginEvent::SetFloat(std::string key, float value)
 
 void PluginEvent::SetString(std::string key, std::string value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetString(key=\"%s\", value=\"%s\")", key.c_str(), value.c_str()));
-
     if (!this->gameEvent)
         return;
 
@@ -132,8 +112,6 @@ void PluginEvent::SetString(std::string key, std::string value)
 
 bool PluginEvent::GetBool(std::string key)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetBool(key=\"%s\")", key.c_str()));
-
     if (!this->gameEvent)
         return false;
 
@@ -144,8 +122,6 @@ bool PluginEvent::GetBool(std::string key)
 
 int PluginEvent::GetInt(std::string key)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetInt(key=\"%s\")", key.c_str()));
-
     if (!this->gameEvent)
         return -1;
 
@@ -156,8 +132,6 @@ int PluginEvent::GetInt(std::string key)
 
 uint64_t PluginEvent::GetUint64(std::string key)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetUint64(key=\"%s\")", key.c_str()));
-
     if (!this->gameEvent)
         return 0;
 
@@ -168,8 +142,6 @@ uint64_t PluginEvent::GetUint64(std::string key)
 
 float PluginEvent::GetFloat(std::string key)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetFloat(key=\"%s\")", key.c_str()));
-
     if (!this->gameEvent)
         return 0.0f;
 
@@ -180,8 +152,6 @@ float PluginEvent::GetFloat(std::string key)
 
 std::string PluginEvent::GetString(std::string key)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetString(key=\"%s\")", key.c_str()));
-
     if (!this->gameEvent)
         return "";
 
@@ -192,8 +162,6 @@ std::string PluginEvent::GetString(std::string key)
 
 void PluginEvent::FireEvent(bool dontBroadcast)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::FireEvent(dontBroadcast=%d)", dontBroadcast));
-
     if (!this->gameEvent)
         return;
 
@@ -202,8 +170,6 @@ void PluginEvent::FireEvent(bool dontBroadcast)
 
 void PluginEvent::FireEventToClient(int slot)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::FireEventToClient(slot=%d)", slot));
-
     if (!this->gameEvent)
         return;
 
@@ -213,8 +179,6 @@ void PluginEvent::FireEventToClient(int slot)
 
 bool PluginEvent::GetHookBool(int index)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookBool(index=%d)", index));
-
     if (!this->hookPtr)
         return false;
 
@@ -223,8 +187,6 @@ bool PluginEvent::GetHookBool(int index)
 
 int PluginEvent::GetHookInt(int index)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookInt(index=%d)", index));
-
     if (!this->hookPtr)
         return 0;
 
@@ -233,8 +195,6 @@ int PluginEvent::GetHookInt(int index)
 
 uint64_t PluginEvent::GetHookUint64(int index)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookUint64(index=%d)", index));
-
     if (!this->hookPtr)
         return 0;
 
@@ -243,8 +203,6 @@ uint64_t PluginEvent::GetHookUint64(int index)
 
 float PluginEvent::GetHookFloat(int index)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookFloat(index=%d)", index));
-
     if (!this->hookPtr)
         return 0.0f;
 
@@ -253,8 +211,6 @@ float PluginEvent::GetHookFloat(int index)
 
 std::string PluginEvent::GetHookString(int index)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookString(index=%d)", index));
-
     if (!this->hookPtr)
         return "";
 
@@ -263,8 +219,6 @@ std::string PluginEvent::GetHookString(int index)
 
 PluginMemory PluginEvent::GetHookPointer(int index)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookPointer(index=%d)", index));
-
     PluginMemory mem;
     if (!this->hookPtr)
         return mem;
@@ -275,8 +229,6 @@ PluginMemory PluginEvent::GetHookPointer(int index)
 
 double PluginEvent::GetHookDouble(int index)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookDouble(index=%d)", index));
-
     if (!this->hookPtr)
         return 0.0f;
 
@@ -285,8 +237,6 @@ double PluginEvent::GetHookDouble(int index)
 
 uint32_t PluginEvent::GetHookUInt(int index)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookUInt(index=%d)", index));
-
     if (!this->hookPtr)
         return 0;
 
@@ -295,8 +245,6 @@ uint32_t PluginEvent::GetHookUInt(int index)
 
 int64_t PluginEvent::GetHookInt64(int index)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookInt64(index=%d)", index));
-
     if (!this->hookPtr)
         return 0;
 
@@ -305,8 +253,6 @@ int64_t PluginEvent::GetHookInt64(int index)
 
 void PluginEvent::SetHookBool(int index, bool value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetHookBool(index=%d, value=%d)", index, value));
-
     if (!this->hookPtr)
         return;
 
@@ -315,8 +261,6 @@ void PluginEvent::SetHookBool(int index, bool value)
 
 void PluginEvent::SetHookInt(int index, int value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetHookInt(index=%d, value=%d)", index, value));
-
     if (!this->hookPtr)
         return;
 
@@ -325,8 +269,6 @@ void PluginEvent::SetHookInt(int index, int value)
 
 void PluginEvent::SetHookUint64(int index, uint64_t value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetHookUint64(index=%d, value=%llu)", index, value));
-
     if (!this->hookPtr)
         return;
 
@@ -335,8 +277,6 @@ void PluginEvent::SetHookUint64(int index, uint64_t value)
 
 void PluginEvent::SetHookFloat(int index, float value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetHookFloat(index=%d, value=%f)", index, value));
-
     if (!this->hookPtr)
         return;
 
@@ -345,8 +285,6 @@ void PluginEvent::SetHookFloat(int index, float value)
 
 void PluginEvent::SetHookString(int index, std::string value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetHookString(index=%d, value=\"%s\")", index, value.c_str()));
-
     if (!this->hookPtr)
         return;
 
@@ -355,8 +293,6 @@ void PluginEvent::SetHookString(int index, std::string value)
 
 void PluginEvent::SetHookPointer(int index, PluginMemory value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetHookPointer(index=%d, value=%p)", index, value.GetRawPtr()));
-
     if (!this->hookPtr)
         return;
 
@@ -365,8 +301,6 @@ void PluginEvent::SetHookPointer(int index, PluginMemory value)
 
 void PluginEvent::SetHookDouble(int index, double value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetHookDouble(index=%d, value=%f)", index, value));
-
     if (!this->hookPtr)
         return;
 
@@ -375,8 +309,6 @@ void PluginEvent::SetHookDouble(int index, double value)
 
 void PluginEvent::SetHookUInt(int index, uint32_t value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetHookUInt(index=%d, value=%u)", index, value));
-
     if (!this->hookPtr)
         return;
 
@@ -385,8 +317,6 @@ void PluginEvent::SetHookUInt(int index, uint32_t value)
 
 void PluginEvent::SetHookInt64(int index, int64_t value)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::SetHookInt64(index=%d, value=%lld)", index, value));
-
     if (!this->hookPtr)
         return;
 
@@ -474,8 +404,6 @@ void PluginEvent::SetHookReturnLua(luabridge::LuaRef value)
 
 std::any PluginEvent::GetHookReturn()
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginEvent::GetHookReturn()"));
-
     if (!this->hookPtr)
         return nullptr;
 

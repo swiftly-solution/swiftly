@@ -38,5 +38,9 @@
     "CServerSideClient_OnConVarQuery": {
         "windows": 39,
         "linux": 41
+    },
+    "CCSPlayer_MovementServices_CheckMovingGround": {
+        "windows": 32,
+        "linux": 33
     }
 }

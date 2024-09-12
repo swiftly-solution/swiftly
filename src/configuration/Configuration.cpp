@@ -3,6 +3,8 @@
 
 #include "../utils/utils.h"
 
+extern bool followCS2Guidelines;
+
 bool ConfigurationError(std::string configuration_file, std::string error)
 {
     if (!g_SMAPI)
@@ -448,6 +450,8 @@ bool Configuration::LoadConfiguration()
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "CS2ServerGuidelines", "https://blog.counter-strike.net/index.php/server_guidelines/");
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "FollowCS2ServerGuidelines", true);
+
+    followCS2Guidelines = g_Config->FetchValue<bool>("core.FollowCS2ServerGuidelines");
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "console_filtering", true);
 

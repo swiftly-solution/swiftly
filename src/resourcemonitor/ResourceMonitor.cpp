@@ -1,5 +1,4 @@
 #include "ResourceMonitor.h"
-#include <thread>
 #include "../common.h"
 
 void ResourceMonitor::Enable()

@@ -13,7 +13,7 @@
 #include <dyncall/dyncall.h>
 
 typedef std::pair<std::string, std::string> OutputPair_t;
-std::map<OutputPair_t, std::vector<std::string>> outputHooksList;
+std::map<uint64_t, std::vector<std::string>> outputHooksList;
 void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pActivator, CEntityInstance* pCaller, const CVariant* const value, float flDelay);
 FuncHook<decltype(Hook_FireOutputInternal)> TFireOutputInternal(Hook_FireOutputInternal, "FireOutputInternal");
 
@@ -236,7 +236,7 @@ std::string PluginHooks::AddEntityOutputHook(std::string classname, std::string 
 {
     REGISTER_CALLSTACK(this->m_plugin_name, string_format("PluginHooks::AddEntityOutputHook(classname=\"%s\",output=\"%s\")", classname.c_str(), output.c_str()));
     std::string id = get_uuid();
-    auto outputKey = OutputPair_t(classname, output);
+    uint64_t outputKey = ((uint64_t) hash_32_fnv1a_const(classname.c_str()) << 32 | hash_32_fnv1a_const(output.c_str()));
 
     if (outputHooksList.find(outputKey) == outputHooksList.end())
         outputHooksList.insert({ outputKey, {} });
@@ -247,24 +247,24 @@ std::string PluginHooks::AddEntityOutputHook(std::string classname, std::string 
 
 void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pActivator, CEntityInstance* pCaller, const CVariant* const value, float flDelay)
 {
-    std::vector searchOutputs{ OutputPair_t("*", pThis->m_pDesc->m_pName), OutputPair_t("*", "*") };
+    std::vector searchOutputs{
+        ((uint64_t) hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const(pThis->m_pDesc->m_pName)),
+        ((uint64_t) hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const("*"))
+    };
 
     if (pCaller)
     {
-        searchOutputs.push_back(OutputPair_t(pCaller->GetClassname(), pThis->m_pDesc->m_pName));
-        searchOutputs.push_back(OutputPair_t(pCaller->GetClassname(), "*"));
+        searchOutputs.push_back(((uint64_t) hash_32_fnv1a_const(pCaller->GetClassname()) << 32 | hash_32_fnv1a_const(pThis->m_pDesc->m_pName)));
+        searchOutputs.push_back(((uint64_t) hash_32_fnv1a_const(pCaller->GetClassname()) << 32 | hash_32_fnv1a_const("*")));
     }
 
     std::vector<std::string> hookIds;
 
     if (pCaller)
-    {
-
         for (auto output : searchOutputs)
             if (outputHooksList.find(output) != outputHooksList.end())
                 for (auto hookid : outputHooksList.at(output))
                     hookIds.push_back(hookid);
-    }
 
     if (hookIds.size() > 0)
     {

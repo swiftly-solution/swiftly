@@ -76,7 +76,7 @@ void ConsoleFilter::LoadFilters()
         }
 
         this->filter.insert({ key, std::regex(it->value.GetString(), std::regex_constants::ECMAScript | std::regex_constants::optimize | std::regex_constants::nosubs) });
-        this->counter.insert(std::make_pair(key, 0));
+        this->counter.insert({ key, 0 });
     }
 }
 
@@ -94,8 +94,7 @@ bool ConsoleFilter::NeedFiltering(std::string message)
 
         if (std::regex_search(message, val))
         {
-            if (this->counter.find(key) != this->counter.end())
-                this->counter[key]++;
+            this->counter[key]++;
             return true;
         }
     }
