@@ -6,7 +6,10 @@ CommandsManager::CommandsManager() {}
 CommandsManager::~CommandsManager() {}
 
 static void commandsCallback(const CCommandContext &context, const CCommand &args);
-std::map<std::string, bool> conCommandCreated;
+std::set<std::string> conCommandCreated;
+
+std::set<std::string> commandPrefixes;
+std::set<std::string> silentCommandPrefixes;
 
 // @returns 1 - command is not silent
 // @returns 2 - command is silent
@@ -20,10 +23,11 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
     if (player == nullptr)
         return -1;
 
-    std::vector<std::string> commandPrefixes = explode(g_Config->FetchValue<std::string>("core.commandPrefixes"), " ");
-    std::vector<std::string> silentCommandPrefixes = explode(g_Config->FetchValue<std::string>("core.commandSilentPrefixes"), " ");
-    bool isCommand = (std::find(commandPrefixes.begin(), commandPrefixes.end(), std::string(1, text.at(0))) != commandPrefixes.end());
-    bool isSilentCommand = (std::find(silentCommandPrefixes.begin(), silentCommandPrefixes.end(), std::string(1, text.at(0))) != silentCommandPrefixes.end());
+    if(commandPrefixes.size() == 0) commandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandPrefixes"), " ");
+    if(silentCommandPrefixes.size() == 0) silentCommandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandSilentPrefixes"), " ");
+
+    bool isCommand = (commandPrefixes.find(std::string(1, text.at(0))) != commandPrefixes.end());
+    bool isSilentCommand = (silentCommandPrefixes.find(std::string(1, text.at(0))) != silentCommandPrefixes.end());
 
     if (isCommand || isSilentCommand)
     {
@@ -54,15 +58,13 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
 
 Command *CommandsManager::FetchCommand(std::string cmd)
 {
-    if (this->commands.find(cmd) == this->commands.end())
-        return nullptr;
+    if(this->commands.find(cmd) == this->commands.end()) return nullptr;
 
-    return this->commands.at(cmd);
+    return this->commands[cmd];
 }
 
 void CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, Command *command, bool registerRaw)
 {
-
     if (!registerRaw)
     {
         if (this->commands.find(cmd) != this->commands.end())
@@ -82,7 +84,7 @@ void CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, 
 
     if (conCommandCreated.find(cmd) == conCommandCreated.end())
     {
-        conCommandCreated.insert({cmd, true});
+        conCommandCreated.insert(cmd);
 
         ConCommandRefAbstract commandRef;
         new ConCommand(&commandRef, cmd.c_str(), commandsCallback, "Swiftly Command", (1 << 25) | (1 << 0) | (1 << 24));

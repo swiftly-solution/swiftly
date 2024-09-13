@@ -103,9 +103,9 @@ std::string Translations::FetchTranslation(std::string key, int playerid)
         if (this->m_translations.find(key) == this->m_translations.end())
             return key + "." + language;
 
-        std::string translation = this->m_translations.at(key)->FetchLanguage(language);
+        std::string translation = this->m_translations[key]->FetchLanguage(language);
         if (translation == "NO_TRANSLATION") {
-            translation = this->m_translations.at(key)->FetchLanguage(g_Config->FetchValue<std::string>("core.language"));
+            translation = this->m_translations[key]->FetchLanguage(g_Config->FetchValue<std::string>("core.language"));
             if(translation == "NO_TRANSLATION")
                 return key + "." + language;
             else
@@ -119,7 +119,7 @@ std::string Translations::FetchTranslation(std::string key, int playerid)
         if (this->m_translations.find(key) == this->m_translations.end())
             return key + "." + language;
 
-        std::string translation = this->m_translations.at(key)->FetchLanguage(language);
+        std::string translation = this->m_translations[key]->FetchLanguage(language);
         if (translation == "NO_TRANSLATION")
             return key + "." + language;
         else

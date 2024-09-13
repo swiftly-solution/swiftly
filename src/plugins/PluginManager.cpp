@@ -164,7 +164,7 @@ Plugin* PluginManager::FetchPlugin(std::string name)
     if (!PluginExists(name))
         return nullptr;
 
-    return pluginsMap.at(name);
+    return pluginsMap[name];
 }
 
 EventResult PluginManager::ExecuteEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event)

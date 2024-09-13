@@ -25,7 +25,7 @@ public:
         if (this->m_values.find(lang) == this->m_values.end())
             return "NO_TRANSLATION";
 
-        return this->m_values.at(lang);
+        return this->m_values[lang];
     }
 };
 

@@ -262,9 +262,8 @@ void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pAct
 
     if (pCaller)
         for (auto output : searchOutputs)
-            if (outputHooksList.find(output) != outputHooksList.end())
-                for (auto hookid : outputHooksList.at(output))
-                    hookIds.push_back(hookid);
+            for (auto hookid : outputHooksList[output])
+                hookIds.push_back(hookid);
 
     if (hookIds.size() > 0)
     {

@@ -92,7 +92,7 @@ std::string GetTerminalStringColor(std::string plugin_name)
 {
     auto hash = hash_64_fnv1a_const(plugin_name.c_str());
     uint64_t steps = (hash % terminalPrefixColors.size());
-    return terminalColors.at(terminalPrefixColors[steps]);
+    return terminalColors[terminalPrefixColors[steps]];
 }
 
 size_t UTIL_FormatArgs(char* buffer, size_t maxlength, const char* fmt, va_list params)
@@ -135,6 +135,23 @@ std::vector<std::string> explode(std::string s, std::string delimiter)
     }
 
     res.push_back(s.substr(pos_start));
+    return res;
+}
+
+std::set<std::string> explodeToSet(std::string str, std::string delimiter)
+{
+    size_t pos_start = 0, pos_end, delim_len = delimiter.length();
+    std::string token;
+    std::set<std::string> res;
+
+    while ((pos_end = str.find(delimiter, pos_start)) != std::string::npos)
+    {
+        token = str.substr(pos_start, pos_end - pos_start);
+        pos_start = pos_end + delim_len;
+        res.insert(token);
+    }
+
+    res.insert(str.substr(pos_start));
     return res;
 }
 

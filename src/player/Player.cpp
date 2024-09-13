@@ -574,7 +574,7 @@ std::any Player::GetInternalVar(std::string name)
     if (this->internalVars.find(name) == this->internalVars.end())
         return nullptr;
 
-    return this->internalVars.at(name);
+    return this->internalVars[name];
 }
 
 void Player::SetInternalVar(std::string name, std::any value)

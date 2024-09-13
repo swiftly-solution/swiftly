@@ -6,7 +6,7 @@ Log *Logger::FetchLogger(std::string key)
     if (this->m_Loggers.find(key) == this->m_Loggers.end())
         return nullptr;
 
-    return this->m_Loggers.at(key);
+    return this->m_Loggers[key];
 }
 
 void Logger::AddLogger(std::string key, bool plugin)
@@ -32,6 +32,6 @@ void Logger::RemoveLogger(std::string key)
     if (this->m_Loggers.find(key) == this->m_Loggers.end())
         return;
 
-    delete this->m_Loggers.at(key);
+    delete this->m_Loggers[key];
     this->m_Loggers.erase(key);
 }

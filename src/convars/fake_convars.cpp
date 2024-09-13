@@ -1,7 +1,8 @@
 #include "convars.h"
+#include <set>
 
 static void convarsCallback(const CCommandContext& context, const CCommand& args);
-std::map<std::string, bool> convarCreated;
+std::set<std::string> convarCreated;
 std::map<std::string, FakeConVar*> fakeConvars;
 
 bool FakeConvarExists(std::string name)
@@ -39,7 +40,7 @@ FakeConVar::FakeConVar(std::string name, EConVarType type, std::any defaultValue
 {
     if (convarCreated.find(name) == convarCreated.end())
     {
-        convarCreated.insert({ name, true });
+        convarCreated.insert(name);
 
         ConCommandRefAbstract convarRef;
         new ConCommand(&convarRef, name.c_str(), convarsCallback, "Swiftly ConVar", FCVAR_LINKED_CONCOMMAND | FCVAR_SPONLY | (prot ? FCVAR_PROTECTED : FCVAR_NONE));

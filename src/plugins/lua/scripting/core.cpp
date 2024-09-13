@@ -48,7 +48,7 @@ std::map<lua_State*, std::string> pluginNamesMap2 = {};
 
 std::string FetchPluginName(lua_State* state)
 {
-    return pluginNamesMap2.at(state);
+    return pluginNamesMap2[state];
 }
 
 void SetupLuaEnvironment(LuaPlugin* plugin, lua_State* state)
@@ -74,8 +74,10 @@ void SetupLuaEnvironment(LuaPlugin* plugin, lua_State* state)
                 TextTable tbl('-', '|', '+');
 
                 for (auto vec : data) {
-                    for (std::string str : vec)
+                    for (std::string str : vec) {
+                        PRINTF("%s\n", str.c_str());
                         tbl.add(" " + str + " ");
+                    }
 
                     tbl.endOfRow();
                 }

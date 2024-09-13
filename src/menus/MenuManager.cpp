@@ -43,8 +43,7 @@ void MenuManager::UnregisterMenu(std::string id)
             player->HideMenu();
     }
 
-    Menu *menu = this->menu_ids.at(id);
-    delete menu;
+    delete this->menu_ids[id];
     this->menu_ids.erase(id);
     scheduledForDelete.erase(id);
 }
@@ -53,8 +52,8 @@ Menu *MenuManager::FetchMenu(std::string menu_id)
 {
     if (this->menu_ids.find(menu_id) == this->menu_ids.end())
         return nullptr;
-
-    return this->menu_ids.at(menu_id);
+        
+    return this->menu_ids[menu_id];
 }
 
 void MenuManager::UnregisterPluginMenus(std::string plugin_name)

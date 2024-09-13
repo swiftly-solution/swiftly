@@ -67,10 +67,9 @@ bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
 
     std::string eventName = pEvent->GetName();
 
-    if (gameEventsRegister.find(eventName) != gameEventsRegister.end())
+    std::string prettyEventName = gameEventsRegister[eventName];
+    if (!prettyEventName.empty())
     {
-        std::string prettyEventName = gameEventsRegister.at(eventName);
-
         PluginEvent* event = new PluginEvent("core", pEvent, nullptr);
         EventResult result = g_pluginManager->ExecuteEvent("core", prettyEventName, encoders::msgpack::SerializeToString({}), event);
         delete event;
@@ -104,10 +103,9 @@ bool EventManager::OnPostFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
 
     std::string eventName = realGameEvent->GetName();
 
-    if (gameEventsRegister.find(eventName) != gameEventsRegister.end())
+    std::string prettyEventName = gameEventsRegister[eventName];
+    if (!prettyEventName.empty())
     {
-        std::string prettyEventName = gameEventsRegister.at(eventName);
-
         PluginEvent* event = new PluginEvent("core", realGameEvent, nullptr);
         EventResult result = g_pluginManager->ExecuteEvent("core", string_format("OnPost%s", prettyEventName.substr(2).c_str()), encoders::msgpack::SerializeToString({}), event);
         delete event;
