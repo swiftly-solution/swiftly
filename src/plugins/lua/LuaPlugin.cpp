@@ -281,8 +281,8 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state)
             return luabridge::LuaRef(state, std::string(std::any_cast<const char*>(value)));
         else if (value.type() == typeid(std::string)) {
             std::string val = std::any_cast<std::string>(value);
-            if (starts_with(val, "JSON<") && ends_with(val, ">")) {
-                std::string json = explode(explode(val, "<")[1], ">")[0];
+            if (starts_with(val, "JSON⇚") && ends_with(val, "⇛")) {
+                std::string json = explode(explode(val, "⇚")[1], "⇛")[0];
 
                 luabridge::LuaRef rapidJsonTable = luabridge::getGlobal(state, "json");
                 if (!rapidJsonTable["decode"].isFunction())

@@ -508,12 +508,12 @@ void LoadValue(const char* key, const char* keyname, rapidjson::Value& value, st
     else if (value.IsNull())
         g_Config->SetValue(k, nullptr);
     else if (value.IsObject()) {
-        g_Config->SetValue(k, string_format("JSON<%s>", JSONToString(value).c_str()));
+        g_Config->SetValue(k, string_format("JSON⇚%s⇛", JSONToString(value).c_str()));
         LoadConfigPart(k, value);
     }
     else if (value.IsArray())
     {
-        g_Config->SetValue(k, string_format("JSON<%s>", JSONToString(value).c_str()));
+        g_Config->SetValue(k, string_format("JSON⇚%s⇛", JSONToString(value).c_str()));
         g_Config->SetArraySize(k, value.Size());
         for (size_t i = 0; i < value.Size(); i++)
         {
