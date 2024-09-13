@@ -183,7 +183,9 @@ bool starts_with(std::string value, std::string starting)
 
 void PLUGIN_PRINT(std::string category, std::string str)
 {
-    g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]" + terminalColors.at("{DEFAULT}") + " " + str).c_str());
+    std::string final_string = string_format("%s %s[%s]%s %s", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str(), str.c_str());
+    fprintf(stdout, final_string.c_str());
+
     if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
         if (g_Logger && g_Logger->FetchLogger("core")) {
             str.pop_back();
@@ -195,13 +197,15 @@ void PLUGIN_PRINT(std::string category, std::string str)
 void PLUGIN_PRINTF(std::string category, std::string str, ...)
 {
     va_list ap;
-    char buffer[4096];
+    char buffer[8192];
 
     va_start(ap, str);
     UTIL_FormatArgs(buffer, sizeof(buffer), str.c_str(), ap);
     va_end(ap);
 
-    g_SMAPI->ConPrint((PREFIX " " + GetTerminalStringColor(category) + "[" + category + "]" + terminalColors.at("{DEFAULT}") + " " + std::string(buffer)).c_str());
+    std::string final_string = string_format("%s %s[%s]%s %s", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str(), buffer);
+    fprintf(stdout, final_string.c_str());
+
     if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
         if (g_Logger && g_Logger->FetchLogger("core")) {
             std::string buf = buffer;

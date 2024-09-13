@@ -37,7 +37,9 @@ int customPrint(lua_State* state)
     {
         if (str.size() == 0)
             continue;
-        g_SMAPI->ConPrintf("%s%s\e[39m\e[49m\n", prefix.c_str(), str.c_str());
+
+        std::string final_string = string_format("%s%s\e[39m\e[49m\n", prefix.c_str(), str.c_str());
+        fprintf(stdout, final_string.c_str());
     }
 
     return 0;
