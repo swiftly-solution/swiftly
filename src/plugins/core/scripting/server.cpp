@@ -17,10 +17,15 @@ std::string PluginServer::GetMap()
     return engine->GetServerGlobals()->mapname.ToCStr();
 }
 
+bool is_number(const std::string &s) {
+  return !s.empty() && std::all_of(s.begin(), s.end(), ::isdigit);
+}
+
 bool PluginServer::IsMapValid(std::string map)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginServer::IsMapValid(map=\"%s\")", map.c_str()));
-    return (engine->IsMapValid(map.c_str()) == 1);
+    
+    return (is_number(map) || (engine->IsMapValid(map.c_str()) == 1));
 }
 
 void PluginServer::ChangeMap(std::string map, bool workshop)
@@ -29,7 +34,7 @@ void PluginServer::ChangeMap(std::string map, bool workshop)
     if (!IsMapValid(map))
         return;
 
-    Execute(string_format("%s %s", workshop ? "host_workshop_map" : "map", map.c_str()));
+    Execute(string_format("%s %s", workshop ? "host_workshop_map" : "changelevel", map.c_str()));
 }
 
 uint16_t PluginServer::GetMaxPlayers()
