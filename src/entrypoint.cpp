@@ -36,6 +36,7 @@
 #include "voicemanager/VoiceManager.h"
 #include "usermessages/usermessages.h"
 #include "sdk/sdkaccess.h"
+#include "utils/plat.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -683,8 +684,15 @@ void CEntityListener::OnEntityParentChanged(CEntityInstance* pEntity, CEntityIns
 {
 }
 
-void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
+void EntityAllowHammerID(CEntityInstance* pEntity)
 {
+    Plat_WriteMemory((*(void ***)pEntity)[g_Offsets->GetOffset("GetHammerUniqueID")], (uint8_t*)"\xB0\x01", 2);
+}
+
+void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
+{   
+    ExecuteOnce(EntityAllowHammerID(pEntity));
+
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnEntityCreated", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), event);
     delete event;

@@ -75,7 +75,6 @@ void SetupLuaEnvironment(LuaPlugin* plugin, lua_State* state)
 
                 for (auto vec : data) {
                     for (std::string str : vec) {
-                        PRINTF("%s\n", str.c_str());
                         tbl.add(" " + str + " ");
                     }
 
