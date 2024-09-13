@@ -1,4 +1,5 @@
 #include "Database.h"
+#include "../files/Files.h"
 
 std::string Database::QueryEscape(const char* query)
 {
@@ -26,6 +27,13 @@ bool Database::Connect()
     my_bool my_true = true;
     mysql_options(this->connection, MYSQL_OPT_RECONNECT, &my_true);
 
+    unsigned int timeout = 60;
+    mysql_options(this->connection, MYSQL_OPT_CONNECT_TIMEOUT, &timeout);
+    mysql_options(this->connection, MYSQL_OPT_READ_TIMEOUT, &timeout);
+    mysql_options(this->connection, MYSQL_OPT_WRITE_TIMEOUT, &timeout);
+
+    mysql_set_character_set(this->connection, "utf8");
+
     if (mysql_real_connect(this->connection, this->m_hostname.c_str(), this->m_username.c_str(), this->m_password.c_str(), this->m_database.c_str(), this->m_port, nullptr, 0) == nullptr)
     {
         this->Close(true);
@@ -39,14 +47,15 @@ bool Database::Connect()
 
 static constexpr int MYSQL_JSON = 245;
 
-std::any ParseFieldType(enum_field_types type, const char* value)
+std::any ParseFieldType(enum_field_types type, const char* value, uint32_t length)
 {
     if (type == enum_field_types::MYSQL_TYPE_FLOAT || type == enum_field_types::MYSQL_TYPE_DOUBLE || type == enum_field_types::MYSQL_TYPE_DECIMAL)
         return atof(value);
     else if (type == enum_field_types::MYSQL_TYPE_SHORT || type == enum_field_types::MYSQL_TYPE_TINY || type == enum_field_types::MYSQL_TYPE_INT24 || type == enum_field_types::MYSQL_TYPE_LONG)
         return atoi(value);
-    else if (type == enum_field_types::MYSQL_TYPE_VARCHAR || type == enum_field_types::MYSQL_TYPE_VAR_STRING || type == enum_field_types::MYSQL_TYPE_BLOB || type == MYSQL_JSON || type == enum_field_types::MYSQL_TYPE_TIMESTAMP)
-        return std::string(value);
+    else if (type == enum_field_types::MYSQL_TYPE_VARCHAR || type == enum_field_types::MYSQL_TYPE_VAR_STRING || type == enum_field_types::MYSQL_TYPE_BLOB || type == MYSQL_JSON || type == enum_field_types::MYSQL_TYPE_TIMESTAMP) {
+        return std::string(value, length + 1);
+    }
     else if (type == enum_field_types::MYSQL_TYPE_LONGLONG)
         return strtoll(value, nullptr, 10);
     else
@@ -56,10 +65,10 @@ std::any ParseFieldType(enum_field_types type, const char* value)
     }
 }
 
-std::vector<std::map<const char*, std::any>> Database::Query(const char* query)
+std::vector<std::map<std::string, std::any>> Database::Query(const char* query)
 {
     std::lock_guard<std::mutex> lock(mtx);
-    std::vector<std::map<const char*, std::any>> values;
+    std::vector<std::map<std::string, std::any>> values;
 
     if (!this->connected)
         return {};
@@ -70,16 +79,16 @@ std::vector<std::map<const char*, std::any>> Database::Query(const char* query)
         return {};
     }
 
-    if (mysql_query(this->connection, query))
+    if (mysql_real_query(this->connection, query, strlen(query)))
     {
         this->error = mysql_error(this->connection);
         return {};
     }
 
-    MYSQL_RES* result = mysql_store_result(this->connection);
+    MYSQL_RES* result = mysql_use_result(this->connection);
     if (result == nullptr)
     {
-        std::map<const char*, std::any> value;
+        std::map<std::string, std::any> value;
 
         if (mysql_field_count(this->connection) == 0)
         {
@@ -101,10 +110,12 @@ std::vector<std::map<const char*, std::any>> Database::Query(const char* query)
         int num_fields = mysql_num_fields(result);
 
         while ((row = mysql_fetch_row(result))) {
-            std::map<const char*, std::any> value;
+            std::map<std::string, std::any> value;
+            unsigned long *lengths = mysql_fetch_lengths(result);
 
-            for (int i = 0; i < num_fields; i++)
-                value.insert({ fields[i].name, row[i] ? ParseFieldType(fields[i].type, row[i]) : "NULL" });
+            for (int i = 0; i < num_fields; i++) {
+                value.insert({ fields[i].name, row[i] ? ParseFieldType(fields[i].type, row[i], lengths[i]) : "NULL" });
+            }
 
             values.push_back(value);
         }

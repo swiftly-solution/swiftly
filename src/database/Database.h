@@ -44,7 +44,7 @@ public:
     bool HasError() { return this->error != nullptr; }
 
     std::string QueryEscape(const char* query);
-    std::vector<std::map<const char*, std::any>> Query(const char* query);
+    std::vector<std::map<std::string, std::any>> Query(const char* query);
 };
 
 #endif

@@ -23,7 +23,7 @@ struct DatabaseQueryQueue
 std::deque<DatabaseQueryQueue> queryQueue;
 bool dbThreadStarted = false;
 
-std::string QueryToJSON(const std::vector<std::map<const char*, std::any>>& data)
+std::string QueryToJSON(const std::vector<std::map<std::string, std::any>>& data)
 {
     rapidjson::Document document(rapidjson::kArrayType);
 
@@ -33,7 +33,7 @@ std::string QueryToJSON(const std::vector<std::map<const char*, std::any>>& data
 
         for (const auto& pair : map)
         {
-            const char* key = pair.first;
+            const char* key = pair.first.c_str();
             const std::any& value = pair.second;
 
             if (value.type() == typeid(const char*))
