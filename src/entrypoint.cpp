@@ -666,7 +666,17 @@ void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContex
                 } else filter.AddAllPlayers();
 
                 g_pGameEventSystem->PostEventAbstract(-1, false, &filter, pNetMsg, data, 0);
+                /*
+                for the god's sake, why on windows without memoverride it automatically collects this pointer and deletes it ????
+                they have some special shananigans over here
+                always remember to not delete it on windows because you'll stay again 4 hrs to debug it
+                
+                i'll use dreamberd next time to use "const const const" which will affect all users of windows globally for this
+                so that they don't need to debug it like i did
+                */
+                #ifndef _WIN32
                 delete data;
+                #endif
             }
             RETURN_META(MRES_SUPERCEDE);
         }

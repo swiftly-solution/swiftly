@@ -87,5 +87,8 @@ void ConvarQuery::QueryCvarClient(CPlayerSlot slot, std::string cvarName)
     CSingleRecipientFilter filter(slot.Get());
     g_pGameEventSystem->PostEventAbstract(-1, false, &filter, pMsg, msg, 0);
 
+    // the same message is available in entrypoint file (entrypoint.cpp) so no need to copy it again
+    #ifndef _WIN32
     delete msg;
+    #endif
 }
