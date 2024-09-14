@@ -148,6 +148,11 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
             dwMode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
             SetConsoleMode(hOut, dwMode);
         }
+
+        FILE* fp;
+
+        if(freopen_s(&fp, "CONOUT$", "w", stdout) == 0)
+            setvbuf(stdout, NULL, _IONBF, 0);
     }
 #endif
 
@@ -398,7 +403,7 @@ void Swiftly::UpdatePlayers()
     PERF_RECORD("UpdatePlayers", "core")
 
     // Credits to: https://github.com/Source2ZE/ServerListPlayersFix (Source2ZE Team)
-    if (!engine->GetServerGlobals())
+    if (!engine->GetServerGlobals() || !g_SteamAPI.SteamGameServer())
         return;
 
     for (int i = 0; i < engine->GetServerGlobals()->maxClients; i++)

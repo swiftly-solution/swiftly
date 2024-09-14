@@ -458,6 +458,12 @@ bool Configuration::LoadConfiguration()
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "language", "en");
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "use_player_language", true);
 
+#ifdef _WIN32
+    g_Config->SetValue("core.use_player_language", false);
+    PRINT("Client Language feature has been disabled due to an undefined behaviour which wasn't fully researched on Windows yet.\n");
+    PRINT("To use this feature, please use a Linux server.\n");
+#endif
+
     RegisterConfiguration(wasEdited,coreConfigFile, "core", "core", "menu.navigation_prefix", "➤");
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.use.name", "Vote.Cast.Yes");
