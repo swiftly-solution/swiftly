@@ -620,9 +620,9 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
     case StringToken:
         return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), CUtlStringToken(value.cast<uint32_t>()));
     case StringSymbolLarge:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), CUtlSymbolLarge(value.cast<std::string>().c_str()));
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), CUtlSymbolLarge(strdup(value.cast<std::string>().c_str())));
     case StringUtl:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), CUtlString(value.cast<std::string>().c_str()));
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), CUtlString(strdup(value.cast<std::string>().c_str())));
     case String:
         return WriteSchemaPtrValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), reinterpret_cast<byte*>(const_cast<char*>(value.cast<std::string>().c_str())), g_sdk->GetFieldSize(path));
     case EntityIndex:
@@ -649,8 +649,9 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
     case StringSymbolLargeArray: {
         auto val = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, this->m_className.c_str(), field.c_str());
         auto ret = value.cast<std::vector<std::string>>();
-        for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
+        for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++) {
             val[i] = CUtlSymbolLarge(ret[i].c_str());
+        }
 
         SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
