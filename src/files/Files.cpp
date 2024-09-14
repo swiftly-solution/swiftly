@@ -55,7 +55,9 @@ void Files::Delete(std::string path)
 void Files::Append(std::string path, std::string content, bool hasdate)
 {
     ChangePath();
-    std::filesystem::create_directories(Files::getBase(path));
+    
+    if(!Files::ExistsPath(Files::getBase(path)) && Files::getBase(path) != "") std::filesystem::create_directories(Files::getBase(path));
+
     time_t now = time(0);
     tm* ltm = localtime(&now);
 
@@ -78,7 +80,7 @@ void Files::Append(std::string path, std::string content, bool hasdate)
 void Files::Write(std::string path, std::string content, bool hasdate)
 {
     ChangePath();
-    std::filesystem::create_directories(Files::getBase(path));
+    if(!Files::ExistsPath(Files::getBase(path)) && Files::getBase(path) != "") std::filesystem::create_directories(Files::getBase(path));
     time_t now = time(0);
     tm* ltm = localtime(&now);
 
