@@ -137,9 +137,11 @@ private:
     dyno::Hook* hookPtr;
 
     std::any returnValue;
+    bool shouldFree = false;
 
 public:
     PluginEvent(std::string m_plugin_name, IGameEvent* m_gameEvent, dyno::Hook* m_hookPtr);
+    PluginEvent(std::string gameEventName, lua_State* state);
     ~PluginEvent();
 
     std::string GetInvokingPlugin();

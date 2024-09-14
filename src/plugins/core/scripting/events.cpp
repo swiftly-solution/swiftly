@@ -4,7 +4,10 @@
 
 typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
 
+std::string FetchPluginName(lua_State* state);
+
 extern std::map<dyno::Hook*, std::vector<Hook>> hooksList;
+extern std::map<std::string, std::string> gameEventsRegister;
 
 PluginEvent::PluginEvent(std::string m_plugin_name, IGameEvent* m_gameEvent, dyno::Hook* m_hookPtr)
 {
@@ -13,8 +16,23 @@ PluginEvent::PluginEvent(std::string m_plugin_name, IGameEvent* m_gameEvent, dyn
     this->hookPtr = m_hookPtr;
 }
 
+PluginEvent::PluginEvent(std::string gameEventName, lua_State* state)
+{
+    this->plugin_name = FetchPluginName(state);
+
+    for(auto it = gameEventsRegister.begin(); it != gameEventsRegister.end(); ++it)
+        if(it->second == gameEventName) {
+            this->gameEvent = g_gameEventManager->CreateEvent(it->first.c_str());
+            this->shouldFree = true;
+        }
+    
+    this->hookPtr = nullptr;
+}
+
 PluginEvent::~PluginEvent()
 {
+    if(this->shouldFree && this->gameEvent)
+        g_gameEventManager->FreeEvent(this->gameEvent);
 }
 
 std::string PluginEvent::GetInvokingPlugin()

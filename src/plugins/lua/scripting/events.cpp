@@ -53,6 +53,7 @@ void SetupLuaEvents(LuaPlugin* plugin, lua_State* state)
         .addFunction("TriggerEventInternal", TriggerEventInternal)
 
         .beginClass<PluginEvent>("Event")
+        .addConstructor<void(*)(std::string, lua_State*)>()
         .addFunction("GetInvokingPlugin", &PluginEvent::GetInvokingPlugin)
         .addFunction("IsGameEvent", &PluginEvent::IsGameEvent)
         .addFunction("IsHook", &PluginEvent::IsHook)
