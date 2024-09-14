@@ -44,7 +44,9 @@ public:
         CSingleRecipientFilter filter(this->GetPlayerSlot());
         g_pGameEventSystem->PostEventAbstract(-1, false, &filter, pNetMsg, data, 0);
 
+        #ifndef _WIN32
         delete data;
+        #endif
     }
 
     void SetPawn(CCSPlayerPawn* pawn)
