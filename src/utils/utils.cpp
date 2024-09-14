@@ -4,6 +4,7 @@
 #include <random>
 #include <sstream>
 #include <chrono>
+#include <public/tier1/characterset.h>
 
 #include "../sdk/schema.h"
 #include "../configuration/Configuration.h"
@@ -258,4 +259,18 @@ std::string get_uuid()
         ((genrand() & 0x0fff) | 0x4000),
         (genrand() % 0x3fff + 0x8000),
         (genrand() & 0xFFFF), (genrand() & 0xFFFF), (genrand() & 0xFFFF));
+}
+
+characterset_t cset{""};
+
+std::vector<std::string> TokenizeCommand(std::string cmd)
+{
+    CCommand tokenizedArgs;
+    tokenizedArgs.Tokenize(cmd.c_str(), &cset);
+
+    std::vector<std::string> cmdString;
+    for (int i = 0; i < tokenizedArgs.ArgC(); i++)
+        cmdString.push_back(tokenizedArgs[i]);
+
+    return cmdString;
 }

@@ -34,9 +34,8 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
         CCommand tokenizedArgs;
         tokenizedArgs.Tokenize(text.c_str());
 
-        std::vector<std::string> cmdString;
-        for (int i = 1; i < tokenizedArgs.ArgC(); i++)
-            cmdString.push_back(tokenizedArgs[i]);
+        std::vector<std::string> cmdString = TokenizeCommand(text);
+        cmdString.erase(cmdString.begin());
 
         std::string commandName = tokenizedArgs[0];
         commandName.erase(0, 1);
@@ -120,9 +119,8 @@ static void commandsCallback(const CCommandContext &context, const CCommand &arg
 
     std::string commandName = (starts_with(tokenizedArgs[0], "sw_") ? (tokenizedArgs[0] + 3) : tokenizedArgs[0]);
 
-    std::vector<std::string> argsplit;
-    for (int i = 1; i < tokenizedArgs.ArgC(); i++)
-        argsplit.push_back(tokenizedArgs[i]);
+    std::vector<std::string> argsplit = TokenizeCommand(args.GetCommandString());
+    argsplit.erase(argsplit.begin());
 
     if (g_commandsManager->FetchCommand(commandName) == nullptr)
         return;

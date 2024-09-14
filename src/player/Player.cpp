@@ -531,9 +531,8 @@ void Player::PerformMenuAction(std::string button)
             CCommand tokenizedArgs;
             tokenizedArgs.Tokenize(cmd.c_str());
 
-            std::vector<std::string> cmdString;
-            for (int i = 1; i < tokenizedArgs.ArgC(); i++)
-                cmdString.push_back(tokenizedArgs[i]);
+            std::vector<std::string> cmdString = TokenizeCommand(cmd);
+            cmdString.erase(cmdString.begin());
 
             std::string commandName = replace(tokenizedArgs[0], "sw_", "");
 
