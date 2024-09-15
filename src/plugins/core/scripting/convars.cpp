@@ -90,6 +90,42 @@ void PluginConvars::DeleteFake(std::string cvarname)
     DeleteFakeConvar(cvarname);
 }
 
+void PluginConvars::AddFlags(std::string cvarname, int64_t flags)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::AddFlags(cvarname=\"%s\",flags=%lld)", cvarname.c_str(), flags));
+    auto cvar = FetchCVar(cvarname);
+    if(cvar == nullptr) return;
+
+    cvar->flags |= flags;
+}
+
+void PluginConvars::RemoveFlags(std::string cvarname, int64_t flags)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::RemoveFlags(cvarname=\"%s\",flags=%lld)", cvarname.c_str(), flags));
+    auto cvar = FetchCVar(cvarname);
+    if(cvar == nullptr) return;
+
+    cvar->flags &= ~flags;
+}
+
+int64_t PluginConvars::GetFlags(std::string cvarname)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::GetFlags(cvarname=\"%s\")", cvarname.c_str()));
+    auto cvar = FetchCVar(cvarname);
+    if(cvar == nullptr) return 0;
+
+    return cvar->flags;
+}
+
+bool PluginConvars::HasFlags(std::string cvarname, int64_t flags)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::HasFlags(cvarname=\"%s\",flags=%lld)", cvarname.c_str(), flags));
+    auto cvar = FetchCVar(cvarname);
+    if(cvar == nullptr) return false;
+
+    return ((cvar->flags & flags) != 0);
+}
+
 bool PluginConvars::Exists(std::string cvarname)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::ExistsFake(cvarname=\"%s\")", cvarname.c_str()));

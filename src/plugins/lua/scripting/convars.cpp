@@ -12,6 +12,10 @@ void SetupLuaConvars(LuaPlugin* plugin, lua_State* state)
         .addFunction("Set", &PluginConvars::SetConvar)
         .addFunction("Exists", &PluginConvars::Exists)
         .addFunction("ExistsFake", &PluginConvars::ExistsFake)
+        .addFunction("AddFlags", &PluginConvars::AddFlags)
+        .addFunction("RemoveFlags", &PluginConvars::RemoveFlags)
+        .addFunction("GetFlags", &PluginConvars::GetFlags)
+        .addFunction("HasFlags", &PluginConvars::HasFlags)
         .endClass();
 
     luaL_dostring(state, "convar = ConVars(GetCurrentPluginName())");

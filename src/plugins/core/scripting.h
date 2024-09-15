@@ -476,6 +476,11 @@ public:
 
     bool Exists(std::string cvarname);
     bool ExistsFake(std::string cvarname);
+
+    void AddFlags(std::string cvarname, int64_t flags);
+    void RemoveFlags(std::string cvarname, int64_t flags);
+    int64_t GetFlags(std::string cvarname);
+    bool HasFlags(std::string cvarname, int64_t flags);
 };
 
 //////////////////////////////////////////////////////////////
