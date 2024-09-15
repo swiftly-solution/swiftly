@@ -2,9 +2,11 @@
 
 #include "../../../utils/utils.h"
 
+std::string FetchPluginName(lua_State* state);
+
 int customPrint(lua_State* state)
 {
-    std::string prefix = string_format("[Swiftly] %s[%16s]\e[39m ", GetTerminalStringColor(luabridge::getGlobal(state, "plugin_name").tostring()).c_str(), ("plugin:" + luabridge::getGlobal(state, "plugin_name").tostring()).c_str());
+    std::string prefix = string_format("[Swiftly] %s[%16s]\e[39m ", GetTerminalStringColor(FetchPluginName(state)).c_str(), ("plugin:" + FetchPluginName(state)).c_str());
 
     int n = lua_gettop(state);
 
@@ -70,25 +72,7 @@ void SetupLuaEnvironment(LuaPlugin* plugin, lua_State* state)
     luabridge::getGlobalNamespace(state)
         .addCFunction("print", &customPrint)
         .addFunction("GetCurrentPluginName", +[](lua_State* L) -> std::string
-            { return FetchPluginName(L); })
-        .addFunction("CreateTextTable", +[](std::vector<std::vector<std::string>> data)
-            {
-                TextTable tbl('-', '|', '+');
-
-                for (auto vec : data) {
-                    for (std::string str : vec) {
-                        tbl.add(" " + str + " ");
-                    }
-
-                    tbl.endOfRow();
-                }
-
-                std::stringstream outputTable;
-                outputTable << tbl;
-                return outputTable.str();
-            });
-
-    luabridge::setGlobal(state, plugin->GetName(), "plugin_name");
+            { return FetchPluginName(L); });
 
     SetupLuaLogs(plugin, state);
     SetupLuaTypes(plugin, state);

@@ -1,8 +1,7 @@
 #include "../scripting.h"
-#include "../../../sdk/entity/CGameRules.h"
-#include "../../../hooks/FuncHook.h"
 #include "../../PluginManager.h"
 #include "../../../usermessages/usermessages.h"
+#include "../../../utils/utils.h"
 
 bool scripting_IsWindows()
 {
@@ -23,7 +22,6 @@ SDKBaseClass scripting_GetCCSGameRules()
 {
     SDKBaseClass val(gameRules, "CCSGameRules");
     return val;
-
 }
 
 std::string scripting_GetPluginPath(std::string plugin_name)
@@ -44,4 +42,30 @@ PluginUserMessage scripting_GetUserMessage(std::string str)
     uint64* clients = (uint64*)(strtol(exploded[2].c_str(), nullptr, 16));
 
     return PluginUserMessage(msg, netmsg, clients);
+}
+
+std::string scripting_CreateTextTable(std::vector<std::vector<std::string>> data)
+{
+    TextTable tbl('-', '|', '+');
+
+    for (auto vec : data) {
+        for (std::string str : vec) {
+            tbl.add(" " + str + " ");
+        }
+
+        tbl.endOfRow();
+    }
+
+    std::stringstream outputTable;
+    outputTable << tbl;
+    return outputTable.str();
+}
+
+int scripting_GetPluginState(std::string plugin_name)
+{
+    if (!g_pluginManager->PluginExists(plugin_name)) return (int)PluginState_t::Stopped;
+    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
+    if (!plugin) return (int)PluginState_t::Stopped;
+
+    return (int)plugin->GetPluginState();
 }

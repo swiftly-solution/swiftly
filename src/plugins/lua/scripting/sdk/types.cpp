@@ -1,8 +1,8 @@
-#include "core.h"
+#include "../core.h"
 
-#include "../../../types/EventResult.h"
-#include "../../../types/LogType.h"
-#include "../../../player/Player.h"
+#include "../../../../types/EventResult.h"
+#include "../../../../types/LogType.h"
+#include "../../../../player/Player.h"
 
 void SetupLuaTypes(LuaPlugin *plugin, lua_State *state)
 {

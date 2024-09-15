@@ -31,6 +31,7 @@ static const luaL_Reg lualibs[] = {
 };
 
 void SetupLuaEnvironment(LuaPlugin* plugin, lua_State* state);
+std::string FetchPluginName(lua_State* state);
 
 static int LuaPanicFunction(lua_State* state)
 {
@@ -42,7 +43,7 @@ static int LuaPanicFunction(lua_State* state)
     }
 
     PLUGIN_PRINT("Runtime", "A Lua runtime panic has been triggered.\n");
-    PLUGIN_PRINTF("Runtime", "Plugin: %s\n", luabridge::getGlobal(state, "plugin_name").tostring().c_str());
+    PLUGIN_PRINTF("Runtime", "Plugin: %s\n", FetchPluginName(state).c_str());
     PLUGIN_PRINTF("Runtime", "Error: %s\n", m_what.c_str());
     return 0;
 }

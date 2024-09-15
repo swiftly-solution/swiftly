@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../core.h"
 
 void SetupLuaPlayerManager(LuaPlugin *plugin, lua_State *state)
 {

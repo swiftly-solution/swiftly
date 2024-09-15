@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../core.h"
 
 void SetupLuaUtils(LuaPlugin* plugin, lua_State* state)
 {
@@ -10,12 +10,7 @@ void SetupLuaUtils(LuaPlugin* plugin, lua_State* state)
         .addFunction("GetOS", scripting_GetOS)
         .addFunction("StateUpdate", scripting_StateUpdate)
         .addFunction("GetUserMessage", scripting_GetUserMessage)
-        .addFunction("GetPluginState", +[](std::string plugin_name) -> int
-            {
-                if (!g_pluginManager->PluginExists(plugin_name)) return (int)PluginState_t::Stopped;
-                Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
-                if (!plugin) return (int)PluginState_t::Stopped;
-
-                return (int)plugin->GetPluginState(); })
-        .addFunction("GetCCSGameRules", scripting_GetCCSGameRules);
+        .addFunction("GetPluginState", scripting_GetPluginState)
+        .addFunction("GetCCSGameRules", scripting_GetCCSGameRules)
+        .addFunction("CreateTextTable", scripting_CreateTextTable);
 }

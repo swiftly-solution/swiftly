@@ -829,5 +829,7 @@ SDKBaseClass scripting_GetCCSGameRules();
 std::string scripting_GetPluginPath(std::string plugin_name);
 void scripting_StateUpdate(std::string ptr, std::string classname, std::string field, bool isStruct);
 PluginUserMessage scripting_GetUserMessage(std::string uuid);
+std::string scripting_CreateTextTable(std::vector<std::vector<std::string>> data);
+int scripting_GetPluginState(std::string plugin_name);
 
 #endif

@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../core.h"
 
 void SetupLuaDatabase(LuaPlugin* plugin, lua_State* state)
 {

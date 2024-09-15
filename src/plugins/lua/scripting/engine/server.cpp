@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../core.h"
 
 void SetupLuaServer(LuaPlugin *plugin, lua_State *state)
 {

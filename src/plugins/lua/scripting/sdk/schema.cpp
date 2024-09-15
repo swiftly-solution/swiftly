@@ -1,5 +1,5 @@
-#include "core.h"
-#include "../../../sdk/sdkaccess.h"
+#include "../core.h"
+#include "../../../../sdk/sdkaccess.h"
 
 std::set<uint64_t> classFuncs = {
     ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EHandle")),

@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../core.h"
 
 void SetupLuaTranslations(LuaPlugin *plugin, lua_State *state)
 {

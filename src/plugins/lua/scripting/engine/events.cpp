@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../core.h"
 
 int AddGlobalEvents(luabridge::LuaRef eventFunction, lua_State* L)
 {

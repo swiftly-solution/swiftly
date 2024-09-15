@@ -1,5 +1,5 @@
-#include "core.h"
-#include "../../../player/PlayerManager.h"
+#include "../core.h"
+#include "../../../../player/PlayerManager.h"
 
 std::map<int, std::pair<uint64_t, PluginPlayer*>> playerObjectCache;
 
