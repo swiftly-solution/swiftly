@@ -90,6 +90,20 @@ void PluginConvars::DeleteFake(std::string cvarname)
     DeleteFakeConvar(cvarname);
 }
 
+bool PluginConvars::Exists(std::string cvarname)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::ExistsFake(cvarname=\"%s\")", cvarname.c_str()));
+
+    return (FetchCVar(cvarname) != nullptr);
+}
+
+bool PluginConvars::ExistsFake(std::string cvarname)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::ExistsFake(cvarname=\"%s\")", cvarname.c_str()));
+
+    return FakeConvarExists(cvarname);
+}
+
 std::any PluginConvars::GetConvarValue(std::string cvarname)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::GetConvarValue(cvarname=\"%s\")", cvarname.c_str()));

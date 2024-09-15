@@ -473,6 +473,9 @@ public:
 
     int16_t GetConvarType(std::string cvarname);
     void SetConvar(std::string cvarname, std::string value);
+
+    bool Exists(std::string cvarname);
+    bool ExistsFake(std::string cvarname);
 };
 
 //////////////////////////////////////////////////////////////

@@ -67,6 +67,8 @@ void FakeConVar::SetValue(std::any value)
 
 std::any FakeConVar::GetValue()
 {
+    if(!this->m_value.has_value()) return nullptr;
+    
     return this->m_value;
 }
 
