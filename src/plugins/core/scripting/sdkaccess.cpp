@@ -237,7 +237,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
     case ClassPointer:
         return luabridge::LuaRef(state, SDKBaseClass(*(void**)GetSchemaPtr(m_ptr, this->m_className.c_str(), field.c_str()), g_sdk->GetFieldClass(path)));
     case RawListEntityIndex: {
-        CEntityIndex* outValue = GetSchemaValue<CEntityIndex*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CEntityIndex* outValue = GetSchemaValuePtr<CEntityIndex>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<int> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i].Get());
@@ -245,7 +245,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case StringSymbolLargeArray: {
-        CUtlSymbolLarge* outValue = GetSchemaValue<CUtlSymbolLarge*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlSymbolLarge* outValue = GetSchemaValuePtr<CUtlSymbolLarge>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<std::string> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i].String());
@@ -253,7 +253,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case StringTokenArray: {
-        CUtlStringToken* outValue = GetSchemaValue<CUtlStringToken*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlStringToken* outValue = GetSchemaValuePtr<CUtlStringToken>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint32_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i].m_nHashCode);
@@ -261,7 +261,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case StringUtlArray: {
-        CUtlString* outValue = GetSchemaValue<CUtlString*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlString* outValue = GetSchemaValuePtr<CUtlString>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<std::string> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i].Get());
@@ -269,7 +269,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case Int8Array: {
-        int8_t* outValue = GetSchemaValue<int8_t*>(m_ptr, this->m_className.c_str(), field.c_str());
+        int8_t* outValue = GetSchemaValuePtr<int8_t>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<int8_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -277,7 +277,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case Int16Array: {
-        int16_t* outValue = GetSchemaValue<int16_t*>(m_ptr, this->m_className.c_str(), field.c_str());
+        int16_t* outValue = GetSchemaValuePtr<int16_t>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<int16_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -285,7 +285,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case Int32Array: {
-        int32_t* outValue = GetSchemaValue<int32_t*>(m_ptr, this->m_className.c_str(), field.c_str());
+        int32_t* outValue = GetSchemaValuePtr<int32_t>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<int32_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -293,7 +293,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case Int64Array: {
-        int64_t* outValue = GetSchemaValue<int64_t*>(m_ptr, this->m_className.c_str(), field.c_str());
+        int64_t* outValue = GetSchemaValuePtr<int64_t>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<int64_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -301,7 +301,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case UInt8Array: {
-        uint8_t* outValue = GetSchemaValue<uint8_t*>(m_ptr, this->m_className.c_str(), field.c_str());
+        uint8_t* outValue = GetSchemaValuePtr<uint8_t>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint8_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -309,7 +309,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case UInt16Array: {
-        uint16_t* outValue = GetSchemaValue<uint16_t*>(m_ptr, this->m_className.c_str(), field.c_str());
+        uint16_t* outValue = GetSchemaValuePtr<uint16_t>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint16_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -317,7 +317,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case UInt32Array: {
-        uint32_t* outValue = GetSchemaValue<uint32_t*>(m_ptr, this->m_className.c_str(), field.c_str());
+        uint32_t* outValue = GetSchemaValuePtr<uint32_t>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint32_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -325,7 +325,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case UInt64Array: {
-        uint64_t* outValue = GetSchemaValue<uint64_t*>(m_ptr, this->m_className.c_str(), field.c_str());
+        uint64_t* outValue = GetSchemaValuePtr<uint64_t>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint64_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -333,7 +333,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case FloatArray: {
-        float* outValue = GetSchemaValue<float*>(m_ptr, this->m_className.c_str(), field.c_str());
+        float* outValue = GetSchemaValuePtr<float>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<float> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -341,7 +341,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case DoubleArray: {
-        double* outValue = GetSchemaValue<double*>(m_ptr, this->m_className.c_str(), field.c_str());
+        double* outValue = GetSchemaValuePtr<double>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<double> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -357,7 +357,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SColorArray: {
-        Color* outValue = GetSchemaValue<Color*>(m_ptr, this->m_className.c_str(), field.c_str());
+        Color* outValue = GetSchemaValuePtr<Color>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<Color> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -365,7 +365,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SQAngleArray: {
-        QAngle* outValue = GetSchemaValue<QAngle*>(m_ptr, this->m_className.c_str(), field.c_str());
+        QAngle* outValue = GetSchemaValuePtr<QAngle>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<QAngle> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -373,7 +373,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SVectorArray: {
-        Vector* outValue = GetSchemaValue<Vector*>(m_ptr, this->m_className.c_str(), field.c_str());
+        Vector* outValue = GetSchemaValuePtr<Vector>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<Vector> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -381,7 +381,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SVector2DArray: {
-        Vector2D* outValue = GetSchemaValue<Vector2D*>(m_ptr, this->m_className.c_str(), field.c_str());
+        Vector2D* outValue = GetSchemaValuePtr<Vector2D>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<Vector2D> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -389,7 +389,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SVector4DArray: {
-        Vector4D* outValue = GetSchemaValue<Vector4D*>(m_ptr, this->m_className.c_str(), field.c_str());
+        Vector4D* outValue = GetSchemaValuePtr<Vector4D>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<Vector4D> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(outValue[i]);
@@ -397,7 +397,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case ClassArray: {
-        void** outValue = GetSchemaValue<void**>(m_ptr, this->m_className.c_str(), field.c_str());
+        void* outValue = GetSchemaValuePtr<void*>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<SDKBaseClass> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(SDKBaseClass(outValue[i], g_sdk->GetFieldClass(path)));
@@ -405,7 +405,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case CHandleArray: {
-        CHandle<CEntityInstance>* outValue = GetSchemaValue<CHandle<CEntityInstance>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CHandle<CEntityInstance>* outValue = GetSchemaValuePtr<CHandle<CEntityInstance>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<SDKBaseClass> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(SDKBaseClass((void*)outValue[i].Get(), g_sdk->GetFieldClass(path)));
@@ -413,7 +413,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case CHandleCUtlVector: {
-        CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValue<CUtlVector<CHandle<CEntityInstance>>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<CHandle<CEntityInstance>>* vec = GetSchemaValuePtr<CUtlVector<CHandle<CEntityInstance>>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<SDKBaseClass> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(SDKBaseClass((void*)(vec->Element(i).Get()), g_sdk->GetFieldClass(path)));
@@ -421,7 +421,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case StringSymbolLargeCUtlVector: {
-        CUtlVector<CUtlSymbolLarge>* outValue = GetSchemaValue<CUtlVector<CUtlSymbolLarge>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<CUtlSymbolLarge>* outValue = GetSchemaValuePtr<CUtlVector<CUtlSymbolLarge>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<std::string> ret;
         for (int i = 0; i < outValue->Count(); i++)
             ret.push_back(outValue->Element(i).String());
@@ -429,7 +429,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case StringTokenCUtlVector: {
-        CUtlVector<CUtlStringToken>* outValue = GetSchemaValue<CUtlVector<CUtlStringToken>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<CUtlStringToken>* outValue = GetSchemaValuePtr<CUtlVector<CUtlStringToken>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint32_t> ret;
         for (int i = 0; i < outValue->Count(); i++)
             ret.push_back(outValue->Element(i).m_nHashCode);
@@ -437,7 +437,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case StringUtlCUtlVector: {
-        CUtlVector<CUtlString>* outValue = GetSchemaValue<CUtlVector<CUtlString>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<CUtlString>* outValue = GetSchemaValuePtr<CUtlVector<CUtlString>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<std::string> ret;
         for (int i = 0; i < outValue->Count(); i++)
             ret.push_back(outValue->Element(i).Get());
@@ -445,7 +445,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case Int8CUtlVector: {
-        CUtlVector<int8_t>* vec = GetSchemaValue<CUtlVector<int8_t>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<int8_t>* vec = GetSchemaValuePtr<CUtlVector<int8_t>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<int8_t> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -453,7 +453,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case Int16CUtlVector: {
-        CUtlVector<int16_t>* vec = GetSchemaValue<CUtlVector<int16_t>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<int16_t>* vec = GetSchemaValuePtr<CUtlVector<int16_t>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<int16_t> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -461,7 +461,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case Int32CUtlVector: {
-        CUtlVector<int32_t>* vec = GetSchemaValue<CUtlVector<int32_t>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<int32_t>* vec = GetSchemaValuePtr<CUtlVector<int32_t>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<int32_t> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -469,7 +469,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case Int64CUtlVector: {
-        CUtlVector<int64_t>* vec = GetSchemaValue<CUtlVector<int64_t>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<int64_t>* vec = GetSchemaValuePtr<CUtlVector<int64_t>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<int64_t> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -477,7 +477,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case UInt8CUtlVector: {
-        CUtlVector<uint8_t>* vec = GetSchemaValue<CUtlVector<uint8_t>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<uint8_t>* vec = GetSchemaValuePtr<CUtlVector<uint8_t>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint8_t> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -485,7 +485,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case UInt16CUtlVector: {
-        CUtlVector<uint16_t>* vec = GetSchemaValue<CUtlVector<uint16_t>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<uint16_t>* vec = GetSchemaValuePtr<CUtlVector<uint16_t>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint16_t> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -493,7 +493,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case UInt32CUtlVector: {
-        CUtlVector<uint32_t>* vec = GetSchemaValue<CUtlVector<uint32_t>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<uint32_t>* vec = GetSchemaValuePtr<CUtlVector<uint32_t>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint32_t> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -501,7 +501,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case UInt64CUtlVector: {
-        CUtlVector<uint64_t>* vec = GetSchemaValue<CUtlVector<uint64_t>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<uint64_t>* vec = GetSchemaValuePtr<CUtlVector<uint64_t>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint64_t> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -509,7 +509,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case FloatCUtlVector: {
-        CUtlVector<float>* vec = GetSchemaValue<CUtlVector<float>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<float>* vec = GetSchemaValuePtr<CUtlVector<float>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<float> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -517,7 +517,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case DoubleCUtlVector: {
-        CUtlVector<double>* vec = GetSchemaValue<CUtlVector<double>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<double>* vec = GetSchemaValuePtr<CUtlVector<double>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<double> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -525,7 +525,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SColorCUtlVector: {
-        CUtlVector<Color>* vec = GetSchemaValue<CUtlVector<Color>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<Color>* vec = GetSchemaValuePtr<CUtlVector<Color>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<Color> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -533,7 +533,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SQAngleCUtlVector: {
-        CUtlVector<QAngle>* vec = GetSchemaValue<CUtlVector<QAngle>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<QAngle>* vec = GetSchemaValuePtr<CUtlVector<QAngle>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<QAngle> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -541,7 +541,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SVectorCUtlVector: {
-        CUtlVector<Vector>* vec = GetSchemaValue<CUtlVector<Vector>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<Vector>* vec = GetSchemaValuePtr<CUtlVector<Vector>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<Vector> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -549,7 +549,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SVector2DCUtlVector: {
-        CUtlVector<Vector2D>* vec = GetSchemaValue<CUtlVector<Vector2D>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<Vector2D>* vec = GetSchemaValuePtr<CUtlVector<Vector2D>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<Vector2D> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -557,7 +557,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case SVector4DCUtlVector: {
-        CUtlVector<Vector4D>* vec = GetSchemaValue<CUtlVector<Vector4D>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<Vector4D>* vec = GetSchemaValuePtr<CUtlVector<Vector4D>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<Vector4D> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -565,7 +565,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case BoolCUtlVector: {
-        CUtlVector<bool>* vec = GetSchemaValue<CUtlVector<bool>*>(m_ptr, this->m_className.c_str(), field.c_str());
+        CUtlVector<bool>* vec = GetSchemaValuePtr<CUtlVector<bool>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<bool> ret;
         for (int i = 0; i < vec->Count(); i++)
             ret.push_back(vec->Element(i));
@@ -698,7 +698,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        // SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case Int64Array: {
