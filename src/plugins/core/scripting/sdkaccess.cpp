@@ -397,7 +397,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state, ret);
     }
     case ClassArray: {
-        void* outValue = GetSchemaValuePtr<void*>(m_ptr, this->m_className.c_str(), field.c_str());
+        void** outValue = GetSchemaValuePtr<void*>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<SDKBaseClass> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             ret.push_back(SDKBaseClass(outValue[i], g_sdk->GetFieldClass(path)));
