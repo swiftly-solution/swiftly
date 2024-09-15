@@ -11,7 +11,7 @@
 std::string FetchPluginName(lua_State* state);
 #define FetchPluginByState(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
 
-extern std::string currentMap;
+extern std::vector<Player*> g_Players;
 struct DatabaseQueryQueue
 {
     std::string query;
@@ -120,8 +120,10 @@ void DatabaseQueryThread()
 
                 std::string result = QueryToJSON(queryResult);
 
-                if (currentMap != "None") g_Plugin.NextFrame(DatabaseLuaCallback, { queue.requestID, result, error, (LuaPlugin*)queue.plugin });
-                else DatabaseLuaCallback({ queue.requestID, result, error, (LuaPlugin*)queue.plugin });
+                if(g_Players.size() > 0)
+                    g_Plugin.NextFrame(DatabaseLuaCallback, { queue.requestID, result, error, (LuaPlugin*)queue.plugin });
+                else 
+                    DatabaseLuaCallback({ queue.requestID, result, error, (LuaPlugin*)queue.plugin });
             }
 
             delete callStack;
