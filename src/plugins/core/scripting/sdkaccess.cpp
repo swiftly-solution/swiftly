@@ -698,7 +698,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        // SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
         return;
     }
     case Int64Array: {
