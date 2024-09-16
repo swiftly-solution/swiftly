@@ -3,6 +3,9 @@
 #include "../../../utils/utils.h"
 
 std::string FetchPluginName(lua_State* state);
+std::map<std::string, lua_State*> pluginNamesMap = {};
+std::map<lua_State*, std::string> pluginNamesMap2 = {};
+std::vector<LuaLoader*> luaLoaderClasses;
 
 int customPrint(lua_State* state)
 {
@@ -47,9 +50,6 @@ int customPrint(lua_State* state)
     return 0;
 }
 
-std::map<std::string, lua_State*> pluginNamesMap = {};
-std::map<lua_State*, std::string> pluginNamesMap2 = {};
-
 std::string FetchPluginName(lua_State* state)
 {
     return pluginNamesMap2[state];
@@ -71,32 +71,8 @@ void SetupLuaEnvironment(LuaPlugin* plugin, lua_State* state)
 
     luabridge::getGlobalNamespace(state)
         .addCFunction("print", &customPrint)
-        .addFunction("GetCurrentPluginName", +[](lua_State* L) -> std::string
-            { return FetchPluginName(L); });
+        .addFunction("GetCurrentPluginName", FetchPluginName);
 
-    SetupLuaLogs(plugin, state);
-    SetupLuaTypes(plugin, state);
-    SetupLuaGeneratedTypes(plugin, state);
-    SetupLuaTranslations(plugin, state);
-    SetupLuaConfiguration(plugin, state);
-    SetupLuaFiles(plugin, state);
-    SetupLuaPrecacher(plugin, state);
-    SetupLuaCommands(plugin, state);
-    SetupLuaPlayerManager(plugin, state);
-    SetupLuaEvents(plugin, state);
-    SetupLuaHTTP(plugin, state);
-    SetupLuaDatabase(plugin, state);
-    SetupLuaMenus(plugin, state);
-    SetupLuaConvars(plugin, state);
-    SetupLuaUtils(plugin, state);
-    SetupLuaCoreClasses(plugin, state);
-    SetupLuaClasses(plugin, state);
-    SetupLuaServer(plugin, state);
-    SetupLuaPlayer(plugin, state);
-    SetupLuaEntities(plugin, state);
-    SetupLuaMemory(plugin, state);
-    SetupLuaHooks(plugin, state);
-    SetupLuaUserMessages(plugin, state);
-    SetupLuaWeapons(plugin, state);
-    SetupLuaCHandle(plugin, state);
+    for(auto classLoader : luaLoaderClasses)
+        classLoader->ExecuteLoad(plugin, state);
 }

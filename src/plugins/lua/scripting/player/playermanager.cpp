@@ -1,14 +1,17 @@
 #include "../core.h"
 
-void SetupLuaPlayerManager(LuaPlugin *plugin, lua_State *state)
-{
-    luabridge::getGlobalNamespace(state)
-        .beginClass<PluginPlayerManager>("PlayerManager")
-        .addConstructor<void (*)(std::string)>()
-        .addFunction("GetPlayerCount", &PluginPlayerManager::GetPlayerCount)
-        .addFunction("GetPlayerCap", &PluginPlayerManager::GetPlayerCap)
-        .addFunction("SendMsg", &PluginPlayerManager::SendMsg)
-        .endClass();
+LoadLuaScriptingComponent(
+    playermanager,
+    [](LuaPlugin* plugin, lua_State* state)
+    {
+        luabridge::getGlobalNamespace(state)
+            .beginClass<PluginPlayerManager>("PlayerManager")
+            .addConstructor<void (*)(std::string)>()
+            .addFunction("GetPlayerCount", &PluginPlayerManager::GetPlayerCount)
+            .addFunction("GetPlayerCap", &PluginPlayerManager::GetPlayerCap)
+            .addFunction("SendMsg", &PluginPlayerManager::SendMsg)
+            .endClass();
 
-    luaL_dostring(state, "playermanager = PlayerManager(GetCurrentPluginName())");
-}
+        luaL_dostring(state, "playermanager = PlayerManager(GetCurrentPluginName())");
+    }
+)

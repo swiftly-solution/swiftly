@@ -239,122 +239,125 @@ int Color_newindex(lua_State* L)
     return luaL_error(L, "Cannot add new fields to Color");
 }
 
-void SetupLuaCoreClasses(LuaPlugin* plugin, lua_State* state)
-{
-    luabridge::getGlobalNamespace(state)
-        .beginClass<Vector>("Vector")
-        .addConstructor<void (*)(float, float, float)>()
-        .addProperty("x", &Vector::x, true)
-        .addProperty("y", &Vector::y, true)
-        .addProperty("z", &Vector::z, true)
-        .addFunction("__add", &Vector::operator+)
-        .addFunction("__eq", &Vector::operator==)
-        .addFunction("__len", &Vector::Length)
-        .addFunction("__tostring", Vector_tostring)
-        .endClass();
+LoadLuaScriptingComponent(
+    baseclasses,
+    [](LuaPlugin* plugin, lua_State* state)
+    {
+        luabridge::getGlobalNamespace(state)
+            .beginClass<Vector>("Vector")
+            .addConstructor<void (*)(float, float, float)>()
+            .addProperty("x", &Vector::x, true)
+            .addProperty("y", &Vector::y, true)
+            .addProperty("z", &Vector::z, true)
+            .addFunction("__add", &Vector::operator+)
+            .addFunction("__eq", &Vector::operator==)
+            .addFunction("__len", &Vector::Length)
+            .addFunction("__tostring", Vector_tostring)
+            .endClass();
 
-    luaL_newmetatable(state, "Vector");
-    lua_pushstring(state, "__unm");
-    lua_pushcfunction(state, Vector_unm);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__sub");
-    lua_pushcfunction(state, Vector_sub);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__mul");
-    lua_pushcfunction(state, Vector_mul);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__div");
-    lua_pushcfunction(state, Vector_div);
-    lua_settable(state, -3);
+        luaL_newmetatable(state, "Vector");
+        lua_pushstring(state, "__unm");
+        lua_pushcfunction(state, Vector_unm);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__sub");
+        lua_pushcfunction(state, Vector_sub);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__mul");
+        lua_pushcfunction(state, Vector_mul);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__div");
+        lua_pushcfunction(state, Vector_div);
+        lua_settable(state, -3);
 
-    luabridge::getGlobalNamespace(state)
-        .beginClass<Color>("Color")
-        .addConstructor<void (*)(int, int, int, int)>()
-        .endClass();
+        luabridge::getGlobalNamespace(state)
+            .beginClass<Color>("Color")
+            .addConstructor<void (*)(int, int, int, int)>()
+            .endClass();
 
-    luaL_newmetatable(state, "Color");
-    lua_pushstring(state, "__index");
-    lua_pushcfunction(state, Color_index);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__newindex");
-    lua_pushcfunction(state, Color_newindex);
-    lua_settable(state, -3);
+        luaL_newmetatable(state, "Color");
+        lua_pushstring(state, "__index");
+        lua_pushcfunction(state, Color_index);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__newindex");
+        lua_pushcfunction(state, Color_newindex);
+        lua_settable(state, -3);
 
-    luabridge::getGlobalNamespace(state)
-        .beginClass<QAngle>("QAngle")
-        .addConstructor<void (*)(float, float, float)>()
-        .addProperty("x", &QAngle::x, true)
-        .addProperty("y", &QAngle::y, true)
-        .addProperty("z", &QAngle::z, true)
-        .addFunction("__add", &QAngle::operator+)
-        .addFunction("__eq", &QAngle::operator==)
-        .addFunction("__len", &QAngle::Length)
-        .addFunction("__tostring", QAngle_tostring)
-        .endClass();
+        luabridge::getGlobalNamespace(state)
+            .beginClass<QAngle>("QAngle")
+            .addConstructor<void (*)(float, float, float)>()
+            .addProperty("x", &QAngle::x, true)
+            .addProperty("y", &QAngle::y, true)
+            .addProperty("z", &QAngle::z, true)
+            .addFunction("__add", &QAngle::operator+)
+            .addFunction("__eq", &QAngle::operator==)
+            .addFunction("__len", &QAngle::Length)
+            .addFunction("__tostring", QAngle_tostring)
+            .endClass();
 
-    luaL_newmetatable(state, "QAngle");
-    lua_pushstring(state, "__unm");
-    lua_pushcfunction(state, QAngle_unm);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__sub");
-    lua_pushcfunction(state, QAngle_sub);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__mul");
-    lua_pushcfunction(state, QAngle_mul);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__div");
-    lua_pushcfunction(state, QAngle_div);
-    lua_settable(state, -3);
+        luaL_newmetatable(state, "QAngle");
+        lua_pushstring(state, "__unm");
+        lua_pushcfunction(state, QAngle_unm);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__sub");
+        lua_pushcfunction(state, QAngle_sub);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__mul");
+        lua_pushcfunction(state, QAngle_mul);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__div");
+        lua_pushcfunction(state, QAngle_div);
+        lua_settable(state, -3);
 
-    luabridge::getGlobalNamespace(state)
-        .beginClass<Vector2D>("Vector2D")
-        .addConstructor<void (*)(float, float)>()
-        .addProperty("x", &Vector2D::x, true)
-        .addProperty("y", &Vector2D::y, true)
-        .addFunction("__add", &Vector2D::operator+)
-        .addFunction("__eq", &Vector2D::operator==)
-        .addFunction("__len", &Vector2D::Length)
-        .addFunction("__tostring", Vector2D_tostring)
-        .endClass();
+        luabridge::getGlobalNamespace(state)
+            .beginClass<Vector2D>("Vector2D")
+            .addConstructor<void (*)(float, float)>()
+            .addProperty("x", &Vector2D::x, true)
+            .addProperty("y", &Vector2D::y, true)
+            .addFunction("__add", &Vector2D::operator+)
+            .addFunction("__eq", &Vector2D::operator==)
+            .addFunction("__len", &Vector2D::Length)
+            .addFunction("__tostring", Vector2D_tostring)
+            .endClass();
 
-    luaL_newmetatable(state, "Vector2D");
-    lua_pushstring(state, "__unm");
-    lua_pushcfunction(state, Vector2D_unm);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__sub");
-    lua_pushcfunction(state, Vector2D_sub);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__mul");
-    lua_pushcfunction(state, Vector2D_mul);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__div");
-    lua_pushcfunction(state, Vector2D_div);
-    lua_settable(state, -3);
+        luaL_newmetatable(state, "Vector2D");
+        lua_pushstring(state, "__unm");
+        lua_pushcfunction(state, Vector2D_unm);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__sub");
+        lua_pushcfunction(state, Vector2D_sub);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__mul");
+        lua_pushcfunction(state, Vector2D_mul);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__div");
+        lua_pushcfunction(state, Vector2D_div);
+        lua_settable(state, -3);
 
-    luabridge::getGlobalNamespace(state)
-        .beginClass<Vector4D>("Vector4D")
-        .addConstructor<void (*)(float, float, float, float)>()
-        .addProperty("x", &Vector4D::x, true)
-        .addProperty("y", &Vector4D::y, true)
-        .addProperty("z", &Vector4D::z, true)
-        .addProperty("w", &Vector4D::w, true)
-        .addFunction("__add", &Vector4D::operator+)
-        .addFunction("__eq", &Vector4D::operator==)
-        .addFunction("__len", &Vector4D::Length)
-        .addFunction("__tostring", Vector4D_tostring)
-        .endClass();
+        luabridge::getGlobalNamespace(state)
+            .beginClass<Vector4D>("Vector4D")
+            .addConstructor<void (*)(float, float, float, float)>()
+            .addProperty("x", &Vector4D::x, true)
+            .addProperty("y", &Vector4D::y, true)
+            .addProperty("z", &Vector4D::z, true)
+            .addProperty("w", &Vector4D::w, true)
+            .addFunction("__add", &Vector4D::operator+)
+            .addFunction("__eq", &Vector4D::operator==)
+            .addFunction("__len", &Vector4D::Length)
+            .addFunction("__tostring", Vector4D_tostring)
+            .endClass();
 
-    luaL_newmetatable(state, "Vector4D");
-    lua_pushstring(state, "__unm");
-    lua_pushcfunction(state, Vector4D_unm);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__sub");
-    lua_pushcfunction(state, Vector4D_sub);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__mul");
-    lua_pushcfunction(state, Vector4D_mul);
-    lua_settable(state, -3);
-    lua_pushstring(state, "__div");
-    lua_pushcfunction(state, Vector4D_div);
-    lua_settable(state, -3);
-}
+        luaL_newmetatable(state, "Vector4D");
+        lua_pushstring(state, "__unm");
+        lua_pushcfunction(state, Vector4D_unm);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__sub");
+        lua_pushcfunction(state, Vector4D_sub);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__mul");
+        lua_pushcfunction(state, Vector4D_mul);
+        lua_settable(state, -3);
+        lua_pushstring(state, "__div");
+        lua_pushcfunction(state, Vector4D_div);
+        lua_settable(state, -3);
+    }
+)

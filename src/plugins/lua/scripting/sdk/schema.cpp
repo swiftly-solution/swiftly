@@ -38,32 +38,35 @@ int SDKBaseClass::SetProp(lua_State* state)
     return 0;
 }
 
-void SetupLuaClasses(LuaPlugin* plugin, lua_State* state)
-{
-    auto classnames = g_sdk->GetClassnames();
-    for (size_t i = 0; i < classnames.size(); i++) {
-        auto cls = luabridge::getGlobalNamespace(state).beginClass<SDKBaseClass>(classnames[i].c_str());
-        cls.addConstructor<void(*)(std::string, lua_State*)>();
-        cls.addFunction("EntityIndex", &SDKBaseClass::CBasePlayerController_EntityIndex);
-        cls.addFunction("SetModel", &SDKBaseClass::CBaseModelEntity_SetModel);
-        cls.addFunction("SetSolidType", &SDKBaseClass::CBaseModelEntity_SetSolidType);
-        cls.addFunction("SetBodygroup", &SDKBaseClass::CBaseModelEntity_SetBodygroup);
-        cls.addFunction("SetOrAddAttributeValueByName", &SDKBaseClass::CAttributeList_SetOrAddAttributeValueByName);
-        cls.addFunction("EHandle", &SDKBaseClass::CBaseEntity_EHandle);
-        cls.addFunction("Spawn", &SDKBaseClass::CBaseEntity_Spawn);
-        cls.addFunction("Despawn", &SDKBaseClass::CBaseEntity_Despawn);
-        cls.addFunction("AcceptInput", &SDKBaseClass::CBaseEntity_AcceptInput);
-        cls.addFunction("GetClassname", &SDKBaseClass::CBaseEntity_GetClassname);
-        cls.addFunction("GetVData", &SDKBaseClass::CBaseEntity_GetVData);
-        cls.addFunction("Teleport", &SDKBaseClass::CBaseEntity_Teleport);
-        cls.addFunction("EmitSound", &SDKBaseClass::CBaseEntity_EmitSound);
-        cls.addFunction("CollisionRulesChanged", &SDKBaseClass::CBaseEntity_CollisionRulesChanged);
-        cls.addFunction("GetSkeletonInstance", &SDKBaseClass::CGameSceneNode_GetSkeletonInstance);
-        cls.addFunction("GetPawn", &SDKBaseClass::CPlayerPawnComponent_GetPawn);
-        cls.addFunction("__index", &SDKBaseClass::GetProp);
-        cls.addFunction("__newindex", &SDKBaseClass::SetProp);
-        cls.addFunction("IsValid", &SDKBaseClass::IsValid);
-        cls.addFunction("ToPtr", &SDKBaseClass::ToPtr);
-        cls.endClass();
+LoadLuaScriptingComponent(
+    schema,
+    [](LuaPlugin* plugin, lua_State* state)
+    {
+        auto classnames = g_sdk->GetClassnames();
+        for (size_t i = 0; i < classnames.size(); i++) {
+            auto cls = luabridge::getGlobalNamespace(state).beginClass<SDKBaseClass>(classnames[i].c_str());
+            cls.addConstructor<void(*)(std::string, lua_State*)>();
+            cls.addFunction("EntityIndex", &SDKBaseClass::CBasePlayerController_EntityIndex);
+            cls.addFunction("SetModel", &SDKBaseClass::CBaseModelEntity_SetModel);
+            cls.addFunction("SetSolidType", &SDKBaseClass::CBaseModelEntity_SetSolidType);
+            cls.addFunction("SetBodygroup", &SDKBaseClass::CBaseModelEntity_SetBodygroup);
+            cls.addFunction("SetOrAddAttributeValueByName", &SDKBaseClass::CAttributeList_SetOrAddAttributeValueByName);
+            cls.addFunction("EHandle", &SDKBaseClass::CBaseEntity_EHandle);
+            cls.addFunction("Spawn", &SDKBaseClass::CBaseEntity_Spawn);
+            cls.addFunction("Despawn", &SDKBaseClass::CBaseEntity_Despawn);
+            cls.addFunction("AcceptInput", &SDKBaseClass::CBaseEntity_AcceptInput);
+            cls.addFunction("GetClassname", &SDKBaseClass::CBaseEntity_GetClassname);
+            cls.addFunction("GetVData", &SDKBaseClass::CBaseEntity_GetVData);
+            cls.addFunction("Teleport", &SDKBaseClass::CBaseEntity_Teleport);
+            cls.addFunction("EmitSound", &SDKBaseClass::CBaseEntity_EmitSound);
+            cls.addFunction("CollisionRulesChanged", &SDKBaseClass::CBaseEntity_CollisionRulesChanged);
+            cls.addFunction("GetSkeletonInstance", &SDKBaseClass::CGameSceneNode_GetSkeletonInstance);
+            cls.addFunction("GetPawn", &SDKBaseClass::CPlayerPawnComponent_GetPawn);
+            cls.addFunction("__index", &SDKBaseClass::GetProp);
+            cls.addFunction("__newindex", &SDKBaseClass::SetProp);
+            cls.addFunction("IsValid", &SDKBaseClass::IsValid);
+            cls.addFunction("ToPtr", &SDKBaseClass::ToPtr);
+            cls.endClass();
+        }
     }
-}
+)
