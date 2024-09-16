@@ -1,6 +1,6 @@
-#include "../scripting.h"
-#include "../../../entrypoint.h"
-#include "../../../player/PlayerManager.h"
+#include "../../scripting.h"
+#include "../../../../entrypoint.h"
+#include "../../../../player/PlayerManager.h"
 
 #include <deque>
 #include <thread>

@@ -1,4 +1,4 @@
-#include "../scripting.h"
+#include "../../scripting.h"
 
 PluginLogger::PluginLogger(std::string m_plugin_name)
 {

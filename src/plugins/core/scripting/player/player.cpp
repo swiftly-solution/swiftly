@@ -1,8 +1,8 @@
-#include "../scripting.h"
+#include "../../scripting.h"
 
-#include "../../../player/PlayerManager.h"
-#include "../../../commands/CommandsManager.h"
-#include "../../../precacher/precacher.h"
+#include "../../../../player/PlayerManager.h"
+#include "../../../../commands/CommandsManager.h"
+#include "../../../../precacher/precacher.h"
 
 PluginPlayer::PluginPlayer(std::string m_plugin_name, int m_playerId)
 {

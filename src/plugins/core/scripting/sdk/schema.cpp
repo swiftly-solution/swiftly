@@ -1,4 +1,4 @@
-#include "../scripting.h"
+#include "../../scripting.h"
 
 void WriteSchemaPtrValue(void* ptr, const char* className, const char* fieldName, bool isStruct, byte* value, int size)
 {

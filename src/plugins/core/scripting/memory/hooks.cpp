@@ -1,5 +1,5 @@
-#include "../scripting.h"
-#include "../../../hooks/FuncHook.h"
+#include "../../scripting.h"
+#include "../../../../hooks/FuncHook.h"
 
 #include <dynohook/core.h>
 #include <dynohook/manager.h>

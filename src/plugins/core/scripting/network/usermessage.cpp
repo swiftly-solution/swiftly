@@ -1,7 +1,7 @@
-#include "../scripting.h"
+#include "../../scripting.h"
 
-#include "../../../sdk/entity/CRecipientFilters.h"
-#include "../../../player/PlayerManager.h"
+#include "../../../../sdk/entity/CRecipientFilters.h"
+#include "../../../../player/PlayerManager.h"
 
 #ifdef GetMessage
 #undef GetMessage

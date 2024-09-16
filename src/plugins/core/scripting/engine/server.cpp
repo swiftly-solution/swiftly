@@ -1,5 +1,5 @@
-#include "../scripting.h"
-#include "../../../sdk/entity/CGameRules.h"
+#include "../../scripting.h"
+#include "../../../../sdk/entity/CGameRules.h"
 
 PluginServer::PluginServer(std::string m_plugin_name)
 {

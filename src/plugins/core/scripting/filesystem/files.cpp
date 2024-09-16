@@ -1,5 +1,5 @@
-#include "../scripting.h"
-#include "../../../files/Files.h"
+#include "../../scripting.h"
+#include "../../../../files/Files.h"
 
 PluginFiles::PluginFiles(std::string m_plugin_name)
 {

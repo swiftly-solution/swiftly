@@ -1,5 +1,5 @@
-#include "../scripting.h"
-#include "../../../commands/CommandsManager.h"
+#include "../../scripting.h"
+#include "../../../../commands/CommandsManager.h"
 
 PluginCommands::PluginCommands(std::string m_plugin_name)
 {

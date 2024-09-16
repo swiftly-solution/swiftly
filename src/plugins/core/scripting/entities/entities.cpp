@@ -1,4 +1,4 @@
-#include "../scripting.h"
+#include "../../scripting.h"
 
 std::vector<SDKBaseClass> UTIL_FindEntitiesByClassname(const char* name)
 {

@@ -1,7 +1,7 @@
 #ifndef _core_scripting_h
 #define _core_scripting_h
 
-#include "scripting_includes.h"
+#include "scripting_schema.h"
 #include "../../resourcemonitor/ResourceMonitor.h"
 #include "../../sdk/entity/CCSWeaponBase.h"
 #include "../../crashreporter/CallStack.h"

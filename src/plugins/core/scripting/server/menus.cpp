@@ -1,6 +1,6 @@
-#include "../scripting.h"
+#include "../../scripting.h"
 
-#include "../../../menus/MenuManager.h"
+#include "../../../../menus/MenuManager.h"
 
 PluginMenus::PluginMenus(std::string m_plugin_name)
 {

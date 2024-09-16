@@ -27,7 +27,6 @@ template <typename T>
 T* GetSchemaValuePtr(void* ptr, const char* className, const char* fieldName)
 {
     auto m_key = sch::GetOffset(className, fieldName);
-
     return reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key);
 }
 

@@ -1,6 +1,6 @@
-#include "../scripting.h"
+#include "../../scripting.h"
 
-#include "../../../../vendor/dynlib/module.h"
+#include "../../../../../vendor/dynlib/module.h"
 
 void* FindSignature(const char* moduleName, const char* bytes);
 
