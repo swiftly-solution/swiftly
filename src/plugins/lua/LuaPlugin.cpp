@@ -31,6 +31,7 @@ static const luaL_Reg lualibs[] = {
 };
 
 void SetupLuaEnvironment(LuaPlugin* plugin, lua_State* state);
+std::string FetchPluginName(lua_State* state);
 
 static int LuaPanicFunction(lua_State* state)
 {
@@ -42,7 +43,7 @@ static int LuaPanicFunction(lua_State* state)
     }
 
     PLUGIN_PRINT("Runtime", "A Lua runtime panic has been triggered.\n");
-    PLUGIN_PRINTF("Runtime", "Plugin: %s\n", luabridge::getGlobal(state, "plugin_name").tostring().c_str());
+    PLUGIN_PRINTF("Runtime", "Plugin: %s\n", FetchPluginName(state).c_str());
     PLUGIN_PRINTF("Runtime", "Error: %s\n", m_what.c_str());
     return 0;
 }
@@ -228,7 +229,7 @@ void LuaPlugin::RegisterEventHandler(void* functionPtr)
 
 void LuaPlugin::RegisterEventHandling(std::string eventName)
 {
-    if(this->eventHandlers.find(eventName) == this->eventHandlers.end()) this->eventHandlers.insert(eventName);
+    if (this->eventHandlers.find(eventName) == this->eventHandlers.end()) this->eventHandlers.insert(eventName);
 }
 
 EventResult LuaPlugin::PluginTriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event)
@@ -381,6 +382,30 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state)
         PRINTF("Invalid casting: %s\n", err.what());
         return luabridge::LuaRef(state);
     }
+}
+
+std::any LuaDeserializeData(luabridge::LuaRef ref, lua_State* state)
+{
+    if (ref.isBool())
+        return ref.cast<bool>();
+    else if (ref.isNil())
+        return nullptr;
+    else if (ref.isNumber())
+        return ref.cast<int64_t>();
+    else if (ref.isString())
+        return ref.cast<std::string>();
+    else if (ref.isTable())
+    {
+        luabridge::LuaRef serpentDump = luabridge::getGlobal(state, "serpent")["dump"];
+        luabridge::LuaRef serpentDumpReturnValue = serpentDump(ref);
+
+        std::vector<std::string> tmptbl;
+        tmptbl.push_back(serpentDumpReturnValue.cast<std::string>());
+
+        return tmptbl;
+    }
+    else
+        return nullptr;
 }
 
 std::string LuaPlugin::GetAuthor()

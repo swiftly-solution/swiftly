@@ -86,6 +86,7 @@ private:
     std::map<uint64_t, std::string> fieldClass;
     std::map<std::string, bool> structStates;
     std::vector<std::string> classnames;
+    std::map<std::string, std::map<std::string, int64_t>> sdktypes;
 
 public:
     SDKAccess();
@@ -99,6 +100,7 @@ public:
     std::string GetFieldClass(uint64_t path);
     uint32_t GetFieldSize(uint64_t path);
     bool GetClassStructState(std::string className);
+    std::map<std::string, std::map<std::string, int64_t>> GetSDKTypes();
 
     bool ExistsField(uint64_t path);
 };

@@ -17,6 +17,7 @@ SDKAccess::~SDKAccess() {
     fieldClass.clear();
     structStates.clear();
     classnames.clear();
+    sdktypes.clear();
 }
 
 void SDKAccess::LoadSDKData()
@@ -59,6 +60,38 @@ void SDKAccess::LoadSDKData()
             }
         }
     }
+
+    PRINTF("Succesfully loaded %lld SDK fields.\n", this->fieldNames.size());
+
+    rapidjson::Document sdkTypesFile;
+    sdkTypesFile.Parse(Files::Read("addons/swiftly/gamedata/sdk_types.json").c_str());
+    if (sdkTypesFile.HasParseError())
+        return;
+
+    if (!sdkTypesFile.IsObject())
+        return;
+
+    for (auto it = sdkTypesFile.MemberBegin(); it != sdkTypesFile.MemberEnd(); ++it)
+    {
+        std::string typeName = it->name.GetString();
+        if(sdktypes.find(typeName) == sdktypes.end()) sdktypes.insert({typeName, {}});
+
+        if (it->value.IsObject()) {
+            for (auto it2 = it->value.MemberBegin(); it2 != it->value.MemberEnd(); ++it2)
+            {
+                std::string fieldName = it2->name.GetString();
+                int64_t value = it2->value.GetInt64();
+                sdktypes[typeName].insert({fieldName, value});
+            }
+        }
+    }
+
+    PRINTF("Succesfully loaded %lld SDK types.\n", this->sdktypes.size());
+}
+
+std::map<std::string, std::map<std::string, int64_t>> SDKAccess::GetSDKTypes()
+{
+    return this->sdktypes;
 }
 
 std::vector<std::string> SDKAccess::GetClassnames()
