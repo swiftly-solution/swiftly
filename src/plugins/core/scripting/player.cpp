@@ -205,7 +205,6 @@ void PluginPlayer::ExecuteCommand(std::string cmd)
 
 std::string PluginPlayer::GetConvarValue(std::string name)
 {
-
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player)
         return "";
@@ -380,11 +379,6 @@ std::any PluginPlayer::GetVarValue(std::string key)
     return player->GetInternalVar(key);
 }
 
-luabridge::LuaRef PluginPlayer::GetVarValueLua(std::string key, lua_State* L)
-{
-    return LuaSerializeData(GetVarValue(key), L);
-}
-
 void PluginPlayer::SetVarValue(std::string key, std::any value)
 {
     Player* player = g_playerManager->GetPlayer(playerId);
@@ -392,34 +386,6 @@ void PluginPlayer::SetVarValue(std::string key, std::any value)
         return;
 
     player->SetInternalVar(key, value);
-}
-
-void PluginPlayer::SetVarValueLua(std::string key, luabridge::LuaRef value)
-{
-    std::any returnValue;
-
-    if (value.isBool())
-        returnValue = value.cast<bool>();
-    else if (value.isNil())
-        returnValue = nullptr;
-    else if (value.isNumber())
-        returnValue = value.cast<int64_t>();
-    else if (value.isString())
-        returnValue = value.cast<std::string>();
-    else if (value.isTable())
-    {
-        luabridge::LuaRef serpentDump = luabridge::getGlobal(value.state(), "serpent")["dump"];
-        luabridge::LuaRef serpentDumpReturnValue = serpentDump(value);
-
-        std::vector<std::string> tmptbl;
-        tmptbl.push_back(serpentDumpReturnValue.cast<std::string>());
-
-        returnValue = tmptbl;
-    }
-    else
-        returnValue = nullptr;
-
-    this->SetVarValue(key, returnValue);
 }
 
 void PluginPlayer::SetListening(int playerid, int listenOverride)

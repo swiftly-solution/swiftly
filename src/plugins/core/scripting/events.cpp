@@ -55,34 +55,6 @@ void PluginEvent::SetReturn(std::any value)
     this->returnValue = value;
 }
 
-void PluginEvent::SetReturnLua(luabridge::LuaRef value)
-{
-    std::any returnValue;
-
-    if (value.isBool())
-        returnValue = value.cast<bool>();
-    else if (value.isNil())
-        returnValue = nullptr;
-    else if (value.isNumber())
-        returnValue = value.cast<int64_t>();
-    else if (value.isString())
-        returnValue = value.cast<std::string>();
-    else if (value.isTable())
-    {
-        luabridge::LuaRef serpentDump = luabridge::getGlobal(value.state(), "serpent")["dump"];
-        luabridge::LuaRef serpentDumpReturnValue = serpentDump(value);
-
-        std::vector<std::string> tmptbl;
-        tmptbl.push_back(serpentDumpReturnValue.cast<std::string>());
-
-        returnValue = tmptbl;
-    }
-    else
-        returnValue = nullptr;
-
-    SetReturn(returnValue);
-}
-
 std::any PluginEvent::GetReturnValue()
 {
     return this->returnValue;
@@ -393,31 +365,6 @@ void PluginEvent::SetHookReturn(std::any value)
     {
         PRINTF("Invalid casting: %s\n", err.what());
     }
-}
-
-void PluginEvent::SetHookReturnLua(luabridge::LuaRef value)
-{
-    if (!this->hookPtr)
-        return;
-
-    std::any val;
-
-    if (value.isBool())
-        val = value.cast<bool>();
-    else if (value.isNil())
-        val = nullptr;
-    else if (value.isNumber())
-        val = value.cast<int64_t>();
-    else if (value.isString())
-    {
-        std::string str = value.cast<std::string>();
-        if (str.find("0x") != std::string::npos)
-            val = (void*)(strtol(str.c_str(), nullptr, 16));
-        else
-            val = str;
-    }
-
-    SetHookReturn(val);
 }
 
 std::any PluginEvent::GetHookReturn()

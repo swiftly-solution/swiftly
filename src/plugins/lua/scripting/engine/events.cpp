@@ -35,16 +35,6 @@ std::vector<luabridge::LuaRef> TriggerEventInternal(std::string eventName, std::
     return returnValues;
 }
 
-luabridge::LuaRef GetReturnValueInternal(PluginEvent* event, lua_State* L)
-{
-    return LuaSerializeData(event->GetReturnValue(), L);
-}
-
-luabridge::LuaRef GetHookReturnValueInternal(PluginEvent* event, lua_State* L)
-{
-    return LuaSerializeData(event->GetHookReturn(), L);
-}
-
 void SetupLuaEvents(LuaPlugin* plugin, lua_State* state)
 {
     luabridge::getGlobalNamespace(state)
@@ -67,8 +57,8 @@ void SetupLuaEvents(LuaPlugin* plugin, lua_State* state)
         .addFunction("GetUint64", &PluginEvent::GetUint64)
         .addFunction("GetFloat", &PluginEvent::GetFloat)
         .addFunction("GetString", &PluginEvent::GetString)
-        .addFunction("SetReturn", &PluginEvent::SetReturnLua)
-        .addFunction("GetReturn", GetReturnValueInternal)
+        .addFunction("SetReturn", &PluginEvent::SetReturn)
+        .addFunction("GetReturn", &PluginEvent::GetReturnValue)
         .addFunction("FireEvent", &PluginEvent::FireEvent)
         .addFunction("FireEventToClient", &PluginEvent::FireEventToClient)
 
@@ -91,8 +81,8 @@ void SetupLuaEvents(LuaPlugin* plugin, lua_State* state)
         .addFunction("SetHookUInt", &PluginEvent::SetHookUInt)
         .addFunction("SetHookInt64", &PluginEvent::SetHookInt64)
 
-        .addFunction("SetHookReturn", &PluginEvent::SetHookReturnLua)
-        .addFunction("GetHookReturn", GetHookReturnValueInternal)
+        .addFunction("SetHookReturn", &PluginEvent::SetHookReturn)
+        .addFunction("GetHookReturn", &PluginEvent::GetHookReturn)
 
         .endClass();
 }

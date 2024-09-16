@@ -8,7 +8,7 @@ void SetupLuaConfiguration(LuaPlugin *plugin, lua_State *state)
         .addFunction("Exists", &PluginConfiguration::Exists)
         .addFunction("Reload", &PluginConfiguration::Reload)
         .addFunction("FetchArraySize", &PluginConfiguration::FetchArraySize)
-        .addFunction("Fetch", &PluginConfiguration::FetchLua)
+        .addFunction("Fetch", &PluginConfiguration::Fetch)
         .addFunction("Create", &PluginConfiguration::CreateLua)
         .endClass();
 

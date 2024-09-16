@@ -140,17 +140,17 @@ std::string PluginHooks::AddHook(PluginMemory mem, std::string args_list, std::s
     return id;
 }
 
-luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookPayload, lua_State* L)
+std::any PluginHooks::CallHook(std::string hookId, std::string hookPayload)
 {
-    REGISTER_CALLSTACK(this->m_plugin_name, string_format("PluginHooks::CallHookLua(hookId=\"%s\")", hookId.c_str()));
+    REGISTER_CALLSTACK(this->m_plugin_name, string_format("PluginHooks::CallHook(hookId=\"%s\")", hookId.c_str()));
     if (hooksMap.find(hookId) == hooksMap.end())
-        return LuaSerializeData(nullptr, L);
+        return nullptr;
 
     auto hook = hooksMap.at(hookId);
     if (hooksList.find(hook) == hooksList.end())
-        return LuaSerializeData(nullptr, L);
+        return nullptr;
     if (hooksList.at(hook).size() <= 0)
-        return LuaSerializeData(nullptr, L);
+        return nullptr;
 
     auto hk = hooksList.at(hook)[0];
 
@@ -229,7 +229,7 @@ luabridge::LuaRef PluginHooks::CallHookLua(std::string hookId, std::string hookP
         retval = nullptr;
     }
 
-    return LuaSerializeData(retval, L);
+    return retval;
 }
 
 std::string PluginHooks::AddEntityOutputHook(std::string classname, std::string output)

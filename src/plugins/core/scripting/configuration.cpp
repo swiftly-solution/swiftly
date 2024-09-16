@@ -50,13 +50,6 @@ std::any PluginConfiguration::Fetch(std::string key)
     return config[key];
 }
 
-luabridge::LuaRef PluginConfiguration::FetchLua(std::string key, lua_State* L)
-{
-    std::any value = Fetch(key);
-
-    return LuaSerializeData(value, L);
-}
-
 void ParseAndFillConfiguration(rapidjson::Value& initDoc, rapidjson::Value& config, rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator>& allocator, bool& wasEdited)
 {
     for (auto it = initDoc.MemberBegin(); it != initDoc.MemberEnd(); ++it)

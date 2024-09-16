@@ -147,11 +147,6 @@ std::any PluginConvars::GetConvarValue(std::string cvarname)
     return FetchCVarValue(cvarname);
 }
 
-luabridge::LuaRef PluginConvars::GetConvarValueLua(std::string cvarname, lua_State* L)
-{
-    return LuaSerializeData(GetConvarValue(cvarname), L);
-}
-
 int16_t PluginConvars::GetConvarType(std::string cvarname)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::GetConvarType(cvarname=\"%s\")", cvarname.c_str()));

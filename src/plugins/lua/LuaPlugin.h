@@ -22,6 +22,28 @@ extern "C"
 #include <any>
 #include <set>
 
+luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state);
+std::any LuaDeserializeData(luabridge::LuaRef ref, lua_State* state);
+
+namespace luabridge {
+
+    /// Lua stack traits for C++ types.
+    ///
+    /// @tparam T A C++ type.
+    ///
+    template<class T>
+    struct Stack;
+
+    template<>
+    struct Stack<std::any>
+    {
+        static void push(lua_State* L, std::any v) { LuaSerializeData(v, L).push(L); }
+
+        static std::any get(lua_State* L, int index) { return LuaDeserializeData(LuaRef::fromStack(L, index), L); }
+    };
+}
+
+
 class PluginEvent;
 
 class LuaPlugin : public Plugin

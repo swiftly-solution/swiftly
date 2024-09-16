@@ -165,7 +165,6 @@ public:
     void FireEventToClient(int slot);
 
     void SetReturn(std::any value);
-    void SetReturnLua(luabridge::LuaRef value);
     std::any GetReturnValue();
 
     // Hooks section
@@ -192,7 +191,6 @@ public:
     void SetHookInt64(int index, int64_t value);
 
     void SetHookReturn(std::any value);
-    void SetHookReturnLua(luabridge::LuaRef value);
     std::any GetHookReturn();
 };
 
@@ -447,8 +445,6 @@ public:
     uint64_t FetchArraySize(std::string key);
     std::any Fetch(std::string key);
 
-    luabridge::LuaRef FetchLua(std::string key, lua_State* L);
-
     void CreateLua(std::string configurationKey, luabridge::LuaRef table, lua_State* L);
 };
 
@@ -469,7 +465,6 @@ public:
     void DeleteFake(std::string cvarname);
 
     std::any GetConvarValue(std::string cvarname);
-    luabridge::LuaRef GetConvarValueLua(std::string cvarname, lua_State* L);
 
     int16_t GetConvarType(std::string cvarname);
     void SetConvar(std::string cvarname, std::string value);
@@ -662,10 +657,7 @@ public:
     void ShowMenu(std::string menuid);
 
     std::any GetVarValue(std::string key);
-    luabridge::LuaRef GetVarValueLua(std::string key, lua_State* L);
-
     void SetVarValue(std::string key, std::any value);
-    void SetVarValueLua(std::string key, luabridge::LuaRef value);
 
     void SetListening(int playerid, int listenOverride);
     int GetListening(int playerid);
@@ -808,7 +800,7 @@ public:
     std::string AddHook(PluginMemory mem, std::string args_list, std::string ret_type);
     std::string AddEntityOutputHook(std::string classname, std::string output);
 
-    luabridge::LuaRef CallHookLua(std::string hookId, std::string hookPayload, lua_State* L);
+    std::any CallHook(std::string hookId, std::string hookPayload);
 };
 
 //////////////////////////////////////////////////////////////

@@ -229,7 +229,7 @@ void LuaPlugin::RegisterEventHandler(void* functionPtr)
 
 void LuaPlugin::RegisterEventHandling(std::string eventName)
 {
-    if(this->eventHandlers.find(eventName) == this->eventHandlers.end()) this->eventHandlers.insert(eventName);
+    if (this->eventHandlers.find(eventName) == this->eventHandlers.end()) this->eventHandlers.insert(eventName);
 }
 
 EventResult LuaPlugin::PluginTriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event)
@@ -382,6 +382,30 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state)
         PRINTF("Invalid casting: %s\n", err.what());
         return luabridge::LuaRef(state);
     }
+}
+
+std::any LuaDeserializeData(luabridge::LuaRef ref, lua_State* state)
+{
+    if (ref.isBool())
+        return ref.cast<bool>();
+    else if (ref.isNil())
+        return nullptr;
+    else if (ref.isNumber())
+        return ref.cast<int64_t>();
+    else if (ref.isString())
+        return ref.cast<std::string>();
+    else if (ref.isTable())
+    {
+        luabridge::LuaRef serpentDump = luabridge::getGlobal(state, "serpent")["dump"];
+        luabridge::LuaRef serpentDumpReturnValue = serpentDump(ref);
+
+        std::vector<std::string> tmptbl;
+        tmptbl.push_back(serpentDumpReturnValue.cast<std::string>());
+
+        return tmptbl;
+    }
+    else
+        return nullptr;
 }
 
 std::string LuaPlugin::GetAuthor()
