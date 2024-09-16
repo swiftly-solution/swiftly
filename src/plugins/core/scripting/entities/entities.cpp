@@ -19,6 +19,6 @@ SDKBaseClass CreateEntityByName(const char* name)
 
     CEntityIdentity* entityPtr = reinterpret_cast<CEntityIdentity*>(g_Signatures->FetchSignature<UTIL_CreateEntityByName>("UTIL_CreateEntityByName")(className.c_str(), -1));
 
-    SDKBaseClass instance(entityPtr, "CEntityInstance");
+    SDKBaseClass instance(entityPtr->m_pInstance, "CEntityInstance");
     return instance;
 }
