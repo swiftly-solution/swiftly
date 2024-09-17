@@ -18,7 +18,9 @@
 #define UNICODE
 #endif
 #include <windows.h>
+#undef _WIN32
 #include <ws2ipdef.h>
+#define _WIN32 1
 #else
 #include <arpa/inet.h>
 #include <sys/mman.h>
