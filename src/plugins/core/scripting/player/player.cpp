@@ -5,9 +5,10 @@
 #include "../../../../precacher/precacher.h"
 #include "../../../../convars/convars.h"
 
+typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
+
 PluginPlayer::PluginPlayer(std::string m_plugin_name, int m_playerId)
 {
-
     this->plugin_name = m_plugin_name;
     this->playerId = m_playerId;
 }
@@ -473,6 +474,16 @@ void PluginPlayer::QueryConvar(std::string cvar_name)
     if (self->IsFakeClient()) return;
 
     g_cvarQuery->QueryCvarClient(self->GetSlot(), cvar_name);
+}
+
+bool PluginPlayer::IsListeningToGameEvent(std::string game_event)
+{
+    Player* self = g_playerManager->GetPlayer(this->playerId);
+    if (!self) return false;
+    if (self->IsFakeClient()) return false;
+
+    IGameEventListener2* playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(self->GetSlot());
+    return g_gameEventManager->FindListener(playerListener, game_event.c_str());
 }
 
 bool PluginPlayer::IsValid()

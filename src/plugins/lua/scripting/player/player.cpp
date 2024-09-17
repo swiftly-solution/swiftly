@@ -81,6 +81,7 @@ LoadLuaScriptingComponent(
             .addFunction("SetBunnyhop", &PluginPlayer::SetBunnyhop)
             .addFunction("GetBunnyhop", &PluginPlayer::GetBunnyhop)
             .addFunction("QueryConvar", &PluginPlayer::QueryConvar)
+            .addFunction("IsListeningToGameEvent", &PluginPlayer::IsListeningToGameEvent)
             .addFunction("IsValid", &PluginPlayer::IsValid)
             .endClass()
             .addFunction("GetPlayer", scripting_GetPlayer);
