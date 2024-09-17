@@ -71,6 +71,26 @@ std::string GeoLite2PP::DB::get_metadata( void )
 	return to_json( node );
 }
 
+#ifndef gai_strerror
+#include <windows.h>
+char *gai_strerror(int ecode)
+{
+    static char buff[1024 + 1];
+
+    (void)FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM
+                             |FORMAT_MESSAGE_IGNORE_INSERTS
+                             |FORMAT_MESSAGE_MAX_WIDTH_MASK,
+                              NULL,
+                              ecode,
+                              MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+                              (LPSTR)buff,
+                              1024,
+                              NULL);
+
+    return buff;
+}
+
+#endif
 
 MMDB_lookup_result_s GeoLite2PP::DB::lookup_raw( const std::string &ip_address )
 {
