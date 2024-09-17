@@ -38,14 +38,13 @@ std::map<std::string, std::string> languages = {
     { "vietnamese", "vn" },
 };
 
+void OnClientConvarQuery(int playerid, std::string convar_name, std::string convar_value);
 SH_DECL_MANUALHOOK1(OnConVarQuery, 0, 0, 0, bool, const CNetMessagePB<CCLCMsg_RespondCvarValue>&);
 
 int OnConVarQueryID = -1;
 
 void ConvarQuery::Initialize()
 {
-    if(!g_Config->FetchValue<bool>("core.use_player_language")) return;
-    
     SH_MANUALHOOK_RECONFIGURE(OnConVarQuery, g_Offsets->GetOffset("CServerSideClient_OnConVarQuery"), 0, 0);
 
     DynLibUtils::CModule eng = DetermineModuleByLibrary("engine2");
@@ -55,7 +54,7 @@ void ConvarQuery::Initialize()
 
 void ConvarQuery::Destroy()
 {
-    if(!g_Config->FetchValue<bool>("core.use_player_language") || OnConVarQueryID == -1) return;
+    if(OnConVarQueryID == -1) return;
 
     SH_REMOVE_HOOK_ID(OnConVarQueryID);
 }
@@ -63,13 +62,17 @@ void ConvarQuery::Destroy()
 bool ConvarQuery::OnConVarQuery(const CNetMessagePB<CCLCMsg_RespondCvarValue>& msg)
 {
     auto client = META_IFACEPTR(CServerSideClient);
+    auto player = g_playerManager->GetPlayer(client->GetPlayerSlot());
+    if(!player) RETURN_META_VALUE(MRES_IGNORED, true);
+    if(player->IsFakeClient()) RETURN_META_VALUE(MRES_IGNORED, true);
 
     if (msg.name() == "cl_language") {
         if (languages.find(msg.value()) != languages.end()) {
-            auto player = g_playerManager->GetPlayer(client->GetPlayerSlot());
-            if (player != nullptr) player->language = languages.at(msg.value());
+            player->language = languages.at(msg.value());
         }
     }
+
+    OnClientConvarQuery(player->GetSlot().Get(), msg.name(), msg.value());
 
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
@@ -77,8 +80,6 @@ bool ConvarQuery::OnConVarQuery(const CNetMessagePB<CCLCMsg_RespondCvarValue>& m
 
 void ConvarQuery::QueryCvarClient(CPlayerSlot slot, std::string cvarName)
 {
-    if(!g_Config->FetchValue<bool>("core.use_player_language")) return;
-
     auto pMsg = g_pNetworkMessages->FindNetworkMessagePartial("GetCvarValue");
 
     auto msg = pMsg->AllocateMessage()->ToPB<CSVCMsg_GetCvarValue>();

@@ -516,7 +516,8 @@ void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint
         g_playerManager->RegisterPlayer(player);
     }
     else {
-        g_cvarQuery->QueryCvarClient(slot, "cl_language");
+        if(g_Config->FetchValue<bool>("core.use_player_language"))
+            g_cvarQuery->QueryCvarClient(slot, "cl_language");
     }
 }
 

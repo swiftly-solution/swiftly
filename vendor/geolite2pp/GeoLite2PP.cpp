@@ -71,7 +71,7 @@ std::string GeoLite2PP::DB::get_metadata( void )
 	return to_json( node );
 }
 
-#ifndef gai_strerror
+#if !defined(gai_strerror) && defined(_WIN32)
 #include <windows.h>
 char *gai_strerror(int ecode)
 {

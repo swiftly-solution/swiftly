@@ -136,7 +136,7 @@ bool Addons::SendNetMessage(CNetMessage* pData, NetChannelBufType_t bufType)
         RETURN_META_VALUE(MRES_IGNORED, true);
 
     int idx;
-    ClientJoinInfo_t* pPendingClient = GetPendingClient(pClient->GetClientSteamID()->ConvertToUint64(), idx);
+    ClientJoinInfo_t* pPendingClient = GetPendingClient(pClient->GetClientSteamID().ConvertToUint64(), idx);
     if (pPendingClient)
     {
         auto pMsg = pData->ToPB<CNETMsg_SignonState>();

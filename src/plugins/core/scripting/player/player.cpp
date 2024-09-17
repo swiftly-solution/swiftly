@@ -3,6 +3,7 @@
 #include "../../../../player/PlayerManager.h"
 #include "../../../../commands/CommandsManager.h"
 #include "../../../../precacher/precacher.h"
+#include "../../../../convars/convars.h"
 
 PluginPlayer::PluginPlayer(std::string m_plugin_name, int m_playerId)
 {
@@ -463,6 +464,15 @@ bool PluginPlayer::GetBunnyhop()
         return false;
 
     return self->bunnyhopState;
+}
+
+void PluginPlayer::QueryConvar(std::string cvar_name)
+{
+    Player* self = g_playerManager->GetPlayer(this->playerId);
+    if (!self) return;
+    if (self->IsFakeClient()) return;
+
+    g_cvarQuery->QueryCvarClient(self->GetSlot(), cvar_name);
 }
 
 bool PluginPlayer::IsValid()

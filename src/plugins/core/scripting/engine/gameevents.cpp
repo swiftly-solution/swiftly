@@ -3,6 +3,8 @@
 #include "../../../../player/PlayerManager.h"
 #include "../../../../hooks/FuncHook.h"
 
+PluginEvent* noReturnEvent = nullptr;
+
 void OnClientKeyStateChange(int playerid, std::string key, bool pressed)
 {
     if (pressed)
@@ -14,9 +16,9 @@ void OnClientKeyStateChange(int playerid, std::string key, bool pressed)
         player->PerformMenuAction(key);
     }
 
-    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnClientKeyStateChange", encoders::msgpack::SerializeToString({ playerid, key, pressed }), event);
-    delete event;
+    if(noReturnEvent == nullptr) noReturnEvent = new PluginEvent("core", nullptr, nullptr);
+
+    g_pluginManager->ExecuteEvent("core", "OnClientKeyStateChange", encoders::msgpack::SerializeToString({ playerid, key, pressed }), noReturnEvent);
 }
 
 bool OnClientCommand(int playerid, std::string command)
@@ -55,6 +57,13 @@ bool OnClientChat(int playerid, std::string text, bool teamonly)
 
     delete event;
     return response;
+}
+
+void OnClientConvarQuery(int playerid, std::string convar_name, std::string convar_value)
+{
+    if(noReturnEvent == nullptr) noReturnEvent = new PluginEvent("core", nullptr, nullptr);
+
+    g_pluginManager->ExecuteEvent("core", "OnClientConvarQuery", encoders::msgpack::SerializeToString({ playerid, convar_name, convar_value }), noReturnEvent);
 }
 
 void Hook_CBaseEntity_TakeDamage(CBaseEntity* _this, CTakeDamageInfo* damageInfo);
