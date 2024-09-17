@@ -81,8 +81,8 @@ SDKBaseClass SDKBaseClass::CBaseEntity_EHandle() {
     return SDKBaseClass(((CBaseEntity*)this->GetPtr())->m_pEntity->m_EHandle.Get(), "CBaseEntity");
 }
 
-void SDKBaseClass::CBaseEntity_Spawn() {
-    ((CBaseEntity*)this->GetPtr())->DispatchSpawn();
+void SDKBaseClass::CBaseEntity_Spawn(PluginCEntityKeyValues* kv) {
+    ((CBaseEntity*)this->GetPtr())->DispatchSpawn(kv ? kv->GetKeyVals() : nullptr);
 }
 
 void SDKBaseClass::CBaseEntity_Despawn() {

@@ -749,6 +749,16 @@ int SDKBaseClass::SetProp(lua_State* state)
     return 0;
 }
 
+void SDKBaseClass::CBaseEntity_SpawnLua(lua_State* state) {
+    luabridge::LuaRef ref = luabridge::LuaRef::fromStack(state, 2);
+    if(ref.isInstance<PluginCEntityKeyValues>()) {
+        auto kv = ref.cast<PluginCEntityKeyValues>();
+        CBaseEntity_Spawn(&kv);
+    }
+    else
+        CBaseEntity_Spawn(nullptr);
+}
+
 LoadLuaScriptingComponent(
     schema,
     [](LuaPlugin* plugin, lua_State* state)
@@ -763,7 +773,7 @@ LoadLuaScriptingComponent(
             cls.addFunction("SetBodygroup", &SDKBaseClass::CBaseModelEntity_SetBodygroup);
             cls.addFunction("SetOrAddAttributeValueByName", &SDKBaseClass::CAttributeList_SetOrAddAttributeValueByName);
             cls.addFunction("EHandle", &SDKBaseClass::CBaseEntity_EHandle);
-            cls.addFunction("Spawn", &SDKBaseClass::CBaseEntity_Spawn);
+            cls.addFunction("Spawn", &SDKBaseClass::CBaseEntity_SpawnLua);
             cls.addFunction("Despawn", &SDKBaseClass::CBaseEntity_Despawn);
             cls.addFunction("AcceptInput", &SDKBaseClass::CBaseEntity_AcceptInput);
             cls.addFunction("GetClassname", &SDKBaseClass::CBaseEntity_GetClassname);

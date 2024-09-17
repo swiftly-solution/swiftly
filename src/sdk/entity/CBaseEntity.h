@@ -152,9 +152,9 @@ public:
         this->m_iHealth = this->m_iHealth() - damage;
     }
 
-    void DispatchSpawn()
+    void DispatchSpawn(CEntityKeyValues* kv = nullptr)
     {
-        g_Signatures->FetchSignature<CBaseEntity_DispatchSpawn>("CBaseEntity_DispatchSpawn")(this, nullptr);
+        g_Signatures->FetchSignature<CBaseEntity_DispatchSpawn>("CBaseEntity_DispatchSpawn")(this, kv);
     }
 
     void Despawn()
