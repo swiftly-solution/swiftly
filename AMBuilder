@@ -20,6 +20,16 @@ for sdk_target in MMSPlugin.sdk_targets:
 			if fnmatch.fnmatch(_file, '*.c') and not "testes" in root and not "onelua.c" in _file:
 				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
+	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'vendor', 'maxmind')):
+		for _file in files:
+			if fnmatch.fnmatch(_file, '*.c'):
+				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
+
+	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'vendor', 'geolite2pp')):
+		for _file in files:
+			if fnmatch.fnmatch(_file, '*.cpp'):
+				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
+
 	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, "vendor", "json-lua", "src")):
 		for _file in files:
 			if fnmatch.fnmatch(_file, '*.cpp'):
@@ -189,6 +199,8 @@ for sdk_target in MMSPlugin.sdk_targets:
 		os.path.join(builder.sourcePath, 'vendor', 'json', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'texttable'),
+		os.path.join(builder.sourcePath, 'vendor', 'geolite2pp'),
+		os.path.join(builder.sourcePath, 'vendor', 'maxmind'),
 		os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'asmjit', 'src'),
 		os.path.join(builder.sourcePath, 'vendor', 'dynohook', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),

@@ -76,6 +76,11 @@ jobs:
                   sudo apt install -y libreadline-dev libboost-all-dev fdupes unzip
                   bash ./setup.sh
 
+                  echo "[Builder] Setting up MaxMind Database"
+                  wget https://git.io/GeoLite2-City.mmdb -O build/package/addons/swiftly/data/GeoLite2-City.mmdb
+                  wget https://git.io/GeoLite2-ASN.mmdb -O build/package/addons/swiftly/data/GeoLite2-ASN.mmdb
+                  echo "[Builder] Finished setting up MaxMind Database"
+
                   echo "[Builder] Setting up default plugins"
                   cp -r build/package build/package2
                   cd build/package/addons/swiftly
@@ -103,6 +108,9 @@ jobs:
                   ./setup.ps1
 
                   Set-Location build/package/addons/swiftly
+
+                  Invoke-WebRequest https://git.io/GeoLite2-City.mmdb -OutFile data/GeoLite2-City.mmdb
+                  Invoke-WebRequest https://git.io/GeoLite2-ASN.mmdb -OutFile data/GeoLite2-ASN.mmdb
 
                   Invoke-WebRequest https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip -OutFile Swiftly.Plugin.Admins.zip
                   Expand-Archive Swiftly.Plugin.Admins.zip -DestinationPath .
