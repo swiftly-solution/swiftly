@@ -159,8 +159,11 @@ void Player::SendMsg(int dest, const char* msg, ...)
     }
     else if (dest == HUD_PRINTCENTER)
     {
-        this->centerMessageEndTime = GetTime() + 5000;
-        this->centerMessageText = msg;
+        if(std::string(msg) == "") this->centerMessageEndTime = 0;
+        else {
+            this->centerMessageEndTime = GetTime() + 5000;
+            this->centerMessageText = msg;
+        }
     }
     else if (dest == HUD_PRINTCONSOLE)
     {
