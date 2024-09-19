@@ -23,6 +23,16 @@ int RegisterEventHandlerPlugin(std::string eventName, lua_State* L)
     return 0;
 }
 
+int RemoveEventHandlerPlugin(std::string eventName, lua_State* L)
+{
+    Plugin* plugin = FetchPluginByState(L);
+    if (!plugin)
+        return 0;
+
+    plugin->UnregisterEventHandling(eventName);
+    return 0;
+}
+
 std::vector<luabridge::LuaRef> TriggerEventInternal(std::string eventName, std::string eventPayload, lua_State* L)
 {
     std::vector<luabridge::LuaRef> returnValues;
@@ -42,6 +52,7 @@ LoadLuaScriptingComponent(
         luabridge::getGlobalNamespace(state)
             .addFunction("AddGlobalEvents", AddGlobalEvents)
             .addFunction("RegisterEventHandlerPlugin", RegisterEventHandlerPlugin)
+            .addFunction("RemoveEventHandlerPlugin", RemoveEventHandlerPlugin)
             .addFunction("TriggerEventInternal", TriggerEventInternal)
 
             .beginClass<PluginEvent>("Event")

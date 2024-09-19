@@ -65,6 +65,7 @@ public:
 
     void RegisterEventHandler(void* functionPtr);
     void RegisterEventHandling(std::string eventName);
+    void UnregisterEventHandling(std::string eventName);
     EventResult PluginTriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event);
 
     std::string GetAuthor();

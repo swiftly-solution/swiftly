@@ -42,6 +42,12 @@ function RemoveEventHandler(eventData)
     end
 
     eventHandlers[eventData.name].handlers[eventData.key] = nil
+
+    local exists = ((#{next(eventHandlers[eventData.name].handlers)}) > 0)
+
+    if exists == false then
+        RemoveEventHandlerPlugin(eventData.name)
+    end
 end
 
 function TriggerEvent(eventName, ...)

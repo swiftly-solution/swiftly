@@ -1,44 +1,3 @@
-local timerstblsize = nil
-local timerst = nil
-
-local timeoutsRemoveTbl = {}
-local timeoutsTbl = {}
-local nextTickFunctions = {}
-
-local gameTickEvent = nil
-local table_remove = table.remove
-local table_insert = table.insert
-
-local gameTickCall = function()
-    timerstblsize = #timeoutsTbl;
-    timerst = GetTime()
-
-    local nexttickCopy = nextTickFunctions
-    nextTickFunctions = {}
-
-    --[[ Next Tick section (High CPU Usage for some reason even when there is nothing in queue) ]]
-    for i = 1, #nexttickCopy do
-        local status, err = pcall(nexttickCopy[i])
-        if not status then
-            print("An error has been occured while trying to execute NextTick.\nError: "..err)
-        end
-    end
-
-    --[[ Timeout section ]]
-    for i = 1, timerstblsize do
-        if timeoutsTbl[i].call - timerst <= 0 then
-            timeoutsTbl[i].cb();
-            timeoutsRemoveTbl[#timeoutsRemoveTbl + 1] = i
-        end
-    end
-
-    for i = #timeoutsRemoveTbl, 1, -1 do
-        table_remove(timeoutsTbl, timeoutsRemoveTbl[i])
-    end
-
-    timeoutsRemoveTbl = {}
-end
-
 function SetTimeout(delay, callback)
     if type(delay) ~= "number" then
         return print("The delay needs to be a number.")
@@ -47,9 +6,20 @@ function SetTimeout(delay, callback)
         return print("The callback needs to be a function.")
     end
 
-    if not gameTickEvent then gameTickEvent = AddEventHandler("OnGameTick", gameTickCall) end
+    local call = GetTime() + delay
 
-    table_insert(timeoutsTbl, { call = GetTime() + delay, cb = callback })
+    local settimeoutEvent = nil
+    settimeoutEvent = AddEventHandler("OnGameTick", function()
+        if call - GetTime() <= 0 then
+            if type(callback) == "function" then
+                local status, err = pcall(callback)
+                if not status then
+                    print("An error has been occured while trying to execute SetTimeout.\nError: "..err)
+                end
+            end
+            RemoveEventHandler(settimeoutEvent)
+        end
+    end)
 end
 
 local timerIds = 50
@@ -62,8 +32,6 @@ function SetTimer(delay, callback)
     if type(callback) ~= "function" then
         return print("The callback needs to be a function.")
     end
-
-    if not gameTickEvent then gameTickEvent = AddEventHandler("OnGameTick", gameTickCall) end
 
     timerIds = timerIds + 1
 
@@ -100,7 +68,15 @@ function NextTick(callback)
         return print("The callback needs to be a function.")
     end
 
-    if not gameTickEvent then gameTickEvent = AddEventHandler("OnGameTick", gameTickCall) end
+    local nexttickEvent = nil
+    nexttickEvent = AddEventHandler("OnGameTick", function()
+        if type(callback) == "function" then
+            local status, err = pcall(callback)
+            if not status then
+                print("An error has been occured while trying to execute NextTick.\nError: "..err)
+            end
+        end
 
-    table_insert(nextTickFunctions, callback)
+        RemoveEventHandler(nexttickEvent)
+    end)
 end

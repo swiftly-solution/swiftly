@@ -232,6 +232,12 @@ void LuaPlugin::RegisterEventHandling(std::string eventName)
     if (this->eventHandlers.find(eventName) == this->eventHandlers.end()) this->eventHandlers.insert(eventName);
 }
 
+void LuaPlugin::UnregisterEventHandling(std::string eventName)
+{
+    auto it = this->eventHandlers.find(eventName);
+    if(it != this->eventHandlers.end()) this->eventHandlers.erase(it);
+}
+
 EventResult LuaPlugin::PluginTriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event)
 {
     if (this->GetPluginState() == PluginState_t::Stopped && eventName != "OnPluginStart" && eventName != "OnAllPluginsLoaded")
