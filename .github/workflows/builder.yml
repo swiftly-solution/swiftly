@@ -92,11 +92,14 @@ jobs:
                   unzip Swiftly.Plugin.Admins.BaseBans.zip
                   wget https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip
                   unzip Swiftly.Plugin.Admins.BaseCommands.zip
+                  wget https://github.com/swiftly-solution/cookies/releases/latest/download/cookies.zip
+                  unzip cookies.zip
 
                   rm -rf Swiftly.Plugin.Admins.zip
                   rm -rf Swiftly.Plugin.Admins.BaseComms.zip
                   rm -rf Swiftly.Plugin.Admins.BaseBans.zip
                   rm -rf Swiftly.Plugin.Admins.BaseCommands.zip
+                  rm -rf cookies.zip
 
                   cd ../../../..
                   echo "[Builder] Finished setting up default plugins"
@@ -120,11 +123,14 @@ jobs:
                   Expand-Archive Swiftly.Plugin.Admins.BaseBans.zip -DestinationPath .
                   Invoke-WebRequest https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip -OutFile Swiftly.Plugin.Admins.BaseCommands.zip
                   Expand-Archive Swiftly.Plugin.Admins.BaseCommands.zip -DestinationPath .
+                  Invoke-WebRequest https://github.com/swiftly-solution/cookies/releases/latest/download/cookies.zip -OutFile cookies.zip
+                  Expand-Archive cookies.zip -DestinationPath .
 
                   Remove-Item -Force Swiftly.Plugin.Admins.zip
                   Remove-Item -Force Swiftly.Plugin.Admins.BaseComms.zip
                   Remove-Item -Force Swiftly.Plugin.Admins.BaseBans.zip
                   Remove-Item -Force Swiftly.Plugin.Admins.BaseCommands.zip
+                  Remove-Item -Force cookies.zip
 
                   Set-Location ../../../..
 
