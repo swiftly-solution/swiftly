@@ -436,7 +436,9 @@ GameFrameMsgPackCache gameFrameCache = {
 void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     PERF_RECORD("GameFrame", "core")
-        static double g_flNextUpdate = 0.0;
+
+    static double g_flNextUpdate = 0.0;
+    uint64_t time = GetTime();
 
     //////////////////////////////////////////////////////////////
     /////////////////         Server List          //////////////
@@ -481,7 +483,7 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
         if (player->HasMenuShown())
             player->RenderMenu();
         else if (player->HasCenterText())
-            player->RenderCenterText();
+            player->RenderCenterText(time);
     }
 
     //////////////////////////////////////////////////////////////

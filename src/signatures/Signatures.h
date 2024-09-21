@@ -21,7 +21,6 @@ class CCSPlayer_MovementServices;
 struct EmitSound_t;
 struct SndOpEventGuid_t;
 
-typedef void (*ClientPrint)(CBasePlayerController*, int, const char*, const char*, const char*, const char*, const char*);
 typedef void (*CCSPlayerController_SwitchTeam)(CCSPlayerController* pController, unsigned int team);
 typedef void* (*UTIL_CreateEntityByName)(const char*, int);
 typedef void (*CBaseModelEntity_SetModel_t)(CBaseModelEntity*, const char*);
@@ -32,7 +31,6 @@ typedef void (*CAttributeList_SetOrAddAttributeValueByName_t)(void*, const char*
 typedef void (*CBaseModelEntity_SetBodygroup_t)(void*, const char*, ...);
 typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices*, const char*, int, int, int, int);
 typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController*, CCSPlayerPawn*, bool, bool);
-typedef void (*CCSPlayerPawnBase_PostThink)(CCSPlayerPawnBase*);
 typedef void (*CCSPlayer_MovementServices_CheckJumpPre)(CCSPlayer_MovementServices*, void*);
 typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
 

@@ -52,7 +52,7 @@ public:
 
     void SendMsg(int dest, const char* msg, ...);
 
-    void RenderCenterText();
+    void RenderCenterText(uint64_t time);
 
     const char* GetName();
     uint64 GetSteamID();
@@ -116,6 +116,9 @@ public:
 private:
     int slot;
     bool isFakeClient = false;
+
+    IGameEvent* centerMessageEvent = nullptr;
+    IGameEventListener2* playerListener = nullptr;
 
     uint64_t buttons = 0;
 

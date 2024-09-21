@@ -62,11 +62,19 @@ Player::Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64 m_xui
     this->xuid = m_xuid;
     this->ip_address = ip_address;
     this->language = g_Config->FetchValue<std::string>("core.language");
+
+    centerMessageEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+
+    centerMessageEvent->SetUint64("duration", 1);
+    centerMessageEvent->SetInt("userid", this->slot);
+
+    if(!this->isFakeClient) playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(CPlayerSlot(this->slot));
 }
 
 Player::~Player()
 {
     this->isFakeClient = true;
+    g_gameEventManager->FreeEvent(centerMessageEvent);
 }
 
 CBasePlayerController* Player::GetController()
@@ -246,23 +254,17 @@ void Player::ChangeTeam(int team)
     CALL_VIRTUAL(void, g_Offsets->GetOffset("CCSPlayerController_ChangeTeam"), playerController, team);
 }
 
-void Player::RenderCenterText()
+void Player::RenderCenterText(uint64_t time)
 {
     if (this->centerMessageEndTime != 0)
     {
-        if (this->centerMessageEndTime >= GetTime())
+        if (this->centerMessageEndTime >= time)
         {
-            IGameEvent* pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
-            if (pEvent)
+            if (centerMessageEvent)
             {
-                pEvent->SetString("loc_token", this->centerMessageText.c_str());
-                pEvent->SetUint64("duration", 1);
-                pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
+                centerMessageEvent->SetString("loc_token", this->centerMessageText.c_str());
 
-                IGameEventListener2* playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
-
-                playerListener->FireGameEvent(pEvent);
-                g_gameEventManager->FreeEvent(pEvent);
+                playerListener->FireGameEvent(centerMessageEvent);
             }
         }
         else
@@ -422,7 +424,7 @@ void Player::ShowMenu(std::string menuid)
     this->page = 1;
     this->selected = 0;
 
-    this->menu->RegeneratePage(this->GetSlot().Get(), this->page, this->selected);
+    this->menu->RegeneratePage(this->slot, this->page, this->selected);
     this->RenderMenu();
 }
 
@@ -434,17 +436,11 @@ void Player::RenderMenu()
     if (this->centerMessageEndTime > 0)
         this->centerMessageEndTime = 0;
 
-    IGameEvent* pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
-    if (pEvent)
+    if (centerMessageEvent)
     {
-        pEvent->SetString("loc_token", this->menu->GeneratedItems(this->GetSlot().Get(), this->page).c_str());
-        pEvent->SetUint64("duration", 10);
-        pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
+        centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
 
-        IGameEventListener2* playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
-
-        playerListener->FireGameEvent(pEvent);
-        g_gameEventManager->FreeEvent(pEvent);
+        playerListener->FireGameEvent(centerMessageEvent);
     }
 }
 
@@ -462,17 +458,11 @@ void Player::HideMenu()
     }
     this->menu = nullptr;
 
-    IGameEvent* pEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
-    if (pEvent)
+    if (centerMessageEvent)
     {
-        pEvent->SetString("loc_token", "Exiting...");
-        pEvent->SetUint64("duration", 1);
-        pEvent->SetInt("userid", this->GetController()->GetEntityIndex().Get() - 1);
+        centerMessageEvent->SetString("loc_token", "Exiting...");
 
-        IGameEventListener2* playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(this->GetSlot());
-
-        playerListener->FireGameEvent(pEvent);
-        g_gameEventManager->FreeEvent(pEvent);
+        playerListener->FireGameEvent(centerMessageEvent);
     }
 }
 
