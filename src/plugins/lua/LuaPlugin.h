@@ -41,6 +41,22 @@ namespace luabridge {
 
         static std::any get(lua_State* L, int index) { return LuaDeserializeData(LuaRef::fromStack(L, index), L); }
     };
+
+    template<>
+    struct Stack<int8_t>
+    {
+        static void push(lua_State* L, int8_t value)
+        {
+            lua_pushinteger(L, static_cast<lua_Integer>(value));
+        }
+
+        static int8_t get(lua_State* L, int index)
+        {
+            return static_cast<int8_t>(luaL_checkinteger(L, index));
+        }
+
+        static bool isInstance(lua_State* L, int index) { return Stack<int>::isInstance(L, index); }
+    };
 }
 
 
