@@ -103,23 +103,20 @@ void DatabaseQueryThread()
             RegisterCallStack* callStack = new RegisterCallStack(queue.plugin->GetName(), string_format("database::Query(database=%p, query=\"%s\")", (void*)queue.db, queue.query.c_str()));
 
             auto queryResult = queue.db->Query(queue.query.c_str());
+            std::string error = queue.db->GetError();
+            if (error == "MySQL server has gone away") {
+                if (queue.db->Connect())
+                {
+                    delete callStack;
+                    continue;
+                }
+                else
+                    error = queue.db->GetError();
+            }
+            std::string result = QueryToJSON(queryResult);
+
             if (queue.plugin->GetKind() == PluginKind_t::Lua)
             {
-                lua_State* state = ((LuaPlugin*)queue.plugin)->GetState();
-
-                std::string error = queue.db->GetError();
-                if (error == "MySQL server has gone away") {
-                    if (queue.db->Connect())
-                    {
-                        delete callStack;
-                        continue;
-                    }
-                    else
-                        error = queue.db->GetError();
-                }
-
-                std::string result = QueryToJSON(queryResult);
-
                 if(g_Players.size() > 0)
                     g_Plugin.NextFrame(DatabaseLuaCallback, { queue.requestID, result, error, (LuaPlugin*)queue.plugin });
                 else 

@@ -84,6 +84,8 @@ public:
     void UnregisterEventHandling(std::string eventName);
     EventResult PluginTriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event);
 
+    int64_t GetMemoryUsage();
+
     std::string GetAuthor();
     std::string GetWebsite();
     std::string GetVersion();

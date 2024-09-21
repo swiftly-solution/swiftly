@@ -426,13 +426,7 @@ void SwiftlyPluginManagerInfo(CPlayerSlot slot, CCommandContext context, std::st
     PrintToClientOrConsole(slot, "Plugin Info", "Author: %s\n", plugin->GetAuthor().c_str());
     PrintToClientOrConsole(slot, "Plugin Info", "Version: %s\n", plugin->GetVersion().c_str());
     PrintToClientOrConsole(slot, "Plugin Info", "URL: %s\n", website == "" ? "Not Present" : website.c_str());
-    if (plugin->GetKind() == PluginKind_t::Lua)
-    {
-        LuaPlugin* plg = (LuaPlugin*)plugin;
-        int64_t memoryUsage = (int64_t(lua_gc(plg->GetState(), LUA_GCCOUNT, 0)) * 1024) + int64_t(lua_gc(plg->GetState(), LUA_GCCOUNTB, 0));
-
-        PrintToClientOrConsole(slot, "Plugin Info", "Memory Usage: %.4fMB\n", double(memoryUsage) / 1024.0f / 1024.0f);
-    }
+    PrintToClientOrConsole(slot, "Plugin Info", "Memory Usage: %.4fMB\n", double(plugin->GetMemoryUsage()) / 1024.0f / 1024.0f);
 }
 
 void SwiftlyPluginManagerUnload(CPlayerSlot slot, CCommandContext context, std::string plugin_name)
@@ -689,12 +683,8 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot, CCommandContext context
         pluginsTable.add(" " + plugin_id + " ");
         pluginsTable.add(std::string(" ") + (plugin->GetPluginState() == PluginState_t::Started ? "Loaded" : "Unloaded") + " ");
         pluginsTable.add(std::string(" ") + (plugin->GetKind() == PluginKind_t::Lua ? "Lua" : "None") + " ");
-        if (plugin->GetKind() == PluginKind_t::Lua && plugin->GetPluginState() == PluginState_t::Started)
-        {
-            lua_State* state = ((LuaPlugin*)plugin)->GetState();
-            int64_t memoryUsage = (int64_t(lua_gc(state, LUA_GCCOUNT, 0)) * 1024) + int64_t(lua_gc(state, LUA_GCCOUNTB, 0));
-            pluginsTable.add(string_format(" %.4f MB ", (double(memoryUsage) / 1024.0f / 1024.0f)));
-        }
+        if (plugin->GetPluginState() == PluginState_t::Started)
+            pluginsTable.add(string_format(" %.4f MB ", (double(plugin->GetMemoryUsage()) / 1024.0f / 1024.0f)));
         else
             pluginsTable.add(" - ");
 

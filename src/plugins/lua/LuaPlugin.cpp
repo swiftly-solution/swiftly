@@ -449,3 +449,9 @@ std::string LuaPlugin::GetPlName()
     auto func = luabridge::getGlobal(this->GetState(), "GetPluginName");
     return func().cast<std::string>();
 }
+
+int64_t LuaPlugin::GetMemoryUsage()
+{
+    if (this->GetPluginState() == PluginState_t::Stopped) return 0;
+    return (int64_t(lua_gc(this->GetState(), LUA_GCCOUNT, 0)) * 1024) + int64_t(lua_gc(this->GetState(), LUA_GCCOUNTB, 0));
+}
