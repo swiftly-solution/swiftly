@@ -442,7 +442,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
     if(!m_ptr) {
         REGISTER_CALLSTACK(FetchPluginName(state), string_format("SDK Set: %s::%s(ptr=%p)", this->m_className.c_str(), fieldName.c_str(), m_ptr));
     }
-    uint64 path = ((uint64) hash_32_fnv1a_const(this->m_className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
+    uint64 path = (this->classOffset | hash_32_fnv1a_const(fieldName.c_str()));
     if (!g_sdk->ExistsField(path)) return;
 
     std::string field = g_sdk->GetFieldName(path);
@@ -735,7 +735,7 @@ int SDKBaseClass::GetProp(lua_State* state)
 {
     std::string field_name = luabridge::LuaRef::fromStack(state, 2).cast<std::string>();
 
-    uint64_t path = ((uint64_t) hash_32_fnv1a_const(this->m_className.c_str()) << 32 | hash_32_fnv1a_const(field_name.c_str()));
+    uint64_t path = (this->classOffset | hash_32_fnv1a_const(field_name.c_str()));
 
     if (field_name == "IsValid" || field_name == "ToPtr" || classFuncs.find(path) != classFuncs.end()) return luabridge::detail::CFunc::indexMetaMethod(state);
     

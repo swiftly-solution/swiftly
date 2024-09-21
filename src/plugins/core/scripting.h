@@ -249,6 +249,7 @@ class SDKBaseClass
 private:
     void* m_ptr;
     std::string m_className;
+    uint64_t classOffset;
 
 public:
     SDKBaseClass(std::string ptr, lua_State* state);
