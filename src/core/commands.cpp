@@ -7,6 +7,7 @@
 #include "../common.h"
 #include "../addons/addons.h"
 #include "../convars/convars.h"
+#include "../configuration/Configuration.h"
 #include "../utils/utils.h"
 #include "../player/PlayerManager.h"
 #include "../filters/ConsoleFilter.h"
@@ -181,6 +182,7 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
     {
         PrintToClientOrConsole(slot, "Commands", " addons       - Addons Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " cvars        - List all convars created by plugins\n");
+        PrintToClientOrConsole(slot, "Commands", " config       - Configuration Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " confilter    - Console Filtering Menu\n");
         PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " resmon       - Resource Monitor Menu\n");
@@ -799,6 +801,42 @@ void SwiftlyVersion(CPlayerSlot slot, CCommandContext context)
 }
 
 //////////////////////////////////////////////////////////////
+/////////////////        Console Filter        //////////////
+////////////////////////////////////////////////////////////
+
+void SwiftlyConfigurationManagerHelp(CPlayerSlot slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Console Filtering Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly config <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " reload     - Reloads all the plugin configurations.\n");
+}
+
+void SwiftlyConfigurationReload(CPlayerSlot slot, CCommandContext context)
+{
+    g_Config->ClearPluginConfig();
+    g_Config->LoadPluginConfigurations();
+    PrintToClientOrConsole(slot, "Configuration", "You've succesfully reloaded all the configurations for plugins.\n");
+}
+
+void SwiftlyConfigurationManager(CPlayerSlot slot, CCommandContext context, const char* subcmd)
+{
+    if (slot.Get() != -1)
+        return;
+
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        SwiftlyConfigurationManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "reload")
+        SwiftlyConfigurationReload(slot, context);
+    else
+        SwiftlyConfigurationManagerHelp(slot, context);
+}
+
+//////////////////////////////////////////////////////////////
 /////////////////            Credits           //////////////
 ////////////////////////////////////////////////////////////
 
@@ -836,6 +874,8 @@ void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
         SwiftlyConvarsManager(slot, context, V_StringToInt32(args[2], 1));
     else if (subcmd == "translations")
         SwiftlyTranslationManager(slot, context, args[2]);
+    else if (subcmd == "config")
+        SwiftlyConfigurationManager(slot, context, args[2]);
     else if (subcmd == "plugins")
         SwiftlyPluginManager(slot, context, args[2], args[3]);
     else if (subcmd == "resmon")

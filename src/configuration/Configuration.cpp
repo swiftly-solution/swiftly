@@ -490,34 +490,34 @@ void LoadValue(const char* key, const char* keyname, rapidjson::Value& value, st
 {
     std::string k = key + separator + keyname;
     if (value.IsBool())
-        g_Config->SetValue(k, value.GetBool());
+        g_Config->SetPluginValue(k, value.GetBool());
     else if (value.IsString())
-        g_Config->SetValue(k, std::string(value.GetString()));
+        g_Config->SetPluginValue(k, std::string(value.GetString()));
     else if (value.IsDouble())
-        g_Config->SetValue(k, value.GetDouble());
+        g_Config->SetPluginValue(k, value.GetDouble());
     else if (value.IsFloat())
-        g_Config->SetValue(k, value.GetFloat());
+        g_Config->SetPluginValue(k, value.GetFloat());
     else if (value.IsInt64())
-        g_Config->SetValue(k, value.GetInt64());
+        g_Config->SetPluginValue(k, value.GetInt64());
     else if (value.IsInt())
-        g_Config->SetValue(k, value.GetInt());
+        g_Config->SetPluginValue(k, value.GetInt());
     else if (value.IsUint64())
-        g_Config->SetValue(k, value.GetUint64());
+        g_Config->SetPluginValue(k, value.GetUint64());
     else if (value.IsUint())
-        g_Config->SetValue(k, value.GetUint());
+        g_Config->SetPluginValue(k, value.GetUint());
     else if (value.IsNull())
-        g_Config->SetValue(k, nullptr);
+        g_Config->SetPluginValue(k, nullptr);
     else if (value.IsObject()) {
-        g_Config->SetValue(k, string_format("JSON⇚%s⇛", JSONToString(value).c_str()));
+        g_Config->SetPluginValue(k, string_format("JSON⇚%s⇛", JSONToString(value).c_str()));
         LoadConfigPart(k, value);
     }
     else if (value.IsArray())
     {
-        g_Config->SetValue(k, string_format("JSON⇚%s⇛", JSONToString(value).c_str()));
+        g_Config->SetPluginValue(k, string_format("JSON⇚%s⇛", JSONToString(value).c_str()));
         g_Config->SetArraySize(k, value.Size());
         for (size_t i = 0; i < value.Size(); i++)
         {
-            g_Config->SetValue(string_format("%s[%d]", k.c_str(), i).c_str(), nullptr);
+            g_Config->SetPluginValue(string_format("%s[%d]", k.c_str(), i).c_str(), nullptr);
             LoadValue(k.c_str(), string_format("[%d]", i).c_str(), value[i], "");
         }
     }
@@ -566,7 +566,7 @@ void Configuration::LoadPluginConfigurations()
         std::string main_key = explode(configFileName, ".json")[0];
         rapidjson::Value& root = configurationFile;
 
-        g_Config->SetValue(main_key, JSONToString(root));
+        g_Config->SetPluginValue(main_key, JSONToString(root));
         LoadConfigPart(main_key, root);
     }
 }
@@ -610,7 +610,7 @@ void Configuration::LoadPluginConfig(std::string key)
 
     rapidjson::Value& root = configurationFile;
 
-    g_Config->SetValue(main_key, JSONToString(root));
+    g_Config->SetPluginValue(main_key, JSONToString(root));
     LoadConfigPart(main_key, root);
 }
 
@@ -621,4 +621,15 @@ void Configuration::SetValue(std::string key, T value)
         this->config.insert(make_pair(key, value));
     else
         this->config[key] = value;
+}
+
+template <typename T>
+void Configuration::SetPluginValue(std::string key, T value)
+{
+    this->pluginConfig.insert_or_assign(key, value);
+}
+
+void Configuration::ClearPluginConfig()
+{
+    this->pluginConfig.clear();
 }

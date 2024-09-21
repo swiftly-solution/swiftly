@@ -12,11 +12,9 @@ PluginConfiguration::PluginConfiguration(std::string m_plugin_name)
 
 bool PluginConfiguration::Exists(std::string key)
 {
-
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::Exists(key=\"%s\")", key.c_str()));
 
-    std::map<std::string, std::any> config = g_Config->FetchConfiguration();
-
+    std::map<std::string, std::any> config = g_Config->FetchPluginConfiguration();
     return (config.find(key) != config.end());
 }
 
@@ -45,7 +43,7 @@ std::any PluginConfiguration::Fetch(std::string key)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::Fetch(key=\"%s\")", key.c_str()));
 
-    std::map<std::string, std::any> config = g_Config->FetchConfiguration();
+    std::map<std::string, std::any> config = g_Config->FetchPluginConfiguration();
 
     return config[key];
 }
