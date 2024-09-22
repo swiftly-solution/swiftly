@@ -105,3 +105,37 @@ void Hook_CBaseEntity_TakeDamage(CBaseEntity* _this, CTakeDamageInfo* damageInfo
 
     CBaseEntity_TakeDamage(_this, damageInfo);
 }
+
+void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* inputName, CEntityInstance* activator, CEntityInstance* caller, variant_t* value, int outputid);
+FuncHook<decltype(Hook_CEntityIdentity_AcceptInput)> TCEntityIdentity_AcceptInput(Hook_CEntityIdentity_AcceptInput, "CEntityIdentity_AcceptInput");
+
+void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* inputName, CEntityInstance* activator, CEntityInstance* caller, variant_t* value, int outputid)
+{
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
+    std::vector<std::any> msgpackData = {
+        string_format("%p", _this),
+        inputName->String(),
+        string_format("%p", activator),
+        string_format("%p", caller),
+        value->ToString() == nullptr ? "(null)" : value->ToString(),
+        outputid,
+    };
+
+    g_pluginManager->ExecuteEvent("core", "OnEntityAcceptInput", encoders::msgpack::SerializeToString(msgpackData), event);
+
+    bool response = true;
+    try
+    {
+        response = std::any_cast<bool>(event->GetReturnValue());
+    }
+    catch (std::bad_any_cast& e)
+    {
+        response = true;
+    }
+
+    delete event;
+
+    if(!response) return;
+
+    TCEntityIdentity_AcceptInput(_this, inputName, activator, caller, value, outputid);
+}
