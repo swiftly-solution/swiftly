@@ -11,6 +11,7 @@
 #include "sdk/entity/CRecipientFilters.h"
 #include "addons/addons.h"
 #include "encoders/msgpack.h"
+#include "entities/listener.h"
 #include "addons/clients.h"
 #include "http/HTTPManager.h"
 #include "configuration/Configuration.h"
@@ -54,6 +55,7 @@ SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlo
 SH_DECL_HOOK3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandHandle, const CCommandContext&, const CCommand&);
 SH_DECL_HOOK8_void(IGameEventSystem, PostEventAbstract, SH_NOATTRIB, 0, CSplitScreenSlot, bool, int, const uint64*, INetworkMessageInternal*, const CNetMessage*, unsigned long, NetChannelBufType_t)
 SH_DECL_HOOK7_void(ISource2GameEntities, CheckTransmit, SH_NOATTRIB, 0, CCheckTransmitInfo**, int, CBitVec<16384>&, const Entity2Networkable_t**, const uint16*, int, bool);
+SH_DECL_HOOK3(IVEngineServer2, SetClientListening, SH_NOATTRIB, 0, bool, CPlayerSlot, CPlayerSlot, bool);
 
 #ifdef _WIN32
 FILE _ioccc[] = { *stdin, *stdout, *stderr };
@@ -79,25 +81,10 @@ CEntitySystem* g_pEntitySystem = nullptr;
 CGameEntitySystem* g_pGameEntitySystem = nullptr;
 IGameEventManager2* g_gameEventManager = nullptr;
 IGameEventSystem* g_pGameEventSystem = nullptr;
-CEntityListener g_entityListener;
 CSteamGameServerAPIContext g_SteamAPI;
 ISteamHTTP* g_http = nullptr;
 CSchemaSystem* g_pSchemaSystem2 = nullptr;
 CCSGameRules* gameRules = nullptr;
-
-class CGameResourceService
-{
-public:
-    CGameEntitySystem* GetGameEntitySystem()
-    {
-        return *reinterpret_cast<CGameEntitySystem**>((uintptr_t)(this) + g_Offsets->GetOffset("GameEntitySystem"));
-    }
-};
-
-CGameEntitySystem* GameEntitySystem()
-{
-    return g_pGameEntitySystem;
-}
 
 //////////////////////////////////////////////////////////////
 /////////////////      Internal Variables      //////////////
@@ -108,6 +95,7 @@ std::vector<Player*> g_Players;
 
 Addons g_addons;
 PlayerChat g_playerChat;
+EntityListener g_EntityListener;
 CommandsManager* g_commandsManager = nullptr;
 Configuration* g_Config = nullptr;
 ConsoleFilter* g_conFilter = nullptr;
@@ -235,6 +223,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_cvarQuery->Initialize();
     g_misc->Initialize();
     g_playerChat.Initialize();
+    g_EntityListener.Initialize();
 
     if (!InitializeHooks())
         PRINTRET("Hooks failed to initialize.\n", false)
@@ -319,6 +308,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     UnloadHooks();
     eventManager->Shutdown();
 
+    g_EntityListener.Destroy();
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameFrame, server, this, &Swiftly::Hook_GameFrame, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &Swiftly::Hook_ClientDisconnect, true);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, OnClientConnected, gameclients, this, &Swiftly::Hook_OnClientConnected, false);
@@ -328,8 +318,6 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &Swiftly::Hook_GameServerSteamAPIActivated, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
     SH_REMOVE_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &Swiftly::Hook_CheckTransmit, true);
-
-    g_pGameEntitySystem->RemoveListenerEntity(&g_entityListener);
 
     delete g_commandsManager;
     delete g_Config;
@@ -385,19 +373,8 @@ void Swiftly::OnLevelShutdown()
     delete event;
 }
 
-bool bDone = false;
 void Swiftly::Hook_StartupServer(const GameSessionConfiguration_t& config, ISource2WorldSession*, const char*)
 {
-    if (!bDone)
-    {
-        g_pGameEntitySystem = ((CGameResourceService*)g_pGameResourceService)->GetGameEntitySystem();
-        g_pEntitySystem = g_pGameEntitySystem;
-
-        g_pGameEntitySystem->AddListenerEntity(&g_entityListener);
-
-        bDone = true;
-    }
-
     g_ClientsPendingAddon.RemoveAll();
 
     if (g_addons.GetStatus())
@@ -591,8 +568,6 @@ bool OnClientCommand(int playerid, std::string command);
 
 void Swiftly::Hook_OnClientCommand(CPlayerSlot slot, const CCommand& cmd)
 {
-    g_voiceManager.OnClientCommand(slot, cmd);
-
     if (!OnClientCommand(slot.Get(), cmd.GetCommandString()))
         RETURN_META(MRES_SUPERCEDE);
 
@@ -602,41 +577,6 @@ void Swiftly::Hook_OnClientCommand(CPlayerSlot slot, const CCommand& cmd)
 void Swiftly::NextFrame(std::function<void(std::vector<std::any>)> fn, std::vector<std::any> param)
 {
     m_nextFrame.push_back({ fn, param });
-}
-
-void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)
-{
-    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntitySpawned", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), event);
-    delete event;
-}
-
-void CEntityListener::OnEntityParentChanged(CEntityInstance* pEntity, CEntityInstance* pNewParent)
-{
-}
-
-void EntityAllowHammerID(CEntityInstance* pEntity)
-{
-    Plat_WriteMemory((*(void ***)pEntity)[g_Offsets->GetOffset("GetHammerUniqueID")], (uint8_t*)"\xB0\x01", 2);
-}
-
-void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
-{   
-    ExecuteOnce(EntityAllowHammerID(pEntity));
-
-    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntityCreated", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), event);
-    delete event;
-
-    if (std::string(pEntity->GetClassname()) == "cs_gamerules")
-        gameRules = ((CCSGameRulesProxy*)pEntity)->m_pGameRules;
-}
-
-void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
-{
-    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntityDeleted", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), event);
-    delete event;
 }
 
 bool Swiftly::Pause(char* error, size_t maxlen)

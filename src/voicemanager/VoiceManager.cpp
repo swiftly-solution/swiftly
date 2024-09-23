@@ -12,16 +12,19 @@
 #include "../player/PlayerManager.h"
 #include <module.h>
 
-SH_DECL_HOOK3(IVEngineServer2, SetClientListening, SH_NOATTRIB, 0, bool, CPlayerSlot, CPlayerSlot, bool);
+SH_DECL_EXTERN3(IVEngineServer2, SetClientListening, SH_NOATTRIB, 0, bool, CPlayerSlot, CPlayerSlot, bool);
+SH_DECL_EXTERN2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand&);
 
 void VoiceManager::OnAllInitialized()
 {
     SH_ADD_HOOK(IVEngineServer2, SetClientListening, engine, SH_MEMBER(this, &VoiceManager::SetClientListening), false);
+    SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &VoiceManager::OnClientCommand, false);
 }
 
 void VoiceManager::OnShutdown()
 {
     SH_REMOVE_HOOK(IVEngineServer2, SetClientListening, engine, SH_MEMBER(this, &VoiceManager::SetClientListening), false);
+    SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &VoiceManager::OnClientCommand, false);
 }
 
 bool VoiceManager::SetClientListening(CPlayerSlot iReceiver, CPlayerSlot iSender, bool bListen)
