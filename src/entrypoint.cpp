@@ -28,6 +28,7 @@
 #include "resourcemonitor/ResourceMonitor.h"
 #include "hooks/NativeHooks.h"
 #include "player/PlayerManager.h"
+#include "player/Chat.h"
 #include "plugins/PluginManager.h"
 #include "plugins/core/scripting.h"
 #include "signatures/Signatures.h"
@@ -45,13 +46,13 @@
 SH_DECL_HOOK3_void(INetworkServerService, StartupServer, SH_NOATTRIB, 0, const GameSessionConfiguration_t&, ISource2WorldSession*, const char*);
 SH_DECL_HOOK3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
 SH_DECL_HOOK5_void(IServerGameClients, ClientDisconnect, SH_NOATTRIB, 0, CPlayerSlot, ENetworkDisconnectionReason, const char*, uint64, const char*);
-SH_DECL_HOOK1_void(IServerGameClients, ClientSettingsChanged, SH_NOATTRIB, 0, CPlayerSlot);
 SH_DECL_HOOK6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlayerSlot, const char*, uint64, const char*, const char*, bool);
 SH_DECL_HOOK6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSlot, const char*, uint64, const char*, bool, CBufferString*);
-SH_DECL_HOOK3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandHandle, const CCommandContext&, const CCommand&);
 SH_DECL_HOOK0_void(IServerGameDLL, GameServerSteamAPIActivated, SH_NOATTRIB, 0);
 SH_DECL_HOOK0_void(IServerGameDLL, GameServerSteamAPIDeactivated, SH_NOATTRIB, 0);
 SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand&);
+SH_DECL_HOOK3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandHandle, const CCommandContext&, const CCommand&);
+SH_DECL_HOOK8_void(IGameEventSystem, PostEventAbstract, SH_NOATTRIB, 0, CSplitScreenSlot, bool, int, const uint64*, INetworkMessageInternal*, const CNetMessage*, unsigned long, NetChannelBufType_t)
 SH_DECL_HOOK7_void(ISource2GameEntities, CheckTransmit, SH_NOATTRIB, 0, CCheckTransmitInfo**, int, CBitVec<16384>&, const Entity2Networkable_t**, const uint16*, int, bool);
 
 #ifdef _WIN32
@@ -106,6 +107,7 @@ CUtlVector<FuncHookBase*> g_vecHooks;
 std::vector<Player*> g_Players;
 
 Addons g_addons;
+PlayerChat g_playerChat;
 CommandsManager* g_commandsManager = nullptr;
 Configuration* g_Config = nullptr;
 ConsoleFilter* g_conFilter = nullptr;
@@ -177,7 +179,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &Swiftly::Hook_ClientConnect, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &Swiftly::Hook_OnClientCommand, false);
     SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &Swiftly::Hook_StartupServer, true);
-    SH_ADD_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &Swiftly::Hook_DispatchConCommand, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &Swiftly::Hook_GameServerSteamAPIActivated, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
     SH_ADD_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &Swiftly::Hook_CheckTransmit, true);
@@ -233,6 +234,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     eventManager->Initialize();
     g_cvarQuery->Initialize();
     g_misc->Initialize();
+    g_playerChat.Initialize();
 
     if (!InitializeHooks())
         PRINTRET("Hooks failed to initialize.\n", false)
@@ -309,6 +311,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     g_userMessages->Destroy();
     g_cvarQuery->Destroy();
     g_misc->Destroy();
+    g_playerChat.Destroy();
 
     g_pluginManager->StopPlugins();
     g_pluginManager->UnloadPlugins();
@@ -322,7 +325,6 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &Swiftly::Hook_ClientConnect, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &Swiftly::Hook_OnClientCommand, false);
     SH_REMOVE_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &Swiftly::Hook_StartupServer, true);
-    SH_REMOVE_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &Swiftly::Hook_DispatchConCommand, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &Swiftly::Hook_GameServerSteamAPIActivated, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
     SH_REMOVE_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &Swiftly::Hook_CheckTransmit, true);
@@ -586,29 +588,6 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char* pszName, uint64 x
 }
 
 bool OnClientCommand(int playerid, std::string command);
-bool OnClientChat(int playerid, std::string text, bool teamonly);
-
-const char* wws = " \t\n\r\f\v";
-
-// trim from end of string (right)
-inline std::string& rrtrim(std::string& s, const char* t = wws)
-{
-    s.erase(s.find_last_not_of(t) + 1);
-    return s;
-}
-
-// trim from beginning of string (left)
-inline std::string& lltrim(std::string& s, const char* t = wws)
-{
-    s.erase(0, s.find_first_not_of(t));
-    return s;
-}
-
-// trim from both ends of string (right then left)
-inline std::string& strim(std::string& s, const char* t = wws)
-{
-    return lltrim(rrtrim(s, t), t);
-}
 
 void Swiftly::Hook_OnClientCommand(CPlayerSlot slot, const CCommand& cmd)
 {
@@ -618,104 +597,6 @@ void Swiftly::Hook_OnClientCommand(CPlayerSlot slot, const CCommand& cmd)
         RETURN_META(MRES_SUPERCEDE);
 
     RETURN_META(MRES_IGNORED);
-}
-
-void Swiftly::Hook_DispatchConCommand(ConCommandHandle cmd, const CCommandContext& ctx, const CCommand& args)
-{
-    CPlayerSlot slot = ctx.GetPlayerSlot();
-
-    std::string command = args.Arg(0);
-
-    if (slot.Get() != -1)
-    {
-        if (command == "say" || command == "say_team")
-        {
-            Player* player = g_playerManager->GetPlayer(slot);
-            if (!player)
-                return;
-
-            CCSPlayerController* controller = player->GetPlayerController();
-            bool teamonly = (command == "say_team");
-
-            std::vector<std::string> textSplitted = explode(args.GetCommandString(), " ");
-            textSplitted.erase(textSplitted.begin());
-            std::string text = implode(textSplitted, " ");
-            if (text.front() == '\'' || text.front() == '"')
-                text.erase(text.begin());
-            if (text.back() == '\'' || text.back() == '"')
-                text.pop_back();
-
-            if (strim(text).length() == 0)
-                RETURN_META(MRES_SUPERCEDE);
-
-            if (controller)
-            {
-                IGameEvent* pEvent = g_gameEventManager->CreateEvent("player_chat");
-
-                if (pEvent)
-                {
-                    pEvent->SetBool("teamonly", teamonly);
-                    pEvent->SetInt("userid", slot.Get());
-                    pEvent->SetString("text", text.c_str());
-
-                    g_gameEventManager->FireEvent(pEvent, true);
-                    g_gameEventManager->FreeEvent(pEvent);
-                }
-            }
-
-            int handleCommandReturn = g_commandsManager->HandleCommand(player, text);
-            if (handleCommandReturn == 2)
-                RETURN_META(MRES_SUPERCEDE);
-            else if (!OnClientChat(slot.Get(), text, teamonly))
-                RETURN_META(MRES_SUPERCEDE);
-            else
-            {
-                std::vector<std::string> msg;
-                if (teamonly)
-                    msg.push_back(ProcessColor(string_format("{teamcolor}[%s]{default}", controller->m_iTeamNum() == CS_TEAM_CT ? "CT" : (controller->m_iTeamNum() == CS_TEAM_T ? "T" : "SPEC")), controller->m_iTeamNum()));
-                if (player->tag.length() > 0)
-                    msg.push_back(ProcessColor(string_format("%s%s{default}", player->tagcolor.empty() ? "{default}" : player->tagcolor.c_str(), player->tag.c_str()), controller->m_iTeamNum()));
-                msg.push_back(string_format("%s%s%s:", ProcessColor(player->namecolor, controller->m_iTeamNum()).c_str(), player->GetName(), ProcessColor("{default}", CS_TEAM_CT).c_str()));
-                msg.push_back(string_format("%s%s", ProcessColor(player->chatcolor, controller->m_iTeamNum()).c_str(), replace(text, "\n", "\u2029").c_str()));
-
-                std::string formatted_msg = (" " + implode(msg, " "));
-
-                CRecipientFilter filter;
-                INetworkMessageInternal* pNetMsg = g_pNetworkMessages->FindNetworkMessagePartial("TextMsg");
-                auto data = pNetMsg->AllocateMessage()->ToPB<CUserMessageTextMsg>();
-
-                data->set_dest(HUD_PRINTTALK);
-                data->add_param(formatted_msg);
-
-                if(teamonly) {
-                    for (std::size_t i = 0; i < g_Players.size(); i++)
-                    {
-                        Player* p = g_Players[i];
-                        CCSPlayerController* pcontroller = p->GetPlayerController();
-                        if (!pcontroller)
-                            continue;
-
-                        if (pcontroller->m_iTeamNum() == controller->m_iTeamNum())
-                            filter.AddRecipient(p->GetSlot());
-                    }
-                } else filter.AddAllPlayers();
-
-                g_pGameEventSystem->PostEventAbstract(-1, false, &filter, pNetMsg, data, 0);
-                /*
-                for the god's sake, why on windows without memoverride it automatically collects this pointer and deletes it ????
-                they have some special shananigans over here
-                always remember to not delete it on windows because you'll stay again 4 hrs to debug it
-                
-                i'll use dreamberd next time to use "const const const" which will affect all users of windows globally for this
-                so that they don't need to debug it like i did
-                */
-                #ifndef _WIN32
-                delete data;
-                #endif
-            }
-            RETURN_META(MRES_SUPERCEDE);
-        }
-    }
 }
 
 void Swiftly::NextFrame(std::function<void(std::vector<std::any>)> fn, std::vector<std::any> param)

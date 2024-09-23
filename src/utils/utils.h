@@ -40,6 +40,25 @@ std::string string_format(const std::string &format, Args... args)
     return out;
 }
 
+extern const char* wws;
+
+inline std::string& rrtrim(std::string& s, const char* t = wws)
+{
+    s.erase(s.find_last_not_of(t) + 1);
+    return s;
+}
+
+inline std::string& lltrim(std::string& s, const char* t = wws)
+{
+    s.erase(0, s.find_first_not_of(t));
+    return s;
+}
+
+inline std::string& strim(std::string& s, const char* t = wws)
+{
+    return lltrim(rrtrim(s, t), t);
+}
+
 extern std::map<std::string, std::string> terminalColors;
 extern std::vector<std::string> terminalPrefixColors;
 

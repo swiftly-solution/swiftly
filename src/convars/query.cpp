@@ -88,7 +88,14 @@ void ConvarQuery::QueryCvarClient(CPlayerSlot slot, std::string cvarName)
     CSingleRecipientFilter filter(slot.Get());
     g_pGameEventSystem->PostEventAbstract(-1, false, &filter, pMsg, msg, 0);
 
-    // the same message is available in entrypoint file (entrypoint.cpp) so no need to copy it again
+    /*
+    for the god's sake, why on windows without memoverride it automatically collects this pointer and deletes it ????
+    they have some special shananigans over here
+    always remember to not delete it on windows because you'll stay again 4 hrs to debug it
+    
+    i'll use dreamberd next time to use "const const const" which will affect all users of windows globally for this
+    so that they don't need to debug it like i did
+    */
     #ifndef _WIN32
     delete msg;
     #endif

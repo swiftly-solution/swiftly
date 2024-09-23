@@ -10,6 +10,8 @@
 #include "../configuration/Configuration.h"
 #include "../logs/Logger.h"
 
+const char* wws = " \t\n\r\f\v";
+
 std::map<std::string, std::string> terminalColors = {
     {"{DEFAULT}", WIN_LINUX("\033[38;2;255;255;255m", "\e[39m")},
     {"{WHITE}", WIN_LINUX("\033[38;2;255;255;255m", "\e[39m")},

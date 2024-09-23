@@ -43,8 +43,8 @@ std::map<std::string, std::string> colors = {
 
 std::string ProcessColor(std::string str, int team = CS_TEAM_CT)
 {
-    str = replace(str, "{TEAMCOLOR}", team == CS_TEAM_CT ? "{LIGHTBLUE}" : (team == CS_TEAM_T ? "{GOLD}" : "{GREY}"));
-    str = replace(str, "{teamcolor}", team == CS_TEAM_CT ? "{lightblue}" : (team == CS_TEAM_T ? "{gold}" : "{grey}"));
+    str = replace(str, "{TEAMCOLOR}", team == CS_TEAM_CT ? "{LIGHTBLUE}" : (team == CS_TEAM_T ? "{YELLOW}" : "{LIGHTPURPLE}"));
+    str = replace(str, "{teamcolor}", team == CS_TEAM_CT ? "{lightblue}" : (team == CS_TEAM_T ? "{yellow}" : "{lightpurple}"));
     for (auto it = colors.begin(); it != colors.end(); ++it)
     {
         str = replace(str, it->first, it->second);
