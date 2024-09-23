@@ -121,22 +121,11 @@ class CBaseEntity : public CEntityInstance
 public:
     DECLARE_SCHEMA_CLASS_BASE(CBaseEntity, false)
 
-    SCHEMA_FIELD_OFFSET(CBitVec<64>, m_isSteadyState, 0);
-    SCHEMA_FIELD_OFFSET(float, m_lastNetworkChange, 0);
-    SCHEMA_FIELD_POINTER_OFFSET(CNetworkTransmitComponent, m_NetworkTransmitComponent, 0);
     SCHEMA_FIELD_OFFSET(int, m_iHealth, 0);
     SCHEMA_FIELD_OFFSET(int, m_iMaxHealth, 0);
     SCHEMA_FIELD_OFFSET(int, m_iTeamNum, 0);
-    SCHEMA_FIELD_OFFSET(MoveType_t, m_MoveType, 0);
-    SCHEMA_FIELD_OFFSET(uint32, m_spawnflags, 0);
-    SCHEMA_FIELD_OFFSET(uint32, m_fFlags, 0);
-    SCHEMA_FIELD_OFFSET(LifeState_t, m_lifeState, 0);
-    SCHEMA_FIELD_OFFSET(CCollisionProperty*, m_pCollision, 0);
     SCHEMA_FIELD_OFFSET(CBodyComponent*, m_CBodyComponent, 0);
-    SCHEMA_FIELD_OFFSET(Vector, m_vecAbsVelocity, 0);
     SCHEMA_FIELD_POINTER_OFFSET(CUtlStringToken, m_nSubclassID, 0);
-    SCHEMA_FIELD_OFFSET(CUtlSymbolLarge, m_iGlobalname, 0);
-    SCHEMA_FIELD_OFFSET(float, m_flGravityScale, 0);
 
     int EntityIndex() { return this->m_pEntity->GetRefEHandle().GetEntryIndex(); }
     int entindex() { return m_pEntity->m_EHandle.GetEntryIndex(); }

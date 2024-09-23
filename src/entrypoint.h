@@ -69,6 +69,7 @@ public:
     void Hook_GameServerSteamAPIActivated();
     void Hook_GameServerSteamAPIDeactivated();
     void Hook_OnClientCommand(CPlayerSlot slot, const CCommand& args);
+    void Hook_CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount, CBitVec<16384>& unionTransmitEdicts, const Entity2Networkable_t** pNetworkables, const uint16* pEntityIndicies, int nEntities, bool bEnablePVSBits);
 
 public:
     const char* GetAuthor();

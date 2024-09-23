@@ -2,6 +2,7 @@
 #define _core_scripting_h
 
 #include "scripting_schema.h"
+#include "public/iservernetworkable.h"
 #include "../../resourcemonitor/ResourceMonitor.h"
 #include "../../sdk/entity/CCSWeaponBase.h"
 #include "../../crashreporter/CallStack.h"
@@ -123,6 +124,23 @@ public:
 
     std::string PerformHTTP(std::string receivedData);
     std::string PerformHTTPWithRequestID(std::string receivedData, std::string requestID);
+};
+
+//////////////////////////////////////////////////////////////
+/////////////////        Check Transmit        //////////////
+///////////////// May God rest our CPU usage  //////////////
+///////////////////////////////////////////////////////////
+
+class PluginCCheckTransmitInfo
+{
+private:
+    CCheckTransmitInfo* m_ptr;
+public:
+    PluginCCheckTransmitInfo(std::string ptr);
+
+    std::map<int, int> GetPlayers();
+    std::vector<int> GetEntities();
+    void SetEntities(std::vector<int> tbl);
 };
 
 //////////////////////////////////////////////////////////////
