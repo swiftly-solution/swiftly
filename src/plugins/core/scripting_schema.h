@@ -4,10 +4,10 @@
 #include "../../entrypoint.h"
 #include "../Plugin.h"
 #include "../PluginManager.h"
-#include "../../database/DatabaseManager.h"
+#include "../../network/database/DatabaseManager.h"
 #include "../../types/LogType.h"
-#include "../../logs/Logger.h"
-#include "../../sdk/schema.h"
+#include "../../filesystem/logs/Logger.h"
+#include "../../sdk/schema/schema.h"
 #include "../../utils/plat.h"
 #include "ehandle.h"
 

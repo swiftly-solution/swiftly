@@ -3,7 +3,7 @@
 #include "CBaseEntity.h"
 #include "CBaseModelEntity.h"
 #include "services.h"
-#include "../../signatures/Offsets.h"
+#include "../../memory/signatures/Offsets.h"
 
 #include "../../utils/utils.h"
 #include "../../common.h"

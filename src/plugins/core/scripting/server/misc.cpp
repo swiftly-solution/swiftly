@@ -2,7 +2,7 @@
 #include "../../../../sdk/entity/CCSPlayerPawn.h"
 #include "../../../../sdk/entity/CCSPlayerController.h"
 #include "../../../../sdk/entity/services.h"
-#include "../../../../hooks/FuncHook.h"
+#include "../../../../memory/hooks/FuncHook.h"
 
 SH_DECL_MANUALHOOK1_void(CheckMovingGround, 0, 0, 0, double);
 

@@ -1,5 +1,5 @@
 #include "../core.h"
-#include "../../../../sdk/sdkaccess.h"
+#include "../../../../sdk/access/sdkaccess.h"
 
 LoadLuaScriptingComponent(
     types,

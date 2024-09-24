@@ -1,5 +1,5 @@
 #include "../../scripting.h"
-#include "../../../../translations/Translations.h"
+#include "../../../../server/translations/Translations.h"
 
 std::string scripting_FetchTranslation(Plugin *plugin, std::string key, int playerid)
 {

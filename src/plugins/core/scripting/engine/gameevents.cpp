@@ -1,7 +1,7 @@
 #include "../../scripting.h"
 #include "../../../PluginManager.h"
-#include "../../../../player/PlayerManager.h"
-#include "../../../../hooks/FuncHook.h"
+#include "../../../../player/playermanager/PlayerManager.h"
+#include "../../../../memory/hooks/FuncHook.h"
 
 PluginEvent* noReturnEvent = nullptr;
 

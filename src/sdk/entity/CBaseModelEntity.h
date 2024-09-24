@@ -2,8 +2,8 @@
 
 #include "CBaseEntity.h"
 #include "globaltypes.h"
-#include "../../signatures/Signatures.h"
-#include "../../precacher/precacher.h"
+#include "../../memory/signatures/Signatures.h"
+#include "../../entitysystem/precacher/precacher.h"
 
 class CBaseModelEntity;
 

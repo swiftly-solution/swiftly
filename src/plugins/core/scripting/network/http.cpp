@@ -1,6 +1,6 @@
 #include "../../scripting.h"
-#include "../../../../player/PlayerManager.h"
-#include "../../../../http/HTTPManager.h"
+#include "../../../../player/playermanager/PlayerManager.h"
+#include "../../../../network/http/HTTPManager.h"
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>

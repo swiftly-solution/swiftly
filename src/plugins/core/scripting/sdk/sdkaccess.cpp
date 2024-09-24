@@ -1,10 +1,10 @@
 #include "../../scripting.h"
-#include "../../../../sdk/sdkaccess.h"
+#include "../../../../sdk/access/sdkaccess.h"
 #include "../../../../sdk/entity/CBasePlayerController.h"
 #include "../../../../sdk/entity/CBaseModelEntity.h"
 #include "../../../../sdk/entity/CBaseEntity.h"
 #include "../../../../sdk/entity/CCSWeaponBase.h"
-#include "../../../../player/PlayerManager.h"
+#include "../../../../player/playermanager/PlayerManager.h"
 
 #include <set>
 

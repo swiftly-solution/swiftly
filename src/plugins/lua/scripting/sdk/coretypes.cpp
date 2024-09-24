@@ -2,7 +2,7 @@
 
 #include "../../../../types/EventResult.h"
 #include "../../../../types/LogType.h"
-#include "../../../../player/Player.h"
+#include "../../../../player/player/Player.h"
 
 LoadLuaScriptingComponent(
     coretypes,

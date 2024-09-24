@@ -1,6 +1,6 @@
 #include "../../scripting.h"
 
-#include "../../../../player/PlayerManager.h"
+#include "../../../../player/playermanager/PlayerManager.h"
 
 PluginCCheckTransmitInfo::PluginCCheckTransmitInfo(std::string ptr)
 {

@@ -6,9 +6,9 @@
 #include <chrono>
 #include <public/tier1/characterset.h>
 
-#include "../sdk/schema.h"
-#include "../configuration/Configuration.h"
-#include "../logs/Logger.h"
+#include "../sdk/schema/schema.h"
+#include "../server/configuration/Configuration.h"
+#include "../filesystem/logs/Logger.h"
 
 const char* wws = " \t\n\r\f\v";
 

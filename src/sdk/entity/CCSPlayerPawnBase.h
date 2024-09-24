@@ -1,6 +1,6 @@
 #pragma once
 #include "CBasePlayerPawn.h"
-#include "../schema.h"
+#include "../schema/schema.h"
 
 class CCSPlayerController;
 

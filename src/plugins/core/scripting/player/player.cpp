@@ -1,9 +1,9 @@
 #include "../../scripting.h"
 
-#include "../../../../player/PlayerManager.h"
-#include "../../../../commands/CommandsManager.h"
-#include "../../../../precacher/precacher.h"
-#include "../../../../convars/convars.h"
+#include "../../../../player/playermanager/PlayerManager.h"
+#include "../../../../server/commands/CommandsManager.h"
+#include "../../../../entitysystem/precacher/precacher.h"
+#include "../../../../engine/convars/convars.h"
 
 typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
 

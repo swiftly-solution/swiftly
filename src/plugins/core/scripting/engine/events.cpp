@@ -1,6 +1,6 @@
 #include "../../scripting.h"
 
-#include "../../../../signatures/Signatures.h"
+#include "../../../../memory/signatures/Signatures.h"
 
 typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
 

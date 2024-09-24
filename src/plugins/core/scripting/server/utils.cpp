@@ -1,6 +1,6 @@
 #include "../../scripting.h"
 #include "../../../PluginManager.h"
-#include "../../../../usermessages/usermessages.h"
+#include "../../../../network/usermessages/usermessages.h"
 #include "../../../../utils/utils.h"
 
 bool scripting_IsWindows()

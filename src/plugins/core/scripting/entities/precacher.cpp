@@ -1,5 +1,5 @@
 #include "../../scripting.h"
-#include "../../../../precacher/precacher.h"
+#include "../../../../entitysystem/precacher/precacher.h"
 
 PluginPrecacher::PluginPrecacher(std::string m_plugin_name)
 {

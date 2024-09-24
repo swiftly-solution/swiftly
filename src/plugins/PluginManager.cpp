@@ -1,7 +1,7 @@
 #include "PluginManager.h"
 
 #include "core/scripting.h"
-#include "../menus/MenuManager.h"
+#include "../server/menus/MenuManager.h"
 
 #include <vector>
 

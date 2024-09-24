@@ -1,6 +1,6 @@
 #include "../../scripting.h"
 
-#include "../../../../player/PlayerManager.h"
+#include "../../../../player/playermanager/PlayerManager.h"
 
 PluginPlayerManager::PluginPlayerManager(std::string m_plugin_name)
 {

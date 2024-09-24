@@ -1,7 +1,7 @@
 #pragma once
 
 #include <tier0/platform.h>
-#include "../schema.h"
+#include "../schema/schema.h"
 #include "soundflags.h"
 #include <mathlib/vector.h>
 
@@ -58,7 +58,7 @@ class CInButtonState
 public:
     typedef CInButtonState ThisClass;
     static constexpr const char *ThisClassName = "CInButtonState";
-    static constexpr bool IsStruct = false;
+    static constexpr bool IsStruct = true;
 
     SCHEMA_FIELD_POINTER_OFFSET(uint64_t, m_pButtonStates, 0)
 };
@@ -68,7 +68,7 @@ class CGlowProperty
 public:
     typedef CGlowProperty ThisClass;
     static constexpr const char *ThisClassName = "CGlowProperty";
-    static constexpr bool IsStruct = false;
+    static constexpr bool IsStruct = true;
 
     SCHEMA_FIELD_OFFSET(Vector, m_fGlowColor, 0)
     SCHEMA_FIELD_OFFSET(int, m_iGlowType, 0)

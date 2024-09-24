@@ -1,6 +1,6 @@
 #include "../../scripting.h"
 #include "../../../../entrypoint.h"
-#include "../../../../convars/convars.h"
+#include "../../../../engine/convars/convars.h"
 
 PluginConvars::PluginConvars(std::string m_plugin_name)
 {

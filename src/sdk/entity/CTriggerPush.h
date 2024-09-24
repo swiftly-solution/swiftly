@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CBaseEntity.h"
-#include "../schema.h"
+#include "../schema/schema.h"
 
 #define SF_TRIG_PUSH_ONCE 0x80
 

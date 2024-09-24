@@ -1,11 +1,11 @@
 #include "LuaPlugin.h"
 
 #include "../../common.h"
-#include "../../files/Files.h"
-#include "../../commands/CommandsManager.h"
+#include "../../filesystem/files/Files.h"
+#include "../../server/commands/CommandsManager.h"
 #include "../core/scripting.h"
 #include "../PluginManager.h"
-#include "../../crashreporter/CallStack.h"
+#include "../../tools/crashreporter/CallStack.h"
 
 #include <vector>
 

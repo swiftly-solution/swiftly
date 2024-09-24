@@ -1,5 +1,5 @@
 #include "../../scripting.h"
-#include "../../../../player/PlayerManager.h"
+#include "../../../../player/playermanager/PlayerManager.h"
 
 PluginWeaponManager::PluginWeaponManager(int playerId)
 {

@@ -5,7 +5,7 @@
 #include <map>
 #include <string>
 
-#include "../files/Files.h"
+#include "../filesystem/files/Files.h"
 #include "Plugin.h"
 #include "lua/LuaPlugin.h"
 #include "../types/EventResult.h"

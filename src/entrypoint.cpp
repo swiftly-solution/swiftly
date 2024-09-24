@@ -9,35 +9,35 @@
 #include <steam/steam_gameserver.h>
 
 #include "sdk/entity/CRecipientFilters.h"
-#include "addons/addons.h"
-#include "encoders/msgpack.h"
-#include "entities/listener.h"
-#include "addons/clients.h"
-#include "http/HTTPManager.h"
-#include "configuration/Configuration.h"
-#include "commands/CommandsManager.h"
-#include "crashreporter/CallStack.h"
-#include "crashreporter/CrashReport.h"
-#include "database/DatabaseManager.h"
-#include "gameevents/gameevents.h"
-#include "convars/convars.h"
-#include "logs/Logger.h"
-#include "precacher/precacher.h"
-#include "translations/Translations.h"
-#include "filters/ConsoleFilter.h"
-#include "menus/MenuManager.h"
-#include "resourcemonitor/ResourceMonitor.h"
-#include "hooks/NativeHooks.h"
-#include "player/PlayerManager.h"
-#include "player/Chat.h"
+#include "engine/addons/addons.h"
+#include "engine/addons/clients.h"
+#include "memory/encoders/msgpack.h"
+#include "entitysystem/entities/listener.h"
+#include "network/http/HTTPManager.h"
+#include "server/configuration/Configuration.h"
+#include "server/commands/CommandsManager.h"
+#include "tools/crashreporter/CallStack.h"
+#include "tools/crashreporter/CrashReport.h"
+#include "network/database/DatabaseManager.h"
+#include "engine/gameevents/gameevents.h"
+#include "engine/convars/convars.h"
+#include "filesystem/logs/Logger.h"
+#include "entitysystem/precacher/precacher.h"
+#include "server/translations/Translations.h"
+#include "tools/filters/ConsoleFilter.h"
+#include "server/menus/MenuManager.h"
+#include "tools/resourcemonitor/ResourceMonitor.h"
+#include "memory/hooks/NativeHooks.h"
+#include "player/playermanager/PlayerManager.h"
+#include "player/player/Chat.h"
 #include "plugins/PluginManager.h"
 #include "plugins/core/scripting.h"
-#include "signatures/Signatures.h"
-#include "signatures/Patches.h"
-#include "signatures/Offsets.h"
-#include "voicemanager/VoiceManager.h"
-#include "usermessages/usermessages.h"
-#include "sdk/sdkaccess.h"
+#include "memory/signatures/Signatures.h"
+#include "memory/signatures/Patches.h"
+#include "memory/signatures/Offsets.h"
+#include "engine/voicemanager/VoiceManager.h"
+#include "network/usermessages/usermessages.h"
+#include "sdk/access/sdkaccess.h"
 #include "utils/plat.h"
 
 #ifdef _WIN32
@@ -318,28 +318,6 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &Swiftly::Hook_GameServerSteamAPIActivated, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
     SH_REMOVE_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &Swiftly::Hook_CheckTransmit, true);
-
-    delete g_commandsManager;
-    delete g_Config;
-    delete g_conFilter;
-    delete g_translations;
-    delete g_Logger;
-    delete g_playerManager;
-    delete g_pluginManager;
-    delete g_Offsets;
-    delete g_Signatures;
-    delete g_precacher;
-    delete g_dbManager;
-    delete g_MenuManager;
-    delete g_ResourceMonitor;
-    delete g_Patches;
-    delete g_callStack;
-    delete eventManager;
-    delete g_httpManager;
-    delete g_userMessages;
-    delete g_sdk;
-    delete g_cvarQuery;
-    delete g_misc;
 
     ConVar_Unregister();
     return true;

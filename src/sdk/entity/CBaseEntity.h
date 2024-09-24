@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../../entrypoint.h"
-#include "../schema.h"
-#include "../../signatures/Offsets.h"
+#include "../schema/schema.h"
+#include "../../memory/signatures/Offsets.h"
 #include "../../common.h"
 #include "globaltypes.h"
 #include "CCollisionProperty.h"

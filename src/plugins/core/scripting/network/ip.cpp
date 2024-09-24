@@ -1,5 +1,5 @@
 #include "../../scripting.h"
-#include "../../../../configuration/Configuration.h"
+#include "../../../../server/configuration/Configuration.h"
 #include <GeoLite2PP.hpp>
 
 GeoLite2PP::DB *maxminddbCity = nullptr;

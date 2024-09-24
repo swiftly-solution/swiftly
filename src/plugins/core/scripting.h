@@ -3,10 +3,10 @@
 
 #include "scripting_schema.h"
 #include "public/iservernetworkable.h"
-#include "../../resourcemonitor/ResourceMonitor.h"
+#include "../../tools/resourcemonitor/ResourceMonitor.h"
 #include "../../sdk/entity/CCSWeaponBase.h"
-#include "../../crashreporter/CallStack.h"
-#include "../../encoders/msgpack.h"
+#include "../../tools/crashreporter/CallStack.h"
+#include "../../memory/encoders/msgpack.h"
 #include "../../sdk/entity/CTakeDamageInfo.h"
 
 #include "cstrike15_usermessages.pb.h"
