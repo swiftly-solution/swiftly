@@ -452,6 +452,9 @@ public:
     void UnregisterAlias(std::string aliasName);
 
     void RegisterCommandLua(std::string commandName, luabridge::LuaRef callback);
+
+    std::vector<std::string> GetAllCommands();
+    std::vector<std::string> GetCommands();
 };
 
 //////////////////////////////////////////////////////////////

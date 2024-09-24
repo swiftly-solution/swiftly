@@ -61,3 +61,26 @@ void PluginCommands::RegisterCommandLua(std::string commandName, luabridge::LuaR
 
     RegisterCommand(commandName, new luabridge::LuaRef(callback));
 }
+
+/*
+    std::map<std::string, Command *> GetCommands()
+    {
+        return this->commands;
+    };
+*/
+
+std::vector<std::string> PluginCommands::GetAllCommands()
+{
+    std::vector<std::string> cmdsList;
+
+    auto cmds = g_commandsManager->GetCommands();
+    for(auto it = cmds.begin(); it != cmds.end(); ++it)
+        cmdsList.push_back(it->first);
+
+    return cmdsList;
+}
+
+std::vector<std::string> PluginCommands::GetCommands()
+{
+    return g_commandsManager->FetchCommandsByPlugin(this->plugin_name);
+}

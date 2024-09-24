@@ -12,6 +12,8 @@ LoadLuaScriptingComponent(
             .addFunction("RegisterRawAlias", &PluginCommands::RegisterRawAlias)
             .addFunction("RegisterAlias", &PluginCommands::RegisterAlias)
             .addFunction("UnregisterAlias", &PluginCommands::UnregisterAlias)
+            .addFunction("GetAllCommands", &PluginCommands::GetAllCommands)
+            .addFunction("GetCommands", &PluginCommands::GetCommands)
             .endClass();
 
         luaL_dostring(state, "commands = Commands(GetCurrentPluginName())");
