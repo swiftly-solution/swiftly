@@ -284,10 +284,16 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state)
 
     try
     {
-        if (value.type() == typeid(const char*))
-            return luabridge::LuaRef(state, std::string(std::any_cast<const char*>(value)));
-        else if (value.type() == typeid(char*))
-            return luabridge::LuaRef(state, std::string(std::any_cast<char*>(value)));
+        if (value.type() == typeid(const char*)) {
+            auto val = std::any_cast<const char*>(value);
+            if(val == nullptr) return luabridge::LuaRef(state, std::string(""));
+            return luabridge::LuaRef(state, std::string(val));
+        }
+        else if (value.type() == typeid(char*)) {
+            auto val = std::any_cast<char*>(value);
+            if(val == nullptr) return luabridge::LuaRef(state, std::string(""));
+            return luabridge::LuaRef(state, std::string(val));
+        }
         else if (value.type() == typeid(std::string)) {
             std::string val = std::any_cast<std::string>(value);
             if (starts_with(val, "JSON⇚") && ends_with(val, "⇛")) {
