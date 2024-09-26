@@ -241,27 +241,27 @@ int Color_newindex(lua_State* L)
 
 std::string Vector_GetPtr(Vector* vec)
 {
-    return string_format("%p\n", vec);
+    return string_format("%p", vec);
 }
 
 std::string QAngle_GetPtr(QAngle* ang)
 {
-    return string_format("%p\n", ang);
+    return string_format("%p", ang);
 }
 
 std::string Color_GetPtr(Color* col)
 {
-    return string_format("%p\n", col);
+    return string_format("%p", col);
 }
 
 std::string Vector2D_GetPtr(Vector2D* vec)
 {
-    return string_format("%p\n", vec);
+    return string_format("%p", vec);
 }
 
 std::string Vector4D_GetPtr(Vector4D* vec)
 {
-    return string_format("%p\n", vec);
+    return string_format("%p", vec);
 }
 
 LoadLuaScriptingComponent(
