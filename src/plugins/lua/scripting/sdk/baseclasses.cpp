@@ -239,6 +239,31 @@ int Color_newindex(lua_State* L)
     return luaL_error(L, "Cannot add new fields to Color");
 }
 
+std::string Vector_GetPtr(Vector* vec)
+{
+    return string_format("%p\n", vec);
+}
+
+std::string QAngle_GetPtr(QAngle* ang)
+{
+    return string_format("%p\n", ang);
+}
+
+std::string Color_GetPtr(Color* col)
+{
+    return string_format("%p\n", col);
+}
+
+std::string Vector2D_GetPtr(Vector2D* vec)
+{
+    return string_format("%p\n", vec);
+}
+
+std::string Vector4D_GetPtr(Vector4D* vec)
+{
+    return string_format("%p\n", vec);
+}
+
 LoadLuaScriptingComponent(
     baseclasses,
     [](LuaPlugin* plugin, lua_State* state)
@@ -249,6 +274,7 @@ LoadLuaScriptingComponent(
             .addProperty("x", &Vector::x, true)
             .addProperty("y", &Vector::y, true)
             .addProperty("z", &Vector::z, true)
+            .addFunction("GetPtr", Vector_GetPtr)
             .addFunction("__add", &Vector::operator+)
             .addFunction("__eq", &Vector::operator==)
             .addFunction("__len", &Vector::Length)
@@ -272,6 +298,7 @@ LoadLuaScriptingComponent(
         luabridge::getGlobalNamespace(state)
             .beginClass<Color>("Color")
             .addConstructor<void (*)(int, int, int, int)>()
+            .addFunction("GetPtr", Color_GetPtr)
             .endClass();
 
         luaL_newmetatable(state, "Color");
@@ -292,6 +319,7 @@ LoadLuaScriptingComponent(
             .addFunction("__eq", &QAngle::operator==)
             .addFunction("__len", &QAngle::Length)
             .addFunction("__tostring", QAngle_tostring)
+            .addFunction("GetPtr", QAngle_GetPtr)
             .endClass();
 
         luaL_newmetatable(state, "QAngle");
@@ -313,6 +341,7 @@ LoadLuaScriptingComponent(
             .addConstructor<void (*)(float, float)>()
             .addProperty("x", &Vector2D::x, true)
             .addProperty("y", &Vector2D::y, true)
+            .addFunction("GetPtr", Vector2D_GetPtr)
             .addFunction("__add", &Vector2D::operator+)
             .addFunction("__eq", &Vector2D::operator==)
             .addFunction("__len", &Vector2D::Length)
@@ -340,6 +369,7 @@ LoadLuaScriptingComponent(
             .addProperty("y", &Vector4D::y, true)
             .addProperty("z", &Vector4D::z, true)
             .addProperty("w", &Vector4D::w, true)
+            .addFunction("GetPtr", Vector4D_GetPtr)
             .addFunction("__add", &Vector4D::operator+)
             .addFunction("__eq", &Vector4D::operator==)
             .addFunction("__len", &Vector4D::Length)

@@ -824,6 +824,11 @@ public:
     void SetUint64(uint64_t value);
     void SetFloat(float value);
     void SetDouble(double value);
+    void SetVector(Vector value);
+    void SetVector2D(Vector2D value);
+    void SetVector4D(Vector4D value);
+    void SetColor(Color value);
+    void SetQAngle(QAngle value);
 
     bool GetBool();
     int GetInt();
@@ -832,6 +837,11 @@ public:
     uint64_t GetUint64();
     float GetFloat();
     double GetDouble();
+    Vector GetVector();
+    Vector2D GetVector2D();
+    Vector4D GetVector4D();
+    Color GetColor();
+    QAngle GetQAngle();
 
     void* GetRawPtr();
     std::string GetPtr();

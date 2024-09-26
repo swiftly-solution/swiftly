@@ -27,6 +27,11 @@ LoadLuaScriptingComponent(
             .addFunction("SetUint64", &PluginMemory::SetUint64)
             .addFunction("SetFloat", &PluginMemory::SetFloat)
             .addFunction("SetDouble", &PluginMemory::SetDouble)
+            .addFunction("SetVector", &PluginMemory::SetVector)
+            .addFunction("SetVector2D", &PluginMemory::SetVector2D)
+            .addFunction("SetVector4D", &PluginMemory::SetVector4D)
+            .addFunction("SetColor", &PluginMemory::SetColor)
+            .addFunction("SetQAngle", &PluginMemory::SetQAngle)
             .addFunction("GetBool", &PluginMemory::GetBool)
             .addFunction("GetInt", &PluginMemory::GetInt)
             .addFunction("GetInt64", &PluginMemory::GetInt64)
@@ -34,9 +39,13 @@ LoadLuaScriptingComponent(
             .addFunction("GetUint64", &PluginMemory::GetUint64)
             .addFunction("GetFloat", &PluginMemory::GetFloat)
             .addFunction("GetDouble", &PluginMemory::GetDouble)
+            .addFunction("GetVector", &PluginMemory::GetVector)
+            .addFunction("GetVector2D", &PluginMemory::GetVector2D)
+            .addFunction("GetVector4D", &PluginMemory::GetVector4D)
+            .addFunction("GetColor", &PluginMemory::GetColor)
+            .addFunction("GetQAngle", &PluginMemory::GetQAngle)
             .addFunction("GetPtr", &PluginMemory::GetPtr)
             .addFunction("IsValid", &PluginMemory::IsValid)
-
             .endClass();
     }
 )
