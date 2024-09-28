@@ -629,6 +629,8 @@ public:
 
     float GetCurrentTime();
     int GetTickCount();
+
+    void TerminateRound(float delay, uint32_t reason);
 };
 
 //////////////////////////////////////////////////////////////

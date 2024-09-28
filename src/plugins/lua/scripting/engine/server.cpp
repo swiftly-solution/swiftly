@@ -11,6 +11,7 @@ LoadLuaScriptingComponent(
             .addFunction("IsMapValid", &PluginServer::IsMapValid)
             .addFunction("ChangeMap", &PluginServer::ChangeMap)
             .addFunction("GetMaxPlayers", &PluginServer::GetMaxPlayers)
+            .addFunction("TerminateRound", &PluginServer::TerminateRound)
             .addFunction("Execute", &PluginServer::Execute)
             .addFunction("GetCurrentTime", &PluginServer::GetCurrentTime)
             .addFunction("GetTickCount", &PluginServer::GetTickCount)

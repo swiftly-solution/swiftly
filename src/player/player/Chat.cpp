@@ -18,7 +18,7 @@ void PlayerChat::Destroy()
     SH_REMOVE_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &PlayerChat::DispatchConCommand, false);
 }
 
-std::string textMessageReplacements = {
+std::map<std::string, std::string> textMessageReplacements = {
     { "\n", "\u2029" },
     { "", "" },
     { "", "" },
@@ -33,7 +33,7 @@ std::string textMessageReplacements = {
     { "", "" },
     { "", "" },
     { "", "" },
-}
+};
 
 std::string formatPlayerMessage(Player* player, CCSPlayerController* controller, bool teamOnly, std::string text)
 {

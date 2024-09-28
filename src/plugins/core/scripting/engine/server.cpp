@@ -67,3 +67,12 @@ int PluginServer::GetTickCount()
     return engine->GetServerGlobals()->tickcount;
 }
 
+typedef void (*CGameRules_TerminateRound)(void*, float, uint32_t, int64_t, uint32_t);
+
+void PluginServer::TerminateRound(float delay, uint32_t reason)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginServer::TerminateRound(%f,%d)", delay, reason));
+    if(!gameRules) return;
+
+    g_Signatures->FetchSignature<CGameRules_TerminateRound>("CGameRules_TerminateRound")(gameRules, delay, reason, 0, 0);
+}
