@@ -113,7 +113,7 @@ void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* i
 {
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     std::vector<std::any> msgpackData = {
-        string_format("%p", _this),
+        string_format("%p", _this->m_pInstance),
         inputName->String(),
         string_format("%p", activator),
         string_format("%p", caller),
