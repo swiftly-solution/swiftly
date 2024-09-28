@@ -18,13 +18,33 @@ void PlayerChat::Destroy()
     SH_REMOVE_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &PlayerChat::DispatchConCommand, false);
 }
 
+std::string textMessageReplacements = {
+    { "\n", "\u2029" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+    { "", "" },
+}
+
 std::string formatPlayerMessage(Player* player, CCSPlayerController* controller, bool teamOnly, std::string text)
 {
+    for(auto it = textMessageReplacements.begin(); it != textMessageReplacements.end(); ++it)
+        text = replace(text, it->first, it->second);
+
     std::vector<std::string> msg;
     if (teamOnly) msg.push_back(ProcessColor(string_format("{teamcolor}[%s]{default}", controller->m_iTeamNum() == CS_TEAM_CT ? "CT" : (controller->m_iTeamNum() == CS_TEAM_T ? "T" : "SPEC")), controller->m_iTeamNum()));
     if (player->tag.length() > 0) msg.push_back(ProcessColor(string_format("%s%s{default}", player->tagcolor.empty() ? "{default}" : player->tagcolor.c_str(), player->tag.c_str()), controller->m_iTeamNum()));
     msg.push_back(string_format("%s%s%s%s:", ProcessColor(player->namecolor, controller->m_iTeamNum()).c_str(), player->GetName(), ProcessColor("{default}", CS_TEAM_CT).c_str(), (teamOnly ? ProcessColor(" {green}@ %s3{default}", CS_TEAM_CT) : "").c_str()));
-    msg.push_back(string_format("%s%s", ProcessColor(player->chatcolor, controller->m_iTeamNum()).c_str(), replace(text, "\n", "\u2029").c_str()));
+    msg.push_back(string_format("%s%s", ProcessColor(player->chatcolor, controller->m_iTeamNum()).c_str(), text.c_str()));
 
     return (" " + implode(msg, " "));
 }
