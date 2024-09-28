@@ -139,3 +139,30 @@ void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* i
 
     TCEntityIdentity_AcceptInput(_this, inputName, activator, caller, value, outputid);
 }
+
+void Hook_CGameRules_TerminateRound(void* _this, float delay, uint32_t reason, int64_t a, uint32_t b);
+
+FuncHook<decltype(Hook_CGameRules_TerminateRound)> TCGameRules_TerminateRound(Hook_CGameRules_TerminateRound, "CGameRules_TerminateRound");
+
+void Hook_CGameRules_TerminateRound(void* _this, float delay, uint32_t reason, int64_t a, uint32_t b)
+{
+    PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
+    
+    g_pluginManager->ExecuteEvent("core", "OnTerminateRound", encoders::msgpack::SerializeToString({ delay, reason }), event);
+
+    bool response = true;
+    try
+    {
+        response = std::any_cast<bool>(event->GetReturnValue());
+    }
+    catch (std::bad_any_cast& e)
+    {
+        response = true;
+    }
+
+    delete event;
+
+    if(!response) return;
+
+    TCGameRules_TerminateRound(_this, delay, reason, a, b);
+}
