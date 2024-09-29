@@ -104,7 +104,7 @@ void PluginManager::StartPlugins()
 {
     for (Plugin* plugin : pluginsList)
         if (!StartPlugin(plugin->GetName()))
-            StopPlugin(plugin->GetName());
+            StopPlugin(plugin->GetName(), true);
 
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     this->ExecuteEvent("core", "OnAllPluginsLoaded", encoders::msgpack::SerializeToString({}), event);
@@ -112,10 +112,10 @@ void PluginManager::StartPlugins()
     AllPluginsStarted = true;
 }
 
-void PluginManager::StopPlugins()
+void PluginManager::StopPlugins(bool destroyStates)
 {
     for (Plugin* plugin : pluginsList)
-        StopPlugin(plugin->GetName());
+        StopPlugin(plugin->GetName(), destroyStates);
 }
 
 bool PluginManager::StartPlugin(std::string plugin_name)
@@ -143,7 +143,7 @@ bool PluginManager::StartPlugin(std::string plugin_name)
     return true;
 }
 
-void PluginManager::StopPlugin(std::string plugin_name)
+void PluginManager::StopPlugin(std::string plugin_name, bool destroyStates)
 {
     if (!PluginExists(plugin_name))
         return;
@@ -153,8 +153,10 @@ void PluginManager::StopPlugin(std::string plugin_name)
         return;
 
     plugin->ExecuteStop();
-    plugin->SetPluginState(PluginState_t::Stopped);
-    plugin->DestroyScriptingEnvironment();
+    if(destroyStates) {
+        plugin->DestroyScriptingEnvironment();
+        plugin->SetPluginState(PluginState_t::Stopped);
+    }
     g_MenuManager->UnregisterPluginMenus(plugin_name);
 }
 

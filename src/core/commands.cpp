@@ -443,7 +443,7 @@ void SwiftlyPluginManagerUnload(CPlayerSlot slot, CCommandContext context, std::
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return PrintToClientOrConsole(slot, "Plugin Unload", "Plugin is not loaded.\n");
 
-    g_pluginManager->StopPlugin(plugin_name);
+    g_pluginManager->StopPlugin(plugin_name, true);
     PrintToClientOrConsole(slot, "Plugin Unload", "Plugin '%s' has been unloaded.\n", plugin_name.c_str());
 }
 
@@ -476,7 +476,7 @@ void SwiftlyPluginManagerReload(CPlayerSlot slot, CCommandContext context, std::
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return PrintToClientOrConsole(slot, "Plugin Reload", "Plugin is not loaded.\n");
 
-    g_pluginManager->StopPlugin(plugin_name);
+    g_pluginManager->StopPlugin(plugin_name, true);
     g_pluginManager->LoadPlugin(plugin_name);
     g_pluginManager->StartPlugin(plugin_name);
     PrintToClientOrConsole(slot, "Plugin Reload", "Plugin '%s' has been reloaded.\n", plugin_name.c_str());

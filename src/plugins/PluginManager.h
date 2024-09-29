@@ -34,10 +34,10 @@ public:
     void UnloadPlugin(std::string plugin_name);
 
     void StartPlugins();
-    void StopPlugins();
+    void StopPlugins(bool destroyStates);
 
     bool StartPlugin(std::string plugin_name);
-    void StopPlugin(std::string plugin_name);
+    void StopPlugin(std::string plugin_name, bool destroyStates);
 
     Plugin* FetchPlugin(std::string name);
 

@@ -302,7 +302,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     g_misc->Destroy();
     g_playerChat.Destroy();
 
-    g_pluginManager->StopPlugins();
+    g_pluginManager->StopPlugins(false);
     g_pluginManager->UnloadPlugins();
 
     UnloadHooks();
