@@ -491,7 +491,6 @@ bool PluginPlayer::IsValid()
     Player* self = g_playerManager->GetPlayer(this->playerId);
     if (!self) return false;
     if (self->IsFirstSpawn()) return false;
-    if (self->IsFakeClient()) return false;
 
     CBasePlayerController* controller = self->GetController();
     if (!controller) return false;
