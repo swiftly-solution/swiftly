@@ -300,6 +300,7 @@ public:
 
     std::string GetClassName();
     void* GetPtr();
+    void SetPtr(void* ptr);
     std::string ToPtr();
     bool IsValid();
 };
@@ -707,16 +708,23 @@ private:
     std::string plugin_name;
     int playerId;
 
+    SDKBaseClass* pCBaseEntity = nullptr;
+    SDKBaseClass* pCBasePlayerController = nullptr;
+    SDKBaseClass* pCBasePlayerPawn = nullptr;
+    SDKBaseClass* pCCSPlayerController = nullptr;
+    SDKBaseClass* pCCSPlayerPawn = nullptr;
+    SDKBaseClass* pCCSPlayerPawnBase = nullptr;
+
 public:
     PluginPlayer(std::string m_plugin_name, int m_playerId);
     ~PluginPlayer();
 
-    SDKBaseClass GetCBaseEntity();
-    SDKBaseClass GetCBasePlayerController();
-    SDKBaseClass GetCBasePlayerPawn();
-    SDKBaseClass GetCCSPlayerController();
-    SDKBaseClass GetCCSPlayerPawn();
-    SDKBaseClass GetCCSPlayerPawnBase();
+    SDKBaseClass* GetCBaseEntity();
+    SDKBaseClass* GetCBasePlayerController();
+    SDKBaseClass* GetCBasePlayerPawn();
+    SDKBaseClass* GetCCSPlayerController();
+    SDKBaseClass* GetCCSPlayerPawn();
+    SDKBaseClass* GetCCSPlayerPawnBase();
     void Drop(int reason);
     uint32_t GetConnectedTime();
     PluginWeaponManager GetWeaponManager();

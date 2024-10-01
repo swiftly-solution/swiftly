@@ -157,6 +157,11 @@ std::string SDKBaseClass::GetClassName()
     return this->m_className;
 }
 
+void SDKBaseClass::SetPtr(void* ptr)
+{
+    this->m_ptr = ptr;
+}
+
 void* SDKBaseClass::GetPtr()
 {
     return this->m_ptr;
