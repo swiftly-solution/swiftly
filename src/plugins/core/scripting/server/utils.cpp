@@ -3,6 +3,11 @@
 #include "../../../../network/usermessages/usermessages.h"
 #include "../../../../utils/utils.h"
 
+#include <list>
+#include <functional>
+
+std::list<std::pair<int64_t, std::function<void()>>> timeoutsArray;
+
 bool scripting_IsWindows()
 {
     return WIN_LINUX(true, false);
@@ -68,4 +73,24 @@ int scripting_GetPluginState(std::string plugin_name)
     if (!plugin) return (int)PluginState_t::Stopped;
 
     return (int)plugin->GetPluginState();
+}
+
+void RegisterTimeout(int64_t delay, std::function<void()> cb)
+{
+    timeoutsArray.push_back({GetTime() + delay, cb});
+}
+
+void ProcessTimeouts(uint64_t t)
+{
+    std::list<std::list<std::pair<int64_t, std::function<void()>>>::iterator> queueRemoveTimeouts;
+
+    for(auto it = timeoutsArray.begin(); it != timeoutsArray.end(); ++it) {
+        if(it->first <= t) {
+            queueRemoveTimeouts.push_back(it);
+            it->second();
+        }
+    }
+
+    for(auto it = queueRemoveTimeouts.rbegin(); it != queueRemoveTimeouts.rend(); ++it)
+        timeoutsArray.erase(*it);
 }

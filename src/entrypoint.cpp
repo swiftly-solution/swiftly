@@ -389,6 +389,7 @@ GameFrameMsgPackCache gameFrameCache = {
     false,
     false,
 };
+void ProcessTimeouts(uint64_t t);
 
 void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
@@ -396,6 +397,8 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 
     static double g_flNextUpdate = 0.0;
     uint64_t time = GetTime();
+
+    ProcessTimeouts(time);
 
     //////////////////////////////////////////////////////////////
     /////////////////         Server List          //////////////

@@ -6,20 +6,7 @@ function SetTimeout(delay, callback)
         return print("The callback needs to be a function.")
     end
 
-    local call = GetTime() + delay
-
-    local settimeoutEvent = nil
-    settimeoutEvent = AddEventHandler("OnGameTick", function()
-        if call - GetTime() <= 0 then
-            if type(callback) == "function" then
-                local status, err = pcall(callback)
-                if not status then
-                    print("An error has been occured while trying to execute SetTimeout.\nError: "..err)
-                end
-            end
-            RemoveEventHandler(settimeoutEvent)
-        end
-    end)
+    AddTimeout(delay, callback)
 end
 
 local timerIds = 50
