@@ -106,6 +106,8 @@ private:
     virtual void unk_12() = 0;
     virtual void unk_13() = 0;
     virtual void unk_14() = 0;
+    virtual void unk_15() = 0;
+    virtual void unk_16() = 0;
     virtual CBaseEntity* _GiveNamedItem(const char* pchName) = 0;
 
 public:

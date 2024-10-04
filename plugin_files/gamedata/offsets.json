@@ -4,28 +4,28 @@
         "linux": 80
     },
     "CBasePlayerPawn_CommitSuicide": {
-        "windows": 372,
-        "linux": 372
+        "windows": 377,
+        "linux": 377
     },
     "CCSPlayerController_ChangeTeam": {
-        "windows": 98,
-        "linux": 97
+        "windows": 100,
+        "linux": 99
     },
     "CBaseEntity_Teleport": {
-        "windows": 155,
-        "linux": 154
+        "windows": 157,
+        "linux": 156
     },
     "CCSPlayerController_Respawn": {
-        "windows": 254,
-        "linux": 256
+        "windows": 257,
+        "linux": 259
     },
     "CollisionRulesChanged": {
         "windows": 179,
         "linux": 178
     },
     "CCSPlayer_WeaponServices_DropWeapon": {
-        "windows": 20,
-        "linux": 21
+        "windows": 22,
+        "linux": 23
     },
     "CGameSceneNode_GetSkeletonInstance": {
         "windows": 8,
@@ -44,8 +44,8 @@
         "linux": 33
     },
     "GetHammerUniqueID": {
-        "windows": 107,
-        "linux": 106
+        "windows": 109,
+        "linux": 108
     },
     "CheckTransmitPlayerSlot": {
         "windows": 584,
