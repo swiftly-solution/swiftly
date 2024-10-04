@@ -1,15 +1,23 @@
 #include "../core.h"
 #include <functional>
 
+std::string FetchPluginName(lua_State* state);
 void RegisterTimeout(int64_t delay, std::function<void()> cb);
+
+#define FetchPluginByState(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
 
 void scripting_AddTimeout(int64_t delay, luabridge::LuaRef callback)
 {
-    if(!callback.isFunction()) return;
+    if (!callback.isFunction()) return;
     luabridge::LuaRef* cb = new luabridge::LuaRef(callback);
 
     RegisterTimeout(delay, [cb]() -> void {
-        if(!cb->isFunction()) {
+        if (FetchPluginByState(cb->state()) == nullptr) {
+            delete cb;
+            return;
+        }
+
+        if (!cb->isFunction()) {
             delete cb;
             return;
         }
@@ -22,7 +30,7 @@ void scripting_AddTimeout(int64_t delay, luabridge::LuaRef callback)
             PRINTF("An error has occured while trying to execute the timeout callback: %s\n", e.what());
         }
         delete cb;
-    });
+        });
 }
 
 LoadLuaScriptingComponent(
