@@ -53,7 +53,7 @@ std::string	PluginCEntityKeyValues::GetPtr( std::string key )
 
 unsigned int PluginCEntityKeyValues::GetStringToken( std::string key )
 {
-    return this->keyVals->GetStringToken(key.c_str()).m_nHashCode;
+    return this->keyVals->GetStringToken(key.c_str()).GetHashCode();
 }
 
 Color PluginCEntityKeyValues::GetColor( std::string key )

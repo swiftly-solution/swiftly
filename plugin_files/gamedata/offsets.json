@@ -20,8 +20,8 @@
         "linux": 256
     },
     "CollisionRulesChanged": {
-        "windows": 178,
-        "linux": 177
+        "windows": 179,
+        "linux": 178
     },
     "CCSPlayer_WeaponServices_DropWeapon": {
         "windows": 20,

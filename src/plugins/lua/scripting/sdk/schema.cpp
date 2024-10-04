@@ -65,7 +65,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
     case Parent:
         return luabridge::LuaRef(state, SDKBaseClass(m_ptr, field));
     case StringToken:
-        return luabridge::LuaRef(state, GetSchemaValue<CUtlStringToken>(m_ptr, this->m_className.c_str(), field.c_str()).m_nHashCode);
+        return luabridge::LuaRef(state, GetSchemaValue<CUtlStringToken>(m_ptr, this->m_className.c_str(), field.c_str()).GetHashCode());
     case StringSymbolLarge:
         return luabridge::LuaRef(state, std::string(GetSchemaValue<CUtlSymbolLarge>(m_ptr, this->m_className.c_str(), field.c_str()).String()));
     case StringUtl:
@@ -110,7 +110,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         CUtlStringToken* outValue = GetSchemaValuePtr<CUtlStringToken>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint32_t> ret;
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
-            ret.push_back(outValue[i].m_nHashCode);
+            ret.push_back(outValue[i].GetHashCode());
 
         return luabridge::LuaRef(state, ret);
     }
@@ -286,7 +286,7 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         CUtlVector<CUtlStringToken>* outValue = GetSchemaValuePtr<CUtlVector<CUtlStringToken>>(m_ptr, this->m_className.c_str(), field.c_str());
         std::vector<uint32_t> ret;
         for (int i = 0; i < outValue->Count(); i++)
-            ret.push_back(outValue->Element(i).m_nHashCode);
+            ret.push_back(outValue->Element(i).GetHashCode());
 
         return luabridge::LuaRef(state, ret);
     }
