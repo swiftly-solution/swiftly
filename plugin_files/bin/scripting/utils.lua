@@ -123,7 +123,7 @@ end
 
 string.split = function(str, split)
     local splitted = {}
-    for split in string.gmatch(str, "[^"..split.."]+") do 
+    for split in string.gmatch(str or "", "[^"..split.."]+") do 
         table.insert(splitted, split) 
     end
     return splitted
