@@ -14,54 +14,90 @@ PluginIPAPI::PluginIPAPI(std::string m_plugin_name)
 
 std::string PluginIPAPI::GetIsoCode(std::string ip)
 {
-    auto m = maxminddbCity->get_all_fields(ip);
-    return m["country_iso_code"];
+    try {
+        auto m = maxminddbCity->get_all_fields(ip);
+        return m["country_iso_code"];
+    } catch(std::exception& e) {
+        return "";
+    }
 }
 
 std::string PluginIPAPI::GetContinent(std::string ip)
 {
-    auto m = maxminddbCity->get_all_fields(ip);
-    return m["continent"];
+    try {
+        auto m = maxminddbCity->get_all_fields(ip);
+        return m["continent"];
+    } catch(std::exception& e) {
+        return "";
+    }
 }
 
 std::string PluginIPAPI::GetCountry(std::string ip)
 {
-    auto m = maxminddbCity->get_all_fields(ip);
-    return m["country"];
+    try {
+        auto m = maxminddbCity->get_all_fields(ip);
+        return m["country"];
+    } catch(std::exception& e) {
+        return "";
+    }
 }
 
 std::string PluginIPAPI::GetRegion(std::string ip)
 {
-    auto m = maxminddbCity->get_all_fields(ip);
-    return m["subdivision"];
+    try {
+        auto m = maxminddbCity->get_all_fields(ip);
+        return m["subdivision"];
+    } catch(std::exception& e) {
+        return "";
+    }
 }
 
 std::string PluginIPAPI::GetCity(std::string ip)
 {
-    auto m = maxminddbCity->get_all_fields(ip);
-    return m["city"];
+    try {
+        auto m = maxminddbCity->get_all_fields(ip);
+        return m["city"];
+    } catch(std::exception& e) {
+        return "";
+    }
 }
 
 std::string PluginIPAPI::GetTimezone(std::string ip)
 {
-    auto m = maxminddbCity->get_all_fields(ip);
-    return m["time_zone"];
+    try {
+        auto m = maxminddbCity->get_all_fields(ip);
+        return m["time_zone"];
+    } catch(std::exception& e) {
+        return "";
+    }
 }
 
 double PluginIPAPI::GetLatitude(std::string ip)
 {
-    auto m = maxminddbCity->get_all_fields(ip);
-    return V_StringToFloat32(m["latitude"].c_str(), 0.0f);
+    try {
+        auto m = maxminddbCity->get_all_fields(ip);
+        return V_StringToFloat32(m["latitude"].c_str(), 0.0f);
+    } catch(std::exception& e) {
+        return 0.0f;
+    }
 }
 
 double PluginIPAPI::GetLongitude(std::string ip)
 {
-    auto m = maxminddbCity->get_all_fields(ip);
-    return V_StringToFloat32(m["longitude"].c_str(), 0.0f);
+    try {
+        auto m = maxminddbCity->get_all_fields(ip);
+        return V_StringToFloat32(m["longitude"].c_str(), 0.0f);
+    } catch(std::exception& e) {
+        return 0.0f;
+    }
 }
 
 std::string PluginIPAPI::GetASN(std::string ip)
 {
-    auto lookupRes = maxminddbASN->get_field(ip, "en", GeoLite2PP::VCStr{"autonomous_system_number", nullptr});
-    return lookupRes;
+    try {
+        auto lookupRes = maxminddbASN->get_field(ip, "en", GeoLite2PP::VCStr{"autonomous_system_number", nullptr});
+        return lookupRes;
+    } catch(std::exception& e) {
+        return "";
+    }
 }
