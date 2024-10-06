@@ -5,16 +5,6 @@
 #include "soundflags.h"
 #include <mathlib/vector.h>
 
-struct GameTime_t
-{
-public:
-    typedef GameTime_t ThisClass;
-    static constexpr const char *ThisClassName = "GameTime_t";
-    static constexpr bool IsStruct = true;
-
-    SCHEMA_FIELD_OFFSET(float, m_Value, 0)
-};
-
 class CNetworkTransmitComponent
 {
 public:
