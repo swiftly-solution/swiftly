@@ -12,7 +12,12 @@ void scripting_AddTimeout(int64_t delay, luabridge::LuaRef callback)
     luabridge::LuaRef* cb = new luabridge::LuaRef(callback);
 
     RegisterTimeout(delay, [cb]() -> void {
-        if (FetchPluginByState(cb->state()) == nullptr) {
+        auto pl = FetchPluginByState(cb->state());
+        if (pl == nullptr) {
+            delete cb;
+            return;
+        }
+        if(((LuaPlugin*)pl)->GetState() != cb->state()) {
             delete cb;
             return;
         }
