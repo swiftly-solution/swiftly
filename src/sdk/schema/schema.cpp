@@ -14,6 +14,7 @@ typedef void (*StateChanged)(void*, CBaseEntity*, int, int, int);
 
 std::map<uint64_t, int32_t> offsetsCache;
 std::map<uint64_t, bool> networkedCache;
+std::set<uint32_t> structCache;
 
 static bool IsFieldNetworked(SchemaClassFieldData_t& field)
 {
@@ -25,6 +26,32 @@ static bool IsFieldNetworked(SchemaClassFieldData_t& field)
     return false;
 }
 
+bool IsStandardLayoutClass(SchemaClassInfoData_t *classData) {
+    {
+        auto pClass = classData;
+        int classesWithFields = 0;
+        do {
+            classesWithFields += ((pClass->m_nSize > 1) || (pClass->m_nFieldCount != 0)) ? 1 : 0;
+
+            if(classesWithFields > 1) return false;
+
+            pClass = (pClass->m_pBaseClasses == nullptr) ? nullptr : pClass->m_pBaseClasses->m_pClass;
+        } while(pClass != nullptr);
+    }
+
+    auto fields = classData->m_pFields;
+    auto fieldsCount = classData->m_nFieldCount;
+    for(uint16_t i = 0; i < fieldsCount; i++) {
+        auto fieldType = fields[i].m_pType;
+        if(fieldType->m_eTypeCategory == SchemaTypeCategory_t::SCHEMA_TYPE_DECLARED_CLASS) {
+            CSchemaType_DeclaredClass* fClass = reinterpret_cast<CSchemaType_DeclaredClass*>(fieldType);
+            if(fClass->m_pClassInfo && !IsStandardLayoutClass(fClass->m_pClassInfo)) return false;
+        }
+    }
+
+    return true;
+}
+
 void PopulateClassData(const char* className, uint32_t classOffset)
 {
     CSchemaSystemTypeScope* pType = g_pSchemaSystem2->FindTypeScopeForModule(MODULE_PREFIX "server" MODULE_EXT);
@@ -34,12 +61,17 @@ void PopulateClassData(const char* className, uint32_t classOffset)
 
     if(!classData) return;
 
+    if(structCache.find(classOffset) == structCache.end())
+        if(IsStandardLayoutClass(classData))
+            structCache.insert(classOffset);
+
     short fieldsSize = classData->m_nFieldCount;
     SchemaClassFieldData_t* pFields = classData->m_pFields;
 
     for(short i = 0; i < fieldsSize; i++) {
         auto field = pFields[i];
         uint64_t offsetKey = ((uint64_t) classOffset) << 32 | hash_32_fnv1a_const(field.m_pszName);
+
         offsetsCache.insert({ offsetKey, field.m_nSingleInheritanceOffset });
         networkedCache.insert({ offsetKey, IsFieldNetworked(field) });
     }
@@ -76,13 +108,22 @@ bool sch::IsNetworked(uint64_t path)
     return networkedCache[path];
 }
 
-void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset, bool isStruct)
+bool sch::IsStruct(const char* cName)
 {
-    if ((CBaseEntity*)entityPtr == nullptr) return;
-    if (!sch::IsNetworked(className.c_str(), fieldName.c_str())) return;
+    return structCache.find(hash_32_fnv1a_const(cName)) != structCache.end();
+}
 
-    auto m_key = sch::GetOffset(className.c_str(), fieldName.c_str());
-    auto m_chain = sch::FindChainOffset(className.c_str());
+void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset)
+{
+    const char* cName = className.c_str();
+    const char* fName = fieldName.c_str();
+
+    if ((CBaseEntity*)entityPtr == nullptr) return;
+    if (!sch::IsNetworked(cName, fName)) return;
+
+    auto m_key = sch::GetOffset(cName, fName);
+    auto m_chain = sch::FindChainOffset(cName);
+    auto isStruct = sch::IsStruct(cName);
 
     if (m_chain) {
         entityPtr += m_chain;
@@ -91,9 +132,9 @@ void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fie
             pEntity->NetworkStateChanged(m_key + extraOffset, -1, *reinterpret_cast<ChangeAccessorFieldPathIndex_t*>(entityPtr + 32));
     }
     else {
-        if (!isStruct)
-            reinterpret_cast<CEntityInstance*>(entityPtr)->NetworkStateChanged(m_key + extraOffset);
-        else
+        if (isStruct)
             CALL_VIRTUAL(void, 1, (CBaseEntity*)entityPtr, m_key + extraOffset, 0xFFFFFFFF, 0xFFFF);
+        else
+            reinterpret_cast<CEntityInstance*>(entityPtr)->NetworkStateChanged(m_key + extraOffset);
     }
 }

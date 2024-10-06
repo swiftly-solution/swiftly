@@ -1,6 +1,6 @@
 #include "../../scripting.h"
 
-void WriteSchemaPtrValue(void* ptr, const char* className, const char* fieldName, bool isStruct, byte* value, int size)
+void WriteSchemaPtrValue(void* ptr, const char* className, const char* fieldName, byte* value, int size)
 {
     const auto m_key = sch::GetOffset(className, fieldName);
 
@@ -8,7 +8,7 @@ void WriteSchemaPtrValue(void* ptr, const char* className, const char* fieldName
 
     Plat_WriteMemory(fieldPtr, value, size);
 
-    SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
+    SetStateChanged((uintptr_t)ptr, className, fieldName, 0);
 }
 
 void* GetSchemaPtr(void* ptr, const char* className, const char* fieldName)
@@ -18,11 +18,10 @@ void* GetSchemaPtr(void* ptr, const char* className, const char* fieldName)
     return reinterpret_cast<void*>((uintptr_t)(ptr)+m_key);
 }
 
-void scripting_StateUpdate(std::string ptr, std::string classname, std::string field, bool isStruct)
+void scripting_StateUpdate(std::string ptr, std::string classname, std::string field)
 {
-
     if (!starts_with(ptr, "0x")) return;
     void* vPtr = (void*)(strtol(ptr.c_str(), nullptr, 16));
 
-    SetStateChanged((uintptr_t)vPtr, classname, field, 0, isStruct);
+    SetStateChanged((uintptr_t)vPtr, classname, field, 0);
 }

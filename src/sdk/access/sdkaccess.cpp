@@ -7,6 +7,7 @@
 #include <rapidjson/stringbuffer.h>
 #include "../schema/schema.h"
 
+extern std::set<uint32_t> structCache;
 void PopulateClassData(const char* className, uint32_t classOffset);
 
 SDKAccess::SDKAccess() {}
@@ -15,7 +16,6 @@ SDKAccess::~SDKAccess() {
     fieldTypes.clear();
     fieldSizes.clear();
     fieldClass.clear();
-    structStates.clear();
     classnames.clear();
     sdktypes.clear();
 }
@@ -42,9 +42,6 @@ void SDKAccess::LoadSDKData()
             for (auto it2 = it->value.MemberBegin(); it2 != it->value.MemberEnd(); ++it2)
             {
                 std::string fieldName = it2->name.GetString();
-
-                if (fieldName == "struct")
-                    this->structStates.insert({ className, it2->value.IsBool() ? it2->value.GetBool() : false });
 
                 if (it2->value.IsObject()) {
                     if (!it2->value.HasMember("field") || !it2->value.HasMember("type")) continue;
@@ -117,11 +114,6 @@ std::string SDKAccess::GetFieldClass(uint64_t path)
 uint32_t SDKAccess::GetFieldSize(uint64_t path)
 {
     return this->fieldSizes[path];
-}
-
-bool SDKAccess::GetClassStructState(std::string className)
-{
-    return this->structStates[className];
 }
 
 bool SDKAccess::ExistsField(uint64_t path)

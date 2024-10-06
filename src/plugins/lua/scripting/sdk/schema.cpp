@@ -450,54 +450,54 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
     switch (g_sdk->GetFieldType(path))
     {
     case Bool:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<bool>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<bool>());
     case Int8:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<int8_t>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<int8_t>());
     case Int16:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<int16_t>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<int16_t>());
     case Int32:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<int32_t>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<int32_t>());
     case Int64:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<int64_t>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<int64_t>());
     case UInt8:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<uint8_t>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<uint8_t>());
     case UInt16:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<uint16_t>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<uint16_t>());
     case UInt32:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<uint32_t>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<uint32_t>());
     case UInt64:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<uint64_t>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<uint64_t>());
     case Float:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<float>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<float>());
     case Double:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<double>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<double>());
     case StringToken:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), CUtlStringToken(value.cast<uint32_t>()));
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), CUtlStringToken(value.cast<uint32_t>()));
     case StringSymbolLarge:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), CUtlSymbolLarge(strdup(value.cast<std::string>().c_str())));
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), CUtlSymbolLarge(strdup(value.cast<std::string>().c_str())));
     case StringUtl:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), CUtlString(strdup(value.cast<std::string>().c_str())));
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), CUtlString(strdup(value.cast<std::string>().c_str())));
     case String:
-        return WriteSchemaPtrValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), reinterpret_cast<byte*>(const_cast<char*>(value.cast<std::string>().c_str())), g_sdk->GetFieldSize(path));
+        return WriteSchemaPtrValue(m_ptr, this->m_className.c_str(), field.c_str(), reinterpret_cast<byte*>(const_cast<char*>(value.cast<std::string>().c_str())), g_sdk->GetFieldSize(path));
     case EntityIndex:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), CEntityIndex(value.cast<int>()));
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), CEntityIndex(value.cast<int>()));
     case SColor:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<Color>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<Color>());
     case SQAngle:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<QAngle>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<QAngle>());
     case SVector:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<Vector>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<Vector>());
     case SVector2D:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<Vector2D>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<Vector2D>());
     case SVector4D:
-        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<Vector4D>());
+        return SetSchemaValue(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<Vector4D>());
     case RawListEntityIndex: {
         auto val = GetSchemaValuePtr<CEntityIndex>(m_ptr, this->m_className.c_str(), field.c_str());
         auto ret = value.cast<std::vector<int>>();
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             val[i] = CEntityIndex(ret[i]);
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case StringSymbolLargeArray: {
@@ -507,7 +507,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
             val[i] = CUtlSymbolLarge(ret[i].c_str());
         }
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case StringTokenArray: {
@@ -516,7 +516,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             val[i] = CUtlStringToken(ret[i]);
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case StringUtlArray: {
@@ -525,7 +525,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             val[i] = CUtlString(ret[i].c_str());
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case Int8Array: {
@@ -534,7 +534,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case Int16Array: {
@@ -543,7 +543,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case Int32Array: {
@@ -552,7 +552,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case Int64Array: {
@@ -561,7 +561,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case UInt8Array: {
@@ -570,7 +570,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case UInt16Array: {
@@ -579,7 +579,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case UInt32Array: {
@@ -588,7 +588,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case UInt64Array: {
@@ -597,7 +597,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case FloatArray: {
@@ -606,7 +606,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case DoubleArray: {
@@ -615,7 +615,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case BoolArray: {
@@ -624,7 +624,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case SColorArray: {
@@ -633,7 +633,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case SQAngleArray: {
@@ -642,7 +642,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case SVectorArray: {
@@ -651,7 +651,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case SVector2DArray: {
@@ -660,7 +660,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case SVector4DArray: {
@@ -669,7 +669,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
             outValue[i] = ret[i];
 
-        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0, g_sdk->GetClassStructState(this->m_className));
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
     case StringSymbolLargeCUtlVector: {
@@ -678,7 +678,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (auto elem : val)
             newValues.push_back(CUtlSymbolLarge(elem.c_str()));
 
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), newValues);
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), newValues);
     }
     case StringTokenCUtlVector: {
         std::vector<CUtlStringToken> newValues;
@@ -686,7 +686,7 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (auto elem : val)
             newValues.push_back(CUtlStringToken(elem));
 
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), newValues);
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), newValues);
     }
     case StringUtlCUtlVector: {
         std::vector<CUtlString> newValues;
@@ -694,40 +694,40 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         for (auto elem : val)
             newValues.push_back(CUtlString(elem.c_str()));
 
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), newValues);
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), newValues);
     }
     case Int8CUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<int8_t>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<int8_t>>());
     case Int16CUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<int16_t>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<int16_t>>());
     case Int32CUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<int32_t>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<int32_t>>());
     case Int64CUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<int64_t>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<int64_t>>());
     case UInt8CUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<uint8_t>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<uint8_t>>());
     case UInt16CUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<uint16_t>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<uint16_t>>());
     case UInt32CUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<uint32_t>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<uint32_t>>());
     case UInt64CUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<uint64_t>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<uint64_t>>());
     case FloatCUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<float>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<float>>());
     case DoubleCUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<double>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<double>>());
     case SColorCUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<Color>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<Color>>());
     case SQAngleCUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<QAngle>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<QAngle>>());
     case SVectorCUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<Vector>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<Vector>>());
     case SVector2DCUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<Vector2D>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<Vector2D>>());
     case SVector4DCUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<Vector4D>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<Vector4D>>());
     case BoolCUtlVector:
-        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), g_sdk->GetClassStructState(this->m_className), value.cast<std::vector<bool>>());
+        return SetSchemaValueCUtlVector(m_ptr, this->m_className.c_str(), field.c_str(), value.cast<std::vector<bool>>());
     }
 }
 

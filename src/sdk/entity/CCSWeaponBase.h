@@ -34,7 +34,7 @@ enum CCSWeaponSilencerType : uint32_t
 class CEconItemAttribute
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CEconItemAttribute, false)
+    DECLARE_SCHEMA_CLASS_BASE(CEconItemAttribute)
 
     SCHEMA_FIELD_OFFSET(uint16_t, m_iAttributeDefinitionIndex, 0);
     SCHEMA_FIELD_OFFSET(float, m_flValue, 0);
@@ -46,7 +46,7 @@ public:
 class CAttributeList
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CAttributeList, true)
+    DECLARE_SCHEMA_CLASS_BASE(CAttributeList)
 
     SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<CHandle<CEconItemAttribute>>, m_Attributes, 0);
 
@@ -59,7 +59,7 @@ public:
 class CEconItemView
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CEconItemView, true)
+    DECLARE_SCHEMA_CLASS_BASE(CEconItemView)
 
     SCHEMA_FIELD_OFFSET(uint16_t, m_iItemDefinitionIndex, 0);
     SCHEMA_FIELD_OFFSET(uint64_t, m_iItemID, 0);
@@ -78,7 +78,7 @@ public:
 class CAttributeContainer
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CAttributeContainer, true)
+    DECLARE_SCHEMA_CLASS_BASE(CAttributeContainer)
 
     SCHEMA_FIELD_OFFSET(CEconItemView, m_Item, 0)
 };
@@ -86,7 +86,7 @@ public:
 class CEconEntity : public CBaseEntity
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CEconEntity, false)
+    DECLARE_SCHEMA_CLASS_BASE(CEconEntity)
 
     SCHEMA_FIELD_OFFSET(CAttributeContainer, m_AttributeManager, 0);
     SCHEMA_FIELD_OFFSET(int32_t, m_nFallbackPaintKit, 0);
@@ -100,7 +100,7 @@ public:
 class CBasePlayerWeaponVData : public CEntitySubclassVDataBase
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeaponVData, false)
+    DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeaponVData)
     SCHEMA_FIELD_OFFSET(int, m_iMaxClip1, 0);
     SCHEMA_FIELD_OFFSET(int, m_iDefaultClip1, 0);
     SCHEMA_FIELD_OFFSET(int, m_iMaxClip2, 0);
@@ -110,7 +110,7 @@ public:
 class CCSWeaponBaseVData : public CBasePlayerWeaponVData
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSWeaponBaseVData, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSWeaponBaseVData)
 
     SCHEMA_FIELD_OFFSET(cgear_slot_t, m_GearSlot, 0);
     SCHEMA_FIELD_OFFSET(int, m_nPrice, 0);
@@ -121,7 +121,7 @@ public:
 class CEconWearable : public CEconEntity
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CEconWearable, false)
+    DECLARE_SCHEMA_CLASS_BASE(CEconWearable)
 
     SCHEMA_FIELD_OFFSET(int32_t, m_nForceSkin, 0);
     SCHEMA_FIELD_OFFSET(bool, m_bAlwaysAllow, 0);
@@ -130,7 +130,7 @@ public:
 class CBasePlayerWeapon : public CEconEntity
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeapon, false)
+    DECLARE_SCHEMA_CLASS_BASE(CBasePlayerWeapon)
 
     SCHEMA_FIELD_OFFSET(int32_t, m_iClip1, 0);
     SCHEMA_FIELD_OFFSET(int32_t, m_iClip2, 0);
@@ -146,5 +146,5 @@ public:
 class CCSWeaponBase : public CBasePlayerWeapon
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSWeaponBase, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSWeaponBase)
 };

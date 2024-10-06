@@ -8,7 +8,7 @@
 class CTriggerPush
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CTriggerPush, false)
+    DECLARE_SCHEMA_CLASS_BASE(CTriggerPush)
 
     SCHEMA_FIELD_OFFSET(Vector, m_vecPushDirEntitySpace, 0)
         SCHEMA_FIELD_OFFSET(float, m_flPushSpeed, 0)

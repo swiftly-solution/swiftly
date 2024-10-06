@@ -32,28 +32,28 @@ T* GetSchemaValuePtr(void* ptr, const char* className, const char* fieldName)
 
 void* GetSchemaPtr(void* ptr, const char* className, const char* fieldName);
 
-void WriteSchemaPtrValue(void* ptr, const char* className, const char* fieldName, bool isStruct, byte* value, int size);
+void WriteSchemaPtrValue(void* ptr, const char* className, const char* fieldName, byte* value, int size);
 
 template <typename T>
-void SetSchemaValue(void* ptr, const char* className, const char* fieldName, bool isStruct, T value)
+void SetSchemaValue(void* ptr, const char* className, const char* fieldName, T value)
 {
     auto m_key = sch::GetOffset(className, fieldName);
 
-    SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
+    SetStateChanged((uintptr_t)ptr, className, fieldName, 0);
     *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key) = value;
 }
 
 template <typename T>
-void SetSchemaValueCUtlVector(void* ptr, const char* className, const char* fieldName, bool isStruct, std::vector<T> value)
+void SetSchemaValueCUtlVector(void* ptr, const char* className, const char* fieldName, std::vector<T> value)
 {
     auto m_key = sch::GetOffset(className, fieldName);
 
-    SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
+    SetStateChanged((uintptr_t)ptr, className, fieldName, 0);
 
     CUtlVector<T>* vec = reinterpret_cast<CUtlVector<T> *>((uintptr_t)(ptr)+m_key);
     vec->Purge();
     for (auto elem : value)
         vec->AddToTail(elem);
 
-    SetStateChanged((uintptr_t)ptr, className, fieldName, 0, isStruct);
+    SetStateChanged((uintptr_t)ptr, className, fieldName, 0);
 }

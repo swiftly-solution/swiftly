@@ -12,7 +12,7 @@
 class CBasePlayerPawn : public CBaseModelEntity
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CBasePlayerPawn, false)
+    DECLARE_SCHEMA_CLASS_BASE(CBasePlayerPawn)
 
     SCHEMA_FIELD_OFFSET(CPlayer_MovementServices*, m_pMovementServices, 0);
     SCHEMA_FIELD_OFFSET(CPlayer_WeaponServices*, m_pWeaponServices, 0);

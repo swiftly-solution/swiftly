@@ -23,7 +23,7 @@ public:
 struct CSPerRoundStats_t
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CSPerRoundStats_t, true)
+    DECLARE_SCHEMA_CLASS_BASE(CSPerRoundStats_t)
 
     SCHEMA_FIELD_OFFSET(int, m_iKills, 0);
     SCHEMA_FIELD_OFFSET(int, m_iDeaths, 0);
@@ -34,13 +34,13 @@ public:
 struct CSMatchStats_t : public CSPerRoundStats_t
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CSMatchStats_t, true)
+    DECLARE_SCHEMA_CLASS_BASE(CSMatchStats_t)
 };
 
 class CCSPlayerController_ActionTrackingServices
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_ActionTrackingServices, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_ActionTrackingServices)
 
     SCHEMA_FIELD_OFFSET(CSMatchStats_t, m_matchStats, 0)
 };
@@ -48,7 +48,7 @@ public:
 class CPlayer_MovementServices : public CPlayerPawnComponent
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CPlayer_MovementServices, false)
+    DECLARE_SCHEMA_CLASS_BASE(CPlayer_MovementServices)
 
     SCHEMA_FIELD_OFFSET(CInButtonState, m_nButtons, 0);
     SCHEMA_FIELD_OFFSET(uint64_t, m_nQueuedButtonDownMask, 0);
@@ -63,19 +63,19 @@ public:
 class CPlayer_MovementServices_Humanoid : CPlayer_MovementServices
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CPlayer_MovementServices_Humanoid, false)
+    DECLARE_SCHEMA_CLASS_BASE(CPlayer_MovementServices_Humanoid)
 };
 
 class CCSPlayer_MovementServices : CPlayer_MovementServices_Humanoid
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_MovementServices, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_MovementServices)
 };
 
 class CCSPlayerController_InGameMoneyServices
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_InGameMoneyServices, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_InGameMoneyServices)
 
     SCHEMA_FIELD_OFFSET(int, m_iAccount, 0)
 };
@@ -83,7 +83,7 @@ public:
 class CCSPlayer_ItemServices
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_ItemServices, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_ItemServices)
 
     virtual ~CCSPlayer_ItemServices() = 0;
 
@@ -137,7 +137,7 @@ private:
 struct WeaponPurchaseTracker_t
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(WeaponPurchaseTracker_t, true)
+    DECLARE_SCHEMA_CLASS_BASE(WeaponPurchaseTracker_t)
 
     SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<WeaponPurchaseCount_t>, m_weaponPurchases, 0)
 };
@@ -145,7 +145,7 @@ public:
 class CCSPlayer_ActionTrackingServices
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_ActionTrackingServices, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_ActionTrackingServices)
 
     SCHEMA_FIELD_OFFSET(WeaponPurchaseTracker_t, m_weaponPurchasesThisRound, 0)
 };
@@ -153,7 +153,7 @@ public:
 class CPlayer_WeaponServices : public CPlayerPawnComponent
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CPlayer_WeaponServices, false)
+    DECLARE_SCHEMA_CLASS_BASE(CPlayer_WeaponServices)
 
     SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<CHandle<CBasePlayerWeapon>>, m_hMyWeapons, 0);
     SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerWeapon>, m_hActiveWeapon, 0);
@@ -174,7 +174,7 @@ public:
 class CCSPlayerController_InventoryServices
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_InventoryServices, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController_InventoryServices)
 
     SCHEMA_FIELD_OFFSET(uint16_t, m_unMusicID, 0);
     SCHEMA_FIELD_POINTER_OFFSET(uint8_t, m_rank, 0);

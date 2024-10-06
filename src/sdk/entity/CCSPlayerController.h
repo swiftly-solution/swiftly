@@ -6,7 +6,7 @@
 class CCSPlayerController : public CBasePlayerController
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerController)
 
     SCHEMA_FIELD_OFFSET(CCSPlayerController_InGameMoneyServices *, m_pInGameMoneyServices, 0)
     SCHEMA_FIELD_OFFSET(CCSPlayerController_ActionTrackingServices *, m_pActionTrackingServices, 0)

@@ -7,7 +7,7 @@
 class CCSPlayerPawn : public CCSPlayerPawnBase
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerPawn, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayerPawn)
 
     SCHEMA_FIELD_OFFSET(CCSPlayer_ActionTrackingServices*, m_pActionTrackingServices, 0);
     SCHEMA_FIELD_OFFSET(CCSPlayer_ViewModelServices*, m_pViewModelServices, 0);

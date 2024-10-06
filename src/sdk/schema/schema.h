@@ -7,7 +7,7 @@
 #include "../interfaces/cschemasystem.h"
 
 class CBaseEntity;
-void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset, bool isStruct);
+void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset);
 
 constexpr uint32_t val_32_const = 0x811c9dc5;
 constexpr uint32_t prime_32_const = 0x1000193;
@@ -33,6 +33,8 @@ namespace sch
     
     bool IsNetworked(const char* className, const char* memberName);
     bool IsNetworked(uint64_t path);
+
+    bool IsStruct(const char* cName);
 };
 
 #define SCHEMA_FIELD_OFFSET(type, varName, extra_offset)                                                                                                          \
@@ -58,16 +60,15 @@ namespace sch
             static const size_t offset = offsetof(ThisClass, varName);                                                                                            \
             ThisClass *pThisClass = (ThisClass *)((byte *)this - offset);                                                                                         \
                                                                                                                                                                   \
-            SetStateChanged((uintptr_t)pThisClass, ThisClassName, #varName, extra_offset, IsStruct);                                                              \
+            SetStateChanged((uintptr_t)pThisClass, ThisClassName, #varName, extra_offset);                                                              \
             *reinterpret_cast<std::add_pointer_t<type>>((uintptr_t)(pThisClass) + m_key + extra_offset) = val;                                             \
         }                                                                                                                                                         \
         void StateUpdate()                                                                                                                                        \
         {                                                                                                                                                         \
-                                                                                                                                                                  \
             static const size_t offset = offsetof(ThisClass, varName);                                                                                            \
             ThisClass *pThisClass = (ThisClass *)((byte *)this - offset);                                                                                         \
                                                                                                                                                                   \
-            SetStateChanged((uintptr_t)pThisClass, ThisClassName, #varName, extra_offset, IsStruct);                                                              \
+            SetStateChanged((uintptr_t)pThisClass, ThisClassName, #varName, extra_offset);                                                              \
         }                                                                                                                                                         \
         operator std::add_lvalue_reference_t<type>() { return Get(); }                                                                                            \
         std::add_lvalue_reference_t<type> operator()() { return Get(); }                                                                                          \
@@ -96,9 +97,8 @@ namespace sch
         type *operator->() { return Get(); }                                           \
     } varName;
 
-#define DECLARE_SCHEMA_CLASS_BASE(className, isStruct)       \
+#define DECLARE_SCHEMA_CLASS_BASE(className)                 \
     typedef className ThisClass;                             \
-    static constexpr const char *ThisClassName = #className; \
-    static constexpr bool IsStruct = isStruct;
+    static constexpr const char *ThisClassName = #className;
 
 #endif

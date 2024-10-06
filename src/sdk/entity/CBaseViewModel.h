@@ -8,7 +8,7 @@ class CBaseViewModel;
 class CCSPlayer_ViewModelServices
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_ViewModelServices, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_ViewModelServices)
 
     SCHEMA_FIELD_POINTER_OFFSET(CHandle<CBaseViewModel>, m_hViewModel, 0)
 };
@@ -16,7 +16,7 @@ public:
 class CBaseViewModel : public CBaseModelEntity
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CBaseViewModel, false)
+    DECLARE_SCHEMA_CLASS_BASE(CBaseViewModel)
 };
 
 #endif

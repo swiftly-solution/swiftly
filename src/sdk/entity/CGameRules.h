@@ -6,13 +6,13 @@
 class CGameRules
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CGameRules, false)
+    DECLARE_SCHEMA_CLASS_BASE(CGameRules)
 };
 
 class CCSGameRules : public CGameRules
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSGameRules, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSGameRules)
 
     SCHEMA_FIELD_OFFSET(float, m_fMatchStartTime, 0);
     SCHEMA_FIELD_OFFSET(float, m_flGameStartTime, 0);
@@ -33,7 +33,7 @@ public:
 class CCSGameRulesProxy : public CBaseEntity
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSGameRulesProxy, false)
+    DECLARE_SCHEMA_CLASS_BASE(CCSGameRulesProxy)
 
     SCHEMA_FIELD_OFFSET(CCSGameRules*, m_pGameRules, 0)
 };

@@ -22,7 +22,7 @@ class CBasePlayerController;
 class CBasePlayerController : public CBaseEntity
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CBasePlayerController, false)
+    DECLARE_SCHEMA_CLASS_BASE(CBasePlayerController)
 
     SCHEMA_FIELD_OFFSET(uint64, m_steamID, 0);
     SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerPawn>, m_hPawn, 0);

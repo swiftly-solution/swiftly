@@ -7,7 +7,7 @@
 class CBaseCombatCharacter : public CBaseModelEntity
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CBaseCombatCharacter, false)
+    DECLARE_SCHEMA_CLASS_BASE(CBaseCombatCharacter)
 
     SCHEMA_FIELD_POINTER_OFFSET(CUtlVector<CHandle<CEconWearable>>, m_hMyWearables, 0)
 };

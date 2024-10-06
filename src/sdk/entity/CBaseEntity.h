@@ -31,13 +31,13 @@ inline CEntityInstance* UTIL_FindEntityByClassname(CEntityInstance* pStart, cons
 class CEntitySubclassVDataBase
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CEntitySubclassVDataBase, false)
+    DECLARE_SCHEMA_CLASS_BASE(CEntitySubclassVDataBase)
 };
 
 class CModelState
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CModelState, true)
+    DECLARE_SCHEMA_CLASS_BASE(CModelState)
 
     SCHEMA_FIELD_OFFSET(uint64_t, m_MeshGroupMask, 0)
 };
@@ -45,7 +45,7 @@ public:
 class CSkeletonInstance
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CSkeletonInstance, false)
+    DECLARE_SCHEMA_CLASS_BASE(CSkeletonInstance)
 
     SCHEMA_FIELD_POINTER_OFFSET(CModelState, m_modelState, 0)
 };
@@ -53,7 +53,7 @@ public:
 class CGameSceneNode
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CGameSceneNode, false)
+    DECLARE_SCHEMA_CLASS_BASE(CGameSceneNode)
 
     SCHEMA_FIELD_OFFSET(CEntityInstance*, m_pOwner, 0);
     SCHEMA_FIELD_OFFSET(CGameSceneNode*, m_pParent, 0);
@@ -111,7 +111,7 @@ public:
 class CBodyComponent
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CBodyComponent, false)
+    DECLARE_SCHEMA_CLASS_BASE(CBodyComponent)
 
     SCHEMA_FIELD_OFFSET(CGameSceneNode*, m_pSceneNode, 0)
 };
@@ -119,7 +119,7 @@ public:
 class CBaseEntity : public CEntityInstance
 {
 public:
-    DECLARE_SCHEMA_CLASS_BASE(CBaseEntity, false)
+    DECLARE_SCHEMA_CLASS_BASE(CBaseEntity)
 
     SCHEMA_FIELD_OFFSET(int, m_iHealth, 0);
     SCHEMA_FIELD_OFFSET(int, m_iMaxHealth, 0);
