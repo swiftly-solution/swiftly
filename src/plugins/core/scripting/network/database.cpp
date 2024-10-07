@@ -116,12 +116,7 @@ void DatabaseQueryThread()
             std::string result = QueryToJSON(queryResult);
 
             if (queue.plugin->GetKind() == PluginKind_t::Lua)
-            {
-                if(g_Players.size() > 0)
-                    g_Plugin.NextFrame(DatabaseLuaCallback, { queue.requestID, result, error, (LuaPlugin*)queue.plugin });
-                else 
-                    DatabaseLuaCallback({ queue.requestID, result, error, (LuaPlugin*)queue.plugin });
-            }
+                g_Plugin.NextFrame(DatabaseLuaCallback, { queue.requestID, result, error, (LuaPlugin*)queue.plugin });
 
             delete callStack;
 
