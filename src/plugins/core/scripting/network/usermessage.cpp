@@ -885,13 +885,9 @@ void PluginUserMessage::RemoveClient(int playerId)
 {
     if(!this->clients) return;
 
-    uint64 newcls = 0;
-    uint64 oldcls = *this->clients;
-    for(int i = 0; i < 64; i++) {
-        if(i == playerId) continue;
-        if(oldcls & ((uint64)1 << i))
-            newcls |= ((uint64)1 << i);
-    }
+    uint64 newcls = *this->clients;
+    if(newcls & ((uint64)1 << playerId))
+        newcls &= ~((uint64)1 << playerId);
 
     memcpy(this->clients, &newcls, sizeof(newcls));
 }

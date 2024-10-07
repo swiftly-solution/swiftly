@@ -7,7 +7,7 @@ uint64_t CallStack::RegisterPluginCallstack(std::string plugin_name, std::string
 {
     ++stackID;
     if (stackID % 2000000000 == 0)
-        stackID = 0;
+        stackID = 1;
 
     callStacks[plugin_name].insert_or_assign(stackID, stackMsg);
     return stackID;

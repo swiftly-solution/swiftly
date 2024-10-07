@@ -11,7 +11,6 @@
 std::string FetchPluginName(lua_State* state);
 #define FetchPluginByState(state) g_pluginManager->FetchPlugin(FetchPluginName(state))
 
-extern std::vector<Player*> g_Players;
 struct DatabaseQueryQueue
 {
     std::string query;

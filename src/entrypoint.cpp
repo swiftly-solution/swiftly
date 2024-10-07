@@ -92,7 +92,7 @@ CCSGameRules* gameRules = nullptr;
 ////////////////////////////////////////////////////////////
 
 CUtlVector<FuncHookBase*> g_vecHooks;
-std::vector<Player*> g_Players;
+uint64_t g_Players = 0;
 
 Addons g_addons;
 PlayerChat g_playerChat;
@@ -399,6 +399,7 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     PERF_RECORD("GameFrame", "core")
 
     static double g_flNextUpdate = 0.0;
+    static double g_flNextGC = 0.0;
     uint64_t time = GetTime();
 
     ProcessTimeouts(time);
@@ -434,19 +435,22 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     //////////////////////////////////////////////////////////////
     /////////////////            Player            //////////////
     ////////////////////////////////////////////////////////////
-    for(std::size_t i = 0; i < g_Players.size(); i++)
+    for(int i = 0; i < 64; i++)
     {
-        Player* player = g_Players[i];
-        CBasePlayerPawn* pawn = player->GetPawn();
-        if (!pawn)
-            continue;
+        if(g_Players & (1ULL << i)) {
+            Player* player = g_playerManager->GetPlayer(i);
+            CBasePlayerPawn* pawn = player->GetPawn();
+            if (!pawn)
+                continue;
 
-        player->SetButtons(pawn->m_pMovementServices()->m_nButtons().m_pButtonStates()[0]);
+            auto buttonStates = pawn->m_pMovementServices()->m_nButtons().m_pButtonStates();
+            player->SetButtons(buttonStates[0], buttonStates[1]);
 
-        if (player->HasMenuShown())
-            player->RenderMenu();
-        else if (player->HasCenterText())
-            player->RenderCenterText(time);
+            if (player->HasMenuShown())
+                player->RenderMenu();
+            else if (player->HasCenterText())
+                player->RenderCenterText(time);
+        }
     }
 
     //////////////////////////////////////////////////////////////
@@ -495,8 +499,7 @@ void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReaso
 
     Player* player = g_playerManager->GetPlayer(slot);
     if (player) {
-        auto it = std::find(g_Players.begin(), g_Players.end(), player);
-        if(it != g_Players.end()) g_Players.erase(it);
+        g_Players &= ~(1ULL << slot.Get());
         g_playerManager->UnregisterPlayer(slot);
     }
 }
@@ -522,7 +525,7 @@ bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char* pszName, uint64 x
     std::string ip_address = explode(pszNetworkID, ":")[0];
     Player* player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     g_playerManager->RegisterPlayer(player);
-    g_Players.push_back(player);
+    g_Players |= (1ULL << slot.Get());
 
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnClientConnect", encoders::msgpack::SerializeToString({ slot.Get() }), event);

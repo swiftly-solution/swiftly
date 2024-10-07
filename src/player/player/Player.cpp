@@ -170,7 +170,7 @@ void Player::SendMsg(int dest, const char* msg, ...)
         if(std::string(msg) == "") this->centerMessageEndTime = 0;
         else {
             this->centerMessageEndTime = GetTime() + 5000;
-            this->centerMessageText = msg;
+            this->centerMessageEvent->SetString("loc_token", msg);
         }
     }
     else if (dest == HUD_PRINTCONSOLE)
@@ -258,12 +258,8 @@ void Player::RenderCenterText(uint64_t time)
 {
     if (this->centerMessageEndTime != 0)
     {
-        if (this->centerMessageEndTime >= time)
-        {
-            if (centerMessageEvent)
-            {
-                centerMessageEvent->SetString("loc_token", this->centerMessageText.c_str());
-
+        if (this->centerMessageEndTime >= time) {
+            if (centerMessageEvent) {
                 playerListener->FireGameEvent(centerMessageEvent);
             }
         }
@@ -351,40 +347,16 @@ const std::vector<std::string> key_buttons = {
 
 void OnClientKeyStateChange(int playerid, std::string key, bool pressed);
 
-void Player::SetButtons(uint64_t new_buttons)
+void Player::SetButtons(uint64_t new_buttons, uint64_t changed_buttons)
 {
-    /*
-    DEBUG: Button Presses
-
-    for(uint64_t i = 0; i < 64; i++) {
-        if((new_buttons & (1ULL << i)) != 0) {
-            PRINTF("%s: %d\n", key_buttons[i].c_str(), i);
+    if(changed_buttons > 0) {
+        for(uint16_t i = 0; i < 64; i++) {
+            if((new_buttons & (1ULL << i)) != 0 && (changed_buttons & (1ULL << i)) != 0)
+                OnClientKeyStateChange(this->slot, key_buttons[i], true);
+            else if((new_buttons & (1ULL << i)) == 0 && (changed_buttons & (1ULL << i)) != 0)
+                OnClientKeyStateChange(this->slot, key_buttons[i], false);
         }
     }
-    PRINTF("Buttons: %s | %llu\n", std::bitset<64>(new_buttons).to_string().c_str(), new_buttons);
-    */
-
-    if(this->buttons != new_buttons) {
-        for (uint16_t i = 0; i < key_buttons.size(); i++)
-        {
-            if (this->IsButtonPressed((1ULL << i)) && (new_buttons & (1ULL << i)) == 0)
-                OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], false);
-            else if (!this->IsButtonPressed((1ULL << i)) && (new_buttons & (1ULL << i)) != 0)
-                OnClientKeyStateChange(this->GetSlot().Get(), key_buttons[i], true);
-        }
-
-        this->buttons = new_buttons;
-    }
-}
-
-uint64_t Player::GetButtons()
-{
-    return this->buttons;
-}
-
-bool Player::IsButtonPressed(uint64_t but)
-{
-    return ((this->buttons & but) != 0);
 }
 
 bool Player::HasMenuShown() { return (this->menu != nullptr); }
@@ -395,7 +367,8 @@ void Player::SetPage(int pg)
 {
     this->page = pg;
     this->selected = 0;
-    this->menu->RegeneratePage(this->GetSlot().Get(), this->page, this->selected);
+    this->menu->RegeneratePage(this->slot, this->page, this->selected);
+    this->centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
 }
 int Player::GetSelection() { return this->selected; }
 void Player::MoveSelection()
@@ -408,7 +381,8 @@ void Player::MoveSelection()
     if (itemsPerPage == this->selected)
         this->selected = 0;
 
-    this->menu->RegeneratePage(this->GetSlot().Get(), this->page, this->selected);
+    this->menu->RegeneratePage(this->slot, this->page, this->selected);
+    this->centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
 }
 
 void Player::ShowMenu(std::string menuid)
@@ -425,6 +399,7 @@ void Player::ShowMenu(std::string menuid)
     this->selected = 0;
 
     this->menu->RegeneratePage(this->slot, this->page, this->selected);
+    this->centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
     this->RenderMenu();
 }
 
@@ -433,15 +408,13 @@ void Player::RenderMenu()
     if (this->menu == nullptr)
         return;
 
-    if (this->centerMessageEndTime > 0)
+    if (this->centerMessageEndTime > 0) {
+        this->centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
         this->centerMessageEndTime = 0;
+    }
 
     if (centerMessageEvent)
-    {
-        centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
-
         playerListener->FireGameEvent(centerMessageEvent);
-    }
 }
 
 void Player::HideMenu()
@@ -474,7 +447,7 @@ void Player::PerformMenuAction(std::string button)
     if (button == g_Config->FetchValue<std::string>("core.menu.buttons.scroll"))
     {
         CCSPlayerController* controller = this->GetPlayerController();
-        CSingleRecipientFilter filter(this->GetSlot().Get());
+        CSingleRecipientFilter filter(this->slot);
         if (controller)
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.scroll.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.scroll.volume"));
 
@@ -484,7 +457,7 @@ void Player::PerformMenuAction(std::string button)
     else if (!g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && button == g_Config->FetchValue<std::string>("core.menu.buttons.exit.button"))
     {
         CCSPlayerController* controller = this->GetPlayerController();
-        CSingleRecipientFilter filter(this->GetSlot().Get());
+        CSingleRecipientFilter filter(this->slot);
         if (controller)
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.exit.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.exit.volume"));
         this->HideMenu();
@@ -493,7 +466,7 @@ void Player::PerformMenuAction(std::string button)
     {
         std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
         CCSPlayerController* controller = this->GetPlayerController();
-        CSingleRecipientFilter filter(this->GetSlot().Get());
+        CSingleRecipientFilter filter(this->slot);
         if (controller && cmd != "menuexit")
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.use.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.use.volume"));
         if (cmd == "menunext")
@@ -509,7 +482,7 @@ void Player::PerformMenuAction(std::string button)
         else if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && cmd == "menuexit")
         {
             CCSPlayerController* controller = this->GetPlayerController();
-            CSingleRecipientFilter filter(this->GetSlot().Get());
+            CSingleRecipientFilter filter(this->slot);
             if (controller)
                 controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.exit.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.exit.volume"));
             this->HideMenu();
@@ -531,7 +504,7 @@ void Player::PerformMenuAction(std::string button)
 
             Command* cmd = g_commandsManager->FetchCommand(commandName);
             if (cmd)
-                cmd->Execute(this->GetSlot().Get(), cmdString, true, "sw_");
+                cmd->Execute(this->slot, cmdString, true, "sw_");
         }
         else if (cmd != "")
             this->PerformCommand(cmd);
@@ -555,7 +528,7 @@ void Player::SetClientConvar(std::string cmd, std::string val)
     cvar->set_name(cv->m_pszName);
     cvar->set_value(val.c_str());
 
-    CSingleRecipientFilter filter(this->GetSlot().Get());
+    CSingleRecipientFilter filter(this->slot);
     g_pGameEventSystem->PostEventAbstract(-1, false, &filter, netmsg, msg, 0);
 
     #ifndef _WIN32

@@ -69,9 +69,7 @@ public:
     void SwitchTeam(int team);
     void ChangeTeam(int team);
 
-    void SetButtons(uint64_t new_buttons);
-    uint64_t GetButtons();
-    bool IsButtonPressed(uint64_t but);
+    void SetButtons(uint64_t new_buttons, uint64_t changed_buttons);
 
     std::string tag = "";
     std::string tagcolor = "{default}";
