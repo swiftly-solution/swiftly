@@ -30,27 +30,40 @@ void OffsetsError(std::string text)
 
 void Offsets::LoadOffsets()
 {
-    rapidjson::Document offsetsFile;
-    offsetsFile.Parse(Files::Read("addons/swiftly/gamedata/offsets.json").c_str());
-    if (offsetsFile.HasParseError())
-        return OffsetsError(string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)offsetsFile.GetErrorOffset(), GetParseError_En(offsetsFile.GetParseError())));
+    auto files = Files::FetchFileNames("addons/swiftly/gamedata");
+    for(auto file : files) {
+        if(!ends_with(file, "offsets.json")) continue;
 
-    if (offsetsFile.IsArray())
-        return OffsetsError("Offsets file cannot be an array.");
+        rapidjson::Document offsetsFile;
+        offsetsFile.Parse(Files::Read(file).c_str());
+        if (offsetsFile.HasParseError()) {
+            OffsetsError(string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)offsetsFile.GetErrorOffset(), GetParseError_En(offsetsFile.GetParseError())));
+            continue;
+        }
 
-    for (auto it = offsetsFile.MemberBegin(); it != offsetsFile.MemberEnd(); ++it)
-    {
-        std::string name = it->name.GetString();
+        if (offsetsFile.IsArray()) {
+            OffsetsError("Offsets file cannot be an array.");
+            continue;
+        }
 
-        HAS_MEMBER(it->value, "windows", string_format("%s.windows", name))
-        HAS_MEMBER(it->value, "linux", string_format("%s.linux", name))
+        for (auto it = offsetsFile.MemberBegin(); it != offsetsFile.MemberEnd(); ++it)
+        {
+            std::string name = it->name.GetString();
+            if(this->offsets.find(name) != this->offsets.end()) {
+                OffsetsError(string_format("The offsets for '%s' has been already loaded.", name.c_str()));
+                continue;
+            }
 
-        IS_NUMBER(it->value, "windows", string_format("%s.windows", name))
-        IS_NUMBER(it->value, "linux", string_format("%s.linux", name))
+            HAS_MEMBER(it->value, "windows", string_format("%s.windows", name))
+            HAS_MEMBER(it->value, "linux", string_format("%s.linux", name))
 
-        int offset = it->value[WIN_LINUX("windows", "linux")].GetInt();
+            IS_NUMBER(it->value, "windows", string_format("%s.windows", name))
+            IS_NUMBER(it->value, "linux", string_format("%s.linux", name))
 
-        this->offsets.insert(std::make_pair(name, offset));
+            int offset = it->value[WIN_LINUX("windows", "linux")].GetInt();
+
+            this->offsets.insert(std::make_pair(name, offset));
+        }
     }
 }
 

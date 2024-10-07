@@ -67,35 +67,48 @@ void PatchesError(std::string text)
 
 void Patches::LoadPatches()
 {
-    rapidjson::Document patchesFile;
-    patchesFile.Parse(Files::Read("addons/swiftly/gamedata/patches.json").c_str());
-    if (patchesFile.HasParseError())
-        return PatchesError(string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)patchesFile.GetErrorOffset(), GetParseError_En(patchesFile.GetParseError())));
+    auto files = Files::FetchFileNames("addons/swiftly/gamedata");
+    for(auto file : files) {
+        if(!ends_with(file, "patches.json")) continue;
 
-    if (patchesFile.IsArray())
-        return PatchesError("Patches file cannot be an array.");
-
-    for (auto it = patchesFile.MemberBegin(); it != patchesFile.MemberEnd(); ++it)
-    {
-        std::string name = it->name.GetString();
-
-        HAS_MEMBER(it->value, "signature", string_format("%s.signature", name));
-        HAS_MEMBER(it->value, "windows", string_format("%s.windows", name));
-        HAS_MEMBER(it->value, "linux", string_format("%s.linux", name));
-
-        IS_STRING(it->value, "signature", string_format("%s.signature", name));
-        IS_STRING(it->value, "windows", string_format("%s.windows", name));
-        IS_STRING(it->value, "linux", string_format("%s.linux", name));
-
-        std::string signature = it->value["signature"].GetString();
-        if (!g_Signatures->Exists(signature))
-        {
-            PatchesError(string_format("%s: Signature '%s' does not exists in signatures file.\n", name.c_str(), signature.c_str()));
+        rapidjson::Document patchesFile;
+        patchesFile.Parse(Files::Read(file).c_str());
+        if (patchesFile.HasParseError()) {
+            PatchesError(string_format("A parsing error has been detected.\nError (offset %u): %s\n", (unsigned)patchesFile.GetErrorOffset(), GetParseError_En(patchesFile.GetParseError())));
             continue;
         }
 
-        this->patches.insert(std::make_pair(name, std::string(it->value[WIN_LINUX("windows", "linux")].GetString())));
-        this->signatures.insert(std::make_pair(name, signature));
+        if (patchesFile.IsArray()) {
+            PatchesError("Patches file cannot be an array.");
+            continue;
+        }
+
+        for (auto it = patchesFile.MemberBegin(); it != patchesFile.MemberEnd(); ++it)
+        {
+            std::string name = it->name.GetString();
+            if(this->patches.find(name) != this->patches.end()) {
+                PatchesError(string_format("The patch for '%s' has been already loaded.", name.c_str()));
+                continue;
+            }
+
+            HAS_MEMBER(it->value, "signature", string_format("%s.signature", name));
+            HAS_MEMBER(it->value, "windows", string_format("%s.windows", name));
+            HAS_MEMBER(it->value, "linux", string_format("%s.linux", name));
+
+            IS_STRING(it->value, "signature", string_format("%s.signature", name));
+            IS_STRING(it->value, "windows", string_format("%s.windows", name));
+            IS_STRING(it->value, "linux", string_format("%s.linux", name));
+
+            std::string signature = it->value["signature"].GetString();
+            if (!g_Signatures->Exists(signature))
+            {
+                PatchesError(string_format("%s: Signature '%s' does not exists in signatures file.\n", name.c_str(), signature.c_str()));
+                continue;
+            }
+
+            this->patches.insert(std::make_pair(name, std::string(it->value[WIN_LINUX("windows", "linux")].GetString())));
+            this->signatures.insert(std::make_pair(name, signature));
+        }
     }
 }
 

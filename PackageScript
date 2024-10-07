@@ -72,11 +72,12 @@ data_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'd
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'data', '.gitignore'), data_folder)
 
 gamedata_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'gamedata'))
-builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'signatures.json'), gamedata_folder)
+gamedata_core_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'gamedata', 'core'))
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'sdk.json'), gamedata_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'sdk_types.json'), gamedata_folder)
-builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'patches.json'), gamedata_folder)
-builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'offsets.json'), gamedata_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'core', 'signatures.json'), gamedata_core_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'core', 'patches.json'), gamedata_core_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'gamedata', 'core', 'offsets.json'), gamedata_core_folder)
 
 logs_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'logs'))
 logs_plugins_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'logs', 'plugins'))

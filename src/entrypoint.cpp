@@ -399,7 +399,6 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     PERF_RECORD("GameFrame", "core")
 
     static double g_flNextUpdate = 0.0;
-    static double g_flNextGC = 0.0;
     uint64_t time = GetTime();
 
     ProcessTimeouts(time);

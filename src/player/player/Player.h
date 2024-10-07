@@ -118,8 +118,6 @@ private:
     IGameEvent* centerMessageEvent = nullptr;
     IGameEventListener2* playerListener = nullptr;
 
-    uint64_t buttons = 0;
-
     std::time_t connectTime;
     const char* name;
     uint64 xuid;
