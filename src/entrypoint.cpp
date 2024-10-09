@@ -14,6 +14,7 @@
 #include "memory/encoders/msgpack.h"
 #include "entitysystem/entities/listener.h"
 #include "network/http/HTTPManager.h"
+#include "network/http/HTTPServerManager.h"
 #include "server/configuration/Configuration.h"
 #include "server/commands/CommandsManager.h"
 #include "tools/crashreporter/CallStack.h"
@@ -117,6 +118,7 @@ HTTPManager* g_httpManager = nullptr;
 UserMessages* g_userMessages = nullptr;
 SDKAccess* g_sdk = nullptr;
 ConvarQuery* g_cvarQuery = nullptr;
+HTTPServerManager* g_httpServerManager = nullptr;
 VoiceManager g_voiceManager;
 
 //////////////////////////////////////////////////////////////
@@ -199,6 +201,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_userMessages = new UserMessages();
     g_sdk = new SDKAccess();
     g_cvarQuery = new ConvarQuery();
+    g_httpServerManager = new HTTPServerManager();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -317,6 +320,28 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIActivated, server, this, &Swiftly::Hook_GameServerSteamAPIActivated, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
     SH_REMOVE_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &Swiftly::Hook_CheckTransmit, true);
+
+    delete g_httpServerManager;
+    delete g_commandsManager;
+    delete g_Config;
+    delete g_conFilter;
+    delete g_translations;
+    delete g_Logger;
+    delete g_playerManager;
+    delete g_pluginManager;
+    delete g_Offsets;
+    delete g_Signatures;
+    delete g_precacher;
+    delete g_dbManager;
+    delete g_MenuManager;
+    delete g_ResourceMonitor;
+    delete g_Patches;
+    delete g_callStack;
+    delete eventManager;
+    delete g_httpManager;
+    delete g_userMessages;
+    delete g_sdk;
+    delete g_cvarQuery;
 
     ConVar_Unregister();
     return true;

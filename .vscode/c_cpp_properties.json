@@ -21,7 +21,8 @@
                 "${workspaceFolder}/vendor/dyncall/win64/include/**",
                 "${workspaceFolder}/vendor/bzip2/win64/include/**",
                 "${workspaceFolder}/vendor/maxmind/**",
-                "${workspaceFolder}/vendor/geolite2pp/**"
+                "${workspaceFolder}/vendor/geolite2pp/**",
+                "${workspaceFolder}/vendor/cpp-httplib/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -57,7 +58,8 @@
                 "${workspaceFolder}/vendor/dyncall/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/bzip2/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/maxmind/**",
-                "${workspaceFolder}/vendor/geolite2pp/**"
+                "${workspaceFolder}/vendor/geolite2pp/**",
+                "${workspaceFolder}/vendor/cpp-httplib/**"
             ],
             "defines": [
                 "_DEBUG",

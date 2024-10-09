@@ -1,6 +1,7 @@
 #include "../../scripting.h"
 #include "../../../../player/playermanager/PlayerManager.h"
 #include "../../../../network/http/HTTPManager.h"
+#include "../../../../network/http/HTTPServerManager.h"
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
@@ -63,6 +64,71 @@ PluginHTTP::PluginHTTP(std::string m_plugin_name)
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginHTTP::PluginHTTP(m_plugin_name=\"%s\")", m_plugin_name.c_str()));
 
     this->plugin_name = m_plugin_name;
+}
+
+PluginHTTP::~PluginHTTP()
+{
+    for(auto val : toDelete) {
+        std::string ip_addr = std::any_cast<std::string>(val[0]);
+        uint16_t port = std::any_cast<uint16_t>(val[1]);
+        if(val[2].type() == typeid(void*)) {
+            g_httpServerManager->UnregisterHTTPServerListener(ip_addr, port, std::any_cast<void*>(val[2]));
+            delete (luabridge::LuaRef*)std::any_cast<void*>(val[2]);
+        }
+    }
+}
+
+void HTTPNextFrame(std::vector<std::any> args)
+{
+    PluginHTTPRequest* req = std::any_cast<PluginHTTPRequest*>(args[0]);
+    PluginHTTPResponse* res = std::any_cast<PluginHTTPResponse*>(args[1]);
+    void* cb = std::any_cast<void*>(args[2]);
+    PluginKind_t kind = std::any_cast<PluginKind_t>(args[3]);
+
+    if(kind == PluginKind_t::Lua)
+        ((luabridge::LuaRef*)cb)->operator()(req, res);
+}
+
+void HTTPCB(const httplib::Request& req, httplib::Response& res, std::vector<std::any> additional)
+{
+    std::map<std::string, std::map<std::string, std::string>> files;
+    std::map<std::string, std::string> headers;
+    std::map<std::string, std::string> params;
+
+    for(auto it = req.params.begin(); it != req.params.end(); ++it)
+        params.insert({it->first, it->second});
+
+    for(auto it = req.headers.begin(); it != req.headers.end(); ++it)
+        headers.insert({it->first, it->second});
+
+    for(auto it = req.files.begin(); it != req.files.end(); ++it)
+        files.insert({ 
+            it->first, 
+            { 
+                { "content", it->second.content }, 
+                { "content_type", it->second.content_type }, 
+                { "filename", it->second.filename }, 
+                { "name", it->second.name }, 
+            } 
+        });
+
+    PluginHTTPRequest* pReq = new PluginHTTPRequest(req.path, req.method, req.body, files, headers, params);
+    PluginHTTPResponse* pRes = new PluginHTTPResponse(&res);
+
+    g_Plugin.NextFrame(HTTPNextFrame, { pReq, pRes, additional[0], additional[1] });
+    while(!pRes->IsCompleted()) std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
+    delete pReq;
+    delete pRes;
+}
+
+void PluginHTTP::ListenLua(std::string ip_addr, uint16_t port, luabridge::LuaRef cb)
+{
+    auto revcb = new luabridge::LuaRef(cb);
+
+    g_httpServerManager->RegisterHTTPServerListener(ip_addr, port, (void*)&HTTPCB, { (void*)revcb, PluginKind_t::Lua });
+
+    toDelete.push_back({ ip_addr, port, (void*)revcb });
 }
 
 std::string PluginHTTP::PerformHTTP(std::string receivedData)
@@ -165,9 +231,66 @@ std::string PluginHTTP::PerformHTTPWithRequestID(std::string receivedData, std::
 
     SteamAPICall_t call;
     g_http->SendHTTPRequest(req, &call);
-    new TrackedRequest(req, call, requestID, [](HTTPRequestHandle hndl, int status, std::string body, std::string headers, std::string err, std::string reqID) -> void {
-        g_Plugin.NextFrame(HTTPCallback, { status, body, headers, err, reqID });
-        });
+
+    new TrackedRequest(
+        req, call, requestID, 
+        [](HTTPRequestHandle hndl, int status, std::string body, std::string headers, std::string err, std::string reqID) -> void {
+            g_Plugin.NextFrame(HTTPCallback, { status, body, headers, err, reqID });
+        }
+    );
 
     return requestID;
+}
+
+PluginHTTPRequest::PluginHTTPRequest(std::string path, std::string method, std::string body, std::map<std::string, std::map<std::string, std::string>> files, std::map<std::string, std::string> headers, std::map<std::string, std::string> params)
+{
+    m_path = path;
+    m_method = method;
+    m_body = body;
+    m_files = files;
+    m_headers = headers;
+    m_params = params;
+}
+
+PluginHTTPResponse::PluginHTTPResponse(httplib::Response* res)
+{
+    this->m_res = res;
+    started = GetTime();
+}
+
+void PluginHTTPResponse::WriteBody(std::string content)
+{
+    this->m_res->set_content(content, "text/plain");
+}
+
+std::map<std::string, std::string> PluginHTTPResponse::GetHeaders()
+{
+    std::map<std::string, std::string> headers;
+    for(auto it = m_res->headers.begin(); it != m_res->headers.end(); ++it)
+        headers.insert({it->first, it->second});
+
+    return headers;
+}
+
+std::string PluginHTTPResponse::GetHeader(std::string key)
+{
+    return m_res->get_header_value(key);
+}
+
+void PluginHTTPResponse::SetHeader(std::string key, std::string val)
+{
+    auto rng = m_res->headers.equal_range(key);
+    m_res->headers.erase(rng.first, rng.second);
+    m_res->set_header(key, val);
+}
+
+void PluginHTTPResponse::Send(uint16_t responseCode)
+{
+    m_res->status = responseCode;
+    this->completed = true;
+}
+
+bool PluginHTTPResponse::IsCompleted()
+{
+    return (this->completed == true || this->started + 30000 <= GetTime());
 }
