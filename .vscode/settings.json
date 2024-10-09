@@ -86,6 +86,7 @@
         "winsock2.h": "c",
         "ws2tcpip.h": "c",
         "xstring": "cpp",
-        "time.h": "c"
+        "time.h": "c",
+        "osdefs.h": "c"
     }
 }

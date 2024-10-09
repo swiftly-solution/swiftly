@@ -177,8 +177,22 @@ using ssize_t = long;
 #endif // NOMINMAX
 
 #include <io.h>
+#ifndef VOID
+#define VOID void
+typedef char CHAR;
+typedef short SHORT;
+typedef long LONG;
+#if !defined(MIDL_PASS)
+typedef int INT;
+#endif
+#endif
 #include <winsock2.h>
 #include <ws2tcpip.h>
+#undef VOID
+#undef CHAR
+#undef SHORT
+#undef LONG
+#undef INT
 
 #ifndef WSA_FLAG_NO_HANDLE_INHERIT
 #define WSA_FLAG_NO_HANDLE_INHERIT 0x80
