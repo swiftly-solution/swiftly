@@ -54,6 +54,7 @@ byte* HexToByte(const char* src, size_t& length)
     int byteCount = HexStringToUint8Array(src, dest, length);
     if (byteCount <= 0)
         return nullptr;
+    
     return (byte*)dest;
 }
 
@@ -123,9 +124,9 @@ void Patches::PerformPatch(std::string patch_name)
     void* patchAddress = g_Signatures->FetchRawSignature(this->signatures.at(patch_name));
 
     size_t iLength = 0;
-    byte* patch = HexToByte(this->patches.at(patch_name).c_str(), iLength);
+    byte* patch = HexToByte(("\\x" + replace(this->patches.at(patch_name), " ", "\\x")).c_str(), iLength);
 
-    Plat_WriteMemory(patchAddress, (byte*)patch, iLength);
+    Plat_WriteMemory(patchAddress, patch, iLength);
     PLUGIN_PRINTF("Patch", "Patched \"%s\" using signature \"%s\".\n", patch_name.c_str(), this->signatures.at(patch_name).c_str());
 }
 
@@ -146,6 +147,5 @@ void Patches::PerformPatches()
         }
 
         PLUGIN_PRINTF("Patch", "Patches performed: %02d.\n", patchesPerformed);
-        patchesToPerform.clear();
     }
 }
