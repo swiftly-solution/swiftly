@@ -682,6 +682,7 @@ private:
 
 public:
     PluginWeapon(int playerId, CBasePlayerWeapon* ptr);
+    PluginWeapon(int playerId, std::string ptr);
 
     SDKBaseClass GetCBasePlayerWeapon();
     SDKBaseClass GetCCSWeaponBase();

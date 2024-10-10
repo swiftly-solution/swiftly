@@ -13,6 +13,7 @@ LoadLuaScriptingComponent(
             .endClass()
 
             .beginClass<PluginWeapon>("Weapon")
+            .addConstructor<void(*)(int,std::string)>()
             .addFunction("CBasePlayerWeapon", &PluginWeapon::GetCBasePlayerWeapon)
             .addFunction("CCSWeaponBase", &PluginWeapon::GetCCSWeaponBase)
             .addFunction("CBasePlayerWeaponVData", &PluginWeapon::GetCBasePlayerWeaponVData)

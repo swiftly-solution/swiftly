@@ -79,6 +79,12 @@ PluginWeapon::PluginWeapon(int playerId, CBasePlayerWeapon* ptr)
     this->m_ptr = ptr;
 }
 
+PluginWeapon::PluginWeapon(int playerId, std::string ptr)
+{
+    this->m_playerId = playerId;
+    this->m_ptr = (CBasePlayerWeapon*)strtol(ptr.c_str(), nullptr, 16);
+}
+
 SDKBaseClass PluginWeapon::GetCBasePlayerWeapon()
 {
     return SDKBaseClass(this->m_ptr, "CBasePlayerWeapon");
