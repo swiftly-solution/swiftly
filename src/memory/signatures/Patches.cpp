@@ -121,6 +121,8 @@ void Patches::PerformPatch(std::string patch_name)
         return;
     }
 
+    if(this->patches.at(patch_name) == "") return;
+
     void* patchAddress = g_Signatures->FetchRawSignature(this->signatures.at(patch_name));
 
     size_t iLength = 0;
