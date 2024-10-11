@@ -46,11 +46,6 @@ public:
         return (std::find(this->precachedModels.begin(), this->precachedModels.end(), model) != this->precachedModels.end());
     }
 
-    bool HasSoundInList(std::string model)
-    {
-        return (std::find(this->precachedSounds.begin(), this->precachedSounds.end(), model) != this->precachedSounds.end());
-    }
-
     void CacheModel(const char *model);
     void CacheSound(const char *model);
 };

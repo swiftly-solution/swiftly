@@ -62,13 +62,6 @@ void PluginCommands::RegisterCommandLua(std::string commandName, luabridge::LuaR
     RegisterCommand(commandName, new luabridge::LuaRef(callback));
 }
 
-/*
-    std::map<std::string, Command *> GetCommands()
-    {
-        return this->commands;
-    };
-*/
-
 std::vector<std::string> PluginCommands::GetAllCommands()
 {
     std::vector<std::string> cmdsList;
