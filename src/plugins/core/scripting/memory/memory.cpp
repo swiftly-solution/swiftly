@@ -98,46 +98,57 @@ void PluginMemory::SetBool(bool value)
 {
     *((bool*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetInt(int value)
 {
     *((int*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetInt64(int64_t value)
 {
     *((int64_t*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetUint(uint32_t value)
 {
     *((uint32_t*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetUint64(uint64_t value)
 {
     *((uint64_t*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetFloat(float value)
 {
     *((float*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetDouble(double value)
 {
     *((double*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetVector(Vector value)
 {
     *((Vector*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetVector2D(Vector2D value)
 {
     *((Vector2D*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetVector4D(Vector4D value)
 {
     *((Vector4D*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetColor(Color value)
 {
     *((Color*)(m_ptr)) = value;
 }
+
 void PluginMemory::SetQAngle(QAngle value)
 {
     *((QAngle*)(m_ptr)) = value;
@@ -147,49 +158,70 @@ bool PluginMemory::GetBool()
 {
     return *((bool*)(m_ptr));
 }
+
 int PluginMemory::GetInt()
 {
     return *((int*)(m_ptr));
 }
+
 int64_t PluginMemory::GetInt64()
 {
     return *((int64_t*)(m_ptr));
 }
+
 uint32_t PluginMemory::GetUint()
 {
     return *((uint32_t*)(m_ptr));
 }
+
 uint64_t PluginMemory::GetUint64()
 {
     return *((uint64_t*)(m_ptr));
 }
+
 float PluginMemory::GetFloat()
 {
     return *((float*)(m_ptr));
 }
+
 double PluginMemory::GetDouble()
 {
     return *((double*)(m_ptr));
 }
+
 Vector PluginMemory::GetVector()
 {
     return *((Vector*)(m_ptr));
 }
+
 Vector2D PluginMemory::GetVector2D()
 {
     return *((Vector2D*)(m_ptr));
 }
+
 Vector4D PluginMemory::GetVector4D()
 {
     return *((Vector4D*)(m_ptr));
 }
+
 Color PluginMemory::GetColor()
 {
     return *((Color*)(m_ptr));
 }
+
 QAngle PluginMemory::GetQAngle()
 {
     return *((QAngle*)(m_ptr));
+}
+
+void PluginMemory::Allocate(uint64_t size)
+{
+    m_ptr = malloc(size);
+}
+
+void PluginMemory::Deallocate()
+{
+    free(m_ptr);
 }
 
 std::string PluginMemory::GetPtr()

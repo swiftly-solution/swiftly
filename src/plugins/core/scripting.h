@@ -849,6 +849,9 @@ public:
     void AccessVTable(int64_t offset);
     bool AccessedVTable();
 
+    void Allocate(uint64_t size);
+    void Deallocate();
+
     void Clear();
 
     void SetBool(bool value);
