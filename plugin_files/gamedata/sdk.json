@@ -4667,12 +4667,7 @@
             "type": 11
         }
     },
-    "CNmAndNode::CDefinition": {
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmAndNode::CDefinition": {},
     "CNmAnimationPoseNode::CDefinition": {
         "PoseTimeValueNodeIdx": {
             "field": "m_nPoseTimeValueNodeIdx",
@@ -4689,10 +4684,6 @@
         "UseFramesAsInput": {
             "field": "m_bUseFramesAsInput",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmBitFlags": {
@@ -4706,10 +4697,6 @@
             "field": "m_parameterization",
             "classname": "CNmParameterizedBlendNode::Parameterization_t",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmParameterizedBlendNode::CDefinition",
-            "type": 11
         }
     },
     "CNmBlend2DNode::CDefinition": {
@@ -4724,10 +4711,6 @@
         "AllowLooping": {
             "field": "m_bAllowLooping",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmBlendTask": {
@@ -4764,18 +4747,9 @@
         "BlendWeightValueNodeIdx": {
             "field": "m_nBlendWeightValueNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmBoneMaskValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmBoneMaskNode::CDefinition": {
-        "Parent": {
-            "field": "CNmBoneMaskValueNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmBoneMaskNode::CDefinition": {},
     "CNmBoneMaskSelectorNode::CDefinition": {
         "DefaultMaskNodeIdx": {
             "field": "m_defaultMaskNodeIdx",
@@ -4792,24 +4766,10 @@
         "BlendTimeSeconds": {
             "field": "m_flBlendTimeSeconds",
             "type": 8
-        },
-        "Parent": {
-            "field": "CNmBoneMaskValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmBoneMaskValueNode::CDefinition": {
-        "Parent": {
-            "field": "CNmValueNode::CDefinition",
-            "type": 11
-        }
-    },
-    "CNmBoolValueNode::CDefinition": {
-        "Parent": {
-            "field": "CNmValueNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmBoneMaskValueNode::CDefinition": {},
+    "CNmBoolValueNode::CDefinition": {},
     "CNmCachedBoolNode::CDefinition": {
         "InputValueNodeIdx": {
             "field": "m_nInputValueNodeIdx",
@@ -4818,10 +4778,6 @@
         "Mode": {
             "field": "m_mode",
             "type": 6
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmCachedFloatNode::CDefinition": {
@@ -4832,10 +4788,6 @@
         "Mode": {
             "field": "m_mode",
             "type": 6
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmCachedIDNode::CDefinition": {
@@ -4846,10 +4798,6 @@
         "Mode": {
             "field": "m_mode",
             "type": 6
-        },
-        "Parent": {
-            "field": "CNmIDValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmCachedPoseReadTask": {
@@ -4872,10 +4820,6 @@
         "Mode": {
             "field": "m_mode",
             "type": 6
-        },
-        "Parent": {
-            "field": "CNmTargetValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmCachedVectorNode::CDefinition": {
@@ -4886,20 +4830,12 @@
         "Mode": {
             "field": "m_mode",
             "type": 6
-        },
-        "Parent": {
-            "field": "CNmVectorValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmChildGraphNode::CDefinition": {
         "ChildGraphIdx": {
             "field": "m_nChildGraphIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmClip": {
@@ -4950,131 +4886,59 @@
         "DataSlotIdx": {
             "field": "m_nDataSlotIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmClipSelectorNode::CDefinition": {
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmClipSelectorNode::CDefinition": {},
     "CNmConstBoolNode::CDefinition": {
         "Value": {
             "field": "m_bValue",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmConstFloatNode::CDefinition": {
         "Value": {
             "field": "m_flValue",
             "type": 8
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmConstIDNode::CDefinition": {
-        "Parent": {
-            "field": "CNmIDValueNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmConstIDNode::CDefinition": {},
     "CNmConstTargetNode::CDefinition": {
         "Value": {
             "field": "m_value",
             "classname": "CNmTarget",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmTargetValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmConstVectorNode::CDefinition": {
         "Value": {
             "field": "m_value",
             "type": 21
-        },
-        "Parent": {
-            "field": "CNmVectorValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmControlParameterBoolNode::CDefinition": {
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
-        }
-    },
-    "CNmControlParameterFloatNode::CDefinition": {
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
-        }
-    },
-    "CNmControlParameterIDNode::CDefinition": {
-        "Parent": {
-            "field": "CNmIDValueNode::CDefinition",
-            "type": 11
-        }
-    },
-    "CNmControlParameterTargetNode::CDefinition": {
-        "Parent": {
-            "field": "CNmTargetValueNode::CDefinition",
-            "type": 11
-        }
-    },
-    "CNmControlParameterVectorNode::CDefinition": {
-        "Parent": {
-            "field": "CNmVectorValueNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmControlParameterBoolNode::CDefinition": {},
+    "CNmControlParameterFloatNode::CDefinition": {},
+    "CNmControlParameterIDNode::CDefinition": {},
+    "CNmControlParameterTargetNode::CDefinition": {},
+    "CNmControlParameterVectorNode::CDefinition": {},
     "CNmCurrentSyncEventIDNode::CDefinition": {
         "SourceStateNodeIdx": {
             "field": "m_nSourceStateNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmIDValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmCurrentSyncEventIndexNode::CDefinition": {
         "SourceStateNodeIdx": {
             "field": "m_nSourceStateNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmCurrentSyncEventPercentageThroughNode::CDefinition": {
         "SourceStateNodeIdx": {
             "field": "m_nSourceStateNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmDurationScaleNode::CDefinition": {
-        "Parent": {
-            "field": "CNmSpeedScaleBaseNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmDurationScaleNode::CDefinition": {},
     "CNmEvent": {
         "StartTimeSeconds": {
             "field": "m_flStartTimeSeconds",
@@ -5085,30 +4949,17 @@
             "type": 8
         }
     },
-    "CNmExternalGraphNode::CDefinition": {
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmExternalGraphNode::CDefinition": {},
     "CNmFixedWeightBoneMaskNode::CDefinition": {
         "BoneWeight": {
             "field": "m_flBoneWeight",
             "type": 8
-        },
-        "Parent": {
-            "field": "CNmBoneMaskValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatAbsNode::CDefinition": {
         "InputValueNodeIdx": {
             "field": "m_nInputValueNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatAngleMathNode::CDefinition": {
@@ -5119,20 +4970,12 @@
         "Operation": {
             "field": "m_operation",
             "type": 4
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatClampNode::CDefinition": {
         "InputValueNodeIdx": {
             "field": "m_nInputValueNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatComparisonNode::CDefinition": {
@@ -5155,20 +4998,12 @@
         "ComparisonValue": {
             "field": "m_flComparisonValue",
             "type": 8
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatCurveNode::CDefinition": {
         "InputValueNodeIdx": {
             "field": "m_nInputValueNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatEaseNode::CDefinition": {
@@ -5191,10 +5026,6 @@
         "UseStartValue": {
             "field": "m_bUseStartValue",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatMathNode::CDefinition": {
@@ -5217,10 +5048,6 @@
         "ValueB": {
             "field": "m_flValueB",
             "type": 8
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatRangeComparisonNode::CDefinition": {
@@ -5231,10 +5058,6 @@
         "IsInclusiveCheck": {
             "field": "m_bIsInclusiveCheck",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatRemapNode::CDefinition": {
@@ -5251,10 +5074,6 @@
             "field": "m_outputRange",
             "classname": "CNmFloatRemapNode::RemapRange_t",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatRemapNode::RemapRange_t": {
@@ -5279,10 +5098,6 @@
         "EasingOp": {
             "field": "m_easingOp",
             "type": 4
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFloatSwitchNode::CDefinition": {
@@ -5297,18 +5112,9 @@
         "FalseValueNodeIdx": {
             "field": "m_nFalseValueNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmFloatValueNode::CDefinition": {
-        "Parent": {
-            "field": "CNmValueNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmFloatValueNode::CDefinition": {},
     "CNmFootEvent": {
         "Phase": {
             "field": "m_phase",
@@ -5332,10 +5138,6 @@
             "field": "m_eventConditionRules",
             "classname": "CNmBitFlags",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFootstepEventIDNode::CDefinition": {
@@ -5347,10 +5149,6 @@
             "field": "m_eventConditionRules",
             "classname": "CNmBitFlags",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmIDValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFootstepEventPercentageThroughNode::CDefinition": {
@@ -5366,10 +5164,6 @@
             "field": "m_eventConditionRules",
             "classname": "CNmBitFlags",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmFrameSnapEvent": {
@@ -5431,10 +5225,6 @@
         "Comparison": {
             "field": "m_comparison",
             "type": 4
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmIDEvent": {
@@ -5452,10 +5242,6 @@
             "field": "m_eventConditionRules",
             "classname": "CNmBitFlags",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmIDEventNode::CDefinition": {
@@ -5467,10 +5253,6 @@
             "field": "m_eventConditionRules",
             "classname": "CNmBitFlags",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmIDValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmIDEventPercentageThroughNode::CDefinition": {
@@ -5482,10 +5264,6 @@
             "field": "m_eventConditionRules",
             "classname": "CNmBitFlags",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmIDToFloatNode::CDefinition": {
@@ -5496,27 +5274,14 @@
         "DefaultValue": {
             "field": "m_defaultValue",
             "type": 8
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmIDValueNode::CDefinition": {
-        "Parent": {
-            "field": "CNmValueNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmIDValueNode::CDefinition": {},
     "CNmIKRig": {},
     "CNmIsTargetSetNode::CDefinition": {
         "InputValueNodeIdx": {
             "field": "m_nInputValueNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmLayerBlendNode::CDefinition": {
@@ -5527,10 +5292,6 @@
         "OnlySampleBaseRootMotion": {
             "field": "m_bOnlySampleBaseRootMotion",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmLayerBlendNode::LayerDefinition_t": {
@@ -5587,18 +5348,9 @@
         "InputValueNodeIdx": {
             "field": "m_nInputValueNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmOrNode::CDefinition": {
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmOrNode::CDefinition": {},
     "CNmOrientationWarpEvent": {
         "Parent": {
             "field": "CNmEvent",
@@ -5625,10 +5377,6 @@
         "SamplingMode": {
             "field": "m_samplingMode",
             "type": 4
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmOverlayBlendTask": {
@@ -5655,10 +5403,6 @@
         "AllowLooping": {
             "field": "m_bAllowLooping",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmParameterizedBlendNode::Parameterization_t": {},
@@ -5666,44 +5410,22 @@
         "ParameterNodeIdx": {
             "field": "m_parameterNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmParameterizedSelectorNode::CDefinition": {
         "ParameterNodeIdx": {
             "field": "m_parameterNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmPassthroughNode::CDefinition": {
         "ChildNodeIdx": {
             "field": "m_nChildNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmPoseNode::CDefinition": {
-        "Parent": {
-            "field": "CNmGraphNode::CDefinition",
-            "type": 11
-        }
-    },
-    "CNmReferencePoseNode::CDefinition": {
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmPoseNode::CDefinition": {},
+    "CNmReferencePoseNode::CDefinition": {},
     "CNmReferencePoseTask": {
         "Parent": {
             "field": "CNmTask",
@@ -5763,10 +5485,6 @@
             "field": "m_overrideFlags",
             "classname": "CNmBitFlags",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmPassthroughNode::CDefinition",
-            "type": 11
         }
     },
     "CNmSampleTask": {
@@ -5775,12 +5493,7 @@
             "type": 11
         }
     },
-    "CNmSelectorNode::CDefinition": {
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmSelectorNode::CDefinition": {},
     "CNmSkeleton": {
         "ParentIndices": {
             "field": "m_parentIndices",
@@ -5799,18 +5512,9 @@
         "DefaultInputValue": {
             "field": "m_flDefaultInputValue",
             "type": 8
-        },
-        "Parent": {
-            "field": "CNmPassthroughNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmSpeedScaleNode::CDefinition": {
-        "Parent": {
-            "field": "CNmSpeedScaleBaseNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmSpeedScaleNode::CDefinition": {},
     "CNmStateCompletedConditionNode::CDefinition": {
         "SourceStateNodeIdx": {
             "field": "m_nSourceStateNodeIdx",
@@ -5823,10 +5527,6 @@
         "TransitionDurationSeconds": {
             "field": "m_flTransitionDurationSeconds",
             "type": 8
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmStateEventConditionNode::CDefinition": {
@@ -5838,10 +5538,6 @@
             "field": "m_eventConditionRules",
             "classname": "CNmBitFlags",
             "type": 16
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmStateEventConditionNode::Condition_t": {
@@ -5854,10 +5550,6 @@
         "DefaultStateIndex": {
             "field": "m_nDefaultStateIndex",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmStateMachineNode::StateDefinition_t": {
@@ -5908,10 +5600,6 @@
         "IsOffState": {
             "field": "m_bIsOffState",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmStateNode::TimedEvent_t": {
@@ -5932,10 +5620,6 @@
         "SyncEventIdx": {
             "field": "m_syncEventIdx",
             "type": 2
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmSyncTrack": {
@@ -5993,10 +5677,6 @@
         "IsWorldSpaceTarget": {
             "field": "m_bIsWorldSpaceTarget",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmTargetOffsetNode::CDefinition": {
@@ -6011,10 +5691,6 @@
         "TranslationOffset": {
             "field": "m_translationOffset",
             "type": 21
-        },
-        "Parent": {
-            "field": "CNmTargetValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmTargetPointNode::CDefinition": {
@@ -6025,18 +5701,9 @@
         "IsWorldSpaceTarget": {
             "field": "m_bIsWorldSpaceTarget",
             "type": 10
-        },
-        "Parent": {
-            "field": "CNmVectorValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmTargetValueNode::CDefinition": {
-        "Parent": {
-            "field": "CNmValueNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmTargetValueNode::CDefinition": {},
     "CNmTargetWarpEvent": {
         "Rule": {
             "field": "m_rule",
@@ -6087,10 +5754,6 @@
         "TargetUpdateAngleThresholdRadians": {
             "field": "m_flTargetUpdateAngleThresholdRadians",
             "type": 8
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
     "CNmTask": {},
@@ -6114,10 +5777,6 @@
         "Operator": {
             "field": "m_operator",
             "type": 4
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmTransitionEvent": {
@@ -6143,10 +5802,6 @@
         "RuleCondition": {
             "field": "m_ruleCondition",
             "type": 4
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmTransitionNode::CDefinition": {
@@ -6195,18 +5850,9 @@
         "RootMotionBlend": {
             "field": "m_rootMotionBlend",
             "type": 4
-        },
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmValueNode::CDefinition": {
-        "Parent": {
-            "field": "CNmGraphNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmValueNode::CDefinition": {},
     "CNmVectorCreateNode::CDefinition": {
         "InputVectorValueNodeIdx": {
             "field": "m_inputVectorValueNodeIdx",
@@ -6223,10 +5869,6 @@
         "InputValueZNodeIdx": {
             "field": "m_inputValueZNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmVectorValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmVectorInfoNode::CDefinition": {
@@ -6237,106 +5879,54 @@
         "DesiredInfo": {
             "field": "m_desiredInfo",
             "type": 4
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmVectorNegateNode::CDefinition": {
         "InputValueNodeIdx": {
             "field": "m_nInputValueNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmVectorValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmVectorValueNode::CDefinition": {
-        "Parent": {
-            "field": "CNmValueNode::CDefinition",
-            "type": 11
-        }
-    },
-    "CNmVelocityBasedSpeedScaleNode::CDefinition": {
-        "Parent": {
-            "field": "CNmSpeedScaleBaseNode::CDefinition",
-            "type": 11
-        }
-    },
-    "CNmVelocityBlendNode::CDefinition": {
-        "Parent": {
-            "field": "CNmParameterizedBlendNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmVectorValueNode::CDefinition": {},
+    "CNmVelocityBasedSpeedScaleNode::CDefinition": {},
+    "CNmVelocityBlendNode::CDefinition": {},
     "CNmVirtualParameterBoneMaskNode::CDefinition": {
         "ChildNodeIdx": {
             "field": "m_nChildNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmBoneMaskValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmVirtualParameterBoolNode::CDefinition": {
         "ChildNodeIdx": {
             "field": "m_nChildNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmBoolValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmVirtualParameterFloatNode::CDefinition": {
         "ChildNodeIdx": {
             "field": "m_nChildNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmFloatValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmVirtualParameterIDNode::CDefinition": {
         "ChildNodeIdx": {
             "field": "m_nChildNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmIDValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmVirtualParameterTargetNode::CDefinition": {
         "ChildNodeIdx": {
             "field": "m_nChildNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmTargetValueNode::CDefinition",
-            "type": 11
         }
     },
     "CNmVirtualParameterVectorNode::CDefinition": {
         "ChildNodeIdx": {
             "field": "m_nChildNodeIdx",
             "type": 1
-        },
-        "Parent": {
-            "field": "CNmVectorValueNode::CDefinition",
-            "type": 11
         }
     },
-    "CNmZeroPoseNode::CDefinition": {
-        "Parent": {
-            "field": "CNmPoseNode::CDefinition",
-            "type": 11
-        }
-    },
+    "CNmZeroPoseNode::CDefinition": {},
     "CNmZeroPoseTask": {
         "Parent": {
             "field": "CNmTask",
@@ -6581,6 +6171,20 @@
         "ProviderType": {
             "field": "m_ProviderType",
             "type": 6
+        }
+    },
+    "CAttributeManager::cached_attribute_float_t": {
+        "In": {
+            "field": "flIn",
+            "type": 8
+        },
+        "AttribHook": {
+            "field": "iAttribHook",
+            "type": 13
+        },
+        "Out": {
+            "field": "flOut",
+            "type": 8
         }
     },
     "CBaseAnimGraph": {
