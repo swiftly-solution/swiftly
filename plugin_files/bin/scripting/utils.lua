@@ -134,3 +134,61 @@ end
 string.trim = function(str)
     return (str:gsub("^%s*(.-)%s*$", "%1"))
 end
+
+
+--- @param value any The value to be matched against. Can be a number or a string.
+--- @param cases table
+--- @return any Returns
+switch = function(value, cases)
+    local case = cases[value]
+    if case then
+        if type(case) == "function" then
+            return case()
+        else
+            return case
+        end
+    elseif cases.default then
+        if type(cases.default) == "function" then
+            return cases.default()
+        else
+            return cases.default
+        end
+    end
+end
+
+--- @param tbl table The table to be mapped.
+--- @param func function A function that takes a value and key as parameters and returns a new value.
+--- @return table A new table with the transformed values.
+table.map = function(tbl, func)
+    local result = {}
+    for key, value in next, tbl do
+        result[key] = func(value, key)
+    end
+    return result
+end
+
+--- @param tbl table The table to be filtered.
+--- @param predicate function A function that takes a value and key as parameters and returns a boolean.
+--- @return table A new table containing only the elements for which the predicate returned true.
+table.filter = function(tbl, predicate)
+    local result = {}
+    local index = 1
+    for key, value in next, tbl do
+        if predicate(value, key) then
+            result[index] = value
+            index = index + 1
+        end
+    end
+    return result
+end
+--- @param tbl table The table to search.
+--- @param value any The value to search for.
+--- @return boolean True if the value exists in the table, false otherwise.
+table.contains = function(tbl, value)
+    for _, val in next, tbl do
+        if val == value then
+            return true
+        end
+    end
+    return false
+end
