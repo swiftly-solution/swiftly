@@ -20,7 +20,6 @@ bool PluginConfiguration::Exists(std::string key)
 
 void PluginConfiguration::Reload(std::string key)
 {
-
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::Reload(key=\"%s\")", key.c_str()));
 
     g_Config->LoadPluginConfig(key);
@@ -28,7 +27,6 @@ void PluginConfiguration::Reload(std::string key)
 
 uint64_t PluginConfiguration::FetchArraySize(std::string key)
 {
-
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::FetchArraySize(key=\"%s\")", key.c_str()));
 
     std::map<std::string, unsigned int> arraySizes = g_Config->FetchConfigArraySizes();
