@@ -468,7 +468,7 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
                 continue;
 
             auto buttonStates = pawn->m_pMovementServices()->m_nButtons().m_pButtonStates();
-            player->SetButtons(buttonStates[0], buttonStates[1]);
+            player->SetButtons(buttonStates[0]);
 
             if (player->HasMenuShown())
                 player->RenderMenu();

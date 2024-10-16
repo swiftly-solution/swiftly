@@ -69,7 +69,7 @@ public:
     void SwitchTeam(int team);
     void ChangeTeam(int team);
 
-    void SetButtons(uint64_t new_buttons, uint64_t changed_buttons);
+    void SetButtons(uint64_t new_buttons);
 
     std::string tag = "";
     std::string tagcolor = "{default}";
@@ -131,6 +131,7 @@ private:
     Menu* menu = nullptr;
     int page = 0;
     int selected = 0;
+    uint64_t buttons = 0;
 
     std::map<std::string, std::any> internalVars;
 

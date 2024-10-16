@@ -347,15 +347,16 @@ const std::vector<std::string> key_buttons = {
 
 void OnClientKeyStateChange(int playerid, std::string key, bool pressed);
 
-void Player::SetButtons(uint64_t new_buttons, uint64_t changed_buttons)
+void Player::SetButtons(uint64_t new_buttons)
 {
-    if(changed_buttons > 0) {
+    if(buttons != new_buttons) {
         for(uint16_t i = 0; i < 64; i++) {
-            if((new_buttons & (1ULL << i)) != 0 && (changed_buttons & (1ULL << i)) != 0)
+            if((buttons & (1ULL << i)) != 0 && (new_buttons & (1ULL << i)) == 0)
                 OnClientKeyStateChange(this->slot, key_buttons[i], true);
-            else if((new_buttons & (1ULL << i)) == 0 && (changed_buttons & (1ULL << i)) != 0)
+            else if((buttons & (1ULL << i)) == 0 && (new_buttons & (1ULL << i)) != 0)
                 OnClientKeyStateChange(this->slot, key_buttons[i], false);
         }
+        buttons = new_buttons;
     }
 }
 
