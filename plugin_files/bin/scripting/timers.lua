@@ -55,15 +55,5 @@ function NextTick(callback)
         return print("The callback needs to be a function.")
     end
 
-    local nexttickEvent = nil
-    nexttickEvent = AddEventHandler("OnGameTick", function()
-        if type(callback) == "function" then
-            local status, err = pcall(callback)
-            if not status then
-                print("An error has been occured while trying to execute NextTick.\nError: "..err)
-            end
-        end
-
-        RemoveEventHandler(nexttickEvent)
-    end)
+    SetTimeout(1, callback)
 end
