@@ -129,12 +129,12 @@ void Addons::Destroy()
 
 bool Addons::SendNetMessage(CNetMessage* pData, NetChannelBufType_t bufType)
 {
-    CServerSideClient* pClient = META_IFACEPTR(CServerSideClient);
     NetMessageInfo_t* info = pData->GetNetMessage()->GetNetMessageInfo();
 
     if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         RETURN_META_VALUE(MRES_IGNORED, true);
 
+    CServerSideClient* pClient = META_IFACEPTR(CServerSideClient);
     int idx;
     ClientJoinInfo_t* pPendingClient = GetPendingClient(pClient->GetClientSteamID().ConvertToUint64(), idx);
     if (pPendingClient)
@@ -268,7 +268,7 @@ bool Addons::PrintDownload()
             unit = "MB/s";
             speed = speedInMbps;
         }
-        else if (speedInMbps >= 1.0)
+        else if (speedInKbps >= 1.0)
         {
             unit = "KB/s";
             speed = speedInKbps;
