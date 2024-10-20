@@ -795,7 +795,7 @@ LoadLuaScriptingComponent(
             cls.addFunction("AcceptInput", &SDKBaseClass::CBaseEntity_AcceptInput);
             cls.addFunction("GetClassname", &SDKBaseClass::CBaseEntity_GetClassname);
             cls.addFunction("GetVData", &SDKBaseClass::CBaseEntity_GetVData);
-            cls.addFunction("Teleport", &SDKBaseClass::CBaseEntity_Teleport);
+            cls.addFunction("Teleport", &SDKBaseClass::CBaseEntity_TeleportLua);
             cls.addFunction("EmitSound", &SDKBaseClass::CBaseEntity_EmitSound);
             cls.addFunction("CollisionRulesChanged", &SDKBaseClass::CBaseEntity_CollisionRulesChanged);
             cls.addFunction("GetSkeletonInstance", &SDKBaseClass::CGameSceneNode_GetSkeletonInstance);
