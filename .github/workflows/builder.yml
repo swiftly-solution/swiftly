@@ -10,7 +10,7 @@ jobs:
     versioning:
         permissions:
             contents: write
-        runs-on: Linux
+        runs-on: ubuntu-latest
         container:
             image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
         outputs:
@@ -41,9 +41,9 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os: [Linux, windows-latest]
+                os: [ubuntu-latest, windows-latest]
                 include:
-                    - os: Linux
+                    - os: ubuntu-latest
                       container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
         steps:
             - name: Checkout
@@ -68,7 +68,7 @@ jobs:
               run: echo "SWIFTLY_VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
 
             - name: Build - Linux
-              if: matrix.os == 'Linux'
+              if: matrix.os == 'ubuntu-latest'
               working-directory: swiftly
               shell: bash
               run: |
@@ -135,7 +135,7 @@ jobs:
                   Set-Location ../../../..
 
             - name: Upload Artifacts Linux
-              if: matrix.os == 'Linux'
+              if: matrix.os == 'ubuntu-latest'
               uses: actions/upload-artifact@v4
               with:
                   name: Swiftly.Plugin.Linux
@@ -149,7 +149,7 @@ jobs:
                   path: ${{ github.workspace }}/swiftly/build/package
 
             - name: Creating Swiftly Depot - Linux
-              if: matrix.os == 'Linux'
+              if: matrix.os == 'ubuntu-latest'
               working-directory: swiftly
               run: |
                   cd build
@@ -161,7 +161,7 @@ jobs:
                   find package2 -empty -type d -delete
 
             - name: Upload Swiftly Depot - Linux
-              if: matrix.os == 'Linux'
+              if: matrix.os == 'ubuntu-latest'
               uses: actions/upload-artifact@v4
               with:
                   name: Swiftly.Plugin.Depot.Linux
@@ -172,7 +172,7 @@ jobs:
         permissions:
             contents: write
         needs: ["versioning", "build"]
-        runs-on: Linux
+        runs-on: ubuntu-latest
         container:
             image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
         steps:
