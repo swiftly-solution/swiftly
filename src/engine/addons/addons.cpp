@@ -129,12 +129,12 @@ void Addons::Destroy()
 
 bool Addons::SendNetMessage(CNetMessage* pData, NetChannelBufType_t bufType)
 {
+    CServerSideClient* pClient = META_IFACEPTR(CServerSideClient);
     NetMessageInfo_t* info = pData->GetNetMessage()->GetNetMessageInfo();
 
     if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         RETURN_META_VALUE(MRES_IGNORED, true);
 
-    CServerSideClient* pClient = META_IFACEPTR(CServerSideClient);
     int idx;
     ClientJoinInfo_t* pPendingClient = GetPendingClient(pClient->GetClientSteamID().ConvertToUint64(), idx);
     if (pPendingClient)
@@ -150,6 +150,9 @@ bool Addons::SendNetMessage(CNetMessage* pData, NetChannelBufType_t bufType)
 
 void Addons::BuildAddonPath(std::string pszAddon, std::string& buffer)
 {
+    if (g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
+        return;
+
     static CBufferStringGrowable<MAX_PATH> s_sWorkingDir;
     ExecuteOnce(g_pFullFileSystem->GetSearchPath("EXECUTABLE_PATH", GET_SEARCH_PATH_ALL, s_sWorkingDir, 1));
 
@@ -291,6 +294,9 @@ bool Addons::PrintDownload()
 
 void Addons::DownloadAddon(std::string pszAddon, bool important, bool force)
 {
+    if (g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
+        return;
+
     if (!g_SteamAPI.SteamUGC())
         return AddonsPrint(string_format("Steam API is not initialized. Download aborted for addon %s.", pszAddon.c_str()));
 
@@ -319,6 +325,8 @@ void Addons::DownloadAddon(std::string pszAddon, bool important, bool force)
 void Addons::RefreshAddons(bool reloadMap)
 {
     if (!g_SteamAPI.SteamUGC())
+        return;
+    if (g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         return;
 
     AddonsPrint(string_format("Refreshing addons list. (%s)", implode(this->addonsList, ",").c_str()));
