@@ -5,17 +5,15 @@ LoadLuaScriptingComponent(
     [](LuaPlugin* plugin, lua_State* state)
     {
         luabridge::getGlobalNamespace(state)
-            .addFunction("FetchTranslation", +[](std::string key, lua_State *L) -> std::string
+            .addFunction("FetchTranslation", +[](lua_State *L) -> std::string
             {
+                auto key = luabridge::LuaRef::fromStack(L, 1).cast<std::string>();
                 int playerid = -1;
-                int argsCount = lua_gettop(L);
-                if (argsCount > 1) {
-                    if (lua_isnumber(L, 2)) {
-                        playerid = static_cast<int>(lua_tointeger(L, 2));
-                    }
-                }
+                auto pidRef = luabridge::LuaRef::fromStack(L, 2);
+                if(pidRef.isNumber())
+                    playerid = pidRef.cast<int>();
 
-                return scripting_FetchTranslation(FetchPluginByState(L), key, playerid);
+                return scripting_FetchTranslation(key, playerid);
             });
     }
 )

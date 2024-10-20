@@ -261,37 +261,37 @@ public:
     PluginCEntityKeyValues();
 
     CEntityKeyValues* GetKeyVals();
-    bool			GetBool( std::string key);
-	int				GetInt( std::string key);
-	uint			GetUint( std::string key);
-	int64			GetInt64( std::string key);
-	uint64			GetUint64( std::string key);
-	float			GetFloat( std::string key);
-	double			GetDouble( std::string key);
-	std::string		GetString( std::string key);
-	std::string		GetPtr( std::string key);
-	unsigned int 	GetStringToken( std::string key);
-	Color			GetColor( std::string key);
-	Vector			GetVector( std::string key);
-	Vector2D		GetVector2D( std::string key);
-	Vector4D		GetVector4D( std::string key);
-	QAngle			GetQAngle( std::string key);
+    bool			GetBool(std::string key);
+    int				GetInt(std::string key);
+    uint			GetUint(std::string key);
+    int64			GetInt64(std::string key);
+    uint64			GetUint64(std::string key);
+    float			GetFloat(std::string key);
+    double			GetDouble(std::string key);
+    std::string		GetString(std::string key);
+    std::string		GetPtr(std::string key);
+    unsigned int 	GetStringToken(std::string key);
+    Color			GetColor(std::string key);
+    Vector			GetVector(std::string key);
+    Vector2D		GetVector2D(std::string key);
+    Vector4D		GetVector4D(std::string key);
+    QAngle			GetQAngle(std::string key);
 
-    void            SetBool( std::string key, bool value );
-	void            SetInt( std::string key, int value );
-	void            SetUint( std::string key, uint value );
-	void            SetInt64( std::string key, int64 value );
-	void            SetUint64( std::string key, uint64 value );
-	void            SetFloat( std::string key, float value );
-	void            SetDouble( std::string key, double value );
-	void            SetString( std::string key, std::string value );
-	void            SetPtr( std::string key, std::string value );
-	void            SetStringToken( std::string key, unsigned int value );
-	void            SetColor( std::string key, Color value );
-	void            SetVector( std::string key, Vector value );
-	void            SetVector2D( std::string key, Vector2D value );
-	void            SetVector4D( std::string key, Vector4D value );
-	void            SetQAngle( std::string key, QAngle value );
+    void            SetBool(std::string key, bool value);
+    void            SetInt(std::string key, int value);
+    void            SetUint(std::string key, uint value);
+    void            SetInt64(std::string key, int64 value);
+    void            SetUint64(std::string key, uint64 value);
+    void            SetFloat(std::string key, float value);
+    void            SetDouble(std::string key, double value);
+    void            SetString(std::string key, std::string value);
+    void            SetPtr(std::string key, std::string value);
+    void            SetStringToken(std::string key, unsigned int value);
+    void            SetColor(std::string key, Color value);
+    void            SetVector(std::string key, Vector value);
+    void            SetVector2D(std::string key, Vector2D value);
+    void            SetVector4D(std::string key, Vector4D value);
+    void            SetQAngle(std::string key, QAngle value);
 };
 
 //////////////////////////////////////////////////////////////
@@ -325,7 +325,8 @@ public:
     void CBaseEntity_AcceptInput(std::string input, SDKBaseClass activator, SDKBaseClass caller, std::string value, int outputID);
     std::string CBaseEntity_GetClassname();
     SDKBaseClass CBaseEntity_GetVData();
-    void CBaseEntity_Teleport(Vector value, QAngle angle);
+    void CBaseEntity_Teleport(Vector value, QAngle angle, Vector velocity);
+    void CBaseEntity_TeleportLua(lua_State *L);
     void CBaseEntity_EmitSound(std::string sound_name, float pitch, float volume);
     void CBaseEntity_CollisionRulesChanged();
     SDKBaseClass CGameSceneNode_GetSkeletonInstance();
@@ -720,7 +721,7 @@ class PluginIPAPI
 {
 private:
     std::string plugin_name;
-    
+
 public:
     PluginIPAPI(std::string m_plugin_name);
 
@@ -817,7 +818,7 @@ public:
 /////////////////         Translations         //////////////
 ////////////////////////////////////////////////////////////
 
-std::string scripting_FetchTranslation(Plugin* plugin, std::string key, int playerid);
+std::string scripting_FetchTranslation(std::string key, int playerid);
 
 //////////////////////////////////////////////////////////////
 /////////////////            Memory            //////////////

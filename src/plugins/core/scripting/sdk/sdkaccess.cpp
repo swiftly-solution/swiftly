@@ -106,8 +106,8 @@ void SDKBaseClass::CBaseEntity_CollisionRulesChanged()
     ((CBaseEntity*)this->GetPtr())->CollisionRulesChanged();
 }
 
-void SDKBaseClass::CBaseEntity_Teleport(Vector value, QAngle angle) {
-    ((CBaseEntity*)this->GetPtr())->Teleport(&value, &angle, nullptr);
+void SDKBaseClass::CBaseEntity_Teleport(Vector value, QAngle angle, Vector velocity) {
+    ((CBaseEntity*)this->GetPtr())->Teleport(&value, &angle, &velocity);
 }
 
 void SDKBaseClass::CBaseEntity_EmitSound(std::string sound_name, float pitch, float volume) {
@@ -135,21 +135,21 @@ SDKBaseClass::SDKBaseClass(std::string ptr, lua_State* state)
     else {
         this->m_className = "CBaseEntity";
     }
-    this->classOffset = ((uint64_t) hash_32_fnv1a_const(this->m_className.c_str()) << 32);
+    this->classOffset = ((uint64_t)hash_32_fnv1a_const(this->m_className.c_str()) << 32);
 }
 
 SDKBaseClass::SDKBaseClass(std::string ptr, std::string className)
 {
     this->m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
     this->m_className = className;
-    this->classOffset = ((uint64_t) hash_32_fnv1a_const(this->m_className.c_str()) << 32);
+    this->classOffset = ((uint64_t)hash_32_fnv1a_const(this->m_className.c_str()) << 32);
 }
 
 SDKBaseClass::SDKBaseClass(void* ptr, std::string className)
 {
     this->m_ptr = ptr;
     this->m_className = className;
-    this->classOffset = ((uint64_t) hash_32_fnv1a_const(this->m_className.c_str()) << 32);
+    this->classOffset = ((uint64_t)hash_32_fnv1a_const(this->m_className.c_str()) << 32);
 }
 
 std::string SDKBaseClass::GetClassName()
