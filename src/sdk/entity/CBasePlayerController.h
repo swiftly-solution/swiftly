@@ -18,6 +18,7 @@ enum class CPlayerConnectedState : uint32_t
 };
 
 class CBasePlayerController;
+typedef void (*CBasePlayerController_SetPawn)(CBasePlayerController*, CCSPlayerPawn*, bool, bool);
 
 class CBasePlayerController : public CBaseEntity
 {

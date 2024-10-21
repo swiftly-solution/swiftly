@@ -39,6 +39,7 @@
 #include "engine/voicemanager/VoiceManager.h"
 #include "network/usermessages/usermessages.h"
 #include "sdk/access/sdkaccess.h"
+#include "sdk/entity/EntityCheckTransmit.h"
 #include "utils/plat.h"
 
 #ifdef _WIN32
@@ -503,12 +504,10 @@ void Swiftly::Hook_CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount,
     if(!checktransmitEvent)
         checktransmitEvent = new PluginEvent("core", nullptr, nullptr);
 
-    static int offset = g_Offsets->GetOffset("CheckTransmitPlayerSlot");
-
     for (int i = 0; i < infoCount; i++)
     {
-        auto& pInfo = ppInfoList[i];
-        int playerid = (int)*((uint8*)pInfo + offset);
+        auto& pInfo = (EntityCheckTransmit*&)ppInfoList[i];
+        int playerid = pInfo->m_nClientEntityIndex.Get();
         Player* player = g_playerManager->GetPlayer(playerid);
         if(!player) continue;
 
