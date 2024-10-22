@@ -764,8 +764,8 @@ void SDKBaseClass::CBaseEntity_TeleportLua(lua_State *L)
     auto pos = luabridge::LuaRef::fromStack(L, 2);
     auto ang = luabridge::LuaRef::fromStack(L, 3);
     auto vel = luabridge::LuaRef::fromStack(L, 3);
-    Vector po, ve;
-    QAngle an;
+    Vector po(0.0,0.0,0.0), ve(0.0,0.0,0.0);
+    QAngle an(0.0,0.0,0.0);
     if(pos.isInstance<Vector>())
         po = pos.cast<Vector>();
     if(ang.isInstance<QAngle>())
