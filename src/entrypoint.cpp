@@ -221,7 +221,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_dbManager->LoadDatabases();
 
     g_addons.LoadAddons();
-    g_addons.Initialize();
     g_userMessages->Initialize();
     eventManager->Initialize();
     g_cvarQuery->Initialize();
@@ -298,7 +297,6 @@ void Swiftly::AllPluginsLoaded()
 
 bool Swiftly::Unload(char* error, size_t maxlen)
 {
-    g_addons.Destroy();
     g_voiceManager.OnShutdown();
     g_userMessages->Destroy();
     g_cvarQuery->Destroy();

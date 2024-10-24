@@ -14,7 +14,10 @@
 
 #include <vector>
 
+class CServerSideClient;
+
 void *Hook_HostStateRequest(void *a1, void **pRequest);
+bool Hook_SendNetMessage(CServerSideClient* pClient, CNetMessage* pData, NetChannelBufType_t bufType);
 
 struct DownloadInfo
 {
@@ -74,10 +77,6 @@ public:
     bool OnClientConnect(uint64 xuid);
 
     void ReloadMap();
-
-    void Initialize();
-    void Destroy();
-    bool SendNetMessage(CNetMessage* msg, NetChannelBufType_t bufType);
 };
 
 extern Addons g_addons;

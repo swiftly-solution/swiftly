@@ -36,10 +36,8 @@
     if (!DOCUMENT[MEMBER_NAME].IsUint())            \
     return AddonsPrint(string_format("The field \"%s\" is not an unsigned integer.", MEMBER_PATH))
 
-SH_DECL_MANUALHOOK2(SendNetMessage, 0, 0, 0, bool, CNetMessage*, NetChannelBufType_t);
-int sendNetMessageHookID = -1;
-
 FuncHook<decltype(Hook_HostStateRequest)> THostStateRequest(Hook_HostStateRequest, "HostStateRequest");
+FuncHook<decltype(Hook_SendNetMessage)> TSendNetMessage(Hook_SendNetMessage, "engine2", "CServerSideClient", "SendNetMessage");
 
 size_t FormatArgs(char* buffer, size_t maxlength, const char* fmt, va_list params)
 {
@@ -114,26 +112,12 @@ void AddonsPrint(std::string str)
     PLUGIN_PRINTF("Addons", "%s\n", str.c_str());
 }
 
-void Addons::Initialize()
+bool Hook_SendNetMessage(CServerSideClient* pClient, CNetMessage* pData, NetChannelBufType_t bufType)
 {
-    SH_MANUALHOOK_RECONFIGURE(SendNetMessage, g_Offsets->GetOffset("SendNetMessage"), 0, 0);
-    DynLibUtils::CModule enginemodule = DetermineModuleByLibrary("engine2");
-    void* serverSideClientVTable = enginemodule.GetVirtualTableByName("CServerSideClient");
-    sendNetMessageHookID = SH_ADD_MANUALDVPHOOK(SendNetMessage, serverSideClientVTable, SH_MEMBER(this, &Addons::SendNetMessage), false);
-}
-
-void Addons::Destroy()
-{
-    SH_REMOVE_HOOK_ID(sendNetMessageHookID);
-}
-
-bool Addons::SendNetMessage(CNetMessage* pData, NetChannelBufType_t bufType)
-{
-    CServerSideClient* pClient = META_IFACEPTR(CServerSideClient);
     NetMessageInfo_t* info = pData->GetNetMessage()->GetNetMessageInfo();
 
     if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
-        RETURN_META_VALUE(MRES_IGNORED, true);
+        return TSendNetMessage(pClient, pData, bufType);
 
     int idx;
     ClientJoinInfo_t* pPendingClient = GetPendingClient(pClient->GetClientSteamID().ConvertToUint64(), idx);
@@ -145,7 +129,7 @@ bool Addons::SendNetMessage(CNetMessage* pData, NetChannelBufType_t bufType)
         pPendingClient->signon_timestamp = Plat_FloatTime();
     }
 
-    RETURN_META_VALUE(MRES_HANDLED, true);
+    return TSendNetMessage(pClient, pData, bufType);
 }
 
 void Addons::BuildAddonPath(std::string pszAddon, std::string& buffer)

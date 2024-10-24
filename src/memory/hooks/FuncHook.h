@@ -5,6 +5,7 @@
 #include <tier1/utlvector.h>
 #include <funchook.h>
 #include "../signatures/Signatures.h"
+#include "../signatures/Offsets.h"
 #include "../../common.h"
 #include "../../entrypoint.h"
 #include "../../utils/utils.h"
@@ -28,6 +29,11 @@ private:
     const char *m_name;
     T *m_fn;
     T *m_pfn;
+    
+    const char* m_lib;
+    const char* m_cls;
+    const char* m_off;
+
     funchook_t *m_hook;
     bool m_installed;
 
@@ -39,6 +45,17 @@ public:
 
         g_vecHooks.AddToTail(this);
     }
+
+    FuncHook(T *fn, const char* lib, const char* cls, const char* off)
+    {
+        this->m_fn = fn;
+        this->m_lib = lib;
+        this->m_cls = cls;
+        this->m_off = off;
+
+        g_vecHooks.AddToTail(this);
+    }
+
     ~FuncHook()
     {
         this->Free();
@@ -63,13 +80,21 @@ extern CUtlVector<FuncHookBase *> g_funcHooks;
 template <typename T>
 bool FuncHook<T>::Create()
 {
-    if (!g_Signatures->Exists(this->m_name))
-    {
-        PLUGIN_PRINTF("FuncHook", "Failed create for %s.\nError Message: Signature was not found.\n", this->GetName());
-        return false;
+    void *ptr = nullptr;
+    if(this->m_name) {
+        if (!g_Signatures->Exists(this->m_name))
+        {
+            PLUGIN_PRINTF("FuncHook", "Failed create for %s.\nError Message: Signature was not found.\n", this->GetName());
+            return false;
+        }
+
+        ptr = g_Signatures->FetchRawSignature(this->m_name);
+    } else {
+        DynLibUtils::CModule mod = DetermineModuleByLibrary(this->m_lib);
+        void* serverSideClientVTable = mod.GetVirtualTableByName(this->m_cls);
+        ptr = ((void**)serverSideClientVTable)[g_Offsets->GetOffset(this->m_off)];
     }
 
-    void *ptr = g_Signatures->FetchRawSignature(this->m_name);
     if (ptr == nullptr)
     {
         PLUGIN_PRINTF("FuncHook", "Failed create for %s.\nError Message: Invalid signature pointer.\n", this->GetName());
