@@ -52,6 +52,7 @@ public:
         this->m_lib = lib;
         this->m_cls = cls;
         this->m_off = off;
+        this->m_name = off;
 
         g_vecHooks.AddToTail(this);
     }
