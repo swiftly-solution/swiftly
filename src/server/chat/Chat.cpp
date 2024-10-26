@@ -55,7 +55,11 @@ void ChatProcessor::LoadMessages()
             continue;
         }
         std::string value = it->value.GetString();
-        this->placeholders[key] = it->value.GetString();
+        if(value.empty())
+        {
+            continue;
+        }
+        this->placeholders[key] = value;
     }
 }
 
