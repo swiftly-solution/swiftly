@@ -15,6 +15,7 @@
 #include "../plugins/PluginManager.h"
 #include "../tools/resourcemonitor/ResourceMonitor.h"
 #include "../server/commands/CommandsManager.h"
+#include "../server/chat/Chat.h"
 
 #ifndef GITHUB_SHA
 #define GITHUB_SHA "LOCAL"
@@ -187,6 +188,7 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
         PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " resmon       - Resource Monitor Menu\n");
         PrintToClientOrConsole(slot, "Commands", " translations - Translations Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " chat         - Chat Menu\n");
     }
     PrintToClientOrConsole(slot, "Commands", " version      - Display Swiftly version\n");
 }
@@ -845,7 +847,37 @@ void ShowSwiftlyCredits(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", "Swiftly was developed by Swiftly Solutions.\n");
     PrintToClientOrConsole(slot, "Commands", "https://github.com/swiftly-solution \n");
 }
+//////////////////////////////////////////////////////////////
+/////////////////        Chat Processor        //////////////
+////////////////////////////////////////////////////////////
+void SwiftlyChatReload(CPlayerSlot slot, CCommandContext context)
+{
+    g_chatProcessor->LoadMessages();
+    PrintToClientOrConsole(slot, "Chat Processor", "All chat messages has been succesfully reloaded.\n");
+}
+void SwiftlyChatManagerHelp(CPlayerSlot slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Chat Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly chat <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " reload     - Reload chat message configurations.\n");
+}
+void SwiftlyChatManager(CPlayerSlot slot, CCommandContext context, const char* subcmd)
+{
+    if (slot.Get() != -1)
+        return;
 
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        SwiftlyChatManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "reload")
+        SwiftlyChatReload(slot, context);
+    else
+        SwiftlyChatManagerHelp(slot, context);
+}
 void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
 {
     CPlayerSlot slot = context.GetPlayerSlot();
@@ -882,6 +914,8 @@ void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
         SwiftlyResourceMonitorManager(slot, context, args[2], args[3]);
     else if (subcmd == "status")
         SwiftlyStatus(slot, context);
+    else if(subcmd == "chat")
+        SwiftlyChatManager(slot, context, args[2]);
     else
         ShowSwiftlyCommandHelp(slot, context);
 }
