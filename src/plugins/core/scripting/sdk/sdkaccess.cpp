@@ -107,6 +107,8 @@ void SDKBaseClass::CBaseEntity_CollisionRulesChanged()
 }
 
 void SDKBaseClass::CBaseEntity_Teleport(Vector value, QAngle angle, Vector velocity) {
+    if(!IsValid()) return;
+    
     ((CBaseEntity*)this->GetPtr())->Teleport(&value, &angle, &velocity);
 }
 
