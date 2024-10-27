@@ -30,7 +30,7 @@
 #include "tools/resourcemonitor/ResourceMonitor.h"
 #include "memory/hooks/NativeHooks.h"
 #include "player/playermanager/PlayerManager.h"
-#include "player/player/Chat.h"
+#include "server/chat/Chat.h"
 #include "plugins/PluginManager.h"
 #include "plugins/core/scripting.h"
 #include "memory/signatures/Signatures.h"
@@ -97,7 +97,7 @@ CUtlVector<FuncHookBase*> g_vecHooks;
 uint64_t g_Players = 0;
 
 Addons g_addons;
-PlayerChat g_playerChat;
+ChatProcessor* g_chatProcessor = nullptr;
 EntityListener g_EntityListener;
 CommandsManager* g_commandsManager = nullptr;
 Configuration* g_Config = nullptr;
@@ -203,6 +203,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_sdk = new SDKAccess();
     g_cvarQuery = new ConvarQuery();
     g_httpServerManager = new HTTPServerManager();
+    g_chatProcessor = new ChatProcessor();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -224,14 +225,14 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_userMessages->Initialize();
     eventManager->Initialize();
     g_cvarQuery->Initialize();
-    g_playerChat.Initialize();
+    g_chatProcessor->Initialize();
     g_EntityListener.Initialize();
 
     if (!InitializeHooks())
         PRINTRET("Hooks failed to initialize.\n", false)
     else
         PRINT("Hooks initialized succesfully.\n");
-
+    g_chatProcessor->LoadMessages();
     g_conFilter->LoadFilters();
     g_translations->LoadTranslations();
 
@@ -300,7 +301,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     g_voiceManager.OnShutdown();
     g_userMessages->Destroy();
     g_cvarQuery->Destroy();
-    g_playerChat.Destroy();
+    g_chatProcessor->Destroy();
 
     g_pluginManager->StopPlugins(false);
     g_pluginManager->UnloadPlugins();
@@ -341,6 +342,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     delete g_userMessages;
     delete g_sdk;
     delete g_cvarQuery;
+    delete g_chatProcessor;
 
     ConVar_Unregister();
     return true;

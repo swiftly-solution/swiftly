@@ -67,6 +67,7 @@ builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'cor
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'console_filter.json'), configs_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'databases.json'), configs_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'plugins', '.gitignore'), configs_plugins_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'chat.json'), configs_folder)
 
 data_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'data'))
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'data', '.gitignore'), data_folder)
