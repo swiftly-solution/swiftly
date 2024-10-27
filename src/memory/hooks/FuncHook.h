@@ -82,7 +82,7 @@ template <typename T>
 bool FuncHook<T>::Create()
 {
     void *ptr = nullptr;
-    if(this->m_name) {
+    if(this->m_lib == nullptr) {
         if (!g_Signatures->Exists(this->m_name))
         {
             PLUGIN_PRINTF("FuncHook", "Failed create for %s.\nError Message: Signature was not found.\n", this->GetName());
