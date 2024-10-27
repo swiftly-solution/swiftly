@@ -129,8 +129,14 @@ std::string formatPlayerMessage(Player* player, CCSPlayerController* controller,
     for(auto it = textMessageReplacements.begin(); it != textMessageReplacements.end(); ++it)
         message = replace(message, it->first, it->second);
 
+    for(auto it = colors.begin(); it != colors.end(); ++it)
+    {
+        message = replace(message, it->first, "");
+        message = replace(message, str_tolower(it->first), "");
+    }
+
     std::map<std::string, std::string> replacements = {
-        {"{NAME}", string_format("%s%s{default}", player->namecolor.empty() ? "{teamcolor}": player->namecolor.c_str(), player->GetName())},
+        {"{NAME}", string_format("%s%s{default}", player->namecolor.empty() ? "{teamcolor}" : player->namecolor.c_str(), player->GetName())},
         {"{TAG}", string_format("%s%s{default}", player->tagcolor.empty() ? "{default}" : player->tagcolor.c_str(), player->tag.c_str())},
         {"{LOCATION}", isRadio ? "%s2" : "%s3"},
         {"{TIME}", getCurrentTime().c_str()},

@@ -138,5 +138,5 @@ private:
     ListenOverride m_listenMap[66] = {};
     VoiceFlag_t m_voiceFlag = 0;
 };
-
+    extern std::map<std::string, std::string> colors;
 #endif
