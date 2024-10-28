@@ -1,10 +1,17 @@
 #include "PlayerManager.h"
 #include "../../memory/hooks/FuncHook.h"
+#include "../../memory/encoders/msgpack.h"
 #include "../../engine/convars/convars.h"
+#include "../../plugins/PluginManager.h"
+#include "../../plugins/core/scripting.h"
 
 void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices* services, void* movementData);
+void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase* _this);
 
 FuncHook<decltype(Hook_CCSPlayer_MovementServices_CheckJumpPre)> TCCSPlayer_MovementServices_CheckJumpPre(Hook_CCSPlayer_MovementServices_CheckJumpPre, "CCSPlayer_MovementServices_CheckJumpPre");
+FuncHook<decltype(Hook_CCSPlayerPawnBase_PostThink)> TCCSPlayerPawnBase_PostThink(Hook_CCSPlayerPawnBase_PostThink, "CCSPlayerPawnBase_PostThink");
+
+PluginEvent* dummyEvent = nullptr;
 
 PlayerManager::PlayerManager() {}
 PlayerManager::~PlayerManager() {}
@@ -62,4 +69,16 @@ void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices* se
     }
 
     TCCSPlayer_MovementServices_CheckJumpPre(services, movementData);
+}
+
+void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase* _this)
+{
+    auto playerid = _this->m_hOriginalController()->entindex() - 1;
+    
+    if(!dummyEvent) dummyEvent = new PluginEvent("core", nullptr, nullptr);
+    
+    if(g_pluginManager->ExecuteEvent("core", "OnPlayerPostThink", encoders::msgpack::SerializeToString({ playerid }), dummyEvent) == EventResult::Stop)
+        return;
+
+    return TCCSPlayerPawnBase_PostThink(_this);
 }
