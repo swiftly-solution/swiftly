@@ -129,8 +129,18 @@ std::string formatPlayerMessage(Player* player, CCSPlayerController* controller,
     for(auto it = textMessageReplacements.begin(); it != textMessageReplacements.end(); ++it)
         message = replace(message, it->first, it->second);
 
+    std::string name = player->GetName();
+    
+    for(auto it = colors.begin(); it != colors.end(); ++it)
+    {
+        message = replace(message, it->first, "");
+        message = replace(message, str_tolower(it->first), "");
+        name = replace(name, it->first, "");
+        name = replace(name, str_tolower(it->first), "");
+    }
+
     std::map<std::string, std::string> replacements = {
-        {"{NAME}", string_format("%s%s{default}", player->namecolor.empty() ? "{teamcolor}": player->namecolor.c_str(), player->GetName())},
+        {"{NAME}", string_format("%s%s{default}", player->namecolor.empty() ? "{teamcolor}" : player->namecolor.c_str(), name.c_str())},
         {"{TAG}", string_format("%s%s{default}", player->tagcolor.empty() ? "{default}" : player->tagcolor.c_str(), player->tag.c_str())},
         {"{LOCATION}", isRadio ? "%s2" : "%s3"},
         {"{TIME}", getCurrentTime().c_str()},
@@ -140,7 +150,7 @@ std::string formatPlayerMessage(Player* player, CCSPlayerController* controller,
     for(auto it = replacements.begin(); it != replacements.end(); ++it)
         placeholder = replace(placeholder, it->first, it->second);
 
-    return ProcessColor(placeholder, controller->m_iTeamNum());
+    return ProcessColor(" "+ placeholder, controller->m_iTeamNum());
 }
 void ChatProcessor::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType)
 {
