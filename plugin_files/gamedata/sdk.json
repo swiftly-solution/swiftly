@@ -5173,6 +5173,10 @@
             "field": "m_bRagdollClientSide",
             "type": 10
         },
+        "LastDestructiblePartDestroyedAnimgraphSetTick": {
+            "field": "m_nLastDestructiblePartDestroyedAnimgraphSetTick",
+            "type": 2
+        },
         "Parent": {
             "field": "CBaseModelEntity",
             "type": 11
@@ -6063,9 +6067,18 @@
             "field": "m_iRoundsWon",
             "type": 2
         },
-        "Kills": {
-            "field": "m_vecKills",
-            "type": 55
+        "RecentKillQueue": {
+            "field": "m_recentKillQueue",
+            "type": 33,
+            "size": 8
+        },
+        "FirstKill": {
+            "field": "m_nFirstKill",
+            "type": 4
+        },
+        "KillCount": {
+            "field": "m_nKillCount",
+            "type": 4
         },
         "MvpNoMusic": {
             "field": "m_bMvpNoMusic",
@@ -6299,6 +6312,12 @@
             "type": 11
         }
     },
+    "CCSPlayer_DamageReactServices": {
+        "Parent": {
+            "field": "CPlayerPawnComponent",
+            "type": 11
+        }
+    },
     "CCSPlayer_GlowServices": {
         "Parent": {
             "field": "CPlayerPawnComponent",
@@ -6340,10 +6359,6 @@
         }
     },
     "CCSPlayer_MovementServices": {
-        "MaxFallVelocity": {
-            "field": "m_flMaxFallVelocity",
-            "type": 8
-        },
         "LadderNormal": {
             "field": "m_vecLadderNormal",
             "type": 21
@@ -6465,14 +6480,6 @@
             "field": "m_flJumpPressedTime",
             "type": 8
         },
-        "JumpUntil": {
-            "field": "m_flJumpUntil",
-            "type": 8
-        },
-        "JumpVel": {
-            "field": "m_flJumpVel",
-            "type": 8
-        },
         "StashGrenadeParameterWhen": {
             "field": "m_fStashGrenadeParameterWhen",
             "type": 8
@@ -6503,6 +6510,14 @@
         },
         "MaxJumpHeightLastJump": {
             "field": "m_flMaxJumpHeightLastJump",
+            "type": 8
+        },
+        "StaminaAtJumpStart": {
+            "field": "m_flStaminaAtJumpStart",
+            "type": 8
+        },
+        "AccumulatedJumpError": {
+            "field": "m_flAccumulatedJumpError",
             "type": 8
         },
         "Parent": {
@@ -7296,6 +7311,47 @@
         "DecalMaterialIndex": {
             "field": "m_nDecalMaterialIndex",
             "type": 2
+        }
+    },
+    "CDestructiblePartRuntimeData": {
+        "HealthRemaining": {
+            "field": "m_nHealthRemaining",
+            "type": 2
+        }
+    },
+    "CDestructiblePartRuntimeDataVector": {},
+    "CDestructiblePartsSystemData": {},
+    "CDestructiblePartsSystemData_HitGroupInfoAndPartData": {
+        "Name": {
+            "field": "m_sName",
+            "type": 14
+        },
+        "DisableHitGroupWhenDestroyed": {
+            "field": "m_bDisableHitGroupWhenDestroyed",
+            "type": 10
+        }
+    },
+    "CDestructiblePartsSystemData_PartData": {
+        "Name": {
+            "field": "m_sName",
+            "type": 14
+        },
+        "BodyGroupValue": {
+            "field": "m_nBodyGroupValue",
+            "type": 2
+        },
+        "Health": {
+            "field": "m_nHealth",
+            "classname": "CSkillInt",
+            "type": 16
+        },
+        "DamagePassthroughType": {
+            "field": "m_nDamagePassthroughType",
+            "type": 6
+        },
+        "KillNPCOnDestruction": {
+            "field": "m_bKillNPCOnDestruction",
+            "type": 10
         }
     },
     "CEconItemAttribute": {
@@ -9092,6 +9148,28 @@
             "type": 11
         }
     },
+    "CRagdollManager": {
+        "CurrentMaxRagdollCount": {
+            "field": "m_iCurrentMaxRagdollCount",
+            "type": 0
+        },
+        "MaxRagdollCount": {
+            "field": "m_iMaxRagdollCount",
+            "type": 2
+        },
+        "SaveImportant": {
+            "field": "m_bSaveImportant",
+            "type": 10
+        },
+        "CanTakeDamage": {
+            "field": "m_bCanTakeDamage",
+            "type": 10
+        },
+        "Parent": {
+            "field": "CBaseEntity",
+            "type": 11
+        }
+    },
     "CRandSimTimer": {
         "MinInterval": {
             "field": "m_minInterval",
@@ -10733,6 +10811,10 @@
         "ForceCurrentWorldTransform": {
             "field": "m_bForceCurrentWorldTransform",
             "type": 10
+        },
+        "HealthToGrant": {
+            "field": "m_nHealthToGrant",
+            "type": 2
         }
     },
     "ResponseFollowup": {
@@ -18628,10 +18710,6 @@
             "field": "m_impactEnergyScale",
             "type": 8
         },
-        "LastHitGroup": {
-            "field": "m_LastHitGroup",
-            "type": 6
-        },
         "ApplyStressDamage": {
             "field": "m_bApplyStressDamage",
             "type": 10
@@ -19291,6 +19369,34 @@
             "field": "m_CHitboxComponent",
             "classname": "CHitboxComponent",
             "type": 16
+        },
+        "DestructiblePartInitialStateDestructed0": {
+            "field": "m_nDestructiblePartInitialStateDestructed0",
+            "type": 6
+        },
+        "DestructiblePartInitialStateDestructed1": {
+            "field": "m_nDestructiblePartInitialStateDestructed1",
+            "type": 6
+        },
+        "DestructiblePartInitialStateDestructed2": {
+            "field": "m_nDestructiblePartInitialStateDestructed2",
+            "type": 6
+        },
+        "DestructiblePartInitialStateDestructed3": {
+            "field": "m_nDestructiblePartInitialStateDestructed3",
+            "type": 6
+        },
+        "DestructiblePartInitialStateDestructed4": {
+            "field": "m_nDestructiblePartInitialStateDestructed4",
+            "type": 6
+        },
+        "LastHitDestructiblePartIndex": {
+            "field": "m_nLastHitDestructiblePartIndex",
+            "type": 2
+        },
+        "LastHitGroup": {
+            "field": "m_LastHitGroup",
+            "type": 6
         },
         "DissolveStartTime": {
             "field": "m_flDissolveStartTime",
@@ -22730,12 +22836,6 @@
             "type": 11
         }
     },
-    "CCSPlayer_DamageReactServices": {
-        "Parent": {
-            "field": "CPlayerPawnComponent",
-            "type": 11
-        }
-    },
     "CCSPlayer_RadioServices": {
         "GotHostageTalkTimer": {
             "field": "m_flGotHostageTalkTimer",
@@ -23046,6 +23146,10 @@
         },
         "NextPrevOwnerTouchTime": {
             "field": "m_nextPrevOwnerTouchTime",
+            "type": 8
+        },
+        "NextPrevOwnerUseTime": {
+            "field": "m_nextPrevOwnerUseTime",
             "type": 8
         },
         "PrevOwner": {
@@ -32573,24 +32677,6 @@
             "type": 11
         }
     },
-    "CRagdollManager": {
-        "CurrentMaxRagdollCount": {
-            "field": "m_iCurrentMaxRagdollCount",
-            "type": 0
-        },
-        "MaxRagdollCount": {
-            "field": "m_iMaxRagdollCount",
-            "type": 2
-        },
-        "SaveImportant": {
-            "field": "m_bSaveImportant",
-            "type": 10
-        },
-        "Parent": {
-            "field": "CBaseEntity",
-            "type": 11
-        }
-    },
     "CRagdollProp": {
         "Ragdoll": {
             "field": "m_ragdoll",
@@ -33911,6 +33997,14 @@
         "VoxelFrameData": {
             "field": "m_VoxelFrameData",
             "type": 55
+        },
+        "VoxelFrameDataSize": {
+            "field": "m_nVoxelFrameDataSize",
+            "type": 2
+        },
+        "VoxelUpdate": {
+            "field": "m_nVoxelUpdate",
+            "type": 2
         },
         "LastBounce": {
             "field": "m_flLastBounce",
