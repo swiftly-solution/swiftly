@@ -956,6 +956,10 @@
         "k_EContributionScoreFlag_Objective": 1,
         "k_EContributionScoreFlag_Bullets": 2
     },
+    "EDestructiblePartDamagePassThroughType": {
+        "Normal": 0,
+        "Absorb": 1
+    },
     "EInButtonState": {
         "IN_BUTTON_UP": 0,
         "IN_BUTTON_DOWN": 1,
