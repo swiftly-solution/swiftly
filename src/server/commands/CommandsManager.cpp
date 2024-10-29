@@ -26,8 +26,9 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
     if(commandPrefixes.size() == 0) commandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandPrefixes"), " ");
     if(silentCommandPrefixes.size() == 0) silentCommandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandSilentPrefixes"), " ");
 
-    bool isCommand = (commandPrefixes.find(std::string(1, text.at(0))) != commandPrefixes.end());
-    bool isSilentCommand = (silentCommandPrefixes.find(std::string(1, text.at(0))) != silentCommandPrefixes.end());
+    auto prefix = std::string(1, text.at(0));
+    bool isCommand = (commandPrefixes.find(prefix) != commandPrefixes.end());
+    bool isSilentCommand = (silentCommandPrefixes.find(prefix) != silentCommandPrefixes.end());
 
     if (isCommand || isSilentCommand)
     {
@@ -37,14 +38,20 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
         std::vector<std::string> cmdString = TokenizeCommand(text);
         cmdString.erase(cmdString.begin());
 
+        if(tokenizedArgs.ArgC() < 1) 
+            return 0;
+
         std::string commandName = tokenizedArgs[0];
+        if(commandName.size() < 1) 
+            return 0;
+        
         commandName.erase(0, 1);
 
         Command *cmd = g_commandsManager->FetchCommand(commandName);
         if (cmd == nullptr)
             return 0;
 
-        cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand, std::string(1, text.at(0)));
+        cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand, prefix);
     }
 
     if (isCommand)
