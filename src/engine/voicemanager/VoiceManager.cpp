@@ -29,11 +29,11 @@ void VoiceManager::OnShutdown()
 
 bool VoiceManager::SetClientListening(CPlayerSlot iReceiver, CPlayerSlot iSender, bool bListen)
 {
-    Player *receiver = g_playerManager->GetPlayer(iReceiver);
+    Player* receiver = g_playerManager->GetPlayer(iReceiver);
     if (!receiver)
         RETURN_META_VALUE(MRES_IGNORED, bListen);
 
-    Player *sender = g_playerManager->GetPlayer(iSender);
+    Player* sender = g_playerManager->GetPlayer(iSender);
     if (!sender)
         RETURN_META_VALUE(MRES_IGNORED, bListen);
 
@@ -42,11 +42,6 @@ bool VoiceManager::SetClientListening(CPlayerSlot iReceiver, CPlayerSlot iSender
     auto receiverFlags = receiver->GetVoiceFlags();
 
     if (receiver->m_selfMutes->Get(iSender.Get()))
-    {
-        RETURN_META_VALUE_NEWPARAMS(MRES_IGNORED, bListen, &IVEngineServer2::SetClientListening, (iReceiver, iSender, false));
-    }
-
-    if (senderFlags & Speak_Muted)
     {
         RETURN_META_VALUE_NEWPARAMS(MRES_IGNORED, bListen, &IVEngineServer2::SetClientListening, (iReceiver, iSender, false));
     }
@@ -78,15 +73,15 @@ bool VoiceManager::SetClientListening(CPlayerSlot iReceiver, CPlayerSlot iSender
             RETURN_META_VALUE(MRES_IGNORED, bListen);
 
         RETURN_META_VALUE_NEWPARAMS(MRES_IGNORED, bListen, &IVEngineServer2::SetClientListening,
-                                    (iReceiver, iSender, senderController->m_iTeamNum() == receiverController->m_iTeamNum()));
+            (iReceiver, iSender, senderController->m_iTeamNum() == receiverController->m_iTeamNum()));
     }
 
     RETURN_META_VALUE(MRES_IGNORED, bListen);
 }
 
-void VoiceManager::OnClientCommand(CPlayerSlot slot, const CCommand &args)
+void VoiceManager::OnClientCommand(CPlayerSlot slot, const CCommand& args)
 {
-    Player *player = g_playerManager->GetPlayer(slot);
+    Player* player = g_playerManager->GetPlayer(slot);
     if (!player)
         return;
 
