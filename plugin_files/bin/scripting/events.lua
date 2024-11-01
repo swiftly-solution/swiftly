@@ -5,13 +5,14 @@ local table_unpack = table.unpack
 
 AddGlobalEvents(function(event, eventSource, eventName, eventData)
     if not eventHandlers[eventName] then return EventResult.Continue end
-    if not eventHandlers[eventName].handlers then return EventResult.Continue end
+    if #eventHandlers[eventName] <= 0 then return EventResult.Continue end
 
     local data = msgpack_unpack(eventData)
     if not data then return end
     if type(data) ~= "table" then return end
 
-    for idx,handle in next,eventHandlers[eventName].handlers,nil do
+    for i=1,#eventHandlers[eventName] do
+        local handle = eventHandlers[eventName][i].handle
         if type(handle) == "function" then
             local result = (handle(event, table_unpack(data)) or EventResult.Continue)
             if result ~= EventResult.Continue then return result end
@@ -25,10 +26,9 @@ local eventRegistryIndex = 50
 
 function AddEventHandler(eventName, cb)
     if not eventHandlers[eventName] then eventHandlers[eventName] = {} end
-    if not eventHandlers[eventName].handlers then eventHandlers[eventName].handlers = {} end
 
     eventRegistryIndex = eventRegistryIndex + 1
-    eventHandlers[eventName].handlers[eventRegistryIndex] = cb
+    table.insert(eventHandlers[eventName], { eventRegistryIndex = eventRegistryIndex, handle = cb })
 
     RegisterEventHandlerPlugin(eventName)
 
@@ -40,12 +40,16 @@ function RemoveEventHandler(eventData)
         print("Error: Invalid event data passed to RemoveEventHandler.")
         return
     end
+    if not eventHandlers[eventData.name] then eventHandlers[eventData.name] = {} end
 
-    eventHandlers[eventData.name].handlers[eventData.key] = nil
+    for i=1,#eventHandlers[eventData.name] do
+        if eventHandlers[eventData.name].eventRegistryIndex == eventData.key then
+            table.remove(eventHandlers[eventData.name], i)
+            break
+        end
+    end
 
-    local exists = ((#{next(eventHandlers[eventData.name].handlers)}) > 0)
-
-    if exists == false then
+    if #eventHandlers[eventData.name] == 0 then
         RemoveEventHandlerPlugin(eventData.name)
     end
 end
