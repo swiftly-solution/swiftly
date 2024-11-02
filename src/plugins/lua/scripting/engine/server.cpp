@@ -15,6 +15,7 @@ LoadLuaScriptingComponent(
             .addFunction("Execute", &PluginServer::Execute)
             .addFunction("GetCurrentTime", &PluginServer::GetCurrentTime)
             .addFunction("GetTickCount", &PluginServer::GetTickCount)
+            .addFunction("GetIP", &PluginServer::GetIP)
             .endClass();
 
         luaL_dostring(state, "server = Server(GetCurrentPluginName())");

@@ -1,5 +1,6 @@
 #include "../../scripting.h"
 #include "../../../../sdk/entity/CGameRules.h"
+#include <steam/isteamgameserver.h>
 
 PluginServer::PluginServer(std::string m_plugin_name)
 {
@@ -75,4 +76,11 @@ void PluginServer::TerminateRound(float delay, uint32_t reason)
     if(!gameRules) return;
 
     g_Signatures->FetchSignature<CGameRules_TerminateRound>("CGameRules_TerminateRound")(gameRules, delay, reason, 0, 0);
+}
+
+std::string PluginServer::GetIP()
+{
+    if(!g_SteamAPI.SteamGameServer()) return "0.0.0.0";
+    auto ip_addr = g_SteamAPI.SteamGameServer()->GetPublicIP();
+    return string_format("%d.%d.%d.%d", (ip_addr.m_unIPv4 >> 24) & 0xFF, (ip_addr.m_unIPv4 >> 16) & 0xFF, (ip_addr.m_unIPv4 >> 8) & 0xFF, ip_addr.m_unIPv4 & 0xff);
 }

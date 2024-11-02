@@ -669,6 +669,7 @@ public:
     int GetTickCount();
 
     void TerminateRound(float delay, uint32_t reason);
+    std::string GetIP();
 };
 
 //////////////////////////////////////////////////////////////
