@@ -56,7 +56,7 @@ git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
 You can support Swiftly by doing a simple donation, or by contributing to the project.
 
 - [blu](https://github.com/blu133721) - Contributor and Donor - [Discord](https://discord.com/users/1142001023196606545)
-- [moongetsu](github.com/moongetsu) - Retired Contributor and Donor - [Discord](https://discord.com/users/977190163736322088)
+- [moongetsu](https://github.com/moongetsu) - Retired Contributor and Donor - [Discord](https://discord.com/users/977190163736322088)
 - [m3ntor](https://github.com/m3ntorinho) - Donor - [Discord](https://discord.com/users/462576617869541387)
 - unfortunate - Donor - [Discord](https://discord.com/users/515887695432515584)
 - [crisky](https://github.com/criskkky) - Contributor [Discord](https://discord.com/users/404372759028957231)
