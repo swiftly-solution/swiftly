@@ -7457,6 +7457,93 @@
         }
     },
     "CEntitySubclassVDataBase": {},
+    "CEnvSoundscape": {
+        "OnPlay": {
+            "field": "m_OnPlay",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "Radius": {
+            "field": "m_flRadius",
+            "type": 8
+        },
+        "SoundEventName": {
+            "field": "m_soundEventName",
+            "type": 13
+        },
+        "OverrideWithEvent": {
+            "field": "m_bOverrideWithEvent",
+            "type": 10
+        },
+        "SoundscapeIndex": {
+            "field": "m_soundscapeIndex",
+            "type": 2
+        },
+        "SoundscapeEntityListId": {
+            "field": "m_soundscapeEntityListId",
+            "type": 2
+        },
+        "PositionNames": {
+            "field": "m_positionNames",
+            "type": 26,
+            "size": 8
+        },
+        "ProxySoundscape": {
+            "field": "m_hProxySoundscape",
+            "type": 17,
+            "classname": "CEnvSoundscape"
+        },
+        "Disabled": {
+            "field": "m_bDisabled",
+            "type": 10
+        },
+        "SoundscapeName": {
+            "field": "m_soundscapeName",
+            "type": 13
+        },
+        "SoundEventHash": {
+            "field": "m_soundEventHash",
+            "type": 6
+        },
+        "Parent": {
+            "field": "CBaseEntity",
+            "type": 11
+        }
+    },
+    "CEnvSoundscapeAlias_snd_soundscape": {
+        "Parent": {
+            "field": "CEnvSoundscape",
+            "type": 11
+        }
+    },
+    "CEnvSoundscapeProxy": {
+        "MainSoundscapeName": {
+            "field": "m_MainSoundscapeName",
+            "type": 13
+        },
+        "Parent": {
+            "field": "CEnvSoundscape",
+            "type": 11
+        }
+    },
+    "CEnvSoundscapeProxyAlias_snd_soundscape_proxy": {
+        "Parent": {
+            "field": "CEnvSoundscapeProxy",
+            "type": 11
+        }
+    },
+    "CEnvSoundscapeTriggerable": {
+        "Parent": {
+            "field": "CEnvSoundscape",
+            "type": 11
+        }
+    },
+    "CEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable": {
+        "Parent": {
+            "field": "CEnvSoundscapeTriggerable",
+            "type": 11
+        }
+    },
     "CFireOverlay": {
         "BaseColors": {
             "field": "m_vBaseColors",
@@ -25304,93 +25391,6 @@
         },
         "Parent": {
             "field": "CBaseModelEntity",
-            "type": 11
-        }
-    },
-    "CEnvSoundscape": {
-        "OnPlay": {
-            "field": "m_OnPlay",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "Radius": {
-            "field": "m_flRadius",
-            "type": 8
-        },
-        "SoundscapeName": {
-            "field": "m_soundscapeName",
-            "type": 13
-        },
-        "SoundEventName": {
-            "field": "m_soundEventName",
-            "type": 13
-        },
-        "OverrideWithEvent": {
-            "field": "m_bOverrideWithEvent",
-            "type": 10
-        },
-        "SoundscapeIndex": {
-            "field": "m_soundscapeIndex",
-            "type": 2
-        },
-        "SoundscapeEntityListId": {
-            "field": "m_soundscapeEntityListId",
-            "type": 2
-        },
-        "SoundEventHash": {
-            "field": "m_soundEventHash",
-            "type": 6
-        },
-        "PositionNames": {
-            "field": "m_positionNames",
-            "type": 26,
-            "size": 8
-        },
-        "ProxySoundscape": {
-            "field": "m_hProxySoundscape",
-            "type": 17,
-            "classname": "CEnvSoundscape"
-        },
-        "Disabled": {
-            "field": "m_bDisabled",
-            "type": 10
-        },
-        "Parent": {
-            "field": "CServerOnlyEntity",
-            "type": 11
-        }
-    },
-    "CEnvSoundscapeAlias_snd_soundscape": {
-        "Parent": {
-            "field": "CEnvSoundscape",
-            "type": 11
-        }
-    },
-    "CEnvSoundscapeProxy": {
-        "MainSoundscapeName": {
-            "field": "m_MainSoundscapeName",
-            "type": 13
-        },
-        "Parent": {
-            "field": "CEnvSoundscape",
-            "type": 11
-        }
-    },
-    "CEnvSoundscapeProxyAlias_snd_soundscape_proxy": {
-        "Parent": {
-            "field": "CEnvSoundscapeProxy",
-            "type": 11
-        }
-    },
-    "CEnvSoundscapeTriggerable": {
-        "Parent": {
-            "field": "CEnvSoundscape",
-            "type": 11
-        }
-    },
-    "CEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable": {
-        "Parent": {
-            "field": "CEnvSoundscapeTriggerable",
             "type": 11
         }
     },
