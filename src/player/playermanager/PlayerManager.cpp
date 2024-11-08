@@ -73,7 +73,12 @@ void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices* se
 
 void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase* _this)
 {
-    auto playerid = _this->m_hOriginalController()->entindex() - 1;
+    if(!_this) return TCCSPlayerPawnBase_PostThink(_this);
+    
+    auto originalController = _this->m_hOriginalController();
+    if(!originalController) return TCCSPlayerPawnBase_PostThink(_this);
+
+    auto playerid = originalController->entindex() - 1;
     
     if(!dummyEvent) dummyEvent = new PluginEvent("core", nullptr, nullptr);
     
