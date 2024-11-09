@@ -39,8 +39,9 @@ void SetSchemaValue(void* ptr, const char* className, const char* fieldName, T v
 {
     auto m_key = sch::GetOffset(className, fieldName);
 
-    SetStateChanged((uintptr_t)ptr, className, fieldName, 0);
     *reinterpret_cast<std::add_pointer_t<T>>((uintptr_t)(ptr)+m_key) = value;
+
+    if (gameRules != ptr) SetStateChanged((uintptr_t)ptr, className, fieldName, 0);
 }
 
 template <typename T>
