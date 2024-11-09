@@ -178,8 +178,8 @@ void PluginDatabase::QueryParamsLua(std::string query, std::map<luabridge::LuaRe
 
     for (auto it = params.begin(); it != params.end(); ++it)
     {
-        std::string key = it->first.tostring();
-        std::string value = EscapeString(it->second.tostring());
+        std::string key = it->first.isString() ? it->first.cast<char const*>() : it->first.tostring();
+        std::string value = EscapeString(it->second.isString() ? it->second.cast<char const*>() : it->second.tostring());
 
         if (has_ats)
             query = replace(query, "@" + key, value);

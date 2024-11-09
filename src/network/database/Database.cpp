@@ -32,7 +32,7 @@ bool Database::Connect()
     mysql_options(this->connection, MYSQL_OPT_READ_TIMEOUT, &timeout);
     mysql_options(this->connection, MYSQL_OPT_WRITE_TIMEOUT, &timeout);
 
-    mysql_set_character_set(this->connection, "utf8");
+    mysql_set_character_set(this->connection, "utf8mb4");
 
     if (mysql_real_connect(this->connection, this->m_hostname.c_str(), this->m_username.c_str(), this->m_password.c_str(), this->m_database.c_str(), this->m_port, nullptr, 0) == nullptr)
     {
@@ -40,6 +40,7 @@ bool Database::Connect()
         return false;
     }
 
+    mysql_set_character_set(this->connection, "utf8mb4");
     this->connected = true;
 
     return true;
@@ -79,6 +80,7 @@ std::vector<std::map<std::string, std::any>> Database::Query(const char* query)
         return {};
     }
 
+    mysql_set_character_set(this->connection, "utf8mb4");
     if (mysql_real_query(this->connection, query, strlen(query)))
     {
         this->error = mysql_error(this->connection);
@@ -111,7 +113,7 @@ std::vector<std::map<std::string, std::any>> Database::Query(const char* query)
 
         while ((row = mysql_fetch_row(result))) {
             std::map<std::string, std::any> value;
-            unsigned long *lengths = mysql_fetch_lengths(result);
+            unsigned long* lengths = mysql_fetch_lengths(result);
 
             for (int i = 0; i < num_fields; i++) {
                 value.insert({ fields[i].name, row[i] ? ParseFieldType(fields[i].type, row[i], lengths[i]) : "NULL" });
