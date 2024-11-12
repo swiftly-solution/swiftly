@@ -32,8 +32,6 @@ bool Database::Connect()
     mysql_options(this->connection, MYSQL_OPT_READ_TIMEOUT, &timeout);
     mysql_options(this->connection, MYSQL_OPT_WRITE_TIMEOUT, &timeout);
 
-    mysql_set_character_set(this->connection, "utf8mb4");
-
     if (mysql_real_connect(this->connection, this->m_hostname.c_str(), this->m_username.c_str(), this->m_password.c_str(), this->m_database.c_str(), this->m_port, nullptr, 0) == nullptr)
     {
         this->Close(true);
@@ -80,7 +78,6 @@ std::vector<std::map<std::string, std::any>> Database::Query(const char* query)
         return {};
     }
 
-    mysql_set_character_set(this->connection, "utf8mb4");
     if (mysql_real_query(this->connection, query, strlen(query)))
     {
         this->error = mysql_error(this->connection);
