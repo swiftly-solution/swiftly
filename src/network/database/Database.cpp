@@ -12,6 +12,9 @@ std::string Database::QueryEscape(const char* query)
 
 bool Database::Connect()
 {
+    if(this->connected) 
+        return true;
+
     if (mysql_library_init(0, nullptr, nullptr) != 0)
     {
         this->error = "Couldn't initialize MySQL Client Library.";
@@ -40,6 +43,8 @@ bool Database::Connect()
 
     mysql_set_character_set(this->connection, "utf8mb4");
     this->connected = true;
+
+    this->Query(string_format("ALTER DATABASE %s CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;", this->m_database.c_str()).c_str());
 
     return true;
 }
@@ -78,6 +83,7 @@ std::vector<std::map<std::string, std::any>> Database::Query(const char* query)
         return {};
     }
 
+    mysql_set_character_set(this->connection, "utf8mb4");
     if (mysql_real_query(this->connection, query, strlen(query)))
     {
         this->error = mysql_error(this->connection);
