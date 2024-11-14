@@ -498,6 +498,7 @@ public:
 //////////////////////////////////////////////////////////////
 /////////////////           Database           //////////////
 ////////////////////////////////////////////////////////////
+class PluginDatabaseQueryBuilder;
 
 class PluginDatabase
 {
@@ -514,6 +515,40 @@ public:
 
     void QueryLua(std::string query, luabridge::LuaRef callback, lua_State* L);
     void QueryParamsLua(std::string query, std::map<luabridge::LuaRef, luabridge::LuaRef> params, luabridge::LuaRef callback, lua_State* L);
+
+    PluginDatabaseQueryBuilder QueryBuilderLua();
+};
+
+class PluginDatabaseQueryBuilder
+{
+private:
+    std::string tableName;
+    std::string query;
+    std::vector<std::string> whereClauses;
+    std::vector<std::string> selectColumns;
+    std::vector<std::string> orderByClauses;
+    int limitCount = -1;
+    std::vector<luabridge::LuaRef> values;
+    std::vector<std::pair<std::string, luabridge::LuaRef>> updatePairs;
+    PluginDatabase* db;
+
+    std::string FormatValue(const luabridge::LuaRef& luaValue, lua_State* L);
+
+    template<typename T>
+    std::string join(const std::vector<T>& vec, const std::string& delimiter);
+public:
+    PluginDatabaseQueryBuilder(PluginDatabase* db);
+    PluginDatabaseQueryBuilder& Table(const std::string& tableName);
+    PluginDatabaseQueryBuilder& Select(const std::vector<std::string>& columns);
+    PluginDatabaseQueryBuilder& Insert(const std::map<std::string, luabridge::LuaRef>& data);
+    PluginDatabaseQueryBuilder& Update(const std::map<std::string, luabridge::LuaRef>& data);
+    PluginDatabaseQueryBuilder& Remove();
+    PluginDatabaseQueryBuilder& Where(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value);
+    PluginDatabaseQueryBuilder& OrderBy(const std::string& column, const std::string& direction = "ASC");
+    PluginDatabaseQueryBuilder& Limit(int count);
+    
+    void Execute(luabridge::LuaRef callback, lua_State* L);
+    std::string ToString();
 };
 
 //////////////////////////////////////////////////////////////
