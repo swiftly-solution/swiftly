@@ -241,6 +241,13 @@
         "CaptureAllBones": 0,
         "CaptureSelectedBones": 1
     },
+    "EIKEndEffectorRotationFixUpMode": {
+        "None": 0,
+        "MatchTargetOrientation": 1,
+        "LookAtTargetForward": 2,
+        "MaintainParentOrientation": 3,
+        "Count": 4
+    },
     "FacingMode": {
         "FacingMode_Invalid": 0,
         "FacingMode_Manual": 1,
