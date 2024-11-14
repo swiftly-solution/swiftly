@@ -204,26 +204,26 @@ PluginDatabaseQueryBuilder::PluginDatabaseQueryBuilder(PluginDatabase* db)
     this->db = db;
 }
 
-PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::Table(const std::string& tableName)
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Table(const std::string& tableName)
 {
     this->tableName = tableName;
     this->query = "SELECT * FROM " + tableName;
     this->whereClauses.clear();
     this->orderByClauses.clear();
     this->limitCount = -1;
-    return *this;
+    return this;
 }
 
-PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::Select(const std::vector<std::string>& columns) {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Select(const std::vector<std::string>& columns) {
     if (columns.empty()) {
         throw std::invalid_argument("Select requires at least one column.");
     }
 
     this->query = "SELECT " + join(columns, ", ") + " FROM " + this->tableName;
-    return *this;
+    return this;
 }
 
-PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::Insert(const std::map<std::string, luabridge::LuaRef>& data) {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Insert(const std::map<std::string, luabridge::LuaRef>& data) {
     this->query = "INSERT INTO " + this->tableName;
     
     std::vector<std::string> columns;
@@ -235,10 +235,10 @@ PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::Insert(const std::map<st
     }
 
     this->query += " (" + join(columns, ", ") + ") VALUES (" + join(valueStrings, ", ") + ")";
-    return *this;
+    return this;
 }
 
-PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::Update(const std::map<std::string, luabridge::LuaRef>& data) {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Update(const std::map<std::string, luabridge::LuaRef>& data) {
     this->query = "UPDATE " + this->tableName + " SET ";
     
     this->updatePairs.clear();
@@ -252,48 +252,79 @@ PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::Update(const std::map<st
     }
 
     this->query += join(updateStrings, ", ");
-    return *this;
+    return this;
 }
 
-PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::Remove() {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Delete() {
     this->query = "DELETE FROM " + this->tableName;
-    return *this;
+    return this;
 }
 
-PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::Where(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value) {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Where(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value) {
     this->whereClauses.push_back(column + " " + operator_ + " " + FormatValue(value, nullptr));
-    return *this;
+    return this;
 }
 
-PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::OrderBy(const std::string& column, const std::string& direction) {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OrWhere(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value) {
+    orWhereClauses.push_back(column + " " + operator_ + " " + FormatValue(value, nullptr));
+    return this;
+}
+
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Join(const std::string& table, const std::string& onCondition, const std::string& joinType) {
+    this->joinClauses.push_back(joinType + " JOIN " + table + " ON " + onCondition);
+    return this;
+}
+
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OrderBy(const std::string& column, const std::string& direction) {
     this->orderByClauses.push_back("ORDER BY " + column + " " + direction);
-    return *this;
+    return this;
 }
 
-PluginDatabaseQueryBuilder& PluginDatabaseQueryBuilder::Limit(int count) {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Limit(int count) {
     this->limitCount = count;
-    return *this;
+    return this;
+}
+
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::GroupBy(const std::vector<std::string>& columns) {
+    this->groupByClauses = columns;
+    return this;
 }
 
 void PluginDatabaseQueryBuilder::Execute(luabridge::LuaRef callback, lua_State* L) {
     std::string finalQuery = this->ToString();
-    this->db->QueryLua(finalQuery, callback, L);
+    return this->db->QueryLua(finalQuery, callback, L);
 }
 
-std::string PluginDatabaseQueryBuilder::ToString()
-{
-
+std::string PluginDatabaseQueryBuilder::ToString() {
     std::string finalQuery = this->query;
 
-    if (!whereClauses.empty()) {
-        finalQuery += " WHERE " + join(whereClauses, " AND ");
+    if (!this->joinClauses.empty()) {
+        finalQuery += " " + join(this->joinClauses, " ");
     }
 
-    if (!orderByClauses.empty()) {
+    if (!this->whereClauses.empty() || !this->orWhereClauses.empty()) {
+        std::string combinedWhereClause;
+        if (!this->whereClauses.empty()) {
+            combinedWhereClause += join(whereClauses, " AND ");
+        }
+        if (!this->orWhereClauses.empty()) {
+            if (!combinedWhereClause.empty()) {
+                combinedWhereClause += " OR ";
+            }
+            combinedWhereClause += join(orWhereClauses, " OR ");
+        }
+        finalQuery += " WHERE " + combinedWhereClause;
+    }
+
+    if (!this->groupByClauses.empty()) {
+        finalQuery += " GROUP BY " + join(groupByClauses, ", ");
+    }
+
+    if (!this->orderByClauses.empty()) {
         finalQuery += " " + join(orderByClauses, " ");
     }
 
-    if (limitCount >= 0) {
+    if (this->limitCount >= 0) {
         finalQuery += " LIMIT " + std::to_string(limitCount);
     }
 
