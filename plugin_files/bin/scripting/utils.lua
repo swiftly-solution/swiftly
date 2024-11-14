@@ -192,3 +192,65 @@ table.contains = function(tbl, value)
     end
     return false
 end
+
+local weaponlist = {
+    ["weapon_ak47"] = true,
+    ["weapon_aug"] = true,
+    ["weapon_awp"] = true,
+    ["weapon_bizon"] = true,
+    ["weapon_c4"] = true,
+    ["weapon_cz75a"] = true,
+    ["weapon_deagle"] = true,
+    ["weapon_decoy"] = true,
+    ["weapon_elite"] = true,
+    ["weapon_famas"] = true,
+    ["weapon_fiveseven"] = true,
+    ["weapon_flashbang"] = true,
+    ["weapon_g3sg1"] = true,
+    ["weapon_galilar"] = true,
+    ["weapon_glock"] = true,
+    ["weapon_healthshot"] = true,
+    ["weapon_hegrenade"] = true,
+    ["weapon_incgrenade"] = true,
+    ["weapon_knife"] = true,
+    ["weapon_m249"] = true,
+    ["weapon_m4a1"] = true,
+    ["weapon_mac10"] = true,
+    ["weapon_mag7"] = true,
+    ["weapon_molotov"] = true,
+    ["weapon_mp5sd"] = true,
+    ["weapon_mp7"] = true,
+    ["weapon_mp9"] = true,
+    ["weapon_negev"] = true,
+    ["weapon_nova"] = true,
+    ["weapon_p2000"] = true,
+    ["weapon_p250"] = true,
+    ["weapon_p90"] = true,
+    ["weapon_sawedoff"] = true,
+    ["weapon_scar20"] = true,
+    ["weapon_sg556"] = true,
+    ["weapon_smokegrenade"] = true,
+    ["weapon_ssg08"] = true,
+    ["weapon_tec9"] = true,
+    ["weapon_ump45"] = true,
+    ["weapon_usp_silencer"] = true,
+    ["weapon_xm1014"] = true
+}
+
+-- In the future, we may need to add more items here.
+-- For now, I've only added the ones that are working.
+local itemlist = {
+    ["item_assaultsuit"] = true,  -- Kevlar + Helmet
+    ["item_defuser"] = true,      -- Defuse Kit
+    ["item_kevlar"] = true        -- Kevlar
+}
+
+-- Function to check if the weapon is valid
+function IsValidWeapon(weapon)
+    return weaponlist[weapon] ~= nil
+end
+
+-- Function to check if the item is valid
+function IsValidItem(item)
+    return itemlist[item] ~= nil
+end
