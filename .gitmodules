@@ -28,3 +28,6 @@
 	path = vendor/asmjit
 	url = https://github.com/asmjit/asmjit
 	branch = 51b10b19b6631434d3f9ad536a6fb140944a36d2
+[submodule "vendor/lua"]
+	path = vendor/lua
+	url = https://github.com/swiftly-solution/lua
