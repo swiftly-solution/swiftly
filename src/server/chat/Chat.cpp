@@ -167,8 +167,7 @@ void ChatProcessor::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClie
         if(it != this->placeholders.end()) {
             um.SetString("messagename", formatPlayerMessage(player,controller,it->second.c_str(), um.GetString("param2")).c_str());
         }
-    } else if(pEvent->GetNetMessageInfo()->m_MessageId == 322)
-    {
+    } else if(pEvent->GetNetMessageInfo()->m_MessageId == 322) {
         PluginUserMessage um(pEvent, (CNetMessage*)pData, (uint64*)clients);
         Player* player = g_playerManager->GetPlayer(um.GetInt32("client"));
         if(!player) return;
