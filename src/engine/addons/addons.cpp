@@ -488,3 +488,21 @@ void Addons::SetupThread()
             } })
         .detach();
 }
+
+void Addons::ToggleHooks()
+{
+    THostStateRequest.Disable();
+    TSendNetMessage.Disable();
+
+    if(this->m_status) {
+        if (!g_Signatures->Exists("HostStateRequest"))
+        {
+            SetStatus(false);
+            PLUGIN_PRINT("Addons", "The signature for \"HostStateRequest\" has not been found. The \"Addons\" system has been forcefully disabled.\n");
+            return;
+        }
+
+        THostStateRequest.Enable();
+        TSendNetMessage.Enable();
+    }
+}

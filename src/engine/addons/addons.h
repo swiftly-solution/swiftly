@@ -53,8 +53,8 @@ public:
     }
 
     void LoadAddons();
-    void ToggleStatus() { this->m_status = !this->m_status; }
-    void SetStatus(bool status) { this->m_status = status; }
+    void ToggleStatus() { this->m_status = !this->m_status; ToggleHooks(); }
+    void SetStatus(bool status) { this->m_status = status; ToggleHooks(); }
     bool GetStatus() { return this->m_status; }
     void SetTimeout(uint32_t timeout) { this->timeout = timeout; }
     uint32_t GetTimeout() { return this->timeout; }
@@ -77,6 +77,8 @@ public:
     bool OnClientConnect(uint64 xuid);
 
     void ReloadMap();
+
+    void ToggleHooks();
 };
 
 extern Addons g_addons;

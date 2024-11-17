@@ -232,6 +232,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
         PRINTRET("Hooks failed to initialize.\n", false)
     else
         PRINT("Hooks initialized succesfully.\n");
+
     g_chatProcessor->LoadMessages();
     g_conFilter->LoadFilters();
     g_translations->LoadTranslations();
@@ -269,13 +270,15 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
     g_httpManager->ProcessPendingHTTPRequests();
     m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
 
-    std::thread([&]() -> void
-        {
-            std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+    if(g_addons.GetStatus()) {
+        std::thread([&]() -> void
+            {
+                std::this_thread::sleep_for(std::chrono::milliseconds(3000));
 
-            if (g_addons.GetStatus())
-                g_addons.RefreshAddons(true); })
-        .detach();
+                if (g_addons.GetStatus())
+                    g_addons.RefreshAddons(true); })
+            .detach();
+    }
 
     RETURN_META(MRES_IGNORED);
 }
