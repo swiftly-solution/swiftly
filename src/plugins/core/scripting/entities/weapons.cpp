@@ -78,7 +78,7 @@ void PluginWeaponManager::RemoveByClassname(std::string classname)
     auto weapons = GetWeapons();
 
     for(auto weapon : weapons)
-        if(((CBasePlayerWeapon*)weapon.GetCBasePlayerWeapon()->GetPtr())->GetClassname() == classname)
+        if(((CBasePlayerWeapon*)weapon.GetCBasePlayerWeapon().GetPtr())->GetClassname() == classname)
             weapon.Remove();
 }
 
@@ -87,7 +87,7 @@ void PluginWeaponManager::RemoveBySlot(int slot)
     auto weapons = GetWeapons();
 
     for(auto weapon : weapons)
-        if(((CCSWeaponBaseVData*)weapon.GetCCSWeaponBaseVData()->GetPtr())->m_GearSlot == (cgear_slot_t)slot)
+        if(((CCSWeaponBaseVData*)weapon.GetCCSWeaponBaseVData().GetPtr())->m_GearSlot == (cgear_slot_t)slot)
             weapon.Remove();
 }
 
@@ -96,7 +96,7 @@ PluginWeapon PluginWeaponManager::GetFirstInSlot(int slot)
     auto weapons = GetWeapons();
 
     for(auto weapon : weapons)
-        if(((CCSWeaponBaseVData*)weapon.GetCCSWeaponBaseVData()->GetPtr())->m_GearSlot == (cgear_slot_t)slot)
+        if(((CCSWeaponBaseVData*)weapon.GetCCSWeaponBaseVData().GetPtr())->m_GearSlot == (cgear_slot_t)slot)
             return weapon;
 
     return PluginWeapon(m_playerId, nullptr);
@@ -108,7 +108,7 @@ std::vector<PluginWeapon> PluginWeaponManager::GetInSlot(int slot)
     std::vector<PluginWeapon> vec;
 
     for(auto weapon : weapons)
-        if(((CCSWeaponBaseVData*)weapon.GetCCSWeaponBaseVData()->GetPtr())->m_GearSlot == (cgear_slot_t)slot)
+        if(((CCSWeaponBaseVData*)weapon.GetCCSWeaponBaseVData().GetPtr())->m_GearSlot == (cgear_slot_t)slot)
             vec.push_back(weapon);
 
     return vec;
@@ -119,7 +119,7 @@ void PluginWeaponManager::RemoveByItemDefinition(int idx)
     auto weapons = GetWeapons();
 
     for(auto weapon : weapons)
-        if(((CBasePlayerWeapon*)weapon.GetCBasePlayerWeapon()->GetPtr())->m_AttributeManager().m_Item().m_iItemDefinitionIndex == idx)
+        if(((CBasePlayerWeapon*)weapon.GetCBasePlayerWeapon().GetPtr())->m_AttributeManager().m_Item().m_iItemDefinitionIndex == idx)
             weapon.Remove();
 }
 
@@ -127,56 +127,36 @@ PluginWeapon::PluginWeapon(int playerId, CBasePlayerWeapon* ptr)
 {
     this->m_playerId = playerId;
     this->m_ptr = ptr;
-
-    pCBasePlayerWeapon = new SDKBaseClass(this->m_ptr, "CBasePlayerWeapon");
-    pCCSWeaponBase = new SDKBaseClass(this->m_ptr, "CCSWeaponBase");
-    pCBasePlayerWeaponVData = new SDKBaseClass(this->m_ptr, "CBasePlayerWeaponVData");
-    pCCSWeaponBaseVData = new SDKBaseClass(this->m_ptr, "CCSWeaponBaseVData");
 }
 
 PluginWeapon::PluginWeapon(int playerId, std::string ptr)
 {
     this->m_playerId = playerId;
     this->m_ptr = (CBasePlayerWeapon*)strtol(ptr.c_str(), nullptr, 16);
-
-    pCBasePlayerWeapon = new SDKBaseClass(this->m_ptr, "CBasePlayerWeapon");
-    pCCSWeaponBase = new SDKBaseClass(this->m_ptr, "CCSWeaponBase");
-    pCBasePlayerWeaponVData = new SDKBaseClass(nullptr, "CBasePlayerWeaponVData");
-    pCCSWeaponBaseVData = new SDKBaseClass(nullptr, "CCSWeaponBaseVData");
 }
 
-PluginWeapon::~PluginWeapon()
+SDKBaseClass PluginWeapon::GetCBasePlayerWeapon()
 {
-    delete pCBasePlayerWeapon;
-    delete pCCSWeaponBase;
-    delete pCBasePlayerWeaponVData;
-    delete pCCSWeaponBaseVData;
+    return SDKBaseClass(this->m_ptr, "CBasePlayerWeapon");
 }
 
-SDKBaseClass *PluginWeapon::GetCBasePlayerWeapon()
+SDKBaseClass PluginWeapon::GetCCSWeaponBase()
 {
-    return pCBasePlayerWeapon;
+    return SDKBaseClass(this->m_ptr, "CCSWeaponBase");
 }
-
-SDKBaseClass *PluginWeapon::GetCCSWeaponBase()
+SDKBaseClass PluginWeapon::GetCBasePlayerWeaponVData()
 {
-    return pCCSWeaponBase;
+    if (!this->m_ptr)
+        return SDKBaseClass(nullptr, "CBasePlayerWeaponVData");
+
+    return SDKBaseClass((void*)(this->m_ptr->GetWeaponVData()), "CBasePlayerWeaponVData");
 }
-
-SDKBaseClass *PluginWeapon::GetCBasePlayerWeaponVData()
+SDKBaseClass PluginWeapon::GetCCSWeaponBaseVData()
 {
-    if (!this->m_ptr) return pCBasePlayerWeaponVData;
-    else if((void*)(this->m_ptr->GetWeaponVData()) != pCBasePlayerWeaponVData->GetPtr()) pCBasePlayerWeaponVData->SetPtr(this->m_ptr->GetWeaponVData());
-    
-    return pCBasePlayerWeaponVData;
-}
+    if (!this->m_ptr)
+        return SDKBaseClass(nullptr, "CCSWeaponBaseVData");
 
-SDKBaseClass *PluginWeapon::GetCCSWeaponBaseVData()
-{
-    if (!this->m_ptr) return pCCSWeaponBaseVData;
-    else if((void*)(this->m_ptr->GetWeaponVData()) != pCCSWeaponBaseVData->GetPtr()) pCCSWeaponBaseVData->SetPtr(this->m_ptr->GetWeaponVData());
-    
-    return pCCSWeaponBaseVData;
+    return SDKBaseClass((void*)(this->m_ptr->GetWeaponVData()), "CCSWeaponBaseVData");
 }
 
 void PluginWeapon::Drop()
@@ -222,10 +202,25 @@ void PluginWeapon::Remove()
     weaponServices->RemoveWeapon(this->m_ptr);
 }
 
-std::vector<uint16_t> paintkitsFallbackCheck = { 106, 112, 113, 114, 115, 117, 118, 120, 121, 123, 126, 127, 128, 129, 130, 131, 133, 134, 137, 138, 139, 140, 142, 144, 145, 146, 152, 160, 161, 163, 173, 239, 292, 324, 331, 412, 461, 513, 766, 768, 770, 773, 774, 830, 831, 832, 834, 874, 875, 877, 878, 882, 883, 901, 912, 936, 937, 938, 939, 940, 1054, 1062, 1159, 1160, 1161, 1162, 1163, 1164, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1177, 1178, 1179, 1180 };
+std::set<uint16_t> paintkitsFallbackCheck;
 
 void PluginWeapon::SetDefaultAttributes()
 {
+    if(paintkitsFallbackCheck.size() == 0) {
+        KeyValues kv("scripts/items/items_game.txt");
+        kv.LoadFromFile(g_pFullFileSystem, "scripts/items/items_game.txt", "GAME");
+
+        for (KeyValues *sub = kv.GetFirstSubKey(); sub != nullptr; sub = sub->GetNextKey()) {
+            if(!strcmp(sub->GetName(), "paint_kits")) {
+                for (KeyValues *sub2 = sub->GetFirstSubKey(); sub2 != nullptr; sub2 = sub2->GetNextKey()) {
+                    if(strcmp(sub2->GetString("composite_material_path", ""), "") != 0 && !sub2->GetBool("use_legacy_model", false)) {
+                        paintkitsFallbackCheck.insert(V_StringToUint16(sub2->GetName(), 0));
+                    }
+                }
+            }
+        }
+    }
+
     if (!this->m_ptr)
         return;
 
@@ -245,7 +240,7 @@ void PluginWeapon::SetDefaultAttributes()
     }
 
     int paintkit = this->m_ptr->m_nFallbackPaintKit();
-    bool legacy = (std::find(paintkitsFallbackCheck.begin(), paintkitsFallbackCheck.end(), paintkit) == paintkitsFallbackCheck.end());
+    bool legacy = (paintkitsFallbackCheck.find(paintkit) == paintkitsFallbackCheck.end());
 
     if (this->m_ptr->m_CBodyComponent() && this->m_ptr->m_CBodyComponent()->m_pSceneNode())
     {

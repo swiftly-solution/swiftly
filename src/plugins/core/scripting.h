@@ -726,21 +726,14 @@ private:
     int m_playerId;
     CBasePlayerWeapon* m_ptr;
 
-    SDKBaseClass* pCBasePlayerWeapon = nullptr;
-    SDKBaseClass* pCCSWeaponBase = nullptr;
-    SDKBaseClass* pCBasePlayerWeaponVData = nullptr;
-    SDKBaseClass* pCCSWeaponBaseVData = nullptr;
-
 public:
     PluginWeapon(int playerId, CBasePlayerWeapon* ptr);
     PluginWeapon(int playerId, std::string ptr);
 
-    ~PluginWeapon();
-
-    SDKBaseClass *GetCBasePlayerWeapon();
-    SDKBaseClass *GetCCSWeaponBase();
-    SDKBaseClass *GetCBasePlayerWeaponVData();
-    SDKBaseClass *GetCCSWeaponBaseVData();
+    SDKBaseClass GetCBasePlayerWeapon();
+    SDKBaseClass GetCCSWeaponBase();
+    SDKBaseClass GetCBasePlayerWeaponVData();
+    SDKBaseClass GetCCSWeaponBaseVData();
 
     void Drop();
     void Remove();
