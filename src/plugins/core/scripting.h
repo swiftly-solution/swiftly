@@ -874,9 +874,11 @@ class PluginMemory
 private:
     void* m_ptr;
     bool accessedVTable = false;
+    bool allocatedMem = false;
 
 public:
     PluginMemory();
+    ~PluginMemory();
 
     void LoadFromPtr(void* ptr);
     void LoadFromAddress(std::string addr);

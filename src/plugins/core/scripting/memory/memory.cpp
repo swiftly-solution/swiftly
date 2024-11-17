@@ -9,6 +9,14 @@ PluginMemory::PluginMemory()
     m_ptr = nullptr;
 }
 
+PluginMemory::~PluginMemory()
+{
+    if(allocatedMem == true) {
+        free(m_ptr);
+        allocatedMem = false;
+    }
+}
+
 void PluginMemory::LoadFromPtr(void* ptr)
 {
     m_ptr = ptr;
@@ -217,11 +225,13 @@ QAngle PluginMemory::GetQAngle()
 void PluginMemory::Allocate(uint64_t size)
 {
     m_ptr = malloc(size);
+    allocatedMem = true;
 }
 
 void PluginMemory::Deallocate()
 {
     free(m_ptr);
+    allocatedMem = false;
 }
 
 std::string PluginMemory::GetPtr()
