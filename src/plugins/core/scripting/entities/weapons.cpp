@@ -73,40 +73,110 @@ std::vector<PluginWeapon> PluginWeaponManager::GetWeapons()
     return vec;
 }
 
+void PluginWeaponManager::RemoveByClassname(std::string classname)
+{
+    auto weapons = GetWeapons();
+
+    for(auto weapon : weapons)
+        if(((CBasePlayerWeapon*)weapon.GetCBasePlayerWeapon()->GetPtr())->GetClassname() == classname)
+            weapon.Remove();
+}
+
+void PluginWeaponManager::RemoveBySlot(int slot)
+{
+    auto weapons = GetWeapons();
+
+    for(auto weapon : weapons)
+        if(((CCSWeaponBaseVData*)weapon.GetCCSWeaponBaseVData()->GetPtr())->m_GearSlot == (cgear_slot_t)slot)
+            weapon.Remove();
+}
+
+PluginWeapon PluginWeaponManager::GetFirstInSlot(int slot)
+{
+    auto weapons = GetWeapons();
+
+    for(auto weapon : weapons)
+        if(((CCSWeaponBaseVData*)weapon.GetCCSWeaponBaseVData()->GetPtr())->m_GearSlot == (cgear_slot_t)slot)
+            return weapon;
+
+    return PluginWeapon(m_playerId, nullptr);
+}
+
+std::vector<PluginWeapon> PluginWeaponManager::GetInSlot(int slot)
+{
+    auto weapons = GetWeapons();
+    std::vector<PluginWeapon> vec;
+
+    for(auto weapon : weapons)
+        if(((CCSWeaponBaseVData*)weapon.GetCCSWeaponBaseVData()->GetPtr())->m_GearSlot == (cgear_slot_t)slot)
+            vec.push_back(weapon);
+
+    return vec;
+}
+
+void PluginWeaponManager::RemoveByItemDefinition(int idx)
+{
+    auto weapons = GetWeapons();
+
+    for(auto weapon : weapons)
+        if(((CBasePlayerWeapon*)weapon.GetCBasePlayerWeapon()->GetPtr())->m_AttributeManager().m_Item().m_iItemDefinitionIndex == idx)
+            weapon.Remove();
+}
+
 PluginWeapon::PluginWeapon(int playerId, CBasePlayerWeapon* ptr)
 {
     this->m_playerId = playerId;
     this->m_ptr = ptr;
+
+    pCBasePlayerWeapon = new SDKBaseClass(this->m_ptr, "CBasePlayerWeapon");
+    pCCSWeaponBase = new SDKBaseClass(this->m_ptr, "CCSWeaponBase");
+    pCBasePlayerWeaponVData = new SDKBaseClass(this->m_ptr, "CBasePlayerWeaponVData");
+    pCCSWeaponBaseVData = new SDKBaseClass(this->m_ptr, "CCSWeaponBaseVData");
 }
 
 PluginWeapon::PluginWeapon(int playerId, std::string ptr)
 {
     this->m_playerId = playerId;
     this->m_ptr = (CBasePlayerWeapon*)strtol(ptr.c_str(), nullptr, 16);
+
+    pCBasePlayerWeapon = new SDKBaseClass(this->m_ptr, "CBasePlayerWeapon");
+    pCCSWeaponBase = new SDKBaseClass(this->m_ptr, "CCSWeaponBase");
+    pCBasePlayerWeaponVData = new SDKBaseClass(nullptr, "CBasePlayerWeaponVData");
+    pCCSWeaponBaseVData = new SDKBaseClass(nullptr, "CCSWeaponBaseVData");
 }
 
-SDKBaseClass PluginWeapon::GetCBasePlayerWeapon()
+PluginWeapon::~PluginWeapon()
 {
-    return SDKBaseClass(this->m_ptr, "CBasePlayerWeapon");
+    delete pCBasePlayerWeapon;
+    delete pCCSWeaponBase;
+    delete pCBasePlayerWeaponVData;
+    delete pCCSWeaponBaseVData;
 }
 
-SDKBaseClass PluginWeapon::GetCCSWeaponBase()
+SDKBaseClass *PluginWeapon::GetCBasePlayerWeapon()
 {
-    return SDKBaseClass(this->m_ptr, "CCSWeaponBase");
+    return pCBasePlayerWeapon;
 }
-SDKBaseClass PluginWeapon::GetCBasePlayerWeaponVData()
-{
-    if (!this->m_ptr)
-        return SDKBaseClass(nullptr, "CBasePlayerWeaponVData");
 
-    return SDKBaseClass((void*)(this->m_ptr->GetWeaponVData()), "CBasePlayerWeaponVData");
+SDKBaseClass *PluginWeapon::GetCCSWeaponBase()
+{
+    return pCCSWeaponBase;
 }
-SDKBaseClass PluginWeapon::GetCCSWeaponBaseVData()
-{
-    if (!this->m_ptr)
-        return SDKBaseClass(nullptr, "CCSWeaponBaseVData");
 
-    return SDKBaseClass((void*)(this->m_ptr->GetWeaponVData()), "CCSWeaponBaseVData");
+SDKBaseClass *PluginWeapon::GetCBasePlayerWeaponVData()
+{
+    if (!this->m_ptr) return pCBasePlayerWeaponVData;
+    else if((void*)(this->m_ptr->GetWeaponVData()) != pCBasePlayerWeaponVData->GetPtr()) pCBasePlayerWeaponVData->SetPtr(this->m_ptr->GetWeaponVData());
+    
+    return pCBasePlayerWeaponVData;
+}
+
+SDKBaseClass *PluginWeapon::GetCCSWeaponBaseVData()
+{
+    if (!this->m_ptr) return pCCSWeaponBaseVData;
+    else if((void*)(this->m_ptr->GetWeaponVData()) != pCCSWeaponBaseVData->GetPtr()) pCCSWeaponBaseVData->SetPtr(this->m_ptr->GetWeaponVData());
+    
+    return pCCSWeaponBaseVData;
 }
 
 void PluginWeapon::Drop()

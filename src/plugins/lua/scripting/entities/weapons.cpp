@@ -10,6 +10,11 @@ LoadLuaScriptingComponent(
             .addFunction("RemoveWeapons", &PluginWeaponManager::RemoveWeapons)
             .addFunction("DropWeapons", &PluginWeaponManager::DropWeapons)
             .addFunction("GetWeapons", &PluginWeaponManager::GetWeapons)
+            .addFunction("RemoveByClassname", &PluginWeaponManager::RemoveByClassname)
+            .addFunction("RemoveBySlot", &PluginWeaponManager::RemoveBySlot)
+            .addFunction("GetFirstInSlot", &PluginWeaponManager::GetFirstInSlot)
+            .addFunction("GetInSlot", &PluginWeaponManager::GetInSlot)
+            .addFunction("RemoveByItemDefinition", &PluginWeaponManager::RemoveByItemDefinition)
             .endClass()
 
             .beginClass<PluginWeapon>("Weapon")
