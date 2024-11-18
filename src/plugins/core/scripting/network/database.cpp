@@ -199,64 +199,119 @@ PluginDatabaseQueryBuilder PluginDatabase::QueryBuilderLua()
     return PluginDatabaseQueryBuilder(this);
 }
 
+#define ENSURE_TABLE_SET() \
+    if (this->tableName.empty()) { \
+        throw std::runtime_error("Table name must be set before executing the query."); \
+    }
+
+
 PluginDatabaseQueryBuilder::PluginDatabaseQueryBuilder(PluginDatabase* db)
 {
     this->db = db;
 }
 
+void PluginDatabaseQueryBuilder::Clear()
+{
+    tableName.clear();
+    query.clear();
+    selectColumns.clear();
+    whereClauses.clear();
+    orWhereClauses.clear();
+    joinClauses.clear();
+    groupByClauses.clear();
+    orderByClauses.clear();
+    onDuplicateClauses.clear();
+    havingClauses.clear();
+    unionClauses.clear();
+    updatePairs.clear();
+
+    isDistinct = false;
+    limitCount = -1;
+    offsetCount = -1;
+}
+
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Table(const std::string& tableName)
 {
     this->tableName = tableName;
-    this->query = "SELECT * FROM " + tableName;
-    this->whereClauses.clear();
-    this->orderByClauses.clear();
-    this->limitCount = -1;
     return this;
 }
 
-PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Select(const std::vector<std::string>& columns) {
-    if (columns.empty()) {
-        throw std::invalid_argument("Select requires at least one column.");
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Create(const std::map<std::string, std::string>& columns)
+{
+    ENSURE_TABLE_SET();
+    this->query = "CREATE TABLE IF NOT EXISTS " + this->tableName + " (";
+    std::vector<std::string> columnDefinitions;
+    for (const auto& pair : columns)
+    {
+        columnDefinitions.push_back(pair.first + " " + pair.second);
     }
+    this->query += join(columnDefinitions, ", ") + ")";
+    return this;
+}
 
-    this->query = "SELECT " + join(columns, ", ") + " FROM " + this->tableName;
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Alter(const std::string& alterCommand)
+{
+    ENSURE_TABLE_SET()
+    this->query = "ALTER TABLE " + this->tableName + " " + alterCommand;
+    return this;
+}
+
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Drop()
+{
+    ENSURE_TABLE_SET();
+    this->query = "DROP TABLE IF EXISTS " + this->tableName;
+    return this;
+}
+
+
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Select(const std::vector<std::string>& columns) {
+    ENSURE_TABLE_SET();
+    if (columns.empty()) {
+        this->query = "SELECT * FROM " + this->tableName;
+    } else {
+        this->query = "SELECT " + join(columns, ", ") + " FROM " + this->tableName;
+    }
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Insert(const std::map<std::string, luabridge::LuaRef>& data) {
-    this->query = "INSERT INTO " + this->tableName;
-    
+    ENSURE_TABLE_SET();
+
+    if (data.empty()) {
+        throw std::invalid_argument("Insert requires at least one column-value pair.");
+    }
+
     std::vector<std::string> columns;
-    std::vector<std::string> valueStrings;
+    std::vector<std::string> values;
 
     for (const auto& pair : data) {
         columns.push_back(pair.first);
-        valueStrings.push_back(FormatValue(pair.second, nullptr));
+        values.push_back(FormatValue(pair.second, nullptr));
     }
 
-    this->query += " (" + join(columns, ", ") + ") VALUES (" + join(valueStrings, ", ") + ")";
+    this->query = "INSERT INTO " + tableName + " (" + join(columns, ", ") + ") VALUES (" + join(values, ", ") + ")";
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Update(const std::map<std::string, luabridge::LuaRef>& data) {
-    this->query = "UPDATE " + this->tableName + " SET ";
-    
-    this->updatePairs.clear();
+    ENSURE_TABLE_SET();
+
+    if (data.empty()) {
+        throw std::invalid_argument("Update requires at least one column-value pair.");
+    }
+    std::vector<std::string> updates;
     for (const auto& pair : data) {
-        this->updatePairs.push_back({pair.first, pair.second});
+        updates.push_back(pair.first + " = " + FormatValue(pair.second, nullptr));
     }
 
-    std::vector<std::string> updateStrings;
-    for (const auto& pair : this->updatePairs) {
-        updateStrings.push_back(pair.first + " = " + FormatValue(pair.second, nullptr));
-    }
-
-    this->query += join(updateStrings, ", ");
+    this->query = "UPDATE " + tableName + " SET " + join(updates, ", ");
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Delete() {
-    this->query = "DELETE FROM " + this->tableName;
+    ENSURE_TABLE_SET();
+
+    this->query = "DELETE FROM " + tableName;
     return this;
 }
 
@@ -266,7 +321,7 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Where(const std::string&
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OrWhere(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value) {
-    orWhereClauses.push_back(column + " " + operator_ + " " + FormatValue(value, nullptr));
+    this->orWhereClauses.push_back(column + " " + operator_ + " " + FormatValue(value, nullptr));
     return this;
 }
 
@@ -275,8 +330,14 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Join(const std::string& 
     return this;
 }
 
-PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OrderBy(const std::string& column, const std::string& direction) {
-    this->orderByClauses.push_back("ORDER BY " + column + " " + direction);
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OrderBy(const std::vector<std::pair<std::string, std::string>>& columns) {
+    if (columns.empty())
+    {
+        throw std::invalid_argument("OrderBy requires at least one column-value pair.");
+    }
+    for (const auto& column : columns) {
+        this->orderByClauses.push_back(column.first + " " + column.second);
+    }
     return this;
 }
 
@@ -290,45 +351,132 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::GroupBy(const std::vecto
     return this;
 }
 
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OnDuplicate(const std::map<std::string, luabridge::LuaRef>& data) {
+    if (data.empty()) {
+        throw std::invalid_argument("OnDuplicate requires at least one column-value pair.");
+    }
+
+    for (const auto& pair : data) {
+        this->onDuplicateClauses.push_back(pair.first + " = " + FormatValue(pair.second, nullptr));
+    }
+    return this;
+}
+
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Having(const std::string& condition) {
+    if (condition.empty()) {
+        throw std::invalid_argument("Having condition cannot be empty.");
+    }
+    this->havingClauses.push_back(condition);
+    return this;
+}
+
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Distinct() {
+    ENSURE_TABLE_SET();
+    this->isDistinct = true;
+    return this;
+}
+
+
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Offset(int count) {
+    if (count < 0) {
+        throw std::invalid_argument("Offset cannot be negative.");
+    }
+    this->offsetCount = count;
+    return this;
+}
+
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Union(const std::string& query, bool all) {
+    if (query.empty()) {
+        throw std::invalid_argument("Union query cannot be empty.");
+    }
+    std::string unionType = all ? "UNION ALL" : "UNION";
+    this->unionClauses.push_back(unionType + " " + query);
+    return this;
+}
+
 void PluginDatabaseQueryBuilder::Execute(luabridge::LuaRef callback, lua_State* L) {
     std::string finalQuery = this->ToString();
-    return this->db->QueryLua(finalQuery, callback, L);
+    this->db->QueryLua(finalQuery, callback, L);
+    this->Clear();
 }
 
 std::string PluginDatabaseQueryBuilder::ToString() {
     std::string finalQuery = this->query;
 
+    // Add DISTINCT after SELECT if needed
+    if (this->query.rfind("SELECT", 0) == 0 && this->isDistinct) {
+        finalQuery.insert(6, " DISTINCT");
+    }
+
+    // Join clauses
     if (!this->joinClauses.empty()) {
         finalQuery += " " + join(this->joinClauses, " ");
     }
 
+    // Add WHERE clause, handle AND/OR combination
     if (!this->whereClauses.empty() || !this->orWhereClauses.empty()) {
         std::string combinedWhereClause;
+        
+        // Handle WHERE
         if (!this->whereClauses.empty()) {
             combinedWhereClause += join(whereClauses, " AND ");
         }
+        
+        // Handle OR WHERE
         if (!this->orWhereClauses.empty()) {
             if (!combinedWhereClause.empty()) {
                 combinedWhereClause += " OR ";
             }
             combinedWhereClause += join(orWhereClauses, " OR ");
         }
+        
+        // Add to final query
         finalQuery += " WHERE " + combinedWhereClause;
     }
 
+    // Add GROUP BY clauses
     if (!this->groupByClauses.empty()) {
         finalQuery += " GROUP BY " + join(groupByClauses, ", ");
     }
 
-    if (!this->orderByClauses.empty()) {
-        finalQuery += " " + join(orderByClauses, " ");
+    // Add HAVING clauses
+    if (!this->havingClauses.empty()) {
+        finalQuery += " HAVING " + join(this->havingClauses, " AND ");
     }
 
+    // Add ORDER BY clauses
+    if (!this->orderByClauses.empty()) {
+        finalQuery += " ORDER BY " + join(this->orderByClauses, ", ");
+    }
+
+    // Add LIMIT if specified
     if (this->limitCount >= 0) {
         finalQuery += " LIMIT " + std::to_string(limitCount);
     }
 
-    return finalQuery.c_str();
+    // Add OFFSET if specified
+    if (this->offsetCount >= 0) {
+        finalQuery += " OFFSET " + std::to_string(offsetCount);
+    }
+
+    // Add ON DUPLICATE KEY UPDATE if specified
+    if (!this->onDuplicateClauses.empty()) {
+        finalQuery += " ON DUPLICATE KEY UPDATE " + join(this->onDuplicateClauses, ", ");
+    }
+
+    // Add UNION clauses if any
+    if (!this->unionClauses.empty()) {
+        finalQuery += " " + join(this->unionClauses, " ");
+    }
+
+    return finalQuery;
+}
+
+
+bool isInteger(luabridge::LuaRef r) {
+    if(!r.isNumber()) return false;
+    double d = r.cast<double>();
+    return ((double)(int64_t)d == d); 
 }
 
 std::string PluginDatabaseQueryBuilder::FormatValue(const luabridge::LuaRef& luaValue, lua_State* L) {
@@ -337,6 +485,9 @@ std::string PluginDatabaseQueryBuilder::FormatValue(const luabridge::LuaRef& lua
     }
     else if (luaValue.isBool()) {
         return luaValue.cast<bool>() ? "1" : "0";
+    }
+    else if (isInteger(luaValue)) { 
+        return std::to_string(luaValue.cast<int64_t>());
     }
     else if (luaValue.isNumber()) {
         return std::to_string(luaValue.cast<double>());
