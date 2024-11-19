@@ -524,26 +524,34 @@ class PluginDatabaseQueryBuilder
 private:
     std::string tableName;
     std::string query;
+    std::vector<std::string> selectColumns;
     std::vector<std::string> whereClauses;
     std::vector<std::string> orWhereClauses;
     std::vector<std::string> joinClauses;
-    std::vector<std::string> selectColumns;
-    std::vector<std::string> orderByClauses;
     std::vector<std::string> groupByClauses;
-    int limitCount = -1;
-    std::vector<luabridge::LuaRef> values;
+    std::vector<std::string> orderByClauses;
+    std::vector<std::string> onDuplicateClauses;
+    std::vector<std::string> havingClauses;
+    std::vector<std::string> unionClauses;
     std::vector<std::pair<std::string, luabridge::LuaRef>> updatePairs;
+
+    bool isDistinct = false;
+    int limitCount = -1;
+    int offsetCount = -1;
+    
     PluginDatabase* db;
 
     std::string FormatValue(const luabridge::LuaRef& luaValue, lua_State* L);
-    
-    template<typename T>
-    std::string join(const std::vector<T>& vec, const std::string& delimiter);
+    void Clear();
     
 public:
     PluginDatabaseQueryBuilder(PluginDatabase* db);
 
     PluginDatabaseQueryBuilder* Table(const std::string& tableName);
+    PluginDatabaseQueryBuilder* Create(const std::map<std::string, std::string>& columns);
+    PluginDatabaseQueryBuilder* Alter(const std::string& alterCommand);
+    PluginDatabaseQueryBuilder* Drop();
+
     PluginDatabaseQueryBuilder* Select(const std::vector<std::string>& columns);
     PluginDatabaseQueryBuilder* Insert(const std::map<std::string, luabridge::LuaRef>& data);
     PluginDatabaseQueryBuilder* Update(const std::map<std::string, luabridge::LuaRef>& data);
@@ -551,13 +559,22 @@ public:
 
     PluginDatabaseQueryBuilder* Where(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value);
     PluginDatabaseQueryBuilder* OrWhere(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value);
-    PluginDatabaseQueryBuilder* Join(const std::string& table, const std::string& condition, const std::string& joinType = "INNER");
-    PluginDatabaseQueryBuilder* OrderBy(const std::string& column, const std::string& direction = "ASC");
+    PluginDatabaseQueryBuilder* Join(const std::string& table, const std::string& onCondition, const std::string& joinType = "INNER");
+    PluginDatabaseQueryBuilder* OrderBy(const std::vector<std::pair<std::string, std::string>>& columns);
     PluginDatabaseQueryBuilder* Limit(int count);
     PluginDatabaseQueryBuilder* GroupBy(const std::vector<std::string>& columns);
+    PluginDatabaseQueryBuilder* OnDuplicate(const std::map<std::string, luabridge::LuaRef>& data);
+    PluginDatabaseQueryBuilder* Having(const std::string& condition);
+    PluginDatabaseQueryBuilder* Distinct();
+    PluginDatabaseQueryBuilder* Offset(int count);
+    PluginDatabaseQueryBuilder* Union(const std::string& query, bool all);
 
     void Execute(luabridge::LuaRef callback, lua_State* L);
     std::string ToString();
+
+private:
+    template<typename T>
+    std::string join(const std::vector<T>& vec, const std::string& delimiter);
 };
 
 //////////////////////////////////////////////////////////////
