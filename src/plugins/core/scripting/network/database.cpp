@@ -15,7 +15,7 @@ struct DatabaseQueryQueue
 {
     std::string query;
     std::string requestID;
-    Database* db;
+    IDatabase* db;
     Plugin* plugin;
 };
 
@@ -101,7 +101,7 @@ void DatabaseQueryThread()
 
             RegisterCallStack* callStack = new RegisterCallStack(queue.plugin->GetName(), string_format("database::Query(database=%p, query=\"%s\")", (void*)queue.db, queue.query.c_str()));
 
-            auto queryResult = queue.db->Query(queue.query.c_str());
+            auto queryResult = queue.db->Query(queue.query);
             std::string error = queue.db->GetError();
             if (error == "MySQL server has gone away") {
                 if (queue.db->Connect())
@@ -142,7 +142,7 @@ bool PluginDatabase::IsConnected()
 
 std::string PluginDatabase::EscapeString(std::string str)
 {
-    return this->db->QueryEscape(str.c_str());
+    return this->db->EscapeValue(str);
 }
 
 void PluginDatabase::QueryLua(std::string query, luabridge::LuaRef callback, lua_State* L)

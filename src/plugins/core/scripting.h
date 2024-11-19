@@ -504,7 +504,7 @@ class PluginDatabase
 {
 private:
     std::string connection_name;
-    Database* db;
+    IDatabase* db;
     bool dbConnected;
 
 public:

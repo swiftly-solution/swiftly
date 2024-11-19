@@ -4,44 +4,6 @@
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 
-#define HAS_MEMBER(DOCUMENT, MEMBER_NAME, MEMBER_PATH)                                  \
-    if (!DOCUMENT.HasMember(MEMBER_NAME))                                               \
-    {                                                                                   \
-        DatabasesError(string_format("The field \"%s\" doesn't exists.", MEMBER_PATH)); \
-        continue;                                                                       \
-    }
-
-#define IS_OBJECT(DOCUMENT, MEMBER_NAME, MEMBER_PATH)                                     \
-    if (!DOCUMENT[MEMBER_NAME].IsObject())                                                \
-    {                                                                                     \
-        DatabasesError(string_format("The field \"%s\" is not an object.", MEMBER_PATH)); \
-        continue;                                                                         \
-    }
-#define IS_ARRAY(DOCUMENT, MEMBER_NAME, MEMBER_PATH)                                     \
-    if (!DOCUMENT[MEMBER_NAME].IsArray())                                                \
-    {                                                                                    \
-        DatabasesError(string_format("The field \"%s\" is not an array.", MEMBER_PATH)); \
-        continue;                                                                        \
-    }
-#define IS_STRING(DOCUMENT, MEMBER_NAME, MEMBER_PATH)                                    \
-    if (!DOCUMENT[MEMBER_NAME].IsString())                                               \
-    {                                                                                    \
-        DatabasesError(string_format("The field \"%s\" is not a string.", MEMBER_PATH)); \
-        continue;                                                                        \
-    }
-#define IS_BOOL(DOCUMENT, MEMBER_NAME, MEMBER_PATH)                                       \
-    if (!DOCUMENT[MEMBER_NAME].IsBool())                                                  \
-    {                                                                                     \
-        DatabasesError(string_format("The field \"%s\" is not a boolean.", MEMBER_PATH)); \
-        continue;                                                                         \
-    }
-#define IS_NUMBER(DOCUMENT, MEMBER_NAME, MEMBER_PATH)                                    \
-    if (!DOCUMENT[MEMBER_NAME].IsNumber())                                               \
-    {                                                                                    \
-        DatabasesError(string_format("The field \"%s\" is not a number.", MEMBER_PATH)); \
-        continue;                                                                        \
-    }
-
 void DatabasesError(std::string error)
 {
     if (!g_SMAPI)
@@ -50,8 +12,11 @@ void DatabasesError(std::string error)
     PLUGIN_PRINTF("Databases", "Error: %s\n", error.c_str());
 }
 
+void WritePluginFile(std::string path, rapidjson::Value& val);
+
 void DatabaseManager::LoadDatabases()
 {
+    bool modified = false;
     rapidjson::Document databasesConfigFile;
     databasesConfigFile.Parse(Files::Read(this->databasesPath).c_str());
     if (databasesConfigFile.HasParseError())
@@ -68,27 +33,36 @@ void DatabaseManager::LoadDatabases()
             continue;
         }
 
+        if(!itr->value.HasMember("kind")) {
+            modified = true;
+            itr->value.AddMember(rapidjson::Value().SetString("kind", databasesConfigFile.GetAllocator()), rapidjson::Value().SetString("mysql", databasesConfigFile.GetAllocator()), databasesConfigFile.GetAllocator());
+        }
+
         const char *connectionName = itr->name.GetString();
+        std::map<std::string, std::string> connection_details;
+        
+        for(auto it = itr->value.MemberBegin(); it != itr->value.MemberEnd(); ++it)
+        {
+            if(it->value.IsNumber()) connection_details.insert({ it->name.GetString(), std::to_string(it->value.GetInt64()) });
+            else if (it->value.IsString()) connection_details.insert({ it->name.GetString(), it->value.GetString() });
+        }
 
-        HAS_MEMBER(itr->value, "hostname", string_format("%s.hostname", connectionName).c_str())
-        IS_STRING(itr->value, "hostname", string_format("%s.hostname", connectionName).c_str())
-        HAS_MEMBER(itr->value, "username", string_format("%s.username", connectionName).c_str())
-        IS_STRING(itr->value, "username", string_format("%s.username", connectionName).c_str())
-        HAS_MEMBER(itr->value, "password", string_format("%s.password", connectionName).c_str())
-        IS_STRING(itr->value, "password", string_format("%s.password", connectionName).c_str())
-        HAS_MEMBER(itr->value, "database", string_format("%s.database", connectionName).c_str())
-        IS_STRING(itr->value, "database", string_format("%s.database", connectionName).c_str())
-        HAS_MEMBER(itr->value, "port", string_format("%s.port", connectionName).c_str())
-        IS_NUMBER(itr->value, "port", string_format("%s.port", connectionName).c_str())
+        IDatabase* db = nullptr;
+        if(connection_details["kind"] == "mysql" || connection_details["kind"] == "mariadb")
+            db = new MySQLDatabase();
 
-        Database *db = new Database(itr->value["hostname"].GetString(), itr->value["username"].GetString(), itr->value["password"].GetString(), itr->value["database"].GetString(), (uint16)itr->value["port"].GetUint());
-        this->databases.insert(std::make_pair(connectionName, db));
+        db->SetConnectionConfig(connection_details);
+        this->databases.insert({connectionName, db});
+    }
+
+    if(modified) {
+        WritePluginFile("addons/swiftly/configs/databases.json", databasesConfigFile);
     }
 
     PLUGIN_PRINTF("Database", "%d databases have been succesfully loaded.\n", this->databases.size());
 }
 
-Database *DatabaseManager::GetDatabase(std::string name)
+IDatabase *DatabaseManager::GetDatabase(std::string name)
 {
     if (this->databases.find(name) == this->databases.end())
         return nullptr;

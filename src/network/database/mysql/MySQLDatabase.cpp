@@ -1,16 +1,17 @@
-#include "Database.h"
-#include "../../filesystem/files/Files.h"
+#include "../../../entrypoint.h"
+#include "../../../filesystem/files/Files.h"
+#include "MySQLDatabase.h"
 
-std::string Database::QueryEscape(const char* query)
+void MySQLDatabase::SetConnectionConfig(std::map<std::string, std::string> connection_details)
 {
-    char* newQuery = new char[strlen(query) * 2 + 1];
-    mysql_real_escape_string(this->connection, newQuery, query, strlen(query));
-    std::string str(newQuery);
-    delete[] newQuery;
-    return str;
+    m_hostname = connection_details["hostname"];
+    m_username = connection_details["username"];
+    m_password = connection_details["password"];
+    m_port = V_StringToUint16(connection_details["port"].c_str(), 3306);
+    m_database = connection_details["database"];
 }
 
-bool Database::Connect()
+bool MySQLDatabase::Connect()
 {
     if(this->connected) 
         return true;
@@ -44,9 +45,36 @@ bool Database::Connect()
     mysql_set_character_set(this->connection, "utf8mb4");
     this->connected = true;
 
-    this->Query(string_format("ALTER DATABASE %s CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;", this->m_database.c_str()).c_str());
+    this->Query(string_format("ALTER DATABASE %s CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;", this->m_database.c_str()));
 
     return true;
+}
+
+void MySQLDatabase::Close(bool setError)
+{
+    if (setError) this->error = mysql_error(this->connection);
+    
+    mysql_close(this->connection);
+    this->connected = false;
+}
+
+bool MySQLDatabase::IsConnected()
+{
+    return this->connected;
+}
+
+bool MySQLDatabase::HasError()
+{
+    return (this->error != nullptr);
+}
+
+std::string MySQLDatabase::GetError()
+{
+    if(!this->error) return "";
+
+    std::string err = this->error;
+    this->error = nullptr;
+    return err;
 }
 
 static constexpr int MYSQL_JSON = 245;
@@ -69,8 +97,9 @@ std::any ParseFieldType(enum_field_types type, const char* value, uint32_t lengt
     }
 }
 
-std::vector<std::map<std::string, std::any>> Database::Query(const char* query)
+std::vector<std::map<std::string, std::any>> MySQLDatabase::Query(std::any query)
 {
+    const char* q = std::any_cast<std::string>(query).c_str();
     std::lock_guard<std::mutex> lock(mtx);
     std::vector<std::map<std::string, std::any>> values;
 
@@ -84,7 +113,7 @@ std::vector<std::map<std::string, std::any>> Database::Query(const char* query)
     }
 
     mysql_set_character_set(this->connection, "utf8mb4");
-    if (mysql_real_query(this->connection, query, strlen(query)))
+    if (mysql_real_query(this->connection, q, strlen(q)))
     {
         this->error = mysql_error(this->connection);
         return {};
@@ -104,7 +133,7 @@ std::vector<std::map<std::string, std::any>> Database::Query(const char* query)
         }
         else
         {
-            this->error = std::string("Invalid query type.\nQuery: " + std::string(query)).c_str();
+            this->error = std::string("Invalid query type.\nQuery: " + std::string(q)).c_str();
             return {};
         }
     }
@@ -131,19 +160,21 @@ std::vector<std::map<std::string, std::any>> Database::Query(const char* query)
     return values;
 }
 
-void Database::Close(bool containsError)
+std::string MySQLDatabase::EscapeValue(std::string query)
 {
-    if (containsError)
-        this->error = mysql_error(this->connection);
-    mysql_close(this->connection);
+    char* newQuery = new char[query.size() * 2 + 1];
+    mysql_real_escape_string(this->connection, newQuery, query.c_str(), query.size());
+    std::string str(newQuery);
+    delete[] newQuery;
+    return str;
 }
 
-std::string Database::GetError()
+std::string MySQLDatabase::GetKind()
 {
-    if (!this->error)
-        return "";
+    return "mysql";
+}
 
-    std::string err(this->error);
-    this->error = nullptr;
-    return err;
+std::string MySQLDatabase::GetVersion()
+{
+    return mysql_get_server_info(this->connection);
 }
