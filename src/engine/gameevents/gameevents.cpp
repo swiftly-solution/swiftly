@@ -65,7 +65,6 @@ bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
     }
 
     std::string eventName = pEvent->GetName();
-    PRINTF("%s\n", eventName.c_str());
 
     std::string prettyEventName = gameEventsRegister[eventName];
     if (!prettyEventName.empty())
