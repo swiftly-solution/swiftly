@@ -25,21 +25,20 @@ void EventManager::Initialize()
 
 void EventManager::RegisterGameEvents()
 {
+    PLUGIN_PRINT("Game Events", "Loading game events...\n");
     for (auto it = gameEventsRegister.begin(); it != gameEventsRegister.end(); ++it)
     {
         if (!g_gameEventManager->FindListener(this, it->first.c_str()))
             g_gameEventManager->AddListener(this, it->first.c_str(), true);
     }
+    PLUGIN_PRINTF("Game Events", "%d game events have been succesfully loaded.\n", gameEventsRegister.size());
 }
 
 int EventManager::LoadEventsFromFile(const char* filePath, bool searchAll)
 {
     if (!g_gameEventManager) {
         g_gameEventManager = META_IFACEPTR(IGameEventManager2);
-        PLUGIN_PRINT("Game Events", "Loading game events...\n");
-        this->RegisterGameEvents();
-        PLUGIN_PRINTF("Game Events", "%d game events have been succesfully loaded.\n", gameEventsRegister.size());
-
+    
         SH_ADD_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnFireEvent), false);
         SH_ADD_HOOK(IGameEventManager2, FireEvent, g_gameEventManager, SH_MEMBER(this, &EventManager::OnPostFireEvent), true);
     }
@@ -66,6 +65,7 @@ bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
     }
 
     std::string eventName = pEvent->GetName();
+    PRINTF("%s\n", eventName.c_str());
 
     std::string prettyEventName = gameEventsRegister[eventName];
     if (!prettyEventName.empty())

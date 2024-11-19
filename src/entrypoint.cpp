@@ -245,6 +245,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
     if (late)
     {
+        eventManager->RegisterGameEvents();
         g_SteamAPI.Init();
         g_http = g_SteamAPI.SteamHTTP();
         g_httpManager->ProcessPendingHTTPRequests();
@@ -385,6 +386,8 @@ void Swiftly::Hook_StartupServer(const GameSessionConfiguration_t& config, ISour
 
     if (g_addons.GetStatus())
         g_addons.RefreshAddons();
+
+    eventManager->RegisterGameEvents();
 }
 
 void Swiftly::UpdatePlayers()
