@@ -554,12 +554,12 @@ std::string PluginDatabaseQueryBuilder::FormatValue(const luabridge::LuaRef& lua
         return std::to_string(luaValue.cast<double>());
     }
     else if (luaValue.isString()) {
-        return "'" + this->db->EscapeString(luaValue.cast<std::string>()) + "'";
+        return "\"" + this->db->EscapeString(luaValue.cast<std::string>()) + "\"";
     }
     else if (luaValue.isTable()) {
         try {
             std::string json = LuaTableToJson(luaValue, L);
-            return "'" + this->db->EscapeString(json) + "'";
+            return "\"" + json + "\"";
         } catch (const std::exception& e) {
             throw std::invalid_argument(std::string("Error serializing Lua table to JSON: ") + e.what());
         }
