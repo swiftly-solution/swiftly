@@ -479,6 +479,67 @@ bool isInteger(luabridge::LuaRef r) {
     return ((double)(int64_t)d == d); 
 }
 
+std::string LuaTableToJson(const luabridge::LuaRef& luaValue, lua_State* L) {
+    rapidjson::Document document;
+    document.SetObject();
+
+    auto& allocator = document.GetAllocator();
+
+    std::function<void(const luabridge::LuaRef&, rapidjson::Value&)> serializeLuaRef;
+    serializeLuaRef = [&](const luabridge::LuaRef& luaValue, rapidjson::Value& jsonValue) {
+        if (luaValue.isNil()) {
+            jsonValue.SetNull();
+        } else if (luaValue.isBool()) {
+            jsonValue.SetBool(luaValue.cast<bool>());
+        } else if (luaValue.isString()) {
+            jsonValue.SetString(luaValue.cast<std::string>().c_str(), allocator);
+        } else if (luaValue.isNumber()) {
+            double num = luaValue.cast<double>();
+            if (static_cast<int64_t>(num) == num) {
+                jsonValue.SetInt64(static_cast<int64_t>(num));
+            } else {
+                jsonValue.SetDouble(num);
+            }
+        } else if (luaValue.isTable()) {
+            jsonValue.SetObject();
+            for (luabridge::Iterator it(luaValue); !it.isNil(); ++it) {
+                luabridge::LuaRef key = it.key();
+                luabridge::LuaRef value = it.value();
+
+                rapidjson::Value jsonKey;
+                if (key.isString()) {
+                    jsonKey.SetString(key.cast<std::string>().c_str(), allocator);
+                } else if (key.isNumber()) {
+                    double keyNum = key.cast<double>();
+                    if (static_cast<int64_t>(keyNum) == keyNum) {
+                        jsonKey.SetInt64(static_cast<int64_t>(keyNum));
+                    } else {
+                        jsonKey.SetDouble(keyNum);
+                    }
+                } else {
+                    continue;
+                }
+
+                rapidjson::Value jsonChildValue;
+                serializeLuaRef(value, jsonChildValue);
+
+                jsonValue.AddMember(jsonKey, jsonChildValue, allocator);
+            }
+        } else {
+            throw std::invalid_argument("Unsupported lua type for JSON serialization");
+        }
+    };
+
+    rapidjson::Value rootValue(rapidjson::kObjectType);
+    serializeLuaRef(luaValue, rootValue);
+    document.Swap(rootValue);
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    document.Accept(writer);
+    return std::string(buffer.GetString());
+}
+
 std::string PluginDatabaseQueryBuilder::FormatValue(const luabridge::LuaRef& luaValue, lua_State* L) {
     if (luaValue.isNil()) {
         return "NULL";
@@ -494,6 +555,14 @@ std::string PluginDatabaseQueryBuilder::FormatValue(const luabridge::LuaRef& lua
     }
     else if (luaValue.isString()) {
         return "'" + this->db->EscapeString(luaValue.cast<std::string>()) + "'";
+    }
+    else if (luaValue.isTable()) {
+        try {
+            std::string json = LuaTableToJson(luaValue, L);
+            return "'" + this->db->EscapeString(json) + "'";
+        } catch (const std::exception& e) {
+            throw std::invalid_argument(std::string("Error serializing Lua table to JSON: ") + e.what());
+        }
     }
     else {
         throw std::invalid_argument("Unsupported Lua value type for SQL query");
