@@ -6,6 +6,7 @@
 #include "../core/scripting.h"
 #include "../PluginManager.h"
 #include "../../tools/crashreporter/CallStack.h"
+#include "../../engine/gameevents/gameevents.h"
 
 #include <vector>
 
@@ -230,6 +231,7 @@ void LuaPlugin::RegisterEventHandler(void* functionPtr)
 void LuaPlugin::RegisterEventHandling(std::string eventName)
 {
     if (this->eventHandlers.find(eventName) == this->eventHandlers.end()) this->eventHandlers.insert(eventName);
+    eventManager->RegisterGameEventListen(eventName);
 }
 
 void LuaPlugin::UnregisterEventHandling(std::string eventName)
