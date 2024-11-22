@@ -26,12 +26,35 @@ void EventManager::Initialize()
 void EventManager::RegisterGameEvents()
 {
     PLUGIN_PRINT("Game Events", "Loading game events...\n");
-    for (auto it = gameEventsRegister.begin(); it != gameEventsRegister.end(); ++it)
+    for(auto it = enqueueListenEvents.begin(); it != enqueueListenEvents.end(); ++it)
     {
-        if (!g_gameEventManager->FindListener(this, it->first.c_str()))
-            g_gameEventManager->AddListener(this, it->first.c_str(), true);
+        std::string ev = *(it);
+        if (!g_gameEventManager->FindListener(this, ev.c_str()))
+            g_gameEventManager->AddListener(this, ev.c_str(), true);
     }
-    PLUGIN_PRINTF("Game Events", "%d game events have been succesfully loaded.\n", gameEventsRegister.size());
+    PLUGIN_PRINT("Game Events", "Game events have been succesfully loaded.\n");
+    loadedGameEvents = true;
+}
+
+void EventManager::RegisterGameEventListen(std::string ev_name)
+{
+    std::string raw_ev = "";
+
+    for(auto it = gameEventsRegister.begin(); it != gameEventsRegister.end(); ++it) {
+        if(it->second == ev_name) {
+            raw_ev = it->first;
+            break;
+        }
+    }
+
+    if(raw_ev == "") return;
+
+    if(!loadedGameEvents) {
+        if(enqueueListenEvents.find(raw_ev) == enqueueListenEvents.end()) enqueueListenEvents.insert(raw_ev);
+    } else {
+        if (!g_gameEventManager->FindListener(this, raw_ev.c_str()))
+            g_gameEventManager->AddListener(this, raw_ev.c_str(), true);
+    }
 }
 
 int EventManager::LoadEventsFromFile(const char* filePath, bool searchAll)

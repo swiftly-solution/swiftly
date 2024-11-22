@@ -4,11 +4,15 @@
 #include "../../common.h"
 #include "../../entrypoint.h"
 #include <utlvector.h>
+#include <set>
 
 typedef void (*FnEventListenerCallback)(IGameEvent* event);
 
 class EventManager : public IGameEventListener2
 {
+private:
+    std::set<std::string> enqueueListenEvents;
+    bool loadedGameEvents = false;
 public:
     EventManager() = default;
     ~EventManager() = default;
@@ -16,6 +20,7 @@ public:
     void Initialize();
     void Shutdown();
     void RegisterGameEvents();
+    void RegisterGameEventListen(std::string ev_name);
 
     void FireGameEvent(IGameEvent* pEvent) override;
     bool OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast);
