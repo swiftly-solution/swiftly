@@ -71,34 +71,20 @@ void* Hook_HostStateRequest(void* a1, void** pRequest)
     if (g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         return THostStateRequest(a1, pRequest);
 
-    CUtlString* psNextMap = (CUtlString*)(pRequest + 5);
-    CUtlString* psAddonString = (CUtlString*)(pRequest + 11);
+    CUtlString* pszAddonString = (CUtlString*)(pRequest + 11);
+    auto v = explode(pszAddonString->Get(), ",");
+    auto adns = g_addons.GetAddons();
 
-    std::string sExtraAddonString = implode(g_addons.GetAddons(), ",");
+    pszAddonString->Clear();
+    std::string extra = implode(adns, ",");
 
-    static std::string sCurrentMap = psNextMap->Get();
-
-    if (psNextMap->IsEqual_CaseSensitive(sCurrentMap.c_str()))
-    {
-        if (g_addons.currentWorkshopMap.empty())
-            psAddonString->Clear();
-        else
-            psAddonString->Set(g_addons.currentWorkshopMap.c_str());
-    }
-    else
-    {
-        sCurrentMap = psNextMap->Get();
-    }
-
-    if (!psAddonString->IsEmpty())
-    {
-        g_addons.currentWorkshopMap = psAddonString->Get();
-        psAddonString->Format("%s,%s", psAddonString->Get(), sExtraAddonString.c_str());
-    }
-    else
-    {
+    if (v.size() == 0 || std::find(adns.begin(), adns.end(), v[0]) != adns.end()) {
+        pszAddonString->Set(extra.c_str());
         g_addons.currentWorkshopMap.clear();
-        psAddonString->Set(sExtraAddonString.c_str());
+    }
+    else {
+        pszAddonString->Format("%s,%s", v[0].c_str(), extra.c_str());
+        g_addons.currentWorkshopMap = v[0];
     }
 
     return THostStateRequest(a1, pRequest);
@@ -116,14 +102,17 @@ bool Hook_SendNetMessage(CServerSideClient* pClient, CNetMessage* pData, NetChan
 {
     NetMessageInfo_t* info = pData->GetNetMessage()->GetNetMessageInfo();
 
-    if (info->m_MessageId != 7 || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
+    if (info->m_MessageId != net_SignonState || g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
         return TSendNetMessage(pClient, pData, bufType);
+
+    auto pMsg = pData->ToPB<CNETMsg_SignonState>();
+    if (pMsg->signon_state() == SIGNONSTATE_CHANGELEVEL)
+        pMsg->set_addons(g_addons.currentWorkshopMap.empty() ? g_addons.GetAddons()[0].c_str() : g_addons.currentWorkshopMap.c_str());
 
     int idx;
     ClientJoinInfo_t* pPendingClient = GetPendingClient(pClient->GetClientSteamID().ConvertToUint64(), idx);
     if (pPendingClient)
     {
-        auto pMsg = pData->ToPB<CNETMsg_SignonState>();
         pMsg->set_addons(g_addons.GetAddons()[pPendingClient->addon].c_str());
         pMsg->set_signon_state(SIGNONSTATE_CHANGELEVEL);
         pPendingClient->signon_timestamp = Plat_FloatTime();
@@ -454,7 +443,10 @@ void Addons::LoadAddons()
 
 bool Addons::OnClientConnect(uint64 xuid)
 {
-    if (g_addons.GetStatus() == false || g_addons.GetAddons().size() == 0)
+    if (GetStatus() == false || GetAddons().size() == 0)
+        return true;
+
+    if (GetAddons().size() == 1 && currentWorkshopMap.empty())
         return true;
 
     int idx;
@@ -494,7 +486,7 @@ void Addons::ToggleHooks()
     THostStateRequest.Disable();
     TSendNetMessage.Disable();
 
-    if(this->m_status) {
+    if (this->m_status) {
         if (!g_Signatures->Exists("HostStateRequest"))
         {
             SetStatus(false);
