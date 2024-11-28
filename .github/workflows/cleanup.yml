@@ -9,7 +9,7 @@ jobs:
     clean:
         permissions:
             actions: write
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         steps:
             - name: Cleanup
               uses: c-hive/gha-remove-artifacts@v1
