@@ -59,7 +59,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-Wno-array-bounds",
 			"-Wno-int-to-pointer-cast",
 			"-fexceptions",
-			"-fPIC",
 		]
 		binary.compiler.cflags += [
 			"-Wno-return-local-addr",
@@ -68,7 +67,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-Wno-array-bounds",
 			"-Wno-int-to-pointer-cast",
 			"-fexceptions",
-			"-fPIC",
 		]
 		binary.compiler.postlink += [
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libfunchook.a'),

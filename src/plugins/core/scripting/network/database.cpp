@@ -99,16 +99,11 @@ void DatabaseQueryThread()
                 continue;
             }
 
-            RegisterCallStack* callStack = new RegisterCallStack(queue.plugin->GetName(), string_format("database::Query(database=%p, query=\"%s\")", (void*)queue.db, queue.query.c_str()));
-
             auto queryResult = queue.db->Query(queue.query);
             std::string error = queue.db->GetError();
             if (error == "MySQL server has gone away") {
                 if (queue.db->Connect())
-                {
-                    delete callStack;
                     continue;
-                }
                 else
                     error = queue.db->GetError();
             }
@@ -117,11 +112,9 @@ void DatabaseQueryThread()
             if (queue.plugin->GetKind() == PluginKind_t::Lua)
                 g_Plugin.NextFrame(DatabaseLuaCallback, { queue.requestID, result, error, (LuaPlugin*)queue.plugin });
 
-            delete callStack;
-
             queryQueue.pop_front();
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 }
 
@@ -153,8 +146,6 @@ std::string PluginDatabase::EscapeString(std::string str)
 
 void PluginDatabase::QueryLua(std::string query, luabridge::LuaRef callback, lua_State* L)
 {
-    REGISTER_CALLSTACK(FetchPluginName(L), string_format("PluginDatabase::QueryLua(query=\"%s\")", query.c_str()));
-
     std::string uuid = get_uuid();
 
     DatabaseQueryQueue queue = {
