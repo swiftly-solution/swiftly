@@ -3,6 +3,7 @@
 
 #include <string>
 #include <swiftly-ext/extension.h>
+#include <metamod_oslink.h>
 
 #ifndef _WIN32
 #include <dlfcn.h>
@@ -12,7 +13,7 @@ class Extension
 {
 private:
     std::string m_name;
-    void* m_hModule;
+    HINSTANCE m_hModule;
     SwiftlyExt* m_api;
 public:
     Extension(std::string name);
