@@ -38,7 +38,22 @@ std::string QueryToJSON(const std::vector<std::map<std::string, std::any>>& data
             if (value.type() == typeid(const char*))
                 entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetString(std::any_cast<const char*>(value), document.GetAllocator()), document.GetAllocator());
             else if (value.type() == typeid(std::string))
-                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetString(std::any_cast<std::string>(value).c_str(), document.GetAllocator()), document.GetAllocator());
+            {
+                const std::string& strValue = std::any_cast<std::string>(value);
+                rapidjson::Value keyValue(key, document.GetAllocator());
+
+                rapidjson::Document parsedValue;
+                if (parsedValue.Parse(strValue.c_str()).HasParseError())
+                {
+                    entry.AddMember(keyValue,rapidjson::Value().SetString(strValue.c_str(), document.GetAllocator()),document.GetAllocator());
+                }
+                else
+                {
+                    rapidjson::Value jsonValue;
+                    jsonValue.CopyFrom(parsedValue, document.GetAllocator());
+                    entry.AddMember(keyValue, jsonValue, document.GetAllocator());
+                }
+            }
             else if (value.type() == typeid(uint64))
                 entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint64(std::any_cast<uint64>(value)), document.GetAllocator());
             else if (value.type() == typeid(uint32))
@@ -271,7 +286,7 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Select(const std::vector
     return this;
 }
 
-PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Insert(const std::map<std::string, luabridge::LuaRef>& data) {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Insert(const std::map<std::string, luabridge::LuaRef>& data, lua_State* L) {
     ENSURE_TABLE_SET();
 
     if (data.empty()) {
@@ -283,14 +298,14 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Insert(const std::map<st
 
     for (const auto& pair : data) {
         columns.push_back(pair.first);
-        values.push_back(FormatValue(pair.second, nullptr));
+        values.push_back(FormatValue(pair.second, L));
     }
 
     this->query = "INSERT INTO " + tableName + " (" + join(columns, ", ") + ") VALUES (" + join(values, ", ") + ")";
     return this;
 }
 
-PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Update(const std::map<std::string, luabridge::LuaRef>& data) {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Update(const std::map<std::string, luabridge::LuaRef>& data, lua_State* L) {
     ENSURE_TABLE_SET();
 
     if (data.empty()) {
@@ -298,7 +313,7 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Update(const std::map<st
     }
     std::vector<std::string> updates;
     for (const auto& pair : data) {
-        updates.push_back(pair.first + " = " + FormatValue(pair.second, nullptr));
+        updates.push_back(pair.first + " = " + FormatValue(pair.second, L));
     }
 
     this->query = "UPDATE " + tableName + " SET " + join(updates, ", ");
@@ -312,13 +327,13 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Delete() {
     return this;
 }
 
-PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Where(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value) {
-    this->whereClauses.push_back(column + " " + operator_ + " " + FormatValue(value, nullptr));
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Where(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value, lua_State* L) {
+    this->whereClauses.push_back(column + " " + operator_ + " " + FormatValue(value, L));
     return this;
 }
 
-PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OrWhere(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value) {
-    this->orWhereClauses.push_back(column + " " + operator_ + " " + FormatValue(value, nullptr));
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OrWhere(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value, lua_State* L) {
+    this->orWhereClauses.push_back(column + " " + operator_ + " " + FormatValue(value, L));
     return this;
 }
 
@@ -348,13 +363,13 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::GroupBy(const std::vecto
     return this;
 }
 
-PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OnDuplicate(const std::map<std::string, luabridge::LuaRef>& data) {
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OnDuplicate(const std::map<std::string, luabridge::LuaRef>& data, lua_State* L) {
     if (data.empty()) {
         throw std::invalid_argument("OnDuplicate requires at least one column-value pair.");
     }
 
     for (const auto& pair : data) {
-        this->onDuplicateClauses.push_back(pair.first + " = " + FormatValue(pair.second, nullptr));
+        this->onDuplicateClauses.push_back(pair.first + " = " + FormatValue(pair.second, L));
     }
     return this;
 }
@@ -478,63 +493,77 @@ bool isInteger(luabridge::LuaRef r) {
 
 std::string LuaTableToJson(const luabridge::LuaRef& luaValue, lua_State* L) {
     rapidjson::Document document;
-    document.SetObject();
+    rapidjson::Document::AllocatorType& allocator = document.GetAllocator();
 
-    auto& allocator = document.GetAllocator();
+    std::function<rapidjson::Value(const luabridge::LuaRef&)> LuaTableToJsonValue =
+        [&](const luabridge::LuaRef& luaValue) -> rapidjson::Value {
+        rapidjson::Value result;
+        bool isArray = true;
 
-    std::function<void(const luabridge::LuaRef&, rapidjson::Value&)> serializeLuaRef;
-    serializeLuaRef = [&](const luabridge::LuaRef& luaValue, rapidjson::Value& jsonValue) {
-        if (luaValue.isNil()) {
-            jsonValue.SetNull();
-        } else if (luaValue.isBool()) {
-            jsonValue.SetBool(luaValue.cast<bool>());
-        } else if (luaValue.isString()) {
-            jsonValue.SetString(luaValue.cast<std::string>().c_str(), allocator);
-        } else if (luaValue.isNumber()) {
-            double num = luaValue.cast<double>();
-            if (static_cast<int64_t>(num) == num) {
-                jsonValue.SetInt64(static_cast<int64_t>(num));
-            } else {
-                jsonValue.SetDouble(num);
+        for (luabridge::Iterator it(luaValue); !it.isNil(); ++it) {
+            if (!it.key().isNumber()) {
+                isArray = false;
+                break;
             }
-        } else if (luaValue.isTable()) {
-            jsonValue.SetObject();
+        }
+
+        if (isArray) {
+            result.SetArray();
             for (luabridge::Iterator it(luaValue); !it.isNil(); ++it) {
-                luabridge::LuaRef key = it.key();
-                luabridge::LuaRef value = it.value();
-
-                rapidjson::Value jsonKey;
-                if (key.isString()) {
-                    jsonKey.SetString(key.cast<std::string>().c_str(), allocator);
-                } else if (key.isNumber()) {
-                    double keyNum = key.cast<double>();
-                    if (static_cast<int64_t>(keyNum) == keyNum) {
-                        jsonKey.SetInt64(static_cast<int64_t>(keyNum));
+                const luabridge::LuaRef& value = it.value();
+                if (value.isTable()) {
+                    result.PushBack(LuaTableToJsonValue(value), allocator);
+                } else if (value.isBool()) {
+                    result.PushBack(rapidjson::Value().SetBool(value.cast<bool>()), allocator);
+                } else if (value.isNumber()) {
+                    if (value.cast<double>() == static_cast<int64_t>(value.cast<double>())) {
+                        result.PushBack(rapidjson::Value().SetInt64(value.cast<int64_t>()), allocator);
                     } else {
-                        jsonKey.SetDouble(keyNum);
+                        result.PushBack(rapidjson::Value().SetDouble(value.cast<double>()), allocator);
                     }
+                } else if (value.isString()) {
+                    result.PushBack(rapidjson::Value(value.cast<std::string>().c_str(), allocator), allocator);
                 } else {
-                    continue;
+                    result.PushBack(rapidjson::Value("unsupported_type", allocator), allocator);
                 }
-
-                rapidjson::Value jsonChildValue;
-                serializeLuaRef(value, jsonChildValue);
-
-                jsonValue.AddMember(jsonKey, jsonChildValue, allocator);
             }
         } else {
-            throw std::invalid_argument("Unsupported lua type for JSON serialization");
+            result.SetObject();
+            for (luabridge::Iterator it(luaValue); !it.isNil(); ++it) {
+                const luabridge::LuaRef& key = it.key();
+                const luabridge::LuaRef& value = it.value();
+                std::string keyStr = key.isString() ? key.cast<std::string>() : std::to_string(key.cast<int>());
+                rapidjson::Value jsonKey(keyStr.c_str(), allocator);
+
+                if (value.isTable()) {
+                    result.AddMember(jsonKey, LuaTableToJsonValue(value), allocator);
+                } else if (value.isBool()) {
+                    result.AddMember(jsonKey, rapidjson::Value().SetBool(value.cast<bool>()), allocator);
+                } else if (value.isNumber()) {
+                    if (value.cast<double>() == static_cast<int64_t>(value.cast<double>())) {
+                        result.AddMember(jsonKey, rapidjson::Value().SetInt64(value.cast<int64_t>()), allocator);
+                    } else {
+                        result.AddMember(jsonKey, rapidjson::Value().SetDouble(value.cast<double>()), allocator);
+                    }
+                } else if (value.isString()) {
+                    result.AddMember(jsonKey, rapidjson::Value(value.cast<std::string>().c_str(), allocator), allocator);
+                } else {
+                    result.AddMember(jsonKey, rapidjson::Value("unsupported_type", allocator), allocator);
+                }
+            }
         }
+
+        return result;
     };
 
-    rapidjson::Value rootValue(rapidjson::kObjectType);
-    serializeLuaRef(luaValue, rootValue);
-    document.Swap(rootValue);
+    rapidjson::Value jsonRoot = LuaTableToJsonValue(luaValue);
+    document.Swap(jsonRoot);
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     document.Accept(writer);
-    return std::string(buffer.GetString());
+
+    return buffer.GetString();
 }
 
 std::string PluginDatabaseQueryBuilder::FormatValue(const luabridge::LuaRef& luaValue, lua_State* L) {
@@ -551,12 +580,12 @@ std::string PluginDatabaseQueryBuilder::FormatValue(const luabridge::LuaRef& lua
         return std::to_string(luaValue.cast<double>());
     }
     else if (luaValue.isString()) {
-        return "\"" + this->db->EscapeString(luaValue.cast<std::string>()) + "\"";
+        return "\'" + this->db->EscapeString(luaValue.cast<std::string>()) + "\'";
     }
     else if (luaValue.isTable()) {
         try {
             std::string json = LuaTableToJson(luaValue, L);
-            return "\"" + json + "\"";
+            return "\'" + json + "\'";
         } catch (const std::exception& e) {
             throw std::invalid_argument(std::string("Error serializing Lua table to JSON: ") + e.what());
         }
@@ -565,7 +594,6 @@ std::string PluginDatabaseQueryBuilder::FormatValue(const luabridge::LuaRef& lua
         throw std::invalid_argument("Unsupported Lua value type for SQL query");
     }
 }
-
 template<typename T>
 std::string PluginDatabaseQueryBuilder::join(const std::vector<T>& vec, const std::string& delimiter) {
     std::ostringstream oss;
