@@ -8,6 +8,7 @@
 
 #include <steam/steam_gameserver.h>
 
+#include "core/extensions/ExtensionManager.h"
 #include "sdk/entity/CRecipientFilters.h"
 #include "engine/addons/addons.h"
 #include "engine/addons/clients.h"
@@ -121,6 +122,7 @@ SDKAccess* g_sdk = nullptr;
 ConvarQuery* g_cvarQuery = nullptr;
 HTTPServerManager* g_httpServerManager = nullptr;
 VoiceManager g_voiceManager;
+ExtensionManager* extManager = nullptr;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -204,6 +206,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_cvarQuery = new ConvarQuery();
     g_httpServerManager = new HTTPServerManager();
     g_chatProcessor = new ChatProcessor();
+    extManager = new ExtensionManager();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -239,6 +242,8 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
     if (g_Config->FetchValue<bool>("core.console_filtering"))
         g_conFilter->Toggle();
+
+    extManager->LoadExtensions();
 
     g_pluginManager->LoadPlugins("");
     g_pluginManager->StartPlugins();
@@ -309,6 +314,8 @@ bool Swiftly::Unload(char* error, size_t maxlen)
 
     g_pluginManager->StopPlugins(false);
     g_pluginManager->UnloadPlugins();
+
+    extManager->UnloadExtensions();
 
     UnloadHooks();
     eventManager->Shutdown();

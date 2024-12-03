@@ -63,7 +63,6 @@ jobs:
                   cd ambuild; python setup.py install; cd ..
 
             - name: Setup Version
-              if: ${{ github.ref == 'refs/heads/master' }}
               shell: bash
               run: echo "SWIFTLY_VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
 
@@ -104,7 +103,7 @@ jobs:
                   cd ../../../..
                   echo "[Builder] Finished setting up default plugins"
 
-            - name: Prepare Build - Windows
+            - name: Build - Windows
               if: matrix.os == 'windows-latest'
               working-directory: swiftly
               run: |

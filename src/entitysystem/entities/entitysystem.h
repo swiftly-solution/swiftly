@@ -3,6 +3,7 @@
 
 #include "../../entrypoint.h"
 #include "../../memory/signatures/Offsets.h"
+#include <swiftly-ext/core.h>
 
 class CGameResourceService
 {
