@@ -11,7 +11,6 @@ Extension::Extension(std::string name)
 
 Extension::~Extension()
 {
-
 }
 
 std::string Extension::GetName()
@@ -42,13 +41,44 @@ bool Extension::LoadExtension(bool late)
 
     std::string err;
     bool res = m_api->Load(err, g_SHPtr, g_SMAPI, late);
-    return res;
+    loaded = res;
+    if(!res) {
+        PRINT("An error has occured while trying to load the extension.\n");
+        PRINTF("Extension: %s.\n", m_name.c_str());
+        PRINTF("Error: %s\n", err.c_str());
+        dlclose(m_hModule);
+        m_hModule = nullptr;
+        m_api = nullptr;
+        return false;
+    }
+    return true;
 }
 
 bool Extension::UnloadExtension()
 {
+    std::string err;
+    bool res = m_api->Unload(err);
+    if(!res) {
+        PRINT("An error has occured while trying to unload the extension.\n");
+        PRINTF("Extension: %s.\n", m_name.c_str());
+        PRINTF("Error: %s\n", err.c_str());
+        loaded = true;
+        return false;
+    }
+
     dlclose(m_hModule);
     m_hModule = nullptr;
     m_api = nullptr;
+    loaded = false;
     return true;
+}
+
+SwiftlyExt* Extension::GetAPI()
+{
+    return m_api;
+}
+
+bool Extension::IsLoaded()
+{
+    return loaded;
 }

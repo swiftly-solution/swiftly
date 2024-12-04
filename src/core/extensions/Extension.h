@@ -15,11 +15,14 @@ private:
     std::string m_name;
     HINSTANCE m_hModule;
     SwiftlyExt* m_api;
+    bool loaded = false;
 public:
     Extension(std::string name);
     ~Extension();
 
     std::string GetName();
+    SwiftlyExt* GetAPI();
+    bool IsLoaded();
 
     bool LoadExtension(bool late);
     bool UnloadExtension();

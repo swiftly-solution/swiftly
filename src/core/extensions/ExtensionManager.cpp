@@ -20,6 +20,9 @@ void ExtensionManager::LoadExtensions()
     }
 
     all_loaded = true;
+    for (Extension* extension : exts)
+        if(extension->IsLoaded())
+            extension->GetAPI()->AllExtensionsLoaded();
 }
 
 void ExtensionManager::UnloadExtensions()
@@ -51,6 +54,9 @@ void ExtensionManager::LoadExtension(std::string ext_name)
 
     exts.push_back(ext);
     extsMap[ext_name] = ext;
+
+    if(all_loaded)
+        ext->GetAPI()->AllExtensionsLoaded();
 }
 
 void ExtensionManager::UnloadExtension(std::string ext_name)
