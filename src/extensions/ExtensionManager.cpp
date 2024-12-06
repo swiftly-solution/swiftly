@@ -1,5 +1,5 @@
 #include "ExtensionManager.h"
-#include "../../filesystem/files/Files.h"
+#include "../filesystem/files/Files.h"
 
 void ExtensionManager::LoadExtensions()
 {
@@ -21,7 +21,7 @@ void ExtensionManager::LoadExtensions()
 
     all_loaded = true;
     for (Extension* extension : exts)
-        if(extension->IsLoaded())
+        if (extension->IsLoaded())
             extension->GetAPI()->AllExtensionsLoaded();
 }
 
@@ -44,10 +44,10 @@ bool ExtensionManager::ExtensionExists(std::string ext_name)
 
 void ExtensionManager::LoadExtension(std::string ext_name)
 {
-    if(ExtensionExists(ext_name)) return;
+    if (ExtensionExists(ext_name)) return;
 
     Extension* ext = new Extension(ext_name);
-    if(!ext->LoadExtension(all_loaded)) {
+    if (!ext->LoadExtension(all_loaded)) {
         delete ext;
         return;
     }
@@ -55,21 +55,21 @@ void ExtensionManager::LoadExtension(std::string ext_name)
     exts.push_back(ext);
     extsMap[ext_name] = ext;
 
-    if(all_loaded)
+    if (all_loaded)
         ext->GetAPI()->AllExtensionsLoaded();
 }
 
 void ExtensionManager::UnloadExtension(std::string ext_name)
 {
-    if(!ExtensionExists(ext_name)) return;
+    if (!ExtensionExists(ext_name)) return;
 
     Extension* ext = extsMap[ext_name];
-    if(!ext) return;
+    if (!ext) return;
 
-    if(!ext->UnloadExtension()) return;
+    if (!ext->UnloadExtension()) return;
 
     auto it = std::find(exts.begin(), exts.end(), ext);
-    if(it != exts.end())
+    if (it != exts.end())
         exts.erase(it);
 
     delete ext;
@@ -78,8 +78,8 @@ void ExtensionManager::UnloadExtension(std::string ext_name)
 
 Extension* ExtensionManager::FetchExtension(std::string ext_name)
 {
-    if(!ExtensionExists(ext_name)) return nullptr;
-    
+    if (!ExtensionExists(ext_name)) return nullptr;
+
     return extsMap[ext_name];
 }
 

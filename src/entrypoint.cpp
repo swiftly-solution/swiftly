@@ -8,7 +8,7 @@
 
 #include <steam/steam_gameserver.h>
 
-#include "core/extensions/ExtensionManager.h"
+#include "extensions/ExtensionManager.h"
 #include "sdk/entity/CRecipientFilters.h"
 #include "engine/addons/addons.h"
 #include "engine/addons/clients.h"
@@ -147,7 +147,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
         FILE* fp;
 
-        if(freopen_s(&fp, "CONOUT$", "w", stdout) == 0)
+        if (freopen_s(&fp, "CONOUT$", "w", stdout) == 0)
             setvbuf(stdout, NULL, _IONBF, 0);
     }
 #endif
@@ -276,7 +276,7 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
     g_httpManager->ProcessPendingHTTPRequests();
     m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
 
-    if(g_addons.GetStatus()) {
+    if (g_addons.GetStatus()) {
         std::thread([&]() -> void
             {
                 std::this_thread::sleep_for(std::chrono::milliseconds(3000));
@@ -401,9 +401,9 @@ void Swiftly::UpdatePlayers()
 {
     PERF_RECORD("UpdatePlayers", "core")
 
-    // Credits to: https://github.com/Source2ZE/ServerListPlayersFix (Source2ZE Team)
-    if (!engine->GetServerGlobals() || !g_SteamAPI.SteamGameServer())
-        return;
+        // Credits to: https://github.com/Source2ZE/ServerListPlayersFix (Source2ZE Team)
+        if (!engine->GetServerGlobals() || !g_SteamAPI.SteamGameServer())
+            return;
 
     for (int i = 0; i < engine->GetServerGlobals()->maxClients; i++)
     {
@@ -437,7 +437,7 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     PERF_RECORD("GameFrame", "core")
 
-    static double g_flNextUpdate = 0.0;
+        static double g_flNextUpdate = 0.0;
     uint64_t time = GetTime();
 
     ProcessTimeouts(time);
@@ -473,10 +473,10 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     //////////////////////////////////////////////////////////////
     /////////////////            Player            //////////////
     ////////////////////////////////////////////////////////////
-    #pragma omp parallel for
-    for(int i = 0; i < 64; i++)
+#pragma omp parallel for
+    for (int i = 0; i < 64; i++)
     {
-        if((g_Players & (1ULL << i)) != 0) {
+        if ((g_Players & (1ULL << i)) != 0) {
             Player* player = g_playerManager->GetPlayer(i);
             CBasePlayerPawn* pawn = player->GetPawn();
             if (!pawn)
@@ -515,7 +515,7 @@ void Swiftly::Hook_CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount,
     if (!g_pGameEntitySystem)
         return;
 
-    if(!checktransmitEvent)
+    if (!checktransmitEvent)
         checktransmitEvent = new PluginEvent("core", nullptr, nullptr);
 
     for (int i = 0; i < infoCount; i++)
@@ -523,7 +523,7 @@ void Swiftly::Hook_CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount,
         auto& pInfo = (EntityCheckTransmit*&)ppInfoList[i];
         int playerid = pInfo->m_nClientEntityIndex.Get();
         Player* player = g_playerManager->GetPlayer(playerid);
-        if(!player) continue;
+        if (!player) continue;
 
         g_pluginManager->ExecuteEvent("core", "OnPlayerCheckTransmit", encoders::msgpack::SerializeToString({ playerid, string_format("%p", pInfo) }), checktransmitEvent);
     }
@@ -549,7 +549,7 @@ void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint
         g_playerManager->RegisterPlayer(player);
     }
     else {
-        if(g_Config->FetchValue<bool>("core.use_player_language"))
+        if (g_Config->FetchValue<bool>("core.use_player_language"))
             g_cvarQuery->QueryCvarClient(slot, "cl_language");
     }
 }
@@ -603,9 +603,9 @@ void Swiftly::Hook_ServerHibernationUpdate(bool bHibernation)
 
 void Swiftly::NextFrame(std::function<void(std::vector<std::any>)> fn, std::vector<std::any> param)
 {
-    if(isServerHibernating) 
+    if (isServerHibernating)
         fn(param);
-    else 
+    else
         m_nextFrame.push_back({ fn, param });
 }
 
