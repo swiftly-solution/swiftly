@@ -75,7 +75,7 @@ public:
     bool LoadScriptingEnvironment();
     void DestroyScriptingEnvironment();
     bool ExecuteStart();
-    void ExecuteStop();
+    bool ExecuteStop();
 
     void ExecuteCommand(void* functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent, std::string prefix);
 

@@ -1,5 +1,5 @@
-#ifndef _Pluginkind_h
-#define _Pluginkind_h
+#ifndef _pluginkind_h
+#define _pluginkind_h
 
 enum class PluginKind_t
 {

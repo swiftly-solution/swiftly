@@ -7,6 +7,7 @@
 #include "../PluginManager.h"
 #include "../../tools/crashreporter/CallStack.h"
 #include "../../engine/gameevents/gameevents.h"
+#include "../../extensions/ExtensionManager.h"
 
 #include <vector>
 
@@ -181,6 +182,17 @@ bool LuaPlugin::ExecuteStart()
         return false;
     }
 
+    for (Extension* ext : extManager->GetExtensionsList())
+        if (ext->IsLoaded()) {
+            std::string error = "";
+            if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->state, this->GetKind(), error)) {
+                PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+                PRINTF("Error: %s.\n", error.c_str());
+                this->SetLoadError(error);
+                return false;
+            }
+        }
+
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     this->PluginTriggerEvent("core", "OnPluginStart", encoders::msgpack::SerializeToString({}), event);
     delete event;
@@ -188,11 +200,23 @@ bool LuaPlugin::ExecuteStart()
     return true;
 }
 
-void LuaPlugin::ExecuteStop()
+bool LuaPlugin::ExecuteStop()
 {
+    for (Extension* ext : extManager->GetExtensionsList())
+        if (ext->IsLoaded()) {
+            std::string error = "";
+            if (!ext->GetAPI()->OnPluginUnload(this->GetName(), this->state, this->GetKind(), error)) {
+                PRINTF("Failed to unload plugin '%s'.\n", this->GetName().c_str());
+                PRINTF("Error: %s.\n", error.c_str());
+                return false;
+            }
+        }
+
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     this->PluginTriggerEvent("core", "OnPluginStop", encoders::msgpack::SerializeToString({}), event);
     delete event;
+
+    return true;
 }
 
 void LuaPlugin::ExecuteCommand(void* functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent, std::string prefix)
@@ -237,7 +261,7 @@ void LuaPlugin::RegisterEventHandling(std::string eventName)
 void LuaPlugin::UnregisterEventHandling(std::string eventName)
 {
     auto it = this->eventHandlers.find(eventName);
-    if(it != this->eventHandlers.end()) this->eventHandlers.erase(it);
+    if (it != this->eventHandlers.end()) this->eventHandlers.erase(it);
 }
 
 EventResult LuaPlugin::PluginTriggerEvent(std::string invokedBy, std::string eventName, std::string eventPayload, PluginEvent* event)
@@ -288,12 +312,12 @@ luabridge::LuaRef LuaSerializeData(std::any data, lua_State* state)
     {
         if (value.type() == typeid(const char*)) {
             auto val = std::any_cast<const char*>(value);
-            if(val == nullptr) return luabridge::LuaRef(state, std::string(""));
+            if (val == nullptr) return luabridge::LuaRef(state, std::string(""));
             return luabridge::LuaRef(state, std::string(val));
         }
         else if (value.type() == typeid(char*)) {
             auto val = std::any_cast<char*>(value);
-            if(val == nullptr) return luabridge::LuaRef(state, std::string(""));
+            if (val == nullptr) return luabridge::LuaRef(state, std::string(""));
             return luabridge::LuaRef(state, std::string(val));
         }
         else if (value.type() == typeid(std::string)) {

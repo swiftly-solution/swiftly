@@ -103,8 +103,7 @@ for sdk_target in MMSPlugin.sdk_targets:
             "META_IS_SOURCE2",
             "_GLIBCXX_USE_CXX11_ABI=0",
             "LUA_USE_LINUX",
-            "LUA_USE_READLINE",
-            "BOOST_STACKTRACE_USE_BACKTRACE"
+            "LUA_USE_READLINE"
 		]
 	else:
 		binary.compiler.cxxflags += [

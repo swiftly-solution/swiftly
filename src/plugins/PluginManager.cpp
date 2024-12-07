@@ -152,8 +152,10 @@ void PluginManager::StopPlugin(std::string plugin_name, bool destroyStates)
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return;
 
-    plugin->ExecuteStop();
-    if(destroyStates) {
+    if (!plugin->ExecuteStop())
+        return;
+
+    if (destroyStates) {
         plugin->DestroyScriptingEnvironment();
         plugin->SetPluginState(PluginState_t::Stopped);
     }

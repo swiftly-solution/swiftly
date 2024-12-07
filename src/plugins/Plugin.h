@@ -34,7 +34,7 @@ public:
     virtual bool LoadScriptingEnvironment() = 0;
     virtual void DestroyScriptingEnvironment() = 0;
     virtual bool ExecuteStart() = 0;
-    virtual void ExecuteStop() = 0;
+    virtual bool ExecuteStop() = 0;
 
     virtual void ExecuteCommand(void* functionPtr, std::string name, int slot, std::vector<std::string> args, bool silent, std::string prefix) = 0;
 
