@@ -6,6 +6,7 @@
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
 #include "../schema/schema.h"
+#include <swiftly-ext/core.h>
 
 extern std::set<uint32_t> structCache;
 void PopulateClassData(const char* className, uint32_t classOffset);
@@ -119,4 +120,19 @@ uint32_t SDKAccess::GetFieldSize(uint64_t path)
 bool SDKAccess::ExistsField(uint64_t path)
 {
     return (this->fieldNames.find(path) != this->fieldNames.end());
+}
+
+EXT_API void* swiftly_GetSDKPtr(void* ptr, const char* className, const char* fieldName)
+{
+    uint64_t path = ((uint64_t)hash_32_fnv1a_const(className) << 32 | hash_32_fnv1a_const(fieldName));
+
+    auto m_key = sch::GetOffset(className, g_sdk->GetFieldName(path).c_str());
+    return (void*)((uintptr_t)ptr + m_key);
+}
+
+EXT_API void swiftly_SetStateChanged(void* ptr, const char* className, const char* fieldName, int extraOffset)
+{
+    uint64_t path = ((uint64_t)hash_32_fnv1a_const(className) << 32 | hash_32_fnv1a_const(fieldName));
+    
+    SetStateChanged((uintptr_t)ptr, className, g_sdk->GetFieldName(path), extraOffset);
 }
