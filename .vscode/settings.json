@@ -87,6 +87,7 @@
         "ws2tcpip.h": "c",
         "xstring": "cpp",
         "time.h": "c",
-        "osdefs.h": "c"
+        "osdefs.h": "c",
+        "stdio.h": "c"
     }
 }

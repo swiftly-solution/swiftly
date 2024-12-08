@@ -64,6 +64,17 @@ bool LuaPlugin::LoadScriptingEnvironment()
 
     SetupLuaEnvironment(this, this->state);
 
+    for (Extension* ext : extManager->GetExtensionsList())
+        if (ext->IsLoaded()) {
+            std::string error = "";
+            if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->state, this->GetKind(), error)) {
+                PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+                PRINTF("Error: %s.\n", error.c_str());
+                this->SetLoadError(error);
+                return false;
+            }
+        }
+
     int loadStatus = luaL_dofile(this->state, "addons/swiftly/bin/scripting/events.lua");
 
     if (loadStatus != 0)
@@ -181,17 +192,6 @@ bool LuaPlugin::ExecuteStart()
         this->SetLoadError("Mandatory function 'GetPluginName' is not defined.");
         return false;
     }
-
-    for (Extension* ext : extManager->GetExtensionsList())
-        if (ext->IsLoaded()) {
-            std::string error = "";
-            if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->state, this->GetKind(), error)) {
-                PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
-                PRINTF("Error: %s.\n", error.c_str());
-                this->SetLoadError(error);
-                return false;
-            }
-        }
 
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     this->PluginTriggerEvent("core", "OnPluginStart", encoders::msgpack::SerializeToString({}), event);

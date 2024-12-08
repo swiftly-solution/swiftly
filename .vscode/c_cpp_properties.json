@@ -21,8 +21,6 @@
                 "${workspaceFolder}/vendor/dynohook/win64/include/**",
                 "${workspaceFolder}/vendor/dyncall/win64/include/**",
                 "${workspaceFolder}/vendor/bzip2/win64/include/**",
-                "${workspaceFolder}/vendor/maxmind/**",
-                "${workspaceFolder}/vendor/geolite2pp/**",
                 "${workspaceFolder}/vendor/cpp-httplib/**"
             ],
             "defines": [
@@ -59,8 +57,6 @@
                 "${workspaceFolder}/vendor/dynohook/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/dyncall/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/bzip2/linuxsteamrt64/include/**",
-                "${workspaceFolder}/vendor/maxmind/**",
-                "${workspaceFolder}/vendor/geolite2pp/**",
                 "${workspaceFolder}/vendor/cpp-httplib/**"
             ],
             "defines": [

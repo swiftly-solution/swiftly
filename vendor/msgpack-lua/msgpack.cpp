@@ -4,11 +4,8 @@
 #include <string.h>
 #include <assert.h>
 
-extern "C"
-{
 #include <lua.h>
 #include <lauxlib.h>
-}
 
 #define LUACMSGPACK_NAME "cmsgpack"
 #define LUACMSGPACK_SAFE_NAME "cmsgpack_safe"
