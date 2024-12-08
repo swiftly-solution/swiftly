@@ -33,7 +33,7 @@ bool Extension::LoadExtension(bool late)
 
     void* fnGetClass = reinterpret_cast<void*>(dlsym(m_hModule, "GetExtensionClass"));
     if (!fnGetClass) {
-        PRINTF("Failed to load extension: GetExtensionClass is not present.\n", dlerror());
+        PRINT("Failed to load extension: GetExtensionClass is not present.\n");
         return false;
     }
 
