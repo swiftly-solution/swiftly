@@ -26,15 +26,13 @@ public:
     void LoadPluginConfigurations();
 
     std::map<std::string, std::any> FetchPluginConfiguration() { return this->pluginConfig; }
+    std::map<std::string, std::any> FetchConfiguration() { return this->config; }
     std::map<std::string, unsigned int> FetchConfigArraySizes() { return this->configArraySizes; }
 
     void SetArraySize(std::string key, unsigned int size);
 
     template <typename T>
     T FetchValue(std::string key);
-
-    template <typename T>
-    T FetchPluginValue(std::string key);
 
     template <typename T>
     void SetValue(std::string key, T value);
@@ -53,15 +51,6 @@ template <typename T>
 T Configuration::FetchValue(std::string key)
 {
     if (this->config.find(key) == this->config.end())
-        return 0;
-
-    return std::any_cast<T>(this->config[key]);
-}
-
-template <typename T>
-T Configuration::FetchPluginValue(std::string key)
-{
-    if (this->pluginConfig.find(key) == this->pluginConfig.end())
         return 0;
 
     return std::any_cast<T>(this->config[key]);
