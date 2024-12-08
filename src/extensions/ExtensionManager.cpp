@@ -1,6 +1,8 @@
 #include "ExtensionManager.h"
 #include "../filesystem/files/Files.h"
 
+extern bool AllPluginsStarted;
+
 void ExtensionManager::LoadExtensions()
 {
     std::string baseDir = std::string("addons/swiftly/extensions/") + WIN_LINUX("win64", "linuxsteamrt64");
@@ -57,6 +59,8 @@ void ExtensionManager::LoadExtension(std::string ext_name)
 
     if (all_loaded)
         ext->GetAPI()->AllExtensionsLoaded();
+    if(AllPluginsStarted)
+        ext->GetAPI()->AllPluginsLoaded();
 }
 
 void ExtensionManager::UnloadExtension(std::string ext_name)

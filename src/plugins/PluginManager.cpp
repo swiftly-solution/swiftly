@@ -2,6 +2,7 @@
 
 #include "core/scripting.h"
 #include "../server/menus/MenuManager.h"
+#include "../extensions/ExtensionManager.h"
 
 #include <vector>
 
@@ -110,6 +111,10 @@ void PluginManager::StartPlugins()
     this->ExecuteEvent("core", "OnAllPluginsLoaded", encoders::msgpack::SerializeToString({}), event);
     delete event;
     AllPluginsStarted = true;
+
+    for(auto extension : extManager->GetExtensionsList())
+        if(extension->IsLoaded())
+            extension->GetAPI()->AllPluginsLoaded();
 }
 
 void PluginManager::StopPlugins(bool destroyStates)
