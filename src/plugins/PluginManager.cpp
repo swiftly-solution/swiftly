@@ -3,6 +3,8 @@
 #include "core/scripting.h"
 #include "../server/menus/MenuManager.h"
 #include "../extensions/ExtensionManager.h"
+#include "../memory/encoders/msgpack.h"
+#include <swiftly-ext/core.h>
 
 #include <vector>
 
@@ -196,4 +198,14 @@ std::string PluginManager::GetPluginBasePath(std::string plugin_name)
 {
     if (this->pluginBasePaths.find(plugin_name) == this->pluginBasePaths.end()) return "addons/swiftly/plugins";
     return this->pluginBasePaths[plugin_name];
+}
+
+EXT_API int swiftly_TriggerEvent(const char* ext_name, const char* evName, void* args, void* eventReturn)
+{
+    PluginEvent* ev = new PluginEvent(ext_name, nullptr, nullptr);
+    auto result = g_pluginManager->ExecuteEvent(ext_name, evName, encoders::msgpack::SerializeToString(*(std::vector<std::any>*)args), ev);
+    delete ev;
+
+    *reinterpret_cast<std::any*>(eventReturn) = ev->GetReturnValue();
+    return (int)result;
 }
