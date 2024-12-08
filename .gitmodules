@@ -31,3 +31,6 @@
 [submodule "vendor/swiftly-ext"]
 	path = vendor/swiftly-ext
 	url = https://github.com/swiftly-solution/swiftly-ext
+[submodule "vendor/LuaBridge"]
+	path = vendor/LuaBridge
+	url = https://github.com/swiftly-solution/LuaBridge
