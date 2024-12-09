@@ -181,7 +181,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 		os.path.join(builder.sourcePath, 'vendor'),
 		os.path.join(builder.sourcePath, 'vendor', 'lua'),
 		os.path.join(builder.sourcePath, 'vendor', 'other'),
-		os.path.join(builder.sourcePath, 'vendor', 'cpp-httplib'),
 		os.path.join(builder.sourcePath, 'vendor', 'LuaBridge', 'Source'),
 		os.path.join(builder.sourcePath, 'vendor', 'dynlib'),
 		os.path.join(builder.sourcePath, 'vendor', 'msgpack', 'include'),

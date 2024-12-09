@@ -14,8 +14,6 @@
 #include "engine/addons/clients.h"
 #include "memory/encoders/msgpack.h"
 #include "entitysystem/entities/listener.h"
-#include "network/http/HTTPManager.h"
-#include "network/http/HTTPServerManager.h"
 #include "server/configuration/Configuration.h"
 #include "server/commands/CommandsManager.h"
 #include "tools/crashreporter/CallStack.h"
@@ -85,7 +83,6 @@ CGameEntitySystem* g_pGameEntitySystem = nullptr;
 IGameEventManager2* g_gameEventManager = nullptr;
 IGameEventSystem* g_pGameEventSystem = nullptr;
 CSteamGameServerAPIContext g_SteamAPI;
-ISteamHTTP* g_http = nullptr;
 CSchemaSystem* g_pSchemaSystem2 = nullptr;
 CCSGameRules* gameRules = nullptr;
 
@@ -114,11 +111,9 @@ ResourceMonitor* g_ResourceMonitor = nullptr;
 Patches* g_Patches = nullptr;
 CallStack* g_callStack = nullptr;
 EventManager* eventManager = nullptr;
-HTTPManager* g_httpManager = nullptr;
 UserMessages* g_userMessages = nullptr;
 SDKAccess* g_sdk = nullptr;
 ConvarQuery* g_cvarQuery = nullptr;
-HTTPServerManager* g_httpServerManager = nullptr;
 VoiceManager g_voiceManager;
 ExtensionManager* extManager = nullptr;
 
@@ -150,6 +145,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     }
 #endif
 
+    GET_V_IFACE_CURRENT(GetEngineFactory, engine, IVEngineServer, INTERFACEVERSION_VENGINESERVER);
     GET_V_IFACE_CURRENT(GetEngineFactory, icvar, ICvar, CVAR_INTERFACE_VERSION);
     GET_V_IFACE_ANY(GetServerFactory, server, ISource2Server, INTERFACEVERSION_SERVERGAMEDLL);
     GET_V_IFACE_ANY(GetServerFactory, gameclients, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
@@ -181,7 +177,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     if (!BeginCrashListener())
         PRINTRET("Crash Reporter failed to initialize.\n", false);
 
-    g_httpManager = new HTTPManager();
     g_pluginManager = new PluginManager();
     g_Config = new Configuration();
     g_Signatures = new Signatures();
@@ -200,7 +195,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_userMessages = new UserMessages();
     g_sdk = new SDKAccess();
     g_cvarQuery = new ConvarQuery();
-    g_httpServerManager = new HTTPServerManager();
     g_chatProcessor = new ChatProcessor();
     extManager = new ExtensionManager();
 
@@ -244,8 +238,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     {
         eventManager->RegisterGameEvents();
         g_SteamAPI.Init();
-        g_http = g_SteamAPI.SteamHTTP();
-        g_httpManager->ProcessPendingHTTPRequests();
         m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
     }
 
@@ -264,8 +256,6 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
         return;
 
     g_SteamAPI.Init();
-    g_http = g_SteamAPI.SteamHTTP();
-    g_httpManager->ProcessPendingHTTPRequests();
     m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
 
     if (g_addons.GetStatus()) {
@@ -283,8 +273,6 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
 
 void Swiftly::Hook_GameServerSteamAPIDeactivated()
 {
-    g_http = nullptr;
-
     RETURN_META(MRES_IGNORED);
 }
 
@@ -324,7 +312,6 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
     SH_REMOVE_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &Swiftly::Hook_CheckTransmit, true);
 
-    delete g_httpServerManager;
     delete g_commandsManager;
     delete g_Config;
     delete g_translations;
@@ -340,7 +327,6 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     delete g_Patches;
     delete g_callStack;
     delete eventManager;
-    delete g_httpManager;
     delete g_userMessages;
     delete g_sdk;
     delete g_cvarQuery;

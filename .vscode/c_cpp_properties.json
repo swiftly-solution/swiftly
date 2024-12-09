@@ -20,8 +20,7 @@
                 "${workspaceFolder}/vendor/asmjit/src/**",
                 "${workspaceFolder}/vendor/dynohook/win64/include/**",
                 "${workspaceFolder}/vendor/dyncall/win64/include/**",
-                "${workspaceFolder}/vendor/bzip2/win64/include/**",
-                "${workspaceFolder}/vendor/cpp-httplib/**"
+                "${workspaceFolder}/vendor/bzip2/win64/include/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -29,7 +28,6 @@
                 "_UNICODE",
                 "WIN32",
                 "COMPILER_GCC",
-                "CPPHTTPLIB_OPENSSL_SUPPORT",
                 "MSGPACK_NO_BOOST"
             ],
             "cStandard": "c17",
@@ -56,16 +54,14 @@
                 "${workspaceFolder}/vendor/asmjit/src/**",
                 "${workspaceFolder}/vendor/dynohook/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/dyncall/linuxsteamrt64/include/**",
-                "${workspaceFolder}/vendor/bzip2/linuxsteamrt64/include/**",
-                "${workspaceFolder}/vendor/cpp-httplib/**"
+                "${workspaceFolder}/vendor/bzip2/linuxsteamrt64/include/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE",
                 "POSIX",
-                "COMPILER_GCC",
-                "CPPHTTPLIB_OPENSSL_SUPPORT"
+                "COMPILER_GCC"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",
