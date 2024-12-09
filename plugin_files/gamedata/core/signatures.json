@@ -104,11 +104,6 @@
         "windows": "48 8B C4 44 89 40 ? 48 89 50 ? 48 89 48",
         "linux": "55 48 89 E5 41 57 41 56 41 55 49 89 CD 41 54 53 48 83 EC 68"
     },
-    "CLoggingSystem_LogDirect": {
-        "lib": "tier0",
-        "windows": "4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55",
-        "linux": "55 89 D0 48 89 E5 41 57 41 56 41 55"
-    },
     "CBaseEntity_TakeDamage": {
         "lib": "server",
         "windows": "48 89 74 24 ? 57 48 81 EC ? ? ? ? 48 8B 41 ? 48 8B FA",

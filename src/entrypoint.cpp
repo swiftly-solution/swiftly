@@ -26,7 +26,6 @@
 #include "filesystem/logs/Logger.h"
 #include "entitysystem/precacher/precacher.h"
 #include "server/translations/Translations.h"
-#include "tools/filters/ConsoleFilter.h"
 #include "server/menus/MenuManager.h"
 #include "tools/resourcemonitor/ResourceMonitor.h"
 #include "memory/hooks/NativeHooks.h"
@@ -102,7 +101,6 @@ ChatProcessor* g_chatProcessor = nullptr;
 EntityListener g_EntityListener;
 CommandsManager* g_commandsManager = nullptr;
 Configuration* g_Config = nullptr;
-ConsoleFilter* g_conFilter = nullptr;
 Translations* g_translations = nullptr;
 Logger* g_Logger = nullptr;
 PlayerManager* g_playerManager = nullptr;
@@ -152,7 +150,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     }
 #endif
 
-    GET_V_IFACE_CURRENT(GetEngineFactory, engine, IVEngineServer, INTERFACEVERSION_VENGINESERVER);
     GET_V_IFACE_CURRENT(GetEngineFactory, icvar, ICvar, CVAR_INTERFACE_VERSION);
     GET_V_IFACE_ANY(GetServerFactory, server, ISource2Server, INTERFACEVERSION_SERVERGAMEDLL);
     GET_V_IFACE_ANY(GetServerFactory, gameclients, IServerGameClients, INTERFACEVERSION_SERVERGAMECLIENTS);
@@ -187,7 +184,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_httpManager = new HTTPManager();
     g_pluginManager = new PluginManager();
     g_Config = new Configuration();
-    g_conFilter = new ConsoleFilter();
     g_Signatures = new Signatures();
     g_Offsets = new Offsets();
     g_Patches = new Patches();
@@ -237,11 +233,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
         PRINT("Hooks initialized succesfully.\n");
 
     g_chatProcessor->LoadMessages();
-    g_conFilter->LoadFilters();
     g_translations->LoadTranslations();
-
-    if (g_Config->FetchValue<bool>("core.console_filtering"))
-        g_conFilter->Toggle();
 
     extManager->LoadExtensions();
 
@@ -335,7 +327,6 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     delete g_httpServerManager;
     delete g_commandsManager;
     delete g_Config;
-    delete g_conFilter;
     delete g_translations;
     delete g_Logger;
     delete g_playerManager;
