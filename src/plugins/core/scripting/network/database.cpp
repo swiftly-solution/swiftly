@@ -38,22 +38,7 @@ std::string QueryToJSON(const std::vector<std::map<std::string, std::any>>& data
             if (value.type() == typeid(const char*))
                 entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetString(std::any_cast<const char*>(value), document.GetAllocator()), document.GetAllocator());
             else if (value.type() == typeid(std::string))
-            {
-                const std::string& strValue = std::any_cast<std::string>(value);
-                rapidjson::Value keyValue(key, document.GetAllocator());
-
-                rapidjson::Document parsedValue;
-                if (parsedValue.Parse(strValue.c_str()).HasParseError())
-                {
-                    entry.AddMember(keyValue,rapidjson::Value().SetString(strValue.c_str(), document.GetAllocator()),document.GetAllocator());
-                }
-                else
-                {
-                    rapidjson::Value jsonValue;
-                    jsonValue.CopyFrom(parsedValue, document.GetAllocator());
-                    entry.AddMember(keyValue, jsonValue, document.GetAllocator());
-                }
-            }
+                entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetString(std::any_cast<std::string>(value).c_str(), document.GetAllocator()), document.GetAllocator());
             else if (value.type() == typeid(uint64))
                 entry.AddMember(rapidjson::Value().SetString(key, document.GetAllocator()), rapidjson::Value().SetUint64(std::any_cast<uint64>(value)), document.GetAllocator());
             else if (value.type() == typeid(uint32))
