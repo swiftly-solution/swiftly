@@ -5,7 +5,6 @@
 
 #include "../entrypoint.h"
 #include "../common.h"
-#include "../engine/addons/addons.h"
 #include "../engine/convars/convars.h"
 #include "../server/configuration/Configuration.h"
 #include "../utils/utils.h"
@@ -180,7 +179,6 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
     PrintToClientOrConsole(slot, "Commands", " status       - Show the status of the players\n");
     if (slot.Get() == -1)
     {
-        PrintToClientOrConsole(slot, "Commands", " addons       - Addons Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " cvars        - List all convars created by plugins\n");
         PrintToClientOrConsole(slot, "Commands", " config       - Configuration Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
@@ -189,73 +187,6 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
         PrintToClientOrConsole(slot, "Commands", " chat         - Chat Menu\n");
     }
     PrintToClientOrConsole(slot, "Commands", " version      - Display Swiftly version\n");
-}
-
-//////////////////////////////////////////////////////////////
-/////////////////            Addons            //////////////
-////////////////////////////////////////////////////////////
-
-void SwiftlyAddonsManagerHelp(CPlayerSlot slot, CCommandContext context)
-{
-    PrintToClientOrConsole(slot, "Commands", "Swiftly Addons Management Menu\n");
-    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly addons <command>\n");
-    PrintToClientOrConsole(slot, "Commands", " disable    - Disables the addons downloading.\n");
-    PrintToClientOrConsole(slot, "Commands", " enable     - Enables the addons downloading.\n");
-    PrintToClientOrConsole(slot, "Commands", " reload     - Reloads the addons from the configuration.\n");
-    PrintToClientOrConsole(slot, "Commands", " status     - Shows the status of the addons downloading.\n");
-}
-
-void SwiftlyAddonsManagerReload(CPlayerSlot slot, CCommandContext context)
-{
-    g_addons.LoadAddons();
-    PrintToClientOrConsole(slot, "Addons", "All addons has been succesfully reloaded.\n");
-}
-
-void SwiftlyAddonsManagerDisable(CPlayerSlot slot, CCommandContext context)
-{
-    if (!g_addons.GetStatus())
-        return PrintToClientOrConsole(slot, "Addons", "Addons is already disabled.\n");
-
-    g_addons.ToggleStatus();
-    PrintToClientOrConsole(slot, "Addons", "Addons has been disabled.\n");
-}
-
-void SwiftlyAddonsManagerEnable(CPlayerSlot slot, CCommandContext context)
-{
-    if (g_addons.GetStatus())
-        return PrintToClientOrConsole(slot, "Addons", "Addons is already enabled.\n");
-
-    g_addons.ToggleStatus();
-    PrintToClientOrConsole(slot, "Addons", "Addons has been enabled.\n");
-}
-
-void SwiftlyAddonsManagerStatus(CPlayerSlot slot, CCommandContext context)
-{
-    PrintToClientOrConsole(slot, "Addons", "Addons Status: %s.\n", g_addons.GetStatus() ? "Enabled" : "Disabled");
-}
-
-void SwiftlyAddonsManager(CPlayerSlot slot, CCommandContext context, const char* subcmd)
-{
-    if (slot.Get() != -1)
-        return;
-
-    std::string sbcmd = subcmd;
-    if (sbcmd.size() == 0)
-    {
-        SwiftlyAddonsManagerHelp(slot, context);
-        return;
-    }
-
-    if (sbcmd == "reload")
-        SwiftlyAddonsManagerReload(slot, context);
-    else if (sbcmd == "disable")
-        SwiftlyAddonsManagerDisable(slot, context);
-    else if (sbcmd == "enable")
-        SwiftlyAddonsManagerEnable(slot, context);
-    else if (sbcmd == "status")
-        SwiftlyAddonsManagerStatus(slot, context);
-    else
-        SwiftlyAddonsManagerHelp(slot, context);
 }
 
 //////////////////////////////////////////////////////////////
@@ -813,8 +744,6 @@ void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
         SwiftlyVersion(slot, context);
     else if (subcmd == "list")
         SwiftlyList(slot, context);
-    else if (subcmd == "addons")
-        SwiftlyAddonsManager(slot, context, args[2]);
     else if (subcmd == "cvars")
         SwiftlyConvarsManager(slot, context, V_StringToInt32(args[2], 1));
     else if (subcmd == "translations")

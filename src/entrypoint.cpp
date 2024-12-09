@@ -10,8 +10,6 @@
 
 #include "extensions/ExtensionManager.h"
 #include "sdk/entity/CRecipientFilters.h"
-#include "engine/addons/addons.h"
-#include "engine/addons/clients.h"
 #include "memory/encoders/msgpack.h"
 #include "entitysystem/entities/listener.h"
 #include "server/configuration/Configuration.h"
@@ -93,7 +91,6 @@ CCSGameRules* gameRules = nullptr;
 CUtlVector<FuncHookBase*> g_vecHooks;
 uint64_t g_Players = 0;
 
-Addons g_addons;
 ChatProcessor* g_chatProcessor = nullptr;
 EntityListener g_EntityListener;
 CommandsManager* g_commandsManager = nullptr;
@@ -214,7 +211,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
     g_dbManager->LoadDatabases();
 
-    g_addons.LoadAddons();
     g_userMessages->Initialize();
     eventManager->Initialize();
     g_cvarQuery->Initialize();
@@ -238,10 +234,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     {
         eventManager->RegisterGameEvents();
         g_SteamAPI.Init();
-        m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
     }
-
-    g_addons.SetupThread();
 
     g_voiceManager.OnAllInitialized();
 
@@ -256,17 +249,6 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
         return;
 
     g_SteamAPI.Init();
-    m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
-
-    if (g_addons.GetStatus()) {
-        std::thread([&]() -> void
-            {
-                std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-
-                if (g_addons.GetStatus())
-                    g_addons.RefreshAddons(true); })
-            .detach();
-    }
 
     RETURN_META(MRES_IGNORED);
 }
@@ -274,11 +256,6 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
 void Swiftly::Hook_GameServerSteamAPIDeactivated()
 {
     RETURN_META(MRES_IGNORED);
-}
-
-void Swiftly::OnAddonDownloaded(DownloadItemResult_t* pResult)
-{
-    g_addons.OnAddonDownloaded(pResult);
 }
 
 void Swiftly::AllPluginsLoaded()
@@ -366,11 +343,6 @@ void Swiftly::OnLevelShutdown()
 
 void Swiftly::Hook_StartupServer(const GameSessionConfiguration_t& config, ISource2WorldSession*, const char*)
 {
-    g_ClientsPendingAddon.RemoveAll();
-
-    if (g_addons.GetStatus())
-        g_addons.RefreshAddons();
-
     eventManager->RegisterGameEvents();
 }
 
@@ -533,9 +505,6 @@ void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint
 
 bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, bool unk1, CBufferString* pRejectReason)
 {
-    if (!g_addons.OnClientConnect(xuid))
-        RETURN_META_VALUE(MRES_IGNORED, true);
-
     std::string ip_address = explode(pszNetworkID, ":")[0];
     Player* player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     g_playerManager->RegisterPlayer(player);
