@@ -169,8 +169,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
     g_pCVar = icvar;
 
-    ConVar_Register(FCVAR_RELEASE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_GAMEDLL);
-
     if (!BeginCrashListener())
         PRINTRET("Crash Reporter failed to initialize.\n", false);
 
@@ -226,6 +224,8 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_translations->LoadTranslations();
 
     extManager->LoadExtensions();
+
+    ConVar_Register(FCVAR_RELEASE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_GAMEDLL);
 
     g_pluginManager->LoadPlugins("");
     g_pluginManager->StartPlugins();

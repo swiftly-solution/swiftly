@@ -75,6 +75,8 @@ bool LuaPlugin::LoadScriptingEnvironment()
             }
         }
 
+    luaL_dostring(this->state, "_G = setmetatable(_G, { __index = function(t, k) if IsSDKClass(k) then return GenerateSDKFactory(k) end end })");
+
     int loadStatus = luaL_dofile(this->state, "addons/swiftly/bin/scripting/events.lua");
 
     if (loadStatus != 0)

@@ -268,6 +268,7 @@ public:
 
     int GetProp(lua_State* state);
     int SetProp(lua_State* state);
+    int CallProp(lua_State* state);
 
     std::string GetClassName();
     void* GetPtr();

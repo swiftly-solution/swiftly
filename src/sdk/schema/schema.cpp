@@ -15,6 +15,7 @@ typedef void (*StateChanged)(void*, CBaseEntity*, int, int, int);
 std::map<uint64_t, int32_t> offsetsCache;
 std::map<uint64_t, bool> networkedCache;
 std::set<uint32_t> structCache;
+std::set<uint32_t> isClassLoaded;
 
 static bool IsFieldNetworked(SchemaClassFieldData_t& field)
 {
@@ -60,6 +61,8 @@ void PopulateClassData(const char* className, uint32_t classOffset)
     auto classData = pType->FindDeclaredClass(className);
 
     if(!classData) return;
+
+    isClassLoaded.insert(classOffset);
 
     if(structCache.find(classOffset) == structCache.end())
         if(IsStandardLayoutClass(classData))
@@ -111,6 +114,11 @@ bool sch::IsNetworked(uint64_t path)
 bool sch::IsStruct(const char* cName)
 {
     return structCache.find(hash_32_fnv1a_const(cName)) != structCache.end();
+}
+
+bool sch::IsClassLoaded(const char* cName)
+{
+    return isClassLoaded.find(hash_32_fnv1a_const(cName)) != isClassLoaded.end();
 }
 
 void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset)
