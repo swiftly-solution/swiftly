@@ -48,6 +48,7 @@ jobs:
               uses: actions/checkout@v4
               with:
                   repository: swiftly-solution/${{ matrix.extension }}
+                  path: ${{ matrix.extension }}
 
             - name: Checkout AMBuild
               uses: actions/checkout@v4
@@ -61,7 +62,7 @@ jobs:
 
             - name: Version
               shell: bash
-              run: echo "SWIFTLY_VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
+              run: echo "VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
 
             - name: Build - Linux
               if: matrix.os == 'ubuntu-latest'
