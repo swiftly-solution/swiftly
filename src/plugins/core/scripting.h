@@ -468,7 +468,7 @@ public:
     ~PluginDatabaseQueryBuilder();
 
     PluginDatabaseQueryBuilder* Table(const std::string& tableName);
-    PluginDatabaseQueryBuilder* Create(const std::map<std::string, std::string>& columns);
+    PluginDatabaseQueryBuilder* Create(const std::unordered_map<std::string, std::string>& columns);
     PluginDatabaseQueryBuilder* Alter(const std::map<std::string, std::string>& columns);
     PluginDatabaseQueryBuilder* Drop();
 

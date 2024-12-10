@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <any>
 
 class IQueryBuilder;
@@ -12,7 +13,7 @@ class IQueryBuilder
 {
 public:
     virtual IQueryBuilder* Table(std::string tableName) = 0;
-    virtual IQueryBuilder* Create(std::map<std::string, std::string> columns) = 0;
+    virtual IQueryBuilder* Create(std::unordered_map<std::string, std::string> columns) = 0;
     virtual IQueryBuilder* Alter(std::map<std::string, std::string> columns) = 0;
     virtual IQueryBuilder* Drop() = 0;
 

@@ -101,7 +101,7 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Table(const std::string&
     return this;
 }
 
-PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Create(const std::map<std::string, std::string>& columns)
+PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Create(const std::unordered_map<std::string, std::string>& columns)
 {
     this->qb->Create(columns);
     return this;
