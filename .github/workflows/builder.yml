@@ -240,8 +240,8 @@ jobs:
               run: |
                 sudo apt install p7zip-full -y;
                 
-                find build -type d -name "*Extension.Linux" -exec mv {}/* build/Swiftly.Plugin.Linux \;
-                find build -type d -name "*Extension.Windows" -exec mv {}/* build/Swiftly.Plugin.Windows \;
+                find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Plugin.Linux \;
+                find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Plugin.Windows \;
 
                 (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
                 (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
