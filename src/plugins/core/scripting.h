@@ -8,6 +8,7 @@
 #include "../../tools/crashreporter/CallStack.h"
 #include "../../memory/encoders/msgpack.h"
 #include "../../sdk/entity/CTakeDamageInfo.h"
+#include "../../network/database/IQueryBuilder.h"
 
 #include "cstrike15_usermessages.pb.h"
 #include <google/protobuf/message.h>
@@ -457,34 +458,18 @@ public:
 class PluginDatabaseQueryBuilder
 {
 private:
-    std::string tableName;
-    std::string query;
-    std::vector<std::string> selectColumns;
-    std::vector<std::string> whereClauses;
-    std::vector<std::string> orWhereClauses;
-    std::vector<std::string> joinClauses;
-    std::vector<std::string> groupByClauses;
-    std::vector<std::string> orderByClauses;
-    std::vector<std::string> onDuplicateClauses;
-    std::vector<std::string> havingClauses;
-    std::vector<std::string> unionClauses;
-    std::vector<std::pair<std::string, luabridge::LuaRef>> updatePairs;
-
-    bool isDistinct = false;
-    int limitCount = -1;
-    int offsetCount = -1;
-    
-    PluginDatabase* db;
+    IQueryBuilder* qb;
+    IDatabase* db;
 
     std::string FormatValue(const luabridge::LuaRef& luaValue, lua_State* L);
-    void Clear();
     
 public:
-    PluginDatabaseQueryBuilder(PluginDatabase* db);
+    PluginDatabaseQueryBuilder(IQueryBuilder* mqb, IDatabase* mdb);
+    ~PluginDatabaseQueryBuilder();
 
     PluginDatabaseQueryBuilder* Table(const std::string& tableName);
     PluginDatabaseQueryBuilder* Create(const std::map<std::string, std::string>& columns);
-    PluginDatabaseQueryBuilder* Alter(const std::string& alterCommand);
+    PluginDatabaseQueryBuilder* Alter(const std::map<std::string, std::string>& columns);
     PluginDatabaseQueryBuilder* Drop();
 
     PluginDatabaseQueryBuilder* Select(const std::vector<std::string>& columns);
@@ -505,7 +490,6 @@ public:
     PluginDatabaseQueryBuilder* Union(const std::string& query, bool all);
 
     void Execute(luabridge::LuaRef callback, lua_State* L);
-    std::string ToString();
 
 private:
     template<typename T>

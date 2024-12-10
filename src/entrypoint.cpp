@@ -207,8 +207,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_Patches->LoadPatches();
     g_Patches->PerformPatches();
 
-    g_dbManager->LoadDatabases();
-
     g_userMessages->Initialize();
     eventManager->Initialize();
     g_cvarQuery->Initialize();
@@ -224,6 +222,8 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_translations->LoadTranslations();
 
     extManager->LoadExtensions();
+
+    g_dbManager->LoadDatabases();
 
     ConVar_Register(FCVAR_RELEASE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_GAMEDLL);
 

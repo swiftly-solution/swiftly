@@ -5,6 +5,15 @@
 #include <string>
 #include <vector>
 #include <any>
+#include "IQueryBuilder.h"
+
+class IDatabase;
+
+struct DatabaseQueryQueue
+{
+    std::any query;
+    std::string requestID;
+};
 
 class IDatabase
 {
@@ -14,8 +23,8 @@ public:
     virtual bool Connect() = 0;
     virtual void Close(bool setError) = 0;
 
-    virtual std::string GetKind() = 0;
     virtual std::string GetVersion() = 0;
+    virtual std::string GetKind() = 0;
 
     virtual bool IsConnected() = 0;
 
@@ -27,6 +36,9 @@ public:
     // Mostly used in SQL-kind databases (MariaDB/MySQL, SQLite, MSSQL)
     virtual std::string EscapeValue(std::string query) = 0;
 
+    virtual void AddQueryQueue(DatabaseQueryQueue data) = 0;
+
+    virtual IQueryBuilder* ProvideQueryBuilder() = 0;
 };
 
 #endif

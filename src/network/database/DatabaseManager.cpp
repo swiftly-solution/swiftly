@@ -1,8 +1,12 @@
 #include "DatabaseManager.h"
 #include "../../filesystem/files/Files.h"
 #include "../../common.h"
+#include "DBDriver.h"
+#include <swiftly-ext/core.h>
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
+
+std::vector<DBDriver*> dbDrivers;
 
 void DatabasesError(std::string error)
 {
@@ -48,8 +52,18 @@ void DatabaseManager::LoadDatabases()
         }
 
         IDatabase* db = nullptr;
-        if(connection_details["kind"] == "mysql" || connection_details["kind"] == "mariadb")
-            db = new MySQLDatabase();
+
+        for(auto driver : dbDrivers) {
+            if(driver->GetKind() == connection_details["kind"]) {
+                db = driver->RegisterDatabase();
+                break;
+            }
+        }
+
+        if(!db) {
+            PLUGIN_PRINTF("Database", "Invalid database kind for \"%s\": %s.\n", connectionName, connection_details["kind"].c_str());
+            continue;
+        }
 
         db->SetConnectionConfig(connection_details);
         this->databases.insert({connectionName, db});
@@ -68,4 +82,9 @@ IDatabase *DatabaseManager::GetDatabase(std::string name)
         return nullptr;
 
     return this->databases.at(name);
+}
+
+EXT_API void swiftly_RegisterDBDriver(void* driverPtr)
+{
+    dbDrivers.push_back((DBDriver*)driverPtr);
 }

@@ -3,7 +3,6 @@
 
 #include <map>
 #include "IDatabase.h"
-#include "mysql/MySQLDatabase.h"
 
 class DatabaseManager
 {
