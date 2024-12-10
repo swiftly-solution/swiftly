@@ -221,9 +221,9 @@ jobs:
               with:
                   name: Swiftly.Plugin.Windows
                   path: ${{ github.workspace }}/swiftly/build/package
-
-    emulate_release:
-        if: ${{ github.event_name == 'push' }}
+                  
+    release:
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
         permissions:
             contents: write
         needs: ["versioning", "build", "extensions_build"]
@@ -243,33 +243,6 @@ jobs:
                 find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Plugin.Linux \;
                 find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Plugin.Windows \;
 
-                (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
-                (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
-                echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
-
-            - name: Upload Release Files
-              uses: actions/upload-artifact@v4
-              with:
-                  name: Swiftly.Release.Files
-                  path: ${{ env.PATH_ARTIFACTS }}
-
-    release:
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        permissions:
-            contents: write
-        needs: ["versioning", "build", "extensions_build"]
-        runs-on: ubuntu-latest
-        container:
-            image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
-        steps:
-            - uses: actions/download-artifact@v4
-              id: download-artifacts
-              with:
-                  path: build
-
-            - name: Prepare ZIP Files
-              run: |
-                sudo apt install p7zip-full -y;
                 (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
                 (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
                 echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
