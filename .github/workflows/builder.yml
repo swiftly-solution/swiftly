@@ -49,6 +49,7 @@ jobs:
               with:
                   repository: swiftly-solution/${{ matrix.extension }}
                   path: ${{ matrix.extension }}
+                  submodules: recursive
 
             - name: Checkout AMBuild
               uses: actions/checkout@v4
@@ -69,6 +70,8 @@ jobs:
               working-directory: ${{ matrix.extension }}
               shell: bash
               run: |
+                  echo $(pwd)
+                  echo $(ls)
                   sudo apt update
                   sudo apt install -y libreadline-dev libboost-all-dev
                   bash ./setup.sh
