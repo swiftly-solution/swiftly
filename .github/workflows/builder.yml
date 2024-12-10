@@ -70,8 +70,6 @@ jobs:
               working-directory: ${{ matrix.extension }}
               shell: bash
               run: |
-                  echo $(pwd)
-                  echo $(ls)
                   sudo apt update
                   sudo apt install -y libreadline-dev libboost-all-dev
                   bash ./setup.sh
@@ -105,14 +103,14 @@ jobs:
               if: matrix.os == 'ubuntu-latest'
               uses: actions/upload-artifact@v4
               with:
-                  name: Extension.Linux
+                  name: ${{matrix.extension}}.Extension.Linux
                   path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
                   
             - name: Upload Artifacts Windows
               if: matrix.os == 'windows-latest'
               uses: actions/upload-artifact@v4
               with:
-                  name: Extension.Windows
+                  name: ${{matrix.extension}}.Extension.Windows
                   path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
 
     build:
