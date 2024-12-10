@@ -155,7 +155,7 @@ jobs:
               shell: bash
               run: |
                   sudo apt update
-                  sudo apt install -y libreadline-dev libboost-all-dev fdupes unzip
+                  sudo apt install -y libreadline-dev libboost-all-dev unzip
                   bash ./setup.sh
 
                   echo "[Builder] Setting up default plugins"
@@ -222,24 +222,36 @@ jobs:
                   name: Swiftly.Plugin.Windows
                   path: ${{ github.workspace }}/swiftly/build/package
 
-            - name: Creating Swiftly Depot - Linux
-              if: matrix.os == 'ubuntu-latest'
-              working-directory: swiftly
-              run: |
-                  cd build
-                  curl https://api.github.com/repos/swiftly-solution/swiftly/releases/latest | grep "Swiftly.Plugin.Linux.zip" | cut -d : -f 2,3 | tr -d \" | tail -1 | wget -qi -
-                  unzip Swiftly.Plugin.Linux.zip
-                  mkdir release
-                  mv addons release
-                  fdupes -r --delete --noprompt package2 release
-                  find package2 -empty -type d -delete
+    emulate_release:
+        if: ${{ github.event_name == 'push' }}
+        permissions:
+            contents: write
+        needs: ["versioning", "build", "extensions_build"]
+        runs-on: ubuntu-latest
+        container:
+            image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+        steps:
+            - uses: actions/download-artifact@v4
+              id: download-artifacts
+              with:
+                  path: build
 
-            - name: Upload Swiftly Depot - Linux
-              if: matrix.os == 'ubuntu-latest'
+            - name: Prepare ZIP Files
+              run: |
+                sudo apt install p7zip-full -y;
+                
+                find build -type d -name "*Extension.Linux" -exec mv "{}/*" build/Swiftly.Plugin.Linux
+                find build -type d -name "*Extension.Windows" -exec mv "{}/*" build/Swiftly.Plugin.Windows
+
+                (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
+                (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
+                echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
+
+            - name: Upload Release Files
               uses: actions/upload-artifact@v4
               with:
-                  name: Swiftly.Plugin.Depot.Linux
-                  path: ${{ github.workspace }}/swiftly/build/package2
+                  name: Swiftly.Release.Files
+                  path: ${{ env.PATH_ARTIFACTS }}
 
     release:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
@@ -260,7 +272,6 @@ jobs:
                 sudo apt install p7zip-full -y;
                 (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
                 (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
-                (cd build/Swiftly.Plugin.Depot.Linux; 7z a -tzip ../../../Swiftly.Plugin.Depot.Linux.zip *)
                 echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
 
             - name: Release
@@ -272,4 +283,3 @@ jobs:
                   files: |
                       ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
                       ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip
-                      ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Depot.Linux.zip
