@@ -13,6 +13,8 @@ class Extension
 {
 private:
     std::string m_name;
+    std::string m_error;
+    bool m_errored = false;
     HINSTANCE m_hModule;
     SwiftlyExt* m_api;
     bool loaded = false;
@@ -23,6 +25,9 @@ public:
     std::string GetName();
     SwiftlyExt* GetAPI();
     bool IsLoaded();
+
+    std::string GetError();
+    bool HasError();
 
     bool LoadExtension(bool late);
     bool UnloadExtension();

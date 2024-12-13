@@ -27,7 +27,10 @@ bool Extension::LoadExtension(bool late)
     m_hModule = dlopen((std::string("addons/swiftly/extensions/linuxsteamrt64/") + m_name + ".so").c_str(), RTLD_NOW);
 
     if (!m_hModule) {
-        PRINTF("Failed to load extension: %s\n", dlerror());
+        std::string err = dlerror();
+        PRINTF("Failed to load extension: %s\n", err.c_str());
+        m_errored = true;
+        m_error = err;
         return false;
     }
 #endif
@@ -35,6 +38,8 @@ bool Extension::LoadExtension(bool late)
     void* fnGetClass = reinterpret_cast<void*>(dlsym(m_hModule, "GetExtensionClass"));
     if (!fnGetClass) {
         PRINT("Failed to load extension: GetExtensionClass is not present.\n");
+        m_errored = true;
+        m_error = "GetExtensionClass is not present";
         return false;
     }
 
@@ -50,6 +55,8 @@ bool Extension::LoadExtension(bool late)
         dlclose(m_hModule);
         m_hModule = nullptr;
         m_api = nullptr;
+        m_errored = true;
+        m_error = err;
         return false;
     }
     return true;
@@ -65,6 +72,8 @@ bool Extension::UnloadExtension()
                     PRINTF("An error has occured while trying to unload the extension from plugin '%s'.\n", plugin->GetName().c_str());
                     PRINTF("Extension: %s.\n", m_name.c_str());
                     PRINTF("Error: %s.\n", error.c_str());
+                    m_errored = true;
+                    m_error = error;
                     return false;
                 }
             }
@@ -76,6 +85,8 @@ bool Extension::UnloadExtension()
         PRINT("An error has occured while trying to unload the extension.\n");
         PRINTF("Extension: %s.\n", m_name.c_str());
         PRINTF("Error: %s\n", err.c_str());
+        m_errored = true;
+        m_error = err;
         loaded = true;
         return false;
     }
@@ -95,4 +106,14 @@ SwiftlyExt* Extension::GetAPI()
 bool Extension::IsLoaded()
 {
     return loaded;
+}
+
+std::string Extension::GetError()
+{
+    return m_error;
+}
+
+bool Extension::HasError()
+{
+    return m_errored;
 }

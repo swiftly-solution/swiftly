@@ -13,6 +13,7 @@
 #include "../plugins/PluginManager.h"
 #include "../tools/resourcemonitor/ResourceMonitor.h"
 #include "../server/commands/CommandsManager.h"
+#include "../extensions/ExtensionManager.h"
 #include "../server/chat/Chat.h"
 
 #ifndef GITHUB_SHA
@@ -181,6 +182,7 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot, CCommandContext context)
     {
         PrintToClientOrConsole(slot, "Commands", " cvars        - List all convars created by plugins\n");
         PrintToClientOrConsole(slot, "Commands", " config       - Configuration Management Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " exts         - Extension Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " resmon       - Resource Monitor Menu\n");
         PrintToClientOrConsole(slot, "Commands", " translations - Translations Menu\n");
@@ -685,6 +687,87 @@ void SwiftlyConfigurationManager(CPlayerSlot slot, CCommandContext context, cons
 }
 
 //////////////////////////////////////////////////////////////
+/////////////////          Extensions          //////////////
+////////////////////////////////////////////////////////////
+
+void SwiftlyExtensionManagerHelp(CPlayerSlot slot, CCommandContext context)
+{
+    PrintToClientOrConsole(slot, "Commands", "Swiftly Configuration Menu\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly exts <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " list     - Shows all the extensions loaded.\n");
+}
+
+void SwiftlyExtensionList(CPlayerSlot slot, CCommandContext context)
+{
+    uint32 loadedExtensions = 0;
+    auto extensions = extManager->GetExtensionsList();
+    for (uint32 i = 0; i < extensions.size(); i++)
+    {
+        Extension* ext = extensions[i];
+        if (ext == nullptr)
+            continue;
+        if (!ext->IsLoaded())
+            continue;
+
+        ++loadedExtensions;
+    }
+
+    if (loadedExtensions == 0)
+        return PrintToClientOrConsole(slot, "Extensions List", "There are no extensions loaded.\n");
+
+    PrintToClientOrConsole(slot, "Extensions List", "Showing below %02d extensions loaded:\n", loadedExtensions);
+    uint32 showingIdx = 0;
+    std::vector<std::string> errors;
+    for (uint32 i = 0; i < extensions.size(); i++)
+    {
+        Extension* ext = extensions[i];
+        if (ext == nullptr)
+            continue;
+        if (ext->HasError())
+            errors.push_back(string_format("Extension '%s': %s", ext->GetName().c_str(), ext->GetError().c_str()));
+        if (!ext->IsLoaded())
+            continue;
+
+        ++showingIdx;
+
+        std::string website = ext->GetAPI()->GetWebsite();
+
+        PrintToClientOrConsole(slot, "Extensions List", "%02d. \"%s\" (%s) by %s%s\n",
+            showingIdx,
+            ext->GetAPI()->GetName(),
+            ext->GetAPI()->GetVersion(),
+            ext->GetAPI()->GetAuthor(),
+            website == "" ? "" : string_format(" ( %s )", website.c_str()).c_str());
+    }
+    if (errors.size() && slot.Get() == -1)
+    {
+        PrintToClientOrConsole(slot, "Extensions List", "Extension load errors:\n");
+        for (const std::string err : errors)
+            PrintToClientOrConsole(slot, "Extensions List", "%s\n", err.c_str());
+
+        errors.clear();
+    }
+}
+
+void SwiftlyExtensionManager(CPlayerSlot slot, CCommandContext context, const char* subcmd)
+{
+    if (slot.Get() != -1)
+        return;
+
+    std::string sbcmd = subcmd;
+    if (sbcmd.size() == 0)
+    {
+        SwiftlyExtensionManagerHelp(slot, context);
+        return;
+    }
+
+    if (sbcmd == "list")
+        SwiftlyExtensionList(slot, context);
+    else
+        SwiftlyExtensionManagerHelp(slot, context);
+}
+
+//////////////////////////////////////////////////////////////
 /////////////////            Credits           //////////////
 ////////////////////////////////////////////////////////////
 
@@ -750,6 +833,8 @@ void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
         SwiftlyTranslationManager(slot, context, args[2]);
     else if (subcmd == "config")
         SwiftlyConfigurationManager(slot, context, args[2]);
+    else if (subcmd == "exts")
+        SwiftlyExtensionManager(slot, context, args[2]);
     else if (subcmd == "plugins")
         SwiftlyPluginManager(slot, context, args[2], args[3]);
     else if (subcmd == "resmon")
