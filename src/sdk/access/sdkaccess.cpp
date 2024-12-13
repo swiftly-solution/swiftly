@@ -124,15 +124,11 @@ bool SDKAccess::ExistsField(uint64_t path)
 
 EXT_API void* swiftly_GetSDKPtr(void* ptr, const char* className, const char* fieldName)
 {
-    uint64_t path = ((uint64_t)hash_32_fnv1a_const(className) << 32 | hash_32_fnv1a_const(fieldName));
-
-    auto m_key = sch::GetOffset(className, g_sdk->GetFieldName(path).c_str());
+    auto m_key = sch::GetOffset(className, fieldName);
     return (void*)((uintptr_t)ptr + m_key);
 }
 
 EXT_API void swiftly_SetStateChanged(void* ptr, const char* className, const char* fieldName, int extraOffset)
 {
-    uint64_t path = ((uint64_t)hash_32_fnv1a_const(className) << 32 | hash_32_fnv1a_const(fieldName));
-    
-    SetStateChanged((uintptr_t)ptr, className, g_sdk->GetFieldName(path), extraOffset);
+    SetStateChanged((uintptr_t)ptr, className, fieldName, extraOffset);
 }
