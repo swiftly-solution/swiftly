@@ -24,6 +24,5 @@ void UnloadHooks()
     FOR_EACH_VEC(g_vecHooks, i)
     {
         g_vecHooks[i]->Disable();
-        g_vecHooks[i]->Free();
     }
 }

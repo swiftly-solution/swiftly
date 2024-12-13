@@ -83,9 +83,6 @@ public:
 
 public:
     std::deque<std::pair<std::function<void(std::vector<std::any>)>, std::vector<std::any>>> m_nextFrame;
-
-public:
-    STEAM_GAMESERVER_CALLBACK_MANUAL(Swiftly, OnAddonDownloaded, DownloadItemResult_t, m_CallbackDownloadItemResult);
 };
 
 class CEntityListener : public IEntityListener

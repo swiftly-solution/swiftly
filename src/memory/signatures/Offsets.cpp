@@ -2,6 +2,7 @@
 
 #include "../../common.h"
 #include "../../filesystem/files/Files.h"
+#include <swiftly-ext/core.h>
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
@@ -73,4 +74,10 @@ int Offsets::GetOffset(std::string name)
         return -1;
 
     return this->offsets.at(name);
+}
+
+EXT_API int swiftly_GetOffset(const char* name)
+{
+    if(!g_Offsets) return -1;
+    return g_Offsets->GetOffset(name);
 }

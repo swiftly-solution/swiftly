@@ -1,6 +1,6 @@
 #include "Configuration.h"
 #include "../../filesystem/files/Files.h"
-
+#include <swiftly-ext/core.h>
 #include "../../utils/utils.h"
 
 extern bool followCS2Guidelines;
@@ -632,4 +632,11 @@ void Configuration::SetPluginValue(std::string key, T value)
 void Configuration::ClearPluginConfig()
 {
     this->pluginConfig.clear();
+}
+
+EXT_API void* swiftly_GetConfigurationValue(const char* key)
+{
+    auto config = g_Config->FetchConfiguration();
+    if(config.find(key) == config.end()) return nullptr;
+    return (void*)&(config[key]);
 }

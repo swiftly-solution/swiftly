@@ -9,7 +9,6 @@
 #include "../../common.h"
 #include "../../entrypoint.h"
 #include "../../utils/utils.h"
-#include "../../engine/addons/addons.h"
 
 class FuncHookBase
 {
@@ -86,12 +85,6 @@ bool FuncHook<T>::Create()
     if(this->m_lib == nullptr) {
         if (!g_Signatures->Exists(this->m_name))
         {
-            if(std::string(this->m_name) == "HostStateRequest") {
-                PLUGIN_PRINT("FuncHook", "The signature for \"HostStateRequest\" has not been found. The \"Addons\" system has been forcefully disabled.\n");
-                g_addons.SetStatus(false);
-                return true;
-            }
-            
             PLUGIN_PRINTF("FuncHook", "Failed create for %s.\nError Message: Signature was not found.\n", this->GetName());
             return false;
         }

@@ -74,11 +74,6 @@
         "windows": "48 89 74 24 18 55 41 54 41 55 41 56 41 57 48 8D 6C 24 D1",
         "linux": "55 48 89 E5 41 57 41 56 41 55 49 89 FD 41 54 45 89 C4"
     },
-    "HostStateRequest": {
-        "lib": "engine2",
-        "windows": "48 89 74 24 10 57 48 83 EC 30 33 F6 48 8B FA",
-        "linux": "55 48 89 E5 41 56 41 55 41 54 49 89 F4 53 48 83 7F 30 00"
-    },
     "CCSPlayerPawnBase_PostThink": {
         "lib": "server",
         "windows": "48 ? ? 55 53 56 57 41 ? 48 ? ? ? 48 ? ? ? ? ? ? 4C 89 68",
@@ -103,11 +98,6 @@
         "lib": "server",
         "windows": "48 8B C4 44 89 40 ? 48 89 50 ? 48 89 48",
         "linux": "55 48 89 E5 41 57 41 56 41 55 49 89 CD 41 54 53 48 83 EC 68"
-    },
-    "CLoggingSystem_LogDirect": {
-        "lib": "tier0",
-        "windows": "4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55",
-        "linux": "55 89 D0 48 89 E5 41 57 41 56 41 55"
     },
     "CBaseEntity_TakeDamage": {
         "lib": "server",

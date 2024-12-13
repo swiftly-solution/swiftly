@@ -27,8 +27,91 @@ jobs:
               id: version
               with:
                 release_branch: master
-                increment: patch
+                increment: minor
                 use_api: true
+
+    extensions_build:
+        name: Extension Build
+        needs: versioning
+        runs-on: ${{ matrix.os }}
+        container: ${{ matrix.container }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+                extension: [mysql-extension,console-filter,addons-extension,http-extension,ip-extension]
+                include:
+                    - os: ubuntu-latest
+                      container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+        steps:
+            - name: Checkout Extension
+              uses: actions/checkout@v4
+              with:
+                  repository: swiftly-solution/${{ matrix.extension }}
+                  path: ${{ matrix.extension }}
+                  submodules: recursive
+
+            - name: Checkout AMBuild
+              uses: actions/checkout@v4
+              with:
+                  repository: alliedmodders/ambuild
+                  path: ambuild
+
+            - name: Install AMBuild
+              run: |
+                  cd ambuild; python setup.py install; cd ..
+
+            - name: Version
+              shell: bash
+              run: echo "VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
+
+            - name: Build - Linux
+              if: matrix.os == 'ubuntu-latest'
+              working-directory: ${{ matrix.extension }}
+              shell: bash
+              run: |
+                  sudo apt update
+                  sudo apt install -y libreadline-dev libboost-all-dev
+                  bash ./setup.sh
+
+            - name: Build - Windows
+              if: matrix.os == 'windows-latest'
+              working-directory: ${{ matrix.extension }}
+              run: |
+                  ./setup.ps1
+
+            - name: IP EXT - Linux
+              if: ${{ matrix.os == 'ubuntu-latest' && matrix.extension == 'ip-extension' }}
+              working-directory: ${{ matrix.extension }}
+              shell: bash
+              run: |
+                  wget https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb -O build/package/addons/swiftly/data/GeoLite2-City.mmdb
+                  wget https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb -O build/package/addons/swiftly/data/GeoLite2-ASN.mmdb
+
+            - name: IP EXT - Windows
+              if: ${{ matrix.os == 'windows-latest' && matrix.extension == 'ip-extension' }}
+              working-directory: ${{ matrix.extension }}
+              run: |
+                  Set-Location build/package/addons/swiftly
+
+                  Invoke-WebRequest https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb -OutFile data/GeoLite2-City.mmdb
+                  Invoke-WebRequest https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb -OutFile data/GeoLite2-ASN.mmdb
+
+                  Set-Location ../../../..
+
+            - name: Upload Artifacts Linux
+              if: matrix.os == 'ubuntu-latest'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{matrix.extension}}.Extension.Linux
+                  path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
+                  
+            - name: Upload Artifacts Windows
+              if: matrix.os == 'windows-latest'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{matrix.extension}}.Extension.Windows
+                  path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
 
     build:
         name: Build
@@ -63,7 +146,6 @@ jobs:
                   cd ambuild; python setup.py install; cd ..
 
             - name: Setup Version
-              if: ${{ github.ref == 'refs/heads/master' }}
               shell: bash
               run: echo "SWIFTLY_VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
 
@@ -73,13 +155,8 @@ jobs:
               shell: bash
               run: |
                   sudo apt update
-                  sudo apt install -y libreadline-dev libboost-all-dev fdupes unzip
+                  sudo apt install -y libreadline-dev libboost-all-dev unzip
                   bash ./setup.sh
-
-                  echo "[Builder] Setting up MaxMind Database"
-                  wget https://git.io/GeoLite2-City.mmdb -O build/package/addons/swiftly/data/GeoLite2-City.mmdb
-                  wget https://git.io/GeoLite2-ASN.mmdb -O build/package/addons/swiftly/data/GeoLite2-ASN.mmdb
-                  echo "[Builder] Finished setting up MaxMind Database"
 
                   echo "[Builder] Setting up default plugins"
                   cp -r build/package build/package2
@@ -104,16 +181,13 @@ jobs:
                   cd ../../../..
                   echo "[Builder] Finished setting up default plugins"
 
-            - name: Prepare Build - Windows
+            - name: Build - Windows
               if: matrix.os == 'windows-latest'
               working-directory: swiftly
               run: |
                   ./setup.ps1
 
                   Set-Location build/package/addons/swiftly
-
-                  Invoke-WebRequest https://git.io/GeoLite2-City.mmdb -OutFile data/GeoLite2-City.mmdb
-                  Invoke-WebRequest https://git.io/GeoLite2-ASN.mmdb -OutFile data/GeoLite2-ASN.mmdb
 
                   Invoke-WebRequest https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip -OutFile Swiftly.Plugin.Admins.zip
                   Expand-Archive Swiftly.Plugin.Admins.zip -DestinationPath .
@@ -147,31 +221,12 @@ jobs:
               with:
                   name: Swiftly.Plugin.Windows
                   path: ${{ github.workspace }}/swiftly/build/package
-
-            - name: Creating Swiftly Depot - Linux
-              if: matrix.os == 'ubuntu-latest'
-              working-directory: swiftly
-              run: |
-                  cd build
-                  curl https://api.github.com/repos/swiftly-solution/swiftly/releases/latest | grep "Swiftly.Plugin.Linux.zip" | cut -d : -f 2,3 | tr -d \" | tail -1 | wget -qi -
-                  unzip Swiftly.Plugin.Linux.zip
-                  mkdir release
-                  mv addons release
-                  fdupes -r --delete --noprompt package2 release
-                  find package2 -empty -type d -delete
-
-            - name: Upload Swiftly Depot - Linux
-              if: matrix.os == 'ubuntu-latest'
-              uses: actions/upload-artifact@v4
-              with:
-                  name: Swiftly.Plugin.Depot.Linux
-                  path: ${{ github.workspace }}/swiftly/build/package2
-
+                  
     release:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
         permissions:
             contents: write
-        needs: ["versioning", "build"]
+        needs: ["versioning", "build", "extensions_build"]
         runs-on: ubuntu-latest
         container:
             image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
@@ -184,9 +239,12 @@ jobs:
             - name: Prepare ZIP Files
               run: |
                 sudo apt install p7zip-full -y;
+                
+                find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Plugin.Linux \;
+                find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Plugin.Windows \;
+
                 (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
                 (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
-                (cd build/Swiftly.Plugin.Depot.Linux; 7z a -tzip ../../../Swiftly.Plugin.Depot.Linux.zip *)
                 echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
 
             - name: Release
@@ -198,4 +256,3 @@ jobs:
                   files: |
                       ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
                       ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip
-                      ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Depot.Linux.zip

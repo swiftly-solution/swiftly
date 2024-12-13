@@ -2,6 +2,9 @@
 
 #include "core/scripting.h"
 #include "../server/menus/MenuManager.h"
+#include "../extensions/ExtensionManager.h"
+#include "../memory/encoders/msgpack.h"
+#include <swiftly-ext/core.h>
 
 #include <vector>
 
@@ -110,6 +113,10 @@ void PluginManager::StartPlugins()
     this->ExecuteEvent("core", "OnAllPluginsLoaded", encoders::msgpack::SerializeToString({}), event);
     delete event;
     AllPluginsStarted = true;
+
+    for(auto extension : extManager->GetExtensionsList())
+        if(extension->IsLoaded())
+            extension->GetAPI()->AllPluginsLoaded();
 }
 
 void PluginManager::StopPlugins(bool destroyStates)
@@ -152,8 +159,10 @@ void PluginManager::StopPlugin(std::string plugin_name, bool destroyStates)
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return;
 
-    plugin->ExecuteStop();
-    if(destroyStates) {
+    if (!plugin->ExecuteStop())
+        return;
+
+    if (destroyStates) {
         plugin->DestroyScriptingEnvironment();
         plugin->SetPluginState(PluginState_t::Stopped);
     }
@@ -189,4 +198,14 @@ std::string PluginManager::GetPluginBasePath(std::string plugin_name)
 {
     if (this->pluginBasePaths.find(plugin_name) == this->pluginBasePaths.end()) return "addons/swiftly/plugins";
     return this->pluginBasePaths[plugin_name];
+}
+
+EXT_API int swiftly_TriggerEvent(const char* ext_name, const char* evName, void* args, void* eventReturn)
+{
+    PluginEvent* ev = new PluginEvent(ext_name, nullptr, nullptr);
+    auto result = g_pluginManager->ExecuteEvent(ext_name, evName, encoders::msgpack::SerializeToString(*(std::vector<std::any>*)args), ev);
+    delete ev;
+
+    *reinterpret_cast<std::any*>(eventReturn) = ev->GetReturnValue();
+    return (int)result;
 }

@@ -5,9 +5,6 @@
 [submodule "alliedmodders/metamod"]
 	path = alliedmodders/metamod
 	url = https://github.com/alliedmodders/metamod-source
-[submodule "vendor/LuaBridge"]
-	path = vendor/LuaBridge
-	url = https://github.com/vinniefalco/LuaBridge
 [submodule "vendor/dynlib"]
 	path = vendor/dynlib
 	url = https://github.com/komashchenko/DynLibUtils
@@ -31,3 +28,9 @@
 [submodule "vendor/lua"]
 	path = vendor/lua
 	url = https://github.com/swiftly-solution/lua
+[submodule "vendor/swiftly-ext"]
+	path = vendor/swiftly-ext
+	url = https://github.com/swiftly-solution/swiftly-ext
+[submodule "vendor/LuaBridge"]
+	path = vendor/LuaBridge
+	url = https://github.com/swiftly-solution/LuaBridge

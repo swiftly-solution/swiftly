@@ -8,13 +8,10 @@
 
 #include <steam/steam_gameserver.h>
 
+#include "extensions/ExtensionManager.h"
 #include "sdk/entity/CRecipientFilters.h"
-#include "engine/addons/addons.h"
-#include "engine/addons/clients.h"
 #include "memory/encoders/msgpack.h"
 #include "entitysystem/entities/listener.h"
-#include "network/http/HTTPManager.h"
-#include "network/http/HTTPServerManager.h"
 #include "server/configuration/Configuration.h"
 #include "server/commands/CommandsManager.h"
 #include "tools/crashreporter/CallStack.h"
@@ -25,7 +22,6 @@
 #include "filesystem/logs/Logger.h"
 #include "entitysystem/precacher/precacher.h"
 #include "server/translations/Translations.h"
-#include "tools/filters/ConsoleFilter.h"
 #include "server/menus/MenuManager.h"
 #include "tools/resourcemonitor/ResourceMonitor.h"
 #include "memory/hooks/NativeHooks.h"
@@ -85,7 +81,6 @@ CGameEntitySystem* g_pGameEntitySystem = nullptr;
 IGameEventManager2* g_gameEventManager = nullptr;
 IGameEventSystem* g_pGameEventSystem = nullptr;
 CSteamGameServerAPIContext g_SteamAPI;
-ISteamHTTP* g_http = nullptr;
 CSchemaSystem* g_pSchemaSystem2 = nullptr;
 CCSGameRules* gameRules = nullptr;
 
@@ -96,12 +91,10 @@ CCSGameRules* gameRules = nullptr;
 CUtlVector<FuncHookBase*> g_vecHooks;
 uint64_t g_Players = 0;
 
-Addons g_addons;
 ChatProcessor* g_chatProcessor = nullptr;
 EntityListener g_EntityListener;
 CommandsManager* g_commandsManager = nullptr;
 Configuration* g_Config = nullptr;
-ConsoleFilter* g_conFilter = nullptr;
 Translations* g_translations = nullptr;
 Logger* g_Logger = nullptr;
 PlayerManager* g_playerManager = nullptr;
@@ -115,12 +108,11 @@ ResourceMonitor* g_ResourceMonitor = nullptr;
 Patches* g_Patches = nullptr;
 CallStack* g_callStack = nullptr;
 EventManager* eventManager = nullptr;
-HTTPManager* g_httpManager = nullptr;
 UserMessages* g_userMessages = nullptr;
 SDKAccess* g_sdk = nullptr;
 ConvarQuery* g_cvarQuery = nullptr;
-HTTPServerManager* g_httpServerManager = nullptr;
 VoiceManager g_voiceManager;
+ExtensionManager* extManager = nullptr;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -145,7 +137,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
         FILE* fp;
 
-        if(freopen_s(&fp, "CONOUT$", "w", stdout) == 0)
+        if (freopen_s(&fp, "CONOUT$", "w", stdout) == 0)
             setvbuf(stdout, NULL, _IONBF, 0);
     }
 #endif
@@ -177,15 +169,11 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
     g_pCVar = icvar;
 
-    ConVar_Register(FCVAR_RELEASE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_GAMEDLL);
-
     if (!BeginCrashListener())
         PRINTRET("Crash Reporter failed to initialize.\n", false);
 
-    g_httpManager = new HTTPManager();
     g_pluginManager = new PluginManager();
     g_Config = new Configuration();
-    g_conFilter = new ConsoleFilter();
     g_Signatures = new Signatures();
     g_Offsets = new Offsets();
     g_Patches = new Patches();
@@ -202,8 +190,8 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_userMessages = new UserMessages();
     g_sdk = new SDKAccess();
     g_cvarQuery = new ConvarQuery();
-    g_httpServerManager = new HTTPServerManager();
     g_chatProcessor = new ChatProcessor();
+    extManager = new ExtensionManager();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -219,9 +207,6 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_Patches->LoadPatches();
     g_Patches->PerformPatches();
 
-    g_dbManager->LoadDatabases();
-
-    g_addons.LoadAddons();
     g_userMessages->Initialize();
     eventManager->Initialize();
     g_cvarQuery->Initialize();
@@ -234,11 +219,13 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
         PRINT("Hooks initialized succesfully.\n");
 
     g_chatProcessor->LoadMessages();
-    g_conFilter->LoadFilters();
     g_translations->LoadTranslations();
 
-    if (g_Config->FetchValue<bool>("core.console_filtering"))
-        g_conFilter->Toggle();
+    extManager->LoadExtensions();
+
+    g_dbManager->LoadDatabases();
+
+    ConVar_Register(FCVAR_RELEASE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_GAMEDLL);
 
     g_pluginManager->LoadPlugins("");
     g_pluginManager->StartPlugins();
@@ -247,12 +234,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     {
         eventManager->RegisterGameEvents();
         g_SteamAPI.Init();
-        g_http = g_SteamAPI.SteamHTTP();
-        g_httpManager->ProcessPendingHTTPRequests();
-        m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
     }
-
-    g_addons.SetupThread();
 
     g_voiceManager.OnAllInitialized();
 
@@ -267,33 +249,13 @@ void Swiftly::Hook_GameServerSteamAPIActivated()
         return;
 
     g_SteamAPI.Init();
-    g_http = g_SteamAPI.SteamHTTP();
-    g_httpManager->ProcessPendingHTTPRequests();
-    m_CallbackDownloadItemResult.Register(this, &Swiftly::OnAddonDownloaded);
-
-    if(g_addons.GetStatus()) {
-        std::thread([&]() -> void
-            {
-                std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-
-                if (g_addons.GetStatus())
-                    g_addons.RefreshAddons(true); })
-            .detach();
-    }
 
     RETURN_META(MRES_IGNORED);
 }
 
 void Swiftly::Hook_GameServerSteamAPIDeactivated()
 {
-    g_http = nullptr;
-
     RETURN_META(MRES_IGNORED);
-}
-
-void Swiftly::OnAddonDownloaded(DownloadItemResult_t* pResult)
-{
-    g_addons.OnAddonDownloaded(pResult);
 }
 
 void Swiftly::AllPluginsLoaded()
@@ -310,6 +272,8 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     g_pluginManager->StopPlugins(false);
     g_pluginManager->UnloadPlugins();
 
+    extManager->UnloadExtensions();
+
     UnloadHooks();
     eventManager->Shutdown();
 
@@ -325,10 +289,8 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     SH_REMOVE_HOOK_MEMFUNC(IServerGameDLL, GameServerSteamAPIDeactivated, server, this, &Swiftly::Hook_GameServerSteamAPIDeactivated, false);
     SH_REMOVE_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &Swiftly::Hook_CheckTransmit, true);
 
-    delete g_httpServerManager;
     delete g_commandsManager;
     delete g_Config;
-    delete g_conFilter;
     delete g_translations;
     delete g_Logger;
     delete g_playerManager;
@@ -342,7 +304,6 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     delete g_Patches;
     delete g_callStack;
     delete eventManager;
-    delete g_httpManager;
     delete g_userMessages;
     delete g_sdk;
     delete g_cvarQuery;
@@ -382,11 +343,6 @@ void Swiftly::OnLevelShutdown()
 
 void Swiftly::Hook_StartupServer(const GameSessionConfiguration_t& config, ISource2WorldSession*, const char*)
 {
-    g_ClientsPendingAddon.RemoveAll();
-
-    if (g_addons.GetStatus())
-        g_addons.RefreshAddons();
-
     eventManager->RegisterGameEvents();
 }
 
@@ -394,9 +350,9 @@ void Swiftly::UpdatePlayers()
 {
     PERF_RECORD("UpdatePlayers", "core")
 
-    // Credits to: https://github.com/Source2ZE/ServerListPlayersFix (Source2ZE Team)
-    if (!engine->GetServerGlobals() || !g_SteamAPI.SteamGameServer())
-        return;
+        // Credits to: https://github.com/Source2ZE/ServerListPlayersFix (Source2ZE Team)
+        if (!engine->GetServerGlobals() || !g_SteamAPI.SteamGameServer())
+            return;
 
     for (int i = 0; i < engine->GetServerGlobals()->maxClients; i++)
     {
@@ -430,7 +386,7 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
 {
     PERF_RECORD("GameFrame", "core")
 
-    static double g_flNextUpdate = 0.0;
+        static double g_flNextUpdate = 0.0;
     uint64_t time = GetTime();
 
     ProcessTimeouts(time);
@@ -466,10 +422,10 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     //////////////////////////////////////////////////////////////
     /////////////////            Player            //////////////
     ////////////////////////////////////////////////////////////
-    #pragma omp parallel for
-    for(int i = 0; i < 64; i++)
+#pragma omp parallel for
+    for (int i = 0; i < 64; i++)
     {
-        if((g_Players & (1ULL << i)) != 0) {
+        if ((g_Players & (1ULL << i)) != 0) {
             Player* player = g_playerManager->GetPlayer(i);
             CBasePlayerPawn* pawn = player->GetPawn();
             if (!pawn)
@@ -508,7 +464,7 @@ void Swiftly::Hook_CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount,
     if (!g_pGameEntitySystem)
         return;
 
-    if(!checktransmitEvent)
+    if (!checktransmitEvent)
         checktransmitEvent = new PluginEvent("core", nullptr, nullptr);
 
     for (int i = 0; i < infoCount; i++)
@@ -516,7 +472,7 @@ void Swiftly::Hook_CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount,
         auto& pInfo = (EntityCheckTransmit*&)ppInfoList[i];
         int playerid = pInfo->m_nClientEntityIndex.Get();
         Player* player = g_playerManager->GetPlayer(playerid);
-        if(!player) continue;
+        if (!player) continue;
 
         g_pluginManager->ExecuteEvent("core", "OnPlayerCheckTransmit", encoders::msgpack::SerializeToString({ playerid, string_format("%p", pInfo) }), checktransmitEvent);
     }
@@ -542,16 +498,13 @@ void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint
         g_playerManager->RegisterPlayer(player);
     }
     else {
-        if(g_Config->FetchValue<bool>("core.use_player_language"))
+        if (g_Config->FetchValue<bool>("core.use_player_language"))
             g_cvarQuery->QueryCvarClient(slot, "cl_language");
     }
 }
 
 bool Swiftly::Hook_ClientConnect(CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, bool unk1, CBufferString* pRejectReason)
 {
-    if (!g_addons.OnClientConnect(xuid))
-        RETURN_META_VALUE(MRES_IGNORED, true);
-
     std::string ip_address = explode(pszNetworkID, ":")[0];
     Player* player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     g_playerManager->RegisterPlayer(player);
@@ -596,9 +549,9 @@ void Swiftly::Hook_ServerHibernationUpdate(bool bHibernation)
 
 void Swiftly::NextFrame(std::function<void(std::vector<std::any>)> fn, std::vector<std::any> param)
 {
-    if(isServerHibernating) 
+    if (isServerHibernating)
         fn(param);
-    else 
+    else
         m_nextFrame.push_back({ fn, param });
 }
 

@@ -4,6 +4,7 @@
 
 #include "../../utils/utils.h"
 
+#include <swiftly-ext/core.h>
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 
@@ -107,4 +108,15 @@ void Signatures::LoadSignatures()
             this->signatures.insert(std::make_pair(name, sig));
         }
     }
+}
+
+EXT_API void* swiftly_GetSignature(const char* name)
+{
+    if(!g_Signatures) return nullptr;
+    return g_Signatures->FetchRawSignature(name);
+}
+
+EXT_API void* swiftly_AccessVTable(const char* module, const char* vTableName)
+{
+    return DetermineModuleByLibrary(module).GetVirtualTableByName(vTableName).RCast<void*>();
 }

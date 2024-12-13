@@ -16,7 +16,6 @@ LoadLuaScriptingComponent(
 
         luabridge::getGlobalNamespace(state)
             .beginClass<PluginDatabaseQueryBuilder>("QueryBuilder")
-            .addConstructor<void (*)(PluginDatabase*)>()
             .addFunction("Table", &PluginDatabaseQueryBuilder::Table)
             .addFunction("Create", &PluginDatabaseQueryBuilder::Create)
             .addFunction("Alter", &PluginDatabaseQueryBuilder::Alter)
@@ -37,7 +36,6 @@ LoadLuaScriptingComponent(
             .addFunction("Offset", &PluginDatabaseQueryBuilder::Offset)
             .addFunction("Union", &PluginDatabaseQueryBuilder::Union)
             .addFunction("Execute", &PluginDatabaseQueryBuilder::Execute)
-            .addFunction("ToString", &PluginDatabaseQueryBuilder::ToString)
             .endClass();
 
         luaL_dostring(state, "db = Database(\"default_connection\")");

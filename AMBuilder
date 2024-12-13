@@ -17,17 +17,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 
 	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'vendor', 'lua')):
 		for _file in files:
-			if fnmatch.fnmatch(_file, '*.c') and not "testes" in root and not "onelua.c" in _file:
-				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
-
-	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'vendor', 'maxmind')):
-		for _file in files:
-			if fnmatch.fnmatch(_file, '*.c'):
-				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
-
-	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'vendor', 'geolite2pp')):
-		for _file in files:
-			if fnmatch.fnmatch(_file, '*.cpp'):
+			if fnmatch.fnmatch(_file, '*.cpp') and not "testes" in root and not "onelua.cpp" in _file:
 				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
 	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, "vendor", "json-lua", "src")):
@@ -71,7 +61,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 		binary.compiler.postlink += [
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libfunchook.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'libdistorm.a'),
-      		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'linuxsteamrt64', 'lib', 'libmysqlclient.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'dynohook', 'linuxsteamrt64', 'lib', 'libdynohook.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'zydis', 'linuxsteamrt64', 'libZydis.a'),
       		os.path.join(builder.sourcePath, 'vendor', 'dyncall', 'linuxsteamrt64', 'lib', 'libdyncall_s.a'),
@@ -103,8 +92,7 @@ for sdk_target in MMSPlugin.sdk_targets:
             "META_IS_SOURCE2",
             "_GLIBCXX_USE_CXX11_ABI=0",
             "LUA_USE_LINUX",
-            "LUA_USE_READLINE",
-            "BOOST_STACKTRACE_USE_BACKTRACE"
+            "LUA_USE_READLINE"
 		]
 	else:
 		binary.compiler.cxxflags += [
@@ -121,7 +109,6 @@ for sdk_target in MMSPlugin.sdk_targets:
 		binary.compiler.postlink += [
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
 		    os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'distorm.lib'),
-      		os.path.join(builder.sourcePath, 'vendor', 'mysql', 'win64', 'lib', 'mysqlclient.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'dynohook', 'win64', 'lib', 'dynohook.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'zydis', 'win64', 'Zydis.lib'),
       		os.path.join(builder.sourcePath, 'vendor', 'dyncall', 'win64', 'lib', 'dyncall_s.lib'),
@@ -189,18 +176,15 @@ for sdk_target in MMSPlugin.sdk_targets:
 		]
 
 	binary.compiler.cxxincludes += [
+		os.path.join(builder.sourcePath, 'vendor'),
 		os.path.join(builder.sourcePath, 'vendor', 'lua'),
 		os.path.join(builder.sourcePath, 'vendor', 'other'),
-		os.path.join(builder.sourcePath, 'vendor', 'cpp-httplib'),
 		os.path.join(builder.sourcePath, 'vendor', 'LuaBridge', 'Source'),
 		os.path.join(builder.sourcePath, 'vendor', 'dynlib'),
 		os.path.join(builder.sourcePath, 'vendor', 'msgpack', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'json', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'funchook', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'texttable'),
-		os.path.join(builder.sourcePath, 'vendor', 'geolite2pp'),
-		os.path.join(builder.sourcePath, 'vendor', 'maxmind'),
-		os.path.join(builder.sourcePath, 'vendor', 'mysql', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'asmjit', 'src'),
 		os.path.join(builder.sourcePath, 'vendor', 'dynohook', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'dyncall', ('win64' if binary.compiler.target.platform == 'windows' else 'linuxsteamrt64'), 'include'),

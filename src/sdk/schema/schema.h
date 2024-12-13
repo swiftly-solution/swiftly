@@ -35,6 +35,7 @@ namespace sch
     bool IsNetworked(uint64_t path);
 
     bool IsStruct(const char* cName);
+    bool IsClassLoaded(const char* cName);
 };
 
 #define SCHEMA_FIELD_OFFSET(type, varName, extra_offset)                                                                                                          \

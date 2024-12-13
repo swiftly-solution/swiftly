@@ -8,6 +8,7 @@
 #include "../../tools/crashreporter/CallStack.h"
 #include "../../memory/encoders/msgpack.h"
 #include "../../sdk/entity/CTakeDamageInfo.h"
+#include "../../network/database/IQueryBuilder.h"
 
 #include "cstrike15_usermessages.pb.h"
 #include <google/protobuf/message.h>
@@ -23,7 +24,6 @@
 
 #include <any>
 #include <set>
-#include <httplib.h>
 
 #define INVALID_MESSAGE_ID -1
 
@@ -95,71 +95,6 @@ public:
     uint16_t GetPlayerCount();
     uint16_t GetPlayerCap();
     void SendMsg(int destination, std::string text);
-};
-
-//////////////////////////////////////////////////////////////
-/////////////////         HTTP Client          //////////////
-////////////////////////////////////////////////////////////
-
-class HTTPHeader
-{
-public:
-    HTTPHeader(std::string strName, std::string strValue)
-    {
-        m_strName = strName;
-        m_strValue = strValue;
-    }
-    const char* GetName() { return m_strName.c_str(); }
-    const char* GetValue() { return m_strValue.c_str(); }
-private:
-    std::string m_strName;
-    std::string m_strValue;
-};
-
-class PluginHTTP
-{
-private:
-    std::string plugin_name;
-    std::vector<std::vector<std::any>> toDelete;
-
-public:
-    PluginHTTP(std::string m_plugin_name);
-    ~PluginHTTP();
-
-    std::string PerformHTTP(std::string receivedData);
-    std::string PerformHTTPWithRequestID(std::string receivedData, std::string requestID);
-
-    void ListenLua(std::string ip_addr, uint16_t port, luabridge::LuaRef cb);
-};
-
-class PluginHTTPRequest
-{
-public:
-    PluginHTTPRequest(std::string path, std::string method, std::string body, std::map<std::string, std::map<std::string, std::string>> files, std::map<std::string, std::string> headers, std::map<std::string, std::string> params);
-
-    std::string m_path;
-    std::string m_method;
-    std::string m_body;
-    std::map<std::string, std::map<std::string, std::string>> m_files;
-    std::map<std::string, std::string> m_headers;
-    std::map<std::string, std::string> m_params;
-};
-
-class PluginHTTPResponse
-{
-private:
-    httplib::Response* m_res;
-    bool completed = false;
-    uint64_t started = 0;
-public:
-    PluginHTTPResponse(httplib::Response* res);
-
-    void WriteBody(std::string content);
-    std::map<std::string, std::string> GetHeaders();
-    std::string GetHeader(std::string key);
-    void SetHeader(std::string key, std::string val);
-    void Send(uint16_t responseCode);
-    bool IsCompleted();
 };
 
 //////////////////////////////////////////////////////////////
@@ -334,6 +269,7 @@ public:
 
     int GetProp(lua_State* state);
     int SetProp(lua_State* state);
+    int CallProp(lua_State* state);
 
     std::string GetClassName();
     void* GetPtr();
@@ -522,34 +458,18 @@ public:
 class PluginDatabaseQueryBuilder
 {
 private:
-    std::string tableName;
-    std::string query;
-    std::vector<std::string> selectColumns;
-    std::vector<std::string> whereClauses;
-    std::vector<std::string> orWhereClauses;
-    std::vector<std::string> joinClauses;
-    std::vector<std::string> groupByClauses;
-    std::vector<std::string> orderByClauses;
-    std::vector<std::string> onDuplicateClauses;
-    std::vector<std::string> havingClauses;
-    std::vector<std::string> unionClauses;
-    std::vector<std::pair<std::string, luabridge::LuaRef>> updatePairs;
-
-    bool isDistinct = false;
-    int limitCount = -1;
-    int offsetCount = -1;
-    
-    PluginDatabase* db;
+    IQueryBuilder* qb;
+    IDatabase* db;
 
     std::string FormatValue(const luabridge::LuaRef& luaValue, lua_State* L);
-    void Clear();
     
 public:
-    PluginDatabaseQueryBuilder(PluginDatabase* db);
+    PluginDatabaseQueryBuilder(IQueryBuilder* mqb, IDatabase* mdb);
+    ~PluginDatabaseQueryBuilder();
 
     PluginDatabaseQueryBuilder* Table(const std::string& tableName);
-    PluginDatabaseQueryBuilder* Create(const std::map<std::string, std::string>& columns);
-    PluginDatabaseQueryBuilder* Alter(const std::string& alterCommand);
+    PluginDatabaseQueryBuilder* Create(const std::unordered_map<std::string, std::string>& columns);
+    PluginDatabaseQueryBuilder* Alter(const std::map<std::string, std::string>& columns);
     PluginDatabaseQueryBuilder* Drop();
 
     PluginDatabaseQueryBuilder* Select(const std::vector<std::string>& columns);
@@ -570,7 +490,6 @@ public:
     PluginDatabaseQueryBuilder* Union(const std::string& query, bool all);
 
     void Execute(luabridge::LuaRef callback, lua_State* L);
-    std::string ToString();
 
 private:
     template<typename T>
@@ -779,29 +698,6 @@ public:
     PluginWeapon GetFirstInSlot(int slot);
     std::vector<PluginWeapon> GetInSlot(int slot);
     void RemoveByItemDefinition(int idx);
-};
-
-//////////////////////////////////////////////////////////////
-/////////////////            IP API            //////////////
-////////////////////////////////////////////////////////////
-
-class PluginIPAPI
-{
-private:
-    std::string plugin_name;
-
-public:
-    PluginIPAPI(std::string m_plugin_name);
-
-    std::string GetIsoCode(std::string ip);
-    std::string GetContinent(std::string ip);
-    std::string GetCountry(std::string ip);
-    std::string GetRegion(std::string ip);
-    std::string GetCity(std::string ip);
-    std::string GetTimezone(std::string ip);
-    double GetLatitude(std::string ip);
-    double GetLongitude(std::string ip);
-    std::string GetASN(std::string ip);
 };
 
 //////////////////////////////////////////////////////////////
