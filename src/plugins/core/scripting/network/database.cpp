@@ -92,36 +92,36 @@ PluginDatabaseQueryBuilder::PluginDatabaseQueryBuilder(IQueryBuilder* mqb, IData
 
 PluginDatabaseQueryBuilder::~PluginDatabaseQueryBuilder()
 {
-    delete this->qb;
+    if(this->qb != nullptr) delete this->qb;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Table(const std::string& tableName)
 {
-    this->qb->Table(tableName);
+    if(this->qb != nullptr) this->qb->Table(tableName);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Create(const std::unordered_map<std::string, std::string>& columns)
 {
-    this->qb->Create(columns);
+    if(this->qb != nullptr) this->qb->Create(columns);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Alter(const std::map<std::string, std::string>& columns)
 {
-    this->qb->Alter(columns);
+    if(this->qb != nullptr) this->qb->Alter(columns);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Drop()
 {
-    this->qb->Drop();
+    if(this->qb != nullptr) this->qb->Drop();
     return this;
 }
 
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Select(const std::vector<std::string>& columns) {
-    this->qb->Select(columns);
+    if(this->qb != nullptr) this->qb->Select(columns);
     return this;
 }
 
@@ -130,7 +130,7 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Insert(const std::map<st
     for(const auto& pair : data) {
         d.insert({ pair.first, FormatValue(pair.second, L) });
     }
-    this->qb->Insert(d);
+    if(this->qb != nullptr) this->qb->Insert(d);
 
     return this;
 }
@@ -140,42 +140,42 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Update(const std::map<st
     for(const auto& pair : data) {
         d.insert({ pair.first, FormatValue(pair.second, L) });
     }
-    this->qb->Update(d);
+    if(this->qb != nullptr) this->qb->Update(d);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Delete() {
-    this->qb->Delete();
+    if(this->qb != nullptr) this->qb->Delete();
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Where(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value, lua_State* L) {
-    this->qb->Where(column, operator_, FormatValue(value, L));
+    if(this->qb != nullptr) this->qb->Where(column, operator_, FormatValue(value, L));
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OrWhere(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value, lua_State* L) {
-    this->qb->OrWhere(column, operator_, FormatValue(value, L));
+    if(this->qb != nullptr) this->qb->OrWhere(column, operator_, FormatValue(value, L));
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Join(const std::string& table, const std::string& onCondition, const std::string& joinType) {
-    this->qb->Join(table, onCondition, joinType);
+    if(this->qb != nullptr) this->qb->Join(table, onCondition, joinType);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OrderBy(const std::vector<std::pair<std::string, std::string>>& columns) {
-    this->qb->OrderBy(columns);
+    if(this->qb != nullptr) this->qb->OrderBy(columns);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Limit(int count) {
-    this->qb->Limit(count);
+    if(this->qb != nullptr) this->qb->Limit(count);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::GroupBy(const std::vector<std::string>& columns) {
-    this->qb->GroupBy(columns);
+    if(this->qb != nullptr) this->qb->GroupBy(columns);
     return this;
 }
 
@@ -184,28 +184,28 @@ PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::OnDuplicate(const std::m
     for(const auto& pair : data) {
         d.insert({ pair.first, FormatValue(pair.second, L) });
     }
-    this->qb->OnDuplicate(d);
+    if(this->qb != nullptr) this->qb->OnDuplicate(d);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Having(const std::string& condition) {
-    this->qb->Having(condition);
+    if(this->qb != nullptr) this->qb->Having(condition);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Distinct() {
-    this->qb->Distinct();
+    if(this->qb != nullptr) this->qb->Distinct();
     return this;
 }
 
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Offset(int count) {
-    this->qb->Offset(count);
+    if(this->qb != nullptr) this->qb->Offset(count);
     return this;
 }
 
 PluginDatabaseQueryBuilder* PluginDatabaseQueryBuilder::Union(const std::string& query, bool all) {
-    this->qb->Union(query, all);
+    if(this->qb != nullptr) this->qb->Union(query, all);
     return this;
 }
 
@@ -221,6 +221,8 @@ void PluginDatabaseQueryBuilder::Execute(luabridge::LuaRef callback, lua_State* 
         uuid,
     };
     this->db->AddQueryQueue(queue);
+    delete this->qb;
+    this->qb = nullptr;
 }
 
 bool isInteger(luabridge::LuaRef r) {
