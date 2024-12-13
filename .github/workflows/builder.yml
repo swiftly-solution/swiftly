@@ -27,7 +27,7 @@ jobs:
               id: version
               with:
                 release_branch: master
-                increment: patch
+                increment: minor
                 use_api: true
 
     extensions_build:
