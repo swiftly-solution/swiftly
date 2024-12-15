@@ -22,9 +22,9 @@ std::string Extension::GetName()
 bool Extension::LoadExtension(bool late)
 {
 #ifdef _WIN32
-    m_hModule = dlmount((std::string("addons/swiftly/extensions/win64/") + m_name + ".dll").c_str());
+    m_hModule = dlmount(GeneratePath(std::string("addons/swiftly/extensions/win64/") + m_name + ".dll").c_str());
 #else
-    m_hModule = dlopen((std::string("addons/swiftly/extensions/linuxsteamrt64/") + m_name + ".so").c_str(), RTLD_NOW);
+    m_hModule = dlopen(GeneratePath(std::string("addons/swiftly/extensions/linuxsteamrt64/") + m_name + ".so").c_str(), RTLD_NOW);
 
     if (!m_hModule) {
         std::string err = dlerror();

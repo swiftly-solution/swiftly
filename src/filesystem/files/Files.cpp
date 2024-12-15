@@ -1,26 +1,18 @@
 #include "Files.h"
 
-bool pathChanges = false;
-
-void ChangePath()
+std::string GeneratePath(std::string path)
 {
-    if (pathChanges)
-        return;
+    return string_format("%s%scsgo%s%s", Plat_GetGameDirectory(), WIN_LINUX("\\", "/"), WIN_LINUX("\\", "/"), path.c_str());
+}
 
-    pathChanges = true;
-    std::vector<std::string> path = explode(std::filesystem::current_path().string(), WIN_LINUX("\\", "/"));
-
-    path.pop_back();
-    path.pop_back();
-
-    path.push_back("csgo");
-
-    std::filesystem::current_path(implode(path, WIN_LINUX("\\", "/")));
+std::string GetRelativePath(std::string path)
+{
+    return replace(path, string_format("%s%scsgo%s", Plat_GetGameDirectory(), WIN_LINUX("\\", "/"), WIN_LINUX("\\", "/")), "");
 }
 
 std::string Files::Read(std::string path)
 {
-    ChangePath();
+    path = GeneratePath(path);
     if (!std::filesystem::exists(path))
         return "";
 
@@ -37,7 +29,6 @@ std::string Files::Read(std::string path)
 
 std::string Files::getBase(std::string filePath)
 {
-    ChangePath();
     std::vector<std::string> v = explode(filePath, "/");
     v.pop_back();
     return implode(v, "/");
@@ -45,7 +36,7 @@ std::string Files::getBase(std::string filePath)
 
 void Files::Delete(std::string path)
 {
-    ChangePath();
+    path = GeneratePath(path);
     if (!std::filesystem::exists(path))
         return;
 
@@ -54,9 +45,7 @@ void Files::Delete(std::string path)
 
 void Files::Append(std::string path, std::string content, bool hasdate)
 {
-    ChangePath();
-    
-    if(!Files::ExistsPath(Files::getBase(path)) && Files::getBase(path) != "") std::filesystem::create_directories(Files::getBase(path));
+    if(!Files::ExistsPath(Files::getBase(path)) && Files::getBase(path) != "") std::filesystem::create_directories(Files::getBase(GeneratePath(path)));
 
     time_t now = time(0);
     tm* ltm = localtime(&now);
@@ -72,15 +61,14 @@ void Files::Append(std::string path, std::string content, bool hasdate)
 #if GCC_COMPILER
 #pragma GCC diagnostic pop
 #endif
-    std::ofstream File(path, std::ios_base::app);
+    std::ofstream File(GeneratePath(path), std::ios_base::app);
     File << (hasdate ? date : "") << content << std::endl;
     File.close();
 }
 
 void Files::Write(std::string path, std::string content, bool hasdate)
 {
-    ChangePath();
-    if(!Files::ExistsPath(Files::getBase(path)) && Files::getBase(path) != "") std::filesystem::create_directories(Files::getBase(path));
+    if(!Files::ExistsPath(Files::getBase(path)) && Files::getBase(path) != "") std::filesystem::create_directories(Files::getBase(GeneratePath(path)));
     time_t now = time(0);
     tm* ltm = localtime(&now);
 
@@ -96,72 +84,73 @@ void Files::Write(std::string path, std::string content, bool hasdate)
 #pragma GCC diagnostic pop
 #endif
 
-    std::ofstream File(path, std::ios_base::trunc);
+    std::ofstream File(GeneratePath(path), std::ios_base::trunc);
     File << (hasdate ? date : "") << content << std::endl;
     File.close();
 }
 
 bool Files::ExistsPath(std::string path)
 {
-    ChangePath();
+    path = GeneratePath(path);
     return std::filesystem::exists(path);
 }
 
 bool Files::IsDirectory(std::string path)
 {
-    ChangePath();
+    path = GeneratePath(path);
     return std::filesystem::is_directory(path);
 }
 
 bool Files::CreateDirectory(std::string path)
 {
-    ChangePath();
+    path = GeneratePath(path);
     return std::filesystem::create_directory(path);
 }
 
 std::vector<std::string> Files::FetchFileNames(std::string path)
 {
-    ChangePath();
-
     std::vector<std::string> files;
     if (!ExistsPath(path))
         return files;
     if (!IsDirectory(path))
         return files;
 
+    path = GeneratePath(path);
     for (const auto& entry : std::filesystem::directory_iterator(path))
     {
         if (entry.is_directory())
         {
-            std::vector<std::string> fls = Files::FetchFileNames(entry.path().string());
+            std::vector<std::string> fls = Files::FetchFileNames(GetRelativePath(entry.path().string()));
             for (auto fl : fls)
                 files.push_back(fl);
         }
         else
-            files.push_back(entry.path().string());
+            files.push_back(GetRelativePath(entry.path().string()));
     }
     return files;
 }
 
 std::vector<std::string> Files::FetchDirectories(std::string path)
 {
-    ChangePath();
-
     std::vector<std::string> directories;
     if (!ExistsPath(path))
         return directories;
     if (!IsDirectory(path))
         return directories;
 
+    path = GeneratePath(path);
     for (const auto& entry : std::filesystem::directory_iterator(path))
         if (entry.is_directory())
-            directories.push_back(entry.path().string());
+            directories.push_back(GetRelativePath(entry.path().string()));
 
     return directories;
 }
 
 bool Files::Compress(std::string filePath, std::string outputPath)
 {
+    filePath = GeneratePath(filePath);
+    outputPath = GeneratePath(outputPath);
+
     std::ifstream inFile(filePath, std::ios_base::binary);
     std::ofstream outFile(outputPath, std::ios_base::binary);
 
@@ -193,6 +182,9 @@ bool Files::Compress(std::string filePath, std::string outputPath)
 
 bool Files::Decompress(std::string filePath, std::string outputPath)
 {
+    filePath = GeneratePath(filePath);
+    outputPath = GeneratePath(outputPath);
+
     std::ifstream inFile(filePath, std::ios_base::binary);
     std::ofstream outFile(outputPath, std::ios_base::binary);
 

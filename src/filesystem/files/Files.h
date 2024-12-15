@@ -10,6 +10,8 @@
 #include <vector>
 #include <bzlib.h>
 
+std::string GeneratePath(std::string path);
+
 namespace Files
 {
     std::string Read(std::string path);
