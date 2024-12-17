@@ -28,7 +28,9 @@ function SetTimer(delay, callback)
         timeoutFunction = function()
             if timersTable[timerIds] then
                 timersTable[timerIds].callback()
-                SetTimeout(delay, timersTable[timerIds].timeoutFunction)
+                if timersTable[timerIds] then
+                    SetTimeout(delay, timersTable[timerIds].timeoutFunction)
+                end
             end
         end
     }
