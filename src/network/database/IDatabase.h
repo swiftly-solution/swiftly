@@ -1,13 +1,10 @@
-#ifndef _network_database_idatabase_h
-#define _network_database_idatabase_h
+#ifndef _idatabase_h
+#define _idatabase_h
 
 #include <map>
 #include <string>
 #include <vector>
 #include <any>
-#include "IQueryBuilder.h"
-
-class IDatabase;
 
 struct DatabaseQueryQueue
 {
@@ -38,7 +35,7 @@ public:
 
     virtual void AddQueryQueue(DatabaseQueryQueue data) = 0;
 
-    virtual IQueryBuilder* ProvideQueryBuilder() = 0;
+    virtual const char* ProvideQueryBuilderTable() = 0;
 };
 
 #endif

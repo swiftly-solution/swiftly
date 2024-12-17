@@ -29,8 +29,6 @@
 #include "dbg.h"
 #include "plat.h"
 
-#include "tier0/memdbgon.h"
-
 #define PAGE_SIZE 4096
 #define PAGE_ALIGN_UP(x) ((x + PAGE_SIZE - 1) & ~(PAGE_SIZE - 1))
 

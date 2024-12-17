@@ -8,7 +8,6 @@
 #include "../../tools/crashreporter/CallStack.h"
 #include "../../memory/encoders/msgpack.h"
 #include "../../sdk/entity/CTakeDamageInfo.h"
-#include "../../network/database/IQueryBuilder.h"
 
 #include "cstrike15_usermessages.pb.h"
 #include <google/protobuf/message.h>
@@ -434,7 +433,6 @@ public:
 //////////////////////////////////////////////////////////////
 /////////////////           Database           //////////////
 ////////////////////////////////////////////////////////////
-class PluginDatabaseQueryBuilder;
 
 class PluginDatabase
 {
@@ -448,52 +446,10 @@ public:
 
     bool IsConnected();
     std::string EscapeString(std::string str);
+    std::string GetVersion();
 
-    void QueryLua(std::string query, luabridge::LuaRef callback, lua_State* L);
-    void QueryParamsLua(std::string query, std::map<luabridge::LuaRef, luabridge::LuaRef> params, luabridge::LuaRef callback, lua_State* L);
-
-    PluginDatabaseQueryBuilder QueryBuilderLua();
-};
-
-class PluginDatabaseQueryBuilder
-{
-private:
-    IQueryBuilder* qb;
-    IDatabase* db;
-
-    std::string FormatValue(const luabridge::LuaRef& luaValue, lua_State* L);
-    
-public:
-    PluginDatabaseQueryBuilder(IQueryBuilder* mqb, IDatabase* mdb);
-    ~PluginDatabaseQueryBuilder();
-
-    PluginDatabaseQueryBuilder* Table(const std::string& tableName);
-    PluginDatabaseQueryBuilder* Create(const std::unordered_map<std::string, std::string>& columns);
-    PluginDatabaseQueryBuilder* Alter(const std::map<std::string, std::string>& columns);
-    PluginDatabaseQueryBuilder* Drop();
-
-    PluginDatabaseQueryBuilder* Select(const std::vector<std::string>& columns);
-    PluginDatabaseQueryBuilder* Insert(const std::map<std::string, luabridge::LuaRef>& data, lua_State* L);
-    PluginDatabaseQueryBuilder* Update(const std::map<std::string, luabridge::LuaRef>& data, lua_State* L);
-    PluginDatabaseQueryBuilder* Delete();
-
-    PluginDatabaseQueryBuilder* Where(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value, lua_State* L);
-    PluginDatabaseQueryBuilder* OrWhere(const std::string& column, const std::string& operator_, const luabridge::LuaRef& value, lua_State* L);
-    PluginDatabaseQueryBuilder* Join(const std::string& table, const std::string& onCondition, const std::string& joinType = "INNER");
-    PluginDatabaseQueryBuilder* OrderBy(const std::vector<std::pair<std::string, std::string>>& columns);
-    PluginDatabaseQueryBuilder* Limit(int count);
-    PluginDatabaseQueryBuilder* GroupBy(const std::vector<std::string>& columns);
-    PluginDatabaseQueryBuilder* OnDuplicate(const std::map<std::string, luabridge::LuaRef>& data, lua_State* L);
-    PluginDatabaseQueryBuilder* Having(const std::string& condition);
-    PluginDatabaseQueryBuilder* Distinct();
-    PluginDatabaseQueryBuilder* Offset(int count);
-    PluginDatabaseQueryBuilder* Union(const std::string& query, bool all);
-
-    void Execute(luabridge::LuaRef callback, lua_State* L);
-
-private:
-    template<typename T>
-    std::string join(const std::vector<T>& vec, const std::string& delimiter);
+    luabridge::LuaRef QueryBuilderLua(lua_State* L);
+    void ExecuteQBLua(std::string query, luabridge::LuaRef cb, lua_State* L);
 };
 
 //////////////////////////////////////////////////////////////

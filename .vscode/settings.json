@@ -89,5 +89,8 @@
         "time.h": "c",
         "osdefs.h": "c",
         "stdio.h": "c"
-    }
+    },
+    "Lua.diagnostics.disable": [
+        "duplicate-set-field"
+    ]
 }
