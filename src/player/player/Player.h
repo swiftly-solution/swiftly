@@ -108,7 +108,6 @@ public:
 
     CPlayerBitVec m_selfMutes[64] = {};
 
-    bool bunnyhopState = false;
     std::string language = "";
 
 private:

@@ -437,25 +437,6 @@ PluginWeaponManager PluginPlayer::GetWeaponManager()
     return PluginWeaponManager(playerId);
 }
 
-void PluginPlayer::SetBunnyhop(bool state)
-{
-    Player* self = g_playerManager->GetPlayer(this->playerId);
-    if (!self)
-        return;
-
-    self->SetClientConvar("sv_autobunnyhopping", state ? "true" : "false");
-    self->bunnyhopState = state;
-}
-
-bool PluginPlayer::GetBunnyhop()
-{
-    Player* self = g_playerManager->GetPlayer(this->playerId);
-    if (!self)
-        return false;
-
-    return self->bunnyhopState;
-}
-
 void PluginPlayer::QueryConvar(std::string cvar_name)
 {
     Player* self = g_playerManager->GetPlayer(this->playerId);
@@ -463,15 +444,6 @@ void PluginPlayer::QueryConvar(std::string cvar_name)
     if (self->IsFakeClient()) return;
 
     g_cvarQuery->QueryCvarClient(self->GetSlot(), cvar_name);
-}
-
-bool PluginPlayer::IsListeningToGameEvent(std::string game_event)
-{
-    Player* self = g_playerManager->GetPlayer(this->playerId);
-    if (!self) return false;
-    if (self->IsFakeClient()) return false;
-    IGameEventListener2* playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(self->GetSlot());
-    return g_gameEventManager->FindListener(playerListener, game_event.c_str());
 }
 
 bool PluginPlayer::IsValid()
