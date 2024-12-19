@@ -5877,6 +5877,10 @@
             "field": "m_bRemoveAllItemsOnNextRoundReset",
             "type": 10
         },
+        "LastJoinTeamTime": {
+            "field": "m_flLastJoinTeamTime",
+            "type": 8
+        },
         "Clan": {
             "field": "m_szClan",
             "type": 13
@@ -18748,12 +18752,8 @@
             "field": "m_nTicksAtZeroVelocity",
             "type": 2
         },
-        "HasEverHitPlayer": {
-            "field": "m_bHasEverHitPlayer",
-            "type": 10
-        },
-        "ClearFromPlayers": {
-            "field": "m_bClearFromPlayers",
+        "HasEverHitEnemy": {
+            "field": "m_bHasEverHitEnemy",
             "type": 10
         },
         "Parent": {
