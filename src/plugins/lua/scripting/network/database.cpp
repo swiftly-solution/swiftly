@@ -5,7 +5,7 @@ luabridge::LuaRef PluginDatabase::QueryBuilderLua(lua_State* L)
     if(!this->db || !this->db->IsConnected()) return luabridge::LuaRef(L);
     
     luabridge::LuaRef global = luabridge::getGlobal(L, db->ProvideQueryBuilderTable());
-    return global["new"](global, this);
+    return global(this);
 }
 
 void PluginDatabase::ExecuteQBLua(std::string query, luabridge::LuaRef cb, lua_State* L)
