@@ -78,8 +78,6 @@ LoadLuaScriptingComponent(
             .addFunction("SetVoiceFlags", &PluginPlayer::SetVoiceFlags)
             .addFunction("GetConnectedTime", &PluginPlayer::GetConnectedTime)
             .addFunction("GetWeaponManager", &PluginPlayer::GetWeaponManager)
-            .addFunction("SetBunnyhop", &PluginPlayer::SetBunnyhop)
-            .addFunction("GetBunnyhop", &PluginPlayer::GetBunnyhop)
             .addFunction("QueryConvar", &PluginPlayer::QueryConvar)
             .addFunction("IsValid", &PluginPlayer::IsValid)
             .endClass()

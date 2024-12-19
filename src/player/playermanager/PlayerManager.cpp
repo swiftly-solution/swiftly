@@ -5,10 +5,8 @@
 #include "../../plugins/PluginManager.h"
 #include "../../plugins/core/scripting.h"
 
-void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices* services, void* movementData);
 void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase* _this);
 
-FuncHook<decltype(Hook_CCSPlayer_MovementServices_CheckJumpPre)> TCCSPlayer_MovementServices_CheckJumpPre(Hook_CCSPlayer_MovementServices_CheckJumpPre, "CCSPlayer_MovementServices_CheckJumpPre");
 FuncHook<decltype(Hook_CCSPlayerPawnBase_PostThink)> TCCSPlayerPawnBase_PostThink(Hook_CCSPlayerPawnBase_PostThink, "CCSPlayerPawnBase_PostThink");
 
 PluginEvent* dummyEvent = nullptr;
@@ -40,35 +38,6 @@ uint16_t PlayerManager::GetPlayers()
         ++count;
     }
     return count;
-}
-
-ConVar* autobunnyhoppingcvar = nullptr;
-
-void Hook_CCSPlayer_MovementServices_CheckJumpPre(CCSPlayer_MovementServices* services, void* movementData)
-{
-    if (autobunnyhoppingcvar == nullptr)
-        autobunnyhoppingcvar = FetchCVar("sv_autobunnyhopping");
-
-    bool& autobunnyhopping = *reinterpret_cast<bool*>(&autobunnyhoppingcvar->values);
-
-    if (!autobunnyhopping)
-    {
-        Player* player = g_playerManager->GetPlayer(((CPlayer_MovementServices*)services)->m_pPawn->m_hController().GetEntryIndex() - 1);
-        if (player)
-        {
-            if (player->bunnyhopState)
-            {
-                autobunnyhopping = true;
-
-                TCCSPlayer_MovementServices_CheckJumpPre(services, movementData);
-
-                autobunnyhopping = false;
-                return;
-            }
-        }
-    }
-
-    TCCSPlayer_MovementServices_CheckJumpPre(services, movementData);
 }
 
 void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase* _this)
