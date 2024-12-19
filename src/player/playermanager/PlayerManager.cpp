@@ -78,7 +78,7 @@ void Hook_CCSPlayerPawnBase_PostThink(CCSPlayerPawnBase* _this)
     auto originalController = _this->m_hOriginalController();
     if(!originalController) return TCCSPlayerPawnBase_PostThink(_this);
 
-    auto playerid = originalController->entindex() - 1;
+    auto playerid = originalController.GetEntryIndex() - 1;
     
     if(!dummyEvent) dummyEvent = new PluginEvent("core", nullptr, nullptr);
     
