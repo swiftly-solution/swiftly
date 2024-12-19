@@ -23,7 +23,6 @@ LoadLuaScriptingComponent(
             .addFunction("CCSWeaponBase", &PluginWeapon::GetCCSWeaponBase)
             .addFunction("CBasePlayerWeaponVData", &PluginWeapon::GetCBasePlayerWeaponVData)
             .addFunction("CCSWeaponBaseVData", &PluginWeapon::GetCCSWeaponBaseVData)
-            .addFunction("SetDefaultAttributes", &PluginWeapon::SetDefaultAttributes)
             .addFunction("Drop", &PluginWeapon::Drop)
             .addFunction("Remove", &PluginWeapon::Remove)
             .endClass();

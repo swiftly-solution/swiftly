@@ -629,7 +629,6 @@ public:
 
     void Drop();
     void Remove();
-    void SetDefaultAttributes();
 };
 
 //////////////////////////////////////////////////////////////
