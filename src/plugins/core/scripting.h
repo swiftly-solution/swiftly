@@ -729,6 +729,7 @@ public:
     bool GetBunnyhop();
 
     void QueryConvar(std::string cvar_name);
+    bool IsListeningToGameEvent(std::string game_event);
 
     bool IsValid();
 };
