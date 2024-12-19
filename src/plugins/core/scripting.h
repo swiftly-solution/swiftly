@@ -725,6 +725,9 @@ public:
     void SetVoiceFlags(int flags);
     int GetVoiceFlags();
 
+    void SetBunnyhop(bool state);
+    bool GetBunnyhop();
+
     void QueryConvar(std::string cvar_name);
 
     bool IsValid();
