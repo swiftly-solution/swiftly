@@ -2,8 +2,8 @@
 
 luabridge::LuaRef PluginDatabase::QueryBuilderLua(lua_State* L)
 {
-    if(!this->db || !this->db->IsConnected()) return luabridge::LuaRef(L);
-    
+    if (!this->db || !this->db->IsConnected()) return luabridge::LuaRef(L);
+
     luabridge::LuaRef global = luabridge::getGlobal(L, db->ProvideQueryBuilderTable());
     return global(this);
 }
@@ -35,6 +35,9 @@ LoadLuaScriptingComponent(
             .addFunction("QueryBuilder", &PluginDatabase::QueryBuilderLua)
             .addFunction("GetVersion", &PluginDatabase::GetVersion)
             .addFunction("ExecuteQB", &PluginDatabase::ExecuteQBLua)
+            .addFunction("QueryParams", &PluginDatabase::QueryParamsLua)
+            .addFunction("Query", &PluginDatabase::QueryLua)
+            .addFunction("QueryBuilder", &PluginDatabase::QueryBuilderLua)
             .endClass();
 
         luaL_dostring(state, "db = Database(\"default_connection\")");
