@@ -37,7 +37,6 @@ LoadLuaScriptingComponent(
             .addFunction("ExecuteQB", &PluginDatabase::ExecuteQBLua)
             .addFunction("QueryParams", &PluginDatabase::QueryParamsLua)
             .addFunction("Query", &PluginDatabase::QueryLua)
-            .addFunction("QueryBuilder", &PluginDatabase::QueryBuilderLua)
             .endClass();
 
         luaL_dostring(state, "db = Database(\"default_connection\")");
