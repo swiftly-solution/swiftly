@@ -12,7 +12,7 @@ void EntityListener::Destroy()
 {
     SH_REMOVE_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &EntityListener::StartupServer, true);
 
-    g_pGameEntitySystem->RemoveListenerEntity(&g_entityListener);
+    // g_pGameEntitySystem->RemoveListenerEntity(&g_entityListener);
 }
 
 bool bDone = false;
@@ -23,7 +23,7 @@ void EntityListener::StartupServer(const GameSessionConfiguration_t& config, ISo
     g_pGameEntitySystem = ((CGameResourceService*)g_pGameResourceService)->GetGameEntitySystem();
     g_pEntitySystem = g_pGameEntitySystem;
 
-    g_pGameEntitySystem->AddListenerEntity(&g_entityListener);
+    // g_pGameEntitySystem->AddListenerEntity(&g_entityListener);
 
     bDone = true;
 }
