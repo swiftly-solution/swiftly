@@ -12,25 +12,25 @@ void EntityListener::Destroy()
 {
     SH_REMOVE_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &EntityListener::StartupServer, true);
 
-    // g_pGameEntitySystem->RemoveListenerEntity(&g_entityListener);
+    g_pGameEntitySystem->RemoveListenerEntity(&g_entityListener);
 }
 
 bool bDone = false;
 void EntityListener::StartupServer(const GameSessionConfiguration_t& config, ISource2WorldSession*, const char*)
 {
-    if(bDone) return;
+    if (bDone) return;
 
     g_pGameEntitySystem = ((CGameResourceService*)g_pGameResourceService)->GetGameEntitySystem();
     g_pEntitySystem = g_pGameEntitySystem;
 
-    // g_pGameEntitySystem->AddListenerEntity(&g_entityListener);
+    g_pGameEntitySystem->AddListenerEntity(&g_entityListener);
 
     bDone = true;
 }
 
 void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)
 {
-    if(!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
+    if (!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnEntitySpawned", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), pEvent);
 }
 
@@ -40,14 +40,14 @@ void CEntityListener::OnEntityParentChanged(CEntityInstance* pEntity, CEntityIns
 
 void EntityAllowHammerID(CEntityInstance* pEntity)
 {
-    Plat_WriteMemory((*(void ***)pEntity)[g_Offsets->GetOffset("GetHammerUniqueID")], (uint8_t*)"\xB0\x01", 2);
+    Plat_WriteMemory((*(void***)pEntity)[g_Offsets->GetOffset("GetHammerUniqueID")], (uint8_t*)"\xB0\x01", 2);
 }
 
 void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
-{   
+{
     ExecuteOnce(EntityAllowHammerID(pEntity));
 
-    if(!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
+    if (!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnEntityCreated", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), pEvent);
 
     if (std::string(pEntity->GetClassname()) == "cs_gamerules")
@@ -56,6 +56,6 @@ void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
 
 void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
 {
-    if(!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
+    if (!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnEntityDeleted", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), pEvent);
 }
