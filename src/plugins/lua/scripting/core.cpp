@@ -9,7 +9,7 @@ std::vector<LuaLoader*> luaLoaderClasses;
 
 int customPrint(lua_State* state)
 {
-    std::string prefix = string_format("[Swiftly] %s[%16s]\e[39m ", GetTerminalStringColor(FetchPluginName(state)).c_str(), ("plugin:" + FetchPluginName(state)).c_str());
+    std::string prefix = string_format("[Swiftly] %s[%s]\e[39m ", GetTerminalStringColor(FetchPluginName(state)).c_str(), ("plugin:" + FetchPluginName(state)).c_str());
 
     int n = lua_gettop(state);
 
@@ -44,7 +44,7 @@ int customPrint(lua_State* state)
             continue;
 
         std::string final_string = string_format("%s%s\e[39m\e[49m\n", prefix.c_str(), str.c_str());
-        fprintf(stdout, final_string.c_str());
+        META_CONPRINT(final_string.c_str());
     }
 
     return 0;
