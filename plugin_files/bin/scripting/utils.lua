@@ -16,6 +16,10 @@ function FindPlayersByTarget(target, matchbots, playerid)
     target = tostring(target)
     playerid = playerid or nil
 
+    if target == "@me" then
+        return {GetPlayer(playerid)}
+    end
+
     for i=0,playermanager:GetPlayerCap()-1,1 do
         local fetchedPlayer = GetPlayer(i)
         if not fetchedPlayer then goto findplayersbytargetcontinue end
@@ -26,6 +30,7 @@ function FindPlayersByTarget(target, matchbots, playerid)
             table.insert(matchedPlayers, fetchedPlayer)
             goto findplayersbytargetcontinue
         end
+
 
         --[[ userid ]]
         if target:sub(1,1) == "#" then
