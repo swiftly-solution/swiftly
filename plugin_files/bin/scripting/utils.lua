@@ -10,10 +10,11 @@ local lifeStateSelector = {
     ["@dead"] = LifeState_t.LIFE_DEAD
 }
 
-function FindPlayersByTarget(target, matchbots)
+function FindPlayersByTarget(target, matchbots, playerid)
     if matchbots == nil then matchbots = true end
     local matchedPlayers = {}
     target = tostring(target)
+    playerid = playerid or nil
 
     for i=0,playermanager:GetPlayerCap()-1,1 do
         local fetchedPlayer = GetPlayer(i)
@@ -79,7 +80,7 @@ function FindPlayersByTarget(target, matchbots)
             end
         end
 
-        local result, eventRet = TriggerEvent("FindPlayerByTarget", i, target)
+        local result, eventRet = TriggerEvent("FindPlayerByTarget", i, target, playerid)
         local returnValue = eventRet:GetReturn()
         if returnValue == true then
             table.insert(matchedPlayers, fetchedPlayer)
