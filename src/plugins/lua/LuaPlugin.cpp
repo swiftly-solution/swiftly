@@ -444,6 +444,16 @@ std::any LuaDeserializeData(luabridge::LuaRef ref, lua_State* state)
 
         return tmptbl;
     }
+    else if (ref.isInstance<Color>())
+        return ref.cast<Color>();
+    else if (ref.isInstance<Vector2D>())
+        return ref.cast<Vector2D>();
+    else if (ref.isInstance<Vector>())
+        return ref.cast<Vector>();
+    else if (ref.isInstance<Vector4D>())
+        return ref.cast<Vector4D>();
+    else if (ref.isInstance<QAngle>())
+        return ref.cast<QAngle>();
     else
         return nullptr;
 }
