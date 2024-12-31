@@ -1,5 +1,6 @@
 #include "convars.h"
 #include <set>
+#include "../gameevents/gameevents.h"
 
 static void convarsCallback(const CCommandContext& context, const CCommand& args);
 std::set<std::string> convarCreated;
@@ -64,13 +65,15 @@ void FakeConVar::SetValue(std::any value)
 {
     this->m_value = value;
 
-    IGameEvent* gEv = g_gameEventManager->CreateEvent("server_cvar");
-    gEv->SetString("cvarname", this->m_name.c_str());
-    gEv->SetString("cvarvalue", this->GetStringValue().c_str());
+    if (g_gameEventManager->FindListener(eventManager, "server_cvar")) {
+        IGameEvent* gEv = g_gameEventManager->CreateEvent("server_cvar");
+        gEv->SetString("cvarname", this->m_name.c_str());
+        gEv->SetString("cvarvalue", this->GetStringValue().c_str());
 
-    g_gameEventManager->FireEvent(gEv);
+        g_gameEventManager->FireEvent(gEv);
 
-    g_gameEventManager->FreeEvent(gEv);
+        g_gameEventManager->FreeEvent(gEv);
+    }
 }
 
 std::any FakeConVar::GetValue()
