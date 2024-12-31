@@ -14,7 +14,6 @@ function FindPlayersByTarget(target, matchbots, playerid)
     if matchbots == nil then matchbots = true end
     local matchedPlayers = {}
     target = tostring(target)
-    playerid = playerid or nil
 
     if target == "@me" then
         return {GetPlayer(playerid)}
