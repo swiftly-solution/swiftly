@@ -260,7 +260,7 @@ public:
     std::string CBaseEntity_GetClassname();
     SDKBaseClass CBaseEntity_GetVData();
     void CBaseEntity_Teleport(Vector value, QAngle angle, Vector velocity);
-    void CBaseEntity_TeleportLua(lua_State *L);
+    void CBaseEntity_TeleportLua(lua_State* L);
     void CBaseEntity_EmitSound(std::string sound_name, float pitch, float volume);
     void CBaseEntity_CollisionRulesChanged();
     SDKBaseClass CGameSceneNode_GetSkeletonInstance();
@@ -508,7 +508,6 @@ public:
     PluginConvars(std::string m_plugin_name);
 
     void CreateFake(std::string cvarname, int32_t type, std::any defaultValue, bool prot);
-    void CreateFakeLua(std::string cvarname, int32_t type, luabridge::LuaRef defaultValue, bool prot);
     void DeleteFake(std::string cvarname);
 
     std::any GetConvarValue(std::string cvarname);

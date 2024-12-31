@@ -13,6 +13,85 @@ void PluginConvars::CreateFake(std::string cvarname, int32_t type, std::any defa
     if (FakeConvarExists(cvarname)) return;
     if (FetchCVar(cvarname)) return;
 
+    if (type == EConVarType_Int16) {
+        if (defaultValue.type() == typeid(int64_t))
+            defaultValue = (int16_t)std::any_cast<int64_t>(defaultValue);
+        else
+            defaultValue = (int16_t)0;
+    }
+    else if (type == EConVarType_UInt16) {
+        if (defaultValue.type() == typeid(int64_t))
+            defaultValue = (uint16_t)std::any_cast<int64_t>(defaultValue);
+        else
+            defaultValue = (uint16_t)0;
+    }
+    else if (type == EConVarType_UInt32) {
+        if (defaultValue.type() == typeid(int64_t))
+            defaultValue = (uint32_t)std::any_cast<int64_t>(defaultValue);
+        else
+            defaultValue = (uint32_t)0;
+    }
+    else if (type == EConVarType_Int32) {
+        if (defaultValue.type() == typeid(int64_t))
+            defaultValue = (int32_t)std::any_cast<int64_t>(defaultValue);
+        else
+            defaultValue = (int32_t)0;
+    }
+    else if (type == EConVarType_UInt64) {
+        if (defaultValue.type() == typeid(int64_t))
+            defaultValue = (uint64_t)std::any_cast<int64_t>(defaultValue);
+        else
+            defaultValue = (uint64_t)0;
+    }
+    else if (type == EConVarType_Int64) {
+        if (defaultValue.type() == typeid(int64_t))
+            defaultValue = (int64_t)std::any_cast<int64_t>(defaultValue);
+        else
+            defaultValue = (int64_t)0;
+    }
+    else if (type == EConVarType_Bool) {
+        if (defaultValue.type() != typeid(bool))
+            defaultValue = false;
+    }
+    else if (type == EConVarType_Float32) {
+        if (defaultValue.type() != typeid(float))
+            defaultValue = (float)0.0f;
+    }
+    else if (type == EConVarType_Float64) {
+        if (defaultValue.type() != typeid(double))
+            defaultValue = (double)0.0f;
+    }
+    else if (type == EConVarType_String) {
+        if (defaultValue.type() != typeid(std::string)) {
+            if (defaultValue.type() == typeid(char*))
+                defaultValue = std::string(std::any_cast<char*>(defaultValue));
+            else if (defaultValue.type() == typeid(const char*))
+                defaultValue = std::string(std::any_cast<const char*>(defaultValue));
+            else
+                defaultValue = std::string("");
+        }
+    }
+    else if (type == EConVarType_Color) {
+        if (defaultValue.type() != typeid(Color))
+            defaultValue = Color(0, 0, 0);
+    }
+    else if (type == EConVarType_Vector2) {
+        if (defaultValue.type() != typeid(Vector2D))
+            defaultValue = Vector2D(0.0f, 0.0f);
+    }
+    else if (type == EConVarType_Vector3) {
+        if (defaultValue.type() != typeid(Vector))
+            defaultValue = Vector(0.0f, 0.0f, 0.0f);
+    }
+    else if (type == EConVarType_Vector4) {
+        if (defaultValue.type() != typeid(Vector4D))
+            defaultValue = Vector4D(0.0f, 0.0f, 0.0f, 0.0f);
+    }
+    else if (type == EConVarType_Qangle) {
+        if (defaultValue.type() != typeid(QAngle))
+            defaultValue = QAngle(0.0f, 0.0f, 0.0f);
+    }
+
     auto cvar = new FakeConVar(cvarname, (EConVarType)type, defaultValue, prot);
     InsertFakeConvar(cvarname, cvar);
 }
@@ -30,7 +109,7 @@ void PluginConvars::AddFlags(std::string cvarname, int64_t flags)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::AddFlags(cvarname=\"%s\",flags=%lld)", cvarname.c_str(), flags));
     auto cvar = FetchCVar(cvarname);
-    if(cvar == nullptr) return;
+    if (cvar == nullptr) return;
 
     cvar->flags |= flags;
 }
@@ -39,7 +118,7 @@ void PluginConvars::RemoveFlags(std::string cvarname, int64_t flags)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::RemoveFlags(cvarname=\"%s\",flags=%lld)", cvarname.c_str(), flags));
     auto cvar = FetchCVar(cvarname);
-    if(cvar == nullptr) return;
+    if (cvar == nullptr) return;
 
     cvar->flags &= ~flags;
 }
@@ -48,7 +127,7 @@ int64_t PluginConvars::GetFlags(std::string cvarname)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::GetFlags(cvarname=\"%s\")", cvarname.c_str()));
     auto cvar = FetchCVar(cvarname);
-    if(cvar == nullptr) return 0;
+    if (cvar == nullptr) return 0;
 
     return cvar->flags;
 }
@@ -57,7 +136,7 @@ bool PluginConvars::HasFlags(std::string cvarname, int64_t flags)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::HasFlags(cvarname=\"%s\",flags=%lld)", cvarname.c_str(), flags));
     auto cvar = FetchCVar(cvarname);
-    if(cvar == nullptr) return false;
+    if (cvar == nullptr) return false;
 
     return ((cvar->flags & flags) != 0);
 }
