@@ -27,6 +27,7 @@ public:
     EConVarType GetType();
     void SetValue(std::any value);
     std::any GetValue();
+    std::string GetStringValue();
 };
 
 bool FakeConvarExists(std::string name);

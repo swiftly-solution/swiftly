@@ -63,13 +63,72 @@ EConVarType FakeConVar::GetType()
 void FakeConVar::SetValue(std::any value)
 {
     this->m_value = value;
+
+    IGameEvent* gEv = g_gameEventManager->CreateEvent("server_cvar");
+    gEv->SetString("cvarname", this->m_name.c_str());
+    gEv->SetString("cvarvalue", this->GetStringValue().c_str());
+
+    g_gameEventManager->FireEvent(gEv);
+
+    g_gameEventManager->FreeEvent(gEv);
 }
 
 std::any FakeConVar::GetValue()
 {
-    if(!this->m_value.has_value()) return nullptr;
-    
+    if (!this->m_value.has_value()) return nullptr;
+
     return this->m_value;
+}
+
+std::string FakeConVar::GetStringValue()
+{
+    std::string value = "";
+
+    if (GetType() == EConVarType_Int16)
+        value = std::to_string(std::any_cast<int16_t>(GetValue()));
+    else if (GetType() == EConVarType_UInt16)
+        value = std::to_string(std::any_cast<uint16_t>(GetValue()));
+    else if (GetType() == EConVarType_UInt32)
+        value = std::to_string(std::any_cast<uint32_t>(GetValue()));
+    else if (GetType() == EConVarType_Int32)
+        value = std::to_string(std::any_cast<int32_t>(GetValue()));
+    else if (GetType() == EConVarType_UInt64)
+        value = std::to_string(std::any_cast<uint64_t>(GetValue()));
+    else if (GetType() == EConVarType_Int64)
+        value = std::to_string(std::any_cast<int64_t>(GetValue()));
+    else if (GetType() == EConVarType_Bool)
+        value = (std::any_cast<bool>(GetValue()) ? "true" : "false");
+    else if (GetType() == EConVarType_Float32)
+        value = std::to_string(std::any_cast<float>(GetValue()));
+    else if (GetType() == EConVarType_Float64)
+        value = std::to_string(std::any_cast<double>(GetValue()));
+    else if (GetType() == EConVarType_String)
+        value = std::any_cast<std::string>(GetValue());
+    else if (GetType() == EConVarType_Color) {
+        Color col = std::any_cast<Color>(GetValue());
+        value = string_format("%d,%d,%d,%d", col.r(), col.g(), col.b(), col.a());
+    }
+    else if (GetType() == EConVarType_Vector2) {
+        Vector2D vec = std::any_cast<Vector2D>(GetValue());
+        value = string_format("%f,%f", vec.x, vec.y);
+    }
+    else if (GetType() == EConVarType_Vector3) {
+        Vector vec = std::any_cast<Vector>(GetValue());
+        value = string_format("%f,%f,%f", vec.x, vec.y, vec.z);
+    }
+    else if (GetType() == EConVarType_Vector4) {
+        Vector4D vec = std::any_cast<Vector4D>(GetValue());
+        value = string_format("%f,%f,%f,%f", vec.x, vec.y, vec.z, vec.w);
+    }
+    else if (GetType() == EConVarType_Qangle) {
+        QAngle ang = std::any_cast<QAngle>(GetValue());
+        value = string_format("%f,%f,%f", ang.x, ang.y, ang.z);
+    }
+    else {
+        value = "(null)";
+    }
+
+    return value;
 }
 
 static void convarsCallback(const CCommandContext& context, const CCommand& args)
@@ -83,53 +142,7 @@ static void convarsCallback(const CCommandContext& context, const CCommand& args
     auto convar = fakeConvars.at(cvar);
 
     if (args.ArgC() < 2) {
-        std::string convarOutput = string_format("%s {VALUE}\n", cvar.c_str());
-        std::string value = "";
-        if (convar->GetType() == EConVarType_Int16)
-            value = std::to_string(std::any_cast<int16_t>(convar->GetValue()));
-        else if (convar->GetType() == EConVarType_UInt16)
-            value = std::to_string(std::any_cast<uint16_t>(convar->GetValue()));
-        else if (convar->GetType() == EConVarType_UInt32)
-            value = std::to_string(std::any_cast<uint32_t>(convar->GetValue()));
-        else if (convar->GetType() == EConVarType_Int32)
-            value = std::to_string(std::any_cast<int32_t>(convar->GetValue()));
-        else if (convar->GetType() == EConVarType_UInt64)
-            value = std::to_string(std::any_cast<uint64_t>(convar->GetValue()));
-        else if (convar->GetType() == EConVarType_Int64)
-            value = std::to_string(std::any_cast<int64_t>(convar->GetValue()));
-        else if (convar->GetType() == EConVarType_Bool)
-            value = (std::any_cast<bool>(convar->GetValue()) ? "true" : "false");
-        else if (convar->GetType() == EConVarType_Float32)
-            value = std::to_string(std::any_cast<float>(convar->GetValue()));
-        else if (convar->GetType() == EConVarType_Float64)
-            value = std::to_string(std::any_cast<double>(convar->GetValue()));
-        else if (convar->GetType() == EConVarType_String)
-            value = std::any_cast<std::string>(convar->GetValue());
-        else if (convar->GetType() == EConVarType_Color) {
-            Color col = std::any_cast<Color>(convar->GetValue());
-            value = string_format("%d,%d,%d,%d", col.r(), col.g(), col.b(), col.a());
-        }
-        else if (convar->GetType() == EConVarType_Vector2) {
-            Vector2D vec = std::any_cast<Vector2D>(convar->GetValue());
-            value = string_format("%f,%f", vec.x, vec.y);
-        }
-        else if (convar->GetType() == EConVarType_Vector3) {
-            Vector vec = std::any_cast<Vector>(convar->GetValue());
-            value = string_format("%f,%f,%f", vec.x, vec.y, vec.z);
-        }
-        else if (convar->GetType() == EConVarType_Vector4) {
-            Vector4D vec = std::any_cast<Vector4D>(convar->GetValue());
-            value = string_format("%f,%f,%f,%f", vec.x, vec.y, vec.z, vec.w);
-        }
-        else if (convar->GetType() == EConVarType_Qangle) {
-            QAngle ang = std::any_cast<QAngle>(convar->GetValue());
-            value = string_format("%f,%f,%f", ang.x, ang.y, ang.z);
-        }
-        else {
-            value = "(null)";
-        }
-
-        PLUGIN_PRINTF("ConVar", "%s %s\n", cvar.c_str(), value.c_str());
+        PLUGIN_PRINTF("ConVar", "%s %s\n", cvar.c_str(), convar->GetStringValue().c_str());
     }
     else {
         if (convar->GetType() == EConVarType_Int16)
