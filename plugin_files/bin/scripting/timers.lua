@@ -22,22 +22,24 @@ function SetTimer(delay, callback)
 
     timerIds = timerIds + 1
 
-    timersTable[timerIds] = {
-        id = timerIds,
+    local timerId = timerIds
+
+    timersTable[timerId] = {
+        id = timerId,
         callback = callback,
         timeoutFunction = function()
-            if timersTable[timerIds] then
-                timersTable[timerIds].callback()
-                if timersTable[timerIds] then
-                    SetTimeout(delay, timersTable[timerIds].timeoutFunction)
+            if timersTable[timerId] then
+                timersTable[timerId].callback()
+                if timersTable[timerId] then
+                    SetTimeout(delay, timersTable[timerId].timeoutFunction)
                 end
             end
         end
     }
 
-    SetTimeout(delay, timersTable[timerIds].timeoutFunction)
+    SetTimeout(delay, timersTable[timerId].timeoutFunction)
 
-    return timerIds
+    return timerId
 end
 
 function StopTimer(timerId)
