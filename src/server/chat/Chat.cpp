@@ -55,7 +55,7 @@ void ChatProcessor::LoadMessages()
             continue;
         }
         std::string value = it->value.GetString();
-        if(value.empty())
+        if (value.empty())
         {
             continue;
         }
@@ -97,9 +97,9 @@ std::string getCompTeammateColorString(CCSPlayerController* controller)
     case -2:
         return "{GREY}";
         break;
-    // case -1: // IN MY CASE WAS YELLOW PROBABLY IS RANDOMLY?
-    //     return "{YELLOW}";
-    //     break;
+        // case -1: // IN MY CASE WAS YELLOW PROBABLY IS RANDOMLY?
+        //     return "{YELLOW}";
+        //     break;
     case 0:
         return "{BLUE}";
         break;
@@ -126,12 +126,12 @@ std::string getCompTeammateColorString(CCSPlayerController* controller)
 
 std::string formatPlayerMessage(Player* player, CCSPlayerController* controller, std::string placeholder, std::string message, bool isRadio = false)
 {
-    for(auto it = textMessageReplacements.begin(); it != textMessageReplacements.end(); ++it)
+    for (auto it = textMessageReplacements.begin(); it != textMessageReplacements.end(); ++it)
         message = replace(message, it->first, it->second);
 
     std::string name = player->GetName();
-    
-    for(auto it = colors.begin(); it != colors.end(); ++it)
+
+    for (auto it = colors.begin(); it != colors.end(); ++it)
     {
         message = replace(message, it->first, "");
         message = replace(message, str_tolower(it->first), "");
@@ -147,39 +147,42 @@ std::string formatPlayerMessage(Player* player, CCSPlayerController* controller,
         {"{COMP_COLOR}", getCompTeammateColorString(controller).c_str()},
         {"{MESSAGE}",  string_format("%s%s", player->chatcolor.c_str(), message.c_str())},
     };
-    for(auto it = replacements.begin(); it != replacements.end(); ++it)
+    for (auto it = replacements.begin(); it != replacements.end(); ++it)
         placeholder = replace(placeholder, it->first, it->second);
 
-    return ProcessColor(" "+ placeholder, controller->m_iTeamNum());
+    return ProcessColor(" " + placeholder, controller->m_iTeamNum());
 }
 void ChatProcessor::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType)
 {
-    if(pEvent->GetNetMessageInfo()->m_MessageId == 118) {
+    if (pEvent->GetNetMessageInfo()->m_MessageId == 118) {
         PluginUserMessage um(pEvent, (CNetMessage*)pData, (uint64*)clients);
         Player* player = g_playerManager->GetPlayer(um.GetInt32("entityindex") - 1);
-        if(!player) return;
+        if (!player) return;
 
         CCSPlayerController* controller = player->GetPlayerController();
-        if(!controller) return;
+        if (!controller) return;
 
         std::string key = um.GetString("messagename");
         auto it = this->placeholders.find(key);
-        if(it != this->placeholders.end()) {
-            um.SetString("messagename", formatPlayerMessage(player,controller,it->second.c_str(), um.GetString("param2")).c_str());
+        if (it != this->placeholders.end()) {
+            um.SetString("messagename", formatPlayerMessage(player, controller, it->second.c_str(), um.GetString("param2")).c_str());
         }
-    } else if(pEvent->GetNetMessageInfo()->m_MessageId == 322) {
+    }
+    else if (pEvent->GetNetMessageInfo()->m_MessageId == 322) {
         PluginUserMessage um(pEvent, (CNetMessage*)pData, (uint64*)clients);
         Player* player = g_playerManager->GetPlayer(um.GetInt32("client"));
-        if(!player) return;
+        if (!player) return;
         CCSPlayerController* controller = player->GetPlayerController();
-        if(!controller) return;       
+        if (!controller) return;
 
-        auto it = this->placeholders.find(um.GetRepeatedString("params",2));
-        if(it != this->placeholders.end()) {
+        auto it = this->placeholders.find(um.GetRepeatedString("params", 2));
+        if (it != this->placeholders.end()) {
             um.SetString("msg_name", formatPlayerMessage(player, controller, it->second.c_str(), um.GetRepeatedString("params", 2), true).c_str());
         }
     }
 }
+
+bool OnClientCommand(int playerid, std::string command);
 
 void ChatProcessor::DispatchConCommand(ConCommandHandle cmd, const CCommandContext& ctx, const CCommand& args)
 {
@@ -187,6 +190,9 @@ void ChatProcessor::DispatchConCommand(ConCommandHandle cmd, const CCommandConte
 
     if (slot.Get() != -1)
     {
+        if (!OnClientCommand(slot.Get(), args.GetCommandString()))
+            RETURN_META(MRES_SUPERCEDE);
+
         std::string command = args.Arg(0);
         if (command == "say" || command == "say_team")
         {
