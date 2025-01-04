@@ -11,7 +11,6 @@ uint64_t CallStack::RegisterPluginCallstack(std::string plugin_name, std::string
         stackID = 1;
 
     callStacks[plugin_name].insert_or_assign(stackID, stackMsg);
-    fprintf(stdout, "%s\n", stackMsg.c_str());
     return stackID;
 }
 
