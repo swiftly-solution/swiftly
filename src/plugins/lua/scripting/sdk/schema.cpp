@@ -2,22 +2,22 @@
 #include "../../../../sdk/access/sdkaccess.h"
 
 std::set<uint64_t> classFuncs = {
-    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EHandle")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Spawn")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Despawn")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("AcceptInput")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetClassname")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetVData")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Teleport")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EmitSound")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("CollisionRulesChanged")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetModel")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetSolidType")),
-    ((uint64_t) hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetBodygroup")),
-    ((uint64_t) hash_32_fnv1a_const("CAttributeList") << 32 | hash_32_fnv1a_const("SetOrAddAttributeValueByName")),
-    ((uint64_t) hash_32_fnv1a_const("CBasePlayerController") << 32 | hash_32_fnv1a_const("EntityIndex")),
-    ((uint64_t) hash_32_fnv1a_const("CGameSceneNode") << 32 | hash_32_fnv1a_const("GetSkeletonInstance")),
-    ((uint64_t) hash_32_fnv1a_const("CPlayerPawnComponent") << 32 | hash_32_fnv1a_const("GetPawn")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EHandle")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Spawn")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Despawn")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("AcceptInput")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetClassname")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetVData")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Teleport")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EmitSound")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("CollisionRulesChanged")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetModel")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetSolidType")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetBodygroup")),
+    ((uint64_t)hash_32_fnv1a_const("CAttributeList") << 32 | hash_32_fnv1a_const("SetOrAddAttributeValueByName")),
+    ((uint64_t)hash_32_fnv1a_const("CBasePlayerController") << 32 | hash_32_fnv1a_const("EntityIndex")),
+    ((uint64_t)hash_32_fnv1a_const("CGameSceneNode") << 32 | hash_32_fnv1a_const("GetSkeletonInstance")),
+    ((uint64_t)hash_32_fnv1a_const("CPlayerPawnComponent") << 32 | hash_32_fnv1a_const("GetPawn")),
 };
 
 extern std::set<std::string> BlockedCS2GuidelinesFields;
@@ -31,9 +31,6 @@ luabridge::LuaRef SDKBaseClass::AccessSDKLua(std::string fieldName, uint64_t pat
         return luabridge::LuaRef(state);
     }
 
-    if(!m_ptr) {
-        REGISTER_CALLSTACK(FetchPluginName(state), string_format("SDK Get: %s::%s(ptr=%p)", this->m_className.c_str(), fieldName.c_str(), m_ptr));
-    }
     if (!g_sdk->ExistsField(path)) return luabridge::LuaRef(state);
 
     std::string field = g_sdk->GetFieldName(path);
@@ -439,9 +436,6 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         return;
     }
 
-    if(!m_ptr) {
-        REGISTER_CALLSTACK(FetchPluginName(state), string_format("SDK Set: %s::%s(ptr=%p)", this->m_className.c_str(), fieldName.c_str(), m_ptr));
-    }
     uint64 path = (this->classOffset | hash_32_fnv1a_const(fieldName.c_str()));
     if (!g_sdk->ExistsField(path)) return;
 
@@ -738,23 +732,32 @@ int SDKBaseClass::GetProp(lua_State* state)
     uint64_t path = (this->classOffset | hash_32_fnv1a_const(field_name.c_str()));
 
     if (field_name == "IsValid" || field_name == "ToPtr" || classFuncs.find(path) != classFuncs.end()) return luabridge::detail::CFunc::indexMetaMethod(state);
-    
+
+    uint64_t id = g_callStack->RegisterPluginCallstack(FetchPluginName(state), string_format("SDK Get: %s::%s(ptr=%p)", this->m_className.c_str(), field_name.c_str(), m_ptr));
     this->AccessSDKLua(field_name, path, state).push();
+    g_callStack->UnregisterPluginCallstack(FetchPluginName(state), id);
     return 1;
 }
 
 int SDKBaseClass::SetProp(lua_State* state)
 {
-    this->UpdateSDKLua(luabridge::LuaRef::fromStack(state, 2).cast<std::string>(), luabridge::LuaRef::fromStack(state, 3), state);
+    std::string field_name = luabridge::LuaRef::fromStack(state, 2).cast<std::string>();
+    luabridge::LuaRef val = luabridge::LuaRef::fromStack(state, 3);
+
+    uint64_t id = g_callStack->RegisterPluginCallstack(FetchPluginName(state), string_format("SDK Set: %s::%s(ptr=%p,value=%s)", this->m_className.c_str(), field_name.c_str(), m_ptr, val.tostring()));
+
+    this->UpdateSDKLua(field_name, val, state);
+
+    g_callStack->UnregisterPluginCallstack(FetchPluginName(state), id);
     return 0;
 }
 
 int SDKBaseClass::CallProp(lua_State* state)
 {
     auto val = luabridge::LuaRef::fromStack(state, 2);
-    if(val.type() == LUA_TSTRING) {
+    if (val.type() == LUA_TSTRING) {
         auto str = val.cast<std::string>();
-        if(starts_with(str, "0x"))
+        if (starts_with(str, "0x"))
             this->m_ptr = (void*)(strtol(str.c_str(), nullptr, 16));
     }
     luabridge::push(state, this);
@@ -763,7 +766,7 @@ int SDKBaseClass::CallProp(lua_State* state)
 
 void SDKBaseClass::CBaseEntity_SpawnLua(lua_State* state) {
     luabridge::LuaRef ref = luabridge::LuaRef::fromStack(state, 2);
-    if(ref.isInstance<PluginCEntityKeyValues>()) {
+    if (ref.isInstance<PluginCEntityKeyValues>()) {
         auto kv = ref.cast<PluginCEntityKeyValues>();
         CBaseEntity_Spawn(&kv);
     }
@@ -771,18 +774,18 @@ void SDKBaseClass::CBaseEntity_SpawnLua(lua_State* state) {
         CBaseEntity_Spawn(nullptr);
 }
 
-void SDKBaseClass::CBaseEntity_TeleportLua(lua_State *L)
+void SDKBaseClass::CBaseEntity_TeleportLua(lua_State* L)
 {
     auto pos = luabridge::LuaRef::fromStack(L, 2);
     auto ang = luabridge::LuaRef::fromStack(L, 3);
     auto vel = luabridge::LuaRef::fromStack(L, 3);
-    Vector po(0.0,0.0,0.0), ve(0.0,0.0,0.0);
-    QAngle an(0.0,0.0,0.0);
-    if(pos.isInstance<Vector>())
+    Vector po(0.0, 0.0, 0.0), ve(0.0, 0.0, 0.0);
+    QAngle an(0.0, 0.0, 0.0);
+    if (pos.isInstance<Vector>())
         po = pos.cast<Vector>();
-    if(ang.isInstance<QAngle>())
+    if (ang.isInstance<QAngle>())
         an = ang.cast<QAngle>();
-    if(vel.isInstance<Vector>())
+    if (vel.isInstance<Vector>())
         ve = vel.cast<Vector>();
 
     CBaseEntity_Teleport(po, an, ve);
@@ -794,11 +797,11 @@ LoadLuaScriptingComponent(
     {
         luabridge::getGlobalNamespace(state)
             .addFunction("IsSDKClass", +[](std::string key) -> bool {
-                return sch::IsClassLoaded(key.c_str()); 
-            })
+            return sch::IsClassLoaded(key.c_str());
+                })
             .addFunction("GenerateSDKFactory", +[](std::string className) -> SDKBaseClass {
-                return SDKBaseClass(nullptr, className);
-            });
+            return SDKBaseClass(nullptr, className);
+                });
 
         auto cls = luabridge::getGlobalNamespace(state).beginClass<SDKBaseClass>("SDKBaseClass");
         cls.addConstructor<void(*)(std::string, std::string)>();
