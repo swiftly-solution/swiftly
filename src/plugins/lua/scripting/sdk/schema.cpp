@@ -759,6 +759,14 @@ int SDKBaseClass::CallProp(lua_State* state)
         auto str = val.cast<std::string>();
         if (starts_with(str, "0x"))
             this->m_ptr = (void*)(strtol(str.c_str(), nullptr, 16));
+        else
+            throw std::runtime_error(string_format("Invalid pointer: %s", str.c_str()));
+    }
+    else if (val.isInstance<SDKBaseClass>()) {
+        this->m_ptr = val.cast<SDKBaseClass>().GetPtr();
+    }
+    else {
+        throw std::runtime_error("Invalid pointer or object.");
     }
     luabridge::push(state, this);
     return 1;
