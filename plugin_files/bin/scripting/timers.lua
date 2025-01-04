@@ -29,7 +29,12 @@ function SetTimer(delay, callback)
         callback = callback,
         timeoutFunction = function()
             if timersTable[timerId] then
+                local debuginfo = debug.getinfo(timersTable[timerId].callback, "S")
+                local stackid = RegisterCallstack(GetCurrentPluginName(),
+                    string.format("TimeoutCallback(path=%s,lines=%d..%d)", debuginfo.short_src, debuginfo.linedefined,
+                        debuginfo.lastlinedefined))
                 timersTable[timerId].callback()
+                UnregisterCallstack(GetCurrentPluginName(), stackid)
                 if timersTable[timerId] then
                     SetTimeout(delay, timersTable[timerId].timeoutFunction)
                 end

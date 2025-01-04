@@ -14,7 +14,7 @@ void scripting_AddTimeout(int64_t delay, luabridge::LuaRef callback)
     RegisterTimeout(delay, [cb]() -> void {
         auto pl = FetchPluginByState(cb->state());
         if (pl == nullptr) return;
-        if(((LuaPlugin*)pl)->GetState() != cb->state()) return;
+        if (((LuaPlugin*)pl)->GetState() != cb->state()) return;
 
         if (!cb->isFunction()) {
             delete cb;
@@ -47,6 +47,8 @@ LoadLuaScriptingComponent(
             .addFunction("GetUserMessage", scripting_GetUserMessage)
             .addFunction("GetPluginState", scripting_GetPluginState)
             .addFunction("GetCCSGameRules", scripting_GetCCSGameRules)
-            .addFunction("CreateTextTable", scripting_CreateTextTable);
+            .addFunction("CreateTextTable", scripting_CreateTextTable)
+            .addFunction("RegisterCallstack", RegisterCallstack)
+            .addFunction("UnregisterCallstack", UnregisterCallstack);
     }
 )

@@ -77,20 +77,30 @@ int scripting_GetPluginState(std::string plugin_name)
 
 void RegisterTimeout(int64_t delay, std::function<void()> cb)
 {
-    timeoutsArray.push_back({GetTime() + delay, cb});
+    timeoutsArray.push_back({ GetTime() + delay, cb });
 }
 
 void ProcessTimeouts(uint64_t t)
 {
     std::list<std::list<std::pair<int64_t, std::function<void()>>>::iterator> queueRemoveTimeouts;
 
-    for(auto it = timeoutsArray.begin(); it != timeoutsArray.end(); ++it) {
-        if(it->first <= t) {
+    for (auto it = timeoutsArray.begin(); it != timeoutsArray.end(); ++it) {
+        if (it->first <= t) {
             queueRemoveTimeouts.push_back(it);
             it->second();
         }
     }
 
-    for(auto it = queueRemoveTimeouts.rbegin(); it != queueRemoveTimeouts.rend(); ++it)
+    for (auto it = queueRemoveTimeouts.rbegin(); it != queueRemoveTimeouts.rend(); ++it)
         timeoutsArray.erase(*it);
+}
+
+uint64_t RegisterCallstack(std::string plugin_name, std::string stackmsg)
+{
+    return g_callStack->RegisterPluginCallstack(plugin_name, stackmsg);
+}
+
+void UnregisterCallstack(std::string plugin_name, uint64_t stackid)
+{
+    g_callStack->UnregisterPluginCallstack(plugin_name, stackid);
 }
