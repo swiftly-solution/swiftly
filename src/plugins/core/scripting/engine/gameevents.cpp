@@ -16,7 +16,7 @@ void OnClientKeyStateChange(int playerid, std::string key, bool pressed)
         player->PerformMenuAction(key);
     }
 
-    if(noReturnEvent == nullptr) noReturnEvent = new PluginEvent("core", nullptr, nullptr);
+    if (noReturnEvent == nullptr) noReturnEvent = new PluginEvent("core", nullptr, nullptr);
 
     g_pluginManager->ExecuteEvent("core", "OnClientKeyStateChange", encoders::msgpack::SerializeToString({ playerid, key, pressed }), noReturnEvent);
 }
@@ -61,7 +61,7 @@ bool OnClientChat(int playerid, std::string text, bool teamonly)
 
 void OnClientConvarQuery(int playerid, std::string convar_name, std::string convar_value)
 {
-    if(noReturnEvent == nullptr) noReturnEvent = new PluginEvent("core", nullptr, nullptr);
+    if (noReturnEvent == nullptr) noReturnEvent = new PluginEvent("core", nullptr, nullptr);
 
     g_pluginManager->ExecuteEvent("core", "OnClientConvarQuery", encoders::msgpack::SerializeToString({ playerid, convar_name, convar_value }), noReturnEvent);
 }
@@ -72,22 +72,22 @@ FuncHook<decltype(Hook_CBaseEntity_TakeDamage)> CBaseEntity_TakeDamage(Hook_CBas
 void Hook_CBaseEntity_TakeDamage(CBaseEntity* _this, CTakeDamageInfo* damageInfo)
 {
     CCSPlayerPawn* playerPawn = (CCSPlayerPawn*)_this;
-    if(!playerPawn) return CBaseEntity_TakeDamage(_this, damageInfo);
-    
+    if (!playerPawn) return CBaseEntity_TakeDamage(_this, damageInfo);
+
     CCSPlayerController* playerController = (CCSPlayerController*)playerPawn->m_hController().Get();
-    if(!playerController) return CBaseEntity_TakeDamage(_this, damageInfo);
+    if (!playerController) return CBaseEntity_TakeDamage(_this, damageInfo);
 
     int playerid = playerController->GetPlayerSlot();
     int attackerid = -1;
 
     CCSPlayerPawn* attackerPawn = (CCSPlayerPawn*)damageInfo->m_hAttacker.Get();
-    if(attackerPawn) {
+    if (attackerPawn) {
         CCSPlayerController* attackerController = (CCSPlayerController*)attackerPawn->m_hController().Get();
-        if(attackerController) attackerid = attackerController->GetPlayerSlot();
+        if (attackerController) attackerid = attackerController->GetPlayerSlot();
     }
 
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnPlayerDamage", encoders::msgpack::SerializeToString({ playerid, attackerid, string_format("%p", damageInfo), string_format("%p", damageInfo->m_hInflictor.Get()), string_format("%p", damageInfo->m_hAbility.Get()) }), event);
+    g_pluginManager->ExecuteEvent("core", "OnPlayerDamage", encoders::msgpack::SerializeToString({ playerid, attackerid, string_format("%p", damageInfo), "CTakeDamageInfo", string_format("%p", damageInfo->m_hInflictor.Get()), "CBaseEntity", string_format("%p", damageInfo->m_hAbility.Get()), "CBaseEntity" }), event);
 
     bool response = true;
     try
@@ -101,7 +101,7 @@ void Hook_CBaseEntity_TakeDamage(CBaseEntity* _this, CTakeDamageInfo* damageInfo
 
     delete event;
 
-    if(!response) return;
+    if (!response) return;
 
     CBaseEntity_TakeDamage(_this, damageInfo);
 }
@@ -113,10 +113,10 @@ void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* i
 {
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     std::vector<std::any> msgpackData = {
-        string_format("%p", _this->m_pInstance),
+        string_format("%p", _this->m_pInstance), "CEntityInstance",
         inputName->String(),
-        string_format("%p", activator),
-        string_format("%p", caller),
+        string_format("%p", activator), "CEntityInstance",
+        string_format("%p", caller), "CEntityInstance",
         value->ToString() == nullptr ? "(null)" : value->ToString(),
         outputid,
     };
@@ -135,7 +135,7 @@ void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* i
 
     delete event;
 
-    if(!response) return;
+    if (!response) return;
 
     TCEntityIdentity_AcceptInput(_this, inputName, activator, caller, value, outputid);
 }
@@ -147,7 +147,7 @@ FuncHook<decltype(Hook_CGameRules_TerminateRound)> TCGameRules_TerminateRound(Ho
 void Hook_CGameRules_TerminateRound(void* _this, float delay, uint32_t reason, int64_t a, uint32_t b)
 {
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
-    
+
     g_pluginManager->ExecuteEvent("core", "OnTerminateRound", encoders::msgpack::SerializeToString({ delay, reason }), event);
 
     bool response = true;
@@ -162,7 +162,7 @@ void Hook_CGameRules_TerminateRound(void* _this, float delay, uint32_t reason, i
 
     delete event;
 
-    if(!response) return;
+    if (!response) return;
 
     TCGameRules_TerminateRound(_this, delay, reason, a, b);
 }

@@ -236,7 +236,7 @@ std::string PluginHooks::AddEntityOutputHook(std::string classname, std::string 
 {
     REGISTER_CALLSTACK(this->m_plugin_name, string_format("PluginHooks::AddEntityOutputHook(classname=\"%s\",output=\"%s\")", classname.c_str(), output.c_str()));
     std::string id = get_uuid();
-    uint64_t outputKey = ((uint64_t) hash_32_fnv1a_const(classname.c_str()) << 32 | hash_32_fnv1a_const(output.c_str()));
+    uint64_t outputKey = ((uint64_t)hash_32_fnv1a_const(classname.c_str()) << 32 | hash_32_fnv1a_const(output.c_str()));
 
     if (outputHooksList.find(outputKey) == outputHooksList.end())
         outputHooksList.insert({ outputKey, {} });
@@ -248,14 +248,14 @@ std::string PluginHooks::AddEntityOutputHook(std::string classname, std::string 
 void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pActivator, CEntityInstance* pCaller, const CVariant* const value, float flDelay)
 {
     std::vector searchOutputs{
-        ((uint64_t) hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const(pThis->m_pDesc->m_pName)),
-        ((uint64_t) hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const("*"))
+        ((uint64_t)hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const(pThis->m_pDesc->m_pName)),
+        ((uint64_t)hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const("*"))
     };
 
     if (pCaller)
     {
-        searchOutputs.push_back(((uint64_t) hash_32_fnv1a_const(pCaller->GetClassname()) << 32 | hash_32_fnv1a_const(pThis->m_pDesc->m_pName)));
-        searchOutputs.push_back(((uint64_t) hash_32_fnv1a_const(pCaller->GetClassname()) << 32 | hash_32_fnv1a_const("*")));
+        searchOutputs.push_back(((uint64_t)hash_32_fnv1a_const(pCaller->GetClassname()) << 32 | hash_32_fnv1a_const(pThis->m_pDesc->m_pName)));
+        searchOutputs.push_back(((uint64_t)hash_32_fnv1a_const(pCaller->GetClassname()) << 32 | hash_32_fnv1a_const("*")));
     }
 
     std::vector<std::string> hookIds;
@@ -271,10 +271,10 @@ void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pAct
         for (auto id : hookIds)
         {
             auto result = g_pluginManager->ExecuteEvent("core", "hook:Pre:" + id, encoders::msgpack::SerializeToString({
-                pThis ? string_format("%p", pThis) : "0x00000000",
+                pThis ? string_format("%p", pThis) : "0x00000000", "CEntityIOOutput",
                 pThis->m_pDesc->m_pName,
-                pActivator ? string_format("%p", pActivator) : "0x00000000",
-                pCaller ? string_format("%p", pCaller) : "0x00000000",
+                pActivator ? string_format("%p", pActivator) : "0x00000000", "CEntityInstance",
+                pCaller ? string_format("%p", pCaller) : "0x00000000", "CEntityInstance",
                 flDelay
                 }), preEvent);
             if (result != EventResult::Continue)
@@ -295,10 +295,10 @@ void Hook_FireOutputInternal(CEntityIOOutput* const pThis, CEntityInstance* pAct
         for (auto id : hookIds)
         {
             auto result = g_pluginManager->ExecuteEvent("core", "hook:Post:" + id, encoders::msgpack::SerializeToString({
-                pThis ? string_format("%p", pThis) : "0x00000000",
+                pThis ? string_format("%p", pThis) : "0x00000000", "CEntityIOOutput",
                 pThis->m_pDesc->m_pName,
-                pActivator ? string_format("%p", pActivator) : "0x00000000",
-                pCaller ? string_format("%p", pCaller) : "0x00000000",
+                pActivator ? string_format("%p", pActivator) : "0x00000000", "CEntityInstance",
+                pCaller ? string_format("%p", pCaller) : "0x00000000", "CEntityInstance",
                 flDelay
                 }), postEvent);
             if (result != EventResult::Continue)

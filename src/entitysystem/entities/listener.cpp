@@ -31,7 +31,7 @@ void EntityListener::StartupServer(const GameSessionConfiguration_t& config, ISo
 void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)
 {
     if (!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntitySpawned", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), pEvent);
+    g_pluginManager->ExecuteEvent("core", "OnEntitySpawned", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity), "CEntityInstance" }), pEvent);
 }
 
 void CEntityListener::OnEntityParentChanged(CEntityInstance* pEntity, CEntityInstance* pNewParent)
@@ -48,7 +48,7 @@ void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
     ExecuteOnce(EntityAllowHammerID(pEntity));
 
     if (!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntityCreated", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), pEvent);
+    g_pluginManager->ExecuteEvent("core", "OnEntityCreated", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity), "CEntityInstance" }), pEvent);
 
     if (std::string(pEntity->GetClassname()) == "cs_gamerules")
         gameRules = ((CCSGameRulesProxy*)pEntity)->m_pGameRules;
@@ -57,5 +57,5 @@ void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
 void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
 {
     if (!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
-    g_pluginManager->ExecuteEvent("core", "OnEntityDeleted", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity) }), pEvent);
+    g_pluginManager->ExecuteEvent("core", "OnEntityDeleted", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity), "CEntityInstance" }), pEvent);
 }

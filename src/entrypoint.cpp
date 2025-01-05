@@ -474,7 +474,7 @@ void Swiftly::Hook_CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount,
         Player* player = g_playerManager->GetPlayer(playerid);
         if (!player) continue;
 
-        g_pluginManager->ExecuteEvent("core", "OnPlayerCheckTransmit", encoders::msgpack::SerializeToString({ playerid, string_format("%p", pInfo) }), checktransmitEvent);
+        g_pluginManager->ExecuteEvent("core", "OnPlayerCheckTransmit", encoders::msgpack::SerializeToString({ playerid, string_format("%p", pInfo), "CCheckTransmitInfo" }), checktransmitEvent);
     }
 }
 
