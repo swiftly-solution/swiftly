@@ -458,7 +458,7 @@ bool Configuration::LoadConfiguration()
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "language", "en");
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "use_player_language", true);
 
-    RegisterConfiguration(wasEdited,coreConfigFile, "core", "core", "menu.navigation_prefix", "➤");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.navigation_prefix", "➤");
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.use.name", "Vote.Cast.Yes");
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.sound.use.volume", 0.75);
@@ -636,7 +636,7 @@ void Configuration::ClearPluginConfig()
 
 EXT_API void* swiftly_GetConfigurationValue(const char* key)
 {
-    auto config = g_Config->FetchConfiguration();
-    if(config.find(key) == config.end()) return nullptr;
+    auto& config = g_Config->FetchConfiguration();
+    if (config.find(key) == config.end()) return nullptr;
     return (void*)&(config[key]);
 }
