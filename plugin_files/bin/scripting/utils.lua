@@ -198,6 +198,18 @@ table.contains = function(tbl, value)
     return false
 end
 
+--- @param tbl table The table to search.
+--- @param value any the key to search for.
+--- @return key number The key returned.
+table.find = function(tbl, value)
+    for key, val in next, tbl do
+        if val == value then
+            return key
+        end
+    end
+    return nil
+end
+
 local weaponlist = {
     ["weapon_ak47"] = true,
     ["weapon_aug"] = true,
