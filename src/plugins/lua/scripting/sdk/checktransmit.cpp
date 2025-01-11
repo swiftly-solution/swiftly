@@ -6,7 +6,7 @@ LoadLuaScriptingComponent(
     {
         luabridge::getGlobalNamespace(state)
             .beginClass<PluginCCheckTransmitInfo>("CCheckTransmitInfo")
-            .addConstructor<void(*)(std::string)>()
+            .addConstructor<void(*)(luabridge::LuaRef)>()
             .addFunction("GetPlayers", &PluginCCheckTransmitInfo::GetPlayers)
             .addFunction("GetEntities", &PluginCCheckTransmitInfo::GetEntities)
             .addFunction("SetEntities", &PluginCCheckTransmitInfo::SetEntities)

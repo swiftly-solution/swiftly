@@ -103,10 +103,9 @@ public:
 
 class PluginCCheckTransmitInfo
 {
-private:
-    CCheckTransmitInfo* m_ptr;
 public:
-    PluginCCheckTransmitInfo(std::string ptr);
+    CCheckTransmitInfo* m_ptr;
+    PluginCCheckTransmitInfo(luabridge::LuaRef ptr);
 
     std::map<int, int> GetPlayers();
     std::vector<int> GetEntities();
