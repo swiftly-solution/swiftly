@@ -89,6 +89,7 @@ CCSGameRules* gameRules = nullptr;
 ////////////////////////////////////////////////////////////
 
 CUtlVector<FuncHookBase*> g_vecHooks;
+std::map<std::string, std::string> gameEventsRegister;
 uint64_t g_Players = 0;
 
 ChatProcessor* g_chatProcessor = nullptr;
@@ -139,7 +140,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
 
         if (freopen_s(&fp, "CONOUT$", "w", stdout) == 0)
             setvbuf(stdout, NULL, _IONBF, 0);
-    }
+}
 #endif
 
     GET_V_IFACE_CURRENT(GetEngineFactory, engine, IVEngineServer, INTERFACEVERSION_VENGINESERVER);
