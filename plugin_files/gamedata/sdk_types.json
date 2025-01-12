@@ -377,89 +377,6 @@
         "MagnitudeOnly": 1,
         "DirectionAndMagnitude": 2
     },
-    "CNmBoneMask::WeightInfo_t": {
-        "Zero": 0,
-        "Mixed": 1,
-        "One": 2
-    },
-    "CNmFloatAngleMathNode::Operation_t": {
-        "ClampTo180": 0,
-        "ClampTo360": 1,
-        "FlipHemisphere": 2,
-        "FlipHemisphereNegate": 3
-    },
-    "CNmFloatComparisonNode::Comparison_t": {
-        "GreaterThanEqual": 0,
-        "LessThanEqual": 1,
-        "NearEqual": 2,
-        "GreaterThan": 3,
-        "LessThan": 4
-    },
-    "CNmFloatMathNode::Operator_t": {
-        "Add": 0,
-        "Sub": 1,
-        "Mul": 2,
-        "Div": 3
-    },
-    "CNmIDComparisonNode::Comparison_t": {
-        "Matches": 0,
-        "DoesntMatch": 1
-    },
-    "CNmRootMotionData::SamplingMode_t": {
-        "Delta": 0,
-        "WorldSpace": 1
-    },
-    "CNmRootMotionOverrideNode::OverrideFlags_t": {
-        "AllowMoveX": 0,
-        "AllowMoveY": 1,
-        "AllowMoveZ": 2,
-        "AllowFacingPitch": 3,
-        "ListenForEvents": 4
-    },
-    "CNmSyncEventIndexConditionNode::TriggerMode_t": {
-        "ExactlyAtEventIndex": 0,
-        "GreaterThanEqualToEventIndex": 1
-    },
-    "CNmTargetInfoNode::Info_t": {
-        "AngleHorizontal": 0,
-        "AngleVertical": 1,
-        "Distance": 2,
-        "DistanceHorizontalOnly": 3,
-        "DistanceVerticalOnly": 4,
-        "DeltaOrientationX": 5,
-        "DeltaOrientationY": 6,
-        "DeltaOrientationZ": 7
-    },
-    "CNmTimeConditionNode::ComparisonType_t": {
-        "PercentageThroughState": 0,
-        "PercentageThroughSyncEvent": 1,
-        "ElapsedTime": 2,
-        "LoopCount": 3
-    },
-    "CNmTimeConditionNode::Operator_t": {
-        "LessThan": 0,
-        "LessThanEqual": 1,
-        "GreaterThan": 2,
-        "GreaterThanEqual": 3
-    },
-    "CNmTransitionNode::TransitionOptions_t": {
-        "None": 0,
-        "ClampDuration": 1,
-        "Synchronized": 2,
-        "MatchSourceTime": 3,
-        "MatchSyncEventIndex": 4,
-        "MatchSyncEventID": 5,
-        "MatchSyncEventPercentage": 6,
-        "PreferClosestSyncEventID": 7
-    },
-    "CNmVectorInfoNode::Info_t": {
-        "X": 0,
-        "Y": 1,
-        "Z": 2,
-        "Length": 3,
-        "AngleHorizontal": 4,
-        "AngleVertical": 5
-    },
     "NmCachedValueMode_t": {
         "OnEntry": 0,
         "OnExit": 1
@@ -681,10 +598,6 @@
         "AI_EVENT": 7,
         "END_SIM_HISTORY_TYPES": 8,
         "COMBINED": -1
-    },
-    "CRR_Response::ResponseEnum_t": {
-        "MAX_RESPONSE_NAME": 192,
-        "MAX_RULE_NAME": 128
     },
     "CSPlayerBlockingUseAction_t": {
         "k_CSPlayerBlockingUseAction_None": 0,
@@ -1117,22 +1030,6 @@
         "NUM_HULLS": 10,
         "HULL_NONE": 11
     },
-    "IChoreoServices::ChoreoState_t": {
-        "STATE_PRE_SCRIPT": 0,
-        "STATE_WAIT_FOR_SCRIPT": 1,
-        "STATE_WALK_TO_MARK": 2,
-        "STATE_SYNCHRONIZE_SCRIPT": 3,
-        "STATE_PLAY_SCRIPT": 4,
-        "STATE_PLAY_SCRIPT_POST_IDLE": 5,
-        "STATE_PLAY_SCRIPT_POST_IDLE_DONE": 6
-    },
-    "IChoreoServices::ScriptState_t": {
-        "SCRIPT_PLAYING": 0,
-        "SCRIPT_WAIT": 1,
-        "SCRIPT_POST_IDLE": 2,
-        "SCRIPT_CLEANUP": 3,
-        "SCRIPT_MOVE_TO_MARK": 4
-    },
     "InputBitMask_t": {
         "IN_NONE": 0,
         "IN_ALL": -1,
@@ -1350,21 +1247,6 @@
         "PLANTED": 3,
         "INSPECT": 4,
         "ICON": 5
-    },
-    "QuestProgress::Reason": {
-        "QUEST_NONINITIALIZED": 0,
-        "QUEST_OK": 1,
-        "QUEST_NOT_ENOUGH_PLAYERS": 2,
-        "QUEST_WARMUP": 3,
-        "QUEST_NOT_CONNECTED_TO_STEAM": 4,
-        "QUEST_NONOFFICIAL_SERVER": 5,
-        "QUEST_NO_ENTITLEMENT": 6,
-        "QUEST_NO_QUEST": 7,
-        "QUEST_PLAYER_IS_BOT": 8,
-        "QUEST_WRONG_MAP": 9,
-        "QUEST_WRONG_MODE": 10,
-        "QUEST_NOT_SYNCED_WITH_SERVER": 11,
-        "QUEST_REASON_MAX": 12
     },
     "RenderFx_t": {
         "kRenderFxNone": 0,
@@ -1886,30 +1768,6 @@
         "MODEL_CONFIG_ATTACHMENT_BONEMERGE": 2,
         "MODEL_CONFIG_ATTACHMENT_COUNT": 3
     },
-    "ModelSkeletonData_t::BoneFlags_t": {
-        "FLAG_NO_BONE_FLAGS": 0,
-        "FLAG_BONEFLEXDRIVER": 4,
-        "FLAG_CLOTH": 8,
-        "FLAG_PHYSICS": 16,
-        "FLAG_ATTACHMENT": 32,
-        "FLAG_ANIMATION": 64,
-        "FLAG_MESH": 128,
-        "FLAG_HITBOX": 256,
-        "FLAG_BONE_USED_BY_VERTEX_LOD0": 1024,
-        "FLAG_BONE_USED_BY_VERTEX_LOD1": 2048,
-        "FLAG_BONE_USED_BY_VERTEX_LOD2": 4096,
-        "FLAG_BONE_USED_BY_VERTEX_LOD3": 8192,
-        "FLAG_BONE_USED_BY_VERTEX_LOD4": 16384,
-        "FLAG_BONE_USED_BY_VERTEX_LOD5": 32768,
-        "FLAG_BONE_USED_BY_VERTEX_LOD6": 65536,
-        "FLAG_BONE_USED_BY_VERTEX_LOD7": 131072,
-        "FLAG_BONE_MERGE_READ": 262144,
-        "FLAG_BONE_MERGE_WRITE": 524288,
-        "FLAG_ALL_BONE_FLAGS": 1048575,
-        "BLEND_PREALIGNED": 1048576,
-        "FLAG_RIGIDLENGTH": 2097152,
-        "FLAG_PROCEDURAL": 4194304
-    },
     "MorphBundleType_t": {
         "MORPH_BUNDLE_TYPE_NONE": 0,
         "MORPH_BUNDLE_TYPE_POSITION_SPEED": 1,
@@ -1929,46 +1787,6 @@
         "eFast": 2,
         "eVeryFast": 3,
         "eCount": 4
-    },
-    "PermModelInfo_t::FlagEnum": {
-        "FLAG_TRANSLUCENT": 1,
-        "FLAG_TRANSLUCENT_TWO_PASS": 2,
-        "FLAG_MODEL_IS_RUNTIME_COMBINED": 4,
-        "FLAG_SOURCE1_IMPORT": 8,
-        "FLAG_MODEL_PART_CHILD": 16,
-        "FLAG_NAV_GEN_NONE": 32,
-        "FLAG_NAV_GEN_HULL": 64,
-        "FLAG_NO_FORCED_FADE": 2048,
-        "FLAG_HAS_SKINNED_MESHES": 1024,
-        "FLAG_DO_NOT_CAST_SHADOWS": 131072,
-        "FLAG_FORCE_PHONEME_CROSSFADE": 4096,
-        "FLAG_NO_ANIM_EVENTS": 1048576,
-        "FLAG_ANIMATION_DRIVEN_FLEXES": 2097152,
-        "FLAG_IMPLICIT_BIND_POSE_SEQUENCE": 4194304,
-        "FLAG_MODEL_DOC": 8388608
-    },
-    "VPhysXAggregateData_t::VPhysXFlagEnum_t": {
-        "FLAG_IS_POLYSOUP_GEOMETRY": 1,
-        "FLAG_LEVEL_COLLISION": 16,
-        "FLAG_IGNORE_SCALE_OBSOLETE_DO_NOT_USE": 32
-    },
-    "VPhysXBodyPart_t::VPhysXFlagEnum_t": {
-        "FLAG_STATIC": 1,
-        "FLAG_KINEMATIC": 2,
-        "FLAG_JOINT": 4,
-        "FLAG_MASS": 8,
-        "FLAG_ALWAYS_DYNAMIC_ON_CLIENT": 16
-    },
-    "VPhysXConstraintParams_t::EnumFlags0_t": {
-        "FLAG0_SHIFT_INTERPENETRATE": 0,
-        "FLAG0_SHIFT_CONSTRAIN": 1,
-        "FLAG0_SHIFT_BREAKABLE_FORCE": 2,
-        "FLAG0_SHIFT_BREAKABLE_TORQUE": 3
-    },
-    "VPhysXJoint_t::Flags_t": {
-        "JOINT_FLAGS_NONE": 0,
-        "JOINT_FLAGS_BODY1_FIXED": 1,
-        "JOINT_FLAGS_USE_BLOCK_SOLVER": 2
     },
     "NavAttributeEnum": {
         "NAV_MESH_AVOID": 128,
@@ -2733,29 +2551,6 @@
         "FIELD_GLOBALSYMBOL": 79,
         "FIELD_TYPECOUNT": 80
     },
-    "CFuncMover::Move_t": {
-        "MOVE_LOOP": 0,
-        "MOVE_OSCILLATE": 1,
-        "MOVE_STOP_AT_END": 2
-    },
-    "CFuncMover::OrientationUpdate_t": {
-        "ORIENTATION_FORWARD_PATH": 0,
-        "ORIENTATION_FORWARD_PATH_AND_FIXED_PITCH": 1,
-        "ORIENTATION_FORWARD_PATH_AND_UP_CONTROL_POINT": 2,
-        "ORIENTATION_MATCH_CONTROL_POINT": 3,
-        "ORIENTATION_FIXED": 4,
-        "ORIENTATION_FACE_PLAYER": 5
-    },
-    "CLogicBranchList::LogicBranchListenerLastState_t": {
-        "LOGIC_BRANCH_LISTENER_NOT_INIT": 0,
-        "LOGIC_BRANCH_LISTENER_ALL_TRUE": 1,
-        "LOGIC_BRANCH_LISTENER_ALL_FALSE": 2,
-        "LOGIC_BRANCH_LISTENER_MIXED": 3
-    },
-    "CPhysicsProp::CrateType_t": {
-        "CRATE_SPECIFIC_ITEM": 0,
-        "CRATE_TYPE_COUNT": 1
-    },
     "ChickenActivity": {
         "IDLE": 0,
         "SQUAT": 1,
@@ -2846,11 +2641,6 @@
         "SCRIPTED_MOVETYPE_TO_WITH_DURATION": 1,
         "SCRIPTED_MOVETYPE_TO_WITH_MOVESPEED": 2,
         "SCRIPTED_MOVETYPE_SWEEP_TO_AT_MOVEMENT_SPEED": 3
-    },
-    "SimpleConstraintSoundProfile::SimpleConstraintsSoundProfileKeypoints_t": {
-        "kMIN_THRESHOLD": 0,
-        "kMIN_FULL": 1,
-        "kHIGHWATER": 2
     },
     "SoundEventStartType_t": {
         "SOUNDEVENT_START_PLAYER": 0,
