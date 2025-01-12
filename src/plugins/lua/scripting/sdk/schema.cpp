@@ -612,6 +612,38 @@ void SDKBaseClass::UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, 
         SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
         return;
     }
+    case SDKCHandle: {
+        auto outVal = GetSchemaValuePtr<CHandle<CEntityInstance>>(m_ptr, this->m_className.c_str(), field.c_str());
+        outVal->Set((CEntityInstance*)(value.cast<SDKBaseClass>().GetPtr()));
+
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
+        return;
+    }
+    case CHandleArray: {
+        auto outValue = GetSchemaValuePtr<CHandle<CEntityInstance>>(m_ptr, this->m_className.c_str(), field.c_str());
+        auto ret = value.cast<std::vector<SDKBaseClass>>();
+        for (uint32_t i = 0; i < g_sdk->GetFieldSize(path); i++)
+            outValue[i].Set((CEntityInstance*)(ret[i].GetPtr()));
+
+        SetStateChanged((uintptr_t)m_ptr, this->m_className.c_str(), field.c_str(), 0);
+        return;
+    }
+    case CHandleCUtlVector: {
+        auto ret = value.cast<std::vector<SDKBaseClass>>();
+
+        auto m_key = sch::GetOffset(this->m_className.c_str(), field.c_str());
+
+        SetStateChanged((uintptr_t)m_ptr, this->m_className, field, 0);
+
+        CUtlVector<CHandle<CEntityInstance>>* vec = reinterpret_cast<CUtlVector<CHandle<CEntityInstance>> *>((uintptr_t)(m_ptr)+m_key);
+        FOR_EACH_VEC(*vec, i) {
+            vec->Element(i).Set((CEntityInstance*)(ret[i].GetPtr()));
+        }
+
+        SetStateChanged((uintptr_t)m_ptr, this->m_className, field, 0);
+
+        return;
+    }
     case BoolArray: {
         auto outValue = GetSchemaValuePtr<bool>(m_ptr, this->m_className.c_str(), field.c_str());
         auto ret = value.cast<std::vector<bool>>();
