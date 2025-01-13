@@ -18,6 +18,7 @@ public:
     SCHEMA_FIELD_OFFSET(CPlayer_WeaponServices*, m_pWeaponServices, 0);
     SCHEMA_FIELD_OFFSET(CCSPlayer_ItemServices*, m_pItemServices, 0);
     SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerController>, m_hController, 0);
+    SCHEMA_FIELD_POINTER_OFFSET(CPlayer_CameraServices, m_pCameraServices, 0);
 
     void TakeDamage(int damage)
     {

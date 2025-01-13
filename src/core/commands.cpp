@@ -841,7 +841,7 @@ void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
         SwiftlyResourceMonitorManager(slot, context, args[2], args[3]);
     else if (subcmd == "status")
         SwiftlyStatus(slot, context);
-    else if(subcmd == "chat")
+    else if (subcmd == "chat")
         SwiftlyChatManager(slot, context, args[2]);
     else
         ShowSwiftlyCommandHelp(slot, context);
@@ -852,7 +852,80 @@ CON_COMMAND_F(swiftly, "The main command for Swiftly.", FCVAR_CLIENT_CAN_EXECUTE
     SwiftlyCommand(context, args);
 }
 
+#include "../sdk/entity/CBaseViewModel.h"
+#include "../sdk/entity/CPointWorldText.h"
+#include <public/entity2/entitykeyvalues.h>
+
+float g_fHudOffsetX = -11.6f;
+float g_fHudOffsetY = -6.1f;
+
+Vector GetAimPoint(const Vector& eyePosition, const QAngle& eyeAngles, float distanceToTarget) {
+    double pitch = eyeAngles.x * (M_PI / 180.0);
+    double yaw = eyeAngles.y * (M_PI / 180.0);
+
+    double targetX = eyePosition.x + distanceToTarget * std::cos(pitch) * std::cos(yaw);
+    double targetY = eyePosition.y + distanceToTarget * std::cos(pitch) * std::sin(yaw);
+    double targetZ = eyePosition.z - distanceToTarget * std::sin(pitch);
+
+    return Vector(targetX, targetY, targetZ);
+}
+
+void CreateHud(CPlayerSlot slot, const char* text, int size, Color color, const char* font, float posX, float posY)
+{
+    Player* player = g_playerManager->GetPlayer(slot);
+    if (!player) return;
+
+    CCSPlayerPawnBase* pPawnBase = player->GetPlayerBasePawn();
+    CCSPlayerPawn* pawn = player->GetPlayerPawn();
+
+    CPointWorldText* pHudEntity = (CPointWorldText*)CreateEntityByName("point_worldtext").GetPtr();
+
+    CEntityKeyValues* pMenuKV = new CEntityKeyValues();
+
+    pMenuKV->SetBool("enabled", false);
+    pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 1000) * size);
+    pMenuKV->SetFloat("depth_render_offset", 0.125);
+    pMenuKV->SetInt("justify_horizontal", 0);
+    pMenuKV->SetInt("justify_vertical", 1);
+    pMenuKV->SetInt("reorient_mode", 0);
+    pMenuKV->SetInt("fullbright", 1);
+    pMenuKV->SetFloat("font_size", size);
+    pMenuKV->SetString("font_name", font);
+    pMenuKV->SetColor("color", color);
+
+    pHudEntity->DispatchSpawn(pMenuKV);
+
+    CBaseViewModel* pViewModel = pPawnBase->m_pViewModelServices()->GetViewModel(1);
+    if (!pViewModel) {
+        pViewModel = (CBaseViewModel*)CreateEntityByName("predicted_viewmodel").GetPtr();
+        pPawnBase->m_pViewModelServices()->SetViewModel(1, pViewModel);
+    }
+
+    pHudEntity->SetParent(pViewModel);
+    pHudEntity->m_hOwnerEntity(pViewModel->GetRefEHandle());
+    pHudEntity->SetText(text);
+    pHudEntity->Enable();
+
+    Vector& vmPos = pViewModel->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin();
+    QAngle& vmAng = pViewModel->m_CBodyComponent->m_pSceneNode->m_angAbsRotation();
+    Vector panelPos = GetAimPoint(vmPos, vmAng, 7.0f);
+    QAngle panelAng = vmAng;
+    panelAng.y -= 90.0f;
+    panelAng.z += 90.0f;
+
+    Vector rig;
+    Vector dwn;
+    AngleVectors(panelAng, &rig, &dwn, nullptr);
+
+    rig *= g_fHudOffsetX;
+    dwn *= g_fHudOffsetY + 1.85f;
+
+    panelPos += rig + dwn;
+    pHudEntity->Teleport(&panelPos, &panelAng, nullptr);
+}
+
 CON_COMMAND_F(sw, "The main command for Swiftly.", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND | FCVAR_SERVER_CAN_EXECUTE)
 {
+    CreateHud(context.GetPlayerSlot(), "Hello World", 100, Color(0, 186, 105, 255), "Arial Bold", 0.0, 0.0);
     SwiftlyCommand(context, args);
 }

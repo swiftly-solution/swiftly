@@ -7,6 +7,16 @@
 
 class CBaseModelEntity;
 
+class CNetworkViewOffsetVector
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CNetworkViewOffsetVector);
+
+    SCHEMA_FIELD_OFFSET(float, m_vecX, 0);
+    SCHEMA_FIELD_OFFSET(float, m_vecY, 0);
+    SCHEMA_FIELD_OFFSET(float, m_vecZ, 0);
+};
+
 class CBaseModelEntity : public CBaseEntity
 {
 public:
@@ -15,6 +25,7 @@ public:
     SCHEMA_FIELD_POINTER_OFFSET(CCollisionProperty, m_Collision, 0);
     SCHEMA_FIELD_OFFSET(CGlowProperty, m_Glow, 0);
     SCHEMA_FIELD_OFFSET(Color, m_clrRender, 0);
+    SCHEMA_FIELD_POINTER_OFFSET(CNetworkViewOffsetVector, m_vecViewOffset, 0);
 
     void SetModel(const char* model)
     {

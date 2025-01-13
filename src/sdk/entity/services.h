@@ -171,6 +171,14 @@ public:
     }
 };
 
+class CPlayer_CameraServices : public CPlayerPawnComponent
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CPlayer_CameraServices);
+
+    SCHEMA_FIELD_OFFSET(float, m_flOldPlayerViewOffsetZ, 0);
+};
+
 class CCSPlayerController_InventoryServices
 {
 public:
