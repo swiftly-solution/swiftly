@@ -6,6 +6,7 @@
 #include "../../sdk/entity/CBasePlayerPawn.h"
 #include "../../sdk/entity/CCSPlayerPawn.h"
 #include "../../sdk/entity/CCSPlayerPawnBase.h"
+#include "../../sdk/entity/CBaseViewModel.h"
 #include "../../server/menus/Menu.h"
 
 #include <string>
@@ -105,6 +106,8 @@ public:
     void SetVoiceFlags(VoiceFlag_t flags);
     VoiceFlag_t GetVoiceFlags();
     ListenOverride GetListen(CPlayerSlot slot) const;
+
+    CBaseViewModel* EnsureCustomView(int index);
 
     CPlayerBitVec m_selfMutes[64] = {};
 

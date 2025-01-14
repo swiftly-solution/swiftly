@@ -11,8 +11,10 @@
 #include "../../sdk/entity/CRecipientFilters.h"
 
 #include <bitset>
+#include "../playermanager/PlayerManager.h"
 
 #include "../../engine/convars/convars.h"
+#include "../../plugins/core/scripting.h"
 
 typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
 
@@ -568,4 +570,31 @@ VoiceFlag_t Player::GetVoiceFlags()
 ListenOverride Player::GetListen(CPlayerSlot slot) const
 {
     return m_listenMap[slot.Get()];
+}
+
+CBaseViewModel* Player::EnsureCustomView(int index)
+{
+    CCSPlayerPawnBase* pPawnBase = GetPlayerBasePawn();
+    if(!pPawnBase) return nullptr;
+    if(pPawnBase->m_lifeState() == 2) {
+        auto observerPawn = GetPawn()->m_pObserverServices->m_hObserverTarget();
+        if(!observerPawn) return nullptr;
+
+        auto observerController = ((CCSPlayerPawn*)(observerPawn.Get()))->m_hOriginalController();
+        if(!observerController) return nullptr;
+
+        auto observer = g_playerManager->GetPlayer(observerController->entindex() - 1);
+        if(!observer) return nullptr;
+        pPawnBase = observer->GetPlayerBasePawn();
+    }
+    if(!pPawnBase) return nullptr;
+
+    CBaseViewModel* pViewModel = pPawnBase->m_pViewModelServices()->GetViewModel(index);
+    if (!pViewModel) {
+        pViewModel = (CBaseViewModel*)(CreateEntityByName("predicted_viewmodel").GetPtr());
+        pViewModel->DispatchSpawn();
+        pPawnBase->m_pViewModelServices()->SetViewModel(index, pViewModel);
+    }
+
+    return pViewModel;
 }

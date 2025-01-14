@@ -17,8 +17,10 @@ public:
     SCHEMA_FIELD_OFFSET(CPlayer_MovementServices*, m_pMovementServices, 0);
     SCHEMA_FIELD_OFFSET(CPlayer_WeaponServices*, m_pWeaponServices, 0);
     SCHEMA_FIELD_OFFSET(CCSPlayer_ItemServices*, m_pItemServices, 0);
+    // @a.alex1421 - Discord -> Pointed out that m_pObserverServices should be with SCHEMA_FIELD not SCHEMA_FIELD_POINTER
+    SCHEMA_FIELD_OFFSET(CPlayer_ObserverServices*, m_pObserverServices, 0);
+    SCHEMA_FIELD_OFFSET(CPlayer_CameraServices*, m_pCameraServices, 0);
     SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerController>, m_hController, 0);
-    SCHEMA_FIELD_POINTER_OFFSET(CPlayer_CameraServices, m_pCameraServices, 0);
 
     void TakeDamage(int damage)
     {

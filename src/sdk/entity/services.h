@@ -177,6 +177,7 @@ public:
     DECLARE_SCHEMA_CLASS_BASE(CPlayer_CameraServices);
 
     SCHEMA_FIELD_OFFSET(float, m_flOldPlayerViewOffsetZ, 0);
+    SCHEMA_FIELD_OFFSET(CHandle<CBasePlayerPawn>, m_hViewEntity, 0);
 };
 
 class CCSPlayerController_InventoryServices
@@ -186,4 +187,14 @@ public:
 
     SCHEMA_FIELD_OFFSET(uint16_t, m_unMusicID, 0);
     SCHEMA_FIELD_POINTER_OFFSET(uint8_t, m_rank, 0);
+};
+
+class CPlayer_ObserverServices : public CPlayerPawnComponent
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CPlayer_ObserverServices);
+
+	SCHEMA_FIELD_OFFSET(uint8, m_iObserverMode, 0);
+	SCHEMA_FIELD_OFFSET(CHandle<CBaseEntity>, m_hObserverTarget, 0);
+	SCHEMA_FIELD_OFFSET(bool, m_bForcedObserverMode, 0);
 };

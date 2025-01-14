@@ -869,6 +869,24 @@ public:
 };
 
 //////////////////////////////////////////////////////////////
+/////////////////             VGUI             //////////////
+////////////////////////////////////////////////////////////
+
+class PluginVGUI
+{
+private:
+std::string m_plugin_name;
+
+public:
+    PluginVGUI(std::string plugin_name);
+
+    uint64_t ShowText(int playerid, Color color, std::string text, float posX, float posY);
+    void RemoveText(uint64_t textID);
+    void SetMessage(uint64_t textID, std::string text);
+    void SetPosition(uint64_t textID, float posX, float posY);
+};
+
+//////////////////////////////////////////////////////////////
 /////////////////           Entities           //////////////
 ////////////////////////////////////////////////////////////
 

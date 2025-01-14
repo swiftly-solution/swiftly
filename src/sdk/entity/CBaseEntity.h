@@ -130,6 +130,7 @@ public:
     SCHEMA_FIELD_OFFSET(CBodyComponent*, m_CBodyComponent, 0);
     SCHEMA_FIELD_POINTER_OFFSET(CUtlStringToken, m_nSubclassID, 0);
     SCHEMA_FIELD_OFFSET(CHandle<CBaseEntity>, m_hOwnerEntity, 0);
+    SCHEMA_FIELD_OFFSET(uint32_t, m_lifeState, 0);
 
     int EntityIndex() { return this->m_pEntity->GetRefEHandle().GetEntryIndex(); }
     int entindex() { return m_pEntity->m_EHandle.GetEntryIndex(); }

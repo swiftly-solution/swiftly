@@ -6,6 +6,20 @@
 
 class CBaseViewModel;
 
+class CBaseViewModel : public CBaseModelEntity
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CBaseViewModel)
+
+    SCHEMA_FIELD_OFFSET(int, m_nViewModelIndex, 0);
+};
+
+class CCSGOViewModel : public CBaseViewModel
+{
+public:
+    DECLARE_SCHEMA_CLASS_BASE(CCSGOViewModel)
+};
+
 class CCSPlayer_ViewModelServices : public CPlayerPawnComponent
 {
 public:
@@ -21,20 +35,9 @@ public:
     void SetViewModel(int iIndex, CBaseViewModel* pViewModel)
     {
         m_hViewModel()[iIndex].Set(pViewModel);
+        pViewModel->m_nViewModelIndex = iIndex;
         this->m_pPawn->NetworkStateChanged();
     }
-};
-
-class CBaseViewModel : public CBaseModelEntity
-{
-public:
-    DECLARE_SCHEMA_CLASS_BASE(CBaseViewModel)
-};
-
-class CCSGOViewModel : public CBaseViewModel
-{
-public:
-    DECLARE_SCHEMA_CLASS_BASE(CCSGOViewModel)
 };
 
 #endif

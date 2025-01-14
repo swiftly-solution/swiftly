@@ -12,6 +12,7 @@
 #include "sdk/entity/CRecipientFilters.h"
 #include "memory/encoders/msgpack.h"
 #include "entitysystem/entities/listener.h"
+#include "engine/vgui/VGUI.h"
 #include "server/configuration/Configuration.h"
 #include "server/commands/CommandsManager.h"
 #include "tools/crashreporter/CallStack.h"
@@ -91,6 +92,7 @@ CCSGameRules* gameRules = nullptr;
 CUtlVector<FuncHookBase*> g_vecHooks;
 std::map<std::string, std::string> gameEventsRegister;
 uint64_t g_Players = 0;
+uint64_t renderingToSpec = 0;
 
 ChatProcessor* g_chatProcessor = nullptr;
 EntityListener g_EntityListener;
@@ -114,6 +116,7 @@ SDKAccess* g_sdk = nullptr;
 ConvarQuery* g_cvarQuery = nullptr;
 VoiceManager g_voiceManager;
 ExtensionManager* extManager = nullptr;
+VGUI* g_pVGUI = nullptr;
 
 //////////////////////////////////////////////////////////////
 /////////////////          Core Class          //////////////
@@ -193,6 +196,7 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     g_cvarQuery = new ConvarQuery();
     g_chatProcessor = new ChatProcessor();
     extManager = new ExtensionManager();
+    g_pVGUI = new VGUI();
 
     if (g_Config->LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");
@@ -309,6 +313,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     delete g_sdk;
     delete g_cvarQuery;
     delete g_chatProcessor;
+    delete g_pVGUI;
 
     ConVar_Unregister();
     return true;
@@ -439,6 +444,10 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
                 player->RenderMenu();
             else if (player->HasCenterText())
                 player->RenderCenterText(time);
+
+            if(!pawn->m_pObserverServices()) continue;
+
+            g_pVGUI->CheckRenderForPlayer(i, player, pawn->m_pObserverServices()->m_hObserverTarget());
         }
     }
 
@@ -475,6 +484,8 @@ void Swiftly::Hook_CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount,
         Player* player = g_playerManager->GetPlayer(playerid);
         if (!player) continue;
 
+        g_pVGUI->FilterRenderingItems(player, (CCheckTransmitInfo*)pInfo);
+
         g_pluginManager->ExecuteEvent("core", "OnPlayerCheckTransmit", encoders::msgpack::SerializeToString({ playerid, string_format("%p", pInfo), "CCheckTransmitInfo" }), checktransmitEvent);
     }
 }
@@ -486,6 +497,8 @@ void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReaso
 
     Player* player = g_playerManager->GetPlayer(slot);
     if (player) {
+        g_pVGUI->UnregisterTexts(player);
+
         g_Players &= ~(1ULL << slot.Get());
         g_playerManager->UnregisterPlayer(slot);
     }

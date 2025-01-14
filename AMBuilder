@@ -49,6 +49,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-Wno-array-bounds",
 			"-Wno-int-to-pointer-cast",
 			"-Wno-sign-compare",
+			"-Wno-write-strings",
 			"-fexceptions",
 		]
 		binary.compiler.cflags += [
@@ -58,6 +59,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-Wno-array-bounds",
 			"-Wno-int-to-pointer-cast",
 			"-Wno-sign-compare",
+			"-Wno-write-strings",
 			"-fexceptions",
 		]
 		binary.compiler.postlink += [
