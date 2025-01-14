@@ -1,20 +1,19 @@
-#include "ScreenText.h"
+#include "ScreenPanel.h"
 
-ScreenText::ScreenText()
+ScreenPanel::ScreenPanel()
 {
 }
 
-ScreenText::~ScreenText()
+ScreenPanel::~ScreenPanel()
 {
     if(pScreenEntity.IsValid()) {
         pScreenEntity->Despawn();
     }
 }
 
-void ScreenText::Create(Color color, char* font, int size)
+void ScreenPanel::Create(Color color, int size)
 {
     m_col = color;
-    m_font = font;
     m_size = size;
 
     pScreenEntity.Set((CPointWorldText*)(CreateEntityByName("point_worldtext").GetPtr()));
@@ -23,20 +22,19 @@ void ScreenText::Create(Color color, char* font, int size)
     CEntityKeyValues* pMenuKV = new CEntityKeyValues();
 
     pMenuKV->SetBool("enabled", false);
-    pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 1000) * size);
+    pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 300) * size);
     pMenuKV->SetFloat("depth_render_offset", 0.125);
     pMenuKV->SetInt("justify_horizontal", 0);
     pMenuKV->SetInt("justify_vertical", 2);
     pMenuKV->SetInt("reorient_mode", 0);
     pMenuKV->SetInt("fullbright", 1);
     pMenuKV->SetFloat("font_size", size);
-    pMenuKV->SetString("font_name", font);
     pMenuKV->SetColor("color", color);
 
     pScreenEntity->DispatchSpawn(pMenuKV);
 }
 
-void ScreenText::SetupViewForPlayer(Player* player)
+void ScreenPanel::SetupViewForPlayer(Player* player)
 {
     if(!pScreenEntity) return;
     if(!player) return;
@@ -51,7 +49,7 @@ void ScreenText::SetupViewForPlayer(Player* player)
     m_player = player;
 }
 
-void ScreenText::SetText(std::string text)
+void ScreenPanel::SetText(std::string text)
 {
     if(!pScreenEntity) return;
 
@@ -61,7 +59,7 @@ void ScreenText::SetText(std::string text)
     pScreenEntity->Enable();
 }
 
-void ScreenText::SetPosition(float posX, float posY)
+void ScreenPanel::SetPosition(float posX, float posY)
 {
     if(!m_player) return;
     if(m_player->IsFakeClient()) return;
@@ -89,8 +87,8 @@ void ScreenText::SetPosition(float posX, float posY)
 
     Vector eyePos(0.0, 0.0, 0.0);
     eyePos += fwd * 7;
-    eyePos += right * (-9.15 + (posX * 18.26));
-    eyePos += up * (-4.8 + (posY * 10.05));
+    eyePos += right * (-9.15 + (posX * 18.35));
+    eyePos += up * (-4.65 + (posY * 10.2));
 
     QAngle ang(0, eyeAngles.y + 270, 90 - eyeAngles.x);
 
@@ -102,17 +100,17 @@ void ScreenText::SetPosition(float posX, float posY)
     m_posY = posY;
 }
 
-bool ScreenText::IsValidEntity()
+bool ScreenPanel::IsValidEntity()
 {
     return pScreenEntity.IsValid();
 }
 
-void ScreenText::RegenerateText(bool recreate)
+void ScreenPanel::RegeneratePanel(bool recreate)
 {
     if(recreate) {
         if(pScreenEntity.IsValid()) pScreenEntity->Despawn();
     
-        Create(m_col, m_font, m_size);
+        Create(m_col, m_size);
         SetupViewForPlayer(m_player);
         SetText(m_text);
         SetPosition(m_posX, m_posY);
@@ -122,24 +120,24 @@ void ScreenText::RegenerateText(bool recreate)
     }
 }
 
-Player* ScreenText::GetPlayer()
+Player* ScreenPanel::GetPlayer()
 {
     return m_player;
 }
 
-int ScreenText::GetEntityIndex()
+int ScreenPanel::GetEntityIndex()
 {
     if(!pScreenEntity) return 0;
 
     return pScreenEntity->GetEntityIndex().Get();
 }
 
-bool ScreenText::IsRenderingTo(CHandle<CBaseEntity> renderingTo)
+bool ScreenPanel::IsRenderingTo(CHandle<CBaseEntity> renderingTo)
 {
     return renderingTo == pRenderingTo;
 }
 
-void ScreenText::SetRenderingTo(CBaseEntity* ent)
+void ScreenPanel::SetRenderingTo(CBaseEntity* ent)
 {
     pRenderingTo.Set(ent);
 }

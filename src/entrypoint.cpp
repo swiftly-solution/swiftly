@@ -92,7 +92,6 @@ CCSGameRules* gameRules = nullptr;
 CUtlVector<FuncHookBase*> g_vecHooks;
 std::map<std::string, std::string> gameEventsRegister;
 uint64_t g_Players = 0;
-uint64_t renderingToSpec = 0;
 
 ChatProcessor* g_chatProcessor = nullptr;
 EntityListener g_EntityListener;
@@ -497,7 +496,7 @@ void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReaso
 
     Player* player = g_playerManager->GetPlayer(slot);
     if (player) {
-        g_pVGUI->UnregisterTexts(player);
+        g_pVGUI->Unregister(player);
 
         g_Players &= ~(1ULL << slot.Get());
         g_playerManager->UnregisterPlayer(slot);

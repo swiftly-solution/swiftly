@@ -882,8 +882,13 @@ public:
 
     uint64_t ShowText(int playerid, Color color, std::string text, float posX, float posY);
     void RemoveText(uint64_t textID);
-    void SetMessage(uint64_t textID, std::string text);
-    void SetPosition(uint64_t textID, float posX, float posY);
+    void SetTextMessage(uint64_t textID, std::string text);
+    void SetTextPosition(uint64_t textID, float posX, float posY);
+
+    uint64_t ShowPanel(int playerid, Color color, std::string text, float posX, float posY);
+    void RemovePanel(uint64_t textID);
+    void SetPanelMessage(uint64_t textID, std::string text);
+    void SetPanelPosition(uint64_t textID, float posX, float posY);
 };
 
 //////////////////////////////////////////////////////////////
