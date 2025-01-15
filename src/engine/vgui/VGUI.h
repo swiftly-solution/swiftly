@@ -1,3 +1,11 @@
+/***************************************************************************************
+ * Credits for VGUI
+ * @electronix - Method for static rendering of a text using predicted_viewmodel
+ * @Nyano1337 - Methods for background and text spawning in the world + attachment
+ *      - https://github.com/CS2Surf-CN/Timer
+ * @Kxnrl - FyS Server Menu Background Color
+****************************************************************************************/
+
 #ifndef _engine_vgui_h
 #define _engine_vgui_h
 

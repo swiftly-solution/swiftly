@@ -83,10 +83,10 @@ public:
     bool HasCenterText();
 
     void ShowMenu(std::string menuid);
-    void RenderMenu();
     void HideMenu();
     bool HasMenuShown();
     Menu* GetMenu();
+    void RegenerateMenu();
 
     int GetPage();
     void SetPage(int pg);
@@ -133,6 +133,10 @@ private:
     Menu* menu = nullptr;
     int page = 0;
     int selected = 0;
+    uint64_t menuTextID = 0;
+    uint64_t menuFooterID = 0;
+    uint64_t menuPanelID = 0;
+
     uint64_t buttons = 0;
 
     std::map<std::string, std::any> internalVars;

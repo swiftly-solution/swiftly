@@ -439,9 +439,7 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
             auto buttonStates = pawn->m_pMovementServices()->m_nButtons().m_pButtonStates();
             player->SetButtons(buttonStates[0]);
 
-            if (player->HasMenuShown())
-                player->RenderMenu();
-            else if (player->HasCenterText())
+            if (player->HasCenterText())
                 player->RenderCenterText(time);
 
             if(!pawn->m_pObserverServices()) continue;

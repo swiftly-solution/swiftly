@@ -38,6 +38,8 @@ void ScreenText::Create(Color color, char* font, int size)
 
 void ScreenText::SetupViewForPlayer(Player* player)
 {
+    m_player = player;
+
     if(!pScreenEntity) return;
     if(!player) return;
     if(player->IsFakeClient()) return;
@@ -47,15 +49,13 @@ void ScreenText::SetupViewForPlayer(Player* player)
 
     pScreenEntity->SetParent(pViewModel);
     pScreenEntity->m_hOwnerEntity(pViewModel->GetRefEHandle());
-
-    m_player = player;
 }
 
 void ScreenText::SetText(std::string text)
 {
-    if(!pScreenEntity) return;
-
     m_text = text;
+
+    if(!pScreenEntity) return;
 
     pScreenEntity->SetText(m_text.c_str());
     pScreenEntity->Enable();
@@ -63,23 +63,31 @@ void ScreenText::SetText(std::string text)
 
 void ScreenText::SetPosition(float posX, float posY)
 {
+    m_posX = posX;
+    m_posY = posY;
+
     if(!m_player) return;
     if(m_player->IsFakeClient()) return;
  
     CCSPlayerPawn* pawn = m_player->GetPlayerPawn();
+    if(!pawn) return;
     if(pawn->m_lifeState() == 2) {
-        auto pPawn = m_player->GetPawn();
-        if(!pPawn) return;
+        if(m_player->GetPlayerController()->m_bControllingBot()) {
+            return;
+        } else {
+            auto pPawn = m_player->GetPawn();
+            if(!pPawn) return;
 
-        auto observerPawn = pPawn->m_pObserverServices->m_hObserverTarget();
-        if(!observerPawn) return;
+            auto observerPawn = pPawn->m_pObserverServices->m_hObserverTarget();
+            if(!observerPawn) return;
 
-        auto observerController = ((CCSPlayerPawn*)(observerPawn.Get()))->m_hOriginalController();
-        if(!observerController) return;
+            auto observerController = ((CCSPlayerPawn*)(observerPawn.Get()))->m_hOriginalController();
+            if(!observerController) return;
 
-        auto observer = g_playerManager->GetPlayer(observerController->entindex() - 1);
-        if(!observer) return;
-        pawn = observer->GetPlayerPawn();
+            auto observer = g_playerManager->GetPlayer(observerController->entindex() - 1);
+            if(!observer) return;
+            pawn = observer->GetPlayerPawn();
+        }
     }
     if(!pawn) return;
     
@@ -97,9 +105,6 @@ void ScreenText::SetPosition(float posX, float posY)
     eyePos += pawn->m_CBodyComponent->m_pSceneNode->m_vecAbsOrigin() + Vector(0, 0, pawn->m_vecViewOffset->m_vecZ());
 
     pScreenEntity->Teleport(&eyePos, &ang, nullptr);
-
-    m_posX = posX;
-    m_posY = posY;
 }
 
 bool ScreenText::IsValidEntity()

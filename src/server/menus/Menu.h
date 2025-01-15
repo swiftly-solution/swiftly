@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <public/Color.h>
 #include "../translations/Translations.h"
 
 class Menu
@@ -10,7 +11,7 @@ class Menu
 private:
     std::string id;
     std::string title;
-    std::string color;
+    Color color;
     std::vector<std::pair<std::string, std::string>> options;
     std::vector<std::vector<std::pair<std::string, std::string>>> processedOptions;
     bool temporary;
@@ -24,9 +25,12 @@ public:
     std::string GetID();
     void ProcessOptions();
     std::string GeneratedItems(int playerid, int page);
+    std::string GenerateFooter(int page);
     void RegeneratePage(int playerid, int page, int selected);
 
     std::string GetCommandFromOption(int page, int selected);
     size_t GetItemsOnPage(int page);
     bool IsTemporary();
+
+    Color GetColor();
 };

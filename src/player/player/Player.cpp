@@ -15,6 +15,7 @@
 
 #include "../../engine/convars/convars.h"
 #include "../../plugins/core/scripting.h"
+#include "../../engine/vgui/VGUI.h"
 
 typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
 
@@ -77,6 +78,15 @@ Player::~Player()
 {
     this->isFakeClient = true;
     g_gameEventManager->FreeEvent(centerMessageEvent);
+    if(menuTextID != 0) {
+        g_pVGUI->DeleteScreenText(menuTextID);
+    }
+    if(menuPanelID != 0) {
+        g_pVGUI->DeleteScreenPanel(menuPanelID);
+    }
+    if(menuFooterID != 0) {
+        g_pVGUI->DeleteScreenText(menuFooterID);
+    }
 }
 
 CBasePlayerController* Player::GetController()
@@ -371,7 +381,7 @@ void Player::SetPage(int pg)
     this->page = pg;
     this->selected = 0;
     this->menu->RegeneratePage(this->slot, this->page, this->selected);
-    this->centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
+    this->RegenerateMenu();
 }
 int Player::GetSelection() { return this->selected; }
 void Player::MoveSelection()
@@ -385,7 +395,19 @@ void Player::MoveSelection()
         this->selected = 0;
 
     this->menu->RegeneratePage(this->slot, this->page, this->selected);
-    this->centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
+    this->RegenerateMenu();
+}
+
+void Player::RegenerateMenu()
+{
+    auto menuText = g_pVGUI->GetScreenText(menuTextID);
+    if(!menuText) return;
+
+    menuText->SetText(this->menu->GeneratedItems(this->slot, this->page));
+
+    auto menuFooter = g_pVGUI->GetScreenText(menuFooterID);
+    if(!menuFooter) return;
+    menuFooter->SetText(this->menu->GenerateFooter(this->page));
 }
 
 void Player::ShowMenu(std::string menuid)
@@ -402,22 +424,29 @@ void Player::ShowMenu(std::string menuid)
     this->selected = 0;
 
     this->menu->RegeneratePage(this->slot, this->page, this->selected);
-    this->centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
-    this->RenderMenu();
-}
 
-void Player::RenderMenu()
-{
-    if (this->menu == nullptr)
-        return;
+    menuTextID = g_pVGUI->RegisterScreenText();
+    menuPanelID = g_pVGUI->RegisterScreenPanel();
+    menuFooterID = g_pVGUI->RegisterScreenText();
+    
+    auto menuText = g_pVGUI->GetScreenText(menuTextID);
+    auto menuPanel = g_pVGUI->GetScreenPanel(menuPanelID);
+    auto menuFooter = g_pVGUI->GetScreenText(menuFooterID);
 
-    if (this->centerMessageEndTime > 0) {
-        this->centerMessageEvent->SetString("loc_token", this->menu->GeneratedItems(this->slot, this->page).c_str());
-        this->centerMessageEndTime = 0;
-    }
+    menuFooter->Create(Color(255,255,255,255));
+    menuFooter->SetupViewForPlayer(this);
+    
+    menuText->Create(this->menu->GetColor());
+    menuText->SetupViewForPlayer(this);
+    RegenerateMenu();
+    menuText->SetPosition(0.14, 0.68);
+    
+    menuFooter->SetPosition(0.14, 0.2);
 
-    if (centerMessageEvent)
-        playerListener->FireGameEvent(centerMessageEvent);
+    menuPanel->Create(Color(37, 35, 33, 180));
+    menuPanel->SetupViewForPlayer(this);
+    menuPanel->SetText("██");
+    menuPanel->SetPosition(0.13, 0.7);
 }
 
 void Player::HideMenu()
@@ -434,12 +463,13 @@ void Player::HideMenu()
     }
     this->menu = nullptr;
 
-    if (centerMessageEvent)
-    {
-        centerMessageEvent->SetString("loc_token", "Exiting...");
+    g_pVGUI->DeleteScreenText(menuFooterID);
+    g_pVGUI->DeleteScreenText(menuTextID);
+    g_pVGUI->DeleteScreenPanel(menuPanelID);
 
-        playerListener->FireGameEvent(centerMessageEvent);
-    }
+    menuTextID = 0;
+    menuPanelID = 0;
+    menuFooterID = 0;
 }
 
 void Player::PerformMenuAction(std::string button)
@@ -455,7 +485,7 @@ void Player::PerformMenuAction(std::string button)
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.scroll.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.scroll.volume"));
 
         this->MoveSelection();
-        this->RenderMenu();
+        this->RegenerateMenu();
     }
     else if (!g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && button == g_Config->FetchValue<std::string>("core.menu.buttons.exit.button"))
     {
@@ -475,12 +505,12 @@ void Player::PerformMenuAction(std::string button)
         if (cmd == "menunext")
         {
             this->SetPage(this->GetPage() + 1);
-            this->RenderMenu();
+            this->RegenerateMenu();
         }
         else if (cmd == "menuback")
         {
             this->SetPage(this->GetPage() - 1);
-            this->RenderMenu();
+            this->RegenerateMenu();
         }
         else if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && cmd == "menuexit")
         {
@@ -577,15 +607,20 @@ CBaseViewModel* Player::EnsureCustomView(int index)
     CCSPlayerPawnBase* pPawnBase = GetPlayerBasePawn();
     if(!pPawnBase) return nullptr;
     if(pPawnBase->m_lifeState() == 2) {
-        auto observerPawn = GetPawn()->m_pObserverServices->m_hObserverTarget();
-        if(!observerPawn) return nullptr;
+        if(GetPlayerController()->m_bControllingBot()) {
+            return nullptr;
+        } else {
+            auto observerPawn = GetPawn()->m_pObserverServices->m_hObserverTarget();
+            if(!observerPawn) return nullptr;
+    
+            auto observerController = ((CCSPlayerPawn*)(observerPawn.Get()))->m_hOriginalController();
+            if(!observerController) return nullptr;
+    
+            auto observer = g_playerManager->GetPlayer(observerController->entindex() - 1);
+            if(!observer) return nullptr;
 
-        auto observerController = ((CCSPlayerPawn*)(observerPawn.Get()))->m_hOriginalController();
-        if(!observerController) return nullptr;
-
-        auto observer = g_playerManager->GetPlayer(observerController->entindex() - 1);
-        if(!observer) return nullptr;
-        pPawnBase = observer->GetPlayerBasePawn();
+            pPawnBase = observer->GetPlayerBasePawn();
+        }
     }
     if(!pPawnBase) return nullptr;
 
