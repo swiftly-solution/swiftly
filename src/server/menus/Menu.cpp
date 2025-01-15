@@ -3,6 +3,8 @@
 #include "../../utils/utils.h"
 #include "../../server/configuration/Configuration.h"
 
+#include <regex>
+
 Menu::Menu(std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool tmp)
 {
     int r=255,g=255,b=255,a=255;
@@ -62,6 +64,30 @@ size_t Menu::GetItemsOnPage(int page)
     return processedOptions[page - 1].size();
 }
 
+std::string stringWithSplit(std::string text, int maxCharsPerRow) {
+    std::vector<std::string> result;
+
+    int start = 0;
+    while(start < text.length()) {
+        int remaining = text.length() - start;
+        int count = (remaining > maxCharsPerRow) ? maxCharsPerRow : remaining;
+
+        std::string row = text.substr(start, count);
+        if(remaining > maxCharsPerRow) row += "...";
+
+        result.push_back(row);
+        start += count;
+    }
+
+    return implode(result, "\n ");
+}
+
+std::string RemoveHtmlTags(std::string input) {
+    std::regex pattern("<(/?)(div|font)[^>]*>");
+
+    return std::regex_replace(input, pattern, "");
+}
+
 void Menu::ProcessOptions()
 {
     int pages = 0;
@@ -74,16 +100,16 @@ void Menu::ProcessOptions()
     {
         ++processedItems;
         ++totalProcessedItems;
-        tempmap.push_back({entry.first, entry.second});
+        tempmap.push_back({stringWithSplit(RemoveHtmlTags(entry.first), 30), entry.second});
         if (processedItems == maxProcessedItems)
         {
             if (options.size() - totalProcessedItems > 0)
-                tempmap.push_back({g_translations->FetchTranslation("core.menu.next"), "menunext"});
+                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.next")), 30), "menunext"});
             if (pages != 0)
-                tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
+                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.back")), 30), "menuback"});
 
             if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option"))
-                tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
+                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.exit")), 30), "menuexit"});
 
             processedItems = 0;
             pages++;
