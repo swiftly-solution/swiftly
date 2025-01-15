@@ -5300,10 +5300,6 @@
             "field": "m_bPredict",
             "type": 10
         },
-        "AutoKickDisabled": {
-            "field": "m_bAutoKickDisabled",
-            "type": 10
-        },
         "IsLowViolence": {
             "field": "m_bIsLowViolence",
             "type": 10
