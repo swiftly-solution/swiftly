@@ -60,15 +60,15 @@
         "de": "Beenden"
     },
     "menu.footer": {
-        "en": "{CYCLE_BUTTON} - Cycle | {USE_BUTTON} - Select | Page {PAGE}/{MAXPAGES}",
-        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează | Pagina {PAGE}/{MAXPAGES}",
-        "pl": "{CYCLE_BUTTON} - Przeglądaj | {USE_BUTTON} - Wybierz | Strona {PAGE}/{MAXPAGES}",
-        "de": "{CYCLE_BUTTON} - Durchblättern | {USE_BUTTON} - Auswählen | Seite {PAGE}/{MAXPAGES}"
+        "en": "{CYCLE_BUTTON} - Cycle | {USE_BUTTON} - Select\nPage {PAGE}/{MAXPAGES}",
+        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează\nPagina {PAGE}/{MAXPAGES}",
+        "pl": "{CYCLE_BUTTON} - Przeglądaj | {USE_BUTTON} - Wybierz\nStrona {PAGE}/{MAXPAGES}",
+        "de": "{CYCLE_BUTTON} - Durchblättern | {USE_BUTTON} - Auswählen\nSeite {PAGE}/{MAXPAGES}"
     },
     "menu.footer.nooption": {
-        "en": "{CYCLE_BUTTON} - Cycle | {USE_BUTTON} - Select | {EXIT_BUTTON} - Exit | Page {PAGE}/{MAXPAGES}",
-        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează | {EXIT_BUTTON} - Ieșire | Pagina {PAGE}/{MAXPAGES}",
-        "pl": "{CYCLE_BUTTON} - Przeglądaj | {USE_BUTTON} - Wybierz | {EXIT_BUTTON} - Wyjście | Strona {PAGE}/{MAXPAGES}",
-        "de": "{CYCLE_BUTTON} - Durchblättern | {USE_BUTTON} - Auswählen | {EXIT_BUTTON} - Beenden | Seite {PAGE}/{MAXPAGES}"
+        "en": "{CYCLE_BUTTON} - Cycle | {USE_BUTTON} - Select\n{EXIT_BUTTON} - Exit | Page {PAGE}/{MAXPAGES}",
+        "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează\n{EXIT_BUTTON} - Ieșire | Pagina {PAGE}/{MAXPAGES}",
+        "pl": "{CYCLE_BUTTON} - Przeglądaj | {USE_BUTTON} - Wybierz\n{EXIT_BUTTON} - Wyjście | Strona {PAGE}/{MAXPAGES}",
+        "de": "{CYCLE_BUTTON} - Durchblättern | {USE_BUTTON} - Auswählen\n{EXIT_BUTTON} - Beenden | Seite {PAGE}/{MAXPAGES}"
     }
 }

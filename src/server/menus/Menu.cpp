@@ -67,17 +67,16 @@ size_t Menu::GetItemsOnPage(int page)
 std::string stringWithSplit(std::string text, int maxCharsPerRow) {
     std::vector<std::string> result;
 
-    int start = 0;
-    while(start < text.length()) {
-        int remaining = text.length() - start;
-        int count = (remaining > maxCharsPerRow) ? maxCharsPerRow : remaining;
-
-        std::string row = text.substr(start, count);
-        if(remaining > maxCharsPerRow) row += "...";
-
-        result.push_back(row);
-        start += count;
+    auto splitted = explode(text, " ");
+    std::string tmp = "";
+    for(std::string& str : splitted) {
+        if(tmp.size() + str.size() > maxCharsPerRow) {
+            result.push_back(tmp);
+            tmp = "";
+        }
+        tmp += (str + " ");
     }
+    if(tmp != "") result.push_back(tmp);
 
     return implode(result, "\n ");
 }
@@ -95,21 +94,21 @@ void Menu::ProcessOptions()
     int totalProcessedItems = 0;
     std::vector<std::pair<std::string, std::string>> tempmap;
 
-    int maxProcessedItems = (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? (pages == 0 ? 8 : 7) : (pages == 0 ? 9 : 8));
+    int maxProcessedItems = (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? (pages == 0 ? 9 : 8) : (pages == 0 ? 10 : 9));
     for (const std::pair<std::string, std::string> entry : this->options)
     {
         ++processedItems;
         ++totalProcessedItems;
-        tempmap.push_back({stringWithSplit(RemoveHtmlTags(entry.first), 30), entry.second});
+        tempmap.push_back({stringWithSplit(RemoveHtmlTags(entry.first), 25), entry.second});
         if (processedItems == maxProcessedItems)
         {
             if (options.size() - totalProcessedItems > 0)
-                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.next")), 30), "menunext"});
+                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.next")), 25), "menunext"});
             if (pages != 0)
-                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.back")), 30), "menuback"});
+                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.back")), 25), "menuback"});
 
             if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option"))
-                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.exit")), 30), "menuexit"});
+                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.exit")), 25), "menuexit"});
 
             processedItems = 0;
             pages++;
@@ -147,7 +146,7 @@ void Menu::RegeneratePage(int playerid, int page, int selected)
         this->generatedPages[playerid].push_back("");
     }
 
-    std::string stringPage = string_format("%s\n", this->title.c_str());
+    std::string stringPage = string_format("%s\n", stringWithSplit(RemoveHtmlTags(this->title), 25).c_str());
     for (int i = 0; i < processedOptions[page - 1].size(); i++) {
         stringPage += string_format("\n%s%s", (i == selected ? (g_Config->FetchValue<std::string>("core.menu.navigation_prefix")).c_str() : " "), processedOptions[page - 1][i].first.c_str());
     }

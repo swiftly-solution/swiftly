@@ -87,6 +87,9 @@ Player::~Player()
     if(menuFooterID != 0) {
         g_pVGUI->DeleteScreenText(menuFooterID);
     }
+    if(menuPanelExtendID != 0) {
+        g_pVGUI->DeleteScreenPanel(menuPanelExtendID);
+    }
 }
 
 CBasePlayerController* Player::GetController()
@@ -427,10 +430,12 @@ void Player::ShowMenu(std::string menuid)
 
     menuTextID = g_pVGUI->RegisterScreenText();
     menuPanelID = g_pVGUI->RegisterScreenPanel();
+    menuPanelExtendID = g_pVGUI->RegisterScreenPanel();
     menuFooterID = g_pVGUI->RegisterScreenText();
     
     auto menuText = g_pVGUI->GetScreenText(menuTextID);
     auto menuPanel = g_pVGUI->GetScreenPanel(menuPanelID);
+    auto menuPanelExtend = g_pVGUI->GetScreenPanel(menuPanelExtendID);
     auto menuFooter = g_pVGUI->GetScreenText(menuFooterID);
 
     menuFooter->Create(Color(255,255,255,255));
@@ -441,12 +446,17 @@ void Player::ShowMenu(std::string menuid)
     RegenerateMenu();
     menuText->SetPosition(0.14, 0.68);
     
-    menuFooter->SetPosition(0.14, 0.2);
+    menuFooter->SetPosition(0.14, 0.27);
 
-    menuPanel->Create(Color(37, 35, 33, 180));
+    menuPanel->Create(Color(18, 18, 18, 255));
     menuPanel->SetupViewForPlayer(this);
-    menuPanel->SetText("██");
+    menuPanel->SetText("█");
     menuPanel->SetPosition(0.13, 0.7);
+
+    menuPanelExtend->Create(Color(18, 18, 18, 255));
+    menuPanelExtend->SetupViewForPlayer(this);
+    menuPanelExtend->SetText("█");
+    menuPanelExtend->SetPosition(0.17, 0.7);
 }
 
 void Player::HideMenu()
@@ -466,10 +476,12 @@ void Player::HideMenu()
     g_pVGUI->DeleteScreenText(menuFooterID);
     g_pVGUI->DeleteScreenText(menuTextID);
     g_pVGUI->DeleteScreenPanel(menuPanelID);
+    g_pVGUI->DeleteScreenPanel(menuPanelExtendID);
 
     menuTextID = 0;
     menuPanelID = 0;
     menuFooterID = 0;
+    menuPanelExtendID = 0;
 }
 
 void Player::PerformMenuAction(std::string button)

@@ -27,13 +27,13 @@ public:
     ScreenText();
     ~ScreenText();
 
-    void Create(Color color, char* font = "Verdana", int size = 40);
+    void Create(Color color, char* font = "Verdana", int size = 35);
     void SetupViewForPlayer(Player* player);
     void SetText(std::string text);
     void SetPosition(float posX = 0.0, float posY = 0.0);
     void SetRenderingTo(CBaseEntity* ent);
     void RegenerateText(bool recreate = true);
-    
+
     bool IsValidEntity();
     Player* GetPlayer();
     int GetEntityIndex();

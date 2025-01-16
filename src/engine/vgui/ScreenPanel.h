@@ -26,7 +26,7 @@ public:
     ScreenPanel();
     ~ScreenPanel();
 
-    void Create(Color color, int size = 80);
+    void Create(Color color, int size = 75);
     void SetupViewForPlayer(Player* player);
     void SetText(std::string text);
     void SetPosition(float posX = 0.0, float posY = 0.0);

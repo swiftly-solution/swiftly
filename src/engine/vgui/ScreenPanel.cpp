@@ -23,7 +23,6 @@ void ScreenPanel::Create(Color color, int size)
 
     pMenuKV->SetBool("enabled", false);
     pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 300) * size);
-    pMenuKV->SetFloat("depth_render_offset", 0.125);
     pMenuKV->SetInt("justify_horizontal", 0);
     pMenuKV->SetInt("justify_vertical", 2);
     pMenuKV->SetInt("reorient_mode", 0);
@@ -94,9 +93,9 @@ void ScreenPanel::SetPosition(float posX, float posY)
     AngleVectors(eyeAngles, &fwd, &right, &up);
 
     Vector eyePos(0.0, 0.0, 0.0);
-    eyePos += fwd * 7.07;
-    eyePos += right * (-9.15 + (posX * 18.35));
-    eyePos += up * (-4.65 + (posY * 10.2));
+    eyePos += fwd * 7.12;
+    eyePos += right * (-9.3 + (posX * 18.66));
+    eyePos += up * (-4.82 + (posY * 10.47));
 
     QAngle ang(0, eyeAngles.y + 270, 90 - eyeAngles.x);
 

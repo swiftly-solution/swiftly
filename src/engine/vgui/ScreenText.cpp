@@ -23,8 +23,7 @@ void ScreenText::Create(Color color, char* font, int size)
     CEntityKeyValues* pMenuKV = new CEntityKeyValues();
 
     pMenuKV->SetBool("enabled", false);
-    pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 1000) * size);
-    pMenuKV->SetFloat("depth_render_offset", 0.125);
+    pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 1050) * size);
     pMenuKV->SetInt("justify_horizontal", 0);
     pMenuKV->SetInt("justify_vertical", 2);
     pMenuKV->SetInt("reorient_mode", 0);
@@ -97,8 +96,8 @@ void ScreenText::SetPosition(float posX, float posY)
 
     Vector eyePos(0.0, 0.0, 0.0);
     eyePos += fwd * 7;
-    eyePos += right * (-9.15 + (posX * 18.26));
-    eyePos += up * (-4.8 + (posY * 10.05));
+    eyePos += right * (-9.2 + (posX * 18.35));
+    eyePos += up * (-4.9 + (posY * 10.13));
 
     QAngle ang(0, eyeAngles.y + 270, 90 - eyeAngles.x);
 
