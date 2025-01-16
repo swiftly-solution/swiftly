@@ -1,5 +1,9 @@
 #include "CrashReport.h"
 
+#ifndef GITHUB_SHA
+#define GITHUB_SHA "LOCAL"
+#endif
+
 #ifdef _WIN32
 bool BeginCrashListener() { return true; }
 void EndCrashListener() {}
@@ -172,7 +176,7 @@ void signal_handler(int signumber)
         if (Files::ExistsPath(file_path))
             Files::Delete(file_path);
 
-        Files::Append(file_path, string_format("================================\nCommand: %s\nMap: %s\n================================\n\n%s\n%s", startup_cmd.c_str(), engine->GetServerGlobals() ? engine->GetServerGlobals()->mapname.ToCStr() : "None", backtraceData.c_str(), WritePluginsCallStack().c_str()), false);
+        Files::Append(file_path, string_format("================================\nCommand: %s\nMap: %s\nVersion: %s (%s)\n================================\n\n%s\n%s", startup_cmd.c_str(), engine->GetServerGlobals() ? engine->GetServerGlobals()->mapname.ToCStr() : "None", g_Plugin.GetVersion(), GITHUB_SHA, backtraceData.c_str(), WritePluginsCallStack().c_str()), false);
         PLUGIN_PRINTF("Crash Reporter", "A dump log file has been created at: %s\n", file_path.c_str());
     }
     catch (const std::runtime_error& e)
