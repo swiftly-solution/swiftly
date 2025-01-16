@@ -2,6 +2,7 @@
 
 #ifdef _WIN32
 bool BeginCrashListener() { return true; }
+void EndCrashListener() {}
 #else
 
 #include <rapidjson/document.h>
@@ -212,6 +213,10 @@ bool BeginCrashListener()
     startup_cmd = implode(exp2, " ");
 
     return true;
+}
+
+void EndCrashListener() {
+    ::signal(SIGSEGV, SIG_DFL);
 }
 
 #endif

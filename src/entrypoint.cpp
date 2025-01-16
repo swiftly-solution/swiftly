@@ -315,6 +315,7 @@ bool Swiftly::Unload(char* error, size_t maxlen)
     delete g_pVGUI;
 
     ConVar_Unregister();
+    EndCrashListener();
     return true;
 }
 
