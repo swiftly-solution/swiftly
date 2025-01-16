@@ -462,3 +462,19 @@ bool PluginPlayer::IsValid()
 
     return true;
 }
+
+void PluginPlayer::PerformMenuAction(std::string action, int value)
+{
+    Player* self = g_playerManager->GetPlayer(this->playerId);
+    if (!self) return;
+
+    if(action == "useOption") {
+        while(self->GetSelection() != value-1)
+            self->MoveSelection();
+
+        self->PerformMenuAction(g_Config->FetchValue<std::string>("core.menu.buttons.use"));
+    } else if(action == "scrollToOption") {
+        while(self->GetSelection() != value-1)
+            self->MoveSelection();
+    }
+}

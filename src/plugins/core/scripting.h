@@ -729,6 +729,8 @@ public:
 
     void QueryConvar(std::string cvar_name);
 
+    void PerformMenuAction(std::string action, int value);
+
     bool IsValid();
 };
 

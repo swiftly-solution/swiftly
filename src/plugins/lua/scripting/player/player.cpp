@@ -79,6 +79,7 @@ LoadLuaScriptingComponent(
             .addFunction("GetConnectedTime", &PluginPlayer::GetConnectedTime)
             .addFunction("GetWeaponManager", &PluginPlayer::GetWeaponManager)
             .addFunction("QueryConvar", &PluginPlayer::QueryConvar)
+            .addFunction("PerformMenuAction", &PluginPlayer::PerformMenuAction)
             .addFunction("IsValid", &PluginPlayer::IsValid)
             .endClass()
             .addFunction("GetPlayer", scripting_GetPlayer);
