@@ -16,7 +16,7 @@ private:
     CHandle<CBaseEntity> pRenderingTo;
 
     Color m_col;
-    char* m_font;
+    std::string m_font;
     int m_size;
     Player* m_player;
     float m_posX;
@@ -27,7 +27,7 @@ public:
     ScreenText();
     ~ScreenText();
 
-    void Create(Color color, char* font = "Verdana", int size = 35);
+    void Create(Color color, std::string font = "Verdana", int size = 35);
     void SetupViewForPlayer(Player* player);
     void SetText(std::string text);
     void SetPosition(float posX = 0.0, float posY = 0.0);

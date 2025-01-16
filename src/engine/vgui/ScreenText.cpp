@@ -11,7 +11,7 @@ ScreenText::~ScreenText()
     }
 }
 
-void ScreenText::Create(Color color, char* font, int size)
+void ScreenText::Create(Color color, std::string font, int size)
 {
     m_col = color;
     m_font = font;
@@ -29,7 +29,7 @@ void ScreenText::Create(Color color, char* font, int size)
     pMenuKV->SetInt("reorient_mode", 0);
     pMenuKV->SetInt("fullbright", 1);
     pMenuKV->SetFloat("font_size", size);
-    pMenuKV->SetString("font_name", font);
+    pMenuKV->SetString("font_name", font.c_str());
     pMenuKV->SetColor("color", color);
 
     pScreenEntity->DispatchSpawn(pMenuKV);
