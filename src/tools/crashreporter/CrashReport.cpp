@@ -205,7 +205,7 @@ bool BeginCrashListener()
         if (str.length() == 0)
             continue;
         if (exp2.size() > 0)
-            if (ends_with(exp2[exp2.size() - 1], "sv_setsteamaccount") || ends_with(exp2[exp2.size() - 1], "authkey"))
+            if (ends_with(exp2[exp2.size() - 1], "sv_setsteamaccount") || ends_with(exp2[exp2.size() - 1], "authkey") || ends_with(exp2[exp2.size() - 1], "ip"))
                 str = "REDACTED";
 
         exp2.push_back(str);
