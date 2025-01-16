@@ -841,7 +841,7 @@ void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
         SwiftlyResourceMonitorManager(slot, context, args[2], args[3]);
     else if (subcmd == "status")
         SwiftlyStatus(slot, context);
-    else if(subcmd == "chat")
+    else if (subcmd == "chat")
         SwiftlyChatManager(slot, context, args[2]);
     else
         ShowSwiftlyCommandHelp(slot, context);

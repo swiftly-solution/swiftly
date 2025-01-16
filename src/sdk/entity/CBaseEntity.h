@@ -116,6 +116,9 @@ public:
     SCHEMA_FIELD_OFFSET(CGameSceneNode*, m_pSceneNode, 0)
 };
 
+class CBaseEntity;
+typedef void (*CBaseEntity_SetParent)(CBaseEntity*, CBaseEntity*);
+
 class CBaseEntity : public CEntityInstance
 {
 public:
@@ -126,6 +129,8 @@ public:
     SCHEMA_FIELD_OFFSET(int, m_iTeamNum, 0);
     SCHEMA_FIELD_OFFSET(CBodyComponent*, m_CBodyComponent, 0);
     SCHEMA_FIELD_POINTER_OFFSET(CUtlStringToken, m_nSubclassID, 0);
+    SCHEMA_FIELD_OFFSET(CHandle<CBaseEntity>, m_hOwnerEntity, 0);
+    SCHEMA_FIELD_OFFSET(uint32_t, m_lifeState, 0);
 
     int EntityIndex() { return this->m_pEntity->GetRefEHandle().GetEntryIndex(); }
     int entindex() { return m_pEntity->m_EHandle.GetEntryIndex(); }
@@ -134,6 +139,11 @@ public:
     {
         static int offset = g_Offsets->GetOffset("CBaseEntity_Teleport");
         CALL_VIRTUAL(void, offset, this, position, angles, velocity);
+    }
+
+    void SetParent(CBaseEntity* ent)
+    {
+        AcceptInput("SetParent", ent, nullptr, "!activator", 0);
     }
 
     void TakeDamage(int damage)

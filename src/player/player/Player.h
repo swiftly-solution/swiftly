@@ -6,6 +6,7 @@
 #include "../../sdk/entity/CBasePlayerPawn.h"
 #include "../../sdk/entity/CCSPlayerPawn.h"
 #include "../../sdk/entity/CCSPlayerPawnBase.h"
+#include "../../sdk/entity/CBaseViewModel.h"
 #include "../../server/menus/Menu.h"
 
 #include <string>
@@ -82,10 +83,10 @@ public:
     bool HasCenterText();
 
     void ShowMenu(std::string menuid);
-    void RenderMenu();
     void HideMenu();
     bool HasMenuShown();
     Menu* GetMenu();
+    void RegenerateMenu();
 
     int GetPage();
     void SetPage(int pg);
@@ -105,6 +106,8 @@ public:
     void SetVoiceFlags(VoiceFlag_t flags);
     VoiceFlag_t GetVoiceFlags();
     ListenOverride GetListen(CPlayerSlot slot) const;
+
+    CBaseViewModel* EnsureCustomView(int index);
 
     CPlayerBitVec m_selfMutes[64] = {};
 
@@ -130,6 +133,11 @@ private:
     Menu* menu = nullptr;
     int page = 0;
     int selected = 0;
+    uint64_t menuTextID = 0;
+    uint64_t menuFooterID = 0;
+    uint64_t menuPanelID = 0;
+    uint64_t menuPanelExtendID = 0;
+
     uint64_t buttons = 0;
 
     std::map<std::string, std::any> internalVars;

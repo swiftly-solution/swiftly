@@ -6,6 +6,7 @@
 #include "../../plugins/PluginManager.h"
 #include "../../player/playermanager/PlayerManager.h"
 #include "../../vendor/dynlib/module.h"
+#include "../vgui/VGUI.h"
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
@@ -57,6 +58,10 @@ void EventManager::RegisterGameEvents()
         if (!g_gameEventManager->FindListener(this, ev.c_str()))
             g_gameEventManager->AddListener(this, ev.c_str(), true);
     }
+
+    if (!g_gameEventManager->FindListener(this, "player_spawn"))
+        g_gameEventManager->AddListener(this, "player_spawn", true);
+
     PLUGIN_PRINT("Game Events", "Game events have been succesfully loaded.\n");
     loadedGameEvents = true;
 }
@@ -125,8 +130,10 @@ bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
         {
             auto slot = pEvent->GetPlayerSlot("userid");
             Player* player = g_playerManager->GetPlayer(slot);
-            if (player)
+            if (player) {
                 player->SetFirstSpawn(false);
+                player->EnsureCustomView(1);
+            }
         }
         if (result != EventResult::Continue)
         {
@@ -140,6 +147,8 @@ bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
 
+void RegisterTimeout(int64_t delay, std::function<void()> cb);
+
 bool EventManager::OnPostFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
 {
     if (!pEvent)
@@ -152,6 +161,14 @@ bool EventManager::OnPostFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
     std::string eventName = realGameEvent->GetName();
 
     std::string prettyEventName = gameEventsRegister[eventName];
+
+    if(prettyEventName == "OnRoundStart") {
+        RegisterTimeout(100, []() -> void {
+            g_pVGUI->RegenerateScreenPanels();
+            g_pVGUI->RegenerateScreenTexts();
+        });
+    }
+
     if (!prettyEventName.empty())
     {
         PluginEvent* event = new PluginEvent("core", realGameEvent, nullptr);
