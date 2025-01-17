@@ -5,7 +5,7 @@
 CommandsManager::CommandsManager() {}
 CommandsManager::~CommandsManager() {}
 
-static void commandsCallback(const CCommandContext &context, const CCommand &args);
+static void commandsCallback(const CCommandContext& context, const CCommand& args);
 std::set<std::string> conCommandCreated;
 
 std::set<std::string> commandPrefixes;
@@ -15,7 +15,7 @@ std::set<std::string> silentCommandPrefixes;
 // @returns 2 - command is silent
 // @returns -1 - invalid controller
 // @returns 0 - is not command
-int CommandsManager::HandleCommand(Player *player, std::string text)
+int CommandsManager::HandleCommand(Player* player, std::string text)
 {
     if (text == "" || text.size() == 0)
         return -1;
@@ -23,8 +23,8 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
     if (player == nullptr)
         return -1;
 
-    if(commandPrefixes.size() == 0) commandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandPrefixes"), " ");
-    if(silentCommandPrefixes.size() == 0) silentCommandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandSilentPrefixes"), " ");
+    if (commandPrefixes.size() == 0) commandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandPrefixes"), " ");
+    if (silentCommandPrefixes.size() == 0) silentCommandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandSilentPrefixes"), " ");
 
     auto prefix = std::string(1, text.at(0));
     bool isCommand = (commandPrefixes.find(prefix) != commandPrefixes.end());
@@ -38,20 +38,26 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
         std::vector<std::string> cmdString = TokenizeCommand(text);
         cmdString.erase(cmdString.begin());
 
-        if(tokenizedArgs.ArgC() < 1) 
+        if (tokenizedArgs.ArgC() < 1)
             return 0;
 
         std::string commandName = tokenizedArgs[0];
-        if(commandName.size() < 1) 
+        if (commandName.size() < 1)
             return 0;
-        
+
         commandName.erase(0, 1);
 
-        Command *cmd = g_commandsManager->FetchCommand(commandName);
+        Command* cmd = g_commandsManager->FetchCommand(commandName);
         if (cmd == nullptr)
             return 0;
 
-        cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand, prefix);
+        try {
+            cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand, prefix);
+        }
+        catch (std::exception& e) {
+            PLUGIN_PRINTF("Commands Manager", "An error has occured while trying to execute command '%s'.\n", commandName.c_str());
+            PLUGIN_PRINTF("Commands Manager", "%s\n", e.what());
+        }
     }
 
     if (isCommand)
@@ -62,25 +68,25 @@ int CommandsManager::HandleCommand(Player *player, std::string text)
         return 0;
 }
 
-Command *CommandsManager::FetchCommand(std::string cmd)
+Command* CommandsManager::FetchCommand(std::string cmd)
 {
-    if(this->commands.find(cmd) == this->commands.end()) return nullptr;
+    if (this->commands.find(cmd) == this->commands.end()) return nullptr;
 
     return this->commands[cmd];
 }
 
-void CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, Command *command, bool registerRaw)
+void CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, Command* command, bool registerRaw)
 {
     if (!registerRaw)
     {
         if (this->commands.find(cmd) != this->commands.end())
             return;
 
-        this->commands.insert({cmd, command});
-        this->commandAliases.insert({cmd, {}});
+        this->commands.insert({ cmd, command });
+        this->commandAliases.insert({ cmd, {} });
 
         if (this->commandsByPlugin.find(plugin_name) == this->commandsByPlugin.end())
-            this->commandsByPlugin.insert({plugin_name, {}});
+            this->commandsByPlugin.insert({ plugin_name, {} });
 
         this->commandsByPlugin[plugin_name].push_back(cmd);
     }
@@ -102,7 +108,7 @@ void CommandsManager::UnregisterCommand(std::string cmd)
     if (this->commands.find(cmd) == this->commands.end())
         return;
 
-    Command *command = FetchCommand(cmd);
+    Command* command = FetchCommand(cmd);
     std::string plugin = command->GetPluginName();
 
     delete command;
@@ -119,7 +125,7 @@ void CommandsManager::UnregisterCommand(std::string cmd)
         this->commandsByPlugin[plugin].erase(cmdIterator);
 }
 
-static void commandsCallback(const CCommandContext &context, const CCommand &args)
+static void commandsCallback(const CCommandContext& context, const CCommand& args)
 {
     CCommand tokenizedArgs;
     tokenizedArgs.Tokenize(args.GetCommandString());
@@ -132,7 +138,7 @@ static void commandsCallback(const CCommandContext &context, const CCommand &arg
     if (g_commandsManager->FetchCommand(commandName) == nullptr)
         return;
 
-    Command *command = g_commandsManager->FetchCommand(commandName);
+    Command* command = g_commandsManager->FetchCommand(commandName);
     if (!command)
         return;
 
