@@ -1,11 +1,11 @@
-#include "Menu.h"
+#include "ScreenMenu.h"
 
-#include "../../utils/utils.h"
-#include "../../server/configuration/Configuration.h"
+#include "../../../utils/utils.h"
+#include "../../../server/configuration/Configuration.h"
 
 #include <regex>
 
-Menu::Menu(std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool tmp)
+ScreenMenu::ScreenMenu(std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool tmp)
 {
     int r=255,g=255,b=255,a=255;
     try {
@@ -35,7 +35,7 @@ Menu::Menu(std::string id, std::string title, std::string color, std::vector<std
     ProcessOptions();
 }
 
-Menu::~Menu()
+ScreenMenu::~ScreenMenu()
 {
     this->id.clear();
     this->title.clear();
@@ -43,12 +43,12 @@ Menu::~Menu()
     this->processedOptions.clear();
 }
 
-std::string Menu::GetID()
+std::string ScreenMenu::GetID()
 {
     return this->id;
 }
 
-std::string Menu::GetCommandFromOption(int page, int selected)
+std::string ScreenMenu::GetCommandFromOption(int page, int selected)
 {
     if (page < 1)
         return "";
@@ -56,7 +56,7 @@ std::string Menu::GetCommandFromOption(int page, int selected)
     return processedOptions[page - 1][selected].second;
 }
 
-size_t Menu::GetItemsOnPage(int page)
+size_t ScreenMenu::GetItemsOnPage(int page)
 {
     if (page < 1)
         return 0;
@@ -87,7 +87,7 @@ std::string RemoveHtmlTags(std::string input) {
     return std::regex_replace(input, pattern, "");
 }
 
-void Menu::ProcessOptions()
+void ScreenMenu::ProcessOptions()
 {
     int pages = 0;
     int processedItems = 0;
@@ -120,10 +120,10 @@ void Menu::ProcessOptions()
     if (tempmap.size() > 0)
     {
         if (this->processedOptions.size() != 0)
-            tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
+            tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.back")), 25), "menuback"});
 
         if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option"))
-            tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
+            tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.exit")), 25), "menuexit"});
 
         processedItems = 0;
         this->processedOptions.push_back(tempmap);
@@ -131,12 +131,12 @@ void Menu::ProcessOptions()
     }
 }
 
-std::string Menu::GeneratedItems(int playerid, int page)
+std::string ScreenMenu::GeneratedItems(int playerid, int page)
 {
     return this->generatedPages[playerid][page - 1];
 }
 
-void Menu::RegeneratePage(int playerid, int page, int selected)
+void ScreenMenu::RegeneratePage(int playerid, int page, int selected)
 {
     if (this->generatedPages.find(playerid) == this->generatedPages.end())
         this->generatedPages.insert({playerid, {}});
@@ -154,22 +154,32 @@ void Menu::RegeneratePage(int playerid, int page, int selected)
     this->generatedPages[playerid][page - 1] = stringPage;
 }
 
-bool Menu::IsTemporary()
+bool ScreenMenu::IsTemporary()
 {
     return this->temporary;
 }
 
-Color Menu::GetColor()
+Color ScreenMenu::GetColor()
 {
     return this->color;
 }
 
-std::string Menu::GenerateFooter(int page)
+std::string ScreenMenu::GenerateFooter(int page)
 {
-    std::string footer = replace(g_translations->FetchTranslation(g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.footer" : "core.menu.footer.nooption"), "{PAGE}", std::to_string(page));
+    std::string footer = replace(g_translations->FetchTranslation(g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.screen.footer" : "core.menu.screen.footer.nooption"), "{PAGE}", std::to_string(page));
     footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
     footer = replace(footer, "{CYCLE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.scroll")));
     footer = replace(footer, "{USE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.use")));
     footer = replace(footer, "{EXIT_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.exit.button")));
     return footer;
+}
+
+bool ScreenMenu::RenderEachTick()
+{
+    return false;
+}
+
+std::string ScreenMenu::GetKind()
+{
+    return "screen";
 }

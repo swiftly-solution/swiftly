@@ -1,6 +1,7 @@
 #include "MenuManager.h"
 
 #include "../../player/playermanager/PlayerManager.h"
+#include "../configuration/Configuration.h"
 
 std::map<std::string, bool> scheduledForDelete;
 
@@ -8,12 +9,21 @@ MenuManager::MenuManager()
 {
 }
 
-void MenuManager::RegisterMenu(std::string plugin_name, std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool temporary)
+void MenuManager::RegisterMenu(std::string plugin_name, std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool temporary, std::string kind)
 {
     if (this->menu_ids.find(id) != this->menu_ids.end())
         return;
 
-    Menu *menu = new Menu(id, title, color, options, temporary);
+    if(kind != "screen" && kind != "center") kind = g_Config->FetchValue<std::string>("core.menu.kind");
+
+    Menu* menu = nullptr;
+    if(kind == "screen") {
+        menu = new ScreenMenu(id, title, color, options, temporary);
+    } else if(kind == "center") {
+        menu = new CenterMenu(id, title, color, options, temporary);
+    }
+    if(!menu) return;
+
     this->menu_ids.insert(std::make_pair(id, menu));
     if (this->menu_id_by_plugin.find(plugin_name) == this->menu_id_by_plugin.end())
         this->menu_id_by_plugin.insert({plugin_name, {}});
@@ -36,11 +46,11 @@ void MenuManager::UnregisterMenu(std::string id)
             continue;
         if (player->IsFakeClient())
             continue;
-        if (!player->HasMenuShown())
+        if (!player->menu_renderer->HasMenuShown())
             continue;
 
-        if (player->GetMenu()->GetID() == id)
-            player->HideMenu();
+        if (player->menu_renderer->GetMenu()->GetID() == id)
+            player->menu_renderer->HideMenu();
     }
 
     delete this->menu_ids[id];

@@ -4,7 +4,8 @@
 #include <map>
 #include <vector>
 
-#include "Menu.h"
+#include "kinds/ScreenMenu.h"
+#include "kinds/CenterMenu.h"
 
 class MenuManager
 {
@@ -14,7 +15,7 @@ private:
 
 public:
     MenuManager();
-    void RegisterMenu(std::string plugin_name, std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool temporary);
+    void RegisterMenu(std::string plugin_name, std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool temporary, std::string kind);
     void UnregisterMenu(std::string id);
 
     Menu *FetchMenu(std::string menu_id);
