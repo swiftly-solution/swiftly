@@ -39,6 +39,8 @@
                 "option": false,
                 "button": "tab"
             }
-        }
+        },
+        "kind": "screen",
+        "available_kinds": ["screen", "center"]
     }
 }

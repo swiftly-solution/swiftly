@@ -474,6 +474,9 @@ bool Configuration::LoadConfiguration()
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.buttons.exit.option", false);
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.buttons.exit.button", "tab");
 
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind", "screen");
+    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "menu.available_kinds", {"screen", "center"}, true, " ");
+
     if (wasEdited)
     {
         WritePluginFile("addons/swiftly/configs/core.json", coreConfigFile);
