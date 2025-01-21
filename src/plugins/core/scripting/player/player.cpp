@@ -266,10 +266,10 @@ void PluginPlayer::HideMenu()
     if (!player)
         return;
 
-    if (!player->HasMenuShown())
+    if (!player->menu_renderer->HasMenuShown())
         return;
 
-    player->HideMenu();
+    player->menu_renderer->HideMenu();
 }
 
 bool PluginPlayer::IsFakeClient()
@@ -331,10 +331,10 @@ void PluginPlayer::ShowMenu(std::string menuid)
     if (!player)
         return;
 
-    if (player->HasMenuShown())
+    if (player->menu_renderer->HasMenuShown())
         return;
 
-    player->ShowMenu(menuid);
+    player->menu_renderer->ShowMenu(menuid);
 }
 
 void PluginPlayer::SwitchTeam(int team)
@@ -469,12 +469,12 @@ void PluginPlayer::PerformMenuAction(std::string action, int value)
     if (!self) return;
 
     if(action == "useOption") {
-        while(self->GetSelection() != value-1)
-            self->MoveSelection();
+        while(self->menu_renderer->GetSelection() != value-1)
+            self->menu_renderer->MoveSelection();
 
-        self->PerformMenuAction(g_Config->FetchValue<std::string>("core.menu.buttons.use"));
+        self->menu_renderer->PerformMenuAction(g_Config->FetchValue<std::string>("core.menu.buttons.use"));
     } else if(action == "scrollToOption") {
-        while(self->GetSelection() != value-1)
-            self->MoveSelection();
+        while(self->menu_renderer->GetSelection() != value-1)
+            self->menu_renderer->MoveSelection();
     }
 }

@@ -8,6 +8,7 @@
 #include "../../sdk/entity/CCSPlayerPawnBase.h"
 #include "../../sdk/entity/CBaseViewModel.h"
 #include "../../server/menus/Menu.h"
+#include "../../server/menus/MenuRenderer.h"
 
 #include <string>
 #include <public/mathlib/vector.h>
@@ -82,19 +83,6 @@ public:
 
     bool HasCenterText();
 
-    void ShowMenu(std::string menuid);
-    void HideMenu();
-    bool HasMenuShown();
-    Menu* GetMenu();
-    void RegenerateMenu();
-
-    int GetPage();
-    void SetPage(int pg);
-    int GetSelection();
-    void MoveSelection();
-
-    void PerformMenuAction(std::string button);
-
     void PerformCommand(std::string command);
 
     void SetClientConvar(std::string cmd, std::string val);
@@ -112,6 +100,7 @@ public:
     CPlayerBitVec m_selfMutes[64] = {};
 
     std::string language = "";
+    MenuRenderer* menu_renderer = nullptr;
 
 private:
     int slot;
@@ -129,14 +118,6 @@ private:
     std::string centerMessageText;
 
     bool firstSpawn = true;
-
-    Menu* menu = nullptr;
-    int page = 0;
-    int selected = 0;
-    uint64_t menuTextID = 0;
-    uint64_t menuFooterID = 0;
-    uint64_t menuPanelID = 0;
-    uint64_t menuPanelExtendID = 0;
 
     uint64_t buttons = 0;
 

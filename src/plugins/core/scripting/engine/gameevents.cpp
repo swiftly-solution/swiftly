@@ -13,7 +13,7 @@ void OnClientKeyStateChange(int playerid, std::string key, bool pressed)
         if (!player)
             return;
 
-        player->PerformMenuAction(key);
+        player->menu_renderer->PerformMenuAction(key);
     }
 
     if (noReturnEvent == nullptr) noReturnEvent = new PluginEvent("core", nullptr, nullptr);

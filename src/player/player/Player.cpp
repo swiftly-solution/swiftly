@@ -67,6 +67,7 @@ Player::Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64 m_xui
     this->language = g_Config->FetchValue<std::string>("core.language");
 
     centerMessageEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+    menu_renderer = new MenuRenderer(this);
 
     centerMessageEvent->SetUint64("duration", 1);
     centerMessageEvent->SetInt("userid", this->slot);
@@ -78,18 +79,7 @@ Player::~Player()
 {
     this->isFakeClient = true;
     g_gameEventManager->FreeEvent(centerMessageEvent);
-    if(menuTextID != 0) {
-        g_pVGUI->DeleteScreenText(menuTextID);
-    }
-    if(menuPanelID != 0) {
-        g_pVGUI->DeleteScreenPanel(menuPanelID);
-    }
-    if(menuFooterID != 0) {
-        g_pVGUI->DeleteScreenText(menuFooterID);
-    }
-    if(menuPanelExtendID != 0) {
-        g_pVGUI->DeleteScreenPanel(menuPanelExtendID);
-    }
+    if(menu_renderer) delete menu_renderer;
 }
 
 CBasePlayerController* Player::GetController()
@@ -372,187 +362,6 @@ void Player::SetButtons(uint64_t new_buttons)
                 OnClientKeyStateChange(this->slot, key_buttons[i], false);
         }
         buttons = new_buttons;
-    }
-}
-
-bool Player::HasMenuShown() { return (this->menu != nullptr); }
-Menu* Player::GetMenu() { return this->menu; }
-
-int Player::GetPage() { return this->page; }
-void Player::SetPage(int pg)
-{
-    this->page = pg;
-    this->selected = 0;
-    this->menu->RegeneratePage(this->slot, this->page, this->selected);
-    this->RegenerateMenu();
-}
-int Player::GetSelection() { return this->selected; }
-void Player::MoveSelection()
-{
-    if (this->page == 0)
-        return;
-
-    int itemsPerPage = this->menu->GetItemsOnPage(this->page);
-    ++this->selected;
-    if (itemsPerPage == this->selected)
-        this->selected = 0;
-
-    this->menu->RegeneratePage(this->slot, this->page, this->selected);
-    this->RegenerateMenu();
-}
-
-void Player::RegenerateMenu()
-{
-    auto menuText = g_pVGUI->GetScreenText(menuTextID);
-    if(!menuText) return;
-
-    menuText->SetText(this->menu->GeneratedItems(this->slot, this->page));
-
-    auto menuFooter = g_pVGUI->GetScreenText(menuFooterID);
-    if(!menuFooter) return;
-    menuFooter->SetText(this->menu->GenerateFooter(this->page));
-}
-
-void Player::ShowMenu(std::string menuid)
-{
-    if (this->menu != nullptr)
-        return;
-
-    Menu* m = g_MenuManager->FetchMenu(menuid);
-    if (m == nullptr)
-        return;
-
-    this->menu = m;
-    this->page = 1;
-    this->selected = 0;
-
-    this->menu->RegeneratePage(this->slot, this->page, this->selected);
-
-    menuTextID = g_pVGUI->RegisterScreenText();
-    menuPanelID = g_pVGUI->RegisterScreenPanel();
-    menuPanelExtendID = g_pVGUI->RegisterScreenPanel();
-    menuFooterID = g_pVGUI->RegisterScreenText();
-    
-    auto menuText = g_pVGUI->GetScreenText(menuTextID);
-    auto menuPanel = g_pVGUI->GetScreenPanel(menuPanelID);
-    auto menuPanelExtend = g_pVGUI->GetScreenPanel(menuPanelExtendID);
-    auto menuFooter = g_pVGUI->GetScreenText(menuFooterID);
-
-    menuFooter->Create(Color(255,255,255,255));
-    menuFooter->SetupViewForPlayer(this);
-    
-    menuText->Create(this->menu->GetColor());
-    menuText->SetupViewForPlayer(this);
-    RegenerateMenu();
-    menuText->SetPosition(0.14, 0.68);
-    
-    menuFooter->SetPosition(0.14, 0.27);
-
-    menuPanel->Create(Color(18, 18, 18, 255));
-    menuPanel->SetupViewForPlayer(this);
-    menuPanel->SetText("█");
-    menuPanel->SetPosition(0.13, 0.7);
-
-    menuPanelExtend->Create(Color(18, 18, 18, 255));
-    menuPanelExtend->SetupViewForPlayer(this);
-    menuPanelExtend->SetText("█");
-    menuPanelExtend->SetPosition(0.17, 0.7);
-}
-
-void Player::HideMenu()
-{
-    if (this->menu == nullptr)
-        return;
-
-    this->page = 0;
-    this->selected = 0;
-    if (this->menu->IsTemporary())
-    {
-        std::string menuID = this->menu->GetID();
-        g_MenuManager->UnregisterMenu(menuID);
-    }
-    this->menu = nullptr;
-
-    g_pVGUI->DeleteScreenText(menuFooterID);
-    g_pVGUI->DeleteScreenText(menuTextID);
-    g_pVGUI->DeleteScreenPanel(menuPanelID);
-    g_pVGUI->DeleteScreenPanel(menuPanelExtendID);
-
-    menuTextID = 0;
-    menuPanelID = 0;
-    menuFooterID = 0;
-    menuPanelExtendID = 0;
-}
-
-void Player::PerformMenuAction(std::string button)
-{
-    if (!this->HasMenuShown())
-        return;
-
-    if (button == g_Config->FetchValue<std::string>("core.menu.buttons.scroll"))
-    {
-        CCSPlayerController* controller = this->GetPlayerController();
-        CSingleRecipientFilter filter(this->slot);
-        if (controller)
-            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.scroll.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.scroll.volume"));
-
-        this->MoveSelection();
-        this->RegenerateMenu();
-    }
-    else if (!g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && button == g_Config->FetchValue<std::string>("core.menu.buttons.exit.button"))
-    {
-        CCSPlayerController* controller = this->GetPlayerController();
-        CSingleRecipientFilter filter(this->slot);
-        if (controller)
-            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.exit.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.exit.volume"));
-        this->HideMenu();
-    }
-    else if (button == g_Config->FetchValue<std::string>("core.menu.buttons.use"))
-    {
-        std::string cmd = this->GetMenu()->GetCommandFromOption(this->GetPage(), this->GetSelection());
-        CCSPlayerController* controller = this->GetPlayerController();
-        CSingleRecipientFilter filter(this->slot);
-        if (controller && cmd != "menuexit")
-            controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.use.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.use.volume"));
-        if (cmd == "menunext")
-        {
-            this->SetPage(this->GetPage() + 1);
-            this->RegenerateMenu();
-        }
-        else if (cmd == "menuback")
-        {
-            this->SetPage(this->GetPage() - 1);
-            this->RegenerateMenu();
-        }
-        else if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && cmd == "menuexit")
-        {
-            CCSPlayerController* controller = this->GetPlayerController();
-            CSingleRecipientFilter filter(this->slot);
-            if (controller)
-                controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.exit.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.exit.volume"));
-            this->HideMenu();
-        }
-        else if (g_MenuManager->FetchMenu(cmd))
-        {
-            this->HideMenu();
-            this->ShowMenu(cmd);
-        }
-        else if (starts_with(cmd, "sw_"))
-        {
-            CCommand tokenizedArgs;
-            tokenizedArgs.Tokenize(cmd.c_str());
-
-            std::vector<std::string> cmdString = TokenizeCommand(cmd);
-            cmdString.erase(cmdString.begin());
-
-            std::string commandName = replace(tokenizedArgs[0], "sw_", "");
-
-            Command* cmd = g_commandsManager->FetchCommand(commandName);
-            if (cmd)
-                cmd->Execute(this->slot, cmdString, true, "sw_");
-        }
-        else if (cmd != "")
-            this->PerformCommand(cmd);
     }
 }
 

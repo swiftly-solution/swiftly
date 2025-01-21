@@ -8,29 +8,18 @@
 
 class Menu
 {
-private:
-    std::string id;
-    std::string title;
-    Color color;
-    std::vector<std::pair<std::string, std::string>> options;
-    std::vector<std::vector<std::pair<std::string, std::string>>> processedOptions;
-    bool temporary;
-
-    std::map<int, std::vector<std::string>> generatedPages;
-
 public:
-    Menu(std::string id, std::string title, std::string color, std::vector<std::pair<std::string, std::string>> options, bool tmp);
-    ~Menu();
+    virtual std::string GetID() = 0;
+    virtual void ProcessOptions() = 0;
+    virtual std::string GeneratedItems(int playerid, int page) = 0;
+    virtual std::string GenerateFooter(int page) = 0;
+    virtual void RegeneratePage(int playerid, int page, int selected) = 0;
 
-    std::string GetID();
-    void ProcessOptions();
-    std::string GeneratedItems(int playerid, int page);
-    std::string GenerateFooter(int page);
-    void RegeneratePage(int playerid, int page, int selected);
+    virtual std::string GetCommandFromOption(int page, int selected) = 0;
+    virtual size_t GetItemsOnPage(int page) = 0;
+    virtual bool IsTemporary() = 0;
 
-    std::string GetCommandFromOption(int page, int selected);
-    size_t GetItemsOnPage(int page);
-    bool IsTemporary();
-
-    Color GetColor();
+    virtual Color GetColor() = 0;
+    virtual bool RenderEachTick() = 0;
+    virtual std::string GetKind() = 0;
 };
