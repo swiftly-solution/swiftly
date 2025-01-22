@@ -13,6 +13,8 @@ void MenuManager::RegisterMenu(std::string plugin_name, std::string id, std::str
 {
     if (this->menu_ids.find(id) != this->menu_ids.end())
         return;
+    if(options.size() <= 0)
+        return;
 
     if(kind != "screen" && kind != "center") kind = g_Config->FetchValue<std::string>("core.menu.kind");
 
