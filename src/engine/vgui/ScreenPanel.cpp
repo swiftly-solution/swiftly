@@ -65,6 +65,7 @@ void ScreenPanel::SetPosition(float posX, float posY)
 
     if (!m_player) return;
     if (m_player->IsFakeClient()) return;
+    if(!pScreenEntity) return;
 
     CCSPlayerPawn* pawn = m_player->GetPlayerPawn();
     if (!pawn) return;
