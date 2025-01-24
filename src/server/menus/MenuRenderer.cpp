@@ -241,14 +241,19 @@ void MenuRenderer::PerformMenuAction(std::string button)
             CCommand tokenizedArgs;
             tokenizedArgs.Tokenize(cmd.c_str());
 
-            std::vector<std::string> cmdString = TokenizeCommand(cmd);
-            cmdString.erase(cmdString.begin());
+            std::string commandName = (tokenizedArgs[0] + 3);
 
-            std::string commandName = replace(tokenizedArgs[0], "sw_", "");
+            std::vector<std::string> argsplit = TokenizeCommand(cmd.c_str());
+            argsplit.erase(argsplit.begin());
 
-            Command* cmd = g_commandsManager->FetchCommand(commandName);
-            if (cmd)
-                cmd->Execute(m_player->GetSlot().Get(), cmdString, true, "sw_");
+            if (g_commandsManager->FetchCommand(commandName) == nullptr)
+                return;
+
+            Command* command = g_commandsManager->FetchCommand(commandName);
+            if (!command)
+                return;
+
+            command->Execute(m_player->GetSlot().Get(), argsplit, true, "sw_");
         }
         else if (cmd != "")
             m_player->PerformCommand(cmd);
