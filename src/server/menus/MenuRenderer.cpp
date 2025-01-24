@@ -94,7 +94,7 @@ void MenuRenderer::HideMenu()
     
     if(kind == "center") {
         if(centerMessageEvent) {
-            centerMessageEvent->SetString("loc_token", "");
+            centerMessageEvent->SetString("loc_token", "Exiting...");
             playerListener->FireGameEvent(centerMessageEvent);
         }
     } else if(kind == "screen") {
@@ -191,10 +191,11 @@ void MenuRenderer::PerformMenuAction(std::string button)
     if (!HasMenuShown())
         return;
 
+    CCSPlayerController* controller = m_player->GetPlayerController();
+    CSingleRecipientFilter filter(m_player->GetSlot().Get());
+
     if (button == g_Config->FetchValue<std::string>("core.menu.buttons.scroll"))
     {
-        CCSPlayerController* controller = m_player->GetPlayerController();
-        CSingleRecipientFilter filter(m_player->GetSlot().Get());
         if (controller)
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.scroll.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.scroll.volume"));
 
@@ -202,17 +203,15 @@ void MenuRenderer::PerformMenuAction(std::string button)
     }
     else if (!g_Config->FetchValue<bool>("core.menu.buttons.exit.option") && button == g_Config->FetchValue<std::string>("core.menu.buttons.exit.button"))
     {
-        CCSPlayerController* controller = m_player->GetPlayerController();
-        CSingleRecipientFilter filter(m_player->GetSlot().Get());
         if (controller)
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.exit.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.exit.volume"));
+        
         HideMenu();
     }
     else if (button == g_Config->FetchValue<std::string>("core.menu.buttons.use"))
     {
         std::string cmd = GetMenu()->GetCommandFromOption(GetPage(), GetSelection());
-        CCSPlayerController* controller = m_player->GetPlayerController();
-        CSingleRecipientFilter filter(m_player->GetSlot().Get());
+
         if (controller && cmd != "menuexit")
             controller->EmitSoundFilter(filter, g_Config->FetchValue<std::string>("core.menu.sound.use.name"), 1.0, g_Config->FetchValue<double>("core.menu.sound.use.volume"));
 
