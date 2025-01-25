@@ -22,6 +22,9 @@ void DeleteFakeConvar(std::string name)
 {
     if (!FakeConvarExists(name)) return;
 
+    auto cvar = GetFakeConvar(name);
+    if(cvar) delete cvar;
+
     fakeConvars.erase(name);
 }
 
@@ -30,11 +33,11 @@ std::map<std::string, FakeConVar*> FetchFakeConvars()
     return fakeConvars;
 }
 
-void InsertFakeConvar(std::string name, FakeConVar* cvar)
+void InsertFakeConvar(std::string name, EConVarType type, std::any defaultValue, bool prot)
 {
     if (FakeConvarExists(name)) return;
 
-    fakeConvars.insert({ name, cvar });
+    fakeConvars.insert({ name, new FakeConVar(name, type, defaultValue, prot) });
 }
 
 FakeConVar::FakeConVar(std::string name, EConVarType type, std::any defaultValue, bool prot)
@@ -43,8 +46,7 @@ FakeConVar::FakeConVar(std::string name, EConVarType type, std::any defaultValue
     {
         convarCreated.insert(name);
 
-        ConCommandRefAbstract convarRef;
-        new ConCommand(&convarRef, name.c_str(), convarsCallback, "Swiftly ConVar", FCVAR_LINKED_CONCOMMAND | FCVAR_SPONLY | (prot ? FCVAR_PROTECTED : FCVAR_NONE));
+        m_cmd = new ConCommand(&convarRef, name.c_str(), convarsCallback, "Swiftly ConVar", FCVAR_LINKED_CONCOMMAND | FCVAR_SPONLY | (prot ? FCVAR_PROTECTED : FCVAR_NONE));
     }
 
     m_value = defaultValue;
@@ -54,6 +56,7 @@ FakeConVar::FakeConVar(std::string name, EConVarType type, std::any defaultValue
 
 FakeConVar::~FakeConVar()
 {
+    delete m_cmd;
 }
 
 EConVarType FakeConVar::GetType()
