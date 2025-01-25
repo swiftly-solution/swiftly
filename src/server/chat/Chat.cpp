@@ -207,6 +207,20 @@ void ChatProcessor::DispatchConCommand(ConCommandHandle cmd, const CCommandConte
             auto text = args[1];
             if (V_strlen(text) == 0) RETURN_META(MRES_SUPERCEDE);
 
+            if (controller)
+            {
+                IGameEvent* pEvent = g_gameEventManager->CreateEvent("player_chat");
+
+                if (pEvent)
+                {
+                    pEvent->SetBool("teamonly", teamonly);
+                    pEvent->SetInt("userid", slot.Get());
+                    pEvent->SetString("text", args[1]);
+
+                    g_gameEventManager->FireEvent(pEvent, true);
+                }
+            }
+
             int handleCommandReturn = g_commandsManager->HandleCommand(player, text);
             if (handleCommandReturn == 2 || !OnClientChat(slot.Get(), text, teamonly)) RETURN_META(MRES_SUPERCEDE);
         }

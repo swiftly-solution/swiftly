@@ -74,8 +74,6 @@ void FakeConVar::SetValue(std::any value)
         gEv->SetString("cvarvalue", this->GetStringValue().c_str());
 
         g_gameEventManager->FireEvent(gEv);
-
-        g_gameEventManager->FreeEvent(gEv);
     }
 }
 
