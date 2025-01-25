@@ -204,29 +204,8 @@ void ChatProcessor::DispatchConCommand(ConCommandHandle cmd, const CCommandConte
             CCSPlayerController* controller = player->GetPlayerController();
             bool teamonly = (command == "say_team");
 
-            std::vector<std::string> textSplitted = explode(args.GetCommandString(), " ");
-            textSplitted.erase(textSplitted.begin());
-
-            std::string text = implode(textSplitted, " ");
-            if (text.front() == '\'' || text.front() == '"') text.erase(text.begin());
-            if (text.back() == '\'' || text.back() == '"') text.pop_back();
-
-            if (strim(text).length() == 0) RETURN_META(MRES_SUPERCEDE);
-
-            if (controller)
-            {
-                IGameEvent* pEvent = g_gameEventManager->CreateEvent("player_chat");
-
-                if (pEvent)
-                {
-                    pEvent->SetBool("teamonly", teamonly);
-                    pEvent->SetInt("userid", slot.Get());
-                    pEvent->SetString("text", text.c_str());
-
-                    g_gameEventManager->FireEvent(pEvent, true);
-                    g_gameEventManager->FreeEvent(pEvent);
-                }
-            }
+            auto text = args[1];
+            if (V_strlen(text) == 0) RETURN_META(MRES_SUPERCEDE);
 
             int handleCommandReturn = g_commandsManager->HandleCommand(player, text);
             if (handleCommandReturn == 2 || !OnClientChat(slot.Get(), text, teamonly)) RETURN_META(MRES_SUPERCEDE);
