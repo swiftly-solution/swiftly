@@ -84,7 +84,6 @@ private:
     std::map<uint64_t, SDKFieldType_t> fieldTypes;
     std::map<uint64_t, uint64_t> fieldSizes;
     std::map<uint64_t, std::string> fieldClass;
-    std::vector<std::string> classnames;
     std::map<std::string, std::map<std::string, int64_t>> sdktypes;
 
 public:
@@ -93,7 +92,6 @@ public:
 
     void LoadSDKData();
 
-    std::vector<std::string> GetClassnames();
     std::string GetFieldName(uint64_t path);
     SDKFieldType_t GetFieldType(uint64_t path);
     std::string GetFieldClass(uint64_t path);

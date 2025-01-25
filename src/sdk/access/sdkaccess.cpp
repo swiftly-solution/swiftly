@@ -17,7 +17,6 @@ SDKAccess::~SDKAccess() {
     fieldTypes.clear();
     fieldSizes.clear();
     fieldClass.clear();
-    classnames.clear();
     sdktypes.clear();
 }
 
@@ -34,8 +33,6 @@ void SDKAccess::LoadSDKData()
     for (auto it = sdkFile.MemberBegin(); it != sdkFile.MemberEnd(); ++it)
     {
         std::string className = it->name.GetString();
-        this->classnames.push_back(className);
-
         uint32_t classOffset = hash_32_fnv1a_const(className.c_str());
         PopulateClassData(className.c_str(), classOffset);
 
@@ -90,11 +87,6 @@ void SDKAccess::LoadSDKData()
 std::map<std::string, std::map<std::string, int64_t>> SDKAccess::GetSDKTypes()
 {
     return this->sdktypes;
-}
-
-std::vector<std::string> SDKAccess::GetClassnames()
-{
-    return this->classnames;
 }
 
 std::string SDKAccess::GetFieldName(uint64_t path)
