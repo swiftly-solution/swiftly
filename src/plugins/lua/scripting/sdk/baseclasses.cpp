@@ -239,6 +239,11 @@ int Color_newindex(lua_State* L)
     return luaL_error(L, "Cannot add new fields to Color");
 }
 
+std::string Color_tostring(Color* v1)
+{
+    return string_format("Color(%d,%d,%d,%d)", v1->r(), v1->g(), v1->b(), v1->a());
+}
+
 std::string Vector_GetPtr(Vector* vec)
 {
     return string_format("%p", vec);
@@ -299,6 +304,7 @@ LoadLuaScriptingComponent(
             .beginClass<Color>("Color")
             .addConstructor<void (*)(int, int, int, int)>()
             .addFunction("GetPtr", Color_GetPtr)
+            .addFunction("__tostring", Color_tostring)
             .endClass();
 
         luaL_newmetatable(state, "Color");
