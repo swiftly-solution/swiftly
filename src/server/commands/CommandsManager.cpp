@@ -26,9 +26,33 @@ int CommandsManager::HandleCommand(Player* player, std::string text)
     if (commandPrefixes.size() == 0) commandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandPrefixes"), " ");
     if (silentCommandPrefixes.size() == 0) silentCommandPrefixes = explodeToSet(g_Config->FetchValue<std::string>("core.commandSilentPrefixes"), " ");
 
-    auto prefix = std::string(1, text.at(0));
-    bool isCommand = (commandPrefixes.find(prefix) != commandPrefixes.end());
-    bool isSilentCommand = (silentCommandPrefixes.find(prefix) != silentCommandPrefixes.end());
+    bool isCommand = false;
+    bool isSilentCommand = false;
+    std::string selectedPrefix = "";
+
+    for(auto it = commandPrefixes.begin(); it != commandPrefixes.end(); ++it) {
+        std::string prefix = *it;
+        auto strPrefix = text.substr(0, prefix.size());
+
+        if(prefix == strPrefix) {
+            isCommand = true;
+            selectedPrefix = prefix;
+            break;
+        }
+    }
+
+    if(!isCommand) {
+        for(auto it = silentCommandPrefixes.begin(); it != silentCommandPrefixes.end(); ++it) {
+            std::string prefix = *it;
+            auto strPrefix = text.substr(0, prefix.size());
+    
+            if(prefix == strPrefix) {
+                isSilentCommand = true;
+                selectedPrefix = prefix;
+                break;
+            }
+        }
+    }
 
     if (isCommand || isSilentCommand)
     {
@@ -52,7 +76,7 @@ int CommandsManager::HandleCommand(Player* player, std::string text)
             return 0;
 
         try {
-            cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand, prefix);
+            cmd->Execute(player->GetSlot().Get(), cmdString, isSilentCommand, selectedPrefix);
         }
         catch (std::exception& e) {
             PLUGIN_PRINTF("Commands Manager", "An error has occured while trying to execute command '%s'.\n", commandName.c_str());
