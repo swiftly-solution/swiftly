@@ -15,6 +15,7 @@ void ScreenText::Create(Color color, std::string font, int size, bool drawBackgr
     m_font = font;
     m_size = size;
     m_drawBackground = drawBackground;
+    m_isMenu = isMenu;
 
     pScreenEntity.Set((CPointWorldText*)(CreateEntityByName("point_worldtext").GetPtr()));
     if (!pScreenEntity) return;
@@ -132,7 +133,7 @@ void ScreenText::RegenerateText(bool recreate)
     if (recreate) {
         if (pScreenEntity.IsValid()) pScreenEntity->Despawn();
 
-        Create(m_col, m_font, m_size, m_drawBackground);
+        Create(m_col, m_font, m_size, m_drawBackground, m_isMenu);
         SetupViewForPlayer(m_player);
         SetText(m_text);
         SetPosition(m_posX, m_posY);

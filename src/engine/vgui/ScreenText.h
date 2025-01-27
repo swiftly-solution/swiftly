@@ -23,6 +23,7 @@ private:
     float m_posY;
     std::string m_text;
     bool m_drawBackground;
+    bool m_isMenu;
 
 public:
     ScreenText();
