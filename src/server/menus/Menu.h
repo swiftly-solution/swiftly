@@ -6,6 +6,8 @@
 #include <public/Color.h>
 #include "../translations/Translations.h"
 
+std::string GenerateCommandDefaultPrefix();
+
 class Menu
 {
 public:

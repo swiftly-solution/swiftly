@@ -104,12 +104,20 @@ void CenterMenu::RegeneratePage(int playerid, int page, int selected)
 
     std::string stringPage = string_format("<div><font color=\"#%s\">&nbsp;&nbsp;&nbsp;%s</font></div><br/>", this->color.c_str(), this->title.c_str());
     for (int i = 0; i < processedOptions[page - 1].size(); i++)
-        stringPage += string_format("<div><font color=\"#%s\">%s%s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), (i == selected ? (g_Config->FetchValue<std::string>("core.menu.navigation_prefix") + "&nbsp;").c_str() : "&nbsp;&nbsp;&nbsp;&nbsp;"), processedOptions[page - 1][i].first.c_str());
-    std::string footer = replace(g_translations->FetchTranslation(g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.center.footer" : "core.menu.center.footer.nooption"), "{PAGE}", std::to_string(page));
-    footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
-    footer = replace(footer, "{CYCLE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.scroll")));
-    footer = replace(footer, "{USE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.use")));
-    footer = replace(footer, "{EXIT_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.exit.button")));
+        stringPage += string_format("<div><font color=\"#%s\">%s%d. %s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), g_Config->FetchValue<std::string>("core.menu.inputMode") == "chat" ? "&nbsp;&nbsp;&nbsp;&nbsp;" : (i == selected ? (g_Config->FetchValue<std::string>("core.menu.navigation_prefix") + "&nbsp;").c_str() : "&nbsp;&nbsp;&nbsp;&nbsp;"), i+1, processedOptions[page - 1][i].first.c_str());
+    
+    std::string footer;
+    if(g_Config->FetchValue<std::string>("core.menu.inputMode") == "chat") {
+        footer = replace(g_translations->FetchTranslation("core.menu.input.chat"), "{PAGE}", std::to_string(page));
+        footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
+        footer = replace(footer, "{PREFIX}", GenerateCommandDefaultPrefix());
+    } else {
+        footer = replace(g_translations->FetchTranslation(g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.center.footer" : "core.menu.center.footer.nooption"), "{PAGE}", std::to_string(page));
+        footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
+        footer = replace(footer, "{CYCLE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.scroll")));
+        footer = replace(footer, "{USE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.use")));
+        footer = replace(footer, "{EXIT_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.exit.button")));
+    }
 
     stringPage += string_format("<font class='fontSize-s'>%s</font>", footer.c_str());
 

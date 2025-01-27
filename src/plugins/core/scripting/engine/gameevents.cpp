@@ -7,7 +7,7 @@ PluginEvent* noReturnEvent = nullptr;
 
 void OnClientKeyStateChange(int playerid, std::string key, bool pressed)
 {
-    if (pressed)
+    if (pressed && g_Config->FetchValue<std::string>("core.menu.inputMode") != "chat")
     {
         Player* player = g_playerManager->GetPlayer(playerid);
         if (!player)

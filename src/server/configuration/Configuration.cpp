@@ -476,6 +476,9 @@ bool Configuration::LoadConfiguration()
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind", "screen");
     RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "menu.available_kinds", {"screen", "center"}, true, " ");
+
+    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "menu.available_inputmodes", {"chat", "button"}, true, " ");
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.inputMode", "button");
     
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.center.itemsPerPage", 7);
     
@@ -483,13 +486,11 @@ bool Configuration::LoadConfiguration()
 
     RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.x", 0.14);
     RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.y", 0.68);
-    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.footerY", 0.27);
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.fontSize", 35);
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.font", "Sans Serif");
 
     RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.x", 0.0);
     RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.y", 0.68);
-    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.footerY", 0.27);
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.fontSize", 35);
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.font", "Sans Serif");
     

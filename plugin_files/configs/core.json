@@ -42,6 +42,8 @@
         },
         "kind": "screen",
         "available_kinds": ["screen", "center"],
+        "available_inputmodes": ["chat", "button"],
+        "inputMode": "chat",
         "kind_settings": {
             "center": {
                 "itemsPerPage": 7
@@ -52,14 +54,12 @@
                     "compatibility": {
                         "x": 0.14,
                         "y": 0.68,
-                        "footerY": 0.27,
                         "fontSize": 35,
                         "font": "Sans Serif"
                     },
                     "normal": {
                         "x": 0.00,
                         "y": 0.68,
-                        "footerY": 0.27,
                         "fontSize": 35,
                         "font": "Sans Serif"
                     }

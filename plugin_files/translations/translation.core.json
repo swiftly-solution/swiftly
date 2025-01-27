@@ -59,6 +59,12 @@
         "pl": "Wyjście",
         "de": "Beenden"
     },
+    "menu.input.chat": {
+        "en": "Page {PAGE}/{MAXPAGES} | {PREFIX}1 - {PREFIX}9",
+        "ro": "Pagina {PAGE}/{MAXPAGES} | {PREFIX}1 - {PREFIX}9",
+        "pl": "Strona {PAGE}/{MAXPAGES} | {PREFIX}1 - {PREFIX}9",
+        "de": "Seite {PAGE}/{MAXPAGES} | {PREFIX}1 - {PREFIX}9"
+    },
     "menu.center.footer": {
         "en": "{CYCLE_BUTTON} - Cycle | {USE_BUTTON} - Select | Page {PAGE}/{MAXPAGES}",
         "ro": "{CYCLE_BUTTON} - Schimbă | {USE_BUTTON} - Selectează | Pagina {PAGE}/{MAXPAGES}",

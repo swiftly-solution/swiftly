@@ -120,7 +120,9 @@ void ScreenMenu::ProcessOptions()
 
     if (tempmap.size() > 0)
     {
-        tempmap[tempmap.size() - 1].first += "\n"; // padding between items and reserved options
+        std::string padding = "\n";
+        for(int i = 0; i < allowedItems - tempmap.size() + 2; i++) padding += "\n";
+        tempmap[tempmap.size() - 1].first += padding;
 
         if (this->processedOptions.size() != 0) tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.back")), 35), "menuback"});
         if (reservedItems == 3) tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.exit")), 35), "menuexit"});
@@ -146,10 +148,12 @@ void ScreenMenu::RegeneratePage(int playerid, int page, int selected)
         this->generatedPages[playerid].push_back("");
     }
 
-    std::string stringPage = string_format("%s\n", stringWithSplit(RemoveHtmlTags(this->title), 35).c_str());
+    std::string stringPage = string_format(" %s\n", stringWithSplit(RemoveHtmlTags(this->title), 35).c_str());
     for (int i = 0; i < processedOptions[page - 1].size(); i++) {
-        stringPage += string_format("\n%s%s", (i == selected ? (g_Config->FetchValue<std::string>("core.menu.navigation_prefix")).c_str() : " "), processedOptions[page - 1][i].first.c_str());
+        stringPage += string_format("\n%s%d. %s", g_Config->FetchValue<std::string>("core.menu.inputMode") == "chat" ? " " : (i == selected ? (g_Config->FetchValue<std::string>("core.menu.navigation_prefix")).c_str() : " "), i+1, processedOptions[page - 1][i].first.c_str());
     }
+
+    stringPage += string_format("\n\n %s", GenerateFooter(page).c_str());
 
     this->generatedPages[playerid][page - 1] = stringPage;
 }
@@ -166,12 +170,19 @@ Color ScreenMenu::GetColor()
 
 std::string ScreenMenu::GenerateFooter(int page)
 {
-    std::string footer = replace(g_translations->FetchTranslation(g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.screen.footer" : "core.menu.screen.footer.nooption"), "{PAGE}", std::to_string(page));
-    footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
-    footer = replace(footer, "{CYCLE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.scroll")));
-    footer = replace(footer, "{USE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.use")));
-    footer = replace(footer, "{EXIT_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.exit.button")));
-    return footer;
+    if(g_Config->FetchValue<std::string>("core.menu.inputMode") == "chat") {
+        std::string footer = replace(g_translations->FetchTranslation("core.menu.input.chat"), "{PAGE}", std::to_string(page));
+        footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
+        footer = replace(footer, "{PREFIX}", GenerateCommandDefaultPrefix());
+        return footer;
+    } else {
+        std::string footer = replace(g_translations->FetchTranslation(g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.screen.footer" : "core.menu.screen.footer.nooption"), "{PAGE}", std::to_string(page));
+        footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
+        footer = replace(footer, "{CYCLE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.scroll")));
+        footer = replace(footer, "{USE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.use")));
+        footer = replace(footer, "{EXIT_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.exit.button")));
+        return footer;
+    }
 }
 
 bool ScreenMenu::RenderEachTick()

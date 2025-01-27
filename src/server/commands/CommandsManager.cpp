@@ -69,7 +69,22 @@ int CommandsManager::HandleCommand(Player* player, std::string text)
         if (commandName.size() < 1)
             return 0;
 
-        commandName.erase(0, 1);
+        commandName.erase(0, selectedPrefix.size());
+
+        if(player->menu_renderer->HasMenuShown() && g_Config->FetchValue<std::string>("core.menu.inputMode") == "chat") {
+            if( commandName == "1" || commandName == "2" || commandName == "3" || commandName == "4" || 
+                commandName == "5" || commandName == "6" || commandName == "7" || commandName == "8" || commandName == "9") {
+                    int value = V_StringToUint32(commandName.c_str(), 1);
+                    if(value > player->menu_renderer->GetMenu()->GetItemsOnPage(player->menu_renderer->GetPage())) return 2;
+    
+                    while(player->menu_renderer->GetSelection() != value-1) {
+                        player->menu_renderer->MoveSelection();
+                    }
+    
+                    player->menu_renderer->PerformMenuAction(g_Config->FetchValue<std::string>("core.menu.buttons.use"));
+                    return 2;
+                }
+        }
 
         Command* cmd = g_commandsManager->FetchCommand(commandName);
         if (cmd == nullptr)
@@ -90,6 +105,13 @@ int CommandsManager::HandleCommand(Player* player, std::string text)
         return 2;
     else
         return 0;
+}
+
+std::string GenerateCommandDefaultPrefix() {
+    if(commandPrefixes.size() == 0 && silentCommandPrefixes.size() == 0) return "sw_";
+
+    if(commandPrefixes.size() == 0) return (*silentCommandPrefixes.begin());
+    else return (*commandPrefixes.begin());
 }
 
 Command* CommandsManager::FetchCommand(std::string cmd)
