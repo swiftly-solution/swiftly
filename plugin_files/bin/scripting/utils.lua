@@ -180,6 +180,19 @@ table.filter = function(tbl, predicate)
     end
     return result
 end
+
+--- @param tbl table The table to search.
+--- @param value any the key to search for.
+--- @return number|nil The key returned.
+table.find = function(tbl, value)
+    for key, val in next, tbl do
+        if val == value then
+            return key
+        end
+    end
+    return nil
+end
+
 --- @param tbl table The table to search.
 --- @param value any The value to search for.
 --- @return boolean True if the value exists in the table, false otherwise.
