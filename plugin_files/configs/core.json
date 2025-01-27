@@ -43,7 +43,7 @@
         "kind": "screen",
         "available_kinds": ["screen", "center"],
         "available_inputmodes": ["chat", "button"],
-        "inputMode": "chat",
+        "inputMode": "button",
         "kind_settings": {
             "center": {
                 "itemsPerPage": 7
