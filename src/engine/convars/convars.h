@@ -19,6 +19,8 @@ private:
     std::any m_value;
     EConVarType m_type;
     std::string m_name;
+    ConCommand* m_cmd;
+    ConCommandRefAbstract convarRef;
 
 public:
     FakeConVar(std::string name, EConVarType type, std::any defaultValue, bool prot);
@@ -34,7 +36,7 @@ bool FakeConvarExists(std::string name);
 FakeConVar* GetFakeConvar(std::string name);
 void DeleteFakeConvar(std::string name);
 std::map<std::string, FakeConVar*> FetchFakeConvars();
-void InsertFakeConvar(std::string name, FakeConVar* cvar);
+void InsertFakeConvar(std::string name, EConVarType type, std::any defaultValue, bool prot);
 
 class ConvarQuery
 {

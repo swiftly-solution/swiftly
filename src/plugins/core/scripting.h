@@ -502,9 +502,11 @@ class PluginConvars
 {
 private:
     std::string plugin_name;
+    std::set<std::string> created_cvars;
 
 public:
     PluginConvars(std::string m_plugin_name);
+    ~PluginConvars();
 
     void CreateFake(std::string cvarname, int32_t type, std::any defaultValue, bool prot);
     void DeleteFake(std::string cvarname);

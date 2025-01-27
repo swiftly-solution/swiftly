@@ -29,49 +29,51 @@ void Precacher::CacheModel(const char *model)
 
 void Precacher::AddModel(std::string model)
 {
-    if (std::find(this->cacheModels.begin(), this->cacheModels.end(), model) != this->cacheModels.end())
+    if (this->cacheModels.find(model) != this->cacheModels.end())
         return;
-    if (std::find(this->precachedModels.begin(), this->precachedModels.end(), model) != this->precachedModels.end())
+    if (this->precachedModels.find(model) != this->precachedModels.end())
         return;
     if (model.size() <= 0)
         return;
 
-    this->cacheModels.push_back(model);
+    this->cacheModels.insert(model);
 }
 
 void Precacher::CacheModels()
 {
-    for (std::string model : this->cacheModels)
+    for (auto it = this->cacheModels.begin(); it != this->cacheModels.end(); ++it)
     {
-        if (std::find(this->precachedModels.begin(), this->precachedModels.end(), model) != this->precachedModels.end())
+        std::string model = *it;
+        if (this->precachedModels.find(model) != this->precachedModels.end())
             continue;
 
         this->CacheModel(model.c_str());
-        this->precachedModels.push_back(model);
+        this->precachedModels.insert(model);
     }
 }
 
 void Precacher::AddSound(std::string sound)
 {
-    if (std::find(this->cacheSounds.begin(), this->cacheSounds.end(), sound) != this->cacheSounds.end())
+    if (this->cacheSounds.find(sound) != this->cacheSounds.end())
         return;
-    if (std::find(this->precachedSounds.begin(), this->precachedSounds.end(), sound) != this->precachedSounds.end())
+    if (this->precachedSounds.find(sound) != this->precachedSounds.end())
         return;
     if (sound.size() <= 0)
         return;
 
-    this->cacheSounds.push_back(sound);
+    this->cacheSounds.insert(sound);
 }
 
 void Precacher::CacheSounds()
 {
-    for (std::string sound : this->cacheSounds)
+    for (auto it = this->cacheSounds.begin(); it != this->cacheSounds.end(); ++it)
     {
-        if (std::find(this->precachedSounds.begin(), this->precachedSounds.end(), sound) != this->precachedSounds.end())
+        std::string sound = *it;
+        if (this->precachedSounds.find(sound) != this->precachedSounds.end())
             continue;
 
         this->CacheSound(sound.c_str());
-        this->precachedSounds.push_back(sound);
+        this->precachedSounds.insert(sound);
     }
 }
 

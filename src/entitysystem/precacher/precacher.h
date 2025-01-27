@@ -2,7 +2,7 @@
 #define _precacher_h
 
 #include <cstdint>
-#include <vector>
+#include <set>
 #include <string>
 #include <algorithm>
 
@@ -12,10 +12,10 @@ class Precacher
 {
 private:
     int64_t precacheContext = 0;
-    std::vector<std::string> cacheModels;
-    std::vector<std::string> cacheSounds;
-    std::vector<std::string> precachedModels;
-    std::vector<std::string> precachedSounds;
+    std::set<std::string> cacheModels;
+    std::set<std::string> cacheSounds;
+    std::set<std::string> precachedModels;
+    std::set<std::string> precachedSounds;
     bool soundsPrecached = false;
 
 public:
@@ -43,7 +43,7 @@ public:
 
     bool HasModelInList(std::string model)
     {
-        return (std::find(this->precachedModels.begin(), this->precachedModels.end(), model) != this->precachedModels.end());
+        return (this->precachedModels.find(model) != this->precachedModels.end());
     }
 
     void CacheModel(const char *model);

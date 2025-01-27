@@ -13,8 +13,6 @@ class CallStack
 private:
     std::map<std::string, std::unordered_map<uint64_t, std::string>> callStacks;
 public:
-    CallStack() = default;
-
     uint64_t RegisterPluginCallstack(std::string plugin_name, std::string stackMsg);
     void UnregisterPluginCallstack(std::string plugin_name, uint64_t stackID);
 

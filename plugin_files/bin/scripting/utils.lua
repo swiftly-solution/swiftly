@@ -10,14 +10,10 @@ local lifeStateSelector = {
     ["@dead"] = LifeState_t.LIFE_DEAD
 }
 
-function FindPlayersByTarget(target, matchbots, playerid)
+function FindPlayersByTarget(target, matchbots)
     if matchbots == nil then matchbots = true end
     local matchedPlayers = {}
     target = tostring(target)
-
-    if target == "@me" then
-        return {GetPlayer(playerid)}
-    end
 
     for i=0,playermanager:GetPlayerCap()-1,1 do
         local fetchedPlayer = GetPlayer(i)
@@ -29,7 +25,6 @@ function FindPlayersByTarget(target, matchbots, playerid)
             table.insert(matchedPlayers, fetchedPlayer)
             goto findplayersbytargetcontinue
         end
-
 
         --[[ userid ]]
         if target:sub(1,1) == "#" then
@@ -44,7 +39,7 @@ function FindPlayersByTarget(target, matchbots, playerid)
 
         --[[ team ]]
         if teamSelector[target] then
-            local cbaseentity = CBaseEntity(fetchedPlayer:CCSPlayerPawn():ToPtr())
+            local cbaseentity = CBaseEntity(fetchedPlayer:CCSPlayerPawn())
             if cbaseentity then
                 if cbaseentity:IsValid() then
                     if cbaseentity.TeamNum == teamSelector[target] then
@@ -57,7 +52,7 @@ function FindPlayersByTarget(target, matchbots, playerid)
 
         --[[ life state ]]
         if lifeStateSelector[target] then
-            local cbaseentity = CBaseEntity(fetchedPlayer:CCSPlayerPawn():ToPtr())
+            local cbaseentity = CBaseEntity(fetchedPlayer:CCSPlayerPawn())
             if cbaseentity then
                 if cbaseentity:IsValid() then
                     if cbaseentity.LifeState == lifeStateSelector[target] then
@@ -84,7 +79,7 @@ function FindPlayersByTarget(target, matchbots, playerid)
             end
         end
 
-        local result, eventRet = TriggerEvent("FindPlayerByTarget", i, target, playerid)
+        local result, eventRet = TriggerEvent("FindPlayerByTarget", i, target)
         local returnValue = eventRet:GetReturn()
         if returnValue == true then
             table.insert(matchedPlayers, fetchedPlayer)
@@ -110,7 +105,6 @@ end
 
 local random = math.random
 function uuid()
-    math.randomseed(os.time())
     local template ='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
     return string.gsub(template, '[xy]', function (c)
         local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
@@ -196,18 +190,6 @@ table.contains = function(tbl, value)
         end
     end
     return false
-end
-
---- @param tbl table The table to search.
---- @param value any the key to search for.
---- @return key number The key returned.
-table.find = function(tbl, value)
-    for key, val in next, tbl do
-        if val == value then
-            return key
-        end
-    end
-    return nil
 end
 
 local weaponlist = {

@@ -7,6 +7,12 @@ PluginConvars::PluginConvars(std::string m_plugin_name)
     this->plugin_name = m_plugin_name;
 }
 
+PluginConvars::~PluginConvars()
+{
+    for(auto it = created_cvars.begin(); it != created_cvars.end(); ++it)
+        DeleteFakeConvar(*it);
+}
+
 void PluginConvars::CreateFake(std::string cvarname, int32_t type, std::any defaultValue, bool prot)
 {
     if (type < 0 || type > 14) return;
@@ -92,17 +98,16 @@ void PluginConvars::CreateFake(std::string cvarname, int32_t type, std::any defa
             defaultValue = QAngle(0.0f, 0.0f, 0.0f);
     }
 
-    auto cvar = new FakeConVar(cvarname, (EConVarType)type, defaultValue, prot);
-    InsertFakeConvar(cvarname, cvar);
+    InsertFakeConvar(cvarname, (EConVarType)type, defaultValue, prot);
+    if(created_cvars.find(cvarname) == created_cvars.end()) created_cvars.insert(cvarname);
 }
 
 void PluginConvars::DeleteFake(std::string cvarname)
 {
     if (!FakeConvarExists(cvarname)) return;
 
-    auto cvar = GetFakeConvar(cvarname);
-    delete cvar;
     DeleteFakeConvar(cvarname);
+    if(created_cvars.find(cvarname) != created_cvars.end()) created_cvars.erase(cvarname);
 }
 
 void PluginConvars::AddFlags(std::string cvarname, int64_t flags)
