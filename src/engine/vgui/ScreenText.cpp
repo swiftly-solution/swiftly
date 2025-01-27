@@ -1,8 +1,6 @@
 #include "ScreenText.h"
 
-ScreenText::ScreenText()
-{
-}
+ScreenText::ScreenText() {}
 
 ScreenText::~ScreenText()
 {
@@ -11,11 +9,12 @@ ScreenText::~ScreenText()
     }
 }
 
-void ScreenText::Create(Color color, std::string font, int size)
+void ScreenText::Create(Color color, std::string font, int size, bool drawBackground, bool isMenu)
 {
     m_col = color;
     m_font = font;
     m_size = size;
+    m_drawBackground = drawBackground;
 
     pScreenEntity.Set((CPointWorldText*)(CreateEntityByName("point_worldtext").GetPtr()));
     if (!pScreenEntity) return;
@@ -31,6 +30,21 @@ void ScreenText::Create(Color color, std::string font, int size)
     pMenuKV->SetFloat("font_size", size);
     pMenuKV->SetString("font_name", font.c_str());
     pMenuKV->SetColor("color", color);
+
+    if(drawBackground) {
+        pMenuKV->SetBool("draw_background", true);
+
+        if(isMenu) {
+            pMenuKV->SetFloat("background_border_width", 0.2);
+            pMenuKV->SetFloat("background_border_height", 0.15);
+        } else {
+            pMenuKV->SetFloat("background_border_width", g_Config->FetchValue<float>("core.vgui.textBackground.paddingX"));
+            pMenuKV->SetFloat("background_border_height", g_Config->FetchValue<float>("core.vgui.textBackground.paddingY"));
+        }
+
+        pMenuKV->SetFloat("background_away_units", 0.04);
+        pMenuKV->SetFloat("background_world_to_uv", 0.05);
+    }
 
     pScreenEntity->DispatchSpawn(pMenuKV);
 }
@@ -118,7 +132,7 @@ void ScreenText::RegenerateText(bool recreate)
     if (recreate) {
         if (pScreenEntity.IsValid()) pScreenEntity->Despawn();
 
-        Create(m_col, m_font, m_size);
+        Create(m_col, m_font, m_size, m_drawBackground);
         SetupViewForPlayer(m_player);
         SetText(m_text);
         SetPosition(m_posX, m_posY);

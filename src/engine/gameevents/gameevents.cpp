@@ -164,7 +164,6 @@ bool EventManager::OnPostFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
 
     if(prettyEventName == "OnRoundStart") {
         RegisterTimeout(100, []() -> void {
-            g_pVGUI->RegenerateScreenPanels();
             g_pVGUI->RegenerateScreenTexts();
         });
     }

@@ -19,8 +19,6 @@ private:
     // Screen Kind
     uint64_t menuTextID = 0;
     uint64_t menuFooterID = 0;
-    uint64_t menuPanelID = 0;
-    uint64_t menuPanelExtendID = 0;
 
     // Center Kind
     IGameEvent* centerMessageEvent = nullptr;

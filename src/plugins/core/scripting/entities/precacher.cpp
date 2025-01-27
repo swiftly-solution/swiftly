@@ -12,12 +12,19 @@ void PluginPrecacher::PrecacheModel(std::string model)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPrecacher::PrecacheModel(model=\"%s\")", model.c_str()));
 
-    g_precacher->AddModel(model);
+    g_precacher->AddItem(model);
 }
 
 void PluginPrecacher::PrecacheSound(std::string path)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPrecacher::PrecacheSound(model=\"%s\")", path.c_str()));
 
-    g_precacher->AddSound(path);
+    g_precacher->AddItem(path);
+}
+
+void PluginPrecacher::PrecacheItem(std::string path)
+{
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginPrecacher::PrecacheItem(model=\"%s\")", path.c_str()));
+
+    g_precacher->AddItem(path);
 }

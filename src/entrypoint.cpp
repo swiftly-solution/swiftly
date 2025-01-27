@@ -13,6 +13,7 @@
 #include "memory/encoders/msgpack.h"
 #include "entitysystem/entities/listener.h"
 #include "engine/vgui/VGUI.h"
+#include "entitysystem/precacher/game_system.h"
 #include "server/configuration/Configuration.h"
 #include "server/commands/CommandsManager.h"
 #include "tools/crashreporter/CallStack.h"
@@ -222,6 +223,11 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     else
         PRINT("Hooks initialized succesfully.\n");
 
+    if(!InitGameSystem())
+        PRINTRET("Failed to initialize the game system.\n", false)
+    else
+        PRINT("Game System initialized\n");
+
     g_chatProcessor->LoadMessages();
     g_translations->LoadTranslations();
 
@@ -323,12 +329,6 @@ std::string currentMap = "None";
 
 void Swiftly::OnLevelInit(char const* pMapName, char const* pMapEntities, char const* pOldLevel, char const* pLandmarkName, bool loadGame, bool background)
 {
-    if (!g_precacher->GetSoundsPrecached())
-    {
-        g_precacher->CacheSounds();
-        g_precacher->SetSoundsPrecached(true);
-    }
-
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnMapLoad", encoders::msgpack::SerializeToString({ pMapName }), event);
     delete event;
@@ -338,7 +338,6 @@ void Swiftly::OnLevelInit(char const* pMapName, char const* pMapEntities, char c
 
 void Swiftly::OnLevelShutdown()
 {
-    g_precacher->Reset();
     g_translations->LoadTranslations();
     g_Config->LoadPluginConfigurations();
 

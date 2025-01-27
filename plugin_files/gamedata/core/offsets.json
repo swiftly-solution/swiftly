@@ -42,5 +42,9 @@
     "GetHammerUniqueID": {
         "windows": 109,
         "linux": 108
+    },
+    "CEntityResourceManifest_AddResource": {
+        "windows": 2,
+        "linux": 0
     }
 }

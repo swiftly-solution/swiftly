@@ -94,21 +94,22 @@ void ScreenMenu::ProcessOptions()
     int totalProcessedItems = 0;
     std::vector<std::pair<std::string, std::string>> tempmap;
 
-    int maxProcessedItems = (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? (pages == 0 ? 9 : 8) : (pages == 0 ? 10 : 9));
+    int reservedItems = g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? 3 : 2;
+    int allowedItems = g_Config->FetchValue<int>("core.menu.kind_settings.screen.itemsPerPage") - reservedItems;
+
     for (const std::pair<std::string, std::string> entry : this->options)
     {
         ++processedItems;
         ++totalProcessedItems;
-        tempmap.push_back({stringWithSplit(RemoveHtmlTags(entry.first), 25), entry.second});
-        if (processedItems == maxProcessedItems)
-        {
-            if (options.size() - totalProcessedItems > 0)
-                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.next")), 25), "menunext"});
-            if (pages != 0)
-                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.back")), 25), "menuback"});
 
-            if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option"))
-                tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.exit")), 25), "menuexit"});
+        tempmap.push_back({stringWithSplit(RemoveHtmlTags(entry.first), 35), entry.second});
+
+        if (processedItems - (pages == 0 ? 1 : 0) == allowedItems)
+        {
+            tempmap[tempmap.size()-1].first += "\n";
+            if (options.size() - totalProcessedItems > 0) tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.next")), 35), "menunext"});
+            if (pages != 0) tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.back")), 35), "menuback"});
+            if (reservedItems == 3) tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.exit")), 35), "menuexit"});
 
             processedItems = 0;
             pages++;
@@ -119,11 +120,10 @@ void ScreenMenu::ProcessOptions()
 
     if (tempmap.size() > 0)
     {
-        if (this->processedOptions.size() != 0)
-            tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.back")), 25), "menuback"});
+        tempmap[tempmap.size() - 1].first += "\n"; // padding between items and reserved options
 
-        if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option"))
-            tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.exit")), 25), "menuexit"});
+        if (this->processedOptions.size() != 0) tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.back")), 35), "menuback"});
+        if (reservedItems == 3) tempmap.push_back({stringWithSplit(RemoveHtmlTags(g_translations->FetchTranslation("core.menu.exit")), 35), "menuexit"});
 
         processedItems = 0;
         this->processedOptions.push_back(tempmap);
@@ -146,7 +146,7 @@ void ScreenMenu::RegeneratePage(int playerid, int page, int selected)
         this->generatedPages[playerid].push_back("");
     }
 
-    std::string stringPage = string_format("%s\n", stringWithSplit(RemoveHtmlTags(this->title), 25).c_str());
+    std::string stringPage = string_format("%s\n", stringWithSplit(RemoveHtmlTags(this->title), 35).c_str());
     for (int i = 0; i < processedOptions[page - 1].size(); i++) {
         stringPage += string_format("\n%s%s", (i == selected ? (g_Config->FetchValue<std::string>("core.menu.navigation_prefix")).c_str() : " "), processedOptions[page - 1][i].first.c_str());
     }

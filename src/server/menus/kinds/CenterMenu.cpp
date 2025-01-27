@@ -13,7 +13,9 @@ CenterMenu::CenterMenu(std::string id, std::string title, std::string color, std
     this->title = title;
     this->temporary = tmp;
 
+    fprintf(stdout, "Begin center\n");
     ProcessOptions();
+    fprintf(stdout, "End center\n");
 }
 
 CenterMenu::~CenterMenu()
@@ -53,21 +55,19 @@ void CenterMenu::ProcessOptions()
     int totalProcessedItems = 0;
     std::vector<std::pair<std::string, std::string>> tempmap;
 
-    int maxProcessedItems = (g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? (pages == 0 ? 4 : 3) : (pages == 0 ? 5 : 4));
+    int reservedItems = g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? 3 : 2;
+    int allowedItems = g_Config->FetchValue<int>("core.menu.kind_settings.center.itemsPerPage") - reservedItems;
+
     for (const std::pair<std::string, std::string> entry : this->options)
     {
         ++processedItems;
         ++totalProcessedItems;
         tempmap.push_back({entry.first, entry.second});
-        if (processedItems == maxProcessedItems)
+        if (processedItems == allowedItems)
         {
-            if (options.size() - totalProcessedItems > 0)
-                tempmap.push_back({g_translations->FetchTranslation("core.menu.next"), "menunext"});
-            if (pages != 0)
-                tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
-
-            if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option"))
-                tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
+            if (options.size() - totalProcessedItems > 0) tempmap.push_back({g_translations->FetchTranslation("core.menu.next"), "menunext"});
+            if (pages != 0) tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
+            if (reservedItems == 3) tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
 
             processedItems = 0;
             pages++;
@@ -78,11 +78,8 @@ void CenterMenu::ProcessOptions()
 
     if (tempmap.size() > 0)
     {
-        if (this->processedOptions.size() != 0)
-            tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
-
-        if (g_Config->FetchValue<bool>("core.menu.buttons.exit.option"))
-            tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
+        if (this->processedOptions.size() != 0) tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
+        if (reservedItems == 3) tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
 
         processedItems = 0;
         this->processedOptions.push_back(tempmap);

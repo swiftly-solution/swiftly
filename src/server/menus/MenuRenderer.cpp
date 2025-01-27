@@ -46,34 +46,31 @@ void MenuRenderer::ShowMenu(std::string menu_id)
         RenderMenu();
     } else if(kind == "screen") {
         menuTextID = g_pVGUI->RegisterScreenText();
-        menuPanelID = g_pVGUI->RegisterScreenPanel();
-        menuPanelExtendID = g_pVGUI->RegisterScreenPanel();
         menuFooterID = g_pVGUI->RegisterScreenText();
         
         auto menuText = g_pVGUI->GetScreenText(menuTextID);
-        auto menuPanel = g_pVGUI->GetScreenPanel(menuPanelID);
-        auto menuPanelExtend = g_pVGUI->GetScreenPanel(menuPanelExtendID);
         auto menuFooter = g_pVGUI->GetScreenText(menuFooterID);
 
-        menuFooter->Create(Color(255,255,255,255));
+        std::string menu_mode = g_Config->FetchValue<std::string>("core.menu.kind_settings.screen.mode");
+        std::string font = g_Config->FetchValue<std::string>(string_format("core.menu.kind_settings.screen.modes.%s.font", menu_mode.c_str()));
+
+        float posX = g_Config->FetchValue<float>(string_format("core.menu.kind_settings.screen.modes.%s.x", menu_mode.c_str()));
+        float posY = g_Config->FetchValue<float>(string_format("core.menu.kind_settings.screen.modes.%s.y", menu_mode.c_str()));
+        float footerY = g_Config->FetchValue<float>(string_format("core.menu.kind_settings.screen.modes.%s.footerY", menu_mode.c_str()));
+
+        int fontSize = g_Config->FetchValue<int>(string_format("core.menu.kind_settings.screen.modes.%s.fontSize", menu_mode.c_str()));
+
+        bool hasBackground = g_Config->FetchValue<bool>("core.menu.kind_settings.screen.drawBackground");
+
+        menuFooter->Create(Color(255,255,255,255), font, fontSize, hasBackground, true);
         menuFooter->SetupViewForPlayer(m_player);
         
-        menuText->Create(menu->GetColor());
+        menuText->Create(menu->GetColor(), font, fontSize, hasBackground, true);
         menuText->SetupViewForPlayer(m_player);
         RenderMenu();
-        menuText->SetPosition(0.14, 0.68);
+        menuText->SetPosition(posX, posY);
         
-        menuFooter->SetPosition(0.14, 0.27);
-
-        menuPanel->Create(Color(18, 18, 18, 255));
-        menuPanel->SetupViewForPlayer(m_player);
-        menuPanel->SetText("█");
-        menuPanel->SetPosition(0.13, 0.7);
-
-        menuPanelExtend->Create(Color(18, 18, 18, 255));
-        menuPanelExtend->SetupViewForPlayer(m_player);
-        menuPanelExtend->SetText("█");
-        menuPanelExtend->SetPosition(0.17, 0.7);
+        menuFooter->SetPosition(posX, footerY);
     }
 }
 
@@ -100,13 +97,9 @@ void MenuRenderer::HideMenu()
     } else if(kind == "screen") {
         g_pVGUI->DeleteScreenText(menuFooterID);
         g_pVGUI->DeleteScreenText(menuTextID);
-        g_pVGUI->DeleteScreenPanel(menuPanelID);
-        g_pVGUI->DeleteScreenPanel(menuPanelExtendID);
     
         menuTextID = 0;
-        menuPanelID = 0;
         menuFooterID = 0;
-        menuPanelExtendID = 0;
     }
 }
 

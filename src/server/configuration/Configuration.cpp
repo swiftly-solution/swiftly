@@ -476,6 +476,30 @@ bool Configuration::LoadConfiguration()
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind", "screen");
     RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "menu.available_kinds", {"screen", "center"}, true, " ");
+    
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.center.itemsPerPage", 7);
+    
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.mode", "compatibility");
+
+    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.x", 0.14);
+    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.y", 0.68);
+    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.footerY", 0.27);
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.fontSize", 35);
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.compatibility.font", "Sans Serif");
+
+    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.x", 0.0);
+    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.y", 0.68);
+    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.footerY", 0.27);
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.fontSize", 35);
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.modes.normal.font", "Sans Serif");
+    
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.drawBackground", true);
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "menu.kind_settings.screen.itemsPerPage", 9);
+
+    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "vgui.textBackground.paddingX", 0.1);
+    RegisterConfiguration<float>(wasEdited, coreConfigFile, "core", "core", "vgui.textBackground.paddingY", 0.1);
+
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "vgui.textBackground.textSize", 35);
 
     if (wasEdited)
     {

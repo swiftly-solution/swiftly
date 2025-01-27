@@ -11,10 +11,6 @@ LoadLuaScriptingComponent(
             .addFunction("RemoveText", &PluginVGUI::RemoveText)
             .addFunction("SetTextMessage", &PluginVGUI::SetTextMessage)
             .addFunction("SetTextPosition", &PluginVGUI::SetTextPosition)
-            .addFunction("ShowPanel", &PluginVGUI::ShowPanel)
-            .addFunction("RemovePanel", &PluginVGUI::RemovePanel)
-            .addFunction("SetPanelMessage", &PluginVGUI::SetPanelMessage)
-            .addFunction("SetPanelPosition", &PluginVGUI::SetPanelPosition)
             .endClass();
 
         luaL_dostring(state, "vgui = VGUI(GetCurrentPluginName())");

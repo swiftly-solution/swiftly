@@ -41,6 +41,38 @@
             }
         },
         "kind": "screen",
-        "available_kinds": ["screen", "center"]
+        "available_kinds": ["screen", "center"],
+        "kind_settings": {
+            "center": {
+                "itemsPerPage": 7
+            },
+            "screen": {
+                "mode": "compatibility",
+                "modes": {
+                    "compatibility": {
+                        "x": 0.14,
+                        "y": 0.68,
+                        "footerY": 0.27,
+                        "fontSize": 35,
+                        "font": "Sans Serif"
+                    },
+                    "normal": {
+                        "x": 0.00,
+                        "y": 0.68,
+                        "footerY": 0.27,
+                        "fontSize": 35,
+                        "font": "Sans Serif"
+                    }
+                },
+                "drawBackground": true,
+                "itemsPerPage": 9
+            }
+        }
+    },
+    "vgui": {
+        "textBackground": {
+            "paddingX": 0.1,
+            "paddingY": 0.1
+        }
     }
 }
