@@ -126,6 +126,7 @@ std::string replace(std::string str, const std::string from, const std::string t
 
 std::vector<std::string> explode(std::string s, std::string delimiter)
 {
+    if(s.size() == 0) return {};
     size_t pos_start = 0, pos_end, delim_len = delimiter.length();
     std::string token;
     std::vector<std::string> res;
@@ -143,6 +144,7 @@ std::vector<std::string> explode(std::string s, std::string delimiter)
 
 std::set<std::string> explodeToSet(std::string str, std::string delimiter)
 {
+    if(str.size() == 0) return {};
     size_t pos_start = 0, pos_end, delim_len = delimiter.length();
     std::string token;
     std::set<std::string> res;

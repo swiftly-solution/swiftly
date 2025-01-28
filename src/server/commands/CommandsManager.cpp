@@ -30,18 +30,20 @@ int CommandsManager::HandleCommand(Player* player, std::string text)
     bool isSilentCommand = false;
     std::string selectedPrefix = "";
 
-    for(auto it = commandPrefixes.begin(); it != commandPrefixes.end(); ++it) {
-        std::string prefix = *it;
-        auto strPrefix = text.substr(0, prefix.size());
+    if(commandPrefixes.size() > 0) {
+        for(auto it = commandPrefixes.begin(); it != commandPrefixes.end(); ++it) {
+            std::string prefix = *it;
+            auto strPrefix = text.substr(0, prefix.size());
 
-        if(prefix == strPrefix) {
-            isCommand = true;
-            selectedPrefix = prefix;
-            break;
+            if(prefix == strPrefix) {
+                isCommand = true;
+                selectedPrefix = prefix;
+                break;
+            }
         }
     }
 
-    if(!isCommand) {
+    if(!isCommand && silentCommandPrefixes.size() > 0) {
         for(auto it = silentCommandPrefixes.begin(); it != silentCommandPrefixes.end(); ++it) {
             std::string prefix = *it;
             auto strPrefix = text.substr(0, prefix.size());
