@@ -31,8 +31,10 @@
 - [GitHub Topic](https://github.com/topics/swiftly-solution)
 ---
 ### For Developers
-- [My First Lua Plugin](https://swiftlycs2.net/docs/my-first-plugin/lua.html)
-- [Documentation](https://swiftlycs2.net)
+- [Beginners](https://swiftlycs2.net/for-beginners)
+- [Plugin Docs](https://swiftlycs2.net/plugin-docs)
+- [Extension Docs](https://swiftlycs2.net/ext-docs)
+- [SDK Docs](https://swiftlycs2.net/sdk)
 ---
 ### Building Commands
 
