@@ -97,6 +97,9 @@ LoadLuaScriptingComponent(
             .addFunction("SetHookReturn", &PluginEvent::SetHookReturn)
             .addFunction("GetHookReturn", &PluginEvent::GetHookReturn)
 
+            .addFunction("SetNoBroadcast", &PluginEvent::SetNoBroadcast)
+            .addFunction("GetNoBroadcast", &PluginEvent::GetNoBroadcast)
+
             .endClass();
     }
 )

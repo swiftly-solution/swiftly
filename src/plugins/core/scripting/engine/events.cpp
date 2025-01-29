@@ -410,3 +410,13 @@ std::any PluginEvent::GetHookReturn()
         return nullptr;
     }
 }
+
+void PluginEvent::SetNoBroadcast(bool status)
+{
+    noBroadcastStatus = status;
+}
+
+bool PluginEvent::GetNoBroadcast()
+{
+    return noBroadcastStatus;
+}

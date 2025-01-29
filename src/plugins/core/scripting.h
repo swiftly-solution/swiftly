@@ -125,6 +125,7 @@ private:
 
     std::any returnValue;
     bool shouldFree = false;
+    bool noBroadcastStatus = false;
 
 public:
     PluginEvent(std::string m_plugin_name, IGameEvent* m_gameEvent, dyno::Hook* m_hookPtr);
@@ -132,6 +133,9 @@ public:
     ~PluginEvent();
 
     std::string GetInvokingPlugin();
+
+    void SetNoBroadcast(bool status);
+    bool GetNoBroadcast();
 
     // Game Event Section
     bool IsGameEvent();

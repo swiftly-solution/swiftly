@@ -120,12 +120,20 @@ bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
 
     std::string eventName = pEvent->GetName();
 
+    bool dontBroadcast = bDontBroadcast;
+
     std::string prettyEventName = gameEventsRegister[eventName];
     if (!prettyEventName.empty())
     {
         PluginEvent* event = new PluginEvent("core", pEvent, nullptr);
+        event->SetNoBroadcast(dontBroadcast);
+
         EventResult result = g_pluginManager->ExecuteEvent("core", prettyEventName, encoders::msgpack::SerializeToString({}), event);
+
+        dontBroadcast = event->GetNoBroadcast();
+
         delete event;
+
         if (prettyEventName == "OnPlayerSpawn")
         {
             auto slot = pEvent->GetPlayerSlot("userid");
@@ -144,6 +152,11 @@ bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
     }
 
     dupEvents.push(g_gameEventManager->DuplicateEvent(pEvent));
+
+    if(dontBroadcast != bDontBroadcast) {
+        RETURN_META_VALUE_NEWPARAMS(MRES_IGNORED, true, &IGameEventManager2::FireEvent, (pEvent, dontBroadcast));
+    }
+
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
 
