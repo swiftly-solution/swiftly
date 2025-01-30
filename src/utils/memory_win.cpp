@@ -8,7 +8,7 @@ CMemory FindVirtTable(DynLibUtils::CModule *_this, const std::string_view svTabl
     if(svTableName.empty())
 		return CMemory();
 	
-	CModule::ModuleSections_t runTimeData = GetSectionByName(".data"), readOnlyData = GetSectionByName(".rdata");
+	CModule::ModuleSections_t runTimeData = _this->GetSectionByName(".data"), readOnlyData = _this->GetSectionByName(".rdata");
 	if(!runTimeData.IsSectionValid() || !readOnlyData.IsSectionValid())
 		return CMemory();
 
