@@ -46,5 +46,9 @@
     "CEntityResourceManifest_AddResource": {
         "windows": 2,
         "linux": 0
+    },
+    "INetworkMessageProcessingPreFilter": {
+        "windows": 8,
+        "linux": -64
     }
 }
