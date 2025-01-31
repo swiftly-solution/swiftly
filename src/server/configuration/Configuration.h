@@ -25,7 +25,7 @@ public:
 
     void LoadPluginConfigurations();
 
-    std::map<std::string, std::any> FetchPluginConfiguration() { return this->pluginConfig; }
+    std::map<std::string, std::any>& FetchPluginConfiguration() { return this->pluginConfig; }
     std::map<std::string, std::any>& FetchConfiguration() { return this->config; }
     std::map<std::string, unsigned int> FetchConfigArraySizes() { return this->configArraySizes; }
 

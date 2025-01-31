@@ -665,6 +665,10 @@ void Configuration::ClearPluginConfig()
 EXT_API void* swiftly_GetConfigurationValue(const char* key)
 {
     auto& config = g_Config->FetchConfiguration();
-    if (config.find(key) == config.end()) return nullptr;
-    return (void*)&(config[key]);
+    if (config.find(key) != config.end()) return (void*)&(config[key]);
+
+    auto& pluginConfig = g_Config->FetchPluginConfiguration();
+    if (pluginConfig.find(key) != pluginConfig.end()) return (void*)&(pluginConfig[key]);
+
+    return nullptr;
 }
