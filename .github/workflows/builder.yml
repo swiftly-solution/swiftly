@@ -169,6 +169,8 @@ jobs:
                   unzip Swiftly.Plugin.Admins.BaseBans.zip
                   wget https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip
                   unzip Swiftly.Plugin.Admins.BaseCommands.zip
+                  wget https://github.com/swiftly-solution/map-chooser/releases/latest/download/Swiftly.Plugin.Map-Chooser.zip
+                  unzip Swiftly.Plugin.Map-Chooser.zip 
                   wget https://github.com/swiftly-solution/cookies/releases/latest/download/cookies.zip
                   unzip cookies.zip
 
@@ -176,6 +178,7 @@ jobs:
                   rm -rf Swiftly.Plugin.Admins.BaseComms.zip
                   rm -rf Swiftly.Plugin.Admins.BaseBans.zip
                   rm -rf Swiftly.Plugin.Admins.BaseCommands.zip
+                  rm -rf Swiftly.Plugin.Map-Chooser.zip
                   rm -rf cookies.zip
 
                   cd ../../../..
@@ -197,6 +200,8 @@ jobs:
                   Expand-Archive Swiftly.Plugin.Admins.BaseBans.zip -DestinationPath .
                   Invoke-WebRequest https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip -OutFile Swiftly.Plugin.Admins.BaseCommands.zip
                   Expand-Archive Swiftly.Plugin.Admins.BaseCommands.zip -DestinationPath .
+                  Invoke-WebRequest https://github.com/swiftly-solution/map-chooser/releases/latest/download/Swiftly.Plugin.Map-Chooser.zip -OutFile Swiftly.Plugin.Map-Chooser.zip
+                  Expand-Archive Swiftly.Plugin.Map-Chooser.zip -DestinationPath .
                   Invoke-WebRequest https://github.com/swiftly-solution/cookies/releases/latest/download/cookies.zip -OutFile cookies.zip
                   Expand-Archive cookies.zip -DestinationPath .
 
@@ -204,6 +209,7 @@ jobs:
                   Remove-Item -Force Swiftly.Plugin.Admins.BaseComms.zip
                   Remove-Item -Force Swiftly.Plugin.Admins.BaseBans.zip
                   Remove-Item -Force Swiftly.Plugin.Admins.BaseCommands.zip
+                  Remove-Item -Force Swiftly.Plugin.Map-Chooser.zip
                   Remove-Item -Force cookies.zip
 
                   Set-Location ../../../..
