@@ -11,6 +11,8 @@
 
 <div align="center">
 
+README is also available in [ukrainian](https://github.com/swiftly-solution/swiftly/blob/master/README-UA.md) ![ua](https://v4nixd.xyz/cdn/swiftly/famfamfam-flags/ua.png) and [russian](https://github.com/swiftly-solution/swiftly/blob/master/README-RU.md) ![ru](https://v4nixd.xyz/cdn/swiftly/famfamfam-flags/ru.png)
+
 ![Downloads](https://img.shields.io/github/downloads/swiftly-solution/swiftly/total) ![Contributors](https://img.shields.io/github/contributors/swiftly-solution/swiftly?color=dark-green) ![Issues](https://img.shields.io/github/issues/swiftly-solution/swiftly) ![License](https://img.shields.io/github/license/swiftly-solution/swiftly)
 
 </div>
