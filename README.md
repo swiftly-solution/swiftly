@@ -11,33 +11,46 @@
 
 <div align="center">
 
-README is also available in [ukrainian](https://github.com/swiftly-solution/swiftly/blob/master/README-UA.md) ![ua](https://v4nixd.xyz/cdn/swiftly/famfamfam-flags/ua.png) and [russian](https://github.com/swiftly-solution/swiftly/blob/master/README-RU.md) ![ru](https://v4nixd.xyz/cdn/swiftly/famfamfam-flags/ru.png)
+README is also available in [Ukrainian](https://github.com/swiftly-solution/swiftly/blob/master/README-UA.md) ![ua](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/ua.png) and [Russian](https://github.com/swiftly-solution/swiftly/blob/master/README-RU.md) ![ru](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/ru.png)
 
 ![Downloads](https://img.shields.io/github/downloads/swiftly-solution/swiftly/total) ![Contributors](https://img.shields.io/github/contributors/swiftly-solution/swiftly?color=dark-green) ![Issues](https://img.shields.io/github/issues/swiftly-solution/swiftly) ![License](https://img.shields.io/github/license/swiftly-solution/swiftly)
 
 </div>
 
 ---
+
 ### Build Requirements
--   [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Downloads automatically with the git cloning using Recurse Submodules)
--   [metamod-source](https://github.com/alliedmodders/metamod-source) (Downloads automatically with the git cloning using Recurse Submodules)
--   [python3](https://www.python.org/)
--   [AMBuild](https://github.com/alliedmodders/ambuild) (MAKE SURE `ambuild` COMMAND IS AVAILABLE VIA `PATH` FOR WINDOWS)
+
+- [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Downloads automatically with the git cloning using Recurse Submodules)
+- [metamod-source](https://github.com/alliedmodders/metamod-source) (Downloads automatically with the git cloning using Recurse Submodules)
+- [python3](https://www.python.org/)
+- [AMBuild](https://github.com/alliedmodders/ambuild) (MAKE SURE `ambuild` COMMAND IS AVAILABLE VIA `PATH` FOR WINDOWS)
+
 ---
+
 ### Downloads
+
 - [Public Releases (recomended)](https://github.com/swiftly-solution/swiftly/releases)
 - [Builds (use at your own risk)](https://github.com/swiftly-solution/swiftly/actions)
+
 ---
+
 ### Get Plugins
+
 - [Discord (recomended)](https://swiftlycs2.net/discord)
 - [GitHub Topic](https://github.com/topics/swiftly-solution)
+
 ---
+
 ### For Developers
+
 - [Beginners](https://swiftlycs2.net/for-beginners)
 - [Plugin Docs](https://swiftlycs2.net/plugin-docs)
 - [Extension Docs](https://swiftlycs2.net/ext-docs)
 - [SDK Docs](https://swiftlycs2.net/sdk)
+
 ---
+
 ### Building Commands
 
 #### Clone Repository
@@ -75,7 +88,7 @@ Swiftly is licensed under the MIT License. You can view the license in the LICEN
 
 ### Credits
 
-The Schema System and the base SDK classes fields provided by [CS2Fixes](https://github.com/Source2ZE/CS2Fixes). 
+The Schema System and the base SDK classes fields provided by [CS2Fixes](https://github.com/Source2ZE/CS2Fixes).
 
 The rest of SDK fields were provided by [Source2SDK](https://github.com/neverlosecc/source2sdk/tree/cs2/sdk).
 

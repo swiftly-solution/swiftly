@@ -11,33 +11,46 @@
 
 <div align="center">
 
-README також доступний [англійською](https://github.com/swiftly-solution/swiftly/blob/master/README.md) ![en](https://v4nixd.xyz/cdn/swiftly/famfamfam-flags/gb.png) та [російською](https://github.com/swiftly-solution/swiftly/blob/master/README-RU.md) ![ru](https://v4nixd.xyz/cdn/swiftly/famfamfam-flags/ru.png)
+README також доступний [англійською](https://github.com/swiftly-solution/swiftly/blob/master/README.md) ![en](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/gb.png) та [російською](https://github.com/swiftly-solution/swiftly/blob/master/README-RU.md) ![ru](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/ru.png)
 
 ![Downloads](https://img.shields.io/github/downloads/swiftly-solution/swiftly/total) ![Contributors](https://img.shields.io/github/contributors/swiftly-solution/swiftly?color=dark-green) ![Issues](https://img.shields.io/github/issues/swiftly-solution/swiftly) ![License](https://img.shields.io/github/license/swiftly-solution/swiftly)
 
 </div>
 
 ---
+
 ### Вимоги до компіляції
--   [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Автоматично завантажується під час клонування репозиторію з використанням Recurse Submodules)
--   [metamod-source](https://github.com/alliedmodders/metamod-source) (Автоматично завантажується під час клонування репозиторію з використанням Recurse Submodules)
--   [python3](https://www.python.org/)
--   [AMBuild](https://github.com/alliedmodders/ambuild) (ПЕРЕКОНАЙТЕСЬ ЩО КОМАНДА `ambuild` ДОСТУПНА ЧЕРЕЗ `PATH` У WINDOWS)
+
+- [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Автоматично завантажується під час клонування репозиторію з використанням Recurse Submodules)
+- [metamod-source](https://github.com/alliedmodders/metamod-source) (Автоматично завантажується під час клонування репозиторію з використанням Recurse Submodules)
+- [python3](https://www.python.org/)
+- [AMBuild](https://github.com/alliedmodders/ambuild) (ПЕРЕКОНАЙТЕСЬ ЩО КОМАНДА `ambuild` ДОСТУПНА ЧЕРЕЗ `PATH` У WINDOWS)
+
 ---
+
 ### Завантаження
+
 - [Публічні релізи (рекомендовано)](https://github.com/swiftly-solution/swiftly/releases)
 - [Білди (використовуйте на свій страх і ризик)](https://github.com/swiftly-solution/swiftly/actions)
+
 ---
+
 ### Плагіни
+
 - [Discord (рекомандовано)](https://swiftlycs2.net/discord)
 - [Тема на GitHub](https://github.com/topics/swiftly-solution)
+
 ---
+
 ### Для розробників
+
 - [Для початківців](https://swiftlycs2.net/for-beginners)
 - [Документація до плагінів](https://swiftlycs2.net/plugin-docs)
 - [Документація до доповнень](https://swiftlycs2.net/ext-docs)
 - [SDK документація](https://swiftlycs2.net/sdk)
+
 ---
+
 ### Команди для компіляції
 
 #### Клонувати репозиторій
@@ -75,7 +88,7 @@ Swiftly поширюється за ліцензією MIT. Ви можете о
 
 ### Вдячність
 
-Система схем та базові класи SDK надані завдяки [CS2Fixes](https://github.com/Source2ZE/CS2Fixes). 
+Система схем та базові класи SDK надані завдяки [CS2Fixes](https://github.com/Source2ZE/CS2Fixes).
 
 Інші поля SDK надані завдяки [Source2SDK](https://github.com/neverlosecc/source2sdk/tree/cs2/sdk).
 
