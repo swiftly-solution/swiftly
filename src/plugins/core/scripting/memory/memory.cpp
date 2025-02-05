@@ -77,6 +77,15 @@ void PluginMemory::AccessVTableFromOffset(std::string offsetName)
     accessedVTable = true;
 }
 
+void PluginMemory::AccessIndexFromOffset(std::string offsetName)
+{
+    int64_t offset = g_Offsets->GetOffset(offsetName);
+    if(offset < 0) return;
+
+    void* pt = m_ptr;
+    m_ptr = reinterpret_cast<void**>(pt)[offset];
+}
+
 void PluginMemory::AccessIndex(int64_t idx)
 {
     if(idx < 0) return;

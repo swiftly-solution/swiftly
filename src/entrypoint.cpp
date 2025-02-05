@@ -355,9 +355,9 @@ void Swiftly::UpdatePlayers()
 {
     PERF_RECORD("UpdatePlayers", "core")
 
-        // Credits to: https://github.com/Source2ZE/ServerListPlayersFix (Source2ZE Team)
-        if (!engine->GetServerGlobals() || !g_SteamAPI.SteamGameServer())
-            return;
+    // Credits to: https://github.com/Source2ZE/ServerListPlayersFix (Source2ZE Team)
+    if (!engine->GetServerGlobals() || !g_SteamAPI.SteamGameServer())
+        return;
 
     for (int i = 0; i < engine->GetServerGlobals()->maxClients; i++)
     {

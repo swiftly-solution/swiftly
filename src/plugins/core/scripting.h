@@ -773,6 +773,7 @@ public:
     void AddOffset(int64_t offset);
     void RemoveOffset(int64_t offset);
 
+    void AccessIndexFromOffset(std::string offsetName);
     void AccessIndex(int64_t idx);
 
     void AccessVTableFromOffset(std::string offsetName);

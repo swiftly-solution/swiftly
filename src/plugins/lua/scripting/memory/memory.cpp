@@ -18,6 +18,7 @@ LoadLuaScriptingComponent(
             .addFunction("AccessVTable", &PluginMemory::AccessVTable)
             .addFunction("AccessVTableFromOffset", &PluginMemory::AccessVTableFromOffset)
             .addFunction("AccessedVTable", &PluginMemory::AccessedVTable)
+            .addFunction("AccessIndexFromOffset", &PluginMemory::AccessIndexFromOffset)
             .addFunction("AccessIndex", &PluginMemory::AccessIndex)
             .addFunction("Allocate", &PluginMemory::Allocate)
             .addFunction("Deallocate", &PluginMemory::Deallocate)
