@@ -431,6 +431,7 @@ CBaseViewModel* Player::EnsureCustomView(int index)
         if(GetPlayerController()->m_bControllingBot()) {
             return nullptr;
         } else {
+            if(!GetPawn()->m_pObserverServices()) return nullptr;
             auto observerPawn = GetPawn()->m_pObserverServices->m_hObserverTarget();
             if(!observerPawn) return nullptr;
     
@@ -444,6 +445,7 @@ CBaseViewModel* Player::EnsureCustomView(int index)
         }
     }
     if(!pPawnBase) return nullptr;
+    if(!pPawnBase->m_pViewModelServices()) return nullptr;
 
     CBaseViewModel* pViewModel = pPawnBase->m_pViewModelServices()->GetViewModel(index);
     if (!pViewModel) {
