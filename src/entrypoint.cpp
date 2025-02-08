@@ -493,6 +493,7 @@ void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReaso
 {
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnClientDisconnect", encoders::msgpack::SerializeToString({ slot.Get() }), event);
+    delete event;
 
     Player* player = g_playerManager->GetPlayer(slot);
     if (player) {
@@ -507,7 +508,7 @@ void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint
 {
     if (bFakePlayer)
     {
-        Player* player = new Player(true, slot.Get(), pszName, 0, "127.0.0.1");
+        Player* player = new Player(true, slot.Get(), pszName, xuid, "127.0.0.1");
         g_playerManager->RegisterPlayer(player);
     }
     else {
