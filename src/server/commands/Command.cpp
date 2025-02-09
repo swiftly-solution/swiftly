@@ -9,10 +9,7 @@ Command::~Command()
     if (!plugin)
         return;
 
-    if (plugin->GetKind() == PluginKind_t::Lua)
-    {
-        delete this->m_funcPtr;
-    }
+    delete ((EValue*)this->m_funcPtr);
 }
 
 void Command::Execute(int slot, std::vector<std::string> args, bool silent, std::string prefix)

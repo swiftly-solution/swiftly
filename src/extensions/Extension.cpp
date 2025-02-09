@@ -66,16 +66,14 @@ bool Extension::UnloadExtension()
 {
     for(auto plugin : g_pluginManager->GetPluginsList())
         if(plugin->GetPluginState() == PluginState_t::Started) {
-            if(plugin->GetKind() == PluginKind_t::Lua) {
-                std::string error = "";
-                if (!this->GetAPI()->OnPluginUnload(plugin->GetName(), (void*)((LuaPlugin*)plugin)->GetState(), plugin->GetKind(), error)) {
-                    PRINTF("An error has occured while trying to unload the extension from plugin '%s'.\n", plugin->GetName().c_str());
-                    PRINTF("Extension: %s.\n", m_name.c_str());
-                    PRINTF("Error: %s.\n", error.c_str());
-                    m_errored = true;
-                    m_error = error;
-                    return false;
-                }
+            std::string error = "";
+            if (!this->GetAPI()->OnPluginUnload(plugin->GetName(), plugin->GetContext(), plugin->GetKind(), error)) {
+                PRINTF("An error has occured while trying to unload the extension from plugin '%s'.\n", plugin->GetName().c_str());
+                PRINTF("Extension: %s.\n", m_name.c_str());
+                PRINTF("Error: %s.\n", error.c_str());
+                m_errored = true;
+                m_error = error;
+                return false;
             }
         }
 

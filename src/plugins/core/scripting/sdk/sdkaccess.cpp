@@ -8,8 +8,6 @@
 
 #include <set>
 
-std::string FetchPluginName(lua_State* state);
-
 std::set<std::string> BlockedCS2GuidelinesFields = {
     "m_bIsValveDS",
     "m_bIsQuestEligible",
@@ -123,21 +121,6 @@ void SDKBaseClass::CBaseEntity_EmitSound(std::string sound_name, float pitch, fl
             break;
         }
     }
-}
-
-SDKBaseClass::SDKBaseClass(std::string ptr, lua_State* state)
-{
-    this->m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
-
-    lua_Debug ar;
-    if (lua_getstack(state, 0, &ar)) {
-        lua_getinfo(state, "n", &ar);
-        this->m_className = ar.name;
-    }
-    else {
-        this->m_className = "CBaseEntity";
-    }
-    this->classOffset = ((uint64_t)hash_32_fnv1a_const(this->m_className.c_str()) << 32);
 }
 
 SDKBaseClass::SDKBaseClass(std::string ptr, std::string className)

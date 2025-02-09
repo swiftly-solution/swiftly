@@ -63,38 +63,40 @@ void ParseAndFillConfiguration(rapidjson::Value& initDoc, rapidjson::Value& conf
     }
 }
 
-void PluginConfiguration::CreateLua(std::string configurationKey, luabridge::LuaRef table, lua_State* L)
+void PluginConfiguration::Create(std::string configurationKey, EValue table, EContext* L)
 {
-    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::CreateLua(configurationKey=\"%s\")", configurationKey.c_str()));
+    REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConfiguration::Create(configurationKey=\"%s\")", configurationKey.c_str()));
     rapidjson::Document doc(rapidjson::kObjectType);
     if (!table.isTable())
-    {
-        luabridge::LuaRef errorFunc = luabridge::getGlobal(L, "error");
-        errorFunc(std::string("2nd argument needs to be a table."));
-        return;
+        throw std::runtime_error("2nd argument needs to be a table.");
+
+    std::string jsonResult = "";
+
+    if(L->GetKind() == ContextKinds::Lua) {
+        EValue rapidJsonTable = EValue::getGlobal(L, "json");
+        if (!rapidJsonTable["encode"].isFunction())
+            return;
+
+        EValue encodedResult(L);
+        try
+        {
+            encodedResult = rapidJsonTable["encode"](table);
+        }
+        catch (EException& e)
+        {
+            PLUGIN_PRINTF("Configuration - Create", "An error has occured: %s\n", e.what());
+            return;
+        }
+
+        if (encodedResult.isNull())
+            return;
+
+        jsonResult = encodedResult.cast<std::string>();
+    } else if(L->GetKind() == ContextKinds::JavaScript) {
+        jsonResult = EValue(L, JS_JSONStringify((JSContext*)L->GetState(), table.pushJS(), JS_NULL, JS_NULL)).cast<std::string>();
     }
 
-    luabridge::LuaRef rapidJsonTable = luabridge::getGlobal(L, "json");
-    if (!rapidJsonTable["encode"].isFunction())
-        return;
-
-    luabridge::LuaRef encodedResult(L);
-    try
-    {
-        encodedResult = rapidJsonTable["encode"](table);
-    }
-    catch (luabridge::LuaException& e)
-    {
-        PLUGIN_PRINTF("Configuration - Create", "An error has occured: %s\n", e.what());
-        return;
-    }
-
-    if (encodedResult.isNil())
-        return;
-
-    std::string jsonResult = encodedResult.cast<std::string>();
     doc.Parse(jsonResult.c_str());
-
     if (Files::ExistsPath("addons/swiftly/configs/plugins/" + configurationKey + ".json"))
     {
         std::string key = replace(configurationKey, "/", ".");
@@ -106,8 +108,7 @@ void PluginConfiguration::CreateLua(std::string configurationKey, luabridge::Lua
             configFile.Parse(Files::Read("addons/swiftly/configs/plugins/" + configurationKey + ".json").c_str());
             if (configFile.HasParseError())
             {
-                luabridge::getGlobal(L, "error")(string_format("An error has occured while parsing \"addons/swiftly/configs/plugins/%s.json\".\nError: Error (offset %u): %s\n", configurationKey.c_str(), (unsigned)configFile.GetErrorOffset(), GetParseError_En(configFile.GetParseError())));
-                return;
+                throw std::runtime_error(string_format("An error has occured while parsing \"addons/swiftly/configs/plugins/%s.json\".\nError: Error (offset %u): %s\n", configurationKey.c_str(), (unsigned)configFile.GetErrorOffset(), GetParseError_En(configFile.GetParseError())));
             }
 
             bool wasEdited = false;

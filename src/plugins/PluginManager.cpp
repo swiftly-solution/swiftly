@@ -73,7 +73,12 @@ void PluginManager::LoadPlugin(std::string plugin_name)
     {
         if (ends_with(file, ".lua"))
         {
-            plugin = new LuaPlugin(plugin_name, PluginKind_t::Lua);
+            plugin = new Plugin(plugin_name, PluginKind_t::Lua);
+            break;
+        } 
+        else if (ends_with(file, ".js"))
+        {
+            plugin = new Plugin(plugin_name, PluginKind_t::JavaScript);
             break;
         }
     }

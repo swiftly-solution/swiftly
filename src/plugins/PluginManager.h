@@ -7,7 +7,6 @@
 
 #include "../filesystem/files/Files.h"
 #include "Plugin.h"
-#include "lua/LuaPlugin.h"
 #include "../types/EventResult.h"
 
 class PluginEvent;

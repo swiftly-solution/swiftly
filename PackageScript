@@ -56,6 +56,7 @@ builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripti
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'exports.lua'), bin_scripting_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'hooks.lua'), bin_scripting_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'serpent.lua'), bin_scripting_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'sdk.lua'), bin_scripting_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'timers.lua'), bin_scripting_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', 'utils.lua'), bin_scripting_folder)
 

@@ -5,6 +5,7 @@ enum class PluginKind_t
 {
     None = 0,
     Lua = 1,
+    JavaScript = 2,
 };
 
 #endif

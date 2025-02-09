@@ -2,7 +2,7 @@
 
 #include "../../../../player/playermanager/PlayerManager.h"
 
-PluginCCheckTransmitInfo::PluginCCheckTransmitInfo(luabridge::LuaRef ptr)
+PluginCCheckTransmitInfo::PluginCCheckTransmitInfo(EValue ptr)
 {
     if (ptr.isString())
         this->m_ptr = (CCheckTransmitInfo*)(strtol(ptr.cast<std::string>().c_str(), nullptr, 16));

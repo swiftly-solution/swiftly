@@ -162,7 +162,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
 
         pluginsTable.add(" " + plugin_id + " ");
         pluginsTable.add(std::string(" ") + (plugin->GetPluginState() == PluginState_t::Started ? "Loaded" : "Unloaded") + " ");
-        pluginsTable.add(std::string(" ") + (plugin->GetKind() == PluginKind_t::Lua ? "Lua" : "None") + " ");
+        pluginsTable.add(std::string(" ") + (plugin->GetKind() == PluginKind_t::Lua ? "Lua" : "JavaScript") + " ");
         if (plugin->GetPluginState() == PluginState_t::Started)
             pluginsTable.add(string_format(" %.4f MB ", (double(plugin->GetMemoryUsage()) / 1024.0f / 1024.0f)));
         else

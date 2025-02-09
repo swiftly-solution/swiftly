@@ -6,7 +6,7 @@ PluginCommands::PluginCommands(std::string m_plugin_name)
     this->plugin_name = m_plugin_name;
 }
 
-void PluginCommands::RegisterCommand(std::string commandName, void* callback)
+void PluginCommands::RegisterCmd(std::string commandName, void* callback)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginCommands::RegisterCommand(commandName=\"%s\",callback=%p)", commandName.c_str(), (void*)callback));
 
@@ -54,12 +54,12 @@ void PluginCommands::UnregisterAlias(std::string aliasName)
     UnregisterCommand(aliasName);
 }
 
-void PluginCommands::RegisterCommandLua(std::string commandName, luabridge::LuaRef callback)
+void PluginCommands::RegisterCommand(std::string commandName, EValue callback)
 {
     if (!callback.isFunction())
         return;
 
-    RegisterCommand(commandName, new luabridge::LuaRef(callback));
+    RegisterCmd(commandName, new EValue(callback));
 }
 
 std::vector<std::string> PluginCommands::GetAllCommands()
