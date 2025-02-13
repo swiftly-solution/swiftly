@@ -946,34 +946,34 @@ void SchemaLoad(Plugin* plugin, EContext* state)
         .addFunction("IsSDKClass", IsSDKClass)
         .addFunction("GenerateSDKFactory", GenerateSDKFactory);
 
-    auto cls = GetGlobalNamespace(state).beginClass<SDKBaseClass>("SDKBaseClass");
-    cls.addConstructor<std::string, std::string>();
-    cls.addFunction("EntityIndex", &SDKBaseClass::CBasePlayerController_EntityIndex);
-    cls.addFunction("SetModel", &SDKBaseClass::CBaseModelEntity_SetModel);
-    cls.addFunction("SetSolidType", &SDKBaseClass::CBaseModelEntity_SetSolidType);
-    cls.addFunction("SetBodygroup", &SDKBaseClass::CBaseModelEntity_SetBodygroup);
-    cls.addFunction("SetOrAddAttributeValueByName", &SDKBaseClass::CAttributeList_SetOrAddAttributeValueByName);
-    cls.addFunction("EHandle", &SDKBaseClass::CBaseEntity_EHandle);
-    cls.addLuaFunction("Spawn", &SDKBaseClass::CBaseEntity_SpawnLua);
-    cls.addJSFunction("Spawn", CBaseEntity_SpawnJS);
-    cls.addFunction("Despawn", &SDKBaseClass::CBaseEntity_Despawn);
-    cls.addFunction("AcceptInput", &SDKBaseClass::CBaseEntity_AcceptInput);
-    cls.addFunction("GetClassname", &SDKBaseClass::CBaseEntity_GetClassname);
-    cls.addFunction("GetVData", &SDKBaseClass::CBaseEntity_GetVData);
-    cls.addLuaFunction("Teleport", &SDKBaseClass::CBaseEntity_TeleportLua);
-    cls.addJSFunction("Teleport", CBaseEntity_TeleportJS);
-    cls.addFunction("EmitSound", &SDKBaseClass::CBaseEntity_EmitSound);
-    cls.addFunction("CollisionRulesChanged", &SDKBaseClass::CBaseEntity_CollisionRulesChanged);
-    cls.addFunction("GetSkeletonInstance", &SDKBaseClass::CGameSceneNode_GetSkeletonInstance);
-    cls.addFunction("GetPawn", &SDKBaseClass::CPlayerPawnComponent_GetPawn);
-    cls.addLuaFunction("__index", &SDKBaseClass_GetProp);
-    cls.addLuaFunction("__newindex", &SDKBaseClass_SetProp);
-    cls.addLuaFunction("__call", &SDKBaseClass_CallProp);
-    cls.addFunction("IsValid", &SDKBaseClass::IsValid);
-    cls.addFunction("ToPtr", &SDKBaseClass::ToPtr);
-    cls.addJSFunction("call", SDKBaseClass__CallProp);
-    cls.addJSCustomIndex(SDKBaseClass__GetProp, SDKBaseClass__SetProp);
-    cls.endClass();
+    BeginClass<SDKBaseClass>("SDKBaseClass", state)
+        .addConstructor<std::string, std::string>()
+        .addFunction("EntityIndex", &SDKBaseClass::CBasePlayerController_EntityIndex)
+        .addFunction("SetModel", &SDKBaseClass::CBaseModelEntity_SetModel)
+        .addFunction("SetSolidType", &SDKBaseClass::CBaseModelEntity_SetSolidType)
+        .addFunction("SetBodygroup", &SDKBaseClass::CBaseModelEntity_SetBodygroup)
+        .addFunction("SetOrAddAttributeValueByName", &SDKBaseClass::CAttributeList_SetOrAddAttributeValueByName)
+        .addFunction("EHandle", &SDKBaseClass::CBaseEntity_EHandle)
+        .addLuaFunction("Spawn", &SDKBaseClass::CBaseEntity_SpawnLua)
+        .addJSFunction("Spawn", CBaseEntity_SpawnJS)
+        .addFunction("Despawn", &SDKBaseClass::CBaseEntity_Despawn)
+        .addFunction("AcceptInput", &SDKBaseClass::CBaseEntity_AcceptInput)
+        .addFunction("GetClassname", &SDKBaseClass::CBaseEntity_GetClassname)
+        .addFunction("GetVData", &SDKBaseClass::CBaseEntity_GetVData)
+        .addLuaFunction("Teleport", &SDKBaseClass::CBaseEntity_TeleportLua)
+        .addJSFunction("Teleport", CBaseEntity_TeleportJS)
+        .addFunction("EmitSound", &SDKBaseClass::CBaseEntity_EmitSound)
+        .addFunction("CollisionRulesChanged", &SDKBaseClass::CBaseEntity_CollisionRulesChanged)
+        .addFunction("GetSkeletonInstance", &SDKBaseClass::CGameSceneNode_GetSkeletonInstance)
+        .addFunction("GetPawn", &SDKBaseClass::CPlayerPawnComponent_GetPawn)
+        .addLuaFunction("__index", &SDKBaseClass_GetProp)
+        .addLuaFunction("__newindex", &SDKBaseClass_SetProp)
+        .addLuaFunction("__call", &SDKBaseClass_CallProp)
+        .addFunction("IsValid", &SDKBaseClass::IsValid)
+        .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addJSFunction("call", SDKBaseClass__CallProp)
+        .addJSCustomIndex(SDKBaseClass__GetProp, SDKBaseClass__SetProp)
+    .endClass();
 }
 
 LoadScriptingComponent(

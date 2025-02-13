@@ -4,8 +4,8 @@ LoadScriptingComponent(
     server,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
-            .beginClass<PluginServer>("Server")
+        BeginClass<PluginServer>("Server", state)
+            .addConstructor<std::string>()
             .addFunction("GetMap", &PluginServer::GetMap)
             .addFunction("IsMapValid", &PluginServer::IsMapValid)
             .addFunction("ChangeMap", &PluginServer::ChangeMap)
@@ -15,7 +15,9 @@ LoadScriptingComponent(
             .addFunction("GetCurrentTime", &PluginServer::GetCurrentTime)
             .addFunction("GetTickCount", &PluginServer::GetTickCount)
             .addFunction("GetIP", &PluginServer::GetIP)
-            .endClass()
-            .addConstant("server", new PluginServer(FetchPluginName(state)));
+        .endClass();
+
+        if(state->GetKind() == ContextKinds::Lua) state->RunCode("server = Server(GetCurrentPluginName())");
+        else if(state->GetKind() == ContextKinds::JavaScript) state->RunCode("globalThis.server = Server(GetCurrentPluginName())");
     }
 )

@@ -4,8 +4,8 @@ LoadScriptingComponent(
     commands,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
-            .beginClass<PluginCommands>("Commands")
+        BeginClass<PluginCommands>("Commands", state)
+            .addConstructor<std::string>()
             .addFunction("Register", &PluginCommands::RegisterCommand)
             .addFunction("Unregister", &PluginCommands::UnregisterCommand)
             .addFunction("RegisterRawAlias", &PluginCommands::RegisterRawAlias)
@@ -13,7 +13,9 @@ LoadScriptingComponent(
             .addFunction("UnregisterAlias", &PluginCommands::UnregisterAlias)
             .addFunction("GetAllCommands", &PluginCommands::GetAllCommands)
             .addFunction("GetCommands", &PluginCommands::GetCommands)
-            .endClass()
-            .addConstant("commands", new PluginCommands(FetchPluginName(state)));
+        .endClass();
+
+        if(state->GetKind() == ContextKinds::Lua) state->RunCode("commands = Commands(GetCurrentPluginName())");  
+        else if(state->GetKind() == ContextKinds::JavaScript) state->RunCode("globalThis.commands = Commands(GetCurrentPluginName())");
     }
 )

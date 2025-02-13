@@ -4,7 +4,6 @@
 #include "../extensions/ExtensionManager.h"
 #include "../server/commands/CommandsManager.h"
 
-int luaopen_cmsgpack(lua_State* L);
 extern "C"
 {
     LUALIB_API int luaopen_rapidjson(lua_State* L);
@@ -164,7 +163,8 @@ void Plugin::ExecuteCommand(void* functionPtr, std::string name, int slot, std::
     try
     {
         EValue command = *commandRef;
-        command(slot, args, args.size(), silent, prefix);
+        int argc = args.size();
+        command(slot, args, argc, silent, prefix);
     }
     catch (EException& e)
     {
@@ -181,20 +181,19 @@ bool Plugin::LoadScriptingEnvironment()
 
     SetupScriptingEnvironment(this, ctx);
 
-    for (Extension* ext : extManager->GetExtensionsList())
-        if (ext->IsLoaded()) {
-            std::string error = "";
-            if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->ctx, this->GetKind(), error)) {
-                PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
-                PRINTF("Error: %s.\n", error.c_str());
-                this->SetLoadError(error);
-                return false;
-            }
-        }
+    // for (Extension* ext : extManager->GetExtensionsList())
+    //     if (ext->IsLoaded()) {
+    //         std::string error = "";
+    //         if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->ctx, this->GetKind(), error)) {
+    //             PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+    //             PRINTF("Error: %s.\n", error.c_str());
+    //             this->SetLoadError(error);
+    //             return false;
+    //         }
+    //     }
 
     std::string fileExt = GetKind() == PluginKind_t::Lua ? ".lua" : ".js";
-    std::string evContent = Files::Read("addons/swiftly/bin/scripting/events" + fileExt);
-    int loadStatus = ctx->RunCode(evContent);
+    int loadStatus = ctx->RunFile(GeneratePath("addons/swiftly/bin/scripting/events" + fileExt));
 
     if (loadStatus != 0)
     {
@@ -214,8 +213,7 @@ bool Plugin::LoadScriptingEnvironment()
             if (file == "addons/swiftly/bin/scripting/events" + fileExt)
                 continue;
 
-            std::string fContent = Files::Read(file);
-            int loadStatus = ctx->RunCode(fContent);
+            int loadStatus = ctx->RunFile(GeneratePath(file));
 
             if (loadStatus != 0)
             {
@@ -236,8 +234,7 @@ bool Plugin::LoadScriptingEnvironment()
     {
         if (ends_with(file, fileExt))
         {
-            std::string fContent = Files::Read(file);
-            int loadStatus = ctx->RunCode(fContent);
+            int loadStatus = ctx->RunFile(GeneratePath(file));
 
             if (loadStatus != 0)
             {
@@ -450,6 +447,10 @@ EValue SerializeData(std::any data, EContext* state)
                 return EValue(state);
             }
         }
+        else if (value.type() == typeid(std::vector<std::any>))
+        {
+            return EValue(state, std::any_cast<std::vector<std::any>>(value));
+        }
         else
         {
             PRINTF("Unknown Data Type: %s\n", value.type().name());
@@ -461,6 +462,8 @@ EValue SerializeData(std::any data, EContext* state)
         PRINTF("Invalid casting: %s\n", err.what());
         return EValue(state);
     }
+
+    return EValue(state);
 }
 
 std::any DeserializeData(EValue ref, EContext* state)
@@ -486,7 +489,7 @@ std::any DeserializeData(EValue ref, EContext* state)
         } else if(state->GetKind() == ContextKinds::JavaScript) {
             std::vector<std::string> tmptbl;
             return tmptbl;
-        }
+        } else return nullptr;
     }
     else if (ref.isInstance<Color*>())
         return *ref.cast<Color*>();

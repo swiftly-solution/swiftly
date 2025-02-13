@@ -277,6 +277,17 @@ public:
     bool IsValid();
 };
 
+class SDKBaseType
+{
+private:
+    std::string m_typeName;
+
+public:
+    SDKBaseType(std::string typeName);
+
+    int64_t GetTypeValue(std::string key);
+};
+
 //////////////////////////////////////////////////////////////
 /////////////////         User Message         //////////////
 ////////////////////////////////////////////////////////////

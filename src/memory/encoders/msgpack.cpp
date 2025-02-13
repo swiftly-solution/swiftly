@@ -65,5 +65,56 @@ namespace encoders {
 
             return ss.str();
         }
+
+        std::vector<std::any> DeserializeFromString(std::string str) {
+            std::vector<std::any> res;
+
+            ::msgpack::object_handle result;
+
+            ::msgpack::unpack(result, str.c_str(), str.length());
+
+            ::msgpack::object obj = result.get();
+
+            if (obj.type != ::msgpack::type::ARRAY) {
+                return res;
+            }
+            std::vector<::msgpack::object> obj_vector;
+            obj.convert(obj_vector);
+
+            for (const auto& elem : obj_vector) {
+                printf("%d\n", elem.type);
+                switch (elem.type) {
+                    case ::msgpack::type::BOOLEAN:
+                        res.push_back(elem.as<bool>());
+                        break;
+                    case ::msgpack::type::POSITIVE_INTEGER:
+                    case ::msgpack::type::NEGATIVE_INTEGER:
+                        res.push_back(elem.as<int64_t>());
+                        break;
+                    case ::msgpack::type::FLOAT32:
+                    case ::msgpack::type::FLOAT64:
+                        res.push_back(elem.as<double>());
+                        break;
+                    case ::msgpack::type::STR:
+                        res.push_back(elem.as<std::string>());
+                        break;
+                    case ::msgpack::type::ARRAY: {
+                        std::vector<std::any> nested = DeserializeFromString(elem.as<std::string>());
+                        res.push_back(nested);
+                        break;
+                    }
+                    case ::msgpack::type::MAP:
+                    case ::msgpack::type::BIN:
+                    case ::msgpack::type::EXT:
+                    case ::msgpack::type::NIL:
+                        res.push_back(nullptr);
+                        break;
+                    default:
+                        throw std::runtime_error("Unsupported type in MessagePack data");
+                }
+            }
+
+            return res;
+        }
     };
 };

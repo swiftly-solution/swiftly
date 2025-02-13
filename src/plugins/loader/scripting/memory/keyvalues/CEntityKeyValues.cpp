@@ -4,8 +4,7 @@ LoadScriptingComponent(
     centitykeyvalues,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
-            .beginClass<PluginCEntityKeyValues>("CEntityKeyValues")
+        BeginClass<PluginCEntityKeyValues>("CEntityKeyValues", state)
             .addConstructor<>()
             .addFunction("GetBool", &PluginCEntityKeyValues::GetBool)
             .addFunction("GetInt", &PluginCEntityKeyValues::GetInt)
@@ -37,6 +36,6 @@ LoadScriptingComponent(
             .addFunction("SetVector2D", &PluginCEntityKeyValues::SetVector2D)
             .addFunction("SetVector4D", &PluginCEntityKeyValues::SetVector4D)
             .addFunction("SetQAngle", &PluginCEntityKeyValues::SetQAngle)
-            .endClass();
+        .endClass();
     }
 )

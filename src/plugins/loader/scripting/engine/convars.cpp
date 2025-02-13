@@ -4,8 +4,8 @@ LoadScriptingComponent(
     convars,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
-            .beginClass<PluginConvars>("ConVars")
+        BeginClass<PluginConvars>("ConVars", state)
+            .addConstructor<std::string>()
             .addFunction("CreateFake", &PluginConvars::CreateFake)
             .addFunction("DeleteFake", &PluginConvars::DeleteFake)
             .addFunction("Get", &PluginConvars::GetConvarValue)
@@ -17,7 +17,9 @@ LoadScriptingComponent(
             .addFunction("RemoveFlags", &PluginConvars::RemoveFlags)
             .addFunction("GetFlags", &PluginConvars::GetFlags)
             .addFunction("HasFlags", &PluginConvars::HasFlags)
-            .endClass()
-            .addConstant("convar", new PluginConvars(FetchPluginName(state)));
+            .endClass();
+
+        if(state->GetKind() == ContextKinds::Lua) state->RunCode("convar = ConVars(GetCurrentPluginName())");
+        else if(state->GetKind() == ContextKinds::JavaScript) state->RunCode("globalThis.convar = ConVars(GetCurrentPluginName())");
     }
 )

@@ -161,3 +161,17 @@ bool SDKBaseClass::IsValid()
 {
     return (this->m_ptr != nullptr);
 }
+
+SDKBaseType::SDKBaseType(std::string typeName)
+{
+    m_typeName = typeName;
+}
+
+int64_t SDKBaseType::GetTypeValue(std::string key)
+{
+    auto types = g_sdk->GetSDKTypes();
+    if(types.find(m_typeName) == types.end()) return 0;
+    if(types[m_typeName].find(key) == types[m_typeName].end()) return 0;
+
+    return types[m_typeName][key];
+}

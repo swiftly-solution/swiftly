@@ -4,8 +4,7 @@ LoadScriptingComponent(
     usermessages,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
-            .beginClass<PluginUserMessage>("UserMessage")
+        BeginClass<PluginUserMessage>("UserMessage", state)
             .addConstructor<std::string>()
             .addFunction("IsValidMessage", &PluginUserMessage::IsValidMessage)
             .addFunction("GetMessageName", &PluginUserMessage::GetMessageName)
@@ -93,6 +92,6 @@ LoadScriptingComponent(
             .addFunction("GetClients", &PluginUserMessage::GetClients)
             .addFunction("SendToPlayer", &PluginUserMessage::SendToPlayer)
             .addFunction("SendToAllPlayers", &PluginUserMessage::SendToAllPlayers)
-            .endClass();
+        .endClass();
     }
 )

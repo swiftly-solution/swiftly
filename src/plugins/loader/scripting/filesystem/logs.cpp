@@ -4,10 +4,12 @@ LoadScriptingComponent(
     logger,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
-            .beginClass<PluginLogger>("Logger")
+        BeginClass<PluginLogger>("Logger", state)
+            .addConstructor<std::string>()
             .addFunction("Write", &PluginLogger::Write)
-            .endClass()
-            .addConstant("logger", new PluginLogger(FetchPluginName(state)));
+        .endClass();
+
+        if(state->GetKind() == ContextKinds::Lua) state->RunCode("logger = Logger(GetCurrentPluginName())");
+        else if(state->GetKind() == ContextKinds::JavaScript) state->RunCode("globalThis.logger = Logger(GetCurrentPluginName())");
     }
 )

@@ -4,8 +4,8 @@ LoadScriptingComponent(
     files,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
-            .beginClass<PluginFiles>("Files")
+        BeginClass<PluginFiles>("Files", state)
+            .addConstructor<std::string>()
             .addFunction("Append", &PluginFiles::Append)
             .addFunction("CreateDirectory", &PluginFiles::CreateDirectory)
             .addFunction("Delete", &PluginFiles::Delete)
@@ -18,7 +18,9 @@ LoadScriptingComponent(
             .addFunction("Write", &PluginFiles::Write)
             .addFunction("Compress", &PluginFiles::Compress)
             .addFunction("Decompress", &PluginFiles::Decompress)
-            .endClass()
-            .addConstant("files", new PluginFiles(FetchPluginName(state)));
+        .endClass();
+
+        if(state->GetKind() == ContextKinds::Lua) state->RunCode("files = Files(GetCurrentPluginName())");
+        else if(state->GetKind() == ContextKinds::JavaScript) state->RunCode("globalThis.files = Files(GetCurrentPluginName())");
     }
 )

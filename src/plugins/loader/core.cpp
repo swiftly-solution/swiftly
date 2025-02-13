@@ -110,7 +110,11 @@ void SetupScriptingEnvironment(Plugin* plugin, EContext* state)
         .beginNamespace("console")
             .addJSFunction("log", &customConsoleLog)
         .endNamespace()
-        .addFunction("GetCurrentPluginName", FetchPluginName);
+        .addFunction("GetCurrentPluginName", FetchPluginName)
+        .beginNamespace("msgpack")
+            .addFunction("pack", encoders::msgpack::SerializeToString)
+            .addFunction("unpack", encoders::msgpack::DeserializeFromString)
+        .endNamespace();
 
     for(auto classLoader : loaderClasses)
         classLoader->ExecuteLoad(plugin, state);

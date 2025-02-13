@@ -57,7 +57,7 @@ function RemoveHookListener(hookListener)
         print("Error: Invalid hook data passed to RemoveHookListener.")
         return
     end
-    
+
     RemoveEventHandler(hookListener)
 end
 

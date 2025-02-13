@@ -38,8 +38,7 @@ LoadScriptingComponent(
     player,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
-            .beginClass<PluginPlayer>("Player")
+        BeginClass<PluginPlayer>("Player", state)
             .addFunction("CBaseEntity", &PluginPlayer::GetCBaseEntity)
             .addFunction("CBasePlayerController", &PluginPlayer::GetCBasePlayerController)
             .addFunction("CBasePlayerPawn", &PluginPlayer::GetCBasePlayerPawn)
@@ -81,7 +80,9 @@ LoadScriptingComponent(
             .addFunction("QueryConvar", &PluginPlayer::QueryConvar)
             .addFunction("PerformMenuAction", &PluginPlayer::PerformMenuAction)
             .addFunction("IsValid", &PluginPlayer::IsValid)
-            .endClass()
+        .endClass();
+
+        GetGlobalNamespace(state)
             .addFunction("GetPlayer", scripting_GetPlayer);
     }
 )

@@ -4,8 +4,7 @@ LoadScriptingComponent(
     memory,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
-            .beginClass<PluginMemory>("Memory")
+        BeginClass<PluginMemory>("Memory", state)
             .addConstructor<>()
             .addFunction("LoadFromAddress", &PluginMemory::LoadFromAddress)
             .addFunction("LoadFromSignatureName", &PluginMemory::LoadFromSignatureName)
@@ -48,6 +47,6 @@ LoadScriptingComponent(
             .addFunction("GetQAngle", &PluginMemory::GetQAngle)
             .addFunction("GetPtr", &PluginMemory::GetPtr)
             .addFunction("IsValid", &PluginMemory::IsValid)
-            .endClass();
+        .endClass();
     }
 )

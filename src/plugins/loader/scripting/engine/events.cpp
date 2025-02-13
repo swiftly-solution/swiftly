@@ -51,9 +51,9 @@ void LoadEvent(Plugin* plugin, EContext* state)
         .addFunction("AddGlobalEvents", AddGlobalEvents)
         .addFunction("RegisterEventHandlerPlugin", RegisterEventHandlerPlugin)
         .addFunction("RemoveEventHandlerPlugin", RemoveEventHandlerPlugin)
-        .addFunction("TriggerEventInternal", TriggerEventInternal)
+        .addFunction("TriggerEventInternal", TriggerEventInternal);
 
-        .beginClass<PluginEvent>("Event")
+    BeginClass<PluginEvent>("Event", state)
         .addConstructor<std::string, EContext*>()
         .addFunction("GetInvokingPlugin", &PluginEvent::GetInvokingPlugin)
         .addFunction("IsGameEvent", &PluginEvent::IsGameEvent)
@@ -98,7 +98,7 @@ void LoadEvent(Plugin* plugin, EContext* state)
         .addFunction("SetNoBroadcast", &PluginEvent::SetNoBroadcast)
         .addFunction("GetNoBroadcast", &PluginEvent::GetNoBroadcast)
 
-        .endClass();
+    .endClass();
 }
 
 LoadScriptingComponent(
