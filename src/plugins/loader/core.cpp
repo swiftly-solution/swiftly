@@ -52,20 +52,13 @@ int customPrint(lua_State* state)
 
 JSValue customConsoleLog(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv) {
     std::string prefix = string_format("[Swiftly] %s[%s]\e[39m ", GetTerminalStringColor(FetchPluginName(GetContextByState(ctx))).c_str(), ("plugin:" + FetchPluginName(GetContextByState(ctx))).c_str());
+    EContext* sctx = GetContextByState(ctx);
 
     std::vector<std::string> outputArr;
 
     for (int i = 0; i < argc; i++)
     {
-        const char* s = JS_ToCString(ctx, argv[i]);
-        if (s == nullptr)
-        {
-            outputArr.push_back("An error has occured while trying to call 'console.log'.\nError: 'JS_ToCString' must return a string to 'console.log'\n");
-            break;
-        }
-
-        std::string str(s);
-        JS_FreeCString(ctx, s);
+        std::string str = EValue::fromJSStack(sctx, argv[i]).tostring();
 
         if (i > 1)
             outputArr.push_back("\t");

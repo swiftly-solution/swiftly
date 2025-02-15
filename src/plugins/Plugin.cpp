@@ -376,7 +376,7 @@ EValue SerializeData(std::any data, EContext* state)
                     return decodedResult;
                 } else if(state->GetKind() == ContextKinds::JavaScript) {
                     return EValue(state, JS_ParseJSON((JSContext*)state->GetState(), json.c_str(), json.length(), "SerializeData"));
-                }
+                } else return EValue(state);
             }
             else return EValue(state, val);
         }
@@ -491,16 +491,16 @@ std::any DeserializeData(EValue ref, EContext* state)
             return tmptbl;
         } else return nullptr;
     }
-    else if (ref.isInstance<Color*>())
-        return *ref.cast<Color*>();
-    else if (ref.isInstance<Vector2D*>())
-        return *ref.cast<Vector2D*>();
-    else if (ref.isInstance<Vector*>())
-        return *ref.cast<Vector*>();
-    else if (ref.isInstance<Vector4D*>())
-        return *ref.cast<Vector4D*>();
-    else if (ref.isInstance<QAngle*>())
-        return *ref.cast<QAngle*>();
+    else if (ref.isInstance<Color>())
+        return ref.cast<Color>();
+    else if (ref.isInstance<Vector2D>())
+        return ref.cast<Vector2D>();
+    else if (ref.isInstance<Vector>())
+        return ref.cast<Vector>();
+    else if (ref.isInstance<Vector4D>())
+        return ref.cast<Vector4D>();
+    else if (ref.isInstance<QAngle>())
+        return ref.cast<QAngle>();
     else
         return nullptr;
 }

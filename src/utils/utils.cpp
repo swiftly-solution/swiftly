@@ -250,7 +250,8 @@ std::string str_toupper(std::string s)
 
 int32_t genrand()
 {
-    std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+    static std::random_device rd;
+    static std::mt19937 rng(rd());
     return std::uniform_int_distribution<int>(0, INT_MAX)(rng);
 }
 

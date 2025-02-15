@@ -35,6 +35,7 @@ void SDKAccess::LoadSDKData()
         std::string className = it->name.GetString();
         uint32_t classOffset = hash_32_fnv1a_const(className.c_str());
         PopulateClassData(className.c_str(), classOffset);
+        classes.insert(className);
 
         if (it->value.IsObject()) {
             for (auto it2 = it->value.MemberBegin(); it2 != it->value.MemberEnd(); ++it2)
@@ -82,6 +83,11 @@ void SDKAccess::LoadSDKData()
     }
 
     PRINTF("Succesfully loaded %lld SDK types.\n", this->sdktypes.size());
+}
+
+std::set<std::string> SDKAccess::GetClasses()
+{
+    return classes;
 }
 
 std::map<std::string, std::map<std::string, int64_t>> SDKAccess::GetSDKTypes()

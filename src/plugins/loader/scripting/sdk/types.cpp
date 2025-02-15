@@ -3,7 +3,6 @@
 
 bool IsTypeClass(std::string key) {
     auto types = g_sdk->GetSDKTypes();
-    printf("%s\n", key.c_str());
     return (types.find(key) != types.end());
 }
 
@@ -25,11 +24,15 @@ JSValue SetType(JSContext* ctx, JSValue this_arg, int argc, JSValue* argv)
     return JS_ThrowSyntaxError(ctx, "You cannot set values to types.");
 }
 
+std::map<std::string, SDKBaseType*> jsBaseTypes;
+
 LoadScriptingComponent(
     types,
     [](Plugin* plugin, EContext* state)
     {
-        GetGlobalNamespace(state)
+        auto gns = GetGlobalNamespace(state);
+
+        gns
             .addFunction("IsTypeClass", IsTypeClass)
             .addFunction("GenerateTypeFactory", GenerateTypeFactory);
 
