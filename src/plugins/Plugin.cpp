@@ -179,6 +179,10 @@ bool Plugin::LoadScriptingEnvironment()
     
     ctx = new EContext(GetKind() == PluginKind_t::Lua ? ContextKinds::Lua : ContextKinds::JavaScript);
 
+    if(ctx->GetKind() == ContextKinds::Lua) {
+        ctx->RegisterLuaLib("json", luaopen_rapidjson);
+    }
+
     SetupScriptingEnvironment(this, ctx);
 
     // for (Extension* ext : extManager->GetExtensionsList())
@@ -213,11 +217,20 @@ bool Plugin::LoadScriptingEnvironment()
             if (file == "addons/swiftly/bin/scripting/events" + fileExt)
                 continue;
 
-            int loadStatus = ctx->RunFile(GeneratePath(file));
+            try {
+                int loadStatus = ctx->RunFile(GeneratePath(file));
 
-            if (loadStatus != 0)
-            {
-                std::string error = EException(ctx->GetState(), ctx->GetKind(), loadStatus).what();
+                if (loadStatus != 0)
+                {
+                    std::string error = EException(ctx->GetState(), ctx->GetKind(), loadStatus).what();
+                    PRINTF("Failed to load plugin file '%s'.\n", file.c_str());
+                    PRINTF("Error: %s\n", error.c_str());
+
+                    this->SetLoadError(error);
+                    return false;
+                }
+            } catch(EException& e) {
+                std::string error = e.what();
                 PRINTF("Failed to load plugin file '%s'.\n", file.c_str());
                 PRINTF("Error: %s\n", error.c_str());
 
@@ -234,11 +247,20 @@ bool Plugin::LoadScriptingEnvironment()
     {
         if (ends_with(file, fileExt))
         {
-            int loadStatus = ctx->RunFile(GeneratePath(file));
+            try {
+                int loadStatus = ctx->RunFile(GeneratePath(file));
 
-            if (loadStatus != 0)
-            {
-                std::string error = EException(ctx->GetState(), ctx->GetKind(), loadStatus).what();
+                if (loadStatus != 0)
+                {
+                    std::string error = EException(ctx->GetState(), ctx->GetKind(), loadStatus).what();
+                    PRINTF("Failed to load plugin file '%s'.\n", file.c_str());
+                    PRINTF("Error: %s\n", error.c_str());
+
+                    this->SetLoadError(error);
+                    return false;
+                }
+            } catch(EException& e) {
+                std::string error = e.what();
                 PRINTF("Failed to load plugin file '%s'.\n", file.c_str());
                 PRINTF("Error: %s\n", error.c_str());
 

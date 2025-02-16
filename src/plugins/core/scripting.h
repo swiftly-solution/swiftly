@@ -258,13 +258,11 @@ public:
     void CBaseModelEntity_SetBodygroup(std::string str, int64_t val);
     SDKBaseClass CBaseEntity_EHandle();
     void CBaseEntity_Spawn(PluginCEntityKeyValues* kv);
-    void CBaseEntity_SpawnLua(EContext* state);
     void CBaseEntity_Despawn();
-    void CBaseEntity_AcceptInput(std::string input, SDKBaseClass activator, SDKBaseClass caller, std::string value, int outputID);
+    void CBaseEntity_AcceptInput(std::string input, EValue activator, EValue caller, std::string value, int outputID);
     std::string CBaseEntity_GetClassname();
     SDKBaseClass CBaseEntity_GetVData();
     void CBaseEntity_Teleport(Vector value, QAngle angle, Vector velocity);
-    void CBaseEntity_TeleportLua(EContext* L);
     void CBaseEntity_EmitSound(std::string sound_name, float pitch, float volume);
     void CBaseEntity_CollisionRulesChanged();
     SDKBaseClass CGameSceneNode_GetSkeletonInstance();
@@ -907,8 +905,8 @@ public:
 /////////////////           Entities           //////////////
 ////////////////////////////////////////////////////////////
 
-std::vector<SDKBaseClass> UTIL_FindEntitiesByClassname(const char* name);
-SDKBaseClass CreateEntityByName(const char* name);
+std::vector<SDKBaseClass> UTIL_FindEntitiesByClassname(std::string name);
+SDKBaseClass CreateEntityByName(std::string className);
 
 //////////////////////////////////////////////////////////////
 /////////////////             Utils            //////////////

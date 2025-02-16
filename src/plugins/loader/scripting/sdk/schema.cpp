@@ -20,20 +20,20 @@ std::set<uint64_t> classFuncs = {
     ((uint64_t)hash_32_fnv1a_const("CPlayerPawnComponent") << 32 | hash_32_fnv1a_const("GetPawn")),
 };
 
-void SDKBaseClass_SetData(SDKBaseClass* th, EValue val) {
-    if (val.isString()) {
+SDKBaseClass* SDKBaseClass_SetData(SDKBaseClass* th, EValue val) {
+    if (val.isInstance<SDKBaseClass>()) {
+        th->SetPtr(val.cast<SDKBaseClass*>()->GetPtr());
+    } else if (val.isString()) {
         auto str = val.cast<std::string>();
         if (starts_with(str, "0x"))
             th->SetPtr((void*)(strtol(str.c_str(), nullptr, 16)));
         else
             throw std::runtime_error(string_format("Invalid pointer: %s", str.c_str()));
     }
-    else if (val.isInstance<SDKBaseClass*>()) {
-        th->SetPtr(val.cast<SDKBaseClass*>()->GetPtr());
-    }
     else {
         throw std::runtime_error("Invalid pointer or object.");
     }
+    return th;
 }
 
 int SDKBaseClass_GetProp(lua_State* state)
@@ -85,8 +85,12 @@ JSValue SDKBaseClass__GetProp(JSContext* ctx, JSValue this_obj, int argc, JSValu
 
     uint64_t path = (th->classOffset | hash_32_fnv1a_const(field_name.c_str()));
 
-    if (field_name == "IsValid" || field_name == "call" || field_name == "ToPtr" || classFuncs.find(path) != classFuncs.end()) 
-        return EValue(ct, argv[0])[field_name].pushJS();
+    if (field_name == "IsValid" || field_name == "call" || field_name == "ToPtr" || field_name == "toString" || classFuncs.find(path) != classFuncs.end()) {
+        EValue v(ct, argv[0]);
+        EValue newv = v[field_name];
+        JSValue val = newv.pushJS();
+        return val;
+    }
     
     uint64_t id = g_callStack->RegisterPluginCallstack(FetchPluginName(ct), string_format("SDK Get: %s::%s(ptr=%p)", th->m_className.c_str(), field_name.c_str(), th->GetPtr()));
     JSValue val = Stack<EValue>::pushJS(ct, th->AccessSDK(field_name, path, ct));
@@ -111,37 +115,88 @@ JSValue SDKBaseClass__CallProp(JSContext* ctx, JSValue this_obj, int argc, JSVal
 {
     EContext* ct = GetContextByState(ctx);
     SDKBaseClass* th = EValue::fromJSStack(ct, this_obj).cast<SDKBaseClass*>();
-    auto val = EValue::fromJSStack(ct, argv[1]);
+    auto val = EValue::fromJSStack(ct, argv[0]);
 
     SDKBaseClass_SetData(th, val);
-    return EValue(ct, th).pushJS();
+    return JS_DupValue(ctx, EValue(ct, th).pushJS());
 }
 
-void SDKBaseClass::CBaseEntity_SpawnLua(EContext* state) {
-    EValue ref = EValue::fromLuaStack(state, 2);
+int CBaseEntity_SpawnLua(lua_State* state) {
+    SDKBaseClass* ptr = EValue::fromLuaStack(GetContextByState(state), 1).cast<SDKBaseClass*>();
+    EValue ref = EValue::fromLuaStack(GetContextByState(state), 2);
     if (ref.isInstance<PluginCEntityKeyValues*>()) {
         auto kv = ref.cast<PluginCEntityKeyValues*>();
-        CBaseEntity_Spawn(kv);
+        ptr->CBaseEntity_Spawn(kv);
     }
     else
-        CBaseEntity_Spawn(nullptr);
+        ptr->CBaseEntity_Spawn(nullptr);
+    return 0;
 }
 
-void SDKBaseClass::CBaseEntity_TeleportLua(EContext* L)
+int CBaseEntity_TeleportLua(lua_State* L)
 {
-    auto pos = EValue::fromLuaStack(L, 2);
-    auto ang = EValue::fromLuaStack(L, 3);
-    auto vel = EValue::fromLuaStack(L, 4);
+    SDKBaseClass* ptr = EValue::fromLuaStack(GetContextByState(L), 1).cast<SDKBaseClass*>();
+    auto pos = EValue::fromLuaStack(GetContextByState(L), 2);
+    auto ang = EValue::fromLuaStack(GetContextByState(L), 3);
+    auto vel = EValue::fromLuaStack(GetContextByState(L), 4);
     Vector po(0.0, 0.0, 0.0), ve(0.0, 0.0, 0.0);
     QAngle an(0.0, 0.0, 0.0);
-    if (pos.isInstance<Vector*>())
-        po = *pos.cast<Vector*>();
-    if (ang.isInstance<QAngle*>())
-        an = *ang.cast<QAngle*>();
-    if (vel.isInstance<Vector*>())
-        ve = *vel.cast<Vector*>();
+    if (pos.isInstance<Vector>())
+        po = pos.cast<Vector>();
+    if (ang.isInstance<QAngle>())
+        an = ang.cast<QAngle>();
+    if (vel.isInstance<Vector>())
+        ve = vel.cast<Vector>();
 
-    CBaseEntity_Teleport(po, an, ve);
+    ptr->CBaseEntity_Teleport(po, an, ve);
+    return 0;
+}
+
+JSValue CBaseEntity_SpawnJS(JSContext* ctx, JSValue this_arg, int argc, JSValue* argv)
+{
+    SDKBaseClass* ptr = EValue::fromJSStack(GetContextByState(ctx), this_arg).cast<SDKBaseClass*>();
+    if(argc == 1) {
+        EValue ref = EValue::fromJSStack(GetContextByState(ctx), argv[0]);
+        if (ref.isInstance<PluginCEntityKeyValues>()) {
+            auto kv = ref.cast<PluginCEntityKeyValues*>();
+            ptr->CBaseEntity_Spawn(kv);
+        }
+        else
+            ptr->CBaseEntity_Spawn(nullptr);
+    } else {
+        ptr->CBaseEntity_Spawn(nullptr);
+    }
+    return JS_UNDEFINED;
+}
+
+JSValue CBaseEntity_TeleportJS(JSContext* ctx, JSValue this_arg, int argc, JSValue* argv)
+{
+    SDKBaseClass* ptr = EValue::fromJSStack(GetContextByState(ctx), this_arg).cast<SDKBaseClass*>();
+    Vector po(0.0, 0.0, 0.0), ve(0.0, 0.0, 0.0);
+    QAngle an(0.0, 0.0, 0.0);
+    if(argc >= 1) {
+        auto pos = EValue::fromJSStack(GetContextByState(ctx), argv[0]);
+        if(pos.isInstance<Vector>())
+            po = pos.cast<Vector>();
+    }
+    if(argc >= 2) {
+        auto ang = EValue::fromJSStack(GetContextByState(ctx), argv[1]);
+        if(ang.isInstance<QAngle>())
+            an = ang.cast<QAngle>();
+    }
+    if(argc >= 3) {
+        auto vel = EValue::fromJSStack(GetContextByState(ctx), argv[2]);
+        if(vel.isInstance<Vector>())
+            ve = vel.cast<Vector>();
+    }
+
+    ptr->CBaseEntity_Teleport(po, an, ve);
+    return JS_UNDEFINED;
+}
+
+std::string SDKBaseClass_tostring(SDKBaseClass* basecls)
+{
+    return string_format("%s(ptr=%p)", basecls->GetClassName().c_str(), basecls->GetPtr());
 }
 
 bool IsSDKClass(std::string key) {
@@ -166,21 +221,26 @@ void SchemaLoad(Plugin* plugin, EContext* state)
         .addFunction("SetBodygroup", &SDKBaseClass::CBaseModelEntity_SetBodygroup)
         .addFunction("SetOrAddAttributeValueByName", &SDKBaseClass::CAttributeList_SetOrAddAttributeValueByName)
         .addFunction("EHandle", &SDKBaseClass::CBaseEntity_EHandle)
-        .addLuaFunction("Spawn", &SDKBaseClass::CBaseEntity_SpawnLua)
+        .addLuaFunction("Spawn", CBaseEntity_SpawnLua)
+        .addJSFunction("Spawn", CBaseEntity_SpawnJS)
         .addFunction("Despawn", &SDKBaseClass::CBaseEntity_Despawn)
         .addFunction("AcceptInput", &SDKBaseClass::CBaseEntity_AcceptInput)
         .addFunction("GetClassname", &SDKBaseClass::CBaseEntity_GetClassname)
         .addFunction("GetVData", &SDKBaseClass::CBaseEntity_GetVData)
-        .addLuaFunction("Teleport", &SDKBaseClass::CBaseEntity_TeleportLua)
+        .addLuaFunction("Teleport", CBaseEntity_TeleportLua)
+        .addJSFunction("Teleport", CBaseEntity_TeleportJS)
         .addFunction("EmitSound", &SDKBaseClass::CBaseEntity_EmitSound)
         .addFunction("CollisionRulesChanged", &SDKBaseClass::CBaseEntity_CollisionRulesChanged)
         .addFunction("GetSkeletonInstance", &SDKBaseClass::CGameSceneNode_GetSkeletonInstance)
         .addFunction("GetPawn", &SDKBaseClass::CPlayerPawnComponent_GetPawn)
-        .addLuaFunction("__index", &SDKBaseClass_GetProp)
-        .addLuaFunction("__newindex", &SDKBaseClass_SetProp)
-        .addLuaFunction("__call", &SDKBaseClass_CallProp)
+        .addLuaFunction("__index", SDKBaseClass_GetProp)
+        .addLuaFunction("__newindex", SDKBaseClass_SetProp)
+        .addLuaFunction("__call", SDKBaseClass_CallProp)
+        .addJSFunction("call", SDKBaseClass__CallProp)
         .addFunction("IsValid", &SDKBaseClass::IsValid)
         .addFunction("ToPtr", &SDKBaseClass::ToPtr)
+        .addLuaFunction("__tostring", SDKBaseClass_tostring)
+        .addJSFunction("toString", SDKBaseClass_tostring)
         .addJSCustomIndex(SDKBaseClass__GetProp, SDKBaseClass__SetProp)
     .endClass();
 }

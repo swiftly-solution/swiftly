@@ -87,8 +87,8 @@ void SDKBaseClass::CBaseEntity_Despawn() {
     ((CBaseEntity*)this->GetPtr())->Despawn();
 }
 
-void SDKBaseClass::CBaseEntity_AcceptInput(std::string input, SDKBaseClass activator, SDKBaseClass caller, std::string value, int outputID) {
-    ((CBaseEntity*)this->GetPtr())->AcceptInput(input.c_str(), (CEntityInstance*)activator.GetPtr(), (CEntityInstance*)caller.GetPtr(), value.c_str(), outputID);
+void SDKBaseClass::CBaseEntity_AcceptInput(std::string input, EValue activator, EValue caller, std::string value, int outputID) {
+    ((CBaseEntity*)this->GetPtr())->AcceptInput(input.c_str(), (CEntityInstance*)activator.cast_or<SDKBaseClass>(SDKBaseClass(nullptr, "CEntityInstance")).GetPtr(), (CEntityInstance*)caller.cast_or<SDKBaseClass>(SDKBaseClass(nullptr, "CEntityInstance")).GetPtr(), value.c_str(), outputID);
 }
 
 std::string SDKBaseClass::CBaseEntity_GetClassname() {

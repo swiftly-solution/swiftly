@@ -6,9 +6,9 @@ function LoadUtils(global) {
     }
     
     const lifeStateSelector = {
-        "@alive": LifeState_t.LIFE_ALIVE,
-        "@dying": LifeState_t.LIFE_DYING,
-        "@dead": LifeState_t.LIFE_DEAD
+        "@alive": sdk.LifeState_t.LIFE_ALIVE,
+        "@dying": sdk.LifeState_t.LIFE_DYING,
+        "@dead": sdk.LifeState_t.LIFE_DEAD
     }
     
     const weaponlist = [
@@ -125,7 +125,7 @@ function LoadUtils(global) {
             }
 
             if(teamSelector[target]) {
-                const cbaseentity = CBaseEntity(player.CCSPlayerPawn())
+                const cbaseentity = sdk.CBaseEntity(player.CCSPlayerPawn())
                 if(cbaseentity) {
                     if(cbaseentity.IsValid()) {
                         if(cbaseentity.TeamNum == teamSelector[target]) {
@@ -137,7 +137,7 @@ function LoadUtils(global) {
             }
 
             if(lifeStateSelector[target]) {
-                const cbaseentity = CBaseEntity(player.CCSPlayerPawn())
+                const cbaseentity = sdk.CBaseEntity(player.CCSPlayerPawn())
                 if(cbaseentity) {
                     if(cbaseentity.IsValid()) {
                         if(cbaseentity.LifeState == lifeStateSelector[target]) {

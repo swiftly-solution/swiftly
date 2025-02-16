@@ -2,19 +2,15 @@ const eventHandlers = {}
 
 const needsCasting = ["CCheckTransmitInfo"]
 
-globalThis = new Proxy(globalThis, {
-    get: (tbl, key) => {
-        if(key in tbl) return tbl[key]
-
-        if(IsSDKClass(key)) {
-            return GenerateSDKFactory(key).__call
-        } else if(IsTypeClass(key)) {
-            return GenerateTypeFactory(key)
-        }
+globalThis.sdk = new Proxy({}, {
+    get: (obj, key, receiver) => {
+        if(key == "CCheckTransmitInfo") return CCheckTransmitInfo;
+        else if(IsTypeClass(key)) return GenerateTypeFactory(key);
+        else if(IsSDKClass(key)) return GenerateSDKFactory(key).call;
+        else return undefined;
     },
-    set: (tbl, key, value) => {
-        tbl[key] = value;
-        return true;
+    set: (target, key, val, recv) => {
+        throw SyntaxError("You cannot set values to SDK.");
     }
 })
 
@@ -34,7 +30,6 @@ const LoadEventFile = (global) => {
         if (eventHandlers[eventName].length <= 0) return EventResult.Continue
     
         let data = msgpack_unpack(eventData)
-        console.log(data)
         if(!data) return EventResult.Continue
         if(typeof data != "object") return EventResult.Continue
     
@@ -45,7 +40,7 @@ const LoadEventFile = (global) => {
                 newdata.push(data[i])
                 if(typeof data[i] == "string") {
                     if((data[i].startsWith("0x") || data[i] == "(null)") && (IsSDKClass(data[i+1]) || needsCasting.includes(data[i+1]))) {
-                        newdata[newdata.length-1] = global[data[i+1]](data[i])
+                        newdata[newdata.length-1] = global["sdk"][data[i+1]](data[i])
                         skipNext = true
                     }
                 }
@@ -59,7 +54,7 @@ const LoadEventFile = (global) => {
         const handlers = eventHandlers[eventName]
         for(let i = 0; i < handlers.length; i++) {
             if((typeof handlers[i].handle) == "function") {
-                const result = (handlers[i].handle.apply(null, newdata) || EventResult.Continue);
+                const result = (handlers[i].handle.apply(global, newdata) || EventResult.Continue);
                 if(result != EventResult.Continue) return result
             }
         }
@@ -100,7 +95,7 @@ const LoadEventFile = (global) => {
     }
     
     global.TriggerEvent = (eventName, ...args) => {
-        if(msgpack_unpack == null || msgpack_pack == null) setupMsgpack()
+        if(global.msgpack_unpack == null || global.msgpack_pack == null) setupMsgpack()
 
         const encdata = global.msgpack_pack(args);
         return TriggerEventInternal(eventName, encdata)
