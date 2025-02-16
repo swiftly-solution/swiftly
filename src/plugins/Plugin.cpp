@@ -79,7 +79,9 @@ EventResult Plugin::TriggerEvent(std::string invokedBy, std::string eventName, s
     }
     catch (EException& e)
     {
-        PRINTF("An error has occured: %s\n", e.what());
+        PRINTF("An error has occured while executing '%s' event:\nError: %s\n", eventName.c_str(), e.what());
+
+        if(eventName == "OnPluginStart") this->SetLoadError(e.what());
     }
 
     return (EventResult)res;
@@ -186,15 +188,15 @@ bool Plugin::LoadScriptingEnvironment()
     SetupScriptingEnvironment(this, ctx);
 
     // for (Extension* ext : extManager->GetExtensionsList())
-    //     if (ext->IsLoaded()) {
-    //         std::string error = "";
-    //         if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->ctx, this->GetKind(), error)) {
-    //             PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
-    //             PRINTF("Error: %s.\n", error.c_str());
-    //             this->SetLoadError(error);
-    //             return false;
-    //         }
-    //     }
+        // if (ext->IsLoaded()) {
+        //     std::string error = "";
+        //     if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->ctx, this->GetKind(), error)) {
+        //         PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+        //         PRINTF("Error: %s.\n", error.c_str());
+        //         this->SetLoadError(error);
+        //         return false;
+        //     }
+        // }
 
     std::string fileExt = GetKind() == PluginKind_t::Lua ? ".lua" : ".js";
     int loadStatus = ctx->RunFile(GeneratePath("addons/swiftly/bin/scripting/events" + fileExt));
@@ -327,6 +329,8 @@ bool Plugin::ExecuteStart()
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     TriggerEvent("core", "OnPluginStart", encoders::msgpack::SerializeToString({}), event);
     delete event;
+
+    if(GetLoadError() != "") return false;
 
     return true;
 }
