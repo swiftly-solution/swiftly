@@ -14,8 +14,9 @@ void PluginDatabase::ExecuteQB(std::string query, EValue cb, EContext* L)
     std::string uuid = get_uuid();
 
     EValue databaseRequestsQueue = EValue::getGlobal(L, "databaseRequestsQueue");
-    if (databaseRequestsQueue.isTable())
-        databaseRequestsQueue[uuid] = EValue(cb);
+    if (databaseRequestsQueue.isTable()) {
+        databaseRequestsQueue.setProperty(uuid, EValue(cb));
+    }
 
     DatabaseQueryQueue queue = {
         query,

@@ -84,7 +84,7 @@ EventResult Plugin::TriggerEvent(std::string invokedBy, std::string eventName, s
     }
     catch (EException& e)
     {
-        PRINTF("An error has occured while executing '%s' event:\nError: %s\n", eventName.c_str(), e.what());
+        PRINTF("An error has occured while executing event '%s':\nError: %s\n", eventName.c_str(), e.what());
 
         if(eventName == "OnPluginStart") this->SetLoadError(e.what());
     }
