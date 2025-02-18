@@ -32,6 +32,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
 	binary.sources.append("vendor/dynlib/module.cpp")
+	binary.sources.append("vendor/msgpack-lua/msgpack.cpp")
 
 	binary.sources.append(os.path.join(sdk['path'], 'entity2', 'entitysystem.cpp'))
 	binary.sources.append(os.path.join(sdk['path'], 'entity2', 'entityidentity.cpp'))

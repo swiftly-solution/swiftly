@@ -6,7 +6,11 @@ globalThis.sdk = new Proxy({}, {
     get: (obj, key, receiver) => {
         if(key == "CCheckTransmitInfo") return CCheckTransmitInfo;
         else if(IsTypeClass(key)) return GenerateTypeFactory(key);
-        else if(IsSDKClass(key)) return GenerateSDKFactory(key).call;
+        else if(IsSDKClass(key)) return (ptr) => {
+            let f = GenerateSDKFactory(key)
+            f.call(ptr)
+            return f;
+        };
         else return undefined;
     },
     set: (target, key, val, recv) => {
@@ -20,7 +24,7 @@ const LoadEventFile = (global) => {
 
     function setupMsgpack() {
         global.msgpack_pack = data => msgpack.pack(data)
-        global.msgpack_unpack = data => msgpack.unpack(data)
+        global.msgpack_unpack = data => JSON.parse(msgpack.unpack(data))
     }
     
     AddGlobalEvents((event, eventSource, eventName, eventData) => {
@@ -36,7 +40,7 @@ const LoadEventFile = (global) => {
         let newdata = []
         let skipNext = false
         for(let i = 0; i < data.length; i++) {
-            if(skipNext) {
+            if(!skipNext) {
                 newdata.push(data[i])
                 if(typeof data[i] == "string") {
                     if((data[i].startsWith("0x") || data[i] == "(null)") && (IsSDKClass(data[i+1]) || needsCasting.includes(data[i+1]))) {
@@ -48,7 +52,7 @@ const LoadEventFile = (global) => {
                 skipNext = false
             }
         }
-    
+
         newdata.unshift(event);
     
         const handlers = eventHandlers[eventName]

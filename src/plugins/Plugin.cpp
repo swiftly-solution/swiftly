@@ -4,6 +4,7 @@
 #include "../extensions/ExtensionManager.h"
 #include "../server/commands/CommandsManager.h"
 
+LUALIB_API int luaopen_cmsgpack(lua_State *L);
 extern "C"
 {
     LUALIB_API int luaopen_rapidjson(lua_State* L);
@@ -64,11 +65,15 @@ EventResult Plugin::TriggerEvent(std::string invokedBy, std::string eventName, s
     if (eventName != "OnGameTick") REGISTER_CALLSTACK(this->GetName(), string_format("Event: %s(invokedBy=\"%s\",payload=\"%s\",event=%p)", eventName.c_str(), invokedBy.c_str(), eventPayload.c_str(), (void*)event));
     PERF_RECORD(string_format("event:%s:%s", invokedBy.c_str(), eventName.c_str()), this->GetName());
 
+    EValue payload(ctx, eventPayload);
+    if(ctx->GetKind() == ContextKinds::JavaScript)
+        payload = EValue(ctx, JS_NewUint8ArrayCopy((JSContext*)ctx->GetState(), (uint8_t*)(eventPayload.data()), eventPayload.size()));
+
     int res = (int)EventResult::Continue;
     try
     {
         EValue func = *this->globalEventHandler;
-        auto result = func(event, invokedBy, eventName, eventPayload);
+        auto result = func(event, invokedBy, eventName, payload);
 
         if (!result.isNumber())
             return EventResult::Continue;
@@ -182,21 +187,24 @@ bool Plugin::LoadScriptingEnvironment()
     ctx = new EContext(GetKind() == PluginKind_t::Lua ? ContextKinds::Lua : ContextKinds::JavaScript);
 
     if(ctx->GetKind() == ContextKinds::Lua) {
+        ctx->RegisterLuaLib("msgpack", luaopen_cmsgpack);
         ctx->RegisterLuaLib("json", luaopen_rapidjson);
     }
 
     SetupScriptingEnvironment(this, ctx);
 
-    // for (Extension* ext : extManager->GetExtensionsList())
-        // if (ext->IsLoaded()) {
-        //     std::string error = "";
-        //     if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->ctx, this->GetKind(), error)) {
-        //         PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
-        //         PRINTF("Error: %s.\n", error.c_str());
-        //         this->SetLoadError(error);
-        //         return false;
-        //     }
-        // }
+    if(GetKind() == PluginKind_t::JavaScript) {
+        for (Extension* ext : extManager->GetExtensionsList())
+            if (ext->IsLoaded()) {
+                std::string error = "";
+                if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->ctx, this->GetKind(), error)) {
+                    PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+                    PRINTF("Error: %s.\n", error.c_str());
+                    this->SetLoadError(error);
+                    return false;
+                }
+            }
+    }
 
     std::string fileExt = GetKind() == PluginKind_t::Lua ? ".lua" : ".js";
     int loadStatus = ctx->RunFile(GeneratePath("addons/swiftly/bin/scripting/events" + fileExt));

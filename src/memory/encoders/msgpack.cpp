@@ -82,7 +82,6 @@ namespace encoders {
             obj.convert(obj_vector);
 
             for (const auto& elem : obj_vector) {
-                printf("%d\n", elem.type);
                 switch (elem.type) {
                     case ::msgpack::type::BOOLEAN:
                         res.push_back(elem.as<bool>());

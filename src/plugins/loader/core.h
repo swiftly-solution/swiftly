@@ -26,3 +26,18 @@ public:
         m_loadFunction(plugin, state);
     }
 };
+
+class MsgPack
+{
+public:
+    MsgPack() = default;
+
+    std::string Serialize(std::vector<std::any> data)
+    {
+        return encoders::msgpack::SerializeToString(data);
+    }
+    std::vector<std::any> Deserialize(std::string data)
+    {
+        return encoders::msgpack::DeserializeFromString(data);
+    }
+};

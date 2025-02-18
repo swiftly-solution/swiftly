@@ -30,17 +30,20 @@ void RemoveEventHandlerPlugin(std::string eventName, EContext* L)
     plugin->UnregisterEventHandling(eventName);
 }
 
-std::vector<EValue*> TriggerEventInternal(std::string eventName, std::string eventPayload, EContext* L)
+std::vector<EValue> TriggerEventInternal(std::string eventName, EValue eventPayload, EContext* L)
 {
-    std::vector<EValue*> returnValues;
+    std::vector<EValue> returnValues;
 
     PluginEvent event(FetchPluginName(L), nullptr, nullptr);
 
-    EValue v1(L, (int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, eventPayload, &event));
-    EValue v2(L, event);
+    std::string payload = "";
+    size_t len;
 
-    returnValues.push_back(&v1);
-    returnValues.push_back(&v2);
+    if(L->GetKind() == ContextKinds::JavaScript) payload = (const char*)JS_GetUint8Array((JSContext*)L->GetState(), &len, eventPayload.pushJS());
+    else payload = eventPayload.cast<std::string>();
+
+    returnValues.push_back(EValue(L, (int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, eventPayload, &event)));
+    returnValues.push_back(EValue(L, event));
 
     return returnValues;
 }
