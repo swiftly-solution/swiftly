@@ -71,7 +71,11 @@ namespace encoders {
 
             ::msgpack::object_handle result;
 
-            ::msgpack::unpack(result, str.c_str(), str.length());
+            try {
+                ::msgpack::unpack(result, str.c_str(), str.length());
+            } catch(std::exception &e) {
+                return res;
+            }
 
             ::msgpack::object obj = result.get();
 
