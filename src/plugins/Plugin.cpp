@@ -369,7 +369,7 @@ EValue SerializeData(std::any data, EContext* state)
     std::any value = data;
 
     if (!value.has_value())
-        return EValue(state);
+        return EValue(state, nullptr);
 
     try
     {
@@ -451,7 +451,7 @@ EValue SerializeData(std::any data, EContext* state)
         else if (value.type() == typeid(QAngle))
             return EValue(state, std::any_cast<QAngle>(value));
         else if (value.type() == typeid(std::nullptr_t))
-            return EValue(state);
+            return EValue(state, nullptr);
         else if (value.type() == typeid(std::vector<std::string>))
         {
             if(state->GetKind() == ContextKinds::Lua) {
@@ -488,16 +488,16 @@ EValue SerializeData(std::any data, EContext* state)
         else
         {
             PRINTF("Unknown Data Type: %s\n", value.type().name());
-            return EValue(state);
+            return EValue(state, nullptr);
         }
     }
     catch (std::bad_any_cast& err)
     {
         PRINTF("Invalid casting: %s\n", err.what());
-        return EValue(state);
+        return EValue(state, nullptr);
     }
 
-    return EValue(state);
+    return EValue(state, nullptr);
 }
 
 std::any DeserializeData(EValue ref, EContext* state)

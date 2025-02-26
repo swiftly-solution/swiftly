@@ -56,7 +56,7 @@ void LoadEvent(Plugin* plugin, EContext* state)
         .addFunction("RemoveEventHandlerPlugin", RemoveEventHandlerPlugin)
         .addFunction("TriggerEventInternal", TriggerEventInternal);
 
-    BeginClass<PluginEvent>("Event", state)
+    BeginClass<PluginEvent>(state->GetKind() == ContextKinds::JavaScript ? "PEvent" : "Event", state)
         .addConstructor<std::string, EContext*>()
         .addFunction("GetInvokingPlugin", &PluginEvent::GetInvokingPlugin)
         .addFunction("IsGameEvent", &PluginEvent::IsGameEvent)

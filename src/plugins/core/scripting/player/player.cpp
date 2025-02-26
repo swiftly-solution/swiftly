@@ -33,7 +33,7 @@ SDKBaseClass* PluginPlayer::GetCBaseEntity()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) pCBaseEntity->SetPtr(nullptr);
-    else if(player->GetPlayerPawn() != pCBaseEntity->GetPtr()) pCBaseEntity->SetPtr(player->GetPlayerPawn());
+    else if (player->GetPlayerPawn() != pCBaseEntity->GetPtr()) pCBaseEntity->SetPtr(player->GetPlayerPawn());
     return pCBaseEntity;
 }
 
@@ -41,7 +41,7 @@ SDKBaseClass* PluginPlayer::GetCBasePlayerController()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) pCBasePlayerController->SetPtr(nullptr);
-    else if(player->GetController() != pCBasePlayerController->GetPtr()) pCBasePlayerController->SetPtr(player->GetController());
+    else if (player->GetController() != pCBasePlayerController->GetPtr()) pCBasePlayerController->SetPtr(player->GetController());
     return pCBasePlayerController;
 }
 
@@ -49,7 +49,7 @@ SDKBaseClass* PluginPlayer::GetCBasePlayerPawn()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) pCBasePlayerPawn->SetPtr(nullptr);
-    else if(player->GetPawn() != pCBasePlayerPawn->GetPtr()) pCBasePlayerPawn->SetPtr(player->GetPawn());
+    else if (player->GetPawn() != pCBasePlayerPawn->GetPtr()) pCBasePlayerPawn->SetPtr(player->GetPawn());
     return pCBasePlayerPawn;
 }
 
@@ -57,7 +57,7 @@ SDKBaseClass* PluginPlayer::GetCCSPlayerController()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) pCCSPlayerController->SetPtr(nullptr);
-    else if(player->GetPlayerController() != pCCSPlayerController->GetPtr()) pCCSPlayerController->SetPtr(player->GetPlayerController());
+    else if (player->GetPlayerController() != pCCSPlayerController->GetPtr()) pCCSPlayerController->SetPtr(player->GetPlayerController());
     return pCCSPlayerController;
 }
 
@@ -65,7 +65,7 @@ SDKBaseClass* PluginPlayer::GetCCSPlayerPawn()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) pCCSPlayerPawn->SetPtr(nullptr);
-    else if(player->GetPlayerPawn() != pCCSPlayerPawn->GetPtr()) pCCSPlayerPawn->SetPtr(player->GetPlayerPawn());
+    else if (player->GetPlayerPawn() != pCCSPlayerPawn->GetPtr()) pCCSPlayerPawn->SetPtr(player->GetPlayerPawn());
     return pCCSPlayerPawn;
 }
 
@@ -73,7 +73,7 @@ SDKBaseClass* PluginPlayer::GetCCSPlayerPawnBase()
 {
     Player* player = g_playerManager->GetPlayer(this->playerId);
     if (!player) pCCSPlayerPawnBase->SetPtr(nullptr);
-    else if(player->GetPlayerBasePawn() != pCCSPlayerPawnBase->GetPtr()) pCCSPlayerPawnBase->SetPtr(player->GetPlayerBasePawn());
+    else if (player->GetPlayerBasePawn() != pCCSPlayerPawnBase->GetPtr()) pCCSPlayerPawnBase->SetPtr(player->GetPlayerBasePawn());
     return pCCSPlayerPawnBase;
 }
 
@@ -255,7 +255,7 @@ std::string PluginPlayer::GetSteamID2()
         return "STEAM_0:0:000000000";
 
     static const uint64_t base = 76561197960265728;
-    std::string data = string_format("STEAM_0:%d:%llu", (steamid - base) % 2, (steamid - base) / 2);
+    std::string data = string_format("STEAM_0:%d:%llu", (steamid - base) & 1, (steamid - base) / 2);
 
     return data;
 }
@@ -468,13 +468,14 @@ void PluginPlayer::PerformMenuAction(std::string action, int value)
     Player* self = g_playerManager->GetPlayer(this->playerId);
     if (!self) return;
 
-    if(action == "useOption") {
-        while(self->menu_renderer->GetSelection() != value-1)
+    if (action == "useOption") {
+        while (self->menu_renderer->GetSelection() != value - 1)
             self->menu_renderer->MoveSelection();
 
         self->menu_renderer->PerformMenuAction(g_Config->FetchValue<std::string>("core.menu.buttons.use"));
-    } else if(action == "scrollToOption") {
-        while(self->menu_renderer->GetSelection() != value-1)
+    }
+    else if (action == "scrollToOption") {
+        while (self->menu_renderer->GetSelection() != value - 1)
             self->menu_renderer->MoveSelection();
     }
 }

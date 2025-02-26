@@ -1,7 +1,7 @@
 function LoadExports(global) {
     let pluginProxyCache = {}
 
-    global.export = (exportName, callback) => {
+    global.exp = (exportName, callback) => {
         AddEventHandler(`export:${GetCurrentPluginName()}:${exportName}`, (event, ...args) => {
             event.SetReturn(callback.apply(global, args))
             return EventResult.Stop
