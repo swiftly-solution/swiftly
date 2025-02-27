@@ -33,7 +33,7 @@ struct Stack<std::any>
 
     static std::any getLua(EContext* ctx, int ref)
     {
-        return DeserializeData(EValue(ctx, ref), ctx);
+        return DeserializeData(EValue(ctx, ref, false), ctx);
     }
 
     static std::any getJS(EContext* ctx, JSValue value)

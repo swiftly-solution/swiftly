@@ -4,7 +4,7 @@
 #include "../extensions/ExtensionManager.h"
 #include "../server/commands/CommandsManager.h"
 
-LUALIB_API int luaopen_cmsgpack(lua_State *L);
+LUALIB_API int luaopen_cmsgpack(lua_State* L);
 extern "C"
 {
     LUALIB_API int luaopen_rapidjson(lua_State* L);
@@ -66,7 +66,7 @@ EventResult Plugin::TriggerEvent(std::string invokedBy, std::string eventName, s
     PERF_RECORD(string_format("event:%s:%s", invokedBy.c_str(), eventName.c_str()), this->GetName());
 
     EValue payload(ctx, eventPayload);
-    if(ctx->GetKind() == ContextKinds::JavaScript)
+    if (ctx->GetKind() == ContextKinds::JavaScript)
         payload = EValue(ctx, JS_NewUint8ArrayCopy((JSContext*)ctx->GetState(), (uint8_t*)(eventPayload.data()), eventPayload.size()));
 
     int res = (int)EventResult::Continue;
@@ -86,7 +86,7 @@ EventResult Plugin::TriggerEvent(std::string invokedBy, std::string eventName, s
     {
         PRINTF("An error has occured while executing event '%s':\nError: %s\n", eventName.c_str(), e.what());
 
-        if(eventName == "OnPluginStart") this->SetLoadError(e.what());
+        if (eventName == "OnPluginStart") this->SetLoadError(e.what());
     }
 
     return (EventResult)res;
@@ -159,8 +159,8 @@ void Plugin::ExecuteCommand(void* functionPtr, std::string name, int slot, std::
 {
     PERF_RECORD(string_format("command:%s", name.c_str()), this->GetName())
 
-    if (functionPtr == nullptr)
-        return;
+        if (functionPtr == nullptr)
+            return;
 
     EValue* commandRef = (EValue*)functionPtr;
 
@@ -183,17 +183,17 @@ void Plugin::ExecuteCommand(void* functionPtr, std::string name, int slot, std::
 bool Plugin::LoadScriptingEnvironment()
 {
     this->SetLoadError("");
-    
+
     ctx = new EContext(GetKind() == PluginKind_t::Lua ? ContextKinds::Lua : ContextKinds::JavaScript);
 
-    if(ctx->GetKind() == ContextKinds::Lua) {
+    if (ctx->GetKind() == ContextKinds::Lua) {
         ctx->RegisterLuaLib("msgpack", luaopen_cmsgpack);
         ctx->RegisterLuaLib("json", luaopen_rapidjson);
     }
 
     SetupScriptingEnvironment(this, ctx);
 
-    if(GetKind() == PluginKind_t::JavaScript) {
+    if (GetKind() == PluginKind_t::JavaScript) {
         for (Extension* ext : extManager->GetExtensionsList())
             if (ext->IsLoaded()) {
                 std::string error = "";
@@ -239,7 +239,8 @@ bool Plugin::LoadScriptingEnvironment()
                     this->SetLoadError(error);
                     return false;
                 }
-            } catch(EException& e) {
+            }
+            catch (EException& e) {
                 std::string error = e.what();
                 PRINTF("Failed to load plugin file '%s'.\n", file.c_str());
                 PRINTF("Error: %s\n", error.c_str());
@@ -269,7 +270,8 @@ bool Plugin::LoadScriptingEnvironment()
                     this->SetLoadError(error);
                     return false;
                 }
-            } catch(EException& e) {
+            }
+            catch (EException& e) {
                 std::string error = e.what();
                 PRINTF("Failed to load plugin file '%s'.\n", file.c_str());
                 PRINTF("Error: %s\n", error.c_str());
@@ -338,7 +340,7 @@ bool Plugin::ExecuteStart()
     TriggerEvent("core", "OnPluginStart", encoders::msgpack::SerializeToString({}), event);
     delete event;
 
-    if(GetLoadError() != "") return false;
+    if (GetLoadError() != "") return false;
 
     return true;
 }
@@ -388,7 +390,7 @@ EValue SerializeData(std::any data, EContext* state)
             if (starts_with(val, "JSON⇚") && ends_with(val, "⇛")) {
                 std::string json = explode(explode(val, "⇚")[1], "⇛")[0];
 
-                if(state->GetKind() == ContextKinds::Lua) {
+                if (state->GetKind() == ContextKinds::Lua) {
                     EValue rapidJsonTable = EValue::getGlobal(state, "json");
                     if (!rapidJsonTable["decode"].isFunction())
                         return EValue(state, emptyTable);
@@ -408,9 +410,11 @@ EValue SerializeData(std::any data, EContext* state)
                         return EValue(state, emptyTable);
 
                     return decodedResult;
-                } else if(state->GetKind() == ContextKinds::JavaScript) {
+                }
+                else if (state->GetKind() == ContextKinds::JavaScript) {
                     return EValue(state, JS_ParseJSON((JSContext*)state->GetState(), json.c_str(), json.length(), "SerializeData"));
-                } else return EValue(state);
+                }
+                else return EValue(state, nullptr);
             }
             else return EValue(state, val);
         }
@@ -454,21 +458,21 @@ EValue SerializeData(std::any data, EContext* state)
             return EValue(state, nullptr);
         else if (value.type() == typeid(std::vector<std::string>))
         {
-            if(state->GetKind() == ContextKinds::Lua) {
+            if (state->GetKind() == ContextKinds::Lua) {
                 std::vector<std::string> tmpval = std::any_cast<std::vector<std::string>>(value);
                 std::string tbl = tmpval[0];
-    
+
                 EValue load = EValue::getGlobal(state, "load");
                 try
                 {
                     EValue loadReturnValue = load(tbl);
                     if (!loadReturnValue.isFunction())
                         return EValue(state, emptyTable);
-    
+
                     EValue loadFuncRetVal = loadReturnValue();
                     if (!loadFuncRetVal.isTable())
                         return EValue(state, emptyTable);
-    
+
                     return loadFuncRetVal;
                 }
                 catch (EException& e)
@@ -476,7 +480,8 @@ EValue SerializeData(std::any data, EContext* state)
                     PRINTF("Exception: %s\n", e.what());
                     return EValue(state, emptyTable);
                 }
-            } else {
+            }
+            else {
                 PRINT("Cannot convert Lua table to JS object.\n");
                 return EValue(state);
             }
@@ -512,7 +517,7 @@ std::any DeserializeData(EValue ref, EContext* state)
         return ref.cast<std::string>();
     else if (ref.isTable())
     {
-        if(state->GetKind() == ContextKinds::Lua) {
+        if (state->GetKind() == ContextKinds::Lua) {
             EValue serpentDump = EValue::getGlobal(state, "serpent")["dump"];
             EValue serpentDumpReturnValue = serpentDump(ref);
 
@@ -520,10 +525,12 @@ std::any DeserializeData(EValue ref, EContext* state)
             tmptbl.push_back(serpentDumpReturnValue.cast<std::string>());
 
             return tmptbl;
-        } else if(state->GetKind() == ContextKinds::JavaScript) {
+        }
+        else if (state->GetKind() == ContextKinds::JavaScript) {
             std::vector<std::string> tmptbl;
             return tmptbl;
-        } else return nullptr;
+        }
+        else return nullptr;
     }
     else if (ref.isInstance<Color>())
         return ref.cast<Color>();
