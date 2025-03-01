@@ -68,10 +68,10 @@ builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripti
 
 configs_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'configs'))
 configs_plugins_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'configs', 'plugins'))
-builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'core.json'), configs_folder)
-builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'databases.json'), configs_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'core.example.json'), configs_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'databases.example.json'), configs_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'plugins', '.gitignore'), configs_plugins_folder)
-builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'chat.json'), configs_folder)
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'configs', 'chat.example.json'), configs_folder)
 
 gamedata_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'gamedata'))
 gamedata_core_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'gamedata', 'core'))

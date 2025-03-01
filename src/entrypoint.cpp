@@ -8,6 +8,7 @@
 
 #include <steam/steam_gameserver.h>
 
+#include "core/configuration/setup.h"
 #include "extensions/ExtensionManager.h"
 #include "sdk/entity/CRecipientFilters.h"
 #include "memory/encoders/msgpack.h"
@@ -172,6 +173,8 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     SH_ADD_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &Swiftly::Hook_CheckTransmit, true);
 
     g_pCVar = icvar;
+
+    HandleConfigExamples();
 
     if (!BeginCrashListener())
         PRINTRET("Crash Reporter failed to initialize.\n", false);
