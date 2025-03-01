@@ -22,7 +22,7 @@ PluginDatabase::PluginDatabase(std::string m_connection_name)
 }
 
 
-void PluginDatabase::QueryLua(std::string query, luabridge::LuaRef callback, lua_State* L)
+void PluginDatabase::Query(std::string query, EValue callback, EContext* L)
 {
     if (this->db->GetKind() != "mysql") {
         PLUGIN_PRINT("Database - Query", "This function is supporting only MySQL databases.\n");
@@ -30,7 +30,7 @@ void PluginDatabase::QueryLua(std::string query, luabridge::LuaRef callback, lua
     }
     std::string uuid = get_uuid();
 
-    luabridge::LuaRef databaseRequestsQueue = luabridge::getGlobal(L, "databaseRequestsQueue");
+    EValue databaseRequestsQueue = EValue::getGlobal(L, "databaseRequestsQueue");
     if (databaseRequestsQueue.isTable())
         databaseRequestsQueue[uuid] = callback;
 
@@ -41,7 +41,7 @@ void PluginDatabase::QueryLua(std::string query, luabridge::LuaRef callback, lua
     this->db->AddQueryQueue(queue);
 }
 
-void PluginDatabase::QueryParamsLua(std::string query, std::map<luabridge::LuaRef, luabridge::LuaRef> params, luabridge::LuaRef callback, lua_State* L)
+void PluginDatabase::QueryParams(std::string query, std::map<EValue, EValue> params, EValue callback, EContext* L)
 {
     if (this->db->GetKind() != "mysql") {
         PLUGIN_PRINT("Database - Query", "This function is supporting only MySQL databases.\n");
@@ -54,7 +54,8 @@ void PluginDatabase::QueryParamsLua(std::string query, std::map<luabridge::LuaRe
 
     for (auto it = params.begin(); it != params.end(); ++it)
     {
-        std::string key = it->first.isString() ? it->first.cast<char const*>() : it->first.tostring();
+        EValue first = *(EValue*)(&(it->first));
+        std::string key = first.isString() ? first.cast<char const*>() : first.tostring();
         std::string value = EscapeString(it->second.isString() ? it->second.cast<char const*>() : it->second.tostring());
 
         if (has_ats)
@@ -67,7 +68,7 @@ void PluginDatabase::QueryParamsLua(std::string query, std::map<luabridge::LuaRe
             query = replace(query, "[" + key + "]", value);
     }
 
-    return QueryLua(query, callback, L);
+    return Query(query, callback, L);
 }
 
 bool PluginDatabase::IsConnected()

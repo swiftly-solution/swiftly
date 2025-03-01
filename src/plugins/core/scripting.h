@@ -105,7 +105,7 @@ class PluginCCheckTransmitInfo
 {
 public:
     CCheckTransmitInfo* m_ptr;
-    PluginCCheckTransmitInfo(luabridge::LuaRef ptr);
+    PluginCCheckTransmitInfo(EValue ptr);
 
     std::map<int, int> GetPlayers();
     std::vector<int> GetEntities();
@@ -129,7 +129,7 @@ private:
 
 public:
     PluginEvent(std::string m_plugin_name, IGameEvent* m_gameEvent, dyno::Hook* m_hookPtr);
-    PluginEvent(std::string gameEventName, lua_State* state);
+    PluginEvent(std::string gameEventName, EContext* state);
     ~PluginEvent();
 
     std::string GetInvokingPlugin();
@@ -239,16 +239,17 @@ class SDKBaseClass
 {
 private:
     void* m_ptr;
+    
+public:
     std::string m_className;
     uint64_t classOffset;
-
-public:
-    SDKBaseClass(std::string ptr, lua_State* state);
+    
+    SDKBaseClass() = default;
     SDKBaseClass(void* ptr, std::string className);
     SDKBaseClass(std::string ptr, std::string className);
 
-    luabridge::LuaRef AccessSDKLua(std::string fieldName, uint64_t path, lua_State* state);
-    void UpdateSDKLua(std::string fieldName, luabridge::LuaRef value, lua_State* state);
+    EValue AccessSDK(std::string fieldName, uint64_t path, EContext* state);
+    void UpdateSDK(std::string fieldName, EValue value, EContext* state);
 
     int CBasePlayerController_EntityIndex();
     void CAttributeList_SetOrAddAttributeValueByName(std::string str, float value);
@@ -257,27 +258,32 @@ public:
     void CBaseModelEntity_SetBodygroup(std::string str, int64_t val);
     SDKBaseClass CBaseEntity_EHandle();
     void CBaseEntity_Spawn(PluginCEntityKeyValues* kv);
-    void CBaseEntity_SpawnLua(lua_State* state);
     void CBaseEntity_Despawn();
-    void CBaseEntity_AcceptInput(std::string input, SDKBaseClass activator, SDKBaseClass caller, std::string value, int outputID);
+    void CBaseEntity_AcceptInput(std::string input, EValue activator, EValue caller, std::string value, int outputID);
     std::string CBaseEntity_GetClassname();
     SDKBaseClass CBaseEntity_GetVData();
     void CBaseEntity_Teleport(Vector value, QAngle angle, Vector velocity);
-    void CBaseEntity_TeleportLua(lua_State* L);
     void CBaseEntity_EmitSound(std::string sound_name, float pitch, float volume);
     void CBaseEntity_CollisionRulesChanged();
     SDKBaseClass CGameSceneNode_GetSkeletonInstance();
     SDKBaseClass CPlayerPawnComponent_GetPawn();
-
-    int GetProp(lua_State* state);
-    int SetProp(lua_State* state);
-    int CallProp(lua_State* state);
 
     std::string GetClassName();
     void* GetPtr();
     void SetPtr(void* ptr);
     std::string ToPtr();
     bool IsValid();
+};
+
+class SDKBaseType
+{
+private:
+    std::string m_typeName;
+
+public:
+    SDKBaseType(std::string typeName);
+
+    int64_t GetTypeValue(std::string key);
 };
 
 //////////////////////////////////////////////////////////////
@@ -420,14 +426,14 @@ private:
 public:
     PluginCommands(std::string m_plugin_name);
 
-    void RegisterCommand(std::string commandName, void* callback);
+    void RegisterCmd(std::string commandName, void* callback);
+    void RegisterCommand(std::string commandName, EValue callback);
     void UnregisterCommand(std::string commandName);
 
     void RegisterRawAlias(std::string commandName, std::string aliasName);
     void RegisterAlias(std::string commandName, std::string aliasName);
     void UnregisterAlias(std::string aliasName);
 
-    void RegisterCommandLua(std::string commandName, luabridge::LuaRef callback);
 
     std::vector<std::string> GetAllCommands();
     std::vector<std::string> GetCommands();
@@ -451,12 +457,11 @@ public:
     std::string EscapeString(std::string str);
     std::string GetVersion();
 
+    void Query(std::string query, EValue callback, EContext* L);
+    void QueryParams(std::string query, std::map<EValue, EValue> params, EValue callback, EContext* L);
 
-    void QueryLua(std::string query, luabridge::LuaRef callback, lua_State* L);
-    void QueryParamsLua(std::string query, std::map<luabridge::LuaRef, luabridge::LuaRef> params, luabridge::LuaRef callback, lua_State* L);
-
-    luabridge::LuaRef QueryBuilderLua(lua_State* L);
-    void ExecuteQBLua(std::string query, luabridge::LuaRef cb, lua_State* L);
+    EValue QueryBuilder(EContext* L);
+    void ExecuteQB(std::string query, EValue cb, EContext* L);
 };
 
 //////////////////////////////////////////////////////////////
@@ -495,7 +500,7 @@ public:
     uint64_t FetchArraySize(std::string key);
     std::any Fetch(std::string key);
 
-    void CreateLua(std::string configurationKey, luabridge::LuaRef table, lua_State* L);
+    void Create(std::string configurationKey, EValue table, EContext* L);
 };
 
 //////////////////////////////////////////////////////////////
@@ -900,8 +905,8 @@ public:
 /////////////////           Entities           //////////////
 ////////////////////////////////////////////////////////////
 
-std::vector<SDKBaseClass> UTIL_FindEntitiesByClassname(const char* name);
-SDKBaseClass CreateEntityByName(const char* name);
+std::vector<SDKBaseClass> UTIL_FindEntitiesByClassname(std::string name);
+SDKBaseClass CreateEntityByName(std::string className);
 
 //////////////////////////////////////////////////////////////
 /////////////////             Utils            //////////////

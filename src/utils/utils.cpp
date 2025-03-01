@@ -188,8 +188,12 @@ bool starts_with(std::string value, std::string starting)
 
 void PLUGIN_PRINT(std::string category, std::string str)
 {
-    std::string final_string = string_format("%s %s[%s]%s %s", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str(), str.c_str());
-    META_CONPRINT(final_string.c_str());
+    std::string final_string = string_format("%s %s[%s]%s ", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str());
+    auto splitted = explode(str, "\n");
+    for(int i = 0; i < splitted.size(); i++) {
+        if(splitted[i] == "" && i+1 == splitted.size()) break;
+        META_CONPRINTF("%s%s\n", final_string.c_str(), splitted[i].c_str());
+    }
 
     if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
         if (g_Logger && g_Logger->FetchLogger("core")) {
@@ -202,14 +206,20 @@ void PLUGIN_PRINT(std::string category, std::string str)
 void PLUGIN_PRINTF(std::string category, std::string str, ...)
 {
     va_list ap;
-    char buffer[8192];
+    char buffer[16384];
 
     va_start(ap, str);
     UTIL_FormatArgs(buffer, sizeof(buffer), str.c_str(), ap);
     va_end(ap);
 
-    std::string final_string = string_format("%s %s[%s]%s %s", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str(), buffer);
-    META_CONPRINT(final_string.c_str());
+    std::string fstr = buffer;
+
+    std::string final_prefix = string_format("%s %s[%s]%s ", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str());
+    auto splitted = explode(fstr, "\n");
+    for(int i = 0; i < splitted.size(); i++) {
+        if(splitted[i] == "" && i+1 == splitted.size()) break;
+        META_CONPRINTF("%s%s\n", final_prefix.c_str(), splitted[i].c_str());
+    }
 
     if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
         if (g_Logger && g_Logger->FetchLogger("core")) {
@@ -250,7 +260,8 @@ std::string str_toupper(std::string s)
 
 int32_t genrand()
 {
-    std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+    static std::random_device rd;
+    static std::mt19937 rng(rd());
     return std::uniform_int_distribution<int>(0, INT_MAX)(rng);
 }
 

@@ -1,5 +1,6 @@
 import os
 import fnmatch
+import json
 
 MMSPlugin.plugin_name = 'swiftly'
 MMSPlugin.plugin_alias = 'swiftly'
@@ -15,12 +16,12 @@ for sdk_target in MMSPlugin.sdk_targets:
 			if fnmatch.fnmatch(_file, '*.cpp'):
 				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
-	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, 'vendor', 'lua')):
+	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, "vendor", "json-lua", "src")):
 		for _file in files:
-			if fnmatch.fnmatch(_file, '*.cpp') and not "testes" in root and not "onelua.cpp" in _file:
+			if fnmatch.fnmatch(_file, '*.cpp'):
 				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
 
-	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, "vendor", "json-lua", "src")):
+	for root, dirs, files in os.walk(os.path.join(builder.sourcePath, "vendor", "embedder", "src")):
 		for _file in files:
 			if fnmatch.fnmatch(_file, '*.cpp'):
 				binary.sources.append(os.path.join(root, _file).replace("\\", "/"))
@@ -38,6 +39,16 @@ for sdk_target in MMSPlugin.sdk_targets:
 	binary.sources.append(os.path.join(sdk['path'], 'entity2', 'entitykeyvalues.cpp'))
 	binary.sources.append(os.path.join(sdk['path'], 'tier1', 'keyvalues3.cpp'))
 
+	with open(os.path.join(builder.sourcePath, "vendor", "embedder", "libs", "links.json")) as f:
+		embedder_linking = json.load(f)
+
+	libs = embedder_linking["libraries"][binary.compiler.target.platform]
+	incls = embedder_linking["includes"]
+	for lib in libs:
+		binary.compiler.postlink += [os.path.join(builder.sourcePath, "vendor", "embedder", "libs", lib)]
+	for incl in incls:
+		binary.compiler.cxxincludes += [os.path.join(builder.sourcePath, 'vendor', 'embedder', 'libs', incl)]
+
 	if binary.compiler.target.platform == 'linux':
 		binary.compiler.cxxflags += [
 			"-Wno-invalid-offsetof",
@@ -50,6 +61,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-Wno-int-to-pointer-cast",
 			"-Wno-sign-compare",
 			"-Wno-write-strings",
+			"-Wno-class-memaccess",
 			"-fexceptions",
 		]
 		binary.compiler.cflags += [
@@ -95,8 +107,6 @@ for sdk_target in MMSPlugin.sdk_targets:
             "PLATFORM_64BITS",
             "META_IS_SOURCE2",
             "_GLIBCXX_USE_CXX11_ABI=0",
-            "LUA_USE_LINUX",
-            "LUA_USE_READLINE"
 		]
 	else:
 		binary.compiler.cxxflags += [
@@ -108,7 +118,8 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"/TP",
 			"/MT",
 			"/W3",
-			"/Z7"
+			"/Z7",
+			"/IGNORE:4101,4267,4244,4005,4003,4530",
 		]
 		binary.compiler.postlink += [
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
@@ -181,9 +192,8 @@ for sdk_target in MMSPlugin.sdk_targets:
 
 	binary.compiler.cxxincludes += [
 		os.path.join(builder.sourcePath, 'vendor'),
-		os.path.join(builder.sourcePath, 'vendor', 'lua'),
 		os.path.join(builder.sourcePath, 'vendor', 'other'),
-		os.path.join(builder.sourcePath, 'vendor', 'LuaBridge', 'Source'),
+		os.path.join(builder.sourcePath, 'vendor', 'embedder', 'src'),
 		os.path.join(builder.sourcePath, 'vendor', 'dynlib'),
 		os.path.join(builder.sourcePath, 'vendor', 'msgpack', 'include'),
 		os.path.join(builder.sourcePath, 'vendor', 'json', 'include'),

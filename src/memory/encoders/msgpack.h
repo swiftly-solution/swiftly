@@ -9,6 +9,7 @@
 namespace encoders {
     namespace msgpack {
         std::string SerializeToString(std::vector<std::any> v);
+        std::vector<std::any> DeserializeFromString(std::string str);
     };
 };
 

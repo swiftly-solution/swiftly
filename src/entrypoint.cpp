@@ -8,6 +8,7 @@
 
 #include <steam/steam_gameserver.h>
 
+#include "core/configuration/setup.h"
 #include "extensions/ExtensionManager.h"
 #include "sdk/entity/CRecipientFilters.h"
 #include "memory/encoders/msgpack.h"
@@ -172,6 +173,8 @@ bool Swiftly::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool 
     SH_ADD_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &Swiftly::Hook_CheckTransmit, true);
 
     g_pCVar = icvar;
+
+    HandleConfigExamples();
 
     if (!BeginCrashListener())
         PRINTRET("Crash Reporter failed to initialize.\n", false);
@@ -493,6 +496,7 @@ void Swiftly::Hook_ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReaso
 {
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnClientDisconnect", encoders::msgpack::SerializeToString({ slot.Get() }), event);
+    delete event;
 
     Player* player = g_playerManager->GetPlayer(slot);
     if (player) {
@@ -507,7 +511,7 @@ void Swiftly::Hook_OnClientConnected(CPlayerSlot slot, const char* pszName, uint
 {
     if (bFakePlayer)
     {
-        Player* player = new Player(true, slot.Get(), pszName, 0, "127.0.0.1");
+        Player* player = new Player(true, slot.Get(), pszName, xuid, "127.0.0.1");
         g_playerManager->RegisterPlayer(player);
     }
     else {

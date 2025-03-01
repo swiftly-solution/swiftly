@@ -68,18 +68,6 @@ git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
 
 ---
 
-### Спонсоры
-
-Вы можете поддержать Swiftly, сделав простое пожертвование или внеся свой вклад в проект.
-
-- [blu](https://github.com/blu133721) - Контрибьютор и спонсор - [Discord](https://discord.com/users/1142001023196606545)
-- [moongetsu](https://github.com/moongetsu) - Бывший контрибьютор и спонсор - [Discord](https://discord.com/users/977190163736322088)
-- [m3ntor](https://github.com/m3ntorinho) - Спонсор - [Discord](https://discord.com/users/462576617869541387)
-- unfortunate - Спонсор - [Discord](https://discord.com/users/515887695432515584)
-- [crisky](https://github.com/criskkky) - Контрибьютор [Discord](https://discord.com/users/404372759028957231)
-
----
-
 ### Лицензия
 
 Swiftly распространяется под лицензией MIT. Вы можете ознакомиться с лицензией в файле LICENSE.

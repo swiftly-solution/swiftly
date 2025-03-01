@@ -15,7 +15,7 @@ struct CSchemaNetworkValue
     };
 };
 
-class SchemaClassInfoData_t;
+struct SchemaClassInfoData_t;
 
 class CSchemaSystemTypeScope
 {
