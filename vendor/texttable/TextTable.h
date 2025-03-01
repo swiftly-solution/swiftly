@@ -119,11 +119,11 @@ private:
         return result;
     }
 
-    unsigned columns() const { return _rows[0].size(); }
+    unsigned columns() const { return (unsigned)_rows[0].size(); }
 
     unsigned glyphLength(const std::string &s) const
     {
-        unsigned int _byteLength = s.length();
+        unsigned int _byteLength = (unsigned int)(s.length());
 #ifdef TEXTTABLE_ENCODE_MULTIBYTE_STRINGS
 #ifdef TEXTTABLE_USE_EN_US_UTF8
         std::setlocale(LC_ALL, "en_US.utf8");

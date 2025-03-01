@@ -61,6 +61,7 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"-Wno-int-to-pointer-cast",
 			"-Wno-sign-compare",
 			"-Wno-write-strings",
+			"-Wno-class-memaccess",
 			"-fexceptions",
 		]
 		binary.compiler.cflags += [
@@ -117,7 +118,8 @@ for sdk_target in MMSPlugin.sdk_targets:
 			"/TP",
 			"/MT",
 			"/W3",
-			"/Z7"
+			"/Z7",
+			"/IGNORE:4101,4267,4244,4005,4003,4530",
 		]
 		binary.compiler.postlink += [
 			os.path.join(builder.sourcePath, 'vendor', 'funchook', 'lib', 'funchook.lib'),
