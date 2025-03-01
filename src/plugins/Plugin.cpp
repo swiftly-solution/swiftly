@@ -193,18 +193,16 @@ bool Plugin::LoadScriptingEnvironment()
 
     SetupScriptingEnvironment(this, ctx);
 
-    if (GetKind() == PluginKind_t::JavaScript) {
-        for (Extension* ext : extManager->GetExtensionsList())
-            if (ext->IsLoaded()) {
-                std::string error = "";
-                if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->ctx, this->GetKind(), error)) {
-                    PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
-                    PRINTF("Error: %s.\n", error.c_str());
-                    this->SetLoadError(error);
-                    return false;
-                }
+    for (Extension* ext : extManager->GetExtensionsList())
+        if (ext->IsLoaded()) {
+            std::string error = "";
+            if (!ext->GetAPI()->OnPluginLoad(this->GetName(), this->ctx, this->GetKind(), error)) {
+                PRINTF("Failed to load plugin '%s'.\n", this->GetName().c_str());
+                PRINTF("Error: %s.\n", error.c_str());
+                this->SetLoadError(error);
+                return false;
             }
-    }
+        }
 
     std::string fileExt = GetKind() == PluginKind_t::Lua ? ".lua" : ".js";
     int loadStatus = ctx->RunFile(GeneratePath("addons/swiftly/bin/scripting/events" + fileExt));
