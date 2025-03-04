@@ -14,6 +14,11 @@ void scripting_AddTimeout(int64_t delay, EValue callback, EContext* ctx)
     RegisterTimeout(delay, [cb, ctx]() -> void {
         auto pl = FetchPluginByState(ctx);
         if (pl == nullptr) return;
+        if(cb->getContext() != pl->GetContext()) {
+            cb->MarkNoFree();
+            delete cb;
+            return;
+        }
 
         if (!cb->isFunction()) {
             delete cb;
@@ -25,7 +30,7 @@ void scripting_AddTimeout(int64_t delay, EValue callback, EContext* ctx)
         }
         catch (EException& e)
         {
-            PRINTF("An error has occured while trying to execute the timeout callback: %s\n", e.what());
+            PLUGIN_PRINTF("RegisterTimeout", "An error has occured while trying to execute the timeout callback: %s\n", e.what());
         }
         delete cb;
     });
