@@ -27,7 +27,7 @@ jobs:
               id: version
               with:
                 release_branch: master
-                increment: minor
+                increment: patch
                 use_api: true
 
     extensions_build:
@@ -39,7 +39,7 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest, windows-latest]
-                extension: [mysql-extension,console-filter,addons-extension,http-extension,ip-extension,utils-extension]
+                extension: [mysql-extension,console-filter,addons-extension,http-extension,ip-extension,utils-extension,sdktools-extension]
                 include:
                     - os: ubuntu-latest
                       container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
