@@ -20,7 +20,7 @@ PluginDatabase::PluginDatabase(std::string m_connection_name)
     else {
         this->dbConnected = this->db->Connect();
         if (!this->dbConnected) {
-            throw std::runtime_error(string_format("An error has occured while trying to connect to database \"%s\":\nError: %s\n", m_connection_name.c_str(), this->db->GetError().c_str()));
+            PRINTF("An error has occured while trying to connect to database \"%s\":\nError: %s\n", m_connection_name.c_str(), this->db->GetError().c_str());
         }
     }
 }
