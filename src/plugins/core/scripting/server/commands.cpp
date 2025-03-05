@@ -59,7 +59,9 @@ void PluginCommands::RegisterCommand(std::string commandName, EValue callback)
     if (!callback.isFunction())
         return;
 
-    RegisterCmd(commandName, new EValue(callback));
+    auto v = new EValue(callback);
+    if (v->m_ref == callback.m_ref && callback.getContext()->GetKind() == ContextKinds::Lua) callback.MarkNoFree();
+    RegisterCmd(commandName, v);
 }
 
 std::vector<std::string> PluginCommands::GetAllCommands()
@@ -67,7 +69,7 @@ std::vector<std::string> PluginCommands::GetAllCommands()
     std::vector<std::string> cmdsList;
 
     auto cmds = g_commandsManager->GetCommands();
-    for(auto it = cmds.begin(); it != cmds.end(); ++it)
+    for (auto it = cmds.begin(); it != cmds.end(); ++it)
         cmdsList.push_back(it->first);
 
     return cmdsList;
