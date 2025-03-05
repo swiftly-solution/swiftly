@@ -30,20 +30,20 @@ void RemoveEventHandlerPlugin(std::string eventName, EContext* L)
     plugin->UnregisterEventHandling(eventName);
 }
 
-std::vector<EValue> TriggerEventInternal(std::string eventName, EValue eventPayload, EContext* L)
+std::vector<std::any> TriggerEventInternal(std::string eventName, EValue eventPayload, EContext* L)
 {
-    std::vector<EValue> returnValues;
+    std::vector<std::any> returnValues;
 
     PluginEvent event(FetchPluginName(L), nullptr, nullptr);
 
     std::string payload = "";
     size_t len;
 
-    if(L->GetKind() == ContextKinds::JavaScript) payload = (const char*)JS_GetUint8Array((JSContext*)L->GetState(), &len, eventPayload.pushJS());
+    if (L->GetKind() == ContextKinds::JavaScript) payload = (const char*)JS_GetUint8Array((JSContext*)L->GetState(), &len, eventPayload.pushJS());
     else payload = eventPayload.cast<std::string>();
 
-    returnValues.push_back(EValue(L, (int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, eventPayload, &event)));
-    returnValues.push_back(EValue(L, event));
+    returnValues.push_back((int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, eventPayload, &event));
+    returnValues.push_back(event);
 
     return returnValues;
 }
@@ -101,7 +101,7 @@ void LoadEvent(Plugin* plugin, EContext* state)
         .addFunction("SetNoBroadcast", &PluginEvent::SetNoBroadcast)
         .addFunction("GetNoBroadcast", &PluginEvent::GetNoBroadcast)
 
-    .endClass();
+        .endClass();
 }
 
 LoadScriptingComponent(

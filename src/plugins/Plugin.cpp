@@ -454,6 +454,8 @@ EValue SerializeData(std::any data, EContext* state)
             return EValue(state, std::any_cast<QAngle>(value));
         else if (value.type() == typeid(std::nullptr_t))
             return EValue(state, nullptr);
+        else if (value.type() == typeid(PluginEvent))
+            return EValue(state, std::any_cast<PluginEvent>(value));
         else if (value.type() == typeid(std::vector<std::string>))
         {
             if (state->GetKind() == ContextKinds::Lua) {
