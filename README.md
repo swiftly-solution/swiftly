@@ -24,7 +24,7 @@ README is also available in [Ukrainian](https://github.com/swiftly-solution/swif
 - [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Downloads automatically with the git cloning using Recurse Submodules)
 - [metamod-source](https://github.com/alliedmodders/metamod-source) (Downloads automatically with the git cloning using Recurse Submodules)
 - [python3](https://www.python.org/)
-- [AMBuild](https://github.com/alliedmodders/ambuild) (MAKE SURE `ambuild` COMMAND IS AVAILABLE VIA `PATH` FOR WINDOWS)
+- [AMBuild](https://github.com/alliedmodders/ambuild) (Make sure `ambuild` command is available via `PATH` for Windows)
 
 ---
 
