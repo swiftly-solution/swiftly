@@ -239,11 +239,11 @@ class SDKBaseClass
 {
 private:
     void* m_ptr;
-    
+
 public:
     std::string m_className;
     uint64_t classOffset;
-    
+
     SDKBaseClass() = default;
     SDKBaseClass(void* ptr, std::string className);
     SDKBaseClass(std::string ptr, std::string className);
@@ -677,7 +677,6 @@ public:
 class PluginPlayer
 {
 private:
-    std::string plugin_name;
     int playerId;
 
     SDKBaseClass* pCBaseEntity = nullptr;
@@ -688,7 +687,7 @@ private:
     SDKBaseClass* pCCSPlayerPawnBase = nullptr;
 
 public:
-    PluginPlayer(std::string m_plugin_name, int m_playerId);
+    PluginPlayer(int m_playerId);
     ~PluginPlayer();
 
     SDKBaseClass* GetCBaseEntity();
@@ -890,7 +889,7 @@ public:
 class PluginVGUI
 {
 private:
-std::string m_plugin_name;
+    std::string m_plugin_name;
 
 public:
     PluginVGUI(std::string plugin_name);

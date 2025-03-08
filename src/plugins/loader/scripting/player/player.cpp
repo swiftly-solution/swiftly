@@ -1,37 +1,13 @@
 #include "../../core.h"
 #include "../../../../player/playermanager/PlayerManager.h"
 
-std::map<int, std::pair<uint64_t, PluginPlayer*>> playerObjectCache;
-
 PluginPlayer* scripting_GetPlayer(int playerid, EContext* state)
 {
     Player* player = g_playerManager->GetPlayer(playerid);
     if (!player)
         return nullptr;
 
-    PluginPlayer* pl = nullptr;
-    bool found = (playerObjectCache.find(playerid) != playerObjectCache.end());
-    if (found)
-    {
-        auto pair = playerObjectCache[playerid];
-        if (pair.first != player->GetSteamID())
-        {
-            delete pair.second;
-            found = false;
-        }
-        else
-            pl = pair.second;
-    }
-
-    if (!found)
-    {
-        uint64_t steamid = player->GetSteamID();
-
-        pl = new PluginPlayer(FetchPluginName(state), playerid);
-        playerObjectCache.insert({ playerid, {steamid, pl} });
-    }
-
-    return pl;
+    return player->GetPlayerObject();
 }
 
 LoadScriptingComponent(
@@ -80,7 +56,7 @@ LoadScriptingComponent(
             .addFunction("QueryConvar", &PluginPlayer::QueryConvar)
             .addFunction("PerformMenuAction", &PluginPlayer::PerformMenuAction)
             .addFunction("IsValid", &PluginPlayer::IsValid)
-        .endClass();
+            .endClass();
 
         GetGlobalNamespace(state)
             .addFunction("GetPlayer", scripting_GetPlayer);

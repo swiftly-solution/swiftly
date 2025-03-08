@@ -72,14 +72,16 @@ Player::Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64 m_xui
     centerMessageEvent->SetUint64("duration", 1);
     centerMessageEvent->SetInt("userid", this->slot);
 
-    if(!this->isFakeClient) playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(CPlayerSlot(this->slot));
+    if (!this->isFakeClient) playerListener = g_Signatures->FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(CPlayerSlot(this->slot));
 }
 
 Player::~Player()
 {
     this->isFakeClient = true;
     g_gameEventManager->FreeEvent(centerMessageEvent);
-    if(menu_renderer) delete menu_renderer;
+    if (menu_renderer) delete menu_renderer;
+    if (playerObject != nullptr)
+        delete playerObject;
 }
 
 CBasePlayerController* Player::GetController()
@@ -136,7 +138,7 @@ void Player::SendMsg(int dest, const char* msg, ...)
     CBasePlayerController* controller = this->GetController();
     if (!controller)
         return;
-    if(this->IsFakeClient())
+    if (this->IsFakeClient())
         return;
 
     if (dest == HUD_PRINTTALK || dest == HUD_PRINTNOTIFY)
@@ -172,7 +174,7 @@ void Player::SendMsg(int dest, const char* msg, ...)
     }
     else if (dest == HUD_PRINTCENTER)
     {
-        if(std::string(msg) == "") this->centerMessageEndTime = 0;
+        if (std::string(msg) == "") this->centerMessageEndTime = 0;
         else {
             this->centerMessageEndTime = GetTime() + 5000;
             this->centerMessageEvent->SetString("loc_token", msg);
@@ -354,11 +356,11 @@ void OnClientKeyStateChange(int playerid, std::string key, bool pressed);
 
 void Player::SetButtons(uint64_t new_buttons)
 {
-    if(buttons != new_buttons) {
-        for(uint16_t i = 0; i < 64; i++) {
-            if((buttons & (1ULL << i)) != 0 && (new_buttons & (1ULL << i)) == 0)
+    if (buttons != new_buttons) {
+        for (uint16_t i = 0; i < 64; i++) {
+            if ((buttons & (1ULL << i)) != 0 && (new_buttons & (1ULL << i)) == 0)
                 OnClientKeyStateChange(this->slot, key_buttons[i], true);
-            else if((buttons & (1ULL << i)) == 0 && (new_buttons & (1ULL << i)) != 0)
+            else if ((buttons & (1ULL << i)) == 0 && (new_buttons & (1ULL << i)) != 0)
                 OnClientKeyStateChange(this->slot, key_buttons[i], false);
         }
         buttons = new_buttons;
@@ -385,9 +387,9 @@ void Player::SetClientConvar(std::string cmd, std::string val)
     CSingleRecipientFilter filter(this->slot);
     g_pGameEventSystem->PostEventAbstract(-1, false, &filter, netmsg, msg, 0);
 
-    #ifndef _WIN32
+#ifndef _WIN32
     delete msg;
-    #endif
+#endif
 }
 
 std::any Player::GetInternalVar(std::string name)
@@ -426,26 +428,27 @@ ListenOverride Player::GetListen(CPlayerSlot slot) const
 CBaseViewModel* Player::EnsureCustomView(int index)
 {
     CCSPlayerPawnBase* pPawnBase = GetPlayerBasePawn();
-    if(!pPawnBase) return nullptr;
-    if(pPawnBase->m_lifeState() == 2) {
-        if(GetPlayerController()->m_bControllingBot()) {
+    if (!pPawnBase) return nullptr;
+    if (pPawnBase->m_lifeState() == 2) {
+        if (GetPlayerController()->m_bControllingBot()) {
             return nullptr;
-        } else {
-            if(!GetPawn()->m_pObserverServices()) return nullptr;
+        }
+        else {
+            if (!GetPawn()->m_pObserverServices()) return nullptr;
             auto observerPawn = GetPawn()->m_pObserverServices->m_hObserverTarget();
-            if(!observerPawn) return nullptr;
-    
+            if (!observerPawn) return nullptr;
+
             auto observerController = ((CCSPlayerPawn*)(observerPawn.Get()))->m_hOriginalController();
-            if(!observerController) return nullptr;
-    
+            if (!observerController) return nullptr;
+
             auto observer = g_playerManager->GetPlayer(observerController->entindex() - 1);
-            if(!observer) return nullptr;
+            if (!observer) return nullptr;
 
             pPawnBase = observer->GetPlayerBasePawn();
         }
     }
-    if(!pPawnBase) return nullptr;
-    if(!pPawnBase->m_pViewModelServices()) return nullptr;
+    if (!pPawnBase) return nullptr;
+    if (!pPawnBase->m_pViewModelServices()) return nullptr;
 
     CBaseViewModel* pViewModel = pPawnBase->m_pViewModelServices()->GetViewModel(index);
     if (!pViewModel) {
@@ -455,4 +458,12 @@ CBaseViewModel* Player::EnsureCustomView(int index)
     }
 
     return pViewModel;
+}
+
+PluginPlayer* Player::GetPlayerObject()
+{
+    if (playerObject == nullptr) {
+        playerObject = new PluginPlayer(this->GetSlot().Get());
+    }
+    return playerObject;
 }

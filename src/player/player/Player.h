@@ -9,6 +9,7 @@
 #include "../../sdk/entity/CBaseViewModel.h"
 #include "../../server/menus/Menu.h"
 #include "../../server/menus/MenuRenderer.h"
+#include "../../plugins/core/scripting.h"
 
 #include <string>
 #include <public/mathlib/vector.h>
@@ -96,6 +97,7 @@ public:
     ListenOverride GetListen(CPlayerSlot slot) const;
 
     CBaseViewModel* EnsureCustomView(int index);
+    PluginPlayer* GetPlayerObject();
 
     CPlayerBitVec m_selfMutes[64] = {};
 
@@ -125,6 +127,7 @@ private:
 
     ListenOverride m_listenMap[66] = {};
     VoiceFlag_t m_voiceFlag = 0;
+    PluginPlayer* playerObject = nullptr;
 };
-    extern std::map<std::string, std::string> colors;
+extern std::map<std::string, std::string> colors;
 #endif

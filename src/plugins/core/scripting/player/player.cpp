@@ -7,9 +7,8 @@
 
 typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
 
-PluginPlayer::PluginPlayer(std::string m_plugin_name, int m_playerId)
+PluginPlayer::PluginPlayer(int m_playerId)
 {
-    this->plugin_name = m_plugin_name;
     this->playerId = m_playerId;
 
     pCBaseEntity = new SDKBaseClass(nullptr, "CBaseEntity");
