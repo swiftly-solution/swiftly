@@ -105,8 +105,8 @@ void SDKBaseClass::CBaseEntity_CollisionRulesChanged()
 }
 
 void SDKBaseClass::CBaseEntity_Teleport(Vector value, QAngle angle, Vector velocity) {
-    if(!IsValid()) return;
-    
+    if (!IsValid()) return;
+
     ((CBaseEntity*)this->GetPtr())->Teleport(&value, &angle, &velocity);
 }
 
@@ -115,7 +115,7 @@ void SDKBaseClass::CBaseEntity_EmitSound(std::string sound_name, float pitch, fl
         Player* player = g_playerManager->GetPlayer(i);
         if (!player) continue;
         if (player->IsFakeClient()) continue;
-        if ((void*)player->GetPlayerController() == this->GetPtr()) {
+        if ((void*)player->GetPlayerController() == this->GetPtr() || (void*)player->GetPlayerPawn() == this->GetPtr()) {
             CSingleRecipientFilter filter(i);
             ((CBaseEntity*)this->GetPtr())->EmitSoundFilter(filter, sound_name, pitch, volume);
             break;
@@ -907,8 +907,8 @@ SDKBaseType::SDKBaseType(std::string typeName)
 int64_t SDKBaseType::GetTypeValue(std::string key)
 {
     auto types = g_sdk->GetSDKTypes();
-    if(types.find(m_typeName) == types.end()) return 0;
-    if(types[m_typeName].find(key) == types[m_typeName].end()) return 0;
+    if (types.find(m_typeName) == types.end()) return 0;
+    if (types[m_typeName].find(key) == types[m_typeName].end()) return 0;
 
     return types[m_typeName][key];
 }
