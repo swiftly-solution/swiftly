@@ -7,6 +7,7 @@
 #include "globaltypes.h"
 #include "CCollisionProperty.h"
 #include "ehandle.h"
+#include "CTakeDamageInfo.h"
 #include <public/mathlib/vector.h>
 
 #define CS_TEAM_NONE 0
@@ -186,6 +187,11 @@ public:
     {
         static int offset = g_Offsets->GetOffset("CollisionRulesChanged");
         CALL_VIRTUAL(void, offset, this);
+    }
+
+    void TakeDamage(CTakeDamageInfo *info)
+    {
+        g_Signatures->FetchSignature<CBaseEntity_TakeDamage_t>("CBaseEntity_TakeDamage")(this, info);
     }
 
     CEntitySubclassVDataBase* GetVData() { return *(CEntitySubclassVDataBase**)((uint8*)(m_nSubclassID()) + 4); }
