@@ -30,7 +30,8 @@ typedef void (*CEntityInstance_AcceptInput)(CEntityInstance*, const char*, CEnti
 typedef void (*CAttributeList_SetOrAddAttributeValueByName_t)(void*, const char*, float);
 typedef void (*CBaseModelEntity_SetBodygroup_t)(void*, const char*, ...);
 typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices*, const char*, int, int, int, int);
-typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
+typedef SndOpEventGuid_t(*terCBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
+typedef void (*CBaseEntity_EmitSoundParams)(CBaseEntity*, const char*, int, float, float);
 
 DynLibUtils::CModule DetermineModuleByLibrary(std::string library);
 

@@ -177,6 +177,11 @@ public:
         g_Signatures->FetchSignature<CBaseEntity_EmitSoundFilter>("CBaseEntity_EmitSoundFilter")(filter, m_pEntity->m_EHandle.GetEntryIndex(), params);
     }
 
+    void EmitSoundFromEntity(std::string sound_name, int pitch, float volume, float delay)
+    {
+        g_Signatures->FetchSignature<CBaseEntity_EmitSoundParams>("CBaseEntity_EmitSoundParams")(this, sound_name.c_str(), pitch, volume, delay);
+    }
+
     void CollisionRulesChanged()
     {
         static int offset = g_Offsets->GetOffset("CollisionRulesChanged");

@@ -10,6 +10,7 @@ std::set<uint64_t> classFuncs = {
     ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetVData")),
     ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Teleport")),
     ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EmitSound")),
+    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EmitSoundFromEntity")),
     ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("CollisionRulesChanged")),
     ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetModel")),
     ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetSolidType")),
@@ -230,6 +231,7 @@ void SchemaLoad(Plugin* plugin, EContext* state)
         .addLuaFunction("Teleport", CBaseEntity_TeleportLua)
         .addJSFunction("Teleport", CBaseEntity_TeleportJS)
         .addFunction("EmitSound", &SDKBaseClass::CBaseEntity_EmitSound)
+        .addFunction("EmitSoundFromEntity", &SDKBaseClass::CBaseEntity_EmitSoundFromEntity)
         .addFunction("CollisionRulesChanged", &SDKBaseClass::CBaseEntity_CollisionRulesChanged)
         .addFunction("GetSkeletonInstance", &SDKBaseClass::CGameSceneNode_GetSkeletonInstance)
         .addFunction("GetPawn", &SDKBaseClass::CPlayerPawnComponent_GetPawn)

@@ -123,6 +123,10 @@ void SDKBaseClass::CBaseEntity_EmitSound(std::string sound_name, float pitch, fl
     }
 }
 
+void SDKBaseClass::CBaseEntity_EmitSoundFromEntity(std::string sound_name, float pitch, float volume, float delay) {
+    ((CBaseEntity*)this->GetPtr())->EmitSoundFromEntity(sound_name, pitch, volume, delay);
+}
+
 SDKBaseClass::SDKBaseClass(std::string ptr, std::string className)
 {
     this->m_ptr = (void*)(strtol(ptr.c_str(), nullptr, 16));
