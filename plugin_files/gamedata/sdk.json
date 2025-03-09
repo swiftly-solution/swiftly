@@ -7899,12 +7899,12 @@
         "EnvWind": {
             "field": "m_hEnvWind",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         },
         "EnvSky": {
             "field": "m_hEnvSky",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         }
     },
     "CGlowOverlay": {
@@ -9129,7 +9129,7 @@
         "TargetEntity": {
             "field": "m_hTargetEntity",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         },
         "State": {
             "field": "m_bState",
@@ -9393,7 +9393,7 @@
         "Entity": {
             "field": "m_hEntity",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         },
         "OverlappingLinks": {
             "field": "m_vecOverlappingLinks",
@@ -9584,7 +9584,7 @@
         "Target": {
             "field": "m_hTarget",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         },
         "SceneEventId": {
             "field": "m_nSceneEventId",
@@ -9769,7 +9769,7 @@
         "Ent": {
             "field": "m_hEnt",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         },
         "SoundEntityIndex": {
             "field": "m_soundEntityIndex",
@@ -9853,17 +9853,17 @@
         "Inflictor": {
             "field": "m_hInflictor",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         },
         "Attacker": {
             "field": "m_hAttacker",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         },
         "Ability": {
             "field": "m_hAbility",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         },
         "Damage": {
             "field": "m_flDamage",
@@ -11134,7 +11134,7 @@
         "Target": {
             "field": "hTarget",
             "type": 17,
-            "classname": "C_BaseEntity"
+            "classname": "CBaseEntity"
         }
     },
     "TimedEvent": {
