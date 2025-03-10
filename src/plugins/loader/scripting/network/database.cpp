@@ -40,7 +40,7 @@ LoadScriptingComponent(
             .addFunction("Query", &PluginDatabase::Query)
         .endClass();
 
-        if(state->GetKind() == ContextKinds::Lua) state->RunCode("db = Database(\"default_connection\")");  
-        else if(state->GetKind() == ContextKinds::JavaScript) state->RunCode("globalThis.db = Database(\"default_connection\")");
+        if(state->GetKind() == ContextKinds::Lua) state->RunCode("db = nil");  
+        else if(state->GetKind() == ContextKinds::JavaScript) state->RunCode("globalThis.db = null");
     }
 )
