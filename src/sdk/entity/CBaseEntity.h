@@ -119,6 +119,7 @@ public:
 
 class CBaseEntity;
 typedef void (*CBaseEntity_SetParent)(CBaseEntity*, CBaseEntity*);
+void Hook_CBaseEntity_TakeDamage(CBaseEntity* _this, CTakeDamageInfo* damageInfo);
 
 class CBaseEntity : public CEntityInstance
 {
@@ -191,7 +192,7 @@ public:
 
     void TakeDamage(CTakeDamageInfo *info)
     {
-        g_Signatures->FetchSignature<CBaseEntity_TakeDamage_t>("CBaseEntity_TakeDamage")(this, info);
+        Hook_CBaseEntity_TakeDamage(this, info);
     }
 
     CEntitySubclassVDataBase* GetVData() { return *(CEntitySubclassVDataBase**)((uint8*)(m_nSubclassID()) + 4); }
