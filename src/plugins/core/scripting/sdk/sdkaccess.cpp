@@ -128,19 +128,20 @@ void SDKBaseClass::CBaseEntity_EmitSoundFromEntity(std::string sound_name, float
 }
 
 void SDKBaseClass::CBaseEntity_TakeDamage(EValue attacker, EValue inflictor, EValue ability, int damageType, float damage) {
-    CTakeDamageInfo info;
-    info.m_flDamage = damage;
-    info.m_bitsDamageType = (DDamageTypes_t)damageType;
-    
-    if(ability.isInstance<SDKBaseClass>())
-        info.m_hAbility.Set((CBaseEntity*)ability.cast<SDKBaseClass>().GetPtr());
-    if(attacker.isInstance<SDKBaseClass>())
-        info.m_hAttacker.Set((CBaseEntity*)attacker.cast<SDKBaseClass>().GetPtr());
-    if(inflictor.isInstance<SDKBaseClass>())
-        info.m_hInflictor.Set((CBaseEntity*)inflictor.cast<SDKBaseClass>().GetPtr());
+    CBaseEntity* pinflictor = nullptr;
+    CBaseEntity* pability = nullptr;
+    CBaseEntity* pattacker = nullptr;
 
-    if(!info.m_hInflictor.IsValid())
-        info.m_hInflictor.Set(info.m_hAttacker);
+    if(ability.isInstance<SDKBaseClass>())
+        pability = (CBaseEntity*)ability.cast<SDKBaseClass>().GetPtr();
+    if(attacker.isInstance<SDKBaseClass>())
+        pattacker = (CBaseEntity*)attacker.cast<SDKBaseClass>().GetPtr();
+    if(inflictor.isInstance<SDKBaseClass>())
+        pinflictor = (CBaseEntity*)inflictor.cast<SDKBaseClass>().GetPtr();
+
+    if(!pinflictor) pinflictor = pattacker;
+
+    CTakeDamageInfo info(pinflictor, pattacker, pability, damage, (DDamageTypes_t)damageType);
 
     ((CBaseEntity*)this->GetPtr())->TakeDamage(&info);
 }

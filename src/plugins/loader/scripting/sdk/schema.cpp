@@ -107,7 +107,7 @@ JSValue SDKBaseClass__SetProp(JSContext* ctx, JSValue this_obj, int argc, JSValu
     std::string field_name = EValue::fromJSStack(ct, argv[1]).cast<std::string>();
     EValue val = EValue::fromJSStack(ct, argv[2]);
 
-    uint64_t id = g_callStack->RegisterPluginCallstack(FetchPluginName(ct), string_format("SDK Set: %s::%s(ptr=%p,value=%s)", th->m_className.c_str(), field_name.c_str(), th->GetPtr(), val.tostring()));
+    uint64_t id = g_callStack->RegisterPluginCallstack(FetchPluginName(ct), string_format("SDK Set: %s::%s(ptr=%p,value=%s)", th->m_className.c_str(), field_name.c_str(), th->GetPtr(), val.tostring().c_str()));
     th->UpdateSDK(field_name, val, ct);
     g_callStack->UnregisterPluginCallstack(FetchPluginName(ct), id);
     return JS_UNDEFINED;

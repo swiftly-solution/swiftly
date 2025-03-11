@@ -33,6 +33,7 @@ typedef void (*GiveNamedItem_t)(CCSPlayer_ItemServices*, const char*, int, int, 
 typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
 typedef void (*CBaseEntity_EmitSoundParams)(CBaseEntity*, const char*, int, float, float);
 typedef void (*CBaseEntity_TakeDamage_t)(CBaseEntity*, CTakeDamageInfo*);
+typedef void (*CTakeDamageInfo_Constructor)(CTakeDamageInfo*, CBaseEntity*, CBaseEntity*, CBaseEntity*, const Vector*, const Vector*, float, int, int, void*);
 
 DynLibUtils::CModule DetermineModuleByLibrary(std::string library);
 
