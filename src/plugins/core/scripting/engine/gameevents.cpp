@@ -112,12 +112,13 @@ FuncHook<decltype(Hook_CEntityIdentity_AcceptInput)> TCEntityIdentity_AcceptInpu
 void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* inputName, CEntityInstance* activator, CEntityInstance* caller, variant_t* value, int outputid)
 {
     PluginEvent* event = new PluginEvent("core", nullptr, nullptr);
+    
     std::vector<std::any> msgpackData = {
         string_format("%p", _this->m_pInstance), "CEntityInstance",
         inputName->String(),
         string_format("%p", activator), "CEntityInstance",
         string_format("%p", caller), "CEntityInstance",
-        value->ToString() == nullptr ? "(null)" : value->ToString(),
+        (std::string(VariantFieldTypeName(value->m_type)) == "unknown_variant_type") ? "(null)" : value->ToString(),
         outputid,
     };
 
