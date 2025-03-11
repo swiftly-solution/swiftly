@@ -21,12 +21,12 @@ function LoadTimers(global) {
             return;
         }
     
-        if (!timersTable[timerId]) {
+        if (!timersList[timerId]) {
             console.log("Invalid Timer ID.");
             return;
         }
     
-        delete timersTable[timerId];
+        delete timersList[timerId];
     }
 
     global.SetTimer = (delay, callback) => {
