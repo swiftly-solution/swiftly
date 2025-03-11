@@ -65,21 +65,19 @@ EventResult Plugin::TriggerEvent(std::string invokedBy, std::string eventName, s
     if (eventName != "OnGameTick") REGISTER_CALLSTACK(this->GetName(), string_format("Event: %s(invokedBy=\"%s\",payload=\"%s\",event=%p)", eventName.c_str(), invokedBy.c_str(), eventPayload.c_str(), (void*)event));
     PERF_RECORD(string_format("event:%s:%s", invokedBy.c_str(), eventName.c_str()), this->GetName());
 
-    EValue payload(ctx, eventPayload);
-    if (ctx->GetKind() == ContextKinds::JavaScript)
-        payload = EValue(ctx, JS_NewUint8ArrayCopy((JSContext*)ctx->GetState(), (uint8_t*)(eventPayload.data()), eventPayload.size()));
-
     int res = (int)EventResult::Continue;
     try
     {
         EValue func = *this->globalEventHandler;
-        auto result = func(event, invokedBy, eventName, payload);
 
-        if (!result.isNumber())
-            return EventResult::Continue;
+        if(ctx->GetKind() == ContextKinds::JavaScript) {
+            EValue val(ctx, JS_NewUint8ArrayCopy((JSContext*)ctx->GetState(), (uint8_t*)(eventPayload.data()), eventPayload.size()));
+            res = func(event, invokedBy, eventName, val).cast_or<int>(0);
+        } else {
+            res = func(event, invokedBy, eventName, eventPayload).cast_or<int>(0);
+        }
 
-        res = result.cast<int>();
-        if (res < (int)EventResult::Continue || res >(int)EventResult::Handled)
+        if (res < (int)EventResult::Continue || res > (int)EventResult::Handled)
             return EventResult::Continue;
     }
     catch (EException& e)
