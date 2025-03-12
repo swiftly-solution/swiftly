@@ -118,6 +118,7 @@ void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* i
         inputName->String(),
         string_format("%p", activator), "CEntityInstance",
         string_format("%p", caller), "CEntityInstance",
+        value->ToString(),
         outputid,
     };
 
