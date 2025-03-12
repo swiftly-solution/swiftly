@@ -374,14 +374,14 @@ void Player::PerformCommand(std::string command)
 
 void Player::SetClientConvar(std::string cmd, std::string val)
 {
-    ConVar* cv = FetchCVar(cmd);
-    if (!cv)
+    auto cv = FetchCVar(cmd);
+    if (!cv.IsValidRef())
         return;
 
     INetworkMessageInternal* netmsg = g_pNetworkMessages->FindNetworkMessagePartial("SetConVar");
     auto msg = netmsg->AllocateMessage()->ToPB<CNETMsg_SetConVar>();
     CMsg_CVars_CVar* cvar = msg->mutable_convars()->add_cvars();
-    cvar->set_name(cv->m_pszName);
+    cvar->set_name(cv.GetName());
     cvar->set_value(val.c_str());
 
     CSingleRecipientFilter filter(this->slot);

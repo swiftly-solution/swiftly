@@ -20,7 +20,7 @@ public:
     void LoadMessages();
 
     void PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64 *clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType);
-    void DispatchConCommand(ConCommandHandle cmd, const CCommandContext& ctx, const CCommand& args);
+    void DispatchConCommand(ConCommandRef cmd, const CCommandContext& ctx, const CCommand& args);
 };
 
 extern ChatProcessor *g_chatProcessor;

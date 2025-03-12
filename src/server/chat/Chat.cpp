@@ -11,7 +11,7 @@
 #include <ctime>
 
 SH_DECL_EXTERN8_void(IGameEventSystem, PostEventAbstract, SH_NOATTRIB, 0, CSplitScreenSlot, bool, int, const uint64*, INetworkMessageInternal*, const CNetMessage*, unsigned long, NetChannelBufType_t)
-SH_DECL_EXTERN3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandHandle, const CCommandContext&, const CCommand&);
+SH_DECL_EXTERN3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandRef, const CCommandContext&, const CCommand&);
 
 
 void ChatProcessor::Initialize()
@@ -184,7 +184,7 @@ void ChatProcessor::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClie
 
 bool OnClientCommand(int playerid, std::string command);
 
-void ChatProcessor::DispatchConCommand(ConCommandHandle cmd, const CCommandContext& ctx, const CCommand& args)
+void ChatProcessor::DispatchConCommand(ConCommandRef cmd, const CCommandContext& ctx, const CCommand& args)
 {
     CPlayerSlot slot = ctx.GetPlayerSlot();
 

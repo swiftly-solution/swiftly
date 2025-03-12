@@ -17,7 +17,7 @@ void PluginConvars::CreateFake(std::string cvarname, int32_t type, std::any defa
 {
     if (type < 0 || type > 14) return;
     if (FakeConvarExists(cvarname)) return;
-    if (FetchCVar(cvarname)) return;
+    if (FetchCVar(cvarname).IsValidRef()) return;
 
     if (type == EConVarType_Int16) {
         if (defaultValue.type() == typeid(int64_t))
@@ -114,43 +114,43 @@ void PluginConvars::AddFlags(std::string cvarname, int64_t flags)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::AddFlags(cvarname=\"%s\",flags=%lld)", cvarname.c_str(), flags));
     auto cvar = FetchCVar(cvarname);
-    if (cvar == nullptr) return;
+    if(!cvar.IsValidRef()) return;
 
-    cvar->flags |= flags;
+    cvar.AddFlags(flags);
 }
 
 void PluginConvars::RemoveFlags(std::string cvarname, int64_t flags)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::RemoveFlags(cvarname=\"%s\",flags=%lld)", cvarname.c_str(), flags));
     auto cvar = FetchCVar(cvarname);
-    if (cvar == nullptr) return;
+    if(!cvar.IsValidRef()) return;
 
-    cvar->flags &= ~flags;
+    cvar.RemoveFlags(flags);
 }
 
 int64_t PluginConvars::GetFlags(std::string cvarname)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::GetFlags(cvarname=\"%s\")", cvarname.c_str()));
     auto cvar = FetchCVar(cvarname);
-    if (cvar == nullptr) return 0;
+    if(!cvar.IsValidRef()) return 0;
 
-    return cvar->flags;
+    return cvar.GetFlags();
 }
 
 bool PluginConvars::HasFlags(std::string cvarname, int64_t flags)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::HasFlags(cvarname=\"%s\",flags=%lld)", cvarname.c_str(), flags));
     auto cvar = FetchCVar(cvarname);
-    if (cvar == nullptr) return false;
+    if(!cvar.IsValidRef()) return false;
 
-    return ((cvar->flags & flags) != 0);
+    return cvar.IsFlagSet(flags);
 }
 
 bool PluginConvars::Exists(std::string cvarname)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::ExistsFake(cvarname=\"%s\")", cvarname.c_str()));
 
-    return (FetchCVar(cvarname) != nullptr);
+    return FetchCVar(cvarname).IsValidRef();
 }
 
 bool PluginConvars::ExistsFake(std::string cvarname)
@@ -178,10 +178,8 @@ void PluginConvars::SetConvar(std::string cvarname, std::string value)
 {
     REGISTER_CALLSTACK(this->plugin_name, string_format("PluginConvars::SetConvar(cvarname=\"%s\", value=\"%s\")", cvarname.c_str(), value.c_str()));
 
-    auto cvartype = FetchCVarType(cvarname);
-
-    if (cvartype == EConVarType_String)
-        engine->ServerCommand(string_format("%s \"%s\"", cvarname.c_str(), value.c_str()).c_str());
-    else if (cvartype != EConVarType_Invalid)
-        engine->ServerCommand(string_format("%s %s", cvarname.c_str(), value.c_str()).c_str());
+    auto cvar = FetchCVar(cvarname);
+    if(!cvar.IsValidRef()) return;
+    
+    cvar.SetString(value.c_str());
 }

@@ -9,7 +9,7 @@
 #include "../../utils/utils.h"
 #include "netmessages.pb.h"
 
-ConVar* FetchCVar(std::string cvarname);
+ConVarRefAbstract FetchCVar(std::string cvarname);
 std::any FetchCVarValue(std::string cvarname);
 EConVarType FetchCVarType(std::string cvarname);
 
@@ -20,7 +20,6 @@ private:
     EConVarType m_type;
     std::string m_name;
     ConCommand* m_cmd;
-    ConCommandRefAbstract convarRef;
 
 public:
     FakeConVar(std::string name, EConVarType type, std::any defaultValue, bool prot);

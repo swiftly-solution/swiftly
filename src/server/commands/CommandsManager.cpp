@@ -6,7 +6,7 @@ CommandsManager::CommandsManager() {}
 CommandsManager::~CommandsManager() {}
 
 static void commandsCallback(const CCommandContext& context, const CCommand& args);
-std::set<std::string> conCommandCreated;
+std::map<std::string, ConCommand*> conCommandCreated;
 
 std::set<std::string> commandPrefixes;
 std::set<std::string> silentCommandPrefixes;
@@ -144,10 +144,7 @@ void CommandsManager::RegisterCommand(std::string plugin_name, std::string cmd, 
 
     if (conCommandCreated.find(cmd) == conCommandCreated.end())
     {
-        conCommandCreated.insert(cmd);
-
-        ConCommandRefAbstract commandRef;
-        new ConCommand(&commandRef, cmd.c_str(), commandsCallback, "Swiftly Command", (1 << 25) | (1 << 0) | (1 << 24));
+        conCommandCreated.insert({cmd, new ConCommand(cmd.c_str(), commandsCallback, "Swiftly Command", (1 << 25) | (1 << 0) | (1 << 24))});
     }
 }
 
@@ -171,6 +168,15 @@ void CommandsManager::UnregisterCommand(std::string cmd)
     auto cmdIterator = std::find(this->commandsByPlugin[plugin].begin(), this->commandsByPlugin[plugin].end(), cmd);
     if (cmdIterator != this->commandsByPlugin[plugin].end())
         this->commandsByPlugin[plugin].erase(cmdIterator);
+
+    if(conCommandCreated.find(cmd) != conCommandCreated.end()) {
+        delete conCommandCreated.at(cmd);
+        conCommandCreated.erase(cmd);
+    }
+    if(conCommandCreated.find("sw_" + cmd) != conCommandCreated.end()) {
+        delete conCommandCreated.at("sw_" + cmd);
+        conCommandCreated.erase("sw_" + cmd);
+    }
 }
 
 static void commandsCallback(const CCommandContext& context, const CCommand& args)

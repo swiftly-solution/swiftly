@@ -1,113 +1,109 @@
 #include "convars.h"
 
-ConVar* FetchCVar(std::string cvarname)
+ConVarRefAbstract FetchCVar(std::string cvarname)
 {
-    if (!g_pCVar)
-        return nullptr;
-
-    ConVarHandle cvarHandle = g_pCVar->FindConVar(cvarname.c_str());
-    if (!cvarHandle.IsValid())
-        return nullptr;
-
-    return g_pCVar->GetConVar(cvarHandle);
+    ConVarRefAbstract obj(cvarname.c_str());
+    return obj;
 }
 
 std::any FetchCVarValue(std::string cvarname)
 {
-    ConVar* cvar = FetchCVar(cvarname);
-    if (cvar) {
-        if (cvar->m_eVarType == EConVarType_Int16)
+    ConVarRefAbstract cvar = FetchCVar(cvarname);
+    CSplitScreenSlot server(0);
+    if (cvar.IsValidRef()) {
+        CVValue_t* v = cvar.GetConVarData()->Value(server);
+        if (cvar.GetType() == EConVarType_Int16)
         {
             int16_t val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_UInt16)
+        else if (cvar.GetType() == EConVarType_UInt16)
         {
             uint16_t val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_UInt32)
+        else if (cvar.GetType() == EConVarType_UInt32)
         {
             uint32_t val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Int32)
+        else if (cvar.GetType() == EConVarType_Int32)
         {
             int32_t val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_UInt64)
+        else if (cvar.GetType() == EConVarType_UInt64)
         {
             uint64_t val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Int64)
+        else if (cvar.GetType() == EConVarType_Int64)
         {
             int64_t val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Bool)
+        else if (cvar.GetType() == EConVarType_Bool)
         {
             bool val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Float32)
+        else if (cvar.GetType() == EConVarType_Float32)
         {
             float val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Float64)
+        else if (cvar.GetType() == EConVarType_Float64)
         {
             double val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_String)
+        else if (cvar.GetType() == EConVarType_String)
         {
             char* val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Color)
+        else if (cvar.GetType() == EConVarType_Color)
         {
             Color val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Vector2)
+        else if (cvar.GetType() == EConVarType_Vector2)
         {
             Vector2D val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Vector3)
+        else if (cvar.GetType() == EConVarType_Vector3)
         {
             Vector val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Vector4)
+        else if (cvar.GetType() == EConVarType_Vector4)
         {
             Vector4D val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
-        else if (cvar->m_eVarType == EConVarType_Qangle)
+        else if (cvar.GetType() == EConVarType_Qangle)
         {
             QAngle val;
-            memcpy(&val, &cvar->values, sizeof(val));
+            memcpy(&val, v, sizeof(val));
             return val;
         }
         else {
-            PRINTF("Unsupported ConVar type: %d. Returning null.\n", (int)cvar->m_eVarType);
+            PRINTF("Unsupported ConVar type: %d. Returning null.\n", (int)cvar.GetType());
             return nullptr;
         }
     }
@@ -119,9 +115,9 @@ std::any FetchCVarValue(std::string cvarname)
 
 EConVarType FetchCVarType(std::string cvarname)
 {
-    ConVar* cvar = FetchCVar(cvarname);
+    ConVarRefAbstract cvar = FetchCVar(cvarname);
 
-    if (cvar) return cvar->m_eVarType;
+    if (cvar.IsValidRef()) return cvar.GetType();
     else if (FakeConvarExists(cvarname)) return GetFakeConvar(cvarname)->GetType();
     else return EConVarType_Invalid;
 }

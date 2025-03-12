@@ -118,7 +118,6 @@ void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* i
         inputName->String(),
         string_format("%p", activator), "CEntityInstance",
         string_format("%p", caller), "CEntityInstance",
-        (std::string(VariantFieldTypeName(value->m_type)) == "unknown_variant_type") ? "(null)" : value->ToString(),
         outputid,
     };
 

@@ -46,7 +46,7 @@ FakeConVar::FakeConVar(std::string name, EConVarType type, std::any defaultValue
     {
         convarCreated.insert(name);
 
-        m_cmd = new ConCommand(&convarRef, name.c_str(), convarsCallback, "Swiftly ConVar", FCVAR_LINKED_CONCOMMAND | FCVAR_SPONLY | (prot ? FCVAR_PROTECTED : FCVAR_NONE));
+        m_cmd = new ConCommand(name.c_str(), convarsCallback, "Swiftly ConVar", FCVAR_LINKED_CONCOMMAND | FCVAR_SPONLY | (prot ? FCVAR_PROTECTED : FCVAR_NONE));
     }
 
     m_value = defaultValue;
