@@ -24,6 +24,21 @@ JSValue SetType(JSContext* ctx, JSValue this_arg, int argc, JSValue* argv)
     return JS_ThrowSyntaxError(ctx, "You cannot set values to types.");
 }
 
+int Lua_GetType(lua_State* state)
+{
+    EContext* ctx = GetContextByState(state);
+    SDKBaseType *th = EValue::fromLuaStack(ctx, 1).cast<SDKBaseType*>();
+    std::string field_name = EValue::fromLuaStack(ctx, 2).cast<std::string>();
+
+    EValue(ctx, th->GetTypeValue(field_name)).pushLua();
+    return 1;
+}
+
+int Lua_SetType(lua_State* state)
+{
+    return 0;
+}
+
 std::map<std::string, SDKBaseType*> jsBaseTypes;
 
 LoadScriptingComponent(
@@ -38,6 +53,7 @@ LoadScriptingComponent(
 
         BeginClass<SDKBaseType>("SDKBaseType", state)
             .addJSCustomIndex(GetType, SetType)
+            .addLuaCustomIndex(Lua_GetType, Lua_SetType)
         .endClass();
     }
 )
