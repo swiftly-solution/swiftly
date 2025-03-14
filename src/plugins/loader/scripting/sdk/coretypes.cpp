@@ -215,7 +215,7 @@ LoadScriptingComponent(
             .addConstant("FCVAR_INITIAL_SETVALUE", (uint64_t)FCVAR_INITIAL_SETVALUE)
             .addConstant("FCVAR_REPLICATED", (uint64_t)FCVAR_REPLICATED)
             .addConstant("FCVAR_CHEAT", (uint64_t)FCVAR_CHEAT)
-            .addConstant("FCVAR_PER_USER", FCVAR_PER_USER)
+            .addConstant("FCVAR_PER_USER", (uint64_t)FCVAR_PER_USER)
             .addConstant("FCVAR_DEMO", (uint64_t)FCVAR_DEMO)
             .addConstant("FCVAR_DONTRECORD", (uint64_t)FCVAR_DONTRECORD)
             .addConstant("FCVAR_PERFORMING_CALLBACKS", (uint64_t)FCVAR_PERFORMING_CALLBACKS)
