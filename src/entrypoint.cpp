@@ -430,7 +430,6 @@ void Swiftly::Hook_GameFrame(bool simulating, bool bFirstTick, bool bLastTick)
     //////////////////////////////////////////////////////////////
     /////////////////            Player            //////////////
     ////////////////////////////////////////////////////////////
-#pragma omp parallel for
     for (int i = 0; i < 64; i++)
     {
         if ((g_Players & (1ULL << i)) != 0) {

@@ -60,13 +60,13 @@ public:
     SCHEMA_FIELD_OFFSET(float, m_flMaxspeed, 0);
 };
 
-class CPlayer_MovementServices_Humanoid : CPlayer_MovementServices
+class CPlayer_MovementServices_Humanoid : public CPlayer_MovementServices
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CPlayer_MovementServices_Humanoid)
 };
 
-class CCSPlayer_MovementServices : CPlayer_MovementServices_Humanoid
+class CCSPlayer_MovementServices : public CPlayer_MovementServices_Humanoid
 {
 public:
     DECLARE_SCHEMA_CLASS_BASE(CCSPlayer_MovementServices)
@@ -194,7 +194,7 @@ class CPlayer_ObserverServices : public CPlayerPawnComponent
 public:
     DECLARE_SCHEMA_CLASS_BASE(CPlayer_ObserverServices);
 
-	SCHEMA_FIELD_OFFSET(uint8, m_iObserverMode, 0);
-	SCHEMA_FIELD_OFFSET(CHandle<CBaseEntity>, m_hObserverTarget, 0);
-	SCHEMA_FIELD_OFFSET(bool, m_bForcedObserverMode, 0);
+    SCHEMA_FIELD_OFFSET(uint8, m_iObserverMode, 0);
+    SCHEMA_FIELD_OFFSET(CHandle<CBaseEntity>, m_hObserverTarget, 0);
+    SCHEMA_FIELD_OFFSET(bool, m_bForcedObserverMode, 0);
 };

@@ -118,5 +118,10 @@
         "lib": "server",
         "windows": "48 8B 3D ? ? ? ? 48 85 FF 0F 84 ? ? ? ? BE",
         "linux": "4C 8B 35 ? ? ? ? 4D 85 F6 75 ? E9"
+    },
+    "CCSPlayer_MovementServices_ProcessUserCmd": {
+        "lib": "server",
+        "windows": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B FA 48 8B F1 E8 ? ? ? ? 48 8B D8",
+        "linux": "55 48 89 E5 41 55 49 89 F5 41 54 49 89 FC E8 ? ? ? ? 48 85 C0 74 30"
     }
 }

@@ -40,13 +40,17 @@ std::string scripting_GetPluginPath(std::string plugin_name)
 PluginUserMessage scripting_GetUserMessage(std::string str)
 {
     auto exploded = explode(str, "|");
-    if (exploded.size() != 3) return PluginUserMessage("");
-
-    INetworkMessageInternal* msg = (INetworkMessageInternal*)(strtol(exploded[0].c_str(), nullptr, 16));
-    CNetMessage* netmsg = (CNetMessage*)(strtol(exploded[1].c_str(), nullptr, 16));
-    uint64* clients = (uint64*)(strtol(exploded[2].c_str(), nullptr, 16));
-
-    return PluginUserMessage(msg, netmsg, clients);
+    if (exploded.size() == 1) {
+        google::protobuf::Message* msg = (google::protobuf::Message*)(strtol(exploded[0].c_str(), nullptr, 16));
+        return PluginUserMessage(msg);
+    }
+    else if (exploded.size() == 3) {
+        INetworkMessageInternal* msg = (INetworkMessageInternal*)(strtol(exploded[0].c_str(), nullptr, 16));
+        CNetMessage* netmsg = (CNetMessage*)(strtol(exploded[1].c_str(), nullptr, 16));
+        uint64* clients = (uint64*)(strtol(exploded[2].c_str(), nullptr, 16));
+        return PluginUserMessage(msg, netmsg, clients);
+    }
+    else return PluginUserMessage("");
 }
 
 std::string scripting_CreateTextTable(std::vector<std::vector<std::string>> data)

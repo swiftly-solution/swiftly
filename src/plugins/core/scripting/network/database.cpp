@@ -28,7 +28,7 @@ PluginDatabase::PluginDatabase(std::string m_connection_name)
 
 void PluginDatabase::Query(std::string query, EValue callback, EContext* L)
 {
-    if (this->db->GetKind() != "mysql") {
+    if (this->db->GetKind() != "mysql" && this->db->GetKind() != "sqlite") {
         PLUGIN_PRINT("Database - Query", "This function is supporting only MySQL databases.\n");
         return;
     }
@@ -36,7 +36,7 @@ void PluginDatabase::Query(std::string query, EValue callback, EContext* L)
 
     EValue databaseRequestsQueue = EValue::getGlobal(L, "databaseRequestsQueue");
     if (databaseRequestsQueue.isTable())
-        databaseRequestsQueue[uuid] = callback;
+        databaseRequestsQueue.setProperty(uuid, EValue(callback));
 
     DatabaseQueryQueue queue = {
         query,
@@ -47,7 +47,7 @@ void PluginDatabase::Query(std::string query, EValue callback, EContext* L)
 
 void PluginDatabase::QueryParams(std::string query, std::map<EValue, EValue> params, EValue callback, EContext* L)
 {
-    if (this->db->GetKind() != "mysql") {
+    if (this->db->GetKind() != "mysql" && this->db->GetKind() != "sqlite") {
         PLUGIN_PRINT("Database - Query", "This function is supporting only MySQL databases.\n");
         return;
     }

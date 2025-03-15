@@ -872,10 +872,10 @@ int PluginUserMessage::GetRepeatedFieldCount(std::string pszFieldName)
 
 void PluginUserMessage::AddClient(int playerId)
 {
-    if(!this->clients) return;
+    if (!this->clients) return;
 
     uint64 newcls = *this->clients;
-    if(newcls & ((uint64)1 << playerId))
+    if (newcls & ((uint64)1 << playerId))
         newcls |= ((uint64)1 << playerId);
 
     memcpy(this->clients, &newcls, sizeof(newcls));
@@ -883,10 +883,10 @@ void PluginUserMessage::AddClient(int playerId)
 
 void PluginUserMessage::RemoveClient(int playerId)
 {
-    if(!this->clients) return;
+    if (!this->clients) return;
 
     uint64 newcls = *this->clients;
-    if(newcls & ((uint64)1 << playerId))
+    if (newcls & ((uint64)1 << playerId))
         newcls &= ~((uint64)1 << playerId);
 
     memcpy(this->clients, &newcls, sizeof(newcls));
@@ -894,7 +894,7 @@ void PluginUserMessage::RemoveClient(int playerId)
 
 void PluginUserMessage::ClearClients()
 {
-    if(!this->clients) return;
+    if (!this->clients) return;
 
     uint64 newcls = 0;
     memcpy(this->clients, &newcls, sizeof(newcls));
@@ -902,10 +902,10 @@ void PluginUserMessage::ClearClients()
 
 void PluginUserMessage::AddClients()
 {
-    if(!this->clients) return;
-    
+    if (!this->clients) return;
+
     uint64 newcls = 0;
-    for(int i = 0; i < 64; i++)
+    for (int i = 0; i < 64; i++)
         newcls |= ((uint64)1 << i);
 
     memcpy(this->clients, &newcls, sizeof(newcls));
@@ -914,11 +914,11 @@ void PluginUserMessage::AddClients()
 std::vector<int> PluginUserMessage::GetClients()
 {
     std::vector<int> clns;
-    if(!this->clients) return clns;
+    if (!this->clients) return clns;
 
     uint64 cls = *this->clients;
-    for(int i = 0; i < 64; i++)
-        if(cls & ((uint64)1 << i))
+    for (int i = 0; i < 64; i++)
+        if (cls & ((uint64)1 << i))
             clns.push_back(i);
 
     return clns;

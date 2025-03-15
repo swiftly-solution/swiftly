@@ -49,7 +49,6 @@ void VGUI::RegenerateScreenTexts()
 
 void VGUI::FilterRenderingItems(Player* player, CCheckTransmitInfo* pInfo)
 {
-    #pragma omp parallel for
     for(auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
         if(it->second->GetPlayer() != player) {
             int entIndex = it->second->GetEntityIndex();
@@ -72,7 +71,6 @@ void VGUI::CheckRenderForPlayer(int pid, Player* player, CHandle<CBaseEntity> sp
     }
 
     if(shouldRegenerate) {
-        #pragma omp parallel for
         for(auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
             if(it->second->GetPlayer() == player) {
                 it->second->RegenerateText(false);
@@ -80,7 +78,6 @@ void VGUI::CheckRenderForPlayer(int pid, Player* player, CHandle<CBaseEntity> sp
             }
         }
     } else {
-        #pragma omp parallel for
         for(auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
             if(it->second->GetPlayer() == player && !it->second->IsRenderingTo(specView)) {
                 it->second->RegenerateText(false);
