@@ -21,7 +21,7 @@ struct Stack<std::any>
 
     static JSValue pushJS(EContext* ctx, std::any value)
     {
-        return SerializeData(value, ctx).pushJS();
+        return JS_DupValue((JSContext*)ctx->GetState(), SerializeData(value, ctx).pushJS());
     }
 
     static std::any getLua(EContext* ctx, int ref)
