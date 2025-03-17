@@ -10,7 +10,7 @@ std::vector<ClassLoader*> loaderClasses;
 
 int customPrint(lua_State* state)
 {
-    std::string prefix = string_format("[Swiftly] %s[%s]\e[39m ", GetTerminalStringColor(FetchPluginName(GetContextByState(state))).c_str(), ("plugin:" + FetchPluginName(GetContextByState(state))).c_str());
+    std::string prefix = TerminalProcessColor(string_format("[Swiftly] %s[%s]{DEFAULT} ", GetTerminalStringColor(FetchPluginName(GetContextByState(state))).c_str(), ("plugin:" + FetchPluginName(GetContextByState(state))).c_str()));
 
     int n = lua_gettop(state);
 
@@ -44,7 +44,7 @@ int customPrint(lua_State* state)
         if (str.size() == 0)
             continue;
 
-        std::string final_string = string_format("%s%s\e[39m\e[49m\n", prefix.c_str(), str.c_str());
+        std::string final_string = TerminalProcessColor(string_format("%s%s{DEFAULT}{BGDEFAULT}\n", prefix.c_str(), str.c_str()));
         META_CONPRINT(final_string.c_str());
     }
 
@@ -52,7 +52,7 @@ int customPrint(lua_State* state)
 }
 
 JSValue customConsoleLog(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv) {
-    std::string prefix = string_format("[Swiftly] %s[%s]\e[39m ", GetTerminalStringColor(FetchPluginName(GetContextByState(ctx))).c_str(), ("plugin:" + FetchPluginName(GetContextByState(ctx))).c_str());
+    std::string prefix = TerminalProcessColor(string_format("[Swiftly] %s[%s]{DEFAULT} ", GetTerminalStringColor(FetchPluginName(GetContextByState(ctx))).c_str(), ("plugin:" + FetchPluginName(GetContextByState(ctx))).c_str()));
     EContext* sctx = GetContextByState(ctx);
 
     std::vector<std::string> outputArr;
@@ -73,7 +73,7 @@ JSValue customConsoleLog(JSContext* ctx, JSValueConst this_val, int argc, JSValu
         if (str.size() == 0)
             continue;
 
-        std::string final_string = string_format("%s%s\e[39m\e[49m\n", prefix.c_str(), str.c_str());
+        std::string final_string = TerminalProcessColor(string_format("%s%s{DEFAULT}{BGDEFAULT}\n", prefix.c_str(), str.c_str()));
         META_CONPRINT(final_string.c_str());
     }
 
