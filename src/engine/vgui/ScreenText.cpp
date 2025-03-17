@@ -7,7 +7,9 @@ ScreenText::ScreenText() {}
 ScreenText::~ScreenText()
 {
     if (pScreenEntity.IsValid()) {
-        pScreenEntity->Despawn();
+        pScreenEntity->SetText("");
+        pScreenEntity->m_bEnabled = false;
+        pScreenEntity->m_bDrawBackground = false;
     }
 }
 
@@ -29,7 +31,7 @@ void ScreenText::Create(Color color, std::string font, int size, bool drawBackgr
         
     entKeyVal[pScreenEntity.Get()] = pMenuKV;
 
-    pMenuKV->SetBool("enabled", false);
+    pMenuKV->SetBool("enabled", true);
     pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 1050) * size);
     pMenuKV->SetInt("justify_horizontal", 0);
     pMenuKV->SetInt("justify_vertical", 2);
