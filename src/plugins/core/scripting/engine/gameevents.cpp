@@ -31,7 +31,7 @@ bool OnClientCommand(int playerid, std::string command)
     {
         response = std::any_cast<bool>(event->GetReturnValue());
     }
-    catch (std::bad_any_cast& e)
+    catch (std::bad_any_cast e)
     {
         response = true;
     }
@@ -50,7 +50,7 @@ bool OnClientChat(int playerid, std::string text, bool teamonly)
     {
         response = std::any_cast<bool>(event->GetReturnValue());
     }
-    catch (std::bad_any_cast& e)
+    catch (std::bad_any_cast e)
     {
         response = true;
     }
@@ -94,7 +94,7 @@ void Hook_CBaseEntity_TakeDamage(CBaseEntity* _this, CTakeDamageInfo* damageInfo
     {
         response = std::any_cast<bool>(event->GetReturnValue());
     }
-    catch (std::bad_any_cast& e)
+    catch (std::bad_any_cast e)
     {
         response = true;
     }
@@ -129,7 +129,7 @@ void Hook_CEntityIdentity_AcceptInput(CEntityIdentity* _this, CUtlSymbolLarge* i
     {
         response = std::any_cast<bool>(event->GetReturnValue());
     }
-    catch (std::bad_any_cast& e)
+    catch (std::bad_any_cast e)
     {
         response = true;
     }
@@ -156,7 +156,7 @@ void Hook_CGameRules_TerminateRound(void* _this, float delay, uint32_t reason, i
     {
         response = std::any_cast<bool>(event->GetReturnValue());
     }
-    catch (std::bad_any_cast& e)
+    catch (std::bad_any_cast e)
     {
         response = true;
     }

@@ -220,7 +220,7 @@ bool Plugin::LoadScriptingEnvironment()
     {
         if (ends_with(file, fileExt))
         {
-            if (file == "addons/swiftly/bin/scripting/events" + fileExt)
+            if (replace(file, "\\", "/") == "addons/swiftly/bin/scripting/events" + fileExt)
                 continue;
 
             try {
@@ -494,7 +494,7 @@ EValue SerializeData(std::any data, EContext* state)
             return EValue(state, nullptr);
         }
     }
-    catch (std::bad_any_cast& err)
+    catch (std::bad_any_cast err)
     {
         PRINTF("Invalid casting: %s\n", err.what());
         return EValue(state, nullptr);
