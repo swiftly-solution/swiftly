@@ -1,5 +1,7 @@
 #include "ScreenText.h"
 
+extern std::map<CEntityInstance*, CEntityKeyValues*> entKeyVal;
+
 ScreenText::ScreenText() {}
 
 ScreenText::~ScreenText()
@@ -21,6 +23,11 @@ void ScreenText::Create(Color color, std::string font, int size, bool drawBackgr
     if (!pScreenEntity) return;
 
     CEntityKeyValues* pMenuKV = new CEntityKeyValues();
+
+    if(entKeyVal.find(pScreenEntity.Get()) != entKeyVal.end())
+        delete entKeyVal[pScreenEntity.Get()];
+        
+    entKeyVal[pScreenEntity.Get()] = pMenuKV;
 
     pMenuKV->SetBool("enabled", false);
     pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 1050) * size);
@@ -67,7 +74,7 @@ void ScreenText::SetupViewForPlayer(Player* player)
 
 void ScreenText::SetText(std::string text)
 {
-    m_text = text;
+    m_text = text.c_str();
 
     if (!pScreenEntity) return;
 

@@ -3,6 +3,8 @@
 PluginEvent* pEvent = nullptr;
 CEntityListener g_entityListener;
 
+std::map<CEntityInstance*, CEntityKeyValues*> entKeyVal;
+
 void EntityListener::Initialize()
 {
     SH_ADD_HOOK_MEMFUNC(INetworkServerService, StartupServer, g_pNetworkServerService, this, &EntityListener::StartupServer, true);
@@ -58,4 +60,9 @@ void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
 {
     if (!pEvent) pEvent = new PluginEvent("core", nullptr, nullptr);
     g_pluginManager->ExecuteEvent("core", "OnEntityDeleted", encoders::msgpack::SerializeToString({ string_format("%p", (void*)pEntity), "CEntityInstance" }), pEvent);
+
+    if(entKeyVal.find(pEntity) != entKeyVal.end()) {
+        delete entKeyVal[pEntity];
+        entKeyVal.erase(pEntity);
+    }
 }
