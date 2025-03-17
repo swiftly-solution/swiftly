@@ -2,6 +2,7 @@
 
 #include "../../../../types/EventResult.h"
 #include "../../../../types/LogType.h"
+#include "../../../../types/GamePhase.h"
 #include "../../../../player/player/Player.h"
 
 LoadScriptingComponent(
@@ -228,6 +229,16 @@ LoadScriptingComponent(
             .addConstant("EConVarType_Vector3", (uint64_t)EConVarType::EConVarType_Vector3)
             .addConstant("EConVarType_Vector4", (uint64_t)EConVarType::EConVarType_Vector4)
             .addConstant("EConVarType_Qangle", (uint64_t)EConVarType::EConVarType_Qangle)
+            .endNamespace()
+
+            .beginNamespace("GamePhase")
+            .addConstant("GAMEPHASE_WARMUP_ROUND", (uint64_t)GamePhase::GAMEPHASE_WARMUP_ROUND)
+            .addConstant("GAMEPHASE_PLAYING_STANDARD", (uint64_t)GamePhase::GAMEPHASE_PLAYING_STANDARD)
+            .addConstant("GAMEPHASE_PLAYING_FIRST_HALF", (uint64_t)GamePhase::GAMEPHASE_PLAYING_FIRST_HALF)
+            .addConstant("GAMEPHASE_PLAYING_SECOND_HALF", (uint64_t)GamePhase::GAMEPHASE_PLAYING_SECOND_HALF)
+            .addConstant("GAMEPHASE_HALFTIME", (uint64_t)GamePhase::GAMEPHASE_HALFTIME)
+            .addConstant("GAMEPHASE_MATCH_ENDED", (uint64_t)GamePhase::GAMEPHASE_MATCH_ENDED)
+            .addConstant("GAMEPHASE_MAX", (uint64_t)GamePhase::GAMEPHASE_MAX)
             .endNamespace()
 
             .beginNamespace("ConvarFlags")
