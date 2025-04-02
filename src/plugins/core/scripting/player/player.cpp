@@ -468,12 +468,17 @@ void PluginPlayer::PerformMenuAction(std::string action, int value)
     if (!self) return;
 
     if (action == "useOption") {
+        if(!self->menu_renderer->HasMenuShown()) return;
+        if(self->menu_renderer->GetMenu()->GetItemsOnPage(self->menu_renderer->GetPage()) < value) return;
         while (self->menu_renderer->GetSelection() != value - 1)
             self->menu_renderer->MoveSelection();
 
         self->menu_renderer->PerformMenuAction(g_Config->FetchValue<std::string>("core.menu.buttons.use"));
     }
     else if (action == "scrollToOption") {
+        if(!self->menu_renderer->HasMenuShown()) return;
+        if(self->menu_renderer->GetMenu()->GetItemsOnPage(self->menu_renderer->GetPage()) < value) return;
+        
         while (self->menu_renderer->GetSelection() != value - 1)
             self->menu_renderer->MoveSelection();
     }
