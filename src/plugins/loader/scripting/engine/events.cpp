@@ -42,7 +42,7 @@ std::vector<std::any> TriggerEventInternal(std::string eventName, EValue eventPa
     if (L->GetKind() == ContextKinds::JavaScript) payload = (const char*)JS_GetUint8Array((JSContext*)L->GetState(), &len, eventPayload.pushJS());
     else payload = eventPayload.cast<std::string>();
 
-    returnValues.push_back((int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, eventPayload, &event));
+    returnValues.push_back((int)g_pluginManager->ExecuteEvent(FetchPluginName(L), eventName, payload, &event));
     returnValues.push_back(event);
 
     return returnValues;
