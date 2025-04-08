@@ -200,7 +200,7 @@ std::string Vector4D_tostring(Vector4D* v1)
 
 int Color_index(lua_State* L)
 {
-    Color* v = *static_cast<Color**>(luaL_checkudata(L, 1, "Color"));
+    Color* v = *static_cast<Color**>(luaL_checkudata(L, 1, typeid(Color).name()));
     std::string key = luaL_checkstring(L, 2);
 
     if (key == "r")
@@ -224,7 +224,7 @@ int Color_index(lua_State* L)
         return 1;
     }
 
-    luaL_getmetatable(L, "Color");
+    luaL_getmetatable(L, typeid(Color).name());
     lua_pushstring(L, key.c_str());
     lua_rawget(L, -2);
     return 1;
@@ -246,7 +246,7 @@ JSValue Color_indexJS(JSContext* ctx, JSValue this_arg, int argc, JSValue* argv)
 
 int Color_newindex(lua_State* L)
 {
-    Color* v = *static_cast<Color**>(luaL_checkudata(L, 1, "Color"));
+    Color* v = *static_cast<Color**>(luaL_checkudata(L, 1, typeid(Color).name()));
     std::string key = luaL_checkstring(L, 2);
 
     if (key == "r")
