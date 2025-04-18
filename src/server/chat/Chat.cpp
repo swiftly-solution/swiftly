@@ -16,13 +16,17 @@ SH_DECL_EXTERN3_void(ICvar, DispatchConCommand, SH_NOATTRIB, 0, ConCommandRef, c
 
 void ChatProcessor::Initialize()
 {
+#ifndef _WIN32
     SH_ADD_HOOK_MEMFUNC(IGameEventSystem, PostEventAbstract, g_pGameEventSystem, this, &ChatProcessor::PostEvent, false);
+#endif
     SH_ADD_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &ChatProcessor::DispatchConCommand, false);
 }
 
 void ChatProcessor::Destroy()
 {
+#ifndef _WIN32
     SH_REMOVE_HOOK_MEMFUNC(IGameEventSystem, PostEventAbstract, g_pGameEventSystem, this, &ChatProcessor::PostEvent, false);
+#endif
     SH_REMOVE_HOOK_MEMFUNC(ICvar, DispatchConCommand, icvar, this, &ChatProcessor::DispatchConCommand, false);
 }
 
