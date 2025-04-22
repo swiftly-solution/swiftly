@@ -1,5 +1,0 @@
-build/
-prototemp/
-.xmake/
-custom_builder.sh
-swiftly.so
