@@ -268,6 +268,7 @@ jobs:
         with:
           tag_name: v${{ needs.versioning.outputs.version }}
           make_latest: "true"
+          body: "Changelog for this version can be found inside [CHANGELOG.md](https://github.com/swiftly-solution/swiftly/blob/master/CHANGELOG.md)"
           files: |
             ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
             ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip
