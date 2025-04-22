@@ -1,14 +1,12 @@
+#include "common.h"
 #include "utils.h"
-
-#include <cstdarg>
-#include <random>
-#include <sstream>
+#include <core/entrypoint.h>
 #include <chrono>
-#include <public/tier1/characterset.h>
-
-#include "../sdk/schema/schema.h"
-#include "../server/configuration/Configuration.h"
-#include "../filesystem/logs/Logger.h"
+#include <random>
+#include <cstddef>
+#include <server/configuration/configuration.h>
+#include <filesystem/logs/logger.h>
+#include <sstream>
 
 const char* wws = " \t\n\r\f\v";
 
@@ -81,6 +79,19 @@ std::vector<std::string> terminalPrefixColors = {
     "{ORANGE}",
 };
 
+int UTIL_FormatArgs(char* buffer, int maxlength, const char* fmt, va_list params)
+{
+    int len = vsnprintf(buffer, maxlength, fmt, params);
+
+    if (len >= maxlength)
+    {
+        len = maxlength - 1;
+        buffer[len] = '\0';
+    }
+
+    return len;
+}
+
 std::string TerminalProcessColor(std::string str)
 {
     for (auto it = terminalColors.begin(); it != terminalColors.end(); ++it)
@@ -98,24 +109,55 @@ std::string GetTerminalStringColor(std::string plugin_name)
     return terminalColors[terminalPrefixColors[steps]];
 }
 
-size_t UTIL_FormatArgs(char* buffer, size_t maxlength, const char* fmt, va_list params)
+void PLUGIN_PRINT(std::string category, std::string str)
 {
-    size_t len = vsnprintf(buffer, maxlength, fmt, params);
-
-    if (len >= maxlength)
-    {
-        len = maxlength - 1;
-        buffer[len] = '\0';
+    std::string final_string = string_format("%s %s[%s]%s ", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str());
+    auto splitted = explode(str, "\n");
+    for (int i = 0; i < splitted.size(); i++) {
+        if (splitted[i] == "" && i + 1 == splitted.size()) break;
+        META_CONPRINTF("%s%s\n", final_string.c_str(), splitted[i].c_str());
     }
 
-    return len;
+    if (g_Config.FetchValue<bool>("core.logging.save_core_messages")) {
+        if (g_Logger.FetchLogger("core")) {
+            str.pop_back();
+            g_Logger.FetchLogger("core")->WriteLog(LogType_t::Common, "[" + category + "] " + str);
+        }
+    }
+}
+
+void PLUGIN_PRINTF(std::string category, std::string str, ...)
+{
+    va_list ap;
+    char buffer[16384];
+
+    va_start(ap, str);
+    UTIL_FormatArgs(buffer, sizeof(buffer), str.c_str(), ap);
+    va_end(ap);
+
+    std::string fstr = buffer;
+
+    std::string final_prefix = string_format("%s %s[%s]%s ", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str());
+    auto splitted = explode(fstr, "\n");
+    for (int i = 0; i < splitted.size(); i++) {
+        if (splitted[i] == "" && i + 1 == splitted.size()) break;
+        META_CONPRINTF("%s%s\n", final_prefix.c_str(), splitted[i].c_str());
+    }
+
+    if (g_Config.FetchValue<bool>("core.logging.save_core_messages")) {
+        if (g_Logger.FetchLogger("core")) {
+            std::string buf = buffer;
+            buf.pop_back();
+            g_Logger.FetchLogger("core")->WriteLog(LogType_t::Common, "[" + category + "] " + buf);
+        }
+    }
 }
 
 std::string replace(std::string str, const std::string from, const std::string to)
 {
     if (from.empty())
         return str;
-    size_t start_pos = 0;
+    int start_pos = 0;
     while ((start_pos = str.find(from, start_pos)) != std::string::npos)
     {
         str.replace(start_pos, from.length(), to);
@@ -126,8 +168,8 @@ std::string replace(std::string str, const std::string from, const std::string t
 
 std::vector<std::string> explode(std::string s, std::string delimiter)
 {
-    if(s.size() == 0) return {};
-    size_t pos_start = 0, pos_end, delim_len = delimiter.length();
+    if (s.size() == 0) return {};
+    int pos_start = 0, pos_end, delim_len = delimiter.length();
     std::string token;
     std::vector<std::string> res;
 
@@ -144,8 +186,8 @@ std::vector<std::string> explode(std::string s, std::string delimiter)
 
 std::set<std::string> explodeToSet(std::string str, std::string delimiter)
 {
-    if(str.size() == 0) return {};
-    size_t pos_start = 0, pos_end, delim_len = delimiter.length();
+    if (str.size() == 0) return {};
+    int pos_start = 0, pos_end, delim_len = delimiter.length();
     std::string token;
     std::set<std::string> res;
 
@@ -186,59 +228,6 @@ bool starts_with(std::string value, std::string starting)
     return std::equal(starting.begin(), starting.end(), value.begin());
 }
 
-void PLUGIN_PRINT(std::string category, std::string str)
-{
-    std::string final_string = string_format("%s %s[%s]%s ", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str());
-    auto splitted = explode(str, "\n");
-    for(int i = 0; i < splitted.size(); i++) {
-        if(splitted[i] == "" && i+1 == splitted.size()) break;
-        META_CONPRINTF("%s%s\n", final_string.c_str(), splitted[i].c_str());
-    }
-
-    if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
-        if (g_Logger && g_Logger->FetchLogger("core")) {
-            str.pop_back();
-            g_Logger->FetchLogger("core")->WriteLog(LogType_t::Common, "[" + category + "] " + str);
-        }
-    }
-}
-
-void PLUGIN_PRINTF(std::string category, std::string str, ...)
-{
-    va_list ap;
-    char buffer[16384];
-
-    va_start(ap, str);
-    UTIL_FormatArgs(buffer, sizeof(buffer), str.c_str(), ap);
-    va_end(ap);
-
-    std::string fstr = buffer;
-
-    std::string final_prefix = string_format("%s %s[%s]%s ", PREFIX, GetTerminalStringColor(category).c_str(), category.c_str(), terminalColors.at("{DEFAULT}").c_str());
-    auto splitted = explode(fstr, "\n");
-    for(int i = 0; i < splitted.size(); i++) {
-        if(splitted[i] == "" && i+1 == splitted.size()) break;
-        META_CONPRINTF("%s%s\n", final_prefix.c_str(), splitted[i].c_str());
-    }
-
-    if (g_Config && g_Config->FetchValue<bool>("core.logging.save_core_messages")) {
-        if (g_Logger && g_Logger->FetchLogger("core")) {
-            std::string buf = buffer;
-            buf.pop_back();
-            g_Logger->FetchLogger("core")->WriteLog(LogType_t::Common, "[" + category + "] " + buf);
-        }
-    }
-}
-
-void PrintTextTable(std::string category, TextTable table)
-{
-    std::stringstream outputTable;
-    outputTable << table;
-    std::vector<std::string> rows = explode(outputTable.str(), "\n");
-    for (size_t i = 0; i < rows.size() - 1; i++)
-        PLUGIN_PRINTF(category, "%s\n", rows[i].c_str());
-}
-
 uint64_t GetTime()
 {
     return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
@@ -276,7 +265,7 @@ std::string get_uuid()
         (genrand() & 0xFFFF), (genrand() & 0xFFFF), (genrand() & 0xFFFF));
 }
 
-characterset_t cset{""};
+characterset_t cset{ "" };
 
 std::vector<std::string> TokenizeCommand(std::string cmd)
 {
@@ -288,4 +277,27 @@ std::vector<std::string> TokenizeCommand(std::string cmd)
         cmdString.push_back(tokenizedArgs[i]);
 
     return cmdString;
+}
+
+void* StringToPtr(std::string str)
+{
+#ifdef _WIN32
+    return (void*)strtoll(str.c_str(), nullptr, 16);
+#else
+    return (void*)strtol(str.c_str(), nullptr, 16);
+#endif
+}
+
+std::string PtrToString(void* ptr)
+{
+    return string_format("%p", ptr);
+}
+
+void PrintTextTable(std::string category, TextTable table)
+{
+    std::stringstream outputTable;
+    outputTable << table;
+    std::vector<std::string> rows = explode(outputTable.str(), "\n");
+    for (int i = 0; i < rows.size() - 1; i++)
+        PLUGIN_PRINTF(category, "%s\n", rows[i].c_str());
 }

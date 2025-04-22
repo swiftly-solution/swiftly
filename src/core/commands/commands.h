@@ -1,23 +1,10 @@
-#ifndef _core_commands_commands_h
-#define _core_commands_commands_h
+#ifndef _core_commands_h
+#define _core_commands_h
 
-#include <string>
-#include <TextTable.h>
-
-#include <tier1/convar.h>
-
-#include "../../entrypoint.h"
-#include "../../common.h"
-#include "../../engine/convars/convars.h"
-#include "../../server/configuration/Configuration.h"
-#include "../../utils/utils.h"
-#include "../../player/playermanager/PlayerManager.h"
-#include "../../server/translations/Translations.h"
-#include "../../plugins/PluginManager.h"
-#include "../../tools/resourcemonitor/ResourceMonitor.h"
-#include "../../server/commands/CommandsManager.h"
-#include "../../extensions/ExtensionManager.h"
-#include "../../server/chat/Chat.h"
+#include <core/entrypoint.h>
+#include <public/tier1/strtools.h>
+#include <utils/utils.h>
+#include <utils/common.h>
 
 //////////////////////////////////////////////////////////////
 /////////////////           Utilities          //////////////

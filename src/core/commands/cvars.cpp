@@ -1,8 +1,10 @@
 #include "commands.h"
 
+#include <engine/convars/manager.h>
+
 void SwiftlyConvarsManager(CPlayerSlot slot, int page)
 {
-    auto fakeConvars = FetchFakeConvars();
+    auto fakeConvars = g_cvarManager.GetCvarMap();
 
     PrintToClientOrConsole(slot, "Convars", "There are %d convars created by plugins.\n", fakeConvars.size());
     PrintToClientOrConsole(slot, "Convars", "Below will be shown a list of all the convars:\n");

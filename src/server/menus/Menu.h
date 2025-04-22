@@ -1,12 +1,12 @@
-#pragma once
+#ifndef _server_menus_menu_h
+#define _server_menus_menu_h
 
 #include <string>
 #include <map>
 #include <vector>
 #include <public/Color.h>
-#include "../translations/Translations.h"
-
-std::string GenerateCommandDefaultPrefix();
+#include <server/translations/translations.h>
+#include <server/commands/manager.h>
 
 class Menu
 {
@@ -18,10 +18,12 @@ public:
     virtual void RegeneratePage(int playerid, int page, int selected) = 0;
 
     virtual std::string GetCommandFromOption(int page, int selected) = 0;
-    virtual size_t GetItemsOnPage(int page) = 0;
+    virtual int GetItemsOnPage(int page) = 0;
     virtual bool IsTemporary() = 0;
 
     virtual Color GetColor() = 0;
     virtual bool RenderEachTick() = 0;
     virtual std::string GetKind() = 0;
 };
+
+#endif

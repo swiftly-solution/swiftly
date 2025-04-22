@@ -3,7 +3,7 @@
 
 #include "../Menu.h"
 
-class CenterMenu: public Menu
+class CenterMenu : public Menu
 {
 private:
     std::string id;
@@ -25,7 +25,7 @@ public:
     void RegeneratePage(int playerid, int page, int selected);
 
     std::string GetCommandFromOption(int page, int selected);
-    size_t GetItemsOnPage(int page);
+    int GetItemsOnPage(int page);
     bool IsTemporary();
 
     Color GetColor();

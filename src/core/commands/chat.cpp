@@ -1,8 +1,10 @@
 #include "commands.h"
 
+#include <server/chat/chat.h>
+
 void SwiftlyChatReload(CPlayerSlot slot)
 {
-    g_chatProcessor->LoadMessages();
+    g_chatProcessor.LoadMessages();
     PrintToClientOrConsole(slot, "Chat Processor", "All chat messages has been succesfully reloaded.\n");
 }
 

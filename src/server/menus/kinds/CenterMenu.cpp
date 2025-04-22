@@ -1,7 +1,7 @@
 #include "CenterMenu.h"
 
-#include "../../../utils/utils.h"
-#include "../../../server/configuration/Configuration.h"
+#include <utils/utils.h>
+#include <server/configuration/configuration.h>
 
 #include <regex>
 
@@ -13,9 +13,7 @@ CenterMenu::CenterMenu(std::string id, std::string title, std::string color, std
     this->title = title;
     this->temporary = tmp;
 
-    fprintf(stdout, "Begin center\n");
     ProcessOptions();
-    fprintf(stdout, "End center\n");
 }
 
 CenterMenu::~CenterMenu()
@@ -40,7 +38,7 @@ std::string CenterMenu::GetCommandFromOption(int page, int selected)
     return processedOptions[page - 1][selected].second;
 }
 
-size_t CenterMenu::GetItemsOnPage(int page)
+int CenterMenu::GetItemsOnPage(int page)
 {
     if (page < 1)
         return 0;
@@ -55,19 +53,19 @@ void CenterMenu::ProcessOptions()
     int totalProcessedItems = 0;
     std::vector<std::pair<std::string, std::string>> tempmap;
 
-    int reservedItems = g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? 3 : 2;
-    int allowedItems = g_Config->FetchValue<int>("core.menu.kind_settings.center.itemsPerPage") - reservedItems;
+    int reservedItems = g_Config.FetchValue<bool>("core.menu.buttons.exit.option") ? 3 : 2;
+    int allowedItems = g_Config.FetchValue<int>("core.menu.kind_settings.center.itemsPerPage") - reservedItems;
 
     for (const std::pair<std::string, std::string> entry : this->options)
     {
         ++processedItems;
         ++totalProcessedItems;
-        tempmap.push_back({entry.first, entry.second});
+        tempmap.push_back({ entry.first, entry.second });
         if (processedItems == allowedItems)
         {
-            if (options.size() - totalProcessedItems > 0) tempmap.push_back({g_translations->FetchTranslation("core.menu.next"), "menunext"});
-            if (pages != 0) tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
-            if (reservedItems == 3) tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
+            if (options.size() - totalProcessedItems > 0) tempmap.push_back({ g_translations.FetchTranslation("core.menu.next"), "menunext" });
+            if (pages != 0) tempmap.push_back({ g_translations.FetchTranslation("core.menu.back"), "menuback" });
+            if (reservedItems == 3) tempmap.push_back({ g_translations.FetchTranslation("core.menu.exit"), "menuexit" });
 
             processedItems = 0;
             pages++;
@@ -78,8 +76,8 @@ void CenterMenu::ProcessOptions()
 
     if (tempmap.size() > 0)
     {
-        if (this->processedOptions.size() != 0) tempmap.push_back({g_translations->FetchTranslation("core.menu.back"), "menuback"});
-        if (reservedItems == 3) tempmap.push_back({g_translations->FetchTranslation("core.menu.exit"), "menuexit"});
+        if (this->processedOptions.size() != 0) tempmap.push_back({ g_translations.FetchTranslation("core.menu.back"), "menuback" });
+        if (reservedItems == 3) tempmap.push_back({ g_translations.FetchTranslation("core.menu.exit"), "menuexit" });
 
         processedItems = 0;
         this->processedOptions.push_back(tempmap);
@@ -95,7 +93,7 @@ std::string CenterMenu::GeneratedItems(int playerid, int page)
 void CenterMenu::RegeneratePage(int playerid, int page, int selected)
 {
     if (this->generatedPages.find(playerid) == this->generatedPages.end())
-        this->generatedPages.insert({playerid, {}});
+        this->generatedPages.insert({ playerid, {} });
 
     while (this->generatedPages[playerid].size() < page)
     {
@@ -104,19 +102,20 @@ void CenterMenu::RegeneratePage(int playerid, int page, int selected)
 
     std::string stringPage = string_format("<div><font color=\"#%s\">&nbsp;&nbsp;&nbsp;%s</font></div><br/>", this->color.c_str(), this->title.c_str());
     for (int i = 0; i < processedOptions[page - 1].size(); i++)
-        stringPage += string_format("<div><font color=\"#%s\">%s%d. %s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), g_Config->FetchValue<std::string>("core.menu.inputMode") == "chat" ? "&nbsp;&nbsp;&nbsp;&nbsp;" : (i == selected ? (g_Config->FetchValue<std::string>("core.menu.navigation_prefix") + "&nbsp;").c_str() : "&nbsp;&nbsp;&nbsp;&nbsp;"), i+1, processedOptions[page - 1][i].first.c_str());
-    
+        stringPage += string_format("<div><font color=\"#%s\">%s%d. %s</font></div><br/>", (i == selected ? this->color.c_str() : "ffffff"), g_Config.FetchValue<std::string>("core.menu.inputMode") == "chat" ? "&nbsp;&nbsp;&nbsp;&nbsp;" : (i == selected ? (g_Config.FetchValue<std::string>("core.menu.navigation_prefix") + "&nbsp;").c_str() : "&nbsp;&nbsp;&nbsp;&nbsp;"), i + 1, processedOptions[page - 1][i].first.c_str());
+
     std::string footer;
-    if(g_Config->FetchValue<std::string>("core.menu.inputMode") == "chat") {
-        footer = replace(g_translations->FetchTranslation("core.menu.input.chat"), "{PAGE}", std::to_string(page));
+    if (g_Config.FetchValue<std::string>("core.menu.inputMode") == "chat") {
+        footer = replace(g_translations.FetchTranslation("core.menu.input.chat"), "{PAGE}", std::to_string(page));
         footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
         footer = replace(footer, "{PREFIX}", GenerateCommandDefaultPrefix());
-    } else {
-        footer = replace(g_translations->FetchTranslation(g_Config->FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.center.footer" : "core.menu.center.footer.nooption"), "{PAGE}", std::to_string(page));
+    }
+    else {
+        footer = replace(g_translations.FetchTranslation(g_Config.FetchValue<bool>("core.menu.buttons.exit.option") ? "core.menu.center.footer" : "core.menu.center.footer.nooption"), "{PAGE}", std::to_string(page));
         footer = replace(footer, "{MAXPAGES}", std::to_string(processedOptions.size()));
-        footer = replace(footer, "{CYCLE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.scroll")));
-        footer = replace(footer, "{USE_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.use")));
-        footer = replace(footer, "{EXIT_BUTTON}", str_toupper(g_Config->FetchValue<std::string>("core.menu.buttons.exit.button")));
+        footer = replace(footer, "{CYCLE_BUTTON}", str_toupper(g_Config.FetchValue<std::string>("core.menu.buttons.scroll")));
+        footer = replace(footer, "{USE_BUTTON}", str_toupper(g_Config.FetchValue<std::string>("core.menu.buttons.use")));
+        footer = replace(footer, "{EXIT_BUTTON}", str_toupper(g_Config.FetchValue<std::string>("core.menu.buttons.exit.button")));
     }
 
     stringPage += string_format("<font class='fontSize-s'>%s</font>", footer.c_str());
@@ -131,7 +130,7 @@ bool CenterMenu::IsTemporary()
 
 Color CenterMenu::GetColor()
 {
-    return Color(0,0,0);
+    return Color(0, 0, 0);
 }
 
 std::string CenterMenu::GenerateFooter(int page)

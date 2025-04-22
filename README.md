@@ -70,7 +70,7 @@ git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
 
 ### License
 
-Swiftly is licensed under the MIT License. You can view the license in the LICENSE file.
+Swiftly is licensed under the GNU GPL 3 License. You can view the license in the LICENSE file.
 
 ---
 

@@ -2,18 +2,13 @@
 #define _encoders_json_h
 
 #include <string>
-#include <any>
-#include <vector>
-
-#include <rapidjson/document.h>
-#include <rapidjson/error/en.h>
-#include <rapidjson/writer.h>
-#include <rapidjson/stringbuffer.h>
+#include <rapidjson/json.hpp>
 
 namespace encoders {
     namespace json {
-        std::string SerializeArrayToString(std::vector<std::any> v);
-    };
-};
+        std::string ToString(rapidjson::Value& j);
+        rapidjson::Document FromString(std::string str, std::string path = "");
+    }
+}
 
 #endif

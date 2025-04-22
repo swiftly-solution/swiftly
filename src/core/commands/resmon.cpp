@@ -1,5 +1,10 @@
 #include "commands.h"
 
+#include <tools/resourcemonitor/monitor.h>
+#include <plugins/manager.h>
+
+#include <sstream>
+
 void SwiftlyResourceMonitorManagerHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Resource Monitor Menu\n");
@@ -12,28 +17,28 @@ void SwiftlyResourceMonitorManagerHelp(CPlayerSlot slot)
 
 void SwiftlyResourceMonitorManagerEnable(CPlayerSlot slot)
 {
-    if (g_ResourceMonitor->IsEnabled())
+    if (g_ResourceMonitor.IsEnabled())
         return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is already enabled.\n");
 
-    g_ResourceMonitor->Enable();
+    g_ResourceMonitor.Enable();
     PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring has been enabled.\n");
 }
 
 void SwiftlyResourceMonitorManagerDisable(CPlayerSlot slot)
 {
-    if (!g_ResourceMonitor->IsEnabled())
+    if (!g_ResourceMonitor.IsEnabled())
         return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is already disabled.\n");
 
-    g_ResourceMonitor->Disable();
+    g_ResourceMonitor.Disable();
     PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring has been disabled.\n");
 }
 
 void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, std::string plugin_id)
 {
-    if (!g_ResourceMonitor->IsEnabled())
+    if (!g_ResourceMonitor.IsEnabled())
         return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is not enabled.\n");
 
-    if (!g_pluginManager->PluginExists(plugin_id) && plugin_id != "core")
+    if (!g_pluginManager.PluginExists(plugin_id) && plugin_id != "core")
         return PrintToClientOrConsole(slot, "Resource Monitor", "Invalid plugin ID.\n");
 
     auto PrintTable = [](TextTable tbl) -> void
@@ -41,7 +46,7 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, std::string plugi
             std::stringstream outputTable;
             outputTable << tbl;
             std::vector<std::string> rows = explode(outputTable.str(), "\n");
-            for (size_t i = 0; i < rows.size(); i++)
+            for (int i = 0; i < rows.size(); i++)
                 PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
         };
 
@@ -56,15 +61,15 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, std::string plugi
     usagesTable.add(" ID ");
     usagesTable.add(" Name ");
     usagesTable.add(" Calls ");
-    usagesTable.add(" avg/max ");
+    usagesTable.add(" min/avg/max ");
     usagesTable.endOfRow();
 
-    std::map<std::string, std::map<std::string, std::list<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
+    std::map<std::string, std::map<std::string, std::vector<float>>> data = g_ResourceMonitor.GetResmonTimeTables();
     if (data.count(plugin_id) > 0)
     {
-        std::map<std::string, std::list<float>> pluginData = data.at(plugin_id);
+        std::map<std::string, std::vector<float>> pluginData = data.at(plugin_id);
         uint64_t idx = 0;
-        for (std::map<std::string, std::list<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+        for (std::map<std::string, std::vector<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
         {
             ++idx;
             usagesTable.add(string_format(" %02d. ", idx));
@@ -72,20 +77,20 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, std::string plugi
             usagesTable.add(string_format(" %llu ", it->second.size()));
 
             if (it->second.size() == 0)
-                usagesTable.add(" 0.00000ms / 0.00000ms ");
+                usagesTable.add(" 0.00000ms / 0.00000ms / 0.00000ms ");
             else
             {
-                float max = *std::max_element(it->second.begin(), it->second.end());
+                auto [min, max] = std::minmax_element(it->second.begin(), it->second.end());
 
                 float avg = 0;
                 uint64_t avgCount = 0;
-                for (std::list<float>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii)
+                for (std::vector<float>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii)
                 {
                     avg += *(ii);
                     ++avgCount;
                 }
 
-                usagesTable.add(string_format(" %.5fms / %.5fms ", (avg / avgCount), max));
+                usagesTable.add(string_format(" %.5fms / %.5fms / %.5fms ", *min, (avg / avgCount), *max));
             }
             usagesTable.endOfRow();
         }
@@ -96,7 +101,7 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, std::string plugi
 
 void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
 {
-    if (!g_ResourceMonitor->IsEnabled())
+    if (!g_ResourceMonitor.IsEnabled())
         return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is not enabled.\n");
 
     TextTable pluginsTable('-', '|', '+');
@@ -105,7 +110,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
     pluginsTable.add(" Status ");
     pluginsTable.add(" Type ");
     pluginsTable.add(" Memory ");
-    pluginsTable.add(" avg/max ");
+    pluginsTable.add(" min/avg/max ");
     pluginsTable.endOfRow();
 
     auto PrintTable = [](TextTable tbl) -> void
@@ -113,13 +118,13 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
             std::stringstream outputTable;
             outputTable << tbl;
             std::vector<std::string> rows = explode(outputTable.str(), "\n");
-            for (size_t i = 0; i < rows.size(); i++)
+            for (int i = 0; i < rows.size(); i++)
                 PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
         };
 
     PLUGIN_PRINTF("Resource Monitor", "Plugin Resource Viewer\n");
 
-    std::map<std::string, std::map<std::string, std::list<float>>> data = g_ResourceMonitor->GetResmonTimeTables();
+    std::map<std::string, std::map<std::string, std::vector<float>>> data = g_ResourceMonitor.GetResmonTimeTables();
 
     pluginsTable.add(" core ");
     pluginsTable.add(" Loaded ");
@@ -132,37 +137,42 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
         uint64_t maxCount = 0;
         float avg = 0;
         uint64_t avgCount = 0;
+        float min = 0;
+        uint64_t minCount = 0;
 
-        std::map<std::string, std::list<float>> pluginData = data.at("core");
-        for (std::map<std::string, std::list<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+        std::map<std::string, std::vector<float>> pluginData = data.at("core");
+        for (std::map<std::string, std::vector<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
         {
             if (it->second.size() == 0)
                 continue;
 
-            max += *std::max_element(it->second.begin(), it->second.end());
+            auto [mi, mx] = std::minmax_element(it->second.begin(), it->second.end());
+            max += *mx;
+            min += *mi;
             ++maxCount;
+            ++minCount;
 
-            for (std::list<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+            for (std::vector<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
             {
                 avg += *(it2);
                 ++avgCount;
             }
         }
 
-        pluginsTable.add(string_format(" %.5fms / %.5fms ", (avg / avgCount), (max / maxCount)));
+        pluginsTable.add(string_format(" %.5fms / %.5fms / %.5fms ", (min / minCount), (avg / avgCount), (max / maxCount)));
     }
     else
-        pluginsTable.add(" 0.000ms / 0.000ms ");
+        pluginsTable.add(" 0.00000ms / 0.00000ms / 0.00000ms ");
 
     pluginsTable.endOfRow();
 
-    for (Plugin* plugin : g_pluginManager->GetPluginsList())
+    for (auto plugin : g_pluginManager.GetPluginsList())
     {
         std::string plugin_id = plugin->GetName();
 
         pluginsTable.add(" " + plugin_id + " ");
         pluginsTable.add(std::string(" ") + (plugin->GetPluginState() == PluginState_t::Started ? "Loaded" : "Unloaded") + " ");
-        pluginsTable.add(std::string(" ") + (plugin->GetKind() == PluginKind_t::Lua ? "Lua" : "JavaScript") + " ");
+        pluginsTable.add(std::string(" ") + (plugin->GetKind() == ContextKinds::Lua ? "Lua" : "JavaScript") + " ");
         if (plugin->GetPluginState() == PluginState_t::Started)
             pluginsTable.add(string_format(" %.4f MB ", (double(plugin->GetMemoryUsage()) / 1024.0f / 1024.0f)));
         else
@@ -170,32 +180,36 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
 
         if (plugin->GetPluginState() == PluginState_t::Started && data.find(plugin->GetName()) != data.end())
         {
-
             float max = 0;
             uint64_t maxCount = 0;
             float avg = 0;
             uint64_t avgCount = 0;
+            float min = 0;
+            uint64_t minCount = 0;
 
-            std::map<std::string, std::list<float>> pluginData = data.at(plugin->GetName());
-            for (std::map<std::string, std::list<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
+            std::map<std::string, std::vector<float>> pluginData = data.at(plugin->GetName());
+            for (std::map<std::string, std::vector<float>>::iterator it = pluginData.begin(); it != pluginData.end(); ++it)
             {
                 if (it->second.size() == 0)
                     continue;
 
-                max += *std::max_element(it->second.begin(), it->second.end());
+                auto [mi, mx] = std::minmax_element(it->second.begin(), it->second.end());
+                max += *mx;
+                min += *mi;
                 ++maxCount;
+                ++minCount;
 
-                for (std::list<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+                for (std::vector<float>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
                 {
                     avg += *(it2);
                     ++avgCount;
                 }
             }
 
-            pluginsTable.add(string_format(" %.5fms / %.5fms ", (avg / avgCount), (max / maxCount)));
+            pluginsTable.add(string_format(" %.5fms / %.5fms / %.5fms ", (min / minCount), (avg / avgCount), (max / maxCount)));
         }
         else
-            pluginsTable.add(" 0.00000ms / 0.00000ms ");
+            pluginsTable.add(" 0.00000ms / 0.00000ms / 0.00000ms ");
 
         pluginsTable.endOfRow();
     }

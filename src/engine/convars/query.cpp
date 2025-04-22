@@ -1,9 +1,12 @@
-#include "convars.h"
-#include "../../server/configuration/Configuration.h"
-#include "../../sdk/entity/CRecipientFilters.h"
-#include "../../../vendor/dynlib/module.h"
-#include "../../sdk/entity/serversideclient.h"
-#include "../../player/playermanager/PlayerManager.h"
+#include "query.h"
+
+#include <memory/gamedata/gamedata.h>
+#include <dynlibutils/module.h>
+
+#include <sdk/components/CSingleRecipientFilter.h>
+#include <sdk/components/CServerSideClient.h>
+
+#include <server/player/manager.h>
 
 std::map<std::string, std::string> languages = {
     { "arabic", "ar" },
@@ -38,47 +41,49 @@ std::map<std::string, std::string> languages = {
     { "vietnamese", "vn" },
 };
 
-void OnClientConvarQuery(int playerid, std::string convar_name, std::string convar_value);
 SH_DECL_MANUALHOOK1(OnConVarQuery, 0, 0, 0, bool, const CNetMessagePB<CCLCMsg_RespondCvarValue>&);
+DynLibUtils::CModule DetermineModuleByLibrary(std::string library);
 
 int OnConVarQueryID = -1;
 
-void ConvarQuery::Initialize()
+void CvarQuery::Initialize()
 {
-    SH_MANUALHOOK_RECONFIGURE(OnConVarQuery, g_Offsets->GetOffset("CServerSideClient_OnConVarQuery"), 0, 0);
+    SH_MANUALHOOK_RECONFIGURE(OnConVarQuery, g_GameData.GetOffset("CServerSideClient_OnConVarQuery"), 0, 0);
 
     DynLibUtils::CModule eng = DetermineModuleByLibrary("engine2");
     void* serverSideClientVTable = eng.GetVirtualTableByName("CServerSideClient");
-    OnConVarQueryID = SH_ADD_MANUALDVPHOOK(OnConVarQuery, serverSideClientVTable, SH_MEMBER(this, &ConvarQuery::OnConVarQuery), true);
+    OnConVarQueryID = SH_ADD_MANUALDVPHOOK(OnConVarQuery, serverSideClientVTable, SH_MEMBER(this, &CvarQuery::OnConvarQuery), true);
 }
 
-void ConvarQuery::Destroy()
+void CvarQuery::Shutdown()
 {
-    if(OnConVarQueryID == -1) return;
+    if (OnConVarQueryID == -1) return;
 
     SH_REMOVE_HOOK_ID(OnConVarQueryID);
 }
 
-bool ConvarQuery::OnConVarQuery(const CNetMessagePB<CCLCMsg_RespondCvarValue>& msg)
+void OnClientConvarQuery(int playerid, std::string convar_name, std::string convar_value);
+
+bool CvarQuery::OnConvarQuery(const CNetMessagePB<CCLCMsg_RespondCvarValue>& msg)
 {
     auto client = META_IFACEPTR(CServerSideClient);
-    auto player = g_playerManager->GetPlayer(client->GetPlayerSlot());
-    if(!player) RETURN_META_VALUE(MRES_IGNORED, true);
-    if(player->IsFakeClient()) RETURN_META_VALUE(MRES_IGNORED, true);
+
+    auto player = g_playerManager.GetPlayer(client->GetPlayerSlot());
+    if (!player) RETURN_META_VALUE(MRES_IGNORED, true);
+    if (player->IsFakeClient()) RETURN_META_VALUE(MRES_IGNORED, true);
 
     if (msg.name() == "cl_language") {
         if (languages.find(msg.value()) != languages.end()) {
-            player->language = languages.at(msg.value());
+            player->SetInternalVar("language", languages.at(msg.value()));
         }
     }
 
-    OnClientConvarQuery(player->GetSlot().Get(), msg.name(), msg.value());
+    OnClientConvarQuery(client->GetPlayerSlot().Get(), msg.name(), msg.value());
 
     RETURN_META_VALUE(MRES_IGNORED, true);
 }
 
-
-void ConvarQuery::QueryCvarClient(CPlayerSlot slot, std::string cvarName)
+void CvarQuery::QueryCvarClient(CPlayerSlot slot, std::string cvarName)
 {
     auto pMsg = g_pNetworkMessages->FindNetworkMessagePartial("GetCvarValue");
 
@@ -92,11 +97,11 @@ void ConvarQuery::QueryCvarClient(CPlayerSlot slot, std::string cvarName)
     for the god's sake, why on windows without memoverride it automatically collects this pointer and deletes it ????
     they have some special shananigans over here
     always remember to not delete it on windows because you'll stay again 4 hrs to debug it
-    
+
     i'll use dreamberd next time to use "const const const" which will affect all users of windows globally for this
     so that they don't need to debug it like i did
     */
-    #ifndef _WIN32
+#ifndef _WIN32
     delete msg;
-    #endif
+#endif
 }

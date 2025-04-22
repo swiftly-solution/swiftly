@@ -1,22 +1,19 @@
-#ifndef _gameevents_h
-#define _gameevents_h
+#ifndef _engine_gameevents_h
+#define _engine_gameevents_h
 
-#include "../../common.h"
-#include "../../entrypoint.h"
-#include <utlvector.h>
+#include <core/entrypoint.h>
 #include <set>
+#include <string>
 
-typedef void (*FnEventListenerCallback)(IGameEvent* event);
+typedef void (*EventListenerCallback)(IGameEvent* event);
 
 class EventManager : public IGameEventListener2
 {
 private:
     std::set<std::string> enqueueListenEvents;
     bool loadedGameEvents = false;
-public:
-    EventManager() = default;
-    ~EventManager() = default;
 
+public:
     void Initialize();
     void Shutdown();
     void RegisterGameEvents();
@@ -26,9 +23,11 @@ public:
     bool OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast);
     bool OnPostFireEvent(IGameEvent* pEvent, bool bDontBroadcast);
 
+    void StartupServer(const GameSessionConfiguration_t& config, ISource2WorldSession*, const char*);
+
     int LoadEventsFromFile(const char* filePath, bool searchAll);
 };
 
-extern EventManager* eventManager;
+extern EventManager g_eventManager;
 
 #endif

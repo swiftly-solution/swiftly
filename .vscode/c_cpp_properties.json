@@ -4,37 +4,23 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/build/swiftly/windows-x86_64/**",
-                "${workspaceFolder}/alliedmodders/hl2sdk/**",
+                "${workspaceFolder}/alliedmodders/hl2sdk-cs2/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
                 "${workspaceFolder}/src/**",
-                "${workspaceFolder}/vendor/embedder/libs/lua/**",
-                "${workspaceFolder}/vendor/embedder/libs/js/**",
-                "${workspaceFolder}/vendor/embedder/src/**",
                 "${workspaceFolder}/vendor/**",
-                "${workspaceFolder}/vendor/dynlib/**",
-                "${workspaceFolder}/vendor/json/include/**",
-                "${workspaceFolder}/vendor/msgpack/include/**",
-                "${workspaceFolder}/vendor/funchook/include/**",
-                "${workspaceFolder}/vendor/texttable/**",
-                "${workspaceFolder}/vendor/asmjit/src/**",
+                "${workspaceFolder}/vendor/bzip2/win64/include/**",
                 "${workspaceFolder}/vendor/dynohook/win64/include/**",
                 "${workspaceFolder}/vendor/dyncall/win64/include/**",
-                "${workspaceFolder}/vendor/bzip2/win64/include/**"
+                "${workspaceFolder}/vendor/embedder/libs/lua/**",
+                "${workspaceFolder}/vendor/embedder/libs/js/**"
             ],
             "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE",
-                "WIN32",
-                "COMPILER_GCC",
-                "MSGPACK_NO_BOOST",
-                "META_IS_SOURCE2",
-                "POSIX"
+                "META_IS_SOURCE2"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-gcc-x64"
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\Hostx64\\x64\\cl.exe"
         },
         {
             "name": "Linux",
@@ -44,32 +30,19 @@
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
                 "${workspaceFolder}/src/**",
-                "${workspaceFolder}/vendor/embedder/libs/lua/**",
-                "${workspaceFolder}/vendor/embedder/libs/js/**",
-                "${workspaceFolder}/vendor/embedder/src/**",
                 "${workspaceFolder}/vendor/**",
-                "${workspaceFolder}/vendor/dynlib/**",
-                "${workspaceFolder}/vendor/json/include/**",
-                "${workspaceFolder}/vendor/msgpack/include/**",
-                "${workspaceFolder}/vendor/funchook/include/**",
-                "${workspaceFolder}/vendor/texttable/**",
-                "${workspaceFolder}/vendor/asmjit/src/**",
+                "${workspaceFolder}/vendor/bzip2/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/dynohook/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/dyncall/linuxsteamrt64/include/**",
-                "${workspaceFolder}/vendor/bzip2/linuxsteamrt64/include/**"
+                "${workspaceFolder}/vendor/embedder/libs/lua/**",
+                "${workspaceFolder}/vendor/embedder/libs/js/**"
             ],
             "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE",
-                "POSIX",
-                "COMPILER_GCC",
-                "META_IS_SOURCE2",
-                "POSIX"
+                "META_IS_SOURCE2"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-x64",
+            "intelliSenseMode": "linux-gcc-x64"
         }
     ],
     "version": 4

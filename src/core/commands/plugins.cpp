@@ -1,5 +1,7 @@
 #include "commands.h"
 
+#include <plugins/manager.h>
+
 void ShowSwiftlyPluginManagerHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Plugin Management Menu\n");
@@ -15,10 +17,10 @@ void ShowSwiftlyPluginManagerHelp(CPlayerSlot slot)
 void SwiftlyPluginManagerList(CPlayerSlot slot)
 {
     uint32 loadedPlugins = 0;
-    auto plugins = g_pluginManager->GetPluginsList();
+    auto plugins = g_pluginManager.GetPluginsList();
     for (uint32 i = 0; i < plugins.size(); i++)
     {
-        Plugin* plugin = plugins[i];
+        auto plugin = plugins[i];
         if (plugin == nullptr)
             continue;
         if (plugin->GetPluginState() == PluginState_t::Stopped)
@@ -35,7 +37,7 @@ void SwiftlyPluginManagerList(CPlayerSlot slot)
     std::vector<std::string> errors;
     for (uint32 i = 0; i < plugins.size(); i++)
     {
-        Plugin* plugin = plugins[i];
+        auto plugin = plugins[i];
         if (plugin == nullptr)
             continue;
         if (plugin->GetLoadError().size() > 0)
@@ -69,10 +71,10 @@ void SwiftlyPluginManagerInfo(CPlayerSlot slot, std::string plugin_name)
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins info <plugin_name>\n");
 
-    if (!g_pluginManager->PluginExists(plugin_name))
+    if (!g_pluginManager.PluginExists(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Info", "Invalid plugin name.\n");
 
-    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
+    auto plugin = g_pluginManager.FetchPlugin(plugin_name);
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return PrintToClientOrConsole(slot, "Plugin Info", "Plugin is not loaded.\n");
 
@@ -91,14 +93,14 @@ void SwiftlyPluginManagerUnload(CPlayerSlot slot, std::string plugin_name)
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins unload <plugin_name>\n");
 
-    if (!g_pluginManager->PluginExists(plugin_name))
+    if (!g_pluginManager.PluginExists(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Unload", "Invalid plugin name.\n");
 
-    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
+    auto plugin = g_pluginManager.FetchPlugin(plugin_name);
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return PrintToClientOrConsole(slot, "Plugin Unload", "Plugin is not loaded.\n");
 
-    g_pluginManager->StopPlugin(plugin_name, true);
+    g_pluginManager.StopPlugin(plugin_name, true);
     PrintToClientOrConsole(slot, "Plugin Unload", "Plugin '%s' has been unloaded.\n", plugin_name.c_str());
 }
 
@@ -107,15 +109,15 @@ void SwiftlyPluginManagerLoad(CPlayerSlot slot, std::string plugin_name)
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins load <plugin_name>\n");
 
-    if (!g_pluginManager->PluginExists(plugin_name))
+    if (!g_pluginManager.PluginExists(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Load", "Invalid plugin name.\n");
 
-    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
+    auto plugin = g_pluginManager.FetchPlugin(plugin_name);
     if (plugin->GetPluginState() == PluginState_t::Started)
         return PrintToClientOrConsole(slot, "Plugin Load", "Plugin is already loaded.\n");
 
-    g_pluginManager->LoadPlugin(plugin_name);
-    g_pluginManager->StartPlugin(plugin_name);
+    g_pluginManager.LoadPlugin(plugin_name);
+    g_pluginManager.StartPlugin(plugin_name);
     PrintToClientOrConsole(slot, "Plugin Load", "Plugin '%s' has been loaded.\n", plugin_name.c_str());
 }
 
@@ -124,24 +126,24 @@ void SwiftlyPluginManagerReload(CPlayerSlot slot, std::string plugin_name)
     if (plugin_name.size() == 0)
         return PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins reload <plugin_name>\n");
 
-    if (!g_pluginManager->PluginExists(plugin_name))
+    if (!g_pluginManager.PluginExists(plugin_name))
         return PrintToClientOrConsole(slot, "Plugin Reload", "Invalid plugin name.\n");
 
-    Plugin* plugin = g_pluginManager->FetchPlugin(plugin_name);
+    auto plugin = g_pluginManager.FetchPlugin(plugin_name);
     if (plugin->GetPluginState() == PluginState_t::Stopped)
         return PrintToClientOrConsole(slot, "Plugin Reload", "Plugin is not loaded.\n");
 
-    g_pluginManager->StopPlugin(plugin_name, true);
-    g_pluginManager->LoadPlugin(plugin_name);
-    g_pluginManager->StartPlugin(plugin_name);
+    g_pluginManager.StopPlugin(plugin_name, true);
+    g_pluginManager.LoadPlugin(plugin_name);
+    g_pluginManager.StartPlugin(plugin_name);
     PrintToClientOrConsole(slot, "Plugin Reload", "Plugin '%s' has been reloaded.\n", plugin_name.c_str());
 }
 
 void SwiftlyPluginManagerRefresh(CPlayerSlot slot)
 {
-    auto oldPluginsAmount = g_pluginManager->GetPluginsList().size();
-    g_pluginManager->LoadPlugins("");
-    auto newPluginsAmount = g_pluginManager->GetPluginsList().size();
+    auto oldPluginsAmount = g_pluginManager.GetPluginsList().size();
+    g_pluginManager.LoadPlugins("");
+    auto newPluginsAmount = g_pluginManager.GetPluginsList().size();
     PrintToClientOrConsole(slot, "Plugin Refresh", "Plugins have been succesfully refreshed. (%d -> %d plugins)\n", oldPluginsAmount, newPluginsAmount);
 }
 

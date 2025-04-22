@@ -1,264 +1,274 @@
 name: "Swiftly Compiler"
 
 on:
-    push:
-        branches:
-            - '**'
-    pull_request:
+  push:
+    branches:
+      - "**"
+  pull_request:
 
 jobs:
-    versioning:
-        permissions:
-            contents: write
-        runs-on: ubuntu-latest
-        container:
-            image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
-        outputs:
-            version: ${{ steps.version.outputs.version }}
-        steps:
-            - name: Packages
-              shell: bash
-              run: |
-                  sudo apt update
-                  sudo apt install -y curl jq
-                                             
-            - name: Generate version
-              uses: reecetech/version-increment@2024.4.4
-              id: version
-              with:
-                release_branch: master
-                increment: patch
-                use_api: true
+  versioning:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Packages
+        shell: bash
+        run: |
+          sudo apt update
+          sudo apt install -y curl jq
 
-    extensions_build:
-        name: Extension Build
-        needs: versioning
-        runs-on: ${{ matrix.os }}
-        container: ${{ matrix.container }}
-        strategy:
-            fail-fast: false
-            matrix:
-                os: [ubuntu-latest, windows-latest]
-                extension: [mysql-extension,console-filter,addons-extension,http-extension,ip-extension,utils-extension,sdktools-extension]
-                include:
-                    - os: ubuntu-latest
-                      container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
-        steps:
-            - name: Checkout Extension
-              uses: actions/checkout@v4
-              with:
-                  repository: swiftly-solution/${{ matrix.extension }}
-                  path: ${{ matrix.extension }}
-                  submodules: recursive
+      - name: Generate version
+        uses: reecetech/version-increment@2024.4.4
+        id: version
+        with:
+          release_branch: master
+          increment: minor
+          use_api: true
 
-            - name: Checkout AMBuild
-              uses: actions/checkout@v4
-              with:
-                  repository: alliedmodders/ambuild
-                  path: ambuild
+  extensions_build:
+    name: Extension Build
+    needs: versioning
+    runs-on: ${{ matrix.os }}
+    container: ${{ matrix.container }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        extension:
+          [
+            mysql-extension,
+            console-filter,
+            addons-extension,
+            http-extension,
+            ip-extension,
+            utils-extension,
+            sdktools-extension,
+          ]
+        include:
+          - os: ubuntu-latest
+            container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+    steps:
+      - name: Checkout Extension
+        uses: actions/checkout@v4
+        with:
+          repository: swiftly-solution/${{ matrix.extension }}
+          path: ${{ matrix.extension }}
+          submodules: recursive
 
-            - name: Install AMBuild
-              run: |
-                  cd ambuild; python setup.py install; cd ..
+      - name: Checkout AMBuild
+        uses: actions/checkout@v4
+        with:
+          repository: alliedmodders/ambuild
+          path: ambuild
 
-            - name: Version
-              shell: bash
-              run: echo "VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
+      - name: Install AMBuild
+        run: |
+          cd ambuild; python setup.py install; cd ..
 
-            - name: Build - Linux
-              if: matrix.os == 'ubuntu-latest'
-              working-directory: ${{ matrix.extension }}
-              shell: bash
-              run: |
-                  sudo apt update
-                  sudo apt install -y libreadline-dev libboost-all-dev
-                  bash ./setup.sh
+      - name: Version
+        shell: bash
+        run: echo "VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
 
-            - name: Build - Windows
-              if: matrix.os == 'windows-latest'
-              working-directory: ${{ matrix.extension }}
-              run: |
-                  ./setup.ps1
+      - name: Build - Linux
+        if: matrix.os == 'ubuntu-latest'
+        working-directory: ${{ matrix.extension }}
+        shell: bash
+        run: |
+          sudo apt update
+          sudo apt install -y libreadline-dev libboost-all-dev
+          bash ./setup.sh
 
-            - name: IP EXT - Linux
-              if: ${{ matrix.os == 'ubuntu-latest' && matrix.extension == 'ip-extension' }}
-              working-directory: ${{ matrix.extension }}
-              shell: bash
-              run: |
-                  wget https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb -O build/package/addons/swiftly/data/GeoLite2-City.mmdb
-                  wget https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb -O build/package/addons/swiftly/data/GeoLite2-ASN.mmdb
+      - name: Build - Windows
+        if: matrix.os == 'windows-latest'
+        working-directory: ${{ matrix.extension }}
+        run: |
+          ./setup.ps1
 
-            - name: IP EXT - Windows
-              if: ${{ matrix.os == 'windows-latest' && matrix.extension == 'ip-extension' }}
-              working-directory: ${{ matrix.extension }}
-              run: |
-                  Set-Location build/package/addons/swiftly
+      - name: IP EXT - Linux
+        if: ${{ matrix.os == 'ubuntu-latest' && matrix.extension == 'ip-extension' }}
+        working-directory: ${{ matrix.extension }}
+        shell: bash
+        run: |
+          wget https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb -O build/package/addons/swiftly/data/GeoLite2-City.mmdb
+          wget https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb -O build/package/addons/swiftly/data/GeoLite2-ASN.mmdb
 
-                  Invoke-WebRequest https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb -OutFile data/GeoLite2-City.mmdb
-                  Invoke-WebRequest https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb -OutFile data/GeoLite2-ASN.mmdb
+      - name: IP EXT - Windows
+        if: ${{ matrix.os == 'windows-latest' && matrix.extension == 'ip-extension' }}
+        working-directory: ${{ matrix.extension }}
+        run: |
+          Set-Location build/package/addons/swiftly
 
-                  Set-Location ../../../..
+          Invoke-WebRequest https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb -OutFile data/GeoLite2-City.mmdb
+          Invoke-WebRequest https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb -OutFile data/GeoLite2-ASN.mmdb
 
-            - name: Upload Artifacts Linux
-              if: matrix.os == 'ubuntu-latest'
-              uses: actions/upload-artifact@v4
-              with:
-                  name: ${{matrix.extension}}.Extension.Linux
-                  path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
-                  
-            - name: Upload Artifacts Windows
-              if: matrix.os == 'windows-latest'
-              uses: actions/upload-artifact@v4
-              with:
-                  name: ${{matrix.extension}}.Extension.Windows
-                  path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
+          Set-Location ../../../..
 
-    build:
-        name: Build
-        needs: versioning
-        runs-on: ${{ matrix.os }}
-        env:
-            MMSOURCE20: ${{ github.workspace }}/swiftly/alliedmodders/metamod
-            HL2SDKCS2: ${{ github.workspace }}/swiftly/alliedmodders/hl2sdk
-        container: ${{ matrix.container }}
-        strategy:
-            fail-fast: false
-            matrix:
-                os: [ubuntu-latest, windows-latest]
-                include:
-                    - os: ubuntu-latest
-                      container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  path: swiftly
-                  submodules: recursive
+      - name: Upload Artifacts Linux
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{matrix.extension}}.Extension.Linux
+          path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
 
-            - name: Checkout AMBuild
-              uses: actions/checkout@v4
-              with:
-                  repository: alliedmodders/ambuild
-                  path: ambuild
+      - name: Upload Artifacts Windows
+        if: matrix.os == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{matrix.extension}}.Extension.Windows
+          path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
 
-            - name: Install AMBuild
-              run: |
-                  cd ambuild; python setup.py install; cd ..
+  build:
+    name: Build
+    needs: versioning
+    runs-on: ${{ matrix.os }}
+    env:
+      MMSOURCE20: ${{ github.workspace }}/swiftly/alliedmodders/metamod
+      HL2SDKCS2: ${{ github.workspace }}/swiftly/alliedmodders/hl2sdk
+    container: ${{ matrix.container }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: swiftly
+          submodules: recursive
 
-            - name: Setup Version
-              shell: bash
-              run: echo "SWIFTLY_VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
+      - name: Checkout AMBuild
+        uses: actions/checkout@v4
+        with:
+          repository: alliedmodders/ambuild
+          path: ambuild
 
-            - name: Build - Linux
-              if: matrix.os == 'ubuntu-latest'
-              working-directory: swiftly
-              shell: bash
-              run: |
-                  sudo apt update
-                  sudo apt install -y libreadline-dev libboost-all-dev unzip
-                  bash ./setup.sh
+      - name: Install AMBuild
+        run: |
+          cd ambuild; python setup.py install; cd ..
 
-                  echo "[Builder] Setting up default plugins"
-                  cp -r build/package build/package2
-                  cd build/package/addons/swiftly
-                  wget https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip
-                  unzip Swiftly.Plugin.Admins.zip
-                  wget https://github.com/swiftly-solution/admins_basecomms/releases/latest/download/Swiftly.Plugin.Admins.BaseComms.zip
-                  unzip Swiftly.Plugin.Admins.BaseComms.zip
-                  wget https://github.com/swiftly-solution/admins_basebans/releases/latest/download/Swiftly.Plugin.Admins.BaseBans.zip
-                  unzip Swiftly.Plugin.Admins.BaseBans.zip
-                  wget https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip
-                  unzip Swiftly.Plugin.Admins.BaseCommands.zip
-                  wget https://github.com/swiftly-solution/map-chooser/releases/latest/download/Swiftly.Plugin.Map-Chooser.zip
-                  unzip Swiftly.Plugin.Map-Chooser.zip 
-                  wget https://github.com/swiftly-solution/cookies/releases/latest/download/cookies.zip
-                  unzip cookies.zip
+      - name: Setup Version
+        shell: bash
+        run: echo "SWIFTLY_VERSION=${{needs.versioning.outputs.version}}" >> $GITHUB_ENV
 
-                  rm -rf Swiftly.Plugin.Admins.zip
-                  rm -rf Swiftly.Plugin.Admins.BaseComms.zip
-                  rm -rf Swiftly.Plugin.Admins.BaseBans.zip
-                  rm -rf Swiftly.Plugin.Admins.BaseCommands.zip
-                  rm -rf Swiftly.Plugin.Map-Chooser.zip
-                  rm -rf cookies.zip
+      - name: Build - Linux
+        if: matrix.os == 'ubuntu-latest'
+        working-directory: swiftly
+        shell: bash
+        run: |
+          sudo apt update
+          sudo apt install -y libreadline-dev libboost-all-dev unzip
+          bash ./setup.sh
 
-                  cd ../../../..
-                  echo "[Builder] Finished setting up default plugins"
+          echo "[Builder] Setting up default plugins"
+          cp -r build/package build/package2
+          cd build/package/addons/swiftly
+          wget https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip
+          unzip Swiftly.Plugin.Admins.zip
+          wget https://github.com/swiftly-solution/admins_basecomms/releases/latest/download/Swiftly.Plugin.Admins.BaseComms.zip
+          unzip Swiftly.Plugin.Admins.BaseComms.zip
+          wget https://github.com/swiftly-solution/admins_basebans/releases/latest/download/Swiftly.Plugin.Admins.BaseBans.zip
+          unzip Swiftly.Plugin.Admins.BaseBans.zip
+          wget https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip
+          unzip Swiftly.Plugin.Admins.BaseCommands.zip
+          wget https://github.com/swiftly-solution/map-chooser/releases/latest/download/Swiftly.Plugin.Map-Chooser.zip
+          unzip Swiftly.Plugin.Map-Chooser.zip 
+          wget https://github.com/swiftly-solution/cookies/releases/latest/download/cookies.zip
+          unzip cookies.zip
 
-            - name: Build - Windows
-              if: matrix.os == 'windows-latest'
-              working-directory: swiftly
-              run: |
-                  ./setup.ps1
+          rm -rf Swiftly.Plugin.Admins.zip
+          rm -rf Swiftly.Plugin.Admins.BaseComms.zip
+          rm -rf Swiftly.Plugin.Admins.BaseBans.zip
+          rm -rf Swiftly.Plugin.Admins.BaseCommands.zip
+          rm -rf Swiftly.Plugin.Map-Chooser.zip
+          rm -rf cookies.zip
 
-                  Set-Location build/package/addons/swiftly
+          cd ../../../..
+          echo "[Builder] Finished setting up default plugins"
 
-                  Invoke-WebRequest https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip -OutFile Swiftly.Plugin.Admins.zip
-                  Expand-Archive Swiftly.Plugin.Admins.zip -DestinationPath .
-                  Invoke-WebRequest https://github.com/swiftly-solution/admins_basecomms/releases/latest/download/Swiftly.Plugin.Admins.BaseComms.zip -OutFile Swiftly.Plugin.Admins.BaseComms.zip
-                  Expand-Archive Swiftly.Plugin.Admins.BaseComms.zip -DestinationPath .
-                  Invoke-WebRequest https://github.com/swiftly-solution/admins_basebans/releases/latest/download/Swiftly.Plugin.Admins.BaseBans.zip -OutFile Swiftly.Plugin.Admins.BaseBans.zip
-                  Expand-Archive Swiftly.Plugin.Admins.BaseBans.zip -DestinationPath .
-                  Invoke-WebRequest https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip -OutFile Swiftly.Plugin.Admins.BaseCommands.zip
-                  Expand-Archive Swiftly.Plugin.Admins.BaseCommands.zip -DestinationPath .
-                  Invoke-WebRequest https://github.com/swiftly-solution/map-chooser/releases/latest/download/Swiftly.Plugin.Map-Chooser.zip -OutFile Swiftly.Plugin.Map-Chooser.zip
-                  Expand-Archive Swiftly.Plugin.Map-Chooser.zip -DestinationPath .
-                  Invoke-WebRequest https://github.com/swiftly-solution/cookies/releases/latest/download/cookies.zip -OutFile cookies.zip
-                  Expand-Archive cookies.zip -DestinationPath .
+      - name: Build - Windows
+        if: matrix.os == 'windows-latest'
+        working-directory: swiftly
+        run: |
+          ./setup.ps1
 
-                  Remove-Item -Force Swiftly.Plugin.Admins.zip
-                  Remove-Item -Force Swiftly.Plugin.Admins.BaseComms.zip
-                  Remove-Item -Force Swiftly.Plugin.Admins.BaseBans.zip
-                  Remove-Item -Force Swiftly.Plugin.Admins.BaseCommands.zip
-                  Remove-Item -Force Swiftly.Plugin.Map-Chooser.zip
-                  Remove-Item -Force cookies.zip
+          Set-Location build/package/addons/swiftly
 
-                  Set-Location ../../../..
+          Invoke-WebRequest https://github.com/swiftly-solution/admins/releases/latest/download/Swiftly.Plugin.Admins.zip -OutFile Swiftly.Plugin.Admins.zip
+          Expand-Archive Swiftly.Plugin.Admins.zip -DestinationPath .
+          Invoke-WebRequest https://github.com/swiftly-solution/admins_basecomms/releases/latest/download/Swiftly.Plugin.Admins.BaseComms.zip -OutFile Swiftly.Plugin.Admins.BaseComms.zip
+          Expand-Archive Swiftly.Plugin.Admins.BaseComms.zip -DestinationPath .
+          Invoke-WebRequest https://github.com/swiftly-solution/admins_basebans/releases/latest/download/Swiftly.Plugin.Admins.BaseBans.zip -OutFile Swiftly.Plugin.Admins.BaseBans.zip
+          Expand-Archive Swiftly.Plugin.Admins.BaseBans.zip -DestinationPath .
+          Invoke-WebRequest https://github.com/swiftly-solution/admins_commands/releases/latest/download/Swiftly.Plugin.Admins.BaseCommands.zip -OutFile Swiftly.Plugin.Admins.BaseCommands.zip
+          Expand-Archive Swiftly.Plugin.Admins.BaseCommands.zip -DestinationPath .
+          Invoke-WebRequest https://github.com/swiftly-solution/map-chooser/releases/latest/download/Swiftly.Plugin.Map-Chooser.zip -OutFile Swiftly.Plugin.Map-Chooser.zip
+          Expand-Archive Swiftly.Plugin.Map-Chooser.zip -DestinationPath .
+          Invoke-WebRequest https://github.com/swiftly-solution/cookies/releases/latest/download/cookies.zip -OutFile cookies.zip
+          Expand-Archive cookies.zip -DestinationPath .
 
-            - name: Upload Artifacts Linux
-              if: matrix.os == 'ubuntu-latest'
-              uses: actions/upload-artifact@v4
-              with:
-                  name: Swiftly.Plugin.Linux
-                  path: ${{ github.workspace }}/swiftly/build/package
-                  
-            - name: Upload Artifacts Windows
-              if: matrix.os == 'windows-latest'
-              uses: actions/upload-artifact@v4
-              with:
-                  name: Swiftly.Plugin.Windows
-                  path: ${{ github.workspace }}/swiftly/build/package
-                  
-    release:
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        permissions:
-            contents: write
-        needs: ["versioning", "build", "extensions_build"]
-        runs-on: ubuntu-latest
-        container:
-            image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
-        steps:
-            - uses: actions/download-artifact@v4
-              id: download-artifacts
-              with:
-                  path: build
+          Remove-Item -Force Swiftly.Plugin.Admins.zip
+          Remove-Item -Force Swiftly.Plugin.Admins.BaseComms.zip
+          Remove-Item -Force Swiftly.Plugin.Admins.BaseBans.zip
+          Remove-Item -Force Swiftly.Plugin.Admins.BaseCommands.zip
+          Remove-Item -Force Swiftly.Plugin.Map-Chooser.zip
+          Remove-Item -Force cookies.zip
 
-            - name: Prepare ZIP Files
-              run: |
-                sudo apt install p7zip-full -y;
-                
-                find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Plugin.Linux \;
-                find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Plugin.Windows \;
+          Set-Location ../../../..
 
-                (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
-                (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
-                echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
+      - name: Upload Artifacts Linux
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Swiftly.Plugin.Linux
+          path: ${{ github.workspace }}/swiftly/build/package
 
-            - name: Release
-              id: release
-              uses: softprops/action-gh-release@v2
-              with:
-                  tag_name: v${{ needs.versioning.outputs.version }}
-                  make_latest: "true"
-                  files: |
-                      ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
-                      ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip
+      - name: Upload Artifacts Windows
+        if: matrix.os == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Swiftly.Plugin.Windows
+          path: ${{ github.workspace }}/swiftly/build/package
+
+  release:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    permissions:
+      contents: write
+    needs: ["versioning", "build", "extensions_build"]
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+    steps:
+      - uses: actions/download-artifact@v4
+        id: download-artifacts
+        with:
+          path: build
+
+      - name: Prepare ZIP Files
+        run: |
+          sudo apt install p7zip-full -y;
+
+          find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Plugin.Linux \;
+          find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Plugin.Windows \;
+
+          (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
+          (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
+          echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
+
+      - name: Release
+        id: release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ needs.versioning.outputs.version }}
+          make_latest: "true"
+          body: "Changelog for this version can be found inside [CHANGELOG.md](https://github.com/swiftly-solution/swiftly/blob/master/CHANGELOG.md)"
+          files: |
+            ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
+            ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-export MMSOURCE20="$(pwd)/alliedmodders/metamod"
-export HL2SDKCS2="$(pwd)/alliedmodders/hl2sdk"
+LPATH=$(pwd)
 
 if [ -z "${GITHUB_SHA}" ]; then
     export GITHUB_SHA=$(git rev-parse HEAD)
@@ -10,7 +9,7 @@ fi
 if [ ! -d build ]; then
     mkdir build
     cd build
-    CC=gcc CXX=g++ python ../configure.py --enable-optimize -s cs2
+    CC=gcc CXX=g++ python ../configure.py --enable-optimize --hl2sdk-root "${LPATH}/alliedmodders" --mms_path "${LPATH}/alliedmodders/metamod" --hl2sdk-manifests "${LPATH}/alliedmodders/hl2sdk-manifests" -s cs2
     cd ..
 fi
 

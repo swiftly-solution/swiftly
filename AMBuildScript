@@ -61,11 +61,16 @@ def ResolveMMSRoot():
 
 mms_root = ResolveMMSRoot()
 
-if not builder.options.hl2sdk_manifests:
-  raise Exception('Could not find a source copy of HL2SDK manifests')
-hl2sdk_manifests = builder.options.hl2sdk_manifests
+def ResolveHL2SDKManifestsRoot():
+  prenormalized_path = builder.options.hl2sdk_manifests
+  if not prenormalized_path or not os.path.isdir(prenormalized_path):
+    raise Exception('Could not find a source copy of HL2SDK manifests')
+  
+  return os.path.abspath(os.path.normpath(prenormalized_path))
 
-SdkHelpers = builder.Eval(os.path.join(hl2sdk_manifests, 'SdkHelpers.ambuild'), {
+hl2sdk_manifests_root = ResolveHL2SDKManifestsRoot()
+
+SdkHelpers = builder.Eval(os.path.join(hl2sdk_manifests_root, 'SdkHelpers.ambuild'), {
   'Project': 'metamod'
 })
 
@@ -112,7 +117,7 @@ class MMSPluginConfig(object):
   def findSdkPath(self, sdk_name):
     dir_name = 'hl2sdk-{}'.format(sdk_name)
     if builder.options.hl2sdk_root:
-      sdk_path = os.path.join(builder.options.hl2sdk_root, dir_name)
+      sdk_path = os.path.abspath(os.path.normpath(os.path.join(builder.options.hl2sdk_root, dir_name)))
       if os.path.exists(sdk_path):
         return sdk_path
     return ResolveEnvPath('HL2SDK{}'.format(sdk_name.upper()), dir_name)
@@ -150,6 +155,7 @@ class MMSPluginConfig(object):
         '-pipe',
         '-fno-strict-aliasing',
         '-Wall',
+        '-Wno-sign-compare',
         '-Wno-uninitialized',
         '-Wno-unused',
         '-Wno-switch',
@@ -159,7 +165,10 @@ class MMSPluginConfig(object):
 
       cxx.cxxflags += ['-std=c++17']
       if (builder.options.asan != '1') and ((cxx.version >= 'gcc-4.0') or cxx.family == 'clang'):
-        cxx.cflags += ['-rdynamic']
+        cxx.cflags += ['-rdynamic', '-g']
+      if (cxx.version >= 'gcc-4.0') or cxx.family == 'clang':
+        cxx.cflags += ['-fvisibility=hidden']
+        cxx.cxxflags += ['-fvisibility-inlines-hidden']
       cxx.cxxflags += [
         '-fno-exceptions',
         '-fno-threadsafe-statics',
@@ -167,17 +176,6 @@ class MMSPluginConfig(object):
         '-Wno-overloaded-virtual',
         '-Wno-register',
       ]
-      if (builder.options.asan == '1'):
-        cxx.cxxflags += [
-          '-fsanitize=address',
-          '-fsanitize-address-use-after-scope',
-          '-fno-omit-frame-pointer',
-          '-g',
-        ]
-        cxx.linkflags += [
-          '-fsanitize=address',
-          '-fsanitize-address-use-after-scope',
-        ]
       if (cxx.version >= 'gcc-4.7' or cxx.family == 'clang'):
         cxx.cxxflags += ['-Wno-delete-non-virtual-dtor']
       if cxx.family == 'gcc':
@@ -206,8 +204,6 @@ class MMSPluginConfig(object):
         cxx.linkflags += ['/NODEFAULTLIB:libcmt']
       else:
         cxx.cflags += ['/MT']
-        cxx.linkflags += ['/NODEFAULTLIB:libcmt']
-
       cxx.defines += [
         '_CRT_SECURE_NO_DEPRECATE',
         '_CRT_SECURE_NO_WARNINGS',
@@ -216,7 +212,6 @@ class MMSPluginConfig(object):
       cxx.cflags += [
         '/W3',
         '/Z7',
-        '/bigobj',
         '/std:c++17',
       ]
       cxx.cxxflags += ['/TP']
@@ -302,10 +297,6 @@ class MMSPluginConfig(object):
       binary.sources += [
         os.path.join(sdk['path'], 'tier1', 'convar.cpp'),
       ]
-      if cxx.target.platform == 'linux':
-        binary.sources += [
-          os.path.join(sdk['path'], 'public', 'tier0', 'memoverride.cpp'),
-        ]
 
     SdkHelpers.configureCxx(context, binary, sdk)
 

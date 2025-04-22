@@ -1,4 +1,5 @@
 #include "commands.h"
+#include <server/translations/translations.h>
 
 void SwiftlyTranslationManagerHelp(CPlayerSlot slot)
 {
@@ -9,7 +10,7 @@ void SwiftlyTranslationManagerHelp(CPlayerSlot slot)
 
 void SwiftlyTranslationReload(CPlayerSlot slot)
 {
-    g_translations->LoadTranslations();
+    g_translations.LoadTranslations();
     PrintToClientOrConsole(slot, "Translations", "All translations have been succesfully reloaded.\n");
 }
 

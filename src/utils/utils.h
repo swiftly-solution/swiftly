@@ -3,11 +3,24 @@
 
 #include <string>
 #include <vector>
-#include <map>
 #include <set>
-#include <TextTable.h>
-#include <chrono>
-#include "../entrypoint.h"
+#include <map>
+#include <texttable/TextTable.h>
+
+constexpr uint32_t val_32_const = 0x811c9dc5;
+constexpr uint32_t prime_32_const = 0x1000193;
+constexpr uint64_t val_64_const = 0xcbf29ce484222325;
+constexpr uint64_t prime_64_const = 0x100000001b3;
+
+inline constexpr uint32_t hash_32_fnv1a_const(const char* const str, const uint32_t value = val_32_const) noexcept
+{
+    return (str[0] == '\0') ? value : hash_32_fnv1a_const(&str[1], (value ^ uint32_t(str[0])) * prime_32_const);
+}
+
+inline constexpr uint64_t hash_64_fnv1a_const(const char* const str, const uint64_t value = val_64_const) noexcept
+{
+    return (str[0] == '\0') ? value : hash_64_fnv1a_const(&str[1], (value ^ uint64_t(str[0])) * prime_64_const);
+}
 
 std::string replace(std::string str, const std::string from, const std::string to);
 std::vector<std::string> explode(std::string str, std::string delimiter);
@@ -16,7 +29,6 @@ std::string implode(std::vector<std::string> elements, std::string delimiter);
 std::string ProcessColor(std::string str, int team);
 bool ends_with(std::string value, std::string ending);
 bool starts_with(std::string value, std::string starting);
-void PrintTextTable(std::string category, TextTable table);
 uint64_t GetTime();
 std::string str_tolower(std::string s);
 std::string str_toupper(std::string s);
@@ -24,6 +36,7 @@ std::string get_uuid();
 std::string TerminalProcessColor(std::string str);
 std::string GetTerminalStringColor(std::string plugin_name);
 std::vector<std::string> TokenizeCommand(std::string cmd);
+void PrintTextTable(std::string category, TextTable table);
 
 template <typename... Args>
 std::string string_format(const std::string &format, Args... args)
@@ -40,26 +53,7 @@ std::string string_format(const std::string &format, Args... args)
     return out;
 }
 
-extern const char* wws;
-
-inline std::string& rrtrim(std::string& s, const char* t = wws)
-{
-    s.erase(s.find_last_not_of(t) + 1);
-    return s;
-}
-
-inline std::string& lltrim(std::string& s, const char* t = wws)
-{
-    s.erase(0, s.find_first_not_of(t));
-    return s;
-}
-
-inline std::string& strim(std::string& s, const char* t = wws)
-{
-    return lltrim(rrtrim(s, t), t);
-}
-
-extern std::map<std::string, std::string> terminalColors;
-extern std::vector<std::string> terminalPrefixColors;
+void* StringToPtr(std::string str);
+std::string PtrToString(void* ptr);
 
 #endif

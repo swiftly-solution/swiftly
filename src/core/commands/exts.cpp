@@ -1,5 +1,7 @@
 #include "commands.h"
 
+#include <extensions/manager.h>
+
 void SwiftlyExtensionManagerHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Configuration Menu\n");
@@ -10,7 +12,7 @@ void SwiftlyExtensionManagerHelp(CPlayerSlot slot)
 void SwiftlyExtensionList(CPlayerSlot slot)
 {
     uint32 loadedExtensions = 0;
-    auto extensions = extManager->GetExtensionsList();
+    auto extensions = extManager.GetExtensionsList();
     for (uint32 i = 0; i < extensions.size(); i++)
     {
         Extension* ext = extensions[i];

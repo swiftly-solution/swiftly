@@ -11,7 +11,7 @@ class MenuRenderer
 {
 private:
     Player* m_player;
-    
+
     Menu* menu = nullptr;
     int page = 0;
     int selected = 0;
@@ -39,7 +39,7 @@ public:
     void MoveSelection();
 
     void PerformMenuAction(std::string button);
-    
+
     bool ShouldRenderEachTick();
     void RenderMenu();
     void RenderMenuTick();

@@ -1,4 +1,4 @@
-#include "../../filesystem/files/Files.h"
+#include <filesystem/files/files.h>
 
 void HandleConfigExamples() {
     auto files = Files::FetchFileNames("addons/swiftly/configs");

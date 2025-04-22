@@ -1,4 +1,5 @@
 #include "commands.h"
+#include <server/configuration/configuration.h>
 
 void SwiftlyConfigurationManagerHelp(CPlayerSlot slot)
 {
@@ -9,8 +10,8 @@ void SwiftlyConfigurationManagerHelp(CPlayerSlot slot)
 
 void SwiftlyConfigurationReload(CPlayerSlot slot)
 {
-    g_Config->ClearPluginConfig();
-    g_Config->LoadPluginConfigurations();
+    g_Config.ClearPluginConfig();
+    g_Config.LoadPluginConfigurations();
     PrintToClientOrConsole(slot, "Configuration", "You've succesfully reloaded all the configurations for plugins.\n");
 }
 
