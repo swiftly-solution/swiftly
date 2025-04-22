@@ -1,0 +1,49 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/build/swiftly/windows-x86_64/**",
+                "${workspaceFolder}/alliedmodders/hl2sdk-cs2/**",
+                "${workspaceFolder}/alliedmodders/metamod/**",
+                "${workspaceFolder}/alliedmodders/metamod/core/**",
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/vendor/**",
+                "${workspaceFolder}/vendor/bzip2/win64/include/**",
+                "${workspaceFolder}/vendor/dynohook/win64/include/**",
+                "${workspaceFolder}/vendor/dyncall/win64/include/**",
+                "${workspaceFolder}/vendor/embedder/libs/lua/**",
+                "${workspaceFolder}/vendor/embedder/libs/js/**"
+            ],
+            "defines": [
+                "META_IS_SOURCE2"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\Hostx64\\x64\\cl.exe"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/build/swiftly/linux-x86_64/**",
+                "${workspaceFolder}/alliedmodders/hl2sdk/**",
+                "${workspaceFolder}/alliedmodders/metamod/**",
+                "${workspaceFolder}/alliedmodders/metamod/core/**",
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/vendor/**",
+                "${workspaceFolder}/vendor/bzip2/linuxsteamrt64/include/**",
+                "${workspaceFolder}/vendor/dynohook/linuxsteamrt64/include/**",
+                "${workspaceFolder}/vendor/dyncall/linuxsteamrt64/include/**",
+                "${workspaceFolder}/vendor/embedder/libs/lua/**",
+                "${workspaceFolder}/vendor/embedder/libs/js/**"
+            ],
+            "defines": [
+                "META_IS_SOURCE2"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

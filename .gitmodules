@@ -1,0 +1,28 @@
+[submodule "alliedmodders/metamod"]
+	path = alliedmodders/metamod
+	url = https://github.com/alliedmodders/metamod-source/
+[submodule "alliedmodders/hl2sdk-cs2"]
+	path = alliedmodders/hl2sdk-cs2
+	url = https://github.com/alliedmodders/hl2sdk
+	branch = cs2
+[submodule "alliedmodders/hl2sdk-manifests"]
+	path = alliedmodders/hl2sdk-manifests
+	url = https://github.com/alliedmodders/hl2sdk-manifests/
+[submodule "vendor/dynlibutils"]
+	path = vendor/dynlibutils
+	url = https://github.com/komashchenko/DynLibUtils
+[submodule "vendor/lua-rapidjson"]
+	path = vendor/lua-rapidjson
+	url = https://github.com/xpol/lua-rapidjson
+[submodule "vendor/swiftly-ext"]
+	path = vendor/swiftly-ext
+	url = https://github.com/swiftly-solution/swiftly-ext
+[submodule "vendor/asmjit"]
+	path = vendor/asmjit
+	url = https://github.com/asmjit/asmjit
+[submodule "vendor/asmtk"]
+	path = vendor/asmtk
+	url = https://github.com/asmjit/asmtk
+[submodule "vendor/embedder"]
+	path = vendor/embedder
+	url = http://github.com/swiftly-solution/embedder

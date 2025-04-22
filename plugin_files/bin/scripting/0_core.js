@@ -1,0 +1,11 @@
+globalThis.server = Server()
+globalThis.logger = Logger()
+globalThis.files = Files()
+globalThis.precacher = Precacher()
+globalThis.playermanager = PlayerManager()
+globalThis.commands = Commands()
+globalThis.config = Configuration()
+globalThis.vgui = VGUI()
+globalThis.convar = Convars()
+globalThis.db = null
+globalThis.menus = Menus()
