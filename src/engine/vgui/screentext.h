@@ -4,6 +4,7 @@
 #include <string>
 #include <server/player/player.h>
 #include "ehandle.h"
+#include <public/entity2/entitykeyvalues.h>
 
 class ScreenText
 {

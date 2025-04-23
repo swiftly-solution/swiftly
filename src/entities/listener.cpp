@@ -7,7 +7,6 @@
 #include <public/entity2/entitykeyvalues.h>
 
 CEntityListener g_entityListener;
-std::map<void*, void*> entKeyVal;
 
 void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)
 {
@@ -42,9 +41,4 @@ void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
 {
     ClassData* entity = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pEntity } }, "SDKClass", nullptr);
     g_pluginManager.ExecuteEvent("core", "OnEntityDeleted", { entity }, {});
-
-    if (entKeyVal.find(pEntity) != entKeyVal.end()) {
-        delete (CEntityKeyValues*)entKeyVal[pEntity];
-        entKeyVal.erase(pEntity);
-    }
 }

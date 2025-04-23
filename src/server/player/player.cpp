@@ -329,16 +329,19 @@ void Player::Think()
         }
     }
 
-    auto movementServices = schema::GetProp<void*>(GetPawn(), "CBasePlayerPawn", "m_pMovementServices");
+    auto pawn = GetPawn();
+    if (!pawn) return;
+
+    auto movementServices = schema::GetProp<void*>(pawn, "CBasePlayerPawn", "m_pMovementServices");
     if (movementServices) {
-        void* buttons = schema::GetProp<void*>(movementServices, "CPlayer_MovementServices", "m_nButtons");
+        void* buttons = schema::GetPropPtr<void>(movementServices, "CPlayer_MovementServices", "m_nButtons");
         if (buttons) {
             uint64_t* states = schema::GetPropPtr<uint64_t>(buttons, "CInButtonState", "m_pButtonStates");
             SetButtons(states[0]);
         }
     }
 
-    auto observerServices = schema::GetProp<void*>(GetPawn(), "CBasePlayerPawn", "m_pObserverServices");
+    auto observerServices = schema::GetProp<void*>(pawn, "CBasePlayerPawn", "m_pObserverServices");
     if (observerServices) {
         CHandle<CEntityInstance> observerTarget = schema::GetProp<CHandle<CEntityInstance>>(observerServices, "CPlayer_ObserverServices", "m_hObserverTarget");
         g_VGUI.CheckRenderForPlayer(slot, this, observerTarget);

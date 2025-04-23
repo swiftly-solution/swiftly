@@ -4,7 +4,8 @@
 #include <server/configuration/configuration.h>
 #include <sdk/schema.h>
 #include <entities/system.h>
-#include <public/entity2/entitykeyvalues.h>
+
+std::vector<CEntityKeyValues*> scheduleForDelete;
 
 ScreenText::~ScreenText()
 {
@@ -28,6 +29,8 @@ void ScreenText::Create(Color color, std::string font, int size, bool drawBackgr
 
     CEntityKeyValues* pMenuKV = new CEntityKeyValues();
 
+    scheduleForDelete.push_back(pMenuKV);
+
     pMenuKV->SetBool("enabled", true);
     pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 1050) * size);
     pMenuKV->SetInt("justify_horizontal", 0);
@@ -38,13 +41,14 @@ void ScreenText::Create(Color color, std::string font, int size, bool drawBackgr
     pMenuKV->SetString("font_name", font.c_str());
     pMenuKV->SetColor("color", color);
 
-    if(drawBackground) {
+    if (drawBackground) {
         pMenuKV->SetBool("draw_background", true);
 
-        if(isMenu) {
+        if (isMenu) {
             pMenuKV->SetFloat("background_border_width", 0.2);
             pMenuKV->SetFloat("background_border_height", 0.15);
-        } else {
+        }
+        else {
             pMenuKV->SetFloat("background_border_width", g_Config.FetchValue<float>("core.vgui.textBackground.paddingX"));
             pMenuKV->SetFloat("background_border_height", g_Config.FetchValue<float>("core.vgui.textBackground.paddingY"));
         }
@@ -68,7 +72,7 @@ void ScreenText::SetupViewForPlayer(Player* player)
     if (!pViewModel) return;
 
     g_entSystem.AcceptInput(pScreenEntity, "SetParent", pViewModel, nullptr, "!activator", 0);
-    schema::SetProp<CHandle<CEntityInstance>>(pScreenEntity, "CBaseEntity", "m_hOwnerEntity", ((CEntityInstance*)pViewModel)->GetRefEHandle());
+    schema::SetProp<CHandle<CEntityInstance>>(pScreenEntity, "CBaseEntity", "m_hOwnerEntity", ((CEntityInstance*)(pViewModel))->GetRefEHandle());
 }
 
 void ScreenText::SetText(std::string text)
@@ -88,31 +92,31 @@ void ScreenText::SetPosition(float posX, float posY)
 
     if (!m_player) return;
     if (m_player->IsFakeClient()) return;
-    if(!pScreenEntity) return;
+    if (!pScreenEntity) return;
 
     auto pawn = m_player->GetPlayerPawn();
-    if(!pawn) return;
+    if (!pawn) return;
 
-    if(schema::GetProp<uint32_t>(pawn, "CBaseEntity", "m_lifeState") == 2) {
+    if (schema::GetProp<uint32_t>(pawn, "CBaseEntity", "m_lifeState") == 2) {
         auto controller = m_player->GetController();
-        if(!controller) return;
-        if(schema::GetProp<bool>(controller, "CCSPlayerController", "m_bControllingBot")) return;
+        if (!controller) return;
+        if (schema::GetProp<bool>(controller, "CCSPlayerController", "m_bControllingBot")) return;
 
         auto observerServices = schema::GetProp<void*>(pawn, "CBasePlayerPawn", "m_pObserverServices");
-        if(!observerServices) return;
+        if (!observerServices) return;
 
         CHandle<CEntityInstance> observerTarget = schema::GetProp<CHandle<CEntityInstance>>(observerServices, "CPlayer_ObserverServices", "m_hObserverTarget");
-        if(!observerTarget) return;
+        if (!observerTarget) return;
 
         auto observerController = schema::GetProp<CHandle<CEntityInstance>>(observerTarget.Get(), "CCSPlayerPawnBase", "m_hOriginalController");
-        if(!observerController) return;
+        if (!observerController) return;
 
         CHandle<CEntityInstance> pawnHandle = schema::GetProp<CHandle<CEntityInstance>>(observerController, "CCSPlayerController", "m_hPlayerPawn");
-        if(!pawnHandle) return;
+        if (!pawnHandle) return;
         pawn = (void*)(pawnHandle.Get());
     }
 
-    if(!pawn) return;
+    if (!pawn) return;
 
     QAngle eyeAngles = schema::GetProp<QAngle>(pawn, "CCSPlayerPawnBase", "m_angEyeAngles");
     Vector fwd, right, up;
@@ -126,13 +130,13 @@ void ScreenText::SetPosition(float posX, float posY)
     QAngle ang(0, eyeAngles.y + 270, 90 - eyeAngles.x);
 
     void* bodyComponent = schema::GetProp<void*>(pawn, "CBaseEntity", "m_CBodyComponent");
-    if(bodyComponent) return; 
+    if (!bodyComponent) return;
 
     void* sceneNode = schema::GetProp<void*>(bodyComponent, "CBodyComponent", "m_pSceneNode");
-    if(!sceneNode) return;
+    if (!sceneNode) return;
 
     void* camServices = schema::GetProp<void*>(pawn, "CBasePlayerPawn", "m_pCameraServices");
-    if(!camServices) return;
+    if (!camServices) return;
 
     float oldZ = schema::GetProp<float>(camServices, "CPlayer_CameraServices", "m_flOldPlayerViewOffsetZ");
 
@@ -190,4 +194,11 @@ bool ScreenText::IsRenderingTo(CHandle<CEntityInstance> renderingTo)
 void ScreenText::SetRenderingTo(CEntityInstance* ent)
 {
     pRenderingTo.Set(ent);
+}
+
+void EraseScheduledCEntKeyVals() {
+    for (auto e : scheduleForDelete) {
+        delete e;
+    }
+    scheduleForDelete.clear();
 }
