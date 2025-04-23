@@ -18,12 +18,16 @@ SH_DECL_EXTERN8_void(IGameEventSystem, PostEventAbstract, SH_NOATTRIB, 0, CSplit
 
 void ChatProcessor::Initialize()
 {
+#ifndef _WIN32
     SH_ADD_HOOK_MEMFUNC(IGameEventSystem, PostEventAbstract, g_pGameEventSystem, this, &ChatProcessor::PostEvent, false);
+#endif
 }
 
 void ChatProcessor::Shutdown()
 {
+#ifndef _WIN32
     SH_REMOVE_HOOK_MEMFUNC(IGameEventSystem, PostEventAbstract, g_pGameEventSystem, this, &ChatProcessor::PostEvent, false);
+#endif
 }
 
 void ChatError(std::string text)
@@ -153,6 +157,7 @@ std::string formatPlayerMessage(Player* player, void* controller, std::string pl
     return ProcessColor(" " + placeholder, schema::GetProp<int>(controller, "CBaseEntity", "m_iTeamNum"));
 }
 
+#ifndef _WIN32
 void ChatProcessor::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType)
 {
     if (pEvent->GetNetMessageInfo()->m_MessageId == 118) {
@@ -183,3 +188,4 @@ void ChatProcessor::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClie
         }
     }
 }
+#endif
