@@ -8,7 +8,6 @@ typedef void (*UTIL_Remove)(void*);
 typedef void* (*UTIL_CreateEntityByName)(const char*, int);
 typedef void (*CEntityInstance_AcceptInput)(void*, const char*, void*, void*, variant_t*, int);
 
-extern std::map<void*, void*> entKeyVal;
 void* gameRules = nullptr;
 
 CGameEntitySystem* GameEntitySystem()
@@ -49,9 +48,6 @@ void EntitySystem::StartupServer(const GameSessionConfiguration_t& config, ISour
 void EntitySystem::Spawn(void* entity, void* keyvalues)
 {
     g_GameData.FetchSignature<CBaseEntity_DispatchSpawn>("CBaseEntity_DispatchSpawn")(entity, keyvalues);
-
-    if (entKeyVal.find(entity) != entKeyVal.end()) delete (CEntityKeyValues*)entKeyVal[entity];
-    entKeyVal[entity] = keyvalues;
 }
 
 void EntitySystem::Despawn(void* entity)

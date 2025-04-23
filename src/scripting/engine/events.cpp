@@ -3,6 +3,7 @@
 #include <sdk/game.h>
 
 extern std::map<std::string, std::string> gameEventsRegister;
+EValue SerializeData(std::any data, EContext* state);
 
 typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
 
@@ -59,8 +60,7 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
         auto event_name = context->GetArgumentOr<std::string>(0, "");
         auto event_data = context->GetArgumentOr<std::string>(1, "[]");
 
-        auto evObject = MAKE_CLASS_INSTANCE("Event", { { "plugin_name", FetchPluginName(context->GetPluginContext()) } }).cast<ClassData*>();
-
+        ClassData* evObject = new ClassData({ { "plugin_name", FetchPluginName(context->GetPluginContext()) }, { "should_mark_freeable", true } }, "Event", nullptr);
         std::vector<std::any> returnValues;
 
         returnValues.push_back((int)g_pluginManager.ExecuteEventJSON(FetchPluginName(context->GetPluginContext()), event_name, event_data, evObject));
@@ -183,11 +183,14 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
     ADD_CLASS_FUNCTION("Event", "SetReturn", [](FunctionContext* context, ClassData* data) -> void {
         if (context->GetArgumentsCount() < 1) return;
 
-        data->SetData("event_return", context->GetArgument<std::any>(0));
+        std::any val = context->GetArgument<std::any>(0);
+        data->SetData("event_return", val);
     });
 
     ADD_CLASS_FUNCTION("Event", "GetReturn", [](FunctionContext* context, ClassData* data) -> void {
-        if (data->HasData("event_return")) context->SetReturn(data->GetData<std::any>("event_return"));
+        if (data->HasData("event_return")) {
+            context->SetReturn(data->GetAnyData("event_return"));
+        }
     });
 
     ADD_CLASS_FUNCTION("Event", "SetNoBroadcast", [](FunctionContext* context, ClassData* data) -> void {

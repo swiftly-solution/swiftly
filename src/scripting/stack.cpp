@@ -58,6 +58,8 @@ EValue SerializeData(std::any data, EContext* state)
             }
             else return EValue(state, val);
         }
+        else if (value.type() == typeid(std::any))
+            return SerializeData(std::any_cast<std::any>(value), state);
         else if (value.type() == typeid(uint64_t))
             return EValue(state, std::any_cast<uint64_t>(value));
         else if (value.type() == typeid(uint32_t))

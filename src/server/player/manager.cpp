@@ -19,6 +19,10 @@ uint64_t playerMask = 0;
 PlayerManager::PlayerManager()
 {
     g_Players = new Player * [GetMaxGameClients()];
+
+    for (int i = 0; i < GetMaxGameClients(); i++) {
+        g_Players[i] = nullptr;
+    }
 }
 
 PlayerManager::~PlayerManager()
@@ -72,7 +76,7 @@ int PlayerManager::GetPlayers()
     int count = 0;
 
     for (int i = 0; i < GetMaxGameClients(); i++)
-        if (g_Players[i] != nullptr)
+        if ((playerMask & (1ULL << i)) != 0)
             ++count;
 
     return count;

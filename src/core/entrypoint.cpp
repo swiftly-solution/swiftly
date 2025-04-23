@@ -274,8 +274,11 @@ void SwiftlyS2::AllPluginsLoaded()
 
 std::string currentMap = "None";
 
+void EraseScheduledCEntKeyVals();
+
 void SwiftlyS2::OnLevelInit(char const* pMapName, char const* pMapEntities, char const* pOldLevel, char const* pLandmarkName, bool loadGame, bool background)
 {
+    EraseScheduledCEntKeyVals();
     currentMap = pMapName;
     g_pluginManager.ExecuteEvent("core", "OnMapLoad", { currentMap }, nullptr);
 }
