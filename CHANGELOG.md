@@ -2,6 +2,33 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.1 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.1)
+
+### VGUI
+
+- [+] Fix Memory Leak
+- [+] Fix Entity Spawn
+
+### Exports
+
+- [+] Fix Return Value
+
+### Weapon
+
+- [+] Fix CBasePlayerWeapon
+- [+] Fix CCSWeaponBase
+- [+] Fix CBasePlayerWeaponVData
+- [+] Fix CCSWeaponBaseVData
+
+### Core Commands
+
+- [+] sw status
+- [+] sw list
+
+### Player
+
+- [+] Fix Buttons
+
 ## v1.6.0 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.0)
 
 ### Memory
