@@ -390,7 +390,5 @@ LoadScriptingComponent(weapons, [](PluginObject plugin, EContext* ctx) -> void {
                 }
             }
         }
-
-        SetStateChanged((uintptr_t)vmbodyComponent, "CBaseEntity", "m_CBodyComponent", 0);
     });
 })

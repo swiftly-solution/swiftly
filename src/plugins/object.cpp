@@ -19,10 +19,6 @@ PluginObject::PluginObject(std::string m_name, ContextKinds m_kind)
 
 PluginObject::~PluginObject()
 {
-    if (eventFunctionPtr)
-    {
-        delete eventFunctionPtr;
-    }
 }
 
 void PluginObject::RegisterEventHandlerJSON(EValue* functionPtr)
@@ -57,9 +53,6 @@ void PluginObject::UnregisterEventHandling(std::string eventName)
 
 EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventName, std::vector<std::any> eventPayload, ClassData* eventObject)
 {
-    if (GetPluginState() == PluginState_t::Stopped && eventName != "OnPluginStart" && eventName != "OnAllPluginsLoaded")
-        return EventResult::Continue;
-
     if (!eventFunctionPtr)
         return EventResult::Continue;
 
@@ -101,9 +94,6 @@ EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventN
 
 EventResult PluginObject::TriggerEventJSON(std::string invokedBy, std::string eventName, std::string eventPayload, ClassData* eventObject)
 {
-    if (GetPluginState() == PluginState_t::Stopped && eventName != "OnPluginStart" && eventName != "OnAllPluginsLoaded")
-        return EventResult::Continue;
-
     if (!eventFunctionPtr)
         return EventResult::Continue;
 
@@ -304,6 +294,17 @@ void PluginObject::DestroyScriptingEnvironment()
         g_commandsManager.UnregisterCommand(command);
 
     eventHandlers.clear();
+
+    if (eventFunctionPtr) {
+        delete eventFunctionPtr;
+        eventFunctionPtr = nullptr;
+    }
+
+    if (eventFunctionPtrJSON) {
+        delete eventFunctionPtrJSON;
+        eventFunctionPtrJSON = nullptr;
+    }
+
     delete ctx;
 }
 
