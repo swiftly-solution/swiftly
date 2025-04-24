@@ -19,10 +19,6 @@ PluginObject::PluginObject(std::string m_name, ContextKinds m_kind)
 
 PluginObject::~PluginObject()
 {
-    if (eventFunctionPtr)
-    {
-        delete eventFunctionPtr;
-    }
 }
 
 void PluginObject::RegisterEventHandlerJSON(EValue* functionPtr)
@@ -57,9 +53,6 @@ void PluginObject::UnregisterEventHandling(std::string eventName)
 
 EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventName, std::vector<std::any> eventPayload, ClassData* eventObject)
 {
-    if (GetPluginState() == PluginState_t::Stopped && eventName != "OnPluginStart" && eventName != "OnAllPluginsLoaded")
-        return EventResult::Continue;
-
     if (!eventFunctionPtr)
         return EventResult::Continue;
 
@@ -73,11 +66,14 @@ EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventN
     EventResult response = EventResult::Continue;
     try
     {
-        if (!eventObject) {
-            ClassData tmpObject({ { "plugin_name", invokedBy } }, "Event", ctx);
-            eventObject = &tmpObject;
+        ClassData* localObj = eventObject;
+        bool created = false;
+        if (!localObj) {
+            localObj = new ClassData({ { "plugin_name", invokedBy } }, "Event", ctx);
+            created = true;
         }
-        auto value = (*eventFunctionPtr)(eventObject, eventName, eventPayload);
+
+        auto value = (*eventFunctionPtr)(localObj, eventName, eventPayload);
         if (value.isNumber())
         {
             int result = value.cast<int>();
@@ -86,6 +82,7 @@ EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventN
             else
                 response = (EventResult)result;
         }
+        if (created) delete localObj;
     }
     catch (EException& e)
     {
@@ -101,9 +98,6 @@ EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventN
 
 EventResult PluginObject::TriggerEventJSON(std::string invokedBy, std::string eventName, std::string eventPayload, ClassData* eventObject)
 {
-    if (GetPluginState() == PluginState_t::Stopped && eventName != "OnPluginStart" && eventName != "OnAllPluginsLoaded")
-        return EventResult::Continue;
-
     if (!eventFunctionPtr)
         return EventResult::Continue;
 
@@ -117,11 +111,14 @@ EventResult PluginObject::TriggerEventJSON(std::string invokedBy, std::string ev
     EventResult response = EventResult::Continue;
     try
     {
-        if (!eventObject) {
-            ClassData tmpObject({ { "plugin_name", invokedBy } }, "Event", ctx);
-            eventObject = &tmpObject;
+        ClassData* localObj = eventObject;
+        bool created = false;
+        if (!localObj) {
+            localObj = new ClassData({ { "plugin_name", invokedBy } }, "Event", ctx);
+            created = true;
         }
-        auto value = (*eventFunctionPtrJSON)(eventObject, eventName, eventPayload);
+
+        auto value = (*eventFunctionPtrJSON)(localObj, eventName, eventPayload);
         if (value.isNumber())
         {
             int result = value.cast<int>();
@@ -130,6 +127,7 @@ EventResult PluginObject::TriggerEventJSON(std::string invokedBy, std::string ev
             else
                 response = (EventResult)result;
         }
+        if (created) delete localObj;
     }
     catch (EException& e)
     {
@@ -304,6 +302,17 @@ void PluginObject::DestroyScriptingEnvironment()
         g_commandsManager.UnregisterCommand(command);
 
     eventHandlers.clear();
+
+    if (eventFunctionPtr) {
+        delete eventFunctionPtr;
+        eventFunctionPtr = nullptr;
+    }
+
+    if (eventFunctionPtrJSON) {
+        delete eventFunctionPtrJSON;
+        eventFunctionPtrJSON = nullptr;
+    }
+
     delete ctx;
 }
 

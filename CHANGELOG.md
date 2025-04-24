@@ -2,6 +2,34 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.2 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.2)
+
+### Exports
+
+- Now the earliest point you can call exports is from `OnPluginStart`.
+
+### MySQL
+
+- Windows Fix: Gibberish queries
+
+### Commands
+
+- Swiftly Version
+
+### JavaScript Optimization
+
+- Optimized the memory from a minimum of 3MB per each plugin to a minimum of ~300KB. This was tested with a bare-bone plugin with just the mandatory functions included.
+
+### Events
+
+- Prevent crashes on FireEventToClient
+- Sharing event object causing undefined behaviour
+- JavaScript: Sometimes not setting out the correct value for EventResult
+
+### Player
+
+- Fix IP Address save
+
 ## v1.6.1 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.1)
 
 ### VGUI

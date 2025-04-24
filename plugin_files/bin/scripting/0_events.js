@@ -10,7 +10,8 @@ const LoadEventFile = (global) => {
         const handlers = eventHandlers[eventName]
         for (let i = 0; i < handlers.length; i++) {
             if ((typeof handlers[i].handle) == "function") {
-                const result = (handlers[i].handle.apply(null, eventData) || EventResult.Continue);
+                let result = (handlers[i].handle.apply(null, eventData));
+                if (result == null || result == undefined) result = EventResult.Continue;
                 if (result != EventResult.Continue) return result
             }
         }
@@ -28,7 +29,8 @@ const LoadEventFile = (global) => {
         const handlers = eventHandlers[eventName]
         for (let i = 0; i < handlers.length; i++) {
             if ((typeof handlers[i].handle) == "function") {
-                const result = (handlers[i].handle.apply(null, eventData) || EventResult.Continue);
+                let result = (handlers[i].handle.apply(null, eventData));
+                if (result == null || result == undefined) result = EventResult.Continue;
                 if (result != EventResult.Continue) return result
             }
         }
