@@ -5,6 +5,10 @@
 #include <utils/common.h>
 #include <utils/utils.h>
 
+#ifdef strdup
+#undef strdup
+#endif
+
 void Query(IDatabase* db, std::string query, EValue callback, EContext* L)
 {
     if (db->GetKind() != "mysql" && db->GetKind() != "sqlite") {
@@ -123,18 +127,7 @@ LoadScriptingComponent(database, [](PluginObject plugin, EContext* ctx) -> void 
 
         EValue callback = context->GetArgument<EValue>(1);
 
-        std::string uuid = get_uuid();
-
-        EValue databaseRequestsQueue = EValue::getGlobal(context->GetPluginContext(), "databaseRequestsQueue");
-        if (databaseRequestsQueue.isTable()) {
-            databaseRequestsQueue.setProperty(uuid, EValue(callback));
-        }
-
-        DatabaseQueryQueue queue = {
-            query,
-            uuid,
-        };
-        db->AddQueryQueue(queue);
+        Query(db, query, callback, context->GetPluginContext());
     });
 
     ADD_CLASS_FUNCTION("Database", "QueryBuilder", [](FunctionContext* context, ClassData* data) -> void {
