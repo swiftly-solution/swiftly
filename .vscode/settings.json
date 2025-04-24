@@ -94,6 +94,7 @@
         "semaphore": "cpp",
         "*.tcc": "cpp",
         "future": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "csetjmp": "cpp"
     }
 }
