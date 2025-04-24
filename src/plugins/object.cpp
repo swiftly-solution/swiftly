@@ -66,11 +66,14 @@ EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventN
     EventResult response = EventResult::Continue;
     try
     {
-        if (!eventObject) {
-            ClassData tmpObject({ { "plugin_name", invokedBy } }, "Event", ctx);
-            eventObject = &tmpObject;
+        ClassData* localObj = eventObject;
+        bool created = false;
+        if (!localObj) {
+            localObj = new ClassData({ { "plugin_name", invokedBy } }, "Event", ctx);
+            created = true;
         }
-        auto value = (*eventFunctionPtr)(eventObject, eventName, eventPayload);
+
+        auto value = (*eventFunctionPtr)(localObj, eventName, eventPayload);
         if (value.isNumber())
         {
             int result = value.cast<int>();
@@ -79,6 +82,7 @@ EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventN
             else
                 response = (EventResult)result;
         }
+        if (created) delete localObj;
     }
     catch (EException& e)
     {
@@ -107,11 +111,14 @@ EventResult PluginObject::TriggerEventJSON(std::string invokedBy, std::string ev
     EventResult response = EventResult::Continue;
     try
     {
-        if (!eventObject) {
-            ClassData tmpObject({ { "plugin_name", invokedBy } }, "Event", ctx);
-            eventObject = &tmpObject;
+        ClassData* localObj = eventObject;
+        bool created = false;
+        if (!localObj) {
+            localObj = new ClassData({ { "plugin_name", invokedBy } }, "Event", ctx);
+            created = true;
         }
-        auto value = (*eventFunctionPtrJSON)(eventObject, eventName, eventPayload);
+
+        auto value = (*eventFunctionPtrJSON)(localObj, eventName, eventPayload);
         if (value.isNumber())
         {
             int result = value.cast<int>();
@@ -120,6 +127,7 @@ EventResult PluginObject::TriggerEventJSON(std::string invokedBy, std::string ev
             else
                 response = (EventResult)result;
         }
+        if (created) delete localObj;
     }
     catch (EException& e)
     {
