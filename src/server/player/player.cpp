@@ -129,7 +129,7 @@ Player::Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64_t m_x
     connectTime = time(0);
     name = m_name;
     xuid = m_xuid;
-    ip_address = ip_address;
+    this->ip_address = ip_address;
 
     centerMessageEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
 
