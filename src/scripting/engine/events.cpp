@@ -177,6 +177,10 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
         if (slot < 0 || slot >= GetMaxGameClients()) return;
 
         IGameEventListener2* playerListener = g_GameData.FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(slot);
+        if (!g_gameEventManager->FindListener(playerListener, data->GetData<IGameEvent*>("event_data")->GetName())) {
+            /* TODO: Crash Reporter - Report crash prevention */
+            return;
+        }
         playerListener->FireGameEvent(data->GetData<IGameEvent*>("event_data"));
     });
 
