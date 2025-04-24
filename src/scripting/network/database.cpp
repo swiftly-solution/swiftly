@@ -17,8 +17,11 @@ void Query(IDatabase* db, std::string query, EValue callback, EContext* L)
     if (databaseRequestsQueue.isTable())
         databaseRequestsQueue.setProperty(uuid, EValue(callback));
 
+    const char* nq = (const char*)(strdup(query.c_str()));
+    if (!nq) return;
+
     DatabaseQueryQueue queue = {
-        query,
+        nq,
         uuid,
     };
     db->AddQueryQueue(queue);
