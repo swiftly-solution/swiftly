@@ -100,6 +100,7 @@ dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IH
     void* _this = hook.getArgument<void*>(0);
     CTakeDamageInfo* info = hook.getArgument<CTakeDamageInfo*>(1);
 
+    if (((CEntityInstance*)_this)->GetClassname() != std::string("player")) return dyno::ReturnAction::Ignored;
     CHandle<CEntityInstance> playerController = schema::GetProp<CHandle<CEntityInstance>>(_this, "CBasePlayerPawn", "m_hController");
     if (!playerController) return dyno::ReturnAction::Ignored;
 
