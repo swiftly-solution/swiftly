@@ -72,6 +72,11 @@ void SetupScriptingEnvironment(PluginObject plugin, EContext* ctx)
 
     ADD_FUNCTION("OnFunctionContextRegister", [](FunctionContext* context) -> void {
         std::string function_call = replace(context->GetFunctionKey(), " ", "::");
+        std::vector<std::string> arguments;
+        for (int i = 0; i < context->GetArgumentsCount(); i++)
+            arguments.push_back(context->GetArgumentAsString(i));
+        function_call += "(" + implode(arguments, ", ") + ")";
+
         context->temporaryData.push_back(g_callStack.RegisterPluginCallstack(FetchPluginName(context->GetPluginContext()), function_call));
         g_ResourceMonitor.StartTime("core", replace(context->GetFunctionKey(), " ", "::"));
     });
