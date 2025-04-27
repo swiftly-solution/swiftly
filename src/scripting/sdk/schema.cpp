@@ -11,6 +11,7 @@
 #include <sdk/components/CPlayerPawnComponent.h>
 #include <sdk/components/EmitSound_t.h>
 #include <sdk/components/CSingleRecipientFilter.h>
+#include <tools/crashreporter/crashreporter.h>
 #include <utils/common.h>
 #include <utils/utils.h>
 
@@ -311,7 +312,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
 
         void* instance = data->GetData<void*>("class_ptr");
         if (!instance) {
-            /* TODO: Crash Reporter - Report crash prevention */
+            ReportPreventionIncident("Schema / SDK", string_format("Tried to get member '%s::%s' but the entity is invalid.", className.c_str(), fieldName.c_str()));
             return context->StopExecution();
         }
         context->SetReturn(AccessSDK(data->GetData<void*>("class_ptr"), className, fieldName, path, context->GetPluginContext()));
@@ -319,6 +320,12 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
     }, [](FunctionContext* context, ClassData* data) -> void {
         std::string className = data->GetData<std::string>("class_name");
         std::string fieldName = explode(context->GetFunctionKey(), " ").back();
+
+        void* instance = data->GetData<void*>("class_ptr");
+        if (!instance) {
+            ReportPreventionIncident("Schema / SDK", string_format("Tried to set member '%s::%s' but the entity is invalid.", className.c_str(), fieldName.c_str()));
+            return context->StopExecution();
+        }
 
         UpdateSDK(data->GetData<void*>("class_ptr"), className, fieldName, context->GetArgument<EValue>(0), context->GetPluginContext());
         context->StopExecution();
@@ -333,7 +340,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         if (classFuncs.find(path) != classFuncs.end()) {
             void* instance = data->GetData<void*>("class_ptr");
             if (!instance) {
-                /* TODO: Crash Reporter - Report crash prevention */
+                ReportPreventionIncident("Schema / SDK", string_format("Tried to call function '%s::%s' but the entity is invalid.", className.c_str(), function_name.c_str()));
                 return context->StopExecution();
             }
             return;
