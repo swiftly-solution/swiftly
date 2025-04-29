@@ -2,13 +2,13 @@
 
 Over here will be noted all the update change logs.
 
-## v1.6.4 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.4)
+## v1.6.5 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.5)
 
 ### HTTP
 
 - Update Extension
 
-## v1.6.3 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.3)
+## v1.6.4 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.4)
 
 ### Core
 
@@ -24,6 +24,12 @@ Over here will be noted all the update change logs.
 ### CEntityKeyValues
 
 - Fixed crashes when map was changing.
+
+## v1.6.3 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.3)
+
+### OnPlayerDamage
+
+- TakeDamage getting controller on wrong stuff causing crashes
 
 ## v1.6.2 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.2)
 
