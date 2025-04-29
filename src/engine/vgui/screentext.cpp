@@ -197,8 +197,8 @@ void ScreenText::SetRenderingTo(CEntityInstance* ent)
 }
 
 void EraseScheduledCEntKeyVals() {
-    for (auto e : scheduleForDelete) {
-        delete e;
-    }
+    // for (auto e : scheduleForDelete) {
+    //     delete e;
+    // }
     scheduleForDelete.clear();
 }

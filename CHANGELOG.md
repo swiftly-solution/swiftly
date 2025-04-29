@@ -2,6 +2,23 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.3 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.3)
+
+### Core
+
+- Added Crash Prevention for Schema/SDK accessing and for FireEvent.
+
+![imgalt](https://cdn.skuzzi.ro/dfihge478fg3h478veriufh938wf.png)
+![imgalt](https://cdn.skuzzi.ro/vj9834uf09asweifmnjw398fj92hfivsewh98w.png)
+
+### Crash Reporter
+
+- Added arguments inside CallStack back.
+
+### CEntityKeyValues
+
+- Fixed crashes when map was changing.
+
 ## v1.6.2 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.2)
 
 ### Exports

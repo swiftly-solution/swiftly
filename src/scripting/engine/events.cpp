@@ -1,6 +1,8 @@
 #include <scripting/core.h>
+#include <tools/crashreporter/crashreporter.h>
 #include <memory/gamedata/gamedata.h>
 #include <sdk/game.h>
+#include <utils/utils.h>
 
 extern std::map<std::string, std::string> gameEventsRegister;
 EValue SerializeData(std::any data, EContext* state);
@@ -178,7 +180,7 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
 
         IGameEventListener2* playerListener = g_GameData.FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(slot);
         if (!g_gameEventManager->FindListener(playerListener, data->GetData<IGameEvent*>("event_data")->GetName())) {
-            /* TODO: Crash Reporter - Report crash prevention */
+            ReportPreventionIncident("Fire Event", string_format("Tried to fire event '%s' but the client isn't listening to this event.", data->GetData<IGameEvent*>("event_data")->GetName()));
             return;
         }
         playerListener->FireGameEvent(data->GetData<IGameEvent*>("event_data"));

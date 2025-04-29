@@ -53,6 +53,15 @@ bool BeginCrashListener() {
         }
     }
 
+    if (!Files::ExistsPath("addons/swiftly/dumps/prevention"))
+    {
+        if (!Files::CreateDirectory("addons/swiftly/dumps/prevention"))
+        {
+            PLUGIN_PRINTF("Crash Listener", "Couldn't create dumps prevention folder.\n");
+            return false;
+        }
+    }
+
     startup_cmd = CommandLine()->GetCmdLine();
     std::vector<std::string> exp = explode(startup_cmd, " ");
     std::vector<std::string> exp2;
@@ -181,6 +190,15 @@ bool BeginCrashListener() {
         }
     }
 
+    if (!Files::ExistsPath("addons/swiftly/dumps/prevention"))
+    {
+        if (!Files::CreateDirectory("addons/swiftly/dumps/prevention"))
+        {
+            PLUGIN_PRINTF("Crash Listener", "Couldn't create dumps prevention folder.\n");
+            return false;
+        }
+    }
+
     startup_cmd = CommandLine()->GetCmdLine();
     std::vector<std::string> exp = explode(startup_cmd, " ");
     std::vector<std::string> exp2;
@@ -253,4 +271,28 @@ void WriteCrashDump(std::vector<std::string> functionStack)
 
     Files::Append(file_path, string_format("================================\nCommand: %s\nMap: %s\nVersion: %s (%s)\n================================\n\n%s\n\n%s", startup_cmd.c_str(), engine->GetServerGlobals() ? engine->GetServerGlobals()->mapname.ToCStr() : "None", g_Plugin.GetVersion(), GITHUB_SHA, implode(functionStack, "\n").c_str(), WritePluginsCallStack().c_str()), false);
     PLUGIN_PRINTF("Crash Reporter", "A dump log file has been created at: %s\n", file_path.c_str());
+    exit(1);
+}
+
+void ReportPreventionIncident(std::string category, std::string incident_str)
+{
+    PLUGIN_PRINTF("Crash Prevention", "A crash has been prevented by Swiftly Core and the details will be listed below:\n");
+
+    TextTable backtraceTable('-', '|', '+');
+
+    backtraceTable.add(" Category ");
+    backtraceTable.add(" Message ");
+    backtraceTable.endOfRow();
+
+    backtraceTable.add(string_format(" %s ", category.c_str()));
+    backtraceTable.add(string_format(" %s ", incident_str.c_str()));
+    backtraceTable.endOfRow();
+
+    PrintTextTable("Crash Prevention", backtraceTable);
+
+    std::string file_path = string_format("addons/swiftly/dumps/prevention/incident.%s.log", get_uuid().c_str());
+    if (Files::ExistsPath(file_path)) Files::Delete(file_path);
+
+    Files::Append(file_path, string_format("================================\nCategory: %s\nDetails: %s\n\n%s", category.c_str(), incident_str.c_str(), WritePluginsCallStack().c_str()), false);
+    PLUGIN_PRINTF("Crash Prevention", "A log file has been created at: %s\n", file_path.c_str());
 }
