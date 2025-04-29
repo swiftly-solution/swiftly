@@ -2,6 +2,12 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.4 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.4)
+
+### HTTP
+
+- Update Extension
+
 ## v1.6.3 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.3)
 
 ### Core
