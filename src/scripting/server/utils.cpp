@@ -12,6 +12,31 @@
 #include <texttable/TextTable.h>
 #include <sdk/schema.h>
 
+#include <vector>
+#include <map>
+
+void GetPluginListFunc(FunctionContext* context) {
+    std::vector<std::map<std::string, std::string>> returnMap;
+
+    for (auto plugin : g_pluginManager.GetPluginsList()) {
+        if (plugin->GetPluginState() == PluginState_t::Started) {
+            std::string website = plugin->GetWebsite();
+
+            returnMap.push_back({
+                { "name", plugin->GetPlName() },
+                { "id", plugin->GetName() },
+                { "version", plugin->GetVersion() },
+                { "author", plugin->GetAuthor() },
+                { "website", (website == "") ? std::string("Not Present") : website },
+                { "loaded", plugin->GetPluginState() == PluginState_t::Started ? "yes" : "no" },
+                { "error", plugin->GetLoadError() }
+            });
+        }
+    }
+
+    context->SetReturn(returnMap);
+}
+
 LoadScriptingComponent(utils, [](PluginObject plugin, EContext* ctx) -> void {
     ADD_FUNCTION("AddTimeout", [](FunctionContext* context) -> void {
         int64_t delay = context->GetArgumentOr<int64_t>(0, 0);
@@ -145,4 +170,6 @@ LoadScriptingComponent(utils, [](PluginObject plugin, EContext* ctx) -> void {
 
         g_callStack.UnregisterPluginCallstack(plugin_name, stackid);
     });
+
+    ADD_FUNCTION("GetPluginsList", GetPluginListFunc);
 })

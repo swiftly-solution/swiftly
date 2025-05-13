@@ -94,7 +94,7 @@ public:
 	uint8_t m_iAmmoType;
 
 private:
-	[[maybe_unused]] uint8_t __pad0059[0xf];
+	[[maybe_unused]] uint8_t _x51[15];
 
 public:
 	float m_flOriginalDamage;
@@ -102,27 +102,23 @@ public:
 	bool m_bShouldSpark;
 
 private:
-	[[maybe_unused]] uint8_t __pad006e[0x2];
+	[[maybe_unused]] uint8_t _x6e[0x2];
 
 public:
 	float m_flDamageAbsorbed;
-
-private:
-	[[maybe_unused]] uint8_t __pad0074[0x8];
-
-public:
+	CGameTrace* m_pTrace;
 	TTakeDamageFlags_t m_nDamageFlags;
-
-private:
-	[[maybe_unused]] uint8_t __pad0084[0x4];
-
-public:
 	int32_t m_nNumObjectsPenetrated;
 	float m_flFriendlyFireDamageReductionRatio;
-	uint64_t m_hScriptInstance;
+
+private:
+	[[maybe_unused]] uint8_t _x8c[0x58];
+
+public:
+	void* m_hScriptInstance;
 	AttackerInfo_t m_AttackerInfo;
 	bool m_bInTakeDamageFlow;
 
 private:
-	[[maybe_unused]] uint8_t __pad00ad[0x4];
+	[[maybe_unused]] int32_t m_nUnknown2;
 };

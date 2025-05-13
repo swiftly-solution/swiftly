@@ -2,6 +2,36 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.6 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.6)
+
+### Database
+
+- Add optional argument to skip connecting to `default_connection`
+
+### Crash Reporter
+
+- Add file location of the function from Call Stack
+
+### Utils
+
+- Added: GetPluginsList
+
+### Menus
+
+- Remove screen menus on windows as they crash without a dump
+
+### CCheckTransmitInfo
+
+- Fix self casting
+
+### Events
+
+- Fix event return values
+
+### SDK
+
+- Fix FollowServerRules check not working
+
 ## v1.6.5 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.5)
 
 ### HTTP

@@ -32,7 +32,7 @@ bool OnClientChat(int playerid, std::string text, bool teamonly)
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetData<std::any>("event_return"));
+        response = std::any_cast<bool>(data.GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
@@ -55,7 +55,7 @@ dyno::ReturnAction Hook_CGameRules_TerminateRound(dyno::CallbackType type, dyno:
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetData<std::any>("event_return"));
+        response = std::any_cast<bool>(data.GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
@@ -81,7 +81,7 @@ dyno::ReturnAction Hook_CEntityIdentity_AcceptInput(dyno::CallbackType type, dyn
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetData<std::any>("event_return"));
+        response = std::any_cast<bool>(data.GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
@@ -123,7 +123,7 @@ dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IH
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetData<std::any>("event_return"));
+        response = std::any_cast<bool>(data.GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {

@@ -15,404 +15,404 @@ extern bool followServerGuidelines;
 
 EValue AccessSDK(void* ptr, std::string className, std::string fieldName, uint64_t path, EContext* state)
 {
-    if (followServerGuidelines && g_sdk.IsFieldBlocked(fieldName))
+    if (!g_sdk.ExistsField(path)) return EValue(state);
+
+    std::string field = g_sdk.GetFieldName(path);
+
+    if (followServerGuidelines && g_sdk.IsFieldBlocked(field))
     {
         PRINTF("Getting or setting %s::%s is not permitted due to %s Server Guidelines violation.\nTo get or set this value, switch to false the \"core.Follow%sServerGuidelines\" field.\nNote: Using non-compliant field values can result in a GSLT ban.\nNote: We are not providing any kind of support for people which are using these fields.\n", className.c_str(), fieldName.c_str(), str_toupper(GetGameName()).c_str(), str_toupper(GetGameName()).c_str());
         return EValue(state);
     }
 
-    if (!g_sdk.ExistsField(path)) return EValue(state);
-
-    std::string field = g_sdk.GetFieldName(path);
-
     switch (g_sdk.GetFieldType(path))
     {
-        case Bool:
-            return EValue(state, schema::GetProp<bool>(ptr, className.c_str(), field.c_str()));
-        case Int8:
-            return EValue(state, schema::GetProp<int8_t>(ptr, className.c_str(), field.c_str()));
-        case Int16:
-            return EValue(state, schema::GetProp<int16_t>(ptr, className.c_str(), field.c_str()));
-        case Int32:
-            return EValue(state, schema::GetProp<int32_t>(ptr, className.c_str(), field.c_str()));
-        case Int64:
-            return EValue(state, schema::GetProp<int64_t>(ptr, className.c_str(), field.c_str()));
-        case UInt8:
-            return EValue(state, schema::GetProp<uint8_t>(ptr, className.c_str(), field.c_str()));
-        case UInt16:
-            return EValue(state, schema::GetProp<uint16_t>(ptr, className.c_str(), field.c_str()));
-        case UInt32:
-            return EValue(state, schema::GetProp<uint32_t>(ptr, className.c_str(), field.c_str()));
-        case UInt64:
-            return EValue(state, schema::GetProp<uint64_t>(ptr, className.c_str(), field.c_str()));
-        case Float:
-            return EValue(state, schema::GetProp<float>(ptr, className.c_str(), field.c_str()));
-        case Double:
-            return EValue(state, schema::GetProp<double>(ptr, className.c_str(), field.c_str()));
-        case Parent:
-            return MakeSDKClassInstance(field, ptr, state);
-        case StringToken:
-            return EValue(state, schema::GetProp<CUtlStringToken>(ptr, className.c_str(), field.c_str()).GetHashCode());
-        case StringSymbolLarge:
-            return EValue(state, std::string(schema::GetProp<CUtlSymbolLarge>(ptr, className.c_str(), field.c_str()).String()));
-        case StringUtl:
-            return EValue(state, std::string(schema::GetProp<CUtlString>(ptr, className.c_str(), field.c_str()).Get()));
-        case String:
-            return EValue(state, std::string(schema::GetPropPtr<char>(ptr, className.c_str(), field.c_str())));
-        case Class:
-            return MakeSDKClassInstance(g_sdk.GetFieldClass(path), schema::GetSchemaPtr(ptr, className.c_str(), field.c_str()), state);
-        case SDKCHandle:
-            return MakeSDKClassInstance(g_sdk.GetFieldClass(path), (void*)(schema::GetProp<CHandle<CEntityInstance>>(ptr, className.c_str(), field.c_str()).Get()), state);
-        case EntityIndex:
-            return EValue(state, schema::GetProp<CEntityIndex>(ptr, className.c_str(), field.c_str()).Get());
-        case SColor:
-            return MAKE_CLASS_INSTANCE_CTX(state, "Color", { { "Color_ptr", schema::GetProp<Color>(ptr, className.c_str(), field.c_str()) } });
-        case SQAngle:
-            return MAKE_CLASS_INSTANCE_CTX(state, "QAngle", { { "QAngle_ptr", schema::GetProp<QAngle>(ptr, className.c_str(), field.c_str()) } });
-        case SVector:
-            return MAKE_CLASS_INSTANCE_CTX(state, "Vector", { { "vector_ptr", schema::GetProp<Vector>(ptr, className.c_str(), field.c_str()) } });
-        case SVector2D:
-            return MAKE_CLASS_INSTANCE_CTX(state, "Vector2D", { { "Vector2D_ptr", schema::GetProp<Vector2D>(ptr, className.c_str(), field.c_str()) } });
-        case SVector4D:
-            return MAKE_CLASS_INSTANCE_CTX(state, "Vector4D", { { "Vector4D_ptr", schema::GetProp<Vector4D>(ptr, className.c_str(), field.c_str()) } });
-        case ClassPointer:
-            return MakeSDKClassInstance(g_sdk.GetFieldClass(path), *(void**)schema::GetSchemaPtr(ptr, className.c_str(), field.c_str()), state);
-        case RawListEntityIndex: {
-            CEntityIndex* outValue = schema::GetPropPtr<CEntityIndex>(ptr, className.c_str(), field.c_str());
-            std::vector<int> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i].Get());
+    case Bool:
+        return EValue(state, schema::GetProp<bool>(ptr, className.c_str(), field.c_str()));
+    case Int8:
+        return EValue(state, schema::GetProp<int8_t>(ptr, className.c_str(), field.c_str()));
+    case Int16:
+        return EValue(state, schema::GetProp<int16_t>(ptr, className.c_str(), field.c_str()));
+    case Int32:
+        return EValue(state, schema::GetProp<int32_t>(ptr, className.c_str(), field.c_str()));
+    case Int64:
+        return EValue(state, schema::GetProp<int64_t>(ptr, className.c_str(), field.c_str()));
+    case UInt8:
+        return EValue(state, schema::GetProp<uint8_t>(ptr, className.c_str(), field.c_str()));
+    case UInt16:
+        return EValue(state, schema::GetProp<uint16_t>(ptr, className.c_str(), field.c_str()));
+    case UInt32:
+        return EValue(state, schema::GetProp<uint32_t>(ptr, className.c_str(), field.c_str()));
+    case UInt64:
+        return EValue(state, schema::GetProp<uint64_t>(ptr, className.c_str(), field.c_str()));
+    case Float:
+        return EValue(state, schema::GetProp<float>(ptr, className.c_str(), field.c_str()));
+    case Double:
+        return EValue(state, schema::GetProp<double>(ptr, className.c_str(), field.c_str()));
+    case Parent:
+        return MakeSDKClassInstance(field, ptr, state);
+    case StringToken:
+        return EValue(state, schema::GetProp<CUtlStringToken>(ptr, className.c_str(), field.c_str()).GetHashCode());
+    case StringSymbolLarge:
+        return EValue(state, std::string(schema::GetProp<CUtlSymbolLarge>(ptr, className.c_str(), field.c_str()).String()));
+    case StringUtl:
+        return EValue(state, std::string(schema::GetProp<CUtlString>(ptr, className.c_str(), field.c_str()).Get()));
+    case String:
+        return EValue(state, std::string(schema::GetPropPtr<char>(ptr, className.c_str(), field.c_str())));
+    case Class:
+        return MakeSDKClassInstance(g_sdk.GetFieldClass(path), schema::GetSchemaPtr(ptr, className.c_str(), field.c_str()), state);
+    case SDKCHandle:
+        return MakeSDKClassInstance(g_sdk.GetFieldClass(path), (void*)(schema::GetProp<CHandle<CEntityInstance>>(ptr, className.c_str(), field.c_str()).Get()), state);
+    case EntityIndex:
+        return EValue(state, schema::GetProp<CEntityIndex>(ptr, className.c_str(), field.c_str()).Get());
+    case SColor:
+        return MAKE_CLASS_INSTANCE_CTX(state, "Color", { { "Color_ptr", schema::GetProp<Color>(ptr, className.c_str(), field.c_str()) } });
+    case SQAngle:
+        return MAKE_CLASS_INSTANCE_CTX(state, "QAngle", { { "QAngle_ptr", schema::GetProp<QAngle>(ptr, className.c_str(), field.c_str()) } });
+    case SVector:
+        return MAKE_CLASS_INSTANCE_CTX(state, "Vector", { { "vector_ptr", schema::GetProp<Vector>(ptr, className.c_str(), field.c_str()) } });
+    case SVector2D:
+        return MAKE_CLASS_INSTANCE_CTX(state, "Vector2D", { { "Vector2D_ptr", schema::GetProp<Vector2D>(ptr, className.c_str(), field.c_str()) } });
+    case SVector4D:
+        return MAKE_CLASS_INSTANCE_CTX(state, "Vector4D", { { "Vector4D_ptr", schema::GetProp<Vector4D>(ptr, className.c_str(), field.c_str()) } });
+    case ClassPointer:
+        return MakeSDKClassInstance(g_sdk.GetFieldClass(path), *(void**)schema::GetSchemaPtr(ptr, className.c_str(), field.c_str()), state);
+    case RawListEntityIndex: {
+        CEntityIndex* outValue = schema::GetPropPtr<CEntityIndex>(ptr, className.c_str(), field.c_str());
+        std::vector<int> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i].Get());
 
-            return EValue(state, ret);
-        }
-        case StringSymbolLargeArray: {
-            CUtlSymbolLarge* outValue = schema::GetPropPtr<CUtlSymbolLarge>(ptr, className.c_str(), field.c_str());
-            std::vector<std::string> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i].String());
+        return EValue(state, ret);
+    }
+    case StringSymbolLargeArray: {
+        CUtlSymbolLarge* outValue = schema::GetPropPtr<CUtlSymbolLarge>(ptr, className.c_str(), field.c_str());
+        std::vector<std::string> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i].String());
 
-            return EValue(state, ret);
-        }
-        case StringTokenArray: {
-            CUtlStringToken* outValue = schema::GetPropPtr<CUtlStringToken>(ptr, className.c_str(), field.c_str());
-            std::vector<uint32_t> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i].GetHashCode());
+        return EValue(state, ret);
+    }
+    case StringTokenArray: {
+        CUtlStringToken* outValue = schema::GetPropPtr<CUtlStringToken>(ptr, className.c_str(), field.c_str());
+        std::vector<uint32_t> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i].GetHashCode());
 
-            return EValue(state, ret);
-        }
-        case StringUtlArray: {
-            CUtlString* outValue = schema::GetPropPtr<CUtlString>(ptr, className.c_str(), field.c_str());
-            std::vector<std::string> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i].Get());
+        return EValue(state, ret);
+    }
+    case StringUtlArray: {
+        CUtlString* outValue = schema::GetPropPtr<CUtlString>(ptr, className.c_str(), field.c_str());
+        std::vector<std::string> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i].Get());
 
-            return EValue(state, ret);
-        }
-        case Int8Array: {
-            int8_t* outValue = schema::GetPropPtr<int8_t>(ptr, className.c_str(), field.c_str());
-            std::vector<int8_t> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case Int8Array: {
+        int8_t* outValue = schema::GetPropPtr<int8_t>(ptr, className.c_str(), field.c_str());
+        std::vector<int8_t> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case Int16Array: {
-            int16_t* outValue = schema::GetPropPtr<int16_t>(ptr, className.c_str(), field.c_str());
-            std::vector<int16_t> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case Int16Array: {
+        int16_t* outValue = schema::GetPropPtr<int16_t>(ptr, className.c_str(), field.c_str());
+        std::vector<int16_t> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case Int32Array: {
-            int32_t* outValue = schema::GetPropPtr<int32_t>(ptr, className.c_str(), field.c_str());
-            std::vector<int32_t> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case Int32Array: {
+        int32_t* outValue = schema::GetPropPtr<int32_t>(ptr, className.c_str(), field.c_str());
+        std::vector<int32_t> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case Int64Array: {
-            int64_t* outValue = schema::GetPropPtr<int64_t>(ptr, className.c_str(), field.c_str());
-            std::vector<int64_t> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case Int64Array: {
+        int64_t* outValue = schema::GetPropPtr<int64_t>(ptr, className.c_str(), field.c_str());
+        std::vector<int64_t> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case UInt8Array: {
-            uint8_t* outValue = schema::GetPropPtr<uint8_t>(ptr, className.c_str(), field.c_str());
-            std::vector<uint8_t> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case UInt8Array: {
+        uint8_t* outValue = schema::GetPropPtr<uint8_t>(ptr, className.c_str(), field.c_str());
+        std::vector<uint8_t> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case UInt16Array: {
-            uint16_t* outValue = schema::GetPropPtr<uint16_t>(ptr, className.c_str(), field.c_str());
-            std::vector<uint16_t> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case UInt16Array: {
+        uint16_t* outValue = schema::GetPropPtr<uint16_t>(ptr, className.c_str(), field.c_str());
+        std::vector<uint16_t> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case UInt32Array: {
-            uint32_t* outValue = schema::GetPropPtr<uint32_t>(ptr, className.c_str(), field.c_str());
-            std::vector<uint32_t> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case UInt32Array: {
+        uint32_t* outValue = schema::GetPropPtr<uint32_t>(ptr, className.c_str(), field.c_str());
+        std::vector<uint32_t> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case UInt64Array: {
-            uint64_t* outValue = schema::GetPropPtr<uint64_t>(ptr, className.c_str(), field.c_str());
-            std::vector<uint64_t> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case UInt64Array: {
+        uint64_t* outValue = schema::GetPropPtr<uint64_t>(ptr, className.c_str(), field.c_str());
+        std::vector<uint64_t> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case FloatArray: {
-            float* outValue = schema::GetPropPtr<float>(ptr, className.c_str(), field.c_str());
-            std::vector<float> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case FloatArray: {
+        float* outValue = schema::GetPropPtr<float>(ptr, className.c_str(), field.c_str());
+        std::vector<float> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case DoubleArray: {
-            double* outValue = schema::GetPropPtr<double>(ptr, className.c_str(), field.c_str());
-            std::vector<double> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case DoubleArray: {
+        double* outValue = schema::GetPropPtr<double>(ptr, className.c_str(), field.c_str());
+        std::vector<double> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case BoolArray: {
-            bool* outValue = schema::GetPropPtr<bool>(ptr, className.c_str(), field.c_str());
-            std::vector<bool> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(outValue[i]);
+        return EValue(state, ret);
+    }
+    case BoolArray: {
+        bool* outValue = schema::GetPropPtr<bool>(ptr, className.c_str(), field.c_str());
+        std::vector<bool> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(outValue[i]);
 
-            return EValue(state, ret);
-        }
-        case SColorArray: {
-            Color* outValue = schema::GetPropPtr<Color>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Color", { { "Color_ptr", outValue[i] } }));
+        return EValue(state, ret);
+    }
+    case SColorArray: {
+        Color* outValue = schema::GetPropPtr<Color>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Color", { { "Color_ptr", outValue[i] } }));
 
-            return EValue(state, ret);
-        }
-        case SQAngleArray: {
-            QAngle* outValue = schema::GetPropPtr<QAngle>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "QAngle", { { "QAngle_ptr", outValue[i] } }));
+        return EValue(state, ret);
+    }
+    case SQAngleArray: {
+        QAngle* outValue = schema::GetPropPtr<QAngle>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "QAngle", { { "QAngle_ptr", outValue[i] } }));
 
-            return EValue(state, ret);
-        }
-        case SVectorArray: {
-            Vector* outValue = schema::GetPropPtr<Vector>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector", { { "vector_ptr", outValue[i] } }));
+        return EValue(state, ret);
+    }
+    case SVectorArray: {
+        Vector* outValue = schema::GetPropPtr<Vector>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector", { { "vector_ptr", outValue[i] } }));
 
-            return EValue(state, ret);
-        }
-        case SVector2DArray: {
-            Vector2D* outValue = schema::GetPropPtr<Vector2D>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector2D", { { "Vector2D_ptr", outValue[i] } }));
+        return EValue(state, ret);
+    }
+    case SVector2DArray: {
+        Vector2D* outValue = schema::GetPropPtr<Vector2D>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector2D", { { "Vector2D_ptr", outValue[i] } }));
 
-            return EValue(state, ret);
-        }
-        case SVector4DArray: {
-            Vector4D* outValue = schema::GetPropPtr<Vector4D>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector4D", { { "Vector4D_ptr", outValue[i] } }));
+        return EValue(state, ret);
+    }
+    case SVector4DArray: {
+        Vector4D* outValue = schema::GetPropPtr<Vector4D>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector4D", { { "Vector4D_ptr", outValue[i] } }));
 
-            return EValue(state, ret);
-        }
-        case ClassArray: {
-            void** outValue = schema::GetPropPtr<void*>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(MakeSDKClassInstance(g_sdk.GetFieldClass(path), outValue[i], state));
+        return EValue(state, ret);
+    }
+    case ClassArray: {
+        void** outValue = schema::GetPropPtr<void*>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(MakeSDKClassInstance(g_sdk.GetFieldClass(path), outValue[i], state));
 
-            return EValue(state, ret);
-        }
-        case CHandleArray: {
-            CHandle<CEntityInstance>* outValue = schema::GetPropPtr<CHandle<CEntityInstance>>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
-                ret.push_back(MakeSDKClassInstance(g_sdk.GetFieldClass(path), (void*)outValue[i].Get(), state));
+        return EValue(state, ret);
+    }
+    case CHandleArray: {
+        CHandle<CEntityInstance>* outValue = schema::GetPropPtr<CHandle<CEntityInstance>>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++)
+            ret.push_back(MakeSDKClassInstance(g_sdk.GetFieldClass(path), (void*)outValue[i].Get(), state));
 
-            return EValue(state, ret);
-        }
-        case CHandleCUtlVector: {
-            CUtlVector<CHandle<CEntityInstance>>* vec = schema::GetPropPtr<CUtlVector<CHandle<CEntityInstance>>>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(MakeSDKClassInstance(g_sdk.GetFieldClass(path), (void*)(vec->Element(i).Get()), state));
+        return EValue(state, ret);
+    }
+    case CHandleCUtlVector: {
+        CUtlVector<CHandle<CEntityInstance>>* vec = schema::GetPropPtr<CUtlVector<CHandle<CEntityInstance>>>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(MakeSDKClassInstance(g_sdk.GetFieldClass(path), (void*)(vec->Element(i).Get()), state));
 
-            return EValue(state, ret);
-        }
-        case StringSymbolLargeCUtlVector: {
-            CUtlVector<CUtlSymbolLarge>* outValue = schema::GetPropPtr<CUtlVector<CUtlSymbolLarge>>(ptr, className.c_str(), field.c_str());
-            std::vector<std::string> ret;
-            for (int i = 0; i < outValue->Count(); i++)
-                ret.push_back(outValue->Element(i).String());
+        return EValue(state, ret);
+    }
+    case StringSymbolLargeCUtlVector: {
+        CUtlVector<CUtlSymbolLarge>* outValue = schema::GetPropPtr<CUtlVector<CUtlSymbolLarge>>(ptr, className.c_str(), field.c_str());
+        std::vector<std::string> ret;
+        for (int i = 0; i < outValue->Count(); i++)
+            ret.push_back(outValue->Element(i).String());
 
-            return EValue(state, ret);
-        }
-        case StringTokenCUtlVector: {
-            CUtlVector<CUtlStringToken>* outValue = schema::GetPropPtr<CUtlVector<CUtlStringToken>>(ptr, className.c_str(), field.c_str());
-            std::vector<uint32_t> ret;
-            for (int i = 0; i < outValue->Count(); i++)
-                ret.push_back(outValue->Element(i).GetHashCode());
+        return EValue(state, ret);
+    }
+    case StringTokenCUtlVector: {
+        CUtlVector<CUtlStringToken>* outValue = schema::GetPropPtr<CUtlVector<CUtlStringToken>>(ptr, className.c_str(), field.c_str());
+        std::vector<uint32_t> ret;
+        for (int i = 0; i < outValue->Count(); i++)
+            ret.push_back(outValue->Element(i).GetHashCode());
 
-            return EValue(state, ret);
-        }
-        case StringUtlCUtlVector: {
-            CUtlVector<CUtlString>* outValue = schema::GetPropPtr<CUtlVector<CUtlString>>(ptr, className.c_str(), field.c_str());
-            std::vector<std::string> ret;
-            for (int i = 0; i < outValue->Count(); i++)
-                ret.push_back(outValue->Element(i).Get());
+        return EValue(state, ret);
+    }
+    case StringUtlCUtlVector: {
+        CUtlVector<CUtlString>* outValue = schema::GetPropPtr<CUtlVector<CUtlString>>(ptr, className.c_str(), field.c_str());
+        std::vector<std::string> ret;
+        for (int i = 0; i < outValue->Count(); i++)
+            ret.push_back(outValue->Element(i).Get());
 
-            return EValue(state, ret);
-        }
-        case Int8CUtlVector: {
-            CUtlVector<int8_t>* vec = schema::GetPropPtr<CUtlVector<int8_t>>(ptr, className.c_str(), field.c_str());
-            std::vector<int8_t> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case Int8CUtlVector: {
+        CUtlVector<int8_t>* vec = schema::GetPropPtr<CUtlVector<int8_t>>(ptr, className.c_str(), field.c_str());
+        std::vector<int8_t> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case Int16CUtlVector: {
-            CUtlVector<int16_t>* vec = schema::GetPropPtr<CUtlVector<int16_t>>(ptr, className.c_str(), field.c_str());
-            std::vector<int16_t> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case Int16CUtlVector: {
+        CUtlVector<int16_t>* vec = schema::GetPropPtr<CUtlVector<int16_t>>(ptr, className.c_str(), field.c_str());
+        std::vector<int16_t> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case Int32CUtlVector: {
-            CUtlVector<int32_t>* vec = schema::GetPropPtr<CUtlVector<int32_t>>(ptr, className.c_str(), field.c_str());
-            std::vector<int32_t> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case Int32CUtlVector: {
+        CUtlVector<int32_t>* vec = schema::GetPropPtr<CUtlVector<int32_t>>(ptr, className.c_str(), field.c_str());
+        std::vector<int32_t> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case Int64CUtlVector: {
-            CUtlVector<int64_t>* vec = schema::GetPropPtr<CUtlVector<int64_t>>(ptr, className.c_str(), field.c_str());
-            std::vector<int64_t> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case Int64CUtlVector: {
+        CUtlVector<int64_t>* vec = schema::GetPropPtr<CUtlVector<int64_t>>(ptr, className.c_str(), field.c_str());
+        std::vector<int64_t> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case UInt8CUtlVector: {
-            CUtlVector<uint8_t>* vec = schema::GetPropPtr<CUtlVector<uint8_t>>(ptr, className.c_str(), field.c_str());
-            std::vector<uint8_t> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case UInt8CUtlVector: {
+        CUtlVector<uint8_t>* vec = schema::GetPropPtr<CUtlVector<uint8_t>>(ptr, className.c_str(), field.c_str());
+        std::vector<uint8_t> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case UInt16CUtlVector: {
-            CUtlVector<uint16_t>* vec = schema::GetPropPtr<CUtlVector<uint16_t>>(ptr, className.c_str(), field.c_str());
-            std::vector<uint16_t> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case UInt16CUtlVector: {
+        CUtlVector<uint16_t>* vec = schema::GetPropPtr<CUtlVector<uint16_t>>(ptr, className.c_str(), field.c_str());
+        std::vector<uint16_t> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case UInt32CUtlVector: {
-            CUtlVector<uint32_t>* vec = schema::GetPropPtr<CUtlVector<uint32_t>>(ptr, className.c_str(), field.c_str());
-            std::vector<uint32_t> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case UInt32CUtlVector: {
+        CUtlVector<uint32_t>* vec = schema::GetPropPtr<CUtlVector<uint32_t>>(ptr, className.c_str(), field.c_str());
+        std::vector<uint32_t> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case UInt64CUtlVector: {
-            CUtlVector<uint64_t>* vec = schema::GetPropPtr<CUtlVector<uint64_t>>(ptr, className.c_str(), field.c_str());
-            std::vector<uint64_t> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case UInt64CUtlVector: {
+        CUtlVector<uint64_t>* vec = schema::GetPropPtr<CUtlVector<uint64_t>>(ptr, className.c_str(), field.c_str());
+        std::vector<uint64_t> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case FloatCUtlVector: {
-            CUtlVector<float>* vec = schema::GetPropPtr<CUtlVector<float>>(ptr, className.c_str(), field.c_str());
-            std::vector<float> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case FloatCUtlVector: {
+        CUtlVector<float>* vec = schema::GetPropPtr<CUtlVector<float>>(ptr, className.c_str(), field.c_str());
+        std::vector<float> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case DoubleCUtlVector: {
-            CUtlVector<double>* vec = schema::GetPropPtr<CUtlVector<double>>(ptr, className.c_str(), field.c_str());
-            std::vector<double> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case DoubleCUtlVector: {
+        CUtlVector<double>* vec = schema::GetPropPtr<CUtlVector<double>>(ptr, className.c_str(), field.c_str());
+        std::vector<double> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
-        case SColorCUtlVector: {
-            CUtlVector<Color>* vec = schema::GetPropPtr<CUtlVector<Color>>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Color", { { "Color_ptr", vec->Element(i) } }));
+        return EValue(state, ret);
+    }
+    case SColorCUtlVector: {
+        CUtlVector<Color>* vec = schema::GetPropPtr<CUtlVector<Color>>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Color", { { "Color_ptr", vec->Element(i) } }));
 
-            return EValue(state, ret);
-        }
-        case SQAngleCUtlVector: {
-            CUtlVector<QAngle>* vec = schema::GetPropPtr<CUtlVector<QAngle>>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "QAngle", { { "QAngle_ptr", vec->Element(i) } }));
+        return EValue(state, ret);
+    }
+    case SQAngleCUtlVector: {
+        CUtlVector<QAngle>* vec = schema::GetPropPtr<CUtlVector<QAngle>>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "QAngle", { { "QAngle_ptr", vec->Element(i) } }));
 
-            return EValue(state, ret);
-        }
-        case SVectorCUtlVector: {
-            CUtlVector<Vector>* vec = schema::GetPropPtr<CUtlVector<Vector>>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector", { { "vector_ptr", vec->Element(i) } }));
+        return EValue(state, ret);
+    }
+    case SVectorCUtlVector: {
+        CUtlVector<Vector>* vec = schema::GetPropPtr<CUtlVector<Vector>>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector", { { "vector_ptr", vec->Element(i) } }));
 
-            return EValue(state, ret);
-        }
-        case SVector2DCUtlVector: {
-            CUtlVector<Vector2D>* vec = schema::GetPropPtr<CUtlVector<Vector2D>>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector2D", { { "Vector2D_ptr", vec->Element(i) } }));
+        return EValue(state, ret);
+    }
+    case SVector2DCUtlVector: {
+        CUtlVector<Vector2D>* vec = schema::GetPropPtr<CUtlVector<Vector2D>>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector2D", { { "Vector2D_ptr", vec->Element(i) } }));
 
-            return EValue(state, ret);
-        }
-        case SVector4DCUtlVector: {
-            CUtlVector<Vector4D>* vec = schema::GetPropPtr<CUtlVector<Vector4D>>(ptr, className.c_str(), field.c_str());
-            std::vector<EValue> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector4D", { { "Vector4D_ptr", vec->Element(i) } }));
+        return EValue(state, ret);
+    }
+    case SVector4DCUtlVector: {
+        CUtlVector<Vector4D>* vec = schema::GetPropPtr<CUtlVector<Vector4D>>(ptr, className.c_str(), field.c_str());
+        std::vector<EValue> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(MAKE_CLASS_INSTANCE_CTX(state, "Vector4D", { { "Vector4D_ptr", vec->Element(i) } }));
 
-            return EValue(state, ret);
-        }
-        case BoolCUtlVector: {
-            CUtlVector<bool>* vec = schema::GetPropPtr<CUtlVector<bool>>(ptr, className.c_str(), field.c_str());
-            std::vector<bool> ret;
-            for (int i = 0; i < vec->Count(); i++)
-                ret.push_back(vec->Element(i));
+        return EValue(state, ret);
+    }
+    case BoolCUtlVector: {
+        CUtlVector<bool>* vec = schema::GetPropPtr<CUtlVector<bool>>(ptr, className.c_str(), field.c_str());
+        std::vector<bool> ret;
+        for (int i = 0; i < vec->Count(); i++)
+            ret.push_back(vec->Element(i));
 
-            return EValue(state, ret);
-        }
+        return EValue(state, ret);
+    }
     }
 
     return EValue(state, fieldName);
@@ -420,16 +420,16 @@ EValue AccessSDK(void* ptr, std::string className, std::string fieldName, uint64
 
 void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue value, EContext* state)
 {
-    if (followServerGuidelines && g_sdk.IsFieldBlocked(fieldName))
-    {
-        PRINTF("Getting or setting %s::%s is not permitted due to %s Server Guidelines violation.\nTo get or set this value, switch to false the \"core.Follow%sServerGuidelines\" field.\nNote: Using non-compliant field values can result in a GSLT ban.\nNote: We are not providing any kind of support for people which are using these fields.\n", className.c_str(), fieldName.c_str(), str_toupper(GetGameName()).c_str(), str_toupper(GetGameName()).c_str());
-        return;
-    }
-
     uint64 path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
     if (!g_sdk.ExistsField(path)) return;
 
     std::string field = g_sdk.GetFieldName(path);
+
+    if (followServerGuidelines && g_sdk.IsFieldBlocked(field))
+    {
+        PRINTF("Getting or setting %s::%s is not permitted due to %s Server Guidelines violation.\nTo get or set this value, switch to false the \"core.Follow%sServerGuidelines\" field.\nNote: Using non-compliant field values can result in a GSLT ban.\nNote: We are not providing any kind of support for people which are using these fields.\n", className.c_str(), fieldName.c_str(), str_toupper(GetGameName()).c_str(), str_toupper(GetGameName()).c_str());
+        return;
+    }
 
     switch (g_sdk.GetFieldType(path))
     {
@@ -603,7 +603,7 @@ void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue v
         return;
     }
     case SDKCHandle: {
-        if(!value.isInstance<ClassData*>()) return;
+        if (!value.isInstance<ClassData*>()) return;
 
         auto outVal = schema::GetPropPtr<CHandle<CEntityInstance>>(ptr, className.c_str(), field.c_str());
         outVal->Set((CEntityInstance*)(value.cast<ClassData*>()->GetDataOr<void*>("class_ptr", nullptr)));
@@ -615,7 +615,7 @@ void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue v
         auto outValue = schema::GetPropPtr<CHandle<CEntityInstance>>(ptr, className.c_str(), field.c_str());
         auto ret = value.cast<std::vector<EValue>>();
         for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++) {
-            if(!ret[i].isInstance<ClassData*>()) continue;
+            if (!ret[i].isInstance<ClassData*>()) continue;
             outValue[i].Set((CEntityInstance*)(ret[i].cast<ClassData*>()->GetDataOr<void*>("class_ptr", nullptr)));
         }
 
@@ -631,7 +631,7 @@ void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue v
 
         CUtlVector<CHandle<CEntityInstance>>* vec = reinterpret_cast<CUtlVector<CHandle<CEntityInstance>> *>((uintptr_t)(ptr)+m_key);
         FOR_EACH_VEC(*vec, i) {
-            if(!ret[i].isInstance<ClassData*>()) continue;
+            if (!ret[i].isInstance<ClassData*>()) continue;
             vec->Element(i).Set((CEntityInstance*)(ret[i].cast<ClassData*>()->GetDataOr<void*>("class_ptr", nullptr)));
         }
 
@@ -652,7 +652,7 @@ void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue v
         auto outValue = schema::GetPropPtr<Color>(ptr, className.c_str(), field.c_str());
         auto ret = value.cast<std::vector<EValue>>();
         for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++) {
-            if(!ret[i].isInstance<ClassData*>()) continue;
+            if (!ret[i].isInstance<ClassData*>()) continue;
             outValue[i] = ret[i].cast<ClassData*>()->GetDataOr<Color>("Color_ptr", outValue[i]);
         }
 
@@ -663,7 +663,7 @@ void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue v
         auto outValue = schema::GetPropPtr<QAngle>(ptr, className.c_str(), field.c_str());
         auto ret = value.cast<std::vector<EValue>>();
         for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++) {
-            if(!ret[i].isInstance<ClassData*>()) continue;
+            if (!ret[i].isInstance<ClassData*>()) continue;
             outValue[i] = ret[i].cast<ClassData*>()->GetDataOr<QAngle>("QAngle_ptr", outValue[i]);
         }
 
@@ -674,7 +674,7 @@ void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue v
         auto outValue = schema::GetPropPtr<Vector>(ptr, className.c_str(), field.c_str());
         auto ret = value.cast<std::vector<EValue>>();
         for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++) {
-            if(!ret[i].isInstance<ClassData*>()) continue;
+            if (!ret[i].isInstance<ClassData*>()) continue;
             outValue[i] = ret[i].cast<ClassData*>()->GetDataOr<Vector>("vector_ptr", outValue[i]);
         }
 
@@ -685,7 +685,7 @@ void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue v
         auto outValue = schema::GetPropPtr<Vector2D>(ptr, className.c_str(), field.c_str());
         auto ret = value.cast<std::vector<EValue>>();
         for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++) {
-            if(!ret[i].isInstance<ClassData*>()) continue;
+            if (!ret[i].isInstance<ClassData*>()) continue;
             outValue[i] = ret[i].cast<ClassData*>()->GetDataOr<Vector2D>("Vector2D_ptr", outValue[i]);
         }
 
@@ -696,7 +696,7 @@ void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue v
         auto outValue = schema::GetPropPtr<Vector4D>(ptr, className.c_str(), field.c_str());
         auto ret = value.cast<std::vector<EValue>>();
         for (uint32_t i = 0; i < g_sdk.GetFieldSize(path); i++) {
-            if(!ret[i].isInstance<ClassData*>()) continue;
+            if (!ret[i].isInstance<ClassData*>()) continue;
             outValue[i] = ret[i].cast<ClassData*>()->GetDataOr<Vector4D>("Vector4D_ptr", outValue[i]);
         }
 

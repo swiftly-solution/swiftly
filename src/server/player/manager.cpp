@@ -123,7 +123,7 @@ bool PlayerManager::ClientConnect(CPlayerSlot slot, const char* pszName, uint64 
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetData<std::any>("event_return"));
+        response = std::any_cast<bool>(data.GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
