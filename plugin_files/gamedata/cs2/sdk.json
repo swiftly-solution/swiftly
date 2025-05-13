@@ -5598,18 +5598,6 @@
             "type": 11
         }
     },
-    "CBreachCharge": {
-        "Parent": {
-            "field": "CCSWeaponBase",
-            "type": 11
-        }
-    },
-    "CBreachChargeProjectile": {
-        "Parent": {
-            "field": "CBaseGrenade",
-            "type": 11
-        }
-    },
     "CBreakableStageHelper": {
         "CurrentStage": {
             "field": "m_nCurrentStage",
@@ -5618,18 +5606,6 @@
         "StageCount": {
             "field": "m_nStageCount",
             "type": 2
-        }
-    },
-    "CBumpMine": {
-        "Parent": {
-            "field": "CCSWeaponBase",
-            "type": 11
-        }
-    },
-    "CBumpMineProjectile": {
-        "Parent": {
-            "field": "CBaseGrenade",
-            "type": 11
         }
     },
     "CBuoyancyHelper": {
@@ -5821,6 +5797,10 @@
             "field": "m_bHasCommunicationAbuseMute",
             "type": 10
         },
+        "UiCommunicationMuteFlags": {
+            "field": "m_uiCommunicationMuteFlags",
+            "type": 6
+        },
         "CrosshairCodes": {
             "field": "m_szCrosshairCodes",
             "type": 13
@@ -5930,6 +5910,10 @@
             "field": "m_unActiveQuestId",
             "type": 5
         },
+        "RtActiveMissionPeriod": {
+            "field": "m_rtActiveMissionPeriod",
+            "type": 6
+        },
         "PlayerTvControlFlags": {
             "field": "m_unPlayerTvControlFlags",
             "type": 6
@@ -5944,6 +5928,10 @@
         },
         "UiAbandonRecordedReason": {
             "field": "m_uiAbandonRecordedReason",
+            "type": 6
+        },
+        "NetworkDisconnectionReason": {
+            "field": "m_eNetworkDisconnectionReason",
             "type": 6
         },
         "CannotBeKicked": {
@@ -7023,6 +7011,12 @@
         },
         "Parent": {
             "field": "CBasePlayerWeaponVData",
+            "type": 11
+        }
+    },
+    "CCS_PortraitWorldCallbackHandler": {
+        "Parent": {
+            "field": "C_BaseEntity",
             "type": 11
         }
     },
@@ -9827,12 +9821,6 @@
             "type": 11
         }
     },
-    "CTablet": {
-        "Parent": {
-            "field": "CCSWeaponBase",
-            "type": 11
-        }
-    },
     "CTakeDamageInfo": {
         "DamageForce": {
             "field": "m_vecDamageForce",
@@ -9987,27 +9975,9 @@
             "type": 11
         }
     },
-    "CTripWireFire": {
-        "Parent": {
-            "field": "CBaseCSGrenade",
-            "type": 11
-        }
-    },
-    "CTripWireFireProjectile": {
-        "Parent": {
-            "field": "CBaseGrenade",
-            "type": 11
-        }
-    },
     "CWaterSplasher": {
         "Parent": {
             "field": "C_BaseModelEntity",
-            "type": 11
-        }
-    },
-    "CWeaponZoneRepulsor": {
-        "Parent": {
-            "field": "CCSWeaponBaseGun",
             "type": 11
         }
     },
@@ -21862,10 +21832,6 @@
             "type": 37,
             "size": 32
         },
-        "ServerQuestID": {
-            "field": "m_nServerQuestID",
-            "type": 2
-        },
         "MinimapMins": {
             "field": "m_vMinimapMins",
             "type": 21
@@ -21882,6 +21848,10 @@
         "SpawnedTerrorHuntHeavy": {
             "field": "m_bSpawnedTerrorHuntHeavy",
             "type": 10
+        },
+        "UllLocalMatchID": {
+            "field": "m_ullLocalMatchID",
+            "type": 7
         },
         "EndMatchMapGroupVoteTypes": {
             "field": "m_nEndMatchMapGroupVoteTypes",
@@ -23191,10 +23161,6 @@
         },
         "LastTimeInAir": {
             "field": "m_flLastTimeInAir",
-            "type": 8
-        },
-        "LastDeployTime": {
-            "field": "m_flLastDeployTime",
             "type": 8
         },
         "LastEmptySoundCmdNum": {
@@ -26289,42 +26255,6 @@
         },
         "Parent": {
             "field": "CBaseEntity",
-            "type": 11
-        }
-    },
-    "CFists": {
-        "PlayingUninterruptableAct": {
-            "field": "m_bPlayingUninterruptableAct",
-            "type": 10
-        },
-        "UninterruptableActivity": {
-            "field": "m_nUninterruptableActivity",
-            "type": 6
-        },
-        "RestorePrevWep": {
-            "field": "m_bRestorePrevWep",
-            "type": 10
-        },
-        "WeaponBeforePrevious": {
-            "field": "m_hWeaponBeforePrevious",
-            "type": 17,
-            "classname": "CBasePlayerWeapon"
-        },
-        "WeaponPrevious": {
-            "field": "m_hWeaponPrevious",
-            "type": 17,
-            "classname": "CBasePlayerWeapon"
-        },
-        "DelayedHardPunchIncoming": {
-            "field": "m_bDelayedHardPunchIncoming",
-            "type": 10
-        },
-        "DestroyAfterTaunt": {
-            "field": "m_bDestroyAfterTaunt",
-            "type": 10
-        },
-        "Parent": {
-            "field": "CCSWeaponBase",
             "type": 11
         }
     },
@@ -29726,12 +29656,6 @@
         },
         "Parent": {
             "field": "CLogicalEntity",
-            "type": 11
-        }
-    },
-    "CMelee": {
-        "Parent": {
-            "field": "CCSWeaponBase",
             "type": 11
         }
     },
@@ -33824,31 +33748,6 @@
             "type": 11
         }
     },
-    "CSensorGrenade": {
-        "Parent": {
-            "field": "CBaseCSGrenade",
-            "type": 11
-        }
-    },
-    "CSensorGrenadeProjectile": {
-        "ExpireTime": {
-            "field": "m_fExpireTime",
-            "type": 8
-        },
-        "NextDetectPlayerSound": {
-            "field": "m_fNextDetectPlayerSound",
-            "type": 8
-        },
-        "DisplayGrenade": {
-            "field": "m_hDisplayGrenade",
-            "type": 17,
-            "classname": "CBaseEntity"
-        },
-        "Parent": {
-            "field": "CBaseCSGrenadeProjectile",
-            "type": 11
-        }
-    },
     "CServerOnlyEntity": {
         "Parent": {
             "field": "CBaseEntity",
@@ -35794,12 +35693,6 @@
             "type": 11
         }
     },
-    "CTriggerTripWire": {
-        "Parent": {
-            "field": "CBaseTrigger",
-            "type": 11
-        }
-    },
     "CTriggerVolume": {
         "FilterName": {
             "field": "m_iFilterName",
@@ -36001,24 +35894,6 @@
     "CWeaponSawedoff": {
         "Parent": {
             "field": "CCSWeaponBase",
-            "type": 11
-        }
-    },
-    "CWeaponShield": {
-        "BulletDamageAbsorbed": {
-            "field": "m_flBulletDamageAbsorbed",
-            "type": 8
-        },
-        "LastBulletHitSoundTime": {
-            "field": "m_flLastBulletHitSoundTime",
-            "type": 8
-        },
-        "DisplayHealth": {
-            "field": "m_flDisplayHealth",
-            "type": 8
-        },
-        "Parent": {
-            "field": "CCSWeaponBaseGun",
             "type": 11
         }
     },

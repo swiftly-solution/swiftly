@@ -605,19 +605,11 @@
         "k_CSPlayerBlockingUseAction_DefusingWithKit": 2,
         "k_CSPlayerBlockingUseAction_HostageGrabbing": 3,
         "k_CSPlayerBlockingUseAction_HostageDropping": 4,
-        "k_CSPlayerBlockingUseAction_OpeningSafe": 5,
-        "k_CSPlayerBlockingUseAction_EquippingParachute": 6,
-        "k_CSPlayerBlockingUseAction_EquippingHeavyArmor": 7,
-        "k_CSPlayerBlockingUseAction_EquippingContract": 8,
-        "k_CSPlayerBlockingUseAction_EquippingTabletUpgrade": 9,
-        "k_CSPlayerBlockingUseAction_TakingOffHeavyArmor": 10,
-        "k_CSPlayerBlockingUseAction_PayingToOpenDoor": 11,
-        "k_CSPlayerBlockingUseAction_CancelingSpawnRappelling": 12,
-        "k_CSPlayerBlockingUseAction_EquippingExoJump": 13,
-        "k_CSPlayerBlockingUseAction_PickingUpBumpMine": 14,
-        "k_CSPlayerBlockingUseAction_MapLongUseEntity_Pickup": 15,
-        "k_CSPlayerBlockingUseAction_MapLongUseEntity_Place": 16,
-        "k_CSPlayerBlockingUseAction_MaxCount": 17
+        "k_CSPlayerBlockingUseAction_EquippingHeavyArmor": 5,
+        "k_CSPlayerBlockingUseAction_TakingOffHeavyArmor": 6,
+        "k_CSPlayerBlockingUseAction_MapLongUseEntity_Pickup": 7,
+        "k_CSPlayerBlockingUseAction_MapLongUseEntity_Place": 8,
+        "k_CSPlayerBlockingUseAction_MaxCount": 9
     },
     "CSPlayerState": {
         "STATE_ACTIVE": 0,
@@ -668,14 +660,7 @@
         "WEAPONTYPE_GRENADE": 9,
         "WEAPONTYPE_EQUIPMENT": 10,
         "WEAPONTYPE_STACKABLEITEM": 11,
-        "WEAPONTYPE_FISTS": 12,
-        "WEAPONTYPE_BREACHCHARGE": 13,
-        "WEAPONTYPE_BUMPMINE": 14,
-        "WEAPONTYPE_TABLET": 15,
-        "WEAPONTYPE_MELEE": 16,
-        "WEAPONTYPE_SHIELD": 17,
-        "WEAPONTYPE_ZONE_REPULSOR": 18,
-        "WEAPONTYPE_UNKNOWN": 19
+        "WEAPONTYPE_UNKNOWN": 12
     },
     "CanPlaySequence_t": {
         "CANNOT_PLAY": 0,
@@ -988,9 +973,7 @@
         "GRENADE_TYPE_FIRE": 2,
         "GRENADE_TYPE_DECOY": 3,
         "GRENADE_TYPE_SMOKE": 4,
-        "GRENADE_TYPE_SENSOR": 5,
-        "GRENADE_TYPE_SNOWBALL": 6,
-        "GRENADE_TYPE_TOTAL": 7
+        "GRENADE_TYPE_TOTAL": 5
     },
     "HierarchyType_t": {
         "HIERARCHY_NONE": 0,
