@@ -36,17 +36,21 @@ LoadScriptingComponent(database, [](PluginObject plugin, EContext* ctx) -> void 
 
     ADD_CLASS_FUNCTION("Database", "Database", [](FunctionContext* context, ClassData* data) -> void {
         std::string connection_name = context->GetArgumentOr<std::string>(0, "default_connection");
+        bool shouldSkipDefaultConnection = context->GetArgumentOr<bool>(1, false);
+
         auto db = g_dbManager.GetDatabase(connection_name);
         if (!db && connection_name != "default_connection") {
             PRINTF("Database connection \"%s\" doesn't exists inside the database configurations. Automatically falling back to \"default_connection\".\n", connection_name.c_str());
-            db = g_dbManager.GetDatabase("default_connection");
+            if (!shouldSkipDefaultConnection) db = g_dbManager.GetDatabase("default_connection");
         }
 
-        if (!db->Connect()) {
+        if (!db) {
+            PRINTF("An error has occured while trying to connect to database \"%s\":\nError: Invalid connection inside `addons/swiftly/configs/databases.json`\n", connection_name.c_str());
+        }
+        else if (!db->Connect()) {
             PRINTF("An error has occured while trying to connect to database \"%s\":\nError: %s\n", connection_name.c_str(), db->GetError().c_str());
         }
 
-        data->SetData("connection_name", connection_name);
         data->SetData("db", db);
     });
 

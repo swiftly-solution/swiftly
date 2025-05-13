@@ -13,17 +13,24 @@ LoadScriptingComponent(checktransmit, [](PluginObject plugin, EContext* ctx) -> 
 
     ADD_CLASS_FUNCTION("CCheckTransmitInfo", "CCheckTransmitInfo", [](FunctionContext* context, ClassData* data) -> void {
         auto classData = context->GetArgumentOr<ClassData*>(0, nullptr);
-        if(classData) {
-            if(classData->HasData("transmit_ptr")) {
+        if (classData) {
+            if (classData->HasData("class_ptr")) {
                 data->SetData("transmit_ptr", classData->GetData<void*>("class_ptr"));
-            } else if(classData->HasData("ptr")) {
+            }
+            else if (classData->HasData("ptr")) {
                 data->SetData("transmit_ptr", classData->GetData<void*>("ptr"));
-            } else data->SetData("transmit_ptr", (void*)nullptr);
-        } else {
+            }
+            else if (classData->HasData("transmit_ptr")) {
+                data->SetData("transmit_ptr", classData->GetData<void*>("transmit_ptr"));
+            }
+            else data->SetData("transmit_ptr", (void*)nullptr);
+        }
+        else {
             auto strptr = context->GetArgumentOr<std::string>(0, "");
-            if(starts_with(strptr, "0x")) {
+            if (starts_with(strptr, "0x")) {
                 data->SetData("transmit_ptr", (void*)StringToPtr(strptr));
-            } else data->SetData("transmit_ptr", (void*)nullptr);
+            }
+            else data->SetData("transmit_ptr", (void*)nullptr);
         }
     });
 
@@ -32,11 +39,11 @@ LoadScriptingComponent(checktransmit, [](PluginObject plugin, EContext* ctx) -> 
 
         for (int i = 0; i < GetMaxGameClients(); i++) {
             CEntityInstance* controller = g_pEntitySystem->GetEntityInstance(CEntityIndex(i + 1));
-            if(!controller) continue;
+            if (!controller) continue;
 
             CHandle<CEntityInstance> pawnHandle = schema::GetProp<CHandle<CEntityInstance>>(controller, "CCSPlayerController", "m_hPlayerPawn");
             if (!pawnHandle) continue;
-    
+
             player_entindex.insert({ i, pawnHandle->m_pEntity->m_EHandle.GetEntryIndex() });
         }
 
@@ -50,7 +57,7 @@ LoadScriptingComponent(checktransmit, [](PluginObject plugin, EContext* ctx) -> 
         for (int i = 0; i < MAX_EDICTS; i++)
             if (m_ptr->m_pTransmitEntity->IsBitSet(i))
                 entities_list.push_back(i);
-    
+
         context->SetReturn(entities_list);
     });
 
@@ -67,7 +74,7 @@ LoadScriptingComponent(checktransmit, [](PluginObject plugin, EContext* ctx) -> 
         int entindex = context->GetArgumentOr<int>(0, 0);
         CCheckTransmitInfo* m_ptr = (CCheckTransmitInfo*)data->GetData<void*>("transmit_ptr");
 
-        if(!m_ptr->m_pTransmitEntity->IsBitSet(entindex))
+        if (!m_ptr->m_pTransmitEntity->IsBitSet(entindex))
             m_ptr->m_pTransmitEntity->Set(entindex);
     });
 
@@ -75,7 +82,7 @@ LoadScriptingComponent(checktransmit, [](PluginObject plugin, EContext* ctx) -> 
         int entindex = context->GetArgumentOr<int>(0, 0);
         CCheckTransmitInfo* m_ptr = (CCheckTransmitInfo*)data->GetData<void*>("transmit_ptr");
 
-        if(m_ptr->m_pTransmitEntity->IsBitSet(entindex))
+        if (m_ptr->m_pTransmitEntity->IsBitSet(entindex))
             m_ptr->m_pTransmitEntity->Clear(entindex);
     });
 

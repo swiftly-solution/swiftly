@@ -214,7 +214,7 @@ EXT_API int swiftly_TriggerEvent(const char* ext_name, const char* evName, void*
 {
     ClassData data({ { "plugin_name", std::string(ext_name) } }, "Event", nullptr);
     auto result = g_pluginManager.ExecuteEvent(ext_name, evName, *(std::vector<std::any>*)args, &data);
-    *reinterpret_cast<std::any*>(eventReturn) = data.GetData<std::any>("event_return");
+    *reinterpret_cast<std::any*>(eventReturn) = data.GetAnyData("event_return");
 
     return (int)result;
 }

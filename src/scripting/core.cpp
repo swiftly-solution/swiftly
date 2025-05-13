@@ -77,6 +77,17 @@ void SetupScriptingEnvironment(PluginObject plugin, EContext* ctx)
             arguments.push_back(context->GetArgumentAsString(i));
         function_call += "(" + implode(arguments, ", ") + ")";
 
+        if (context->GetPluginContext()->GetKind() == ContextKinds::Lua) {
+            lua_Debug ar;
+            lua_State* L = context->GetPluginContext()->GetLuaState();
+
+            if (lua_getstack(L, 1, &ar)) {
+                if (lua_getinfo(L, "Sl", &ar)) {
+                    function_call += string_format(" -> %s:%d", ar.short_src, ar.currentline);
+                }
+            }
+        }
+
         context->temporaryData.push_back(g_callStack.RegisterPluginCallstack(FetchPluginName(context->GetPluginContext()), function_call));
         g_ResourceMonitor.StartTime("core", replace(context->GetFunctionKey(), " ", "::"));
     });
