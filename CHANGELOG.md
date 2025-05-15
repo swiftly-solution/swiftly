@@ -2,6 +2,12 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.7 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.7)
+
+### OnPlayerCheckTransmit
+
+- Fix transmit pointer not being the good type
+
 ## v1.6.6 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.6)
 
 ### Database
