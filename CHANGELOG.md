@@ -2,6 +2,16 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.8 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.8)
+
+### Stack
+
+- Functions which are taking arguments of any type not recognizing floats
+
+### FireEventToClient
+
+- Crash when no event_data is being provided
+
 ## v1.6.7 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.7)
 
 ### OnPlayerCheckTransmit
