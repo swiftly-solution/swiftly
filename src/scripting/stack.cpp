@@ -168,8 +168,10 @@ std::any DeserializeData(EValue ref, EContext* state)
         return ref.cast<bool>();
     else if (ref.isNull())
         return nullptr;
-    else if (ref.isNumber())
-        return ref.cast<int64_t>();
+    else if (ref.isNumber()) {
+        if (ref.cast<float>() == (float)(ref.cast<int64_t>())) return ref.cast<float>();
+        else return ref.cast<int64_t>();
+    }
     else if (ref.isString())
         return ref.cast<std::string>();
     else if (ref.isInstance<ClassData*>())
