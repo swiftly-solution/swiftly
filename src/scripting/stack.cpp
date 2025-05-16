@@ -169,7 +169,7 @@ std::any DeserializeData(EValue ref, EContext* state)
     else if (ref.isNull())
         return nullptr;
     else if (ref.isNumber()) {
-        if (ref.cast<float>() == (float)(ref.cast<int64_t>())) return ref.cast<int64_t>();
+        if (ref.cast<float>() == (float)((int64_t)(ref.cast<float>()))) return ref.cast<int64_t>();
         else return ref.cast<float>();
     }
     else if (ref.isString())
