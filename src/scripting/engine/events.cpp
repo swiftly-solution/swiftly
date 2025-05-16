@@ -174,15 +174,22 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
 
     ADD_CLASS_FUNCTION("Event", "FireEventToClient", [](FunctionContext* context, ClassData* data) -> void {
         if (!data->HasData("event_data")) return;
+        if (!data->GetDataOr<IGameEvent*>("event_data", nullptr)) return;
 
         int slot = context->GetArgumentOr<int>(0, -1);
         if (slot < 0 || slot >= GetMaxGameClients()) return;
 
         IGameEventListener2* playerListener = g_GameData.FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(slot);
+        if (!playerListener) {
+            ReportPreventionIncident("Fire Event", string_format("Tried to fire event '%s' but the client isn't having a listener.", data->GetData<IGameEvent*>("event_data")->GetName()));
+            return;
+        }
+
         if (!g_gameEventManager->FindListener(playerListener, data->GetData<IGameEvent*>("event_data")->GetName())) {
             ReportPreventionIncident("Fire Event", string_format("Tried to fire event '%s' but the client isn't listening to this event.", data->GetData<IGameEvent*>("event_data")->GetName()));
             return;
         }
+
         playerListener->FireGameEvent(data->GetData<IGameEvent*>("event_data"));
     });
 
