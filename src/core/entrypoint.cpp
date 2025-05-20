@@ -17,6 +17,7 @@
 #include <engine/vgui/vgui.h>
 #include <engine/gameevents/gameevents.h>
 #include <engine/precacher/precacher.h>
+#include <engine/precacher/game_system.h>
 
 #include <entities/system.h>
 
@@ -196,6 +197,9 @@ bool SwiftlyS2::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, boo
 
     g_pluginManager.LoadPlugins("");
     g_pluginManager.StartPlugins();
+
+    if (!InitGameSystem())
+        PRINTRET("Failed to setup Game System (Precacher).\n", false);
 
     if (late)
     {
