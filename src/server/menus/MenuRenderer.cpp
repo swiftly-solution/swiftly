@@ -184,6 +184,8 @@ void MenuRenderer::RenderMenuTick()
 
     std::string kind = menu->GetKind();
     if (kind == "center") {
+        if (!playerListener) return;
+        if (!centerMessageEvent) return;
         playerListener->FireGameEvent(centerMessageEvent);
     }
 }

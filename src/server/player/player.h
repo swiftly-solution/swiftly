@@ -35,7 +35,6 @@ private:
 
     IGameEventListener2* playerListener = nullptr;
 
-    IGameEvent* centerMessageEvent = nullptr;
     uint64_t centerMessageEndTime = 0;
     std::string centerMessageText;
 

@@ -131,13 +131,6 @@ Player::Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64_t m_x
     xuid = m_xuid;
     this->ip_address = ip_address;
 
-    centerMessageEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
-
-    centerMessageEvent->SetUint64("duration", 1);
-    centerMessageEvent->SetInt("userid", slot);
-
-    if (!isFakeClient) playerListener = g_GameData.FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(CPlayerSlot(slot));
-
     SetInternalVar("tag", std::string(""));
     SetInternalVar("tagcolor", std::string("{default}"));
     SetInternalVar("namecolor", std::string("{teamcolor}"));
@@ -149,7 +142,6 @@ Player::Player(bool m_isFakeClient, int m_slot, const char* m_name, uint64_t m_x
 Player::~Player()
 {
     isFakeClient = true;
-    g_gameEventManager->FreeEvent(centerMessageEvent);
 
     if (playerObject) delete playerObject;
     if (menu_renderer) delete menu_renderer;
@@ -320,9 +312,14 @@ void Player::Think()
     }
     else if (centerMessageEndTime != 0) {
         if (centerMessageEndTime >= GetTime()) {
-            if (centerMessageEvent && playerListener) {
-                playerListener->FireGameEvent(centerMessageEvent);
-            }
+            auto playerListener = g_GameData.FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(CPlayerSlot(slot));
+            auto centerMessageEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+
+            centerMessageEvent->SetUint64("duration", 1);
+            centerMessageEvent->SetInt("userid", slot);
+
+            playerListener->FireGameEvent(centerMessageEvent);
+            g_gameEventManager->FreeEvent(centerMessageEvent);
         }
         else {
             centerMessageEndTime = 0;
