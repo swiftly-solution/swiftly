@@ -2,6 +2,18 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.10 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.10)
+
+### Precacher
+
+- fix(core): Precacher not being called
+
+## v1.6.9 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.9)
+
+### Stack
+
+- Functions which are taking arguments of any type not recognizing floats
+
 ## v1.6.8 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.8)
 
 ### Stack
