@@ -120,7 +120,7 @@ void VGUI::Shutdown()
     SH_REMOVE_HOOK_MEMFUNC(ISource2GameEntities, CheckTransmit, g_pSource2GameEntities, this, &VGUI::CheckTransmit, true);
 }
 
-ClassData* checktransmitEvent = new ClassData({ {"plugin_name", "core"} }, "Event", nullptr);
+ClassData* checktransmitEvent = new ClassData({ {"plugin_name", std::string("core")} }, "Event", nullptr);
 
 void VGUI::CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount, CBitVec<16384>& unionTransmitEdicts, const Entity2Networkable_t** pNetworkables, const uint16_t* pEntityIndicies, int nEntities, bool bEnablePVSBits)
 {

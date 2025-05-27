@@ -145,7 +145,7 @@ bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
     std::string prettyEventName = gameEventsRegister[eventName];
     if (!prettyEventName.empty())
     {
-        std::map<std::string, std::any> evData = { { "plugin_name", "core" }, { "event_data", pEvent }, { "dontBroadcast", dontBroadcast } };
+        std::map<std::string, std::any> evData = { { "plugin_name", std::string("core") }, { "event_data", pEvent }, { "dontBroadcast", dontBroadcast } };
         auto eventData = new ClassData(evData, "Event", nullptr);
 
         EventResult result = g_pluginManager.ExecuteEvent("core", prettyEventName, {}, eventData);
@@ -203,7 +203,7 @@ bool EventManager::OnPostFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
 
     if (!prettyEventName.empty())
     {
-        std::map<std::string, std::any> evData = { { "plugin_name", "core" }, { "event_data", realGameEvent }, { "dontBroadcast", bDontBroadcast } };
+        std::map<std::string, std::any> evData = { { "plugin_name", std::string("core") }, { "event_data", realGameEvent }, { "dontBroadcast", bDontBroadcast } };
         auto eventData = new ClassData(evData, "Event", nullptr);
 
         EventResult result = g_pluginManager.ExecuteEvent("core", string_format("OnPost%s", prettyEventName.substr(2).c_str()), {}, eventData);

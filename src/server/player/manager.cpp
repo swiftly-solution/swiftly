@@ -117,7 +117,7 @@ bool PlayerManager::ClientConnect(CPlayerSlot slot, const char* pszName, uint64 
     Player* player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     RegisterPlayer(slot, player);
 
-    ClassData data({ { "plugin_name", "core" } }, "Event", nullptr);
+    ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
     g_pluginManager.ExecuteEvent("core", "OnClientConnect", { slot.Get() }, &data);
 
     bool response = true;

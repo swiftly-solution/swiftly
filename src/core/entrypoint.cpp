@@ -241,7 +241,7 @@ bool SwiftlyS2::Unload(char* error, size_t maxlen)
 
 bool OnClientCommand(int playerid, std::string command)
 {
-    ClassData data({ { "plugin_name", "core" } }, "Event", nullptr);
+    ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
     g_pluginManager.ExecuteEvent("core", "OnClientCommand", { playerid, command }, &data);
 
     bool response = true;
@@ -315,7 +315,7 @@ void UpdatePlayers()
     }
 }
 
-ClassData* gfData = new ClassData({ { "plugin_name", "" } }, "Event", nullptr);
+ClassData* gfData = new ClassData({ { "plugin_name", std::string("core") } }, "Event", nullptr);
 
 void SwiftlyS2::GameFrame(bool simulate, bool first, bool last)
 {

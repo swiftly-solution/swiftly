@@ -72,7 +72,7 @@ dyno::ReturnAction HookCallback(dyno::CallbackType type, dyno::IHook& hook) {
     if (hooksList.find(hptr) == hooksList.end())
         return dyno::ReturnAction::Ignored;
 
-    ClassData ev({ { "plugin_name", "core" }, { "hook_ptr", hptr } }, "Event", nullptr);
+    ClassData ev({ { "plugin_name", std::string("core") }, { "hook_ptr", hptr } }, "Event", nullptr);
     for (auto hk : hooksList[hptr])
     {
         if (g_pluginManager.ExecuteEvent("core", "hook:" + callbackType + ":" + hk.id, {}, &ev) != EventResult::Continue) {
@@ -109,7 +109,7 @@ dyno::ReturnAction Hook_FireOutputInternal(dyno::CallbackType type, dyno::IHook&
 
     if (hookIds.size() > 0)
     {
-        ClassData ev({ { "plugin_name", "core" } }, "Event", nullptr);
+        ClassData ev({ { "plugin_name", std::string("core") } }, "Event", nullptr);
         ClassData* entIOOutput = new ClassData({ { "class_name", std::string("CEntityIOOutput") }, { "class_ptr", (void*)pThis }, { "should_mark_freeable", true } }, "SDKClass", nullptr);
         ClassData* Activator = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pActivator }, { "should_mark_freeable", true } }, "SDKClass", nullptr);
         ClassData* Caller = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pCaller }, { "should_mark_freeable", true } }, "SDKClass", nullptr);
