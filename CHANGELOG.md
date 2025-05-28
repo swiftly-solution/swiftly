@@ -8,6 +8,10 @@ Over here will be noted all the update change logs.
 
 - Hook variable not existing
 
+### Memory
+
+- fix(memory): LoadFromSignatureName
+
 ## v1.6.12 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.12)
 
 ### Automation
