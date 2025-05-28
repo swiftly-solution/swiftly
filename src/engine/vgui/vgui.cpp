@@ -133,8 +133,10 @@ void VGUI::CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount, CBitVec
         Player* player = g_playerManager.GetPlayer(playerid);
         if (!player) continue;
 
-        ClassData* tInfo = new ClassData({ { "should_mark_freeable", true }, { "transmit_ptr", (void*)pInfo } }, "CCheckTransmitInfo", nullptr);
+        ClassData* tInfo = new ClassData({ { "transmit_ptr", (void*)pInfo } }, "CCheckTransmitInfo", nullptr);
         g_pluginManager.ExecuteEvent("core", "OnPlayerCheckTransmit", { playerid, tInfo }, checktransmitEvent);
+        delete tInfo;
+
         FilterRenderingItems(player, (CCheckTransmitInfo*)pInfo);
     }
 }

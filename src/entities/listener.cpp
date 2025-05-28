@@ -10,15 +10,18 @@ CEntityListener g_entityListener;
 
 void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)
 {
-    ClassData* entity = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pEntity } }, "SDKClass", nullptr);
+    ClassData* entity = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pEntity } }, "SDKClass", nullptr);
     g_pluginManager.ExecuteEvent("core", "OnEntitySpawned", { entity }, {});
+    delete entity;
 }
 
 void CEntityListener::OnEntityParentChanged(CEntityInstance* pEntity, CEntityInstance* pNewParent)
 {
-    ClassData* entity = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pEntity } }, "SDKClass", nullptr);
-    ClassData* pentity = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pNewParent } }, "SDKClass", nullptr);
+    ClassData* entity = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pEntity } }, "SDKClass", nullptr);
+    ClassData* pentity = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pNewParent } }, "SDKClass", nullptr);
     g_pluginManager.ExecuteEvent("core", "OnEntityParentChanged", { entity, pentity }, {});
+    delete entity;
+    delete pentity;
 }
 
 void EntityAllowHammerID(CEntityInstance* pEntity)
@@ -30,8 +33,9 @@ void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
 {
     ExecuteOnce(EntityAllowHammerID(pEntity));
 
-    ClassData* entity = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pEntity } }, "SDKClass", nullptr);
+    ClassData* entity = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pEntity } }, "SDKClass", nullptr);
     g_pluginManager.ExecuteEvent("core", "OnEntityCreated", { entity }, {});
+    delete entity;
 
     if (std::string(pEntity->GetClassname()) == "cs_gamerules")
         gameRules = schema::GetProp<void*>(pEntity, "CCSGameRulesProxy", "m_pGameRules");
@@ -39,6 +43,7 @@ void CEntityListener::OnEntityCreated(CEntityInstance* pEntity)
 
 void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
 {
-    ClassData* entity = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pEntity } }, "SDKClass", nullptr);
+    ClassData* entity = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pEntity } }, "SDKClass", nullptr);
     g_pluginManager.ExecuteEvent("core", "OnEntityDeleted", { entity }, {});
+    delete entity;
 }

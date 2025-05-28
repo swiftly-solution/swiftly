@@ -110,9 +110,11 @@ dyno::ReturnAction Hook_FireOutputInternal(dyno::CallbackType type, dyno::IHook&
     if (hookIds.size() > 0)
     {
         ClassData ev({ { "plugin_name", std::string("core") } }, "Event", nullptr);
-        ClassData* entIOOutput = new ClassData({ { "class_name", std::string("CEntityIOOutput") }, { "class_ptr", (void*)pThis }, { "should_mark_freeable", true } }, "SDKClass", nullptr);
-        ClassData* Activator = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pActivator }, { "should_mark_freeable", true } }, "SDKClass", nullptr);
-        ClassData* Caller = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pCaller }, { "should_mark_freeable", true } }, "SDKClass", nullptr);
+
+        ClassData* entIOOutput = new ClassData({ { "class_name", std::string("CEntityIOOutput") }, { "class_ptr", (void*)pThis } }, "SDKClass", nullptr);
+        ClassData* Activator = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pActivator } }, "SDKClass", nullptr);
+        ClassData* Caller = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pCaller } }, "SDKClass", nullptr);
+
         for (auto id : hookIds)
         {
             auto result = g_pluginManager.ExecuteEvent("core", std::string("hook:") + (type == dyno::CallbackType::Pre ? "Pre" : "Post") + ":" + id, {
@@ -127,6 +129,10 @@ dyno::ReturnAction Hook_FireOutputInternal(dyno::CallbackType type, dyno::IHook&
                 return dyno::ReturnAction::Supercede;
             }
         }
+
+        delete entIOOutput;
+        delete Activator;
+        delete Caller;
     }
 
     return dyno::ReturnAction::Ignored;

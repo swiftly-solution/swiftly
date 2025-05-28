@@ -245,7 +245,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         data->SetData("Vector2D_ptr", vec / otherVec);
         context->SetReturn(data);
     });
-    
+
     ADD_CLASS_FUNCTION("Vector4D", "Vector4D", [](FunctionContext* context, ClassData* data) -> void {
         float x = context->GetArgumentOr<float>(0, 0.0f);
         float y = context->GetArgumentOr<float>(1, 0.0f);
@@ -490,7 +490,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         if (!otherVecData->HasData("QAngle_ptr")) return context->SetReturn(data);
 
         QAngle otherVec = otherVecData->GetData<QAngle>("QAngle_ptr");
-   
+
         vec.x /= otherVec.x;
         vec.y /= otherVec.y;
         vec.z /= otherVec.z;

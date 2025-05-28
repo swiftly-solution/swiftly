@@ -72,9 +72,9 @@ FunctionHook CGameRules_TerminateRound("CGameRules_TerminateRound", dyno::Callba
 dyno::ReturnAction Hook_CEntityIdentity_AcceptInput(dyno::CallbackType type, dyno::IHook& hook)
 {
     ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
-    ClassData* ThisPlayer = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)(hook.getArgument<CEntityIdentity*>(0)->m_pInstance) } }, "SDKClass", nullptr);
-    ClassData* Activator = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)(hook.getArgument<CEntityInstance*>(2)) } }, "SDKClass", nullptr);
-    ClassData* Caller = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)(hook.getArgument<CEntityInstance*>(3)) } }, "SDKClass", nullptr);
+    ClassData* ThisPlayer = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)(hook.getArgument<CEntityIdentity*>(0)->m_pInstance) } }, "SDKClass", nullptr);
+    ClassData* Activator = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)(hook.getArgument<CEntityInstance*>(2)) } }, "SDKClass", nullptr);
+    ClassData* Caller = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)(hook.getArgument<CEntityInstance*>(3)) } }, "SDKClass", nullptr);
 
     g_pluginManager.ExecuteEvent("core", "OnEntityAcceptInput", { ThisPlayer, hook.getArgument<CUtlSymbolLarge*>(1)->String(), Activator, Caller, hook.getArgument<variant_t*>(4)->ToString(), hook.getArgument<int>(5) }, &data);
 
@@ -87,6 +87,10 @@ dyno::ReturnAction Hook_CEntityIdentity_AcceptInput(dyno::CallbackType type, dyn
     {
         response = true;
     }
+
+    delete ThisPlayer;
+    delete Activator;
+    delete Caller;
 
     if (!response) return dyno::ReturnAction::Supercede;
 
@@ -114,9 +118,9 @@ dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IH
     }
 
     ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
-    ClassData* damageinfo = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CTakeDamageInfo") }, { "class_ptr", (void*)info } }, "SDKClass", nullptr);
-    ClassData* Inflictor = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CBaseEntity") }, { "class_ptr", (void*)(info->m_hInflictor.Get()) } }, "SDKClass", nullptr);
-    ClassData* Ability = new ClassData({ { "should_mark_freeable", true }, { "class_name", std::string("CBaseEntity") }, { "class_ptr", (void*)(info->m_hAbility.Get()) } }, "SDKClass", nullptr);
+    ClassData* damageinfo = new ClassData({ { "class_name", std::string("CTakeDamageInfo") }, { "class_ptr", (void*)info } }, "SDKClass", nullptr);
+    ClassData* Inflictor = new ClassData({ { "class_name", std::string("CBaseEntity") }, { "class_ptr", (void*)(info->m_hInflictor.Get()) } }, "SDKClass", nullptr);
+    ClassData* Ability = new ClassData({ { "class_name", std::string("CBaseEntity") }, { "class_ptr", (void*)(info->m_hAbility.Get()) } }, "SDKClass", nullptr);
 
     g_pluginManager.ExecuteEvent("core", "OnPlayerDamage", { playerid, attackerid, damageinfo, Inflictor, Ability }, &data);
 
@@ -129,6 +133,10 @@ dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IH
     {
         response = true;
     }
+
+    delete damageinfo;
+    delete Inflictor;
+    delete Ability;
 
     if (!response) return dyno::ReturnAction::Supercede;
 
