@@ -2,6 +2,25 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.11 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.11)
+
+### Events
+
+- fix(events): GetInvokingPlugin
+
+### Player
+
+- fix(player/think): Random Crash
+
+### Plugins
+
+- fix(plugins/manager): Unload crash
+- fix(embedder): Proper memory collection and lifetime
+
+### Game Events
+
+- feat(gameevents): OnClientProcessUsercmds
+
 ## v1.6.10 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.10)
 
 ### Precacher
