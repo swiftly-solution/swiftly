@@ -9,3 +9,4 @@ globalThis.vgui = VGUI()
 globalThis.convar = Convars()
 globalThis.db = null
 globalThis.menus = Menus()
+globalThis.hooks = Hooks()

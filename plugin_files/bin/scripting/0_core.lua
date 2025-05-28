@@ -9,3 +9,4 @@ vgui = VGUI()
 convar = Convars()
 db = nil
 menus = Menus()
+hooks = Hooks()
