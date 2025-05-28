@@ -3,8 +3,11 @@
 #include <plugins/manager.h>
 #include <sdk/schema.h>
 #include <sdk/components/CTakeDamageInfo.h>
+#include <network/usermessages/usermessage.h>
+#include <embedder/src/Embedder.h>
 
 #include "ehandle.h"
+#include "cs_usercmd.pb.h"
 
 dyno::ReturnAction CCSPlayerPawnBase_PostThinkPre(dyno::CallbackType type, dyno::IHook& hook)
 {
@@ -144,3 +147,43 @@ dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IH
 }
 
 FunctionHook CBaseEntity_TakeDamage("CBaseEntity_TakeDamage", dyno::CallbackType::Pre, Hook_CBaseEntity_TakeDamage, "pp", 'v');
+
+class CUserCmd
+{
+public:
+    [[maybe_unused]] char pad0[0x10];
+    CSGOUserCmdPB cmd;
+    [[maybe_unused]] char pad1[0x38];
+#ifdef _WIN32
+    [[maybe_unused]] char pad2[0x8];
+#endif
+};
+
+dyno::ReturnAction Hook_CCSPlayerController_ProcessUsercmds(dyno::CallbackType type, dyno::IHook& hook)
+{
+    CEntityInstance* controller = (CEntityInstance*)(hook.getArgument<void*>(0));
+    CUserCmd* cmdList = hook.getArgument<CUserCmd*>(1);
+    int numcmds = hook.getArgument<int>(2);
+    bool paused = hook.getArgument<bool>(3);
+    float margin = hook.getArgument<float>(4);
+
+    std::vector<UserMessage*> ums;
+    std::vector<std::any> userMessages;
+
+    for (int i = 0; i < numcmds; i++) {
+        auto um = new UserMessage((google::protobuf::Message*)(&cmdList[i].cmd));
+        ums.push_back(um);
+        userMessages.push_back(new ClassData({ { "um_ptr", um } }, "UserMessage", nullptr));
+    }
+
+    g_pluginManager.ExecuteEvent("core", "OnClientProcessUsercmds", { controller->m_pEntity->m_EHandle.GetEntryIndex() - 1, userMessages, numcmds, paused, margin }, {});
+
+    for (int i = 0; i < numcmds; i++) {
+        delete ums[i];
+        delete std::any_cast<ClassData*>(userMessages[i]);
+    }
+
+    return dyno::ReturnAction::Ignored;
+}
+
+FunctionHook CCSPlayerController_ProcessUsercmds("CCSPlayerController_ProcessUsercmds", dyno::CallbackType::Pre, Hook_CCSPlayerController_ProcessUsercmds, "ppibf", 'p');

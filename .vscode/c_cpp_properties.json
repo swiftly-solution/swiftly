@@ -4,6 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/build/swiftly/windows-x86_64/**",
+                "${workspaceFolder}/build/swiftly/linux-x86_64/**",
                 "${workspaceFolder}/alliedmodders/hl2sdk-cs2/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
