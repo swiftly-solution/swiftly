@@ -272,7 +272,7 @@ void Player::SendMsg(int dest, const char* msg, ...)
         if (std::string(msg) == "") centerMessageEndTime = 0;
         else {
             centerMessageEndTime = GetTime() + 5000;
-            centerMessageEvent->SetString("loc_token", msg);
+            centerMessageText = msg;
         }
     }
     else if (dest == HUD_PRINTCONSOLE)
@@ -317,6 +317,7 @@ void Player::Think()
 
             centerMessageEvent->SetUint64("duration", 1);
             centerMessageEvent->SetInt("userid", slot);
+            centerMessageEvent->SetString("loc_token", centerMessageText.c_str());
 
             playerListener->FireGameEvent(centerMessageEvent);
             g_gameEventManager->FreeEvent(centerMessageEvent);

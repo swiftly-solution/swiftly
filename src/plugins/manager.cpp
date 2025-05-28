@@ -48,8 +48,9 @@ void PluginsManager::UnloadPlugins()
     for (PluginObject* plugin : pluginsList)
         pluginNames.push_back(plugin->GetName());
 
-    for (std::string plugin_name : pluginNames)
-        UnloadPlugin(plugin_name);
+    for (int i = 0; i < pluginNames.size(); i++) {
+        UnloadPlugin(pluginNames[i]);
+    }
 }
 
 void PluginsManager::LoadPlugin(std::string plugin_name)

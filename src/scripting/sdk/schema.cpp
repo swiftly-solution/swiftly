@@ -74,7 +74,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         void* ptr = nullptr;
         auto classData = context->GetArgumentOr<ClassData*>(1, nullptr);
         if (classData) {
-            if (classData->HasData("class_name")) {
+            if (classData->HasData("class_ptr")) {
                 ptr = classData->GetData<void*>("class_ptr");
             }
             else if (classData->HasData("ptr")) {
