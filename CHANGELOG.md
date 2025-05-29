@@ -2,23 +2,11 @@
 
 Over here will be noted all the update change logs.
 
-## v1.6.13 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.13)
-
-### Hooks
-
-- Hook variable not existing
-
-### Memory
-
-- fix(memory): LoadFromSignatureName
-
-## v1.6.12 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.12)
+## v1.6.11 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.11)
 
 ### Automation
 
 - Update Protobufs, SDK and game events for Counter-Strike 2
-
-## v1.6.11 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.11)
 
 ### Events
 
@@ -36,6 +24,14 @@ Over here will be noted all the update change logs.
 ### Game Events
 
 - feat(gameevents): OnClientProcessUsercmds
+
+### Hooks
+
+- Hook variable not existing
+
+### Memory
+
+- fix(memory): LoadFromSignatureName
 
 ## v1.6.10 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.10)
 
