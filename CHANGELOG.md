@@ -2,6 +2,12 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.13 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.13)
+
+### Shutdown Crashes
+
+- Fixed crashes related to the shutdown of the server and Swiftly Core.
+
 ## v1.6.12 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.12)
 
 ### Steam Authorization
