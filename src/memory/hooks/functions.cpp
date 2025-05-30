@@ -61,10 +61,14 @@ void FunctionHook::Initialize()
     hookFunc->addCallback(m_callbackType, m_handler);
 }
 
+extern bool shuttingDown;
+
 FunctionHook::~FunctionHook()
 {
     Disable();
     if (!m_pfn) return;
+
+    if (shuttingDown) return;
 
     dyno::IHookManager& manager = dyno::IHookManager::Get();
     manager.unhookDetour(m_pfn);

@@ -97,8 +97,11 @@ void PluginsManager::UnloadPlugin(std::string plugin_name)
 
     for (auto it = pluginsList.begin(); it != pluginsList.end(); ++it)
     {
-        if ((*it)->GetName() == plugin_name)
+        if ((*it)->GetName() == plugin_name) {
+            delete (*it);
             pluginsList.erase(it);
+            break;
+        }
     }
 
     pluginsMap.erase(plugin_name);

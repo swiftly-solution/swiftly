@@ -78,6 +78,8 @@ SH_DECL_HOOK8_void(IGameEventSystem, PostEventAbstract, SH_NOATTRIB, 0, CSplitSc
 SH_DECL_HOOK3(IVEngineServer2, SetClientListening, SH_NOATTRIB, 0, bool, CPlayerSlot, CPlayerSlot, bool);
 SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand&);
 
+bool shuttingDown = false;
+
 //////////////////////////////////////////////////////////////
 /////////////////  Core Variables & Functions  //////////////
 ////////////////////////////////////////////////////////////
@@ -216,6 +218,8 @@ bool SwiftlyS2::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, boo
 
 bool SwiftlyS2::Unload(char* error, size_t maxlen)
 {
+    shuttingDown = true;
+
     g_pluginManager.StopPlugins(false);
     g_pluginManager.UnloadPlugins();
 

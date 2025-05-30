@@ -24,10 +24,14 @@ VFunctionHook::VFunctionHook(std::string library, std::string vtable, std::strin
     m_function_return = function_return;
 }
 
+extern bool shuttingDown;
+
 VFunctionHook::~VFunctionHook()
 {
     Disable();
     if (!m_pvtable) return;
+
+    if (shuttingDown) return;
 
     dyno::IHookManager& manager = dyno::IHookManager::Get();
     manager.unhookVirtual(m_pvtable, m_ioffset);
