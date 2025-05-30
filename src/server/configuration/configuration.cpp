@@ -498,6 +498,9 @@ bool Configuration::LoadConfiguration()
 
     RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "vgui.textBackground.textSize", 35);
 
+    RegisterConfiguration(wasEdited, coreConfigFile, "core", "core", "steam_auth.mode", "flexible");
+    RegisterConfigurationVector<std::string>(wasEdited, coreConfigFile, "core", "core", "steam_auth.available_modes", { "flexible", "strict" }, true, " ");
+
     if (wasEdited) {
         WriteJSONFile("addons/swiftly/configs/core.json", coreConfigFile);
     }

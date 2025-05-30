@@ -2,6 +2,13 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.12 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.12)
+
+### Steam Authorization
+
+- Now in Scripting you can get both authorized and unauthorized SteamID64 / SteamID2, also you can get if the player is authorized.
+- There are also events triggered when a player is being authorized or not: [OnClientSteamAuthorize](https://swiftlycs2.net/plugin-docs/scripting/events/core/onclientsteamauthorize) and [OnClientSteamAuthorizeFail](https://swiftlycs2.net/plugin-docs/scripting/events/core/onclientsteamauthorizefail).
+
 ## v1.6.11 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.11)
 
 ### Automation

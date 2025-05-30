@@ -39,6 +39,7 @@ private:
     std::string centerMessageText;
 
     uint64_t buttons;
+    bool authorized = false;
 
 public:
     MenuRenderer* menu_renderer = nullptr;
@@ -54,6 +55,8 @@ public:
     void SendMsg(int dest, const char* msg, ...);
 
     const char* GetName();
+
+    uint64_t GetUnauthorizedSteamID();
     uint64_t GetSteamID();
 
     void* GetController();
@@ -88,6 +91,9 @@ public:
     void Think();
 
     void SetButtons(uint64_t button);
+
+    void SetAuthorized(bool state);
+    bool IsAuthorized();
 
     CPlayerBitVec m_selfMutes[64] = {};
 };

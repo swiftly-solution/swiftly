@@ -74,5 +74,9 @@
             "paddingX": 0.1,
             "paddingY": 0.1
         }
+    },
+    "steam_auth": {
+        "mode": "flexible",
+        "available_modes": ["flexible", "strict"]
     }
 }

@@ -205,6 +205,7 @@ bool SwiftlyS2::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, boo
     {
         g_eventManager.RegisterGameEvents();
         g_SteamAPI.Init();
+        g_playerManager.SteamAPIServerActivated();
         if (!BeginCrashListener()) PRINTRET("Failed to setup crash listener.\n", false);
     }
 

@@ -245,6 +245,15 @@ LoadScriptingComponent(player, [](PluginObject plugin, EContext* ctx) -> void {
         context->SetReturn(player->GetSteamID());
     });
 
+    ADD_CLASS_FUNCTION("Player", "GetUnauthorizedSteamID", [](FunctionContext* context, ClassData* data) -> void {
+        int playerid = data->GetData<int>("playerid");
+
+        Player* player = g_playerManager.GetPlayer(playerid);
+        if (!player) return context->SetReturn(0);
+
+        context->SetReturn(player->GetUnauthorizedSteamID());
+    });
+
     ADD_CLASS_FUNCTION("Player", "GetSteamID2", [](FunctionContext* context, ClassData* data) -> void {
         int playerid = data->GetData<int>("playerid");
 
@@ -258,6 +267,30 @@ LoadScriptingComponent(player, [](PluginObject plugin, EContext* ctx) -> void {
 
         static const uint64_t base = 76561197960265728;
         context->SetReturn(string_format("STEAM_0:%d:%llu", (steamid - base) & 1, (steamid - base) / 2));
+    });
+
+    ADD_CLASS_FUNCTION("Player", "GetUnauthorizedSteamID2", [](FunctionContext* context, ClassData* data) -> void {
+        int playerid = data->GetData<int>("playerid");
+
+        Player* player = g_playerManager.GetPlayer(playerid);
+        if (!player) return context->SetReturn("STEAM_0:0:000000000");
+
+        uint64_t steamid = player->GetUnauthorizedSteamID();
+
+        if (steamid == 0)
+            return context->SetReturn("STEAM_0:0:000000000");
+
+        static const uint64_t base = 76561197960265728;
+        context->SetReturn(string_format("STEAM_0:%d:%llu", (steamid - base) & 1, (steamid - base) / 2));
+    });
+
+    ADD_CLASS_FUNCTION("Player", "IsAuthorized", [](FunctionContext* context, ClassData* data) -> void {
+        int playerid = data->GetData<int>("playerid");
+
+        Player* player = g_playerManager.GetPlayer(playerid);
+        if (!player) return context->SetReturn(false);
+
+        context->SetReturn(player->IsAuthorized());
     });
 
     ADD_CLASS_FUNCTION("Player", "HideMenu", [](FunctionContext* context, ClassData* data) -> void {

@@ -211,12 +211,28 @@ const char* Player::GetName()
 
 uint64_t Player::GetSteamID()
 {
+    if (authorized) {
+        if (IsFakeClient()) return 0;
+
+        auto steamid = engine->GetClientSteamID(CPlayerSlot(slot));
+        if (!steamid) return 0;
+
+        return steamid->ConvertToUint64();
+    }
+    else if (g_Config.FetchValue<std::string>("core.steam_auth.mode") == "flexible") {
+        return GetUnauthorizedSteamID();
+    }
+    else return 0;
+}
+
+uint64_t Player::GetUnauthorizedSteamID()
+{
     if (IsFakeClient()) return 0;
 
-    auto controller = GetController();
-    if (!controller) return xuid;
+    auto steamid = engine->GetClientSteamID(CPlayerSlot(slot));
+    if (!steamid) return xuid;
 
-    return schema::GetProp<uint64_t>(controller, "CBasePlayerController", "m_steamID");
+    return steamid->ConvertToUint64();
 }
 
 void Player::SendMsg(int dest, const char* msg, ...)
@@ -511,4 +527,21 @@ ClassData* Player::GetPlayerObject()
 {
     if (playerObject == nullptr) playerObject = new ClassData({ { "playerid", GetSlot() } }, "Player", nullptr);
     return playerObject;
+}
+
+void Player::SetAuthorized(bool state)
+{
+    authorized = state;
+
+    if (state) {
+        g_pluginManager.ExecuteEvent("core", "OnClientSteamAuthorize", { slot }, {});
+    }
+    else {
+        g_pluginManager.ExecuteEvent("core", "OnClientSteamAuthorizeFail", { slot }, {});
+    }
+}
+
+bool Player::IsAuthorized()
+{
+    return authorized;
 }

@@ -156,3 +156,22 @@ void PlayerManager::ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReas
         UnregisterPlayer(slot);
     }
 }
+
+void PlayerManager::SteamAPIServerActivated()
+{
+    m_CallbackValidateAuthTicketResponse.Register(this, &PlayerManager::OnValidateAuthTicket);
+}
+
+void PlayerManager::OnValidateAuthTicket(ValidateAuthTicketResponse_t* response)
+{
+    uint64_t steamid = response->m_SteamID.ConvertToUint64();
+
+    for (int i = 0; i < GetPlayerCap(); i++) {
+        auto player = GetPlayer(i);
+        if (!player) continue;
+        if (player->GetUnauthorizedSteamID() != steamid) continue;
+
+        player->SetAuthorized(response->m_eAuthSessionResponse == k_EAuthSessionResponseOK);
+        break;
+    }
+}
