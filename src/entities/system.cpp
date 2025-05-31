@@ -65,3 +65,8 @@ void EntitySystem::AcceptInput(void* entity, std::string input, void* activator,
     variant_t variantValue = variant_t(value.c_str());
     g_GameData.FetchSignature<CEntityInstance_AcceptInput>("CEntityInstance_AcceptInput")(entity, input.c_str(), activator, caller, &variantValue, outputID);
 }
+
+bool EntitySystem::IsValidEntity(void* entity)
+{
+    return entity != nullptr;
+}

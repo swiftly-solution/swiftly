@@ -100,7 +100,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "IsValid", [](FunctionContext* context, ClassData* data) -> void {
-        context->SetReturn(data->GetData<void*>("class_ptr") != nullptr);
+        context->SetReturn(g_entSystem.IsValidEntity(data->GetData<void*>("class_ptr")));
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "ToPtr", [](FunctionContext* context, ClassData* data) -> void {
@@ -311,7 +311,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         uint64_t path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
 
         void* instance = data->GetData<void*>("class_ptr");
-        if (!instance) {
+        if (!g_entSystem.IsValidEntity(instance)) {
             ReportPreventionIncident("Schema / SDK", string_format("Tried to get member '%s::%s' but the entity is invalid.", className.c_str(), fieldName.c_str()));
             return context->StopExecution();
         }
@@ -322,7 +322,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         std::string fieldName = explode(context->GetFunctionKey(), " ").back();
 
         void* instance = data->GetData<void*>("class_ptr");
-        if (!instance) {
+        if (!g_entSystem.IsValidEntity(instance)) {
             ReportPreventionIncident("Schema / SDK", string_format("Tried to set member '%s::%s' but the entity is invalid.", className.c_str(), fieldName.c_str()));
             return context->StopExecution();
         }
@@ -339,7 +339,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         uint64_t path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(function_name.c_str()));
         if (classFuncs.find(path) != classFuncs.end()) {
             void* instance = data->GetData<void*>("class_ptr");
-            if (!instance) {
+            if (!g_entSystem.IsValidEntity(instance)) {
                 ReportPreventionIncident("Schema / SDK", string_format("Tried to call function '%s::%s' but the entity is invalid.", className.c_str(), function_name.c_str()));
                 return context->StopExecution();
             }

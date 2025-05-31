@@ -29,6 +29,8 @@ public:
     void Despawn(void* entity);
     void* CreateByName(const char* name);
     void AcceptInput(void* entity, std::string input, void* activator, void* caller, std::string value, int outputID);
+
+    bool IsValidEntity(void* entity);
 };
 
 class CEntityListener : public IEntityListener

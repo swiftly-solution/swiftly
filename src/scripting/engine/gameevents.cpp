@@ -29,18 +29,19 @@ FunctionHook CCSPlayerPawnBase_PostThink("CCSPlayerPawnBase_PostThink", dyno::Ca
 
 bool OnClientChat(int playerid, std::string text, bool teamonly)
 {
-    ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
-    g_pluginManager.ExecuteEvent("core", "OnClientChat", { playerid, text, teamonly }, &data);
+    ClassData* data = new ClassData({ { "plugin_name", std::string("core") } }, "Event", nullptr);
+    g_pluginManager.ExecuteEvent("core", "OnClientChat", { playerid, text, teamonly }, data);
 
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetAnyData("event_return"));
+        response = std::any_cast<bool>(data->GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
         response = true;
     }
+    delete data;
 
     return response;
 }
@@ -52,18 +53,19 @@ void OnClientConvarQuery(int playerid, std::string convar_name, std::string conv
 
 dyno::ReturnAction Hook_CGameRules_TerminateRound(dyno::CallbackType type, dyno::IHook& hook)
 {
-    ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
-    g_pluginManager.ExecuteEvent("core", "OnTerminateRound", std::vector<std::any>{ hook.getArgument<float>(1), hook.getArgument<uint32_t>(2) }, & data);
+    ClassData* data = new ClassData({ { "plugin_name", std::string("core") } }, "Event", nullptr);
+    g_pluginManager.ExecuteEvent("core", "OnTerminateRound", std::vector<std::any>{ hook.getArgument<float>(1), hook.getArgument<uint32_t>(2) }, data);
 
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetAnyData("event_return"));
+        response = std::any_cast<bool>(data->GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
         response = true;
     }
+    delete data;
 
     if (!response) return dyno::ReturnAction::Supercede;
 
@@ -74,17 +76,17 @@ FunctionHook CGameRules_TerminateRound("CGameRules_TerminateRound", dyno::Callba
 
 dyno::ReturnAction Hook_CEntityIdentity_AcceptInput(dyno::CallbackType type, dyno::IHook& hook)
 {
-    ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
+    ClassData* data = new ClassData({ { "plugin_name", std::string("core") } }, "Event", nullptr);
     ClassData* ThisPlayer = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)(hook.getArgument<CEntityIdentity*>(0)->m_pInstance) } }, "SDKClass", nullptr);
     ClassData* Activator = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)(hook.getArgument<CEntityInstance*>(2)) } }, "SDKClass", nullptr);
     ClassData* Caller = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)(hook.getArgument<CEntityInstance*>(3)) } }, "SDKClass", nullptr);
 
-    g_pluginManager.ExecuteEvent("core", "OnEntityAcceptInput", { ThisPlayer, hook.getArgument<CUtlSymbolLarge*>(1)->String(), Activator, Caller, hook.getArgument<variant_t*>(4)->ToString(), hook.getArgument<int>(5) }, &data);
+    g_pluginManager.ExecuteEvent("core", "OnEntityAcceptInput", { ThisPlayer, hook.getArgument<CUtlSymbolLarge*>(1)->String(), Activator, Caller, hook.getArgument<variant_t*>(4)->ToString(), hook.getArgument<int>(5) }, data);
 
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetAnyData("event_return"));
+        response = std::any_cast<bool>(data->GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
@@ -94,6 +96,7 @@ dyno::ReturnAction Hook_CEntityIdentity_AcceptInput(dyno::CallbackType type, dyn
     delete ThisPlayer;
     delete Activator;
     delete Caller;
+    delete data;
 
     if (!response) return dyno::ReturnAction::Supercede;
 
@@ -120,17 +123,17 @@ dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IH
         if (attackerController) attackerid = attackerController.GetEntryIndex() - 1;
     }
 
-    ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
+    ClassData* data = new ClassData({ { "plugin_name", std::string("core") } }, "Event", nullptr);
     ClassData* damageinfo = new ClassData({ { "class_name", std::string("CTakeDamageInfo") }, { "class_ptr", (void*)info } }, "SDKClass", nullptr);
     ClassData* Inflictor = new ClassData({ { "class_name", std::string("CBaseEntity") }, { "class_ptr", (void*)(info->m_hInflictor.Get()) } }, "SDKClass", nullptr);
     ClassData* Ability = new ClassData({ { "class_name", std::string("CBaseEntity") }, { "class_ptr", (void*)(info->m_hAbility.Get()) } }, "SDKClass", nullptr);
 
-    g_pluginManager.ExecuteEvent("core", "OnPlayerDamage", { playerid, attackerid, damageinfo, Inflictor, Ability }, &data);
+    g_pluginManager.ExecuteEvent("core", "OnPlayerDamage", { playerid, attackerid, damageinfo, Inflictor, Ability }, data);
 
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetAnyData("event_return"));
+        response = std::any_cast<bool>(data->GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
@@ -140,6 +143,7 @@ dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IH
     delete damageinfo;
     delete Inflictor;
     delete Ability;
+    delete data;
 
     if (!response) return dyno::ReturnAction::Supercede;
 

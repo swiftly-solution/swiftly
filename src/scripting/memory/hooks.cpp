@@ -72,14 +72,16 @@ dyno::ReturnAction HookCallback(dyno::CallbackType type, dyno::IHook& hook) {
     if (hooksList.find(hptr) == hooksList.end())
         return dyno::ReturnAction::Ignored;
 
-    ClassData ev({ { "plugin_name", std::string("core") }, { "hook_ptr", hptr } }, "Event", nullptr);
+    ClassData* ev = new ClassData({ { "plugin_name", std::string("core") }, { "hook_ptr", hptr } }, "Event", nullptr);
     for (auto hk : hooksList[hptr])
     {
-        if (g_pluginManager.ExecuteEvent("core", "hook:" + callbackType + ":" + hk.id, {}, &ev) != EventResult::Continue) {
+        if (g_pluginManager.ExecuteEvent("core", "hook:" + callbackType + ":" + hk.id, {}, ev) != EventResult::Continue) {
+            delete ev;
             return dyno::ReturnAction::Supercede;
         }
     }
 
+    delete ev;
     return dyno::ReturnAction::Ignored;
 }
 
@@ -109,7 +111,7 @@ dyno::ReturnAction Hook_FireOutputInternal(dyno::CallbackType type, dyno::IHook&
 
     if (hookIds.size() > 0)
     {
-        ClassData ev({ { "plugin_name", std::string("core") } }, "Event", nullptr);
+        ClassData* ev = new ClassData({ { "plugin_name", std::string("core") } }, "Event", nullptr);
 
         ClassData* entIOOutput = new ClassData({ { "class_name", std::string("CEntityIOOutput") }, { "class_ptr", (void*)pThis } }, "SDKClass", nullptr);
         ClassData* Activator = new ClassData({ { "class_name", std::string("CEntityInstance") }, { "class_ptr", (void*)pActivator } }, "SDKClass", nullptr);
@@ -123,9 +125,13 @@ dyno::ReturnAction Hook_FireOutputInternal(dyno::CallbackType type, dyno::IHook&
                 Activator,
                 Caller,
                 delay
-            }, &ev);
+            }, ev);
             if (result != EventResult::Continue)
             {
+                delete entIOOutput;
+                delete Activator;
+                delete Caller;
+                delete ev;
                 return dyno::ReturnAction::Supercede;
             }
         }
@@ -133,6 +139,7 @@ dyno::ReturnAction Hook_FireOutputInternal(dyno::CallbackType type, dyno::IHook&
         delete entIOOutput;
         delete Activator;
         delete Caller;
+        delete ev;
     }
 
     return dyno::ReturnAction::Ignored;

@@ -77,7 +77,7 @@ EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventN
         if (value.isNumber())
         {
             int result = value.cast<int>();
-            if (result < (int)EventResult::Continue || result >(int)EventResult::Stop)
+            if (result < (int)EventResult::Continue || result >(int)EventResult::Handled)
                 response = EventResult::Continue;
             else
                 response = (EventResult)result;

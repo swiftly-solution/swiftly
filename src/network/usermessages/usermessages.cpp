@@ -31,8 +31,9 @@ bool UserMessages::FilterMessage(const CNetMessage* cMsg, INetChannel* netchan)
     if (!client) RETURN_META_VALUE(MRES_IGNORED, true);
 
     UserMessage um(cMsg->GetNetMessage(), const_cast<CNetMessage*>(cMsg), (uint64_t*)0);
-    ClassData umobj({ { "um_ptr", &um } }, "UserMessage", nullptr);
-    auto result = g_pluginManager.ExecuteEvent("core", "OnUserMessageReceive", { client->GetPlayerSlot().Get(), &umobj }, {});
+    ClassData* umobj = new ClassData({ { "um_ptr", &um } }, "UserMessage", nullptr);
+    auto result = g_pluginManager.ExecuteEvent("core", "OnUserMessageReceive", { client->GetPlayerSlot().Get(), umobj }, {});
+    delete umobj;
     if (result != EventResult::Continue)
         RETURN_META_VALUE(MRES_SUPERCEDE, true);
 
@@ -50,8 +51,12 @@ void UserMessages::Destroy()
 void UserMessages::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType)
 {
     UserMessage um(pEvent, const_cast<CNetMessage*>(pData), (uint64_t*)(const_cast<uint64*>(clients)));
-    ClassData umobj({ { "um_ptr", &um } }, "UserMessage", nullptr);
+    ClassData* umobj = new ClassData({ { "um_ptr", &um } }, "UserMessage", nullptr);
 
-    if (g_pluginManager.ExecuteEvent("core", "OnUserMessageSend", { &umobj, bufType == BUF_RELIABLE }, {}) == EventResult::Stop)
+    if (g_pluginManager.ExecuteEvent("core", "OnUserMessageSend", { umobj, bufType == BUF_RELIABLE }, {}) == EventResult::Stop) {
+        delete umobj;
         RETURN_META(MRES_SUPERCEDE);
+    }
+
+    delete umobj;
 }

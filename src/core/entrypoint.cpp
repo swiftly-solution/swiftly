@@ -246,18 +246,20 @@ bool SwiftlyS2::Unload(char* error, size_t maxlen)
 
 bool OnClientCommand(int playerid, std::string command)
 {
-    ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
-    g_pluginManager.ExecuteEvent("core", "OnClientCommand", { playerid, command }, &data);
+    ClassData* data = new ClassData({ { "plugin_name", std::string("core") } }, "Event", nullptr);
+    g_pluginManager.ExecuteEvent("core", "OnClientCommand", { playerid, command }, data);
 
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetAnyData("event_return"));
+        response = std::any_cast<bool>(data->GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
         response = true;
     }
+
+    delete data;
 
     return response;
 }

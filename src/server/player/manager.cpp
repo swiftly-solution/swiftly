@@ -117,18 +117,19 @@ bool PlayerManager::ClientConnect(CPlayerSlot slot, const char* pszName, uint64 
     Player* player = new Player(false, slot.Get(), pszName, xuid, ip_address);
     RegisterPlayer(slot, player);
 
-    ClassData data({ { "plugin_name", std::string("core") } }, "Event", nullptr);
-    g_pluginManager.ExecuteEvent("core", "OnClientConnect", { slot.Get() }, &data);
+    ClassData* data = new ClassData({ { "plugin_name", std::string("core") } }, "Event", nullptr);
+    g_pluginManager.ExecuteEvent("core", "OnClientConnect", { slot.Get() }, data);
 
     bool response = true;
     try
     {
-        response = std::any_cast<bool>(data.GetAnyData("event_return"));
+        response = std::any_cast<bool>(data->GetAnyData("event_return"));
     }
     catch (std::bad_any_cast& e)
     {
         response = true;
     }
+    delete data;
 
     RETURN_META_VALUE(MRES_IGNORED, response);
 }
