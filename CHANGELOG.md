@@ -8,7 +8,7 @@ Over here will be noted all the update change logs.
 
 - feat(resmon): Save to JSON (Chrome Performance Visualizer)
 
-![Demo_ALT](https://cdn.skuzzi.ro/XD04gXPsAD6LXR0xyaW4HM8imKeqcUAc.mp4)
+![Demo_ALT](https://cdn.skuzzi.ro/XD04gXPsAD6LXR0xyaW4HM8imKeqcUAc.gif)
 
 ### VGUI
 
