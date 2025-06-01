@@ -5,7 +5,7 @@
 void ShowSwiftlyPluginManagerHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Plugin Management Menu\n");
-    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly plugins <command> [plugin_name]\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: sw plugins <command> [plugin_name]\n");
     PrintToClientOrConsole(slot, "Commands", " info     - Shows informations about a plugin\n");
     PrintToClientOrConsole(slot, "Commands", " list     - Shows loaded plugins\n");
     PrintToClientOrConsole(slot, "Commands", " load     - Loads a plugin\n");

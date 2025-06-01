@@ -11,7 +11,7 @@ void SwiftlyChatReload(CPlayerSlot slot)
 void SwiftlyChatManagerHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Chat Menu\n");
-    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly chat <command>\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: sw chat <command>\n");
     PrintToClientOrConsole(slot, "Commands", " reload     - Reload chat message configurations.\n");
 }
 

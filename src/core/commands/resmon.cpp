@@ -2,17 +2,19 @@
 
 #include <tools/resourcemonitor/monitor.h>
 #include <plugins/manager.h>
+#include <filesystem/files/files.h>
 
 #include <sstream>
 
 void SwiftlyResourceMonitorManagerHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Resource Monitor Menu\n");
-    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly resmon <command>\n");
-    PrintToClientOrConsole(slot, "Commands", " enable          - Enabled the usage monitoring.\n");
-    PrintToClientOrConsole(slot, "Commands", " disable         - Disables the usage monitoring.\n");
-    PrintToClientOrConsole(slot, "Commands", " view            - Shows the usage monitored.\n");
-    PrintToClientOrConsole(slot, "Commands", " viewplugin <ID> - Shows the usage monitored for a specific plugin.\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: sw resmon <command>\n");
+    PrintToClientOrConsole(slot, "Commands", " enable             - Enabled the usage monitoring.\n");
+    PrintToClientOrConsole(slot, "Commands", " disable            - Disables the usage monitoring.\n");
+    PrintToClientOrConsole(slot, "Commands", " view               - Shows the usage monitored.\n");
+    PrintToClientOrConsole(slot, "Commands", " viewplugin <ID>    - Shows the usage monitored for a specific plugin.\n");
+    PrintToClientOrConsole(slot, "Commands", " save [plugin_name] - Saves the registered usage into a JSON file.\n");
 }
 
 void SwiftlyResourceMonitorManagerEnable(CPlayerSlot slot)
@@ -31,6 +33,28 @@ void SwiftlyResourceMonitorManagerDisable(CPlayerSlot slot)
 
     g_ResourceMonitor.Disable();
     PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring has been disabled.\n");
+}
+
+void SwiftlyResourceMonitorManagerSavePlugin(CPlayerSlot slot, std::string plugin_id)
+{
+    if (!g_ResourceMonitor.IsEnabled())
+        return PrintToClientOrConsole(slot, "Resource Monitor", "Resource monitoring is not enabled.\n");
+
+    auto json_output = g_ResourceMonitor.GenerateJSONPerformance(plugin_id);
+
+    if (!Files::ExistsPath("addons/swiftly/profilers"))
+    {
+        if (!Files::CreateDirectory("addons/swiftly/profilers"))
+        {
+            return PrintToClientOrConsole(slot, "Resource Monitor", "Couldn't create profilers folder.\n");
+        }
+    }
+
+    std::string file_path = string_format("addons/swiftly/profilers/profiler.%s.%s.json", plugin_id == "" ? "all" : plugin_id.c_str(), get_uuid().c_str());
+    if (Files::ExistsPath(file_path)) Files::Delete(file_path);
+
+    Files::Write(file_path, json_output, false);
+    PrintToClientOrConsole(slot, "Resource Monitor", "The profiler file has been saved to %s.\n", file_path.c_str());
 }
 
 void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, std::string plugin_id)
@@ -238,6 +262,8 @@ void SwiftlyResourceMonitorManager(CPlayerSlot slot, const char* subcmd, const c
         SwiftlyResourceMonitorManagerView(slot);
     else if (sbcmd == "viewplugin")
         SwiftlyResourceMonitorManagerViewPlugin(slot, (subcmd2 == nullptr ? "" : subcmd2));
+    else if (sbcmd == "save")
+        SwiftlyResourceMonitorManagerSavePlugin(slot, (subcmd2 == nullptr ? "" : subcmd2));
     else
         SwiftlyResourceMonitorManagerHelp(slot);
 }

@@ -4,7 +4,7 @@
 void SwiftlyConfigurationManagerHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Configuration Menu\n");
-    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly config <command>\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: sw config <command>\n");
     PrintToClientOrConsole(slot, "Commands", " reload     - Reloads all the plugin configurations.\n");
 }
 

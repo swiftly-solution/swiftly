@@ -23,6 +23,8 @@ public:
     void StopTime(std::string plugin_id, std::string key);
 
     std::map<std::string, std::map<std::string, std::vector<float>>> GetResmonTimeTables();
+
+    std::string GenerateJSONPerformance(std::string plugin_id = "");
 };
 
 extern ResourceMonitor g_ResourceMonitor;

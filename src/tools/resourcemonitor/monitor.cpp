@@ -1,5 +1,8 @@
 #include "monitor.h"
 
+#include <memory/encoders/json.h>
+#include <utils/utils.h>
+
 void ResourceMonitor::Enable()
 {
     resmonTimesTable.clear();
@@ -53,4 +56,85 @@ void ResourceMonitor::StopTime(std::string plugin_id, std::string key)
     if (resmonTempTables[plugin_id].find(key) == resmonTempTables[plugin_id].end()) return;
 
     RecordTime(plugin_id, key, float(std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - resmonTempTables[plugin_id][key]).count()) / 1000.0);
+}
+
+std::string ResourceMonitor::GenerateJSONPerformance(std::string plugin_id)
+{
+    rapidjson::Document doc(rapidjson::kArrayType);
+
+    rapidjson::Document v1 = encoders::json::FromString("{\"args\": {\"name\": \"Swiftly\"},\"cat\": \"__metadata\",\"name\": \"process_name\",\"ph\": \"M\",\"pid\": 1,\"tid\": 1,\"ts\": 0}");
+    doc.PushBack(v1, doc.GetAllocator());
+    rapidjson::Document v2 = encoders::json::FromString("{\"args\":{\"name\":\"Swiftly Main\"},\"cat\":\"__metadata\",\"name\":\"thread_name\",\"ph\":\"M\",\"pid\":1,\"tid\":1,\"ts\":0}");
+    doc.PushBack(v2, doc.GetAllocator());
+    rapidjson::Document v3 = encoders::json::FromString("{\"args\":{\"name\":\"Swiftly Profiler\"},\"cat\":\"__metadata\",\"name\":\"thread_name\",\"ph\":\"M\",\"pid\":1,\"tid\":2,\"ts\":0}");
+    doc.PushBack(v3, doc.GetAllocator());
+
+    uint64_t t = 0;
+    auto timings = GetResmonTimeTables();
+    if (plugin_id == "") {
+        for (auto it = timings.begin(); it != timings.end(); ++it) {
+            for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
+                for (float time : it2->second) {
+                    uint64_t uint_time = (uint64_t)(time * 1000.0f);
+
+                    rapidjson::Value val(rapidjson::kObjectType);
+                    rapidjson::Value val2(rapidjson::kObjectType);
+
+                    t++;
+
+                    std::string event_name = string_format("%s [%s]", it2->first.c_str(), it->first.c_str());
+
+                    val.AddMember("name", rapidjson::Value().SetString(event_name.c_str(), doc.GetAllocator()), doc.GetAllocator());
+                    val.AddMember("ph", rapidjson::Value().SetString("B", doc.GetAllocator()), doc.GetAllocator());
+                    val.AddMember("tid", rapidjson::Value().SetInt(2), doc.GetAllocator());
+                    val.AddMember("pid", rapidjson::Value().SetInt(1), doc.GetAllocator());
+                    val.AddMember("ts", rapidjson::Value().SetUint64(t), doc.GetAllocator());
+
+                    doc.PushBack(val, doc.GetAllocator());
+
+                    t += uint_time;
+
+                    val2.AddMember("name", rapidjson::Value().SetString(event_name.c_str(), doc.GetAllocator()), doc.GetAllocator());
+                    val2.AddMember("ph", rapidjson::Value().SetString("E", doc.GetAllocator()), doc.GetAllocator());
+                    val2.AddMember("tid", rapidjson::Value().SetInt(2), doc.GetAllocator());
+                    val2.AddMember("pid", rapidjson::Value().SetInt(1), doc.GetAllocator());
+                    val2.AddMember("ts", rapidjson::Value().SetUint64(t), doc.GetAllocator());
+
+                    doc.PushBack(val2, doc.GetAllocator());
+                }
+            }
+        }
+    }
+    else {
+        for (auto it2 = timings[plugin_id].begin(); it2 != timings[plugin_id].end(); ++it2) {
+            for (float time : it2->second) {
+                uint64_t uint_time = (uint64_t)(time * 1000.0f);
+
+                rapidjson::Value val(rapidjson::kObjectType);
+                rapidjson::Value val2(rapidjson::kObjectType);
+
+                t++;
+
+                val.AddMember("name", rapidjson::Value().SetString(it2->first.c_str(), doc.GetAllocator()), doc.GetAllocator());
+                val.AddMember("ph", rapidjson::Value().SetString("B", doc.GetAllocator()), doc.GetAllocator());
+                val.AddMember("tid", rapidjson::Value().SetInt(2), doc.GetAllocator());
+                val.AddMember("pid", rapidjson::Value().SetInt(1), doc.GetAllocator());
+                val.AddMember("ts", rapidjson::Value().SetUint64(t), doc.GetAllocator());
+
+                doc.PushBack(val, doc.GetAllocator());
+
+                t += uint_time;
+
+                val2.AddMember("name", rapidjson::Value().SetString(it2->first.c_str(), doc.GetAllocator()), doc.GetAllocator());
+                val2.AddMember("ph", rapidjson::Value().SetString("E", doc.GetAllocator()), doc.GetAllocator());
+                val2.AddMember("tid", rapidjson::Value().SetInt(2), doc.GetAllocator());
+                val2.AddMember("pid", rapidjson::Value().SetInt(1), doc.GetAllocator());
+                val2.AddMember("ts", rapidjson::Value().SetUint64(t), doc.GetAllocator());
+
+                doc.PushBack(val2, doc.GetAllocator());
+            }
+        }
+    }
+
+    return std::string("{\"traceEvents\":") + encoders::json::ToString(doc) + "}";
 }

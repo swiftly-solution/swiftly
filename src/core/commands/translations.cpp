@@ -4,7 +4,7 @@
 void SwiftlyTranslationManagerHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Translation Menu\n");
-    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly translations <command>\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: sw translations <command>\n");
     PrintToClientOrConsole(slot, "Commands", " reload    - Reloads the translations.\n");
 }
 

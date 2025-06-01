@@ -5,7 +5,7 @@
 void SwiftlyExtensionManagerHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Configuration Menu\n");
-    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly exts <command>\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: sw exts <command>\n");
     PrintToClientOrConsole(slot, "Commands", " list     - Shows all the extensions loaded.\n");
 }
 

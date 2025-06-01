@@ -3,7 +3,7 @@
 void ShowSwiftlyCommandHelp(CPlayerSlot slot)
 {
     PrintToClientOrConsole(slot, "Commands", "Swiftly Commands Menu\n");
-    PrintToClientOrConsole(slot, "Commands", "Usage: swiftly <command> [args]\n");
+    PrintToClientOrConsole(slot, "Commands", "Usage: sw <command> [args]\n");
     PrintToClientOrConsole(slot, "Commands", " credits      - List Swiftly credits\n");
     PrintToClientOrConsole(slot, "Commands", " help         - Show the help for Swiftly commands\n");
     PrintToClientOrConsole(slot, "Commands", " list         - Show the list of online players\n");
