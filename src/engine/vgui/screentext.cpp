@@ -10,7 +10,6 @@ std::vector<CEntityKeyValues*> scheduleForDelete;
 ScreenText::~ScreenText()
 {
     if (pScreenEntity.IsValid()) {
-        g_entSystem.AcceptInput(pScreenEntity.Get(), "SetMessage", nullptr, nullptr, "", 0);
         schema::SetProp<bool>(pScreenEntity.Get(), "CPointWorldText", "m_bEnabled", false);
         schema::SetProp<bool>(pScreenEntity.Get(), "CPointWorldText", "m_bDrawBackground", false);
     }
