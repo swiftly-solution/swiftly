@@ -2,6 +2,24 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.15-16 - [Release v1.6.15](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.15) - [Release v1.6.16](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.16)
+
+### Resource Monitor
+
+- feat(resmon): Save to JSON (Chrome Performance Visualizer)
+
+![Demo_ALT](https://cdn.skuzzi.ro/XD04gXPsAD6LXR0xyaW4HM8imKeqcUAc.mp4)
+
+### VGUI
+
+- fix(ScreenText): AcceptInput for Message at deconstruct
+
+## v1.6.14 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.14)
+
+### Events
+
+- EventResult Handled not being considered & Event Object lifetime
+
 ## v1.6.13 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.13)
 
 ### Shutdown Crashes
