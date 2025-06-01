@@ -2,6 +2,7 @@
 
 #include <memory/encoders/json.h>
 #include <utils/utils.h>
+#include <algorithm>
 
 void ResourceMonitor::Enable()
 {
@@ -74,6 +75,27 @@ std::string ResourceMonitor::GenerateJSONPerformance(std::string plugin_id)
     if (plugin_id == "") {
         for (auto it = timings.begin(); it != timings.end(); ++it) {
             for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) {
+
+                auto [min, max] = std::minmax_element(it2->second.begin(), it2->second.end());
+
+                float avg = 0;
+                uint64_t avgCount = 0;
+                for (std::vector<float>::iterator ii = it2->second.begin(); ii != it2->second.end(); ++ii)
+                {
+                    avg += *(ii);
+                    ++avgCount;
+                }
+
+                avg /= (float)(avgCount);
+
+                std::string event_name = string_format("%s [%s] (min=%s, avg=%s, max=%s, calls=%d)",
+                    it2->first.c_str(), it->first.c_str(),
+                    (*min) < 0.5 ? string_format("%d.00μs", (uint64_t)((*min) * 1000.0f)).c_str() : string_format("%.2fms", *min).c_str(),
+                    avg < 0.5 ? string_format("%d.00μs", (uint64_t)(avg * 1000.0f)).c_str() : string_format("%.2fms", avg).c_str(),
+                    (*max) < 0.5 ? string_format("%d.00μs", (uint64_t)((*max) * 1000.0f)).c_str() : string_format("%.2fms", *max).c_str(),
+                    it2->second.size()
+                );
+
                 for (float time : it2->second) {
                     uint64_t uint_time = (uint64_t)(time * 1000.0f);
 
@@ -81,8 +103,6 @@ std::string ResourceMonitor::GenerateJSONPerformance(std::string plugin_id)
                     rapidjson::Value val2(rapidjson::kObjectType);
 
                     t++;
-
-                    std::string event_name = string_format("%s [%s]", it2->first.c_str(), it->first.c_str());
 
                     val.AddMember("name", rapidjson::Value().SetString(event_name.c_str(), doc.GetAllocator()), doc.GetAllocator());
                     val.AddMember("ph", rapidjson::Value().SetString("B", doc.GetAllocator()), doc.GetAllocator());
@@ -107,6 +127,26 @@ std::string ResourceMonitor::GenerateJSONPerformance(std::string plugin_id)
     }
     else {
         for (auto it2 = timings[plugin_id].begin(); it2 != timings[plugin_id].end(); ++it2) {
+            auto [min, max] = std::minmax_element(it2->second.begin(), it2->second.end());
+
+            float avg = 0;
+            uint64_t avgCount = 0;
+            for (std::vector<float>::iterator ii = it2->second.begin(); ii != it2->second.end(); ++ii)
+            {
+                avg += *(ii);
+                ++avgCount;
+            }
+
+            avg /= (float)(avgCount);
+
+            std::string event_name = string_format("%s (min=%s, avg=%s, max=%s, calls=%d)",
+                it2->first.c_str(),
+                (*min) < 0.5 ? string_format("%d.00μs", (uint64_t)((*min) * 1000.0f)).c_str() : string_format("%.2fms", *min).c_str(),
+                avg < 0.5 ? string_format("%d.00μs", (uint64_t)(avg * 1000.0f)).c_str() : string_format("%.2fms", avg).c_str(),
+                (*max) < 0.5 ? string_format("%d.00μs", (uint64_t)((*max) * 1000.0f)).c_str() : string_format("%.2fms", *max).c_str(),
+                it2->second.size()
+            );
+
             for (float time : it2->second) {
                 uint64_t uint_time = (uint64_t)(time * 1000.0f);
 
@@ -115,7 +155,7 @@ std::string ResourceMonitor::GenerateJSONPerformance(std::string plugin_id)
 
                 t++;
 
-                val.AddMember("name", rapidjson::Value().SetString(it2->first.c_str(), doc.GetAllocator()), doc.GetAllocator());
+                val.AddMember("name", rapidjson::Value().SetString(event_name.c_str(), doc.GetAllocator()), doc.GetAllocator());
                 val.AddMember("ph", rapidjson::Value().SetString("B", doc.GetAllocator()), doc.GetAllocator());
                 val.AddMember("tid", rapidjson::Value().SetInt(2), doc.GetAllocator());
                 val.AddMember("pid", rapidjson::Value().SetInt(1), doc.GetAllocator());
@@ -125,7 +165,7 @@ std::string ResourceMonitor::GenerateJSONPerformance(std::string plugin_id)
 
                 t += uint_time;
 
-                val2.AddMember("name", rapidjson::Value().SetString(it2->first.c_str(), doc.GetAllocator()), doc.GetAllocator());
+                val2.AddMember("name", rapidjson::Value().SetString(event_name.c_str(), doc.GetAllocator()), doc.GetAllocator());
                 val2.AddMember("ph", rapidjson::Value().SetString("E", doc.GetAllocator()), doc.GetAllocator());
                 val2.AddMember("tid", rapidjson::Value().SetInt(2), doc.GetAllocator());
                 val2.AddMember("pid", rapidjson::Value().SetInt(1), doc.GetAllocator());
