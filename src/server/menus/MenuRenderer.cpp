@@ -245,11 +245,12 @@ void MenuRenderer::PerformMenuAction(std::string button)
         {
             CCommand tokenizedArgs;
             tokenizedArgs.Tokenize(cmd.c_str());
+            if (tokenizedArgs.ArgC() <= 0) return;
 
             std::string commandName = (tokenizedArgs[0] + 3);
 
             std::vector<std::string> argsplit = TokenizeCommand(cmd.c_str());
-            argsplit.erase(argsplit.begin());
+            if (argsplit.size() > 0) argsplit.erase(argsplit.begin());
 
             if (g_commandsManager.FetchCommand(commandName) == nullptr)
                 return;
