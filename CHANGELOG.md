@@ -2,6 +2,12 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.17 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.17)
+
+### Menus
+
+- fix(menus): PerformMenuAction empty vector
+
 ## v1.6.15-16 - [Release v1.6.15](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.15) - [Release v1.6.16](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.16)
 
 ### Resource Monitor
