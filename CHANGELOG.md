@@ -2,6 +2,16 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.18 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.18)
+
+### Menus
+
+- possible_fix(menus): Crashes on map change
+
+### Teleport
+
+- fix(Teleport): Angles not being set
+
 ## v1.6.17 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.17)
 
 ### Menus
