@@ -170,7 +170,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
 
         if (pos && pos->HasData("vector_ptr"))
             po = pos->GetDataOr<Vector>("vector_ptr", po);
-        if (ang && ang->HasData("vector_ptr"))
+        if (ang && ang->HasData("QAngle_ptr"))
             an = ang->GetDataOr<QAngle>("QAngle_ptr", an);
         if (vel && vel->HasData("vector_ptr"))
             ve = vel->GetDataOr<Vector>("vector_ptr", ve);
