@@ -36,22 +36,12 @@ void EmitSoundFilter(int playerid, std::string sound_name, float pitch, float vo
 MenuRenderer::MenuRenderer(Player* player)
 {
     m_player = player;
-
-    CPlayerSlot slot = player->GetSlot();
-
-    centerMessageEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
-    centerMessageEvent->SetUint64("duration", 1);
-    centerMessageEvent->SetInt("userid", slot.Get());
-
-    playerListener = g_GameData.FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(slot);
-
     menu = nullptr;
 }
 
 MenuRenderer::~MenuRenderer()
 {
     HideMenu();
-    g_gameEventManager->FreeEvent(centerMessageEvent);
 }
 
 void MenuRenderer::ShowMenu(std::string menu_id)
@@ -101,24 +91,23 @@ void MenuRenderer::HideMenu()
     selected = 0;
 
     std::string kind = menu->GetKind();
-    if (menu->IsTemporary()) {
-        std::string menuID = menu->GetID();
-        g_MenuManager.UnregisterMenu(menuID);
-    }
-
-    menu = nullptr;
-
     if (kind == "center") {
         if (centerMessageEvent) {
             centerMessageEvent->SetString("loc_token", "Exiting...");
-            playerListener->FireGameEvent(centerMessageEvent);
+            g_GameData.FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(m_player->GetSlot())->FireGameEvent(centerMessageEvent);
+            g_gameEventManager->FreeEvent(centerMessageEvent);
         }
     }
     else if (kind == "screen") {
         g_VGUI.DeleteScreenText(menuTextID);
-
         menuTextID = 0;
     }
+
+    if (menu->IsTemporary()) {
+        std::string menuID = menu->GetID();
+        g_MenuManager.UnregisterMenu(menuID);
+    }
+    menu = nullptr;
 }
 
 bool MenuRenderer::HasMenuShown()
@@ -167,6 +156,9 @@ void MenuRenderer::RenderMenu() {
     if (!menu) return;
     std::string kind = menu->GetKind();
     if (kind == "center") {
+        centerMessageEvent = g_gameEventManager->CreateEvent("show_survival_respawn_status", true);
+        centerMessageEvent->SetUint64("duration", 1);
+        centerMessageEvent->SetInt("userid", m_player->GetSlot());
         centerMessageEvent->SetString("loc_token", menu->GeneratedItems(m_player->GetSlot(), page).c_str());
     }
     else if (kind == "screen") {
@@ -184,9 +176,10 @@ void MenuRenderer::RenderMenuTick()
 
     std::string kind = menu->GetKind();
     if (kind == "center") {
-        if (!playerListener) return;
+        auto listener = g_GameData.FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(m_player->GetSlot());
+        if (!listener) return;
         if (!centerMessageEvent) return;
-        playerListener->FireGameEvent(centerMessageEvent);
+        listener->FireGameEvent(centerMessageEvent);
     }
 }
 

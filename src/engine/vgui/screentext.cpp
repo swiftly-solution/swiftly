@@ -63,6 +63,7 @@ void ScreenText::SetupViewForPlayer(Player* player)
 {
     m_player = player;
 
+    if (!pScreenEntity.IsValid()) return;
     if (!pScreenEntity) return;
     if (!player) return;
     if (player->IsFakeClient()) return;
@@ -78,6 +79,7 @@ void ScreenText::SetText(std::string text)
 {
     m_text = text;
 
+    if (!pScreenEntity.IsValid()) return;
     if (!pScreenEntity) return;
 
     g_entSystem.AcceptInput(pScreenEntity.Get(), "SetMessage", nullptr, nullptr, m_text, 0);
@@ -91,6 +93,7 @@ void ScreenText::SetPosition(float posX, float posY)
 
     if (!m_player) return;
     if (m_player->IsFakeClient()) return;
+    if (!pScreenEntity.IsValid()) return;
     if (!pScreenEntity) return;
 
     auto pawn = m_player->GetPlayerPawn();
@@ -148,6 +151,7 @@ void ScreenText::SetColor(Color color)
 {
     m_col = color;
 
+    if (!pScreenEntity.IsValid()) return;
     if (!pScreenEntity) return;
     schema::SetProp(pScreenEntity.Get(), "CPointWorldText", "m_Color", color);
 }
@@ -180,6 +184,7 @@ Player* ScreenText::GetPlayer()
 
 int ScreenText::GetEntityIndex()
 {
+    if (!pScreenEntity.IsValid()) return 0;
     if (!pScreenEntity) return 0;
 
     return pScreenEntity->GetEntityIndex().Get();
