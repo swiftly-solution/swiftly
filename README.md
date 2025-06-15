@@ -11,7 +11,7 @@
 
 <div align="center">
 
-README is also available in [Ukrainian](https://github.com/swiftly-solution/swiftly/blob/master/README-UA.md) ![ua](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/ua.png) and [Russian](https://github.com/swiftly-solution/swiftly/blob/master/README-RU.md) ![ru](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/ru.png)
+README is also available in [Ukrainian](https://github.com/swiftly-solution/swiftly/blob/master/README-UA.md) ![ua](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/ua.png) and [Russian](https://github.com/swiftly-solution/swiftly/blob/master/README-RU.md) ![ru](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/ru.png) and [Chinese](https://github.com/swiftly-solution/swiftly/blob/master/README-CN.md) ![ru](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png)
 
 ![Downloads](https://img.shields.io/github/downloads/swiftly-solution/swiftly/total) ![Contributors](https://img.shields.io/github/contributors/swiftly-solution/swiftly?color=dark-green) ![Issues](https://img.shields.io/github/issues/swiftly-solution/swiftly) ![License](https://img.shields.io/github/license/swiftly-solution/swiftly)
 
