@@ -816,6 +816,50 @@ void UserMessage::AddQAngle(std::string pszFieldName, QAngle& vec)
     msgAng->set_z(vec.z);
 }
 
+std::string UserMessage::GetBytes(std::string pszFieldName)
+{
+    GETCHECK_FIELD("");
+    CHECK_FIELD_TYPE(STRING, "");
+    CHECK_FIELD_NOT_REPEATED("");
+
+    return this->msgBuffer->GetReflection()->GetString(*this->msgBuffer, field);
+}
+
+void UserMessage::SetBytes(std::string pszFieldName, std::string& value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE_VOID(STRING);
+    CHECK_FIELD_NOT_REPEATED();
+
+    this->msgBuffer->GetReflection()->SetString(this->msgBuffer, field, value);
+}
+std::string UserMessage::GetRepeatedBytes(std::string pszFieldName, int index)
+{
+    GETCHECK_FIELD("");
+    CHECK_FIELD_TYPE(STRING, "");
+    CHECK_FIELD_REPEATED("");
+    CHECK_REPEATED_ELEMENT(index, "");
+
+    return this->msgBuffer->GetReflection()->GetRepeatedString(*this->msgBuffer, field, index);
+}
+void UserMessage::SetRepeatedBytes(std::string pszFieldName, int index, std::string& value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE_VOID(STRING);
+    CHECK_FIELD_REPEATED();
+    CHECK_REPEATED_ELEMENT_VOID(index);
+
+    this->msgBuffer->GetReflection()->SetRepeatedString(this->msgBuffer, field, index, value);
+}
+void UserMessage::AddBytes(std::string pszFieldName, std::string& value)
+{
+    GETCHECK_FIELD();
+    CHECK_FIELD_TYPE_VOID(STRING);
+    CHECK_FIELD_REPEATED();
+
+    this->msgBuffer->GetReflection()->AddString(this->msgBuffer, field, value);
+}
+
 UserMessage UserMessage::GetUMessage(std::string pszFieldName)
 {
     GETCHECK_FIELD(UserMessage(""));

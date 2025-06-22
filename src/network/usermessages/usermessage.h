@@ -112,6 +112,12 @@ public:
     void SetRepeatedQAngle(std::string pszFieldName, int index, QAngle& vec);
     void AddQAngle(std::string pszFieldName, QAngle& vec);
 
+    std::string GetBytes(std::string pszFieldName);
+    void SetBytes(std::string pszFieldName, std::string& value);
+    std::string GetRepeatedBytes(std::string pszFieldName, int index);
+    void SetRepeatedBytes(std::string pszFieldName, int index, std::string& value);
+    void AddBytes(std::string pszFieldName, std::string& value);
+
     UserMessage GetUMessage(std::string pszFieldName);
     UserMessage GetRepeatedMessage(std::string pszFieldName, int index);
     UserMessage AddMessage(std::string pszFieldName);
