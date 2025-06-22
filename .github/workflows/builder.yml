@@ -48,6 +48,7 @@ jobs:
             ip-extension,
             utils-extension,
             sdktools-extension,
+            websocket-extension,
           ]
         include:
           - os: ubuntu-latest
