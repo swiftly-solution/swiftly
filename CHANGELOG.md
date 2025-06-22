@@ -2,7 +2,17 @@
 
 Over here will be noted all the update change logs.
 
-## v1.6.18 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.18)
+## v1.6.20 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.20)
+
+### WebSockets
+
+- Added support for websockets server inside scripting. [Documentation](https://swiftlys2.net/plugin-docs/scripting/ws)
+
+### UserMessages
+
+- feat(usermessages): Bytes support
+
+## v1.6.18-19 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.18)
 
 ### Menus
 
