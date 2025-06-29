@@ -5,14 +5,8 @@
 #include <sdk/schema.h>
 #include <entities/system.h>
 
-std::vector<CEntityKeyValues*> scheduleForDelete;
-
 ScreenText::~ScreenText()
 {
-    if (pScreenEntity.IsValid()) {
-        schema::SetProp<bool>(pScreenEntity.Get(), "CPointWorldText", "m_bEnabled", false);
-        schema::SetProp<bool>(pScreenEntity.Get(), "CPointWorldText", "m_bDrawBackground", false);
-    }
 }
 
 void ScreenText::Create(Color color, std::string font, int size, bool drawBackground, bool isMenu)
@@ -27,8 +21,6 @@ void ScreenText::Create(Color color, std::string font, int size, bool drawBackgr
     if (!pScreenEntity) return;
 
     CEntityKeyValues* pMenuKV = new CEntityKeyValues();
-
-    scheduleForDelete.push_back(pMenuKV);
 
     pMenuKV->SetBool("enabled", true);
     pMenuKV->SetFloat("world_units_per_pixel", (0.25 / 1050) * size);
@@ -198,11 +190,4 @@ bool ScreenText::IsRenderingTo(CHandle<CEntityInstance> renderingTo)
 void ScreenText::SetRenderingTo(CEntityInstance* ent)
 {
     pRenderingTo.Set(ent);
-}
-
-void EraseScheduledCEntKeyVals() {
-    // for (auto e : scheduleForDelete) {
-    //     delete e;
-    // }
-    scheduleForDelete.clear();
 }
