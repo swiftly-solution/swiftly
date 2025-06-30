@@ -388,7 +388,7 @@ const char* SwiftlyS2::GetVersion()
 #ifndef SWIFTLY_VERSION
     return "Local";
 #else
-    return "v"SWIFTLY_VERSION;
+    return SWIFTLY_VERSION;
 #endif
 }
 
