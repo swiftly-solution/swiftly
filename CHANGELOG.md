@@ -4,6 +4,10 @@ Over here will be noted all the update change logs.
 
 ## v1.6.23-24 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.24)
 
+### Map Chooser
+
+- Removed the message spam in chat, now it's gonna be only 3 messages.
+
 ### Center Menu
 
 - Fixed crashes when exiting center menu
