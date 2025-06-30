@@ -19,16 +19,19 @@ void UserMessages::Initialize()
 {
     SH_ADD_HOOK_MEMFUNC(IGameEventSystem, PostEventAbstract, g_pGameEventSystem, this, &UserMessages::PostEvent, false);
 
+    #ifndef _WIN32
     DynLibUtils::CModule eng = DetermineModuleByLibrary("engine2");
     void* serverSideClientVTable = FindVirtTable(&eng, "CServerSideClient", g_GameData.GetOffset("INetworkMessageProcessingPreFilter"));
 
     hookID = SH_ADD_MANUALDVPHOOK(FilterMessage, serverSideClientVTable, SH_MEMBER(this, &UserMessages::FilterMessage), false);
+    #endif
 }
 
 bool UserMessages::FilterMessage(const CNetMessage* cMsg, INetChannel* netchan)
 {
     auto client = META_IFACEPTR(CServerSideClient);
     if (!client) RETURN_META_VALUE(MRES_IGNORED, true);
+    if (!cMsg) RETURN_META_VALUE(MRES_IGNORED, true);
 
     UserMessage um(cMsg->GetNetMessage(), const_cast<CNetMessage*>(cMsg), (uint64_t*)0);
     ClassData* umobj = new ClassData({ { "um_ptr", &um } }, "UserMessage", nullptr);
@@ -43,9 +46,11 @@ bool UserMessages::FilterMessage(const CNetMessage* cMsg, INetChannel* netchan)
 void UserMessages::Destroy()
 {
     SH_REMOVE_HOOK_MEMFUNC(IGameEventSystem, PostEventAbstract, g_pGameEventSystem, this, &UserMessages::PostEvent, false);
-
+    
+    #ifndef _WIN32
     SH_REMOVE_HOOK_ID(hookID);
     hookID = -1;
+    #endif
 }
 
 void UserMessages::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType)

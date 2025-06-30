@@ -31,7 +31,7 @@ LoadScriptingComponent(menus, [](PluginObject plugin, EContext* ctx) -> void {
         std::string title = context->GetArgumentOr<std::string>(1, "");
         std::string color = context->GetArgumentOr<std::string>(2, "");
         std::vector<std::pair<std::string, std::string>> options = context->GetArgumentOr<std::vector<std::pair<std::string, std::string>>>(3, std::vector<std::pair<std::string, std::string>>{});
-        std::string menuKind = context->GetArgumentOr<std::string>(4, g_Config.FetchValue<std::string>("core.menu.kind"));
+        std::string menuKind = WIN_LINUX("center", context->GetArgumentOr<std::string>(4, g_Config.FetchValue<std::string>("core.menu.kind")));
 
         g_MenuManager.RegisterMenu(FetchPluginName(context->GetPluginContext()), menuid, title, color, options, true, menuKind);
     });

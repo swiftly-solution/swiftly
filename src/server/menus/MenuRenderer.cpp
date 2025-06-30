@@ -93,9 +93,8 @@ void MenuRenderer::HideMenu()
     std::string kind = menu->GetKind();
     if (kind == "center") {
         if (centerMessageEvent) {
-            centerMessageEvent->SetString("loc_token", "Exiting...");
-            g_GameData.FetchSignature<GetLegacyGameEventListener>("LegacyGameEventListener")(m_player->GetSlot())->FireGameEvent(centerMessageEvent);
             g_gameEventManager->FreeEvent(centerMessageEvent);
+            centerMessageEvent = nullptr;
         }
     }
     else if (kind == "screen") {
