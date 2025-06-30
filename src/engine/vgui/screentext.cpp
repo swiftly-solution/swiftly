@@ -7,6 +7,10 @@
 
 ScreenText::~ScreenText()
 {
+    if (pScreenEntity.IsValid()) {
+        schema::SetProp<bool>(pScreenEntity.Get(), "CPointWorldText", "m_bEnabled", false);
+        schema::SetProp<bool>(pScreenEntity.Get(), "CPointWorldText", "m_bDrawBackground", false);
+    }
 }
 
 void ScreenText::Create(Color color, std::string font, int size, bool drawBackground, bool isMenu)
@@ -57,6 +61,7 @@ void ScreenText::SetupViewForPlayer(Player* player)
 
     if (!pScreenEntity.IsValid()) return;
     if (!pScreenEntity) return;
+
     if (!player) return;
     if (player->IsFakeClient()) return;
 
@@ -190,4 +195,9 @@ bool ScreenText::IsRenderingTo(CHandle<CEntityInstance> renderingTo)
 void ScreenText::SetRenderingTo(CEntityInstance* ent)
 {
     pRenderingTo.Set(ent);
+}
+
+void ScreenText::ResetSpawnState()
+{
+    pScreenEntity.Term();
 }

@@ -21,6 +21,7 @@ public:
     void DeleteScreenText(uint64_t id);
 
     void RegenerateScreenTexts();
+    void ResetStateOfScreenTexts();
 
     void FilterRenderingItems(Player* player, CCheckTransmitInfo* pInfo);
 

@@ -47,6 +47,13 @@ void VGUI::DeleteScreenText(uint64_t id)
     screenTexts.erase(id);
 }
 
+void VGUI::ResetStateOfScreenTexts()
+{
+    for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
+        it->second->ResetSpawnState();
+    }
+}
+
 void VGUI::RegenerateScreenTexts()
 {
     for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {

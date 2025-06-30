@@ -32,6 +32,7 @@ public:
     void SetPosition(float posX = 0.0, float posY = 0.0);
     void SetRenderingTo(CEntityInstance* ent);
     void RegenerateText(bool recreate = true);
+    void ResetSpawnState();
 
     bool IsValidEntity();
     Player* GetPlayer();

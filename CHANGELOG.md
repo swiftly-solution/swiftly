@@ -2,6 +2,12 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.21-22 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.22)
+
+### Screen Text
+
+- Possible crash fix for the screen texts
+
 ## v1.6.20 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.20)
 
 ### WebSockets

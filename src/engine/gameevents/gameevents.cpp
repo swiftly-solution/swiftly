@@ -196,6 +196,8 @@ bool EventManager::OnPostFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
     std::string prettyEventName = gameEventsRegister[eventName];
 
     if (prettyEventName == "OnRoundStart") {
+        g_VGUI.ResetStateOfScreenTexts();
+
         g_Plugin.RegisterTimeout(100, []() -> void {
             g_VGUI.RegenerateScreenTexts();
         });
