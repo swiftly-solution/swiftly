@@ -2,6 +2,18 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.23-24 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.24)
+
+### Center Menu
+
+- Fixed crashes when exiting center menu
+
+### Screen Menu
+
+- Disabled on Windows due to an unidentifiable crash inside CheckTransmit, need more debugging
+
+![Debug Output](https://cdn.skuzzi.ro/HZjpEeujxGLfkYWHuwrNlhmxQ48Alo20.png)
+
 ## v1.6.21-22 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.22)
 
 ### Screen Text
