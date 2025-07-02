@@ -12,6 +12,7 @@
 SH_DECL_EXTERN3_void(IServerGameDLL, GameFrame, SH_NOATTRIB, 0, bool, bool, bool);
 SH_DECL_EXTERN6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSlot, const char*, uint64, const char*, bool, CBufferString*);
 SH_DECL_EXTERN6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlayerSlot, const char*, uint64, const char*, const char*, bool);
+SH_DECL_EXTERN4_void(IServerGameClients, ClientPutInServer, SH_NOATTRIB, 0, CPlayerSlot, char const*, int, uint64);
 SH_DECL_EXTERN5_void(IServerGameClients, ClientDisconnect, SH_NOATTRIB, 0, CPlayerSlot, ENetworkDisconnectionReason, const char*, uint64, const char*);
 
 uint64_t playerMask = 0;
@@ -93,6 +94,7 @@ void PlayerManager::Initialize()
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &PlayerManager::ClientConnect, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, OnClientConnected, gameclients, this, &PlayerManager::OnClientConnected, false);
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &PlayerManager::ClientDisconnect, true);
+    SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientPutInServer, gameclients, this, &PlayerManager::OnClientPutInServer, true);
 }
 
 void PlayerManager::Shutdown()
@@ -101,6 +103,7 @@ void PlayerManager::Shutdown()
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientConnect, gameclients, this, &PlayerManager::ClientConnect, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, OnClientConnected, gameclients, this, &PlayerManager::OnClientConnected, false);
     SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientDisconnect, gameclients, this, &PlayerManager::ClientDisconnect, true);
+    SH_REMOVE_HOOK_MEMFUNC(IServerGameClients, ClientPutInServer, gameclients, this, &PlayerManager::OnClientPutInServer, true);
 }
 
 void PlayerManager::GameFrame(bool a, bool b, bool c)
@@ -175,4 +178,9 @@ void PlayerManager::OnValidateAuthTicket(ValidateAuthTicketResponse_t* response)
         player->SetAuthorized(response->m_eAuthSessionResponse == k_EAuthSessionResponseOK);
         break;
     }
+}
+
+void PlayerManager::OnClientPutInServer(CPlayerSlot slot, char const* pszName, int type, uint64 xuid)
+{
+    g_pluginManager.ExecuteEvent("core", "OnClientPutInServer", { slot.Get(), type }, nullptr);
 }

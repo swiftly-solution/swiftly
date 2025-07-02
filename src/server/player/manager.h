@@ -32,6 +32,7 @@ public:
     bool ClientConnect(CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, bool unk1, CBufferString* pRejectReason);
     void OnClientConnected(CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, const char* pszAddress, bool bFakePlayer);
     void ClientDisconnect(CPlayerSlot slot, ENetworkDisconnectionReason reason, const char* pszName, uint64 xuid, const char* pszNetworkID);
+    void OnClientPutInServer(CPlayerSlot slot, char const* pszName, int type, uint64 xuid);
 
     void SteamAPIServerActivated();
 

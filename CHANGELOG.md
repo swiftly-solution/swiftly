@@ -2,6 +2,12 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.27 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.27)
+
+### Events
+
+- [OnClientPutInServer](https://swiftlys2.net/plugin-docs/scripting/events/core/onclientputinserver)
+
 ## v1.6.26 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.26)
 
 ### Websockets
