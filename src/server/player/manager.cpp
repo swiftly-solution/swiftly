@@ -53,7 +53,7 @@ void PlayerManager::RegisterPlayer(CPlayerSlot slot, Player* player)
     int playerid = slot.Get();
     if (playerid < 0 || playerid >= GetMaxGameClients()) return;
 
-    if (g_Players[playerid] != nullptr) return;
+    if (g_Players[playerid] != nullptr) UnregisterPlayer(slot);
 
     g_Players[playerid] = player;
     playerMask |= (1ULL << playerid);
