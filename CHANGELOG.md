@@ -2,6 +2,12 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.26 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.26)
+
+### Websockets
+
+- Added support for Websocket Client inside Scripting. [Documentation](https://swiftlys2.net/plugin-docs/scripting/ws)
+
 ## v1.6.25 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.25)
 
 ### Players
