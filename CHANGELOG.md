@@ -2,6 +2,13 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.25 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.25)
+
+### Players
+
+- At connect, yeet away the object of the player which is already connected on the same slot.
+- This seems to happen only for bots, they don't get disconnected, so i just yeet them away
+
 ## v1.6.23-24 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.24)
 
 ### Map Chooser
