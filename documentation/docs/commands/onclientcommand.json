@@ -7,5 +7,6 @@
         "playerid": "int",
         "command": "string"
     },
-    "return": "bool"
+    "return": "bool",
+    "games": "all"
 }
