@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "PrecacheItem",
+    "description": "Adds any kind of item to the precacher (including sound and models).",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "PrecacheModel",
+    "description": "Adds a model to precache.",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "void",
+    "games": "all"
+}
