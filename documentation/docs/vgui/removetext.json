@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "RemoveText",
+    "description": "Removes a text based on it's id.",
+    "arguments": {
+        "textID": "int64"
+    },
+    "return": "void",
+    "games": "all"
+}
