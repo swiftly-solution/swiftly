@@ -1,0 +1,11 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnClientCommand",
+    "description": "The event is triggered when a client sends a command.",
+    "arguments": {
+        "playerid": "int",
+        "command": "string"
+    },
+    "return": "bool"
+}

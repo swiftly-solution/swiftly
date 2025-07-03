@@ -1,0 +1,20 @@
+{
+    "kind": "function",
+    "function": "Register",
+    "description": "Registers a new command through Swiftly Commands.",
+    "arguments": {
+        "command_name": "string",
+        "callback": {
+            "arguments": {
+                "playerid": "int",
+                "arguments": "string[]",
+                "arguments_count": "int",
+                "silent": "bool",
+                "prefix": "string"
+            },
+            "return": "void"
+        }
+    },
+    "return": "void",
+    "games": "all"
+}

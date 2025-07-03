@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "RegisterAlias",
+    "description": "Registers an alias for a command registered through Swiftly Commands.",
+    "arguments": {
+        "command_name": "string",
+        "alias": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

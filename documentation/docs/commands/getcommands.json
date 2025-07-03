@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetCommands",
+    "description": "Returns a list of the commands registered by this plugin.",
+    "arguments": {},
+    "return": "string[]",
+    "games": "all"
+}

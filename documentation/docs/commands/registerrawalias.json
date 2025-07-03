@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "RegisterRawAlias",
+    "description": "Registers a raw alias (without sw_ in console) for a command registered through Swiftly Commands.",
+    "arguments": {
+        "command_name": "string",
+        "alias": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+commands.RegisterRawAlias("testcmd", "consolecmd")
