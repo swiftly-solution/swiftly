@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Reload",
+    "description": "Reloads the configuration for the specified key.",
+    "arguments": {
+        "key": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "Create",
+    "description": "Creates the plugin configuration file.",
+    "arguments": {
+        "configuration_key": "string",
+        "value": "string:any"
+    },
+    "return": "void",
+    "games": "all"
+}

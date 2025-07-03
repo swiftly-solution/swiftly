@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "FetchArraySize",
+    "description": "Returns the array size of a config value.",
+    "arguments": {
+        "key": "string"
+    },
+    "return": "int",
+    "games": "all"
+}
