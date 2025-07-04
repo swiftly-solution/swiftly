@@ -44,6 +44,8 @@ public:
     void Enable();
     void Disable();
 
+    dyno::IHook* GetHookFunction();
+
     std::any Call(std::vector<std::any> arguments);
 };
 
