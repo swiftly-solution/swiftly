@@ -4,7 +4,7 @@
     "description": "This is a class to build an SQL query.",
     "constructor": {
         "arguments": {},
-        "return": "void",
+        "return": "QueryBuilder",
         "hidden": true
     },
     "functions": [

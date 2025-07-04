@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "Database",
+    "description": "This is the Database class.",
+    "constructor": {
+        "arguments": {
+            "connection_name": "string"
+        },
+        "return": "Database"
+    },
+    "functions": [
+        {
+            "name": "IsConnected",
+            "arguments": {},
+            "return": "bool"
+        },
+        {
+            "name": "QueryBuilder",
+            "arguments": {},
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "EscapeString",
+            "description": "> [!note]\n> If the database is not connected it will return the same value.",
+            "arguments": {
+                "value": "string"
+            },
+            "return": "string"
+        },
+        {
+            "name": "Query",
+            "arguments": {
+                "query": "string",
+                "callback": {
+                    "arguments": {
+                        "err": "string",
+                        "result": "any[]"
+                    },
+                    "return": "void",
+                    "optional": true
+                }
+            },
+            "return": "void"
+        },
+        {
+            "name": "QueryParams",
+            "description": "> [!note]\n> If the database is not connected it will never execute.\n\n### Params\nThe parameters can be used by the following format inside the query string:\n```\n@key\n[key]\n{key}\n```\n\nInside the parameters value it needs to be format of key and value.\n\nThe values can be a string, a number or a bool. It will automatically convert to string form and perform EscapeString to it so that there would be no chance for SQL Injection.\n\n> [!warning]\n> Works only with SQL databases.",
+            "arguments": {
+                "query": "string",
+                "params": "string:any",
+                "callback": {
+                    "arguments": {
+                        "err": "string",
+                        "result": "any[]"
+                    },
+                    "return": "void",
+                    "optional": true
+                }
+            },
+            "return": "void"
+        }
+    ]
+}
