@@ -1,0 +1,13 @@
+{
+    "kind": "function",
+    "function": "CreateFake",
+    "description": "Creates a fake convar.",
+    "arguments": {
+        "name": "string",
+        "cvar_type": "EConVarType",
+        "default_value": "any",
+        "protected": "bool?"
+    },
+    "return": "void",
+    "games": "all"
+}

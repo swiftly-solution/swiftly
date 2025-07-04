@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "GetType",
+    "description": "Returns the convar type.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "EConVarType",
+    "games": "all"
+}

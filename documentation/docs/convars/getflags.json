@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "GetFlags",
+    "description": "Returns the convar flags.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "int64",
+    "games": "all"
+}

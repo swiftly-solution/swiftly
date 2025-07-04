@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "AddFlags",
+    "description": "Adds the flags to the convar.",
+    "arguments": {
+        "name": "string",
+        "flags": "int64"
+    },
+    "return": "void",
+    "games": "all"
+}
