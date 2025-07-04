@@ -2,6 +2,16 @@
 
 Over here will be noted all the update change logs.
 
+## v1.6.29 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.29)
+
+### Hooks
+
+- Fix hook callbacks not being called
+
+### Weapons
+
+- Fix VData pointer not being correctly set
+
 ## v1.6.28 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.28)
 
 ### GameData / Signatures
