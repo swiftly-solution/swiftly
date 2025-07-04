@@ -76,7 +76,6 @@ dyno::ReturnAction HookCallback(dyno::CallbackType type, dyno::IHook& hook) {
     ClassData* ev = new ClassData({ { "plugin_name", std::string("core") }, { "hook_ptr", hptr } }, "Event", nullptr);
     for (auto hk : hooksList[hptr])
     {
-        printf("Hook called: %s\n", hk.id.c_str());
         if (g_pluginManager.ExecuteEvent("core", "hook:" + callbackType + ":" + hk.id, {}, ev) != EventResult::Continue) {
             delete ev;
             return dyno::ReturnAction::Supercede;
