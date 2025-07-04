@@ -1,0 +1,177 @@
+{
+    "kind": "class",
+    "name": "QueryBuilder",
+    "description": "This is a class to build an SQL query.",
+    "constructor": {
+        "arguments": {},
+        "return": "void",
+        "hidden": true
+    },
+    "functions": [
+        {
+            "name": "Table",
+            "arguments": {
+                "table_name": "string"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Select",
+            "arguments": {
+                "columns": "string[]?"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Insert",
+            "description": "`values` is a Key-Value Map (Key: Column, Value: Data)",
+            "arguments": {
+                "values": "string:any"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Update",
+            "description": "`values` is a Key-Value Map (Key: Column, Value: Data)",
+            "arguments": {
+                "values": "string:any"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Delete",
+            "arguments": {},
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Where",
+            "arguments": {
+                "column": "string",
+                "operator": "string",
+                "value": "any"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Where",
+            "arguments": {
+                "column": "string",
+                "operator": "string",
+                "value": "any"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "OrWhere",
+            "arguments": {
+                "column": "string",
+                "operator": "string",
+                "value": "any"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Join",
+            "arguments": {
+                "table_name": "string",
+                "condition": "string",
+                "join_type": "string"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "OrderBy",
+            "description": "`columns` is a Key-Value Map (Key: Column, Value: Direction)",
+            "arguments": {
+                "columns": "string:string"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Limit",
+            "arguments": {
+                "count": "int"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "GroupBy",
+            "arguments": {
+                "columns": "string[]"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Create",
+            "description": "`values` is a Key-Value Map (Key: Column, Value: Column Rules)",
+            "arguments": {
+                "values": "string:string"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Alter",
+            "description": "`add_columns` and `modify_columns` are a Key-Value Map (Key: Column, Value: Column Rules)\n`remove_columns` is a list of columns to be remove",
+            "arguments": {
+                "add_columns": "string:string",
+                "remove_columns": "string:string",
+                "modify_columns": "string:string"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Drop",
+            "arguments": {},
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "OnDuplicate",
+            "description": "`values` is a Key-Value Map (Key: Column, Value: Data)",
+            "arguments": {
+                "update_value": "string:any"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Having",
+            "arguments": {
+                "condition": "string"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Distinct",
+            "arguments": {},
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Offset",
+            "arguments": {
+                "offset": "int"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Union",
+            "arguments": {
+                "query": "string",
+                "all": "bool"
+            },
+            "return": "QueryBuilder"
+        },
+        {
+            "name": "Execute",
+            "arguments": {
+                "callback": {
+                    "arguments": {
+                        "err": "string",
+                        "result": "any[]"
+                    },
+                    "return": "void"
+                }
+            },
+            "return": "QueryBuilder"
+        }
+    ],
+    "games": "all"
+}
