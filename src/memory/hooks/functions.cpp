@@ -61,6 +61,14 @@ void FunctionHook::Initialize()
     hookFunc->addCallback(m_callbackType, m_handler);
 }
 
+dyno::IHook* FunctionHook::GetHookFunction()
+{
+    if (!m_pfn) return nullptr;
+
+    dyno::IHookManager& manager = dyno::IHookManager::Get();
+    return manager.findDetour(m_pfn).get();
+}
+
 extern bool shuttingDown;
 
 FunctionHook::~FunctionHook()

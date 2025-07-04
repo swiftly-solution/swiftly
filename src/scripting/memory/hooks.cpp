@@ -68,6 +68,7 @@ std::map<uint64_t, std::vector<std::string>> outputHooksList;
 
 dyno::ReturnAction HookCallback(dyno::CallbackType type, dyno::IHook& hook) {
     dyno::IHook* hptr = &hook;
+
     std::string callbackType = (type == dyno::CallbackType::Pre ? "Pre" : "Post");
     if (hooksList.find(hptr) == hooksList.end())
         return dyno::ReturnAction::Ignored;
@@ -202,6 +203,9 @@ LoadScriptingComponent(hooks, [](PluginObject plugin, EContext* ctx) -> void {
             false
         };
 
+        auto foundhook = ((FunctionHook*)(hk.hookPtrPre))->GetHookFunction();
+        hooksList[foundhook].push_back(hk);
+
         std::vector<Hook> hookArr = data->GetData<std::vector<Hook>>("hooks_arr");
         hookArr.push_back(hk);
         data->SetData("hooks_arr", hookArr);
@@ -226,6 +230,9 @@ LoadScriptingComponent(hooks, [](PluginObject plugin, EContext* ctx) -> void {
             id,
             true
         };
+
+        auto foundhook = ((VFunctionHook*)(hk.hookPtrPre))->GetHookFunction();
+        hooksList[foundhook].push_back(hk);
 
         std::vector<Hook> hookArr = data->GetData<std::vector<Hook>>("hooks_arr");
         hookArr.push_back(hk);

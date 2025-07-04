@@ -276,11 +276,11 @@ LoadScriptingComponent(weapons, [](PluginObject plugin, EContext* ctx) -> void {
     });
 
     ADD_CLASS_FUNCTION("Weapon", "CBasePlayerWeaponVData", [](FunctionContext* context, ClassData* data) -> void {
-        context->SetReturn(MakeSDKClassInstance("CBasePlayerWeaponVData", data->GetData<void*>("ptr"), context->GetPluginContext()));
+        context->SetReturn(MakeSDKClassInstance("CBasePlayerWeaponVData", schema::GetVData(data->GetData<void*>("ptr")), context->GetPluginContext()));
     });
 
     ADD_CLASS_FUNCTION("Weapon", "CCSWeaponBaseVData", [](FunctionContext* context, ClassData* data) -> void {
-        context->SetReturn(MakeSDKClassInstance("CCSWeaponBaseVData", data->GetData<void*>("ptr"), context->GetPluginContext()));
+        context->SetReturn(MakeSDKClassInstance("CCSWeaponBaseVData", schema::GetVData(data->GetData<void*>("ptr")), context->GetPluginContext()));
     });
 
     ADD_CLASS_FUNCTION("Weapon", "Drop", [](FunctionContext* context, ClassData* data) -> void {

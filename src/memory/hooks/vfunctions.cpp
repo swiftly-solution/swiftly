@@ -55,6 +55,14 @@ void VFunctionHook::Initialize()
     hookFunc->addCallback(m_callbackType, m_handler);
 }
 
+dyno::IHook* VFunctionHook::GetHookFunction()
+{
+    if (!m_pvtable) return nullptr;
+
+    dyno::IHookManager& manager = dyno::IHookManager::Get();
+    return manager.findVirtual(m_pvtable, m_ioffset).get();
+}
+
 void VFunctionHook::Enable()
 {
     if (enabled) return;
