@@ -65,7 +65,7 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
         ClassData* evObject = new ClassData({ { "plugin_name", FetchPluginName(context->GetPluginContext()) }, { "should_mark_freeable", true } }, "Event", nullptr);
         std::vector<std::any> returnValues;
 
-        returnValues.push_back((int)g_pluginManager.ExecuteEventJSON(FetchPluginName(context->GetPluginContext()), event_name, event_data, evObject));
+        returnValues.push_back((int)(g_pluginManager.ExecuteEventJSON(FetchPluginName(context->GetPluginContext()), event_name, event_data, evObject)));
         returnValues.push_back(evObject);
 
         context->SetReturn(returnValues);
