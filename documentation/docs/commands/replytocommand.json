@@ -4,7 +4,7 @@
     "override": true,
     "description": "Replies to a command used by a client or console.",
     "arguments": {
-        "playerid": "int",
+        "playerid": "int32",
         "prefix": "string",
         "text": "string"
     },

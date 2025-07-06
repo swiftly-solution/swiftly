@@ -90,7 +90,7 @@
         {
             "name": "Limit",
             "arguments": {
-                "count": "int"
+                "count": "int32"
             },
             "return": "QueryBuilder"
         },
@@ -147,7 +147,7 @@
         {
             "name": "Offset",
             "arguments": {
-                "offset": "int"
+                "offset": "int32"
             },
             "return": "QueryBuilder"
         },

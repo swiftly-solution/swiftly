@@ -1,0 +1,237 @@
+{
+    "kind": "class",
+    "name": "CEntityKeyValues",
+    "description": "This is a class to build an entity spawn key values.",
+    "constructor": {
+        "arguments": {},
+        "return": "CEntityKeyValues"
+    },
+    "functions": [
+        {
+            "name": "GetBool",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "bool"
+        },
+        {
+            "name": "GetInt",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "int32"
+        },
+        {
+            "name": "GetUint",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "uint32"
+        },
+        {
+            "name": "GetInt64",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "int64"
+        },
+        {
+            "name": "GetUint64",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "uint64"
+        },
+        {
+            "name": "GetFloat",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "float"
+        },
+        {
+            "name": "GetDouble",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "double"
+        },
+        {
+            "name": "GetString",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "string"
+        },
+        {
+            "name": "GetPtr",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "Memory"
+        },
+        {
+            "name": "GetStringToken",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "uint32"
+        },
+        {
+            "name": "GetColor",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "Color"
+        },
+        {
+            "name": "GetVector",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "Vector"
+        },
+        {
+            "name": "GetVector2D",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "Vector2D"
+        },
+        {
+            "name": "GetVector4D",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "Vector4D"
+        },
+        {
+            "name": "GetQAngle",
+            "arguments": {
+                "key": "string"
+            },
+            "return": "QAngle"
+        },
+        {
+            "name": "SetBool",
+            "arguments": {
+                "key": "string",
+                "value": "bool"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetInt",
+            "arguments": {
+                "key": "string",
+                "value": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetUint",
+            "arguments": {
+                "key": "string",
+                "value": "uint32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetInt64",
+            "arguments": {
+                "key": "string",
+                "value": "int64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetUint64",
+            "arguments": {
+                "key": "string",
+                "value": "uint64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetFloat",
+            "arguments": {
+                "key": "string",
+                "value": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetDouble",
+            "arguments": {
+                "key": "string",
+                "value": "double"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetString",
+            "arguments": {
+                "key": "string",
+                "value": "string"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetPtr",
+            "arguments": {
+                "key": "string",
+                "value": "Memory"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetStringToken",
+            "arguments": {
+                "key": "string",
+                "value": "uint32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetColor",
+            "arguments": {
+                "key": "string",
+                "value": "Color"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetVector",
+            "arguments": {
+                "key": "string",
+                "value": "Vector"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetVector2D",
+            "arguments": {
+                "key": "string",
+                "value": "Vector2D"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetVector4D",
+            "arguments": {
+                "key": "string",
+                "value": "Vector4D"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetQAngle",
+            "arguments": {
+                "key": "string",
+                "value": "QAngle"
+            },
+            "return": "void"
+        }
+    ],
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+const teams = FindEntitiesByClassname("cs_team_manager")

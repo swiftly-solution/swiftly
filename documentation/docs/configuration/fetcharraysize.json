@@ -5,6 +5,6 @@
     "arguments": {
         "key": "string"
     },
-    "return": "int",
+    "return": "int32",
     "games": "all"
 }

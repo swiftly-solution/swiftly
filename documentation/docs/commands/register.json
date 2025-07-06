@@ -6,9 +6,9 @@
         "command_name": "string",
         "callback": {
             "arguments": {
-                "playerid": "int",
+                "playerid": "int32",
                 "arguments": "string[]",
-                "arguments_count": "int",
+                "arguments_count": "int32",
                 "silent": "bool",
                 "prefix": "string"
             },

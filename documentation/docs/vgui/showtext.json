@@ -3,7 +3,7 @@
     "function": "ShowText",
     "description": "Shows a text to a player.",
     "arguments": {
-        "playerid": "int",
+        "playerid": "int32",
         "color": "Color",
         "text": "string",
         "posX": "float",
