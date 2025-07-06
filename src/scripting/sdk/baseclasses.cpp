@@ -50,7 +50,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
 
     ADD_CLASS_FUNCTION("Vector", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         Vector* vec = data->GetDataPtr<Vector>("vector_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 
     ADD_CLASS_FUNCTION("Vector", isLua ? "__len" : "length", [](FunctionContext* context, ClassData* data) -> void {
@@ -162,7 +162,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
 
     ADD_CLASS_FUNCTION("Vector2D", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D* vec = data->GetDataPtr<Vector2D>("Vector2D_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 
     ADD_CLASS_FUNCTION("Vector2D", isLua ? "__len" : "length", [](FunctionContext* context, ClassData* data) -> void {
@@ -296,7 +296,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
 
     ADD_CLASS_FUNCTION("Vector4D", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D* vec = data->GetDataPtr<Vector4D>("Vector4D_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 
     ADD_CLASS_FUNCTION("Vector4D", isLua ? "__len" : "length", [](FunctionContext* context, ClassData* data) -> void {
@@ -424,7 +424,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
 
     ADD_CLASS_FUNCTION("QAngle", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         QAngle* vec = data->GetDataPtr<QAngle>("QAngle_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 
     ADD_CLASS_FUNCTION("QAngle", isLua ? "__len" : "length", [](FunctionContext* context, ClassData* data) -> void {
@@ -571,6 +571,6 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
 
     ADD_CLASS_FUNCTION("Color", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         Color* vec = data->GetDataPtr<Color>("Color_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 })
