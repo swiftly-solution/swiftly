@@ -34,11 +34,27 @@ LoadScriptingComponent(chandle, [](PluginObject plugin, EContext* ctx) -> void {
     });
 
     ADD_CLASS_FUNCTION("CHandle", "SetPtr", [](FunctionContext* context, ClassData* data) -> void {
-        std::string ptr = context->GetArgumentOr<std::string>(0, "");
-        if (!starts_with(ptr, "0x")) return;
+        CHandle<CEntityInstance>* m_Handle = (CHandle<CEntityInstance>*)data->GetDataOr<void*>("chandle_ptr", nullptr);
+        if (!m_Handle) return;
 
-        CHandle<CEntityInstance>* m_Handle = (CHandle<CEntityInstance>*)data->GetData<void*>("chandle_ptr");
-        m_Handle->Set((CEntityInstance*)strtol(ptr.c_str(), nullptr, 16));
+        auto classData = context->GetArgumentOr<ClassData*>(0, nullptr);
+        void* ptr = nullptr;
+
+        if (classData) {
+            if (classData->HasData("ptr")) {
+                ptr = classData->GetData<void*>("ptr");
+            }
+        }
+        else {
+            auto strptr = context->GetArgumentOr<std::string>(0, "");
+            if (starts_with(strptr, "0x")) {
+                ptr = (void*)StringToPtr(strptr);
+            }
+            else {
+                ptr = nullptr;
+            }
+        }
+        m_Handle->Set((CEntityInstance*)ptr);
     });
 
     ADD_CLASS_FUNCTION("CHandle", "GetHandlePtr", [](FunctionContext* context, ClassData* data) -> void {
