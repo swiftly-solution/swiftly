@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "GetPluginState",
+    "override_variable": true,
+    "description": "Returns the state of a plugin.",
+    "arguments": {
+        "plugin_name": "string"
+    },
+    "return": "PluginState_t",
+    "games": "all"
+}

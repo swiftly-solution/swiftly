@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "Print",
+    "override_variable": true,
+    "override_function": {
+        "lua": "print",
+        "js": "console.log"
+    },
+    "description": "Prints values provided in the function.",
+    "arguments": {
+        "...": "any"
+    },
+    "return": "void",
+    "games": "all"
+}

@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "GetCurrentPluginName",
+    "override_variable": true,
+    "description": "Returns the current plugin name.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}

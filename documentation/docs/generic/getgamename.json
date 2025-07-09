@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "GetGameName",
+    "override_variable": true,
+    "description": "Returns the current game.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}
