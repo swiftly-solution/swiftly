@@ -1,0 +1,12 @@
+{
+    "kind": "function",
+    "function": "CallHook",
+    "override_variable": true,
+    "description": "Calls a specific hook.",
+    "arguments": {
+        "hook_handle": "HookHandle",
+        "...": "any"
+    },
+    "return": "any",
+    "games": "all"
+}

@@ -35,10 +35,6 @@
         "windows": 39,
         "linux": 41
     },
-    "CCSPlayer_MovementServices_CheckMovingGround": {
-        "windows": 32,
-        "linux": 33
-    },
     "GetHammerUniqueID": {
         "windows": 109,
         "linux": 108

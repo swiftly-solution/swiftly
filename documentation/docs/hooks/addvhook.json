@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "AddHook",
+    "override_variable": true,
+    "description": "Creates a virtual function hook.",
+    "arguments": {
+        "library": "string",
+        "vtable_name": "string",
+        "offset": "string",
+        "args_list": "string",
+        "return_type": "string"
+    },
+    "return": "HookHandle",
+    "games": "all"
+}
