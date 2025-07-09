@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetInt",
+    "description": "Returns the number value at the memory address.",
+    "arguments": {},
+    "return": "int32",
+    "games": "all"
+}

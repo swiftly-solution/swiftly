@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetUInt64",
+    "description": "Returns the number unsigned 64-bit value at the memory address.",
+    "arguments": {},
+    "return": "uint64",
+    "games": "all"
+}

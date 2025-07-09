@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetInt64",
+    "description": "Returns the number 64-bit value at the memory address.",
+    "arguments": {},
+    "return": "int64",
+    "games": "all"
+}

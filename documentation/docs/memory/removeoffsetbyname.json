@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "RemoveOffsetByName",
+    "description": "Removes an offset to the pointer which is being hold by the name provided from `offsets.json`.",
+    "arguments": {
+        "offsetName": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

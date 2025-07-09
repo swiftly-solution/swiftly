@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "LoadFromSignatureName",
+    "description": "Loads the memory from the provided signature from `signatures.json`.",
+    "arguments": {
+        "signature": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

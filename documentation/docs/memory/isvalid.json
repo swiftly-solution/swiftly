@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "IsValid",
+    "description": "Checks if the pointer is null or not.",
+    "arguments": {},
+    "return": "bool",
+    "games": "all"
+}

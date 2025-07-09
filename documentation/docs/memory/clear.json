@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "Clear",
+    "description": "Clears the pointer which is being hold by the class.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

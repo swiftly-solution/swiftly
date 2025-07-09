@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Allocate",
+    "description": "Allocates memory based on the specified size.",
+    "arguments": {
+        "size": "uint64"
+    },
+    "return": "void",
+    "games": "all"
+}

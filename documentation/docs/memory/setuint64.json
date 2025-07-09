@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetUInt64",
+    "description": "Set the number unsigned 64-bit value to the memory address.",
+    "arguments": {
+        "value": "uint64"
+    },
+    "return": "void",
+    "games": "all"
+}

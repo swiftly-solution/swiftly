@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "AddOffset",
+    "description": "Adds an offset to the pointer which is being hold.",
+    "arguments": {
+        "offset": "int64"
+    },
+    "return": "void",
+    "games": "all"
+}

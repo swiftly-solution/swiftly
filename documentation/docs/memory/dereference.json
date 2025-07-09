@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "Dereferance",
+    "description": "Dereferences the pointer.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

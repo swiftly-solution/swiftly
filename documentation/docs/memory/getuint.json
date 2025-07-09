@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetUInt",
+    "description": "Returns the number unsigned value at the memory address.",
+    "arguments": {},
+    "return": "uint32",
+    "games": "all"
+}

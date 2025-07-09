@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "AccessIndexFromOffset",
+    "description": "Accesses an index at the specified offset from `offsets.json`.",
+    "arguments": {
+        "offsetName": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

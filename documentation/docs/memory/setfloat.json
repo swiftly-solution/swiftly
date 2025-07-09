@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetFloat",
+    "description": "Set the float value to the memory address.",
+    "arguments": {
+        "value": "float"
+    },
+    "return": "void",
+    "games": "all"
+}

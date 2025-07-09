@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetInt",
+    "description": "Set the number value to the memory address.",
+    "arguments": {
+        "value": "int32"
+    },
+    "return": "void",
+    "games": "all"
+}

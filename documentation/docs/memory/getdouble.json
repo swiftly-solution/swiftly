@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetDouble",
+    "description": "Returns the double value at the memory address.",
+    "arguments": {},
+    "return": "double",
+    "games": "all"
+}

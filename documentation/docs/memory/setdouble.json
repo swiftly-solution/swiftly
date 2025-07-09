@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetDouble",
+    "description": "Set the double value to the memory address.",
+    "arguments": {
+        "value": "double"
+    },
+    "return": "void",
+    "games": "all"
+}

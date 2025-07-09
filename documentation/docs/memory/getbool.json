@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetBool",
+    "description": "Returns the boolean value at the memory address.",
+    "arguments": {},
+    "return": "bool",
+    "games": "all"
+}

@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "AccessIndex",
+    "description": "Accesses the specified index.",
+    "arguments": {
+        "index": "int64"
+    },
+    "return": "void",
+    "games": "all"
+}

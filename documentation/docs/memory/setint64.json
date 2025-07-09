@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetInt64",
+    "description": "Set the number 64-bit value to the memory address.",
+    "arguments": {
+        "value": "int64"
+    },
+    "return": "void",
+    "games": "all"
+}
