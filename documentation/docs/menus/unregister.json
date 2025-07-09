@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "UnregisterMenu",
+    "description": "Unregistered a menu by the specified id.\n> [!note]\n> It can unregister only the menus which were created from the inside of the plugin. \n",
+    "arguments": {
+        "id": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

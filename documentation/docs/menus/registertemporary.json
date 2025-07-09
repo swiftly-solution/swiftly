@@ -1,0 +1,14 @@
+{
+    "kind": "function",
+    "function": "RegisterTemporary",
+    "description": "Registers a temporary menu by a specific ID.",
+    "arguments": {
+        "id": "string",
+        "title": "string",
+        "color": "string",
+        "options": "string[][]",
+        "kind": "string?"
+    },
+    "return": "void",
+    "games": "all"
+}
