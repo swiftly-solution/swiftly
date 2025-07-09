@@ -1,7 +1,7 @@
 {
     "kind": "function",
     "function": "CreateEntityByName",
-    "override": true,
+    "override_variable": true,
     "description": "Creates an entity by the provided class name.",
     "arguments": {
         "class_name": "string"

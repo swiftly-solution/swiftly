@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "RemoveEventHandler",
+    "override_variable": true,
+    "description": "Removes the specified event handler.",
+    "arguments": {
+        "handler": "EventHandler"
+    },
+    "return": "void",
+    "games": "all"
+}

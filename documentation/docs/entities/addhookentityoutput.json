@@ -1,7 +1,7 @@
 {
     "kind": "function",
     "function": "AddHookEntityOutput",
-    "override": true,
+    "override_variable": true,
     "description": "Adds a hook output for an entity.",
     "arguments": {
         "class_name": "string",

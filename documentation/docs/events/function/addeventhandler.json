@@ -1,0 +1,18 @@
+{
+    "kind": "function",
+    "function": "AddEventHandler",
+    "override_variable": true,
+    "description": "Adds a new event handler for the specified event.",
+    "arguments": {
+        "event_name": "string",
+        "callback": {
+            "arguments": {
+                "event": "Event",
+                "...": "any"
+            },
+            "return": "EventResult?"
+        }
+    },
+    "return": "EventHandler",
+    "games": "all"
+}

@@ -1,7 +1,7 @@
 {
     "kind": "function",
     "function": "FindEntitiesByClassname",
-    "override": true,
+    "override_variable": true,
     "description": "Returns all the `CEntityInstance` for all the entities available with the specified classname.",
     "arguments": {
         "class_name": "string"
