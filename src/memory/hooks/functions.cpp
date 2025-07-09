@@ -116,7 +116,16 @@ std::any FunctionHook::Call(std::vector<std::any> arguments)
                 dcArgPointer(functionCallVM, (void*)strtol(std::any_cast<std::string>(arguments[i]).c_str(), nullptr, 16));
             }
             else if (arguments[i].type() == typeid(ClassData*)) {
-                dcArgPointer(functionCallVM, std::any_cast<ClassData*>(arguments[i])->GetDataOr<void*>("ptr", nullptr));
+                auto cdata = std::any_cast<ClassData*>(arguments[i]);
+                if (cdata->HasData("ptr")) {
+                    dcArgPointer(functionCallVM, cdata->GetDataOr<void*>("ptr", nullptr));
+                }
+                else if (cdata->HasData("class_ptr")) {
+                    dcArgPointer(functionCallVM, cdata->GetDataOr<void*>("class_ptr", nullptr));
+                }
+                else {
+                    dcArgPointer(functionCallVM, (void*)nullptr);
+                }
             }
         }
         else if (m_function_args.at(i) == 'f')
