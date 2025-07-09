@@ -5,7 +5,7 @@
     "description": "This game event is triggered when a user message is being received from a player.",
     "arguments": {
         "playerid": "int32",
-        "usermessage_uuid": "string"
+        "usermessage": "UserMessage"
     },
     "return": "void",
     "games": "all"
