@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "ExistsPath",
+    "description": "Returns if the path exists or not",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

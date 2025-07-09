@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "CreateDirectory",
+    "description": "Creates a directory. It returns true if the directory was created.",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

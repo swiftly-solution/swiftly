@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "Compress",
+    "description": "Compresses a file.",
+    "arguments": {
+        "path": "string",
+        "output": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

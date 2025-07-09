@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "FetchDirectories",
+    "description": "Returns a list of all the directories in a directory.",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "string[]",
+    "games": "all"
+}

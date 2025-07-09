@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "IsDirectory",
+    "description": "Returns if the path is a directory or not",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

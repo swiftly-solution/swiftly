@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Read",
+    "description": "Reads the content of a file",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "string",
+    "games": "all"
+}
