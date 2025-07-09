@@ -1,0 +1,11 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnPlayerPostThink",
+    "description": "This game event is triggered when the hook CCSPlayerPawnBase_PostThink is being called.",
+    "arguments": {
+        "playerid": "int32"
+    },
+    "return": "void",
+    "games": "all"
+}

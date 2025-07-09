@@ -1,0 +1,11 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnClientConnect",
+    "description": "This game event is triggered when a client connects.",
+    "arguments": {
+        "playerid": "int32"
+    },
+    "return": "bool",
+    "games": "all"
+}

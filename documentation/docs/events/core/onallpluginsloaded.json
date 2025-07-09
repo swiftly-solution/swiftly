@@ -1,0 +1,9 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnAllPluginsLoaded",
+    "description": "This game event is triggered when all the plugins are loaded.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

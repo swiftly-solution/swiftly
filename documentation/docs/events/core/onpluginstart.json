@@ -1,0 +1,9 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnPluginStart",
+    "description": "This game event is triggered when the plugin starts.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

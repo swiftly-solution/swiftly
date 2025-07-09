@@ -1,0 +1,15 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnClientProcessUsercmds",
+    "description": "This game event is triggered when the server receives usercmds from the client.",
+    "arguments": {
+        "playerid": "int32",
+        "cmds": "UserMessage[]",
+        "numcmds": "int32",
+        "paused": "bool",
+        "margin": "float"
+    },
+    "return": "void",
+    "games": "all"
+}

@@ -1,0 +1,12 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnTerminateRound",
+    "description": "This game event is triggered when CGameRules->TerminateRound is being called.",
+    "arguments": {
+        "delay": "float",
+        "reason": "int32"
+    },
+    "return": "bool",
+    "games": "all"
+}

@@ -1,0 +1,13 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnClientChat",
+    "description": "This game event is triggered when a player sends a text message.",
+    "arguments": {
+        "playerid": "int32",
+        "text": "string",
+        "teamonly": "bool"
+    },
+    "return": "bool",
+    "games": "all"
+}

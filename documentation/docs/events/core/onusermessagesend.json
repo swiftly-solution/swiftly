@@ -1,0 +1,12 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnUserMessageSend",
+    "description": "This game event is triggered when a user message is being sent to a player.",
+    "arguments": {
+        "usermessage_uuid": "string",
+        "isreliable": "bool"
+    },
+    "return": "void",
+    "games": "all"
+}

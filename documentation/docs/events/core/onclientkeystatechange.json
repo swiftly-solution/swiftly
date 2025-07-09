@@ -1,0 +1,13 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnClientKeyStateChange",
+    "description": "This game event is triggered when a key state changes for a client.",
+    "arguments": {
+        "playerid": "int32",
+        "key": "string",
+        "pressed": "bool"
+    },
+    "return": "void",
+    "games": "all"
+}

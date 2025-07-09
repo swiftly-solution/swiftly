@@ -1,0 +1,12 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnUserMessageReceive",
+    "description": "This game event is triggered when a user message is being received from a player.",
+    "arguments": {
+        "playerid": "int32",
+        "usermessage_uuid": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

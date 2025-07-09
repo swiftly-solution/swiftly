@@ -1,0 +1,12 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnClientPutInServer",
+    "description": "This game event is triggered when a client is being put in server.",
+    "arguments": {
+        "playerid": "int32",
+        "kind": "int32"
+    },
+    "return": "void",
+    "games": "all"
+}

@@ -1,0 +1,11 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnMapLoad",
+    "description": "This game event is triggered when a map loads.",
+    "arguments": {
+        "map": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

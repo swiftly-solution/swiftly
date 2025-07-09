@@ -1,0 +1,11 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnClientSteamAuthorizeFail",
+    "description": "This game event is triggered when a client is not authorized by Steam.",
+    "arguments": {
+        "playerid": "int32"
+    },
+    "return": "void",
+    "games": "all"
+}
