@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "SendMsg",
+    "description": "Sends a message to the players.",
+    "arguments": {
+        "msgType": "MessageType",
+        "text": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

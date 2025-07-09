@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "GetVar",
+    "description": "Returns the variable value of the player.",
+    "arguments": {
+        "key": "string"
+    },
+    "return": "any",
+    "games": "all"
+}

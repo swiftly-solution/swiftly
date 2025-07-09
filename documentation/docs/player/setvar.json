@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "SetVar",
+    "description": "Sets the variable value of the player.",
+    "arguments": {
+        "key": "string",
+        "value": "any"
+    },
+    "return": "void",
+    "games": "all"
+}

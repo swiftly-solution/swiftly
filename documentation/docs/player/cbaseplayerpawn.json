@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "CBasePlayerPawn",
+    "description": "Returns the player's CBasePlayerPawn.",
+    "arguments": {},
+    "return": "CBasePlayerPawn",
+    "games": "all"
+}

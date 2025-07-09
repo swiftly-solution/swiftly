@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetVoiceFlags",
+    "description": "Sets the voice flags of the player.",
+    "arguments": {
+        "flags": "uint64"
+    },
+    "return": "void",
+    "games": "all"
+}

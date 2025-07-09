@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetIPAddress",
+    "description": "Returns the IP address of the player.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}

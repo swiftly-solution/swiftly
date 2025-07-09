@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "Kill",
+    "description": "Kills the player.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

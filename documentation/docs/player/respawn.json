@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "Respawn",
+    "description": "Respawns the player.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

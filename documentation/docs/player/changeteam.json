@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "ChangeTeam",
+    "description": "Changes the player's team.",
+    "arguments": {
+        "team": "Team"
+    },
+    "return": "void",
+    "games": "all"
+}

@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetChatTagColor",
+    "description": "Sets the chat tag color of the player.",
+    "arguments": {
+        "color": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

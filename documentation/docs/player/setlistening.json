@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "SetListening",
+    "description": "Sets the listening override of a specific player.",
+    "arguments": {
+        "id": "int32",
+        "override": "ListenOverride"
+    },
+    "return": "void",
+    "games": "all"
+}

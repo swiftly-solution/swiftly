@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "ShowMenu",
+    "description": "Shows the player a menu based of the provided id.",
+    "arguments": {
+        "menuid": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

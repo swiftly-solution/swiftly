@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetSlot",
+    "description": "Returns the slot of the player.",
+    "arguments": {},
+    "return": "int32",
+    "games": "all"
+}

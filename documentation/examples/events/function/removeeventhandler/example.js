@@ -5,6 +5,6 @@ let event = AddEventHandler("OnPlayerConnectFull", (event) => {
     return EventResult.Continue
 })
 
-commands.Register("removeevent", (playerid, arguments, arguments_count, silent, prefix) -> {
+commands.Register("removeevent", (playerid, arguments, arguments_count, silent, prefix) => {
     RemoveEventHandler(event) // Removes the event handler for OnPlayerConnectFull
 })

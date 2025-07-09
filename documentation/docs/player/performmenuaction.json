@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "PerformMenuAction",
+    "description": "Checks if it's a valid player.",
+    "arguments": {
+        "action": "string",
+        "value": "int32"
+    },
+    "return": "void",
+    "games": "all"
+}

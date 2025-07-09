@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetChatColor",
+    "description": "Returns the chat color of the player.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}

@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetVoiceFlags",
+    "description": "Returns the voice flags of the player.",
+    "arguments": {},
+    "return": "uint64",
+    "games": "all"
+}

@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetNameColor",
+    "description": "Sets the name color of the player.",
+    "arguments": {
+        "color": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

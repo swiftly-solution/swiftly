@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetNameColor",
+    "description": "Returns the name color of the player.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}
