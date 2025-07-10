@@ -6,7 +6,7 @@ commands.Register("credits", (playerid, args, argc, silent, prefix) => {
 });
 
 /*
-Translation File: addons / swiftly / translations / translation.first_plugin.json
+Translation File: addons/swiftly/translations/translation.first_plugin.json
 
 {
     "credits": {

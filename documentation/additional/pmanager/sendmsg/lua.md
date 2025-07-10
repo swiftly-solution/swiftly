@@ -1,0 +1,29 @@
+
+
+## Colors
+Below there are listed all the supported colors by Swiftly:
+```
+{DEFAULT}
+{WHITE}
+{DARKRED}
+{LIGHTPURPLE}
+{GREEN}
+{OLIVE}
+{LIME}
+{RED}
+{GRAY}
+{GREY}
+{LIGHTYELLOW}
+{YELLOW}
+{SILVER}
+{BLUEGREY}
+{LIGHTBLUE}
+{BLUE}
+{DARKBLUE}
+{PURPLE}
+{MAGENTA}
+{LIGHTRED}
+{GOLD}
+{ORANGE}
+{TEAMCOLOR}
+```

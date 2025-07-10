@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetPlayerCap",
+    "description": "Returns the player maximum capacity for the server.",
+    "arguments": {},
+    "return": "int32",
+    "games": "all"
+}

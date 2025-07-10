@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetPlayerCount",
+    "description": "Returns the number of players from the server.",
+    "arguments": {},
+    "return": "int32",
+    "games": "all"
+}

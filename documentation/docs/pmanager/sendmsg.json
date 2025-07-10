@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "SendMsg",
+    "description": "Sends a message to all the online players.",
+    "arguments": {
+        "msgType": "MessageType",
+        "text": "string"
+    },
+    "return": "void",
+    "games": "all"
+}
