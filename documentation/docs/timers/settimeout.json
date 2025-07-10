@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "SetTimeout",
+    "override_variable": true,
+    "description": "Executes a callback after the specified delay.",
+    "arguments": {
+        "delay": "int64",
+        "callback": {
+            "arguments": {},
+            "return": "void"
+        }
+    },
+    "return": "void",
+    "games": "all"
+}

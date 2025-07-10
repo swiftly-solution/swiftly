@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "SetTimer",
+    "override_variable": true,
+    "description": "Executes a callback at the specified interval.",
+    "arguments": {
+        "delay": "int64",
+        "callback": {
+            "arguments": {},
+            "return": "void"
+        }
+    },
+    "return": "TimerHandle",
+    "games": "all"
+}

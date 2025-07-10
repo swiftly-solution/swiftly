@@ -1,0 +1,14 @@
+{
+    "kind": "function",
+    "function": "NextTick",
+    "override_variable": true,
+    "description": "Executes the callback the next tick.",
+    "arguments": {
+        "callback": {
+            "arguments": {},
+            "return": "void"
+        }
+    },
+    "return": "void",
+    "games": "all"
+}

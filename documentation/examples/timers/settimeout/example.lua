@@ -1,0 +1,5 @@
+commands:Register("settimeout", function(playerid, args, argsCount, silent, prefix)
+    SetTimeout(3000, function()
+        print("3 seconds elapsed!")
+    end)
+end)
