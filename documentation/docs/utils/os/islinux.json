@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "IsLinux",
+    "override_variable": true,
+    "description": "Checks if the current OS is Linux.",
+    "arguments": {},
+    "return": "bool",
+    "games": "all"
+}

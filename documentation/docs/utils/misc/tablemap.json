@@ -1,0 +1,20 @@
+{
+    "kind": "function",
+    "function": "Table Map",
+    "override_variable": true,
+    "override_function": {
+        "lua": "table.map"
+    },
+    "description": "Maps a given function to each element in a table, returning a new table with the transformed values.",
+    "arguments": {
+        "list": "any[]",
+        "callback": {
+            "arguments": {
+                "element": "any"
+            },
+            "return": "any"
+        }
+    },
+    "return": "any[]",
+    "games": "all"
+}

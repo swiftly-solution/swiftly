@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "GetPlayer",
+    "override_variable": true,
+    "description": "Returns the player object from playerid.",
+    "arguments": {
+        "playerid": "int32"
+    },
+    "return": "Player?",
+    "games": "all"
+}

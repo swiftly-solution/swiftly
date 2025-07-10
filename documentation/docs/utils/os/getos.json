@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "GetOS",
+    "override_variable": true,
+    "description": "Returns the current OS.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}

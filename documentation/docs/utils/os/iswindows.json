@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "IsWindows",
+    "override_variable": true,
+    "description": "Checks if the current OS is Windows.",
+    "arguments": {},
+    "return": "bool",
+    "games": "all"
+}

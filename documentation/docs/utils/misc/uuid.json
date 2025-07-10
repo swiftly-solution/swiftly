@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "uuid",
+    "override_variable": true,
+    "description": "Generates a UUID v4.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}

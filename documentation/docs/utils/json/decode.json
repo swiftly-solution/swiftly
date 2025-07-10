@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "Decode",
+    "override_variable": true,
+    "override_function": {
+        "lua": "json.decode",
+        "js": "JSON.parse"
+    },
+    "description": "Decodes a JSON string into a table.",
+    "arguments": {
+        "value": "string"
+    },
+    "return": "any",
+    "games": "all"
+}

@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "GetUserMessage",
+    "override_variable": true,
+    "description": "Returns the user message from uuid.",
+    "arguments": {
+        "uuid": "UserMessage"
+    },
+    "return": "UserMessage",
+    "games": "all"
+}

@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "ComputePrettyTime",
+    "override_variable": true,
+    "description": "Transforms seconds into a pretty string format.",
+    "arguments": {
+        "seconds": "uint64"
+    },
+    "return": "string",
+    "games": "all"
+}

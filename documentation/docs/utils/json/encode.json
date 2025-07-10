@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "Encode",
+    "override_variable": true,
+    "override_function": {
+        "lua": "json.encode",
+        "js": "JSON.stringify"
+    },
+    "description": "Encodes a value into a json string.",
+    "arguments": {
+        "value": "any"
+    },
+    "return": "string",
+    "games": "all"
+}

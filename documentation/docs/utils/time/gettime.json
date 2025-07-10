@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "GetTime",
+    "override_variable": true,
+    "description": "Returns the current UNIX time in milliseconds.",
+    "arguments": {},
+    "return": "uint64",
+    "games": "all"
+}

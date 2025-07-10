@@ -1,0 +1,14 @@
+{
+    "kind": "function",
+    "function": "String Trim",
+    "override_variable": true,
+    "override_function": {
+        "lua": "string.trim"
+    },
+    "description": "Trims a string.",
+    "arguments": {
+        "value": "string"
+    },
+    "return": "string",
+    "games": "all"
+}

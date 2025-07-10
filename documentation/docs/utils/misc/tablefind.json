@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "Table Find",
+    "override_variable": true,
+    "override_function": {
+        "lua": "table.find"
+    },
+    "description": "Return the index of the value.",
+    "arguments": {
+        "list": "any[]",
+        "element": "any"
+    },
+    "return": "int64?",
+    "games": "all"
+}

@@ -1,0 +1,12 @@
+{
+    "kind": "function",
+    "function": "FindPlayersByTarget",
+    "override_variable": true,
+    "description": "Returns the players which could be selected using the target.",
+    "arguments": {
+        "target": "string",
+        "matchbots": "bool"
+    },
+    "return": "Player[]",
+    "games": "all"
+}
