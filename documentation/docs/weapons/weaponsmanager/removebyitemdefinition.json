@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "RemoveByItemDefinition",
+    "description": "Removes the weapons with the specified item definition index.",
+    "arguments": {
+        "idx": "int64"
+    },
+    "return": "void",
+    "games": "all"
+}

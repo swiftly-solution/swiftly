@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "RemoveBySlot",
+    "description": "Removes the weapons with the specified slot.",
+    "arguments": {
+        "slot": "gear_slot_t"
+    },
+    "return": "void",
+    "games": "all"
+}

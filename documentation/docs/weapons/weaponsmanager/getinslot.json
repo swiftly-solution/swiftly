@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "GetInSlot",
+    "description": "Returns the weapons in the specified slot.",
+    "arguments": {
+        "slot": "gear_slot_t"
+    },
+    "return": "Weapon[]",
+    "games": "all"
+}

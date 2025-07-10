@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "GiveWeapon",
+    "description": "Gives the specified weapon to player.",
+    "arguments": {
+        "weapon_name": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

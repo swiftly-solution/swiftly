@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "RemoveWeapons",
+    "description": "Removes all the weapons of the player.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

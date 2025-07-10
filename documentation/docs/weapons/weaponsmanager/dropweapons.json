@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "DropWeapons",
+    "description": "Drops all the weapons of the player.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}
