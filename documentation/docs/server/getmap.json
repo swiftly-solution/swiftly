@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetMap",
+    "description": "Returns the current map name.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}

@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetIP",
+    "description": "Returns the server's IP Address.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}

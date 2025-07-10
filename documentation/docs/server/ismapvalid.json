@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "IsMapValid",
+    "description": "Returns the current map name.",
+    "arguments": {
+        "map": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

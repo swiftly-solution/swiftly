@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetTickCount",
+    "description": "Returns the tick count on the server.",
+    "arguments": {},
+    "return": "int32",
+    "games": "all"
+}
