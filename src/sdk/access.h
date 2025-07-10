@@ -93,7 +93,7 @@ private:
 public:
     void LoadSDKData();
 
-    std::string GetFieldName(uint64_t path);
+    std::string& GetFieldName(uint64_t path);
     SDKFieldType_t GetFieldType(uint64_t path);
     std::string GetFieldClass(uint64_t path);
     uint32_t GetFieldSize(uint64_t path);

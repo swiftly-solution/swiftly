@@ -33,7 +33,7 @@ LoadScriptingComponent(configuration, [](PluginObject plugin, EContext* ctx) -> 
 
     ADD_CLASS_FUNCTION("Configuration", "Exists", [](FunctionContext* context, ClassData* data) -> void {
         std::string key = context->GetArgumentOr<std::string>(0, "");
-        if(key == "") return context->SetReturn(false);
+        if (key == "") return context->SetReturn(false);
 
         std::map<std::string, std::any> config = g_Config.FetchPluginConfiguration();
         context->SetReturn(config.find(key) != config.end());
@@ -41,33 +41,33 @@ LoadScriptingComponent(configuration, [](PluginObject plugin, EContext* ctx) -> 
 
     ADD_CLASS_FUNCTION("Configuration", "Reload", [](FunctionContext* context, ClassData* data) -> void {
         std::string key = context->GetArgumentOr<std::string>(0, "");
-        if(key == "") return;
+        if (key == "") return;
 
         g_Config.LoadPluginConfig(key);
     });
 
     ADD_CLASS_FUNCTION("Configuration", "FetchArraySize", [](FunctionContext* context, ClassData* data) -> void {
         std::string key = context->GetArgumentOr<std::string>(0, "");
-        if(key == "") return context->SetReturn(0);
+        if (key == "") return context->SetReturn(0);
 
-        std::map<std::string, unsigned int> arraySizes = g_Config.FetchConfigArraySizes();
+        std::map<std::string, unsigned int>& arraySizes = g_Config.FetchConfigArraySizes();
 
         if (arraySizes.find(key) == arraySizes.end()) return context->SetReturn(0);
-    
+
         context->SetReturn(arraySizes[key]);
     });
 
     ADD_CLASS_FUNCTION("Configuration", "Fetch", [](FunctionContext* context, ClassData* data) -> void {
         std::string key = context->GetArgumentOr<std::string>(0, "");
-        if(key == "") return context->SetReturn(nullptr);
+        if (key == "") return context->SetReturn(nullptr);
 
-        std::map<std::string, std::any> config = g_Config.FetchPluginConfiguration();
+        std::map<std::string, std::any>& config = g_Config.FetchPluginConfiguration();
         context->SetReturn(config[key]);
     });
 
     ADD_CLASS_FUNCTION("Configuration", "Create", [](FunctionContext* context, ClassData* data) -> void {
         std::string configurationKey = context->GetArgumentOr<std::string>(0, "");
-        if(configurationKey == "") return;
+        if (configurationKey == "") return;
 
         EValue table = context->GetArgument<EValue>(1);
         EContext* L = context->GetPluginContext();
@@ -76,11 +76,11 @@ LoadScriptingComponent(configuration, [](PluginObject plugin, EContext* ctx) -> 
         rapidjson::Document doc(rapidjson::kObjectType);
 
         std::string jsonResult = "";
-        if(L->GetKind() == ContextKinds::Lua) {
+        if (L->GetKind() == ContextKinds::Lua) {
             EValue rapidJsonTable = EValue::getGlobal(L, "json");
             if (!rapidJsonTable["encode"].isFunction())
                 return;
-    
+
             EValue encodedResult(L);
             try
             {
@@ -91,12 +91,13 @@ LoadScriptingComponent(configuration, [](PluginObject plugin, EContext* ctx) -> 
                 PLUGIN_PRINTF("Configuration - Create", "An error has occured: %s\n", e.what());
                 return;
             }
-    
+
             if (encodedResult.isNull())
                 return;
-    
+
             jsonResult = encodedResult.cast<std::string>();
-        } else if(L->GetKind() == ContextKinds::JavaScript) {
+        }
+        else if (L->GetKind() == ContextKinds::JavaScript) {
             jsonResult = EValue(L, JS_JSONStringify(L->GetJSState(), table.pushJS(), JS_NULL, JS_NULL)).cast<std::string>();
         }
 

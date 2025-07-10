@@ -23,7 +23,7 @@ public:
 
     std::map<std::string, std::any>& FetchPluginConfiguration();
     std::map<std::string, std::any>& FetchConfiguration();
-    std::map<std::string, unsigned int> FetchConfigArraySizes();
+    std::map<std::string, unsigned int>& FetchConfigArraySizes();
 
     void SetArraySize(std::string key, unsigned int size);
 

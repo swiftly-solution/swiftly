@@ -17,7 +17,7 @@ EValue AccessSDK(void* ptr, std::string className, std::string fieldName, uint64
 {
     if (!g_sdk.ExistsField(path)) return EValue(state);
 
-    std::string field = g_sdk.GetFieldName(path);
+    std::string& field = g_sdk.GetFieldName(path);
 
     if (followServerGuidelines && g_sdk.IsFieldBlocked(field))
     {
@@ -423,7 +423,7 @@ void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue v
     uint64 path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
     if (!g_sdk.ExistsField(path)) return;
 
-    std::string field = g_sdk.GetFieldName(path);
+    std::string& field = g_sdk.GetFieldName(path);
 
     if (followServerGuidelines && g_sdk.IsFieldBlocked(field))
     {

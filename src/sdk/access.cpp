@@ -97,7 +97,7 @@ std::map<std::string, std::map<std::string, int64_t>> SDKAccess::GetSDKTypes()
     return sdktypes;
 }
 
-std::string SDKAccess::GetFieldName(uint64_t path)
+std::string& SDKAccess::GetFieldName(uint64_t path)
 {
     return fieldNames[path];
 }
