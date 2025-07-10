@@ -11,10 +11,12 @@ LoadScriptingComponent(usermessage, [](PluginObject plugin, EContext* ctx) -> vo
             if (classData->HasData("um_ptr")) {
                 data->SetData("um_ptr", classData->GetData<UserMessage*>("um_ptr"));
             }
+            else {
+                data->SetData("um_ptr", new UserMessage(""));
+            }
         }
         else {
             auto strptr = context->GetArgumentOr<std::string>(0, "");
-            if (strptr == "") return;
             data->SetData("um_ptr", new UserMessage(strptr));
         }
     });
@@ -637,7 +639,7 @@ LoadScriptingComponent(usermessage, [](PluginObject plugin, EContext* ctx) -> vo
     });
 
     ADD_CLASS_FUNCTION("UserMessage", "GetClients", [](FunctionContext* context, ClassData* data) -> void {
-        data->GetData<UserMessage*>("um_ptr")->GetClients();
+        context->SetReturn(data->GetData<UserMessage*>("um_ptr")->GetClients());
     });
 
     ADD_CLASS_FUNCTION("UserMessage", "SendToPlayer", [](FunctionContext* context, ClassData* data) -> void {
