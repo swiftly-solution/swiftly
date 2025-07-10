@@ -1,0 +1,12 @@
+{
+    "kind": "function",
+    "function": "FetchTranslation",
+    "override_variable": true,
+    "description": "Returns the translation for the specified key.\n> [!warning]\n> the translation key is non-existent for the specified language in core.json, it returns the the translation key.\n\n> [!note]\n> Key Format: MAIN_TRANSLATION_KEY.TRANSLATION_KEY\n\n> Example: test_plugin.core.started\n\n",
+    "arguments": {
+        "key": "string",
+        "playerid": "int32?"
+    },
+    "return": "string",
+    "games": "all"
+}
