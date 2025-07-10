@@ -1,0 +1,49 @@
+{
+    "kind": "class",
+    "name": "Weapon",
+    "description": "A weapon is an object which stores informations about a player's weapon.",
+    "constructor": {
+        "arguments": {
+            "playerid": "int32",
+            "ptr": "SDKClass"
+        },
+        "return": "Weapon"
+    },
+    "functions": [
+        {
+            "name": "CBasePlayerWeapon",
+            "arguments": {},
+            "return": "CBasePlayerWeapon"
+        },
+        {
+            "name": "CCSWeaponBase",
+            "arguments": {},
+            "return": "CCSWeaponBase"
+        },
+        {
+            "name": "CBasePlayerWeaponVData",
+            "arguments": {},
+            "return": "CBasePlayerWeaponVData"
+        },
+        {
+            "name": "CCSWeaponBaseVData",
+            "arguments": {},
+            "return": "CCSWeaponBaseVData"
+        },
+        {
+            "name": "SetDefaultAttributes",
+            "arguments": {},
+            "return": "void"
+        },
+        {
+            "name": "Remove",
+            "arguments": {},
+            "return": "void"
+        },
+        {
+            "name": "Drop",
+            "arguments": {},
+            "return": "void"
+        }
+    ]
+}
