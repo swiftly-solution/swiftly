@@ -246,7 +246,7 @@ jobs:
           path: ${{ github.workspace }}/swiftly/build/package
 
   release:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.head_commit.verification.verified == true }}
     permissions:
       contents: write
     needs: ["versioning", "build", "extensions_build"]
