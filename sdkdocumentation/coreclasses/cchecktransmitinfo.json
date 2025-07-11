@@ -1,0 +1,49 @@
+{
+    "kind": "class",
+    "name": "CCheckTransmitInfo",
+    "description": "This class contains informations about the entity transmissions.",
+    "constructor": {
+        "arguments": {
+            "ptr_or_cchectransmitinfo": "CCheckTransmitInfo|string"
+        },
+        "return": "CCheckTransmitInfo"
+    },
+    "functions": [
+        {
+            "name": "GetPlayers",
+            "arguments": {},
+            "return": "int32:int32"
+        },
+        {
+            "name": "GetEntities",
+            "arguments": {},
+            "return": "int32[]"
+        },
+        {
+            "name": "SetEntities",
+            "arguments": {
+                "value": "int32[]"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddEntityIndex",
+            "arguments": {
+                "entityIndex": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "RemoveEntityIndex",
+            "arguments": {
+                "entityIndex": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "Clear",
+            "arguments": {},
+            "return": "void"
+        }
+    ]
+}

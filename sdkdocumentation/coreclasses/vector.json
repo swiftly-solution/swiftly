@@ -1,0 +1,84 @@
+{
+    "kind": "class",
+    "name": "Vector",
+    "description": "A vector is an object which stores coordinates.",
+    "constructor": {
+        "arguments": {
+            "x": "float",
+            "y": "float",
+            "z": "float"
+        },
+        "return": "Vector"
+    },
+    "properties": [
+        {
+            "name": "x",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "y",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "z",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "GetPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "js/add",
+            "arguments": {
+                "value": "Vector"
+            },
+            "return": "Vector"
+        },
+        {
+            "name": "js/equal",
+            "arguments": {
+                "value": "Vector"
+            },
+            "return": "bool"
+        },
+        {
+            "name": "js/length",
+            "arguments": {},
+            "return": "float"
+        },
+        {
+            "name": "js/unm",
+            "arguments": {
+                "value": "Vector"
+            },
+            "return": "Vector"
+        },
+        {
+            "name": "js/sub",
+            "arguments": {
+                "value": "Vector"
+            },
+            "return": "Vector"
+        },
+        {
+            "name": "js/mul",
+            "arguments": {
+                "value": "Vector"
+            },
+            "return": "Vector"
+        },
+        {
+            "name": "js/div",
+            "arguments": {
+                "value": "Vector"
+            },
+            "return": "Vector"
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "Vector2D",
+    "description": "A vector is an object which stores coordinates.",
+    "constructor": {
+        "arguments": {
+            "x": "float",
+            "y": "float"
+        },
+        "return": "Vector2D"
+    },
+    "properties": [
+        {
+            "name": "x",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "y",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "GetPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "js/add",
+            "arguments": {
+                "value": "Vector2D"
+            },
+            "return": "Vector2D"
+        },
+        {
+            "name": "js/equal",
+            "arguments": {
+                "value": "Vector2D"
+            },
+            "return": "bool"
+        },
+        {
+            "name": "js/length",
+            "arguments": {},
+            "return": "float"
+        },
+        {
+            "name": "js/unm",
+            "arguments": {
+                "value": "Vector2D"
+            },
+            "return": "Vector2D"
+        },
+        {
+            "name": "js/sub",
+            "arguments": {
+                "value": "Vector2D"
+            },
+            "return": "Vector2D"
+        },
+        {
+            "name": "js/mul",
+            "arguments": {
+                "value": "Vector2D"
+            },
+            "return": "Vector2D"
+        },
+        {
+            "name": "js/div",
+            "arguments": {
+                "value": "Vector2D"
+            },
+            "return": "Vector2D"
+        }
+    ]
+}
