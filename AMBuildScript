@@ -164,8 +164,6 @@ class MMSPluginConfig(object):
       ]
 
       cxx.cxxflags += ['-std=c++17']
-      if (builder.options.asan != '1') and ((cxx.version >= 'gcc-4.0') or cxx.family == 'clang'):
-        cxx.cflags += ['-rdynamic', '-g']
       if (cxx.version >= 'gcc-4.0') or cxx.family == 'clang':
         cxx.cflags += ['-fvisibility=hidden']
         cxx.cxxflags += ['-fvisibility-inlines-hidden']

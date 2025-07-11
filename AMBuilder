@@ -34,6 +34,7 @@ for sdk_target in MMSPlugin.sdk_targets:
     embedder_linking = json.load(f)
 
   libs = embedder_linking["libraries"][binary.compiler.target.platform]
+  shared = embedder_linking["shared"][binary.compiler.target.platform]
   incls = embedder_linking["includes"]
   for lib in libs:
     binary.compiler.postlink += [os.path.join(builder.sourcePath, "vendor", "embedder", "libs", lib)]
@@ -217,6 +218,8 @@ for sdk_target in MMSPlugin.sdk_targets:
       "-Wno-write-strings",
       "-Wno-class-memaccess",
       "-fexceptions",
+      "-rdynamic",
+      "-g"
     ]
     binary.compiler.cflags += [
       "-Wno-return-local-addr",
@@ -238,6 +241,9 @@ for sdk_target in MMSPlugin.sdk_targets:
       "META_IS_SOURCE2",
       "_GLIBCXX_USE_CXX11_ABI=0",
     ]
+    bin_folder = builder.AddFolder(os.path.join('package', 'addons', MMSPlugin.plugin_name, 'bin', 'linuxsteamrt64'))
+    for bd in shared:
+      builder.AddCopy(os.path.join(builder.sourcePath, 'vendor', 'embedder', 'libs', bd), bin_folder)
   else:
     binary.compiler.postlink += [
       os.path.join(builder.sourcePath, 'vendor', 'bzip2', 'win64', 'lib', 'bz2.lib'),
@@ -304,6 +310,9 @@ for sdk_target in MMSPlugin.sdk_targets:
       "/EHsc",
       "/IGNORE:4101,4267,4244,4005,4003,4530",
     ]
+    bin_folder = builder.AddFolder(os.path.join('package', 'addons', MMSPlugin.plugin_name, 'bin', 'win64'))
+    for bd in shared:
+      builder.AddCopy(os.path.join(builder.sourcePath, 'vendor', 'embedder', 'libs', bd), bin_folder)
 
   if os.getenv("SWIFTLY_VERSION") != None:
     binary.compiler.defines += [

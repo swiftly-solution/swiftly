@@ -88,8 +88,9 @@ jobs:
         shell: bash
         run: |
           sudo apt update
-          sudo apt install -y libreadline-dev libboost-all-dev
+          sudo apt install -y libreadline-dev libboost-all-dev patchelf
           bash ./setup.sh
+          patchelf --set-rpath '$ORIGIN' build/package/addons/swiftly/bin/linuxsteamrt64/swiftly.so
 
       - name: Build - Windows
         if: matrix.os == 'windows-latest'
