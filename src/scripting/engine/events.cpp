@@ -88,7 +88,7 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
     });
 
     ADD_CLASS_FUNCTION("Event", "~Event", [](FunctionContext* context, ClassData* data) -> void {
-        if (data->GetDataOr<bool>("should_free", false) && data->GetDataOr<IGameEvent*>("event_data", nullptr)) {
+        if (data->HasData("should_free") && data->GetData<bool>("should_free") && data->GetDataOr<IGameEvent*>("event_data", nullptr)) {
             g_gameEventManager->FreeEvent(data->GetData<IGameEvent*>("event_data"));
         }
     });

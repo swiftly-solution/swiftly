@@ -13,9 +13,29 @@
 
 extern bool followServerGuidelines;
 
-EValue AccessSDK(void* ptr, std::string className, std::string fieldName, uint64_t path, EContext* state)
+EValue AccessSDK(void* ptr, std::string className, std::string fieldName, EContext* state)
 {
-    if (!g_sdk.ExistsField(path)) return EValue(state);
+    uint64_t path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
+    if (!g_sdk.ExistsField(path)) {
+        uint64_t parent = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const("Parent"));
+
+        bool found = false;
+        while (g_sdk.ExistsField(parent)) {
+            className = g_sdk.GetFieldName(parent);
+
+            path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
+
+            if (g_sdk.ExistsField(path)) {
+                found = true;
+                break;
+            }
+            else {
+                parent = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const("Parent"));
+            }
+        }
+
+        if (!found) return EValue(state);
+    }
 
     std::string& field = g_sdk.GetFieldName(path);
 
@@ -420,8 +440,28 @@ EValue AccessSDK(void* ptr, std::string className, std::string fieldName, uint64
 
 void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue value, EContext* state)
 {
-    uint64 path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
-    if (!g_sdk.ExistsField(path)) return;
+    uint64_t path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
+    if (!g_sdk.ExistsField(path)) {
+        uint64_t parent = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const("Parent"));
+
+        bool found = false;
+        while (g_sdk.ExistsField(parent)) {
+            className = g_sdk.GetFieldName(parent);
+
+            path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
+
+            if (g_sdk.ExistsField(path)) {
+                found = true;
+                break;
+            }
+            else {
+                parent = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const("Parent"));
+            }
+        }
+
+        if (!found) return;
+    }
+
 
     std::string& field = g_sdk.GetFieldName(path);
 

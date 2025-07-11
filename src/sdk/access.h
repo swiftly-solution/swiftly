@@ -94,12 +94,12 @@ public:
     void LoadSDKData();
 
     std::string& GetFieldName(uint64_t path);
-    SDKFieldType_t GetFieldType(uint64_t path);
-    std::string GetFieldClass(uint64_t path);
+    SDKFieldType_t& GetFieldType(uint64_t path);
+    std::string& GetFieldClass(uint64_t path);
     uint32_t GetFieldSize(uint64_t path);
     std::set<std::string> GetProcessedFieldNames();
     std::set<std::string> GetClasses();
-    std::map<std::string, std::map<std::string, int64_t>> GetSDKTypes();
+    std::map<std::string, std::map<std::string, int64_t>>& GetSDKTypes();
 
     bool IsFieldBlocked(std::string field);
     bool ExistsField(uint64_t path);

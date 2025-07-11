@@ -60,7 +60,7 @@ EValue MakeSDKClassInstance(std::string className, void* ptr, EContext* context)
     return MAKE_CLASS_INSTANCE("SDKClass", { { "class_name", className }, { "class_ptr", ptr } });
 }
 
-EValue AccessSDK(void* ptr, std::string className, std::string fieldName, uint64_t path, EContext* state);
+EValue AccessSDK(void* ptr, std::string className, std::string fieldName, EContext* state);
 void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue value, EContext* state);
 
 void SchemaCallback(PluginObject plugin, EContext* ctx) {
@@ -90,13 +90,15 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
             else ptr = (void*)nullptr;
         }
 
-        EValue ent = MakeSDKClassInstance(context->GetArgument<std::string>(0), ptr, context->GetPluginContext());
-        context->SetReturn(ent);
+        context->SetReturn(MAKE_CLASS_INSTANCE("SDKClass", { { "class_name", context->GetArgument<std::string>(0) }, { "class_ptr", ptr } }));
     });
 
     ADD_CLASS_FUNCTION("SDKClass", ctx->GetKind() == ContextKinds::Lua ? "__tostring" : "toString", [](FunctionContext* context, ClassData* data) -> void {
-        if (!data->HasData("class_ptr")) data->SetData("class_ptr", (void*)nullptr);
-        context->SetReturn(string_format("%s(ptr=%p)", data->GetData<std::string>("class_name").c_str(), data->GetData<void*>("class_ptr")));
+        if (!data->HasData("class_string")) {
+            if (!data->HasData("class_ptr")) data->SetData("class_ptr", (void*)nullptr);
+            data->SetData("class_string", string_format("%s(ptr=%p)", data->GetData<std::string>("class_name").c_str(), data->GetData<void*>("class_ptr")));
+        }
+        context->SetReturn(data->GetData<std::string>("class_string"));
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "IsValid", [](FunctionContext* context, ClassData* data) -> void {
@@ -308,14 +310,14 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         std::string className = data->GetData<std::string>("class_name");
         std::string fieldName = explode(context->GetFunctionKey(), " ").back();
         if (skipFunctions.find(fieldName) != skipFunctions.end()) return;
-        uint64_t path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
 
         void* instance = data->GetData<void*>("class_ptr");
         if (!g_entSystem.IsValidEntity(instance)) {
             ReportPreventionIncident("Schema / SDK", string_format("Tried to get member '%s::%s' but the entity is invalid.", className.c_str(), fieldName.c_str()));
             return context->StopExecution();
         }
-        context->SetReturn(AccessSDK(data->GetData<void*>("class_ptr"), className, fieldName, path, context->GetPluginContext()));
+
+        context->SetReturn(AccessSDK(data->GetData<void*>("class_ptr"), className, fieldName, context->GetPluginContext()));
         context->StopExecution();
     }, [](FunctionContext* context, ClassData* data) -> void {
         std::string className = data->GetData<std::string>("class_name");
@@ -344,6 +346,33 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
                 return context->StopExecution();
             }
             return;
+        }
+        else {
+            uint64_t parent = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const("Parent"));
+
+            bool found = false;
+            while (g_sdk.ExistsField(parent)) {
+                className = g_sdk.GetFieldName(parent);
+
+                path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(function_name.c_str()));
+
+                if (g_sdk.ExistsField(path)) {
+                    found = true;
+                    break;
+                }
+                else {
+                    parent = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const("Parent"));
+                }
+            }
+
+            if (found) {
+                void* instance = data->GetData<void*>("class_ptr");
+                if (!g_entSystem.IsValidEntity(instance)) {
+                    ReportPreventionIncident("Schema / SDK", string_format("Tried to call function '%s::%s' but the entity is invalid.", className.c_str(), function_name.c_str()));
+                    return context->StopExecution();
+                }
+                return;
+            }
         }
         context->StopExecution();
     });
