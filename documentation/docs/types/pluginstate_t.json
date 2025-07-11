@@ -1,0 +1,10 @@
+{
+    "kind": "type",
+    "name": "PluginState_t",
+    "description": "These are the plugin states available.",
+    "values": {
+        "Started": "0",
+        "Stopped": "1"
+    },
+    "games": "all"
+}

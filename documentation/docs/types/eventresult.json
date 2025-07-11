@@ -1,0 +1,11 @@
+{
+    "kind": "type",
+    "name": "EventResult",
+    "description": "These are the event results available.",
+    "values": {
+        "Continue": "0",
+        "Stop": "1",
+        "Handled": "2"
+    },
+    "games": "all"
+}

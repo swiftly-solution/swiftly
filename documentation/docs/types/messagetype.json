@@ -1,0 +1,12 @@
+{
+    "kind": "type",
+    "name": "MessageType",
+    "description": "These are the message types available.",
+    "values": {
+        "Notify": "1",
+        "Console": "2",
+        "Chat": "3",
+        "Center": "4"
+    },
+    "games": "all"
+}
