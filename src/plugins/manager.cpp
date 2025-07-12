@@ -4,11 +4,14 @@
 #include <filesystem/files/files.h>
 #include <extensions/manager.h>
 #include <server/menus/MenuManager.h>
-#include <memory/encoders/json.h>
 #include <swiftly-ext/core.h>
 #include <sdk/game.h>
-
 #include <regex>
+
+#ifdef GetObject
+#undef GetObject
+#endif
+#include <memory/encoders/json.h>
 
 bool alreadyStarted = false;
 bool schemaLoaded = false;

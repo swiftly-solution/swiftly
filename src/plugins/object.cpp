@@ -13,6 +13,7 @@
 #include <extensions/manager.h>
 #include <glob/glob.hpp>
 #include <regex>
+#include <utils/common.h>
 
 PluginObject::PluginObject(std::string m_name, ContextKinds m_kind, bool m_hasManifest, bool m_isValidManifest, std::string m_manifestPath)
 {
