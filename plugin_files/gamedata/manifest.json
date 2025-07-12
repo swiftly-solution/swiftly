@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        },
+        "website": {
+            "type": "string"
+        },
+        "author": {
+            "type": "string"
+        },
+        "kind": {
+            "type": "string",
+            "enum": [
+                "lua",
+                "js",
+                "cs"
+            ]
+        },
+        "files": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        "dependencies": {
+            "type": "object",
+            "properties": {
+                "plugins": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "extensions": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "runtime": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "plugins",
+                "extensions",
+                "runtime"
+            ]
+        },
+        "games": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "string",
+                    "enum": [
+                        "cs2"
+                    ]
+                }
+            ]
+        },
+        "$schema": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "name",
+        "description",
+        "version",
+        "author",
+        "website",
+        "kind",
+        "files",
+        "dependencies",
+        "games"
+    ]
+}

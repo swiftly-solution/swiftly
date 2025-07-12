@@ -171,6 +171,9 @@ bool SwiftlyS2::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, boo
     else
         PRINTRET("Failed to load configurations. The framework will not work.\n", false);
 
+    if (!LoadManifestSchema())
+        PRINTRET("Failed to load plugin manifest schema located at 'addons/swiftly/gamedata/manifest.json'. The framework will not work.\n", false);
+
     g_Logger.AddLogger("core", false);
 
     g_sdk.LoadSDKData();

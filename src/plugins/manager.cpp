@@ -4,9 +4,24 @@
 #include <filesystem/files/files.h>
 #include <extensions/manager.h>
 #include <server/menus/MenuManager.h>
+#include <memory/encoders/json.h>
 #include <swiftly-ext/core.h>
+#include <sdk/game.h>
+
+#include <regex>
 
 bool alreadyStarted = false;
+bool schemaLoaded = false;
+rapidjson::Document schemaDocument;
+
+bool LoadManifestSchema() {
+    if (!Files::ExistsPath("addons/swiftly/gamedata/manifest.json")) return false;
+
+    schemaDocument = encoders::json::FromString(Files::Read("addons/swiftly/gamedata/manifest.json"), "addons/swiftly/gamedata/manifest.json");
+    if (!schemaDocument.IsObject()) return false;
+
+    return schemaDocument.MemberCount() > 0;
+}
 
 bool PluginsManager::PluginExists(std::string plugin_name)
 {
@@ -53,29 +68,145 @@ void PluginsManager::UnloadPlugins()
     }
 }
 
+void PluginsManager::ReloadManifests()
+{
+    for (PluginObject* plugin : pluginsList) {
+        ReloadManifest(plugin->GetName());
+    }
+}
+
+std::vector<int> ParseSemver(std::string ver)
+{
+    std::vector<int> res;
+    static std::regex re(R"(^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z\.-]+))?)");
+    std::smatch match;
+
+    if (std::regex_match(ver, match, re)) {
+        res.push_back(std::stoi(match[1].str()));
+        res.push_back(std::stoi(match[2].str()));
+        res.push_back(std::stoi(match[3].str()));
+    }
+    else {
+        res.push_back(0);
+        res.push_back(0);
+        res.push_back(0);
+    }
+
+    return res;
+}
+
+bool PluginsManager::ReloadManifest(std::string plugin_name)
+{
+    if (Files::ExistsPath(pluginBasePaths[plugin_name] + "/" + plugin_name + "/manifest.json")) {
+        auto manifestContent = Files::Read(pluginBasePaths[plugin_name] + "/" + plugin_name + "/manifest.json");
+        auto json = encoders::json::FromString(manifestContent, pluginBasePaths[plugin_name] + "/" + plugin_name + "/manifest.json");
+
+        rapidjson::SchemaDocument schema(schemaDocument);
+        rapidjson::SchemaValidator validator(schema);
+
+        if (!json.Accept(validator)) {
+            rapidjson::StringBuffer sb;
+            validator.GetInvalidSchemaPointer().StringifyUriFragment(sb);
+            PRINTF("An error has occured while trying to validate the plugin manifest for '%s'.\nInvalid schema: %s\nInvalid keyword: %s\n", plugin_name.c_str(), sb.GetString(), validator.GetInvalidSchemaKeyword());
+            validator.GetInvalidDocumentPointer();
+            PRINTF("Invalid document: %s\n", sb.GetString());
+
+            return false;
+        }
+
+        auto deps = json["dependencies"].GetObject();
+        auto& depsRTArray = deps["runtime"];
+        std::vector<std::string> runtime;
+        for (int i = 0; i < depsRTArray.Size(); i++) {
+            if (depsRTArray[i].IsString()) {
+                runtime.push_back(std::string(depsRTArray[i].GetString()));
+            }
+        }
+
+        for (int i = 0; i < runtime.size(); i++) {
+            if (!starts_with(runtime[i], "/")) {
+                PRINTF("Invalid runtime dependency flag '%s' in plugin '%s', skipping.\n", runtime[i].c_str(), plugin_name.c_str());
+                continue;
+            }
+            auto value = explode(runtime[i], ":");
+            if (value.size() != 2) {
+                PRINTF("Invalid runtime dependency flag '%s' in plugin '%s', skipping.\n", runtime[i].c_str(), plugin_name.c_str());
+                continue;
+            }
+
+            auto flg = value[0];
+            auto val = value[1];
+
+            if (flg == "/version") {
+                auto minimVersion = ParseSemver(val);
+                auto serverVersion = ParseSemver(g_Plugin.GetVersion());
+
+                if (serverVersion[0] == 0) serverVersion = minimVersion;
+                if (minimVersion[0] > serverVersion[0] || minimVersion[1] > serverVersion[1] || minimVersion[2] > serverVersion[2]) {
+                    PRINTF("Minimum server version for plugin '%s' is '%s', you're currently running '%s'.\n", plugin_name.c_str(), val.c_str(), g_Plugin.GetVersion());
+                    return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
 void PluginsManager::LoadPlugin(std::string plugin_name)
 {
     if (PluginExists(plugin_name))
         return;
 
-    std::vector<std::string> files = Files::FetchFileNames(pluginBasePaths[plugin_name] + "/" + plugin_name);
-    if (files.size() == 0)
-        return;
-
     ContextKinds ct;
+    bool hasManifest = Files::ExistsPath(pluginBasePaths[plugin_name] + "/" + plugin_name + "/manifest.json");
+    bool isValidManifest = false;
+    rapidjson::Document manifestDoc;
 
-    for (std::string file : files)
-    {
-        if (ends_with(file, ".lua"))
-        {
-            ct = ContextKinds::Lua;
-            break;
+    if (hasManifest) {
+        isValidManifest = ReloadManifest(plugin_name);
+        if (isValidManifest) {
+            manifestDoc = encoders::json::FromString(Files::Read(pluginBasePaths[plugin_name] + "/" + plugin_name + "/manifest.json"), pluginBasePaths[plugin_name] + "/" + plugin_name + "/manifest.json");
+            std::string pluginKind = manifestDoc["kind"].GetString();
+            if (pluginKind == "lua") {
+                ct = ContextKinds::Lua;
+            }
+            else if (pluginKind == "js") {
+                ct = ContextKinds::JavaScript;
+            }
+
+            std::set<std::string> forgames;
+            for (auto& v : manifestDoc["games"].GetArray()) {
+                if (v.IsString()) {
+                    forgames.insert(std::string(v.GetString()));
+                }
+            }
+
+            if (forgames.size() > 0 && forgames.find(GetGameName()) == forgames.end()) {
+                PRINTF("The plugin '%s' doesn't support '%s'.\n", plugin_name.c_str(), GetGameName().c_str());
+                return;
+            }
         }
-        else if (ends_with(file, ".js"))
+    }
+    else {
+        std::vector<std::string> files = Files::FetchFileNames(pluginBasePaths[plugin_name] + "/" + plugin_name);
+        if (files.size() == 0)
+            return;
+
+        for (std::string file : files)
         {
-            ct = ContextKinds::JavaScript;
-            break;
+            if (ends_with(file, ".lua"))
+            {
+                ct = ContextKinds::Lua;
+                break;
+            }
+            else if (ends_with(file, ".js"))
+            {
+                ct = ContextKinds::JavaScript;
+                break;
+            }
         }
+
     }
 
     if ((int)ct == 0)
@@ -84,7 +215,7 @@ void PluginsManager::LoadPlugin(std::string plugin_name)
         return;
     }
 
-    pluginsList.push_back(new PluginObject(plugin_name, ct));
+    pluginsList.push_back(new PluginObject(plugin_name, ct, hasManifest, isValidManifest, pluginBasePaths[plugin_name] + "/" + plugin_name + "/manifest.json"));
     pluginsMap.insert({ plugin_name, pluginsList.back() });
 }
 

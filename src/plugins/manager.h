@@ -11,6 +11,8 @@
 
 #include <types/EventResult.h>
 
+bool LoadManifestSchema();
+
 class PluginsManager
 {
 private:
@@ -27,6 +29,9 @@ public:
 
     void LoadPlugin(std::string plugin_name);
     void UnloadPlugin(std::string plugin_name);
+
+    void ReloadManifests();
+    bool ReloadManifest(std::string plugin_name);
 
     void StartPlugins();
     void StopPlugins(bool destroyStates);

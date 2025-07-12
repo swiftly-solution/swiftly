@@ -24,7 +24,7 @@ std::map<rapidjson::ParseErrorCode, const char*> errorCodes = {
 };
 
 const char* GetParseError_En(rapidjson::ParseErrorCode parseErrorCode) {
-    if(errorCodes.find(parseErrorCode) != errorCodes.end()) return errorCodes[parseErrorCode];
+    if (errorCodes.find(parseErrorCode) != errorCodes.end()) return errorCodes[parseErrorCode];
     else return "Unknown error.";
 }
 
@@ -41,7 +41,7 @@ rapidjson::Document encoders::json::FromString(std::string str, std::string path
     rapidjson::Document doc;
     rapidjson::ParseResult parseResult = doc.Parse(str.c_str());
     if (!parseResult) {
-        PLUGIN_PRINTF("json::FromString", string_format("An error as occured while trying to parse %s:\nError: %s.", path == "" ? "json string" : path.c_str(), GetParseError_En(parseResult.Code())));
+        PLUGIN_PRINTF("json::FromString", string_format("An error has occured while trying to parse %s:\nError: %s.", path == "" ? "json string" : path.c_str(), GetParseError_En(parseResult.Code())));
         doc.SetObject();
     }
     return doc;
