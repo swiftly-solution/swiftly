@@ -366,13 +366,13 @@ void Player::SetButtons(uint64_t button)
 {
     if (buttons != button) {
         for (int i = 0; i < 64; i++) {
-            if ((buttons & (1ULL << i)) != 0 && (button & (1ULL << i)) == 0) {
+            if ((buttons & (1ULL << i)) == 0 && (button & (1ULL << i)) != 0) {
                 if (g_Config.FetchValue<std::string>("core.menu.inputMode") != "chat")
                     menu_renderer->PerformMenuAction(key_buttons[i]);
 
                 g_pluginManager.ExecuteEvent("core", "OnClientKeyStateChange", { slot, key_buttons[i], true }, {});
             }
-            else if ((buttons & (1ULL << i)) == 0 && (button & (1ULL << i)) != 0) {
+            else if ((buttons & (1ULL << i)) != 0 && (button & (1ULL << i)) == 0) {
                 g_pluginManager.ExecuteEvent("core", "OnClientKeyStateChange", { slot, key_buttons[i], false }, {});
             }
         }
