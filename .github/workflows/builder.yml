@@ -147,6 +147,8 @@ jobs:
           dotnet-version: "8.0.x"
 
       - name: Restore CSProj
+        working-directory: swiftly
+        shell: bash
         run: dotnet restore src/managed/SwiftlyS2.csproj
 
       - name: Build Project
