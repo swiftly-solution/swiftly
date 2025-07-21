@@ -177,6 +177,9 @@ void PluginsManager::LoadPlugin(std::string plugin_name)
             else if (pluginKind == "js") {
                 ct = ContextKinds::JavaScript;
             }
+            else if (pluginKind == "cs") {
+                ct = ContextKinds::Dotnet;
+            }
 
             std::set<std::string> forgames;
             for (auto& v : manifestDoc["games"].GetArray()) {

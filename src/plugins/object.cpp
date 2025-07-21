@@ -310,7 +310,11 @@ bool PluginObject::LoadScriptingEnvironment()
 
     ctx = new EContext(kind);
 
-    std::string fileExt = GetKind() == ContextKinds::Lua ? ".lua" : ".js";
+    std::string fileExt;
+
+    if (GetKind() == ContextKinds::Lua) fileExt = ".lua";
+    else if (GetKind() == ContextKinds::JavaScript) fileExt = ".js";
+    else if (GetKind() == ContextKinds::Dotnet) fileExt = ".dll";
 
     SetupScriptingEnvironment(*this, ctx);
 

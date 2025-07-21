@@ -49,6 +49,8 @@ with open(os.path.join(builder.buildPath, 'pdblog.txt'), 'wt') as fp:
     fp.write(line.path + '\n')
 
 bin_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'bin'))
+bin_managed_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'bin', 'managed'))
+builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'managed', 'SwiftlyS2.runtimeconfig.json'), bin_managed_folder)
 bin_scripting_folder = builder.AddFolder(os.path.join('addons', MMSPlugin.plugin_name, 'bin', 'scripting'))
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', '0_core.lua'), bin_scripting_folder)
 builder.AddCopy(os.path.join(builder.sourcePath, 'plugin_files', 'bin', 'scripting', '0_core.js'), bin_scripting_folder)

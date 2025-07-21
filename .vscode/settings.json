@@ -95,6 +95,7 @@
         "*.tcc": "cpp",
         "future": "cpp",
         "variant": "cpp",
-        "csetjmp": "cpp"
+        "csetjmp": "cpp",
+        "typeindex": "cpp"
     }
 }

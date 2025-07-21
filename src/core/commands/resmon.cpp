@@ -5,6 +5,13 @@
 #include <filesystem/files/files.h>
 
 #include <sstream>
+#include <map>
+
+static std::map<ContextKinds, std::string> runtimeNames = {
+    { ContextKinds::Lua, "Lua" },
+    { ContextKinds::JavaScript, "Javascript" },
+    { ContextKinds::Dotnet, ".NET" },
+};
 
 void SwiftlyResourceMonitorManagerHelp(CPlayerSlot slot)
 {
@@ -196,7 +203,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
 
         pluginsTable.add(" " + plugin_id + " ");
         pluginsTable.add(std::string(" ") + (plugin->GetPluginState() == PluginState_t::Started ? "Loaded" : "Unloaded") + " ");
-        pluginsTable.add(std::string(" ") + (plugin->GetKind() == ContextKinds::Lua ? "Lua" : "JavaScript") + " ");
+        pluginsTable.add(std::string(" ") + (runtimeNames[plugin->GetKind()]) + " ");
         if (plugin->GetPluginState() == PluginState_t::Started)
             pluginsTable.add(string_format(" %.4f MB ", (double(plugin->GetMemoryUsage()) / 1024.0f / 1024.0f)));
         else

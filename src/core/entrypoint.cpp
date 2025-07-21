@@ -134,6 +134,9 @@ std::vector<ClassLoader*> loaderClasses;
 /////////////////          Core Class          //////////////
 ////////////////////////////////////////////////////////////
 
+std::string GeneratePath(std::string path);
+bool InitializeHostFXR(std::string origin_path);
+
 PLUGIN_EXPOSE(SwiftlyS2, g_Plugin);
 bool SwiftlyS2::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool late)
 {
@@ -165,6 +168,7 @@ bool SwiftlyS2::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, boo
     SH_ADD_HOOK_MEMFUNC(IServerGameClients, ClientCommand, gameclients, this, &SwiftlyS2::Hook_OnClientCommand, false);
 
     HandleConfigExamples();
+    InitializeHostFXR(GeneratePath(""));
 
     if (g_Config.LoadConfiguration())
         PRINT("The configurations has been succesfully loaded.\n");

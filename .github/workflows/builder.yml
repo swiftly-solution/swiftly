@@ -131,6 +131,37 @@ jobs:
           name: ${{matrix.extension}}.Extension.Windows
           path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
 
+  build_managed:
+    name: Build Managed C#
+    needs: versioning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: swiftly
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore CSProj
+        run: dotnet restore src/managed/SwiftlyS2.csproj
+
+      - name: Build Project
+        working-directory: swiftly
+        shell: bash
+        run: |
+          dotnet publish -c Release /p:Version=${{needs.versioning.outputs.version}} src/managed
+
+          dotnet pack -c Release /p:Version=${{needs.versioning.outputs.version}} src/managed
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: swiftlys2-managed-${{ needs.versioning.outputs.version }}
+          path: ${{ github.workspace }}/swiftly/src/managed/bin/Release
+
   build:
     name: Build
     needs: versioning
