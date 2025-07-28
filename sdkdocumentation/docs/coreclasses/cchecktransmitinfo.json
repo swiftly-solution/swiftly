@@ -4,7 +4,7 @@
     "description": "This class contains informations about the entity transmissions.",
     "constructor": {
         "arguments": {
-            "ptr_or_cchectransmitinfo": "CCheckTransmitInfo|string"
+            "ptr_or_cchectransmitinfo": "CCheckTransmitInfo|Memory"
         },
         "return": "CCheckTransmitInfo"
     },
@@ -45,5 +45,6 @@
             "arguments": {},
             "return": "void"
         }
-    ]
+    ],
+    "games": "all"
 }

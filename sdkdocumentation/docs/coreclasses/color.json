@@ -39,5 +39,6 @@
             "arguments": {},
             "return": "string"
         }
-    ]
+    ],
+    "games": "all"
 }

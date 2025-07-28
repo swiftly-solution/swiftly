@@ -68,6 +68,7 @@ EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventN
 
     uint64_t stackid = g_callStack.RegisterPluginCallstack(GetName(), string_format("Event: %s(invokedBy=\"%s\",payloadSize=%d,event=%p)", eventName.c_str(), invokedBy.c_str(), eventPayload.size(), (void*)eventObject));
     std::string eventResmon = "event:" + eventName;
+
     g_ResourceMonitor.StartTime(GetName(), eventResmon);
 
     EventResult response = EventResult::Continue;

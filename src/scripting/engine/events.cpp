@@ -13,25 +13,45 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
     ADD_FUNCTION("AddGlobalEvents", [](FunctionContext* context) -> void {
         if (context->GetArgumentsCount() != 1) return;
 
-        auto func = context->GetArgument<EValue>(0);
-        if (!func.isFunction()) return;
+        if (context->GetPluginContext()->GetKind() == ContextKinds::Dotnet) {
+            auto func = context->GetArgument<std::string>(0);
 
-        auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
-        if (!plugin) return;
+            auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
+            if (!plugin) return;
 
-        plugin->RegisterEventHandler(new EValue(func));
+            plugin->RegisterEventHandler(new EValue(context->GetPluginContext(), (void*)strdup(func.c_str()), 17));
+        }
+        else {
+            auto func = context->GetArgument<EValue>(0);
+            if (!func.isFunction()) return;
+
+            auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
+            if (!plugin) return;
+
+            plugin->RegisterEventHandler(new EValue(func));
+        }
     });
 
     ADD_FUNCTION("AddGlobalEventsJSON", [](FunctionContext* context) -> void {
         if (context->GetArgumentsCount() != 1) return;
 
-        auto func = context->GetArgument<EValue>(0);
-        if (!func.isFunction()) return;
+        if (context->GetPluginContext()->GetKind() == ContextKinds::Dotnet) {
+            auto func = context->GetArgument<std::string>(0);
 
-        auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
-        if (!plugin) return;
+            auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
+            if (!plugin) return;
 
-        plugin->RegisterEventHandlerJSON(new EValue(func));
+            plugin->RegisterEventHandlerJSON(new EValue(context->GetPluginContext(), (void*)strdup(func.c_str()), 17));
+        }
+        else {
+            auto func = context->GetArgument<EValue>(0);
+            if (!func.isFunction()) return;
+
+            auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
+            if (!plugin) return;
+
+            plugin->RegisterEventHandlerJSON(new EValue(func));
+        }
     });
 
     ADD_FUNCTION("RegisterEventHandlerPlugin", [](FunctionContext* context) -> void {

@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build & Update Managed",
+            "type": "shell",
+            "command": "dotnet restore src/managed/SwiftlyS2.csproj && dotnet publish -c Release src/managed && cp -r src/managed/bin/Release/net8.0/publish/* /var/lib/pterodactyl/volumes/b43e4390-681c-49a7-9230-2a418a4eb022/game/csgo/addons/swiftly/bin/managed",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Build & Update Core",
+            "type": "shell",
+            "command": "bash custom_builder.sh",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        }
+    ]
+}

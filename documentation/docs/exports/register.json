@@ -4,7 +4,8 @@
     "override_variable": true,
     "override_function": {
         "lua": "export",
-        "js": "exp"
+        "js": "exp",
+        "cs": "Register"
     },
     "description": "Registers an export for this plugin.",
     "arguments": {

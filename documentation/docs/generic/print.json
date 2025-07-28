@@ -4,7 +4,8 @@
     "override_variable": true,
     "override_function": {
         "lua": "print",
-        "js": "console.log"
+        "js": "console.log",
+        "cs": "Console.WriteLine"
     },
     "description": "Prints values provided in the function.",
     "arguments": {
