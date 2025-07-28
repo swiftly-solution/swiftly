@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
+using SwiftlyS2.API;
 
 /**
  * This file API is inspired from FiveM's C# resources implementation.
@@ -107,6 +108,8 @@ namespace SwiftlyS2.Internal_API
             { typeof(string), 14 },
             { typeof(Array), 15 },
             { typeof(IDictionary), 16 },
+            { typeof(Action), 17 },
+            { typeof(ClassData), 18 },
         };
 
         public unsafe CallContext()
@@ -124,6 +127,11 @@ namespace SwiftlyS2.Internal_API
         private readonly object ms_lock = new object();
         internal object Lock => ms_lock;
         internal bool isCleanupLocked = false;
+
+        public void SetCleanupLock(bool state)
+        {
+            isCleanupLocked = state;
+        }
 
         public void Reset()
         {

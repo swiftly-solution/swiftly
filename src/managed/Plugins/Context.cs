@@ -26,6 +26,7 @@ namespace SwiftlyS2.Plugins
             {
                 config.IsUnloadable = true;
                 config.PreferSharedTypes = true;
+                config.EnableHotReload = true;
             });
         }
 

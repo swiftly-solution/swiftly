@@ -14,7 +14,7 @@ namespace SwiftlyS2.API.Scripting
 
         private void MyWriteLine(string text)
         {
-            if(GlobalState.PluginContext == IntPtr.Zero)
+            if(Plugin.PluginContext == IntPtr.Zero)
             {
                 originalOut.WriteLine(text);
             }

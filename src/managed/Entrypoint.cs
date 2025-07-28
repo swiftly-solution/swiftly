@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Runtime.ExceptionServices;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using SwiftlyS2.Internal_API;
@@ -89,6 +87,23 @@ namespace SwiftlyS2
         public static unsafe ulong GetPluginMemoryUsage(IntPtr context)
         {
             return _pluginManager!.GetPluginMemoryUsage(context);
+        }
+
+        [UnmanagedCallersOnly]
+        public static unsafe void UpdateGlobalStateCleanupLock(int state)
+        {
+            CallContext.GlobalScriptContext.SetCleanupLock(state == 1);
+        }
+
+        [UnmanagedCallersOnly]
+        [SecurityCritical]
+        public static unsafe void ExecuteFunction(IntPtr context, IntPtr plugin_ctx)
+        {
+            CallData* ct = (CallData*)context;
+            CallContext ctx = new(ct);
+
+            string functionName = Marshal.PtrToStringUTF8(ct->func_ptr, ct->func_length);
+            FunctionCallers.GetActionCaller(plugin_ctx, functionName).Invoke(ctx);
         }
     }
 }

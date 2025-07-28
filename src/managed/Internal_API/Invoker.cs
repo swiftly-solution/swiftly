@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System.Security;
+using SwiftlyS2.API;
 
 namespace SwiftlyS2.Internal_API
 {
@@ -23,7 +24,7 @@ namespace SwiftlyS2.Internal_API
             lock (CallContext.GlobalScriptContext.Lock)
             {
                 CallContext.GlobalScriptContext.Reset();
-                CallContext.GlobalScriptContext.PushArgument(API.GlobalState.PluginContext);
+                CallContext.GlobalScriptContext.PushArgument(Plugin.PluginContext);
                 foreach(object arg in args)
                 {
                     CallContext.GlobalScriptContext.PushArgument(arg);
@@ -43,7 +44,7 @@ namespace SwiftlyS2.Internal_API
             lock (CallContext.GlobalScriptContext.Lock)
             {
                 CallContext.GlobalScriptContext.Reset();
-                CallContext.GlobalScriptContext.PushArgument(API.GlobalState.PluginContext);
+                CallContext.GlobalScriptContext.PushArgument(Plugin.PluginContext);
                 foreach (object arg in args)
                 {
                     CallContext.GlobalScriptContext.PushArgument(arg);
@@ -58,7 +59,7 @@ namespace SwiftlyS2.Internal_API
         {
             if(MyClassDataFinalizer != null)
             {
-                MyClassDataFinalizer(API.GlobalState.PluginContext, item);
+                MyClassDataFinalizer(Plugin.PluginContext, item);
             }
         }
     }
