@@ -1,7 +1,7 @@
 {
     "kind": "function",
-    "function": "PrecacheModel",
-    "description": "Adds a model to precache.",
+    "function": "PrecacheSound",
+    "description": "Adds a sound to precache.",
     "arguments": {
         "path": "string"
     },

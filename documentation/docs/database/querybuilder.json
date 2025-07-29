@@ -53,15 +53,6 @@
             "return": "QueryBuilder"
         },
         {
-            "name": "Where",
-            "arguments": {
-                "column": "string",
-                "operator": "string",
-                "value": "any"
-            },
-            "return": "QueryBuilder"
-        },
-        {
             "name": "OrWhere",
             "arguments": {
                 "column": "string",
@@ -170,7 +161,7 @@
                     "return": "void"
                 }
             },
-            "return": "QueryBuilder"
+            "return": "void"
         }
     ],
     "games": "all"

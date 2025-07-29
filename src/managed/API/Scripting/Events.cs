@@ -9,13 +9,6 @@ namespace SwiftlyS2.API.Scripting
         public Delegate Callback;
     }
 
-    public enum EventResult
-    {
-        Continue = 0,
-        Stop = 1,
-        Handled = 2,
-    }
-
     public class Events
     {
         private static int eventRegistryIndex = 50;
