@@ -270,7 +270,7 @@
             "arguments": {
                 "value": "any"
             },
-            "return": ""
+            "return": "void"
         },
         {
             "name": "GetNoBroadcast",

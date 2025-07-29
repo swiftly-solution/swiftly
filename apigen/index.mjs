@@ -67,7 +67,7 @@ for (const ent of cats) {
 
     for (const [path, content] of Object.entries(files)) {
         if (content.length == 0) continue;
-        if (path == "JSON" || path == "Hooks" || path == "Events") continue;
+        if (path == "JSON" || path == "Hooks") continue;
 
         writeFileSync(
             ent.writePath + "/" + path + ".cs",
